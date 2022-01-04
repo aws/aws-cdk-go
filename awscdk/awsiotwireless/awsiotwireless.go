@@ -1,15 +1,17 @@
 package awsiotwireless
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiotwireless/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsiotwireless/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::IoTWireless::Destination`.
+//
+// Creates a new destination that maps a device message to an AWS IoT rule.
 //
 // TODO: EXAMPLE
 //
@@ -30,7 +32,7 @@ type CfnDestination interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	RoleArn() *string
 	SetRoleArn(val *string)
@@ -47,10 +49,16 @@ type CfnDestination interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -160,8 +168,8 @@ func (j *jsiiProxy_CfnDestination) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDestination) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnDestination) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -222,13 +230,13 @@ func (j *jsiiProxy_CfnDestination) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::IoTWireless::Destination`.
-func NewCfnDestination(scope constructs.Construct, id *string, props *CfnDestinationProps) CfnDestination {
+func NewCfnDestination(scope awscdk.Construct, id *string, props *CfnDestinationProps) CfnDestination {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDestination{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iotwireless.CfnDestination",
+		"monocdk.aws_iotwireless.CfnDestination",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -237,11 +245,11 @@ func NewCfnDestination(scope constructs.Construct, id *string, props *CfnDestina
 }
 
 // Create a new `AWS::IoTWireless::Destination`.
-func NewCfnDestination_Override(c CfnDestination, scope constructs.Construct, id *string, props *CfnDestinationProps) {
+func NewCfnDestination_Override(c CfnDestination, scope awscdk.Construct, id *string, props *CfnDestinationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iotwireless.CfnDestination",
+		"monocdk.aws_iotwireless.CfnDestination",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -293,13 +301,14 @@ func (j *jsiiProxy_CfnDestination) SetRoleArn(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnDestination_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotwireless.CfnDestination",
+		"monocdk.aws_iotwireless.CfnDestination",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -309,13 +318,14 @@ func CfnDestination_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnDestination_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotwireless.CfnDestination",
+		"monocdk.aws_iotwireless.CfnDestination",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -324,17 +334,15 @@ func CfnDestination_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnDestination_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotwireless.CfnDestination",
+		"monocdk.aws_iotwireless.CfnDestination",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -347,7 +355,7 @@ func CfnDestination_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_iotwireless.CfnDestination",
+		"monocdk.aws_iotwireless.CfnDestination",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -355,6 +363,7 @@ func CfnDestination_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnDestination) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -367,6 +376,7 @@ func (c *jsiiProxy_CfnDestination) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnDestination) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -382,6 +392,7 @@ func (c *jsiiProxy_CfnDestination) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnDestination) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -427,6 +438,7 @@ func (c *jsiiProxy_CfnDestination) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnDestination) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -436,6 +448,7 @@ func (c *jsiiProxy_CfnDestination) AddOverride(path *string, value interface{}) 
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnDestination) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -447,6 +460,7 @@ func (c *jsiiProxy_CfnDestination) AddPropertyDeletionOverride(propertyPath *str
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnDestination) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -464,6 +478,7 @@ func (c *jsiiProxy_CfnDestination) AddPropertyOverride(propertyPath *string, val
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnDestination) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -476,6 +491,7 @@ func (c *jsiiProxy_CfnDestination) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnDestination) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -496,6 +512,7 @@ func (c *jsiiProxy_CfnDestination) GetAtt(attributeName *string) awscdk.Referenc
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnDestination) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -518,12 +535,80 @@ func (c *jsiiProxy_CfnDestination) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDestination) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDestination) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDestination) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnDestination) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDestination) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -544,6 +629,7 @@ func (c *jsiiProxy_CfnDestination) RenderProperties(props *map[string]interface{
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnDestination) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -557,9 +643,23 @@ func (c *jsiiProxy_CfnDestination) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDestination) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnDestination) ToString() *string {
 	var returns *string
 
@@ -573,6 +673,27 @@ func (c *jsiiProxy_CfnDestination) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDestination) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnDestination) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -581,26 +702,32 @@ func (c *jsiiProxy_CfnDestination) ValidateProperties(_properties interface{}) {
 	)
 }
 
-// Properties for defining a `AWS::IoTWireless::Destination`.
+// Properties for defining a `CfnDestination`.
 //
 // TODO: EXAMPLE
 //
 type CfnDestinationProps struct {
-	// `AWS::IoTWireless::Destination.Description`.
-	Description *string `json:"description"`
-	// `AWS::IoTWireless::Destination.Expression`.
+	// The rule name to send messages to.
 	Expression *string `json:"expression"`
-	// `AWS::IoTWireless::Destination.ExpressionType`.
+	// The type of value in `Expression` .
 	ExpressionType *string `json:"expressionType"`
-	// `AWS::IoTWireless::Destination.Name`.
+	// The name of the new resource.
 	Name *string `json:"name"`
-	// `AWS::IoTWireless::Destination.RoleArn`.
+	// The ARN of the IAM Role that authorizes the destination.
 	RoleArn *string `json:"roleArn"`
-	// `AWS::IoTWireless::Destination.Tags`.
+	// The description of the new resource.
+	//
+	// Maximum length is 2048 characters.
+	Description *string `json:"description"`
+	// The tags are an array of key-value pairs to attach to the specified resource.
+	//
+	// Tags can have a minimum of 0 and a maximum of 50 items.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::IoTWireless::DeviceProfile`.
+//
+// Creates a new device profile.
 //
 // TODO: EXAMPLE
 //
@@ -618,7 +745,7 @@ type CfnDeviceProfile interface {
 	SetLoRaWan(val interface{})
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	Tags() awscdk.TagManager
@@ -633,10 +760,16 @@ type CfnDeviceProfile interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -736,8 +869,8 @@ func (j *jsiiProxy_CfnDeviceProfile) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDeviceProfile) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnDeviceProfile) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -788,13 +921,13 @@ func (j *jsiiProxy_CfnDeviceProfile) UpdatedProperites() *map[string]interface{}
 
 
 // Create a new `AWS::IoTWireless::DeviceProfile`.
-func NewCfnDeviceProfile(scope constructs.Construct, id *string, props *CfnDeviceProfileProps) CfnDeviceProfile {
+func NewCfnDeviceProfile(scope awscdk.Construct, id *string, props *CfnDeviceProfileProps) CfnDeviceProfile {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDeviceProfile{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iotwireless.CfnDeviceProfile",
+		"monocdk.aws_iotwireless.CfnDeviceProfile",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -803,11 +936,11 @@ func NewCfnDeviceProfile(scope constructs.Construct, id *string, props *CfnDevic
 }
 
 // Create a new `AWS::IoTWireless::DeviceProfile`.
-func NewCfnDeviceProfile_Override(c CfnDeviceProfile, scope constructs.Construct, id *string, props *CfnDeviceProfileProps) {
+func NewCfnDeviceProfile_Override(c CfnDeviceProfile, scope awscdk.Construct, id *string, props *CfnDeviceProfileProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iotwireless.CfnDeviceProfile",
+		"monocdk.aws_iotwireless.CfnDeviceProfile",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -835,13 +968,14 @@ func (j *jsiiProxy_CfnDeviceProfile) SetName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnDeviceProfile_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotwireless.CfnDeviceProfile",
+		"monocdk.aws_iotwireless.CfnDeviceProfile",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -851,13 +985,14 @@ func CfnDeviceProfile_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnDeviceProfile_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotwireless.CfnDeviceProfile",
+		"monocdk.aws_iotwireless.CfnDeviceProfile",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -866,17 +1001,15 @@ func CfnDeviceProfile_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnDeviceProfile_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotwireless.CfnDeviceProfile",
+		"monocdk.aws_iotwireless.CfnDeviceProfile",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -889,7 +1022,7 @@ func CfnDeviceProfile_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_iotwireless.CfnDeviceProfile",
+		"monocdk.aws_iotwireless.CfnDeviceProfile",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -897,6 +1030,7 @@ func CfnDeviceProfile_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnDeviceProfile) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -909,6 +1043,7 @@ func (c *jsiiProxy_CfnDeviceProfile) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnDeviceProfile) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -924,6 +1059,7 @@ func (c *jsiiProxy_CfnDeviceProfile) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnDeviceProfile) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -969,6 +1105,7 @@ func (c *jsiiProxy_CfnDeviceProfile) AddMetadata(key *string, value interface{})
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnDeviceProfile) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -978,6 +1115,7 @@ func (c *jsiiProxy_CfnDeviceProfile) AddOverride(path *string, value interface{}
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnDeviceProfile) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -989,6 +1127,7 @@ func (c *jsiiProxy_CfnDeviceProfile) AddPropertyDeletionOverride(propertyPath *s
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnDeviceProfile) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1006,6 +1145,7 @@ func (c *jsiiProxy_CfnDeviceProfile) AddPropertyOverride(propertyPath *string, v
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnDeviceProfile) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1018,6 +1158,7 @@ func (c *jsiiProxy_CfnDeviceProfile) ApplyRemovalPolicy(policy awscdk.RemovalPol
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnDeviceProfile) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1038,6 +1179,7 @@ func (c *jsiiProxy_CfnDeviceProfile) GetAtt(attributeName *string) awscdk.Refere
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnDeviceProfile) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1060,12 +1202,80 @@ func (c *jsiiProxy_CfnDeviceProfile) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDeviceProfile) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDeviceProfile) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDeviceProfile) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnDeviceProfile) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDeviceProfile) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1086,6 +1296,7 @@ func (c *jsiiProxy_CfnDeviceProfile) RenderProperties(props *map[string]interfac
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnDeviceProfile) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1099,9 +1310,23 @@ func (c *jsiiProxy_CfnDeviceProfile) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDeviceProfile) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnDeviceProfile) ToString() *string {
 	var returns *string
 
@@ -1115,6 +1340,27 @@ func (c *jsiiProxy_CfnDeviceProfile) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDeviceProfile) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnDeviceProfile) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1123,53 +1369,59 @@ func (c *jsiiProxy_CfnDeviceProfile) ValidateProperties(_properties interface{})
 	)
 }
 
+// LoRaWAN device profile object.
+//
 // TODO: EXAMPLE
 //
 type CfnDeviceProfile_LoRaWANDeviceProfileProperty struct {
-	// `CfnDeviceProfile.LoRaWANDeviceProfileProperty.ClassBTimeout`.
+	// The ClassBTimeout value.
 	ClassBTimeout *float64 `json:"classBTimeout"`
-	// `CfnDeviceProfile.LoRaWANDeviceProfileProperty.ClassCTimeout`.
+	// The ClassCTimeout value.
 	ClassCTimeout *float64 `json:"classCTimeout"`
-	// `CfnDeviceProfile.LoRaWANDeviceProfileProperty.MacVersion`.
+	// The MAC version (such as OTAA 1.1 or OTAA 1.0.3) to use with this device profile.
 	MacVersion *string `json:"macVersion"`
-	// `CfnDeviceProfile.LoRaWANDeviceProfileProperty.MaxDutyCycle`.
+	// The MaxDutyCycle value.
 	MaxDutyCycle *float64 `json:"maxDutyCycle"`
-	// `CfnDeviceProfile.LoRaWANDeviceProfileProperty.MaxEirp`.
+	// The MaxEIRP value.
 	MaxEirp *float64 `json:"maxEirp"`
-	// `CfnDeviceProfile.LoRaWANDeviceProfileProperty.PingSlotDr`.
+	// The PingSlotDR value.
 	PingSlotDr *float64 `json:"pingSlotDr"`
-	// `CfnDeviceProfile.LoRaWANDeviceProfileProperty.PingSlotFreq`.
+	// The PingSlotFreq value.
 	PingSlotFreq *float64 `json:"pingSlotFreq"`
-	// `CfnDeviceProfile.LoRaWANDeviceProfileProperty.PingSlotPeriod`.
+	// The PingSlotPeriod value.
 	PingSlotPeriod *float64 `json:"pingSlotPeriod"`
-	// `CfnDeviceProfile.LoRaWANDeviceProfileProperty.RegParamsRevision`.
+	// The version of regional parameters.
 	RegParamsRevision *string `json:"regParamsRevision"`
-	// `CfnDeviceProfile.LoRaWANDeviceProfileProperty.RfRegion`.
+	// The frequency band (RFRegion) value.
 	RfRegion *string `json:"rfRegion"`
-	// `CfnDeviceProfile.LoRaWANDeviceProfileProperty.Supports32BitFCnt`.
+	// The Supports32BitFCnt value.
 	Supports32BitFCnt interface{} `json:"supports32BitFCnt"`
-	// `CfnDeviceProfile.LoRaWANDeviceProfileProperty.SupportsClassB`.
+	// The SupportsClassB value.
 	SupportsClassB interface{} `json:"supportsClassB"`
-	// `CfnDeviceProfile.LoRaWANDeviceProfileProperty.SupportsClassC`.
+	// The SupportsClassC value.
 	SupportsClassC interface{} `json:"supportsClassC"`
-	// `CfnDeviceProfile.LoRaWANDeviceProfileProperty.SupportsJoin`.
+	// The SupportsJoin value.
 	SupportsJoin interface{} `json:"supportsJoin"`
 }
 
-// Properties for defining a `AWS::IoTWireless::DeviceProfile`.
+// Properties for defining a `CfnDeviceProfile`.
 //
 // TODO: EXAMPLE
 //
 type CfnDeviceProfileProps struct {
-	// `AWS::IoTWireless::DeviceProfile.LoRaWAN`.
+	// LoRaWAN device profile object.
 	LoRaWan interface{} `json:"loRaWan"`
-	// `AWS::IoTWireless::DeviceProfile.Name`.
+	// The name of the new resource.
 	Name *string `json:"name"`
-	// `AWS::IoTWireless::DeviceProfile.Tags`.
+	// The tags are an array of key-value pairs to attach to the specified resource.
+	//
+	// Tags can have a minimum of 0 and a maximum of 50 items.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::IoTWireless::FuotaTask`.
+//
+// A FUOTA task.
 //
 // TODO: EXAMPLE
 //
@@ -1203,7 +1455,7 @@ type CfnFuotaTask interface {
 	SetLoRaWan(val interface{})
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	Tags() awscdk.TagManager
@@ -1218,10 +1470,16 @@ type CfnFuotaTask interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1411,8 +1669,8 @@ func (j *jsiiProxy_CfnFuotaTask) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFuotaTask) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnFuotaTask) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1463,13 +1721,13 @@ func (j *jsiiProxy_CfnFuotaTask) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::IoTWireless::FuotaTask`.
-func NewCfnFuotaTask(scope constructs.Construct, id *string, props *CfnFuotaTaskProps) CfnFuotaTask {
+func NewCfnFuotaTask(scope awscdk.Construct, id *string, props *CfnFuotaTaskProps) CfnFuotaTask {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnFuotaTask{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iotwireless.CfnFuotaTask",
+		"monocdk.aws_iotwireless.CfnFuotaTask",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1478,11 +1736,11 @@ func NewCfnFuotaTask(scope constructs.Construct, id *string, props *CfnFuotaTask
 }
 
 // Create a new `AWS::IoTWireless::FuotaTask`.
-func NewCfnFuotaTask_Override(c CfnFuotaTask, scope constructs.Construct, id *string, props *CfnFuotaTaskProps) {
+func NewCfnFuotaTask_Override(c CfnFuotaTask, scope awscdk.Construct, id *string, props *CfnFuotaTaskProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iotwireless.CfnFuotaTask",
+		"monocdk.aws_iotwireless.CfnFuotaTask",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1566,13 +1824,14 @@ func (j *jsiiProxy_CfnFuotaTask) SetName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnFuotaTask_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotwireless.CfnFuotaTask",
+		"monocdk.aws_iotwireless.CfnFuotaTask",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1582,13 +1841,14 @@ func CfnFuotaTask_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnFuotaTask_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotwireless.CfnFuotaTask",
+		"monocdk.aws_iotwireless.CfnFuotaTask",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1597,17 +1857,15 @@ func CfnFuotaTask_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnFuotaTask_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotwireless.CfnFuotaTask",
+		"monocdk.aws_iotwireless.CfnFuotaTask",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1620,7 +1878,7 @@ func CfnFuotaTask_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_iotwireless.CfnFuotaTask",
+		"monocdk.aws_iotwireless.CfnFuotaTask",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1628,6 +1886,7 @@ func CfnFuotaTask_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnFuotaTask) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1640,6 +1899,7 @@ func (c *jsiiProxy_CfnFuotaTask) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnFuotaTask) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1655,6 +1915,7 @@ func (c *jsiiProxy_CfnFuotaTask) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnFuotaTask) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1700,6 +1961,7 @@ func (c *jsiiProxy_CfnFuotaTask) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnFuotaTask) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1709,6 +1971,7 @@ func (c *jsiiProxy_CfnFuotaTask) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnFuotaTask) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1720,6 +1983,7 @@ func (c *jsiiProxy_CfnFuotaTask) AddPropertyDeletionOverride(propertyPath *strin
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnFuotaTask) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1737,6 +2001,7 @@ func (c *jsiiProxy_CfnFuotaTask) AddPropertyOverride(propertyPath *string, value
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnFuotaTask) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1749,6 +2014,7 @@ func (c *jsiiProxy_CfnFuotaTask) ApplyRemovalPolicy(policy awscdk.RemovalPolicy,
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnFuotaTask) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1769,6 +2035,7 @@ func (c *jsiiProxy_CfnFuotaTask) GetAtt(attributeName *string) awscdk.Reference 
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnFuotaTask) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1791,12 +2058,80 @@ func (c *jsiiProxy_CfnFuotaTask) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnFuotaTask) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnFuotaTask) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnFuotaTask) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnFuotaTask) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnFuotaTask) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1817,6 +2152,7 @@ func (c *jsiiProxy_CfnFuotaTask) RenderProperties(props *map[string]interface{})
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnFuotaTask) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1830,9 +2166,23 @@ func (c *jsiiProxy_CfnFuotaTask) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnFuotaTask) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnFuotaTask) ToString() *string {
 	var returns *string
 
@@ -1846,6 +2196,27 @@ func (c *jsiiProxy_CfnFuotaTask) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnFuotaTask) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnFuotaTask) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1854,43 +2225,49 @@ func (c *jsiiProxy_CfnFuotaTask) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// The LoRaWAN information used with a FUOTA task.
+//
 // TODO: EXAMPLE
 //
 type CfnFuotaTask_LoRaWANProperty struct {
-	// `CfnFuotaTask.LoRaWANProperty.RfRegion`.
+	// The frequency band (RFRegion) value.
 	RfRegion *string `json:"rfRegion"`
-	// `CfnFuotaTask.LoRaWANProperty.StartTime`.
+	// Start time of a FUOTA task.
 	StartTime *string `json:"startTime"`
 }
 
-// Properties for defining a `AWS::IoTWireless::FuotaTask`.
+// Properties for defining a `CfnFuotaTask`.
 //
 // TODO: EXAMPLE
 //
 type CfnFuotaTaskProps struct {
-	// `AWS::IoTWireless::FuotaTask.AssociateMulticastGroup`.
-	AssociateMulticastGroup *string `json:"associateMulticastGroup"`
-	// `AWS::IoTWireless::FuotaTask.AssociateWirelessDevice`.
-	AssociateWirelessDevice *string `json:"associateWirelessDevice"`
-	// `AWS::IoTWireless::FuotaTask.Description`.
-	Description *string `json:"description"`
-	// `AWS::IoTWireless::FuotaTask.DisassociateMulticastGroup`.
-	DisassociateMulticastGroup *string `json:"disassociateMulticastGroup"`
-	// `AWS::IoTWireless::FuotaTask.DisassociateWirelessDevice`.
-	DisassociateWirelessDevice *string `json:"disassociateWirelessDevice"`
-	// `AWS::IoTWireless::FuotaTask.FirmwareUpdateImage`.
+	// The S3 URI points to a firmware update image that is to be used with a FUOTA task.
 	FirmwareUpdateImage *string `json:"firmwareUpdateImage"`
-	// `AWS::IoTWireless::FuotaTask.FirmwareUpdateRole`.
+	// The firmware update role that is to be used with a FUOTA task.
 	FirmwareUpdateRole *string `json:"firmwareUpdateRole"`
-	// `AWS::IoTWireless::FuotaTask.LoRaWAN`.
+	// The LoRaWAN information used with a FUOTA task.
 	LoRaWan interface{} `json:"loRaWan"`
-	// `AWS::IoTWireless::FuotaTask.Name`.
+	// The ID of the multicast group to associate with a FUOTA task.
+	AssociateMulticastGroup *string `json:"associateMulticastGroup"`
+	// The ID of the wireless device to associate with a multicast group.
+	AssociateWirelessDevice *string `json:"associateWirelessDevice"`
+	// The description of the new resource.
+	Description *string `json:"description"`
+	// The ID of the multicast group to disassociate from a FUOTA task.
+	DisassociateMulticastGroup *string `json:"disassociateMulticastGroup"`
+	// The ID of the wireless device to disassociate from a FUOTA task.
+	DisassociateWirelessDevice *string `json:"disassociateWirelessDevice"`
+	// The name of a FUOTA task.
 	Name *string `json:"name"`
-	// `AWS::IoTWireless::FuotaTask.Tags`.
+	// The tags are an array of key-value pairs to attach to the specified resource.
+	//
+	// Tags can have a minimum of 0 and a maximum of 50 items.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::IoTWireless::MulticastGroup`.
+//
+// A multicast group.
 //
 // TODO: EXAMPLE
 //
@@ -1917,7 +2294,7 @@ type CfnMulticastGroup interface {
 	SetLoRaWan(val interface{})
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	Tags() awscdk.TagManager
@@ -1932,10 +2309,16 @@ type CfnMulticastGroup interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -2095,8 +2478,8 @@ func (j *jsiiProxy_CfnMulticastGroup) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMulticastGroup) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnMulticastGroup) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2147,13 +2530,13 @@ func (j *jsiiProxy_CfnMulticastGroup) UpdatedProperites() *map[string]interface{
 
 
 // Create a new `AWS::IoTWireless::MulticastGroup`.
-func NewCfnMulticastGroup(scope constructs.Construct, id *string, props *CfnMulticastGroupProps) CfnMulticastGroup {
+func NewCfnMulticastGroup(scope awscdk.Construct, id *string, props *CfnMulticastGroupProps) CfnMulticastGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnMulticastGroup{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iotwireless.CfnMulticastGroup",
+		"monocdk.aws_iotwireless.CfnMulticastGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2162,11 +2545,11 @@ func NewCfnMulticastGroup(scope constructs.Construct, id *string, props *CfnMult
 }
 
 // Create a new `AWS::IoTWireless::MulticastGroup`.
-func NewCfnMulticastGroup_Override(c CfnMulticastGroup, scope constructs.Construct, id *string, props *CfnMulticastGroupProps) {
+func NewCfnMulticastGroup_Override(c CfnMulticastGroup, scope awscdk.Construct, id *string, props *CfnMulticastGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iotwireless.CfnMulticastGroup",
+		"monocdk.aws_iotwireless.CfnMulticastGroup",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2218,13 +2601,14 @@ func (j *jsiiProxy_CfnMulticastGroup) SetName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnMulticastGroup_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotwireless.CfnMulticastGroup",
+		"monocdk.aws_iotwireless.CfnMulticastGroup",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2234,13 +2618,14 @@ func CfnMulticastGroup_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnMulticastGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotwireless.CfnMulticastGroup",
+		"monocdk.aws_iotwireless.CfnMulticastGroup",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2249,17 +2634,15 @@ func CfnMulticastGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnMulticastGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotwireless.CfnMulticastGroup",
+		"monocdk.aws_iotwireless.CfnMulticastGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2272,7 +2655,7 @@ func CfnMulticastGroup_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_iotwireless.CfnMulticastGroup",
+		"monocdk.aws_iotwireless.CfnMulticastGroup",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2280,6 +2663,7 @@ func CfnMulticastGroup_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnMulticastGroup) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2292,6 +2676,7 @@ func (c *jsiiProxy_CfnMulticastGroup) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnMulticastGroup) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2307,6 +2692,7 @@ func (c *jsiiProxy_CfnMulticastGroup) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnMulticastGroup) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2352,6 +2738,7 @@ func (c *jsiiProxy_CfnMulticastGroup) AddMetadata(key *string, value interface{}
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnMulticastGroup) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2361,6 +2748,7 @@ func (c *jsiiProxy_CfnMulticastGroup) AddOverride(path *string, value interface{
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnMulticastGroup) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2372,6 +2760,7 @@ func (c *jsiiProxy_CfnMulticastGroup) AddPropertyDeletionOverride(propertyPath *
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnMulticastGroup) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2389,6 +2778,7 @@ func (c *jsiiProxy_CfnMulticastGroup) AddPropertyOverride(propertyPath *string, 
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnMulticastGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2401,6 +2791,7 @@ func (c *jsiiProxy_CfnMulticastGroup) ApplyRemovalPolicy(policy awscdk.RemovalPo
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnMulticastGroup) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2421,6 +2812,7 @@ func (c *jsiiProxy_CfnMulticastGroup) GetAtt(attributeName *string) awscdk.Refer
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnMulticastGroup) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2443,12 +2835,80 @@ func (c *jsiiProxy_CfnMulticastGroup) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnMulticastGroup) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnMulticastGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnMulticastGroup) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnMulticastGroup) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnMulticastGroup) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2469,6 +2929,7 @@ func (c *jsiiProxy_CfnMulticastGroup) RenderProperties(props *map[string]interfa
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnMulticastGroup) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2482,9 +2943,23 @@ func (c *jsiiProxy_CfnMulticastGroup) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnMulticastGroup) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnMulticastGroup) ToString() *string {
 	var returns *string
 
@@ -2498,6 +2973,27 @@ func (c *jsiiProxy_CfnMulticastGroup) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnMulticastGroup) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnMulticastGroup) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2506,39 +3002,47 @@ func (c *jsiiProxy_CfnMulticastGroup) ValidateProperties(_properties interface{}
 	)
 }
 
+// The LoRaWAN information that is to be used with the multicast group.
+//
 // TODO: EXAMPLE
 //
 type CfnMulticastGroup_LoRaWANProperty struct {
-	// `CfnMulticastGroup.LoRaWANProperty.DlClass`.
+	// DlClass for LoRaWAN.
+	//
+	// Valid values are ClassB and ClassC.
 	DlClass *string `json:"dlClass"`
-	// `CfnMulticastGroup.LoRaWANProperty.NumberOfDevicesInGroup`.
-	NumberOfDevicesInGroup *float64 `json:"numberOfDevicesInGroup"`
-	// `CfnMulticastGroup.LoRaWANProperty.NumberOfDevicesRequested`.
-	NumberOfDevicesRequested *float64 `json:"numberOfDevicesRequested"`
-	// `CfnMulticastGroup.LoRaWANProperty.RfRegion`.
+	// The frequency band (RFRegion) value.
 	RfRegion *string `json:"rfRegion"`
+	// Number of devices that are associated to the multicast group.
+	NumberOfDevicesInGroup *float64 `json:"numberOfDevicesInGroup"`
+	// Number of devices that are requested to be associated with the multicast group.
+	NumberOfDevicesRequested *float64 `json:"numberOfDevicesRequested"`
 }
 
-// Properties for defining a `AWS::IoTWireless::MulticastGroup`.
+// Properties for defining a `CfnMulticastGroup`.
 //
 // TODO: EXAMPLE
 //
 type CfnMulticastGroupProps struct {
-	// `AWS::IoTWireless::MulticastGroup.AssociateWirelessDevice`.
-	AssociateWirelessDevice *string `json:"associateWirelessDevice"`
-	// `AWS::IoTWireless::MulticastGroup.Description`.
-	Description *string `json:"description"`
-	// `AWS::IoTWireless::MulticastGroup.DisassociateWirelessDevice`.
-	DisassociateWirelessDevice *string `json:"disassociateWirelessDevice"`
-	// `AWS::IoTWireless::MulticastGroup.LoRaWAN`.
+	// The LoRaWAN information that is to be used with the multicast group.
 	LoRaWan interface{} `json:"loRaWan"`
-	// `AWS::IoTWireless::MulticastGroup.Name`.
+	// The ID of the wireless device to associate with a multicast group.
+	AssociateWirelessDevice *string `json:"associateWirelessDevice"`
+	// The description of the multicast group.
+	Description *string `json:"description"`
+	// The ID of the wireless device to disassociate from a multicast group.
+	DisassociateWirelessDevice *string `json:"disassociateWirelessDevice"`
+	// The name of the multicast group.
 	Name *string `json:"name"`
-	// `AWS::IoTWireless::MulticastGroup.Tags`.
+	// The tags are an array of key-value pairs to attach to the specified resource.
+	//
+	// Tags can have a minimum of 0 and a maximum of 50 items.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::IoTWireless::PartnerAccount`.
+//
+// A partner account. If `PartnerAccountId` and `PartnerType` are `null` , returns all partner accounts.
 //
 // TODO: EXAMPLE
 //
@@ -2555,7 +3059,7 @@ type CfnPartnerAccount interface {
 	Fingerprint() *string
 	SetFingerprint(val *string)
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PartnerAccountId() *string
 	SetPartnerAccountId(val *string)
 	PartnerType() *string
@@ -2578,10 +3082,16 @@ type CfnPartnerAccount interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -2671,8 +3181,8 @@ func (j *jsiiProxy_CfnPartnerAccount) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPartnerAccount) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnPartnerAccount) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2763,13 +3273,13 @@ func (j *jsiiProxy_CfnPartnerAccount) UpdatedProperites() *map[string]interface{
 
 
 // Create a new `AWS::IoTWireless::PartnerAccount`.
-func NewCfnPartnerAccount(scope constructs.Construct, id *string, props *CfnPartnerAccountProps) CfnPartnerAccount {
+func NewCfnPartnerAccount(scope awscdk.Construct, id *string, props *CfnPartnerAccountProps) CfnPartnerAccount {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnPartnerAccount{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iotwireless.CfnPartnerAccount",
+		"monocdk.aws_iotwireless.CfnPartnerAccount",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2778,11 +3288,11 @@ func NewCfnPartnerAccount(scope constructs.Construct, id *string, props *CfnPart
 }
 
 // Create a new `AWS::IoTWireless::PartnerAccount`.
-func NewCfnPartnerAccount_Override(c CfnPartnerAccount, scope constructs.Construct, id *string, props *CfnPartnerAccountProps) {
+func NewCfnPartnerAccount_Override(c CfnPartnerAccount, scope awscdk.Construct, id *string, props *CfnPartnerAccountProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iotwireless.CfnPartnerAccount",
+		"monocdk.aws_iotwireless.CfnPartnerAccount",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2842,13 +3352,14 @@ func (j *jsiiProxy_CfnPartnerAccount) SetSidewalkUpdate(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnPartnerAccount_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotwireless.CfnPartnerAccount",
+		"monocdk.aws_iotwireless.CfnPartnerAccount",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2858,13 +3369,14 @@ func CfnPartnerAccount_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnPartnerAccount_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotwireless.CfnPartnerAccount",
+		"monocdk.aws_iotwireless.CfnPartnerAccount",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2873,17 +3385,15 @@ func CfnPartnerAccount_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnPartnerAccount_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotwireless.CfnPartnerAccount",
+		"monocdk.aws_iotwireless.CfnPartnerAccount",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2896,7 +3406,7 @@ func CfnPartnerAccount_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_iotwireless.CfnPartnerAccount",
+		"monocdk.aws_iotwireless.CfnPartnerAccount",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2904,6 +3414,7 @@ func CfnPartnerAccount_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnPartnerAccount) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2916,6 +3427,7 @@ func (c *jsiiProxy_CfnPartnerAccount) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnPartnerAccount) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2931,6 +3443,7 @@ func (c *jsiiProxy_CfnPartnerAccount) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnPartnerAccount) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2976,6 +3489,7 @@ func (c *jsiiProxy_CfnPartnerAccount) AddMetadata(key *string, value interface{}
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnPartnerAccount) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2985,6 +3499,7 @@ func (c *jsiiProxy_CfnPartnerAccount) AddOverride(path *string, value interface{
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnPartnerAccount) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2996,6 +3511,7 @@ func (c *jsiiProxy_CfnPartnerAccount) AddPropertyDeletionOverride(propertyPath *
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnPartnerAccount) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3013,6 +3529,7 @@ func (c *jsiiProxy_CfnPartnerAccount) AddPropertyOverride(propertyPath *string, 
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnPartnerAccount) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3025,6 +3542,7 @@ func (c *jsiiProxy_CfnPartnerAccount) ApplyRemovalPolicy(policy awscdk.RemovalPo
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnPartnerAccount) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -3045,6 +3563,7 @@ func (c *jsiiProxy_CfnPartnerAccount) GetAtt(attributeName *string) awscdk.Refer
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnPartnerAccount) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -3067,12 +3586,80 @@ func (c *jsiiProxy_CfnPartnerAccount) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnPartnerAccount) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnPartnerAccount) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnPartnerAccount) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnPartnerAccount) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnPartnerAccount) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -3093,6 +3680,7 @@ func (c *jsiiProxy_CfnPartnerAccount) RenderProperties(props *map[string]interfa
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnPartnerAccount) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -3106,9 +3694,23 @@ func (c *jsiiProxy_CfnPartnerAccount) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnPartnerAccount) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnPartnerAccount) ToString() *string {
 	var returns *string
 
@@ -3122,6 +3724,27 @@ func (c *jsiiProxy_CfnPartnerAccount) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnPartnerAccount) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnPartnerAccount) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3130,21 +3753,27 @@ func (c *jsiiProxy_CfnPartnerAccount) ValidateProperties(_properties interface{}
 	)
 }
 
+// Information about a Sidewalk account.
+//
 // TODO: EXAMPLE
 //
 type CfnPartnerAccount_SidewalkAccountInfoProperty struct {
-	// `CfnPartnerAccount.SidewalkAccountInfoProperty.AppServerPrivateKey`.
+	// The Sidewalk application server private key.
+	//
+	// The application server private key is a secret key, which you should handle in a similar way as you would an application password. You can protect the application server private key by storing the value in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
 	AppServerPrivateKey *string `json:"appServerPrivateKey"`
 }
 
+// Sidewalk update.
+//
 // TODO: EXAMPLE
 //
 type CfnPartnerAccount_SidewalkUpdateAccountProperty struct {
-	// `CfnPartnerAccount.SidewalkUpdateAccountProperty.AppServerPrivateKey`.
+	// The new Sidewalk application server private key.
 	AppServerPrivateKey *string `json:"appServerPrivateKey"`
 }
 
-// Properties for defining a `AWS::IoTWireless::PartnerAccount`.
+// Properties for defining a `CfnPartnerAccount`.
 //
 // TODO: EXAMPLE
 //
@@ -3153,19 +3782,23 @@ type CfnPartnerAccountProps struct {
 	AccountLinked interface{} `json:"accountLinked"`
 	// `AWS::IoTWireless::PartnerAccount.Fingerprint`.
 	Fingerprint *string `json:"fingerprint"`
-	// `AWS::IoTWireless::PartnerAccount.PartnerAccountId`.
+	// The ID of the partner account to update.
 	PartnerAccountId *string `json:"partnerAccountId"`
 	// `AWS::IoTWireless::PartnerAccount.PartnerType`.
 	PartnerType *string `json:"partnerType"`
-	// `AWS::IoTWireless::PartnerAccount.Sidewalk`.
+	// The Sidewalk account credentials.
 	Sidewalk interface{} `json:"sidewalk"`
 	// `AWS::IoTWireless::PartnerAccount.SidewalkUpdate`.
 	SidewalkUpdate interface{} `json:"sidewalkUpdate"`
-	// `AWS::IoTWireless::PartnerAccount.Tags`.
+	// The tags are an array of key-value pairs to attach to the specified resource.
+	//
+	// Tags can have a minimum of 0 and a maximum of 50 items.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::IoTWireless::ServiceProfile`.
+//
+// Creates a new service profile.
 //
 // TODO: EXAMPLE
 //
@@ -3202,7 +3835,7 @@ type CfnServiceProfile interface {
 	SetLoRaWan(val interface{})
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	Tags() awscdk.TagManager
@@ -3217,10 +3850,16 @@ type CfnServiceProfile interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -3510,8 +4149,8 @@ func (j *jsiiProxy_CfnServiceProfile) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnServiceProfile) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnServiceProfile) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -3562,13 +4201,13 @@ func (j *jsiiProxy_CfnServiceProfile) UpdatedProperites() *map[string]interface{
 
 
 // Create a new `AWS::IoTWireless::ServiceProfile`.
-func NewCfnServiceProfile(scope constructs.Construct, id *string, props *CfnServiceProfileProps) CfnServiceProfile {
+func NewCfnServiceProfile(scope awscdk.Construct, id *string, props *CfnServiceProfileProps) CfnServiceProfile {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnServiceProfile{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iotwireless.CfnServiceProfile",
+		"monocdk.aws_iotwireless.CfnServiceProfile",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3577,11 +4216,11 @@ func NewCfnServiceProfile(scope constructs.Construct, id *string, props *CfnServ
 }
 
 // Create a new `AWS::IoTWireless::ServiceProfile`.
-func NewCfnServiceProfile_Override(c CfnServiceProfile, scope constructs.Construct, id *string, props *CfnServiceProfileProps) {
+func NewCfnServiceProfile_Override(c CfnServiceProfile, scope awscdk.Construct, id *string, props *CfnServiceProfileProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iotwireless.CfnServiceProfile",
+		"monocdk.aws_iotwireless.CfnServiceProfile",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -3609,13 +4248,14 @@ func (j *jsiiProxy_CfnServiceProfile) SetName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnServiceProfile_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotwireless.CfnServiceProfile",
+		"monocdk.aws_iotwireless.CfnServiceProfile",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -3625,13 +4265,14 @@ func CfnServiceProfile_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnServiceProfile_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotwireless.CfnServiceProfile",
+		"monocdk.aws_iotwireless.CfnServiceProfile",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3640,17 +4281,15 @@ func CfnServiceProfile_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnServiceProfile_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotwireless.CfnServiceProfile",
+		"monocdk.aws_iotwireless.CfnServiceProfile",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3663,7 +4302,7 @@ func CfnServiceProfile_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_iotwireless.CfnServiceProfile",
+		"monocdk.aws_iotwireless.CfnServiceProfile",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -3671,6 +4310,7 @@ func CfnServiceProfile_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnServiceProfile) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3683,6 +4323,7 @@ func (c *jsiiProxy_CfnServiceProfile) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnServiceProfile) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3698,6 +4339,7 @@ func (c *jsiiProxy_CfnServiceProfile) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnServiceProfile) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3743,6 +4385,7 @@ func (c *jsiiProxy_CfnServiceProfile) AddMetadata(key *string, value interface{}
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnServiceProfile) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3752,6 +4395,7 @@ func (c *jsiiProxy_CfnServiceProfile) AddOverride(path *string, value interface{
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnServiceProfile) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3763,6 +4407,7 @@ func (c *jsiiProxy_CfnServiceProfile) AddPropertyDeletionOverride(propertyPath *
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnServiceProfile) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3780,6 +4425,7 @@ func (c *jsiiProxy_CfnServiceProfile) AddPropertyOverride(propertyPath *string, 
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnServiceProfile) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3792,6 +4438,7 @@ func (c *jsiiProxy_CfnServiceProfile) ApplyRemovalPolicy(policy awscdk.RemovalPo
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnServiceProfile) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -3812,6 +4459,7 @@ func (c *jsiiProxy_CfnServiceProfile) GetAtt(attributeName *string) awscdk.Refer
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnServiceProfile) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -3834,12 +4482,80 @@ func (c *jsiiProxy_CfnServiceProfile) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnServiceProfile) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnServiceProfile) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnServiceProfile) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnServiceProfile) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnServiceProfile) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -3860,6 +4576,7 @@ func (c *jsiiProxy_CfnServiceProfile) RenderProperties(props *map[string]interfa
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnServiceProfile) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -3873,9 +4590,23 @@ func (c *jsiiProxy_CfnServiceProfile) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnServiceProfile) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnServiceProfile) ToString() *string {
 	var returns *string
 
@@ -3889,6 +4620,27 @@ func (c *jsiiProxy_CfnServiceProfile) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnServiceProfile) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnServiceProfile) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3897,63 +4649,103 @@ func (c *jsiiProxy_CfnServiceProfile) ValidateProperties(_properties interface{}
 	)
 }
 
+// LoRaWANServiceProfile object.
+//
 // TODO: EXAMPLE
 //
 type CfnServiceProfile_LoRaWANServiceProfileProperty struct {
-	// `CfnServiceProfile.LoRaWANServiceProfileProperty.AddGwMetadata`.
+	// The AddGWMetaData value.
 	AddGwMetadata interface{} `json:"addGwMetadata"`
-	// `CfnServiceProfile.LoRaWANServiceProfileProperty.ChannelMask`.
+	// The ChannelMask value.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 	ChannelMask *string `json:"channelMask"`
-	// `CfnServiceProfile.LoRaWANServiceProfileProperty.DevStatusReqFreq`.
+	// The DevStatusReqFreq value.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 	DevStatusReqFreq *float64 `json:"devStatusReqFreq"`
-	// `CfnServiceProfile.LoRaWANServiceProfileProperty.DlBucketSize`.
+	// The DLBucketSize value.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 	DlBucketSize *float64 `json:"dlBucketSize"`
-	// `CfnServiceProfile.LoRaWANServiceProfileProperty.DlRate`.
+	// The DLRate value.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 	DlRate *float64 `json:"dlRate"`
-	// `CfnServiceProfile.LoRaWANServiceProfileProperty.DlRatePolicy`.
+	// The DLRatePolicy value.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 	DlRatePolicy *string `json:"dlRatePolicy"`
-	// `CfnServiceProfile.LoRaWANServiceProfileProperty.DrMax`.
+	// The DRMax value.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 	DrMax *float64 `json:"drMax"`
-	// `CfnServiceProfile.LoRaWANServiceProfileProperty.DrMin`.
+	// The DRMin value.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 	DrMin *float64 `json:"drMin"`
-	// `CfnServiceProfile.LoRaWANServiceProfileProperty.HrAllowed`.
+	// The HRAllowed value that describes whether handover roaming is allowed.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 	HrAllowed interface{} `json:"hrAllowed"`
-	// `CfnServiceProfile.LoRaWANServiceProfileProperty.MinGwDiversity`.
+	// The MinGwDiversity value.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 	MinGwDiversity *float64 `json:"minGwDiversity"`
-	// `CfnServiceProfile.LoRaWANServiceProfileProperty.NwkGeoLoc`.
+	// The NwkGeoLoc value.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 	NwkGeoLoc interface{} `json:"nwkGeoLoc"`
-	// `CfnServiceProfile.LoRaWANServiceProfileProperty.PrAllowed`.
+	// The PRAllowed value that describes whether passive roaming is allowed.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 	PrAllowed interface{} `json:"prAllowed"`
-	// `CfnServiceProfile.LoRaWANServiceProfileProperty.RaAllowed`.
+	// The RAAllowed value that describes whether roaming activation is allowed.
 	RaAllowed interface{} `json:"raAllowed"`
-	// `CfnServiceProfile.LoRaWANServiceProfileProperty.ReportDevStatusBattery`.
+	// The ReportDevStatusBattery value.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 	ReportDevStatusBattery interface{} `json:"reportDevStatusBattery"`
-	// `CfnServiceProfile.LoRaWANServiceProfileProperty.ReportDevStatusMargin`.
+	// The ReportDevStatusMargin value.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 	ReportDevStatusMargin interface{} `json:"reportDevStatusMargin"`
-	// `CfnServiceProfile.LoRaWANServiceProfileProperty.TargetPer`.
+	// The TargetPer value.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 	TargetPer *float64 `json:"targetPer"`
-	// `CfnServiceProfile.LoRaWANServiceProfileProperty.UlBucketSize`.
+	// The UlBucketSize value.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 	UlBucketSize *float64 `json:"ulBucketSize"`
-	// `CfnServiceProfile.LoRaWANServiceProfileProperty.UlRate`.
+	// The ULRate value.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 	UlRate *float64 `json:"ulRate"`
-	// `CfnServiceProfile.LoRaWANServiceProfileProperty.UlRatePolicy`.
+	// The ULRatePolicy value.
+	//
+	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
 	UlRatePolicy *string `json:"ulRatePolicy"`
 }
 
-// Properties for defining a `AWS::IoTWireless::ServiceProfile`.
+// Properties for defining a `CfnServiceProfile`.
 //
 // TODO: EXAMPLE
 //
 type CfnServiceProfileProps struct {
-	// `AWS::IoTWireless::ServiceProfile.LoRaWAN`.
+	// LoRaWAN service profile object.
 	LoRaWan interface{} `json:"loRaWan"`
-	// `AWS::IoTWireless::ServiceProfile.Name`.
+	// The name of the new resource.
 	Name *string `json:"name"`
-	// `AWS::IoTWireless::ServiceProfile.Tags`.
+	// The tags are an array of key-value pairs to attach to the specified resource.
+	//
+	// Tags can have a minimum of 0 and a maximum of 50 items.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::IoTWireless::TaskDefinition`.
+//
+// Creates a gateway task definition.
 //
 // TODO: EXAMPLE
 //
@@ -3973,7 +4765,7 @@ type CfnTaskDefinition interface {
 	SetLoRaWanUpdateGatewayTaskEntry(val interface{})
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	Tags() awscdk.TagManager
@@ -3992,10 +4784,16 @@ type CfnTaskDefinition interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -4105,8 +4903,8 @@ func (j *jsiiProxy_CfnTaskDefinition) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTaskDefinition) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnTaskDefinition) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -4177,13 +4975,13 @@ func (j *jsiiProxy_CfnTaskDefinition) UpdatedProperites() *map[string]interface{
 
 
 // Create a new `AWS::IoTWireless::TaskDefinition`.
-func NewCfnTaskDefinition(scope constructs.Construct, id *string, props *CfnTaskDefinitionProps) CfnTaskDefinition {
+func NewCfnTaskDefinition(scope awscdk.Construct, id *string, props *CfnTaskDefinitionProps) CfnTaskDefinition {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnTaskDefinition{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iotwireless.CfnTaskDefinition",
+		"monocdk.aws_iotwireless.CfnTaskDefinition",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4192,11 +4990,11 @@ func NewCfnTaskDefinition(scope constructs.Construct, id *string, props *CfnTask
 }
 
 // Create a new `AWS::IoTWireless::TaskDefinition`.
-func NewCfnTaskDefinition_Override(c CfnTaskDefinition, scope constructs.Construct, id *string, props *CfnTaskDefinitionProps) {
+func NewCfnTaskDefinition_Override(c CfnTaskDefinition, scope awscdk.Construct, id *string, props *CfnTaskDefinitionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iotwireless.CfnTaskDefinition",
+		"monocdk.aws_iotwireless.CfnTaskDefinition",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -4248,13 +5046,14 @@ func (j *jsiiProxy_CfnTaskDefinition) SetUpdate(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnTaskDefinition_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotwireless.CfnTaskDefinition",
+		"monocdk.aws_iotwireless.CfnTaskDefinition",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -4264,13 +5063,14 @@ func CfnTaskDefinition_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnTaskDefinition_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotwireless.CfnTaskDefinition",
+		"monocdk.aws_iotwireless.CfnTaskDefinition",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -4279,17 +5079,15 @@ func CfnTaskDefinition_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnTaskDefinition_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotwireless.CfnTaskDefinition",
+		"monocdk.aws_iotwireless.CfnTaskDefinition",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4302,7 +5100,7 @@ func CfnTaskDefinition_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_iotwireless.CfnTaskDefinition",
+		"monocdk.aws_iotwireless.CfnTaskDefinition",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -4310,6 +5108,7 @@ func CfnTaskDefinition_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnTaskDefinition) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4322,6 +5121,7 @@ func (c *jsiiProxy_CfnTaskDefinition) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnTaskDefinition) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4337,6 +5137,7 @@ func (c *jsiiProxy_CfnTaskDefinition) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnTaskDefinition) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4382,6 +5183,7 @@ func (c *jsiiProxy_CfnTaskDefinition) AddMetadata(key *string, value interface{}
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnTaskDefinition) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4391,6 +5193,7 @@ func (c *jsiiProxy_CfnTaskDefinition) AddOverride(path *string, value interface{
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnTaskDefinition) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4402,6 +5205,7 @@ func (c *jsiiProxy_CfnTaskDefinition) AddPropertyDeletionOverride(propertyPath *
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnTaskDefinition) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4419,6 +5223,7 @@ func (c *jsiiProxy_CfnTaskDefinition) AddPropertyOverride(propertyPath *string, 
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnTaskDefinition) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4431,6 +5236,7 @@ func (c *jsiiProxy_CfnTaskDefinition) ApplyRemovalPolicy(policy awscdk.RemovalPo
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnTaskDefinition) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -4451,6 +5257,7 @@ func (c *jsiiProxy_CfnTaskDefinition) GetAtt(attributeName *string) awscdk.Refer
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnTaskDefinition) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -4473,12 +5280,80 @@ func (c *jsiiProxy_CfnTaskDefinition) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnTaskDefinition) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnTaskDefinition) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnTaskDefinition) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnTaskDefinition) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnTaskDefinition) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -4499,6 +5374,7 @@ func (c *jsiiProxy_CfnTaskDefinition) RenderProperties(props *map[string]interfa
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnTaskDefinition) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -4512,9 +5388,23 @@ func (c *jsiiProxy_CfnTaskDefinition) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnTaskDefinition) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnTaskDefinition) ToString() *string {
 	var returns *string
 
@@ -4528,6 +5418,27 @@ func (c *jsiiProxy_CfnTaskDefinition) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnTaskDefinition) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnTaskDefinition) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4536,70 +5447,84 @@ func (c *jsiiProxy_CfnTaskDefinition) ValidateProperties(_properties interface{}
 	)
 }
 
+// LoRaWANGatewayVersion object.
+//
 // TODO: EXAMPLE
 //
 type CfnTaskDefinition_LoRaWANGatewayVersionProperty struct {
-	// `CfnTaskDefinition.LoRaWANGatewayVersionProperty.Model`.
+	// The model number of the wireless gateway.
 	Model *string `json:"model"`
-	// `CfnTaskDefinition.LoRaWANGatewayVersionProperty.PackageVersion`.
+	// The version of the wireless gateway firmware.
 	PackageVersion *string `json:"packageVersion"`
-	// `CfnTaskDefinition.LoRaWANGatewayVersionProperty.Station`.
+	// The basic station version of the wireless gateway.
 	Station *string `json:"station"`
 }
 
+// The signature used to verify the update firmware.
+//
 // TODO: EXAMPLE
 //
 type CfnTaskDefinition_LoRaWANUpdateGatewayTaskCreateProperty struct {
-	// `CfnTaskDefinition.LoRaWANUpdateGatewayTaskCreateProperty.CurrentVersion`.
+	// The version of the gateways that should receive the update.
 	CurrentVersion interface{} `json:"currentVersion"`
-	// `CfnTaskDefinition.LoRaWANUpdateGatewayTaskCreateProperty.SigKeyCrc`.
+	// The CRC of the signature private key to check.
 	SigKeyCrc *float64 `json:"sigKeyCrc"`
-	// `CfnTaskDefinition.LoRaWANUpdateGatewayTaskCreateProperty.UpdateSignature`.
+	// The signature used to verify the update firmware.
 	UpdateSignature *string `json:"updateSignature"`
-	// `CfnTaskDefinition.LoRaWANUpdateGatewayTaskCreateProperty.UpdateVersion`.
+	// The firmware version to update the gateway to.
 	UpdateVersion interface{} `json:"updateVersion"`
 }
 
+// LoRaWANUpdateGatewayTaskEntry object.
+//
 // TODO: EXAMPLE
 //
 type CfnTaskDefinition_LoRaWANUpdateGatewayTaskEntryProperty struct {
-	// `CfnTaskDefinition.LoRaWANUpdateGatewayTaskEntryProperty.CurrentVersion`.
+	// The version of the gateways that should receive the update.
 	CurrentVersion interface{} `json:"currentVersion"`
-	// `CfnTaskDefinition.LoRaWANUpdateGatewayTaskEntryProperty.UpdateVersion`.
+	// The firmware version to update the gateway to.
 	UpdateVersion interface{} `json:"updateVersion"`
 }
 
+// UpdateWirelessGatewayTaskCreate object.
+//
 // TODO: EXAMPLE
 //
 type CfnTaskDefinition_UpdateWirelessGatewayTaskCreateProperty struct {
-	// `CfnTaskDefinition.UpdateWirelessGatewayTaskCreateProperty.LoRaWAN`.
+	// The properties that relate to the LoRaWAN wireless gateway.
 	LoRaWan interface{} `json:"loRaWan"`
-	// `CfnTaskDefinition.UpdateWirelessGatewayTaskCreateProperty.UpdateDataRole`.
+	// The IAM role used to read data from the S3 bucket.
 	UpdateDataRole *string `json:"updateDataRole"`
-	// `CfnTaskDefinition.UpdateWirelessGatewayTaskCreateProperty.UpdateDataSource`.
+	// The link to the S3 bucket.
 	UpdateDataSource *string `json:"updateDataSource"`
 }
 
-// Properties for defining a `AWS::IoTWireless::TaskDefinition`.
+// Properties for defining a `CfnTaskDefinition`.
 //
 // TODO: EXAMPLE
 //
 type CfnTaskDefinitionProps struct {
-	// `AWS::IoTWireless::TaskDefinition.AutoCreateTasks`.
+	// Whether to automatically create tasks using this task definition for all gateways with the specified current version.
+	//
+	// If `false` , the task must me created by calling `CreateWirelessGatewayTask` .
 	AutoCreateTasks interface{} `json:"autoCreateTasks"`
 	// `AWS::IoTWireless::TaskDefinition.LoRaWANUpdateGatewayTaskEntry`.
 	LoRaWanUpdateGatewayTaskEntry interface{} `json:"loRaWanUpdateGatewayTaskEntry"`
-	// `AWS::IoTWireless::TaskDefinition.Name`.
+	// The name of the new resource.
 	Name *string `json:"name"`
-	// `AWS::IoTWireless::TaskDefinition.Tags`.
+	// The tags are an array of key-value pairs to attach to the specified resource.
+	//
+	// Tags can have a minimum of 0 and a maximum of 50 items.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 	// `AWS::IoTWireless::TaskDefinition.TaskDefinitionType`.
 	TaskDefinitionType *string `json:"taskDefinitionType"`
-	// `AWS::IoTWireless::TaskDefinition.Update`.
+	// Information about the gateways to update.
 	Update interface{} `json:"update"`
 }
 
 // A CloudFormation `AWS::IoTWireless::WirelessDevice`.
+//
+// Provisions a wireless device.
 //
 // TODO: EXAMPLE
 //
@@ -4624,7 +5549,7 @@ type CfnWirelessDevice interface {
 	SetLoRaWan(val interface{})
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	Tags() awscdk.TagManager
@@ -4643,10 +5568,16 @@ type CfnWirelessDevice interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -4786,8 +5717,8 @@ func (j *jsiiProxy_CfnWirelessDevice) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWirelessDevice) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnWirelessDevice) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -4858,13 +5789,13 @@ func (j *jsiiProxy_CfnWirelessDevice) UpdatedProperites() *map[string]interface{
 
 
 // Create a new `AWS::IoTWireless::WirelessDevice`.
-func NewCfnWirelessDevice(scope constructs.Construct, id *string, props *CfnWirelessDeviceProps) CfnWirelessDevice {
+func NewCfnWirelessDevice(scope awscdk.Construct, id *string, props *CfnWirelessDeviceProps) CfnWirelessDevice {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnWirelessDevice{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iotwireless.CfnWirelessDevice",
+		"monocdk.aws_iotwireless.CfnWirelessDevice",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4873,11 +5804,11 @@ func NewCfnWirelessDevice(scope constructs.Construct, id *string, props *CfnWire
 }
 
 // Create a new `AWS::IoTWireless::WirelessDevice`.
-func NewCfnWirelessDevice_Override(c CfnWirelessDevice, scope constructs.Construct, id *string, props *CfnWirelessDeviceProps) {
+func NewCfnWirelessDevice_Override(c CfnWirelessDevice, scope awscdk.Construct, id *string, props *CfnWirelessDeviceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iotwireless.CfnWirelessDevice",
+		"monocdk.aws_iotwireless.CfnWirelessDevice",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -4945,13 +5876,14 @@ func (j *jsiiProxy_CfnWirelessDevice) SetType(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnWirelessDevice_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotwireless.CfnWirelessDevice",
+		"monocdk.aws_iotwireless.CfnWirelessDevice",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -4961,13 +5893,14 @@ func CfnWirelessDevice_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnWirelessDevice_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotwireless.CfnWirelessDevice",
+		"monocdk.aws_iotwireless.CfnWirelessDevice",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -4976,17 +5909,15 @@ func CfnWirelessDevice_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnWirelessDevice_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotwireless.CfnWirelessDevice",
+		"monocdk.aws_iotwireless.CfnWirelessDevice",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4999,7 +5930,7 @@ func CfnWirelessDevice_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_iotwireless.CfnWirelessDevice",
+		"monocdk.aws_iotwireless.CfnWirelessDevice",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -5007,6 +5938,7 @@ func CfnWirelessDevice_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnWirelessDevice) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5019,6 +5951,7 @@ func (c *jsiiProxy_CfnWirelessDevice) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnWirelessDevice) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5034,6 +5967,7 @@ func (c *jsiiProxy_CfnWirelessDevice) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnWirelessDevice) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5079,6 +6013,7 @@ func (c *jsiiProxy_CfnWirelessDevice) AddMetadata(key *string, value interface{}
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnWirelessDevice) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5088,6 +6023,7 @@ func (c *jsiiProxy_CfnWirelessDevice) AddOverride(path *string, value interface{
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnWirelessDevice) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5099,6 +6035,7 @@ func (c *jsiiProxy_CfnWirelessDevice) AddPropertyDeletionOverride(propertyPath *
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnWirelessDevice) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5116,6 +6053,7 @@ func (c *jsiiProxy_CfnWirelessDevice) AddPropertyOverride(propertyPath *string, 
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnWirelessDevice) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5128,6 +6066,7 @@ func (c *jsiiProxy_CfnWirelessDevice) ApplyRemovalPolicy(policy awscdk.RemovalPo
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnWirelessDevice) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -5148,6 +6087,7 @@ func (c *jsiiProxy_CfnWirelessDevice) GetAtt(attributeName *string) awscdk.Refer
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnWirelessDevice) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -5170,12 +6110,80 @@ func (c *jsiiProxy_CfnWirelessDevice) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnWirelessDevice) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnWirelessDevice) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnWirelessDevice) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnWirelessDevice) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnWirelessDevice) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -5196,6 +6204,7 @@ func (c *jsiiProxy_CfnWirelessDevice) RenderProperties(props *map[string]interfa
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnWirelessDevice) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -5209,9 +6218,23 @@ func (c *jsiiProxy_CfnWirelessDevice) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnWirelessDevice) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnWirelessDevice) ToString() *string {
 	var returns *string
 
@@ -5225,6 +6248,27 @@ func (c *jsiiProxy_CfnWirelessDevice) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnWirelessDevice) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnWirelessDevice) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5233,109 +6277,151 @@ func (c *jsiiProxy_CfnWirelessDevice) ValidateProperties(_properties interface{}
 	)
 }
 
+// ABP device object for LoRaWAN specification v1.0.x.
+//
 // TODO: EXAMPLE
 //
 type CfnWirelessDevice_AbpV10xProperty struct {
-	// `CfnWirelessDevice.AbpV10xProperty.DevAddr`.
+	// The DevAddr value.
 	DevAddr *string `json:"devAddr"`
-	// `CfnWirelessDevice.AbpV10xProperty.SessionKeys`.
+	// Session keys for ABP v1.0.x.
 	SessionKeys interface{} `json:"sessionKeys"`
 }
 
+// ABP device object for create APIs for v1.1.
+//
 // TODO: EXAMPLE
 //
 type CfnWirelessDevice_AbpV11Property struct {
-	// `CfnWirelessDevice.AbpV11Property.DevAddr`.
+	// The DevAddr value.
 	DevAddr *string `json:"devAddr"`
-	// `CfnWirelessDevice.AbpV11Property.SessionKeys`.
+	// Session keys for ABP v1.1.
 	SessionKeys interface{} `json:"sessionKeys"`
 }
 
+// LoRaWAN object for create functions.
+//
 // TODO: EXAMPLE
 //
 type CfnWirelessDevice_LoRaWANDeviceProperty struct {
-	// `CfnWirelessDevice.LoRaWANDeviceProperty.AbpV10x`.
+	// LoRaWAN object for create APIs.
 	AbpV10X interface{} `json:"abpV10X"`
-	// `CfnWirelessDevice.LoRaWANDeviceProperty.AbpV11`.
+	// ABP device object for create APIs for v1.1.
 	AbpV11 interface{} `json:"abpV11"`
-	// `CfnWirelessDevice.LoRaWANDeviceProperty.DevEui`.
+	// The DevEUI value.
 	DevEui *string `json:"devEui"`
-	// `CfnWirelessDevice.LoRaWANDeviceProperty.DeviceProfileId`.
+	// The ID of the device profile for the new wireless device.
 	DeviceProfileId *string `json:"deviceProfileId"`
-	// `CfnWirelessDevice.LoRaWANDeviceProperty.OtaaV10x`.
+	// OTAA device object for create APIs for v1.0.x.
 	OtaaV10X interface{} `json:"otaaV10X"`
-	// `CfnWirelessDevice.LoRaWANDeviceProperty.OtaaV11`.
+	// OTAA device object for v1.1 for create APIs.
 	OtaaV11 interface{} `json:"otaaV11"`
-	// `CfnWirelessDevice.LoRaWANDeviceProperty.ServiceProfileId`.
+	// The ID of the service profile.
 	ServiceProfileId *string `json:"serviceProfileId"`
 }
 
+// OTAA device object for create APIs for v1.0.x.
+//
 // TODO: EXAMPLE
 //
 type CfnWirelessDevice_OtaaV10xProperty struct {
-	// `CfnWirelessDevice.OtaaV10xProperty.AppEui`.
+	// The AppEUI value, with pattern of `[a-fA-F0-9]{16}` .
 	AppEui *string `json:"appEui"`
-	// `CfnWirelessDevice.OtaaV10xProperty.AppKey`.
+	// The AppKey is a secret key, which you should handle in a similar way as you would an application password.
+	//
+	// You can protect the AppKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
 	AppKey *string `json:"appKey"`
 }
 
+// OTAA device object for v1.1 for create APIs.
+//
 // TODO: EXAMPLE
 //
 type CfnWirelessDevice_OtaaV11Property struct {
-	// `CfnWirelessDevice.OtaaV11Property.AppKey`.
+	// The AppKey is a secret key, which you should handle in a similar way as you would an application password.
+	//
+	// You can protect the AppKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
 	AppKey *string `json:"appKey"`
-	// `CfnWirelessDevice.OtaaV11Property.JoinEui`.
+	// The JoinEUI value.
 	JoinEui *string `json:"joinEui"`
-	// `CfnWirelessDevice.OtaaV11Property.NwkKey`.
+	// The NwkKey is a secret key, which you should handle in a similar way as you would an application password.
+	//
+	// You can protect the NwkKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
 	NwkKey *string `json:"nwkKey"`
 }
 
+// LoRaWAN object for create APIs.
+//
 // TODO: EXAMPLE
 //
 type CfnWirelessDevice_SessionKeysAbpV10xProperty struct {
-	// `CfnWirelessDevice.SessionKeysAbpV10xProperty.AppSKey`.
+	// The AppSKey is a secret key, which you should handle in a similar way as you would an application password.
+	//
+	// You can protect the AppSKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
 	AppSKey *string `json:"appSKey"`
-	// `CfnWirelessDevice.SessionKeysAbpV10xProperty.NwkSKey`.
+	// The NwkSKey is a secret key, which you should handle in a similar way as you would an application password.
+	//
+	// You can protect the NwkSKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
 	NwkSKey *string `json:"nwkSKey"`
 }
 
+// Session keys for ABP v1.1.
+//
 // TODO: EXAMPLE
 //
 type CfnWirelessDevice_SessionKeysAbpV11Property struct {
-	// `CfnWirelessDevice.SessionKeysAbpV11Property.AppSKey`.
+	// The AppSKey is a secret key, which you should handle in a similar way as you would an application password.
+	//
+	// You can protect the AppSKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
 	AppSKey *string `json:"appSKey"`
-	// `CfnWirelessDevice.SessionKeysAbpV11Property.FNwkSIntKey`.
+	// The FNwkSIntKey is a secret key, which you should handle in a similar way as you would an application password.
+	//
+	// You can protect the FNwkSIntKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
 	FNwkSIntKey *string `json:"fNwkSIntKey"`
-	// `CfnWirelessDevice.SessionKeysAbpV11Property.NwkSEncKey`.
+	// The NwkSEncKey is a secret key, which you should handle in a similar way as you would an application password.
+	//
+	// You can protect the NwkSEncKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
 	NwkSEncKey *string `json:"nwkSEncKey"`
-	// `CfnWirelessDevice.SessionKeysAbpV11Property.SNwkSIntKey`.
+	// The SNwkSIntKey is a secret key, which you should handle in a similar way as you would an application password.
+	//
+	// You can protect the SNwkSIntKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
 	SNwkSIntKey *string `json:"sNwkSIntKey"`
 }
 
-// Properties for defining a `AWS::IoTWireless::WirelessDevice`.
+// Properties for defining a `CfnWirelessDevice`.
 //
 // TODO: EXAMPLE
 //
 type CfnWirelessDeviceProps struct {
-	// `AWS::IoTWireless::WirelessDevice.Description`.
-	Description *string `json:"description"`
-	// `AWS::IoTWireless::WirelessDevice.DestinationName`.
+	// The name of the destination to assign to the new wireless device.
+	//
+	// Can have only have alphanumeric, - (hyphen) and _ (underscore) characters and it can't have any spaces.
 	DestinationName *string `json:"destinationName"`
-	// `AWS::IoTWireless::WirelessDevice.LastUplinkReceivedAt`.
-	LastUplinkReceivedAt *string `json:"lastUplinkReceivedAt"`
-	// `AWS::IoTWireless::WirelessDevice.LoRaWAN`.
-	LoRaWan interface{} `json:"loRaWan"`
-	// `AWS::IoTWireless::WirelessDevice.Name`.
-	Name *string `json:"name"`
-	// `AWS::IoTWireless::WirelessDevice.Tags`.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
-	// `AWS::IoTWireless::WirelessDevice.ThingArn`.
-	ThingArn *string `json:"thingArn"`
-	// `AWS::IoTWireless::WirelessDevice.Type`.
+	// The wireless device type.
 	Type *string `json:"type"`
+	// The description of the new resource.
+	//
+	// Maximum length is 2048.
+	Description *string `json:"description"`
+	// The date and time when the most recent uplink was received.
+	LastUplinkReceivedAt *string `json:"lastUplinkReceivedAt"`
+	// The device configuration information to use to create the wireless device.
+	//
+	// Must be at least one of OtaaV10x, OtaaV11, AbpV11, or AbpV10x.
+	LoRaWan interface{} `json:"loRaWan"`
+	// The name of the new resource.
+	Name *string `json:"name"`
+	// The tags are an array of key-value pairs to attach to the specified resource.
+	//
+	// Tags can have a minimum of 0 and a maximum of 50 items.
+	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// The ARN of the thing to associate with the wireless device.
+	ThingArn *string `json:"thingArn"`
 }
 
 // A CloudFormation `AWS::IoTWireless::WirelessGateway`.
+//
+// Provisions a wireless gateway.
 //
 // TODO: EXAMPLE
 //
@@ -5358,7 +6444,7 @@ type CfnWirelessGateway interface {
 	SetLoRaWan(val interface{})
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	Tags() awscdk.TagManager
@@ -5375,10 +6461,16 @@ type CfnWirelessGateway interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -5508,8 +6600,8 @@ func (j *jsiiProxy_CfnWirelessGateway) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWirelessGateway) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnWirelessGateway) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -5570,13 +6662,13 @@ func (j *jsiiProxy_CfnWirelessGateway) UpdatedProperites() *map[string]interface
 
 
 // Create a new `AWS::IoTWireless::WirelessGateway`.
-func NewCfnWirelessGateway(scope constructs.Construct, id *string, props *CfnWirelessGatewayProps) CfnWirelessGateway {
+func NewCfnWirelessGateway(scope awscdk.Construct, id *string, props *CfnWirelessGatewayProps) CfnWirelessGateway {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnWirelessGateway{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iotwireless.CfnWirelessGateway",
+		"monocdk.aws_iotwireless.CfnWirelessGateway",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5585,11 +6677,11 @@ func NewCfnWirelessGateway(scope constructs.Construct, id *string, props *CfnWir
 }
 
 // Create a new `AWS::IoTWireless::WirelessGateway`.
-func NewCfnWirelessGateway_Override(c CfnWirelessGateway, scope constructs.Construct, id *string, props *CfnWirelessGatewayProps) {
+func NewCfnWirelessGateway_Override(c CfnWirelessGateway, scope awscdk.Construct, id *string, props *CfnWirelessGatewayProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iotwireless.CfnWirelessGateway",
+		"monocdk.aws_iotwireless.CfnWirelessGateway",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -5641,13 +6733,14 @@ func (j *jsiiProxy_CfnWirelessGateway) SetThingArn(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnWirelessGateway_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotwireless.CfnWirelessGateway",
+		"monocdk.aws_iotwireless.CfnWirelessGateway",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -5657,13 +6750,14 @@ func CfnWirelessGateway_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnWirelessGateway_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotwireless.CfnWirelessGateway",
+		"monocdk.aws_iotwireless.CfnWirelessGateway",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -5672,17 +6766,15 @@ func CfnWirelessGateway_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnWirelessGateway_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotwireless.CfnWirelessGateway",
+		"monocdk.aws_iotwireless.CfnWirelessGateway",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -5695,7 +6787,7 @@ func CfnWirelessGateway_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_iotwireless.CfnWirelessGateway",
+		"monocdk.aws_iotwireless.CfnWirelessGateway",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -5703,6 +6795,7 @@ func CfnWirelessGateway_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnWirelessGateway) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5715,6 +6808,7 @@ func (c *jsiiProxy_CfnWirelessGateway) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnWirelessGateway) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5730,6 +6824,7 @@ func (c *jsiiProxy_CfnWirelessGateway) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnWirelessGateway) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5775,6 +6870,7 @@ func (c *jsiiProxy_CfnWirelessGateway) AddMetadata(key *string, value interface{
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnWirelessGateway) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5784,6 +6880,7 @@ func (c *jsiiProxy_CfnWirelessGateway) AddOverride(path *string, value interface
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnWirelessGateway) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5795,6 +6892,7 @@ func (c *jsiiProxy_CfnWirelessGateway) AddPropertyDeletionOverride(propertyPath 
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnWirelessGateway) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5812,6 +6910,7 @@ func (c *jsiiProxy_CfnWirelessGateway) AddPropertyOverride(propertyPath *string,
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnWirelessGateway) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5824,6 +6923,7 @@ func (c *jsiiProxy_CfnWirelessGateway) ApplyRemovalPolicy(policy awscdk.RemovalP
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnWirelessGateway) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -5844,6 +6944,7 @@ func (c *jsiiProxy_CfnWirelessGateway) GetAtt(attributeName *string) awscdk.Refe
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnWirelessGateway) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -5866,12 +6967,80 @@ func (c *jsiiProxy_CfnWirelessGateway) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnWirelessGateway) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnWirelessGateway) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnWirelessGateway) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnWirelessGateway) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnWirelessGateway) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -5892,6 +7061,7 @@ func (c *jsiiProxy_CfnWirelessGateway) RenderProperties(props *map[string]interf
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnWirelessGateway) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -5905,9 +7075,23 @@ func (c *jsiiProxy_CfnWirelessGateway) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnWirelessGateway) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnWirelessGateway) ToString() *string {
 	var returns *string
 
@@ -5921,6 +7105,27 @@ func (c *jsiiProxy_CfnWirelessGateway) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnWirelessGateway) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnWirelessGateway) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5929,31 +7134,37 @@ func (c *jsiiProxy_CfnWirelessGateway) ValidateProperties(_properties interface{
 	)
 }
 
+// LoRaWAN wireless gateway object.
+//
 // TODO: EXAMPLE
 //
 type CfnWirelessGateway_LoRaWANGatewayProperty struct {
-	// `CfnWirelessGateway.LoRaWANGatewayProperty.GatewayEui`.
+	// The gateway's EUI value.
 	GatewayEui *string `json:"gatewayEui"`
-	// `CfnWirelessGateway.LoRaWANGatewayProperty.RfRegion`.
+	// The frequency band (RFRegion) value.
 	RfRegion *string `json:"rfRegion"`
 }
 
-// Properties for defining a `AWS::IoTWireless::WirelessGateway`.
+// Properties for defining a `CfnWirelessGateway`.
 //
 // TODO: EXAMPLE
 //
 type CfnWirelessGatewayProps struct {
-	// `AWS::IoTWireless::WirelessGateway.Description`.
-	Description *string `json:"description"`
-	// `AWS::IoTWireless::WirelessGateway.LastUplinkReceivedAt`.
-	LastUplinkReceivedAt *string `json:"lastUplinkReceivedAt"`
-	// `AWS::IoTWireless::WirelessGateway.LoRaWAN`.
+	// The gateway configuration information to use to create the wireless gateway.
 	LoRaWan interface{} `json:"loRaWan"`
-	// `AWS::IoTWireless::WirelessGateway.Name`.
+	// The description of the new resource.
+	//
+	// The maximum length is 2048 characters.
+	Description *string `json:"description"`
+	// The date and time when the most recent uplink was received.
+	LastUplinkReceivedAt *string `json:"lastUplinkReceivedAt"`
+	// The name of the new resource.
 	Name *string `json:"name"`
-	// `AWS::IoTWireless::WirelessGateway.Tags`.
+	// The tags are an array of key-value pairs to attach to the specified resource.
+	//
+	// Tags can have a minimum of 0 and a maximum of 50 items.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
-	// `AWS::IoTWireless::WirelessGateway.ThingArn`.
+	// The ARN of the thing to associate with the wireless gateway.
 	ThingArn *string `json:"thingArn"`
 }
 

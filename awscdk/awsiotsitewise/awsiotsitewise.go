@@ -1,15 +1,17 @@
 package awsiotsitewise
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiotsitewise/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsiotsitewise/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::IoTSiteWise::AccessPolicy`.
+//
+// Creates an access policy that grants the specified identity ( AWS SSO user, AWS SSO group, or IAM user) access to the specified AWS IoT SiteWise Monitor portal or project resource.
 //
 // TODO: EXAMPLE
 //
@@ -29,7 +31,7 @@ type CfnAccessPolicy interface {
 	CfnResourceType() *string
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	UpdatedProperites() *map[string]interface{}
@@ -43,10 +45,16 @@ type CfnAccessPolicy interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -156,8 +164,8 @@ func (j *jsiiProxy_CfnAccessPolicy) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAccessPolicy) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnAccessPolicy) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -198,13 +206,13 @@ func (j *jsiiProxy_CfnAccessPolicy) UpdatedProperites() *map[string]interface{} 
 
 
 // Create a new `AWS::IoTSiteWise::AccessPolicy`.
-func NewCfnAccessPolicy(scope constructs.Construct, id *string, props *CfnAccessPolicyProps) CfnAccessPolicy {
+func NewCfnAccessPolicy(scope awscdk.Construct, id *string, props *CfnAccessPolicyProps) CfnAccessPolicy {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnAccessPolicy{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iotsitewise.CfnAccessPolicy",
+		"monocdk.aws_iotsitewise.CfnAccessPolicy",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -213,11 +221,11 @@ func NewCfnAccessPolicy(scope constructs.Construct, id *string, props *CfnAccess
 }
 
 // Create a new `AWS::IoTSiteWise::AccessPolicy`.
-func NewCfnAccessPolicy_Override(c CfnAccessPolicy, scope constructs.Construct, id *string, props *CfnAccessPolicyProps) {
+func NewCfnAccessPolicy_Override(c CfnAccessPolicy, scope awscdk.Construct, id *string, props *CfnAccessPolicyProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iotsitewise.CfnAccessPolicy",
+		"monocdk.aws_iotsitewise.CfnAccessPolicy",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -253,13 +261,14 @@ func (j *jsiiProxy_CfnAccessPolicy) SetAccessPolicyResource(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnAccessPolicy_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotsitewise.CfnAccessPolicy",
+		"monocdk.aws_iotsitewise.CfnAccessPolicy",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -269,13 +278,14 @@ func CfnAccessPolicy_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnAccessPolicy_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotsitewise.CfnAccessPolicy",
+		"monocdk.aws_iotsitewise.CfnAccessPolicy",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -284,17 +294,15 @@ func CfnAccessPolicy_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnAccessPolicy_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotsitewise.CfnAccessPolicy",
+		"monocdk.aws_iotsitewise.CfnAccessPolicy",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -307,7 +315,7 @@ func CfnAccessPolicy_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_iotsitewise.CfnAccessPolicy",
+		"monocdk.aws_iotsitewise.CfnAccessPolicy",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -315,6 +323,7 @@ func CfnAccessPolicy_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnAccessPolicy) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -327,6 +336,7 @@ func (c *jsiiProxy_CfnAccessPolicy) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnAccessPolicy) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -342,6 +352,7 @@ func (c *jsiiProxy_CfnAccessPolicy) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnAccessPolicy) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -387,6 +398,7 @@ func (c *jsiiProxy_CfnAccessPolicy) AddMetadata(key *string, value interface{}) 
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnAccessPolicy) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -396,6 +408,7 @@ func (c *jsiiProxy_CfnAccessPolicy) AddOverride(path *string, value interface{})
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnAccessPolicy) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -407,6 +420,7 @@ func (c *jsiiProxy_CfnAccessPolicy) AddPropertyDeletionOverride(propertyPath *st
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnAccessPolicy) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -424,6 +438,7 @@ func (c *jsiiProxy_CfnAccessPolicy) AddPropertyOverride(propertyPath *string, va
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnAccessPolicy) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -436,6 +451,7 @@ func (c *jsiiProxy_CfnAccessPolicy) ApplyRemovalPolicy(policy awscdk.RemovalPoli
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnAccessPolicy) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -456,6 +472,7 @@ func (c *jsiiProxy_CfnAccessPolicy) GetAtt(attributeName *string) awscdk.Referen
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnAccessPolicy) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -478,12 +495,80 @@ func (c *jsiiProxy_CfnAccessPolicy) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnAccessPolicy) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnAccessPolicy) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnAccessPolicy) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnAccessPolicy) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnAccessPolicy) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -504,6 +589,7 @@ func (c *jsiiProxy_CfnAccessPolicy) RenderProperties(props *map[string]interface
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnAccessPolicy) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -517,9 +603,23 @@ func (c *jsiiProxy_CfnAccessPolicy) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnAccessPolicy) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnAccessPolicy) ToString() *string {
 	var returns *string
 
@@ -533,6 +633,27 @@ func (c *jsiiProxy_CfnAccessPolicy) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnAccessPolicy) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnAccessPolicy) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -541,75 +662,105 @@ func (c *jsiiProxy_CfnAccessPolicy) ValidateProperties(_properties interface{}) 
 	)
 }
 
+// The identity ( AWS SSO user, AWS SSO group, or IAM user) to which this access policy applies.
+//
 // TODO: EXAMPLE
 //
 type CfnAccessPolicy_AccessPolicyIdentityProperty struct {
-	// `CfnAccessPolicy.AccessPolicyIdentityProperty.IamRole`.
+	// An IAM role identity.
 	IamRole interface{} `json:"iamRole"`
-	// `CfnAccessPolicy.AccessPolicyIdentityProperty.IamUser`.
+	// An IAM user identity.
 	IamUser interface{} `json:"iamUser"`
-	// `CfnAccessPolicy.AccessPolicyIdentityProperty.User`.
+	// The AWS SSO user to which this access policy maps.
 	User interface{} `json:"user"`
 }
 
+// The AWS IoT SiteWise Monitor resource for this access policy.
+//
+// Choose either a portal or a project.
+//
 // TODO: EXAMPLE
 //
 type CfnAccessPolicy_AccessPolicyResourceProperty struct {
-	// `CfnAccessPolicy.AccessPolicyResourceProperty.Portal`.
+	// The AWS IoT SiteWise Monitor portal for this access policy.
 	Portal interface{} `json:"portal"`
-	// `CfnAccessPolicy.AccessPolicyResourceProperty.Project`.
+	// The AWS IoT SiteWise Monitor project for this access policy.
 	Project interface{} `json:"project"`
 }
 
+// Contains information about an AWS Identity and Access Management role.
+//
+// For more information, see [IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) in the *IAM User Guide* .
+//
 // TODO: EXAMPLE
 //
 type CfnAccessPolicy_IamRoleProperty struct {
-	// `CfnAccessPolicy.IamRoleProperty.arn`.
+	// The ARN of the IAM role.
+	//
+	// For more information, see [IAM ARNs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html) in the *IAM User Guide* .
 	Arn *string `json:"arn"`
 }
 
+// Contains information about an AWS Identity and Access Management user.
+//
 // TODO: EXAMPLE
 //
 type CfnAccessPolicy_IamUserProperty struct {
-	// `CfnAccessPolicy.IamUserProperty.arn`.
+	// The ARN of the IAM user. For more information, see [IAM ARNs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html) in the *IAM User Guide* .
+	//
+	// > If you delete the IAM user, access policies that contain this identity include an empty `arn` . You can delete the access policy for the IAM user that no longer exists.
 	Arn *string `json:"arn"`
 }
 
+// The `Portal` property type specifies the AWS IoT SiteWise Monitor portal for an [AWS::IoTSiteWise::AccessPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html) .
+//
 // TODO: EXAMPLE
 //
 type CfnAccessPolicy_PortalProperty struct {
-	// `CfnAccessPolicy.PortalProperty.id`.
+	// The ID of the portal.
 	Id *string `json:"id"`
 }
 
+// The `Project` property type specifies the AWS IoT SiteWise Monitor project for an [AWS::IoTSiteWise::AccessPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html) .
+//
 // TODO: EXAMPLE
 //
 type CfnAccessPolicy_ProjectProperty struct {
-	// `CfnAccessPolicy.ProjectProperty.id`.
+	// The ID of the project.
 	Id *string `json:"id"`
 }
 
+// The `User` property type specifies the AWS IoT SiteWise Monitor user for an [AWS::IoTSiteWise::AccessPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html) .
+//
 // TODO: EXAMPLE
 //
 type CfnAccessPolicy_UserProperty struct {
-	// `CfnAccessPolicy.UserProperty.id`.
+	// The ID of the user.
 	Id *string `json:"id"`
 }
 
-// Properties for defining a `AWS::IoTSiteWise::AccessPolicy`.
+// Properties for defining a `CfnAccessPolicy`.
 //
 // TODO: EXAMPLE
 //
 type CfnAccessPolicyProps struct {
-	// `AWS::IoTSiteWise::AccessPolicy.AccessPolicyIdentity`.
+	// The identity for this access policy.
+	//
+	// Choose an AWS SSO user, an AWS SSO group, or an IAM user.
 	AccessPolicyIdentity interface{} `json:"accessPolicyIdentity"`
-	// `AWS::IoTSiteWise::AccessPolicy.AccessPolicyPermission`.
+	// The permission level for this access policy.
+	//
+	// Choose either a `ADMINISTRATOR` or `VIEWER` . Note that a project `ADMINISTRATOR` is also known as a project owner.
 	AccessPolicyPermission *string `json:"accessPolicyPermission"`
-	// `AWS::IoTSiteWise::AccessPolicy.AccessPolicyResource`.
+	// The AWS IoT SiteWise Monitor resource for this access policy.
+	//
+	// Choose either a portal or a project.
 	AccessPolicyResource interface{} `json:"accessPolicyResource"`
 }
 
 // A CloudFormation `AWS::IoTSiteWise::Asset`.
+//
+// Creates an asset from an existing asset model. For more information, see [Creating assets](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-assets.html) in the *AWS IoT SiteWise User Guide* .
 //
 // TODO: EXAMPLE
 //
@@ -631,7 +782,7 @@ type CfnAsset interface {
 	CfnResourceType() *string
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	Tags() awscdk.TagManager
@@ -646,10 +797,16 @@ type CfnAsset interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -769,8 +926,8 @@ func (j *jsiiProxy_CfnAsset) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAsset) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnAsset) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -821,13 +978,13 @@ func (j *jsiiProxy_CfnAsset) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::IoTSiteWise::Asset`.
-func NewCfnAsset(scope constructs.Construct, id *string, props *CfnAssetProps) CfnAsset {
+func NewCfnAsset(scope awscdk.Construct, id *string, props *CfnAssetProps) CfnAsset {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnAsset{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iotsitewise.CfnAsset",
+		"monocdk.aws_iotsitewise.CfnAsset",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -836,11 +993,11 @@ func NewCfnAsset(scope constructs.Construct, id *string, props *CfnAssetProps) C
 }
 
 // Create a new `AWS::IoTSiteWise::Asset`.
-func NewCfnAsset_Override(c CfnAsset, scope constructs.Construct, id *string, props *CfnAssetProps) {
+func NewCfnAsset_Override(c CfnAsset, scope awscdk.Construct, id *string, props *CfnAssetProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iotsitewise.CfnAsset",
+		"monocdk.aws_iotsitewise.CfnAsset",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -884,13 +1041,14 @@ func (j *jsiiProxy_CfnAsset) SetAssetProperties(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnAsset_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotsitewise.CfnAsset",
+		"monocdk.aws_iotsitewise.CfnAsset",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -900,13 +1058,14 @@ func CfnAsset_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnAsset_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotsitewise.CfnAsset",
+		"monocdk.aws_iotsitewise.CfnAsset",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -915,17 +1074,15 @@ func CfnAsset_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnAsset_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotsitewise.CfnAsset",
+		"monocdk.aws_iotsitewise.CfnAsset",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -938,7 +1095,7 @@ func CfnAsset_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_iotsitewise.CfnAsset",
+		"monocdk.aws_iotsitewise.CfnAsset",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -946,6 +1103,7 @@ func CfnAsset_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnAsset) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -958,6 +1116,7 @@ func (c *jsiiProxy_CfnAsset) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnAsset) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -973,6 +1132,7 @@ func (c *jsiiProxy_CfnAsset) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnAsset) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1018,6 +1178,7 @@ func (c *jsiiProxy_CfnAsset) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnAsset) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1027,6 +1188,7 @@ func (c *jsiiProxy_CfnAsset) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnAsset) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1038,6 +1200,7 @@ func (c *jsiiProxy_CfnAsset) AddPropertyDeletionOverride(propertyPath *string) {
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnAsset) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1055,6 +1218,7 @@ func (c *jsiiProxy_CfnAsset) AddPropertyOverride(propertyPath *string, value int
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnAsset) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1067,6 +1231,7 @@ func (c *jsiiProxy_CfnAsset) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, opt
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnAsset) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1087,6 +1252,7 @@ func (c *jsiiProxy_CfnAsset) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnAsset) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1109,12 +1275,80 @@ func (c *jsiiProxy_CfnAsset) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnAsset) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnAsset) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnAsset) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnAsset) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnAsset) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1135,6 +1369,7 @@ func (c *jsiiProxy_CfnAsset) RenderProperties(props *map[string]interface{}) *ma
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnAsset) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1148,9 +1383,23 @@ func (c *jsiiProxy_CfnAsset) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnAsset) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnAsset) ToString() *string {
 	var returns *string
 
@@ -1164,6 +1413,27 @@ func (c *jsiiProxy_CfnAsset) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnAsset) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnAsset) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1172,27 +1442,45 @@ func (c *jsiiProxy_CfnAsset) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// Describes an asset hierarchy that contains a `childAssetId` and `hierarchyLogicalId` .
+//
 // TODO: EXAMPLE
 //
 type CfnAsset_AssetHierarchyProperty struct {
-	// `CfnAsset.AssetHierarchyProperty.ChildAssetId`.
+	// The Id of the child asset.
 	ChildAssetId *string `json:"childAssetId"`
-	// `CfnAsset.AssetHierarchyProperty.LogicalId`.
+	// The `LogicalID` of the hierarchy. This ID is a `hierarchyLogicalId` .
+	//
+	// The maximum length is 256 characters, with the pattern `[^\ u0000-\ u001F\ u007F]+` .
 	LogicalId *string `json:"logicalId"`
 }
 
+// Contains asset property information.
+//
 // TODO: EXAMPLE
 //
 type CfnAsset_AssetPropertyProperty struct {
-	// `CfnAsset.AssetPropertyProperty.Alias`.
-	Alias *string `json:"alias"`
-	// `CfnAsset.AssetPropertyProperty.LogicalId`.
+	// The `LogicalID` of the asset property.
+	//
+	// The maximum length is 256 characters, with the pattern `[^\ u0000-\ u001F\ u007F]+` .
 	LogicalId *string `json:"logicalId"`
-	// `CfnAsset.AssetPropertyProperty.NotificationState`.
+	// The property alias that identifies the property, such as an OPC-UA server data stream path (for example, `/company/windfarm/3/turbine/7/temperature` ).
+	//
+	// For more information, see [Mapping industrial data streams to asset properties](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html) in the *AWS IoT SiteWise User Guide* .
+	//
+	// The property alias must have 1-1000 characters.
+	Alias *string `json:"alias"`
+	// The MQTT notification state (enabled or disabled) for this asset property.
+	//
+	// When the notification state is enabled, AWS IoT SiteWise publishes property value updates to a unique MQTT topic. For more information, see [Interacting with other services](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/interact-with-other-services.html) in the *AWS IoT SiteWise User Guide* .
+	//
+	// If you omit this parameter, the notification state is set to `DISABLED` .
 	NotificationState *string `json:"notificationState"`
 }
 
 // A CloudFormation `AWS::IoTSiteWise::AssetModel`.
+//
+// Creates an asset model from specified property and hierarchy definitions. You create assets from asset models. With asset models, you can easily create assets of the same type that have standardized definitions. Each asset created from a model inherits the asset model's property and hierarchy definitions. For more information, see [Defining asset models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/define-models.html) in the *AWS IoT SiteWise User Guide* .
 //
 // TODO: EXAMPLE
 //
@@ -1216,7 +1504,7 @@ type CfnAssetModel interface {
 	CfnResourceType() *string
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	Tags() awscdk.TagManager
@@ -1231,10 +1519,16 @@ type CfnAssetModel interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1364,8 +1658,8 @@ func (j *jsiiProxy_CfnAssetModel) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAssetModel) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnAssetModel) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1416,13 +1710,13 @@ func (j *jsiiProxy_CfnAssetModel) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::IoTSiteWise::AssetModel`.
-func NewCfnAssetModel(scope constructs.Construct, id *string, props *CfnAssetModelProps) CfnAssetModel {
+func NewCfnAssetModel(scope awscdk.Construct, id *string, props *CfnAssetModelProps) CfnAssetModel {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnAssetModel{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iotsitewise.CfnAssetModel",
+		"monocdk.aws_iotsitewise.CfnAssetModel",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1431,11 +1725,11 @@ func NewCfnAssetModel(scope constructs.Construct, id *string, props *CfnAssetMod
 }
 
 // Create a new `AWS::IoTSiteWise::AssetModel`.
-func NewCfnAssetModel_Override(c CfnAssetModel, scope constructs.Construct, id *string, props *CfnAssetModelProps) {
+func NewCfnAssetModel_Override(c CfnAssetModel, scope awscdk.Construct, id *string, props *CfnAssetModelProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iotsitewise.CfnAssetModel",
+		"monocdk.aws_iotsitewise.CfnAssetModel",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1487,13 +1781,14 @@ func (j *jsiiProxy_CfnAssetModel) SetAssetModelProperties(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnAssetModel_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotsitewise.CfnAssetModel",
+		"monocdk.aws_iotsitewise.CfnAssetModel",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1503,13 +1798,14 @@ func CfnAssetModel_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnAssetModel_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotsitewise.CfnAssetModel",
+		"monocdk.aws_iotsitewise.CfnAssetModel",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1518,17 +1814,15 @@ func CfnAssetModel_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnAssetModel_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotsitewise.CfnAssetModel",
+		"monocdk.aws_iotsitewise.CfnAssetModel",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1541,7 +1835,7 @@ func CfnAssetModel_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_iotsitewise.CfnAssetModel",
+		"monocdk.aws_iotsitewise.CfnAssetModel",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1549,6 +1843,7 @@ func CfnAssetModel_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnAssetModel) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1561,6 +1856,7 @@ func (c *jsiiProxy_CfnAssetModel) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnAssetModel) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1576,6 +1872,7 @@ func (c *jsiiProxy_CfnAssetModel) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnAssetModel) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1621,6 +1918,7 @@ func (c *jsiiProxy_CfnAssetModel) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnAssetModel) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1630,6 +1928,7 @@ func (c *jsiiProxy_CfnAssetModel) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnAssetModel) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1641,6 +1940,7 @@ func (c *jsiiProxy_CfnAssetModel) AddPropertyDeletionOverride(propertyPath *stri
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnAssetModel) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1658,6 +1958,7 @@ func (c *jsiiProxy_CfnAssetModel) AddPropertyOverride(propertyPath *string, valu
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnAssetModel) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1670,6 +1971,7 @@ func (c *jsiiProxy_CfnAssetModel) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnAssetModel) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1690,6 +1992,7 @@ func (c *jsiiProxy_CfnAssetModel) GetAtt(attributeName *string) awscdk.Reference
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnAssetModel) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1712,12 +2015,80 @@ func (c *jsiiProxy_CfnAssetModel) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnAssetModel) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnAssetModel) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnAssetModel) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnAssetModel) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnAssetModel) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1738,6 +2109,7 @@ func (c *jsiiProxy_CfnAssetModel) RenderProperties(props *map[string]interface{}
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnAssetModel) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1751,9 +2123,23 @@ func (c *jsiiProxy_CfnAssetModel) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnAssetModel) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnAssetModel) ToString() *string {
 	var returns *string
 
@@ -1767,6 +2153,27 @@ func (c *jsiiProxy_CfnAssetModel) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnAssetModel) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnAssetModel) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1775,158 +2182,299 @@ func (c *jsiiProxy_CfnAssetModel) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// Contains information about a composite model in an asset model.
+//
+// This object contains the asset property definitions that you define in the composite model. You can use composite asset models to define alarms on this asset model.
+//
+// If you use the `AssetModelCompositeModel` property to create an alarm, you must use the following information to define three asset model properties:
+//
+// - Use an asset model property to specify the alarm type.
+//
+// - The name must be `AWS/ALARM_TYPE` .
+// - The data type must be `STRING` .
+// - For the `Type` property, the type name must be `Attribute` and the default value must be `IOT_EVENTS` .
+// - Use an asset model property to specify the alarm source.
+//
+// - The name must be `AWS/ALARM_SOURCE` .
+// - The data type must be `STRING` .
+// - For the `Type` property, the type name must be `Attribute` and the default value must be the ARN of the alarm model that you created in AWS IoT Events .
+//
+// > For the ARN of the alarm model, you can use the `Fn::Sub` intrinsic function to substitute the `AWS::Partition` , `AWS::Region` , and `AWS::AccountId` variables in an input string with values that you specify.
+// >
+// > For example, `Fn::Sub: "arn:${AWS::Partition}:iotevents:${AWS::Region}:${AWS::AccountId}:alarmModel/TestAlarmModel"` .
+// >
+// > Replace `TestAlarmModel` with the name of your alarm model.
+// >
+// > For more information about using the `Fn::Sub` intrinsic function, see [Fn::Sub](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-sub.html) .
+// - Use an asset model property to specify the state of the alarm.
+//
+// - The name must be `AWS/ALARM_STATE` .
+// - The data type must be `STRUCT` .
+// - The `DataTypeSpec` value must be `AWS/ALARM_STATE` .
+// - For the `Type` property, the type name must be `Measurement` .
+//
+// At the bottom of this page, we provide a YAML example that you can modify to create an alarm.
+//
 // TODO: EXAMPLE
 //
 type CfnAssetModel_AssetModelCompositeModelProperty struct {
-	// `CfnAssetModel.AssetModelCompositeModelProperty.CompositeModelProperties`.
-	CompositeModelProperties interface{} `json:"compositeModelProperties"`
-	// `CfnAssetModel.AssetModelCompositeModelProperty.Description`.
-	Description *string `json:"description"`
-	// `CfnAssetModel.AssetModelCompositeModelProperty.Name`.
+	// The name of the composite model.
 	Name *string `json:"name"`
-	// `CfnAssetModel.AssetModelCompositeModelProperty.Type`.
+	// The type of the composite model.
+	//
+	// For alarm composite models, this type is `AWS/ALARM` .
 	Type *string `json:"type"`
+	// The asset property definitions for this composite model.
+	CompositeModelProperties interface{} `json:"compositeModelProperties"`
+	// The description of the composite model.
+	Description *string `json:"description"`
 }
 
+// Describes an asset hierarchy that contains a hierarchy's name, `LogicalID` , and child asset model ID that specifies the type of asset that can be in this hierarchy.
+//
 // TODO: EXAMPLE
 //
 type CfnAssetModel_AssetModelHierarchyProperty struct {
-	// `CfnAssetModel.AssetModelHierarchyProperty.ChildAssetModelId`.
+	// The Id of the asset model.
 	ChildAssetModelId *string `json:"childAssetModelId"`
-	// `CfnAssetModel.AssetModelHierarchyProperty.LogicalId`.
+	// The `LogicalID` of the asset model hierarchy. This ID is a `hierarchyLogicalId` .
+	//
+	// The maximum length is 256 characters, with the pattern `[^\ u0000-\ u001F\ u007F]+`
 	LogicalId *string `json:"logicalId"`
-	// `CfnAssetModel.AssetModelHierarchyProperty.Name`.
+	// The name of the asset model hierarchy.
+	//
+	// The maximum length is 256 characters with the pattern `[^\ u0000-\ u001F\ u007F]+` .
 	Name *string `json:"name"`
 }
 
+// Contains information about an asset model property.
+//
 // TODO: EXAMPLE
 //
 type CfnAssetModel_AssetModelPropertyProperty struct {
-	// `CfnAssetModel.AssetModelPropertyProperty.DataType`.
+	// The data type of the asset model property.
+	//
+	// The value can be `STRING` , `INTEGER` , `DOUBLE` , `BOOLEAN` , or `STRUCT` .
 	DataType *string `json:"dataType"`
-	// `CfnAssetModel.AssetModelPropertyProperty.DataTypeSpec`.
-	DataTypeSpec *string `json:"dataTypeSpec"`
-	// `CfnAssetModel.AssetModelPropertyProperty.LogicalId`.
+	// The `LogicalID` of the asset model property.
+	//
+	// The maximum length is 256 characters, with the pattern `[^\\ u0000-\\ u001F\\ u007F]+` .
 	LogicalId *string `json:"logicalId"`
-	// `CfnAssetModel.AssetModelPropertyProperty.Name`.
+	// The name of the asset model property.
+	//
+	// The maximum length is 256 characters with the pattern `[^\ u0000-\ u001F\ u007F]+` .
 	Name *string `json:"name"`
-	// `CfnAssetModel.AssetModelPropertyProperty.Type`.
+	// Contains a property type, which can be one of `attribute` , `measurement` , `metric` , or `transform` .
 	Type interface{} `json:"type"`
-	// `CfnAssetModel.AssetModelPropertyProperty.Unit`.
+	// The data type of the structure for this property.
+	//
+	// This parameter exists on properties that have the `STRUCT` data type.
+	DataTypeSpec *string `json:"dataTypeSpec"`
+	// The unit of the asset model property, such as `Newtons` or `RPM` .
 	Unit *string `json:"unit"`
 }
 
+// Contains an asset attribute property.
+//
+// For more information, see [Defining data properties](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#attributes) in the *AWS IoT SiteWise User Guide* .
+//
 // TODO: EXAMPLE
 //
 type CfnAssetModel_AttributeProperty struct {
-	// `CfnAssetModel.AttributeProperty.DefaultValue`.
+	// The default value of the asset model property attribute.
+	//
+	// All assets that you create from the asset model contain this attribute value. You can update an attribute's value after you create an asset. For more information, see [Updating attribute values](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-attribute-values.html) in the *AWS IoT SiteWise User Guide* .
 	DefaultValue *string `json:"defaultValue"`
 }
 
+// Contains expression variable information.
+//
 // TODO: EXAMPLE
 //
 type CfnAssetModel_ExpressionVariableProperty struct {
-	// `CfnAssetModel.ExpressionVariableProperty.Name`.
+	// The friendly name of the variable to be used in the expression.
+	//
+	// The maximum length is 64 characters with the pattern `^[a-z][a-z0-9_]*$` .
 	Name *string `json:"name"`
-	// `CfnAssetModel.ExpressionVariableProperty.Value`.
+	// The variable that identifies an asset property from which to use values.
 	Value interface{} `json:"value"`
 }
 
+// Contains an asset metric property.
+//
+// With metrics, you can calculate aggregate functions, such as an average, maximum, or minimum, as specified through an expression. A metric maps several values to a single value (such as a sum).
+//
+// The maximum number of dependent/cascading variables used in any one metric calculation is 10. Therefore, a *root* metric can have up to 10 cascading metrics in its computational dependency tree. Additionally, a metric can only have a data type of `DOUBLE` and consume properties with data types of `INTEGER` or `DOUBLE` .
+//
+// For more information, see [Defining data properties](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#metrics) in the *AWS IoT SiteWise User Guide* .
+//
 // TODO: EXAMPLE
 //
 type CfnAssetModel_MetricProperty struct {
-	// `CfnAssetModel.MetricProperty.Expression`.
+	// The mathematical expression that defines the metric aggregation function.
+	//
+	// You can specify up to 10 variables per expression. You can specify up to 10 functions per expression.
+	//
+	// For more information, see [Quotas](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html) in the *AWS IoT SiteWise User Guide* .
 	Expression *string `json:"expression"`
-	// `CfnAssetModel.MetricProperty.Variables`.
+	// The list of variables used in the expression.
 	Variables interface{} `json:"variables"`
-	// `CfnAssetModel.MetricProperty.Window`.
+	// The window (time interval) over which AWS IoT SiteWise computes the metric's aggregation expression.
+	//
+	// AWS IoT SiteWise computes one data point per `window` .
 	Window interface{} `json:"window"`
 }
 
+// Contains a time interval window used for data aggregate computations (for example, average, sum, count, and so on).
+//
 // TODO: EXAMPLE
 //
 type CfnAssetModel_MetricWindowProperty struct {
-	// `CfnAssetModel.MetricWindowProperty.Tumbling`.
+	// The tumbling time interval window.
 	Tumbling interface{} `json:"tumbling"`
 }
 
+// Contains a property type, which can be one of `attribute` , `measurement` , `metric` , or `transform` .
+//
 // TODO: EXAMPLE
 //
 type CfnAssetModel_PropertyTypeProperty struct {
-	// `CfnAssetModel.PropertyTypeProperty.Attribute`.
-	Attribute interface{} `json:"attribute"`
-	// `CfnAssetModel.PropertyTypeProperty.Metric`.
-	Metric interface{} `json:"metric"`
-	// `CfnAssetModel.PropertyTypeProperty.Transform`.
-	Transform interface{} `json:"transform"`
-	// `CfnAssetModel.PropertyTypeProperty.TypeName`.
+	// The type of property type, which can be one of `Attribute` , `Measurement` , `Metric` , or `Transform` .
 	TypeName *string `json:"typeName"`
+	// Specifies an asset attribute property.
+	//
+	// An attribute generally contains static information, such as the serial number of an [industrial IoT](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Internet_of_things#Industrial_applications) wind turbine.
+	//
+	// This is required if the `TypeName` is `Attribute` and has a `DefaultValue` .
+	Attribute interface{} `json:"attribute"`
+	// Specifies an asset metric property.
+	//
+	// A metric contains a mathematical expression that uses aggregate functions to process all input data points over a time interval and output a single data point, such as to calculate the average hourly temperature.
+	//
+	// This is required if the `TypeName` is `Metric` .
+	Metric interface{} `json:"metric"`
+	// Specifies an asset transform property.
+	//
+	// A transform contains a mathematical expression that maps a property's data points from one form to another, such as a unit conversion from Celsius to Fahrenheit.
+	//
+	// This is required if the `TypeName` is `Transform` .
+	Transform interface{} `json:"transform"`
 }
 
+// Contains an asset transform property.
+//
+// A transform is a one-to-one mapping of a property's data points from one form to another. For example, you can use a transform to convert a Celsius data stream to Fahrenheit by applying the transformation expression to each data point of the Celsius stream. Transforms can only input properties that are `INTEGER` , `DOUBLE` , or `BOOLEAN` type. Booleans convert to `0` ( `FALSE` ) and `1` ( `TRUE` )..
+//
+// For more information, see [Defining data properties](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#transforms) in the *AWS IoT SiteWise User Guide* .
+//
 // TODO: EXAMPLE
 //
 type CfnAssetModel_TransformProperty struct {
-	// `CfnAssetModel.TransformProperty.Expression`.
+	// The mathematical expression that defines the transformation function.
+	//
+	// You can specify up to 10 variables per expression. You can specify up to 10 functions per expression.
+	//
+	// For more information, see [Quotas](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html) in the *AWS IoT SiteWise User Guide* .
 	Expression *string `json:"expression"`
-	// `CfnAssetModel.TransformProperty.Variables`.
+	// The list of variables used in the expression.
 	Variables interface{} `json:"variables"`
 }
 
+// Contains a tumbling window, which is a repeating fixed-sized, non-overlapping, and contiguous time window.
+//
+// You can use this window in metrics to aggregate data from properties and other assets.
+//
+// You can use `m` , `h` , `d` , and `w` when you specify an interval or offset. Note that `m` represents minutes, `h` represents hours, `d` represents days, and `w` represents weeks. You can also use `s` to represent seconds in `offset` .
+//
+// The `interval` and `offset` parameters support the [ISO 8601 format](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/ISO_8601) . For example, `PT5S` represents 5 seconds, `PT5M` represents 5 minutes, and `PT5H` represents 5 hours.
+//
 // TODO: EXAMPLE
 //
 type CfnAssetModel_TumblingWindowProperty struct {
-	// `CfnAssetModel.TumblingWindowProperty.Interval`.
+	// The time interval for the tumbling window. The interval time must be between 1 minute and 1 week.
+	//
+	// AWS IoT SiteWise computes the `1w` interval the end of Sunday at midnight each week (UTC), the `1d` interval at the end of each day at midnight (UTC), the `1h` interval at the end of each hour, and so on.
+	//
+	// When AWS IoT SiteWise aggregates data points for metric computations, the start of each interval is exclusive and the end of each interval is inclusive. AWS IoT SiteWise places the computed data point at the end of the interval.
 	Interval *string `json:"interval"`
 	// `CfnAssetModel.TumblingWindowProperty.Offset`.
 	Offset *string `json:"offset"`
 }
 
+// Identifies a property value used in an expression.
+//
 // TODO: EXAMPLE
 //
 type CfnAssetModel_VariableValueProperty struct {
-	// `CfnAssetModel.VariableValueProperty.HierarchyLogicalId`.
-	HierarchyLogicalId *string `json:"hierarchyLogicalId"`
-	// `CfnAssetModel.VariableValueProperty.PropertyLogicalId`.
+	// The `LogicalID` of the property to use as the variable.
 	PropertyLogicalId *string `json:"propertyLogicalId"`
+	// The `LogicalID` of the hierarchy to query for the `PropertyLogicalID` .
+	//
+	// You use a `hierarchyLogicalID` instead of a model ID because you can have several hierarchies using the same model and therefore the same property. For example, you might have separately grouped assets that come from the same asset model. For more information, see [Defining relationships between assets](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html) in the *AWS IoT SiteWise User Guide* .
+	HierarchyLogicalId *string `json:"hierarchyLogicalId"`
 }
 
-// Properties for defining a `AWS::IoTSiteWise::AssetModel`.
+// Properties for defining a `CfnAssetModel`.
 //
 // TODO: EXAMPLE
 //
 type CfnAssetModelProps struct {
-	// `AWS::IoTSiteWise::AssetModel.AssetModelCompositeModels`.
-	AssetModelCompositeModels interface{} `json:"assetModelCompositeModels"`
-	// `AWS::IoTSiteWise::AssetModel.AssetModelDescription`.
-	AssetModelDescription *string `json:"assetModelDescription"`
-	// `AWS::IoTSiteWise::AssetModel.AssetModelHierarchies`.
-	AssetModelHierarchies interface{} `json:"assetModelHierarchies"`
-	// `AWS::IoTSiteWise::AssetModel.AssetModelName`.
+	// A unique, friendly name for the asset model.
+	//
+	// The maximum length is 256 characters with the pattern `[^\ u0000-\ u001F\ u007F]+` .
 	AssetModelName *string `json:"assetModelName"`
-	// `AWS::IoTSiteWise::AssetModel.AssetModelProperties`.
+	// The composite asset models that are part of this asset model.
+	//
+	// Composite asset models are asset models that contain specific properties. Each composite model has a type that defines the properties that the composite model supports. You can use composite asset models to define alarms on this asset model.
+	AssetModelCompositeModels interface{} `json:"assetModelCompositeModels"`
+	// A description for the asset model.
+	AssetModelDescription *string `json:"assetModelDescription"`
+	// The hierarchy definitions of the asset model.
+	//
+	// Each hierarchy specifies an asset model whose assets can be children of any other assets created from this asset model. For more information, see [Defining relationships between assets](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html) in the *AWS IoT SiteWise User Guide* .
+	//
+	// You can specify up to 10 hierarchies per asset model. For more information, see [Quotas](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html) in the *AWS IoT SiteWise User Guide* .
+	AssetModelHierarchies interface{} `json:"assetModelHierarchies"`
+	// The property definitions of the asset model.
+	//
+	// For more information, see [Defining data properties](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html) in the *AWS IoT SiteWise User Guide* .
+	//
+	// You can specify up to 200 properties per asset model. For more information, see [Quotas](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html) in the *AWS IoT SiteWise User Guide* .
 	AssetModelProperties interface{} `json:"assetModelProperties"`
-	// `AWS::IoTSiteWise::AssetModel.Tags`.
+	// A list of key-value pairs that contain metadata for the asset.
+	//
+	// For more information, see [Tagging your AWS IoT SiteWise resources](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html) in the *AWS IoT SiteWise User Guide* .
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
-// Properties for defining a `AWS::IoTSiteWise::Asset`.
+// Properties for defining a `CfnAsset`.
 //
 // TODO: EXAMPLE
 //
 type CfnAssetProps struct {
-	// `AWS::IoTSiteWise::Asset.AssetHierarchies`.
-	AssetHierarchies interface{} `json:"assetHierarchies"`
-	// `AWS::IoTSiteWise::Asset.AssetModelId`.
+	// The ID of the asset model from which to create the asset.
 	AssetModelId *string `json:"assetModelId"`
-	// `AWS::IoTSiteWise::Asset.AssetName`.
+	// A unique, friendly name for the asset.
+	//
+	// The maximum length is 256 characters with the pattern `[^\ u0000-\ u001F\ u007F]+` .
 	AssetName *string `json:"assetName"`
-	// `AWS::IoTSiteWise::Asset.AssetProperties`.
+	// A list of asset hierarchies that each contain a `hierarchyLogicalId` .
+	//
+	// A hierarchy specifies allowed parent/child asset relationships.
+	AssetHierarchies interface{} `json:"assetHierarchies"`
+	// The list of asset properties for the asset.
+	//
+	// This object doesn't include properties that you define in composite models. You can find composite model properties in the `assetCompositeModels` object.
 	AssetProperties interface{} `json:"assetProperties"`
-	// `AWS::IoTSiteWise::Asset.Tags`.
+	// A list of key-value pairs that contain metadata for the asset.
+	//
+	// For more information, see [Tagging your AWS IoT SiteWise resources](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html) in the *AWS IoT SiteWise User Guide* .
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::IoTSiteWise::Dashboard`.
+//
+// Creates a dashboard in an AWS IoT SiteWise Monitor project.
 //
 // TODO: EXAMPLE
 //
@@ -1946,7 +2494,7 @@ type CfnDashboard interface {
 	DashboardName() *string
 	SetDashboardName(val *string)
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	ProjectId() *string
 	SetProjectId(val *string)
 	Ref() *string
@@ -1963,10 +2511,16 @@ type CfnDashboard interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -2076,8 +2630,8 @@ func (j *jsiiProxy_CfnDashboard) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDashboard) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnDashboard) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2138,13 +2692,13 @@ func (j *jsiiProxy_CfnDashboard) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::IoTSiteWise::Dashboard`.
-func NewCfnDashboard(scope constructs.Construct, id *string, props *CfnDashboardProps) CfnDashboard {
+func NewCfnDashboard(scope awscdk.Construct, id *string, props *CfnDashboardProps) CfnDashboard {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDashboard{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iotsitewise.CfnDashboard",
+		"monocdk.aws_iotsitewise.CfnDashboard",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2153,11 +2707,11 @@ func NewCfnDashboard(scope constructs.Construct, id *string, props *CfnDashboard
 }
 
 // Create a new `AWS::IoTSiteWise::Dashboard`.
-func NewCfnDashboard_Override(c CfnDashboard, scope constructs.Construct, id *string, props *CfnDashboardProps) {
+func NewCfnDashboard_Override(c CfnDashboard, scope awscdk.Construct, id *string, props *CfnDashboardProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iotsitewise.CfnDashboard",
+		"monocdk.aws_iotsitewise.CfnDashboard",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2201,13 +2755,14 @@ func (j *jsiiProxy_CfnDashboard) SetProjectId(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnDashboard_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotsitewise.CfnDashboard",
+		"monocdk.aws_iotsitewise.CfnDashboard",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2217,13 +2772,14 @@ func CfnDashboard_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnDashboard_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotsitewise.CfnDashboard",
+		"monocdk.aws_iotsitewise.CfnDashboard",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2232,17 +2788,15 @@ func CfnDashboard_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnDashboard_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotsitewise.CfnDashboard",
+		"monocdk.aws_iotsitewise.CfnDashboard",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2255,7 +2809,7 @@ func CfnDashboard_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_iotsitewise.CfnDashboard",
+		"monocdk.aws_iotsitewise.CfnDashboard",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2263,6 +2817,7 @@ func CfnDashboard_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnDashboard) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2275,6 +2830,7 @@ func (c *jsiiProxy_CfnDashboard) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnDashboard) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2290,6 +2846,7 @@ func (c *jsiiProxy_CfnDashboard) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnDashboard) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2335,6 +2892,7 @@ func (c *jsiiProxy_CfnDashboard) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnDashboard) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2344,6 +2902,7 @@ func (c *jsiiProxy_CfnDashboard) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnDashboard) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2355,6 +2914,7 @@ func (c *jsiiProxy_CfnDashboard) AddPropertyDeletionOverride(propertyPath *strin
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnDashboard) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2372,6 +2932,7 @@ func (c *jsiiProxy_CfnDashboard) AddPropertyOverride(propertyPath *string, value
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnDashboard) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2384,6 +2945,7 @@ func (c *jsiiProxy_CfnDashboard) ApplyRemovalPolicy(policy awscdk.RemovalPolicy,
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnDashboard) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2404,6 +2966,7 @@ func (c *jsiiProxy_CfnDashboard) GetAtt(attributeName *string) awscdk.Reference 
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnDashboard) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2426,12 +2989,80 @@ func (c *jsiiProxy_CfnDashboard) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDashboard) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDashboard) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDashboard) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnDashboard) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDashboard) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2452,6 +3083,7 @@ func (c *jsiiProxy_CfnDashboard) RenderProperties(props *map[string]interface{})
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnDashboard) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2465,9 +3097,23 @@ func (c *jsiiProxy_CfnDashboard) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDashboard) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnDashboard) ToString() *string {
 	var returns *string
 
@@ -2481,6 +3127,27 @@ func (c *jsiiProxy_CfnDashboard) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDashboard) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnDashboard) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2489,24 +3156,30 @@ func (c *jsiiProxy_CfnDashboard) ValidateProperties(_properties interface{}) {
 	)
 }
 
-// Properties for defining a `AWS::IoTSiteWise::Dashboard`.
+// Properties for defining a `CfnDashboard`.
 //
 // TODO: EXAMPLE
 //
 type CfnDashboardProps struct {
-	// `AWS::IoTSiteWise::Dashboard.DashboardDefinition`.
+	// The dashboard definition specified in a JSON literal.
+	//
+	// For detailed information, see [Creating dashboards (CLI)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-dashboards-using-aws-cli.html) in the *AWS IoT SiteWise User Guide* .
 	DashboardDefinition *string `json:"dashboardDefinition"`
-	// `AWS::IoTSiteWise::Dashboard.DashboardDescription`.
+	// A description for the dashboard.
 	DashboardDescription *string `json:"dashboardDescription"`
-	// `AWS::IoTSiteWise::Dashboard.DashboardName`.
+	// A friendly name for the dashboard.
 	DashboardName *string `json:"dashboardName"`
-	// `AWS::IoTSiteWise::Dashboard.ProjectId`.
+	// The ID of the project in which to create the dashboard.
 	ProjectId *string `json:"projectId"`
-	// `AWS::IoTSiteWise::Dashboard.Tags`.
+	// A list of key-value pairs that contain metadata for the dashboard.
+	//
+	// For more information, see [Tagging your AWS IoT SiteWise resources](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html) in the *AWS IoT SiteWise User Guide* .
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::IoTSiteWise::Gateway`.
+//
+// Creates a gateway, which is a virtual or edge device that delivers industrial data streams from local servers to AWS IoT SiteWise . For more information, see [Ingesting data using a gateway](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/gateway-connector.html) in the *AWS IoT SiteWise User Guide* .
 //
 // TODO: EXAMPLE
 //
@@ -2525,7 +3198,7 @@ type CfnGateway interface {
 	GatewayPlatform() interface{}
 	SetGatewayPlatform(val interface{})
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	Tags() awscdk.TagManager
@@ -2540,10 +3213,16 @@ type CfnGateway interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -2643,8 +3322,8 @@ func (j *jsiiProxy_CfnGateway) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGateway) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnGateway) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2695,13 +3374,13 @@ func (j *jsiiProxy_CfnGateway) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::IoTSiteWise::Gateway`.
-func NewCfnGateway(scope constructs.Construct, id *string, props *CfnGatewayProps) CfnGateway {
+func NewCfnGateway(scope awscdk.Construct, id *string, props *CfnGatewayProps) CfnGateway {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnGateway{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iotsitewise.CfnGateway",
+		"monocdk.aws_iotsitewise.CfnGateway",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2710,11 +3389,11 @@ func NewCfnGateway(scope constructs.Construct, id *string, props *CfnGatewayProp
 }
 
 // Create a new `AWS::IoTSiteWise::Gateway`.
-func NewCfnGateway_Override(c CfnGateway, scope constructs.Construct, id *string, props *CfnGatewayProps) {
+func NewCfnGateway_Override(c CfnGateway, scope awscdk.Construct, id *string, props *CfnGatewayProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iotsitewise.CfnGateway",
+		"monocdk.aws_iotsitewise.CfnGateway",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2750,13 +3429,14 @@ func (j *jsiiProxy_CfnGateway) SetGatewayPlatform(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnGateway_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotsitewise.CfnGateway",
+		"monocdk.aws_iotsitewise.CfnGateway",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2766,13 +3446,14 @@ func CfnGateway_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnGateway_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotsitewise.CfnGateway",
+		"monocdk.aws_iotsitewise.CfnGateway",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2781,17 +3462,15 @@ func CfnGateway_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnGateway_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotsitewise.CfnGateway",
+		"monocdk.aws_iotsitewise.CfnGateway",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2804,7 +3483,7 @@ func CfnGateway_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_iotsitewise.CfnGateway",
+		"monocdk.aws_iotsitewise.CfnGateway",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2812,6 +3491,7 @@ func CfnGateway_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnGateway) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2824,6 +3504,7 @@ func (c *jsiiProxy_CfnGateway) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnGateway) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2839,6 +3520,7 @@ func (c *jsiiProxy_CfnGateway) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnGateway) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2884,6 +3566,7 @@ func (c *jsiiProxy_CfnGateway) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnGateway) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2893,6 +3576,7 @@ func (c *jsiiProxy_CfnGateway) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnGateway) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2904,6 +3588,7 @@ func (c *jsiiProxy_CfnGateway) AddPropertyDeletionOverride(propertyPath *string)
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnGateway) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2921,6 +3606,7 @@ func (c *jsiiProxy_CfnGateway) AddPropertyOverride(propertyPath *string, value i
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnGateway) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2933,6 +3619,7 @@ func (c *jsiiProxy_CfnGateway) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, o
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnGateway) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2953,6 +3640,7 @@ func (c *jsiiProxy_CfnGateway) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnGateway) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2975,12 +3663,80 @@ func (c *jsiiProxy_CfnGateway) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnGateway) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnGateway) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnGateway) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnGateway) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnGateway) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -3001,6 +3757,7 @@ func (c *jsiiProxy_CfnGateway) RenderProperties(props *map[string]interface{}) *
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnGateway) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -3014,9 +3771,23 @@ func (c *jsiiProxy_CfnGateway) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnGateway) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnGateway) ToString() *string {
 	var returns *string
 
@@ -3030,6 +3801,27 @@ func (c *jsiiProxy_CfnGateway) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnGateway) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnGateway) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3038,45 +3830,71 @@ func (c *jsiiProxy_CfnGateway) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// Contains a summary of a gateway capability configuration.
+//
 // TODO: EXAMPLE
 //
 type CfnGateway_GatewayCapabilitySummaryProperty struct {
-	// `CfnGateway.GatewayCapabilitySummaryProperty.CapabilityConfiguration`.
-	CapabilityConfiguration *string `json:"capabilityConfiguration"`
-	// `CfnGateway.GatewayCapabilitySummaryProperty.CapabilityNamespace`.
+	// The namespace of the capability configuration.
+	//
+	// For example, if you configure OPC-UA sources from the AWS IoT SiteWise console, your OPC-UA capability configuration has the namespace `iotsitewise:opcuacollector:version` , where `version` is a number such as `1` .
+	//
+	// The maximum length is 512 characters with the pattern `^[a-zA-Z]+:[a-zA-Z]+:[0-9]+$` .
 	CapabilityNamespace *string `json:"capabilityNamespace"`
+	// The JSON document that defines the configuration for the gateway capability.
+	//
+	// For more information, see [Configuring data sources (CLI)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/configure-sources.html#configure-source-cli) in the *AWS IoT SiteWise User Guide* .
+	CapabilityConfiguration *string `json:"capabilityConfiguration"`
 }
 
+// Contains a gateway's platform information.
+//
 // TODO: EXAMPLE
 //
 type CfnGateway_GatewayPlatformProperty struct {
-	// `CfnGateway.GatewayPlatformProperty.Greengrass`.
+	// A gateway that runs on AWS IoT Greengrass .
 	Greengrass interface{} `json:"greengrass"`
 }
 
+// Contains details for a gateway that runs on AWS IoT Greengrass .
+//
+// To create a gateway that runs on AWS IoT Greengrass , you must add the IoT SiteWise connector to a Greengrass group and deploy it. Your Greengrass group must also have permissions to upload data to AWS IoT SiteWise . For more information, see [Ingesting data using a gateway](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/gateway-connector.html) in the *AWS IoT SiteWise User Guide* .
+//
 // TODO: EXAMPLE
 //
 type CfnGateway_GreengrassProperty struct {
-	// `CfnGateway.GreengrassProperty.GroupArn`.
+	// The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the Greengrass group. For more information about how to find a group's ARN, see [ListGroups](https://docs.aws.amazon.com/greengrass/latest/apireference/listgroups-get.html) and [GetGroup](https://docs.aws.amazon.com/greengrass/latest/apireference/getgroup-get.html) in the *AWS IoT Greengrass API Reference* .
 	GroupArn *string `json:"groupArn"`
 }
 
-// Properties for defining a `AWS::IoTSiteWise::Gateway`.
+// Properties for defining a `CfnGateway`.
 //
 // TODO: EXAMPLE
 //
 type CfnGatewayProps struct {
-	// `AWS::IoTSiteWise::Gateway.GatewayCapabilitySummaries`.
-	GatewayCapabilitySummaries interface{} `json:"gatewayCapabilitySummaries"`
-	// `AWS::IoTSiteWise::Gateway.GatewayName`.
+	// A unique, friendly name for the gateway.
+	//
+	// The maximum length is 256 characters with the pattern `[^\ u0000-\ u001F\ u007F]+` .
 	GatewayName *string `json:"gatewayName"`
-	// `AWS::IoTSiteWise::Gateway.GatewayPlatform`.
+	// The gateway's platform.
+	//
+	// You can only specify one platform in a gateway.
 	GatewayPlatform interface{} `json:"gatewayPlatform"`
-	// `AWS::IoTSiteWise::Gateway.Tags`.
+	// A list of gateway capability summaries that each contain a namespace and status.
+	//
+	// Each gateway capability defines data sources for the gateway. To retrieve a capability configuration's definition, use [DescribeGatewayCapabilityConfiguration](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeGatewayCapabilityConfiguration.html) .
+	GatewayCapabilitySummaries interface{} `json:"gatewayCapabilitySummaries"`
+	// A list of key-value pairs that contain metadata for the gateway.
+	//
+	// For more information, see [Tagging your AWS IoT SiteWise resources](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html) in the *AWS IoT SiteWise User Guide* .
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::IoTSiteWise::Portal`.
+//
+// Creates a portal, which can contain projects and dashboards. Before you can create a portal, you must enable AWS SSO . AWS IoT SiteWise Monitor uses AWS SSO to manage user permissions. For more information, see [Enabling AWS SSO](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-get-started.html#mon-gs-sso) in the *AWS IoT SiteWise User Guide* .
+//
+// > Before you can sign in to a new portal, you must add at least one AWS SSO user or group to that portal. For more information, see [Adding or removing portal administrators](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/administer-portals.html#portal-change-admins) in the *AWS IoT SiteWise User Guide* .
 //
 // TODO: EXAMPLE
 //
@@ -3094,7 +3912,7 @@ type CfnPortal interface {
 	CfnResourceType() *string
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	NotificationSenderEmail() *string
 	SetNotificationSenderEmail(val *string)
 	PortalAuthMode() *string
@@ -3121,10 +3939,16 @@ type CfnPortal interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -3234,8 +4058,8 @@ func (j *jsiiProxy_CfnPortal) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPortal) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnPortal) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -3346,13 +4170,13 @@ func (j *jsiiProxy_CfnPortal) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::IoTSiteWise::Portal`.
-func NewCfnPortal(scope constructs.Construct, id *string, props *CfnPortalProps) CfnPortal {
+func NewCfnPortal(scope awscdk.Construct, id *string, props *CfnPortalProps) CfnPortal {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnPortal{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iotsitewise.CfnPortal",
+		"monocdk.aws_iotsitewise.CfnPortal",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3361,11 +4185,11 @@ func NewCfnPortal(scope constructs.Construct, id *string, props *CfnPortalProps)
 }
 
 // Create a new `AWS::IoTSiteWise::Portal`.
-func NewCfnPortal_Override(c CfnPortal, scope constructs.Construct, id *string, props *CfnPortalProps) {
+func NewCfnPortal_Override(c CfnPortal, scope awscdk.Construct, id *string, props *CfnPortalProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iotsitewise.CfnPortal",
+		"monocdk.aws_iotsitewise.CfnPortal",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -3433,13 +4257,14 @@ func (j *jsiiProxy_CfnPortal) SetRoleArn(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnPortal_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotsitewise.CfnPortal",
+		"monocdk.aws_iotsitewise.CfnPortal",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -3449,13 +4274,14 @@ func CfnPortal_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnPortal_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotsitewise.CfnPortal",
+		"monocdk.aws_iotsitewise.CfnPortal",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3464,17 +4290,15 @@ func CfnPortal_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnPortal_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotsitewise.CfnPortal",
+		"monocdk.aws_iotsitewise.CfnPortal",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3487,7 +4311,7 @@ func CfnPortal_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_iotsitewise.CfnPortal",
+		"monocdk.aws_iotsitewise.CfnPortal",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -3495,6 +4319,7 @@ func CfnPortal_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnPortal) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3507,6 +4332,7 @@ func (c *jsiiProxy_CfnPortal) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnPortal) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3522,6 +4348,7 @@ func (c *jsiiProxy_CfnPortal) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnPortal) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3567,6 +4394,7 @@ func (c *jsiiProxy_CfnPortal) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnPortal) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3576,6 +4404,7 @@ func (c *jsiiProxy_CfnPortal) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnPortal) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3587,6 +4416,7 @@ func (c *jsiiProxy_CfnPortal) AddPropertyDeletionOverride(propertyPath *string) 
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnPortal) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3604,6 +4434,7 @@ func (c *jsiiProxy_CfnPortal) AddPropertyOverride(propertyPath *string, value in
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnPortal) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3616,6 +4447,7 @@ func (c *jsiiProxy_CfnPortal) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, op
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnPortal) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -3636,6 +4468,7 @@ func (c *jsiiProxy_CfnPortal) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnPortal) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -3658,12 +4491,80 @@ func (c *jsiiProxy_CfnPortal) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnPortal) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnPortal) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnPortal) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnPortal) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnPortal) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -3684,6 +4585,7 @@ func (c *jsiiProxy_CfnPortal) RenderProperties(props *map[string]interface{}) *m
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnPortal) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -3697,9 +4599,23 @@ func (c *jsiiProxy_CfnPortal) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnPortal) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnPortal) ToString() *string {
 	var returns *string
 
@@ -3713,6 +4629,27 @@ func (c *jsiiProxy_CfnPortal) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnPortal) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnPortal) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3721,30 +4658,47 @@ func (c *jsiiProxy_CfnPortal) ValidateProperties(_properties interface{}) {
 	)
 }
 
-// Properties for defining a `AWS::IoTSiteWise::Portal`.
+// Properties for defining a `CfnPortal`.
 //
 // TODO: EXAMPLE
 //
 type CfnPortalProps struct {
-	// `AWS::IoTSiteWise::Portal.Alarms`.
-	Alarms interface{} `json:"alarms"`
-	// `AWS::IoTSiteWise::Portal.NotificationSenderEmail`.
-	NotificationSenderEmail *string `json:"notificationSenderEmail"`
-	// `AWS::IoTSiteWise::Portal.PortalAuthMode`.
-	PortalAuthMode *string `json:"portalAuthMode"`
-	// `AWS::IoTSiteWise::Portal.PortalContactEmail`.
+	// The AWS administrator's contact email address.
 	PortalContactEmail *string `json:"portalContactEmail"`
-	// `AWS::IoTSiteWise::Portal.PortalDescription`.
-	PortalDescription *string `json:"portalDescription"`
-	// `AWS::IoTSiteWise::Portal.PortalName`.
+	// A friendly name for the portal.
 	PortalName *string `json:"portalName"`
-	// `AWS::IoTSiteWise::Portal.RoleArn`.
+	// The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of a service role that allows the portal's users to access your AWS IoT SiteWise resources on your behalf. For more information, see [Using service roles for AWS IoT SiteWise Monitor](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-service-role.html) in the *AWS IoT SiteWise User Guide* .
 	RoleArn *string `json:"roleArn"`
-	// `AWS::IoTSiteWise::Portal.Tags`.
+	// Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal.
+	//
+	// You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range. For more information, see [Monitoring with alarms](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/monitor-alarms.html) in the *AWS IoT SiteWise Application Guide* .
+	Alarms interface{} `json:"alarms"`
+	// The email address that sends alarm notifications.
+	//
+	// > If you use the [AWS IoT Events managed Lambda function](https://docs.aws.amazon.com/iotevents/latest/developerguide/lambda-support.html) to manage your emails, you must [verify the sender email address in Amazon SES](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html) .
+	NotificationSenderEmail *string `json:"notificationSenderEmail"`
+	// The service to use to authenticate users to the portal. Choose from the following options:.
+	//
+	// - `SSO` – The portal uses AWS Single Sign-On to authenticate users and manage user permissions. Before you can create a portal that uses AWS SSO , you must enable AWS SSO . For more information, see [Enabling AWS SSO](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-get-started.html#mon-gs-sso) in the *AWS IoT SiteWise User Guide* . This option is only available in AWS Regions other than the China Regions.
+	// - `IAM` – The portal uses AWS Identity and Access Management ( IAM ) to authenticate users and manage user permissions.
+	//
+	// You can't change this value after you create a portal.
+	//
+	// Default: `SSO`
+	PortalAuthMode *string `json:"portalAuthMode"`
+	// A description for the portal.
+	PortalDescription *string `json:"portalDescription"`
+	// A list of key-value pairs that contain metadata for the portal.
+	//
+	// For more information, see [Tagging your AWS IoT SiteWise resources](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html) in the *AWS IoT SiteWise User Guide* .
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::IoTSiteWise::Project`.
+//
+// Creates a project in the specified portal.
+//
+// > Make sure that the project name and description don't contain confidential information.
 //
 // TODO: EXAMPLE
 //
@@ -3760,7 +4714,7 @@ type CfnProject interface {
 	CfnResourceType() *string
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PortalId() *string
 	SetPortalId(val *string)
 	ProjectDescription() *string
@@ -3781,10 +4735,16 @@ type CfnProject interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -3874,8 +4834,8 @@ func (j *jsiiProxy_CfnProject) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnProject) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnProject) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -3956,13 +4916,13 @@ func (j *jsiiProxy_CfnProject) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::IoTSiteWise::Project`.
-func NewCfnProject(scope constructs.Construct, id *string, props *CfnProjectProps) CfnProject {
+func NewCfnProject(scope awscdk.Construct, id *string, props *CfnProjectProps) CfnProject {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnProject{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iotsitewise.CfnProject",
+		"monocdk.aws_iotsitewise.CfnProject",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3971,11 +4931,11 @@ func NewCfnProject(scope constructs.Construct, id *string, props *CfnProjectProp
 }
 
 // Create a new `AWS::IoTSiteWise::Project`.
-func NewCfnProject_Override(c CfnProject, scope constructs.Construct, id *string, props *CfnProjectProps) {
+func NewCfnProject_Override(c CfnProject, scope awscdk.Construct, id *string, props *CfnProjectProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iotsitewise.CfnProject",
+		"monocdk.aws_iotsitewise.CfnProject",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -4019,13 +4979,14 @@ func (j *jsiiProxy_CfnProject) SetProjectName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnProject_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotsitewise.CfnProject",
+		"monocdk.aws_iotsitewise.CfnProject",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -4035,13 +4996,14 @@ func CfnProject_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnProject_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotsitewise.CfnProject",
+		"monocdk.aws_iotsitewise.CfnProject",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -4050,17 +5012,15 @@ func CfnProject_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnProject_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotsitewise.CfnProject",
+		"monocdk.aws_iotsitewise.CfnProject",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4073,7 +5033,7 @@ func CfnProject_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_iotsitewise.CfnProject",
+		"monocdk.aws_iotsitewise.CfnProject",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -4081,6 +5041,7 @@ func CfnProject_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnProject) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4093,6 +5054,7 @@ func (c *jsiiProxy_CfnProject) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnProject) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4108,6 +5070,7 @@ func (c *jsiiProxy_CfnProject) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnProject) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4153,6 +5116,7 @@ func (c *jsiiProxy_CfnProject) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnProject) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4162,6 +5126,7 @@ func (c *jsiiProxy_CfnProject) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnProject) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4173,6 +5138,7 @@ func (c *jsiiProxy_CfnProject) AddPropertyDeletionOverride(propertyPath *string)
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnProject) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4190,6 +5156,7 @@ func (c *jsiiProxy_CfnProject) AddPropertyOverride(propertyPath *string, value i
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnProject) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4202,6 +5169,7 @@ func (c *jsiiProxy_CfnProject) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, o
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnProject) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -4222,6 +5190,7 @@ func (c *jsiiProxy_CfnProject) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnProject) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -4244,12 +5213,80 @@ func (c *jsiiProxy_CfnProject) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnProject) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnProject) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnProject) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnProject) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnProject) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -4270,6 +5307,7 @@ func (c *jsiiProxy_CfnProject) RenderProperties(props *map[string]interface{}) *
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnProject) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -4283,9 +5321,23 @@ func (c *jsiiProxy_CfnProject) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnProject) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnProject) ToString() *string {
 	var returns *string
 
@@ -4299,6 +5351,27 @@ func (c *jsiiProxy_CfnProject) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnProject) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnProject) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4307,20 +5380,22 @@ func (c *jsiiProxy_CfnProject) ValidateProperties(_properties interface{}) {
 	)
 }
 
-// Properties for defining a `AWS::IoTSiteWise::Project`.
+// Properties for defining a `CfnProject`.
 //
 // TODO: EXAMPLE
 //
 type CfnProjectProps struct {
+	// The ID of the portal in which to create the project.
+	PortalId *string `json:"portalId"`
+	// A friendly name for the project.
+	ProjectName *string `json:"projectName"`
 	// `AWS::IoTSiteWise::Project.AssetIds`.
 	AssetIds *[]*string `json:"assetIds"`
-	// `AWS::IoTSiteWise::Project.PortalId`.
-	PortalId *string `json:"portalId"`
-	// `AWS::IoTSiteWise::Project.ProjectDescription`.
+	// A description for the project.
 	ProjectDescription *string `json:"projectDescription"`
-	// `AWS::IoTSiteWise::Project.ProjectName`.
-	ProjectName *string `json:"projectName"`
-	// `AWS::IoTSiteWise::Project.Tags`.
+	// A list of key-value pairs that contain metadata for the project.
+	//
+	// For more information, see [Tagging your AWS IoT SiteWise resources](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html) in the *AWS IoT SiteWise User Guide* .
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 

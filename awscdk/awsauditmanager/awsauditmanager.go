@@ -1,15 +1,17 @@
 package awsauditmanager
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsauditmanager/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsauditmanager/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::AuditManager::Assessment`.
+//
+// The `AWS::AuditManager::Assessment` resource is an AWS Audit Manager resource type that defines the scope of audit evidence collected by Audit Manager . An Audit Manager assessment is an implementation of an Audit Manager framework.
 //
 // TODO: EXAMPLE
 //
@@ -35,7 +37,7 @@ type CfnAssessment interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Roles() interface{}
 	SetRoles(val interface{})
@@ -56,10 +58,16 @@ type CfnAssessment interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -209,8 +217,8 @@ func (j *jsiiProxy_CfnAssessment) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAssessment) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnAssessment) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -291,13 +299,13 @@ func (j *jsiiProxy_CfnAssessment) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::AuditManager::Assessment`.
-func NewCfnAssessment(scope constructs.Construct, id *string, props *CfnAssessmentProps) CfnAssessment {
+func NewCfnAssessment(scope awscdk.Construct, id *string, props *CfnAssessmentProps) CfnAssessment {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnAssessment{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_auditmanager.CfnAssessment",
+		"monocdk.aws_auditmanager.CfnAssessment",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -306,11 +314,11 @@ func NewCfnAssessment(scope constructs.Construct, id *string, props *CfnAssessme
 }
 
 // Create a new `AWS::AuditManager::Assessment`.
-func NewCfnAssessment_Override(c CfnAssessment, scope constructs.Construct, id *string, props *CfnAssessmentProps) {
+func NewCfnAssessment_Override(c CfnAssessment, scope awscdk.Construct, id *string, props *CfnAssessmentProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_auditmanager.CfnAssessment",
+		"monocdk.aws_auditmanager.CfnAssessment",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -386,13 +394,14 @@ func (j *jsiiProxy_CfnAssessment) SetStatus(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnAssessment_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_auditmanager.CfnAssessment",
+		"monocdk.aws_auditmanager.CfnAssessment",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -402,13 +411,14 @@ func CfnAssessment_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnAssessment_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_auditmanager.CfnAssessment",
+		"monocdk.aws_auditmanager.CfnAssessment",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -417,17 +427,15 @@ func CfnAssessment_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnAssessment_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_auditmanager.CfnAssessment",
+		"monocdk.aws_auditmanager.CfnAssessment",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -440,7 +448,7 @@ func CfnAssessment_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_auditmanager.CfnAssessment",
+		"monocdk.aws_auditmanager.CfnAssessment",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -448,6 +456,7 @@ func CfnAssessment_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnAssessment) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -460,6 +469,7 @@ func (c *jsiiProxy_CfnAssessment) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnAssessment) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -475,6 +485,7 @@ func (c *jsiiProxy_CfnAssessment) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnAssessment) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -520,6 +531,7 @@ func (c *jsiiProxy_CfnAssessment) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnAssessment) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -529,6 +541,7 @@ func (c *jsiiProxy_CfnAssessment) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnAssessment) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -540,6 +553,7 @@ func (c *jsiiProxy_CfnAssessment) AddPropertyDeletionOverride(propertyPath *stri
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnAssessment) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -557,6 +571,7 @@ func (c *jsiiProxy_CfnAssessment) AddPropertyOverride(propertyPath *string, valu
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnAssessment) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -569,6 +584,7 @@ func (c *jsiiProxy_CfnAssessment) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnAssessment) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -589,6 +605,7 @@ func (c *jsiiProxy_CfnAssessment) GetAtt(attributeName *string) awscdk.Reference
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnAssessment) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -611,12 +628,80 @@ func (c *jsiiProxy_CfnAssessment) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnAssessment) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnAssessment) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnAssessment) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnAssessment) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnAssessment) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -637,6 +722,7 @@ func (c *jsiiProxy_CfnAssessment) RenderProperties(props *map[string]interface{}
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnAssessment) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -650,9 +736,23 @@ func (c *jsiiProxy_CfnAssessment) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnAssessment) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnAssessment) ToString() *string {
 	var returns *string
 
@@ -666,6 +766,27 @@ func (c *jsiiProxy_CfnAssessment) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnAssessment) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnAssessment) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -674,100 +795,130 @@ func (c *jsiiProxy_CfnAssessment) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// The `AWSAccount` property type specifies the wrapper of the AWS account details, such as account ID, email address, and so on.
+//
 // TODO: EXAMPLE
 //
 type CfnAssessment_AWSAccountProperty struct {
-	// `CfnAssessment.AWSAccountProperty.EmailAddress`.
+	// The email address that's associated with the AWS account .
 	EmailAddress *string `json:"emailAddress"`
-	// `CfnAssessment.AWSAccountProperty.Id`.
+	// The identifier for the AWS account .
 	Id *string `json:"id"`
-	// `CfnAssessment.AWSAccountProperty.Name`.
+	// The name of the AWS account .
 	Name *string `json:"name"`
 }
 
+// The `AWSService` property type specifies an AWS service such as Amazon S3 , AWS CloudTrail , and so on.
+//
 // TODO: EXAMPLE
 //
 type CfnAssessment_AWSServiceProperty struct {
-	// `CfnAssessment.AWSServiceProperty.ServiceName`.
+	// The name of the AWS service .
 	ServiceName *string `json:"serviceName"`
 }
 
+// The `AssessmentReportsDestination` property type specifies the location in which AWS Audit Manager saves assessment reports for the given assessment.
+//
 // TODO: EXAMPLE
 //
 type CfnAssessment_AssessmentReportsDestinationProperty struct {
-	// `CfnAssessment.AssessmentReportsDestinationProperty.Destination`.
+	// The destination of the assessment report.
 	Destination *string `json:"destination"`
-	// `CfnAssessment.AssessmentReportsDestinationProperty.DestinationType`.
+	// The destination type, such as Amazon S3.
 	DestinationType *string `json:"destinationType"`
 }
 
+// The `Delegation` property type specifies the assignment of a control set to a delegate for review.
+//
 // TODO: EXAMPLE
 //
 type CfnAssessment_DelegationProperty struct {
-	// `CfnAssessment.DelegationProperty.AssessmentId`.
+	// The identifier for the assessment that's associated with the delegation.
 	AssessmentId *string `json:"assessmentId"`
-	// `CfnAssessment.DelegationProperty.AssessmentName`.
+	// The name of the assessment that's associated with the delegation.
 	AssessmentName *string `json:"assessmentName"`
-	// `CfnAssessment.DelegationProperty.Comment`.
+	// The comment that's related to the delegation.
 	Comment *string `json:"comment"`
-	// `CfnAssessment.DelegationProperty.ControlSetId`.
+	// The identifier for the control set that's associated with the delegation.
 	ControlSetId *string `json:"controlSetId"`
-	// `CfnAssessment.DelegationProperty.CreatedBy`.
+	// The IAM user or role that created the delegation.
+	//
+	// *Minimum* : `1`
+	//
+	// *Maximum* : `100`
+	//
+	// *Pattern* : `^[a-zA-Z0-9-_()\\[\\]\\s]+$`
 	CreatedBy *string `json:"createdBy"`
-	// `CfnAssessment.DelegationProperty.CreationTime`.
+	// Specifies when the delegation was created.
 	CreationTime *float64 `json:"creationTime"`
-	// `CfnAssessment.DelegationProperty.Id`.
+	// The unique identifier for the delegation.
 	Id *string `json:"id"`
-	// `CfnAssessment.DelegationProperty.LastUpdated`.
+	// Specifies when the delegation was last updated.
 	LastUpdated *float64 `json:"lastUpdated"`
-	// `CfnAssessment.DelegationProperty.RoleArn`.
+	// The Amazon Resource Name (ARN) of the IAM role.
 	RoleArn *string `json:"roleArn"`
-	// `CfnAssessment.DelegationProperty.RoleType`.
+	// The type of customer persona.
+	//
+	// > In `CreateAssessment` , `roleType` can only be `PROCESS_OWNER` .
+	// >
+	// > In `UpdateSettings` , `roleType` can only be `PROCESS_OWNER` .
+	// >
+	// > In `BatchCreateDelegationByAssessment` , `roleType` can only be `RESOURCE_OWNER` .
 	RoleType *string `json:"roleType"`
-	// `CfnAssessment.DelegationProperty.Status`.
+	// The status of the delegation.
 	Status *string `json:"status"`
 }
 
+// The `Role` property type specifies the wrapper that contains AWS Audit Manager role information, such as the role type and IAM Amazon Resource Name (ARN).
+//
 // TODO: EXAMPLE
 //
 type CfnAssessment_RoleProperty struct {
-	// `CfnAssessment.RoleProperty.RoleArn`.
+	// The Amazon Resource Name (ARN) of the IAM role.
 	RoleArn *string `json:"roleArn"`
-	// `CfnAssessment.RoleProperty.RoleType`.
+	// The type of customer persona.
+	//
+	// > In `CreateAssessment` , `roleType` can only be `PROCESS_OWNER` .
+	// >
+	// > In `UpdateSettings` , `roleType` can only be `PROCESS_OWNER` .
+	// >
+	// > In `BatchCreateDelegationByAssessment` , `roleType` can only be `RESOURCE_OWNER` .
 	RoleType *string `json:"roleType"`
 }
 
+// The `Scope` property type specifies the wrapper that contains the AWS accounts and services in scope for the assessment.
+//
 // TODO: EXAMPLE
 //
 type CfnAssessment_ScopeProperty struct {
-	// `CfnAssessment.ScopeProperty.AwsAccounts`.
+	// The AWS accounts that are included in the scope of the assessment.
 	AwsAccounts interface{} `json:"awsAccounts"`
-	// `CfnAssessment.ScopeProperty.AwsServices`.
+	// The AWS services that are included in the scope of the assessment.
 	AwsServices interface{} `json:"awsServices"`
 }
 
-// Properties for defining a `AWS::AuditManager::Assessment`.
+// Properties for defining a `CfnAssessment`.
 //
 // TODO: EXAMPLE
 //
 type CfnAssessmentProps struct {
-	// `AWS::AuditManager::Assessment.AssessmentReportsDestination`.
+	// The destination that evidence reports are stored in for the assessment.
 	AssessmentReportsDestination interface{} `json:"assessmentReportsDestination"`
-	// `AWS::AuditManager::Assessment.AwsAccount`.
+	// The AWS account that's associated with the assessment.
 	AwsAccount interface{} `json:"awsAccount"`
-	// `AWS::AuditManager::Assessment.Description`.
+	// The description of the assessment.
 	Description *string `json:"description"`
-	// `AWS::AuditManager::Assessment.FrameworkId`.
+	// The unique identifier for the framework.
 	FrameworkId *string `json:"frameworkId"`
-	// `AWS::AuditManager::Assessment.Name`.
+	// The name of the assessment.
 	Name *string `json:"name"`
-	// `AWS::AuditManager::Assessment.Roles`.
+	// The roles that are associated with the assessment.
 	Roles interface{} `json:"roles"`
-	// `AWS::AuditManager::Assessment.Scope`.
+	// The wrapper of AWS accounts and services that are in scope for the assessment.
 	Scope interface{} `json:"scope"`
-	// `AWS::AuditManager::Assessment.Status`.
+	// The overall status of the assessment.
 	Status *string `json:"status"`
-	// `AWS::AuditManager::Assessment.Tags`.
+	// The tags that are associated with the assessment.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 

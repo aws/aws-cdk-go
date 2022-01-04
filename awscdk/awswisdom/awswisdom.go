@@ -1,15 +1,17 @@
 package awswisdom
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awswisdom/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awswisdom/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::Wisdom::Assistant`.
+//
+// Specifies an Amazon Connect Wisdom assistant.
 //
 // TODO: EXAMPLE
 //
@@ -27,7 +29,7 @@ type CfnAssistant interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	ServerSideEncryptionConfiguration() interface{}
 	SetServerSideEncryptionConfiguration(val interface{})
@@ -46,10 +48,16 @@ type CfnAssistant interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -149,8 +157,8 @@ func (j *jsiiProxy_CfnAssistant) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAssistant) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnAssistant) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -221,13 +229,13 @@ func (j *jsiiProxy_CfnAssistant) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::Wisdom::Assistant`.
-func NewCfnAssistant(scope constructs.Construct, id *string, props *CfnAssistantProps) CfnAssistant {
+func NewCfnAssistant(scope awscdk.Construct, id *string, props *CfnAssistantProps) CfnAssistant {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnAssistant{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_wisdom.CfnAssistant",
+		"monocdk.aws_wisdom.CfnAssistant",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -236,11 +244,11 @@ func NewCfnAssistant(scope constructs.Construct, id *string, props *CfnAssistant
 }
 
 // Create a new `AWS::Wisdom::Assistant`.
-func NewCfnAssistant_Override(c CfnAssistant, scope constructs.Construct, id *string, props *CfnAssistantProps) {
+func NewCfnAssistant_Override(c CfnAssistant, scope awscdk.Construct, id *string, props *CfnAssistantProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_wisdom.CfnAssistant",
+		"monocdk.aws_wisdom.CfnAssistant",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -284,13 +292,14 @@ func (j *jsiiProxy_CfnAssistant) SetType(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnAssistant_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_wisdom.CfnAssistant",
+		"monocdk.aws_wisdom.CfnAssistant",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -300,13 +309,14 @@ func CfnAssistant_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnAssistant_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_wisdom.CfnAssistant",
+		"monocdk.aws_wisdom.CfnAssistant",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -315,17 +325,15 @@ func CfnAssistant_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnAssistant_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_wisdom.CfnAssistant",
+		"monocdk.aws_wisdom.CfnAssistant",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -338,7 +346,7 @@ func CfnAssistant_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_wisdom.CfnAssistant",
+		"monocdk.aws_wisdom.CfnAssistant",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -346,6 +354,7 @@ func CfnAssistant_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnAssistant) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -358,6 +367,7 @@ func (c *jsiiProxy_CfnAssistant) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnAssistant) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -373,6 +383,7 @@ func (c *jsiiProxy_CfnAssistant) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnAssistant) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -418,6 +429,7 @@ func (c *jsiiProxy_CfnAssistant) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnAssistant) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -427,6 +439,7 @@ func (c *jsiiProxy_CfnAssistant) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnAssistant) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -438,6 +451,7 @@ func (c *jsiiProxy_CfnAssistant) AddPropertyDeletionOverride(propertyPath *strin
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnAssistant) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -455,6 +469,7 @@ func (c *jsiiProxy_CfnAssistant) AddPropertyOverride(propertyPath *string, value
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnAssistant) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -467,6 +482,7 @@ func (c *jsiiProxy_CfnAssistant) ApplyRemovalPolicy(policy awscdk.RemovalPolicy,
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnAssistant) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -487,6 +503,7 @@ func (c *jsiiProxy_CfnAssistant) GetAtt(attributeName *string) awscdk.Reference 
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnAssistant) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -509,12 +526,80 @@ func (c *jsiiProxy_CfnAssistant) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnAssistant) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnAssistant) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnAssistant) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnAssistant) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnAssistant) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -535,6 +620,7 @@ func (c *jsiiProxy_CfnAssistant) RenderProperties(props *map[string]interface{})
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnAssistant) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -548,9 +634,23 @@ func (c *jsiiProxy_CfnAssistant) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnAssistant) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnAssistant) ToString() *string {
 	var returns *string
 
@@ -564,6 +664,27 @@ func (c *jsiiProxy_CfnAssistant) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnAssistant) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnAssistant) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -572,14 +693,20 @@ func (c *jsiiProxy_CfnAssistant) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// The KMS key used for encryption.
+//
 // TODO: EXAMPLE
 //
 type CfnAssistant_ServerSideEncryptionConfigurationProperty struct {
-	// `CfnAssistant.ServerSideEncryptionConfigurationProperty.KmsKeyId`.
+	// The KMS key .
+	//
+	// For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) .
 	KmsKeyId *string `json:"kmsKeyId"`
 }
 
 // A CloudFormation `AWS::Wisdom::AssistantAssociation`.
+//
+// Specifies an association between an Amazon Connect Wisdom assistant and another resource. Currently, the only supported association is with a knowledge base. An assistant can have only a single association.
 //
 // TODO: EXAMPLE
 //
@@ -600,7 +727,7 @@ type CfnAssistantAssociation interface {
 	CfnResourceType() *string
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	Tags() awscdk.TagManager
@@ -615,10 +742,16 @@ type CfnAssistantAssociation interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -738,8 +871,8 @@ func (j *jsiiProxy_CfnAssistantAssociation) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAssistantAssociation) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnAssistantAssociation) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -790,13 +923,13 @@ func (j *jsiiProxy_CfnAssistantAssociation) UpdatedProperites() *map[string]inte
 
 
 // Create a new `AWS::Wisdom::AssistantAssociation`.
-func NewCfnAssistantAssociation(scope constructs.Construct, id *string, props *CfnAssistantAssociationProps) CfnAssistantAssociation {
+func NewCfnAssistantAssociation(scope awscdk.Construct, id *string, props *CfnAssistantAssociationProps) CfnAssistantAssociation {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnAssistantAssociation{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_wisdom.CfnAssistantAssociation",
+		"monocdk.aws_wisdom.CfnAssistantAssociation",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -805,11 +938,11 @@ func NewCfnAssistantAssociation(scope constructs.Construct, id *string, props *C
 }
 
 // Create a new `AWS::Wisdom::AssistantAssociation`.
-func NewCfnAssistantAssociation_Override(c CfnAssistantAssociation, scope constructs.Construct, id *string, props *CfnAssistantAssociationProps) {
+func NewCfnAssistantAssociation_Override(c CfnAssistantAssociation, scope awscdk.Construct, id *string, props *CfnAssistantAssociationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_wisdom.CfnAssistantAssociation",
+		"monocdk.aws_wisdom.CfnAssistantAssociation",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -845,13 +978,14 @@ func (j *jsiiProxy_CfnAssistantAssociation) SetAssociationType(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnAssistantAssociation_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_wisdom.CfnAssistantAssociation",
+		"monocdk.aws_wisdom.CfnAssistantAssociation",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -861,13 +995,14 @@ func CfnAssistantAssociation_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnAssistantAssociation_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_wisdom.CfnAssistantAssociation",
+		"monocdk.aws_wisdom.CfnAssistantAssociation",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -876,17 +1011,15 @@ func CfnAssistantAssociation_IsCfnResource(construct constructs.IConstruct) *boo
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnAssistantAssociation_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_wisdom.CfnAssistantAssociation",
+		"monocdk.aws_wisdom.CfnAssistantAssociation",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -899,7 +1032,7 @@ func CfnAssistantAssociation_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_wisdom.CfnAssistantAssociation",
+		"monocdk.aws_wisdom.CfnAssistantAssociation",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -907,6 +1040,7 @@ func CfnAssistantAssociation_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnAssistantAssociation) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -919,6 +1053,7 @@ func (c *jsiiProxy_CfnAssistantAssociation) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnAssistantAssociation) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -934,6 +1069,7 @@ func (c *jsiiProxy_CfnAssistantAssociation) AddDependsOn(target awscdk.CfnResour
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnAssistantAssociation) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -979,6 +1115,7 @@ func (c *jsiiProxy_CfnAssistantAssociation) AddMetadata(key *string, value inter
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnAssistantAssociation) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -988,6 +1125,7 @@ func (c *jsiiProxy_CfnAssistantAssociation) AddOverride(path *string, value inte
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnAssistantAssociation) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -999,6 +1137,7 @@ func (c *jsiiProxy_CfnAssistantAssociation) AddPropertyDeletionOverride(property
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnAssistantAssociation) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1016,6 +1155,7 @@ func (c *jsiiProxy_CfnAssistantAssociation) AddPropertyOverride(propertyPath *st
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnAssistantAssociation) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1028,6 +1168,7 @@ func (c *jsiiProxy_CfnAssistantAssociation) ApplyRemovalPolicy(policy awscdk.Rem
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnAssistantAssociation) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1048,6 +1189,7 @@ func (c *jsiiProxy_CfnAssistantAssociation) GetAtt(attributeName *string) awscdk
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnAssistantAssociation) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1070,12 +1212,80 @@ func (c *jsiiProxy_CfnAssistantAssociation) Inspect(inspector awscdk.TreeInspect
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnAssistantAssociation) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnAssistantAssociation) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnAssistantAssociation) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnAssistantAssociation) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnAssistantAssociation) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1096,6 +1306,7 @@ func (c *jsiiProxy_CfnAssistantAssociation) RenderProperties(props *map[string]i
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnAssistantAssociation) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1109,9 +1320,23 @@ func (c *jsiiProxy_CfnAssistantAssociation) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnAssistantAssociation) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnAssistantAssociation) ToString() *string {
 	var returns *string
 
@@ -1125,6 +1350,27 @@ func (c *jsiiProxy_CfnAssistantAssociation) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnAssistantAssociation) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnAssistantAssociation) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1133,46 +1379,50 @@ func (c *jsiiProxy_CfnAssistantAssociation) ValidateProperties(_properties inter
 	)
 }
 
+// A union type that currently has a single argument, which is the knowledge base ID.
+//
 // TODO: EXAMPLE
 //
 type CfnAssistantAssociation_AssociationDataProperty struct {
-	// `CfnAssistantAssociation.AssociationDataProperty.KnowledgeBaseId`.
+	// The identifier of the knowledge base.
 	KnowledgeBaseId *string `json:"knowledgeBaseId"`
 }
 
-// Properties for defining a `AWS::Wisdom::AssistantAssociation`.
+// Properties for defining a `CfnAssistantAssociation`.
 //
 // TODO: EXAMPLE
 //
 type CfnAssistantAssociationProps struct {
-	// `AWS::Wisdom::AssistantAssociation.AssistantId`.
+	// The identifier of the Wisdom assistant.
 	AssistantId *string `json:"assistantId"`
-	// `AWS::Wisdom::AssistantAssociation.Association`.
+	// The identifier of the associated resource.
 	Association interface{} `json:"association"`
-	// `AWS::Wisdom::AssistantAssociation.AssociationType`.
+	// The type of association.
 	AssociationType *string `json:"associationType"`
-	// `AWS::Wisdom::AssistantAssociation.Tags`.
+	// The tags used to organize, track, or control access for this resource.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
-// Properties for defining a `AWS::Wisdom::Assistant`.
+// Properties for defining a `CfnAssistant`.
 //
 // TODO: EXAMPLE
 //
 type CfnAssistantProps struct {
-	// `AWS::Wisdom::Assistant.Description`.
-	Description *string `json:"description"`
-	// `AWS::Wisdom::Assistant.Name`.
+	// The name of the assistant.
 	Name *string `json:"name"`
-	// `AWS::Wisdom::Assistant.ServerSideEncryptionConfiguration`.
-	ServerSideEncryptionConfiguration interface{} `json:"serverSideEncryptionConfiguration"`
-	// `AWS::Wisdom::Assistant.Tags`.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
-	// `AWS::Wisdom::Assistant.Type`.
+	// The type of assistant.
 	Type *string `json:"type"`
+	// The description of the assistant.
+	Description *string `json:"description"`
+	// The KMS key used for encryption.
+	ServerSideEncryptionConfiguration interface{} `json:"serverSideEncryptionConfiguration"`
+	// The tags used to organize, track, or control access for this resource.
+	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::Wisdom::KnowledgeBase`.
+//
+// Specifies a knowledge base.
 //
 // TODO: EXAMPLE
 //
@@ -1192,7 +1442,7 @@ type CfnKnowledgeBase interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	RenderingConfiguration() interface{}
 	SetRenderingConfiguration(val interface{})
@@ -1213,10 +1463,16 @@ type CfnKnowledgeBase interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1326,8 +1582,8 @@ func (j *jsiiProxy_CfnKnowledgeBase) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnKnowledgeBase) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnKnowledgeBase) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1408,13 +1664,13 @@ func (j *jsiiProxy_CfnKnowledgeBase) UpdatedProperites() *map[string]interface{}
 
 
 // Create a new `AWS::Wisdom::KnowledgeBase`.
-func NewCfnKnowledgeBase(scope constructs.Construct, id *string, props *CfnKnowledgeBaseProps) CfnKnowledgeBase {
+func NewCfnKnowledgeBase(scope awscdk.Construct, id *string, props *CfnKnowledgeBaseProps) CfnKnowledgeBase {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnKnowledgeBase{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_wisdom.CfnKnowledgeBase",
+		"monocdk.aws_wisdom.CfnKnowledgeBase",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1423,11 +1679,11 @@ func NewCfnKnowledgeBase(scope constructs.Construct, id *string, props *CfnKnowl
 }
 
 // Create a new `AWS::Wisdom::KnowledgeBase`.
-func NewCfnKnowledgeBase_Override(c CfnKnowledgeBase, scope constructs.Construct, id *string, props *CfnKnowledgeBaseProps) {
+func NewCfnKnowledgeBase_Override(c CfnKnowledgeBase, scope awscdk.Construct, id *string, props *CfnKnowledgeBaseProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_wisdom.CfnKnowledgeBase",
+		"monocdk.aws_wisdom.CfnKnowledgeBase",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1487,13 +1743,14 @@ func (j *jsiiProxy_CfnKnowledgeBase) SetSourceConfiguration(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnKnowledgeBase_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_wisdom.CfnKnowledgeBase",
+		"monocdk.aws_wisdom.CfnKnowledgeBase",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1503,13 +1760,14 @@ func CfnKnowledgeBase_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnKnowledgeBase_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_wisdom.CfnKnowledgeBase",
+		"monocdk.aws_wisdom.CfnKnowledgeBase",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1518,17 +1776,15 @@ func CfnKnowledgeBase_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnKnowledgeBase_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_wisdom.CfnKnowledgeBase",
+		"monocdk.aws_wisdom.CfnKnowledgeBase",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1541,7 +1797,7 @@ func CfnKnowledgeBase_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_wisdom.CfnKnowledgeBase",
+		"monocdk.aws_wisdom.CfnKnowledgeBase",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1549,6 +1805,7 @@ func CfnKnowledgeBase_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnKnowledgeBase) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1561,6 +1818,7 @@ func (c *jsiiProxy_CfnKnowledgeBase) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnKnowledgeBase) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1576,6 +1834,7 @@ func (c *jsiiProxy_CfnKnowledgeBase) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnKnowledgeBase) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1621,6 +1880,7 @@ func (c *jsiiProxy_CfnKnowledgeBase) AddMetadata(key *string, value interface{})
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnKnowledgeBase) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1630,6 +1890,7 @@ func (c *jsiiProxy_CfnKnowledgeBase) AddOverride(path *string, value interface{}
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnKnowledgeBase) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1641,6 +1902,7 @@ func (c *jsiiProxy_CfnKnowledgeBase) AddPropertyDeletionOverride(propertyPath *s
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnKnowledgeBase) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1658,6 +1920,7 @@ func (c *jsiiProxy_CfnKnowledgeBase) AddPropertyOverride(propertyPath *string, v
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnKnowledgeBase) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1670,6 +1933,7 @@ func (c *jsiiProxy_CfnKnowledgeBase) ApplyRemovalPolicy(policy awscdk.RemovalPol
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnKnowledgeBase) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1690,6 +1954,7 @@ func (c *jsiiProxy_CfnKnowledgeBase) GetAtt(attributeName *string) awscdk.Refere
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnKnowledgeBase) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1712,12 +1977,80 @@ func (c *jsiiProxy_CfnKnowledgeBase) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnKnowledgeBase) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnKnowledgeBase) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnKnowledgeBase) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnKnowledgeBase) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnKnowledgeBase) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1738,6 +2071,7 @@ func (c *jsiiProxy_CfnKnowledgeBase) RenderProperties(props *map[string]interfac
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnKnowledgeBase) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1751,9 +2085,23 @@ func (c *jsiiProxy_CfnKnowledgeBase) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnKnowledgeBase) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnKnowledgeBase) ToString() *string {
 	var returns *string
 
@@ -1767,6 +2115,27 @@ func (c *jsiiProxy_CfnKnowledgeBase) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnKnowledgeBase) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnKnowledgeBase) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1775,54 +2144,80 @@ func (c *jsiiProxy_CfnKnowledgeBase) ValidateProperties(_properties interface{})
 	)
 }
 
+// Configuration information for Amazon AppIntegrations to automatically ingest content.
+//
 // TODO: EXAMPLE
 //
 type CfnKnowledgeBase_AppIntegrationsConfigurationProperty struct {
-	// `CfnKnowledgeBase.AppIntegrationsConfigurationProperty.AppIntegrationArn`.
+	// The Amazon Resource Name (ARN) of the AppIntegrations DataIntegration to use for ingesting content.
 	AppIntegrationArn *string `json:"appIntegrationArn"`
-	// `CfnKnowledgeBase.AppIntegrationsConfigurationProperty.ObjectFields`.
+	// The fields from the source that are made available to your agents in Wisdom.
+	//
+	// - For [Salesforce](https://docs.aws.amazon.com/https://developer.salesforce.com/docs/atlas.en-us.knowledge_dev.meta/knowledge_dev/sforce_api_objects_knowledge__kav.htm) , you must include at least `Id` , `ArticleNumber` , `VersionNumber` , `Title` , `PublishStatus` , and `IsDeleted` .
+	// - For [ServiceNow](https://docs.aws.amazon.com/https://developer.servicenow.com/dev.do#!/reference/api/rome/rest/knowledge-management-api) , you must include at least `number` , `short_description` , `sys_mod_count` , `workflow_state` , and `active` .
+	//
+	// Make sure to include additional fields. These fields are indexed and used to source recommendations.
 	ObjectFields *[]*string `json:"objectFields"`
 }
 
+// Information about how to render the content.
+//
 // TODO: EXAMPLE
 //
 type CfnKnowledgeBase_RenderingConfigurationProperty struct {
-	// `CfnKnowledgeBase.RenderingConfigurationProperty.TemplateUri`.
+	// A URI template containing exactly one variable in `${variableName}` format.
+	//
+	// This can only be set for `EXTERNAL` knowledge bases. For Salesforce and ServiceNow, the variable must be one of the following:
+	//
+	// - Salesforce: `Id` , `ArticleNumber` , `VersionNumber` , `Title` , `PublishStatus` , or `IsDeleted`
+	// - ServiceNow: `number` , `short_description` , `sys_mod_count` , `workflow_state` , or `active`
+	//
+	// The variable is replaced with the actual value for a piece of content when calling [GetContent](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetContent.html) .
 	TemplateUri *string `json:"templateUri"`
 }
 
+// The KMS key used for encryption.
+//
 // TODO: EXAMPLE
 //
 type CfnKnowledgeBase_ServerSideEncryptionConfigurationProperty struct {
-	// `CfnKnowledgeBase.ServerSideEncryptionConfigurationProperty.KmsKeyId`.
+	// The KMS key .
+	//
+	// For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) .
 	KmsKeyId *string `json:"kmsKeyId"`
 }
 
+// Configuration information about the external data source.
+//
 // TODO: EXAMPLE
 //
 type CfnKnowledgeBase_SourceConfigurationProperty struct {
-	// `CfnKnowledgeBase.SourceConfigurationProperty.AppIntegrations`.
+	// Configuration information for Amazon AppIntegrations to automatically ingest content.
 	AppIntegrations interface{} `json:"appIntegrations"`
 }
 
-// Properties for defining a `AWS::Wisdom::KnowledgeBase`.
+// Properties for defining a `CfnKnowledgeBase`.
 //
 // TODO: EXAMPLE
 //
 type CfnKnowledgeBaseProps struct {
-	// `AWS::Wisdom::KnowledgeBase.Description`.
-	Description *string `json:"description"`
-	// `AWS::Wisdom::KnowledgeBase.KnowledgeBaseType`.
+	// The type of knowledge base.
+	//
+	// Only CUSTOM knowledge bases allow you to upload your own content. EXTERNAL knowledge bases support integrations with third-party systems whose content is synchronized automatically.
 	KnowledgeBaseType *string `json:"knowledgeBaseType"`
-	// `AWS::Wisdom::KnowledgeBase.Name`.
+	// The name of the knowledge base.
 	Name *string `json:"name"`
-	// `AWS::Wisdom::KnowledgeBase.RenderingConfiguration`.
+	// The description.
+	Description *string `json:"description"`
+	// Information about how to render the content.
 	RenderingConfiguration interface{} `json:"renderingConfiguration"`
-	// `AWS::Wisdom::KnowledgeBase.ServerSideEncryptionConfiguration`.
+	// The KMS key used for encryption.
 	ServerSideEncryptionConfiguration interface{} `json:"serverSideEncryptionConfiguration"`
-	// `AWS::Wisdom::KnowledgeBase.SourceConfiguration`.
+	// The source of the knowledge base content.
+	//
+	// Only set this argument for EXTERNAL knowledge bases.
 	SourceConfiguration interface{} `json:"sourceConfiguration"`
-	// `AWS::Wisdom::KnowledgeBase.Tags`.
+	// The tags used to organize, track, or control access for this resource.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 

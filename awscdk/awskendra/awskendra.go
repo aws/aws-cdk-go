@@ -1,15 +1,19 @@
 package awskendra
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskendra/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awskendra/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::Kendra::DataSource`.
+//
+// Specifies a data source that you use to with an Amazon Kendra index.
+//
+// You specify a name, connector type and description for your data source.
 //
 // TODO: EXAMPLE
 //
@@ -31,7 +35,7 @@ type CfnDataSource interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	RoleArn() *string
 	SetRoleArn(val *string)
@@ -52,10 +56,16 @@ type CfnDataSource interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -175,8 +185,8 @@ func (j *jsiiProxy_CfnDataSource) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataSource) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnDataSource) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -257,13 +267,13 @@ func (j *jsiiProxy_CfnDataSource) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::Kendra::DataSource`.
-func NewCfnDataSource(scope constructs.Construct, id *string, props *CfnDataSourceProps) CfnDataSource {
+func NewCfnDataSource(scope awscdk.Construct, id *string, props *CfnDataSourceProps) CfnDataSource {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDataSource{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kendra.CfnDataSource",
+		"monocdk.aws_kendra.CfnDataSource",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -272,11 +282,11 @@ func NewCfnDataSource(scope constructs.Construct, id *string, props *CfnDataSour
 }
 
 // Create a new `AWS::Kendra::DataSource`.
-func NewCfnDataSource_Override(c CfnDataSource, scope constructs.Construct, id *string, props *CfnDataSourceProps) {
+func NewCfnDataSource_Override(c CfnDataSource, scope awscdk.Construct, id *string, props *CfnDataSourceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kendra.CfnDataSource",
+		"monocdk.aws_kendra.CfnDataSource",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -344,13 +354,14 @@ func (j *jsiiProxy_CfnDataSource) SetType(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnDataSource_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kendra.CfnDataSource",
+		"monocdk.aws_kendra.CfnDataSource",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -360,13 +371,14 @@ func CfnDataSource_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnDataSource_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kendra.CfnDataSource",
+		"monocdk.aws_kendra.CfnDataSource",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -375,17 +387,15 @@ func CfnDataSource_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnDataSource_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kendra.CfnDataSource",
+		"monocdk.aws_kendra.CfnDataSource",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -398,7 +408,7 @@ func CfnDataSource_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_kendra.CfnDataSource",
+		"monocdk.aws_kendra.CfnDataSource",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -406,6 +416,7 @@ func CfnDataSource_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnDataSource) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -418,6 +429,7 @@ func (c *jsiiProxy_CfnDataSource) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnDataSource) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -433,6 +445,7 @@ func (c *jsiiProxy_CfnDataSource) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnDataSource) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -478,6 +491,7 @@ func (c *jsiiProxy_CfnDataSource) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnDataSource) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -487,6 +501,7 @@ func (c *jsiiProxy_CfnDataSource) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnDataSource) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -498,6 +513,7 @@ func (c *jsiiProxy_CfnDataSource) AddPropertyDeletionOverride(propertyPath *stri
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnDataSource) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -515,6 +531,7 @@ func (c *jsiiProxy_CfnDataSource) AddPropertyOverride(propertyPath *string, valu
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnDataSource) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -527,6 +544,7 @@ func (c *jsiiProxy_CfnDataSource) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnDataSource) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -547,6 +565,7 @@ func (c *jsiiProxy_CfnDataSource) GetAtt(attributeName *string) awscdk.Reference
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnDataSource) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -569,12 +588,80 @@ func (c *jsiiProxy_CfnDataSource) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDataSource) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDataSource) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDataSource) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnDataSource) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDataSource) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -595,6 +682,7 @@ func (c *jsiiProxy_CfnDataSource) RenderProperties(props *map[string]interface{}
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnDataSource) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -608,9 +696,23 @@ func (c *jsiiProxy_CfnDataSource) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDataSource) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnDataSource) ToString() *string {
 	var returns *string
 
@@ -624,6 +726,27 @@ func (c *jsiiProxy_CfnDataSource) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDataSource) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnDataSource) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -632,513 +755,819 @@ func (c *jsiiProxy_CfnDataSource) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// Specifies access control list files for the documents in a data source.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_AccessControlListConfigurationProperty struct {
-	// `CfnDataSource.AccessControlListConfigurationProperty.KeyPath`.
+	// Path to the AWS S3 bucket that contains the access control list files.
 	KeyPath *string `json:"keyPath"`
 }
 
+// Provides information about the column that should be used for filtering the query response by groups.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_AclConfigurationProperty struct {
-	// `CfnDataSource.AclConfigurationProperty.AllowedGroupsColumnName`.
+	// A list of groups, separated by semi-colons, that filters a query response based on user context.
+	//
+	// The document is only returned to users that are in one of the groups specified in the `UserContext` field of the [Query](https://docs.aws.amazon.com/kendra/latest/dg/API_Query.html) operation.
 	AllowedGroupsColumnName *string `json:"allowedGroupsColumnName"`
 }
 
+// Provides information about how Amazon Kendra should use the columns of a database in an index.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_ColumnConfigurationProperty struct {
-	// `CfnDataSource.ColumnConfigurationProperty.ChangeDetectingColumns`.
+	// One to five columns that indicate when a document in the database has changed.
 	ChangeDetectingColumns *[]*string `json:"changeDetectingColumns"`
-	// `CfnDataSource.ColumnConfigurationProperty.DocumentDataColumnName`.
+	// The column that contains the contents of the document.
 	DocumentDataColumnName *string `json:"documentDataColumnName"`
-	// `CfnDataSource.ColumnConfigurationProperty.DocumentIdColumnName`.
+	// The column that provides the document's unique identifier.
 	DocumentIdColumnName *string `json:"documentIdColumnName"`
-	// `CfnDataSource.ColumnConfigurationProperty.DocumentTitleColumnName`.
+	// The column that contains the title of the document.
 	DocumentTitleColumnName *string `json:"documentTitleColumnName"`
-	// `CfnDataSource.ColumnConfigurationProperty.FieldMappings`.
+	// An array of objects that map database column names to the corresponding fields in an index.
+	//
+	// You must first create the fields in the index using the [UpdateIndex](https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateIndex.html) operation.
 	FieldMappings interface{} `json:"fieldMappings"`
 }
 
+// Specifies the attachment settings for the Confluence data source.
+//
+// Attachment settings are optional, if you don't specify settings attachments, Amazon Kendra won't index them.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_ConfluenceAttachmentConfigurationProperty struct {
-	// `CfnDataSource.ConfluenceAttachmentConfigurationProperty.AttachmentFieldMappings`.
+	// Defines how attachment metadata fields should be mapped to index fields.
+	//
+	// Before you can map a field, you must first create an index field with a matching type using the console or the `UpdateIndex` operation.
+	//
+	// If you specify the `AttachentFieldMappings` parameter, you must specify at least one field mapping.
 	AttachmentFieldMappings interface{} `json:"attachmentFieldMappings"`
-	// `CfnDataSource.ConfluenceAttachmentConfigurationProperty.CrawlAttachments`.
+	// Indicates whether Amazon Kendra indexes attachments to the pages and blogs in the Confluence data source.
 	CrawlAttachments interface{} `json:"crawlAttachments"`
 }
 
+// Defines the mapping between a field in the Confluence data source to a Amazon Kendra index field.
+//
+// You must first create the index field using the `UpdateIndex` operation.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_ConfluenceAttachmentToIndexFieldMappingProperty struct {
-	// `CfnDataSource.ConfluenceAttachmentToIndexFieldMappingProperty.DataSourceFieldName`.
+	// The name of the field in the data source.
+	//
+	// You must first create the index field using the `UpdateIndex` operation.
 	DataSourceFieldName *string `json:"dataSourceFieldName"`
-	// `CfnDataSource.ConfluenceAttachmentToIndexFieldMappingProperty.DateFieldFormat`.
-	DateFieldFormat *string `json:"dateFieldFormat"`
-	// `CfnDataSource.ConfluenceAttachmentToIndexFieldMappingProperty.IndexFieldName`.
+	// The name of the index field to map to the Confluence data source field.
+	//
+	// The index field type must match the Confluence field type.
 	IndexFieldName *string `json:"indexFieldName"`
+	// The format for date fields in the data source.
+	//
+	// If the field specified in `DataSourceFieldName` is a date field you must specify the date format. If the field is not a date field, an exception is thrown.
+	DateFieldFormat *string `json:"dateFieldFormat"`
 }
 
+// Specifies the blog settings for the Confluence data source.
+//
+// Blogs are always indexed unless filtered from the index by the `ExclusionPatterns` or `InclusionPatterns` fields in the `ConfluenceConfiguration` type.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_ConfluenceBlogConfigurationProperty struct {
-	// `CfnDataSource.ConfluenceBlogConfigurationProperty.BlogFieldMappings`.
+	// Defines how blog metadata fields should be mapped to index fields.
+	//
+	// Before you can map a field, you must first create an index field with a matching type using the console or the `UpdateIndex` operation.
+	//
+	// If you specify the `BlogFieldMappings` parameter, you must specify at least one field mapping.
 	BlogFieldMappings interface{} `json:"blogFieldMappings"`
 }
 
+// Defines the mapping between a blog field in the Confluence data source to a Amazon Kendra index field.
+//
+// You must first create the index field using the `UpdateIndex` operation.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_ConfluenceBlogToIndexFieldMappingProperty struct {
-	// `CfnDataSource.ConfluenceBlogToIndexFieldMappingProperty.DataSourceFieldName`.
+	// The name of the field in the data source.
 	DataSourceFieldName *string `json:"dataSourceFieldName"`
-	// `CfnDataSource.ConfluenceBlogToIndexFieldMappingProperty.DateFieldFormat`.
-	DateFieldFormat *string `json:"dateFieldFormat"`
-	// `CfnDataSource.ConfluenceBlogToIndexFieldMappingProperty.IndexFieldName`.
+	// The name of the index field to map to the Confluence data source field.
+	//
+	// The index field type must match the Confluence field type.
 	IndexFieldName *string `json:"indexFieldName"`
+	// The format for date fields in the data source.
+	//
+	// If the field specified in `DataSourceFieldName` is a date field you must specify the date format. If the field is not a date field, an exception is thrown.
+	DateFieldFormat *string `json:"dateFieldFormat"`
 }
 
+// Provides configuration information for data sources that connect to Confluence.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_ConfluenceConfigurationProperty struct {
-	// `CfnDataSource.ConfluenceConfigurationProperty.AttachmentConfiguration`.
-	AttachmentConfiguration interface{} `json:"attachmentConfiguration"`
-	// `CfnDataSource.ConfluenceConfigurationProperty.BlogConfiguration`.
-	BlogConfiguration interface{} `json:"blogConfiguration"`
-	// `CfnDataSource.ConfluenceConfigurationProperty.ExclusionPatterns`.
-	ExclusionPatterns *[]*string `json:"exclusionPatterns"`
-	// `CfnDataSource.ConfluenceConfigurationProperty.InclusionPatterns`.
-	InclusionPatterns *[]*string `json:"inclusionPatterns"`
-	// `CfnDataSource.ConfluenceConfigurationProperty.PageConfiguration`.
-	PageConfiguration interface{} `json:"pageConfiguration"`
-	// `CfnDataSource.ConfluenceConfigurationProperty.SecretArn`.
+	// The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the key/value pairs required to connect to your Confluence server.
+	//
+	// The secret must contain a JSON structure with the following keys:
+	//
+	// - username - The user name or email address of a user with administrative privileges for the Confluence server.
+	// - password - The password associated with the user logging in to the Confluence server.
 	SecretArn *string `json:"secretArn"`
-	// `CfnDataSource.ConfluenceConfigurationProperty.ServerUrl`.
+	// The URL of your Confluence instance.
+	//
+	// Use the full URL of the server. For example, `https://server.example.com:port/` . You can also use an IP address, for example, `https://192.168.1.113/` .
 	ServerUrl *string `json:"serverUrl"`
-	// `CfnDataSource.ConfluenceConfigurationProperty.SpaceConfiguration`.
-	SpaceConfiguration interface{} `json:"spaceConfiguration"`
-	// `CfnDataSource.ConfluenceConfigurationProperty.Version`.
+	// Specifies the version of the Confluence installation that you are connecting to.
 	Version *string `json:"version"`
-	// `CfnDataSource.ConfluenceConfigurationProperty.VpcConfiguration`.
+	// Specifies configuration information for indexing attachments to Confluence blogs and pages.
+	AttachmentConfiguration interface{} `json:"attachmentConfiguration"`
+	// Specifies configuration information for indexing Confluence blogs.
+	BlogConfiguration interface{} `json:"blogConfiguration"`
+	// A list of regular expression patterns that apply to a URL on the Confluence server.
+	//
+	// An exclusion pattern can apply to a blog post, a page, a space, or an attachment. Items that match the pattern are excluded from the index. Items that don't match the pattern are included in the index. If a item matches both an exclusion pattern and an inclusion pattern, the item isn't included in the index.
+	ExclusionPatterns *[]*string `json:"exclusionPatterns"`
+	// A list of regular expression patterns that apply to a URL on the Confluence server.
+	//
+	// An inclusion pattern can apply to a blog post, a page, a space, or an attachment. Items that match the patterns are included in the index. Items that don't match the pattern are excluded from the index. If an item matches both an inclusion pattern and an exclusion pattern, the item isn't included in the index.
+	InclusionPatterns *[]*string `json:"inclusionPatterns"`
+	// Specifies configuration information for indexing Confluence pages.
+	PageConfiguration interface{} `json:"pageConfiguration"`
+	// Specifies configuration information for indexing Confluence spaces.
+	SpaceConfiguration interface{} `json:"spaceConfiguration"`
+	// Specifies the information for connecting to an Amazon VPC.
 	VpcConfiguration interface{} `json:"vpcConfiguration"`
 }
 
+// Specifies the page settings for the Confluence data source.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_ConfluencePageConfigurationProperty struct {
-	// `CfnDataSource.ConfluencePageConfigurationProperty.PageFieldMappings`.
+	// Defines how page metadata fields should be mapped to index fields.
+	//
+	// Before you can map a field, you must first create an index field with a matching type using the console or the `UpdateIndex` operation.
+	//
+	// If you specify the `PageFieldMappings` parameter, you must specify at least one field mapping.
 	PageFieldMappings interface{} `json:"pageFieldMappings"`
 }
 
+// Defines the mapping between a field in the Confluence data source to a Amazon Kendra index field.
+//
+// You must first create the index field using the `UpdateIndex` operation.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_ConfluencePageToIndexFieldMappingProperty struct {
-	// `CfnDataSource.ConfluencePageToIndexFieldMappingProperty.DataSourceFieldName`.
+	// The name of the field in the data source.
 	DataSourceFieldName *string `json:"dataSourceFieldName"`
-	// `CfnDataSource.ConfluencePageToIndexFieldMappingProperty.DateFieldFormat`.
-	DateFieldFormat *string `json:"dateFieldFormat"`
-	// `CfnDataSource.ConfluencePageToIndexFieldMappingProperty.IndexFieldName`.
+	// The name of the index field to map to the Confluence data source field.
+	//
+	// The index field type must match the Confluence field type.
 	IndexFieldName *string `json:"indexFieldName"`
+	// The format for date fields in the data source.
+	//
+	// If the field specified in `DataSourceFieldName` is a date field you must specify the date format. If the field is not a date field, an exception is thrown.
+	DateFieldFormat *string `json:"dateFieldFormat"`
 }
 
+// Specifies the configuration for indexing Confluence spaces.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_ConfluenceSpaceConfigurationProperty struct {
-	// `CfnDataSource.ConfluenceSpaceConfigurationProperty.CrawlArchivedSpaces`.
+	// Specifies whether Amazon Kendra should index archived spaces.
 	CrawlArchivedSpaces interface{} `json:"crawlArchivedSpaces"`
-	// `CfnDataSource.ConfluenceSpaceConfigurationProperty.CrawlPersonalSpaces`.
+	// Specifies whether Amazon Kendra should index personal spaces.
+	//
+	// Users can add restrictions to items in personal spaces. If personal spaces are indexed, queries without user context information may return restricted items from a personal space in their results. For more information, see [Filtering on user context](https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html) .
 	CrawlPersonalSpaces interface{} `json:"crawlPersonalSpaces"`
-	// `CfnDataSource.ConfluenceSpaceConfigurationProperty.ExcludeSpaces`.
+	// A list of space keys of Confluence spaces.
+	//
+	// If you include a key, the blogs, documents, and attachments in the space are not indexed. If a space is in both the `ExcludeSpaces` and the `IncludeSpaces` list, the space is excluded.
 	ExcludeSpaces *[]*string `json:"excludeSpaces"`
-	// `CfnDataSource.ConfluenceSpaceConfigurationProperty.IncludeSpaces`.
+	// A list of space keys for Confluence spaces.
+	//
+	// If you include a key, the blogs, documents, and attachments in the space are indexed. Spaces that aren't in the list aren't indexed. A space in the list must exist. Otherwise, Amazon Kendra logs an error when the data source is synchronized. If a space is in both the `IncludeSpaces` and the `ExcludeSpaces` list, the space is excluded.
 	IncludeSpaces *[]*string `json:"includeSpaces"`
-	// `CfnDataSource.ConfluenceSpaceConfigurationProperty.SpaceFieldMappings`.
+	// Defines how space metadata fields should be mapped to index fields.
+	//
+	// Before you can map a field, you must first create an index field with a matching type using the console or the `UpdateIndex` operation.
+	//
+	// If you specify the `SpaceFieldMappings` parameter, you must specify at least one field mapping.
 	SpaceFieldMappings interface{} `json:"spaceFieldMappings"`
 }
 
+// Defines the mapping between a field in the Confluence data source to a Amazon Kendra index field.
+//
+// You must first create the index field using the `UpdateIndex` operation.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_ConfluenceSpaceToIndexFieldMappingProperty struct {
-	// `CfnDataSource.ConfluenceSpaceToIndexFieldMappingProperty.DataSourceFieldName`.
+	// The name of the field in the data source.
 	DataSourceFieldName *string `json:"dataSourceFieldName"`
-	// `CfnDataSource.ConfluenceSpaceToIndexFieldMappingProperty.DateFieldFormat`.
-	DateFieldFormat *string `json:"dateFieldFormat"`
-	// `CfnDataSource.ConfluenceSpaceToIndexFieldMappingProperty.IndexFieldName`.
+	// The name of the index field to map to the Confluence data source field.
+	//
+	// The index field type must match the Confluence field type.
 	IndexFieldName *string `json:"indexFieldName"`
+	// The format for date fields in the data source.
+	//
+	// If the field specified in `DataSourceFieldName` is a date field you must specify the date format. If the field is not a date field, an exception is thrown.
+	DateFieldFormat *string `json:"dateFieldFormat"`
 }
 
+// Provides the information necessary to connect to a database.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_ConnectionConfigurationProperty struct {
-	// `CfnDataSource.ConnectionConfigurationProperty.DatabaseHost`.
+	// The name of the host for the database.
+	//
+	// Can be either a string (host.subdomain.domain.tld) or an IPv4 or IPv6 address.
 	DatabaseHost *string `json:"databaseHost"`
-	// `CfnDataSource.ConnectionConfigurationProperty.DatabaseName`.
+	// The name of the database containing the document data.
 	DatabaseName *string `json:"databaseName"`
-	// `CfnDataSource.ConnectionConfigurationProperty.DatabasePort`.
+	// The port that the database uses for connections.
 	DatabasePort *float64 `json:"databasePort"`
-	// `CfnDataSource.ConnectionConfigurationProperty.SecretArn`.
+	// The Amazon Resource Name (ARN) of credentials stored in AWS Secrets Manager .
+	//
+	// The credentials should be a user/password pair. For more information, see [Using a Database Data Source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-database.html) . For more information about AWS Secrets Manager , see [What Is AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) in the *AWS Secrets Manager* user guide.
 	SecretArn *string `json:"secretArn"`
-	// `CfnDataSource.ConnectionConfigurationProperty.TableName`.
+	// The name of the table that contains the document data.
 	TableName *string `json:"tableName"`
 }
 
+// Configuration information for an Amazon Kendra data source.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_DataSourceConfigurationProperty struct {
-	// `CfnDataSource.DataSourceConfigurationProperty.ConfluenceConfiguration`.
+	// Provides configuration information for connecting to a Confluence data source.
 	ConfluenceConfiguration interface{} `json:"confluenceConfiguration"`
-	// `CfnDataSource.DataSourceConfigurationProperty.DatabaseConfiguration`.
+	// Provides information necessary to create a data source connector for a database.
 	DatabaseConfiguration interface{} `json:"databaseConfiguration"`
-	// `CfnDataSource.DataSourceConfigurationProperty.GoogleDriveConfiguration`.
+	// Provides configuration for data sources that connect to Google Drive.
 	GoogleDriveConfiguration interface{} `json:"googleDriveConfiguration"`
-	// `CfnDataSource.DataSourceConfigurationProperty.OneDriveConfiguration`.
+	// Provides configuration for data sources that connect to Microsoft OneDrive.
 	OneDriveConfiguration interface{} `json:"oneDriveConfiguration"`
-	// `CfnDataSource.DataSourceConfigurationProperty.S3Configuration`.
+	// Provides information to create a data source connector for a document repository in an Amazon S3 bucket.
 	S3Configuration interface{} `json:"s3Configuration"`
-	// `CfnDataSource.DataSourceConfigurationProperty.SalesforceConfiguration`.
+	// Provides configuration information for data sources that connect to a Salesforce site.
 	SalesforceConfiguration interface{} `json:"salesforceConfiguration"`
-	// `CfnDataSource.DataSourceConfigurationProperty.ServiceNowConfiguration`.
+	// Provides configuration for data sources that connect to ServiceNow instances.
 	ServiceNowConfiguration interface{} `json:"serviceNowConfiguration"`
-	// `CfnDataSource.DataSourceConfigurationProperty.SharePointConfiguration`.
+	// Provides information necessary to create a data source connector for a Microsoft SharePoint site.
 	SharePointConfiguration interface{} `json:"sharePointConfiguration"`
-	// `CfnDataSource.DataSourceConfigurationProperty.WebCrawlerConfiguration`.
+	// Provides the configuration information required for Amazon Kendra Web Crawler.
 	WebCrawlerConfiguration interface{} `json:"webCrawlerConfiguration"`
 	// `CfnDataSource.DataSourceConfigurationProperty.WorkDocsConfiguration`.
 	WorkDocsConfiguration interface{} `json:"workDocsConfiguration"`
 }
 
+// Maps a column or attribute in the data source to an index field.
+//
+// You must first create the fields in the index using the [UpdateIndex](https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateIndex.html) operation.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_DataSourceToIndexFieldMappingProperty struct {
-	// `CfnDataSource.DataSourceToIndexFieldMappingProperty.DataSourceFieldName`.
+	// The name of the column or attribute in the data source.
 	DataSourceFieldName *string `json:"dataSourceFieldName"`
-	// `CfnDataSource.DataSourceToIndexFieldMappingProperty.DateFieldFormat`.
-	DateFieldFormat *string `json:"dateFieldFormat"`
-	// `CfnDataSource.DataSourceToIndexFieldMappingProperty.IndexFieldName`.
+	// The name of the field in the index.
 	IndexFieldName *string `json:"indexFieldName"`
+	// The type of data stored in the column or attribute.
+	DateFieldFormat *string `json:"dateFieldFormat"`
 }
 
+// Provides information for connecting to an Amazon VPC.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_DataSourceVpcConfigurationProperty struct {
-	// `CfnDataSource.DataSourceVpcConfigurationProperty.SecurityGroupIds`.
+	// A list of identifiers of security groups within your Amazon VPC.
+	//
+	// The security groups should enable Amazon Kendra to connect to the data source.
 	SecurityGroupIds *[]*string `json:"securityGroupIds"`
-	// `CfnDataSource.DataSourceVpcConfigurationProperty.SubnetIds`.
+	// A list of identifiers for subnets within your Amazon VPC.
+	//
+	// The subnets should be able to connect to each other in the VPC, and they should have outgoing access to the Internet through a NAT device.
 	SubnetIds *[]*string `json:"subnetIds"`
 }
 
+// Provides the information necessary to connect a database to an index.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_DatabaseConfigurationProperty struct {
-	// `CfnDataSource.DatabaseConfigurationProperty.AclConfiguration`.
-	AclConfiguration interface{} `json:"aclConfiguration"`
-	// `CfnDataSource.DatabaseConfigurationProperty.ColumnConfiguration`.
+	// Information about where the index should get the document information from the database.
 	ColumnConfiguration interface{} `json:"columnConfiguration"`
-	// `CfnDataSource.DatabaseConfigurationProperty.ConnectionConfiguration`.
+	// The information necessary to connect to a database.
 	ConnectionConfiguration interface{} `json:"connectionConfiguration"`
-	// `CfnDataSource.DatabaseConfigurationProperty.DatabaseEngineType`.
+	// The type of database engine that runs the database.
 	DatabaseEngineType *string `json:"databaseEngineType"`
-	// `CfnDataSource.DatabaseConfigurationProperty.SqlConfiguration`.
+	// Information about the database column that provides information for user context filtering.
+	AclConfiguration interface{} `json:"aclConfiguration"`
+	// Provides information about how Amazon Kendra uses quote marks around SQL identifiers when querying a database data source.
 	SqlConfiguration interface{} `json:"sqlConfiguration"`
-	// `CfnDataSource.DatabaseConfigurationProperty.VpcConfiguration`.
+	// Provides information for connecting to an Amazon VPC.
 	VpcConfiguration interface{} `json:"vpcConfiguration"`
 }
 
+// Document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes.
+//
+// Each metadata file contains metadata about a single document.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_DocumentsMetadataConfigurationProperty struct {
-	// `CfnDataSource.DocumentsMetadataConfigurationProperty.S3Prefix`.
+	// A prefix used to filter metadata configuration files in the AWS S3 bucket.
+	//
+	// The S3 bucket might contain multiple metadata files. Use `S3Prefix` to include only the desired metadata files.
 	S3Prefix *string `json:"s3Prefix"`
 }
 
+// Provides configuration information for data sources that connect to Google Drive.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_GoogleDriveConfigurationProperty struct {
-	// `CfnDataSource.GoogleDriveConfigurationProperty.ExcludeMimeTypes`.
-	ExcludeMimeTypes *[]*string `json:"excludeMimeTypes"`
-	// `CfnDataSource.GoogleDriveConfigurationProperty.ExcludeSharedDrives`.
-	ExcludeSharedDrives *[]*string `json:"excludeSharedDrives"`
-	// `CfnDataSource.GoogleDriveConfigurationProperty.ExcludeUserAccounts`.
-	ExcludeUserAccounts *[]*string `json:"excludeUserAccounts"`
-	// `CfnDataSource.GoogleDriveConfigurationProperty.ExclusionPatterns`.
-	ExclusionPatterns *[]*string `json:"exclusionPatterns"`
-	// `CfnDataSource.GoogleDriveConfigurationProperty.FieldMappings`.
-	FieldMappings interface{} `json:"fieldMappings"`
-	// `CfnDataSource.GoogleDriveConfigurationProperty.InclusionPatterns`.
-	InclusionPatterns *[]*string `json:"inclusionPatterns"`
-	// `CfnDataSource.GoogleDriveConfigurationProperty.SecretArn`.
+	// The Amazon Resource Name (ARN) of a AWS Secrets Manager secret that contains the credentials required to connect to Google Drive.
+	//
+	// For more information, see [Using a Google Workspace Drive data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-google-drive.html) .
 	SecretArn *string `json:"secretArn"`
+	// A list of MIME types to exclude from the index. All documents matching the specified MIME type are excluded.
+	//
+	// For a list of MIME types, see [Using a Google Workspace Drive data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-google-drive.html) .
+	ExcludeMimeTypes *[]*string `json:"excludeMimeTypes"`
+	// A list of identifiers or shared drives to exclude from the index.
+	//
+	// All files and folders stored on the shared drive are excluded.
+	ExcludeSharedDrives *[]*string `json:"excludeSharedDrives"`
+	// A list of email addresses of the users.
+	//
+	// Documents owned by these users are excluded from the index. Documents shared with excluded users are indexed unless they are excluded in another way.
+	ExcludeUserAccounts *[]*string `json:"excludeUserAccounts"`
+	// A list of regular expression patterns that apply to the path on Google Drive.
+	//
+	// Items that match the pattern are excluded from the index from both shared drives and users' My Drives. Items that don't match the pattern are included in the index. If an item matches both an exclusion pattern and an inclusion pattern, it is excluded from the index.
+	ExclusionPatterns *[]*string `json:"exclusionPatterns"`
+	// Defines mapping between a field in the Google Drive and a Amazon Kendra index field.
+	//
+	// If you are using the console, you can define index fields when creating the mapping. If you are using the API, you must first create the field using the `UpdateIndex` operation.
+	FieldMappings interface{} `json:"fieldMappings"`
+	// A list of regular expression patterns that apply to path on Google Drive.
+	//
+	// Items that match the pattern are included in the index from both shared drives and users' My Drives. Items that don't match the pattern are excluded from the index. If an item matches both an inclusion pattern and an exclusion pattern, it is excluded from the index.
+	InclusionPatterns *[]*string `json:"inclusionPatterns"`
 }
 
+// Provides configuration information for data sources that connect to OneDrive.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_OneDriveConfigurationProperty struct {
-	// `CfnDataSource.OneDriveConfigurationProperty.DisableLocalGroups`.
-	DisableLocalGroups interface{} `json:"disableLocalGroups"`
-	// `CfnDataSource.OneDriveConfigurationProperty.ExclusionPatterns`.
-	ExclusionPatterns *[]*string `json:"exclusionPatterns"`
-	// `CfnDataSource.OneDriveConfigurationProperty.FieldMappings`.
-	FieldMappings interface{} `json:"fieldMappings"`
-	// `CfnDataSource.OneDriveConfigurationProperty.InclusionPatterns`.
-	InclusionPatterns *[]*string `json:"inclusionPatterns"`
-	// `CfnDataSource.OneDriveConfigurationProperty.OneDriveUsers`.
+	// A list of user accounts whose documents should be indexed.
 	OneDriveUsers interface{} `json:"oneDriveUsers"`
-	// `CfnDataSource.OneDriveConfigurationProperty.SecretArn`.
+	// The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the user name and password to connect to OneDrive.
+	//
+	// The user named should be the application ID for the OneDrive application, and the password is the application key for the OneDrive application.
 	SecretArn *string `json:"secretArn"`
-	// `CfnDataSource.OneDriveConfigurationProperty.TenantDomain`.
+	// The Azure Active Directory domain of the organization.
 	TenantDomain *string `json:"tenantDomain"`
+	// A Boolean value that specifies whether local groups are disabled ( `True` ) or enabled ( `False` ).
+	DisableLocalGroups interface{} `json:"disableLocalGroups"`
+	// List of regular expressions applied to documents.
+	//
+	// Items that match the exclusion pattern are not indexed. If you provide both an inclusion pattern and an exclusion pattern, any item that matches the exclusion pattern isn't indexed.
+	//
+	// The exclusion pattern is applied to the file name.
+	ExclusionPatterns *[]*string `json:"exclusionPatterns"`
+	// A list of `DataSourceToIndexFieldMapping` objects that map Microsoft OneDrive fields to custom fields in the Amazon Kendra index.
+	//
+	// You must first create the index fields before you map OneDrive fields.
+	FieldMappings interface{} `json:"fieldMappings"`
+	// A list of regular expression patterns.
+	//
+	// Documents that match the pattern are included in the index. Documents that don't match the pattern are excluded from the index. If a document matches both an inclusion pattern and an exclusion pattern, the document is not included in the index.
+	//
+	// The exclusion pattern is applied to the file name.
+	InclusionPatterns *[]*string `json:"inclusionPatterns"`
 }
 
+// User accounts whose documents should be indexed.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_OneDriveUsersProperty struct {
-	// `CfnDataSource.OneDriveUsersProperty.OneDriveUserList`.
+	// A list of users whose documents should be indexed.
+	//
+	// Specify the user names in email format, for example, `username@tenantdomain` . If you need to index the documents of more than 100 users, use the `OneDriveUserS3Path` field to specify the location of a file containing a list of users.
 	OneDriveUserList *[]*string `json:"oneDriveUserList"`
-	// `CfnDataSource.OneDriveUsersProperty.OneDriveUserS3Path`.
+	// The S3 bucket location of a file containing a list of users whose documents should be indexed.
 	OneDriveUserS3Path interface{} `json:"oneDriveUserS3Path"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnDataSource_ProxyConfigurationProperty struct {
-	// `CfnDataSource.ProxyConfigurationProperty.Credentials`.
-	Credentials *string `json:"credentials"`
 	// `CfnDataSource.ProxyConfigurationProperty.Host`.
 	Host *string `json:"host"`
 	// `CfnDataSource.ProxyConfigurationProperty.Port`.
 	Port *float64 `json:"port"`
+	// `CfnDataSource.ProxyConfigurationProperty.Credentials`.
+	Credentials *string `json:"credentials"`
 }
 
+// Provides configuration information for a data source to index documents in an Amazon S3 bucket.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_S3DataSourceConfigurationProperty struct {
-	// `CfnDataSource.S3DataSourceConfigurationProperty.AccessControlListConfiguration`.
-	AccessControlListConfiguration interface{} `json:"accessControlListConfiguration"`
-	// `CfnDataSource.S3DataSourceConfigurationProperty.BucketName`.
+	// The name of the bucket that contains the documents.
 	BucketName *string `json:"bucketName"`
-	// `CfnDataSource.S3DataSourceConfigurationProperty.DocumentsMetadataConfiguration`.
+	// Provides the path to the S3 bucket that contains the user context filtering files for the data source.
+	//
+	// For the format of the file, see [Access control for S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html) .
+	AccessControlListConfiguration interface{} `json:"accessControlListConfiguration"`
+	// Specifies document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes.
+	//
+	// Each metadata file contains metadata about a single document.
 	DocumentsMetadataConfiguration interface{} `json:"documentsMetadataConfiguration"`
-	// `CfnDataSource.S3DataSourceConfigurationProperty.ExclusionPatterns`.
+	// A list of glob patterns for documents that should not be indexed.
+	//
+	// If a document that matches an inclusion prefix or inclusion pattern also matches an exclusion pattern, the document is not indexed.
+	//
+	// Some [examples](https://docs.aws.amazon.com/cli/latest/reference/s3/#use-of-exclude-and-include-filters) are:
+	//
+	// - **.png , *.jpg* will exclude all PNG and JPEG image files in a directory (files with the extensions .png and .jpg).
+	// - **internal** will exclude all files in a directory that contain 'internal' in the file name, such as 'internal', 'internal_only', 'company_internal'.
+	// - *** /*internal** will exclude all internal-related files in a directory and its subdirectories.
 	ExclusionPatterns *[]*string `json:"exclusionPatterns"`
-	// `CfnDataSource.S3DataSourceConfigurationProperty.InclusionPatterns`.
+	// A list of glob patterns for documents that should be indexed.
+	//
+	// If a document that matches an inclusion pattern also matches an exclusion pattern, the document is not indexed.
+	//
+	// Some [examples](https://docs.aws.amazon.com/cli/latest/reference/s3/#use-of-exclude-and-include-filters) are:
+	//
+	// - **.txt* will include all text files in a directory (files with the extension .txt).
+	// - *** /*.txt* will include all text files in a directory and its subdirectories.
+	// - **tax** will include all files in a directory that contain 'tax' in the file name, such as 'tax', 'taxes', 'income_tax'.
 	InclusionPatterns *[]*string `json:"inclusionPatterns"`
-	// `CfnDataSource.S3DataSourceConfigurationProperty.InclusionPrefixes`.
+	// A list of S3 prefixes for the documents that should be included in the index.
 	InclusionPrefixes *[]*string `json:"inclusionPrefixes"`
 }
 
+// Information required to find a specific file in an Amazon S3 bucket.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_S3PathProperty struct {
-	// `CfnDataSource.S3PathProperty.Bucket`.
+	// The name of the S3 bucket that contains the file.
 	Bucket *string `json:"bucket"`
-	// `CfnDataSource.S3PathProperty.Key`.
+	// The name of the file.
 	Key *string `json:"key"`
 }
 
+// Defines configuration for syncing a Salesforce chatter feed.
+//
+// The contents of the object comes from the Salesforce FeedItem table.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_SalesforceChatterFeedConfigurationProperty struct {
-	// `CfnDataSource.SalesforceChatterFeedConfigurationProperty.DocumentDataFieldName`.
+	// The name of the column in the Salesforce FeedItem table that contains the content to index.
+	//
+	// Typically this is the `Body` column.
 	DocumentDataFieldName *string `json:"documentDataFieldName"`
-	// `CfnDataSource.SalesforceChatterFeedConfigurationProperty.DocumentTitleFieldName`.
+	// The name of the column in the Salesforce FeedItem table that contains the title of the document.
+	//
+	// This is typically the `Title` column.
 	DocumentTitleFieldName *string `json:"documentTitleFieldName"`
-	// `CfnDataSource.SalesforceChatterFeedConfigurationProperty.FieldMappings`.
+	// Maps fields from a Salesforce chatter feed into Amazon Kendra index fields.
 	FieldMappings interface{} `json:"fieldMappings"`
-	// `CfnDataSource.SalesforceChatterFeedConfigurationProperty.IncludeFilterTypes`.
+	// Filters the documents in the feed based on status of the user.
+	//
+	// When you specify `ACTIVE_USERS` only documents from users who have an active account are indexed. When you specify `STANDARD_USER` only documents for Salesforce standard users are documented. You can specify both.
 	IncludeFilterTypes *[]*string `json:"includeFilterTypes"`
 }
 
+// Provides configuration information for connecting to a Salesforce data source.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_SalesforceConfigurationProperty struct {
-	// `CfnDataSource.SalesforceConfigurationProperty.ChatterFeedConfiguration`.
-	ChatterFeedConfiguration interface{} `json:"chatterFeedConfiguration"`
-	// `CfnDataSource.SalesforceConfigurationProperty.CrawlAttachments`.
-	CrawlAttachments interface{} `json:"crawlAttachments"`
-	// `CfnDataSource.SalesforceConfigurationProperty.ExcludeAttachmentFilePatterns`.
-	ExcludeAttachmentFilePatterns *[]*string `json:"excludeAttachmentFilePatterns"`
-	// `CfnDataSource.SalesforceConfigurationProperty.IncludeAttachmentFilePatterns`.
-	IncludeAttachmentFilePatterns *[]*string `json:"includeAttachmentFilePatterns"`
-	// `CfnDataSource.SalesforceConfigurationProperty.KnowledgeArticleConfiguration`.
-	KnowledgeArticleConfiguration interface{} `json:"knowledgeArticleConfiguration"`
-	// `CfnDataSource.SalesforceConfigurationProperty.SecretArn`.
+	// The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the key/value pairs required to connect to your Salesforce instance.
+	//
+	// The secret must contain a JSON structure with the following keys:
+	//
+	// - authenticationUrl - The OAUTH endpoint that Amazon Kendra connects to get an OAUTH token.
+	// - consumerKey - The application public key generated when you created your Salesforce application.
+	// - consumerSecret - The application private key generated when you created your Salesforce application.
+	// - password - The password associated with the user logging in to the Salesforce instance.
+	// - securityToken - The token associated with the user account logging in to the Salesforce instance.
+	// - username - The user name of the user logging in to the Salesforce instance.
 	SecretArn *string `json:"secretArn"`
-	// `CfnDataSource.SalesforceConfigurationProperty.ServerUrl`.
+	// The instance URL for the Salesforce site that you want to index.
 	ServerUrl *string `json:"serverUrl"`
-	// `CfnDataSource.SalesforceConfigurationProperty.StandardObjectAttachmentConfiguration`.
+	// Specifies configuration information for Salesforce chatter feeds.
+	ChatterFeedConfiguration interface{} `json:"chatterFeedConfiguration"`
+	// Indicates whether Amazon Kendra should index attachments to Salesforce objects.
+	CrawlAttachments interface{} `json:"crawlAttachments"`
+	// A list of regular expression patterns.
+	//
+	// Documents that match the patterns are excluded from the index. Documents that don't match the patterns are included in the index. If a document matches both an exclusion pattern and an inclusion pattern, the document is not included in the index.
+	//
+	// The regex is applied to the name of the attached file.
+	ExcludeAttachmentFilePatterns *[]*string `json:"excludeAttachmentFilePatterns"`
+	// A list of regular expression patterns.
+	//
+	// Documents that match the patterns are included in the index. Documents that don't match the patterns are excluded from the index. If a document matches both an inclusion pattern and an exclusion pattern, the document is not included in the index.
+	//
+	// The regex is applied to the name of the attached file.
+	IncludeAttachmentFilePatterns *[]*string `json:"includeAttachmentFilePatterns"`
+	// Specifies configuration information for the knowledge article types that Amazon Kendra indexes.
+	//
+	// Amazon Kendra indexes standard knowledge articles and the standard fields of knowledge articles, or the custom fields of custom knowledge articles, but not both.
+	KnowledgeArticleConfiguration interface{} `json:"knowledgeArticleConfiguration"`
+	// Provides configuration information for processing attachments to Salesforce standard objects.
 	StandardObjectAttachmentConfiguration interface{} `json:"standardObjectAttachmentConfiguration"`
-	// `CfnDataSource.SalesforceConfigurationProperty.StandardObjectConfigurations`.
+	// Specifies the Salesforce standard objects that Amazon Kendra indexes.
 	StandardObjectConfigurations interface{} `json:"standardObjectConfigurations"`
 }
 
+// Provides configuration information for indexing Salesforce custom articles.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_SalesforceCustomKnowledgeArticleTypeConfigurationProperty struct {
-	// `CfnDataSource.SalesforceCustomKnowledgeArticleTypeConfigurationProperty.DocumentDataFieldName`.
+	// The name of the field in the custom knowledge article that contains the document data to index.
 	DocumentDataFieldName *string `json:"documentDataFieldName"`
-	// `CfnDataSource.SalesforceCustomKnowledgeArticleTypeConfigurationProperty.DocumentTitleFieldName`.
-	DocumentTitleFieldName *string `json:"documentTitleFieldName"`
-	// `CfnDataSource.SalesforceCustomKnowledgeArticleTypeConfigurationProperty.FieldMappings`.
-	FieldMappings interface{} `json:"fieldMappings"`
-	// `CfnDataSource.SalesforceCustomKnowledgeArticleTypeConfigurationProperty.Name`.
+	// The name of the configuration.
 	Name *string `json:"name"`
+	// The name of the field in the custom knowledge article that contains the document title.
+	DocumentTitleFieldName *string `json:"documentTitleFieldName"`
+	// One or more objects that map fields in the custom knowledge article to fields in the Amazon Kendra index.
+	FieldMappings interface{} `json:"fieldMappings"`
 }
 
+// Specifies configuration information for the knowledge article types that Amazon Kendra indexes.
+//
+// Amazon Kendra indexes standard knowledge articles and the standard fields of knowledge articles, or the custom fields of custom knowledge articles, but not both
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_SalesforceKnowledgeArticleConfigurationProperty struct {
-	// `CfnDataSource.SalesforceKnowledgeArticleConfigurationProperty.CustomKnowledgeArticleTypeConfigurations`.
-	CustomKnowledgeArticleTypeConfigurations interface{} `json:"customKnowledgeArticleTypeConfigurations"`
-	// `CfnDataSource.SalesforceKnowledgeArticleConfigurationProperty.IncludedStates`.
+	// Specifies the document states that should be included when Amazon Kendra indexes knowledge articles.
+	//
+	// You must specify at least one state.
 	IncludedStates *[]*string `json:"includedStates"`
-	// `CfnDataSource.SalesforceKnowledgeArticleConfigurationProperty.StandardKnowledgeArticleTypeConfiguration`.
+	// Provides configuration information for custom Salesforce knowledge articles.
+	CustomKnowledgeArticleTypeConfigurations interface{} `json:"customKnowledgeArticleTypeConfigurations"`
+	// Provides configuration information for standard Salesforce knowledge articles.
 	StandardKnowledgeArticleTypeConfiguration interface{} `json:"standardKnowledgeArticleTypeConfiguration"`
 }
 
+// Provides configuration information for standard Salesforce knowledge articles.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_SalesforceStandardKnowledgeArticleTypeConfigurationProperty struct {
-	// `CfnDataSource.SalesforceStandardKnowledgeArticleTypeConfigurationProperty.DocumentDataFieldName`.
+	// The name of the field that contains the document data to index.
 	DocumentDataFieldName *string `json:"documentDataFieldName"`
-	// `CfnDataSource.SalesforceStandardKnowledgeArticleTypeConfigurationProperty.DocumentTitleFieldName`.
+	// The name of the field that contains the document title.
 	DocumentTitleFieldName *string `json:"documentTitleFieldName"`
-	// `CfnDataSource.SalesforceStandardKnowledgeArticleTypeConfigurationProperty.FieldMappings`.
+	// One or more objects that map fields in the knowledge article to Amazon Kendra index fields.
+	//
+	// The index field must exist before you can map a Salesforce field to it.
 	FieldMappings interface{} `json:"fieldMappings"`
 }
 
+// Provides configuration information for processing attachments to Salesforce standard objects.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_SalesforceStandardObjectAttachmentConfigurationProperty struct {
-	// `CfnDataSource.SalesforceStandardObjectAttachmentConfigurationProperty.DocumentTitleFieldName`.
+	// The name of the field used for the document title.
 	DocumentTitleFieldName *string `json:"documentTitleFieldName"`
-	// `CfnDataSource.SalesforceStandardObjectAttachmentConfigurationProperty.FieldMappings`.
+	// One or more objects that map fields in attachments to Amazon Kendra index fields.
 	FieldMappings interface{} `json:"fieldMappings"`
 }
 
+// Specifies configuration information for indexing a single standard object.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_SalesforceStandardObjectConfigurationProperty struct {
-	// `CfnDataSource.SalesforceStandardObjectConfigurationProperty.DocumentDataFieldName`.
+	// The name of the field in the standard object table that contains the document contents.
 	DocumentDataFieldName *string `json:"documentDataFieldName"`
-	// `CfnDataSource.SalesforceStandardObjectConfigurationProperty.DocumentTitleFieldName`.
-	DocumentTitleFieldName *string `json:"documentTitleFieldName"`
-	// `CfnDataSource.SalesforceStandardObjectConfigurationProperty.FieldMappings`.
-	FieldMappings interface{} `json:"fieldMappings"`
-	// `CfnDataSource.SalesforceStandardObjectConfigurationProperty.Name`.
+	// The name of the standard object.
 	Name *string `json:"name"`
+	// The name of the field in the standard object table that contains the document title.
+	DocumentTitleFieldName *string `json:"documentTitleFieldName"`
+	// One or more objects that map fields in the standard object to Amazon Kendra index fields.
+	//
+	// The index field must exist before you can map a Salesforce field to it.
+	FieldMappings interface{} `json:"fieldMappings"`
 }
 
+// Provides configuration information required to connect to a ServiceNow data source.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_ServiceNowConfigurationProperty struct {
-	// `CfnDataSource.ServiceNowConfigurationProperty.AuthenticationType`.
-	AuthenticationType *string `json:"authenticationType"`
-	// `CfnDataSource.ServiceNowConfigurationProperty.HostUrl`.
+	// The ServiceNow instance that the data source connects to.
+	//
+	// The host endpoint should look like the following: `{instance}.service-now.com.`
 	HostUrl *string `json:"hostUrl"`
-	// `CfnDataSource.ServiceNowConfigurationProperty.KnowledgeArticleConfiguration`.
-	KnowledgeArticleConfiguration interface{} `json:"knowledgeArticleConfiguration"`
-	// `CfnDataSource.ServiceNowConfigurationProperty.SecretArn`.
+	// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the user name and password required to connect to the ServiceNow instance.
 	SecretArn *string `json:"secretArn"`
-	// `CfnDataSource.ServiceNowConfigurationProperty.ServiceCatalogConfiguration`.
-	ServiceCatalogConfiguration interface{} `json:"serviceCatalogConfiguration"`
-	// `CfnDataSource.ServiceNowConfigurationProperty.ServiceNowBuildVersion`.
+	// The identifier of the release that the ServiceNow host is running.
+	//
+	// If the host is not running the `LONDON` release, use `OTHERS` .
 	ServiceNowBuildVersion *string `json:"serviceNowBuildVersion"`
+	// Determines the type of authentication used to connect to the ServiceNow instance.
+	//
+	// If you choose `HTTP_BASIC` , Amazon Kendra is authenticated using the user name and password provided in the AWS Secrets Manager secret in the `SecretArn` field. When you choose `OAUTH2` , Amazon Kendra is authenticated using the OAuth token and secret provided in the Secrets Manager secret, and the user name and password are used to determine which information Amazon Kendra has access to.
+	//
+	// When you use `OAUTH2` authentication, you must generate a token and a client secret using the ServiceNow console. For more information, see [Using a ServiceNow data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-servicenow.html) .
+	AuthenticationType *string `json:"authenticationType"`
+	// Provides configuration information for crawling knowledge articles in the ServiceNow site.
+	KnowledgeArticleConfiguration interface{} `json:"knowledgeArticleConfiguration"`
+	// Provides configuration information for crawling service catalogs in the ServiceNow site.
+	ServiceCatalogConfiguration interface{} `json:"serviceCatalogConfiguration"`
 }
 
+// Provides configuration information for crawling knowledge articles in the ServiceNow site.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_ServiceNowKnowledgeArticleConfigurationProperty struct {
-	// `CfnDataSource.ServiceNowKnowledgeArticleConfigurationProperty.CrawlAttachments`.
-	CrawlAttachments interface{} `json:"crawlAttachments"`
-	// `CfnDataSource.ServiceNowKnowledgeArticleConfigurationProperty.DocumentDataFieldName`.
+	// The name of the ServiceNow field that is mapped to the index document contents field in the Amazon Kendra index.
 	DocumentDataFieldName *string `json:"documentDataFieldName"`
-	// `CfnDataSource.ServiceNowKnowledgeArticleConfigurationProperty.DocumentTitleFieldName`.
+	// Indicates whether Amazon Kendra should index attachments to knowledge articles.
+	CrawlAttachments interface{} `json:"crawlAttachments"`
+	// The name of the ServiceNow field that is mapped to the index document title field.
 	DocumentTitleFieldName *string `json:"documentTitleFieldName"`
-	// `CfnDataSource.ServiceNowKnowledgeArticleConfigurationProperty.ExcludeAttachmentFilePatterns`.
+	// List of regular expressions applied to knowledge articles.
+	//
+	// Items that don't match the inclusion pattern are not indexed. The regex is applied to the field specified in the `PatternTargetField`
 	ExcludeAttachmentFilePatterns *[]*string `json:"excludeAttachmentFilePatterns"`
-	// `CfnDataSource.ServiceNowKnowledgeArticleConfigurationProperty.FieldMappings`.
+	// Mapping between ServiceNow fields and Amazon Kendra index fields.
+	//
+	// You must create the index field before you map the field.
 	FieldMappings interface{} `json:"fieldMappings"`
-	// `CfnDataSource.ServiceNowKnowledgeArticleConfigurationProperty.FilterQuery`.
+	// A query that selects the knowledge articles to index.
+	//
+	// The query can return articles from multiple knowledge bases, and the knowledge bases can be public or private.
+	//
+	// The query string must be one generated by the ServiceNow console. For more information, see [Specifying documents to index with a query](https://docs.aws.amazon.com/kendra/latest/dg/servicenow-query.html) .
 	FilterQuery *string `json:"filterQuery"`
-	// `CfnDataSource.ServiceNowKnowledgeArticleConfigurationProperty.IncludeAttachmentFilePatterns`.
+	// List of regular expressions applied to knowledge articles.
+	//
+	// Items that don't match the inclusion pattern are not indexed. The regex is applied to the field specified in the `PatternTargetField` .
 	IncludeAttachmentFilePatterns *[]*string `json:"includeAttachmentFilePatterns"`
 }
 
+// Provides configuration information for crawling service catalog items in the ServiceNow site.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_ServiceNowServiceCatalogConfigurationProperty struct {
-	// `CfnDataSource.ServiceNowServiceCatalogConfigurationProperty.CrawlAttachments`.
-	CrawlAttachments interface{} `json:"crawlAttachments"`
-	// `CfnDataSource.ServiceNowServiceCatalogConfigurationProperty.DocumentDataFieldName`.
+	// The name of the ServiceNow field that is mapped to the index document contents field in the Amazon Kendra index.
 	DocumentDataFieldName *string `json:"documentDataFieldName"`
-	// `CfnDataSource.ServiceNowServiceCatalogConfigurationProperty.DocumentTitleFieldName`.
+	// Indicates whether Amazon Kendra should crawl attachments to the service catalog items.
+	CrawlAttachments interface{} `json:"crawlAttachments"`
+	// The name of the ServiceNow field that is mapped to the index document title field.
 	DocumentTitleFieldName *string `json:"documentTitleFieldName"`
-	// `CfnDataSource.ServiceNowServiceCatalogConfigurationProperty.ExcludeAttachmentFilePatterns`.
+	// A list of regular expression patterns.
+	//
+	// Documents that match the patterns are excluded from the index. Documents that don't match the patterns are included in the index. If a document matches both an exclusion pattern and an inclusion pattern, the document is not included in the index.
+	//
+	// The regex is applied to the file name of the attachment.
 	ExcludeAttachmentFilePatterns *[]*string `json:"excludeAttachmentFilePatterns"`
-	// `CfnDataSource.ServiceNowServiceCatalogConfigurationProperty.FieldMappings`.
+	// Mapping between ServiceNow fields and Amazon Kendra index fields.
+	//
+	// You must create the index field before you map the field.
 	FieldMappings interface{} `json:"fieldMappings"`
-	// `CfnDataSource.ServiceNowServiceCatalogConfigurationProperty.IncludeAttachmentFilePatterns`.
+	// A list of regular expression patterns.
+	//
+	// Documents that match the patterns are included in the index. Documents that don't match the patterns are excluded from the index. If a document matches both an exclusion pattern and an inclusion pattern, the document is not included in the index.
+	//
+	// The regex is applied to the file name of the attachment.
 	IncludeAttachmentFilePatterns *[]*string `json:"includeAttachmentFilePatterns"`
 }
 
+// Provides configuration information for connecting to a Microsoft SharePoint data source.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_SharePointConfigurationProperty struct {
-	// `CfnDataSource.SharePointConfigurationProperty.CrawlAttachments`.
-	CrawlAttachments interface{} `json:"crawlAttachments"`
-	// `CfnDataSource.SharePointConfigurationProperty.DisableLocalGroups`.
-	DisableLocalGroups interface{} `json:"disableLocalGroups"`
-	// `CfnDataSource.SharePointConfigurationProperty.DocumentTitleFieldName`.
-	DocumentTitleFieldName *string `json:"documentTitleFieldName"`
-	// `CfnDataSource.SharePointConfigurationProperty.ExclusionPatterns`.
-	ExclusionPatterns *[]*string `json:"exclusionPatterns"`
-	// `CfnDataSource.SharePointConfigurationProperty.FieldMappings`.
-	FieldMappings interface{} `json:"fieldMappings"`
-	// `CfnDataSource.SharePointConfigurationProperty.InclusionPatterns`.
-	InclusionPatterns *[]*string `json:"inclusionPatterns"`
-	// `CfnDataSource.SharePointConfigurationProperty.SecretArn`.
+	// The Amazon Resource Name (ARN) of credentials stored in AWS Secrets Manager .
+	//
+	// The credentials should be a user/password pair. If you use SharePoint Server, you also need to provide the sever domain name as part of the credentials. For more information, see [Using a Microsoft SharePoint Data Source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-sharepoint.html) . For more information about AWS Secrets Manager see [What Is AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) in the *AWS Secrets Manager* user guide.
 	SecretArn *string `json:"secretArn"`
-	// `CfnDataSource.SharePointConfigurationProperty.SharePointVersion`.
+	// The version of Microsoft SharePoint that you are using as a data source.
 	SharePointVersion *string `json:"sharePointVersion"`
-	// `CfnDataSource.SharePointConfigurationProperty.SslCertificateS3Path`.
-	SslCertificateS3Path interface{} `json:"sslCertificateS3Path"`
-	// `CfnDataSource.SharePointConfigurationProperty.Urls`.
+	// The URLs of the Microsoft SharePoint site that contains the documents that should be indexed.
 	Urls *[]*string `json:"urls"`
-	// `CfnDataSource.SharePointConfigurationProperty.UseChangeLog`.
+	// `TRUE` to include attachments to documents stored in your Microsoft SharePoint site in the index;
+	//
+	// otherwise, `FALSE` .
+	CrawlAttachments interface{} `json:"crawlAttachments"`
+	// A Boolean value that specifies whether local groups are disabled ( `True` ) or enabled ( `False` ).
+	DisableLocalGroups interface{} `json:"disableLocalGroups"`
+	// The Microsoft SharePoint attribute field that contains the title of the document.
+	DocumentTitleFieldName *string `json:"documentTitleFieldName"`
+	// A list of regular expression patterns.
+	//
+	// Documents that match the patterns are excluded from the index. Documents that don't match the patterns are included in the index. If a document matches both an exclusion pattern and an inclusion pattern, the document is not included in the index.
+	//
+	// The regex is applied to the display URL of the SharePoint document.
+	ExclusionPatterns *[]*string `json:"exclusionPatterns"`
+	// A list of `DataSourceToIndexFieldMapping` objects that map Microsoft SharePoint attributes to custom fields in the Amazon Kendra index.
+	//
+	// You must first create the index fields using the [UpdateIndex](https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateIndex.html) operation before you map SharePoint attributes. For more information, see [Mapping Data Source Fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) .
+	FieldMappings interface{} `json:"fieldMappings"`
+	// A list of regular expression patterns.
+	//
+	// Documents that match the patterns are included in the index. Documents that don't match the patterns are excluded from the index. If a document matches both an inclusion pattern and an exclusion pattern, the document is not included in the index.
+	//
+	// The regex is applied to the display URL of the SharePoint document.
+	InclusionPatterns *[]*string `json:"inclusionPatterns"`
+	// Information required to find a specific file in an Amazon S3 bucket.
+	SslCertificateS3Path interface{} `json:"sslCertificateS3Path"`
+	// Set to `TRUE` to use the Microsoft SharePoint change log to determine the documents that need to be updated in the index.
+	//
+	// Depending on the size of the SharePoint change log, it may take longer for Amazon Kendra to use the change log than it takes it to determine the changed documents using the Amazon Kendra document crawler.
 	UseChangeLog interface{} `json:"useChangeLog"`
 	// `CfnDataSource.SharePointConfigurationProperty.VpcConfiguration`.
 	VpcConfiguration interface{} `json:"vpcConfiguration"`
 }
 
+// Provides information that configures Amazon Kendra to use a SQL database.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_SqlConfigurationProperty struct {
-	// `CfnDataSource.SqlConfigurationProperty.QueryIdentifiersEnclosingOption`.
+	// Determines whether Amazon Kendra encloses SQL identifiers for tables and column names in double quotes (") when making a database query.
+	//
+	// You can set the value to `DOUBLE_QUOTES` or `NONE` .
+	//
+	// By default, Amazon Kendra passes SQL identifiers the way that they are entered into the data source configuration. It does not change the case of identifiers or enclose them in quotes.
+	//
+	// PostgreSQL internally converts uppercase characters to lower case characters in identifiers unless they are quoted. Choosing this option encloses identifiers in quotes so that PostgreSQL does not convert the character's case.
+	//
+	// For MySQL databases, you must enable the ansi_quotes option when you set this field to `DOUBLE_QUOTES` .
 	QueryIdentifiersEnclosingOption *string `json:"queryIdentifiersEnclosingOption"`
 }
 
+// Provides the configuration information to connect to websites that require user authentication.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_WebCrawlerAuthenticationConfigurationProperty struct {
-	// `CfnDataSource.WebCrawlerAuthenticationConfigurationProperty.BasicAuthentication`.
+	// The list of configuration information that's required to connect to and crawl a website host using basic authentication credentials.
+	//
+	// The list includes the name and port number of the website host.
 	BasicAuthentication interface{} `json:"basicAuthentication"`
 }
 
+// Provides the configuration information to connect to websites that require basic user authentication.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_WebCrawlerBasicAuthenticationProperty struct {
-	// `CfnDataSource.WebCrawlerBasicAuthenticationProperty.Credentials`.
+	// Your secret ARN, which you can create in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html).
+	//
+	// You use a secret if basic authentication credentials are required to connect to a website. The secret stores your credentials of user name and password.
 	Credentials *string `json:"credentials"`
-	// `CfnDataSource.WebCrawlerBasicAuthenticationProperty.Host`.
+	// The name of the website host you want to connect to using authentication credentials.
+	//
+	// For example, the host name of https://a.example.com/page1.html is "a.example.com".
 	Host *string `json:"host"`
-	// `CfnDataSource.WebCrawlerBasicAuthenticationProperty.Port`.
+	// The port number of the website host you want to connect to using authentication credentials.
+	//
+	// For example, the port for https://a.example.com/page1.html is 443, the standard port for HTTPS.
 	Port *float64 `json:"port"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnDataSource_WebCrawlerConfigurationProperty struct {
+	// Specifies the seed or starting point URLs of the websites or the sitemap URLs of the websites you want to crawl.
+	//
+	// You can include website subdomains. You can list up to 100 seed URLs and up to three sitemap URLs.
+	//
+	// You can only crawl websites that use the secure communication protocol, Hypertext Transfer Protocol Secure (HTTPS). If you receive an error when crawling a website, it could be that the website is blocked from crawling.
+	//
+	// *When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://docs.aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use the Amazon Kendra web crawler to index your own webpages, or webpages that you have authorization to index.*
+	Urls interface{} `json:"urls"`
 	// `CfnDataSource.WebCrawlerConfigurationProperty.AuthenticationConfiguration`.
 	AuthenticationConfiguration interface{} `json:"authenticationConfiguration"`
 	// `CfnDataSource.WebCrawlerConfigurationProperty.CrawlDepth`.
@@ -1155,19 +1584,33 @@ type CfnDataSource_WebCrawlerConfigurationProperty struct {
 	UrlExclusionPatterns *[]*string `json:"urlExclusionPatterns"`
 	// `CfnDataSource.WebCrawlerConfigurationProperty.UrlInclusionPatterns`.
 	UrlInclusionPatterns *[]*string `json:"urlInclusionPatterns"`
-	// `CfnDataSource.WebCrawlerConfigurationProperty.Urls`.
-	Urls interface{} `json:"urls"`
 }
 
+// Provides the configuration information of the seed or starting point URLs to crawl.
+//
+// *When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://docs.aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use the Amazon Kendra web crawler to index your own webpages, or webpages that you have authorization to index.*
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_WebCrawlerSeedUrlConfigurationProperty struct {
-	// `CfnDataSource.WebCrawlerSeedUrlConfigurationProperty.SeedUrls`.
+	// The list of seed or starting point URLs of the websites you want to crawl.
+	//
+	// The list can include a maximum of 100 seed URLs.
 	SeedUrls *[]*string `json:"seedUrls"`
-	// `CfnDataSource.WebCrawlerSeedUrlConfigurationProperty.WebCrawlerMode`.
+	// You can choose one of the following modes:.
+	//
+	// - `HOST_ONLY` – crawl only the website host names. For example, if the seed URL is "abc.example.com", then only URLs with host name "abc.example.com" are crawled.
+	// - `SUBDOMAINS` – crawl the website host names with subdomains. For example, if the seed URL is "abc.example.com", then "a.abc.example.com" and "b.abc.example.com" are also crawled.
+	// - `EVERYTHING` – crawl the website host names with subdomains and other domains that the webpages link to.
+	//
+	// The default mode is set to `HOST_ONLY` .
 	WebCrawlerMode *string `json:"webCrawlerMode"`
 }
 
+// Provides the configuration information of the sitemap URLs to crawl.
+//
+// *When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://docs.aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use the Amazon Kendra web crawler to index your own webpages, or webpages that you have authorization to index.*
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_WebCrawlerSiteMapsConfigurationProperty struct {
@@ -1175,18 +1618,34 @@ type CfnDataSource_WebCrawlerSiteMapsConfigurationProperty struct {
 	SiteMaps *[]*string `json:"siteMaps"`
 }
 
+// Specifies the seed or starting point URLs of the websites or the sitemap URLs of the websites you want to crawl.
+//
+// You can include website subdomains. You can list up to 100 seed URLs and up to three sitemap URLs.
+//
+// You can only crawl websites that use the secure communication protocol, Hypertext Transfer Protocol Secure (HTTPS). If you receive an error when crawling a website, it could be that the website is blocked from crawling.
+//
+// *When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://docs.aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use the Amazon Kendra web crawler to index your own webpages, or webpages that you have authorization to index.*
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_WebCrawlerUrlsProperty struct {
-	// `CfnDataSource.WebCrawlerUrlsProperty.SeedUrlConfiguration`.
+	// Provides the configuration of the seed or starting point URLs of the websites you want to crawl.
+	//
+	// You can choose to crawl only the website host names, or the website host names with subdomains, or the website host names with subdomains and other domains that the webpages link to.
+	//
+	// You can list up to 100 seed URLs.
 	SeedUrlConfiguration interface{} `json:"seedUrlConfiguration"`
-	// `CfnDataSource.WebCrawlerUrlsProperty.SiteMapsConfiguration`.
+	// Provides the configuration of the sitemap URLs of the websites you want to crawl.
+	//
+	// Only URLs belonging to the same website host names are crawled. You can list up to three sitemap URLs.
 	SiteMapsConfiguration interface{} `json:"siteMapsConfiguration"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnDataSource_WorkDocsConfigurationProperty struct {
+	// `CfnDataSource.WorkDocsConfigurationProperty.OrganizationId`.
+	OrganizationId *string `json:"organizationId"`
 	// `CfnDataSource.WorkDocsConfigurationProperty.CrawlComments`.
 	CrawlComments interface{} `json:"crawlComments"`
 	// `CfnDataSource.WorkDocsConfigurationProperty.ExclusionPatterns`.
@@ -1195,36 +1654,59 @@ type CfnDataSource_WorkDocsConfigurationProperty struct {
 	FieldMappings interface{} `json:"fieldMappings"`
 	// `CfnDataSource.WorkDocsConfigurationProperty.InclusionPatterns`.
 	InclusionPatterns *[]*string `json:"inclusionPatterns"`
-	// `CfnDataSource.WorkDocsConfigurationProperty.OrganizationId`.
-	OrganizationId *string `json:"organizationId"`
 	// `CfnDataSource.WorkDocsConfigurationProperty.UseChangeLog`.
 	UseChangeLog interface{} `json:"useChangeLog"`
 }
 
-// Properties for defining a `AWS::Kendra::DataSource`.
+// Properties for defining a `CfnDataSource`.
 //
 // TODO: EXAMPLE
 //
 type CfnDataSourceProps struct {
-	// `AWS::Kendra::DataSource.DataSourceConfiguration`.
-	DataSourceConfiguration interface{} `json:"dataSourceConfiguration"`
-	// `AWS::Kendra::DataSource.Description`.
-	Description *string `json:"description"`
-	// `AWS::Kendra::DataSource.IndexId`.
+	// The identifier of the index that should be associated with this data source.
 	IndexId *string `json:"indexId"`
-	// `AWS::Kendra::DataSource.Name`.
+	// The name of the data source.
 	Name *string `json:"name"`
-	// `AWS::Kendra::DataSource.RoleArn`.
-	RoleArn *string `json:"roleArn"`
-	// `AWS::Kendra::DataSource.Schedule`.
-	Schedule *string `json:"schedule"`
-	// `AWS::Kendra::DataSource.Tags`.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
-	// `AWS::Kendra::DataSource.Type`.
+	// The type of the data source.
 	Type *string `json:"type"`
+	// Configuration information for an Amazon Kendra data source.
+	//
+	// The contents of the configuration depend on the type of data source. You can only specify one type of data source in the configuration. Choose from one of the following data sources.
+	//
+	// - Amazon S3
+	// - Confluence
+	// - Custom
+	// - Database
+	// - Microsoft OneDrive
+	// - Microsoft SharePoint
+	// - Salesforce
+	// - ServiceNow
+	//
+	// You can't specify the `Configuration` parameter when the `Type` parameter is set to `CUSTOM` .
+	//
+	// The `Configuration` parameter is required for all other data sources.
+	DataSourceConfiguration interface{} `json:"dataSourceConfiguration"`
+	// A description of the data source.
+	Description *string `json:"description"`
+	// The Amazon Resource Name (ARN) of a role with permission to access the data source.
+	//
+	// You can't specify the `RoleArn` parameter when the `Type` parameter is set to `CUSTOM` .
+	//
+	// The `RoleArn` parameter is required for all other data sources.
+	RoleArn *string `json:"roleArn"`
+	// Sets the frequency that Amazon Kendra checks the documents in your data source and updates the index.
+	//
+	// If you don't set a schedule, Amazon Kendra doesn't periodically update the index.
+	Schedule *string `json:"schedule"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::Kendra::Faq`.
+//
+// Specifies an new set of frequently asked question (FAQ) questions and answers.
 //
 // TODO: EXAMPLE
 //
@@ -1246,7 +1728,7 @@ type CfnFaq interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	RoleArn() *string
 	SetRoleArn(val *string)
@@ -1265,10 +1747,16 @@ type CfnFaq interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1388,8 +1876,8 @@ func (j *jsiiProxy_CfnFaq) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFaq) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnFaq) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1460,13 +1948,13 @@ func (j *jsiiProxy_CfnFaq) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::Kendra::Faq`.
-func NewCfnFaq(scope constructs.Construct, id *string, props *CfnFaqProps) CfnFaq {
+func NewCfnFaq(scope awscdk.Construct, id *string, props *CfnFaqProps) CfnFaq {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnFaq{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kendra.CfnFaq",
+		"monocdk.aws_kendra.CfnFaq",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1475,11 +1963,11 @@ func NewCfnFaq(scope constructs.Construct, id *string, props *CfnFaqProps) CfnFa
 }
 
 // Create a new `AWS::Kendra::Faq`.
-func NewCfnFaq_Override(c CfnFaq, scope constructs.Construct, id *string, props *CfnFaqProps) {
+func NewCfnFaq_Override(c CfnFaq, scope awscdk.Construct, id *string, props *CfnFaqProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kendra.CfnFaq",
+		"monocdk.aws_kendra.CfnFaq",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1539,13 +2027,14 @@ func (j *jsiiProxy_CfnFaq) SetS3Path(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnFaq_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kendra.CfnFaq",
+		"monocdk.aws_kendra.CfnFaq",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1555,13 +2044,14 @@ func CfnFaq_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnFaq_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kendra.CfnFaq",
+		"monocdk.aws_kendra.CfnFaq",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1570,17 +2060,15 @@ func CfnFaq_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnFaq_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kendra.CfnFaq",
+		"monocdk.aws_kendra.CfnFaq",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1593,7 +2081,7 @@ func CfnFaq_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_kendra.CfnFaq",
+		"monocdk.aws_kendra.CfnFaq",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1601,6 +2089,7 @@ func CfnFaq_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnFaq) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1613,6 +2102,7 @@ func (c *jsiiProxy_CfnFaq) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnFaq) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1628,6 +2118,7 @@ func (c *jsiiProxy_CfnFaq) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnFaq) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1673,6 +2164,7 @@ func (c *jsiiProxy_CfnFaq) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnFaq) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1682,6 +2174,7 @@ func (c *jsiiProxy_CfnFaq) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnFaq) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1693,6 +2186,7 @@ func (c *jsiiProxy_CfnFaq) AddPropertyDeletionOverride(propertyPath *string) {
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnFaq) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1710,6 +2204,7 @@ func (c *jsiiProxy_CfnFaq) AddPropertyOverride(propertyPath *string, value inter
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnFaq) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1722,6 +2217,7 @@ func (c *jsiiProxy_CfnFaq) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, optio
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnFaq) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1742,6 +2238,7 @@ func (c *jsiiProxy_CfnFaq) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnFaq) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1764,12 +2261,80 @@ func (c *jsiiProxy_CfnFaq) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnFaq) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnFaq) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnFaq) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnFaq) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnFaq) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1790,6 +2355,7 @@ func (c *jsiiProxy_CfnFaq) RenderProperties(props *map[string]interface{}) *map[
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnFaq) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1803,9 +2369,23 @@ func (c *jsiiProxy_CfnFaq) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnFaq) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnFaq) ToString() *string {
 	var returns *string
 
@@ -1819,6 +2399,27 @@ func (c *jsiiProxy_CfnFaq) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnFaq) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnFaq) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1827,37 +2428,55 @@ func (c *jsiiProxy_CfnFaq) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// Information required to find a specific file in an Amazon S3 bucket.
+//
 // TODO: EXAMPLE
 //
 type CfnFaq_S3PathProperty struct {
-	// `CfnFaq.S3PathProperty.Bucket`.
+	// The name of the S3 bucket that contains the file.
 	Bucket *string `json:"bucket"`
-	// `CfnFaq.S3PathProperty.Key`.
+	// The name of the file.
 	Key *string `json:"key"`
 }
 
-// Properties for defining a `AWS::Kendra::Faq`.
+// Properties for defining a `CfnFaq`.
 //
 // TODO: EXAMPLE
 //
 type CfnFaqProps struct {
-	// `AWS::Kendra::Faq.Description`.
-	Description *string `json:"description"`
-	// `AWS::Kendra::Faq.FileFormat`.
-	FileFormat *string `json:"fileFormat"`
-	// `AWS::Kendra::Faq.IndexId`.
+	// The identifier of the index that contains the FAQ.
 	IndexId *string `json:"indexId"`
-	// `AWS::Kendra::Faq.Name`.
+	// The name that you assigned the FAQ when you created or updated the FAQ.
 	Name *string `json:"name"`
-	// `AWS::Kendra::Faq.RoleArn`.
+	// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQ.
 	RoleArn *string `json:"roleArn"`
-	// `AWS::Kendra::Faq.S3Path`.
+	// The Amazon Simple Storage Service (Amazon S3) location of the FAQ input data.
 	S3Path interface{} `json:"s3Path"`
-	// `AWS::Kendra::Faq.Tags`.
+	// A description of the FAQ.
+	Description *string `json:"description"`
+	// The format of the input file.
+	//
+	// You can choose between a basic CSV format, a CSV format that includes customs attributes in a header, and a JSON format that includes custom attributes.
+	//
+	// The format must match the format of the file stored in the S3 bucket identified in the S3Path parameter.
+	//
+	// Valid values are:
+	//
+	// - `CSV`
+	// - `CSV_WITH_HEADER`
+	// - `JSON`
+	FileFormat *string `json:"fileFormat"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::Kendra::Index`.
+//
+// Specifies a new Amazon Kendra index. And index is a collection of documents and associated metadata that you want to search for relevant documents.
+//
+// Once the index is active you can add documents to your index using the [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/BatchPutDocument.html) operation or using one of the supported data sources.
 //
 // TODO: EXAMPLE
 //
@@ -1881,7 +2500,7 @@ type CfnIndex interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	RoleArn() *string
 	SetRoleArn(val *string)
@@ -1904,10 +2523,16 @@ type CfnIndex interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -2037,8 +2662,8 @@ func (j *jsiiProxy_CfnIndex) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIndex) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnIndex) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2129,13 +2754,13 @@ func (j *jsiiProxy_CfnIndex) UserTokenConfigurations() interface{} {
 
 
 // Create a new `AWS::Kendra::Index`.
-func NewCfnIndex(scope constructs.Construct, id *string, props *CfnIndexProps) CfnIndex {
+func NewCfnIndex(scope awscdk.Construct, id *string, props *CfnIndexProps) CfnIndex {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnIndex{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kendra.CfnIndex",
+		"monocdk.aws_kendra.CfnIndex",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2144,11 +2769,11 @@ func NewCfnIndex(scope constructs.Construct, id *string, props *CfnIndexProps) C
 }
 
 // Create a new `AWS::Kendra::Index`.
-func NewCfnIndex_Override(c CfnIndex, scope constructs.Construct, id *string, props *CfnIndexProps) {
+func NewCfnIndex_Override(c CfnIndex, scope awscdk.Construct, id *string, props *CfnIndexProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kendra.CfnIndex",
+		"monocdk.aws_kendra.CfnIndex",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2232,13 +2857,14 @@ func (j *jsiiProxy_CfnIndex) SetUserTokenConfigurations(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnIndex_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kendra.CfnIndex",
+		"monocdk.aws_kendra.CfnIndex",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2248,13 +2874,14 @@ func CfnIndex_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnIndex_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kendra.CfnIndex",
+		"monocdk.aws_kendra.CfnIndex",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2263,17 +2890,15 @@ func CfnIndex_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnIndex_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kendra.CfnIndex",
+		"monocdk.aws_kendra.CfnIndex",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2286,7 +2911,7 @@ func CfnIndex_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_kendra.CfnIndex",
+		"monocdk.aws_kendra.CfnIndex",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2294,6 +2919,7 @@ func CfnIndex_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnIndex) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2306,6 +2932,7 @@ func (c *jsiiProxy_CfnIndex) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnIndex) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2321,6 +2948,7 @@ func (c *jsiiProxy_CfnIndex) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnIndex) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2366,6 +2994,7 @@ func (c *jsiiProxy_CfnIndex) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnIndex) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2375,6 +3004,7 @@ func (c *jsiiProxy_CfnIndex) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnIndex) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2386,6 +3016,7 @@ func (c *jsiiProxy_CfnIndex) AddPropertyDeletionOverride(propertyPath *string) {
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnIndex) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2403,6 +3034,7 @@ func (c *jsiiProxy_CfnIndex) AddPropertyOverride(propertyPath *string, value int
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnIndex) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2415,6 +3047,7 @@ func (c *jsiiProxy_CfnIndex) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, opt
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnIndex) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2435,6 +3068,7 @@ func (c *jsiiProxy_CfnIndex) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnIndex) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2457,12 +3091,80 @@ func (c *jsiiProxy_CfnIndex) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnIndex) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnIndex) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnIndex) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnIndex) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnIndex) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2483,6 +3185,7 @@ func (c *jsiiProxy_CfnIndex) RenderProperties(props *map[string]interface{}) *ma
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnIndex) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2496,9 +3199,23 @@ func (c *jsiiProxy_CfnIndex) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnIndex) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnIndex) ToString() *string {
 	var returns *string
 
@@ -2512,6 +3229,27 @@ func (c *jsiiProxy_CfnIndex) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnIndex) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnIndex) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2520,133 +3258,211 @@ func (c *jsiiProxy_CfnIndex) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// Specifies capacity units configured for your enterprise edition index.
+//
+// You can add and remove capacity units to tune an index to your requirements.
+//
 // TODO: EXAMPLE
 //
 type CfnIndex_CapacityUnitsConfigurationProperty struct {
-	// `CfnIndex.CapacityUnitsConfigurationProperty.QueryCapacityUnits`.
+	// The amount of extra query capacity for an index and [GetQuerySuggestions](https://docs.aws.amazon.com/kendra/latest/dg/API_GetQuerySuggestions.html) capacity.
+	//
+	// A single extra capacity unit for an index provides 0.1 queries per second or approximately 8,000 queries per day.
+	//
+	// `GetQuerySuggestions` capacity is five times the provisioned query capacity for an index, or the base capacity of 2.5 calls per second, whichever is higher. For example, the base capacity for an index is 0.1 queries per second, and `GetQuerySuggestions` capacity has a base of 2.5 calls per second. If you add another 0.1 queries per second to total 0.2 queries per second for an index, the `GetQuerySuggestions` capacity is 2.5 calls per second (higher than five times 0.2 queries per second).
 	QueryCapacityUnits *float64 `json:"queryCapacityUnits"`
-	// `CfnIndex.CapacityUnitsConfigurationProperty.StorageCapacityUnits`.
+	// The amount of extra storage capacity for an index.
+	//
+	// A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first.
 	StorageCapacityUnits *float64 `json:"storageCapacityUnits"`
 }
 
+// Specifies the properties of a custom index field.
+//
 // TODO: EXAMPLE
 //
 type CfnIndex_DocumentMetadataConfigurationProperty struct {
-	// `CfnIndex.DocumentMetadataConfigurationProperty.Name`.
+	// The name of the index field.
 	Name *string `json:"name"`
-	// `CfnIndex.DocumentMetadataConfigurationProperty.Relevance`.
-	Relevance interface{} `json:"relevance"`
-	// `CfnIndex.DocumentMetadataConfigurationProperty.Search`.
-	Search interface{} `json:"search"`
-	// `CfnIndex.DocumentMetadataConfigurationProperty.Type`.
+	// The data type of the index field.
 	Type *string `json:"type"`
+	// Provides manual tuning parameters to determine how the field affects the search results.
+	Relevance interface{} `json:"relevance"`
+	// Provides information about how the field is used during a search.
+	Search interface{} `json:"search"`
 }
 
+// Configuration information for the JSON token type.
+//
 // TODO: EXAMPLE
 //
 type CfnIndex_JsonTokenTypeConfigurationProperty struct {
-	// `CfnIndex.JsonTokenTypeConfigurationProperty.GroupAttributeField`.
+	// The group attribute field.
 	GroupAttributeField *string `json:"groupAttributeField"`
-	// `CfnIndex.JsonTokenTypeConfigurationProperty.UserNameAttributeField`.
+	// The user name attribute field.
 	UserNameAttributeField *string `json:"userNameAttributeField"`
 }
 
+// Configuration information for the JWT token type.
+//
 // TODO: EXAMPLE
 //
 type CfnIndex_JwtTokenTypeConfigurationProperty struct {
-	// `CfnIndex.JwtTokenTypeConfigurationProperty.ClaimRegex`.
-	ClaimRegex *string `json:"claimRegex"`
-	// `CfnIndex.JwtTokenTypeConfigurationProperty.GroupAttributeField`.
-	GroupAttributeField *string `json:"groupAttributeField"`
-	// `CfnIndex.JwtTokenTypeConfigurationProperty.Issuer`.
-	Issuer *string `json:"issuer"`
-	// `CfnIndex.JwtTokenTypeConfigurationProperty.KeyLocation`.
+	// The location of the key.
 	KeyLocation *string `json:"keyLocation"`
-	// `CfnIndex.JwtTokenTypeConfigurationProperty.SecretManagerArn`.
+	// The regular expression that identifies the claim.
+	ClaimRegex *string `json:"claimRegex"`
+	// The group attribute field.
+	GroupAttributeField *string `json:"groupAttributeField"`
+	// The issuer of the token.
+	Issuer *string `json:"issuer"`
+	// The Amazon Resource Name (arn) of the secret.
 	SecretManagerArn *string `json:"secretManagerArn"`
-	// `CfnIndex.JwtTokenTypeConfigurationProperty.URL`.
+	// The signing key URL.
 	Url *string `json:"url"`
-	// `CfnIndex.JwtTokenTypeConfigurationProperty.UserNameAttributeField`.
+	// The user name attribute field.
 	UserNameAttributeField *string `json:"userNameAttributeField"`
 }
 
+// Provides information for manually tuning the relevance of a field in a search.
+//
+// When a query includes terms that match the field, the results are given a boost in the response based on these tuning parameters.
+//
 // TODO: EXAMPLE
 //
 type CfnIndex_RelevanceProperty struct {
-	// `CfnIndex.RelevanceProperty.Duration`.
+	// Specifies the time period that the boost applies to.
+	//
+	// For example, to make the boost apply to documents with the field value within the last month, you would use "2628000s". Once the field value is beyond the specified range, the effect of the boost drops off. The higher the importance, the faster the effect drops off. If you don't specify a value, the default is 3 months. The value of the field is a numeric string followed by the character "s", for example "86400s" for one day, or "604800s" for one week.
+	//
+	// Only applies to `DATE` fields.
 	Duration *string `json:"duration"`
-	// `CfnIndex.RelevanceProperty.Freshness`.
+	// Indicates that this field determines how "fresh" a document is.
+	//
+	// For example, if document 1 was created on November 5, and document 2 was created on October 31, document 1 is "fresher" than document 2. You can only set the `Freshness` field on one `DATE` type field. Only applies to `DATE` fields.
 	Freshness interface{} `json:"freshness"`
-	// `CfnIndex.RelevanceProperty.Importance`.
+	// The relative importance of the field in the search.
+	//
+	// Larger numbers provide more of a boost than smaller numbers.
 	Importance *float64 `json:"importance"`
-	// `CfnIndex.RelevanceProperty.RankOrder`.
+	// Determines how values should be interpreted.
+	//
+	// When the `RankOrder` field is `ASCENDING` , higher numbers are better. For example, a document with a rating score of 10 is higher ranking than a document with a rating score of 1.
+	//
+	// When the `RankOrder` field is `DESCENDING` , lower numbers are better. For example, in a task tracking application, a priority 1 task is more important than a priority 5 task.
+	//
+	// Only applies to `LONG` and `DOUBLE` fields.
 	RankOrder *string `json:"rankOrder"`
-	// `CfnIndex.RelevanceProperty.ValueImportanceItems`.
+	// An array of key-value pairs that contains an array of values that should be given a different boost when they appear in the search result list.
+	//
+	// For example, if you are boosting query terms that match the department field in the result, query terms that match the department field are boosted in the result. You can add entries from the department field to boost documents with those values higher.
+	//
+	// For example, you can add entries to the map with names of departments. If you add "HR", 5 and "Legal",3 those departments are given special attention when they appear in the metadata of a document.
 	ValueImportanceItems interface{} `json:"valueImportanceItems"`
 }
 
+// Provides information about how a custom index field is used during a search.
+//
 // TODO: EXAMPLE
 //
 type CfnIndex_SearchProperty struct {
-	// `CfnIndex.SearchProperty.Displayable`.
+	// Determines whether the field is returned in the query response.
+	//
+	// The default is `true` .
 	Displayable interface{} `json:"displayable"`
-	// `CfnIndex.SearchProperty.Facetable`.
+	// Indicates that the field can be used to create search facets, a count of results for each value in the field.
+	//
+	// The default is `false` .
 	Facetable interface{} `json:"facetable"`
-	// `CfnIndex.SearchProperty.Searchable`.
+	// Determines whether the field is used in the search.
+	//
+	// If the `Searchable` field is `true` , you can use relevance tuning to manually tune how Amazon Kendra weights the field in the search. The default is `true` for string fields and `false` for number and date fields.
 	Searchable interface{} `json:"searchable"`
-	// `CfnIndex.SearchProperty.Sortable`.
+	// Indicates that the field can be used to sort the search results.
+	//
+	// The default is `false` .
 	Sortable interface{} `json:"sortable"`
 }
 
+// Provides the identifier of the AWS KMS customer master key (CMK) used to encrypt data indexed by Amazon Kendra.
+//
+// We suggest that you use a CMK from your account to help secure your index. Amazon Kendra doesn't support asymmetric CMKs.
+//
 // TODO: EXAMPLE
 //
 type CfnIndex_ServerSideEncryptionConfigurationProperty struct {
-	// `CfnIndex.ServerSideEncryptionConfigurationProperty.KmsKeyId`.
+	// The identifier of the AWS KMS customer master key (CMK).
+	//
+	// Amazon Kendra doesn't support asymmetric CMKs.
 	KmsKeyId *string `json:"kmsKeyId"`
 }
 
+// Provides configuration information for a token configuration.
+//
 // TODO: EXAMPLE
 //
 type CfnIndex_UserTokenConfigurationProperty struct {
-	// `CfnIndex.UserTokenConfigurationProperty.JsonTokenTypeConfiguration`.
+	// Information about the JSON token type configuration.
 	JsonTokenTypeConfiguration interface{} `json:"jsonTokenTypeConfiguration"`
-	// `CfnIndex.UserTokenConfigurationProperty.JwtTokenTypeConfiguration`.
+	// Information about the JWT token type configuration.
 	JwtTokenTypeConfiguration interface{} `json:"jwtTokenTypeConfiguration"`
 }
 
+// Specifies a key-value pair that determines the search boost value that a document receives when the key is part of the metadata of a document.
+//
 // TODO: EXAMPLE
 //
 type CfnIndex_ValueImportanceItemProperty struct {
-	// `CfnIndex.ValueImportanceItemProperty.Key`.
+	// The document metadata value that receives the search boost.
 	Key *string `json:"key"`
-	// `CfnIndex.ValueImportanceItemProperty.Value`.
+	// The boost value that a document receives when the key is part of the metadata of a document.
 	Value *float64 `json:"value"`
 }
 
-// Properties for defining a `AWS::Kendra::Index`.
+// Properties for defining a `CfnIndex`.
 //
 // TODO: EXAMPLE
 //
 type CfnIndexProps struct {
-	// `AWS::Kendra::Index.CapacityUnits`.
-	CapacityUnits interface{} `json:"capacityUnits"`
-	// `AWS::Kendra::Index.Description`.
-	Description *string `json:"description"`
-	// `AWS::Kendra::Index.DocumentMetadataConfigurations`.
-	DocumentMetadataConfigurations interface{} `json:"documentMetadataConfigurations"`
-	// `AWS::Kendra::Index.Edition`.
+	// Indicates whether the index is a enterprise edition index or a developer edition index.
+	//
+	// Valid values are `DEVELOPER_EDITION` and `ENTERPRISE_EDITION` .
 	Edition *string `json:"edition"`
-	// `AWS::Kendra::Index.Name`.
+	// The name of the index.
 	Name *string `json:"name"`
-	// `AWS::Kendra::Index.RoleArn`.
+	// An IAM role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics.
+	//
+	// This is also the role used when you use the [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/BatchPutDocument.html) operation to index documents from an Amazon S3 bucket.
 	RoleArn *string `json:"roleArn"`
-	// `AWS::Kendra::Index.ServerSideEncryptionConfiguration`.
+	// Specifies capacity units configured for your index.
+	//
+	// You can add and remove capacity units to tune an index to your requirements. You can set capacity units only for Enterprise edition indexes.
+	CapacityUnits interface{} `json:"capacityUnits"`
+	// A description of the index.
+	Description *string `json:"description"`
+	// Specifies the properties of an index field.
+	//
+	// You can add either a custom or a built-in field. You can add and remove built-in fields at any time. When a built-in field is removed it's configuration reverts to the default for the field. Custom fields can't be removed from an index after they are added.
+	DocumentMetadataConfigurations interface{} `json:"documentMetadataConfigurations"`
+	// The identifier of the AWS KMS customer managed key (CMK) to use to encrypt data indexed by Amazon Kendra.
+	//
+	// Amazon Kendra doesn't support asymmetric CMKs.
 	ServerSideEncryptionConfiguration interface{} `json:"serverSideEncryptionConfiguration"`
-	// `AWS::Kendra::Index.Tags`.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags *[]*awscdk.CfnTag `json:"tags"`
-	// `AWS::Kendra::Index.UserContextPolicy`.
+	// The user context policy.
+	//
+	// ATTRIBUTE_FILTER
+	//
+	// - All indexed content is searchable and displayable for all users. If there is an access control list, it is ignored. You can filter on user and group attributes.
+	//
+	// USER_TOKEN
+	//
+	// - Enables SSO and token-based user access control. All documents with no access control and all documents accessible to the user will be searchable and displayable.
 	UserContextPolicy *string `json:"userContextPolicy"`
-	// `AWS::Kendra::Index.UserTokenConfigurations`.
+	// Defines the type of user token used for the index.
 	UserTokenConfigurations interface{} `json:"userTokenConfigurations"`
 }
 

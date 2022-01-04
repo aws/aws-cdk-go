@@ -1,15 +1,21 @@
 package awsmediaconvert
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsmediaconvert/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsmediaconvert/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::MediaConvert::JobTemplate`.
+//
+// The AWS::MediaConvert::JobTemplate resource is an AWS Elemental MediaConvert resource type that you can use to generate transcoding jobs.
+//
+// When you declare this entity in your AWS CloudFormation template, you pass in your transcoding job settings in JSON or YAML format. This settings specification must be formed in a particular way that conforms to AWS Elemental MediaConvert job validation. For more information about creating a job template model for the `SettingsJson` property, see the Remarks section later in this topic.
+//
+// For information about job templates, see [Working with AWS Elemental MediaConvert Job Templates](https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-job-templates.html) in the ** .
 //
 // TODO: EXAMPLE
 //
@@ -33,7 +39,7 @@ type CfnJobTemplate interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Priority() *float64
 	SetPriority(val *float64)
 	Queue() *string
@@ -56,10 +62,16 @@ type CfnJobTemplate interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -189,8 +201,8 @@ func (j *jsiiProxy_CfnJobTemplate) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnJobTemplate) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnJobTemplate) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -281,13 +293,13 @@ func (j *jsiiProxy_CfnJobTemplate) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::MediaConvert::JobTemplate`.
-func NewCfnJobTemplate(scope constructs.Construct, id *string, props *CfnJobTemplateProps) CfnJobTemplate {
+func NewCfnJobTemplate(scope awscdk.Construct, id *string, props *CfnJobTemplateProps) CfnJobTemplate {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnJobTemplate{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_mediaconvert.CfnJobTemplate",
+		"monocdk.aws_mediaconvert.CfnJobTemplate",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -296,11 +308,11 @@ func NewCfnJobTemplate(scope constructs.Construct, id *string, props *CfnJobTemp
 }
 
 // Create a new `AWS::MediaConvert::JobTemplate`.
-func NewCfnJobTemplate_Override(c CfnJobTemplate, scope constructs.Construct, id *string, props *CfnJobTemplateProps) {
+func NewCfnJobTemplate_Override(c CfnJobTemplate, scope awscdk.Construct, id *string, props *CfnJobTemplateProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_mediaconvert.CfnJobTemplate",
+		"monocdk.aws_mediaconvert.CfnJobTemplate",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -384,13 +396,14 @@ func (j *jsiiProxy_CfnJobTemplate) SetStatusUpdateInterval(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnJobTemplate_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_mediaconvert.CfnJobTemplate",
+		"monocdk.aws_mediaconvert.CfnJobTemplate",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -400,13 +413,14 @@ func CfnJobTemplate_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnJobTemplate_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_mediaconvert.CfnJobTemplate",
+		"monocdk.aws_mediaconvert.CfnJobTemplate",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -415,17 +429,15 @@ func CfnJobTemplate_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnJobTemplate_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_mediaconvert.CfnJobTemplate",
+		"monocdk.aws_mediaconvert.CfnJobTemplate",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -438,7 +450,7 @@ func CfnJobTemplate_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_mediaconvert.CfnJobTemplate",
+		"monocdk.aws_mediaconvert.CfnJobTemplate",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -446,6 +458,7 @@ func CfnJobTemplate_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnJobTemplate) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -458,6 +471,7 @@ func (c *jsiiProxy_CfnJobTemplate) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnJobTemplate) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -473,6 +487,7 @@ func (c *jsiiProxy_CfnJobTemplate) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnJobTemplate) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -518,6 +533,7 @@ func (c *jsiiProxy_CfnJobTemplate) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnJobTemplate) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -527,6 +543,7 @@ func (c *jsiiProxy_CfnJobTemplate) AddOverride(path *string, value interface{}) 
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnJobTemplate) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -538,6 +555,7 @@ func (c *jsiiProxy_CfnJobTemplate) AddPropertyDeletionOverride(propertyPath *str
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnJobTemplate) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -555,6 +573,7 @@ func (c *jsiiProxy_CfnJobTemplate) AddPropertyOverride(propertyPath *string, val
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnJobTemplate) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -567,6 +586,7 @@ func (c *jsiiProxy_CfnJobTemplate) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnJobTemplate) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -587,6 +607,7 @@ func (c *jsiiProxy_CfnJobTemplate) GetAtt(attributeName *string) awscdk.Referenc
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnJobTemplate) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -609,12 +630,80 @@ func (c *jsiiProxy_CfnJobTemplate) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnJobTemplate) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnJobTemplate) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnJobTemplate) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnJobTemplate) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnJobTemplate) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -635,6 +724,7 @@ func (c *jsiiProxy_CfnJobTemplate) RenderProperties(props *map[string]interface{
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnJobTemplate) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -648,9 +738,23 @@ func (c *jsiiProxy_CfnJobTemplate) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnJobTemplate) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnJobTemplate) ToString() *string {
 	var returns *string
 
@@ -664,6 +768,27 @@ func (c *jsiiProxy_CfnJobTemplate) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnJobTemplate) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnJobTemplate) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -672,52 +797,124 @@ func (c *jsiiProxy_CfnJobTemplate) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// Accelerated transcoding can significantly speed up jobs with long, visually complex content.
+//
+// Outputs that use this feature incur pro-tier pricing. For information about feature limitations, For more information, see [Job Limitations for Accelerated Transcoding in AWS Elemental MediaConvert](https://docs.aws.amazon.com/mediaconvert/latest/ug/job-requirements.html) in the *AWS Elemental MediaConvert User Guide* .
+//
 // TODO: EXAMPLE
 //
 type CfnJobTemplate_AccelerationSettingsProperty struct {
-	// `CfnJobTemplate.AccelerationSettingsProperty.Mode`.
+	// Specify the conditions when the service will run your job with accelerated transcoding.
 	Mode *string `json:"mode"`
 }
 
+// Optional.
+//
+// Configuration for a destination queue to which the job can hop once a customer-defined minimum wait time has passed. For more information, see [Setting Up Queue Hopping to Avoid Long Waits](https://docs.aws.amazon.com/mediaconvert/latest/ug/setting-up-queue-hopping-to-avoid-long-waits.html) in the *AWS Elemental MediaConvert User Guide* .
+//
 // TODO: EXAMPLE
 //
 type CfnJobTemplate_HopDestinationProperty struct {
-	// `CfnJobTemplate.HopDestinationProperty.Priority`.
+	// Optional.
+	//
+	// When you set up a job to use queue hopping, you can specify a different relative priority for the job in the destination queue. If you don't specify, the relative priority will remain the same as in the previous queue.
 	Priority *float64 `json:"priority"`
-	// `CfnJobTemplate.HopDestinationProperty.Queue`.
+	// Optional unless the job is submitted on the default queue.
+	//
+	// When you set up a job to use queue hopping, you can specify a destination queue. This queue cannot be the original queue to which the job is submitted. If the original queue isn't the default queue and you don't specify the destination queue, the job will move to the default queue.
 	Queue *string `json:"queue"`
-	// `CfnJobTemplate.HopDestinationProperty.WaitMinutes`.
+	// Required for setting up a job to use queue hopping.
+	//
+	// Minimum wait time in minutes until the job can hop to the destination queue. Valid range is 1 to 1440 minutes, inclusive.
 	WaitMinutes *float64 `json:"waitMinutes"`
 }
 
-// Properties for defining a `AWS::MediaConvert::JobTemplate`.
+// Properties for defining a `CfnJobTemplate`.
 //
 // TODO: EXAMPLE
 //
 type CfnJobTemplateProps struct {
-	// `AWS::MediaConvert::JobTemplate.AccelerationSettings`.
-	AccelerationSettings interface{} `json:"accelerationSettings"`
-	// `AWS::MediaConvert::JobTemplate.Category`.
-	Category *string `json:"category"`
-	// `AWS::MediaConvert::JobTemplate.Description`.
-	Description *string `json:"description"`
-	// `AWS::MediaConvert::JobTemplate.HopDestinations`.
-	HopDestinations interface{} `json:"hopDestinations"`
-	// `AWS::MediaConvert::JobTemplate.Name`.
-	Name *string `json:"name"`
-	// `AWS::MediaConvert::JobTemplate.Priority`.
-	Priority *float64 `json:"priority"`
-	// `AWS::MediaConvert::JobTemplate.Queue`.
-	Queue *string `json:"queue"`
-	// `AWS::MediaConvert::JobTemplate.SettingsJson`.
+	// Specify, in JSON format, the transcoding job settings for this job template.
+	//
+	// This specification must conform to the AWS Elemental MediaConvert job validation. For information about forming this specification, see the Remarks section later in this topic.
+	//
+	// For more information about MediaConvert job templates, see [Working with AWS Elemental MediaConvert Job Templates](https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-job-templates.html) in the ** .
 	SettingsJson interface{} `json:"settingsJson"`
-	// `AWS::MediaConvert::JobTemplate.StatusUpdateInterval`.
+	// Accelerated transcoding can significantly speed up jobs with long, visually complex content.
+	//
+	// Outputs that use this feature incur pro-tier pricing. For information about feature limitations, For more information, see [Job Limitations for Accelerated Transcoding in AWS Elemental MediaConvert](https://docs.aws.amazon.com/mediaconvert/latest/ug/job-requirements.html) in the *AWS Elemental MediaConvert User Guide* .
+	AccelerationSettings interface{} `json:"accelerationSettings"`
+	// Optional.
+	//
+	// A category for the job template you are creating
+	Category *string `json:"category"`
+	// Optional.
+	//
+	// A description of the job template you are creating.
+	Description *string `json:"description"`
+	// Optional.
+	//
+	// Configuration for a destination queue to which the job can hop once a customer-defined minimum wait time has passed. For more information, see [Setting Up Queue Hopping to Avoid Long Waits](https://docs.aws.amazon.com/mediaconvert/latest/ug/setting-up-queue-hopping-to-avoid-long-waits.html) in the *AWS Elemental MediaConvert User Guide* .
+	HopDestinations interface{} `json:"hopDestinations"`
+	// The name of the job template you are creating.
+	Name *string `json:"name"`
+	// Specify the relative priority for this job.
+	//
+	// In any given queue, the service begins processing the job with the highest value first. When more than one job has the same priority, the service begins processing the job that you submitted first. If you don't specify a priority, the service uses the default value 0. Minimum: -50 Maximum: 50
+	Priority *float64 `json:"priority"`
+	// Optional.
+	//
+	// The queue that jobs created from this template are assigned to. Specify the Amazon Resource Name (ARN) of the queue. For example, arn:aws:mediaconvert:us-west-2:505474453218:queues/Default. If you don't specify this, jobs will go to the default queue.
+	Queue *string `json:"queue"`
+	// Specify how often MediaConvert sends STATUS_UPDATE events to Amazon CloudWatch Events.
+	//
+	// Set the interval, in seconds, between status updates. MediaConvert sends an update at this interval from the time the service begins processing your job to the time it completes the transcode or encounters an error.
+	//
+	// Specify one of the following enums:
+	//
+	// SECONDS_10
+	//
+	// SECONDS_12
+	//
+	// SECONDS_15
+	//
+	// SECONDS_20
+	//
+	// SECONDS_30
+	//
+	// SECONDS_60
+	//
+	// SECONDS_120
+	//
+	// SECONDS_180
+	//
+	// SECONDS_240
+	//
+	// SECONDS_300
+	//
+	// SECONDS_360
+	//
+	// SECONDS_420
+	//
+	// SECONDS_480
+	//
+	// SECONDS_540
+	//
+	// SECONDS_600
 	StatusUpdateInterval *string `json:"statusUpdateInterval"`
-	// `AWS::MediaConvert::JobTemplate.Tags`.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags interface{} `json:"tags"`
 }
 
 // A CloudFormation `AWS::MediaConvert::Preset`.
+//
+// The AWS::MediaConvert::Preset resource is an AWS Elemental MediaConvert resource type that you can use to specify encoding settings for a single output in a transcoding job.
+//
+// When you declare this entity in your AWS CloudFormation template, you pass in your transcoding job settings in JSON or YAML format. This settings specification must be formed in a particular way that conforms to AWS Elemental MediaConvert job validation. For more information about creating an output preset model for the `SettingsJson` property, see the Remarks section later in this topic.
+//
+// For more information about output MediaConvert presets, see [Working with AWS Elemental MediaConvert Output Presets](https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-presets.html) in the ** .
 //
 // TODO: EXAMPLE
 //
@@ -737,7 +934,7 @@ type CfnPreset interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	SettingsJson() interface{}
 	SetSettingsJson(val interface{})
@@ -754,10 +951,16 @@ type CfnPreset interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -867,8 +1070,8 @@ func (j *jsiiProxy_CfnPreset) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPreset) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnPreset) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -929,13 +1132,13 @@ func (j *jsiiProxy_CfnPreset) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::MediaConvert::Preset`.
-func NewCfnPreset(scope constructs.Construct, id *string, props *CfnPresetProps) CfnPreset {
+func NewCfnPreset(scope awscdk.Construct, id *string, props *CfnPresetProps) CfnPreset {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnPreset{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_mediaconvert.CfnPreset",
+		"monocdk.aws_mediaconvert.CfnPreset",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -944,11 +1147,11 @@ func NewCfnPreset(scope constructs.Construct, id *string, props *CfnPresetProps)
 }
 
 // Create a new `AWS::MediaConvert::Preset`.
-func NewCfnPreset_Override(c CfnPreset, scope constructs.Construct, id *string, props *CfnPresetProps) {
+func NewCfnPreset_Override(c CfnPreset, scope awscdk.Construct, id *string, props *CfnPresetProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_mediaconvert.CfnPreset",
+		"monocdk.aws_mediaconvert.CfnPreset",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -992,13 +1195,14 @@ func (j *jsiiProxy_CfnPreset) SetSettingsJson(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnPreset_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_mediaconvert.CfnPreset",
+		"monocdk.aws_mediaconvert.CfnPreset",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1008,13 +1212,14 @@ func CfnPreset_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnPreset_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_mediaconvert.CfnPreset",
+		"monocdk.aws_mediaconvert.CfnPreset",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1023,17 +1228,15 @@ func CfnPreset_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnPreset_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_mediaconvert.CfnPreset",
+		"monocdk.aws_mediaconvert.CfnPreset",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1046,7 +1249,7 @@ func CfnPreset_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_mediaconvert.CfnPreset",
+		"monocdk.aws_mediaconvert.CfnPreset",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1054,6 +1257,7 @@ func CfnPreset_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnPreset) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1066,6 +1270,7 @@ func (c *jsiiProxy_CfnPreset) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnPreset) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1081,6 +1286,7 @@ func (c *jsiiProxy_CfnPreset) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnPreset) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1126,6 +1332,7 @@ func (c *jsiiProxy_CfnPreset) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnPreset) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1135,6 +1342,7 @@ func (c *jsiiProxy_CfnPreset) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnPreset) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1146,6 +1354,7 @@ func (c *jsiiProxy_CfnPreset) AddPropertyDeletionOverride(propertyPath *string) 
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnPreset) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1163,6 +1372,7 @@ func (c *jsiiProxy_CfnPreset) AddPropertyOverride(propertyPath *string, value in
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnPreset) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1175,6 +1385,7 @@ func (c *jsiiProxy_CfnPreset) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, op
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnPreset) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1195,6 +1406,7 @@ func (c *jsiiProxy_CfnPreset) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnPreset) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1217,12 +1429,80 @@ func (c *jsiiProxy_CfnPreset) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnPreset) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnPreset) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnPreset) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnPreset) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnPreset) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1243,6 +1523,7 @@ func (c *jsiiProxy_CfnPreset) RenderProperties(props *map[string]interface{}) *m
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnPreset) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1256,9 +1537,23 @@ func (c *jsiiProxy_CfnPreset) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnPreset) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnPreset) ToString() *string {
 	var returns *string
 
@@ -1272,6 +1567,27 @@ func (c *jsiiProxy_CfnPreset) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnPreset) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnPreset) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1280,24 +1596,32 @@ func (c *jsiiProxy_CfnPreset) ValidateProperties(_properties interface{}) {
 	)
 }
 
-// Properties for defining a `AWS::MediaConvert::Preset`.
+// Properties for defining a `CfnPreset`.
 //
 // TODO: EXAMPLE
 //
 type CfnPresetProps struct {
-	// `AWS::MediaConvert::Preset.Category`.
-	Category *string `json:"category"`
-	// `AWS::MediaConvert::Preset.Description`.
-	Description *string `json:"description"`
-	// `AWS::MediaConvert::Preset.Name`.
-	Name *string `json:"name"`
-	// `AWS::MediaConvert::Preset.SettingsJson`.
+	// Specify, in JSON format, the transcoding job settings for this output preset.
+	//
+	// This specification must conform to the AWS Elemental MediaConvert job validation. For information about forming this specification, see the Remarks section later in this topic.
+	//
+	// For more information about MediaConvert output presets, see [Working with AWS Elemental MediaConvert Output Presets](https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-presets.html) in the ** .
 	SettingsJson interface{} `json:"settingsJson"`
-	// `AWS::MediaConvert::Preset.Tags`.
+	// The new category for the preset, if you are changing it.
+	Category *string `json:"category"`
+	// The new description for the preset, if you are changing it.
+	Description *string `json:"description"`
+	// The name of the preset that you are modifying.
+	Name *string `json:"name"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags interface{} `json:"tags"`
 }
 
 // A CloudFormation `AWS::MediaConvert::Queue`.
+//
+// The AWS::MediaConvert::Queue resource is an AWS Elemental MediaConvert resource type that you can use to manage the resources that are available to your account for parallel processing of jobs. For more information about queues, see [Working with AWS Elemental MediaConvert Queues](https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html) in the ** .
 //
 // TODO: EXAMPLE
 //
@@ -1315,7 +1639,7 @@ type CfnQueue interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PricingPlan() *string
 	SetPricingPlan(val *string)
 	Ref() *string
@@ -1334,10 +1658,16 @@ type CfnQueue interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1437,8 +1767,8 @@ func (j *jsiiProxy_CfnQueue) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnQueue) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnQueue) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1509,13 +1839,13 @@ func (j *jsiiProxy_CfnQueue) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::MediaConvert::Queue`.
-func NewCfnQueue(scope constructs.Construct, id *string, props *CfnQueueProps) CfnQueue {
+func NewCfnQueue(scope awscdk.Construct, id *string, props *CfnQueueProps) CfnQueue {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnQueue{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_mediaconvert.CfnQueue",
+		"monocdk.aws_mediaconvert.CfnQueue",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1524,11 +1854,11 @@ func NewCfnQueue(scope constructs.Construct, id *string, props *CfnQueueProps) C
 }
 
 // Create a new `AWS::MediaConvert::Queue`.
-func NewCfnQueue_Override(c CfnQueue, scope constructs.Construct, id *string, props *CfnQueueProps) {
+func NewCfnQueue_Override(c CfnQueue, scope awscdk.Construct, id *string, props *CfnQueueProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_mediaconvert.CfnQueue",
+		"monocdk.aws_mediaconvert.CfnQueue",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1572,13 +1902,14 @@ func (j *jsiiProxy_CfnQueue) SetStatus(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnQueue_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_mediaconvert.CfnQueue",
+		"monocdk.aws_mediaconvert.CfnQueue",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1588,13 +1919,14 @@ func CfnQueue_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnQueue_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_mediaconvert.CfnQueue",
+		"monocdk.aws_mediaconvert.CfnQueue",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1603,17 +1935,15 @@ func CfnQueue_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnQueue_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_mediaconvert.CfnQueue",
+		"monocdk.aws_mediaconvert.CfnQueue",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1626,7 +1956,7 @@ func CfnQueue_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_mediaconvert.CfnQueue",
+		"monocdk.aws_mediaconvert.CfnQueue",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1634,6 +1964,7 @@ func CfnQueue_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnQueue) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1646,6 +1977,7 @@ func (c *jsiiProxy_CfnQueue) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnQueue) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1661,6 +1993,7 @@ func (c *jsiiProxy_CfnQueue) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnQueue) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1706,6 +2039,7 @@ func (c *jsiiProxy_CfnQueue) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnQueue) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1715,6 +2049,7 @@ func (c *jsiiProxy_CfnQueue) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnQueue) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1726,6 +2061,7 @@ func (c *jsiiProxy_CfnQueue) AddPropertyDeletionOverride(propertyPath *string) {
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnQueue) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1743,6 +2079,7 @@ func (c *jsiiProxy_CfnQueue) AddPropertyOverride(propertyPath *string, value int
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnQueue) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1755,6 +2092,7 @@ func (c *jsiiProxy_CfnQueue) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, opt
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnQueue) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1775,6 +2113,7 @@ func (c *jsiiProxy_CfnQueue) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnQueue) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1797,12 +2136,80 @@ func (c *jsiiProxy_CfnQueue) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnQueue) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnQueue) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnQueue) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnQueue) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnQueue) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1823,6 +2230,7 @@ func (c *jsiiProxy_CfnQueue) RenderProperties(props *map[string]interface{}) *ma
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnQueue) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1836,9 +2244,23 @@ func (c *jsiiProxy_CfnQueue) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnQueue) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnQueue) ToString() *string {
 	var returns *string
 
@@ -1852,6 +2274,27 @@ func (c *jsiiProxy_CfnQueue) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnQueue) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnQueue) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1860,20 +2303,30 @@ func (c *jsiiProxy_CfnQueue) ValidateProperties(_properties interface{}) {
 	)
 }
 
-// Properties for defining a `AWS::MediaConvert::Queue`.
+// Properties for defining a `CfnQueue`.
 //
 // TODO: EXAMPLE
 //
 type CfnQueueProps struct {
-	// `AWS::MediaConvert::Queue.Description`.
+	// Optional.
+	//
+	// A description of the queue that you are creating.
 	Description *string `json:"description"`
-	// `AWS::MediaConvert::Queue.Name`.
+	// The name of the queue that you are creating.
 	Name *string `json:"name"`
-	// `AWS::MediaConvert::Queue.PricingPlan`.
+	// When you use AWS CloudFormation , you can create only on-demand queues.
+	//
+	// Therefore, always set `PricingPlan` to the value "ON_DEMAND" when declaring an AWS::MediaConvert::Queue in your AWS CloudFormation template.
+	//
+	// To create a reserved queue, use the AWS Elemental MediaConvert console at https://console.aws.amazon.com/mediaconvert to set up a contract. For more information, see [Working with AWS Elemental MediaConvert Queues](https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html) in the ** .
 	PricingPlan *string `json:"pricingPlan"`
-	// `AWS::MediaConvert::Queue.Status`.
+	// Initial state of the queue.
+	//
+	// Queues can be either ACTIVE or PAUSED. If you create a paused queue, then jobs that you send to that queue won't begin.
 	Status *string `json:"status"`
-	// `AWS::MediaConvert::Queue.Tags`.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags interface{} `json:"tags"`
 }
 

@@ -1,15 +1,17 @@
 package awsamplifyuibuilder
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsamplifyuibuilder/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsamplifyuibuilder/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::AmplifyUIBuilder::Component`.
+//
+// The AWS::AmplifyUIBuilder::Component resource specifies a component within an Amplify app. A component is a user interface (UI) element that you can customize. Use `ComponentChild` to configure an instance of a `Component` . A `ComponentChild` instance inherits the configuration of the main `Component` .
 //
 // TODO: EXAMPLE
 //
@@ -36,7 +38,7 @@ type CfnComponent interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Overrides() interface{}
 	SetOverrides(val interface{})
 	Properties() interface{}
@@ -59,10 +61,16 @@ type CfnComponent interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -222,8 +230,8 @@ func (j *jsiiProxy_CfnComponent) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnComponent) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnComponent) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -314,13 +322,13 @@ func (j *jsiiProxy_CfnComponent) Variants() interface{} {
 
 
 // Create a new `AWS::AmplifyUIBuilder::Component`.
-func NewCfnComponent(scope constructs.Construct, id *string, props *CfnComponentProps) CfnComponent {
+func NewCfnComponent(scope awscdk.Construct, id *string, props *CfnComponentProps) CfnComponent {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnComponent{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_amplifyuibuilder.CfnComponent",
+		"monocdk.aws_amplifyuibuilder.CfnComponent",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -329,11 +337,11 @@ func NewCfnComponent(scope constructs.Construct, id *string, props *CfnComponent
 }
 
 // Create a new `AWS::AmplifyUIBuilder::Component`.
-func NewCfnComponent_Override(c CfnComponent, scope constructs.Construct, id *string, props *CfnComponentProps) {
+func NewCfnComponent_Override(c CfnComponent, scope awscdk.Construct, id *string, props *CfnComponentProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_amplifyuibuilder.CfnComponent",
+		"monocdk.aws_amplifyuibuilder.CfnComponent",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -417,13 +425,14 @@ func (j *jsiiProxy_CfnComponent) SetVariants(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnComponent_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_amplifyuibuilder.CfnComponent",
+		"monocdk.aws_amplifyuibuilder.CfnComponent",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -433,13 +442,14 @@ func CfnComponent_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnComponent_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_amplifyuibuilder.CfnComponent",
+		"monocdk.aws_amplifyuibuilder.CfnComponent",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -448,17 +458,15 @@ func CfnComponent_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnComponent_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_amplifyuibuilder.CfnComponent",
+		"monocdk.aws_amplifyuibuilder.CfnComponent",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -471,7 +479,7 @@ func CfnComponent_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_amplifyuibuilder.CfnComponent",
+		"monocdk.aws_amplifyuibuilder.CfnComponent",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -479,6 +487,7 @@ func CfnComponent_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnComponent) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -491,6 +500,7 @@ func (c *jsiiProxy_CfnComponent) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnComponent) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -506,6 +516,7 @@ func (c *jsiiProxy_CfnComponent) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnComponent) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -551,6 +562,7 @@ func (c *jsiiProxy_CfnComponent) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnComponent) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -560,6 +572,7 @@ func (c *jsiiProxy_CfnComponent) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnComponent) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -571,6 +584,7 @@ func (c *jsiiProxy_CfnComponent) AddPropertyDeletionOverride(propertyPath *strin
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnComponent) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -588,6 +602,7 @@ func (c *jsiiProxy_CfnComponent) AddPropertyOverride(propertyPath *string, value
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnComponent) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -600,6 +615,7 @@ func (c *jsiiProxy_CfnComponent) ApplyRemovalPolicy(policy awscdk.RemovalPolicy,
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnComponent) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -620,6 +636,7 @@ func (c *jsiiProxy_CfnComponent) GetAtt(attributeName *string) awscdk.Reference 
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnComponent) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -642,12 +659,80 @@ func (c *jsiiProxy_CfnComponent) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnComponent) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnComponent) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnComponent) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnComponent) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnComponent) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -668,6 +753,7 @@ func (c *jsiiProxy_CfnComponent) RenderProperties(props *map[string]interface{})
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnComponent) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -681,9 +767,23 @@ func (c *jsiiProxy_CfnComponent) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnComponent) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnComponent) ToString() *string {
 	var returns *string
 
@@ -697,6 +797,27 @@ func (c *jsiiProxy_CfnComponent) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnComponent) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnComponent) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -705,205 +826,265 @@ func (c *jsiiProxy_CfnComponent) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// The `ComponentBindingPropertiesValueProperties` property specifies the data binding configuration for a specific property using data stored in AWS .
+//
+// For AWS connected properties, you can bind a property to data stored in an Amazon S3 bucket, an Amplify DataStore model or an authenticated user attribute.
+//
 // TODO: EXAMPLE
 //
 type CfnComponent_ComponentBindingPropertiesValuePropertiesProperty struct {
-	// `CfnComponent.ComponentBindingPropertiesValuePropertiesProperty.Bucket`.
+	// An Amazon S3 bucket.
 	Bucket *string `json:"bucket"`
-	// `CfnComponent.ComponentBindingPropertiesValuePropertiesProperty.DefaultValue`.
+	// The default value to assign to the property.
 	DefaultValue *string `json:"defaultValue"`
-	// `CfnComponent.ComponentBindingPropertiesValuePropertiesProperty.Field`.
+	// The field to bind the data to.
 	Field *string `json:"field"`
-	// `CfnComponent.ComponentBindingPropertiesValuePropertiesProperty.Key`.
+	// The storage key for an Amazon S3 bucket.
 	Key *string `json:"key"`
-	// `CfnComponent.ComponentBindingPropertiesValuePropertiesProperty.Model`.
+	// An Amplify DataStore model.
 	Model *string `json:"model"`
-	// `CfnComponent.ComponentBindingPropertiesValuePropertiesProperty.Predicates`.
+	// A list of predicates for binding a component's properties to data.
 	Predicates interface{} `json:"predicates"`
-	// `CfnComponent.ComponentBindingPropertiesValuePropertiesProperty.UserAttribute`.
+	// An authenticated user attribute.
 	UserAttribute *string `json:"userAttribute"`
 }
 
+// The `ComponentBindingPropertiesValue` property specifies the data binding configuration for a component at runtime.
+//
+// You can use `ComponentBindingPropertiesValue` to add exposed properties to a component to allow different values to be entered when a component is reused in different places in an app.
+//
 // TODO: EXAMPLE
 //
 type CfnComponent_ComponentBindingPropertiesValueProperty struct {
-	// `CfnComponent.ComponentBindingPropertiesValueProperty.BindingProperties`.
+	// Describes the properties to customize with data at runtime.
 	BindingProperties interface{} `json:"bindingProperties"`
-	// `CfnComponent.ComponentBindingPropertiesValueProperty.DefaultValue`.
+	// The default value of the property.
 	DefaultValue *string `json:"defaultValue"`
-	// `CfnComponent.ComponentBindingPropertiesValueProperty.Type`.
+	// The property type.
 	Type *string `json:"type"`
 }
 
+// The `ComponentChild` property specifies a nested UI configuration within a parent `Component` .
+//
 // TODO: EXAMPLE
 //
 type CfnComponent_ComponentChildProperty struct {
-	// `CfnComponent.ComponentChildProperty.Children`.
-	Children interface{} `json:"children"`
-	// `CfnComponent.ComponentChildProperty.ComponentType`.
+	// The type of the child component.
 	ComponentType *string `json:"componentType"`
-	// `CfnComponent.ComponentChildProperty.Name`.
+	// The name of the child component.
 	Name *string `json:"name"`
-	// `CfnComponent.ComponentChildProperty.Properties`.
+	// Describes the properties of the child component.
 	Properties interface{} `json:"properties"`
+	// The list of `ComponentChild` instances for this component.
+	Children interface{} `json:"children"`
 }
 
+// The `ComponentConditionProperty` property specifies a conditional expression for setting a component property.
+//
+// Use `ComponentConditionProperty` to set a property to different values conditionally, based on the value of another property.
+//
 // TODO: EXAMPLE
 //
 type CfnComponent_ComponentConditionPropertyProperty struct {
-	// `CfnComponent.ComponentConditionPropertyProperty.Else`.
+	// The value to assign to the property if the condition is not met.
 	Else interface{} `json:"else"`
-	// `CfnComponent.ComponentConditionPropertyProperty.Field`.
+	// The name of a field.
+	//
+	// Specify this when the property is a data model.
 	Field *string `json:"field"`
-	// `CfnComponent.ComponentConditionPropertyProperty.Operand`.
+	// The value of the property to evaluate.
 	Operand *string `json:"operand"`
-	// `CfnComponent.ComponentConditionPropertyProperty.Operator`.
+	// The operator to use to perform the evaluation, such as `eq` to represent equals.
 	Operator *string `json:"operator"`
-	// `CfnComponent.ComponentConditionPropertyProperty.Property`.
+	// The name of the conditional property.
 	Property *string `json:"property"`
-	// `CfnComponent.ComponentConditionPropertyProperty.Then`.
+	// The value to assign to the property if the condition is met.
 	Then interface{} `json:"then"`
 }
 
+// The `ComponentDataConfiguration` property specifies the configuration for binding a component's properties to data.
+//
 // TODO: EXAMPLE
 //
 type CfnComponent_ComponentDataConfigurationProperty struct {
-	// `CfnComponent.ComponentDataConfigurationProperty.Identifiers`.
-	Identifiers *[]*string `json:"identifiers"`
-	// `CfnComponent.ComponentDataConfigurationProperty.Model`.
+	// The name of the data model to use to bind data to a component.
 	Model *string `json:"model"`
-	// `CfnComponent.ComponentDataConfigurationProperty.Predicate`.
+	// A list of IDs to use to bind data to a component.
+	//
+	// Use this property to bind specifically chosen data, rather than data retrieved from a query.
+	Identifiers *[]*string `json:"identifiers"`
+	// Represents the conditional logic to use when binding data to a component.
+	//
+	// Use this property to retrieve only a subset of the data in a collection.
 	Predicate interface{} `json:"predicate"`
-	// `CfnComponent.ComponentDataConfigurationProperty.Sort`.
+	// Describes how to sort the component's properties.
 	Sort interface{} `json:"sort"`
 }
 
+// The `ComponentOverrides` property specifies the component's properties that can be overriden in a customized instance of the component.
+//
 // TODO: EXAMPLE
 //
 type CfnComponent_ComponentOverridesProperty struct {
 }
 
+// The `ComponentOverridesValue` property specifies the value of the component's properties that can be overriden in a customized instance of the component.
+//
 // TODO: EXAMPLE
 //
 type CfnComponent_ComponentOverridesValueProperty struct {
 }
 
+// The `ComponentProperties` property specifies the component's properties.
+//
 // TODO: EXAMPLE
 //
 type CfnComponent_ComponentPropertiesProperty struct {
 }
 
+// The `ComponentPropertyBindingProperties` property specifies a component property to associate with a binding property.
+//
+// This enables exposed properties on the top level component to propagate data to the component's property values.
+//
 // TODO: EXAMPLE
 //
 type CfnComponent_ComponentPropertyBindingPropertiesProperty struct {
-	// `CfnComponent.ComponentPropertyBindingPropertiesProperty.Field`.
-	Field *string `json:"field"`
-	// `CfnComponent.ComponentPropertyBindingPropertiesProperty.Property`.
+	// The component property to bind to the data field.
 	Property *string `json:"property"`
+	// The data field to bind the property to.
+	Field *string `json:"field"`
 }
 
+// The `ComponentProperty` property specifies the configuration for all of a component's properties.
+//
+// Use `ComponentProperty` to specify the values to render or bind by default.
+//
 // TODO: EXAMPLE
 //
 type CfnComponent_ComponentPropertyProperty struct {
-	// `CfnComponent.ComponentPropertyProperty.BindingProperties`.
+	// The information to bind the component property to data at runtime.
 	BindingProperties interface{} `json:"bindingProperties"`
-	// `CfnComponent.ComponentPropertyProperty.Bindings`.
+	// The information to bind the component property to form data.
 	Bindings interface{} `json:"bindings"`
-	// `CfnComponent.ComponentPropertyProperty.CollectionBindingProperties`.
+	// The information to bind the component property to data at runtime.
+	//
+	// Use this for collection components.
 	CollectionBindingProperties interface{} `json:"collectionBindingProperties"`
-	// `CfnComponent.ComponentPropertyProperty.Concat`.
+	// A list of component properties to concatenate to create the value to assign to this component property.
 	Concat interface{} `json:"concat"`
-	// `CfnComponent.ComponentPropertyProperty.Condition`.
+	// The conditional expression to use to assign a value to the component property.
 	Condition interface{} `json:"condition"`
-	// `CfnComponent.ComponentPropertyProperty.Configured`.
+	// Specifies whether the user configured the property in Amplify Studio after importing it.
 	Configured interface{} `json:"configured"`
-	// `CfnComponent.ComponentPropertyProperty.DefaultValue`.
+	// The default value to assign to the component property.
 	DefaultValue *string `json:"defaultValue"`
-	// `CfnComponent.ComponentPropertyProperty.Event`.
+	// An event that occurs in your app.
+	//
+	// Use this for workflow data binding.
 	Event *string `json:"event"`
-	// `CfnComponent.ComponentPropertyProperty.ImportedValue`.
+	// The default value assigned to the property when the component is imported into an app.
 	ImportedValue *string `json:"importedValue"`
-	// `CfnComponent.ComponentPropertyProperty.Model`.
+	// The data model to use to assign a value to the component property.
 	Model *string `json:"model"`
-	// `CfnComponent.ComponentPropertyProperty.Type`.
+	// The component type.
 	Type *string `json:"type"`
-	// `CfnComponent.ComponentPropertyProperty.UserAttribute`.
+	// An authenticated user attribute to use to assign a value to the component property.
 	UserAttribute *string `json:"userAttribute"`
-	// `CfnComponent.ComponentPropertyProperty.Value`.
+	// The value to assign to the component property.
 	Value *string `json:"value"`
 }
 
+// The `ComponentVariant` property specifies the style configuration of a unique variation of a main component.
+//
 // TODO: EXAMPLE
 //
 type CfnComponent_ComponentVariantProperty struct {
-	// `CfnComponent.ComponentVariantProperty.Overrides`.
+	// The properties of the component variant that can be overriden when customizing an instance of the component.
 	Overrides interface{} `json:"overrides"`
-	// `CfnComponent.ComponentVariantProperty.VariantValues`.
+	// The combination of variants that comprise this variant.
 	VariantValues interface{} `json:"variantValues"`
 }
 
+// The `ComponentVariantValues` property specifies the combination of variants that comprise a `ComponentVariant` .
+//
 // TODO: EXAMPLE
 //
 type CfnComponent_ComponentVariantValuesProperty struct {
 }
 
+// The `FormBindings` property specifies how to bind a component's properties to form data.
+//
 // TODO: EXAMPLE
 //
 type CfnComponent_FormBindingsProperty struct {
 }
 
+// The `Predicate` property specifies information for generating Amplify DataStore queries.
+//
+// Use `Predicate` to retrieve a subset of the data in a collection.
+//
 // TODO: EXAMPLE
 //
 type CfnComponent_PredicateProperty struct {
-	// `CfnComponent.PredicateProperty.And`.
+	// A list of predicates to combine logically.
 	And interface{} `json:"and"`
-	// `CfnComponent.PredicateProperty.Field`.
+	// The field to query.
 	Field *string `json:"field"`
-	// `CfnComponent.PredicateProperty.Operand`.
+	// The value to use when performing the evaluation.
 	Operand *string `json:"operand"`
-	// `CfnComponent.PredicateProperty.Operator`.
+	// The operator to use to perform the evaluation.
 	Operator *string `json:"operator"`
-	// `CfnComponent.PredicateProperty.Or`.
+	// A list of predicates to combine logically.
 	Or interface{} `json:"or"`
 }
 
+// The `SortProperty` property specifies how to sort the data that you bind to a component.
+//
 // TODO: EXAMPLE
 //
 type CfnComponent_SortPropertyProperty struct {
-	// `CfnComponent.SortPropertyProperty.Direction`.
+	// The direction of the sort, either ascending or descending.
 	Direction *string `json:"direction"`
-	// `CfnComponent.SortPropertyProperty.Field`.
+	// The field to perform the sort on.
 	Field *string `json:"field"`
 }
 
-// Properties for defining a `AWS::AmplifyUIBuilder::Component`.
+// Properties for defining a `CfnComponent`.
 //
 // TODO: EXAMPLE
 //
 type CfnComponentProps struct {
-	// `AWS::AmplifyUIBuilder::Component.BindingProperties`.
+	// The information to connect a component's properties to data at runtime.
 	BindingProperties interface{} `json:"bindingProperties"`
-	// `AWS::AmplifyUIBuilder::Component.Children`.
+	// A list of the component's `ComponentChild` instances.
 	Children interface{} `json:"children"`
-	// `AWS::AmplifyUIBuilder::Component.CollectionProperties`.
+	// The data binding configuration for the component's properties.
+	//
+	// Use this for a collection component.
 	CollectionProperties interface{} `json:"collectionProperties"`
-	// `AWS::AmplifyUIBuilder::Component.ComponentType`.
+	// The type of the component.
+	//
+	// This can be an Amplify custom UI component or another custom component.
 	ComponentType *string `json:"componentType"`
-	// `AWS::AmplifyUIBuilder::Component.Name`.
+	// The name of the component.
 	Name *string `json:"name"`
-	// `AWS::AmplifyUIBuilder::Component.Overrides`.
+	// Describes the component's properties that can be overriden in a customized instance of the component.
 	Overrides interface{} `json:"overrides"`
-	// `AWS::AmplifyUIBuilder::Component.Properties`.
+	// Describes the component's properties.
 	Properties interface{} `json:"properties"`
-	// `AWS::AmplifyUIBuilder::Component.SourceId`.
+	// The unique ID of the component in its original source system, such as Figma.
 	SourceId *string `json:"sourceId"`
-	// `AWS::AmplifyUIBuilder::Component.Tags`.
+	// One or more key-value pairs to use when tagging the component.
 	Tags *map[string]*string `json:"tags"`
-	// `AWS::AmplifyUIBuilder::Component.Variants`.
+	// A list of the component's variants.
+	//
+	// A variant is a unique style configuration of a main component.
 	Variants interface{} `json:"variants"`
 }
 
 // A CloudFormation `AWS::AmplifyUIBuilder::Theme`.
+//
+// The AWS::AmplifyUIBuilder::Theme resource specifies a theme within an Amplify app. A theme is a collection of style settings that apply globally to the components associated with the app.
 //
 // TODO: EXAMPLE
 //
@@ -922,7 +1103,7 @@ type CfnTheme interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Overrides() interface{}
 	SetOverrides(val interface{})
 	Ref() *string
@@ -941,10 +1122,16 @@ type CfnTheme interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1064,8 +1251,8 @@ func (j *jsiiProxy_CfnTheme) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTheme) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnTheme) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1136,13 +1323,13 @@ func (j *jsiiProxy_CfnTheme) Values() interface{} {
 
 
 // Create a new `AWS::AmplifyUIBuilder::Theme`.
-func NewCfnTheme(scope constructs.Construct, id *string, props *CfnThemeProps) CfnTheme {
+func NewCfnTheme(scope awscdk.Construct, id *string, props *CfnThemeProps) CfnTheme {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnTheme{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_amplifyuibuilder.CfnTheme",
+		"monocdk.aws_amplifyuibuilder.CfnTheme",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1151,11 +1338,11 @@ func NewCfnTheme(scope constructs.Construct, id *string, props *CfnThemeProps) C
 }
 
 // Create a new `AWS::AmplifyUIBuilder::Theme`.
-func NewCfnTheme_Override(c CfnTheme, scope constructs.Construct, id *string, props *CfnThemeProps) {
+func NewCfnTheme_Override(c CfnTheme, scope awscdk.Construct, id *string, props *CfnThemeProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_amplifyuibuilder.CfnTheme",
+		"monocdk.aws_amplifyuibuilder.CfnTheme",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1191,13 +1378,14 @@ func (j *jsiiProxy_CfnTheme) SetValues(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnTheme_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_amplifyuibuilder.CfnTheme",
+		"monocdk.aws_amplifyuibuilder.CfnTheme",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1207,13 +1395,14 @@ func CfnTheme_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnTheme_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_amplifyuibuilder.CfnTheme",
+		"monocdk.aws_amplifyuibuilder.CfnTheme",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1222,17 +1411,15 @@ func CfnTheme_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnTheme_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_amplifyuibuilder.CfnTheme",
+		"monocdk.aws_amplifyuibuilder.CfnTheme",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1245,7 +1432,7 @@ func CfnTheme_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_amplifyuibuilder.CfnTheme",
+		"monocdk.aws_amplifyuibuilder.CfnTheme",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1253,6 +1440,7 @@ func CfnTheme_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnTheme) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1265,6 +1453,7 @@ func (c *jsiiProxy_CfnTheme) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnTheme) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1280,6 +1469,7 @@ func (c *jsiiProxy_CfnTheme) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnTheme) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1325,6 +1515,7 @@ func (c *jsiiProxy_CfnTheme) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnTheme) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1334,6 +1525,7 @@ func (c *jsiiProxy_CfnTheme) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnTheme) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1345,6 +1537,7 @@ func (c *jsiiProxy_CfnTheme) AddPropertyDeletionOverride(propertyPath *string) {
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnTheme) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1362,6 +1555,7 @@ func (c *jsiiProxy_CfnTheme) AddPropertyOverride(propertyPath *string, value int
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnTheme) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1374,6 +1568,7 @@ func (c *jsiiProxy_CfnTheme) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, opt
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnTheme) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1394,6 +1589,7 @@ func (c *jsiiProxy_CfnTheme) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnTheme) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1416,12 +1612,80 @@ func (c *jsiiProxy_CfnTheme) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnTheme) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnTheme) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnTheme) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnTheme) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnTheme) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1442,6 +1706,7 @@ func (c *jsiiProxy_CfnTheme) RenderProperties(props *map[string]interface{}) *ma
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnTheme) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1455,9 +1720,23 @@ func (c *jsiiProxy_CfnTheme) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnTheme) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnTheme) ToString() *string {
 	var returns *string
 
@@ -1471,6 +1750,27 @@ func (c *jsiiProxy_CfnTheme) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnTheme) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnTheme) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1479,36 +1779,40 @@ func (c *jsiiProxy_CfnTheme) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// The `ThemeValue` property specifies the configuration of a theme's properties.
+//
 // TODO: EXAMPLE
 //
 type CfnTheme_ThemeValueProperty struct {
-	// `CfnTheme.ThemeValueProperty.Children`.
+	// A list of key-value pairs that define the theme's properties.
 	Children interface{} `json:"children"`
-	// `CfnTheme.ThemeValueProperty.Value`.
+	// The value of a theme property.
 	Value *string `json:"value"`
 }
 
+// The `ThemeValues` property specifies key-value pair that defines a property of a theme.
+//
 // TODO: EXAMPLE
 //
 type CfnTheme_ThemeValuesProperty struct {
-	// `CfnTheme.ThemeValuesProperty.Key`.
+	// The name of the property.
 	Key *string `json:"key"`
-	// `CfnTheme.ThemeValuesProperty.Value`.
+	// The value of the property.
 	Value interface{} `json:"value"`
 }
 
-// Properties for defining a `AWS::AmplifyUIBuilder::Theme`.
+// Properties for defining a `CfnTheme`.
 //
 // TODO: EXAMPLE
 //
 type CfnThemeProps struct {
-	// `AWS::AmplifyUIBuilder::Theme.Name`.
+	// The name of the theme.
 	Name *string `json:"name"`
-	// `AWS::AmplifyUIBuilder::Theme.Overrides`.
-	Overrides interface{} `json:"overrides"`
-	// `AWS::AmplifyUIBuilder::Theme.Tags`.
-	Tags *map[string]*string `json:"tags"`
-	// `AWS::AmplifyUIBuilder::Theme.Values`.
+	// A list of key-value pairs that defines the properties of the theme.
 	Values interface{} `json:"values"`
+	// Describes the properties that can be overriden to customize a theme.
+	Overrides interface{} `json:"overrides"`
+	// One or more key-value pairs to use when tagging the theme.
+	Tags *map[string]*string `json:"tags"`
 }
 

@@ -1,15 +1,17 @@
 package awsaccessanalyzer
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsaccessanalyzer/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsaccessanalyzer/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::AccessAnalyzer::Analyzer`.
+//
+// The `AWS::AccessAnalyzer::Analyzer` resource specifies a new analyzer. The analyzer is an object that represents the IAM Access Analyzer feature. An analyzer is required for Access Analyzer to become operational.
 //
 // TODO: EXAMPLE
 //
@@ -26,7 +28,7 @@ type CfnAnalyzer interface {
 	CfnResourceType() *string
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	Tags() awscdk.TagManager
@@ -43,10 +45,16 @@ type CfnAnalyzer interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -136,8 +144,8 @@ func (j *jsiiProxy_CfnAnalyzer) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAnalyzer) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnAnalyzer) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -198,13 +206,13 @@ func (j *jsiiProxy_CfnAnalyzer) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::AccessAnalyzer::Analyzer`.
-func NewCfnAnalyzer(scope constructs.Construct, id *string, props *CfnAnalyzerProps) CfnAnalyzer {
+func NewCfnAnalyzer(scope awscdk.Construct, id *string, props *CfnAnalyzerProps) CfnAnalyzer {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnAnalyzer{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_accessanalyzer.CfnAnalyzer",
+		"monocdk.aws_accessanalyzer.CfnAnalyzer",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -213,11 +221,11 @@ func NewCfnAnalyzer(scope constructs.Construct, id *string, props *CfnAnalyzerPr
 }
 
 // Create a new `AWS::AccessAnalyzer::Analyzer`.
-func NewCfnAnalyzer_Override(c CfnAnalyzer, scope constructs.Construct, id *string, props *CfnAnalyzerProps) {
+func NewCfnAnalyzer_Override(c CfnAnalyzer, scope awscdk.Construct, id *string, props *CfnAnalyzerProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_accessanalyzer.CfnAnalyzer",
+		"monocdk.aws_accessanalyzer.CfnAnalyzer",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -253,13 +261,14 @@ func (j *jsiiProxy_CfnAnalyzer) SetType(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnAnalyzer_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_accessanalyzer.CfnAnalyzer",
+		"monocdk.aws_accessanalyzer.CfnAnalyzer",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -269,13 +278,14 @@ func CfnAnalyzer_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnAnalyzer_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_accessanalyzer.CfnAnalyzer",
+		"monocdk.aws_accessanalyzer.CfnAnalyzer",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -284,17 +294,15 @@ func CfnAnalyzer_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnAnalyzer_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_accessanalyzer.CfnAnalyzer",
+		"monocdk.aws_accessanalyzer.CfnAnalyzer",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -307,7 +315,7 @@ func CfnAnalyzer_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_accessanalyzer.CfnAnalyzer",
+		"monocdk.aws_accessanalyzer.CfnAnalyzer",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -315,6 +323,7 @@ func CfnAnalyzer_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnAnalyzer) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -327,6 +336,7 @@ func (c *jsiiProxy_CfnAnalyzer) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnAnalyzer) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -342,6 +352,7 @@ func (c *jsiiProxy_CfnAnalyzer) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnAnalyzer) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -387,6 +398,7 @@ func (c *jsiiProxy_CfnAnalyzer) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnAnalyzer) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -396,6 +408,7 @@ func (c *jsiiProxy_CfnAnalyzer) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnAnalyzer) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -407,6 +420,7 @@ func (c *jsiiProxy_CfnAnalyzer) AddPropertyDeletionOverride(propertyPath *string
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnAnalyzer) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -424,6 +438,7 @@ func (c *jsiiProxy_CfnAnalyzer) AddPropertyOverride(propertyPath *string, value 
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnAnalyzer) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -436,6 +451,7 @@ func (c *jsiiProxy_CfnAnalyzer) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, 
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnAnalyzer) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -456,6 +472,7 @@ func (c *jsiiProxy_CfnAnalyzer) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnAnalyzer) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -478,12 +495,80 @@ func (c *jsiiProxy_CfnAnalyzer) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnAnalyzer) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnAnalyzer) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnAnalyzer) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnAnalyzer) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnAnalyzer) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -504,6 +589,7 @@ func (c *jsiiProxy_CfnAnalyzer) RenderProperties(props *map[string]interface{}) 
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnAnalyzer) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -517,9 +603,23 @@ func (c *jsiiProxy_CfnAnalyzer) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnAnalyzer) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnAnalyzer) ToString() *string {
 	var returns *string
 
@@ -533,6 +633,27 @@ func (c *jsiiProxy_CfnAnalyzer) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnAnalyzer) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnAnalyzer) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -541,42 +662,48 @@ func (c *jsiiProxy_CfnAnalyzer) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// The criteria for an archive rule.
+//
 // TODO: EXAMPLE
 //
 type CfnAnalyzer_ArchiveRuleProperty struct {
-	// `CfnAnalyzer.ArchiveRuleProperty.Filter`.
+	// The criteria for the rule.
 	Filter interface{} `json:"filter"`
-	// `CfnAnalyzer.ArchiveRuleProperty.RuleName`.
+	// The name of the archive rule.
 	RuleName *string `json:"ruleName"`
 }
 
+// The criteria that defines the rule.
+//
 // TODO: EXAMPLE
 //
 type CfnAnalyzer_FilterProperty struct {
-	// `CfnAnalyzer.FilterProperty.Contains`.
-	Contains *[]*string `json:"contains"`
-	// `CfnAnalyzer.FilterProperty.Eq`.
-	Eq *[]*string `json:"eq"`
-	// `CfnAnalyzer.FilterProperty.Exists`.
-	Exists interface{} `json:"exists"`
-	// `CfnAnalyzer.FilterProperty.Neq`.
-	Neq *[]*string `json:"neq"`
-	// `CfnAnalyzer.FilterProperty.Property`.
+	// The property used to define the criteria in the filter for the rule.
 	Property *string `json:"property"`
+	// A "contains" condition to match for the rule.
+	Contains *[]*string `json:"contains"`
+	// An "equals" condition to match for the rule.
+	Eq *[]*string `json:"eq"`
+	// An "exists" condition to match for the rule.
+	Exists interface{} `json:"exists"`
+	// A "not equal" condition to match for the rule.
+	Neq *[]*string `json:"neq"`
 }
 
-// Properties for defining a `AWS::AccessAnalyzer::Analyzer`.
+// Properties for defining a `CfnAnalyzer`.
 //
 // TODO: EXAMPLE
 //
 type CfnAnalyzerProps struct {
-	// `AWS::AccessAnalyzer::Analyzer.AnalyzerName`.
-	AnalyzerName *string `json:"analyzerName"`
-	// `AWS::AccessAnalyzer::Analyzer.ArchiveRules`.
-	ArchiveRules interface{} `json:"archiveRules"`
-	// `AWS::AccessAnalyzer::Analyzer.Tags`.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
-	// `AWS::AccessAnalyzer::Analyzer.Type`.
+	// The type represents the zone of trust for the analyzer.
+	//
+	// *Allowed Values* : ACCOUNT | ORGANIZATION
 	Type *string `json:"type"`
+	// The name of the analyzer.
+	AnalyzerName *string `json:"analyzerName"`
+	// Specifies the archive rules to add for the analyzer.
+	ArchiveRules interface{} `json:"archiveRules"`
+	// The tags to apply to the analyzer.
+	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 

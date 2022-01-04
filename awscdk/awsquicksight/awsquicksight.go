@@ -1,15 +1,17 @@
 package awsquicksight
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsquicksight/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsquicksight/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::QuickSight::Analysis`.
+//
+// Creates an analysis in Amazon QuickSight.
 //
 // TODO: EXAMPLE
 //
@@ -35,7 +37,7 @@ type CfnAnalysis interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Parameters() interface{}
 	SetParameters(val interface{})
 	Permissions() interface{}
@@ -58,10 +60,16 @@ type CfnAnalysis interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -221,8 +229,8 @@ func (j *jsiiProxy_CfnAnalysis) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAnalysis) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnAnalysis) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -313,13 +321,13 @@ func (j *jsiiProxy_CfnAnalysis) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::QuickSight::Analysis`.
-func NewCfnAnalysis(scope constructs.Construct, id *string, props *CfnAnalysisProps) CfnAnalysis {
+func NewCfnAnalysis(scope awscdk.Construct, id *string, props *CfnAnalysisProps) CfnAnalysis {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnAnalysis{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_quicksight.CfnAnalysis",
+		"monocdk.aws_quicksight.CfnAnalysis",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -328,11 +336,11 @@ func NewCfnAnalysis(scope constructs.Construct, id *string, props *CfnAnalysisPr
 }
 
 // Create a new `AWS::QuickSight::Analysis`.
-func NewCfnAnalysis_Override(c CfnAnalysis, scope constructs.Construct, id *string, props *CfnAnalysisProps) {
+func NewCfnAnalysis_Override(c CfnAnalysis, scope awscdk.Construct, id *string, props *CfnAnalysisProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_quicksight.CfnAnalysis",
+		"monocdk.aws_quicksight.CfnAnalysis",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -408,13 +416,14 @@ func (j *jsiiProxy_CfnAnalysis) SetThemeArn(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnAnalysis_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_quicksight.CfnAnalysis",
+		"monocdk.aws_quicksight.CfnAnalysis",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -424,13 +433,14 @@ func CfnAnalysis_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnAnalysis_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_quicksight.CfnAnalysis",
+		"monocdk.aws_quicksight.CfnAnalysis",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -439,17 +449,15 @@ func CfnAnalysis_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnAnalysis_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_quicksight.CfnAnalysis",
+		"monocdk.aws_quicksight.CfnAnalysis",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -462,7 +470,7 @@ func CfnAnalysis_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_quicksight.CfnAnalysis",
+		"monocdk.aws_quicksight.CfnAnalysis",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -470,6 +478,7 @@ func CfnAnalysis_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnAnalysis) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -482,6 +491,7 @@ func (c *jsiiProxy_CfnAnalysis) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnAnalysis) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -497,6 +507,7 @@ func (c *jsiiProxy_CfnAnalysis) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnAnalysis) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -542,6 +553,7 @@ func (c *jsiiProxy_CfnAnalysis) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnAnalysis) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -551,6 +563,7 @@ func (c *jsiiProxy_CfnAnalysis) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnAnalysis) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -562,6 +575,7 @@ func (c *jsiiProxy_CfnAnalysis) AddPropertyDeletionOverride(propertyPath *string
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnAnalysis) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -579,6 +593,7 @@ func (c *jsiiProxy_CfnAnalysis) AddPropertyOverride(propertyPath *string, value 
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnAnalysis) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -591,6 +606,7 @@ func (c *jsiiProxy_CfnAnalysis) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, 
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnAnalysis) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -611,6 +627,7 @@ func (c *jsiiProxy_CfnAnalysis) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnAnalysis) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -633,12 +650,80 @@ func (c *jsiiProxy_CfnAnalysis) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnAnalysis) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnAnalysis) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnAnalysis) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnAnalysis) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnAnalysis) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -659,6 +744,7 @@ func (c *jsiiProxy_CfnAnalysis) RenderProperties(props *map[string]interface{}) 
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnAnalysis) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -672,9 +758,23 @@ func (c *jsiiProxy_CfnAnalysis) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnAnalysis) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnAnalysis) ToString() *string {
 	var returns *string
 
@@ -688,6 +788,27 @@ func (c *jsiiProxy_CfnAnalysis) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnAnalysis) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnAnalysis) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -696,133 +817,181 @@ func (c *jsiiProxy_CfnAnalysis) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// Analysis error.
+//
 // TODO: EXAMPLE
 //
 type CfnAnalysis_AnalysisErrorProperty struct {
-	// `CfnAnalysis.AnalysisErrorProperty.Message`.
+	// The message associated with the analysis error.
 	Message *string `json:"message"`
-	// `CfnAnalysis.AnalysisErrorProperty.Type`.
+	// The type of the analysis error.
 	Type *string `json:"type"`
 }
 
+// The source entity of an analysis.
+//
 // TODO: EXAMPLE
 //
 type CfnAnalysis_AnalysisSourceEntityProperty struct {
-	// `CfnAnalysis.AnalysisSourceEntityProperty.SourceTemplate`.
+	// The source template for the source entity of the analysis.
 	SourceTemplate interface{} `json:"sourceTemplate"`
 }
 
+// The source template of an analysis.
+//
 // TODO: EXAMPLE
 //
 type CfnAnalysis_AnalysisSourceTemplateProperty struct {
-	// `CfnAnalysis.AnalysisSourceTemplateProperty.Arn`.
+	// The Amazon Resource Name (ARN) of the source template of an analysis.
 	Arn *string `json:"arn"`
-	// `CfnAnalysis.AnalysisSourceTemplateProperty.DataSetReferences`.
+	// The dataset references of the source template of an analysis.
 	DataSetReferences interface{} `json:"dataSetReferences"`
 }
 
+// Dataset reference.
+//
 // TODO: EXAMPLE
 //
 type CfnAnalysis_DataSetReferenceProperty struct {
-	// `CfnAnalysis.DataSetReferenceProperty.DataSetArn`.
+	// Dataset Amazon Resource Name (ARN).
 	DataSetArn *string `json:"dataSetArn"`
-	// `CfnAnalysis.DataSetReferenceProperty.DataSetPlaceholder`.
+	// Dataset placeholder.
 	DataSetPlaceholder *string `json:"dataSetPlaceholder"`
 }
 
+// A date-time parameter.
+//
 // TODO: EXAMPLE
 //
 type CfnAnalysis_DateTimeParameterProperty struct {
-	// `CfnAnalysis.DateTimeParameterProperty.Name`.
+	// A display name for the date-time parameter.
 	Name *string `json:"name"`
-	// `CfnAnalysis.DateTimeParameterProperty.Values`.
+	// The values for the date-time parameter.
 	Values *[]*string `json:"values"`
 }
 
+// A decimal parameter.
+//
 // TODO: EXAMPLE
 //
 type CfnAnalysis_DecimalParameterProperty struct {
-	// `CfnAnalysis.DecimalParameterProperty.Name`.
+	// A display name for the decimal parameter.
 	Name *string `json:"name"`
-	// `CfnAnalysis.DecimalParameterProperty.Values`.
+	// The values for the decimal parameter.
 	Values interface{} `json:"values"`
 }
 
+// An integer parameter.
+//
 // TODO: EXAMPLE
 //
 type CfnAnalysis_IntegerParameterProperty struct {
-	// `CfnAnalysis.IntegerParameterProperty.Name`.
+	// The name of the integer parameter.
 	Name *string `json:"name"`
-	// `CfnAnalysis.IntegerParameterProperty.Values`.
+	// The values for the integer parameter.
 	Values interface{} `json:"values"`
 }
 
+// A list of Amazon QuickSight parameters and the list's override values.
+//
 // TODO: EXAMPLE
 //
 type CfnAnalysis_ParametersProperty struct {
-	// `CfnAnalysis.ParametersProperty.DateTimeParameters`.
+	// The parameters that have a data type of date-time.
 	DateTimeParameters interface{} `json:"dateTimeParameters"`
-	// `CfnAnalysis.ParametersProperty.DecimalParameters`.
+	// The parameters that have a data type of decimal.
 	DecimalParameters interface{} `json:"decimalParameters"`
-	// `CfnAnalysis.ParametersProperty.IntegerParameters`.
+	// The parameters that have a data type of integer.
 	IntegerParameters interface{} `json:"integerParameters"`
-	// `CfnAnalysis.ParametersProperty.StringParameters`.
+	// The parameters that have a data type of string.
 	StringParameters interface{} `json:"stringParameters"`
 }
 
+// Permission for the resource.
+//
 // TODO: EXAMPLE
 //
 type CfnAnalysis_ResourcePermissionProperty struct {
-	// `CfnAnalysis.ResourcePermissionProperty.Actions`.
+	// The IAM action to grant or revoke permissions on.
 	Actions *[]*string `json:"actions"`
-	// `CfnAnalysis.ResourcePermissionProperty.Principal`.
+	// The Amazon Resource Name (ARN) of the principal. This can be one of the following:.
+	//
+	// - The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)
+	// - The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)
+	// - The ARN of an AWS account root: This is an IAM ARN rather than a Amazon QuickSight ARN. Use this option only to share resources (templates) across AWS accounts . (This is less common.)
 	Principal *string `json:"principal"`
 }
 
+// A *sheet* , which is an object that contains a set of visuals that are viewed together on one page in Amazon QuickSight.
+//
+// Every analysis and dashboard contains at least one sheet. Each sheet contains at least one visualization widget, for example a chart, pivot table, or narrative insight. Sheets can be associated with other components, such as controls, filters, and so on.
+//
 // TODO: EXAMPLE
 //
 type CfnAnalysis_SheetProperty struct {
-	// `CfnAnalysis.SheetProperty.Name`.
+	// The name of a sheet.
+	//
+	// This name is displayed on the sheet's tab in the Amazon QuickSight console.
 	Name *string `json:"name"`
-	// `CfnAnalysis.SheetProperty.SheetId`.
+	// The unique identifier associated with a sheet.
 	SheetId *string `json:"sheetId"`
 }
 
+// A string parameter.
+//
 // TODO: EXAMPLE
 //
 type CfnAnalysis_StringParameterProperty struct {
-	// `CfnAnalysis.StringParameterProperty.Name`.
+	// A display name for a string parameter.
 	Name *string `json:"name"`
-	// `CfnAnalysis.StringParameterProperty.Values`.
+	// The values of a string parameter.
 	Values *[]*string `json:"values"`
 }
 
-// Properties for defining a `AWS::QuickSight::Analysis`.
+// Properties for defining a `CfnAnalysis`.
 //
 // TODO: EXAMPLE
 //
 type CfnAnalysisProps struct {
-	// `AWS::QuickSight::Analysis.AnalysisId`.
+	// The ID for the analysis that you're creating.
+	//
+	// This ID displays in the URL of the analysis.
 	AnalysisId *string `json:"analysisId"`
-	// `AWS::QuickSight::Analysis.AwsAccountId`.
+	// The ID of the AWS account where you are creating an analysis.
 	AwsAccountId *string `json:"awsAccountId"`
+	// A source entity to use for the analysis that you're creating.
+	//
+	// This metadata structure contains details that describe a source template and one or more datasets.
+	SourceEntity interface{} `json:"sourceEntity"`
 	// `AWS::QuickSight::Analysis.Errors`.
 	Errors interface{} `json:"errors"`
-	// `AWS::QuickSight::Analysis.Name`.
+	// A descriptive name for the analysis that you're creating.
+	//
+	// This name displays for the analysis in the Amazon QuickSight console.
 	Name *string `json:"name"`
-	// `AWS::QuickSight::Analysis.Parameters`.
+	// The parameter names and override values that you want to use.
+	//
+	// An analysis can have any parameter type, and some parameters might accept multiple values.
 	Parameters interface{} `json:"parameters"`
-	// `AWS::QuickSight::Analysis.Permissions`.
+	// A structure that describes the principals and the resource-level permissions on an analysis.
+	//
+	// You can use the `Permissions` structure to grant permissions by providing a list of AWS Identity and Access Management (IAM) action information for each principal listed by Amazon Resource Name (ARN).
+	//
+	// To specify no permissions, omit `Permissions` .
 	Permissions interface{} `json:"permissions"`
-	// `AWS::QuickSight::Analysis.SourceEntity`.
-	SourceEntity interface{} `json:"sourceEntity"`
-	// `AWS::QuickSight::Analysis.Tags`.
+	// Contains a map of the key-value pairs for the resource tag or tags assigned to the analysis.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
-	// `AWS::QuickSight::Analysis.ThemeArn`.
+	// The ARN for the theme to apply to the analysis that you're creating.
+	//
+	// To see the theme in the Amazon QuickSight console, make sure that you have access to it.
 	ThemeArn *string `json:"themeArn"`
 }
 
 // A CloudFormation `AWS::QuickSight::Dashboard`.
+//
+// Creates a dashboard from a template. To first create a template, see the `CreateTemplate` API operation.
+//
+// A dashboard is an entity in Amazon QuickSight that identifies Amazon QuickSight reports, created from analyses. You can share Amazon QuickSight dashboards. With the right permissions, you can create scheduled email reports from them. If you have the correct permissions, you can create a dashboard from a template that exists in a different AWS account .
 //
 // TODO: EXAMPLE
 //
@@ -846,7 +1015,7 @@ type CfnDashboard interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Parameters() interface{}
 	SetParameters(val interface{})
 	Permissions() interface{}
@@ -871,10 +1040,16 @@ type CfnDashboard interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1014,8 +1189,8 @@ func (j *jsiiProxy_CfnDashboard) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDashboard) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnDashboard) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1116,13 +1291,13 @@ func (j *jsiiProxy_CfnDashboard) VersionDescription() *string {
 
 
 // Create a new `AWS::QuickSight::Dashboard`.
-func NewCfnDashboard(scope constructs.Construct, id *string, props *CfnDashboardProps) CfnDashboard {
+func NewCfnDashboard(scope awscdk.Construct, id *string, props *CfnDashboardProps) CfnDashboard {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDashboard{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_quicksight.CfnDashboard",
+		"monocdk.aws_quicksight.CfnDashboard",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1131,11 +1306,11 @@ func NewCfnDashboard(scope constructs.Construct, id *string, props *CfnDashboard
 }
 
 // Create a new `AWS::QuickSight::Dashboard`.
-func NewCfnDashboard_Override(c CfnDashboard, scope constructs.Construct, id *string, props *CfnDashboardProps) {
+func NewCfnDashboard_Override(c CfnDashboard, scope awscdk.Construct, id *string, props *CfnDashboardProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_quicksight.CfnDashboard",
+		"monocdk.aws_quicksight.CfnDashboard",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1219,13 +1394,14 @@ func (j *jsiiProxy_CfnDashboard) SetVersionDescription(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnDashboard_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_quicksight.CfnDashboard",
+		"monocdk.aws_quicksight.CfnDashboard",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1235,13 +1411,14 @@ func CfnDashboard_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnDashboard_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_quicksight.CfnDashboard",
+		"monocdk.aws_quicksight.CfnDashboard",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1250,17 +1427,15 @@ func CfnDashboard_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnDashboard_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_quicksight.CfnDashboard",
+		"monocdk.aws_quicksight.CfnDashboard",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1273,7 +1448,7 @@ func CfnDashboard_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_quicksight.CfnDashboard",
+		"monocdk.aws_quicksight.CfnDashboard",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1281,6 +1456,7 @@ func CfnDashboard_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnDashboard) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1293,6 +1469,7 @@ func (c *jsiiProxy_CfnDashboard) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnDashboard) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1308,6 +1485,7 @@ func (c *jsiiProxy_CfnDashboard) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnDashboard) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1353,6 +1531,7 @@ func (c *jsiiProxy_CfnDashboard) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnDashboard) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1362,6 +1541,7 @@ func (c *jsiiProxy_CfnDashboard) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnDashboard) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1373,6 +1553,7 @@ func (c *jsiiProxy_CfnDashboard) AddPropertyDeletionOverride(propertyPath *strin
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnDashboard) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1390,6 +1571,7 @@ func (c *jsiiProxy_CfnDashboard) AddPropertyOverride(propertyPath *string, value
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnDashboard) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1402,6 +1584,7 @@ func (c *jsiiProxy_CfnDashboard) ApplyRemovalPolicy(policy awscdk.RemovalPolicy,
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnDashboard) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1422,6 +1605,7 @@ func (c *jsiiProxy_CfnDashboard) GetAtt(attributeName *string) awscdk.Reference 
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnDashboard) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1444,12 +1628,80 @@ func (c *jsiiProxy_CfnDashboard) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDashboard) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDashboard) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDashboard) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnDashboard) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDashboard) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1470,6 +1722,7 @@ func (c *jsiiProxy_CfnDashboard) RenderProperties(props *map[string]interface{})
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnDashboard) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1483,9 +1736,23 @@ func (c *jsiiProxy_CfnDashboard) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDashboard) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnDashboard) ToString() *string {
 	var returns *string
 
@@ -1499,6 +1766,27 @@ func (c *jsiiProxy_CfnDashboard) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDashboard) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnDashboard) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1507,149 +1795,197 @@ func (c *jsiiProxy_CfnDashboard) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// Ad hoc (one-time) filtering option.
+//
 // TODO: EXAMPLE
 //
 type CfnDashboard_AdHocFilteringOptionProperty struct {
-	// `CfnDashboard.AdHocFilteringOptionProperty.AvailabilityStatus`.
+	// Availability status.
 	AvailabilityStatus *string `json:"availabilityStatus"`
 }
 
+// Dashboard publish options.
+//
 // TODO: EXAMPLE
 //
 type CfnDashboard_DashboardPublishOptionsProperty struct {
-	// `CfnDashboard.DashboardPublishOptionsProperty.AdHocFilteringOption`.
+	// Ad hoc (one-time) filtering option.
 	AdHocFilteringOption interface{} `json:"adHocFilteringOption"`
-	// `CfnDashboard.DashboardPublishOptionsProperty.ExportToCSVOption`.
+	// Export to .csv option.
 	ExportToCsvOption interface{} `json:"exportToCsvOption"`
-	// `CfnDashboard.DashboardPublishOptionsProperty.SheetControlsOption`.
+	// Sheet controls option.
 	SheetControlsOption interface{} `json:"sheetControlsOption"`
 }
 
+// Dashboard source entity.
+//
 // TODO: EXAMPLE
 //
 type CfnDashboard_DashboardSourceEntityProperty struct {
-	// `CfnDashboard.DashboardSourceEntityProperty.SourceTemplate`.
+	// Source template.
 	SourceTemplate interface{} `json:"sourceTemplate"`
 }
 
+// Dashboard source template.
+//
 // TODO: EXAMPLE
 //
 type CfnDashboard_DashboardSourceTemplateProperty struct {
-	// `CfnDashboard.DashboardSourceTemplateProperty.Arn`.
+	// The Amazon Resource Name (ARN) of the resource.
 	Arn *string `json:"arn"`
-	// `CfnDashboard.DashboardSourceTemplateProperty.DataSetReferences`.
+	// Dataset references.
 	DataSetReferences interface{} `json:"dataSetReferences"`
 }
 
+// Dataset reference.
+//
 // TODO: EXAMPLE
 //
 type CfnDashboard_DataSetReferenceProperty struct {
-	// `CfnDashboard.DataSetReferenceProperty.DataSetArn`.
+	// Dataset Amazon Resource Name (ARN).
 	DataSetArn *string `json:"dataSetArn"`
-	// `CfnDashboard.DataSetReferenceProperty.DataSetPlaceholder`.
+	// Dataset placeholder.
 	DataSetPlaceholder *string `json:"dataSetPlaceholder"`
 }
 
+// A date-time parameter.
+//
 // TODO: EXAMPLE
 //
 type CfnDashboard_DateTimeParameterProperty struct {
-	// `CfnDashboard.DateTimeParameterProperty.Name`.
+	// A display name for the date-time parameter.
 	Name *string `json:"name"`
-	// `CfnDashboard.DateTimeParameterProperty.Values`.
+	// The values for the date-time parameter.
 	Values *[]*string `json:"values"`
 }
 
+// A decimal parameter.
+//
 // TODO: EXAMPLE
 //
 type CfnDashboard_DecimalParameterProperty struct {
-	// `CfnDashboard.DecimalParameterProperty.Name`.
+	// A display name for the decimal parameter.
 	Name *string `json:"name"`
-	// `CfnDashboard.DecimalParameterProperty.Values`.
+	// The values for the decimal parameter.
 	Values interface{} `json:"values"`
 }
 
+// Export to .csv option.
+//
 // TODO: EXAMPLE
 //
 type CfnDashboard_ExportToCSVOptionProperty struct {
-	// `CfnDashboard.ExportToCSVOptionProperty.AvailabilityStatus`.
+	// Availability status.
 	AvailabilityStatus *string `json:"availabilityStatus"`
 }
 
+// An integer parameter.
+//
 // TODO: EXAMPLE
 //
 type CfnDashboard_IntegerParameterProperty struct {
-	// `CfnDashboard.IntegerParameterProperty.Name`.
+	// The name of the integer parameter.
 	Name *string `json:"name"`
-	// `CfnDashboard.IntegerParameterProperty.Values`.
+	// The values for the integer parameter.
 	Values interface{} `json:"values"`
 }
 
+// A list of Amazon QuickSight parameters and the list's override values.
+//
 // TODO: EXAMPLE
 //
 type CfnDashboard_ParametersProperty struct {
-	// `CfnDashboard.ParametersProperty.DateTimeParameters`.
+	// The parameters that have a data type of date-time.
 	DateTimeParameters interface{} `json:"dateTimeParameters"`
-	// `CfnDashboard.ParametersProperty.DecimalParameters`.
+	// The parameters that have a data type of decimal.
 	DecimalParameters interface{} `json:"decimalParameters"`
-	// `CfnDashboard.ParametersProperty.IntegerParameters`.
+	// The parameters that have a data type of integer.
 	IntegerParameters interface{} `json:"integerParameters"`
-	// `CfnDashboard.ParametersProperty.StringParameters`.
+	// The parameters that have a data type of string.
 	StringParameters interface{} `json:"stringParameters"`
 }
 
+// Permission for the resource.
+//
 // TODO: EXAMPLE
 //
 type CfnDashboard_ResourcePermissionProperty struct {
-	// `CfnDashboard.ResourcePermissionProperty.Actions`.
+	// The IAM action to grant or revoke permissions on.
 	Actions *[]*string `json:"actions"`
-	// `CfnDashboard.ResourcePermissionProperty.Principal`.
+	// The Amazon Resource Name (ARN) of the principal. This can be one of the following:.
+	//
+	// - The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)
+	// - The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)
+	// - The ARN of an AWS account root: This is an IAM ARN rather than a Amazon QuickSight ARN. Use this option only to share resources (templates) across AWS accounts . (This is less common.)
 	Principal *string `json:"principal"`
 }
 
+// Sheet controls option.
+//
 // TODO: EXAMPLE
 //
 type CfnDashboard_SheetControlsOptionProperty struct {
-	// `CfnDashboard.SheetControlsOptionProperty.VisibilityState`.
+	// Visibility state.
 	VisibilityState *string `json:"visibilityState"`
 }
 
+// A string parameter.
+//
 // TODO: EXAMPLE
 //
 type CfnDashboard_StringParameterProperty struct {
-	// `CfnDashboard.StringParameterProperty.Name`.
+	// A display name for a string parameter.
 	Name *string `json:"name"`
-	// `CfnDashboard.StringParameterProperty.Values`.
+	// The values of a string parameter.
 	Values *[]*string `json:"values"`
 }
 
-// Properties for defining a `AWS::QuickSight::Dashboard`.
+// Properties for defining a `CfnDashboard`.
 //
 // TODO: EXAMPLE
 //
 type CfnDashboardProps struct {
-	// `AWS::QuickSight::Dashboard.AwsAccountId`.
+	// The ID of the AWS account where you want to create the dashboard.
 	AwsAccountId *string `json:"awsAccountId"`
-	// `AWS::QuickSight::Dashboard.DashboardId`.
+	// The ID for the dashboard, also added to the IAM policy.
 	DashboardId *string `json:"dashboardId"`
-	// `AWS::QuickSight::Dashboard.DashboardPublishOptions`.
-	DashboardPublishOptions interface{} `json:"dashboardPublishOptions"`
-	// `AWS::QuickSight::Dashboard.Name`.
-	Name *string `json:"name"`
-	// `AWS::QuickSight::Dashboard.Parameters`.
-	Parameters interface{} `json:"parameters"`
-	// `AWS::QuickSight::Dashboard.Permissions`.
-	Permissions interface{} `json:"permissions"`
-	// `AWS::QuickSight::Dashboard.SourceEntity`.
+	// The entity that you are using as a source when you create the dashboard.
+	//
+	// In `SourceEntity` , you specify the type of object that you want to use. You can only create a dashboard from a template, so you use a `SourceTemplate` entity. If you need to create a dashboard from an analysis, first convert the analysis to a template by using the `CreateTemplate` API operation. For `SourceTemplate` , specify the Amazon Resource Name (ARN) of the source template. The `SourceTemplate` ARN can contain any AWS account; and any QuickSight-supported AWS Region .
+	//
+	// Use the `DataSetReferences` entity within `SourceTemplate` to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder.
 	SourceEntity interface{} `json:"sourceEntity"`
-	// `AWS::QuickSight::Dashboard.Tags`.
+	// Options for publishing the dashboard when you create it:.
+	//
+	// - `AvailabilityStatus` for `AdHocFilteringOption` - This status can be either `ENABLED` or `DISABLED` . When this is set to `DISABLED` , Amazon QuickSight disables the left filter pane on the published dashboard, which can be used for ad hoc (one-time) filtering. This option is `ENABLED` by default.
+	// - `AvailabilityStatus` for `ExportToCSVOption` - This status can be either `ENABLED` or `DISABLED` . The visual option to export data to .CSV format isn't enabled when this is set to `DISABLED` . This option is `ENABLED` by default.
+	// - `VisibilityState` for `SheetControlsOption` - This visibility state can be either `COLLAPSED` or `EXPANDED` . This option is `COLLAPSED` by default.
+	DashboardPublishOptions interface{} `json:"dashboardPublishOptions"`
+	// The display name of the dashboard.
+	Name *string `json:"name"`
+	// The parameters for the creation of the dashboard, which you want to use to override the default settings.
+	//
+	// A dashboard can have any type of parameters, and some parameters might accept multiple values.
+	Parameters interface{} `json:"parameters"`
+	// A structure that contains the permissions of the dashboard.
+	//
+	// You can use this structure for granting permissions by providing a list of IAM action information for each principal ARN.
+	//
+	// To specify no permissions, omit the permissions list.
+	Permissions interface{} `json:"permissions"`
+	// Contains a map of the key-value pairs for the resource tag or tags assigned to the dashboard.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
-	// `AWS::QuickSight::Dashboard.ThemeArn`.
+	// The Amazon Resource Name (ARN) of the theme that is being used for this dashboard.
+	//
+	// If you add a value for this field, it overrides the value that is used in the source entity. The theme ARN must exist in the same AWS account where you create the dashboard.
 	ThemeArn *string `json:"themeArn"`
-	// `AWS::QuickSight::Dashboard.VersionDescription`.
+	// A description for the first version of the dashboard being created.
 	VersionDescription *string `json:"versionDescription"`
 }
 
 // A CloudFormation `AWS::QuickSight::DataSet`.
+//
+// Creates a dataset.
 //
 // TODO: EXAMPLE
 //
@@ -1684,7 +2020,7 @@ type CfnDataSet interface {
 	SetLogicalTableMap(val interface{})
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Permissions() interface{}
 	SetPermissions(val interface{})
 	PhysicalTableMap() interface{}
@@ -1705,10 +2041,16 @@ type CfnDataSet interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1908,8 +2250,8 @@ func (j *jsiiProxy_CfnDataSet) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataSet) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnDataSet) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1990,13 +2332,13 @@ func (j *jsiiProxy_CfnDataSet) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::QuickSight::DataSet`.
-func NewCfnDataSet(scope constructs.Construct, id *string, props *CfnDataSetProps) CfnDataSet {
+func NewCfnDataSet(scope awscdk.Construct, id *string, props *CfnDataSetProps) CfnDataSet {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDataSet{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_quicksight.CfnDataSet",
+		"monocdk.aws_quicksight.CfnDataSet",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2005,11 +2347,11 @@ func NewCfnDataSet(scope constructs.Construct, id *string, props *CfnDataSetProp
 }
 
 // Create a new `AWS::QuickSight::DataSet`.
-func NewCfnDataSet_Override(c CfnDataSet, scope constructs.Construct, id *string, props *CfnDataSetProps) {
+func NewCfnDataSet_Override(c CfnDataSet, scope awscdk.Construct, id *string, props *CfnDataSetProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_quicksight.CfnDataSet",
+		"monocdk.aws_quicksight.CfnDataSet",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2117,13 +2459,14 @@ func (j *jsiiProxy_CfnDataSet) SetRowLevelPermissionDataSet(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnDataSet_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_quicksight.CfnDataSet",
+		"monocdk.aws_quicksight.CfnDataSet",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2133,13 +2476,14 @@ func CfnDataSet_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnDataSet_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_quicksight.CfnDataSet",
+		"monocdk.aws_quicksight.CfnDataSet",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2148,17 +2492,15 @@ func CfnDataSet_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnDataSet_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_quicksight.CfnDataSet",
+		"monocdk.aws_quicksight.CfnDataSet",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2171,7 +2513,7 @@ func CfnDataSet_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_quicksight.CfnDataSet",
+		"monocdk.aws_quicksight.CfnDataSet",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2179,6 +2521,7 @@ func CfnDataSet_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnDataSet) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2191,6 +2534,7 @@ func (c *jsiiProxy_CfnDataSet) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnDataSet) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2206,6 +2550,7 @@ func (c *jsiiProxy_CfnDataSet) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnDataSet) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2251,6 +2596,7 @@ func (c *jsiiProxy_CfnDataSet) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnDataSet) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2260,6 +2606,7 @@ func (c *jsiiProxy_CfnDataSet) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnDataSet) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2271,6 +2618,7 @@ func (c *jsiiProxy_CfnDataSet) AddPropertyDeletionOverride(propertyPath *string)
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnDataSet) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2288,6 +2636,7 @@ func (c *jsiiProxy_CfnDataSet) AddPropertyOverride(propertyPath *string, value i
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnDataSet) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2300,6 +2649,7 @@ func (c *jsiiProxy_CfnDataSet) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, o
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnDataSet) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2320,6 +2670,7 @@ func (c *jsiiProxy_CfnDataSet) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnDataSet) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2342,12 +2693,80 @@ func (c *jsiiProxy_CfnDataSet) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDataSet) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDataSet) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDataSet) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnDataSet) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDataSet) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2368,6 +2787,7 @@ func (c *jsiiProxy_CfnDataSet) RenderProperties(props *map[string]interface{}) *
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnDataSet) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2381,9 +2801,23 @@ func (c *jsiiProxy_CfnDataSet) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDataSet) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnDataSet) ToString() *string {
 	var returns *string
 
@@ -2397,6 +2831,27 @@ func (c *jsiiProxy_CfnDataSet) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDataSet) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnDataSet) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2405,330 +2860,446 @@ func (c *jsiiProxy_CfnDataSet) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// A calculated column for a dataset.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSet_CalculatedColumnProperty struct {
-	// `CfnDataSet.CalculatedColumnProperty.ColumnId`.
+	// A unique ID to identify a calculated column.
+	//
+	// During a dataset update, if the column ID of a calculated column matches that of an existing calculated column, Amazon QuickSight preserves the existing calculated column.
 	ColumnId *string `json:"columnId"`
-	// `CfnDataSet.CalculatedColumnProperty.ColumnName`.
+	// Column name.
 	ColumnName *string `json:"columnName"`
-	// `CfnDataSet.CalculatedColumnProperty.Expression`.
+	// An expression that defines the calculated column.
 	Expression *string `json:"expression"`
 }
 
+// A transform operation that casts a column to a different type.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSet_CastColumnTypeOperationProperty struct {
-	// `CfnDataSet.CastColumnTypeOperationProperty.ColumnName`.
+	// Column name.
 	ColumnName *string `json:"columnName"`
-	// `CfnDataSet.CastColumnTypeOperationProperty.Format`.
-	Format *string `json:"format"`
-	// `CfnDataSet.CastColumnTypeOperationProperty.NewColumnType`.
+	// New column data type.
 	NewColumnType *string `json:"newColumnType"`
+	// When casting a column from string to datetime type, you can supply a string in a format supported by Amazon QuickSight to denote the source data format.
+	Format *string `json:"format"`
 }
 
+// Metadata that contains a description for a column.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSet_ColumnDescriptionProperty struct {
-	// `CfnDataSet.ColumnDescriptionProperty.Text`.
+	// The text of a description for a column.
 	Text *string `json:"text"`
 }
 
+// Groupings of columns that work together in certain Amazon QuickSight features.
+//
+// This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSet_ColumnGroupProperty struct {
-	// `CfnDataSet.ColumnGroupProperty.GeoSpatialColumnGroup`.
+	// Geospatial column group that denotes a hierarchy.
 	GeoSpatialColumnGroup interface{} `json:"geoSpatialColumnGroup"`
 }
 
+// A rule defined to grant access on one or more restricted columns.
+//
+// Each dataset can have multiple rules. To create a restricted column, you add it to one or more rules. Each rule must contain at least one column and at least one user or group. To be able to see a restricted column, a user or group needs to be added to a rule for that column.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSet_ColumnLevelPermissionRuleProperty struct {
-	// `CfnDataSet.ColumnLevelPermissionRuleProperty.ColumnNames`.
+	// An array of column names.
 	ColumnNames *[]*string `json:"columnNames"`
-	// `CfnDataSet.ColumnLevelPermissionRuleProperty.Principals`.
+	// An array of Amazon Resource Names (ARNs) for Amazon QuickSight users or groups.
 	Principals *[]*string `json:"principals"`
 }
 
+// A tag for a column in a `[TagColumnOperation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_TagColumnOperation.html)` structure. This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSet_ColumnTagProperty struct {
-	// `CfnDataSet.ColumnTagProperty.ColumnDescription`.
+	// A description for a column.
 	ColumnDescription interface{} `json:"columnDescription"`
-	// `CfnDataSet.ColumnTagProperty.ColumnGeographicRole`.
+	// A geospatial role for a column.
 	ColumnGeographicRole *string `json:"columnGeographicRole"`
 }
 
+// A transform operation that creates calculated columns.
+//
+// Columns created in one such operation form a lexical closure.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSet_CreateColumnsOperationProperty struct {
-	// `CfnDataSet.CreateColumnsOperationProperty.Columns`.
+	// Calculated columns to create.
 	Columns interface{} `json:"columns"`
 }
 
+// A physical table type built from the results of the custom SQL query.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSet_CustomSqlProperty struct {
-	// `CfnDataSet.CustomSqlProperty.Columns`.
+	// The column schema from the SQL query result set.
 	Columns interface{} `json:"columns"`
-	// `CfnDataSet.CustomSqlProperty.DataSourceArn`.
+	// The Amazon Resource Name (ARN) of the data source.
 	DataSourceArn *string `json:"dataSourceArn"`
-	// `CfnDataSet.CustomSqlProperty.Name`.
+	// A display name for the SQL query result.
 	Name *string `json:"name"`
-	// `CfnDataSet.CustomSqlProperty.SqlQuery`.
+	// The SQL query.
 	SqlQuery *string `json:"sqlQuery"`
 }
 
+// A FieldFolder element is a folder that contains fields and nested subfolders.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSet_FieldFolderProperty struct {
-	// `CfnDataSet.FieldFolderProperty.Columns`.
+	// A folder has a list of columns.
+	//
+	// A column can only be in one folder.
 	Columns *[]*string `json:"columns"`
-	// `CfnDataSet.FieldFolderProperty.Description`.
+	// The description for a field folder.
 	Description *string `json:"description"`
 }
 
+// A transform operation that filters rows based on a condition.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSet_FilterOperationProperty struct {
-	// `CfnDataSet.FilterOperationProperty.ConditionExpression`.
+	// An expression that must evaluate to a Boolean value.
+	//
+	// Rows for which the expression evaluates to true are kept in the dataset.
 	ConditionExpression *string `json:"conditionExpression"`
 }
 
+// Geospatial column group that denotes a hierarchy.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSet_GeoSpatialColumnGroupProperty struct {
-	// `CfnDataSet.GeoSpatialColumnGroupProperty.Columns`.
+	// Columns in this hierarchy.
 	Columns *[]*string `json:"columns"`
-	// `CfnDataSet.GeoSpatialColumnGroupProperty.CountryCode`.
-	CountryCode *string `json:"countryCode"`
-	// `CfnDataSet.GeoSpatialColumnGroupProperty.Name`.
+	// A display name for the hierarchy.
 	Name *string `json:"name"`
+	// Country code.
+	CountryCode *string `json:"countryCode"`
 }
 
+// The wait policy to use when creating or updating a Dataset.
+//
+// The default is to wait for SPICE ingestion to finish with timeout of 36 hours.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSet_IngestionWaitPolicyProperty struct {
-	// `CfnDataSet.IngestionWaitPolicyProperty.IngestionWaitTimeInHours`.
+	// The maximum time (in hours) to wait for Ingestion to complete.
+	//
+	// Default timeout is 36 hours. Applicable only when `DataSetImportMode` mode is set to SPICE and `WaitForSpiceIngestion` is set to true.
 	IngestionWaitTimeInHours *float64 `json:"ingestionWaitTimeInHours"`
-	// `CfnDataSet.IngestionWaitPolicyProperty.WaitForSpiceIngestion`.
+	// Wait for SPICE ingestion to finish to mark dataset creation or update as successful.
+	//
+	// Default (true). Applicable only when `DataSetImportMode` mode is set to SPICE.
 	WaitForSpiceIngestion interface{} `json:"waitForSpiceIngestion"`
 }
 
+// Metadata for a column that is used as the input of a transform operation.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSet_InputColumnProperty struct {
-	// `CfnDataSet.InputColumnProperty.Name`.
+	// The name of this column in the underlying data source.
 	Name *string `json:"name"`
-	// `CfnDataSet.InputColumnProperty.Type`.
+	// The data type of the column.
 	Type *string `json:"type"`
 }
 
+// The instructions associated with a join.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSet_JoinInstructionProperty struct {
-	// `CfnDataSet.JoinInstructionProperty.LeftJoinKeyProperties`.
-	LeftJoinKeyProperties interface{} `json:"leftJoinKeyProperties"`
-	// `CfnDataSet.JoinInstructionProperty.LeftOperand`.
+	// The operand on the left side of a join.
 	LeftOperand *string `json:"leftOperand"`
-	// `CfnDataSet.JoinInstructionProperty.OnClause`.
+	// The join instructions provided in the `ON` clause of a join.
 	OnClause *string `json:"onClause"`
-	// `CfnDataSet.JoinInstructionProperty.RightJoinKeyProperties`.
-	RightJoinKeyProperties interface{} `json:"rightJoinKeyProperties"`
-	// `CfnDataSet.JoinInstructionProperty.RightOperand`.
+	// The operand on the right side of a join.
 	RightOperand *string `json:"rightOperand"`
-	// `CfnDataSet.JoinInstructionProperty.Type`.
+	// The type of join that it is.
 	Type *string `json:"type"`
+	// Join key properties of the left operand.
+	LeftJoinKeyProperties interface{} `json:"leftJoinKeyProperties"`
+	// Join key properties of the right operand.
+	RightJoinKeyProperties interface{} `json:"rightJoinKeyProperties"`
 }
 
+// Properties associated with the columns participating in a join.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSet_JoinKeyPropertiesProperty struct {
-	// `CfnDataSet.JoinKeyPropertiesProperty.UniqueKey`.
+	// A value that indicates that a row in a table is uniquely identified by the columns in a join key.
+	//
+	// This is used by Amazon QuickSight to optimize query performance.
 	UniqueKey interface{} `json:"uniqueKey"`
 }
 
+// A *logical table* is a unit that joins and that data transformations operate on.
+//
+// A logical table has a source, which can be either a physical table or result of a join. When a logical table points to a physical table, the logical table acts as a mutable copy of that physical table through transform operations.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSet_LogicalTableProperty struct {
-	// `CfnDataSet.LogicalTableProperty.Alias`.
+	// A display name for the logical table.
 	Alias *string `json:"alias"`
-	// `CfnDataSet.LogicalTableProperty.DataTransforms`.
-	DataTransforms interface{} `json:"dataTransforms"`
-	// `CfnDataSet.LogicalTableProperty.Source`.
+	// Source of this logical table.
 	Source interface{} `json:"source"`
+	// Transform operations that act on this logical table.
+	DataTransforms interface{} `json:"dataTransforms"`
 }
 
+// Information about the source of a logical table.
+//
+// This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSet_LogicalTableSourceProperty struct {
-	// `CfnDataSet.LogicalTableSourceProperty.JoinInstruction`.
+	// Specifies the result of a join of two logical tables.
 	JoinInstruction interface{} `json:"joinInstruction"`
-	// `CfnDataSet.LogicalTableSourceProperty.PhysicalTableId`.
+	// Physical table ID.
 	PhysicalTableId *string `json:"physicalTableId"`
 }
 
+// Output column.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSet_OutputColumnProperty struct {
-	// `CfnDataSet.OutputColumnProperty.Description`.
+	// A description for a column.
 	Description *string `json:"description"`
-	// `CfnDataSet.OutputColumnProperty.Name`.
+	// A display name for the dataset.
 	Name *string `json:"name"`
-	// `CfnDataSet.OutputColumnProperty.Type`.
+	// Type.
 	Type *string `json:"type"`
 }
 
+// A view of a data source that contains information about the shape of the data in the underlying source.
+//
+// This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSet_PhysicalTableProperty struct {
-	// `CfnDataSet.PhysicalTableProperty.CustomSql`.
+	// A physical table type built from the results of the custom SQL query.
 	CustomSql interface{} `json:"customSql"`
-	// `CfnDataSet.PhysicalTableProperty.RelationalTable`.
+	// A physical table type for relational data sources.
 	RelationalTable interface{} `json:"relationalTable"`
-	// `CfnDataSet.PhysicalTableProperty.S3Source`.
+	// A physical table type for as S3 data source.
 	S3Source interface{} `json:"s3Source"`
 }
 
+// A transform operation that projects columns.
+//
+// Operations that come after a projection can only refer to projected columns.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSet_ProjectOperationProperty struct {
-	// `CfnDataSet.ProjectOperationProperty.ProjectedColumns`.
+	// Projected columns.
 	ProjectedColumns *[]*string `json:"projectedColumns"`
 }
 
+// A physical table type for relational data sources.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSet_RelationalTableProperty struct {
+	// The Amazon Resource Name (ARN) for the data source.
+	DataSourceArn *string `json:"dataSourceArn"`
+	// The column schema of the table.
+	InputColumns interface{} `json:"inputColumns"`
+	// The name of the relational table.
+	Name *string `json:"name"`
 	// `CfnDataSet.RelationalTableProperty.Catalog`.
 	Catalog *string `json:"catalog"`
-	// `CfnDataSet.RelationalTableProperty.DataSourceArn`.
-	DataSourceArn *string `json:"dataSourceArn"`
-	// `CfnDataSet.RelationalTableProperty.InputColumns`.
-	InputColumns interface{} `json:"inputColumns"`
-	// `CfnDataSet.RelationalTableProperty.Name`.
-	Name *string `json:"name"`
-	// `CfnDataSet.RelationalTableProperty.Schema`.
+	// The schema name.
+	//
+	// This name applies to certain relational database engines.
 	Schema *string `json:"schema"`
 }
 
+// A transform operation that renames a column.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSet_RenameColumnOperationProperty struct {
-	// `CfnDataSet.RenameColumnOperationProperty.ColumnName`.
+	// The name of the column to be renamed.
 	ColumnName *string `json:"columnName"`
-	// `CfnDataSet.RenameColumnOperationProperty.NewColumnName`.
+	// The new name for the column.
 	NewColumnName *string `json:"newColumnName"`
 }
 
+// Permission for the resource.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSet_ResourcePermissionProperty struct {
-	// `CfnDataSet.ResourcePermissionProperty.Actions`.
+	// The IAM action to grand or revoke permisions on.
 	Actions *[]*string `json:"actions"`
-	// `CfnDataSet.ResourcePermissionProperty.Principal`.
+	// The Amazon Resource Name (ARN) of the principal. This can be one of the following:.
+	//
+	// - The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)
+	// - The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)
+	// - The ARN of an AWS account root: This is an IAM ARN rather than a Amazon QuickSight ARN. Use this option only to share resources (templates) across AWS accounts . (This is less common.)
 	Principal *string `json:"principal"`
 }
 
+// Information about a dataset that contains permissions for row-level security (RLS).
+//
+// The permissions dataset maps fields to users or groups. For more information, see [Using Row-Level Security (RLS) to Restrict Access to a Dataset](https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html) in the *Amazon QuickSight User Guide* .
+//
+// The option to deny permissions by setting `PermissionPolicy` to `DENY_ACCESS` is not supported for new RLS datasets.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSet_RowLevelPermissionDataSetProperty struct {
-	// `CfnDataSet.RowLevelPermissionDataSetProperty.Arn`.
+	// The Amazon Resource Name (ARN) of the dataset that contains permissions for RLS.
 	Arn *string `json:"arn"`
-	// `CfnDataSet.RowLevelPermissionDataSetProperty.FormatVersion`.
-	FormatVersion *string `json:"formatVersion"`
-	// `CfnDataSet.RowLevelPermissionDataSetProperty.Namespace`.
-	Namespace *string `json:"namespace"`
-	// `CfnDataSet.RowLevelPermissionDataSetProperty.PermissionPolicy`.
+	// The type of permissions to use when interpreting the permissions for RLS.
+	//
+	// `DENY_ACCESS` is included for backward compatibility only.
 	PermissionPolicy *string `json:"permissionPolicy"`
+	// The user or group rules associated with the dataset that contains permissions for RLS.
+	//
+	// By default, `FormatVersion` is `VERSION_1` . When `FormatVersion` is `VERSION_1` , `UserName` and `GroupName` are required. When `FormatVersion` is `VERSION_2` , `UserARN` and `GroupARN` are required, and `Namespace` must not exist.
+	FormatVersion *string `json:"formatVersion"`
+	// The namespace associated with the dataset that contains permissions for RLS.
+	Namespace *string `json:"namespace"`
 }
 
+// A physical table type for an S3 data source.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSet_S3SourceProperty struct {
-	// `CfnDataSet.S3SourceProperty.DataSourceArn`.
+	// The Amazon Resource Name (ARN) for the data source.
 	DataSourceArn *string `json:"dataSourceArn"`
-	// `CfnDataSet.S3SourceProperty.InputColumns`.
+	// A physical table type for an S3 data source.
+	//
+	// > For files that aren't JSON, only `STRING` data types are supported in input columns.
 	InputColumns interface{} `json:"inputColumns"`
-	// `CfnDataSet.S3SourceProperty.UploadSettings`.
+	// Information about the format for the S3 source file or files.
 	UploadSettings interface{} `json:"uploadSettings"`
 }
 
+// A transform operation that tags a column with additional information.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSet_TagColumnOperationProperty struct {
-	// `CfnDataSet.TagColumnOperationProperty.ColumnName`.
+	// The column that this operation acts on.
 	ColumnName *string `json:"columnName"`
-	// `CfnDataSet.TagColumnOperationProperty.Tags`.
+	// The dataset column tag, currently only used for geospatial type tagging.
+	//
+	// > This is not tags for the AWS tagging feature.
 	Tags *[]*CfnDataSet_ColumnTagProperty `json:"tags"`
 }
 
+// A data transformation on a logical table.
+//
+// This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSet_TransformOperationProperty struct {
-	// `CfnDataSet.TransformOperationProperty.CastColumnTypeOperation`.
+	// A transform operation that casts a column to a different type.
 	CastColumnTypeOperation interface{} `json:"castColumnTypeOperation"`
-	// `CfnDataSet.TransformOperationProperty.CreateColumnsOperation`.
+	// An operation that creates calculated columns.
+	//
+	// Columns created in one such operation form a lexical closure.
 	CreateColumnsOperation interface{} `json:"createColumnsOperation"`
-	// `CfnDataSet.TransformOperationProperty.FilterOperation`.
+	// An operation that filters rows based on some condition.
 	FilterOperation interface{} `json:"filterOperation"`
-	// `CfnDataSet.TransformOperationProperty.ProjectOperation`.
+	// An operation that projects columns.
+	//
+	// Operations that come after a projection can only refer to projected columns.
 	ProjectOperation interface{} `json:"projectOperation"`
-	// `CfnDataSet.TransformOperationProperty.RenameColumnOperation`.
+	// An operation that renames a column.
 	RenameColumnOperation interface{} `json:"renameColumnOperation"`
-	// `CfnDataSet.TransformOperationProperty.TagColumnOperation`.
+	// An operation that tags a column with additional information.
 	TagColumnOperation interface{} `json:"tagColumnOperation"`
 }
 
+// Information about the format for a source file or files.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSet_UploadSettingsProperty struct {
-	// `CfnDataSet.UploadSettingsProperty.ContainsHeader`.
+	// Whether the file has a header row, or the files each have a header row.
 	ContainsHeader interface{} `json:"containsHeader"`
-	// `CfnDataSet.UploadSettingsProperty.Delimiter`.
+	// The delimiter between values in the file.
 	Delimiter *string `json:"delimiter"`
-	// `CfnDataSet.UploadSettingsProperty.Format`.
+	// File format.
 	Format *string `json:"format"`
-	// `CfnDataSet.UploadSettingsProperty.StartFromRow`.
+	// A row number to start reading data from.
 	StartFromRow *float64 `json:"startFromRow"`
-	// `CfnDataSet.UploadSettingsProperty.TextQualifier`.
+	// Text qualifier.
 	TextQualifier *string `json:"textQualifier"`
 }
 
-// Properties for defining a `AWS::QuickSight::DataSet`.
+// Properties for defining a `CfnDataSet`.
 //
 // TODO: EXAMPLE
 //
 type CfnDataSetProps struct {
-	// `AWS::QuickSight::DataSet.AwsAccountId`.
+	// The AWS account ID.
 	AwsAccountId *string `json:"awsAccountId"`
-	// `AWS::QuickSight::DataSet.ColumnGroups`.
+	// Groupings of columns that work together in certain Amazon QuickSight features.
+	//
+	// Currently, only geospatial hierarchy is supported.
 	ColumnGroups interface{} `json:"columnGroups"`
-	// `AWS::QuickSight::DataSet.ColumnLevelPermissionRules`.
+	// A set of one or more definitions of a `ColumnLevelPermissionRule` .
 	ColumnLevelPermissionRules interface{} `json:"columnLevelPermissionRules"`
-	// `AWS::QuickSight::DataSet.DataSetId`.
+	// An ID for the dataset that you want to create.
+	//
+	// This ID is unique per AWS Region for each AWS account.
 	DataSetId *string `json:"dataSetId"`
-	// `AWS::QuickSight::DataSet.FieldFolders`.
+	// The folder that contains fields and nested subfolders for your dataset.
 	FieldFolders interface{} `json:"fieldFolders"`
-	// `AWS::QuickSight::DataSet.ImportMode`.
+	// Indicates whether you want to import the data into SPICE.
 	ImportMode *string `json:"importMode"`
-	// `AWS::QuickSight::DataSet.IngestionWaitPolicy`.
+	// The wait policy to use when creating or updating a Dataset.
+	//
+	// The default is to wait for SPICE ingestion to finish with timeout of 36 hours.
 	IngestionWaitPolicy interface{} `json:"ingestionWaitPolicy"`
-	// `AWS::QuickSight::DataSet.LogicalTableMap`.
+	// Configures the combination and transformation of the data from the physical tables.
 	LogicalTableMap interface{} `json:"logicalTableMap"`
-	// `AWS::QuickSight::DataSet.Name`.
+	// The display name for the dataset.
 	Name *string `json:"name"`
-	// `AWS::QuickSight::DataSet.Permissions`.
+	// A list of resource permissions on the dataset.
 	Permissions interface{} `json:"permissions"`
-	// `AWS::QuickSight::DataSet.PhysicalTableMap`.
+	// Declares the physical tables that are available in the underlying data sources.
 	PhysicalTableMap interface{} `json:"physicalTableMap"`
-	// `AWS::QuickSight::DataSet.RowLevelPermissionDataSet`.
+	// The row-level security configuration for the data that you want to create.
 	RowLevelPermissionDataSet interface{} `json:"rowLevelPermissionDataSet"`
-	// `AWS::QuickSight::DataSet.Tags`.
+	// Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::QuickSight::DataSource`.
+//
+// Creates a data source.
 //
 // TODO: EXAMPLE
 //
@@ -2758,7 +3329,7 @@ type CfnDataSource interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Permissions() interface{}
 	SetPermissions(val interface{})
 	Ref() *string
@@ -2781,10 +3352,16 @@ type CfnDataSource interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -2954,8 +3531,8 @@ func (j *jsiiProxy_CfnDataSource) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataSource) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnDataSource) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -3046,13 +3623,13 @@ func (j *jsiiProxy_CfnDataSource) VpcConnectionProperties() interface{} {
 
 
 // Create a new `AWS::QuickSight::DataSource`.
-func NewCfnDataSource(scope constructs.Construct, id *string, props *CfnDataSourceProps) CfnDataSource {
+func NewCfnDataSource(scope awscdk.Construct, id *string, props *CfnDataSourceProps) CfnDataSource {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDataSource{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_quicksight.CfnDataSource",
+		"monocdk.aws_quicksight.CfnDataSource",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3061,11 +3638,11 @@ func NewCfnDataSource(scope constructs.Construct, id *string, props *CfnDataSour
 }
 
 // Create a new `AWS::QuickSight::DataSource`.
-func NewCfnDataSource_Override(c CfnDataSource, scope constructs.Construct, id *string, props *CfnDataSourceProps) {
+func NewCfnDataSource_Override(c CfnDataSource, scope awscdk.Construct, id *string, props *CfnDataSourceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_quicksight.CfnDataSource",
+		"monocdk.aws_quicksight.CfnDataSource",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -3165,13 +3742,14 @@ func (j *jsiiProxy_CfnDataSource) SetVpcConnectionProperties(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnDataSource_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_quicksight.CfnDataSource",
+		"monocdk.aws_quicksight.CfnDataSource",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -3181,13 +3759,14 @@ func CfnDataSource_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnDataSource_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_quicksight.CfnDataSource",
+		"monocdk.aws_quicksight.CfnDataSource",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3196,17 +3775,15 @@ func CfnDataSource_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnDataSource_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_quicksight.CfnDataSource",
+		"monocdk.aws_quicksight.CfnDataSource",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3219,7 +3796,7 @@ func CfnDataSource_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_quicksight.CfnDataSource",
+		"monocdk.aws_quicksight.CfnDataSource",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -3227,6 +3804,7 @@ func CfnDataSource_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnDataSource) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3239,6 +3817,7 @@ func (c *jsiiProxy_CfnDataSource) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnDataSource) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3254,6 +3833,7 @@ func (c *jsiiProxy_CfnDataSource) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnDataSource) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3299,6 +3879,7 @@ func (c *jsiiProxy_CfnDataSource) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnDataSource) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3308,6 +3889,7 @@ func (c *jsiiProxy_CfnDataSource) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnDataSource) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3319,6 +3901,7 @@ func (c *jsiiProxy_CfnDataSource) AddPropertyDeletionOverride(propertyPath *stri
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnDataSource) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3336,6 +3919,7 @@ func (c *jsiiProxy_CfnDataSource) AddPropertyOverride(propertyPath *string, valu
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnDataSource) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3348,6 +3932,7 @@ func (c *jsiiProxy_CfnDataSource) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnDataSource) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -3368,6 +3953,7 @@ func (c *jsiiProxy_CfnDataSource) GetAtt(attributeName *string) awscdk.Reference
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnDataSource) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -3390,12 +3976,80 @@ func (c *jsiiProxy_CfnDataSource) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDataSource) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDataSource) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDataSource) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnDataSource) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDataSource) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -3416,6 +4070,7 @@ func (c *jsiiProxy_CfnDataSource) RenderProperties(props *map[string]interface{}
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnDataSource) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -3429,9 +4084,23 @@ func (c *jsiiProxy_CfnDataSource) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDataSource) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnDataSource) ToString() *string {
 	var returns *string
 
@@ -3445,6 +4114,27 @@ func (c *jsiiProxy_CfnDataSource) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDataSource) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnDataSource) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3453,307 +4143,393 @@ func (c *jsiiProxy_CfnDataSource) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// The parameters for OpenSearch .
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_AmazonElasticsearchParametersProperty struct {
-	// `CfnDataSource.AmazonElasticsearchParametersProperty.Domain`.
+	// The OpenSearch domain.
 	Domain *string `json:"domain"`
 }
 
+// The parameters for OpenSearch .
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_AmazonOpenSearchParametersProperty struct {
-	// `CfnDataSource.AmazonOpenSearchParametersProperty.Domain`.
+	// The OpenSearch domain.
 	Domain *string `json:"domain"`
 }
 
+// Parameters for Amazon Athena.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_AthenaParametersProperty struct {
-	// `CfnDataSource.AthenaParametersProperty.WorkGroup`.
+	// The workgroup that Amazon Athena uses.
 	WorkGroup *string `json:"workGroup"`
 }
 
+// Parameters for Amazon Aurora.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_AuroraParametersProperty struct {
-	// `CfnDataSource.AuroraParametersProperty.Database`.
+	// Database.
 	Database *string `json:"database"`
-	// `CfnDataSource.AuroraParametersProperty.Host`.
+	// Host.
 	Host *string `json:"host"`
-	// `CfnDataSource.AuroraParametersProperty.Port`.
+	// Port.
 	Port *float64 `json:"port"`
 }
 
+// Parameters for Amazon Aurora PostgreSQL-Compatible Edition.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_AuroraPostgreSqlParametersProperty struct {
-	// `CfnDataSource.AuroraPostgreSqlParametersProperty.Database`.
+	// The Amazon Aurora PostgreSQL database to connect to.
 	Database *string `json:"database"`
-	// `CfnDataSource.AuroraPostgreSqlParametersProperty.Host`.
+	// The Amazon Aurora PostgreSQL-Compatible host to connect to.
 	Host *string `json:"host"`
-	// `CfnDataSource.AuroraPostgreSqlParametersProperty.Port`.
+	// The port that Amazon Aurora PostgreSQL is listening on.
 	Port *float64 `json:"port"`
 }
 
+// The combination of user name and password that are used as credentials.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_CredentialPairProperty struct {
-	// `CfnDataSource.CredentialPairProperty.AlternateDataSourceParameters`.
-	AlternateDataSourceParameters interface{} `json:"alternateDataSourceParameters"`
-	// `CfnDataSource.CredentialPairProperty.Password`.
+	// Password.
 	Password *string `json:"password"`
-	// `CfnDataSource.CredentialPairProperty.Username`.
+	// User name.
 	Username *string `json:"username"`
+	// A set of alternate data source parameters that you want to share for these credentials.
+	//
+	// The credentials are applied in tandem with the data source parameters when you copy a data source by using a create or update request. The API operation compares the `DataSourceParameters` structure that's in the request with the structures in the `AlternateDataSourceParameters` allow list. If the structures are an exact match, the request is allowed to use the new data source with the existing credentials. If the `AlternateDataSourceParameters` list is null, the `DataSourceParameters` originally used with these `Credentials` is automatically allowed.
+	AlternateDataSourceParameters interface{} `json:"alternateDataSourceParameters"`
 }
 
+// Data source credentials.
+//
+// This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_DataSourceCredentialsProperty struct {
-	// `CfnDataSource.DataSourceCredentialsProperty.CopySourceArn`.
+	// The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
+	//
+	// When `CopySourceArn` is not null, the credential pair from the data source in the ARN is used as the credentials for the `DataSourceCredentials` structure.
 	CopySourceArn *string `json:"copySourceArn"`
-	// `CfnDataSource.DataSourceCredentialsProperty.CredentialPair`.
+	// Credential pair.
+	//
+	// For more information, see `[CredentialPair](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CredentialPair.html)` .
 	CredentialPair interface{} `json:"credentialPair"`
 }
 
+// Error information for the data source creation or update.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_DataSourceErrorInfoProperty struct {
-	// `CfnDataSource.DataSourceErrorInfoProperty.Message`.
+	// Error message.
 	Message *string `json:"message"`
-	// `CfnDataSource.DataSourceErrorInfoProperty.Type`.
+	// Error type.
 	Type *string `json:"type"`
 }
 
+// The parameters that Amazon QuickSight uses to connect to your underlying data source.
+//
+// This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_DataSourceParametersProperty struct {
-	// `CfnDataSource.DataSourceParametersProperty.AmazonElasticsearchParameters`.
+	// The parameters for OpenSearch .
 	AmazonElasticsearchParameters interface{} `json:"amazonElasticsearchParameters"`
-	// `CfnDataSource.DataSourceParametersProperty.AmazonOpenSearchParameters`.
+	// The parameters for OpenSearch .
 	AmazonOpenSearchParameters interface{} `json:"amazonOpenSearchParameters"`
-	// `CfnDataSource.DataSourceParametersProperty.AthenaParameters`.
+	// The parameters for Amazon Athena.
 	AthenaParameters interface{} `json:"athenaParameters"`
-	// `CfnDataSource.DataSourceParametersProperty.AuroraParameters`.
+	// The parameters for Amazon Aurora MySQL.
 	AuroraParameters interface{} `json:"auroraParameters"`
-	// `CfnDataSource.DataSourceParametersProperty.AuroraPostgreSqlParameters`.
+	// The parameters for Amazon Aurora.
 	AuroraPostgreSqlParameters interface{} `json:"auroraPostgreSqlParameters"`
-	// `CfnDataSource.DataSourceParametersProperty.MariaDbParameters`.
+	// The parameters for MariaDB.
 	MariaDbParameters interface{} `json:"mariaDbParameters"`
-	// `CfnDataSource.DataSourceParametersProperty.MySqlParameters`.
+	// The parameters for MySQL.
 	MySqlParameters interface{} `json:"mySqlParameters"`
-	// `CfnDataSource.DataSourceParametersProperty.OracleParameters`.
+	// Oracle parameters.
 	OracleParameters interface{} `json:"oracleParameters"`
-	// `CfnDataSource.DataSourceParametersProperty.PostgreSqlParameters`.
+	// The parameters for PostgreSQL.
 	PostgreSqlParameters interface{} `json:"postgreSqlParameters"`
-	// `CfnDataSource.DataSourceParametersProperty.PrestoParameters`.
+	// The parameters for Presto.
 	PrestoParameters interface{} `json:"prestoParameters"`
-	// `CfnDataSource.DataSourceParametersProperty.RdsParameters`.
+	// The parameters for Amazon RDS.
 	RdsParameters interface{} `json:"rdsParameters"`
-	// `CfnDataSource.DataSourceParametersProperty.RedshiftParameters`.
+	// The parameters for Amazon Redshift.
 	RedshiftParameters interface{} `json:"redshiftParameters"`
-	// `CfnDataSource.DataSourceParametersProperty.S3Parameters`.
+	// The parameters for S3.
 	S3Parameters interface{} `json:"s3Parameters"`
-	// `CfnDataSource.DataSourceParametersProperty.SnowflakeParameters`.
+	// The parameters for Snowflake.
 	SnowflakeParameters interface{} `json:"snowflakeParameters"`
-	// `CfnDataSource.DataSourceParametersProperty.SparkParameters`.
+	// The parameters for Spark.
 	SparkParameters interface{} `json:"sparkParameters"`
-	// `CfnDataSource.DataSourceParametersProperty.SqlServerParameters`.
+	// The parameters for SQL Server.
 	SqlServerParameters interface{} `json:"sqlServerParameters"`
-	// `CfnDataSource.DataSourceParametersProperty.TeradataParameters`.
+	// The parameters for Teradata.
 	TeradataParameters interface{} `json:"teradataParameters"`
 }
 
+// Amazon S3 manifest file location.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_ManifestFileLocationProperty struct {
-	// `CfnDataSource.ManifestFileLocationProperty.Bucket`.
+	// Amazon S3 bucket.
 	Bucket *string `json:"bucket"`
-	// `CfnDataSource.ManifestFileLocationProperty.Key`.
+	// Amazon S3 key that identifies an object.
 	Key *string `json:"key"`
 }
 
+// The parameters for MariaDB.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_MariaDbParametersProperty struct {
-	// `CfnDataSource.MariaDbParametersProperty.Database`.
+	// Database.
 	Database *string `json:"database"`
-	// `CfnDataSource.MariaDbParametersProperty.Host`.
+	// Host.
 	Host *string `json:"host"`
-	// `CfnDataSource.MariaDbParametersProperty.Port`.
+	// Port.
 	Port *float64 `json:"port"`
 }
 
+// The parameters for MySQL.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_MySqlParametersProperty struct {
-	// `CfnDataSource.MySqlParametersProperty.Database`.
+	// Database.
 	Database *string `json:"database"`
-	// `CfnDataSource.MySqlParametersProperty.Host`.
+	// Host.
 	Host *string `json:"host"`
-	// `CfnDataSource.MySqlParametersProperty.Port`.
+	// Port.
 	Port *float64 `json:"port"`
 }
 
+// Oracle parameters.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_OracleParametersProperty struct {
-	// `CfnDataSource.OracleParametersProperty.Database`.
+	// Database.
 	Database *string `json:"database"`
-	// `CfnDataSource.OracleParametersProperty.Host`.
+	// Host.
 	Host *string `json:"host"`
-	// `CfnDataSource.OracleParametersProperty.Port`.
+	// Port.
 	Port *float64 `json:"port"`
 }
 
+// The parameters for PostgreSQL.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_PostgreSqlParametersProperty struct {
-	// `CfnDataSource.PostgreSqlParametersProperty.Database`.
+	// Database.
 	Database *string `json:"database"`
-	// `CfnDataSource.PostgreSqlParametersProperty.Host`.
+	// Host.
 	Host *string `json:"host"`
-	// `CfnDataSource.PostgreSqlParametersProperty.Port`.
+	// Port.
 	Port *float64 `json:"port"`
 }
 
+// The parameters for Presto.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_PrestoParametersProperty struct {
-	// `CfnDataSource.PrestoParametersProperty.Catalog`.
+	// Catalog.
 	Catalog *string `json:"catalog"`
-	// `CfnDataSource.PrestoParametersProperty.Host`.
+	// Host.
 	Host *string `json:"host"`
-	// `CfnDataSource.PrestoParametersProperty.Port`.
+	// Port.
 	Port *float64 `json:"port"`
 }
 
+// The parameters for Amazon RDS.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_RdsParametersProperty struct {
-	// `CfnDataSource.RdsParametersProperty.Database`.
+	// Database.
 	Database *string `json:"database"`
-	// `CfnDataSource.RdsParametersProperty.InstanceId`.
+	// Instance ID.
 	InstanceId *string `json:"instanceId"`
 }
 
+// The parameters for Amazon Redshift.
+//
+// The `ClusterId` field can be blank if `Host` and `Port` are both set. The `Host` and `Port` fields can be blank if the `ClusterId` field is set.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_RedshiftParametersProperty struct {
-	// `CfnDataSource.RedshiftParametersProperty.ClusterId`.
-	ClusterId *string `json:"clusterId"`
-	// `CfnDataSource.RedshiftParametersProperty.Database`.
+	// Database.
 	Database *string `json:"database"`
-	// `CfnDataSource.RedshiftParametersProperty.Host`.
+	// Cluster ID.
+	//
+	// This field can be blank if the `Host` and `Port` are provided.
+	ClusterId *string `json:"clusterId"`
+	// Host.
+	//
+	// This field can be blank if `ClusterId` is provided.
 	Host *string `json:"host"`
-	// `CfnDataSource.RedshiftParametersProperty.Port`.
+	// Port.
+	//
+	// This field can be blank if the `ClusterId` is provided.
 	Port *float64 `json:"port"`
 }
 
+// Permission for the resource.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_ResourcePermissionProperty struct {
-	// `CfnDataSource.ResourcePermissionProperty.Actions`.
+	// The IAM action to grant or revoke permissions on.
 	Actions *[]*string `json:"actions"`
-	// `CfnDataSource.ResourcePermissionProperty.Principal`.
+	// The Amazon Resource Name (ARN) of the principal. This can be one of the following:.
+	//
+	// - The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)
+	// - The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)
+	// - The ARN of an AWS account root: This is an IAM ARN rather than a Amazon QuickSight ARN. Use this option only to share resources (templates) across AWS accounts . (This is less common.)
 	Principal *string `json:"principal"`
 }
 
+// The parameters for S3.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_S3ParametersProperty struct {
-	// `CfnDataSource.S3ParametersProperty.ManifestFileLocation`.
+	// Location of the Amazon S3 manifest file.
+	//
+	// This is NULL if the manifest file was uploaded into Amazon QuickSight.
 	ManifestFileLocation interface{} `json:"manifestFileLocation"`
 }
 
+// The parameters for Snowflake.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_SnowflakeParametersProperty struct {
-	// `CfnDataSource.SnowflakeParametersProperty.Database`.
+	// Database.
 	Database *string `json:"database"`
-	// `CfnDataSource.SnowflakeParametersProperty.Host`.
+	// Host.
 	Host *string `json:"host"`
-	// `CfnDataSource.SnowflakeParametersProperty.Warehouse`.
+	// Warehouse.
 	Warehouse *string `json:"warehouse"`
 }
 
+// The parameters for Spark.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_SparkParametersProperty struct {
-	// `CfnDataSource.SparkParametersProperty.Host`.
+	// Host.
 	Host *string `json:"host"`
-	// `CfnDataSource.SparkParametersProperty.Port`.
+	// Port.
 	Port *float64 `json:"port"`
 }
 
+// The parameters for SQL Server.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_SqlServerParametersProperty struct {
-	// `CfnDataSource.SqlServerParametersProperty.Database`.
+	// Database.
 	Database *string `json:"database"`
-	// `CfnDataSource.SqlServerParametersProperty.Host`.
+	// Host.
 	Host *string `json:"host"`
-	// `CfnDataSource.SqlServerParametersProperty.Port`.
+	// Port.
 	Port *float64 `json:"port"`
 }
 
+// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying data source.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_SslPropertiesProperty struct {
-	// `CfnDataSource.SslPropertiesProperty.DisableSsl`.
+	// A Boolean option to control whether SSL should be disabled.
 	DisableSsl interface{} `json:"disableSsl"`
 }
 
+// The parameters for Teradata.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_TeradataParametersProperty struct {
-	// `CfnDataSource.TeradataParametersProperty.Database`.
+	// Database.
 	Database *string `json:"database"`
-	// `CfnDataSource.TeradataParametersProperty.Host`.
+	// Host.
 	Host *string `json:"host"`
-	// `CfnDataSource.TeradataParametersProperty.Port`.
+	// Port.
 	Port *float64 `json:"port"`
 }
 
+// VPC connection properties.
+//
 // TODO: EXAMPLE
 //
 type CfnDataSource_VpcConnectionPropertiesProperty struct {
-	// `CfnDataSource.VpcConnectionPropertiesProperty.VpcConnectionArn`.
+	// The Amazon Resource Name (ARN) for the VPC connection.
 	VpcConnectionArn *string `json:"vpcConnectionArn"`
 }
 
-// Properties for defining a `AWS::QuickSight::DataSource`.
+// Properties for defining a `CfnDataSource`.
 //
 // TODO: EXAMPLE
 //
 type CfnDataSourceProps struct {
-	// `AWS::QuickSight::DataSource.AlternateDataSourceParameters`.
+	// A set of alternate data source parameters that you want to share for the credentials stored with this data source.
+	//
+	// The credentials are applied in tandem with the data source parameters when you copy a data source by using a create or update request. The API operation compares the `DataSourceParameters` structure that's in the request with the structures in the `AlternateDataSourceParameters` allow list. If the structures are an exact match, the request is allowed to use the credentials from this existing data source. If the `AlternateDataSourceParameters` list is null, the `Credentials` originally used with this `DataSourceParameters` are automatically allowed.
 	AlternateDataSourceParameters interface{} `json:"alternateDataSourceParameters"`
-	// `AWS::QuickSight::DataSource.AwsAccountId`.
+	// The AWS account ID.
 	AwsAccountId *string `json:"awsAccountId"`
-	// `AWS::QuickSight::DataSource.Credentials`.
+	// The credentials Amazon QuickSight that uses to connect to your underlying source.
+	//
+	// Currently, only credentials based on user name and password are supported.
 	Credentials interface{} `json:"credentials"`
-	// `AWS::QuickSight::DataSource.DataSourceId`.
+	// An ID for the data source.
+	//
+	// This ID is unique per AWS Region for each AWS account.
 	DataSourceId *string `json:"dataSourceId"`
-	// `AWS::QuickSight::DataSource.DataSourceParameters`.
+	// The parameters that Amazon QuickSight uses to connect to your underlying source.
 	DataSourceParameters interface{} `json:"dataSourceParameters"`
-	// `AWS::QuickSight::DataSource.ErrorInfo`.
+	// Error information from the last update or the creation of the data source.
 	ErrorInfo interface{} `json:"errorInfo"`
-	// `AWS::QuickSight::DataSource.Name`.
+	// A display name for the data source.
 	Name *string `json:"name"`
-	// `AWS::QuickSight::DataSource.Permissions`.
+	// A list of resource permissions on the data source.
 	Permissions interface{} `json:"permissions"`
-	// `AWS::QuickSight::DataSource.SslProperties`.
+	// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source.
 	SslProperties interface{} `json:"sslProperties"`
-	// `AWS::QuickSight::DataSource.Tags`.
+	// Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
-	// `AWS::QuickSight::DataSource.Type`.
+	// The type of the data source. To return a list of all data sources, use `ListDataSources` .
+	//
+	// Use `AMAZON_ELASTICSEARCH` for Amazon OpenSearch Service .
 	Type *string `json:"type"`
-	// `AWS::QuickSight::DataSource.VpcConnectionProperties`.
+	// Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source.
 	VpcConnectionProperties interface{} `json:"vpcConnectionProperties"`
 }
 
 // A CloudFormation `AWS::QuickSight::Template`.
+//
+// Creates a template from an existing Amazon QuickSight analysis or template. You can use the resulting template to create a dashboard.
+//
+// A *template* is an entity in Amazon QuickSight that encapsulates the metadata required to create an analysis and that you can use to create s dashboard. A template adds a layer of abstraction by using placeholders to replace the dataset associated with the analysis. You can use templates to create dashboards by replacing dataset placeholders with datasets that follow the same schema that was used to create the source analysis and template.
 //
 // TODO: EXAMPLE
 //
@@ -3772,7 +4548,7 @@ type CfnTemplate interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Permissions() interface{}
 	SetPermissions(val interface{})
 	Ref() *string
@@ -3795,10 +4571,16 @@ type CfnTemplate interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -3908,8 +4690,8 @@ func (j *jsiiProxy_CfnTemplate) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTemplate) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnTemplate) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -4000,13 +4782,13 @@ func (j *jsiiProxy_CfnTemplate) VersionDescription() *string {
 
 
 // Create a new `AWS::QuickSight::Template`.
-func NewCfnTemplate(scope constructs.Construct, id *string, props *CfnTemplateProps) CfnTemplate {
+func NewCfnTemplate(scope awscdk.Construct, id *string, props *CfnTemplateProps) CfnTemplate {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnTemplate{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_quicksight.CfnTemplate",
+		"monocdk.aws_quicksight.CfnTemplate",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4015,11 +4797,11 @@ func NewCfnTemplate(scope constructs.Construct, id *string, props *CfnTemplatePr
 }
 
 // Create a new `AWS::QuickSight::Template`.
-func NewCfnTemplate_Override(c CfnTemplate, scope constructs.Construct, id *string, props *CfnTemplateProps) {
+func NewCfnTemplate_Override(c CfnTemplate, scope awscdk.Construct, id *string, props *CfnTemplateProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_quicksight.CfnTemplate",
+		"monocdk.aws_quicksight.CfnTemplate",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -4079,13 +4861,14 @@ func (j *jsiiProxy_CfnTemplate) SetVersionDescription(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnTemplate_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_quicksight.CfnTemplate",
+		"monocdk.aws_quicksight.CfnTemplate",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -4095,13 +4878,14 @@ func CfnTemplate_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnTemplate_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_quicksight.CfnTemplate",
+		"monocdk.aws_quicksight.CfnTemplate",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -4110,17 +4894,15 @@ func CfnTemplate_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnTemplate_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_quicksight.CfnTemplate",
+		"monocdk.aws_quicksight.CfnTemplate",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4133,7 +4915,7 @@ func CfnTemplate_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_quicksight.CfnTemplate",
+		"monocdk.aws_quicksight.CfnTemplate",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -4141,6 +4923,7 @@ func CfnTemplate_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnTemplate) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4153,6 +4936,7 @@ func (c *jsiiProxy_CfnTemplate) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnTemplate) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4168,6 +4952,7 @@ func (c *jsiiProxy_CfnTemplate) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnTemplate) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4213,6 +4998,7 @@ func (c *jsiiProxy_CfnTemplate) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnTemplate) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4222,6 +5008,7 @@ func (c *jsiiProxy_CfnTemplate) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnTemplate) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4233,6 +5020,7 @@ func (c *jsiiProxy_CfnTemplate) AddPropertyDeletionOverride(propertyPath *string
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnTemplate) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4250,6 +5038,7 @@ func (c *jsiiProxy_CfnTemplate) AddPropertyOverride(propertyPath *string, value 
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnTemplate) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4262,6 +5051,7 @@ func (c *jsiiProxy_CfnTemplate) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, 
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnTemplate) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -4282,6 +5072,7 @@ func (c *jsiiProxy_CfnTemplate) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnTemplate) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -4304,12 +5095,80 @@ func (c *jsiiProxy_CfnTemplate) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnTemplate) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnTemplate) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnTemplate) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnTemplate) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnTemplate) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -4330,6 +5189,7 @@ func (c *jsiiProxy_CfnTemplate) RenderProperties(props *map[string]interface{}) 
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnTemplate) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -4343,9 +5203,23 @@ func (c *jsiiProxy_CfnTemplate) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnTemplate) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnTemplate) ToString() *string {
 	var returns *string
 
@@ -4359,6 +5233,27 @@ func (c *jsiiProxy_CfnTemplate) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnTemplate) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnTemplate) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4367,71 +5262,99 @@ func (c *jsiiProxy_CfnTemplate) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// Dataset reference.
+//
 // TODO: EXAMPLE
 //
 type CfnTemplate_DataSetReferenceProperty struct {
-	// `CfnTemplate.DataSetReferenceProperty.DataSetArn`.
+	// Dataset Amazon Resource Name (ARN).
 	DataSetArn *string `json:"dataSetArn"`
-	// `CfnTemplate.DataSetReferenceProperty.DataSetPlaceholder`.
+	// Dataset placeholder.
 	DataSetPlaceholder *string `json:"dataSetPlaceholder"`
 }
 
+// Permission for the resource.
+//
 // TODO: EXAMPLE
 //
 type CfnTemplate_ResourcePermissionProperty struct {
-	// `CfnTemplate.ResourcePermissionProperty.Actions`.
+	// The IAM action to grant or revoke permissions on.
 	Actions *[]*string `json:"actions"`
-	// `CfnTemplate.ResourcePermissionProperty.Principal`.
+	// The Amazon Resource Name (ARN) of the principal. This can be one of the following:.
+	//
+	// - The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)
+	// - The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)
+	// - The ARN of an AWS account root: This is an IAM ARN rather than a Amazon QuickSight ARN. Use this option only to share resources (templates) across AWS accounts . (This is less common.)
 	Principal *string `json:"principal"`
 }
 
+// The source analysis of the template.
+//
 // TODO: EXAMPLE
 //
 type CfnTemplate_TemplateSourceAnalysisProperty struct {
-	// `CfnTemplate.TemplateSourceAnalysisProperty.Arn`.
+	// The Amazon Resource Name (ARN) of the resource.
 	Arn *string `json:"arn"`
-	// `CfnTemplate.TemplateSourceAnalysisProperty.DataSetReferences`.
+	// A structure containing information about the dataset references used as placeholders in the template.
 	DataSetReferences interface{} `json:"dataSetReferences"`
 }
 
+// The source entity of the template.
+//
 // TODO: EXAMPLE
 //
 type CfnTemplate_TemplateSourceEntityProperty struct {
-	// `CfnTemplate.TemplateSourceEntityProperty.SourceAnalysis`.
+	// The source analysis, if it is based on an analysis.
 	SourceAnalysis interface{} `json:"sourceAnalysis"`
-	// `CfnTemplate.TemplateSourceEntityProperty.SourceTemplate`.
+	// The source template, if it is based on an template.
 	SourceTemplate interface{} `json:"sourceTemplate"`
 }
 
+// The source template of the template.
+//
 // TODO: EXAMPLE
 //
 type CfnTemplate_TemplateSourceTemplateProperty struct {
-	// `CfnTemplate.TemplateSourceTemplateProperty.Arn`.
+	// The Amazon Resource Name (ARN) of the resource.
 	Arn *string `json:"arn"`
 }
 
-// Properties for defining a `AWS::QuickSight::Template`.
+// Properties for defining a `CfnTemplate`.
 //
 // TODO: EXAMPLE
 //
 type CfnTemplateProps struct {
-	// `AWS::QuickSight::Template.AwsAccountId`.
+	// The ID for the AWS account that the group is in.
+	//
+	// You use the ID for the AWS account that contains your Amazon QuickSight account.
 	AwsAccountId *string `json:"awsAccountId"`
-	// `AWS::QuickSight::Template.Name`.
-	Name *string `json:"name"`
-	// `AWS::QuickSight::Template.Permissions`.
-	Permissions interface{} `json:"permissions"`
-	// `AWS::QuickSight::Template.SourceEntity`.
+	// The entity that you are using as a source when you create the template.
+	//
+	// In `SourceEntity` , you specify the type of object you're using as source: `SourceTemplate` for a template or `SourceAnalysis` for an analysis. Both of these require an Amazon Resource Name (ARN). For `SourceTemplate` , specify the ARN of the source template. For `SourceAnalysis` , specify the ARN of the source analysis. The `SourceTemplate` ARN can contain any AWS account and any Amazon QuickSight-supported AWS Region .
+	//
+	// Use the `DataSetReferences` entity within `SourceTemplate` or `SourceAnalysis` to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder.
 	SourceEntity interface{} `json:"sourceEntity"`
-	// `AWS::QuickSight::Template.Tags`.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
-	// `AWS::QuickSight::Template.TemplateId`.
+	// An ID for the template that you want to create.
+	//
+	// This template is unique per AWS Region ; in each AWS account.
 	TemplateId *string `json:"templateId"`
-	// `AWS::QuickSight::Template.VersionDescription`.
+	// A display name for the template.
+	Name *string `json:"name"`
+	// A list of resource permissions to be set on the template.
+	Permissions interface{} `json:"permissions"`
+	// Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.
+	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// A description of the current template version being created.
+	//
+	// This API operation creates the first version of the template. Every time `UpdateTemplate` is called, a new version is created. Each version of the template maintains a description of the version in the `VersionDescription` field.
 	VersionDescription *string `json:"versionDescription"`
 }
 
 // A CloudFormation `AWS::QuickSight::Theme`.
+//
+// Creates a theme.
+//
+// A *theme* is set of configuration options for color and layout. Themes apply to analyses and dashboards. For more information, see [Using Themes in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html) in the *Amazon QuickSight User Guide* .
 //
 // TODO: EXAMPLE
 //
@@ -4455,7 +5378,7 @@ type CfnTheme interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Permissions() interface{}
 	SetPermissions(val interface{})
 	Ref() *string
@@ -4476,10 +5399,16 @@ type CfnTheme interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -4619,8 +5548,8 @@ func (j *jsiiProxy_CfnTheme) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTheme) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnTheme) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -4701,13 +5630,13 @@ func (j *jsiiProxy_CfnTheme) VersionDescription() *string {
 
 
 // Create a new `AWS::QuickSight::Theme`.
-func NewCfnTheme(scope constructs.Construct, id *string, props *CfnThemeProps) CfnTheme {
+func NewCfnTheme(scope awscdk.Construct, id *string, props *CfnThemeProps) CfnTheme {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnTheme{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_quicksight.CfnTheme",
+		"monocdk.aws_quicksight.CfnTheme",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4716,11 +5645,11 @@ func NewCfnTheme(scope constructs.Construct, id *string, props *CfnThemeProps) C
 }
 
 // Create a new `AWS::QuickSight::Theme`.
-func NewCfnTheme_Override(c CfnTheme, scope constructs.Construct, id *string, props *CfnThemeProps) {
+func NewCfnTheme_Override(c CfnTheme, scope awscdk.Construct, id *string, props *CfnThemeProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_quicksight.CfnTheme",
+		"monocdk.aws_quicksight.CfnTheme",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -4788,13 +5717,14 @@ func (j *jsiiProxy_CfnTheme) SetVersionDescription(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnTheme_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_quicksight.CfnTheme",
+		"monocdk.aws_quicksight.CfnTheme",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -4804,13 +5734,14 @@ func CfnTheme_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnTheme_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_quicksight.CfnTheme",
+		"monocdk.aws_quicksight.CfnTheme",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -4819,17 +5750,15 @@ func CfnTheme_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnTheme_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_quicksight.CfnTheme",
+		"monocdk.aws_quicksight.CfnTheme",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4842,7 +5771,7 @@ func CfnTheme_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_quicksight.CfnTheme",
+		"monocdk.aws_quicksight.CfnTheme",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -4850,6 +5779,7 @@ func CfnTheme_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnTheme) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4862,6 +5792,7 @@ func (c *jsiiProxy_CfnTheme) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnTheme) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4877,6 +5808,7 @@ func (c *jsiiProxy_CfnTheme) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnTheme) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4922,6 +5854,7 @@ func (c *jsiiProxy_CfnTheme) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnTheme) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4931,6 +5864,7 @@ func (c *jsiiProxy_CfnTheme) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnTheme) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4942,6 +5876,7 @@ func (c *jsiiProxy_CfnTheme) AddPropertyDeletionOverride(propertyPath *string) {
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnTheme) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4959,6 +5894,7 @@ func (c *jsiiProxy_CfnTheme) AddPropertyOverride(propertyPath *string, value int
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnTheme) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4971,6 +5907,7 @@ func (c *jsiiProxy_CfnTheme) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, opt
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnTheme) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -4991,6 +5928,7 @@ func (c *jsiiProxy_CfnTheme) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnTheme) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -5013,12 +5951,80 @@ func (c *jsiiProxy_CfnTheme) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnTheme) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnTheme) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnTheme) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnTheme) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnTheme) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -5039,6 +6045,7 @@ func (c *jsiiProxy_CfnTheme) RenderProperties(props *map[string]interface{}) *ma
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnTheme) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -5052,9 +6059,23 @@ func (c *jsiiProxy_CfnTheme) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnTheme) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnTheme) ToString() *string {
 	var returns *string
 
@@ -5068,6 +6089,27 @@ func (c *jsiiProxy_CfnTheme) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnTheme) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnTheme) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5076,21 +6118,27 @@ func (c *jsiiProxy_CfnTheme) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// The display options for tile borders for visuals.
+//
 // TODO: EXAMPLE
 //
 type CfnTheme_BorderStyleProperty struct {
-	// `CfnTheme.BorderStyleProperty.Show`.
+	// The option to enable display of borders for visuals.
 	Show interface{} `json:"show"`
 }
 
+// The theme colors that are used for data colors in charts.
+//
+// The colors description is a hexadecimal color code that consists of six alphanumerical characters, prefixed with `#` , for example #37BFF5.
+//
 // TODO: EXAMPLE
 //
 type CfnTheme_DataColorPaletteProperty struct {
-	// `CfnTheme.DataColorPaletteProperty.Colors`.
+	// The hexadecimal codes for the colors.
 	Colors *[]*string `json:"colors"`
-	// `CfnTheme.DataColorPaletteProperty.EmptyFillColor`.
+	// The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
 	EmptyFillColor *string `json:"emptyFillColor"`
-	// `CfnTheme.DataColorPaletteProperty.MinMaxGradient`.
+	// The minimum and maximum hexadecimal codes that describe a color gradient.
 	MinMaxGradient *[]*string `json:"minMaxGradient"`
 }
 
@@ -5101,64 +6149,84 @@ type CfnTheme_FontProperty struct {
 	FontFamily *string `json:"fontFamily"`
 }
 
+// The display options for gutter spacing between tiles on a sheet.
+//
 // TODO: EXAMPLE
 //
 type CfnTheme_GutterStyleProperty struct {
-	// `CfnTheme.GutterStyleProperty.Show`.
+	// This Boolean value controls whether to display a gutter space between sheet tiles.
 	Show interface{} `json:"show"`
 }
 
+// The display options for margins around the outside edge of sheets.
+//
 // TODO: EXAMPLE
 //
 type CfnTheme_MarginStyleProperty struct {
-	// `CfnTheme.MarginStyleProperty.Show`.
+	// This Boolean value controls whether to display sheet margins.
 	Show interface{} `json:"show"`
 }
 
+// Permission for the resource.
+//
 // TODO: EXAMPLE
 //
 type CfnTheme_ResourcePermissionProperty struct {
-	// `CfnTheme.ResourcePermissionProperty.Actions`.
+	// The IAM action to grant or revoke permissions on.
 	Actions *[]*string `json:"actions"`
-	// `CfnTheme.ResourcePermissionProperty.Principal`.
+	// The Amazon Resource Name (ARN) of the principal. This can be one of the following:.
+	//
+	// - The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)
+	// - The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)
+	// - The ARN of an AWS account root: This is an IAM ARN rather than a Amazon QuickSight ARN. Use this option only to share resources (templates) across AWS accounts . (This is less common.)
 	Principal *string `json:"principal"`
 }
 
+// The theme display options for sheets.
+//
 // TODO: EXAMPLE
 //
 type CfnTheme_SheetStyleProperty struct {
-	// `CfnTheme.SheetStyleProperty.Tile`.
+	// The display options for tiles.
 	Tile interface{} `json:"tile"`
-	// `CfnTheme.SheetStyleProperty.TileLayout`.
+	// The layout options for tiles.
 	TileLayout interface{} `json:"tileLayout"`
 }
 
+// The theme configuration.
+//
+// This configuration contains all of the display properties for a theme.
+//
 // TODO: EXAMPLE
 //
 type CfnTheme_ThemeConfigurationProperty struct {
-	// `CfnTheme.ThemeConfigurationProperty.DataColorPalette`.
+	// Color properties that apply to chart data colors.
 	DataColorPalette interface{} `json:"dataColorPalette"`
-	// `CfnTheme.ThemeConfigurationProperty.Sheet`.
+	// Display options related to sheets.
 	Sheet interface{} `json:"sheet"`
 	// `CfnTheme.ThemeConfigurationProperty.Typography`.
 	Typography interface{} `json:"typography"`
-	// `CfnTheme.ThemeConfigurationProperty.UIColorPalette`.
+	// Color properties that apply to the UI and to charts, excluding the colors that apply to data.
 	UiColorPalette interface{} `json:"uiColorPalette"`
 }
 
+// The display options for the layout of tiles on a sheet.
+//
 // TODO: EXAMPLE
 //
 type CfnTheme_TileLayoutStyleProperty struct {
-	// `CfnTheme.TileLayoutStyleProperty.Gutter`.
+	// The gutter settings that apply between tiles.
 	Gutter interface{} `json:"gutter"`
-	// `CfnTheme.TileLayoutStyleProperty.Margin`.
+	// The margin settings that apply around the outside edge of sheets.
 	Margin interface{} `json:"margin"`
 }
 
+// Display options related to tiles on a sheet.
+//
 // TODO: EXAMPLE
 //
 type CfnTheme_TileStyleProperty struct {
-	// `CfnTheme.TileStyleProperty.Border`.
+	// The border around a tile.
 	Border interface{} `json:"border"`
 }
 
@@ -5169,63 +6237,73 @@ type CfnTheme_TypographyProperty struct {
 	FontFamilies interface{} `json:"fontFamilies"`
 }
 
+// The theme colors that apply to UI and to charts, excluding data colors.
+//
+// The colors description is a hexadecimal color code that consists of six alphanumerical characters, prefixed with `#` , for example #37BFF5. For more information, see [Using Themes in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html) in the *Amazon QuickSight User Guide.*
+//
 // TODO: EXAMPLE
 //
 type CfnTheme_UIColorPaletteProperty struct {
-	// `CfnTheme.UIColorPaletteProperty.Accent`.
+	// This color is that applies to selected states and buttons.
 	Accent *string `json:"accent"`
-	// `CfnTheme.UIColorPaletteProperty.AccentForeground`.
+	// The foreground color that applies to any text or other elements that appear over the accent color.
 	AccentForeground *string `json:"accentForeground"`
-	// `CfnTheme.UIColorPaletteProperty.Danger`.
+	// The color that applies to error messages.
 	Danger *string `json:"danger"`
-	// `CfnTheme.UIColorPaletteProperty.DangerForeground`.
+	// The foreground color that applies to any text or other elements that appear over the error color.
 	DangerForeground *string `json:"dangerForeground"`
-	// `CfnTheme.UIColorPaletteProperty.Dimension`.
+	// The color that applies to the names of fields that are identified as dimensions.
 	Dimension *string `json:"dimension"`
-	// `CfnTheme.UIColorPaletteProperty.DimensionForeground`.
+	// The foreground color that applies to any text or other elements that appear over the dimension color.
 	DimensionForeground *string `json:"dimensionForeground"`
-	// `CfnTheme.UIColorPaletteProperty.Measure`.
+	// The color that applies to the names of fields that are identified as measures.
 	Measure *string `json:"measure"`
-	// `CfnTheme.UIColorPaletteProperty.MeasureForeground`.
+	// The foreground color that applies to any text or other elements that appear over the measure color.
 	MeasureForeground *string `json:"measureForeground"`
-	// `CfnTheme.UIColorPaletteProperty.PrimaryBackground`.
+	// The background color that applies to visuals and other high emphasis UI.
 	PrimaryBackground *string `json:"primaryBackground"`
-	// `CfnTheme.UIColorPaletteProperty.PrimaryForeground`.
+	// The color of text and other foreground elements that appear over the primary background regions, such as grid lines, borders, table banding, icons, and so on.
 	PrimaryForeground *string `json:"primaryForeground"`
-	// `CfnTheme.UIColorPaletteProperty.SecondaryBackground`.
+	// The background color that applies to the sheet background and sheet controls.
 	SecondaryBackground *string `json:"secondaryBackground"`
-	// `CfnTheme.UIColorPaletteProperty.SecondaryForeground`.
+	// The foreground color that applies to any sheet title, sheet control text, or UI that appears over the secondary background.
 	SecondaryForeground *string `json:"secondaryForeground"`
-	// `CfnTheme.UIColorPaletteProperty.Success`.
+	// The color that applies to success messages, for example the check mark for a successful download.
 	Success *string `json:"success"`
-	// `CfnTheme.UIColorPaletteProperty.SuccessForeground`.
+	// The foreground color that applies to any text or other elements that appear over the success color.
 	SuccessForeground *string `json:"successForeground"`
-	// `CfnTheme.UIColorPaletteProperty.Warning`.
+	// This color that applies to warning and informational messages.
 	Warning *string `json:"warning"`
-	// `CfnTheme.UIColorPaletteProperty.WarningForeground`.
+	// The foreground color that applies to any text or other elements that appear over the warning color.
 	WarningForeground *string `json:"warningForeground"`
 }
 
-// Properties for defining a `AWS::QuickSight::Theme`.
+// Properties for defining a `CfnTheme`.
 //
 // TODO: EXAMPLE
 //
 type CfnThemeProps struct {
-	// `AWS::QuickSight::Theme.AwsAccountId`.
+	// The ID of the AWS account where you want to store the new theme.
 	AwsAccountId *string `json:"awsAccountId"`
-	// `AWS::QuickSight::Theme.BaseThemeId`.
-	BaseThemeId *string `json:"baseThemeId"`
-	// `AWS::QuickSight::Theme.Configuration`.
-	Configuration interface{} `json:"configuration"`
-	// `AWS::QuickSight::Theme.Name`.
-	Name *string `json:"name"`
-	// `AWS::QuickSight::Theme.Permissions`.
-	Permissions interface{} `json:"permissions"`
-	// `AWS::QuickSight::Theme.Tags`.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
-	// `AWS::QuickSight::Theme.ThemeId`.
+	// An ID for the theme that you want to create.
+	//
+	// The theme ID is unique per AWS Region in each AWS account.
 	ThemeId *string `json:"themeId"`
-	// `AWS::QuickSight::Theme.VersionDescription`.
+	// The ID of the theme that a custom theme will inherit from.
+	//
+	// All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
+	BaseThemeId *string `json:"baseThemeId"`
+	// The theme configuration, which contains the theme display properties.
+	Configuration interface{} `json:"configuration"`
+	// A display name for the theme.
+	Name *string `json:"name"`
+	// A valid grouping of resource permissions to apply to the new theme.
+	Permissions interface{} `json:"permissions"`
+	// A map of the key-value pairs for the resource tag or tags that you want to add to the resource.
+	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// A description of the first version of the theme that you're creating.
+	//
+	// Every time `UpdateTheme` is called, a new version is created. Each version of the theme has a description of the version in the `VersionDescription` field.
 	VersionDescription *string `json:"versionDescription"`
 }
 

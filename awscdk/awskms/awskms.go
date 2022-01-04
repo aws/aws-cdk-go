@@ -1,13 +1,13 @@
 package awskms
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awskms/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // Defines a display name for a customer master key (CMK) in AWS Key Management Service (AWS KMS).
@@ -21,6 +21,7 @@ import (
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type Alias interface {
 	awscdk.Resource
 	IAlias
@@ -29,7 +30,7 @@ type Alias interface {
 	Env() *awscdk.ResourceEnvironment
 	KeyArn() *string
 	KeyId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Stack() awscdk.Stack
 	AddAlias(alias *string) Alias
@@ -42,7 +43,13 @@ type Alias interface {
 	GrantDecrypt(grantee awsiam.IGrantable) awsiam.Grant
 	GrantEncrypt(grantee awsiam.IGrantable) awsiam.Grant
 	GrantEncryptDecrypt(grantee awsiam.IGrantable) awsiam.Grant
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for Alias
@@ -101,8 +108,8 @@ func (j *jsiiProxy_Alias) KeyId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_Alias) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_Alias) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -132,13 +139,14 @@ func (j *jsiiProxy_Alias) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewAlias(scope constructs.Construct, id *string, props *AliasProps) Alias {
 	_init_.Initialize()
 
 	j := jsiiProxy_Alias{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kms.Alias",
+		"monocdk.aws_kms.Alias",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -146,24 +154,26 @@ func NewAlias(scope constructs.Construct, id *string, props *AliasProps) Alias {
 	return &j
 }
 
+// Experimental.
 func NewAlias_Override(a Alias, scope constructs.Construct, id *string, props *AliasProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kms.Alias",
+		"monocdk.aws_kms.Alias",
 		[]interface{}{scope, id, props},
 		a,
 	)
 }
 
 // Import an existing KMS Alias defined outside the CDK app.
+// Experimental.
 func Alias_FromAliasAttributes(scope constructs.Construct, id *string, attrs *AliasAttributes) IAlias {
 	_init_.Initialize()
 
 	var returns IAlias
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kms.Alias",
+		"monocdk.aws_kms.Alias",
 		"fromAliasAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -177,13 +187,14 @@ func Alias_FromAliasAttributes(scope constructs.Construct, id *string, attrs *Al
 // This method should be used
 // instead of 'fromAliasAttributes' when the underlying KMS Key ARN is not available.
 // This Alias will not have a direct reference to the KMS Key, so addAlias and grant* methods are not supported.
+// Experimental.
 func Alias_FromAliasName(scope constructs.Construct, id *string, aliasName *string) IAlias {
 	_init_.Initialize()
 
 	var returns IAlias
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kms.Alias",
+		"monocdk.aws_kms.Alias",
 		"fromAliasName",
 		[]interface{}{scope, id, aliasName},
 		&returns,
@@ -192,17 +203,15 @@ func Alias_FromAliasName(scope constructs.Construct, id *string, aliasName *stri
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func Alias_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kms.Alias",
+		"monocdk.aws_kms.Alias",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -212,13 +221,14 @@ func Alias_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func Alias_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func Alias_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kms.Alias",
+		"monocdk.aws_kms.Alias",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -228,6 +238,7 @@ func Alias_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Defines a new alias for the key.
+// Experimental.
 func (a *jsiiProxy_Alias) AddAlias(alias *string) Alias {
 	var returns Alias
 
@@ -242,6 +253,7 @@ func (a *jsiiProxy_Alias) AddAlias(alias *string) Alias {
 }
 
 // Adds a statement to the KMS key resource policy.
+// Experimental.
 func (a *jsiiProxy_Alias) AddToResourcePolicy(statement awsiam.PolicyStatement, allowNoOp *bool) *awsiam.AddToResourcePolicyResult {
 	var returns *awsiam.AddToResourcePolicyResult
 
@@ -264,6 +276,7 @@ func (a *jsiiProxy_Alias) AddToResourcePolicy(statement awsiam.PolicyStatement, 
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (a *jsiiProxy_Alias) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		a,
@@ -272,6 +285,7 @@ func (a *jsiiProxy_Alias) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
+// Experimental.
 func (a *jsiiProxy_Alias) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -291,6 +305,7 @@ func (a *jsiiProxy_Alias) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
+// Experimental.
 func (a *jsiiProxy_Alias) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -309,6 +324,7 @@ func (a *jsiiProxy_Alias) GetResourceArnAttribute(arnAttr *string, arnComponents
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
+// Experimental.
 func (a *jsiiProxy_Alias) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -323,6 +339,7 @@ func (a *jsiiProxy_Alias) GetResourceNameAttribute(nameAttr *string) *string {
 }
 
 // Grant the indicated permissions on this key to the given principal.
+// Experimental.
 func (a *jsiiProxy_Alias) Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant {
 	args := []interface{}{grantee}
 	for _, a := range actions {
@@ -342,6 +359,7 @@ func (a *jsiiProxy_Alias) Grant(grantee awsiam.IGrantable, actions ...*string) a
 }
 
 // Grant decryption permissions using this key to the given principal.
+// Experimental.
 func (a *jsiiProxy_Alias) GrantDecrypt(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -356,6 +374,7 @@ func (a *jsiiProxy_Alias) GrantDecrypt(grantee awsiam.IGrantable) awsiam.Grant {
 }
 
 // Grant encryption permissions using this key to the given principal.
+// Experimental.
 func (a *jsiiProxy_Alias) GrantEncrypt(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -370,6 +389,7 @@ func (a *jsiiProxy_Alias) GrantEncrypt(grantee awsiam.IGrantable) awsiam.Grant {
 }
 
 // Grant encryption and decryption permissions using this key to the given principal.
+// Experimental.
 func (a *jsiiProxy_Alias) GrantEncryptDecrypt(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -383,7 +403,88 @@ func (a *jsiiProxy_Alias) GrantEncryptDecrypt(grantee awsiam.IGrantable) awsiam.
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (a *jsiiProxy_Alias) OnPrepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (a *jsiiProxy_Alias) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (a *jsiiProxy_Alias) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (a *jsiiProxy_Alias) Prepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (a *jsiiProxy_Alias) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (a *jsiiProxy_Alias) ToString() *string {
 	var returns *string
 
@@ -397,16 +498,39 @@ func (a *jsiiProxy_Alias) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (a *jsiiProxy_Alias) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Properties of a reference to an existing KMS Alias.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type AliasAttributes struct {
 	// Specifies the alias name.
 	//
 	// This value must begin with alias/ followed by a name (i.e. alias/ExampleAlias)
+	// Experimental.
 	AliasName *string `json:"aliasName"`
 	// The customer master key (CMK) to which the Alias refers.
+	// Experimental.
 	AliasTargetKey IKey `json:"aliasTargetKey"`
 }
 
@@ -414,24 +538,41 @@ type AliasAttributes struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type AliasProps struct {
 	// The name of the alias.
 	//
 	// The name must start with alias followed by a
 	// forward slash, such as alias/. You can't specify aliases that begin with
 	// alias/AWS. These aliases are reserved.
+	// Experimental.
 	AliasName *string `json:"aliasName"`
-	// Policy to apply when the alias is removed from this stack.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
 	// The ID of the key for which you are creating the alias.
 	//
 	// Specify the key's
 	// globally unique identifier or Amazon Resource Name (ARN). You can't
 	// specify another alias.
+	// Experimental.
 	TargetKey IKey `json:"targetKey"`
+	// Policy to apply when the alias is removed from this stack.
+	// Experimental.
+	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
 }
 
 // A CloudFormation `AWS::KMS::Alias`.
+//
+// The `AWS::KMS::Alias` resource specifies a display name for a [KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms_keys) . You can use an alias to identify a KMS key in the AWS KMS console, in the [DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html) operation, and in [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) , such as [Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) and [GenerateDataKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html) .
+//
+// > Adding, deleting, or updating an alias can allow or deny permission to the KMS key. For details, see [Using ABAC in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/abac.html) in the *AWS Key Management Service Developer Guide* .
+//
+// Using an alias to refer to a KMS key can help you simplify key management. For example, an alias in your code can be associated with different KMS keys in different AWS Regions . For more information, see [Using aliases](https://docs.aws.amazon.com/kms/latest/developerguide/kms-alias.html) in the *AWS Key Management Service Developer Guide* .
+//
+// When specifying an alias, observe the following rules.
+//
+// - Each alias is associated with one KMS key, but multiple aliases can be associated with the same KMS key.
+// - The alias and its associated KMS key must be in the same AWS account and Region.
+// - The alias name must be unique in the AWS account and Region. However, you can create aliases with the same name in different AWS Regions . For example, you can have an `alias/projectKey` in multiple Regions, each of which is associated with a KMS key in its Region.
+// - Each alias name must begin with `alias/` followed by a name, such as `alias/exampleKey` . The alias name can contain only alphanumeric characters, forward slashes (/), underscores (_), and dashes (-). Alias names cannot begin with `alias/aws/` . That alias name prefix is reserved for [AWS managed keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) .
 //
 // TODO: EXAMPLE
 //
@@ -445,7 +586,7 @@ type CfnAlias interface {
 	CfnResourceType() *string
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	TargetKeyId() *string
@@ -461,10 +602,16 @@ type CfnAlias interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -534,8 +681,8 @@ func (j *jsiiProxy_CfnAlias) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAlias) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnAlias) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -586,13 +733,13 @@ func (j *jsiiProxy_CfnAlias) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::KMS::Alias`.
-func NewCfnAlias(scope constructs.Construct, id *string, props *CfnAliasProps) CfnAlias {
+func NewCfnAlias(scope awscdk.Construct, id *string, props *CfnAliasProps) CfnAlias {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnAlias{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kms.CfnAlias",
+		"monocdk.aws_kms.CfnAlias",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -601,11 +748,11 @@ func NewCfnAlias(scope constructs.Construct, id *string, props *CfnAliasProps) C
 }
 
 // Create a new `AWS::KMS::Alias`.
-func NewCfnAlias_Override(c CfnAlias, scope constructs.Construct, id *string, props *CfnAliasProps) {
+func NewCfnAlias_Override(c CfnAlias, scope awscdk.Construct, id *string, props *CfnAliasProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kms.CfnAlias",
+		"monocdk.aws_kms.CfnAlias",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -633,13 +780,14 @@ func (j *jsiiProxy_CfnAlias) SetTargetKeyId(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnAlias_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kms.CfnAlias",
+		"monocdk.aws_kms.CfnAlias",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -649,13 +797,14 @@ func CfnAlias_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnAlias_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kms.CfnAlias",
+		"monocdk.aws_kms.CfnAlias",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -664,17 +813,15 @@ func CfnAlias_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnAlias_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kms.CfnAlias",
+		"monocdk.aws_kms.CfnAlias",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -687,7 +834,7 @@ func CfnAlias_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_kms.CfnAlias",
+		"monocdk.aws_kms.CfnAlias",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -695,6 +842,7 @@ func CfnAlias_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnAlias) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -707,6 +855,7 @@ func (c *jsiiProxy_CfnAlias) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnAlias) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -722,6 +871,7 @@ func (c *jsiiProxy_CfnAlias) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnAlias) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -767,6 +917,7 @@ func (c *jsiiProxy_CfnAlias) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnAlias) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -776,6 +927,7 @@ func (c *jsiiProxy_CfnAlias) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnAlias) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -787,6 +939,7 @@ func (c *jsiiProxy_CfnAlias) AddPropertyDeletionOverride(propertyPath *string) {
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnAlias) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -804,6 +957,7 @@ func (c *jsiiProxy_CfnAlias) AddPropertyOverride(propertyPath *string, value int
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnAlias) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -816,6 +970,7 @@ func (c *jsiiProxy_CfnAlias) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, opt
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnAlias) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -836,6 +991,7 @@ func (c *jsiiProxy_CfnAlias) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnAlias) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -858,12 +1014,80 @@ func (c *jsiiProxy_CfnAlias) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnAlias) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnAlias) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnAlias) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnAlias) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnAlias) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -884,6 +1108,7 @@ func (c *jsiiProxy_CfnAlias) RenderProperties(props *map[string]interface{}) *ma
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnAlias) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -897,9 +1122,23 @@ func (c *jsiiProxy_CfnAlias) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnAlias) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnAlias) ToString() *string {
 	var returns *string
 
@@ -913,6 +1152,27 @@ func (c *jsiiProxy_CfnAlias) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnAlias) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnAlias) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -921,18 +1181,53 @@ func (c *jsiiProxy_CfnAlias) ValidateProperties(_properties interface{}) {
 	)
 }
 
-// Properties for defining a `AWS::KMS::Alias`.
+// Properties for defining a `CfnAlias`.
 //
 // TODO: EXAMPLE
 //
 type CfnAliasProps struct {
-	// `AWS::KMS::Alias.AliasName`.
+	// Specifies the alias name. This value must begin with `alias/` followed by a name, such as `alias/ExampleAlias` .
+	//
+	// > If you change the value of a `Replacement` property, such as `AliasName` , the existing alias is deleted and a new alias is created for the specified KMS key. This change can disrupt applications that use the alias. It can also allow or deny access to a KMS key affected by attribute-based access control (ABAC).
+	//
+	// The alias must be string of 1-256 characters. It can contain only alphanumeric characters, forward slashes (/), underscores (_), and dashes (-). The alias name cannot begin with `alias/aws/` . The `alias/aws/` prefix is reserved for [AWS managed keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) .
+	//
+	// *Pattern* : `alias/^[a-zA-Z0-9/_-]+$`
+	//
+	// *Minimum* : `1`
+	//
+	// *Maximum* : `256`
 	AliasName *string `json:"aliasName"`
-	// `AWS::KMS::Alias.TargetKeyId`.
+	// Associates the alias with the specified [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) . The KMS key must be in the same AWS account and Region.
+	//
+	// A valid key ID is required. If you supply a null or empty string value, this operation returns an error.
+	//
+	// For help finding the key ID and ARN, see [Finding the key ID and ARN](https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html#find-cmk-id-arn) in the *AWS Key Management Service Developer Guide* .
+	//
+	// Specify the key ID or the key ARN of the KMS key.
+	//
+	// For example:
+	//
+	// - Key ID: `1234abcd-12ab-34cd-56ef-1234567890ab`
+	// - Key ARN: `arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
+	//
+	// To get the key ID and key ARN for a KMS key, use [ListKeys](https://docs.aws.amazon.com/kms/latest/APIReference/API_ListKeys.html) or [DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html) .
 	TargetKeyId *string `json:"targetKeyId"`
 }
 
 // A CloudFormation `AWS::KMS::Key`.
+//
+// The `AWS::KMS::Key` resource specifies a [symmetric or asymmetric](https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html) [KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms_keys) in AWS Key Management Service ( AWS KMS ).
+//
+// > AWS KMS is replacing the term *customer master key (CMK)* with *AWS KMS key* and *KMS key* . The concept has not changed. To prevent breaking changes, AWS KMS is keeping some variations of this term.
+//
+// You can use symmetric KMS keys to encrypt and decrypt small amounts of data, but they are more commonly used to generate data keys and data key pairs. You can also use symmetric KMS key to encrypt data stored in AWS services that are [integrated with AWS KMS](https://docs.aws.amazon.com//kms/features/#AWS_Service_Integration) . For more information, see [What is AWS Key Management Service ?](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html) in the *AWS Key Management Service Developer Guide* .
+//
+// You can use asymmetric KMS keys to encrypt and decrypt data or sign messages and verify signatures. To create an asymmetric key, you must specify an asymmetric `KeySpec` value and a `KeyUsage` value.
+//
+// > If you change the value of a `Replacement` property, such as `KeyUsage` or `KeySpec` , on an existing KMS key, the existing KMS key is [scheduled for deletion](https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html) and a new KMS key is created with the specified value.
+// >
+// > While scheduled for deletion, the existing KMS key becomes unusable. If you don't [cancel the scheduled deletion](https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html#deleting-keys-scheduling-key-deletion) of the existing KMS key outside of CloudFormation, all data encrypted under the existing KMS key becomes unrecoverable when the KMS key is deleted.
 //
 // TODO: EXAMPLE
 //
@@ -960,7 +1255,7 @@ type CfnKey interface {
 	LogicalId() *string
 	MultiRegion() interface{}
 	SetMultiRegion(val interface{})
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PendingWindowInDays() *float64
 	SetPendingWindowInDays(val *float64)
 	Ref() *string
@@ -977,10 +1272,16 @@ type CfnKey interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1130,8 +1431,8 @@ func (j *jsiiProxy_CfnKey) MultiRegion() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnKey) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnKey) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1192,13 +1493,13 @@ func (j *jsiiProxy_CfnKey) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::KMS::Key`.
-func NewCfnKey(scope constructs.Construct, id *string, props *CfnKeyProps) CfnKey {
+func NewCfnKey(scope awscdk.Construct, id *string, props *CfnKeyProps) CfnKey {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnKey{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kms.CfnKey",
+		"monocdk.aws_kms.CfnKey",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1207,11 +1508,11 @@ func NewCfnKey(scope constructs.Construct, id *string, props *CfnKeyProps) CfnKe
 }
 
 // Create a new `AWS::KMS::Key`.
-func NewCfnKey_Override(c CfnKey, scope constructs.Construct, id *string, props *CfnKeyProps) {
+func NewCfnKey_Override(c CfnKey, scope awscdk.Construct, id *string, props *CfnKeyProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kms.CfnKey",
+		"monocdk.aws_kms.CfnKey",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1287,13 +1588,14 @@ func (j *jsiiProxy_CfnKey) SetPendingWindowInDays(val *float64) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnKey_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kms.CfnKey",
+		"monocdk.aws_kms.CfnKey",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1303,13 +1605,14 @@ func CfnKey_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnKey_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kms.CfnKey",
+		"monocdk.aws_kms.CfnKey",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1318,17 +1621,15 @@ func CfnKey_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnKey_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kms.CfnKey",
+		"monocdk.aws_kms.CfnKey",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1341,7 +1642,7 @@ func CfnKey_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_kms.CfnKey",
+		"monocdk.aws_kms.CfnKey",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1349,6 +1650,7 @@ func CfnKey_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnKey) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1361,6 +1663,7 @@ func (c *jsiiProxy_CfnKey) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnKey) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1376,6 +1679,7 @@ func (c *jsiiProxy_CfnKey) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnKey) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1421,6 +1725,7 @@ func (c *jsiiProxy_CfnKey) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnKey) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1430,6 +1735,7 @@ func (c *jsiiProxy_CfnKey) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnKey) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1441,6 +1747,7 @@ func (c *jsiiProxy_CfnKey) AddPropertyDeletionOverride(propertyPath *string) {
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnKey) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1458,6 +1765,7 @@ func (c *jsiiProxy_CfnKey) AddPropertyOverride(propertyPath *string, value inter
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnKey) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1470,6 +1778,7 @@ func (c *jsiiProxy_CfnKey) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, optio
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnKey) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1490,6 +1799,7 @@ func (c *jsiiProxy_CfnKey) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnKey) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1512,12 +1822,80 @@ func (c *jsiiProxy_CfnKey) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnKey) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnKey) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnKey) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnKey) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnKey) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1538,6 +1916,7 @@ func (c *jsiiProxy_CfnKey) RenderProperties(props *map[string]interface{}) *map[
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnKey) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1551,9 +1930,23 @@ func (c *jsiiProxy_CfnKey) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnKey) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnKey) ToString() *string {
 	var returns *string
 
@@ -1567,6 +1960,27 @@ func (c *jsiiProxy_CfnKey) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnKey) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnKey) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1575,32 +1989,127 @@ func (c *jsiiProxy_CfnKey) ValidateProperties(_properties interface{}) {
 	)
 }
 
-// Properties for defining a `AWS::KMS::Key`.
+// Properties for defining a `CfnKey`.
 //
 // TODO: EXAMPLE
 //
 type CfnKeyProps struct {
-	// `AWS::KMS::Key.Description`.
-	Description *string `json:"description"`
-	// `AWS::KMS::Key.Enabled`.
-	Enabled interface{} `json:"enabled"`
-	// `AWS::KMS::Key.EnableKeyRotation`.
-	EnableKeyRotation interface{} `json:"enableKeyRotation"`
-	// `AWS::KMS::Key.KeyPolicy`.
+	// The key policy that authorizes use of the KMS key. The key policy must conform to the following rules.
+	//
+	// - The key policy must allow the caller to make a subsequent [PutKeyPolicy](https://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html) request on the KMS key. This reduces the risk that the KMS key becomes unmanageable. For more information, refer to the scenario in the [Default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section of the **AWS Key Management Service Developer Guide** .
+	// - Each statement in the key policy must contain one or more principals. The principals in the key policy must exist and be visible to AWS KMS . When you create a new AWS principal (for example, an IAM user or role), you might need to enforce a delay before including the new principal in a key policy because the new principal might not be immediately visible to AWS KMS . For more information, see [Changes that I make are not always immediately visible](https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency) in the *AWS Identity and Access Management User Guide* .
+	// - The key policy size limit is 32 kilobytes (32768 bytes).
+	//
+	// If you are unsure of which policy to use, consider the *default key policy* . This is the key policy that AWS KMS applies to KMS keys that are created by using the CreateKey API with no specified key policy. It gives the AWS account that owns the key permission to perform all operations on the key. It also allows you write IAM policies to authorize access to the key. For details, see [Default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) in the *AWS Key Management Service Developer Guide* .
+	//
+	// *Minimum* : `1`
+	//
+	// *Maximum* : `32768`
 	KeyPolicy interface{} `json:"keyPolicy"`
-	// `AWS::KMS::Key.KeySpec`.
+	// A description of the KMS key.
+	//
+	// Use a description that helps you to distinguish this KMS key from others in the account, such as its intended use.
+	Description *string `json:"description"`
+	// Specifies whether the KMS key is enabled. Disabled KMS keys cannot be used in cryptographic operations.
+	//
+	// When `Enabled` is `true` , the *key state* of the KMS key is `Enabled` . When `Enabled` is `false` , the key state of the KMS key is `Disabled` . The default value is `true` .
+	//
+	// The actual key state of the KMS key might be affected by actions taken outside of CloudFormation, such as running the [EnableKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_EnableKey.html) , [DisableKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DisableKey.html) , or [ScheduleKeyDeletion](https://docs.aws.amazon.com/kms/latest/APIReference/API_ScheduleKeyDeletion.html) operations.
+	//
+	// For information about the key states of a KMS key, see [Key state: Effect on your KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in the *AWS Key Management Service Developer Guide* .
+	Enabled interface{} `json:"enabled"`
+	// Enables automatic rotation of the key material for the specified KMS key.
+	//
+	// By default, automatic key rotation is not enabled.
+	//
+	// AWS KMS does not support automatic key rotation on asymmetric KMS keys. For asymmetric KMS keys, omit the `EnableKeyRotation` property or set it to `false` .
+	//
+	// When you enable automatic rotation, AWS KMS automatically creates new key material for the KMS key 365 days after the enable (or reenable) date and every 365 days thereafter. AWS KMS retains all key material until you delete the KMS key. For detailed information about automatic key rotation, see [Rotating KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) in the *AWS Key Management Service Developer Guide* .
+	EnableKeyRotation interface{} `json:"enableKeyRotation"`
+	// Specifies the type of KMS key to create.
+	//
+	// The default value, `SYMMETRIC_DEFAULT` , creates a KMS key with a 256-bit symmetric key for encryption and decryption. For help choosing a key spec for your KMS key, see [How to choose Your KMS key configuration](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html) in the *AWS Key Management Service Developer Guide* .
+	//
+	// The `KeySpec` property determines whether the KMS key contains a symmetric key or an asymmetric key pair. It also determines the encryption algorithms or signing algorithms that the KMS key supports. You can't change the `KeySpec` after the KMS key is created. To further restrict the algorithms that can be used with the KMS key, use a condition key in its key policy or IAM policy. For more information, see [kms:EncryptionAlgorithm](https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-encryption-algorithm) or [kms:Signing Algorithm](https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-signing-algorithm) in the *AWS Key Management Service Developer Guide* .
+	//
+	// > If you change the `KeySpec` of an existing KMS key, the existing KMS key is scheduled for deletion and a new KMS key is created with the specified `KeySpec` value. While the scheduled deletion is pending, you can't use the existing KMS key. Unless you [cancel the scheduled deletion](https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html#deleting-keys-scheduling-key-deletion) of the KMS key outside of CloudFormation, all data encrypted under the existing KMS key becomes unrecoverable when the KMS key is deleted. > [AWS services that are integrated with AWS KMS](https://docs.aws.amazon.com/kms/features/#AWS_Service_Integration) use symmetric KMS keys to protect your data. These services do not support asymmetric KMS keys. For help determining whether a KMS key is symmetric or asymmetric, see [Identifying Symmetric and Asymmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/find-symm-asymm.html) in the *AWS Key Management Service Developer Guide* .
+	//
+	// AWS KMS supports the following key specs for KMS keys:
+	//
+	// - Symmetric key (default)
+	//
+	// - `SYMMETRIC_DEFAULT` (AES-256-GCM)
+	// - Asymmetric RSA key pairs
+	//
+	// - `RSA_2048`
+	// - `RSA_3072`
+	// - `RSA_4096`
+	// - Asymmetric NIST-recommended elliptic curve key pairs
+	//
+	// - `ECC_NIST_P256` (secp256r1)
+	// - `ECC_NIST_P384` (secp384r1)
+	// - `ECC_NIST_P521` (secp521r1)
+	// - Other asymmetric elliptic curve key pairs
+	//
+	// - `ECC_SECG_P256K1` (secp256k1), commonly used for cryptocurrencies.
 	KeySpec *string `json:"keySpec"`
-	// `AWS::KMS::Key.KeyUsage`.
+	// Determines the [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. The default value is `ENCRYPT_DECRYPT` . This property is required only for asymmetric KMS keys. You can't change the `KeyUsage` value after the KMS key is created.
+	//
+	// > If you change the `KeyUsage` of an existing KMS key, the existing KMS key is scheduled for deletion and a new KMS key is created with the specified `KeyUsage` value. While the scheduled deletion is pending, you can't use the existing KMS key. Unless you [cancel the scheduled deletion](https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html#deleting-keys-scheduling-key-deletion) of the KMS key outside of CloudFormation, all data encrypted under the existing KMS key becomes unrecoverable when the KMS key is deleted.
+	//
+	// Select only one valid value.
+	//
+	// - For symmetric KMS keys, omit the property or specify `ENCRYPT_DECRYPT` .
+	// - For asymmetric KMS keys with RSA key material, specify `ENCRYPT_DECRYPT` or `SIGN_VERIFY` .
+	// - For asymmetric KMS keys with ECC key material, specify `SIGN_VERIFY` .
 	KeyUsage *string `json:"keyUsage"`
-	// `AWS::KMS::Key.MultiRegion`.
+	// Creates a multi-Region primary key that you can replicate in other AWS Regions .
+	//
+	// > If you change the `MultiRegion` property of an existing KMS key, the existing KMS key is scheduled for deletion and a new KMS key is created with the specified `Multi-Region` value. While the scheduled deletion is pending, you can't use the existing KMS key. Unless you [cancel the scheduled deletion](https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html#deleting-keys-scheduling-key-deletion) of the KMS key outside of CloudFormation, all data encrypted under the existing KMS key becomes unrecoverable when the KMS key is deleted.
+	//
+	// For a multi-Region key, set to this property to `true` . For a single-Region key, omit this property or set it to `false` . The default value is `false` .
+	//
+	// *Multi-Region keys* are an AWS KMS feature that lets you create multiple interoperable KMS keys in different AWS Regions . Because these KMS keys have the same key ID, key material, and other metadata, you can use them to encrypt data in one AWS Region and decrypt it in a different AWS Region without making a cross-Region call or exposing the plaintext data. For more information, see [Using multi-Region keys](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html) in the *AWS Key Management Service Developer Guide* .
+	//
+	// You can create a symmetric or asymmetric multi-Region key, and you can create a multi-Region key with imported key material. However, you cannot create a multi-Region key in a custom key store.
+	//
+	// To create a replica of this primary key in a different AWS Region , create an [AWS::KMS::ReplicaKey](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html) resource in a CloudFormation stack in the replica Region. Specify the key ARN of this primary key.
 	MultiRegion interface{} `json:"multiRegion"`
-	// `AWS::KMS::Key.PendingWindowInDays`.
+	// Specifies the number of days in the waiting period before AWS KMS deletes a KMS key that has been removed from a CloudFormation stack.
+	//
+	// Enter a value between 7 and 30 days. The default value is 30 days.
+	//
+	// When you remove a KMS key from a CloudFormation stack, AWS KMS schedules the KMS key for deletion and starts the mandatory waiting period. The `PendingWindowInDays` property determines the length of waiting period. During the waiting period, the key state of KMS key is `Pending Deletion` or `Pending Replica Deletion` , which prevents the KMS key from being used in cryptographic operations. When the waiting period expires, AWS KMS permanently deletes the KMS key.
+	//
+	// AWS KMS will not delete a [multi-Region primary key](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html) that has replica keys. If you remove a multi-Region primary key from a CloudFormation stack, its key state changes to `PendingReplicaDeletion` so it cannot be replicated or used in cryptographic operations. This state can persist indefinitely. When the last of its replica keys is deleted, the key state of the primary key changes to `PendingDeletion` and the waiting period specified by `PendingWindowInDays` begins. When this waiting period expires, AWS KMS deletes the primary key. For details, see [Deleting multi-Region keys](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-delete.html) in the *AWS Key Management Service Developer Guide* .
+	//
+	// You cannot use a CloudFormation template to cancel deletion of the KMS key after you remove it from the stack, regardless of the waiting period. If you specify a KMS key in your template, even one with the same name, CloudFormation creates a new KMS key. To cancel deletion of a KMS key, use the AWS KMS console or the [CancelKeyDeletion](https://docs.aws.amazon.com/kms/latest/APIReference/API_CancelKeyDeletion.html) operation.
+	//
+	// For information about the `Pending Deletion` and `Pending Replica Deletion` key states, see [Key state: Effect on your KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in the *AWS Key Management Service Developer Guide* . For more information about deleting KMS keys, see the [ScheduleKeyDeletion](https://docs.aws.amazon.com/kms/latest/APIReference/API_ScheduleKeyDeletion.html) operation in the *AWS Key Management Service API Reference* and [Deleting KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html) in the *AWS Key Management Service Developer Guide* .
+	//
+	// *Minimum* : 7
+	//
+	// *Maximum* : 30
 	PendingWindowInDays *float64 `json:"pendingWindowInDays"`
-	// `AWS::KMS::Key.Tags`.
+	// Assigns one or more tags to the replica key.
+	//
+	// > Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see [Using ABAC in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/abac.html) in the *AWS Key Management Service Developer Guide* .
+	//
+	// For information about tags in AWS KMS , see [Tagging keys](https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html) in the *AWS Key Management Service Developer Guide* . For information about tags in CloudFormation, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::KMS::ReplicaKey`.
+//
+// The `AWS::KMS::ReplicaKey` resource specifies a multi-Region replica key that is based on a multi-Region primary key.
+//
+// *Multi-Region keys* are an AWS KMS feature that lets you create multiple interoperable KMS keys in different AWS Regions . Because these KMS keys have the same key ID, key material, and other metadata, you can use them to encrypt data in one AWS Region and decrypt it in a different AWS Region without making a cross-Region call or exposing the plaintext data. For more information, see [Using multi-Region keys](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html) in the *AWS Key Management Service Developer Guide* .
+//
+// A multi-Region *primary key* is a fully functional symmetric or asymmetric KMS key that is also the model for replica keys in other AWS Regions . To create a multi-Region primary key, add an [AWS::KMS::Key](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html) resource to your CloudFormation stack. Set its `MultiRegion` property to true.
+//
+// A multi-Region *replica key* is a fully functional symmetric or asymmetric KMS key that has the same key ID and key material as a multi-Region primary key, but is located in a different AWS Region of the same AWS partition. There can be multiple replicas of a primary key, but each must be in a different AWS Region .
+//
+// A primary key and its replicas have the same key ID and key material. They also have the same key spec, key usage, key material origin, and automatic key rotation status. These properties are known as *shared properties* . If they change, AWS KMS synchronizes the change to all related multi-Region keys. All other properties of a replica key can differ, including its key policy, tags, aliases, and key state. AWS KMS does not synchronize these properties.
 //
 // TODO: EXAMPLE
 //
@@ -1620,7 +2129,7 @@ type CfnReplicaKey interface {
 	KeyPolicy() interface{}
 	SetKeyPolicy(val interface{})
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PendingWindowInDays() *float64
 	SetPendingWindowInDays(val *float64)
 	PrimaryKeyArn() *string
@@ -1639,10 +2148,16 @@ type CfnReplicaKey interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1752,8 +2267,8 @@ func (j *jsiiProxy_CfnReplicaKey) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnReplicaKey) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnReplicaKey) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1824,13 +2339,13 @@ func (j *jsiiProxy_CfnReplicaKey) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::KMS::ReplicaKey`.
-func NewCfnReplicaKey(scope constructs.Construct, id *string, props *CfnReplicaKeyProps) CfnReplicaKey {
+func NewCfnReplicaKey(scope awscdk.Construct, id *string, props *CfnReplicaKeyProps) CfnReplicaKey {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnReplicaKey{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kms.CfnReplicaKey",
+		"monocdk.aws_kms.CfnReplicaKey",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1839,11 +2354,11 @@ func NewCfnReplicaKey(scope constructs.Construct, id *string, props *CfnReplicaK
 }
 
 // Create a new `AWS::KMS::ReplicaKey`.
-func NewCfnReplicaKey_Override(c CfnReplicaKey, scope constructs.Construct, id *string, props *CfnReplicaKeyProps) {
+func NewCfnReplicaKey_Override(c CfnReplicaKey, scope awscdk.Construct, id *string, props *CfnReplicaKeyProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kms.CfnReplicaKey",
+		"monocdk.aws_kms.CfnReplicaKey",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1895,13 +2410,14 @@ func (j *jsiiProxy_CfnReplicaKey) SetPrimaryKeyArn(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnReplicaKey_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kms.CfnReplicaKey",
+		"monocdk.aws_kms.CfnReplicaKey",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1911,13 +2427,14 @@ func CfnReplicaKey_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnReplicaKey_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kms.CfnReplicaKey",
+		"monocdk.aws_kms.CfnReplicaKey",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1926,17 +2443,15 @@ func CfnReplicaKey_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnReplicaKey_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kms.CfnReplicaKey",
+		"monocdk.aws_kms.CfnReplicaKey",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1949,7 +2464,7 @@ func CfnReplicaKey_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_kms.CfnReplicaKey",
+		"monocdk.aws_kms.CfnReplicaKey",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1957,6 +2472,7 @@ func CfnReplicaKey_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnReplicaKey) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1969,6 +2485,7 @@ func (c *jsiiProxy_CfnReplicaKey) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnReplicaKey) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1984,6 +2501,7 @@ func (c *jsiiProxy_CfnReplicaKey) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnReplicaKey) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2029,6 +2547,7 @@ func (c *jsiiProxy_CfnReplicaKey) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnReplicaKey) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2038,6 +2557,7 @@ func (c *jsiiProxy_CfnReplicaKey) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnReplicaKey) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2049,6 +2569,7 @@ func (c *jsiiProxy_CfnReplicaKey) AddPropertyDeletionOverride(propertyPath *stri
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnReplicaKey) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2066,6 +2587,7 @@ func (c *jsiiProxy_CfnReplicaKey) AddPropertyOverride(propertyPath *string, valu
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnReplicaKey) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2078,6 +2600,7 @@ func (c *jsiiProxy_CfnReplicaKey) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnReplicaKey) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2098,6 +2621,7 @@ func (c *jsiiProxy_CfnReplicaKey) GetAtt(attributeName *string) awscdk.Reference
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnReplicaKey) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2120,12 +2644,80 @@ func (c *jsiiProxy_CfnReplicaKey) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnReplicaKey) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnReplicaKey) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnReplicaKey) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnReplicaKey) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnReplicaKey) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2146,6 +2738,7 @@ func (c *jsiiProxy_CfnReplicaKey) RenderProperties(props *map[string]interface{}
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnReplicaKey) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2159,9 +2752,23 @@ func (c *jsiiProxy_CfnReplicaKey) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnReplicaKey) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnReplicaKey) ToString() *string {
 	var returns *string
 
@@ -2175,6 +2782,27 @@ func (c *jsiiProxy_CfnReplicaKey) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnReplicaKey) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnReplicaKey) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2183,33 +2811,88 @@ func (c *jsiiProxy_CfnReplicaKey) ValidateProperties(_properties interface{}) {
 	)
 }
 
-// Properties for defining a `AWS::KMS::ReplicaKey`.
+// Properties for defining a `CfnReplicaKey`.
 //
 // TODO: EXAMPLE
 //
 type CfnReplicaKeyProps struct {
-	// `AWS::KMS::ReplicaKey.Description`.
-	Description *string `json:"description"`
-	// `AWS::KMS::ReplicaKey.Enabled`.
-	Enabled interface{} `json:"enabled"`
-	// `AWS::KMS::ReplicaKey.KeyPolicy`.
+	// The key policy that authorizes use of the replica key.
+	//
+	// The key policy is not a shared property of multi-Region keys. You can specify the same key policy or a different key policy for each key in a set of related multi-Region keys. AWS KMS does not synchronize this property.
+	//
+	// The key policy must conform to the following rules.
+	//
+	// - The key policy must give the caller [PutKeyPolicy](https://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html) permission on the KMS key. This reduces the risk that the KMS key becomes unmanageable. For more information, refer to the scenario in the [Default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section of the **AWS Key Management Service Developer Guide** .
+	// - Each statement in the key policy must contain one or more principals. The principals in the key policy must exist and be visible to AWS KMS . When you create a new AWS principal (for example, an IAM user or role), you might need to enforce a delay before including the new principal in a key policy because the new principal might not be immediately visible to AWS KMS . For more information, see [Changes that I make are not always immediately visible](https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency) in the *AWS Identity and Access Management User Guide* .
+	// - The key policy size limit is 32 kilobytes (32768 bytes).
+	//
+	// *Minimum* : `1`
+	//
+	// *Maximum* : `32768`
 	KeyPolicy interface{} `json:"keyPolicy"`
-	// `AWS::KMS::ReplicaKey.PendingWindowInDays`.
-	PendingWindowInDays *float64 `json:"pendingWindowInDays"`
-	// `AWS::KMS::ReplicaKey.PrimaryKeyArn`.
+	// Specifies the multi-Region primary key to replicate.
+	//
+	// The primary key must be in a different AWS Region of the same AWS partition. You can create only one replica of a given primary key in each AWS Region .
+	//
+	// > If you change the `PrimaryKeyArn` value of a replica key, the existing replica key is scheduled for deletion and a new replica key is created based on the specified primary key. While it is scheduled for deletion, the existing replica key becomes unusable. You can cancel the scheduled deletion of the key outside of CloudFormation.
+	// >
+	// > However, if you inadvertently delete a replica key, you can decrypt ciphertext encrypted by that replica key by using any related multi-Region key. If necessary, you can recreate the replica in the same Region after the previous one is completely deleted. For details, see [Deleting multi-Region keys](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-delete.html) in the *AWS Key Management Service Developer Guide*
+	//
+	// Specify the key ARN of an existing multi-Region primary key. For example, `arn:aws:kms:us-east-2:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab` .
 	PrimaryKeyArn *string `json:"primaryKeyArn"`
-	// `AWS::KMS::ReplicaKey.Tags`.
+	// A description of the KMS key.
+	//
+	// The default value is an empty string (no description).
+	//
+	// The description is not a shared property of multi-Region keys. You can specify the same description or a different description for each key in a set of related multi-Region keys. AWS Key Management Service does not synchronize this property.
+	Description *string `json:"description"`
+	// Specifies whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations.
+	//
+	// When `Enabled` is `true` , the *key state* of the KMS key is `Enabled` . When `Enabled` is `false` , the key state of the KMS key is `Disabled` . The default value is `true` .
+	//
+	// The actual key state of the replica might be affected by actions taken outside of CloudFormation, such as running the [EnableKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_EnableKey.html) , [DisableKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DisableKey.html) , or [ScheduleKeyDeletion](https://docs.aws.amazon.com/kms/latest/APIReference/API_ScheduleKeyDeletion.html) operations. Also, while the replica key is being created, its key state is `Creating` . When the process is complete, the key state of the replica key changes to `Enabled` .
+	//
+	// For information about the key states of a KMS key, see [Key state: Effect on your KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in the *AWS Key Management Service Developer Guide* .
+	Enabled interface{} `json:"enabled"`
+	// Specifies the number of days in the waiting period before AWS KMS deletes a replica key that has been removed from a CloudFormation stack.
+	//
+	// Enter a value between 7 and 30 days. The default value is 30 days.
+	//
+	// When you remove a replica key from a CloudFormation stack, AWS KMS schedules the replica key for deletion and starts the mandatory waiting period. The `PendingWindowInDays` property determines the length of waiting period. During the waiting period, the key state of replica key is `Pending Deletion` , which prevents it from being used in cryptographic operations. When the waiting period expires, AWS KMS permanently deletes the replica key.
+	//
+	// You cannot use a CloudFormation template to cancel deletion of the replica after you remove it from the stack, regardless of the waiting period. However, if you specify a replica key in your template that is based on the same primary key as the original replica key, CloudFormation creates a new replica key with the same key ID, key material, and other shared properties of the original replica key. This new replica key can decrypt ciphertext that was encrypted under the original replica key, or any related multi-Region key.
+	//
+	// For detailed information about deleting multi-Region keys, see [Deleting multi-Region keys](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-delete.html) in the *AWS Key Management Service Developer Guide* .
+	//
+	// For information about the `PendingDeletion` key state, see [Key state: Effect on your KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in the *AWS Key Management Service Developer Guide* . For more information about deleting KMS keys, see the [ScheduleKeyDeletion](https://docs.aws.amazon.com/kms/latest/APIReference/API_ScheduleKeyDeletion.html) operation in the *AWS Key Management Service API Reference* and [Deleting KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html) in the *AWS Key Management Service Developer Guide* .
+	//
+	// *Minimum* : 7
+	//
+	// *Maximum* : 30
+	PendingWindowInDays *float64 `json:"pendingWindowInDays"`
+	// Assigns one or more tags to the replica key.
+	//
+	// > Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see [Using ABAC in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/abac.html) in the *AWS Key Management Service Developer Guide* .
+	//
+	// Tags are not a shared property of multi-Region keys. You can specify the same tags or different tags for each key in a set of related multi-Region keys. AWS KMS does not synchronize this property.
+	//
+	// Each tag consists of a tag key and a tag value. Both the tag key and the tag value are required, but the tag value can be an empty (null) string. You cannot have more than one tag on a KMS key with the same tag key. If you specify an existing tag key with a different tag value, AWS KMS replaces the current tag value with the specified one.
+	//
+	// When you assign tags to an AWS resource, AWS generates a cost allocation report with usage and costs aggregated by tags. Tags can also be used to control access to a KMS key. For details, see [Tagging keys](https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html) .
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A KMS Key alias.
 //
 // An alias can be used in all places that expect a key.
+// Experimental.
 type IAlias interface {
 	IKey
 	// The name of the alias.
+	// Experimental.
 	AliasName() *string
 	// The Key to which the Alias refers.
+	// Experimental.
 	AliasTargetKey() IKey
 }
 
@@ -2239,23 +2922,32 @@ func (j *jsiiProxy_IAlias) AliasTargetKey() IKey {
 }
 
 // A KMS Key, either managed by this CDK app, or imported.
+// Experimental.
 type IKey interface {
 	awscdk.IResource
 	// Defines a new alias for the key.
+	// Experimental.
 	AddAlias(alias *string) Alias
 	// Adds a statement to the KMS key resource policy.
+	// Experimental.
 	AddToResourcePolicy(statement awsiam.PolicyStatement, allowNoOp *bool) *awsiam.AddToResourcePolicyResult
 	// Grant the indicated permissions on this key to the given principal.
+	// Experimental.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grant decryption permissions using this key to the given principal.
+	// Experimental.
 	GrantDecrypt(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant encryption permissions using this key to the given principal.
+	// Experimental.
 	GrantEncrypt(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant encryption and decryption permissions using this key to the given principal.
+	// Experimental.
 	GrantEncryptDecrypt(grantee awsiam.IGrantable) awsiam.Grant
 	// The ARN of the key.
+	// Experimental.
 	KeyArn() *string
 	// The ID of the key (the part that looks something like: 1234abcd-12ab-34cd-56ef-1234567890ab).
+	// Experimental.
 	KeyId() *string
 }
 
@@ -2371,13 +3063,14 @@ func (j *jsiiProxy_IKey) KeyId() *string {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type Key interface {
 	awscdk.Resource
 	IKey
 	Env() *awscdk.ResourceEnvironment
 	KeyArn() *string
 	KeyId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Policy() awsiam.PolicyDocument
 	Stack() awscdk.Stack
@@ -2393,7 +3086,13 @@ type Key interface {
 	GrantDecrypt(grantee awsiam.IGrantable) awsiam.Grant
 	GrantEncrypt(grantee awsiam.IGrantable) awsiam.Grant
 	GrantEncryptDecrypt(grantee awsiam.IGrantable) awsiam.Grant
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for Key
@@ -2432,8 +3131,8 @@ func (j *jsiiProxy_Key) KeyId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_Key) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_Key) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2483,13 +3182,14 @@ func (j *jsiiProxy_Key) TrustAccountIdentities() *bool {
 }
 
 
+// Experimental.
 func NewKey(scope constructs.Construct, id *string, props *KeyProps) Key {
 	_init_.Initialize()
 
 	j := jsiiProxy_Key{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kms.Key",
+		"monocdk.aws_kms.Key",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2497,11 +3197,12 @@ func NewKey(scope constructs.Construct, id *string, props *KeyProps) Key {
 	return &j
 }
 
+// Experimental.
 func NewKey_Override(k Key, scope constructs.Construct, id *string, props *KeyProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kms.Key",
+		"monocdk.aws_kms.Key",
 		[]interface{}{scope, id, props},
 		k,
 	)
@@ -2517,13 +3218,14 @@ func NewKey_Override(k Key, scope constructs.Construct, id *string, props *KeyPr
 // will actually be reflected in the resulting template,
 // as opposed to the object returned from {@link fromKeyArn()},
 // on which calling those methods would have no effect.
+// Experimental.
 func Key_FromCfnKey(cfnKey CfnKey) IKey {
 	_init_.Initialize()
 
 	var returns IKey
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kms.Key",
+		"monocdk.aws_kms.Key",
 		"fromCfnKey",
 		[]interface{}{cfnKey},
 		&returns,
@@ -2533,13 +3235,14 @@ func Key_FromCfnKey(cfnKey CfnKey) IKey {
 }
 
 // Import an externally defined KMS Key using its ARN.
+// Experimental.
 func Key_FromKeyArn(scope constructs.Construct, id *string, keyArn *string) IKey {
 	_init_.Initialize()
 
 	var returns IKey
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kms.Key",
+		"monocdk.aws_kms.Key",
 		"fromKeyArn",
 		[]interface{}{scope, id, keyArn},
 		&returns,
@@ -2565,13 +3268,14 @@ func Key_FromKeyArn(scope constructs.Construct, id *string, keyArn *string) IKey
 // will be used on future runs. To refresh the lookup, you will have to
 // evict the value from the cache using the `cdk context` command. See
 // https://docs.aws.amazon.com/cdk/latest/guide/context.html for more information.
+// Experimental.
 func Key_FromLookup(scope constructs.Construct, id *string, options *KeyLookupOptions) IKey {
 	_init_.Initialize()
 
 	var returns IKey
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kms.Key",
+		"monocdk.aws_kms.Key",
 		"fromLookup",
 		[]interface{}{scope, id, options},
 		&returns,
@@ -2580,17 +3284,15 @@ func Key_FromLookup(scope constructs.Construct, id *string, options *KeyLookupOp
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func Key_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kms.Key",
+		"monocdk.aws_kms.Key",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2600,13 +3302,14 @@ func Key_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func Key_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func Key_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kms.Key",
+		"monocdk.aws_kms.Key",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -2616,6 +3319,7 @@ func Key_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Defines a new alias for the key.
+// Experimental.
 func (k *jsiiProxy_Key) AddAlias(aliasName *string) Alias {
 	var returns Alias
 
@@ -2630,6 +3334,7 @@ func (k *jsiiProxy_Key) AddAlias(aliasName *string) Alias {
 }
 
 // Adds a statement to the KMS key resource policy.
+// Experimental.
 func (k *jsiiProxy_Key) AddToResourcePolicy(statement awsiam.PolicyStatement, allowNoOp *bool) *awsiam.AddToResourcePolicyResult {
 	var returns *awsiam.AddToResourcePolicyResult
 
@@ -2652,6 +3357,7 @@ func (k *jsiiProxy_Key) AddToResourcePolicy(statement awsiam.PolicyStatement, al
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (k *jsiiProxy_Key) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		k,
@@ -2660,6 +3366,7 @@ func (k *jsiiProxy_Key) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
+// Experimental.
 func (k *jsiiProxy_Key) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -2679,6 +3386,7 @@ func (k *jsiiProxy_Key) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
+// Experimental.
 func (k *jsiiProxy_Key) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -2697,6 +3405,7 @@ func (k *jsiiProxy_Key) GetResourceArnAttribute(arnAttr *string, arnComponents *
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
+// Experimental.
 func (k *jsiiProxy_Key) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -2715,6 +3424,7 @@ func (k *jsiiProxy_Key) GetResourceNameAttribute(nameAttr *string) *string {
 // This modifies both the principal's policy as well as the resource policy,
 // since the default CloudFormation setup for KMS keys is that the policy
 // must not be empty and so default grants won't work.
+// Experimental.
 func (k *jsiiProxy_Key) Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant {
 	args := []interface{}{grantee}
 	for _, a := range actions {
@@ -2737,6 +3447,7 @@ func (k *jsiiProxy_Key) Grant(grantee awsiam.IGrantable, actions ...*string) aws
 //
 // Key administrators have permissions to manage the key (e.g., change permissions, revoke), but do not have permissions
 // to use the key in cryptographic operations (e.g., encrypt, decrypt).
+// Experimental.
 func (k *jsiiProxy_Key) GrantAdmin(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -2751,6 +3462,7 @@ func (k *jsiiProxy_Key) GrantAdmin(grantee awsiam.IGrantable) awsiam.Grant {
 }
 
 // Grant decryption permissions using this key to the given principal.
+// Experimental.
 func (k *jsiiProxy_Key) GrantDecrypt(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -2765,6 +3477,7 @@ func (k *jsiiProxy_Key) GrantDecrypt(grantee awsiam.IGrantable) awsiam.Grant {
 }
 
 // Grant encryption permissions using this key to the given principal.
+// Experimental.
 func (k *jsiiProxy_Key) GrantEncrypt(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -2779,6 +3492,7 @@ func (k *jsiiProxy_Key) GrantEncrypt(grantee awsiam.IGrantable) awsiam.Grant {
 }
 
 // Grant encryption and decryption permissions using this key to the given principal.
+// Experimental.
 func (k *jsiiProxy_Key) GrantEncryptDecrypt(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -2792,7 +3506,88 @@ func (k *jsiiProxy_Key) GrantEncryptDecrypt(grantee awsiam.IGrantable) awsiam.Gr
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (k *jsiiProxy_Key) OnPrepare() {
+	_jsii_.InvokeVoid(
+		k,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (k *jsiiProxy_Key) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		k,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (k *jsiiProxy_Key) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		k,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (k *jsiiProxy_Key) Prepare() {
+	_jsii_.InvokeVoid(
+		k,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (k *jsiiProxy_Key) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		k,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (k *jsiiProxy_Key) ToString() *string {
 	var returns *string
 
@@ -2806,12 +3601,32 @@ func (k *jsiiProxy_Key) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+// Experimental.
+func (k *jsiiProxy_Key) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		k,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Properties for looking up an existing Key.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type KeyLookupOptions struct {
 	// The alias name of the Key.
+	// Experimental.
 	AliasName *string `json:"aliasName"`
 }
 
@@ -2819,6 +3634,7 @@ type KeyLookupOptions struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type KeyProps struct {
 	// A list of principals to add as key administrators to the key policy.
 	//
@@ -2826,29 +3642,36 @@ type KeyProps struct {
 	// to use the key in cryptographic operations (e.g., encrypt, decrypt).
 	//
 	// These principals will be added to the default key policy (if none specified), or to the specified policy (if provided).
+	// Experimental.
 	Admins *[]awsiam.IPrincipal `json:"admins"`
 	// Initial alias to add to the key.
 	//
 	// More aliases can be added later by calling `addAlias`.
+	// Experimental.
 	Alias *string `json:"alias"`
 	// A description of the key.
 	//
 	// Use a description that helps your users decide
 	// whether the key is appropriate for a particular task.
+	// Experimental.
 	Description *string `json:"description"`
 	// Indicates whether the key is available for use.
+	// Experimental.
 	Enabled *bool `json:"enabled"`
 	// Indicates whether AWS KMS rotates the key.
+	// Experimental.
 	EnableKeyRotation *bool `json:"enableKeyRotation"`
 	// The cryptographic configuration of the key. The valid value depends on usage of the key.
 	//
 	// IMPORTANT: If you change this property of an existing key, the existing key is scheduled for deletion
 	// and a new key is created with the specified value.
+	// Experimental.
 	KeySpec KeySpec `json:"keySpec"`
 	// The cryptographic operations for which the key can be used.
 	//
 	// IMPORTANT: If you change this property of an existing key, the existing key is scheduled for deletion
 	// and a new key is created with the specified value.
+	// Experimental.
 	KeyUsage KeyUsage `json:"keyUsage"`
 	// Specifies the number of days in the waiting period before AWS KMS deletes a CMK that has been removed from a CloudFormation stack.
 	//
@@ -2860,24 +3683,41 @@ type KeyProps struct {
 	// Enter a value between 7 and 30 days.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-pendingwindowindays
 	//
+	// Experimental.
 	PendingWindow awscdk.Duration `json:"pendingWindow"`
 	// Custom policy document to attach to the KMS key.
 	//
 	// NOTE - If the `@aws-cdk/aws-kms:defaultKeyPolicies` feature flag is set (the default for new projects),
 	// this policy will *override* the default key policy and become the only key policy for the key. If the
 	// feature flag is not set, this policy will be appended to the default key policy.
+	// Experimental.
 	Policy awsiam.PolicyDocument `json:"policy"`
 	// Whether the encryption key should be retained when it is removed from the Stack.
 	//
 	// This is useful when one wants to
 	// retain access to data that was encrypted with a key that is being retired.
+	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
+	// Whether the key usage can be granted by IAM policies.
+	//
+	// Setting this to true adds a default statement which delegates key
+	// access control completely to the identity's IAM policy (similar
+	// to how it works for other AWS resources). This matches the default behavior
+	// when creating KMS keys via the API or console.
+	//
+	// If the `@aws-cdk/aws-kms:defaultKeyPolicies` feature flag is set (the default for new projects),
+	// this flag will always be treated as 'true' and does not need to be explicitly set.
+	// See: https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam
+	//
+	// Deprecated: redundant with the `@aws-cdk/aws-kms:defaultKeyPolicies` feature flag
+	TrustAccountIdentities *bool `json:"trustAccountIdentities"`
 }
 
 // The key spec, represents the cryptographic configuration of keys.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type KeySpec string
 
 const (
@@ -2895,6 +3735,7 @@ const (
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type KeyUsage string
 
 const (
@@ -2906,17 +3747,20 @@ const (
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type ViaServicePrincipal interface {
 	awsiam.PrincipalBase
 	AssumeRoleAction() *string
 	GrantPrincipal() awsiam.IPrincipal
 	PolicyFragment() awsiam.PrincipalPolicyFragment
 	PrincipalAccount() *string
+	AddToAssumeRolePolicy(document awsiam.PolicyDocument)
 	AddToPolicy(statement awsiam.PolicyStatement) *bool
 	AddToPrincipalPolicy(_statement awsiam.PolicyStatement) *awsiam.AddToPrincipalPolicyResult
 	ToJSON() *map[string]*[]*string
 	ToString() *string
-	WithConditions(conditions *map[string]interface{}) awsiam.IPrincipal
+	WithConditions(conditions *map[string]interface{}) awsiam.PrincipalBase
+	WithSessionTags() awsiam.PrincipalBase
 }
 
 // The jsii proxy struct for ViaServicePrincipal
@@ -2965,13 +3809,14 @@ func (j *jsiiProxy_ViaServicePrincipal) PrincipalAccount() *string {
 }
 
 
+// Experimental.
 func NewViaServicePrincipal(serviceName *string, basePrincipal awsiam.IPrincipal) ViaServicePrincipal {
 	_init_.Initialize()
 
 	j := jsiiProxy_ViaServicePrincipal{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kms.ViaServicePrincipal",
+		"monocdk.aws_kms.ViaServicePrincipal",
 		[]interface{}{serviceName, basePrincipal},
 		&j,
 	)
@@ -2979,17 +3824,32 @@ func NewViaServicePrincipal(serviceName *string, basePrincipal awsiam.IPrincipal
 	return &j
 }
 
+// Experimental.
 func NewViaServicePrincipal_Override(v ViaServicePrincipal, serviceName *string, basePrincipal awsiam.IPrincipal) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kms.ViaServicePrincipal",
+		"monocdk.aws_kms.ViaServicePrincipal",
 		[]interface{}{serviceName, basePrincipal},
 		v,
 	)
 }
 
+// Add the princpial to the AssumeRolePolicyDocument.
+//
+// Add the statements to the AssumeRolePolicyDocument necessary to give this principal
+// permissions to assume the given role.
+// Experimental.
+func (v *jsiiProxy_ViaServicePrincipal) AddToAssumeRolePolicy(document awsiam.PolicyDocument) {
+	_jsii_.InvokeVoid(
+		v,
+		"addToAssumeRolePolicy",
+		[]interface{}{document},
+	)
+}
+
 // Add to the policy of this principal.
+// Experimental.
 func (v *jsiiProxy_ViaServicePrincipal) AddToPolicy(statement awsiam.PolicyStatement) *bool {
 	var returns *bool
 
@@ -3004,6 +3864,7 @@ func (v *jsiiProxy_ViaServicePrincipal) AddToPolicy(statement awsiam.PolicyState
 }
 
 // Add to the policy of this principal.
+// Experimental.
 func (v *jsiiProxy_ViaServicePrincipal) AddToPrincipalPolicy(_statement awsiam.PolicyStatement) *awsiam.AddToPrincipalPolicyResult {
 	var returns *awsiam.AddToPrincipalPolicyResult
 
@@ -3020,6 +3881,7 @@ func (v *jsiiProxy_ViaServicePrincipal) AddToPrincipalPolicy(_statement awsiam.P
 // JSON-ify the principal.
 //
 // Used when JSON.stringify() is called
+// Experimental.
 func (v *jsiiProxy_ViaServicePrincipal) ToJSON() *map[string]*[]*string {
 	var returns *map[string]*[]*string
 
@@ -3034,6 +3896,7 @@ func (v *jsiiProxy_ViaServicePrincipal) ToJSON() *map[string]*[]*string {
 }
 
 // Returns a string representation of an object.
+// Experimental.
 func (v *jsiiProxy_ViaServicePrincipal) ToString() *string {
 	var returns *string
 
@@ -3053,13 +3916,31 @@ func (v *jsiiProxy_ViaServicePrincipal) ToString() *string {
 // conditions parameter, the value from the conditions parameter will be used.
 //
 // Returns: a new PrincipalWithConditions object.
-func (v *jsiiProxy_ViaServicePrincipal) WithConditions(conditions *map[string]interface{}) awsiam.IPrincipal {
-	var returns awsiam.IPrincipal
+// Experimental.
+func (v *jsiiProxy_ViaServicePrincipal) WithConditions(conditions *map[string]interface{}) awsiam.PrincipalBase {
+	var returns awsiam.PrincipalBase
 
 	_jsii_.Invoke(
 		v,
 		"withConditions",
 		[]interface{}{conditions},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns a new principal using this principal as the base, with session tags enabled.
+//
+// Returns: a new SessionTagsPrincipal object.
+// Experimental.
+func (v *jsiiProxy_ViaServicePrincipal) WithSessionTags() awsiam.PrincipalBase {
+	var returns awsiam.PrincipalBase
+
+	_jsii_.Invoke(
+		v,
+		"withSessionTags",
+		nil, // no parameters
 		&returns,
 	)
 

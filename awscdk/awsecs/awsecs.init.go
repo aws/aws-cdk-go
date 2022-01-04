@@ -8,15 +8,15 @@ import (
 
 func init() {
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.AddAutoScalingGroupCapacityOptions",
+		"monocdk.aws_ecs.AddAutoScalingGroupCapacityOptions",
 		reflect.TypeOf((*AddAutoScalingGroupCapacityOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.AddCapacityOptions",
+		"monocdk.aws_ecs.AddCapacityOptions",
 		reflect.TypeOf((*AddCapacityOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_ecs.AmiHardwareType",
+		"monocdk.aws_ecs.AmiHardwareType",
 		reflect.TypeOf((*AmiHardwareType)(nil)).Elem(),
 		map[string]interface{}{
 			"STANDARD": AmiHardwareType_STANDARD,
@@ -25,7 +25,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.AppMeshProxyConfiguration",
+		"monocdk.aws_ecs.AppMeshProxyConfiguration",
 		reflect.TypeOf((*AppMeshProxyConfiguration)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -37,15 +37,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.AppMeshProxyConfigurationConfigProps",
+		"monocdk.aws_ecs.AppMeshProxyConfigurationConfigProps",
 		reflect.TypeOf((*AppMeshProxyConfigurationConfigProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.AppMeshProxyConfigurationProps",
+		"monocdk.aws_ecs.AppMeshProxyConfigurationProps",
 		reflect.TypeOf((*AppMeshProxyConfigurationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.AsgCapacityProvider",
+		"monocdk.aws_ecs.AsgCapacityProvider",
 		reflect.TypeOf((*AsgCapacityProvider)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "autoScalingGroup", GoGetter: "AutoScalingGroup"},
@@ -53,20 +53,26 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "enableManagedTerminationProtection", GoGetter: "EnableManagedTerminationProtection"},
 			_jsii_.MemberProperty{JsiiProperty: "machineImageType", GoGetter: "MachineImageType"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_AsgCapacityProvider{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkConstruct)
 			return &j
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.AsgCapacityProviderProps",
+		"monocdk.aws_ecs.AsgCapacityProviderProps",
 		reflect.TypeOf((*AsgCapacityProviderProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.AssetEnvironmentFile",
+		"monocdk.aws_ecs.AssetEnvironmentFile",
 		reflect.TypeOf((*AssetEnvironmentFile)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -79,7 +85,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.AssetImage",
+		"monocdk.aws_ecs.AssetImage",
 		reflect.TypeOf((*AssetImage)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -91,19 +97,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.AssetImageProps",
+		"monocdk.aws_ecs.AssetImageProps",
 		reflect.TypeOf((*AssetImageProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.AssociateCloudMapServiceOptions",
+		"monocdk.aws_ecs.AssociateCloudMapServiceOptions",
 		reflect.TypeOf((*AssociateCloudMapServiceOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.AuthorizationConfig",
+		"monocdk.aws_ecs.AuthorizationConfig",
 		reflect.TypeOf((*AuthorizationConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.AwsLogDriver",
+		"monocdk.aws_ecs.AwsLogDriver",
 		reflect.TypeOf((*AwsLogDriver)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -116,7 +122,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_ecs.AwsLogDriverMode",
+		"monocdk.aws_ecs.AwsLogDriverMode",
 		reflect.TypeOf((*AwsLogDriverMode)(nil)).Elem(),
 		map[string]interface{}{
 			"BLOCKING": AwsLogDriverMode_BLOCKING,
@@ -124,15 +130,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.AwsLogDriverProps",
+		"monocdk.aws_ecs.AwsLogDriverProps",
 		reflect.TypeOf((*AwsLogDriverProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.BaseLogDriverProps",
+		"monocdk.aws_ecs.BaseLogDriverProps",
 		reflect.TypeOf((*BaseLogDriverProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.BaseService",
+		"monocdk.aws_ecs.BaseService",
 		reflect.TypeOf((*BaseService)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -144,6 +150,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cloudmapService", GoGetter: "CloudmapService"},
 			_jsii_.MemberProperty{JsiiProperty: "cloudMapService", GoGetter: "CloudMapService"},
 			_jsii_.MemberProperty{JsiiProperty: "cluster", GoGetter: "Cluster"},
+			_jsii_.MemberMethod{JsiiMethod: "configureAwsVpcNetworking", GoMethod: "ConfigureAwsVpcNetworking"},
 			_jsii_.MemberMethod{JsiiMethod: "configureAwsVpcNetworkingWithSecurityGroups", GoMethod: "ConfigureAwsVpcNetworkingWithSecurityGroups"},
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
 			_jsii_.MemberMethod{JsiiMethod: "enableCloudMap", GoMethod: "EnableCloudMap"},
@@ -158,14 +165,20 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricMemoryUtilization", GoMethod: "MetricMemoryUtilization"},
 			_jsii_.MemberProperty{JsiiProperty: "networkConfiguration", GoGetter: "NetworkConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "registerLoadBalancerTargets", GoMethod: "RegisterLoadBalancerTargets"},
 			_jsii_.MemberProperty{JsiiProperty: "serviceArn", GoGetter: "ServiceArn"},
 			_jsii_.MemberProperty{JsiiProperty: "serviceName", GoGetter: "ServiceName"},
 			_jsii_.MemberProperty{JsiiProperty: "serviceRegistries", GoGetter: "ServiceRegistries"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskDefinition", GoGetter: "TaskDefinition"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_BaseService{}
@@ -178,15 +191,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.BaseServiceOptions",
+		"monocdk.aws_ecs.BaseServiceOptions",
 		reflect.TypeOf((*BaseServiceOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.BaseServiceProps",
+		"monocdk.aws_ecs.BaseServiceProps",
 		reflect.TypeOf((*BaseServiceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_ecs.BinPackResource",
+		"monocdk.aws_ecs.BinPackResource",
 		reflect.TypeOf((*BinPackResource)(nil)).Elem(),
 		map[string]interface{}{
 			"CPU": BinPackResource_CPU,
@@ -194,7 +207,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.BottleRocketImage",
+		"monocdk.aws_ecs.BottleRocketImage",
 		reflect.TypeOf((*BottleRocketImage)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "getImage", GoMethod: "GetImage"},
@@ -206,18 +219,18 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.BottleRocketImageProps",
+		"monocdk.aws_ecs.BottleRocketImageProps",
 		reflect.TypeOf((*BottleRocketImageProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_ecs.BottlerocketEcsVariant",
+		"monocdk.aws_ecs.BottlerocketEcsVariant",
 		reflect.TypeOf((*BottlerocketEcsVariant)(nil)).Elem(),
 		map[string]interface{}{
 			"AWS_ECS_1": BottlerocketEcsVariant_AWS_ECS_1,
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.BuiltInAttributes",
+		"monocdk.aws_ecs.BuiltInAttributes",
 		reflect.TypeOf((*BuiltInAttributes)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
@@ -225,7 +238,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_ecs.Capability",
+		"monocdk.aws_ecs.Capability",
 		reflect.TypeOf((*Capability)(nil)).Elem(),
 		map[string]interface{}{
 			"ALL": Capability_ALL,
@@ -269,11 +282,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CapacityProviderStrategy",
+		"monocdk.aws_ecs.CapacityProviderStrategy",
 		reflect.TypeOf((*CapacityProviderStrategy)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.CfnCapacityProvider",
+		"monocdk.aws_ecs.CfnCapacityProvider",
 		reflect.TypeOf((*CfnCapacityProvider)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -294,14 +307,20 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -312,19 +331,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnCapacityProvider.AutoScalingGroupProviderProperty",
+		"monocdk.aws_ecs.CfnCapacityProvider.AutoScalingGroupProviderProperty",
 		reflect.TypeOf((*CfnCapacityProvider_AutoScalingGroupProviderProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnCapacityProvider.ManagedScalingProperty",
+		"monocdk.aws_ecs.CfnCapacityProvider.ManagedScalingProperty",
 		reflect.TypeOf((*CfnCapacityProvider_ManagedScalingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnCapacityProviderProps",
+		"monocdk.aws_ecs.CfnCapacityProviderProps",
 		reflect.TypeOf((*CfnCapacityProviderProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.CfnCluster",
+		"monocdk.aws_ecs.CfnCluster",
 		reflect.TypeOf((*CfnCluster)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -349,14 +368,20 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -367,27 +392,27 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnCluster.CapacityProviderStrategyItemProperty",
+		"monocdk.aws_ecs.CfnCluster.CapacityProviderStrategyItemProperty",
 		reflect.TypeOf((*CfnCluster_CapacityProviderStrategyItemProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnCluster.ClusterConfigurationProperty",
+		"monocdk.aws_ecs.CfnCluster.ClusterConfigurationProperty",
 		reflect.TypeOf((*CfnCluster_ClusterConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnCluster.ClusterSettingsProperty",
+		"monocdk.aws_ecs.CfnCluster.ClusterSettingsProperty",
 		reflect.TypeOf((*CfnCluster_ClusterSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnCluster.ExecuteCommandConfigurationProperty",
+		"monocdk.aws_ecs.CfnCluster.ExecuteCommandConfigurationProperty",
 		reflect.TypeOf((*CfnCluster_ExecuteCommandConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnCluster.ExecuteCommandLogConfigurationProperty",
+		"monocdk.aws_ecs.CfnCluster.ExecuteCommandLogConfigurationProperty",
 		reflect.TypeOf((*CfnCluster_ExecuteCommandLogConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.CfnClusterCapacityProviderAssociations",
+		"monocdk.aws_ecs.CfnClusterCapacityProviderAssociations",
 		reflect.TypeOf((*CfnClusterCapacityProviderAssociations)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -409,13 +434,19 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -426,19 +457,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnClusterCapacityProviderAssociations.CapacityProviderStrategyProperty",
+		"monocdk.aws_ecs.CfnClusterCapacityProviderAssociations.CapacityProviderStrategyProperty",
 		reflect.TypeOf((*CfnClusterCapacityProviderAssociations_CapacityProviderStrategyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnClusterCapacityProviderAssociationsProps",
+		"monocdk.aws_ecs.CfnClusterCapacityProviderAssociationsProps",
 		reflect.TypeOf((*CfnClusterCapacityProviderAssociationsProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnClusterProps",
+		"monocdk.aws_ecs.CfnClusterProps",
 		reflect.TypeOf((*CfnClusterProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.CfnPrimaryTaskSet",
+		"monocdk.aws_ecs.CfnPrimaryTaskSet",
 		reflect.TypeOf((*CfnPrimaryTaskSet)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -458,15 +489,21 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "service", GoGetter: "Service"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskSetId", GoGetter: "TaskSetId"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -477,11 +514,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnPrimaryTaskSetProps",
+		"monocdk.aws_ecs.CfnPrimaryTaskSetProps",
 		reflect.TypeOf((*CfnPrimaryTaskSetProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.CfnService",
+		"monocdk.aws_ecs.CfnService",
 		reflect.TypeOf((*CfnService)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -513,10 +550,14 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "networkConfiguration", GoGetter: "NetworkConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "placementConstraints", GoGetter: "PlacementConstraints"},
 			_jsii_.MemberProperty{JsiiProperty: "placementStrategies", GoGetter: "PlacementStrategies"},
 			_jsii_.MemberProperty{JsiiProperty: "platformVersion", GoGetter: "PlatformVersion"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "propagateTags", GoGetter: "PropagateTags"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
@@ -526,10 +567,12 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "serviceRegistries", GoGetter: "ServiceRegistries"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "taskDefinition", GoGetter: "TaskDefinition"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -540,51 +583,51 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnService.AwsVpcConfigurationProperty",
+		"monocdk.aws_ecs.CfnService.AwsVpcConfigurationProperty",
 		reflect.TypeOf((*CfnService_AwsVpcConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnService.CapacityProviderStrategyItemProperty",
+		"monocdk.aws_ecs.CfnService.CapacityProviderStrategyItemProperty",
 		reflect.TypeOf((*CfnService_CapacityProviderStrategyItemProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnService.DeploymentCircuitBreakerProperty",
+		"monocdk.aws_ecs.CfnService.DeploymentCircuitBreakerProperty",
 		reflect.TypeOf((*CfnService_DeploymentCircuitBreakerProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnService.DeploymentConfigurationProperty",
+		"monocdk.aws_ecs.CfnService.DeploymentConfigurationProperty",
 		reflect.TypeOf((*CfnService_DeploymentConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnService.DeploymentControllerProperty",
+		"monocdk.aws_ecs.CfnService.DeploymentControllerProperty",
 		reflect.TypeOf((*CfnService_DeploymentControllerProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnService.LoadBalancerProperty",
+		"monocdk.aws_ecs.CfnService.LoadBalancerProperty",
 		reflect.TypeOf((*CfnService_LoadBalancerProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnService.NetworkConfigurationProperty",
+		"monocdk.aws_ecs.CfnService.NetworkConfigurationProperty",
 		reflect.TypeOf((*CfnService_NetworkConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnService.PlacementConstraintProperty",
+		"monocdk.aws_ecs.CfnService.PlacementConstraintProperty",
 		reflect.TypeOf((*CfnService_PlacementConstraintProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnService.PlacementStrategyProperty",
+		"monocdk.aws_ecs.CfnService.PlacementStrategyProperty",
 		reflect.TypeOf((*CfnService_PlacementStrategyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnService.ServiceRegistryProperty",
+		"monocdk.aws_ecs.CfnService.ServiceRegistryProperty",
 		reflect.TypeOf((*CfnService_ServiceRegistryProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnServiceProps",
+		"monocdk.aws_ecs.CfnServiceProps",
 		reflect.TypeOf((*CfnServiceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.CfnTaskDefinition",
+		"monocdk.aws_ecs.CfnTaskDefinition",
 		reflect.TypeOf((*CfnTaskDefinition)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -613,9 +656,13 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "memory", GoGetter: "Memory"},
 			_jsii_.MemberProperty{JsiiProperty: "networkMode", GoGetter: "NetworkMode"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "pidMode", GoGetter: "PidMode"},
 			_jsii_.MemberProperty{JsiiProperty: "placementConstraints", GoGetter: "PlacementConstraints"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "proxyConfiguration", GoGetter: "ProxyConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
@@ -623,10 +670,12 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "runtimePlatform", GoGetter: "RuntimePlatform"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "taskRoleArn", GoGetter: "TaskRoleArn"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "volumes", GoGetter: "Volumes"},
 		},
@@ -638,131 +687,131 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnTaskDefinition.AuthorizationConfigProperty",
+		"monocdk.aws_ecs.CfnTaskDefinition.AuthorizationConfigProperty",
 		reflect.TypeOf((*CfnTaskDefinition_AuthorizationConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnTaskDefinition.ContainerDefinitionProperty",
+		"monocdk.aws_ecs.CfnTaskDefinition.ContainerDefinitionProperty",
 		reflect.TypeOf((*CfnTaskDefinition_ContainerDefinitionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnTaskDefinition.ContainerDependencyProperty",
+		"monocdk.aws_ecs.CfnTaskDefinition.ContainerDependencyProperty",
 		reflect.TypeOf((*CfnTaskDefinition_ContainerDependencyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnTaskDefinition.DeviceProperty",
+		"monocdk.aws_ecs.CfnTaskDefinition.DeviceProperty",
 		reflect.TypeOf((*CfnTaskDefinition_DeviceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnTaskDefinition.DockerVolumeConfigurationProperty",
+		"monocdk.aws_ecs.CfnTaskDefinition.DockerVolumeConfigurationProperty",
 		reflect.TypeOf((*CfnTaskDefinition_DockerVolumeConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnTaskDefinition.EfsVolumeConfigurationProperty",
+		"monocdk.aws_ecs.CfnTaskDefinition.EfsVolumeConfigurationProperty",
 		reflect.TypeOf((*CfnTaskDefinition_EfsVolumeConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnTaskDefinition.EnvironmentFileProperty",
+		"monocdk.aws_ecs.CfnTaskDefinition.EnvironmentFileProperty",
 		reflect.TypeOf((*CfnTaskDefinition_EnvironmentFileProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnTaskDefinition.EphemeralStorageProperty",
+		"monocdk.aws_ecs.CfnTaskDefinition.EphemeralStorageProperty",
 		reflect.TypeOf((*CfnTaskDefinition_EphemeralStorageProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnTaskDefinition.FirelensConfigurationProperty",
+		"monocdk.aws_ecs.CfnTaskDefinition.FirelensConfigurationProperty",
 		reflect.TypeOf((*CfnTaskDefinition_FirelensConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnTaskDefinition.HealthCheckProperty",
+		"monocdk.aws_ecs.CfnTaskDefinition.HealthCheckProperty",
 		reflect.TypeOf((*CfnTaskDefinition_HealthCheckProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnTaskDefinition.HostEntryProperty",
+		"monocdk.aws_ecs.CfnTaskDefinition.HostEntryProperty",
 		reflect.TypeOf((*CfnTaskDefinition_HostEntryProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnTaskDefinition.HostVolumePropertiesProperty",
+		"monocdk.aws_ecs.CfnTaskDefinition.HostVolumePropertiesProperty",
 		reflect.TypeOf((*CfnTaskDefinition_HostVolumePropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnTaskDefinition.InferenceAcceleratorProperty",
+		"monocdk.aws_ecs.CfnTaskDefinition.InferenceAcceleratorProperty",
 		reflect.TypeOf((*CfnTaskDefinition_InferenceAcceleratorProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnTaskDefinition.KernelCapabilitiesProperty",
+		"monocdk.aws_ecs.CfnTaskDefinition.KernelCapabilitiesProperty",
 		reflect.TypeOf((*CfnTaskDefinition_KernelCapabilitiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnTaskDefinition.KeyValuePairProperty",
+		"monocdk.aws_ecs.CfnTaskDefinition.KeyValuePairProperty",
 		reflect.TypeOf((*CfnTaskDefinition_KeyValuePairProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnTaskDefinition.LinuxParametersProperty",
+		"monocdk.aws_ecs.CfnTaskDefinition.LinuxParametersProperty",
 		reflect.TypeOf((*CfnTaskDefinition_LinuxParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnTaskDefinition.LogConfigurationProperty",
+		"monocdk.aws_ecs.CfnTaskDefinition.LogConfigurationProperty",
 		reflect.TypeOf((*CfnTaskDefinition_LogConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnTaskDefinition.MountPointProperty",
+		"monocdk.aws_ecs.CfnTaskDefinition.MountPointProperty",
 		reflect.TypeOf((*CfnTaskDefinition_MountPointProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnTaskDefinition.PortMappingProperty",
+		"monocdk.aws_ecs.CfnTaskDefinition.PortMappingProperty",
 		reflect.TypeOf((*CfnTaskDefinition_PortMappingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnTaskDefinition.ProxyConfigurationProperty",
+		"monocdk.aws_ecs.CfnTaskDefinition.ProxyConfigurationProperty",
 		reflect.TypeOf((*CfnTaskDefinition_ProxyConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnTaskDefinition.RepositoryCredentialsProperty",
+		"monocdk.aws_ecs.CfnTaskDefinition.RepositoryCredentialsProperty",
 		reflect.TypeOf((*CfnTaskDefinition_RepositoryCredentialsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnTaskDefinition.ResourceRequirementProperty",
+		"monocdk.aws_ecs.CfnTaskDefinition.ResourceRequirementProperty",
 		reflect.TypeOf((*CfnTaskDefinition_ResourceRequirementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnTaskDefinition.RuntimePlatformProperty",
+		"monocdk.aws_ecs.CfnTaskDefinition.RuntimePlatformProperty",
 		reflect.TypeOf((*CfnTaskDefinition_RuntimePlatformProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnTaskDefinition.SecretProperty",
+		"monocdk.aws_ecs.CfnTaskDefinition.SecretProperty",
 		reflect.TypeOf((*CfnTaskDefinition_SecretProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnTaskDefinition.SystemControlProperty",
+		"monocdk.aws_ecs.CfnTaskDefinition.SystemControlProperty",
 		reflect.TypeOf((*CfnTaskDefinition_SystemControlProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnTaskDefinition.TaskDefinitionPlacementConstraintProperty",
+		"monocdk.aws_ecs.CfnTaskDefinition.TaskDefinitionPlacementConstraintProperty",
 		reflect.TypeOf((*CfnTaskDefinition_TaskDefinitionPlacementConstraintProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnTaskDefinition.TmpfsProperty",
+		"monocdk.aws_ecs.CfnTaskDefinition.TmpfsProperty",
 		reflect.TypeOf((*CfnTaskDefinition_TmpfsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnTaskDefinition.UlimitProperty",
+		"monocdk.aws_ecs.CfnTaskDefinition.UlimitProperty",
 		reflect.TypeOf((*CfnTaskDefinition_UlimitProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnTaskDefinition.VolumeFromProperty",
+		"monocdk.aws_ecs.CfnTaskDefinition.VolumeFromProperty",
 		reflect.TypeOf((*CfnTaskDefinition_VolumeFromProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnTaskDefinition.VolumeProperty",
+		"monocdk.aws_ecs.CfnTaskDefinition.VolumeProperty",
 		reflect.TypeOf((*CfnTaskDefinition_VolumeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnTaskDefinitionProps",
+		"monocdk.aws_ecs.CfnTaskDefinitionProps",
 		reflect.TypeOf((*CfnTaskDefinitionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.CfnTaskSet",
+		"monocdk.aws_ecs.CfnTaskSet",
 		reflect.TypeOf((*CfnTaskSet)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -787,8 +836,12 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "networkConfiguration", GoGetter: "NetworkConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "platformVersion", GoGetter: "PlatformVersion"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "scale", GoGetter: "Scale"},
@@ -796,9 +849,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "serviceRegistries", GoGetter: "ServiceRegistries"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskDefinition", GoGetter: "TaskDefinition"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -809,43 +864,45 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnTaskSet.AwsVpcConfigurationProperty",
+		"monocdk.aws_ecs.CfnTaskSet.AwsVpcConfigurationProperty",
 		reflect.TypeOf((*CfnTaskSet_AwsVpcConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnTaskSet.LoadBalancerProperty",
+		"monocdk.aws_ecs.CfnTaskSet.LoadBalancerProperty",
 		reflect.TypeOf((*CfnTaskSet_LoadBalancerProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnTaskSet.NetworkConfigurationProperty",
+		"monocdk.aws_ecs.CfnTaskSet.NetworkConfigurationProperty",
 		reflect.TypeOf((*CfnTaskSet_NetworkConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnTaskSet.ScaleProperty",
+		"monocdk.aws_ecs.CfnTaskSet.ScaleProperty",
 		reflect.TypeOf((*CfnTaskSet_ScaleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnTaskSet.ServiceRegistryProperty",
+		"monocdk.aws_ecs.CfnTaskSet.ServiceRegistryProperty",
 		reflect.TypeOf((*CfnTaskSet_ServiceRegistryProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CfnTaskSetProps",
+		"monocdk.aws_ecs.CfnTaskSetProps",
 		reflect.TypeOf((*CfnTaskSetProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CloudMapNamespaceOptions",
+		"monocdk.aws_ecs.CloudMapNamespaceOptions",
 		reflect.TypeOf((*CloudMapNamespaceOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CloudMapOptions",
+		"monocdk.aws_ecs.CloudMapOptions",
 		reflect.TypeOf((*CloudMapOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.Cluster",
+		"monocdk.aws_ecs.Cluster",
 		reflect.TypeOf((*Cluster)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addAsgCapacityProvider", GoMethod: "AddAsgCapacityProvider"},
+			_jsii_.MemberMethod{JsiiMethod: "addAutoScalingGroup", GoMethod: "AddAutoScalingGroup"},
 			_jsii_.MemberMethod{JsiiMethod: "addCapacity", GoMethod: "AddCapacity"},
+			_jsii_.MemberMethod{JsiiMethod: "addCapacityProvider", GoMethod: "AddCapacityProvider"},
 			_jsii_.MemberMethod{JsiiMethod: "addDefaultCloudMapNamespace", GoMethod: "AddDefaultCloudMapNamespace"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "autoscalingGroup", GoGetter: "AutoscalingGroup"},
@@ -866,9 +923,15 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricMemoryReservation", GoMethod: "MetricMemoryReservation"},
 			_jsii_.MemberMethod{JsiiMethod: "metricMemoryUtilization", GoMethod: "MetricMemoryUtilization"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberProperty{JsiiProperty: "vpc", GoGetter: "Vpc"},
 		},
 		func() interface{} {
@@ -879,33 +942,33 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.ClusterAttributes",
+		"monocdk.aws_ecs.ClusterAttributes",
 		reflect.TypeOf((*ClusterAttributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.ClusterProps",
+		"monocdk.aws_ecs.ClusterProps",
 		reflect.TypeOf((*ClusterProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CommonTaskDefinitionAttributes",
+		"monocdk.aws_ecs.CommonTaskDefinitionAttributes",
 		reflect.TypeOf((*CommonTaskDefinitionAttributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CommonTaskDefinitionProps",
+		"monocdk.aws_ecs.CommonTaskDefinitionProps",
 		reflect.TypeOf((*CommonTaskDefinitionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_ecs.Compatibility",
+		"monocdk.aws_ecs.Compatibility",
 		reflect.TypeOf((*Compatibility)(nil)).Elem(),
 		map[string]interface{}{
 			"EC2": Compatibility_EC2,
+			"FARGATE": Compatibility_FARGATE,
 			"EC2_AND_FARGATE": Compatibility_EC2_AND_FARGATE,
 			"EXTERNAL": Compatibility_EXTERNAL,
-			"FARGATE": Compatibility_FARGATE,
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.ContainerDefinition",
+		"monocdk.aws_ecs.ContainerDefinition",
 		reflect.TypeOf((*ContainerDefinition)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addContainerDependencies", GoMethod: "AddContainerDependencies"},
@@ -930,44 +993,50 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "memoryLimitSpecified", GoGetter: "MemoryLimitSpecified"},
 			_jsii_.MemberProperty{JsiiProperty: "mountPoints", GoGetter: "MountPoints"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "portMappings", GoGetter: "PortMappings"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "referencesSecretJsonField", GoGetter: "ReferencesSecretJsonField"},
 			_jsii_.MemberMethod{JsiiMethod: "renderContainerDefinition", GoMethod: "RenderContainerDefinition"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskDefinition", GoGetter: "TaskDefinition"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "ulimits", GoGetter: "Ulimits"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberProperty{JsiiProperty: "volumesFrom", GoGetter: "VolumesFrom"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ContainerDefinition{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkConstruct)
 			return &j
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.ContainerDefinitionOptions",
+		"monocdk.aws_ecs.ContainerDefinitionOptions",
 		reflect.TypeOf((*ContainerDefinitionOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.ContainerDefinitionProps",
+		"monocdk.aws_ecs.ContainerDefinitionProps",
 		reflect.TypeOf((*ContainerDefinitionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.ContainerDependency",
+		"monocdk.aws_ecs.ContainerDependency",
 		reflect.TypeOf((*ContainerDependency)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_ecs.ContainerDependencyCondition",
+		"monocdk.aws_ecs.ContainerDependencyCondition",
 		reflect.TypeOf((*ContainerDependencyCondition)(nil)).Elem(),
 		map[string]interface{}{
-			"COMPLETE": ContainerDependencyCondition_COMPLETE,
-			"HEALTHY": ContainerDependencyCondition_HEALTHY,
 			"START": ContainerDependencyCondition_START,
+			"COMPLETE": ContainerDependencyCondition_COMPLETE,
 			"SUCCESS": ContainerDependencyCondition_SUCCESS,
+			"HEALTHY": ContainerDependencyCondition_HEALTHY,
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.ContainerImage",
+		"monocdk.aws_ecs.ContainerImage",
 		reflect.TypeOf((*ContainerImage)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -977,49 +1046,49 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.ContainerImageConfig",
+		"monocdk.aws_ecs.ContainerImageConfig",
 		reflect.TypeOf((*ContainerImageConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.CpuUtilizationScalingProps",
+		"monocdk.aws_ecs.CpuUtilizationScalingProps",
 		reflect.TypeOf((*CpuUtilizationScalingProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.DeploymentCircuitBreaker",
+		"monocdk.aws_ecs.DeploymentCircuitBreaker",
 		reflect.TypeOf((*DeploymentCircuitBreaker)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.DeploymentController",
+		"monocdk.aws_ecs.DeploymentController",
 		reflect.TypeOf((*DeploymentController)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_ecs.DeploymentControllerType",
+		"monocdk.aws_ecs.DeploymentControllerType",
 		reflect.TypeOf((*DeploymentControllerType)(nil)).Elem(),
 		map[string]interface{}{
-			"CODE_DEPLOY": DeploymentControllerType_CODE_DEPLOY,
 			"ECS": DeploymentControllerType_ECS,
+			"CODE_DEPLOY": DeploymentControllerType_CODE_DEPLOY,
 			"EXTERNAL": DeploymentControllerType_EXTERNAL,
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.Device",
+		"monocdk.aws_ecs.Device",
 		reflect.TypeOf((*Device)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_ecs.DevicePermission",
+		"monocdk.aws_ecs.DevicePermission",
 		reflect.TypeOf((*DevicePermission)(nil)).Elem(),
 		map[string]interface{}{
-			"MKNOD": DevicePermission_MKNOD,
 			"READ": DevicePermission_READ,
 			"WRITE": DevicePermission_WRITE,
+			"MKNOD": DevicePermission_MKNOD,
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.DockerVolumeConfiguration",
+		"monocdk.aws_ecs.DockerVolumeConfiguration",
 		reflect.TypeOf((*DockerVolumeConfiguration)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.Ec2Service",
+		"monocdk.aws_ecs.Ec2Service",
 		reflect.TypeOf((*Ec2Service)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addPlacementConstraints", GoMethod: "AddPlacementConstraints"},
@@ -1033,6 +1102,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cloudmapService", GoGetter: "CloudmapService"},
 			_jsii_.MemberProperty{JsiiProperty: "cloudMapService", GoGetter: "CloudMapService"},
 			_jsii_.MemberProperty{JsiiProperty: "cluster", GoGetter: "Cluster"},
+			_jsii_.MemberMethod{JsiiMethod: "configureAwsVpcNetworking", GoMethod: "ConfigureAwsVpcNetworking"},
 			_jsii_.MemberMethod{JsiiMethod: "configureAwsVpcNetworkingWithSecurityGroups", GoMethod: "ConfigureAwsVpcNetworkingWithSecurityGroups"},
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
 			_jsii_.MemberMethod{JsiiMethod: "enableCloudMap", GoMethod: "EnableCloudMap"},
@@ -1047,14 +1117,20 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricMemoryUtilization", GoMethod: "MetricMemoryUtilization"},
 			_jsii_.MemberProperty{JsiiProperty: "networkConfiguration", GoGetter: "NetworkConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "registerLoadBalancerTargets", GoMethod: "RegisterLoadBalancerTargets"},
 			_jsii_.MemberProperty{JsiiProperty: "serviceArn", GoGetter: "ServiceArn"},
 			_jsii_.MemberProperty{JsiiProperty: "serviceName", GoGetter: "ServiceName"},
 			_jsii_.MemberProperty{JsiiProperty: "serviceRegistries", GoGetter: "ServiceRegistries"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskDefinition", GoGetter: "TaskDefinition"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_Ec2Service{}
@@ -1064,15 +1140,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.Ec2ServiceAttributes",
+		"monocdk.aws_ecs.Ec2ServiceAttributes",
 		reflect.TypeOf((*Ec2ServiceAttributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.Ec2ServiceProps",
+		"monocdk.aws_ecs.Ec2ServiceProps",
 		reflect.TypeOf((*Ec2ServiceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.Ec2TaskDefinition",
+		"monocdk.aws_ecs.Ec2TaskDefinition",
 		reflect.TypeOf((*Ec2TaskDefinition)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addContainer", GoMethod: "AddContainer"},
@@ -1102,12 +1178,18 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "networkMode", GoGetter: "NetworkMode"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainExecutionRole", GoMethod: "ObtainExecutionRole"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "referencesSecretJsonField", GoGetter: "ReferencesSecretJsonField"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskDefinitionArn", GoGetter: "TaskDefinitionArn"},
 			_jsii_.MemberProperty{JsiiProperty: "taskRole", GoGetter: "TaskRole"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_Ec2TaskDefinition{}
@@ -1117,15 +1199,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.Ec2TaskDefinitionAttributes",
+		"monocdk.aws_ecs.Ec2TaskDefinitionAttributes",
 		reflect.TypeOf((*Ec2TaskDefinitionAttributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.Ec2TaskDefinitionProps",
+		"monocdk.aws_ecs.Ec2TaskDefinitionProps",
 		reflect.TypeOf((*Ec2TaskDefinitionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.EcrImage",
+		"monocdk.aws_ecs.EcrImage",
 		reflect.TypeOf((*EcrImage)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -1138,7 +1220,23 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.EcsOptimizedImage",
+		"monocdk.aws_ecs.EcsOptimizedAmi",
+		reflect.TypeOf((*EcsOptimizedAmi)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "getImage", GoMethod: "GetImage"},
+		},
+		func() interface{} {
+			j := jsiiProxy_EcsOptimizedAmi{}
+			_jsii_.InitJsiiProxy(&j.Type__awsec2IMachineImage)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_ecs.EcsOptimizedAmiProps",
+		reflect.TypeOf((*EcsOptimizedAmiProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"monocdk.aws_ecs.EcsOptimizedImage",
 		reflect.TypeOf((*EcsOptimizedImage)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "getImage", GoMethod: "GetImage"},
@@ -1150,19 +1248,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.EcsOptimizedImageOptions",
+		"monocdk.aws_ecs.EcsOptimizedImageOptions",
 		reflect.TypeOf((*EcsOptimizedImageOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.EcsTarget",
+		"monocdk.aws_ecs.EcsTarget",
 		reflect.TypeOf((*EcsTarget)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.EfsVolumeConfiguration",
+		"monocdk.aws_ecs.EfsVolumeConfiguration",
 		reflect.TypeOf((*EfsVolumeConfiguration)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.EnvironmentFile",
+		"monocdk.aws_ecs.EnvironmentFile",
 		reflect.TypeOf((*EnvironmentFile)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -1172,35 +1270,35 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.EnvironmentFileConfig",
+		"monocdk.aws_ecs.EnvironmentFileConfig",
 		reflect.TypeOf((*EnvironmentFileConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_ecs.EnvironmentFileType",
+		"monocdk.aws_ecs.EnvironmentFileType",
 		reflect.TypeOf((*EnvironmentFileType)(nil)).Elem(),
 		map[string]interface{}{
 			"S3": EnvironmentFileType_S3,
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.ExecuteCommandConfiguration",
+		"monocdk.aws_ecs.ExecuteCommandConfiguration",
 		reflect.TypeOf((*ExecuteCommandConfiguration)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.ExecuteCommandLogConfiguration",
+		"monocdk.aws_ecs.ExecuteCommandLogConfiguration",
 		reflect.TypeOf((*ExecuteCommandLogConfiguration)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_ecs.ExecuteCommandLogging",
+		"monocdk.aws_ecs.ExecuteCommandLogging",
 		reflect.TypeOf((*ExecuteCommandLogging)(nil)).Elem(),
 		map[string]interface{}{
-			"DEFAULT": ExecuteCommandLogging_DEFAULT,
 			"NONE": ExecuteCommandLogging_NONE,
+			"DEFAULT": ExecuteCommandLogging_DEFAULT,
 			"OVERRIDE": ExecuteCommandLogging_OVERRIDE,
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.ExternalService",
+		"monocdk.aws_ecs.ExternalService",
 		reflect.TypeOf((*ExternalService)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -1212,6 +1310,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cloudmapService", GoGetter: "CloudmapService"},
 			_jsii_.MemberProperty{JsiiProperty: "cloudMapService", GoGetter: "CloudMapService"},
 			_jsii_.MemberProperty{JsiiProperty: "cluster", GoGetter: "Cluster"},
+			_jsii_.MemberMethod{JsiiMethod: "configureAwsVpcNetworking", GoMethod: "ConfigureAwsVpcNetworking"},
 			_jsii_.MemberMethod{JsiiMethod: "configureAwsVpcNetworkingWithSecurityGroups", GoMethod: "ConfigureAwsVpcNetworkingWithSecurityGroups"},
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
 			_jsii_.MemberMethod{JsiiMethod: "enableCloudMap", GoMethod: "EnableCloudMap"},
@@ -1226,14 +1325,20 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricMemoryUtilization", GoMethod: "MetricMemoryUtilization"},
 			_jsii_.MemberProperty{JsiiProperty: "networkConfiguration", GoGetter: "NetworkConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "registerLoadBalancerTargets", GoMethod: "RegisterLoadBalancerTargets"},
 			_jsii_.MemberProperty{JsiiProperty: "serviceArn", GoGetter: "ServiceArn"},
 			_jsii_.MemberProperty{JsiiProperty: "serviceName", GoGetter: "ServiceName"},
 			_jsii_.MemberProperty{JsiiProperty: "serviceRegistries", GoGetter: "ServiceRegistries"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskDefinition", GoGetter: "TaskDefinition"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ExternalService{}
@@ -1243,15 +1348,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.ExternalServiceAttributes",
+		"monocdk.aws_ecs.ExternalServiceAttributes",
 		reflect.TypeOf((*ExternalServiceAttributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.ExternalServiceProps",
+		"monocdk.aws_ecs.ExternalServiceProps",
 		reflect.TypeOf((*ExternalServiceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.ExternalTaskDefinition",
+		"monocdk.aws_ecs.ExternalTaskDefinition",
 		reflect.TypeOf((*ExternalTaskDefinition)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addContainer", GoMethod: "AddContainer"},
@@ -1281,12 +1386,18 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "networkMode", GoGetter: "NetworkMode"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainExecutionRole", GoMethod: "ObtainExecutionRole"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "referencesSecretJsonField", GoGetter: "ReferencesSecretJsonField"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskDefinitionArn", GoGetter: "TaskDefinitionArn"},
 			_jsii_.MemberProperty{JsiiProperty: "taskRole", GoGetter: "TaskRole"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ExternalTaskDefinition{}
@@ -1296,27 +1407,27 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.ExternalTaskDefinitionAttributes",
+		"monocdk.aws_ecs.ExternalTaskDefinitionAttributes",
 		reflect.TypeOf((*ExternalTaskDefinitionAttributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.ExternalTaskDefinitionProps",
+		"monocdk.aws_ecs.ExternalTaskDefinitionProps",
 		reflect.TypeOf((*ExternalTaskDefinitionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_ecs.FargatePlatformVersion",
+		"monocdk.aws_ecs.FargatePlatformVersion",
 		reflect.TypeOf((*FargatePlatformVersion)(nil)).Elem(),
 		map[string]interface{}{
 			"LATEST": FargatePlatformVersion_LATEST,
-			"VERSION1_0": FargatePlatformVersion_VERSION1_0,
-			"VERSION1_1": FargatePlatformVersion_VERSION1_1,
-			"VERSION1_2": FargatePlatformVersion_VERSION1_2,
-			"VERSION1_3": FargatePlatformVersion_VERSION1_3,
 			"VERSION1_4": FargatePlatformVersion_VERSION1_4,
+			"VERSION1_3": FargatePlatformVersion_VERSION1_3,
+			"VERSION1_2": FargatePlatformVersion_VERSION1_2,
+			"VERSION1_1": FargatePlatformVersion_VERSION1_1,
+			"VERSION1_0": FargatePlatformVersion_VERSION1_0,
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.FargateService",
+		"monocdk.aws_ecs.FargateService",
 		reflect.TypeOf((*FargateService)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -1328,6 +1439,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cloudmapService", GoGetter: "CloudmapService"},
 			_jsii_.MemberProperty{JsiiProperty: "cloudMapService", GoGetter: "CloudMapService"},
 			_jsii_.MemberProperty{JsiiProperty: "cluster", GoGetter: "Cluster"},
+			_jsii_.MemberMethod{JsiiMethod: "configureAwsVpcNetworking", GoMethod: "ConfigureAwsVpcNetworking"},
 			_jsii_.MemberMethod{JsiiMethod: "configureAwsVpcNetworkingWithSecurityGroups", GoMethod: "ConfigureAwsVpcNetworkingWithSecurityGroups"},
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
 			_jsii_.MemberMethod{JsiiMethod: "enableCloudMap", GoMethod: "EnableCloudMap"},
@@ -1342,14 +1454,20 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricMemoryUtilization", GoMethod: "MetricMemoryUtilization"},
 			_jsii_.MemberProperty{JsiiProperty: "networkConfiguration", GoGetter: "NetworkConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "registerLoadBalancerTargets", GoMethod: "RegisterLoadBalancerTargets"},
 			_jsii_.MemberProperty{JsiiProperty: "serviceArn", GoGetter: "ServiceArn"},
 			_jsii_.MemberProperty{JsiiProperty: "serviceName", GoGetter: "ServiceName"},
 			_jsii_.MemberProperty{JsiiProperty: "serviceRegistries", GoGetter: "ServiceRegistries"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskDefinition", GoGetter: "TaskDefinition"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_FargateService{}
@@ -1359,15 +1477,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.FargateServiceAttributes",
+		"monocdk.aws_ecs.FargateServiceAttributes",
 		reflect.TypeOf((*FargateServiceAttributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.FargateServiceProps",
+		"monocdk.aws_ecs.FargateServiceProps",
 		reflect.TypeOf((*FargateServiceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.FargateTaskDefinition",
+		"monocdk.aws_ecs.FargateTaskDefinition",
 		reflect.TypeOf((*FargateTaskDefinition)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addContainer", GoMethod: "AddContainer"},
@@ -1397,12 +1515,18 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "networkMode", GoGetter: "NetworkMode"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainExecutionRole", GoMethod: "ObtainExecutionRole"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "referencesSecretJsonField", GoGetter: "ReferencesSecretJsonField"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskDefinitionArn", GoGetter: "TaskDefinitionArn"},
 			_jsii_.MemberProperty{JsiiProperty: "taskRole", GoGetter: "TaskRole"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_FargateTaskDefinition{}
@@ -1412,15 +1536,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.FargateTaskDefinitionAttributes",
+		"monocdk.aws_ecs.FargateTaskDefinitionAttributes",
 		reflect.TypeOf((*FargateTaskDefinitionAttributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.FargateTaskDefinitionProps",
+		"monocdk.aws_ecs.FargateTaskDefinitionProps",
 		reflect.TypeOf((*FargateTaskDefinitionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.FireLensLogDriver",
+		"monocdk.aws_ecs.FireLensLogDriver",
 		reflect.TypeOf((*FireLensLogDriver)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -1432,23 +1556,23 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.FireLensLogDriverProps",
+		"monocdk.aws_ecs.FireLensLogDriverProps",
 		reflect.TypeOf((*FireLensLogDriverProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.FirelensConfig",
+		"monocdk.aws_ecs.FirelensConfig",
 		reflect.TypeOf((*FirelensConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_ecs.FirelensConfigFileType",
+		"monocdk.aws_ecs.FirelensConfigFileType",
 		reflect.TypeOf((*FirelensConfigFileType)(nil)).Elem(),
 		map[string]interface{}{
-			"FILE": FirelensConfigFileType_FILE,
 			"S3": FirelensConfigFileType_S3,
+			"FILE": FirelensConfigFileType_FILE,
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.FirelensLogRouter",
+		"monocdk.aws_ecs.FirelensLogRouter",
 		reflect.TypeOf((*FirelensLogRouter)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addContainerDependencies", GoMethod: "AddContainerDependencies"},
@@ -1474,12 +1598,18 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "memoryLimitSpecified", GoGetter: "MemoryLimitSpecified"},
 			_jsii_.MemberProperty{JsiiProperty: "mountPoints", GoGetter: "MountPoints"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "portMappings", GoGetter: "PortMappings"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "referencesSecretJsonField", GoGetter: "ReferencesSecretJsonField"},
 			_jsii_.MemberMethod{JsiiMethod: "renderContainerDefinition", GoMethod: "RenderContainerDefinition"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskDefinition", GoGetter: "TaskDefinition"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "ulimits", GoGetter: "Ulimits"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberProperty{JsiiProperty: "volumesFrom", GoGetter: "VolumesFrom"},
 		},
 		func() interface{} {
@@ -1489,15 +1619,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.FirelensLogRouterDefinitionOptions",
+		"monocdk.aws_ecs.FirelensLogRouterDefinitionOptions",
 		reflect.TypeOf((*FirelensLogRouterDefinitionOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.FirelensLogRouterProps",
+		"monocdk.aws_ecs.FirelensLogRouterProps",
 		reflect.TypeOf((*FirelensLogRouterProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_ecs.FirelensLogRouterType",
+		"monocdk.aws_ecs.FirelensLogRouterType",
 		reflect.TypeOf((*FirelensLogRouterType)(nil)).Elem(),
 		map[string]interface{}{
 			"FLUENTBIT": FirelensLogRouterType_FLUENTBIT,
@@ -1505,11 +1635,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.FirelensOptions",
+		"monocdk.aws_ecs.FirelensOptions",
 		reflect.TypeOf((*FirelensOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.FluentdLogDriver",
+		"monocdk.aws_ecs.FluentdLogDriver",
 		reflect.TypeOf((*FluentdLogDriver)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -1521,20 +1651,20 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.FluentdLogDriverProps",
+		"monocdk.aws_ecs.FluentdLogDriverProps",
 		reflect.TypeOf((*FluentdLogDriverProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_ecs.GelfCompressionType",
+		"monocdk.aws_ecs.GelfCompressionType",
 		reflect.TypeOf((*GelfCompressionType)(nil)).Elem(),
 		map[string]interface{}{
 			"GZIP": GelfCompressionType_GZIP,
-			"NONE": GelfCompressionType_NONE,
 			"ZLIB": GelfCompressionType_ZLIB,
+			"NONE": GelfCompressionType_NONE,
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.GelfLogDriver",
+		"monocdk.aws_ecs.GelfLogDriver",
 		reflect.TypeOf((*GelfLogDriver)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -1546,11 +1676,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.GelfLogDriverProps",
+		"monocdk.aws_ecs.GelfLogDriverProps",
 		reflect.TypeOf((*GelfLogDriverProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.GenericLogDriver",
+		"monocdk.aws_ecs.GenericLogDriver",
 		reflect.TypeOf((*GenericLogDriver)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -1562,19 +1692,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.GenericLogDriverProps",
+		"monocdk.aws_ecs.GenericLogDriverProps",
 		reflect.TypeOf((*GenericLogDriverProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.HealthCheck",
+		"monocdk.aws_ecs.HealthCheck",
 		reflect.TypeOf((*HealthCheck)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.Host",
+		"monocdk.aws_ecs.Host",
 		reflect.TypeOf((*Host)(nil)).Elem(),
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ecs.IBaseService",
+		"monocdk.aws_ecs.IBaseService",
 		reflect.TypeOf((*IBaseService)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -1592,7 +1722,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ecs.ICluster",
+		"monocdk.aws_ecs.ICluster",
 		reflect.TypeOf((*ICluster)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -1615,7 +1745,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ecs.IEc2Service",
+		"monocdk.aws_ecs.IEc2Service",
 		reflect.TypeOf((*IEc2Service)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -1632,7 +1762,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ecs.IEc2TaskDefinition",
+		"monocdk.aws_ecs.IEc2TaskDefinition",
 		reflect.TypeOf((*IEc2TaskDefinition)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -1655,7 +1785,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ecs.IEcsLoadBalancerTarget",
+		"monocdk.aws_ecs.IEcsLoadBalancerTarget",
 		reflect.TypeOf((*IEcsLoadBalancerTarget)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "attachToApplicationTargetGroup", GoMethod: "AttachToApplicationTargetGroup"},
@@ -1672,7 +1802,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ecs.IExternalService",
+		"monocdk.aws_ecs.IExternalService",
 		reflect.TypeOf((*IExternalService)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -1689,7 +1819,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ecs.IExternalTaskDefinition",
+		"monocdk.aws_ecs.IExternalTaskDefinition",
 		reflect.TypeOf((*IExternalTaskDefinition)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -1712,7 +1842,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ecs.IFargateService",
+		"monocdk.aws_ecs.IFargateService",
 		reflect.TypeOf((*IFargateService)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -1729,7 +1859,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ecs.IFargateTaskDefinition",
+		"monocdk.aws_ecs.IFargateTaskDefinition",
 		reflect.TypeOf((*IFargateTaskDefinition)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -1752,7 +1882,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ecs.IService",
+		"monocdk.aws_ecs.IService",
 		reflect.TypeOf((*IService)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -1769,7 +1899,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ecs.ITaskDefinition",
+		"monocdk.aws_ecs.ITaskDefinition",
 		reflect.TypeOf((*ITaskDefinition)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -1792,7 +1922,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_ecs.ITaskDefinitionExtension",
+		"monocdk.aws_ecs.ITaskDefinitionExtension",
 		reflect.TypeOf((*ITaskDefinitionExtension)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "extend", GoMethod: "Extend"},
@@ -1802,20 +1932,20 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.InferenceAccelerator",
+		"monocdk.aws_ecs.InferenceAccelerator",
 		reflect.TypeOf((*InferenceAccelerator)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_ecs.IpcMode",
+		"monocdk.aws_ecs.IpcMode",
 		reflect.TypeOf((*IpcMode)(nil)).Elem(),
 		map[string]interface{}{
-			"HOST": IpcMode_HOST,
 			"NONE": IpcMode_NONE,
+			"HOST": IpcMode_HOST,
 			"TASK": IpcMode_TASK,
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.JournaldLogDriver",
+		"monocdk.aws_ecs.JournaldLogDriver",
 		reflect.TypeOf((*JournaldLogDriver)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -1827,11 +1957,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.JournaldLogDriverProps",
+		"monocdk.aws_ecs.JournaldLogDriverProps",
 		reflect.TypeOf((*JournaldLogDriverProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.JsonFileLogDriver",
+		"monocdk.aws_ecs.JsonFileLogDriver",
 		reflect.TypeOf((*JsonFileLogDriver)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -1843,20 +1973,20 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.JsonFileLogDriverProps",
+		"monocdk.aws_ecs.JsonFileLogDriverProps",
 		reflect.TypeOf((*JsonFileLogDriverProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_ecs.LaunchType",
+		"monocdk.aws_ecs.LaunchType",
 		reflect.TypeOf((*LaunchType)(nil)).Elem(),
 		map[string]interface{}{
 			"EC2": LaunchType_EC2,
-			"EXTERNAL": LaunchType_EXTERNAL,
 			"FARGATE": LaunchType_FARGATE,
+			"EXTERNAL": LaunchType_EXTERNAL,
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.LinuxParameters",
+		"monocdk.aws_ecs.LinuxParameters",
 		reflect.TypeOf((*LinuxParameters)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addCapabilities", GoMethod: "AddCapabilities"},
@@ -1864,21 +1994,27 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addTmpfs", GoMethod: "AddTmpfs"},
 			_jsii_.MemberMethod{JsiiMethod: "dropCapabilities", GoMethod: "DropCapabilities"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "renderLinuxParameters", GoMethod: "RenderLinuxParameters"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_LinuxParameters{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkConstruct)
 			return &j
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.LinuxParametersProps",
+		"monocdk.aws_ecs.LinuxParametersProps",
 		reflect.TypeOf((*LinuxParametersProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.ListenerConfig",
+		"monocdk.aws_ecs.ListenerConfig",
 		reflect.TypeOf((*ListenerConfig)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addTargets", GoMethod: "AddTargets"},
@@ -1888,11 +2024,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.LoadBalancerTargetOptions",
+		"monocdk.aws_ecs.LoadBalancerTargetOptions",
 		reflect.TypeOf((*LoadBalancerTargetOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.LogDriver",
+		"monocdk.aws_ecs.LogDriver",
 		reflect.TypeOf((*LogDriver)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -1902,11 +2038,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.LogDriverConfig",
+		"monocdk.aws_ecs.LogDriverConfig",
 		reflect.TypeOf((*LogDriverConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.LogDrivers",
+		"monocdk.aws_ecs.LogDrivers",
 		reflect.TypeOf((*LogDrivers)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
@@ -1914,7 +2050,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_ecs.MachineImageType",
+		"monocdk.aws_ecs.MachineImageType",
 		reflect.TypeOf((*MachineImageType)(nil)).Elem(),
 		map[string]interface{}{
 			"AMAZON_LINUX_2": MachineImageType_AMAZON_LINUX_2,
@@ -1922,26 +2058,26 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.MemoryUtilizationScalingProps",
+		"monocdk.aws_ecs.MemoryUtilizationScalingProps",
 		reflect.TypeOf((*MemoryUtilizationScalingProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.MountPoint",
+		"monocdk.aws_ecs.MountPoint",
 		reflect.TypeOf((*MountPoint)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_ecs.NetworkMode",
+		"monocdk.aws_ecs.NetworkMode",
 		reflect.TypeOf((*NetworkMode)(nil)).Elem(),
 		map[string]interface{}{
-			"AWS_VPC": NetworkMode_AWS_VPC,
+			"NONE": NetworkMode_NONE,
 			"BRIDGE": NetworkMode_BRIDGE,
+			"AWS_VPC": NetworkMode_AWS_VPC,
 			"HOST": NetworkMode_HOST,
 			"NAT": NetworkMode_NAT,
-			"NONE": NetworkMode_NONE,
 		},
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_ecs.PidMode",
+		"monocdk.aws_ecs.PidMode",
 		reflect.TypeOf((*PidMode)(nil)).Elem(),
 		map[string]interface{}{
 			"HOST": PidMode_HOST,
@@ -1949,7 +2085,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.PlacementConstraint",
+		"monocdk.aws_ecs.PlacementConstraint",
 		reflect.TypeOf((*PlacementConstraint)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "toJson", GoMethod: "ToJson"},
@@ -1959,7 +2095,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.PlacementStrategy",
+		"monocdk.aws_ecs.PlacementStrategy",
 		reflect.TypeOf((*PlacementStrategy)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "toJson", GoMethod: "ToJson"},
@@ -1969,20 +2105,20 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.PortMapping",
+		"monocdk.aws_ecs.PortMapping",
 		reflect.TypeOf((*PortMapping)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_ecs.PropagatedTagSource",
+		"monocdk.aws_ecs.PropagatedTagSource",
 		reflect.TypeOf((*PropagatedTagSource)(nil)).Elem(),
 		map[string]interface{}{
-			"NONE": PropagatedTagSource_NONE,
 			"SERVICE": PropagatedTagSource_SERVICE,
 			"TASK_DEFINITION": PropagatedTagSource_TASK_DEFINITION,
+			"NONE": PropagatedTagSource_NONE,
 		},
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_ecs.Protocol",
+		"monocdk.aws_ecs.Protocol",
 		reflect.TypeOf((*Protocol)(nil)).Elem(),
 		map[string]interface{}{
 			"TCP": Protocol_TCP,
@@ -1990,7 +2126,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.ProxyConfiguration",
+		"monocdk.aws_ecs.ProxyConfiguration",
 		reflect.TypeOf((*ProxyConfiguration)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -2000,7 +2136,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.ProxyConfigurations",
+		"monocdk.aws_ecs.ProxyConfigurations",
 		reflect.TypeOf((*ProxyConfigurations)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
@@ -2008,7 +2144,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.RepositoryImage",
+		"monocdk.aws_ecs.RepositoryImage",
 		reflect.TypeOf((*RepositoryImage)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -2020,15 +2156,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.RepositoryImageProps",
+		"monocdk.aws_ecs.RepositoryImageProps",
 		reflect.TypeOf((*RepositoryImageProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.RequestCountScalingProps",
+		"monocdk.aws_ecs.RequestCountScalingProps",
 		reflect.TypeOf((*RequestCountScalingProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.S3EnvironmentFile",
+		"monocdk.aws_ecs.S3EnvironmentFile",
 		reflect.TypeOf((*S3EnvironmentFile)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -2040,13 +2176,17 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.ScalableTaskCount",
+		"monocdk.aws_ecs.ScalableTaskCount",
 		reflect.TypeOf((*ScalableTaskCount)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "doScaleOnMetric", GoMethod: "DoScaleOnMetric"},
 			_jsii_.MemberMethod{JsiiMethod: "doScaleOnSchedule", GoMethod: "DoScaleOnSchedule"},
 			_jsii_.MemberMethod{JsiiMethod: "doScaleToTrackMetric", GoMethod: "DoScaleToTrackMetric"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
 			_jsii_.MemberMethod{JsiiMethod: "scaleOnCpuUtilization", GoMethod: "ScaleOnCpuUtilization"},
 			_jsii_.MemberMethod{JsiiMethod: "scaleOnMemoryUtilization", GoMethod: "ScaleOnMemoryUtilization"},
@@ -2054,7 +2194,9 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "scaleOnRequestCount", GoMethod: "ScaleOnRequestCount"},
 			_jsii_.MemberMethod{JsiiMethod: "scaleOnSchedule", GoMethod: "ScaleOnSchedule"},
 			_jsii_.MemberMethod{JsiiMethod: "scaleToTrackCustomMetric", GoMethod: "ScaleToTrackCustomMetric"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ScalableTaskCount{}
@@ -2063,23 +2205,23 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.ScalableTaskCountProps",
+		"monocdk.aws_ecs.ScalableTaskCountProps",
 		reflect.TypeOf((*ScalableTaskCountProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_ecs.Scope",
+		"monocdk.aws_ecs.Scope",
 		reflect.TypeOf((*Scope)(nil)).Elem(),
 		map[string]interface{}{
-			"SHARED": Scope_SHARED,
 			"TASK": Scope_TASK,
+			"SHARED": Scope_SHARED,
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.ScratchSpace",
+		"monocdk.aws_ecs.ScratchSpace",
 		reflect.TypeOf((*ScratchSpace)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.Secret",
+		"monocdk.aws_ecs.Secret",
 		reflect.TypeOf((*Secret)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "arn", GoGetter: "Arn"},
@@ -2091,7 +2233,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.SplunkLogDriver",
+		"monocdk.aws_ecs.SplunkLogDriver",
 		reflect.TypeOf((*SplunkLogDriver)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -2103,11 +2245,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.SplunkLogDriverProps",
+		"monocdk.aws_ecs.SplunkLogDriverProps",
 		reflect.TypeOf((*SplunkLogDriverProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_ecs.SplunkLogFormat",
+		"monocdk.aws_ecs.SplunkLogFormat",
 		reflect.TypeOf((*SplunkLogFormat)(nil)).Elem(),
 		map[string]interface{}{
 			"INLINE": SplunkLogFormat_INLINE,
@@ -2116,7 +2258,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.SyslogLogDriver",
+		"monocdk.aws_ecs.SyslogLogDriver",
 		reflect.TypeOf((*SyslogLogDriver)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -2128,15 +2270,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.SyslogLogDriverProps",
+		"monocdk.aws_ecs.SyslogLogDriverProps",
 		reflect.TypeOf((*SyslogLogDriverProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.SystemControl",
+		"monocdk.aws_ecs.SystemControl",
 		reflect.TypeOf((*SystemControl)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.TagParameterContainerImage",
+		"monocdk.aws_ecs.TagParameterContainerImage",
 		reflect.TypeOf((*TagParameterContainerImage)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -2150,7 +2292,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.TaskDefinition",
+		"monocdk.aws_ecs.TaskDefinition",
 		reflect.TypeOf((*TaskDefinition)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addContainer", GoMethod: "AddContainer"},
@@ -2180,12 +2322,18 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "networkMode", GoGetter: "NetworkMode"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainExecutionRole", GoMethod: "ObtainExecutionRole"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "referencesSecretJsonField", GoGetter: "ReferencesSecretJsonField"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskDefinitionArn", GoGetter: "TaskDefinitionArn"},
 			_jsii_.MemberProperty{JsiiProperty: "taskRole", GoGetter: "TaskRole"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_TaskDefinition{}
@@ -2195,72 +2343,72 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.TaskDefinitionAttributes",
+		"monocdk.aws_ecs.TaskDefinitionAttributes",
 		reflect.TypeOf((*TaskDefinitionAttributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.TaskDefinitionProps",
+		"monocdk.aws_ecs.TaskDefinitionProps",
 		reflect.TypeOf((*TaskDefinitionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.Tmpfs",
+		"monocdk.aws_ecs.Tmpfs",
 		reflect.TypeOf((*Tmpfs)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_ecs.TmpfsMountOption",
+		"monocdk.aws_ecs.TmpfsMountOption",
 		reflect.TypeOf((*TmpfsMountOption)(nil)).Elem(),
 		map[string]interface{}{
-			"ASYNC": TmpfsMountOption_ASYNC,
-			"ATIME": TmpfsMountOption_ATIME,
-			"BIND": TmpfsMountOption_BIND,
 			"DEFAULTS": TmpfsMountOption_DEFAULTS,
-			"DEV": TmpfsMountOption_DEV,
-			"DIRATIME": TmpfsMountOption_DIRATIME,
-			"DIRSYNC": TmpfsMountOption_DIRSYNC,
-			"EXEC": TmpfsMountOption_EXEC,
-			"GID": TmpfsMountOption_GID,
-			"MAND": TmpfsMountOption_MAND,
-			"MODE": TmpfsMountOption_MODE,
-			"MPOL": TmpfsMountOption_MPOL,
-			"NOATIME": TmpfsMountOption_NOATIME,
-			"NODEV": TmpfsMountOption_NODEV,
-			"NODIRATIME": TmpfsMountOption_NODIRATIME,
-			"NOEXEC": TmpfsMountOption_NOEXEC,
-			"NOMAND": TmpfsMountOption_NOMAND,
-			"NORELATIME": TmpfsMountOption_NORELATIME,
-			"NOSTRICTATIME": TmpfsMountOption_NOSTRICTATIME,
-			"NOSUID": TmpfsMountOption_NOSUID,
-			"NR_BLOCKS": TmpfsMountOption_NR_BLOCKS,
-			"NR_INODES": TmpfsMountOption_NR_INODES,
-			"PRIVATE": TmpfsMountOption_PRIVATE,
-			"RBIND": TmpfsMountOption_RBIND,
-			"RELATIME": TmpfsMountOption_RELATIME,
-			"REMOUNT": TmpfsMountOption_REMOUNT,
 			"RO": TmpfsMountOption_RO,
-			"RPRIVATE": TmpfsMountOption_RPRIVATE,
-			"RSHARED": TmpfsMountOption_RSHARED,
-			"RSLAVE": TmpfsMountOption_RSLAVE,
-			"RUNBINDABLE": TmpfsMountOption_RUNBINDABLE,
 			"RW": TmpfsMountOption_RW,
-			"SHARED": TmpfsMountOption_SHARED,
-			"SLAVE": TmpfsMountOption_SLAVE,
-			"STRICTATIME": TmpfsMountOption_STRICTATIME,
 			"SUID": TmpfsMountOption_SUID,
+			"NOSUID": TmpfsMountOption_NOSUID,
+			"DEV": TmpfsMountOption_DEV,
+			"NODEV": TmpfsMountOption_NODEV,
+			"EXEC": TmpfsMountOption_EXEC,
+			"NOEXEC": TmpfsMountOption_NOEXEC,
 			"SYNC": TmpfsMountOption_SYNC,
-			"UID": TmpfsMountOption_UID,
+			"ASYNC": TmpfsMountOption_ASYNC,
+			"DIRSYNC": TmpfsMountOption_DIRSYNC,
+			"REMOUNT": TmpfsMountOption_REMOUNT,
+			"MAND": TmpfsMountOption_MAND,
+			"NOMAND": TmpfsMountOption_NOMAND,
+			"ATIME": TmpfsMountOption_ATIME,
+			"NOATIME": TmpfsMountOption_NOATIME,
+			"DIRATIME": TmpfsMountOption_DIRATIME,
+			"NODIRATIME": TmpfsMountOption_NODIRATIME,
+			"BIND": TmpfsMountOption_BIND,
+			"RBIND": TmpfsMountOption_RBIND,
 			"UNBINDABLE": TmpfsMountOption_UNBINDABLE,
+			"RUNBINDABLE": TmpfsMountOption_RUNBINDABLE,
+			"PRIVATE": TmpfsMountOption_PRIVATE,
+			"RPRIVATE": TmpfsMountOption_RPRIVATE,
+			"SHARED": TmpfsMountOption_SHARED,
+			"RSHARED": TmpfsMountOption_RSHARED,
+			"SLAVE": TmpfsMountOption_SLAVE,
+			"RSLAVE": TmpfsMountOption_RSLAVE,
+			"RELATIME": TmpfsMountOption_RELATIME,
+			"NORELATIME": TmpfsMountOption_NORELATIME,
+			"STRICTATIME": TmpfsMountOption_STRICTATIME,
+			"NOSTRICTATIME": TmpfsMountOption_NOSTRICTATIME,
+			"MODE": TmpfsMountOption_MODE,
+			"UID": TmpfsMountOption_UID,
+			"GID": TmpfsMountOption_GID,
+			"NR_INODES": TmpfsMountOption_NR_INODES,
+			"NR_BLOCKS": TmpfsMountOption_NR_BLOCKS,
+			"MPOL": TmpfsMountOption_MPOL,
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.TrackCustomMetricProps",
+		"monocdk.aws_ecs.TrackCustomMetricProps",
 		reflect.TypeOf((*TrackCustomMetricProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.Ulimit",
+		"monocdk.aws_ecs.Ulimit",
 		reflect.TypeOf((*Ulimit)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_ecs.UlimitName",
+		"monocdk.aws_ecs.UlimitName",
 		reflect.TypeOf((*UlimitName)(nil)).Elem(),
 		map[string]interface{}{
 			"CORE": UlimitName_CORE,
@@ -2281,15 +2429,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.Volume",
+		"monocdk.aws_ecs.Volume",
 		reflect.TypeOf((*Volume)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.VolumeFrom",
+		"monocdk.aws_ecs.VolumeFrom",
 		reflect.TypeOf((*VolumeFrom)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_ecs.WindowsOptimizedVersion",
+		"monocdk.aws_ecs.WindowsOptimizedVersion",
 		reflect.TypeOf((*WindowsOptimizedVersion)(nil)).Elem(),
 		map[string]interface{}{
 			"SERVER_2019": WindowsOptimizedVersion_SERVER_2019,

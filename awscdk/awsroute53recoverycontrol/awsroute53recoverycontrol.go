@@ -1,15 +1,17 @@
 package awsroute53recoverycontrol
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53recoverycontrol/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsroute53recoverycontrol/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::Route53RecoveryControl::Cluster`.
+//
+// Returns an array of all the clusters in an account.
 //
 // TODO: EXAMPLE
 //
@@ -26,7 +28,7 @@ type CfnCluster interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	Tags() awscdk.TagManager
@@ -41,10 +43,16 @@ type CfnCluster interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -144,8 +152,8 @@ func (j *jsiiProxy_CfnCluster) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCluster) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnCluster) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -196,13 +204,13 @@ func (j *jsiiProxy_CfnCluster) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::Route53RecoveryControl::Cluster`.
-func NewCfnCluster(scope constructs.Construct, id *string, props *CfnClusterProps) CfnCluster {
+func NewCfnCluster(scope awscdk.Construct, id *string, props *CfnClusterProps) CfnCluster {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnCluster{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53recoverycontrol.CfnCluster",
+		"monocdk.aws_route53recoverycontrol.CfnCluster",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -211,11 +219,11 @@ func NewCfnCluster(scope constructs.Construct, id *string, props *CfnClusterProp
 }
 
 // Create a new `AWS::Route53RecoveryControl::Cluster`.
-func NewCfnCluster_Override(c CfnCluster, scope constructs.Construct, id *string, props *CfnClusterProps) {
+func NewCfnCluster_Override(c CfnCluster, scope awscdk.Construct, id *string, props *CfnClusterProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53recoverycontrol.CfnCluster",
+		"monocdk.aws_route53recoverycontrol.CfnCluster",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -235,13 +243,14 @@ func (j *jsiiProxy_CfnCluster) SetName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnCluster_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53recoverycontrol.CfnCluster",
+		"monocdk.aws_route53recoverycontrol.CfnCluster",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -251,13 +260,14 @@ func CfnCluster_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnCluster_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53recoverycontrol.CfnCluster",
+		"monocdk.aws_route53recoverycontrol.CfnCluster",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -266,17 +276,15 @@ func CfnCluster_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnCluster_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53recoverycontrol.CfnCluster",
+		"monocdk.aws_route53recoverycontrol.CfnCluster",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -289,7 +297,7 @@ func CfnCluster_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_route53recoverycontrol.CfnCluster",
+		"monocdk.aws_route53recoverycontrol.CfnCluster",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -297,6 +305,7 @@ func CfnCluster_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnCluster) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -309,6 +318,7 @@ func (c *jsiiProxy_CfnCluster) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnCluster) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -324,6 +334,7 @@ func (c *jsiiProxy_CfnCluster) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnCluster) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -369,6 +380,7 @@ func (c *jsiiProxy_CfnCluster) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnCluster) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -378,6 +390,7 @@ func (c *jsiiProxy_CfnCluster) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnCluster) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -389,6 +402,7 @@ func (c *jsiiProxy_CfnCluster) AddPropertyDeletionOverride(propertyPath *string)
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnCluster) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -406,6 +420,7 @@ func (c *jsiiProxy_CfnCluster) AddPropertyOverride(propertyPath *string, value i
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnCluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -418,6 +433,7 @@ func (c *jsiiProxy_CfnCluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, o
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnCluster) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -438,6 +454,7 @@ func (c *jsiiProxy_CfnCluster) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnCluster) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -460,12 +477,80 @@ func (c *jsiiProxy_CfnCluster) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnCluster) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnCluster) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnCluster) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnCluster) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnCluster) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -486,6 +571,7 @@ func (c *jsiiProxy_CfnCluster) RenderProperties(props *map[string]interface{}) *
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnCluster) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -499,9 +585,23 @@ func (c *jsiiProxy_CfnCluster) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnCluster) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnCluster) ToString() *string {
 	var returns *string
 
@@ -515,6 +615,27 @@ func (c *jsiiProxy_CfnCluster) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnCluster) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnCluster) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -523,27 +644,39 @@ func (c *jsiiProxy_CfnCluster) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// A cluster endpoint.
+//
+// Specify an endpoint when you want to set or retrieve a routing control state in the cluster.
+//
 // TODO: EXAMPLE
 //
 type CfnCluster_ClusterEndpointProperty struct {
-	// `CfnCluster.ClusterEndpointProperty.Endpoint`.
+	// A cluster endpoint.
+	//
+	// Specify an endpoint and AWS Region when you want to set or retrieve a routing control state in the cluster.
+	//
+	// To get or update the routing control state, see the Amazon Route 53 Application Recovery Controller Routing Control Actions.
 	Endpoint *string `json:"endpoint"`
-	// `CfnCluster.ClusterEndpointProperty.Region`.
+	// The AWS Region for a cluster endpoint.
 	Region *string `json:"region"`
 }
 
-// Properties for defining a `AWS::Route53RecoveryControl::Cluster`.
+// Properties for defining a `CfnCluster`.
 //
 // TODO: EXAMPLE
 //
 type CfnClusterProps struct {
-	// `AWS::Route53RecoveryControl::Cluster.Name`.
+	// Name of the cluster.
+	//
+	// You can use any non-white space character in the name.
 	Name *string `json:"name"`
-	// `AWS::Route53RecoveryControl::Cluster.Tags`.
+	// The value for a tag.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::Route53RecoveryControl::ControlPanel`.
+//
+// Creates a new control panel. A control panel represents a group of routing controls that can be changed together in a single transaction. You can use a control panel to centrally view the operational status of applications across your organization, and trigger multi-app failovers in a single transaction, for example, to fail over an Availability Zone or AWS Region .
 //
 // TODO: EXAMPLE
 //
@@ -563,7 +696,7 @@ type CfnControlPanel interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	Tags() awscdk.TagManager
@@ -578,10 +711,16 @@ type CfnControlPanel interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -701,8 +840,8 @@ func (j *jsiiProxy_CfnControlPanel) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnControlPanel) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnControlPanel) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -753,13 +892,13 @@ func (j *jsiiProxy_CfnControlPanel) UpdatedProperites() *map[string]interface{} 
 
 
 // Create a new `AWS::Route53RecoveryControl::ControlPanel`.
-func NewCfnControlPanel(scope constructs.Construct, id *string, props *CfnControlPanelProps) CfnControlPanel {
+func NewCfnControlPanel(scope awscdk.Construct, id *string, props *CfnControlPanelProps) CfnControlPanel {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnControlPanel{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53recoverycontrol.CfnControlPanel",
+		"monocdk.aws_route53recoverycontrol.CfnControlPanel",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -768,11 +907,11 @@ func NewCfnControlPanel(scope constructs.Construct, id *string, props *CfnContro
 }
 
 // Create a new `AWS::Route53RecoveryControl::ControlPanel`.
-func NewCfnControlPanel_Override(c CfnControlPanel, scope constructs.Construct, id *string, props *CfnControlPanelProps) {
+func NewCfnControlPanel_Override(c CfnControlPanel, scope awscdk.Construct, id *string, props *CfnControlPanelProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53recoverycontrol.CfnControlPanel",
+		"monocdk.aws_route53recoverycontrol.CfnControlPanel",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -800,13 +939,14 @@ func (j *jsiiProxy_CfnControlPanel) SetName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnControlPanel_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53recoverycontrol.CfnControlPanel",
+		"monocdk.aws_route53recoverycontrol.CfnControlPanel",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -816,13 +956,14 @@ func CfnControlPanel_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnControlPanel_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53recoverycontrol.CfnControlPanel",
+		"monocdk.aws_route53recoverycontrol.CfnControlPanel",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -831,17 +972,15 @@ func CfnControlPanel_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnControlPanel_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53recoverycontrol.CfnControlPanel",
+		"monocdk.aws_route53recoverycontrol.CfnControlPanel",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -854,7 +993,7 @@ func CfnControlPanel_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_route53recoverycontrol.CfnControlPanel",
+		"monocdk.aws_route53recoverycontrol.CfnControlPanel",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -862,6 +1001,7 @@ func CfnControlPanel_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnControlPanel) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -874,6 +1014,7 @@ func (c *jsiiProxy_CfnControlPanel) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnControlPanel) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -889,6 +1030,7 @@ func (c *jsiiProxy_CfnControlPanel) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnControlPanel) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -934,6 +1076,7 @@ func (c *jsiiProxy_CfnControlPanel) AddMetadata(key *string, value interface{}) 
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnControlPanel) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -943,6 +1086,7 @@ func (c *jsiiProxy_CfnControlPanel) AddOverride(path *string, value interface{})
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnControlPanel) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -954,6 +1098,7 @@ func (c *jsiiProxy_CfnControlPanel) AddPropertyDeletionOverride(propertyPath *st
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnControlPanel) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -971,6 +1116,7 @@ func (c *jsiiProxy_CfnControlPanel) AddPropertyOverride(propertyPath *string, va
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnControlPanel) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -983,6 +1129,7 @@ func (c *jsiiProxy_CfnControlPanel) ApplyRemovalPolicy(policy awscdk.RemovalPoli
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnControlPanel) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1003,6 +1150,7 @@ func (c *jsiiProxy_CfnControlPanel) GetAtt(attributeName *string) awscdk.Referen
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnControlPanel) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1025,12 +1173,80 @@ func (c *jsiiProxy_CfnControlPanel) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnControlPanel) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnControlPanel) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnControlPanel) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnControlPanel) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnControlPanel) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1051,6 +1267,7 @@ func (c *jsiiProxy_CfnControlPanel) RenderProperties(props *map[string]interface
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnControlPanel) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1064,9 +1281,23 @@ func (c *jsiiProxy_CfnControlPanel) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnControlPanel) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnControlPanel) ToString() *string {
 	var returns *string
 
@@ -1080,6 +1311,27 @@ func (c *jsiiProxy_CfnControlPanel) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnControlPanel) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnControlPanel) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1088,20 +1340,24 @@ func (c *jsiiProxy_CfnControlPanel) ValidateProperties(_properties interface{}) 
 	)
 }
 
-// Properties for defining a `AWS::Route53RecoveryControl::ControlPanel`.
+// Properties for defining a `CfnControlPanel`.
 //
 // TODO: EXAMPLE
 //
 type CfnControlPanelProps struct {
-	// `AWS::Route53RecoveryControl::ControlPanel.ClusterArn`.
-	ClusterArn *string `json:"clusterArn"`
-	// `AWS::Route53RecoveryControl::ControlPanel.Name`.
+	// The name of the control panel.
+	//
+	// You can use any non-white space character in the name.
 	Name *string `json:"name"`
-	// `AWS::Route53RecoveryControl::ControlPanel.Tags`.
+	// The Amazon Resource Name (ARN) of the cluster for the control panel.
+	ClusterArn *string `json:"clusterArn"`
+	// The value for a tag.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::Route53RecoveryControl::RoutingControl`.
+//
+// Defines a routing control. To get or update the routing control state, see the Recovery Cluster (data plane) API actions for Amazon Route 53 Application Recovery Controller.
 //
 // TODO: EXAMPLE
 //
@@ -1121,7 +1377,7 @@ type CfnRoutingControl interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	UpdatedProperites() *map[string]interface{}
@@ -1135,10 +1391,16 @@ type CfnRoutingControl interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1248,8 +1510,8 @@ func (j *jsiiProxy_CfnRoutingControl) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRoutingControl) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnRoutingControl) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1290,13 +1552,13 @@ func (j *jsiiProxy_CfnRoutingControl) UpdatedProperites() *map[string]interface{
 
 
 // Create a new `AWS::Route53RecoveryControl::RoutingControl`.
-func NewCfnRoutingControl(scope constructs.Construct, id *string, props *CfnRoutingControlProps) CfnRoutingControl {
+func NewCfnRoutingControl(scope awscdk.Construct, id *string, props *CfnRoutingControlProps) CfnRoutingControl {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnRoutingControl{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53recoverycontrol.CfnRoutingControl",
+		"monocdk.aws_route53recoverycontrol.CfnRoutingControl",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1305,11 +1567,11 @@ func NewCfnRoutingControl(scope constructs.Construct, id *string, props *CfnRout
 }
 
 // Create a new `AWS::Route53RecoveryControl::RoutingControl`.
-func NewCfnRoutingControl_Override(c CfnRoutingControl, scope constructs.Construct, id *string, props *CfnRoutingControlProps) {
+func NewCfnRoutingControl_Override(c CfnRoutingControl, scope awscdk.Construct, id *string, props *CfnRoutingControlProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53recoverycontrol.CfnRoutingControl",
+		"monocdk.aws_route53recoverycontrol.CfnRoutingControl",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1345,13 +1607,14 @@ func (j *jsiiProxy_CfnRoutingControl) SetName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnRoutingControl_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53recoverycontrol.CfnRoutingControl",
+		"monocdk.aws_route53recoverycontrol.CfnRoutingControl",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1361,13 +1624,14 @@ func CfnRoutingControl_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnRoutingControl_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53recoverycontrol.CfnRoutingControl",
+		"monocdk.aws_route53recoverycontrol.CfnRoutingControl",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1376,17 +1640,15 @@ func CfnRoutingControl_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnRoutingControl_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53recoverycontrol.CfnRoutingControl",
+		"monocdk.aws_route53recoverycontrol.CfnRoutingControl",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1399,7 +1661,7 @@ func CfnRoutingControl_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_route53recoverycontrol.CfnRoutingControl",
+		"monocdk.aws_route53recoverycontrol.CfnRoutingControl",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1407,6 +1669,7 @@ func CfnRoutingControl_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnRoutingControl) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1419,6 +1682,7 @@ func (c *jsiiProxy_CfnRoutingControl) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnRoutingControl) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1434,6 +1698,7 @@ func (c *jsiiProxy_CfnRoutingControl) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnRoutingControl) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1479,6 +1744,7 @@ func (c *jsiiProxy_CfnRoutingControl) AddMetadata(key *string, value interface{}
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnRoutingControl) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1488,6 +1754,7 @@ func (c *jsiiProxy_CfnRoutingControl) AddOverride(path *string, value interface{
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnRoutingControl) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1499,6 +1766,7 @@ func (c *jsiiProxy_CfnRoutingControl) AddPropertyDeletionOverride(propertyPath *
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnRoutingControl) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1516,6 +1784,7 @@ func (c *jsiiProxy_CfnRoutingControl) AddPropertyOverride(propertyPath *string, 
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnRoutingControl) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1528,6 +1797,7 @@ func (c *jsiiProxy_CfnRoutingControl) ApplyRemovalPolicy(policy awscdk.RemovalPo
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnRoutingControl) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1548,6 +1818,7 @@ func (c *jsiiProxy_CfnRoutingControl) GetAtt(attributeName *string) awscdk.Refer
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnRoutingControl) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1570,12 +1841,80 @@ func (c *jsiiProxy_CfnRoutingControl) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnRoutingControl) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnRoutingControl) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnRoutingControl) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnRoutingControl) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnRoutingControl) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1596,6 +1935,7 @@ func (c *jsiiProxy_CfnRoutingControl) RenderProperties(props *map[string]interfa
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnRoutingControl) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1609,9 +1949,23 @@ func (c *jsiiProxy_CfnRoutingControl) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnRoutingControl) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnRoutingControl) ToString() *string {
 	var returns *string
 
@@ -1625,6 +1979,27 @@ func (c *jsiiProxy_CfnRoutingControl) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnRoutingControl) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnRoutingControl) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1633,20 +2008,24 @@ func (c *jsiiProxy_CfnRoutingControl) ValidateProperties(_properties interface{}
 	)
 }
 
-// Properties for defining a `AWS::Route53RecoveryControl::RoutingControl`.
+// Properties for defining a `CfnRoutingControl`.
 //
 // TODO: EXAMPLE
 //
 type CfnRoutingControlProps struct {
-	// `AWS::Route53RecoveryControl::RoutingControl.ClusterArn`.
-	ClusterArn *string `json:"clusterArn"`
-	// `AWS::Route53RecoveryControl::RoutingControl.ControlPanelArn`.
-	ControlPanelArn *string `json:"controlPanelArn"`
-	// `AWS::Route53RecoveryControl::RoutingControl.Name`.
+	// The name of the routing control.
+	//
+	// You can use any non-white space character in the name.
 	Name *string `json:"name"`
+	// The Amazon Resource Name (ARN) of the cluster that includes the routing control.
+	ClusterArn *string `json:"clusterArn"`
+	// The Amazon Resource Name (ARN) of the control panel that includes the routing control.
+	ControlPanelArn *string `json:"controlPanelArn"`
 }
 
 // A CloudFormation `AWS::Route53RecoveryControl::SafetyRule`.
+//
+// List the safety rules (the assertion rules and gating rules) that you've defined for the routing controls in a control panel.
 //
 // TODO: EXAMPLE
 //
@@ -1668,7 +2047,7 @@ type CfnSafetyRule interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	RuleConfig() interface{}
 	SetRuleConfig(val interface{})
@@ -1685,10 +2064,16 @@ type CfnSafetyRule interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1808,8 +2193,8 @@ func (j *jsiiProxy_CfnSafetyRule) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSafetyRule) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnSafetyRule) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1870,13 +2255,13 @@ func (j *jsiiProxy_CfnSafetyRule) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::Route53RecoveryControl::SafetyRule`.
-func NewCfnSafetyRule(scope constructs.Construct, id *string, props *CfnSafetyRuleProps) CfnSafetyRule {
+func NewCfnSafetyRule(scope awscdk.Construct, id *string, props *CfnSafetyRuleProps) CfnSafetyRule {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnSafetyRule{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53recoverycontrol.CfnSafetyRule",
+		"monocdk.aws_route53recoverycontrol.CfnSafetyRule",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1885,11 +2270,11 @@ func NewCfnSafetyRule(scope constructs.Construct, id *string, props *CfnSafetyRu
 }
 
 // Create a new `AWS::Route53RecoveryControl::SafetyRule`.
-func NewCfnSafetyRule_Override(c CfnSafetyRule, scope constructs.Construct, id *string, props *CfnSafetyRuleProps) {
+func NewCfnSafetyRule_Override(c CfnSafetyRule, scope awscdk.Construct, id *string, props *CfnSafetyRuleProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53recoverycontrol.CfnSafetyRule",
+		"monocdk.aws_route53recoverycontrol.CfnSafetyRule",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1941,13 +2326,14 @@ func (j *jsiiProxy_CfnSafetyRule) SetRuleConfig(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnSafetyRule_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53recoverycontrol.CfnSafetyRule",
+		"monocdk.aws_route53recoverycontrol.CfnSafetyRule",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1957,13 +2343,14 @@ func CfnSafetyRule_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnSafetyRule_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53recoverycontrol.CfnSafetyRule",
+		"monocdk.aws_route53recoverycontrol.CfnSafetyRule",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1972,17 +2359,15 @@ func CfnSafetyRule_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnSafetyRule_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53recoverycontrol.CfnSafetyRule",
+		"monocdk.aws_route53recoverycontrol.CfnSafetyRule",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1995,7 +2380,7 @@ func CfnSafetyRule_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_route53recoverycontrol.CfnSafetyRule",
+		"monocdk.aws_route53recoverycontrol.CfnSafetyRule",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2003,6 +2388,7 @@ func CfnSafetyRule_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnSafetyRule) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2015,6 +2401,7 @@ func (c *jsiiProxy_CfnSafetyRule) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnSafetyRule) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2030,6 +2417,7 @@ func (c *jsiiProxy_CfnSafetyRule) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnSafetyRule) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2075,6 +2463,7 @@ func (c *jsiiProxy_CfnSafetyRule) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnSafetyRule) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2084,6 +2473,7 @@ func (c *jsiiProxy_CfnSafetyRule) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnSafetyRule) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2095,6 +2485,7 @@ func (c *jsiiProxy_CfnSafetyRule) AddPropertyDeletionOverride(propertyPath *stri
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnSafetyRule) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2112,6 +2503,7 @@ func (c *jsiiProxy_CfnSafetyRule) AddPropertyOverride(propertyPath *string, valu
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnSafetyRule) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2124,6 +2516,7 @@ func (c *jsiiProxy_CfnSafetyRule) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnSafetyRule) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2144,6 +2537,7 @@ func (c *jsiiProxy_CfnSafetyRule) GetAtt(attributeName *string) awscdk.Reference
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnSafetyRule) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2166,12 +2560,80 @@ func (c *jsiiProxy_CfnSafetyRule) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnSafetyRule) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnSafetyRule) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnSafetyRule) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnSafetyRule) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnSafetyRule) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2192,6 +2654,7 @@ func (c *jsiiProxy_CfnSafetyRule) RenderProperties(props *map[string]interface{}
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnSafetyRule) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2205,9 +2668,23 @@ func (c *jsiiProxy_CfnSafetyRule) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnSafetyRule) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnSafetyRule) ToString() *string {
 	var returns *string
 
@@ -2221,6 +2698,27 @@ func (c *jsiiProxy_CfnSafetyRule) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnSafetyRule) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnSafetyRule) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2229,53 +2727,87 @@ func (c *jsiiProxy_CfnSafetyRule) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// An assertion rule enforces that, when you change a routing control state, that the criteria that you set in the rule configuration is met.
+//
+// Otherwise, the change to the routing control is not accepted. For example, the criteria might be that at least one routing control state is `On` after the transaction so that traffic continues to flow to at least one cell for the application. This ensures that you avoid a fail-open scenario.
+//
 // TODO: EXAMPLE
 //
 type CfnSafetyRule_AssertionRuleProperty struct {
-	// `CfnSafetyRule.AssertionRuleProperty.AssertedControls`.
+	// The routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.
+	//
+	// For example, you might include three routing controls, one for each of three AWS Regions.
 	AssertedControls *[]*string `json:"assertedControls"`
-	// `CfnSafetyRule.AssertionRuleProperty.WaitPeriodMs`.
+	// An evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
+	//
+	// This helps prevent "flapping" of state. The wait period is 5000 ms by default, but you can choose a custom value.
 	WaitPeriodMs *float64 `json:"waitPeriodMs"`
 }
 
+// A gating rule verifies that a gating routing control or set of gating routing controls, evaluates as true, based on a rule configuration that you specify, which allows a set of routing control state changes to complete.
+//
+// For example, if you specify one gating routing control and you set the `Type` in the rule configuration to `OR` , that indicates that you must set the gating routing control to `On` for the rule to evaluate as true; that is, for the gating control "switch" to be "On". When you do that, then you can update the routing control states for the target routing controls that you specify in the gating rule.
+//
 // TODO: EXAMPLE
 //
 type CfnSafetyRule_GatingRuleProperty struct {
-	// `CfnSafetyRule.GatingRuleProperty.GatingControls`.
+	// An array of gating routing control Amazon Resource Names (ARNs).
+	//
+	// For a simple "on/off" switch, specify the ARN for one routing control. The gating routing controls are evaluated by the rule configuration that you specify to determine if the target routing control states can be changed.
 	GatingControls *[]*string `json:"gatingControls"`
-	// `CfnSafetyRule.GatingRuleProperty.TargetControls`.
+	// An array of target routing control Amazon Resource Names (ARNs) for which the states can only be updated if the rule configuration that you specify evaluates to true for the gating routing control.
+	//
+	// As a simple example, if you have a single gating control, it acts as an overall "on/off" switch for a set of target routing controls. You can use this to manually override automated failover, for example.
 	TargetControls *[]*string `json:"targetControls"`
-	// `CfnSafetyRule.GatingRuleProperty.WaitPeriodMs`.
+	// An evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
+	//
+	// This helps prevent "flapping" of state. The wait period is 5000 ms by default, but you can choose a custom value.
 	WaitPeriodMs *float64 `json:"waitPeriodMs"`
 }
 
+// The rule configuration for an assertion rule.
+//
+// That is, the criteria that you set for specific assertion controls (routing controls) that specify how many control states must be `ON` after a transaction completes.
+//
 // TODO: EXAMPLE
 //
 type CfnSafetyRule_RuleConfigProperty struct {
-	// `CfnSafetyRule.RuleConfigProperty.Inverted`.
+	// Logical negation of the rule.
+	//
+	// If the rule would usually evaluate true, it's evaluated as false, and vice versa.
 	Inverted interface{} `json:"inverted"`
-	// `CfnSafetyRule.RuleConfigProperty.Threshold`.
+	// The value of N, when you specify an `ATLEAST` rule type.
+	//
+	// That is, `Threshold` is the number of controls that must be set when you specify an `ATLEAST` type.
 	Threshold *float64 `json:"threshold"`
-	// `CfnSafetyRule.RuleConfigProperty.Type`.
+	// A rule can be one of the following: `ATLEAST` , `AND` , or `OR` .
 	Type *string `json:"type"`
 }
 
-// Properties for defining a `AWS::Route53RecoveryControl::SafetyRule`.
+// Properties for defining a `CfnSafetyRule`.
 //
 // TODO: EXAMPLE
 //
 type CfnSafetyRuleProps struct {
-	// `AWS::Route53RecoveryControl::SafetyRule.AssertionRule`.
-	AssertionRule interface{} `json:"assertionRule"`
-	// `AWS::Route53RecoveryControl::SafetyRule.ControlPanelArn`.
+	// The Amazon Resource Name (ARN) for the control panel.
 	ControlPanelArn *string `json:"controlPanelArn"`
-	// `AWS::Route53RecoveryControl::SafetyRule.GatingRule`.
-	GatingRule interface{} `json:"gatingRule"`
-	// `AWS::Route53RecoveryControl::SafetyRule.Name`.
+	// The name of the assertion rule.
+	//
+	// You can use any non-white space character in the name. The name must be unique within a control panel.
 	Name *string `json:"name"`
-	// `AWS::Route53RecoveryControl::SafetyRule.RuleConfig`.
+	// The criteria that you set for specific assertion controls (routing controls) that designate how many control states must be `ON` as the result of a transaction.
+	//
+	// For example, if you have three assertion controls, you might specify `ATLEAST 2` for your rule configuration. This means that at least two assertion controls must be `ON` , so that at least two AWS Regions have traffic flowing to them.
 	RuleConfig interface{} `json:"ruleConfig"`
-	// `AWS::Route53RecoveryControl::SafetyRule.Tags`.
+	// An assertion rule enforces that, when you change a routing control state, that the criteria that you set in the rule configuration is met.
+	//
+	// Otherwise, the change to the routing control is not accepted. For example, the criteria might be that at least one routing control state is `On` after the transaction so that traffic continues to flow to at least one cell for the application. This ensures that you avoid a fail-open scenario.
+	AssertionRule interface{} `json:"assertionRule"`
+	// A gating rule verifies that a gating routing control or set of gating routing controls, evaluates as true, based on a rule configuration that you specify, which allows a set of routing control state changes to complete.
+	//
+	// For example, if you specify one gating routing control and you set the `Type` in the rule configuration to `OR` , that indicates that you must set the gating routing control to `On` for the rule to evaluate as true; that is, for the gating control "switch" to be "On". When you do that, then you can update the routing control states for the target routing controls that you specify in the gating rule.
+	GatingRule interface{} `json:"gatingRule"`
+	// The value for a tag.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 

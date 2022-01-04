@@ -1,32 +1,39 @@
 package awsroute53
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awsroute53/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A DNS A record.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type ARecord interface {
 	RecordSet
 	DomainName() *string
 	Env() *awscdk.ResourceEnvironment
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Stack() awscdk.Stack
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for ARecord
@@ -54,8 +61,8 @@ func (j *jsiiProxy_ARecord) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_ARecord) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_ARecord) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -85,13 +92,14 @@ func (j *jsiiProxy_ARecord) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewARecord(scope constructs.Construct, id *string, props *ARecordProps) ARecord {
 	_init_.Initialize()
 
 	j := jsiiProxy_ARecord{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.ARecord",
+		"monocdk.aws_route53.ARecord",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -99,27 +107,26 @@ func NewARecord(scope constructs.Construct, id *string, props *ARecordProps) ARe
 	return &j
 }
 
+// Experimental.
 func NewARecord_Override(a ARecord, scope constructs.Construct, id *string, props *ARecordProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.ARecord",
+		"monocdk.aws_route53.ARecord",
 		[]interface{}{scope, id, props},
 		a,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func ARecord_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.ARecord",
+		"monocdk.aws_route53.ARecord",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -129,13 +136,14 @@ func ARecord_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func ARecord_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func ARecord_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.ARecord",
+		"monocdk.aws_route53.ARecord",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -153,6 +161,7 @@ func ARecord_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (a *jsiiProxy_ARecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		a,
@@ -161,6 +170,7 @@ func (a *jsiiProxy_ARecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
+// Experimental.
 func (a *jsiiProxy_ARecord) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -180,6 +190,7 @@ func (a *jsiiProxy_ARecord) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
+// Experimental.
 func (a *jsiiProxy_ARecord) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -198,6 +209,7 @@ func (a *jsiiProxy_ARecord) GetResourceArnAttribute(arnAttr *string, arnComponen
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
+// Experimental.
 func (a *jsiiProxy_ARecord) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -211,7 +223,88 @@ func (a *jsiiProxy_ARecord) GetResourceNameAttribute(nameAttr *string) *string {
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (a *jsiiProxy_ARecord) OnPrepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (a *jsiiProxy_ARecord) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (a *jsiiProxy_ARecord) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (a *jsiiProxy_ARecord) Prepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (a *jsiiProxy_ARecord) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (a *jsiiProxy_ARecord) ToString() *string {
 	var returns *string
 
@@ -225,20 +318,46 @@ func (a *jsiiProxy_ARecord) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (a *jsiiProxy_ARecord) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Construction properties for a ARecord.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type ARecordProps struct {
+	// The hosted zone in which to define the new record.
+	// Experimental.
+	Zone IHostedZone `json:"zone"`
 	// A comment to add on the record.
+	// Experimental.
 	Comment *string `json:"comment"`
 	// The domain name for this record.
+	// Experimental.
 	RecordName *string `json:"recordName"`
 	// The resource record cache time to live (TTL).
+	// Experimental.
 	Ttl awscdk.Duration `json:"ttl"`
-	// The hosted zone in which to define the new record.
-	Zone IHostedZone `json:"zone"`
 	// The target.
+	// Experimental.
 	Target RecordTarget `json:"target"`
 }
 
@@ -246,18 +365,25 @@ type ARecordProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type AaaaRecord interface {
 	RecordSet
 	DomainName() *string
 	Env() *awscdk.ResourceEnvironment
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Stack() awscdk.Stack
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for AaaaRecord
@@ -285,8 +411,8 @@ func (j *jsiiProxy_AaaaRecord) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_AaaaRecord) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_AaaaRecord) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -316,13 +442,14 @@ func (j *jsiiProxy_AaaaRecord) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewAaaaRecord(scope constructs.Construct, id *string, props *AaaaRecordProps) AaaaRecord {
 	_init_.Initialize()
 
 	j := jsiiProxy_AaaaRecord{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.AaaaRecord",
+		"monocdk.aws_route53.AaaaRecord",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -330,27 +457,26 @@ func NewAaaaRecord(scope constructs.Construct, id *string, props *AaaaRecordProp
 	return &j
 }
 
+// Experimental.
 func NewAaaaRecord_Override(a AaaaRecord, scope constructs.Construct, id *string, props *AaaaRecordProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.AaaaRecord",
+		"monocdk.aws_route53.AaaaRecord",
 		[]interface{}{scope, id, props},
 		a,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func AaaaRecord_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.AaaaRecord",
+		"monocdk.aws_route53.AaaaRecord",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -360,13 +486,14 @@ func AaaaRecord_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func AaaaRecord_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func AaaaRecord_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.AaaaRecord",
+		"monocdk.aws_route53.AaaaRecord",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -384,6 +511,7 @@ func AaaaRecord_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (a *jsiiProxy_AaaaRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		a,
@@ -392,6 +520,7 @@ func (a *jsiiProxy_AaaaRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
+// Experimental.
 func (a *jsiiProxy_AaaaRecord) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -411,6 +540,7 @@ func (a *jsiiProxy_AaaaRecord) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
+// Experimental.
 func (a *jsiiProxy_AaaaRecord) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -429,6 +559,7 @@ func (a *jsiiProxy_AaaaRecord) GetResourceArnAttribute(arnAttr *string, arnCompo
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
+// Experimental.
 func (a *jsiiProxy_AaaaRecord) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -442,7 +573,88 @@ func (a *jsiiProxy_AaaaRecord) GetResourceNameAttribute(nameAttr *string) *strin
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (a *jsiiProxy_AaaaRecord) OnPrepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (a *jsiiProxy_AaaaRecord) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (a *jsiiProxy_AaaaRecord) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (a *jsiiProxy_AaaaRecord) Prepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (a *jsiiProxy_AaaaRecord) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (a *jsiiProxy_AaaaRecord) ToString() *string {
 	var returns *string
 
@@ -456,31 +668,184 @@ func (a *jsiiProxy_AaaaRecord) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (a *jsiiProxy_AaaaRecord) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Construction properties for a AaaaRecord.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type AaaaRecordProps struct {
+	// The hosted zone in which to define the new record.
+	// Experimental.
+	Zone IHostedZone `json:"zone"`
 	// A comment to add on the record.
+	// Experimental.
 	Comment *string `json:"comment"`
 	// The domain name for this record.
+	// Experimental.
 	RecordName *string `json:"recordName"`
 	// The resource record cache time to live (TTL).
+	// Experimental.
 	Ttl awscdk.Duration `json:"ttl"`
-	// The hosted zone in which to define the new record.
-	Zone IHostedZone `json:"zone"`
 	// The target.
+	// Experimental.
 	Target RecordTarget `json:"target"`
+}
+
+// Target for a DNS A Record.
+//
+// TODO: EXAMPLE
+//
+// Deprecated: Use RecordTarget
+type AddressRecordTarget interface {
+	RecordTarget
+	AliasTarget() IAliasRecordTarget
+	Values() *[]*string
+}
+
+// The jsii proxy struct for AddressRecordTarget
+type jsiiProxy_AddressRecordTarget struct {
+	jsiiProxy_RecordTarget
+}
+
+func (j *jsiiProxy_AddressRecordTarget) AliasTarget() IAliasRecordTarget {
+	var returns IAliasRecordTarget
+	_jsii_.Get(
+		j,
+		"aliasTarget",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_AddressRecordTarget) Values() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"values",
+		&returns,
+	)
+	return returns
+}
+
+
+// Deprecated: Use RecordTarget
+func NewAddressRecordTarget(values *[]*string, aliasTarget IAliasRecordTarget) AddressRecordTarget {
+	_init_.Initialize()
+
+	j := jsiiProxy_AddressRecordTarget{}
+
+	_jsii_.Create(
+		"monocdk.aws_route53.AddressRecordTarget",
+		[]interface{}{values, aliasTarget},
+		&j,
+	)
+
+	return &j
+}
+
+// Deprecated: Use RecordTarget
+func NewAddressRecordTarget_Override(a AddressRecordTarget, values *[]*string, aliasTarget IAliasRecordTarget) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_route53.AddressRecordTarget",
+		[]interface{}{values, aliasTarget},
+		a,
+	)
+}
+
+// Use an alias as target.
+// Deprecated: Use RecordTarget
+func AddressRecordTarget_FromAlias(aliasTarget IAliasRecordTarget) RecordTarget {
+	_init_.Initialize()
+
+	var returns RecordTarget
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_route53.AddressRecordTarget",
+		"fromAlias",
+		[]interface{}{aliasTarget},
+		&returns,
+	)
+
+	return returns
+}
+
+// Use ip addresses as target.
+// Deprecated: Use RecordTarget
+func AddressRecordTarget_FromIpAddresses(ipAddresses ...*string) RecordTarget {
+	_init_.Initialize()
+
+	args := []interface{}{}
+	for _, a := range ipAddresses {
+		args = append(args, a)
+	}
+
+	var returns RecordTarget
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_route53.AddressRecordTarget",
+		"fromIpAddresses",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
+// Use string values as target.
+// Deprecated: Use RecordTarget
+func AddressRecordTarget_FromValues(values ...*string) RecordTarget {
+	_init_.Initialize()
+
+	args := []interface{}{}
+	for _, a := range values {
+		args = append(args, a)
+	}
+
+	var returns RecordTarget
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_route53.AddressRecordTarget",
+		"fromValues",
+		args,
+		&returns,
+	)
+
+	return returns
 }
 
 // Represents the properties of an alias target destination.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type AliasRecordTargetConfig struct {
 	// DNS name of the target.
+	// Experimental.
 	DnsName *string `json:"dnsName"`
 	// Hosted zone ID of the target.
+	// Experimental.
 	HostedZoneId *string `json:"hostedZoneId"`
 }
 
@@ -491,18 +856,25 @@ type AliasRecordTargetConfig struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type CaaAmazonRecord interface {
 	CaaRecord
 	DomainName() *string
 	Env() *awscdk.ResourceEnvironment
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Stack() awscdk.Stack
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for CaaAmazonRecord
@@ -530,8 +902,8 @@ func (j *jsiiProxy_CaaAmazonRecord) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CaaAmazonRecord) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CaaAmazonRecord) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -561,13 +933,14 @@ func (j *jsiiProxy_CaaAmazonRecord) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewCaaAmazonRecord(scope constructs.Construct, id *string, props *CaaAmazonRecordProps) CaaAmazonRecord {
 	_init_.Initialize()
 
 	j := jsiiProxy_CaaAmazonRecord{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.CaaAmazonRecord",
+		"monocdk.aws_route53.CaaAmazonRecord",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -575,27 +948,26 @@ func NewCaaAmazonRecord(scope constructs.Construct, id *string, props *CaaAmazon
 	return &j
 }
 
+// Experimental.
 func NewCaaAmazonRecord_Override(c CaaAmazonRecord, scope constructs.Construct, id *string, props *CaaAmazonRecordProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.CaaAmazonRecord",
+		"monocdk.aws_route53.CaaAmazonRecord",
 		[]interface{}{scope, id, props},
 		c,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CaaAmazonRecord_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.CaaAmazonRecord",
+		"monocdk.aws_route53.CaaAmazonRecord",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -605,13 +977,14 @@ func CaaAmazonRecord_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func CaaAmazonRecord_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func CaaAmazonRecord_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.CaaAmazonRecord",
+		"monocdk.aws_route53.CaaAmazonRecord",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -629,6 +1002,7 @@ func CaaAmazonRecord_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CaaAmazonRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		c,
@@ -637,6 +1011,7 @@ func (c *jsiiProxy_CaaAmazonRecord) ApplyRemovalPolicy(policy awscdk.RemovalPoli
 	)
 }
 
+// Experimental.
 func (c *jsiiProxy_CaaAmazonRecord) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -656,6 +1031,7 @@ func (c *jsiiProxy_CaaAmazonRecord) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
+// Experimental.
 func (c *jsiiProxy_CaaAmazonRecord) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -674,6 +1050,7 @@ func (c *jsiiProxy_CaaAmazonRecord) GetResourceArnAttribute(arnAttr *string, arn
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
+// Experimental.
 func (c *jsiiProxy_CaaAmazonRecord) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -687,7 +1064,88 @@ func (c *jsiiProxy_CaaAmazonRecord) GetResourceNameAttribute(nameAttr *string) *
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CaaAmazonRecord) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CaaAmazonRecord) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CaaAmazonRecord) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CaaAmazonRecord) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CaaAmazonRecord) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (c *jsiiProxy_CaaAmazonRecord) ToString() *string {
 	var returns *string
 
@@ -701,37 +1159,69 @@ func (c *jsiiProxy_CaaAmazonRecord) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CaaAmazonRecord) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Construction properties for a CaaAmazonRecord.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type CaaAmazonRecordProps struct {
+	// The hosted zone in which to define the new record.
+	// Experimental.
+	Zone IHostedZone `json:"zone"`
 	// A comment to add on the record.
+	// Experimental.
 	Comment *string `json:"comment"`
 	// The domain name for this record.
+	// Experimental.
 	RecordName *string `json:"recordName"`
 	// The resource record cache time to live (TTL).
+	// Experimental.
 	Ttl awscdk.Duration `json:"ttl"`
-	// The hosted zone in which to define the new record.
-	Zone IHostedZone `json:"zone"`
 }
 
 // A DNS CAA record.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type CaaRecord interface {
 	RecordSet
 	DomainName() *string
 	Env() *awscdk.ResourceEnvironment
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Stack() awscdk.Stack
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for CaaRecord
@@ -759,8 +1249,8 @@ func (j *jsiiProxy_CaaRecord) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CaaRecord) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CaaRecord) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -790,13 +1280,14 @@ func (j *jsiiProxy_CaaRecord) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewCaaRecord(scope constructs.Construct, id *string, props *CaaRecordProps) CaaRecord {
 	_init_.Initialize()
 
 	j := jsiiProxy_CaaRecord{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.CaaRecord",
+		"monocdk.aws_route53.CaaRecord",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -804,27 +1295,26 @@ func NewCaaRecord(scope constructs.Construct, id *string, props *CaaRecordProps)
 	return &j
 }
 
+// Experimental.
 func NewCaaRecord_Override(c CaaRecord, scope constructs.Construct, id *string, props *CaaRecordProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.CaaRecord",
+		"monocdk.aws_route53.CaaRecord",
 		[]interface{}{scope, id, props},
 		c,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CaaRecord_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.CaaRecord",
+		"monocdk.aws_route53.CaaRecord",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -834,13 +1324,14 @@ func CaaRecord_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func CaaRecord_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func CaaRecord_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.CaaRecord",
+		"monocdk.aws_route53.CaaRecord",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -858,6 +1349,7 @@ func CaaRecord_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CaaRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		c,
@@ -866,6 +1358,7 @@ func (c *jsiiProxy_CaaRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
+// Experimental.
 func (c *jsiiProxy_CaaRecord) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -885,6 +1378,7 @@ func (c *jsiiProxy_CaaRecord) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
+// Experimental.
 func (c *jsiiProxy_CaaRecord) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -903,6 +1397,7 @@ func (c *jsiiProxy_CaaRecord) GetResourceArnAttribute(arnAttr *string, arnCompon
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
+// Experimental.
 func (c *jsiiProxy_CaaRecord) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -916,7 +1411,88 @@ func (c *jsiiProxy_CaaRecord) GetResourceNameAttribute(nameAttr *string) *string
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CaaRecord) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CaaRecord) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CaaRecord) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CaaRecord) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CaaRecord) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (c *jsiiProxy_CaaRecord) ToString() *string {
 	var returns *string
 
@@ -930,20 +1506,46 @@ func (c *jsiiProxy_CaaRecord) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CaaRecord) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Construction properties for a CaaRecord.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type CaaRecordProps struct {
+	// The hosted zone in which to define the new record.
+	// Experimental.
+	Zone IHostedZone `json:"zone"`
 	// A comment to add on the record.
+	// Experimental.
 	Comment *string `json:"comment"`
 	// The domain name for this record.
+	// Experimental.
 	RecordName *string `json:"recordName"`
 	// The resource record cache time to live (TTL).
+	// Experimental.
 	Ttl awscdk.Duration `json:"ttl"`
-	// The hosted zone in which to define the new record.
-	Zone IHostedZone `json:"zone"`
 	// The values.
+	// Experimental.
 	Values *[]*CaaRecordValue `json:"values"`
 }
 
@@ -951,25 +1553,32 @@ type CaaRecordProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type CaaRecordValue struct {
 	// The flag.
+	// Experimental.
 	Flag *float64 `json:"flag"`
 	// The tag.
+	// Experimental.
 	Tag CaaTag `json:"tag"`
 	// The value associated with the tag.
+	// Experimental.
 	Value *string `json:"value"`
 }
 
 // The CAA tag.
+// Experimental.
 type CaaTag string
 
 const (
-	CaaTag_IODEF CaaTag = "IODEF"
 	CaaTag_ISSUE CaaTag = "ISSUE"
 	CaaTag_ISSUEWILD CaaTag = "ISSUEWILD"
+	CaaTag_IODEF CaaTag = "IODEF"
 )
 
 // A CloudFormation `AWS::Route53::DNSSEC`.
+//
+// The `AWS::Route53::DNSSEC` resource is used to enable DNSSEC signing in a hosted zone.
 //
 // TODO: EXAMPLE
 //
@@ -983,7 +1592,7 @@ type CfnDNSSEC interface {
 	HostedZoneId() *string
 	SetHostedZoneId(val *string)
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	UpdatedProperites() *map[string]interface{}
@@ -997,10 +1606,16 @@ type CfnDNSSEC interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1070,8 +1685,8 @@ func (j *jsiiProxy_CfnDNSSEC) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDNSSEC) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnDNSSEC) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1112,13 +1727,13 @@ func (j *jsiiProxy_CfnDNSSEC) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::Route53::DNSSEC`.
-func NewCfnDNSSEC(scope constructs.Construct, id *string, props *CfnDNSSECProps) CfnDNSSEC {
+func NewCfnDNSSEC(scope awscdk.Construct, id *string, props *CfnDNSSECProps) CfnDNSSEC {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDNSSEC{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.CfnDNSSEC",
+		"monocdk.aws_route53.CfnDNSSEC",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1127,11 +1742,11 @@ func NewCfnDNSSEC(scope constructs.Construct, id *string, props *CfnDNSSECProps)
 }
 
 // Create a new `AWS::Route53::DNSSEC`.
-func NewCfnDNSSEC_Override(c CfnDNSSEC, scope constructs.Construct, id *string, props *CfnDNSSECProps) {
+func NewCfnDNSSEC_Override(c CfnDNSSEC, scope awscdk.Construct, id *string, props *CfnDNSSECProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.CfnDNSSEC",
+		"monocdk.aws_route53.CfnDNSSEC",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1151,13 +1766,14 @@ func (j *jsiiProxy_CfnDNSSEC) SetHostedZoneId(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnDNSSEC_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.CfnDNSSEC",
+		"monocdk.aws_route53.CfnDNSSEC",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1167,13 +1783,14 @@ func CfnDNSSEC_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnDNSSEC_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.CfnDNSSEC",
+		"monocdk.aws_route53.CfnDNSSEC",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1182,17 +1799,15 @@ func CfnDNSSEC_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnDNSSEC_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.CfnDNSSEC",
+		"monocdk.aws_route53.CfnDNSSEC",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1205,7 +1820,7 @@ func CfnDNSSEC_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_route53.CfnDNSSEC",
+		"monocdk.aws_route53.CfnDNSSEC",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1213,6 +1828,7 @@ func CfnDNSSEC_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnDNSSEC) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1225,6 +1841,7 @@ func (c *jsiiProxy_CfnDNSSEC) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnDNSSEC) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1240,6 +1857,7 @@ func (c *jsiiProxy_CfnDNSSEC) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnDNSSEC) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1285,6 +1903,7 @@ func (c *jsiiProxy_CfnDNSSEC) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnDNSSEC) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1294,6 +1913,7 @@ func (c *jsiiProxy_CfnDNSSEC) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnDNSSEC) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1305,6 +1925,7 @@ func (c *jsiiProxy_CfnDNSSEC) AddPropertyDeletionOverride(propertyPath *string) 
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnDNSSEC) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1322,6 +1943,7 @@ func (c *jsiiProxy_CfnDNSSEC) AddPropertyOverride(propertyPath *string, value in
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnDNSSEC) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1334,6 +1956,7 @@ func (c *jsiiProxy_CfnDNSSEC) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, op
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnDNSSEC) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1354,6 +1977,7 @@ func (c *jsiiProxy_CfnDNSSEC) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnDNSSEC) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1376,12 +2000,80 @@ func (c *jsiiProxy_CfnDNSSEC) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDNSSEC) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDNSSEC) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDNSSEC) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnDNSSEC) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDNSSEC) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1402,6 +2094,7 @@ func (c *jsiiProxy_CfnDNSSEC) RenderProperties(props *map[string]interface{}) *m
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnDNSSEC) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1415,9 +2108,23 @@ func (c *jsiiProxy_CfnDNSSEC) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDNSSEC) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnDNSSEC) ToString() *string {
 	var returns *string
 
@@ -1431,6 +2138,27 @@ func (c *jsiiProxy_CfnDNSSEC) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDNSSEC) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnDNSSEC) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1439,16 +2167,36 @@ func (c *jsiiProxy_CfnDNSSEC) ValidateProperties(_properties interface{}) {
 	)
 }
 
-// Properties for defining a `AWS::Route53::DNSSEC`.
+// Properties for defining a `CfnDNSSEC`.
 //
 // TODO: EXAMPLE
 //
 type CfnDNSSECProps struct {
-	// `AWS::Route53::DNSSEC.HostedZoneId`.
+	// A unique string (ID) that is used to identify a hosted zone.
+	//
+	// For example: `Z00001111A1ABCaaABC11` .
 	HostedZoneId *string `json:"hostedZoneId"`
 }
 
 // A CloudFormation `AWS::Route53::HealthCheck`.
+//
+// The `AWS::Route53::HealthCheck` resource is a Route 53 resource type that contains settings for a Route 53 health check.
+//
+// For information about associating health checks with records, see [HealthCheckId](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ResourceRecordSet.html#Route53-Type-ResourceRecordSet-HealthCheckId) in [ChangeResourceRecordSets](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html) .
+//
+// > You can't create a health check with simple routing.
+//
+// *ELB Load Balancers*
+//
+// If you're registering EC2 instances with an Elastic Load Balancing (ELB) load balancer, do not create Amazon Route 53 health checks for the EC2 instances. When you register an EC2 instance with a load balancer, you configure settings for an ELB health check, which performs a similar function to a Route 53 health check.
+//
+// *Private Hosted Zones*
+//
+// You can associate health checks with failover records in a private hosted zone. Note the following:
+//
+// - Route 53 health checkers are outside the VPC. To check the health of an endpoint within a VPC by IP address, you must assign a public IP address to the instance in the VPC.
+// - You can configure a health checker to check the health of an external resource that the instance relies on, such as a database server.
+// - You can create a CloudWatch metric, associate an alarm with the metric, and then create a health check that is based on the state of the alarm. For example, you might create a CloudWatch metric that checks the status of the Amazon EC2 `StatusCheckFailed` metric, add an alarm to the metric, and then create a health check that is based on the state of the alarm. For information about creating CloudWatch metrics and alarms by using the CloudWatch console, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatch.html) .
 //
 // TODO: EXAMPLE
 //
@@ -1465,7 +2213,7 @@ type CfnHealthCheck interface {
 	HealthCheckTags() interface{}
 	SetHealthCheckTags(val interface{})
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	UpdatedProperites() *map[string]interface{}
@@ -1479,10 +2227,16 @@ type CfnHealthCheck interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1572,8 +2326,8 @@ func (j *jsiiProxy_CfnHealthCheck) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnHealthCheck) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnHealthCheck) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1614,13 +2368,13 @@ func (j *jsiiProxy_CfnHealthCheck) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::Route53::HealthCheck`.
-func NewCfnHealthCheck(scope constructs.Construct, id *string, props *CfnHealthCheckProps) CfnHealthCheck {
+func NewCfnHealthCheck(scope awscdk.Construct, id *string, props *CfnHealthCheckProps) CfnHealthCheck {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnHealthCheck{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.CfnHealthCheck",
+		"monocdk.aws_route53.CfnHealthCheck",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1629,11 +2383,11 @@ func NewCfnHealthCheck(scope constructs.Construct, id *string, props *CfnHealthC
 }
 
 // Create a new `AWS::Route53::HealthCheck`.
-func NewCfnHealthCheck_Override(c CfnHealthCheck, scope constructs.Construct, id *string, props *CfnHealthCheckProps) {
+func NewCfnHealthCheck_Override(c CfnHealthCheck, scope awscdk.Construct, id *string, props *CfnHealthCheckProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.CfnHealthCheck",
+		"monocdk.aws_route53.CfnHealthCheck",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1661,13 +2415,14 @@ func (j *jsiiProxy_CfnHealthCheck) SetHealthCheckTags(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnHealthCheck_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.CfnHealthCheck",
+		"monocdk.aws_route53.CfnHealthCheck",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1677,13 +2432,14 @@ func CfnHealthCheck_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnHealthCheck_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.CfnHealthCheck",
+		"monocdk.aws_route53.CfnHealthCheck",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1692,17 +2448,15 @@ func CfnHealthCheck_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnHealthCheck_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.CfnHealthCheck",
+		"monocdk.aws_route53.CfnHealthCheck",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1715,7 +2469,7 @@ func CfnHealthCheck_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_route53.CfnHealthCheck",
+		"monocdk.aws_route53.CfnHealthCheck",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1723,6 +2477,7 @@ func CfnHealthCheck_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnHealthCheck) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1735,6 +2490,7 @@ func (c *jsiiProxy_CfnHealthCheck) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnHealthCheck) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1750,6 +2506,7 @@ func (c *jsiiProxy_CfnHealthCheck) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnHealthCheck) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1795,6 +2552,7 @@ func (c *jsiiProxy_CfnHealthCheck) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnHealthCheck) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1804,6 +2562,7 @@ func (c *jsiiProxy_CfnHealthCheck) AddOverride(path *string, value interface{}) 
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnHealthCheck) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1815,6 +2574,7 @@ func (c *jsiiProxy_CfnHealthCheck) AddPropertyDeletionOverride(propertyPath *str
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnHealthCheck) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1832,6 +2592,7 @@ func (c *jsiiProxy_CfnHealthCheck) AddPropertyOverride(propertyPath *string, val
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnHealthCheck) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1844,6 +2605,7 @@ func (c *jsiiProxy_CfnHealthCheck) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnHealthCheck) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1864,6 +2626,7 @@ func (c *jsiiProxy_CfnHealthCheck) GetAtt(attributeName *string) awscdk.Referenc
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnHealthCheck) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1886,12 +2649,80 @@ func (c *jsiiProxy_CfnHealthCheck) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnHealthCheck) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnHealthCheck) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnHealthCheck) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnHealthCheck) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnHealthCheck) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1912,6 +2743,7 @@ func (c *jsiiProxy_CfnHealthCheck) RenderProperties(props *map[string]interface{
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnHealthCheck) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1925,9 +2757,23 @@ func (c *jsiiProxy_CfnHealthCheck) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnHealthCheck) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnHealthCheck) ToString() *string {
 	var returns *string
 
@@ -1941,6 +2787,27 @@ func (c *jsiiProxy_CfnHealthCheck) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnHealthCheck) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnHealthCheck) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1961,6 +2828,8 @@ type CfnHealthCheck_AlarmIdentifierProperty struct {
 // TODO: EXAMPLE
 //
 type CfnHealthCheck_HealthCheckConfigProperty struct {
+	// `CfnHealthCheck.HealthCheckConfigProperty.Type`.
+	Type *string `json:"type"`
 	// `CfnHealthCheck.HealthCheckConfigProperty.AlarmIdentifier`.
 	AlarmIdentifier interface{} `json:"alarmIdentifier"`
 	// `CfnHealthCheck.HealthCheckConfigProperty.ChildHealthChecks`.
@@ -1991,31 +2860,59 @@ type CfnHealthCheck_HealthCheckConfigProperty struct {
 	ResourcePath *string `json:"resourcePath"`
 	// `CfnHealthCheck.HealthCheckConfigProperty.SearchString`.
 	SearchString *string `json:"searchString"`
-	// `CfnHealthCheck.HealthCheckConfigProperty.Type`.
-	Type *string `json:"type"`
 }
 
+// The `HealthCheckTag` property describes one key-value pair that is associated with an `AWS::Route53::HealthCheck` resource.
+//
 // TODO: EXAMPLE
 //
 type CfnHealthCheck_HealthCheckTagProperty struct {
-	// `CfnHealthCheck.HealthCheckTagProperty.Key`.
+	// The value of `Key` depends on the operation that you want to perform:.
+	//
+	// - *Add a tag to a health check or hosted zone* : `Key` is the name that you want to give the new tag.
+	// - *Edit a tag* : `Key` is the name of the tag that you want to change the `Value` for.
+	// - *Delete a key* : `Key` is the name of the tag you want to remove.
+	// - *Give a name to a health check* : Edit the default `Name` tag. In the Amazon Route 53 console, the list of your health checks includes a *Name* column that lets you see the name that you've given to each health check.
 	Key *string `json:"key"`
-	// `CfnHealthCheck.HealthCheckTagProperty.Value`.
+	// The value of `Value` depends on the operation that you want to perform:.
+	//
+	// - *Add a tag to a health check or hosted zone* : `Value` is the value that you want to give the new tag.
+	// - *Edit a tag* : `Value` is the new value that you want to assign the tag.
 	Value *string `json:"value"`
 }
 
-// Properties for defining a `AWS::Route53::HealthCheck`.
+// Properties for defining a `CfnHealthCheck`.
 //
 // TODO: EXAMPLE
 //
 type CfnHealthCheckProps struct {
-	// `AWS::Route53::HealthCheck.HealthCheckConfig`.
+	// A complex type that contains detailed information about one health check.
+	//
+	// For the values to enter for `HealthCheckConfig` , see [HealthCheckConfig](https://docs.aws.amazon.com/Route53/latest/APIReference/API_HealthCheckConfig.html)
 	HealthCheckConfig interface{} `json:"healthCheckConfig"`
-	// `AWS::Route53::HealthCheck.HealthCheckTags`.
+	// The `HealthCheckTags` property describes key-value pairs that are associated with an `AWS::Route53::HealthCheck` resource.
 	HealthCheckTags interface{} `json:"healthCheckTags"`
 }
 
 // A CloudFormation `AWS::Route53::HostedZone`.
+//
+// Creates a new public or private hosted zone. You create records in a public hosted zone to define how you want to route traffic on the internet for a domain, such as example.com, and its subdomains (apex.example.com, acme.example.com). You create records in a private hosted zone to define how you want to route traffic for a domain and its subdomains within one or more Amazon Virtual Private Clouds (Amazon VPCs).
+//
+// > You can't convert a public hosted zone to a private hosted zone or vice versa. Instead, you must create a new hosted zone with the same name and create new resource record sets.
+//
+// For more information about charges for hosted zones, see [Amazon Route 53 Pricing](https://docs.aws.amazon.com/route53/pricing/) .
+//
+// Note the following:
+//
+// - You can't create a hosted zone for a top-level domain (TLD) such as .com.
+// - For public hosted zones, Route 53 automatically creates a default SOA record and four NS records for the zone. For more information about SOA and NS records, see [NS and SOA Records that Route 53 Creates for a Hosted Zone](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/SOA-NSrecords.html) in the *Amazon Route 53 Developer Guide* .
+//
+// If you want to use the same name servers for multiple public hosted zones, you can optionally associate a reusable delegation set with the hosted zone. See the `DelegationSetId` element.
+// - If your domain is registered with a registrar other than Route 53, you must update the name servers with your registrar to make Route 53 the DNS service for the domain. For more information, see [Migrating DNS Service for an Existing Domain to Amazon Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/MigratingDNS.html) in the *Amazon Route 53 Developer Guide* .
+//
+// When you submit a `CreateHostedZone` request, the initial status of the hosted zone is `PENDING` . For public hosted zones, this means that the NS and SOA records are not yet available on all Route 53 DNS servers. When the NS and SOA records are available, the status of the zone changes to `INSYNC` .
+//
+// The `CreateHostedZone` request requires the caller to have an `ec2:DescribeVpcs` permission.
 //
 // TODO: EXAMPLE
 //
@@ -2033,7 +2930,7 @@ type CfnHostedZone interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	QueryLoggingConfig() interface{}
 	SetQueryLoggingConfig(val interface{})
 	Ref() *string
@@ -2052,10 +2949,16 @@ type CfnHostedZone interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -2155,8 +3058,8 @@ func (j *jsiiProxy_CfnHostedZone) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnHostedZone) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnHostedZone) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2227,13 +3130,13 @@ func (j *jsiiProxy_CfnHostedZone) Vpcs() interface{} {
 
 
 // Create a new `AWS::Route53::HostedZone`.
-func NewCfnHostedZone(scope constructs.Construct, id *string, props *CfnHostedZoneProps) CfnHostedZone {
+func NewCfnHostedZone(scope awscdk.Construct, id *string, props *CfnHostedZoneProps) CfnHostedZone {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnHostedZone{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.CfnHostedZone",
+		"monocdk.aws_route53.CfnHostedZone",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2242,11 +3145,11 @@ func NewCfnHostedZone(scope constructs.Construct, id *string, props *CfnHostedZo
 }
 
 // Create a new `AWS::Route53::HostedZone`.
-func NewCfnHostedZone_Override(c CfnHostedZone, scope constructs.Construct, id *string, props *CfnHostedZoneProps) {
+func NewCfnHostedZone_Override(c CfnHostedZone, scope awscdk.Construct, id *string, props *CfnHostedZoneProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.CfnHostedZone",
+		"monocdk.aws_route53.CfnHostedZone",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2290,13 +3193,14 @@ func (j *jsiiProxy_CfnHostedZone) SetVpcs(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnHostedZone_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.CfnHostedZone",
+		"monocdk.aws_route53.CfnHostedZone",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2306,13 +3210,14 @@ func CfnHostedZone_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnHostedZone_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.CfnHostedZone",
+		"monocdk.aws_route53.CfnHostedZone",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2321,17 +3226,15 @@ func CfnHostedZone_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnHostedZone_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.CfnHostedZone",
+		"monocdk.aws_route53.CfnHostedZone",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2344,7 +3247,7 @@ func CfnHostedZone_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_route53.CfnHostedZone",
+		"monocdk.aws_route53.CfnHostedZone",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2352,6 +3255,7 @@ func CfnHostedZone_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnHostedZone) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2364,6 +3268,7 @@ func (c *jsiiProxy_CfnHostedZone) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnHostedZone) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2379,6 +3284,7 @@ func (c *jsiiProxy_CfnHostedZone) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnHostedZone) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2424,6 +3330,7 @@ func (c *jsiiProxy_CfnHostedZone) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnHostedZone) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2433,6 +3340,7 @@ func (c *jsiiProxy_CfnHostedZone) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnHostedZone) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2444,6 +3352,7 @@ func (c *jsiiProxy_CfnHostedZone) AddPropertyDeletionOverride(propertyPath *stri
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnHostedZone) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2461,6 +3370,7 @@ func (c *jsiiProxy_CfnHostedZone) AddPropertyOverride(propertyPath *string, valu
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnHostedZone) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2473,6 +3383,7 @@ func (c *jsiiProxy_CfnHostedZone) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnHostedZone) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2493,6 +3404,7 @@ func (c *jsiiProxy_CfnHostedZone) GetAtt(attributeName *string) awscdk.Reference
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnHostedZone) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2515,12 +3427,80 @@ func (c *jsiiProxy_CfnHostedZone) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnHostedZone) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnHostedZone) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnHostedZone) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnHostedZone) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnHostedZone) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2541,6 +3521,7 @@ func (c *jsiiProxy_CfnHostedZone) RenderProperties(props *map[string]interface{}
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnHostedZone) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2554,9 +3535,23 @@ func (c *jsiiProxy_CfnHostedZone) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnHostedZone) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnHostedZone) ToString() *string {
 	var returns *string
 
@@ -2570,6 +3565,27 @@ func (c *jsiiProxy_CfnHostedZone) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnHostedZone) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnHostedZone) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2578,56 +3594,136 @@ func (c *jsiiProxy_CfnHostedZone) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// A complex type that contains an optional comment about your hosted zone.
+//
+// If you don't want to specify a comment, omit both the `HostedZoneConfig` and `Comment` elements.
+//
 // TODO: EXAMPLE
 //
 type CfnHostedZone_HostedZoneConfigProperty struct {
-	// `CfnHostedZone.HostedZoneConfigProperty.Comment`.
+	// Any comments that you want to include about the hosted zone.
 	Comment *string `json:"comment"`
 }
 
+// A complex type that contains information about a tag that you want to add or edit for the specified health check or hosted zone.
+//
 // TODO: EXAMPLE
 //
 type CfnHostedZone_HostedZoneTagProperty struct {
-	// `CfnHostedZone.HostedZoneTagProperty.Key`.
+	// The value of `Key` depends on the operation that you want to perform:.
+	//
+	// - *Add a tag to a health check or hosted zone* : `Key` is the name that you want to give the new tag.
+	// - *Edit a tag* : `Key` is the name of the tag that you want to change the `Value` for.
+	// - *Delete a key* : `Key` is the name of the tag you want to remove.
+	// - *Give a name to a health check* : Edit the default `Name` tag. In the Amazon Route 53 console, the list of your health checks includes a *Name* column that lets you see the name that you've given to each health check.
 	Key *string `json:"key"`
-	// `CfnHostedZone.HostedZoneTagProperty.Value`.
+	// The value of `Value` depends on the operation that you want to perform:.
+	//
+	// - *Add a tag to a health check or hosted zone* : `Value` is the value that you want to give the new tag.
+	// - *Edit a tag* : `Value` is the new value that you want to assign the tag.
 	Value *string `json:"value"`
 }
 
+// A complex type that contains information about a configuration for DNS query logging.
+//
 // TODO: EXAMPLE
 //
 type CfnHostedZone_QueryLoggingConfigProperty struct {
-	// `CfnHostedZone.QueryLoggingConfigProperty.CloudWatchLogsLogGroupArn`.
+	// The Amazon Resource Name (ARN) of the CloudWatch Logs log group that Amazon Route 53 is publishing logs to.
 	CloudWatchLogsLogGroupArn *string `json:"cloudWatchLogsLogGroupArn"`
 }
 
+// *Private hosted zones only:* A complex type that contains information about an Amazon VPC.
+//
+// Route 53 Resolver uses the records in the private hosted zone to route traffic in that VPC.
+//
+// > For public hosted zones, omit `VPCs` , `VPCId` , and `VPCRegion` .
+//
 // TODO: EXAMPLE
 //
 type CfnHostedZone_VPCProperty struct {
-	// `CfnHostedZone.VPCProperty.VPCId`.
+	// *Private hosted zones only:* The ID of an Amazon VPC.
+	//
+	// > For public hosted zones, omit `VPCs` , `VPCId` , and `VPCRegion` .
 	VpcId *string `json:"vpcId"`
-	// `CfnHostedZone.VPCProperty.VPCRegion`.
+	// *Private hosted zones only:* The region that an Amazon VPC was created in.
+	//
+	// > For public hosted zones, omit `VPCs` , `VPCId` , and `VPCRegion` .
 	VpcRegion *string `json:"vpcRegion"`
 }
 
-// Properties for defining a `AWS::Route53::HostedZone`.
+// Properties for defining a `CfnHostedZone`.
 //
 // TODO: EXAMPLE
 //
 type CfnHostedZoneProps struct {
-	// `AWS::Route53::HostedZone.HostedZoneConfig`.
+	// A complex type that contains an optional comment.
+	//
+	// If you don't want to specify a comment, omit the `HostedZoneConfig` and `Comment` elements.
 	HostedZoneConfig interface{} `json:"hostedZoneConfig"`
-	// `AWS::Route53::HostedZone.HostedZoneTags`.
+	// Adds, edits, or deletes tags for a health check or a hosted zone.
+	//
+	// For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *AWS Billing and Cost Management User Guide* .
 	HostedZoneTags *[]*CfnHostedZone_HostedZoneTagProperty `json:"hostedZoneTags"`
-	// `AWS::Route53::HostedZone.Name`.
+	// The name of the domain.
+	//
+	// Specify a fully qualified domain name, for example, *www.example.com* . The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully qualified. This means that Route 53 treats *www.example.com* (without a trailing dot) and *www.example.com.* (with a trailing dot) as identical.
+	//
+	// If you're creating a public hosted zone, this is the name you have registered with your DNS registrar. If your domain name is registered with a registrar other than Route 53, change the name servers for your domain to the set of `NameServers` that are returned by the `Fn::GetAtt` intrinsic function.
 	Name *string `json:"name"`
-	// `AWS::Route53::HostedZone.QueryLoggingConfig`.
+	// Creates a configuration for DNS query logging.
+	//
+	// After you create a query logging configuration, Amazon Route 53 begins to publish log data to an Amazon CloudWatch Logs log group.
+	//
+	// DNS query logs contain information about the queries that Route 53 receives for a specified public hosted zone, such as the following:
+	//
+	// - Route 53 edge location that responded to the DNS query
+	// - Domain or subdomain that was requested
+	// - DNS record type, such as A or AAAA
+	// - DNS response code, such as `NoError` or `ServFail`
+	//
+	// - **Log Group and Resource Policy** - Before you create a query logging configuration, perform the following operations.
+	//
+	// > If you create a query logging configuration using the Route 53 console, Route 53 performs these operations automatically.
+	//
+	// - Create a CloudWatch Logs log group, and make note of the ARN, which you specify when you create a query logging configuration. Note the following:
+	//
+	// - You must create the log group in the us-east-1 region.
+	// - You must use the same AWS account to create the log group and the hosted zone that you want to configure query logging for.
+	// - When you create log groups for query logging, we recommend that you use a consistent prefix, for example:
+	//
+	// `/aws/route53/ *hosted zone name*`
+	//
+	// In the next step, you'll create a resource policy, which controls access to one or more log groups and the associated AWS resources, such as Route 53 hosted zones. There's a limit on the number of resource policies that you can create, so we recommend that you use a consistent prefix so you can use the same resource policy for all the log groups that you create for query logging.
+	// - Create a CloudWatch Logs resource policy, and give it the permissions that Route 53 needs to create log streams and to send query logs to log streams. For the value of `Resource` , specify the ARN for the log group that you created in the previous step. To use the same resource policy for all the CloudWatch Logs log groups that you created for query logging configurations, replace the hosted zone name with `*` , for example:
+	//
+	// `arn:aws:logs:us-east-1:123412341234:log-group:/aws/route53/*`
+	//
+	// > You can't use the CloudWatch console to create or edit a resource policy. You must use the CloudWatch API, one of the AWS SDKs, or the AWS CLI .
+	// - **Log Streams and Edge Locations** - When Route 53 finishes creating the configuration for DNS query logging, it does the following:
+	//
+	// - Creates a log stream for an edge location the first time that the edge location responds to DNS queries for the specified hosted zone. That log stream is used to log all queries that Route 53 responds to for that edge location.
+	// - Begins to send query logs to the applicable log stream.
+	//
+	// The name of each log stream is in the following format:
+	//
+	// `*hosted zone ID* / *edge location code*`
+	//
+	// The edge location code is a three-letter code and an arbitrarily assigned number, for example, DFW3. The three-letter code typically corresponds with the International Air Transport Association airport code for an airport near the edge location. (These abbreviations might change in the future.) For a list of edge locations, see "The Route 53 Global Network" on the [Route 53 Product Details](https://docs.aws.amazon.com/route53/details/) page.
+	// - **Queries That Are Logged** - Query logs contain only the queries that DNS resolvers forward to Route 53. If a DNS resolver has already cached the response to a query (such as the IP address for a load balancer for example.com), the resolver will continue to return the cached response. It doesn't forward another query to Route 53 until the TTL for the corresponding resource record set expires. Depending on how many DNS queries are submitted for a resource record set, and depending on the TTL for that resource record set, query logs might contain information about only one query out of every several thousand queries that are submitted to DNS. For more information about how DNS works, see [Routing Internet Traffic to Your Website or Web Application](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/welcome-dns-service.html) in the *Amazon Route 53 Developer Guide* .
+	// - **Log File Format** - For a list of the values in each query log and the format of each value, see [Logging DNS Queries](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html) in the *Amazon Route 53 Developer Guide* .
+	// - **Pricing** - For information about charges for query logs, see [Amazon CloudWatch Pricing](https://docs.aws.amazon.com/cloudwatch/pricing/) .
+	// - **How to Stop Logging** - If you want Route 53 to stop sending query logs to CloudWatch Logs, delete the query logging configuration. For more information, see [DeleteQueryLoggingConfig](https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteQueryLoggingConfig.html) .
 	QueryLoggingConfig interface{} `json:"queryLoggingConfig"`
-	// `AWS::Route53::HostedZone.VPCs`.
+	// *Private hosted zones:* A complex type that contains information about the VPCs that are associated with the specified hosted zone.
+	//
+	// > For public hosted zones, omit `VPCs` , `VPCId` , and `VPCRegion` .
 	Vpcs interface{} `json:"vpcs"`
 }
 
 // A CloudFormation `AWS::Route53::KeySigningKey`.
+//
+// The `AWS::Route53::KeySigningKey` resource creates a new key-signing key (KSK) in a hosted zone. The hosted zone ID is passed as a parameter in the KSK properties. You can specify the properties of this KSK using the `Name` , `Status` , and `KeyManagementServiceArn` properties of the resource.
 //
 // TODO: EXAMPLE
 //
@@ -2645,7 +3741,7 @@ type CfnKeySigningKey interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	Status() *string
@@ -2661,10 +3757,16 @@ type CfnKeySigningKey interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -2754,8 +3856,8 @@ func (j *jsiiProxy_CfnKeySigningKey) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnKeySigningKey) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnKeySigningKey) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2806,13 +3908,13 @@ func (j *jsiiProxy_CfnKeySigningKey) UpdatedProperites() *map[string]interface{}
 
 
 // Create a new `AWS::Route53::KeySigningKey`.
-func NewCfnKeySigningKey(scope constructs.Construct, id *string, props *CfnKeySigningKeyProps) CfnKeySigningKey {
+func NewCfnKeySigningKey(scope awscdk.Construct, id *string, props *CfnKeySigningKeyProps) CfnKeySigningKey {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnKeySigningKey{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.CfnKeySigningKey",
+		"monocdk.aws_route53.CfnKeySigningKey",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2821,11 +3923,11 @@ func NewCfnKeySigningKey(scope constructs.Construct, id *string, props *CfnKeySi
 }
 
 // Create a new `AWS::Route53::KeySigningKey`.
-func NewCfnKeySigningKey_Override(c CfnKeySigningKey, scope constructs.Construct, id *string, props *CfnKeySigningKeyProps) {
+func NewCfnKeySigningKey_Override(c CfnKeySigningKey, scope awscdk.Construct, id *string, props *CfnKeySigningKeyProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.CfnKeySigningKey",
+		"monocdk.aws_route53.CfnKeySigningKey",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2869,13 +3971,14 @@ func (j *jsiiProxy_CfnKeySigningKey) SetStatus(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnKeySigningKey_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.CfnKeySigningKey",
+		"monocdk.aws_route53.CfnKeySigningKey",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2885,13 +3988,14 @@ func CfnKeySigningKey_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnKeySigningKey_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.CfnKeySigningKey",
+		"monocdk.aws_route53.CfnKeySigningKey",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2900,17 +4004,15 @@ func CfnKeySigningKey_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnKeySigningKey_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.CfnKeySigningKey",
+		"monocdk.aws_route53.CfnKeySigningKey",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2923,7 +4025,7 @@ func CfnKeySigningKey_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_route53.CfnKeySigningKey",
+		"monocdk.aws_route53.CfnKeySigningKey",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2931,6 +4033,7 @@ func CfnKeySigningKey_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnKeySigningKey) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2943,6 +4046,7 @@ func (c *jsiiProxy_CfnKeySigningKey) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnKeySigningKey) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2958,6 +4062,7 @@ func (c *jsiiProxy_CfnKeySigningKey) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnKeySigningKey) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3003,6 +4108,7 @@ func (c *jsiiProxy_CfnKeySigningKey) AddMetadata(key *string, value interface{})
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnKeySigningKey) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3012,6 +4118,7 @@ func (c *jsiiProxy_CfnKeySigningKey) AddOverride(path *string, value interface{}
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnKeySigningKey) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3023,6 +4130,7 @@ func (c *jsiiProxy_CfnKeySigningKey) AddPropertyDeletionOverride(propertyPath *s
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnKeySigningKey) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3040,6 +4148,7 @@ func (c *jsiiProxy_CfnKeySigningKey) AddPropertyOverride(propertyPath *string, v
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnKeySigningKey) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3052,6 +4161,7 @@ func (c *jsiiProxy_CfnKeySigningKey) ApplyRemovalPolicy(policy awscdk.RemovalPol
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnKeySigningKey) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -3072,6 +4182,7 @@ func (c *jsiiProxy_CfnKeySigningKey) GetAtt(attributeName *string) awscdk.Refere
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnKeySigningKey) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -3094,12 +4205,80 @@ func (c *jsiiProxy_CfnKeySigningKey) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnKeySigningKey) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnKeySigningKey) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnKeySigningKey) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnKeySigningKey) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnKeySigningKey) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -3120,6 +4299,7 @@ func (c *jsiiProxy_CfnKeySigningKey) RenderProperties(props *map[string]interfac
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnKeySigningKey) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -3133,9 +4313,23 @@ func (c *jsiiProxy_CfnKeySigningKey) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnKeySigningKey) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnKeySigningKey) ToString() *string {
 	var returns *string
 
@@ -3149,6 +4343,27 @@ func (c *jsiiProxy_CfnKeySigningKey) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnKeySigningKey) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnKeySigningKey) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3157,22 +4372,42 @@ func (c *jsiiProxy_CfnKeySigningKey) ValidateProperties(_properties interface{})
 	)
 }
 
-// Properties for defining a `AWS::Route53::KeySigningKey`.
+// Properties for defining a `CfnKeySigningKey`.
 //
 // TODO: EXAMPLE
 //
 type CfnKeySigningKeyProps struct {
-	// `AWS::Route53::KeySigningKey.HostedZoneId`.
+	// The unique string (ID) that is used to identify a hosted zone.
+	//
+	// For example: `Z00001111A1ABCaaABC11` .
 	HostedZoneId *string `json:"hostedZoneId"`
-	// `AWS::Route53::KeySigningKey.KeyManagementServiceArn`.
+	// The Amazon resource name (ARN) for a customer managed customer master key (CMK) in AWS Key Management Service ( AWS KMS ).
+	//
+	// The `KeyManagementServiceArn` must be unique for each key-signing key (KSK) in a single hosted zone. For example: `arn:aws:kms:us-east-1:111122223333:key/111a2222-a11b-1ab1-2ab2-1ab21a2b3a111` .
 	KeyManagementServiceArn *string `json:"keyManagementServiceArn"`
-	// `AWS::Route53::KeySigningKey.Name`.
+	// A string used to identify a key-signing key (KSK).
+	//
+	// `Name` can include numbers, letters, and underscores (_). `Name` must be unique for each key-signing key in the same hosted zone.
 	Name *string `json:"name"`
-	// `AWS::Route53::KeySigningKey.Status`.
+	// A string that represents the current key-signing key (KSK) status.
+	//
+	// Status can have one of the following values:
+	//
+	// - **ACTIVE** - The KSK is being used for signing.
+	// - **INACTIVE** - The KSK is not being used for signing.
+	// - **DELETING** - The KSK is in the process of being deleted.
+	// - **ACTION_NEEDED** - There is a problem with the KSK that requires you to take action to resolve. For example, the customer managed key might have been deleted, or the permissions for the customer managed key might have been changed.
+	// - **INTERNAL_FAILURE** - There was an error during a request. Before you can continue to work with DNSSEC signing, including actions that involve this KSK, you must correct the problem. For example, you may need to activate or deactivate the KSK.
 	Status *string `json:"status"`
 }
 
 // A CloudFormation `AWS::Route53::RecordSet`.
+//
+// Information about the record that you want to create.
+//
+// The `AWS::Route53::RecordSet` type can be used as a standalone resource or as an embedded property in the `AWS::Route53::RecordSetGroup` type. Note that some `AWS::Route53::RecordSet` properties are valid only when used within `AWS::Route53::RecordSetGroup` .
+//
+// For more information, see [ChangeResourceRecordSets](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html) in the *Amazon Route 53 API Reference* .
 //
 // TODO: EXAMPLE
 //
@@ -3202,7 +4437,7 @@ type CfnRecordSet interface {
 	SetMultiValueAnswer(val interface{})
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Region() *string
 	SetRegion(val *string)
@@ -3228,10 +4463,16 @@ type CfnRecordSet interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -3381,8 +4622,8 @@ func (j *jsiiProxy_CfnRecordSet) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRecordSet) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnRecordSet) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -3483,13 +4724,13 @@ func (j *jsiiProxy_CfnRecordSet) Weight() *float64 {
 
 
 // Create a new `AWS::Route53::RecordSet`.
-func NewCfnRecordSet(scope constructs.Construct, id *string, props *CfnRecordSetProps) CfnRecordSet {
+func NewCfnRecordSet(scope awscdk.Construct, id *string, props *CfnRecordSetProps) CfnRecordSet {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnRecordSet{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.CfnRecordSet",
+		"monocdk.aws_route53.CfnRecordSet",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3498,11 +4739,11 @@ func NewCfnRecordSet(scope constructs.Construct, id *string, props *CfnRecordSet
 }
 
 // Create a new `AWS::Route53::RecordSet`.
-func NewCfnRecordSet_Override(c CfnRecordSet, scope constructs.Construct, id *string, props *CfnRecordSetProps) {
+func NewCfnRecordSet_Override(c CfnRecordSet, scope awscdk.Construct, id *string, props *CfnRecordSetProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.CfnRecordSet",
+		"monocdk.aws_route53.CfnRecordSet",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -3634,13 +4875,14 @@ func (j *jsiiProxy_CfnRecordSet) SetWeight(val *float64) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnRecordSet_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.CfnRecordSet",
+		"monocdk.aws_route53.CfnRecordSet",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -3650,13 +4892,14 @@ func CfnRecordSet_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnRecordSet_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.CfnRecordSet",
+		"monocdk.aws_route53.CfnRecordSet",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3665,17 +4908,15 @@ func CfnRecordSet_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnRecordSet_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.CfnRecordSet",
+		"monocdk.aws_route53.CfnRecordSet",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3688,7 +4929,7 @@ func CfnRecordSet_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_route53.CfnRecordSet",
+		"monocdk.aws_route53.CfnRecordSet",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -3696,6 +4937,7 @@ func CfnRecordSet_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnRecordSet) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3708,6 +4950,7 @@ func (c *jsiiProxy_CfnRecordSet) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnRecordSet) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3723,6 +4966,7 @@ func (c *jsiiProxy_CfnRecordSet) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnRecordSet) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3768,6 +5012,7 @@ func (c *jsiiProxy_CfnRecordSet) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnRecordSet) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3777,6 +5022,7 @@ func (c *jsiiProxy_CfnRecordSet) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnRecordSet) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3788,6 +5034,7 @@ func (c *jsiiProxy_CfnRecordSet) AddPropertyDeletionOverride(propertyPath *strin
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnRecordSet) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3805,6 +5052,7 @@ func (c *jsiiProxy_CfnRecordSet) AddPropertyOverride(propertyPath *string, value
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnRecordSet) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3817,6 +5065,7 @@ func (c *jsiiProxy_CfnRecordSet) ApplyRemovalPolicy(policy awscdk.RemovalPolicy,
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnRecordSet) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -3837,6 +5086,7 @@ func (c *jsiiProxy_CfnRecordSet) GetAtt(attributeName *string) awscdk.Reference 
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnRecordSet) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -3859,12 +5109,80 @@ func (c *jsiiProxy_CfnRecordSet) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnRecordSet) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnRecordSet) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnRecordSet) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnRecordSet) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnRecordSet) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -3885,6 +5203,7 @@ func (c *jsiiProxy_CfnRecordSet) RenderProperties(props *map[string]interface{})
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnRecordSet) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -3898,9 +5217,23 @@ func (c *jsiiProxy_CfnRecordSet) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnRecordSet) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnRecordSet) ToString() *string {
 	var returns *string
 
@@ -3914,6 +5247,27 @@ func (c *jsiiProxy_CfnRecordSet) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnRecordSet) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnRecordSet) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3922,29 +5276,154 @@ func (c *jsiiProxy_CfnRecordSet) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// *Alias records only:* Information about the AWS resource, such as a CloudFront distribution or an Amazon S3 bucket, that you want to route traffic to.
+//
+// When creating records for a private hosted zone, note the following:
+//
+// - Creating geolocation alias and latency alias records in a private hosted zone is allowed but not supported.
+// - For information about creating failover records in a private hosted zone, see [Configuring Failover in a Private Hosted Zone](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html) .
+//
 // TODO: EXAMPLE
 //
 type CfnRecordSet_AliasTargetProperty struct {
-	// `CfnRecordSet.AliasTargetProperty.DNSName`.
+	// *Alias records only:* The value that you specify depends on where you want to route queries:.
+	//
+	// - **Amazon API Gateway custom regional APIs and edge-optimized APIs** - Specify the applicable domain name for your API. You can get the applicable value using the AWS CLI command [get-domain-names](https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-domain-names.html) :
+	//
+	// - For regional APIs, specify the value of `regionalDomainName` .
+	// - For edge-optimized APIs, specify the value of `distributionDomainName` . This is the name of the associated CloudFront distribution, such as `da1b2c3d4e5.cloudfront.net` .
+	//
+	// > The name of the record that you're creating must match a custom domain name for your API, such as `api.example.com` .
+	// - **Amazon Virtual Private Cloud interface VPC endpoint** - Enter the API endpoint for the interface endpoint, such as `vpce-123456789abcdef01-example-us-east-1a.elasticloadbalancing.us-east-1.vpce.amazonaws.com` . For edge-optimized APIs, this is the domain name for the corresponding CloudFront distribution. You can get the value of `DnsName` using the AWS CLI command [describe-vpc-endpoints](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-vpc-endpoints.html) .
+	// - **CloudFront distribution** - Specify the domain name that CloudFront assigned when you created your distribution.
+	//
+	// Your CloudFront distribution must include an alternate domain name that matches the name of the record. For example, if the name of the record is *acme.example.com* , your CloudFront distribution must include *acme.example.com* as one of the alternate domain names. For more information, see [Using Alternate Domain Names (CNAMEs)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/CNAMEs.html) in the *Amazon CloudFront Developer Guide* .
+	//
+	// You can't create a record in a private hosted zone to route traffic to a CloudFront distribution.
+	//
+	// > For failover alias records, you can't specify a CloudFront distribution for both the primary and secondary records. A distribution must include an alternate domain name that matches the name of the record. However, the primary and secondary records have the same name, and you can't include the same alternate domain name in more than one distribution.
+	// - **Elastic Beanstalk environment** - If the domain name for your Elastic Beanstalk environment includes the region that you deployed the environment in, you can create an alias record that routes traffic to the environment. For example, the domain name `my-environment. *us-west-2* .elasticbeanstalk.com` is a regionalized domain name.
+	//
+	// > For environments that were created before early 2016, the domain name doesn't include the region. To route traffic to these environments, you must create a CNAME record instead of an alias record. Note that you can't create a CNAME record for the root domain name. For example, if your domain name is example.com, you can create a record that routes traffic for acme.example.com to your Elastic Beanstalk environment, but you can't create a record that routes traffic for example.com to your Elastic Beanstalk environment.
+	//
+	// For Elastic Beanstalk environments that have regionalized subdomains, specify the `CNAME` attribute for the environment. You can use the following methods to get the value of the CNAME attribute:
+	//
+	// - *AWS Management Console* : For information about how to get the value by using the console, see [Using Custom Domains with AWS Elastic Beanstalk](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/customdomains.html) in the *AWS Elastic Beanstalk Developer Guide* .
+	// - *Elastic Beanstalk API* : Use the `DescribeEnvironments` action to get the value of the `CNAME` attribute. For more information, see [DescribeEnvironments](https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeEnvironments.html) in the *AWS Elastic Beanstalk API Reference* .
+	// - *AWS CLI* : Use the `describe-environments` command to get the value of the `CNAME` attribute. For more information, see [describe-environments](https://docs.aws.amazon.com/cli/latest/reference/elasticbeanstalk/describe-environments.html) in the *AWS CLI* .
+	// - **ELB load balancer** - Specify the DNS name that is associated with the load balancer. Get the DNS name by using the AWS Management Console , the ELB API, or the AWS CLI .
+	//
+	// - *AWS Management Console* : Go to the EC2 page, choose *Load Balancers* in the navigation pane, choose the load balancer, choose the *Description* tab, and get the value of the *DNS name* field.
+	//
+	// If you're routing traffic to a Classic Load Balancer, get the value that begins with *dualstack* . If you're routing traffic to another type of load balancer, get the value that applies to the record type, A or AAAA.
+	// - *Elastic Load Balancing API* : Use `DescribeLoadBalancers` to get the value of `DNSName` . For more information, see the applicable guide:
+	//
+	// - Classic Load Balancers: [DescribeLoadBalancers](https://docs.aws.amazon.com/elasticloadbalancing/2012-06-01/APIReference/API_DescribeLoadBalancers.html)
+	// - Application and Network Load Balancers: [DescribeLoadBalancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html)
+	// - *CloudFormation Fn::GetAtt intrinsic function* : Use the [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html) intrinsic function to get the value of `DNSName` :
+	//
+	// - [Classic Load Balancers](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#aws-properties-ec2-elb-return-values) .
+	// - [Application and Network Load Balancers](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#aws-resource-elasticloadbalancingv2-loadbalancer-return-values) .
+	// - *AWS CLI* : Use `describe-load-balancers` to get the value of `DNSName` . For more information, see the applicable guide:
+	//
+	// - Classic Load Balancers: [describe-load-balancers](https://docs.aws.amazon.com/cli/latest/reference/elb/describe-load-balancers.html)
+	// - Application and Network Load Balancers: [describe-load-balancers](https://docs.aws.amazon.com/cli/latest/reference/elbv2/describe-load-balancers.html)
+	// - **Global Accelerator accelerator** - Specify the DNS name for your accelerator:
+	//
+	// - *Global Accelerator API* : To get the DNS name, use [DescribeAccelerator](https://docs.aws.amazon.com/global-accelerator/latest/api/API_DescribeAccelerator.html) .
+	// - *AWS CLI* : To get the DNS name, use [describe-accelerator](https://docs.aws.amazon.com/cli/latest/reference/globalaccelerator/describe-accelerator.html) .
+	// - **Amazon S3 bucket that is configured as a static website** - Specify the domain name of the Amazon S3 website endpoint that you created the bucket in, for example, `s3-website.us-east-2.amazonaws.com` . For more information about valid values, see the table [Amazon S3 Website Endpoints](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_website_region_endpoints) in the *Amazon Web Services General Reference* . For more information about using S3 buckets for websites, see [Getting Started with Amazon Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/getting-started.html) in the *Amazon Route 53 Developer Guide.*
+	// - **Another Route 53 record** - Specify the value of the `Name` element for a record in the current hosted zone.
+	//
+	// > If you're creating an alias record that has the same name as the hosted zone (known as the zone apex), you can't specify the domain name for a record for which the value of `Type` is `CNAME` . This is because the alias record must have the same type as the record that you're routing traffic to, and creating a CNAME record for the zone apex isn't supported even for an alias record.
 	DnsName *string `json:"dnsName"`
-	// `CfnRecordSet.AliasTargetProperty.EvaluateTargetHealth`.
-	EvaluateTargetHealth interface{} `json:"evaluateTargetHealth"`
-	// `CfnRecordSet.AliasTargetProperty.HostedZoneId`.
+	// *Alias resource records sets only* : The value used depends on where you want to route traffic:.
+	//
+	// - **Amazon API Gateway custom regional APIs and edge-optimized APIs** - Specify the hosted zone ID for your API. You can get the applicable value using the AWS CLI command [get-domain-names](https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-domain-names.html) :
+	//
+	// - For regional APIs, specify the value of `regionalHostedZoneId` .
+	// - For edge-optimized APIs, specify the value of `distributionHostedZoneId` .
+	// - **Amazon Virtual Private Cloud interface VPC endpoint** - Specify the hosted zone ID for your interface endpoint. You can get the value of `HostedZoneId` using the AWS CLI command [describe-vpc-endpoints](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-vpc-endpoints.html) .
+	// - **CloudFront distribution** - Specify `Z2FDTNDATAQYW2` . This is always the hosted zone ID when you create an alias record that routes traffic to a CloudFront distribution.
+	//
+	// > Alias records for CloudFront can't be created in a private zone.
+	// - **Elastic Beanstalk environment** - Specify the hosted zone ID for the region that you created the environment in. The environment must have a regionalized subdomain. For a list of regions and the corresponding hosted zone IDs, see [AWS Elastic Beanstalk endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/elasticbeanstalk.html) in the *Amazon Web Services General Reference* .
+	// - **ELB load balancer** - Specify the value of the hosted zone ID for the load balancer. Use the following methods to get the hosted zone ID:
+	//
+	// - [Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/elb.html) table in the "Elastic Load Balancing Endpoints and Quotas" topic in the *Amazon Web Services General Reference* : Use the value that corresponds with the region that you created your load balancer in. Note that there are separate columns for Application and Classic Load Balancers and for Network Load Balancers.
+	// - *AWS Management Console* : Go to the Amazon EC2 page, choose *Load Balancers* in the navigation pane, select the load balancer, and get the value of the *Hosted zone* field on the *Description* tab.
+	// - *Elastic Load Balancing API* : Use `DescribeLoadBalancers` to get the applicable value. For more information, see the applicable guide:
+	//
+	// - Classic Load Balancers: Use [DescribeLoadBalancers](https://docs.aws.amazon.com/elasticloadbalancing/2012-06-01/APIReference/API_DescribeLoadBalancers.html) to get the value of `CanonicalHostedZoneNameID` .
+	// - Application and Network Load Balancers: Use [DescribeLoadBalancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html) to get the value of `CanonicalHostedZoneID` .
+	// - *CloudFormation Fn::GetAtt intrinsic function* : Use the [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html) intrinsic function to get the applicable value:
+	//
+	// - Classic Load Balancers: Get [CanonicalHostedZoneNameID](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#aws-properties-ec2-elb-return-values) .
+	// - Application and Network Load Balancers: Get [CanonicalHostedZoneID](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#aws-resource-elasticloadbalancingv2-loadbalancer-return-values) .
+	// - *AWS CLI* : Use `describe-load-balancers` to get the applicable value. For more information, see the applicable guide:
+	//
+	// - Classic Load Balancers: Use [describe-load-balancers](https://docs.aws.amazon.com/cli/latest/reference/elb/describe-load-balancers.html) to get the value of `CanonicalHostedZoneNameID` .
+	// - Application and Network Load Balancers: Use [describe-load-balancers](https://docs.aws.amazon.com/cli/latest/reference/elbv2/describe-load-balancers.html) to get the value of `CanonicalHostedZoneID` .
+	// - **Global Accelerator accelerator** - Specify `Z2BJ6XQ5FK7U4H` .
+	// - **An Amazon S3 bucket configured as a static website** - Specify the hosted zone ID for the region that you created the bucket in. For more information about valid values, see the table [Amazon S3 Website Endpoints](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_website_region_endpoints) in the *Amazon Web Services General Reference* .
+	// - **Another Route 53 record in your hosted zone** - Specify the hosted zone ID of your hosted zone. (An alias record can't reference a record in a different hosted zone.)
 	HostedZoneId *string `json:"hostedZoneId"`
+	// *Applies only to alias, failover alias, geolocation alias, latency alias, and weighted alias resource record sets:* When `EvaluateTargetHealth` is `true` , an alias resource record set inherits the health of the referenced AWS resource, such as an ELB load balancer or another resource record set in the hosted zone.
+	//
+	// Note the following:
+	//
+	// - **CloudFront distributions** - You can't set `EvaluateTargetHealth` to `true` when the alias target is a CloudFront distribution.
+	// - **Elastic Beanstalk environments that have regionalized subdomains** - If you specify an Elastic Beanstalk environment in `DNSName` and the environment contains an ELB load balancer, Elastic Load Balancing routes queries only to the healthy Amazon EC2 instances that are registered with the load balancer. (An environment automatically contains an ELB load balancer if it includes more than one Amazon EC2 instance.) If you set `EvaluateTargetHealth` to `true` and either no Amazon EC2 instances are healthy or the load balancer itself is unhealthy, Route 53 routes queries to other available resources that are healthy, if any.
+	//
+	// If the environment contains a single Amazon EC2 instance, there are no special requirements.
+	// - **ELB load balancers** - Health checking behavior depends on the type of load balancer:
+	//
+	// - *Classic Load Balancers* : If you specify an ELB Classic Load Balancer in `DNSName` , Elastic Load Balancing routes queries only to the healthy Amazon EC2 instances that are registered with the load balancer. If you set `EvaluateTargetHealth` to `true` and either no EC2 instances are healthy or the load balancer itself is unhealthy, Route 53 routes queries to other resources.
+	// - *Application and Network Load Balancers* : If you specify an ELB Application or Network Load Balancer and you set `EvaluateTargetHealth` to `true` , Route 53 routes queries to the load balancer based on the health of the target groups that are associated with the load balancer:
+	//
+	// - For an Application or Network Load Balancer to be considered healthy, every target group that contains targets must contain at least one healthy target. If any target group contains only unhealthy targets, the load balancer is considered unhealthy, and Route 53 routes queries to other resources.
+	// - A target group that has no registered targets is considered unhealthy.
+	//
+	// > When you create a load balancer, you configure settings for Elastic Load Balancing health checks; they're not Route 53 health checks, but they perform a similar function. Do not create Route 53 health checks for the EC2 instances that you register with an ELB load balancer.
+	// - **S3 buckets** - There are no special requirements for setting `EvaluateTargetHealth` to `true` when the alias target is an S3 bucket.
+	// - **Other records in the same hosted zone** - If the AWS resource that you specify in `DNSName` is a record or a group of records (for example, a group of weighted records) but is not another alias record, we recommend that you associate a health check with all of the records in the alias target. For more information, see [What Happens When You Omit Health Checks?](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-complex-configs.html#dns-failover-complex-configs-hc-omitting) in the *Amazon Route 53 Developer Guide* .
+	//
+	// For more information and examples, see [Amazon Route 53 Health Checks and DNS Failover](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html) in the *Amazon Route 53 Developer Guide* .
+	EvaluateTargetHealth interface{} `json:"evaluateTargetHealth"`
 }
 
+// A complex type that contains information about a geographic location.
+//
 // TODO: EXAMPLE
 //
 type CfnRecordSet_GeoLocationProperty struct {
-	// `CfnRecordSet.GeoLocationProperty.ContinentCode`.
+	// For geolocation resource record sets, a two-letter abbreviation that identifies a continent. Route 53 supports the following continent codes:.
+	//
+	// - *AF* : Africa
+	// - *AN* : Antarctica
+	// - *AS* : Asia
+	// - *EU* : Europe
+	// - *OC* : Oceania
+	// - *NA* : North America
+	// - *SA* : South America
+	//
+	// Constraint: Specifying `ContinentCode` with either `CountryCode` or `SubdivisionCode` returns an `InvalidInput` error.
 	ContinentCode *string `json:"continentCode"`
-	// `CfnRecordSet.GeoLocationProperty.CountryCode`.
+	// For geolocation resource record sets, the two-letter code for a country.
+	//
+	// Route 53 uses the two-letter country codes that are specified in [ISO standard 3166-1 alpha-2](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) .
 	CountryCode *string `json:"countryCode"`
-	// `CfnRecordSet.GeoLocationProperty.SubdivisionCode`.
+	// For geolocation resource record sets, the two-letter code for a state of the United States.
+	//
+	// Route 53 doesn't support any other values for `SubdivisionCode` . For a list of state abbreviations, see [Appendix B: Two–Letter State and Possession Abbreviations](https://docs.aws.amazon.com/https://pe.usps.com/text/pub28/28apb.htm) on the United States Postal Service website.
+	//
+	// If you specify `subdivisioncode` , you must also specify `US` for `CountryCode` .
 	SubdivisionCode *string `json:"subdivisionCode"`
 }
 
 // A CloudFormation `AWS::Route53::RecordSetGroup`.
+//
+// A complex type that contains an optional comment, the name and ID of the hosted zone that you want to make changes in, and values for the records that you want to create.
 //
 // TODO: EXAMPLE
 //
@@ -3962,7 +5441,7 @@ type CfnRecordSetGroup interface {
 	HostedZoneName() *string
 	SetHostedZoneName(val *string)
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	RecordSets() interface{}
 	SetRecordSets(val interface{})
 	Ref() *string
@@ -3978,10 +5457,16 @@ type CfnRecordSetGroup interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -4071,8 +5556,8 @@ func (j *jsiiProxy_CfnRecordSetGroup) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRecordSetGroup) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnRecordSetGroup) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -4123,13 +5608,13 @@ func (j *jsiiProxy_CfnRecordSetGroup) UpdatedProperites() *map[string]interface{
 
 
 // Create a new `AWS::Route53::RecordSetGroup`.
-func NewCfnRecordSetGroup(scope constructs.Construct, id *string, props *CfnRecordSetGroupProps) CfnRecordSetGroup {
+func NewCfnRecordSetGroup(scope awscdk.Construct, id *string, props *CfnRecordSetGroupProps) CfnRecordSetGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnRecordSetGroup{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.CfnRecordSetGroup",
+		"monocdk.aws_route53.CfnRecordSetGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4138,11 +5623,11 @@ func NewCfnRecordSetGroup(scope constructs.Construct, id *string, props *CfnReco
 }
 
 // Create a new `AWS::Route53::RecordSetGroup`.
-func NewCfnRecordSetGroup_Override(c CfnRecordSetGroup, scope constructs.Construct, id *string, props *CfnRecordSetGroupProps) {
+func NewCfnRecordSetGroup_Override(c CfnRecordSetGroup, scope awscdk.Construct, id *string, props *CfnRecordSetGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.CfnRecordSetGroup",
+		"monocdk.aws_route53.CfnRecordSetGroup",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -4186,13 +5671,14 @@ func (j *jsiiProxy_CfnRecordSetGroup) SetRecordSets(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnRecordSetGroup_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.CfnRecordSetGroup",
+		"monocdk.aws_route53.CfnRecordSetGroup",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -4202,13 +5688,14 @@ func CfnRecordSetGroup_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnRecordSetGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.CfnRecordSetGroup",
+		"monocdk.aws_route53.CfnRecordSetGroup",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -4217,17 +5704,15 @@ func CfnRecordSetGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnRecordSetGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.CfnRecordSetGroup",
+		"monocdk.aws_route53.CfnRecordSetGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4240,7 +5725,7 @@ func CfnRecordSetGroup_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_route53.CfnRecordSetGroup",
+		"monocdk.aws_route53.CfnRecordSetGroup",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -4248,6 +5733,7 @@ func CfnRecordSetGroup_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnRecordSetGroup) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4260,6 +5746,7 @@ func (c *jsiiProxy_CfnRecordSetGroup) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnRecordSetGroup) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4275,6 +5762,7 @@ func (c *jsiiProxy_CfnRecordSetGroup) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnRecordSetGroup) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4320,6 +5808,7 @@ func (c *jsiiProxy_CfnRecordSetGroup) AddMetadata(key *string, value interface{}
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnRecordSetGroup) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4329,6 +5818,7 @@ func (c *jsiiProxy_CfnRecordSetGroup) AddOverride(path *string, value interface{
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnRecordSetGroup) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4340,6 +5830,7 @@ func (c *jsiiProxy_CfnRecordSetGroup) AddPropertyDeletionOverride(propertyPath *
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnRecordSetGroup) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4357,6 +5848,7 @@ func (c *jsiiProxy_CfnRecordSetGroup) AddPropertyOverride(propertyPath *string, 
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnRecordSetGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4369,6 +5861,7 @@ func (c *jsiiProxy_CfnRecordSetGroup) ApplyRemovalPolicy(policy awscdk.RemovalPo
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnRecordSetGroup) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -4389,6 +5882,7 @@ func (c *jsiiProxy_CfnRecordSetGroup) GetAtt(attributeName *string) awscdk.Refer
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnRecordSetGroup) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -4411,12 +5905,80 @@ func (c *jsiiProxy_CfnRecordSetGroup) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnRecordSetGroup) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnRecordSetGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnRecordSetGroup) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnRecordSetGroup) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnRecordSetGroup) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -4437,6 +5999,7 @@ func (c *jsiiProxy_CfnRecordSetGroup) RenderProperties(props *map[string]interfa
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnRecordSetGroup) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -4450,9 +6013,23 @@ func (c *jsiiProxy_CfnRecordSetGroup) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnRecordSetGroup) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnRecordSetGroup) ToString() *string {
 	var returns *string
 
@@ -4466,6 +6043,27 @@ func (c *jsiiProxy_CfnRecordSetGroup) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnRecordSetGroup) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnRecordSetGroup) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4474,112 +6072,621 @@ func (c *jsiiProxy_CfnRecordSetGroup) ValidateProperties(_properties interface{}
 	)
 }
 
+// *Alias records only:* Information about the AWS resource, such as a CloudFront distribution or an Amazon S3 bucket, that you want to route traffic to.
+//
+// When creating records for a private hosted zone, note the following:
+//
+// - Creating geolocation alias and latency alias records in a private hosted zone is allowed but not supported.
+// - For information about creating failover records in a private hosted zone, see [Configuring Failover in a Private Hosted Zone](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html) .
+//
 // TODO: EXAMPLE
 //
 type CfnRecordSetGroup_AliasTargetProperty struct {
-	// `CfnRecordSetGroup.AliasTargetProperty.DNSName`.
+	// *Alias records only:* The value that you specify depends on where you want to route queries:.
+	//
+	// - **Amazon API Gateway custom regional APIs and edge-optimized APIs** - Specify the applicable domain name for your API. You can get the applicable value using the AWS CLI command [get-domain-names](https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-domain-names.html) :
+	//
+	// - For regional APIs, specify the value of `regionalDomainName` .
+	// - For edge-optimized APIs, specify the value of `distributionDomainName` . This is the name of the associated CloudFront distribution, such as `da1b2c3d4e5.cloudfront.net` .
+	//
+	// > The name of the record that you're creating must match a custom domain name for your API, such as `api.example.com` .
+	// - **Amazon Virtual Private Cloud interface VPC endpoint** - Enter the API endpoint for the interface endpoint, such as `vpce-123456789abcdef01-example-us-east-1a.elasticloadbalancing.us-east-1.vpce.amazonaws.com` . For edge-optimized APIs, this is the domain name for the corresponding CloudFront distribution. You can get the value of `DnsName` using the AWS CLI command [describe-vpc-endpoints](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-vpc-endpoints.html) .
+	// - **CloudFront distribution** - Specify the domain name that CloudFront assigned when you created your distribution.
+	//
+	// Your CloudFront distribution must include an alternate domain name that matches the name of the record. For example, if the name of the record is *acme.example.com* , your CloudFront distribution must include *acme.example.com* as one of the alternate domain names. For more information, see [Using Alternate Domain Names (CNAMEs)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/CNAMEs.html) in the *Amazon CloudFront Developer Guide* .
+	//
+	// You can't create a record in a private hosted zone to route traffic to a CloudFront distribution.
+	//
+	// > For failover alias records, you can't specify a CloudFront distribution for both the primary and secondary records. A distribution must include an alternate domain name that matches the name of the record. However, the primary and secondary records have the same name, and you can't include the same alternate domain name in more than one distribution.
+	// - **Elastic Beanstalk environment** - If the domain name for your Elastic Beanstalk environment includes the region that you deployed the environment in, you can create an alias record that routes traffic to the environment. For example, the domain name `my-environment. *us-west-2* .elasticbeanstalk.com` is a regionalized domain name.
+	//
+	// > For environments that were created before early 2016, the domain name doesn't include the region. To route traffic to these environments, you must create a CNAME record instead of an alias record. Note that you can't create a CNAME record for the root domain name. For example, if your domain name is example.com, you can create a record that routes traffic for acme.example.com to your Elastic Beanstalk environment, but you can't create a record that routes traffic for example.com to your Elastic Beanstalk environment.
+	//
+	// For Elastic Beanstalk environments that have regionalized subdomains, specify the `CNAME` attribute for the environment. You can use the following methods to get the value of the CNAME attribute:
+	//
+	// - *AWS Management Console* : For information about how to get the value by using the console, see [Using Custom Domains with AWS Elastic Beanstalk](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/customdomains.html) in the *AWS Elastic Beanstalk Developer Guide* .
+	// - *Elastic Beanstalk API* : Use the `DescribeEnvironments` action to get the value of the `CNAME` attribute. For more information, see [DescribeEnvironments](https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeEnvironments.html) in the *AWS Elastic Beanstalk API Reference* .
+	// - *AWS CLI* : Use the `describe-environments` command to get the value of the `CNAME` attribute. For more information, see [describe-environments](https://docs.aws.amazon.com/cli/latest/reference/elasticbeanstalk/describe-environments.html) in the *AWS CLI* .
+	// - **ELB load balancer** - Specify the DNS name that is associated with the load balancer. Get the DNS name by using the AWS Management Console , the ELB API, or the AWS CLI .
+	//
+	// - *AWS Management Console* : Go to the EC2 page, choose *Load Balancers* in the navigation pane, choose the load balancer, choose the *Description* tab, and get the value of the *DNS name* field.
+	//
+	// If you're routing traffic to a Classic Load Balancer, get the value that begins with *dualstack* . If you're routing traffic to another type of load balancer, get the value that applies to the record type, A or AAAA.
+	// - *Elastic Load Balancing API* : Use `DescribeLoadBalancers` to get the value of `DNSName` . For more information, see the applicable guide:
+	//
+	// - Classic Load Balancers: [DescribeLoadBalancers](https://docs.aws.amazon.com/elasticloadbalancing/2012-06-01/APIReference/API_DescribeLoadBalancers.html)
+	// - Application and Network Load Balancers: [DescribeLoadBalancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html)
+	// - *CloudFormation Fn::GetAtt intrinsic function* : Use the [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html) intrinsic function to get the value of `DNSName` :
+	//
+	// - [Classic Load Balancers](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#aws-properties-ec2-elb-return-values) .
+	// - [Application and Network Load Balancers](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#aws-resource-elasticloadbalancingv2-loadbalancer-return-values) .
+	// - *AWS CLI* : Use `describe-load-balancers` to get the value of `DNSName` . For more information, see the applicable guide:
+	//
+	// - Classic Load Balancers: [describe-load-balancers](https://docs.aws.amazon.com/cli/latest/reference/elb/describe-load-balancers.html)
+	// - Application and Network Load Balancers: [describe-load-balancers](https://docs.aws.amazon.com/cli/latest/reference/elbv2/describe-load-balancers.html)
+	// - **Global Accelerator accelerator** - Specify the DNS name for your accelerator:
+	//
+	// - *Global Accelerator API* : To get the DNS name, use [DescribeAccelerator](https://docs.aws.amazon.com/global-accelerator/latest/api/API_DescribeAccelerator.html) .
+	// - *AWS CLI* : To get the DNS name, use [describe-accelerator](https://docs.aws.amazon.com/cli/latest/reference/globalaccelerator/describe-accelerator.html) .
+	// - **Amazon S3 bucket that is configured as a static website** - Specify the domain name of the Amazon S3 website endpoint that you created the bucket in, for example, `s3-website.us-east-2.amazonaws.com` . For more information about valid values, see the table [Amazon S3 Website Endpoints](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_website_region_endpoints) in the *Amazon Web Services General Reference* . For more information about using S3 buckets for websites, see [Getting Started with Amazon Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/getting-started.html) in the *Amazon Route 53 Developer Guide.*
+	// - **Another Route 53 record** - Specify the value of the `Name` element for a record in the current hosted zone.
+	//
+	// > If you're creating an alias record that has the same name as the hosted zone (known as the zone apex), you can't specify the domain name for a record for which the value of `Type` is `CNAME` . This is because the alias record must have the same type as the record that you're routing traffic to, and creating a CNAME record for the zone apex isn't supported even for an alias record.
 	DnsName *string `json:"dnsName"`
-	// `CfnRecordSetGroup.AliasTargetProperty.EvaluateTargetHealth`.
-	EvaluateTargetHealth interface{} `json:"evaluateTargetHealth"`
-	// `CfnRecordSetGroup.AliasTargetProperty.HostedZoneId`.
+	// *Alias resource records sets only* : The value used depends on where you want to route traffic:.
+	//
+	// - **Amazon API Gateway custom regional APIs and edge-optimized APIs** - Specify the hosted zone ID for your API. You can get the applicable value using the AWS CLI command [get-domain-names](https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-domain-names.html) :
+	//
+	// - For regional APIs, specify the value of `regionalHostedZoneId` .
+	// - For edge-optimized APIs, specify the value of `distributionHostedZoneId` .
+	// - **Amazon Virtual Private Cloud interface VPC endpoint** - Specify the hosted zone ID for your interface endpoint. You can get the value of `HostedZoneId` using the AWS CLI command [describe-vpc-endpoints](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-vpc-endpoints.html) .
+	// - **CloudFront distribution** - Specify `Z2FDTNDATAQYW2` . This is always the hosted zone ID when you create an alias record that routes traffic to a CloudFront distribution.
+	//
+	// > Alias records for CloudFront can't be created in a private zone.
+	// - **Elastic Beanstalk environment** - Specify the hosted zone ID for the region that you created the environment in. The environment must have a regionalized subdomain. For a list of regions and the corresponding hosted zone IDs, see [AWS Elastic Beanstalk endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/elasticbeanstalk.html) in the *Amazon Web Services General Reference* .
+	// - **ELB load balancer** - Specify the value of the hosted zone ID for the load balancer. Use the following methods to get the hosted zone ID:
+	//
+	// - [Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/elb.html) table in the "Elastic Load Balancing endpoints and quotas" topic in the *Amazon Web Services General Reference* : Use the value that corresponds with the region that you created your load balancer in. Note that there are separate columns for Application and Classic Load Balancers and for Network Load Balancers.
+	// - *AWS Management Console* : Go to the Amazon EC2 page, choose *Load Balancers* in the navigation pane, select the load balancer, and get the value of the *Hosted zone* field on the *Description* tab.
+	// - *Elastic Load Balancing API* : Use `DescribeLoadBalancers` to get the applicable value. For more information, see the applicable guide:
+	//
+	// - Classic Load Balancers: Use [DescribeLoadBalancers](https://docs.aws.amazon.com/elasticloadbalancing/2012-06-01/APIReference/API_DescribeLoadBalancers.html) to get the value of `CanonicalHostedZoneNameID` .
+	// - Application and Network Load Balancers: Use [DescribeLoadBalancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html) to get the value of `CanonicalHostedZoneID` .
+	// - *CloudFormation Fn::GetAtt intrinsic function* : Use the [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html) intrinsic function to get the applicable value:
+	//
+	// - Classic Load Balancers: Get [CanonicalHostedZoneNameID](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#aws-properties-ec2-elb-return-values) .
+	// - Application and Network Load Balancers: Get [CanonicalHostedZoneID](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#aws-resource-elasticloadbalancingv2-loadbalancer-return-values) .
+	// - *AWS CLI* : Use `describe-load-balancers` to get the applicable value. For more information, see the applicable guide:
+	//
+	// - Classic Load Balancers: Use [describe-load-balancers](https://docs.aws.amazon.com/cli/latest/reference/elb/describe-load-balancers.html) to get the value of `CanonicalHostedZoneNameID` .
+	// - Application and Network Load Balancers: Use [describe-load-balancers](https://docs.aws.amazon.com/cli/latest/reference/elbv2/describe-load-balancers.html) to get the value of `CanonicalHostedZoneID` .
+	// - **Global Accelerator accelerator** - Specify `Z2BJ6XQ5FK7U4H` .
+	// - **An Amazon S3 bucket configured as a static website** - Specify the hosted zone ID for the region that you created the bucket in. For more information about valid values, see the table [Amazon S3 Website Endpoints](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_website_region_endpoints) in the *Amazon Web Services General Reference* .
+	// - **Another Route 53 record in your hosted zone** - Specify the hosted zone ID of your hosted zone. (An alias record can't reference a record in a different hosted zone.)
 	HostedZoneId *string `json:"hostedZoneId"`
+	// *Applies only to alias records with any routing policy:* When `EvaluateTargetHealth` is `true` , an alias record inherits the health of the referenced AWS resource, such as an ELB load balancer or another record in the hosted zone.
+	//
+	// Note the following:
+	//
+	// - **CloudFront distributions** - You can't set `EvaluateTargetHealth` to `true` when the alias target is a CloudFront distribution.
+	// - **Elastic Beanstalk environments that have regionalized subdomains** - If you specify an Elastic Beanstalk environment in `DNSName` and the environment contains an ELB load balancer, Elastic Load Balancing routes queries only to the healthy Amazon EC2 instances that are registered with the load balancer. (An environment automatically contains an ELB load balancer if it includes more than one Amazon EC2 instance.) If you set `EvaluateTargetHealth` to `true` and either no Amazon EC2 instances are healthy or the load balancer itself is unhealthy, Route 53 routes queries to other available resources that are healthy, if any.
+	//
+	// If the environment contains a single Amazon EC2 instance, there are no special requirements.
+	// - **ELB load balancers** - Health checking behavior depends on the type of load balancer:
+	//
+	// - *Classic Load Balancers* : If you specify an ELB Classic Load Balancer in `DNSName` , Elastic Load Balancing routes queries only to the healthy Amazon EC2 instances that are registered with the load balancer. If you set `EvaluateTargetHealth` to `true` and either no EC2 instances are healthy or the load balancer itself is unhealthy, Route 53 routes queries to other resources.
+	// - *Application and Network Load Balancers* : If you specify an ELB Application or Network Load Balancer and you set `EvaluateTargetHealth` to `true` , Route 53 routes queries to the load balancer based on the health of the target groups that are associated with the load balancer:
+	//
+	// - For an Application or Network Load Balancer to be considered healthy, every target group that contains targets must contain at least one healthy target. If any target group contains only unhealthy targets, the load balancer is considered unhealthy, and Route 53 routes queries to other resources.
+	// - A target group that has no registered targets is considered unhealthy.
+	//
+	// > When you create a load balancer, you configure settings for Elastic Load Balancing health checks; they're not Route 53 health checks, but they perform a similar function. Do not create Route 53 health checks for the EC2 instances that you register with an ELB load balancer.
+	// - **S3 buckets** - There are no special requirements for setting `EvaluateTargetHealth` to `true` when the alias target is an S3 bucket.
+	// - **Other records in the same hosted zone** - If the AWS resource that you specify in `DNSName` is a record or a group of records (for example, a group of weighted records) but is not another alias record, we recommend that you associate a health check with all of the records in the alias target. For more information, see [What Happens When You Omit Health Checks?](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-complex-configs.html#dns-failover-complex-configs-hc-omitting) in the *Amazon Route 53 Developer Guide* .
+	//
+	// For more information and examples, see [Amazon Route 53 Health Checks and DNS Failover](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html) in the *Amazon Route 53 Developer Guide* .
+	EvaluateTargetHealth interface{} `json:"evaluateTargetHealth"`
 }
 
+// A complex type that contains information about a geographic location.
+//
 // TODO: EXAMPLE
 //
 type CfnRecordSetGroup_GeoLocationProperty struct {
-	// `CfnRecordSetGroup.GeoLocationProperty.ContinentCode`.
+	// For geolocation resource record sets, a two-letter abbreviation that identifies a continent. Route 53 supports the following continent codes:.
+	//
+	// - *AF* : Africa
+	// - *AN* : Antarctica
+	// - *AS* : Asia
+	// - *EU* : Europe
+	// - *OC* : Oceania
+	// - *NA* : North America
+	// - *SA* : South America
+	//
+	// Constraint: Specifying `ContinentCode` with either `CountryCode` or `SubdivisionCode` returns an `InvalidInput` error.
 	ContinentCode *string `json:"continentCode"`
-	// `CfnRecordSetGroup.GeoLocationProperty.CountryCode`.
+	// For geolocation resource record sets, the two-letter code for a country.
+	//
+	// Route 53 uses the two-letter country codes that are specified in [ISO standard 3166-1 alpha-2](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) .
 	CountryCode *string `json:"countryCode"`
-	// `CfnRecordSetGroup.GeoLocationProperty.SubdivisionCode`.
+	// For geolocation resource record sets, the two-letter code for a state of the United States.
+	//
+	// Route 53 doesn't support any other values for `SubdivisionCode` . For a list of state abbreviations, see [Appendix B: Two–Letter State and Possession Abbreviations](https://docs.aws.amazon.com/https://pe.usps.com/text/pub28/28apb.htm) on the United States Postal Service website.
+	//
+	// If you specify `subdivisioncode` , you must also specify `US` for `CountryCode` .
 	SubdivisionCode *string `json:"subdivisionCode"`
 }
 
+// Information about one record that you want to create.
+//
 // TODO: EXAMPLE
 //
 type CfnRecordSetGroup_RecordSetProperty struct {
-	// `CfnRecordSetGroup.RecordSetProperty.AliasTarget`.
-	AliasTarget interface{} `json:"aliasTarget"`
-	// `CfnRecordSetGroup.RecordSetProperty.Comment`.
-	Comment *string `json:"comment"`
-	// `CfnRecordSetGroup.RecordSetProperty.Failover`.
-	Failover *string `json:"failover"`
-	// `CfnRecordSetGroup.RecordSetProperty.GeoLocation`.
-	GeoLocation interface{} `json:"geoLocation"`
-	// `CfnRecordSetGroup.RecordSetProperty.HealthCheckId`.
-	HealthCheckId *string `json:"healthCheckId"`
-	// `CfnRecordSetGroup.RecordSetProperty.HostedZoneId`.
-	HostedZoneId *string `json:"hostedZoneId"`
-	// `CfnRecordSetGroup.RecordSetProperty.HostedZoneName`.
-	HostedZoneName *string `json:"hostedZoneName"`
-	// `CfnRecordSetGroup.RecordSetProperty.MultiValueAnswer`.
-	MultiValueAnswer interface{} `json:"multiValueAnswer"`
-	// `CfnRecordSetGroup.RecordSetProperty.Name`.
+	// For `ChangeResourceRecordSets` requests, the name of the record that you want to create, update, or delete.
+	//
+	// For `ListResourceRecordSets` responses, the name of a record in the specified hosted zone.
+	//
+	// *ChangeResourceRecordSets Only*
+	//
+	// Enter a fully qualified domain name, for example, `www.example.com` . You can optionally include a trailing dot. If you omit the trailing dot, Amazon Route 53 assumes that the domain name that you specify is fully qualified. This means that Route 53 treats `www.example.com` (without a trailing dot) and `www.example.com.` (with a trailing dot) as identical.
+	//
+	// For information about how to specify characters other than `a-z` , `0-9` , and `-` (hyphen) and how to specify internationalized domain names, see [DNS Domain Name Format](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DomainNameFormat.html) in the *Amazon Route 53 Developer Guide* .
+	//
+	// You can use the asterisk (*) wildcard to replace the leftmost label in a domain name, for example, `*.example.com` . Note the following:
+	//
+	// - The * must replace the entire label. For example, you can't specify `*prod.example.com` or `prod*.example.com` .
+	// - The * can't replace any of the middle labels, for example, marketing.*.example.com.
+	// - If you include * in any position other than the leftmost label in a domain name, DNS treats it as an * character (ASCII 42), not as a wildcard.
+	//
+	// > You can't use the * wildcard for resource records sets that have a type of NS.
+	//
+	// You can use the * wildcard as the leftmost label in a domain name, for example, `*.example.com` . You can't use an * for one of the middle labels, for example, `marketing.*.example.com` . In addition, the * must replace the entire label; for example, you can't specify `prod*.example.com` .
 	Name *string `json:"name"`
-	// `CfnRecordSetGroup.RecordSetProperty.Region`.
-	Region *string `json:"region"`
-	// `CfnRecordSetGroup.RecordSetProperty.ResourceRecords`.
-	ResourceRecords *[]*string `json:"resourceRecords"`
-	// `CfnRecordSetGroup.RecordSetProperty.SetIdentifier`.
-	SetIdentifier *string `json:"setIdentifier"`
-	// `CfnRecordSetGroup.RecordSetProperty.TTL`.
-	Ttl *string `json:"ttl"`
-	// `CfnRecordSetGroup.RecordSetProperty.Type`.
+	// The DNS record type.
+	//
+	// For information about different record types and how data is encoded for them, see [Supported DNS Resource Record Types](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/ResourceRecordTypes.html) in the *Amazon Route 53 Developer Guide* .
+	//
+	// Valid values for basic resource record sets: `A` | `AAAA` | `CAA` | `CNAME` | `DS` | `MX` | `NAPTR` | `NS` | `PTR` | `SOA` | `SPF` | `SRV` | `TXT`
+	//
+	// Values for weighted, latency, geolocation, and failover resource record sets: `A` | `AAAA` | `CAA` | `CNAME` | `MX` | `NAPTR` | `PTR` | `SPF` | `SRV` | `TXT` . When creating a group of weighted, latency, geolocation, or failover resource record sets, specify the same value for all of the resource record sets in the group.
+	//
+	// Valid values for multivalue answer resource record sets: `A` | `AAAA` | `MX` | `NAPTR` | `PTR` | `SPF` | `SRV` | `TXT`
+	//
+	// > SPF records were formerly used to verify the identity of the sender of email messages. However, we no longer recommend that you create resource record sets for which the value of `Type` is `SPF` . RFC 7208, *Sender Policy Framework (SPF) for Authorizing Use of Domains in Email, Version 1* , has been updated to say, "...[I]ts existence and mechanism defined in [RFC4408] have led to some interoperability issues. Accordingly, its use is no longer appropriate for SPF version 1; implementations are not to use it." In RFC 7208, see section 14.1, [The SPF DNS Record Type](https://docs.aws.amazon.com/http://tools.ietf.org/html/rfc7208#section-14.1) .
+	//
+	// Values for alias resource record sets:
+	//
+	// - *Amazon API Gateway custom regional APIs and edge-optimized APIs:* `A`
+	// - *CloudFront distributions:* `A`
+	//
+	// If IPv6 is enabled for the distribution, create two resource record sets to route traffic to your distribution, one with a value of `A` and one with a value of `AAAA` .
+	// - *Amazon API Gateway environment that has a regionalized subdomain* : `A`
+	// - *ELB load balancers:* `A` | `AAAA`
+	// - *Amazon S3 buckets:* `A`
+	// - *Amazon Virtual Private Cloud interface VPC endpoints* `A`
+	// - *Another resource record set in this hosted zone:* Specify the type of the resource record set that you're creating the alias for. All values are supported except `NS` and `SOA` .
+	//
+	// > If you're creating an alias record that has the same name as the hosted zone (known as the zone apex), you can't route traffic to a record for which the value of `Type` is `CNAME` . This is because the alias record must have the same type as the record you're routing traffic to, and creating a CNAME record for the zone apex isn't supported even for an alias record.
 	Type *string `json:"type"`
-	// `CfnRecordSetGroup.RecordSetProperty.Weight`.
+	// *Alias resource record sets only:* Information about the AWS resource, such as a CloudFront distribution or an Amazon S3 bucket, that you want to route traffic to.
+	//
+	// If you're creating resource records sets for a private hosted zone, note the following:
+	//
+	// - You can't create an alias resource record set in a private hosted zone to route traffic to a CloudFront distribution.
+	// - Creating geolocation alias resource record sets or latency alias resource record sets in a private hosted zone is unsupported.
+	// - For information about creating failover resource record sets in a private hosted zone, see [Configuring Failover in a Private Hosted Zone](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html) in the *Amazon Route 53 Developer Guide* .
+	AliasTarget interface{} `json:"aliasTarget"`
+	// *Optional:* Any comments you want to include about a change batch request.
+	Comment *string `json:"comment"`
+	// *Failover resource record sets only:* To configure failover, you add the `Failover` element to two resource record sets.
+	//
+	// For one resource record set, you specify `PRIMARY` as the value for `Failover` ; for the other resource record set, you specify `SECONDARY` . In addition, you include the `HealthCheckId` element and specify the health check that you want Amazon Route 53 to perform for each resource record set.
+	//
+	// Except where noted, the following failover behaviors assume that you have included the `HealthCheckId` element in both resource record sets:
+	//
+	// - When the primary resource record set is healthy, Route 53 responds to DNS queries with the applicable value from the primary resource record set regardless of the health of the secondary resource record set.
+	// - When the primary resource record set is unhealthy and the secondary resource record set is healthy, Route 53 responds to DNS queries with the applicable value from the secondary resource record set.
+	// - When the secondary resource record set is unhealthy, Route 53 responds to DNS queries with the applicable value from the primary resource record set regardless of the health of the primary resource record set.
+	// - If you omit the `HealthCheckId` element for the secondary resource record set, and if the primary resource record set is unhealthy, Route 53 always responds to DNS queries with the applicable value from the secondary resource record set. This is true regardless of the health of the associated endpoint.
+	//
+	// You can't create non-failover resource record sets that have the same values for the `Name` and `Type` elements as failover resource record sets.
+	//
+	// For failover alias resource record sets, you must also include the `EvaluateTargetHealth` element and set the value to true.
+	//
+	// For more information about configuring failover for Route 53, see the following topics in the *Amazon Route 53 Developer Guide* :
+	//
+	// - [Route 53 Health Checks and DNS Failover](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html)
+	// - [Configuring Failover in a Private Hosted Zone](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html)
+	Failover *string `json:"failover"`
+	// *Geolocation resource record sets only:* A complex type that lets you control how Amazon Route 53 responds to DNS queries based on the geographic origin of the query.
+	//
+	// For example, if you want all queries from Africa to be routed to a web server with an IP address of `192.0.2.111` , create a resource record set with a `Type` of `A` and a `ContinentCode` of `AF` .
+	//
+	// > Although creating geolocation and geolocation alias resource record sets in a private hosted zone is allowed, it's not supported.
+	//
+	// If you create separate resource record sets for overlapping geographic regions (for example, one resource record set for a continent and one for a country on the same continent), priority goes to the smallest geographic region. This allows you to route most queries for a continent to one resource and to route queries for a country on that continent to a different resource.
+	//
+	// You can't create two geolocation resource record sets that specify the same geographic location.
+	//
+	// The value `*` in the `CountryCode` element matches all geographic locations that aren't specified in other geolocation resource record sets that have the same values for the `Name` and `Type` elements.
+	//
+	// > Geolocation works by mapping IP addresses to locations. However, some IP addresses aren't mapped to geographic locations, so even if you create geolocation resource record sets that cover all seven continents, Route 53 will receive some DNS queries from locations that it can't identify. We recommend that you create a resource record set for which the value of `CountryCode` is `*` . Two groups of queries are routed to the resource that you specify in this record: queries that come from locations for which you haven't created geolocation resource record sets and queries from IP addresses that aren't mapped to a location. If you don't create a `*` resource record set, Route 53 returns a "no answer" response for queries from those locations.
+	//
+	// You can't create non-geolocation resource record sets that have the same values for the `Name` and `Type` elements as geolocation resource record sets.
+	GeoLocation interface{} `json:"geoLocation"`
+	// If you want Amazon Route 53 to return this resource record set in response to a DNS query only when the status of a health check is healthy, include the `HealthCheckId` element and specify the ID of the applicable health check.
+	//
+	// Route 53 determines whether a resource record set is healthy based on one of the following:
+	//
+	// - By periodically sending a request to the endpoint that is specified in the health check
+	// - By aggregating the status of a specified group of health checks (calculated health checks)
+	// - By determining the current state of a CloudWatch alarm (CloudWatch metric health checks)
+	//
+	// > Route 53 doesn't check the health of the endpoint that is specified in the resource record set, for example, the endpoint specified by the IP address in the `Value` element. When you add a `HealthCheckId` element to a resource record set, Route 53 checks the health of the endpoint that you specified in the health check.
+	//
+	// For more information, see the following topics in the *Amazon Route 53 Developer Guide* :
+	//
+	// - [How Amazon Route 53 Determines Whether an Endpoint Is Healthy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html)
+	// - [Route 53 Health Checks and DNS Failover](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html)
+	// - [Configuring Failover in a Private Hosted Zone](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html)
+	//
+	// *When to Specify HealthCheckId*
+	//
+	// Specifying a value for `HealthCheckId` is useful only when Route 53 is choosing between two or more resource record sets to respond to a DNS query, and you want Route 53 to base the choice in part on the status of a health check. Configuring health checks makes sense only in the following configurations:
+	//
+	// - *Non-alias resource record sets* : You're checking the health of a group of non-alias resource record sets that have the same routing policy, name, and type (such as multiple weighted records named www.example.com with a type of A) and you specify health check IDs for all the resource record sets.
+	//
+	// If the health check status for a resource record set is healthy, Route 53 includes the record among the records that it responds to DNS queries with.
+	//
+	// If the health check status for a resource record set is unhealthy, Route 53 stops responding to DNS queries using the value for that resource record set.
+	//
+	// If the health check status for all resource record sets in the group is unhealthy, Route 53 considers all resource record sets in the group healthy and responds to DNS queries accordingly.
+	// - *Alias resource record sets* : You specify the following settings:
+	//
+	// - You set `EvaluateTargetHealth` to true for an alias resource record set in a group of resource record sets that have the same routing policy, name, and type (such as multiple weighted records named www.example.com with a type of A).
+	// - You configure the alias resource record set to route traffic to a non-alias resource record set in the same hosted zone.
+	// - You specify a health check ID for the non-alias resource record set.
+	//
+	// If the health check status is healthy, Route 53 considers the alias resource record set to be healthy and includes the alias record among the records that it responds to DNS queries with.
+	//
+	// If the health check status is unhealthy, Route 53 stops responding to DNS queries using the alias resource record set.
+	//
+	// > The alias resource record set can also route traffic to a *group* of non-alias resource record sets that have the same routing policy, name, and type. In that configuration, associate health checks with all of the resource record sets in the group of non-alias resource record sets.
+	//
+	// *Geolocation Routing*
+	//
+	// For geolocation resource record sets, if an endpoint is unhealthy, Route 53 looks for a resource record set for the larger, associated geographic region. For example, suppose you have resource record sets for a state in the United States, for the entire United States, for North America, and a resource record set that has `*` for `CountryCode` is `*` , which applies to all locations. If the endpoint for the state resource record set is unhealthy, Route 53 checks for healthy resource record sets in the following order until it finds a resource record set for which the endpoint is healthy:
+	//
+	// - The United States
+	// - North America
+	// - The default resource record set
+	//
+	// *Specifying the Health Check Endpoint by Domain Name*
+	//
+	// If your health checks specify the endpoint only by domain name, we recommend that you create a separate health check for each endpoint. For example, create a health check for each `HTTP` server that is serving content for `www.example.com` . For the value of `FullyQualifiedDomainName` , specify the domain name of the server (such as `us-east-2-www.example.com` ), not the name of the resource record sets ( `www.example.com` ).
+	//
+	// > Health check results will be unpredictable if you do the following:
+	// >
+	// > - Create a health check that has the same value for `FullyQualifiedDomainName` as the name of a resource record set.
+	// > - Associate that health check with the resource record set.
+	HealthCheckId *string `json:"healthCheckId"`
+	// The ID of the hosted zone that you want to create records in.
+	//
+	// Specify either `HostedZoneName` or `HostedZoneId` , but not both. If you have multiple hosted zones with the same domain name, you must specify the hosted zone using `HostedZoneId` .
+	HostedZoneId *string `json:"hostedZoneId"`
+	// The name of the hosted zone that you want to create records in.
+	//
+	// You must include a trailing dot (for example, `www.example.com.` ) as part of the `HostedZoneName` .
+	//
+	// When you create a stack using an `AWS::Route53::RecordSet` that specifies `HostedZoneName` , AWS CloudFormation attempts to find a hosted zone whose name matches the `HostedZoneName` . If AWS CloudFormation can't find a hosted zone with a matching domain name, or if there is more than one hosted zone with the specified domain name, AWS CloudFormation will not create the stack.
+	//
+	// Specify either `HostedZoneName` or `HostedZoneId` , but not both. If you have multiple hosted zones with the same domain name, you must specify the hosted zone using `HostedZoneId` .
+	HostedZoneName *string `json:"hostedZoneName"`
+	// *Multivalue answer resource record sets only* : To route traffic approximately randomly to multiple resources, such as web servers, create one multivalue answer record for each resource and specify `true` for `MultiValueAnswer` .
+	//
+	// Note the following:
+	//
+	// - If you associate a health check with a multivalue answer resource record set, Amazon Route 53 responds to DNS queries with the corresponding IP address only when the health check is healthy.
+	// - If you don't associate a health check with a multivalue answer record, Route 53 always considers the record to be healthy.
+	// - Route 53 responds to DNS queries with up to eight healthy records; if you have eight or fewer healthy records, Route 53 responds to all DNS queries with all the healthy records.
+	// - If you have more than eight healthy records, Route 53 responds to different DNS resolvers with different combinations of healthy records.
+	// - When all records are unhealthy, Route 53 responds to DNS queries with up to eight unhealthy records.
+	// - If a resource becomes unavailable after a resolver caches a response, client software typically tries another of the IP addresses in the response.
+	//
+	// You can't create multivalue answer alias records.
+	MultiValueAnswer interface{} `json:"multiValueAnswer"`
+	// *Latency-based resource record sets only:* The Amazon EC2 Region where you created the resource that this resource record set refers to.
+	//
+	// The resource typically is an AWS resource, such as an EC2 instance or an ELB load balancer, and is referred to by an IP address or a DNS domain name, depending on the record type.
+	//
+	// > Although creating latency and latency alias resource record sets in a private hosted zone is allowed, it's not supported.
+	//
+	// When Amazon Route 53 receives a DNS query for a domain name and type for which you have created latency resource record sets, Route 53 selects the latency resource record set that has the lowest latency between the end user and the associated Amazon EC2 Region. Route 53 then returns the value that is associated with the selected resource record set.
+	//
+	// Note the following:
+	//
+	// - You can only specify one `ResourceRecord` per latency resource record set.
+	// - You can only create one latency resource record set for each Amazon EC2 Region.
+	// - You aren't required to create latency resource record sets for all Amazon EC2 Regions. Route 53 will choose the region with the best latency from among the regions that you create latency resource record sets for.
+	// - You can't create non-latency resource record sets that have the same values for the `Name` and `Type` elements as latency resource record sets.
+	Region *string `json:"region"`
+	// Information about the records that you want to create.
+	//
+	// Each record should be in the format appropriate for the record type specified by the `Type` property. For information about different record types and their record formats, see [Values That You Specify When You Create or Edit Amazon Route 53 Records](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values.html) in the *Amazon Route 53 Developer Guide* .
+	ResourceRecords *[]*string `json:"resourceRecords"`
+	// *Resource record sets that have a routing policy other than simple:* An identifier that differentiates among multiple resource record sets that have the same combination of name and type, such as multiple weighted resource record sets named acme.example.com that have a type of A. In a group of resource record sets that have the same name and type, the value of `SetIdentifier` must be unique for each resource record set.
+	//
+	// For information about routing policies, see [Choosing a Routing Policy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html) in the *Amazon Route 53 Developer Guide* .
+	SetIdentifier *string `json:"setIdentifier"`
+	// The resource record cache time to live (TTL), in seconds. Note the following:.
+	//
+	// - If you're creating or updating an alias resource record set, omit `TTL` . Amazon Route 53 uses the value of `TTL` for the alias target.
+	// - If you're associating this resource record set with a health check (if you're adding a `HealthCheckId` element), we recommend that you specify a `TTL` of 60 seconds or less so clients respond quickly to changes in health status.
+	// - All of the resource record sets in a group of weighted resource record sets must have the same value for `TTL` .
+	// - If a group of weighted resource record sets includes one or more weighted alias resource record sets for which the alias target is an ELB load balancer, we recommend that you specify a `TTL` of 60 seconds for all of the non-alias weighted resource record sets that have the same name and type. Values other than 60 seconds (the TTL for load balancers) will change the effect of the values that you specify for `Weight` .
+	Ttl *string `json:"ttl"`
+	// *Weighted resource record sets only:* Among resource record sets that have the same combination of DNS name and type, a value that determines the proportion of DNS queries that Amazon Route 53 responds to using the current resource record set.
+	//
+	// Route 53 calculates the sum of the weights for the resource record sets that have the same combination of DNS name and type. Route 53 then responds to queries based on the ratio of a resource's weight to the total. Note the following:
+	//
+	// - You must specify a value for the `Weight` element for every weighted resource record set.
+	// - You can only specify one `ResourceRecord` per weighted resource record set.
+	// - You can't create latency, failover, or geolocation resource record sets that have the same values for the `Name` and `Type` elements as weighted resource record sets.
+	// - You can create a maximum of 100 weighted resource record sets that have the same values for the `Name` and `Type` elements.
+	// - For weighted (but not weighted alias) resource record sets, if you set `Weight` to `0` for a resource record set, Route 53 never responds to queries with the applicable value for that resource record set. However, if you set `Weight` to `0` for all resource record sets that have the same combination of DNS name and type, traffic is routed to all resources with equal probability.
+	//
+	// The effect of setting `Weight` to `0` is different when you associate health checks with weighted resource record sets. For more information, see [Options for Configuring Route 53 Active-Active and Active-Passive Failover](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html) in the *Amazon Route 53 Developer Guide* .
 	Weight *float64 `json:"weight"`
 }
 
-// Properties for defining a `AWS::Route53::RecordSetGroup`.
+// Properties for defining a `CfnRecordSetGroup`.
 //
 // TODO: EXAMPLE
 //
 type CfnRecordSetGroupProps struct {
-	// `AWS::Route53::RecordSetGroup.Comment`.
+	// *Optional:* Any comments you want to include about a change batch request.
 	Comment *string `json:"comment"`
-	// `AWS::Route53::RecordSetGroup.HostedZoneId`.
+	// The ID of the hosted zone that you want to create records in.
+	//
+	// Specify either `HostedZoneName` or `HostedZoneId` , but not both. If you have multiple hosted zones with the same domain name, you must specify the hosted zone using `HostedZoneId` .
 	HostedZoneId *string `json:"hostedZoneId"`
-	// `AWS::Route53::RecordSetGroup.HostedZoneName`.
+	// The name of the hosted zone that you want to create records in.
+	//
+	// You must include a trailing dot (for example, `www.example.com.` ) as part of the `HostedZoneName` .
+	//
+	// When you create a stack using an `AWS::Route53::RecordSet` that specifies `HostedZoneName` , AWS CloudFormation attempts to find a hosted zone whose name matches the `HostedZoneName` . If AWS CloudFormation can't find a hosted zone with a matching domain name, or if there is more than one hosted zone with the specified domain name, AWS CloudFormation will not create the stack.
+	//
+	// Specify either `HostedZoneName` or `HostedZoneId` , but not both. If you have multiple hosted zones with the same domain name, you must specify the hosted zone using `HostedZoneId` .
 	HostedZoneName *string `json:"hostedZoneName"`
-	// `AWS::Route53::RecordSetGroup.RecordSets`.
+	// A complex type that contains one `RecordSet` element for each record that you want to create.
 	RecordSets interface{} `json:"recordSets"`
 }
 
-// Properties for defining a `AWS::Route53::RecordSet`.
+// Properties for defining a `CfnRecordSet`.
 //
 // TODO: EXAMPLE
 //
 type CfnRecordSetProps struct {
-	// `AWS::Route53::RecordSet.AliasTarget`.
-	AliasTarget interface{} `json:"aliasTarget"`
-	// `AWS::Route53::RecordSet.Comment`.
-	Comment *string `json:"comment"`
-	// `AWS::Route53::RecordSet.Failover`.
-	Failover *string `json:"failover"`
-	// `AWS::Route53::RecordSet.GeoLocation`.
-	GeoLocation interface{} `json:"geoLocation"`
-	// `AWS::Route53::RecordSet.HealthCheckId`.
-	HealthCheckId *string `json:"healthCheckId"`
-	// `AWS::Route53::RecordSet.HostedZoneId`.
-	HostedZoneId *string `json:"hostedZoneId"`
-	// `AWS::Route53::RecordSet.HostedZoneName`.
-	HostedZoneName *string `json:"hostedZoneName"`
-	// `AWS::Route53::RecordSet.MultiValueAnswer`.
-	MultiValueAnswer interface{} `json:"multiValueAnswer"`
-	// `AWS::Route53::RecordSet.Name`.
+	// For `ChangeResourceRecordSets` requests, the name of the record that you want to create, update, or delete.
+	//
+	// For `ListResourceRecordSets` responses, the name of a record in the specified hosted zone.
+	//
+	// *ChangeResourceRecordSets Only*
+	//
+	// Enter a fully qualified domain name, for example, `www.example.com` . You can optionally include a trailing dot. If you omit the trailing dot, Amazon Route 53 assumes that the domain name that you specify is fully qualified. This means that Route 53 treats `www.example.com` (without a trailing dot) and `www.example.com.` (with a trailing dot) as identical.
+	//
+	// For information about how to specify characters other than `a-z` , `0-9` , and `-` (hyphen) and how to specify internationalized domain names, see [DNS Domain Name Format](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DomainNameFormat.html) in the *Amazon Route 53 Developer Guide* .
+	//
+	// You can use the asterisk (*) wildcard to replace the leftmost label in a domain name, for example, `*.example.com` . Note the following:
+	//
+	// - The * must replace the entire label. For example, you can't specify `*prod.example.com` or `prod*.example.com` .
+	// - The * can't replace any of the middle labels, for example, marketing.*.example.com.
+	// - If you include * in any position other than the leftmost label in a domain name, DNS treats it as an * character (ASCII 42), not as a wildcard.
+	//
+	// > You can't use the * wildcard for resource records sets that have a type of NS.
+	//
+	// You can use the * wildcard as the leftmost label in a domain name, for example, `*.example.com` . You can't use an * for one of the middle labels, for example, `marketing.*.example.com` . In addition, the * must replace the entire label; for example, you can't specify `prod*.example.com` .
 	Name *string `json:"name"`
-	// `AWS::Route53::RecordSet.Region`.
-	Region *string `json:"region"`
-	// `AWS::Route53::RecordSet.ResourceRecords`.
-	ResourceRecords *[]*string `json:"resourceRecords"`
-	// `AWS::Route53::RecordSet.SetIdentifier`.
-	SetIdentifier *string `json:"setIdentifier"`
-	// `AWS::Route53::RecordSet.TTL`.
-	Ttl *string `json:"ttl"`
-	// `AWS::Route53::RecordSet.Type`.
+	// The DNS record type.
+	//
+	// For information about different record types and how data is encoded for them, see [Supported DNS Resource Record Types](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/ResourceRecordTypes.html) in the *Amazon Route 53 Developer Guide* .
+	//
+	// Valid values for basic resource record sets: `A` | `AAAA` | `CAA` | `CNAME` | `DS` | `MX` | `NAPTR` | `NS` | `PTR` | `SOA` | `SPF` | `SRV` | `TXT`
+	//
+	// Values for weighted, latency, geolocation, and failover resource record sets: `A` | `AAAA` | `CAA` | `CNAME` | `MX` | `NAPTR` | `PTR` | `SPF` | `SRV` | `TXT` . When creating a group of weighted, latency, geolocation, or failover resource record sets, specify the same value for all of the resource record sets in the group.
+	//
+	// Valid values for multivalue answer resource record sets: `A` | `AAAA` | `MX` | `NAPTR` | `PTR` | `SPF` | `SRV` | `TXT`
+	//
+	// > SPF records were formerly used to verify the identity of the sender of email messages. However, we no longer recommend that you create resource record sets for which the value of `Type` is `SPF` . RFC 7208, *Sender Policy Framework (SPF) for Authorizing Use of Domains in Email, Version 1* , has been updated to say, "...[I]ts existence and mechanism defined in [RFC4408] have led to some interoperability issues. Accordingly, its use is no longer appropriate for SPF version 1; implementations are not to use it." In RFC 7208, see section 14.1, [The SPF DNS Record Type](https://docs.aws.amazon.com/http://tools.ietf.org/html/rfc7208#section-14.1) .
+	//
+	// Values for alias resource record sets:
+	//
+	// - *Amazon API Gateway custom regional APIs and edge-optimized APIs:* `A`
+	// - *CloudFront distributions:* `A`
+	//
+	// If IPv6 is enabled for the distribution, create two resource record sets to route traffic to your distribution, one with a value of `A` and one with a value of `AAAA` .
+	// - *Amazon API Gateway environment that has a regionalized subdomain* : `A`
+	// - *ELB load balancers:* `A` | `AAAA`
+	// - *Amazon S3 buckets:* `A`
+	// - *Amazon Virtual Private Cloud interface VPC endpoints* `A`
+	// - *Another resource record set in this hosted zone:* Specify the type of the resource record set that you're creating the alias for. All values are supported except `NS` and `SOA` .
+	//
+	// > If you're creating an alias record that has the same name as the hosted zone (known as the zone apex), you can't route traffic to a record for which the value of `Type` is `CNAME` . This is because the alias record must have the same type as the record you're routing traffic to, and creating a CNAME record for the zone apex isn't supported even for an alias record.
 	Type *string `json:"type"`
-	// `AWS::Route53::RecordSet.Weight`.
+	// *Alias resource record sets only:* Information about the AWS resource, such as a CloudFront distribution or an Amazon S3 bucket, that you want to route traffic to.
+	//
+	// If you're creating resource records sets for a private hosted zone, note the following:
+	//
+	// - You can't create an alias resource record set in a private hosted zone to route traffic to a CloudFront distribution.
+	// - Creating geolocation alias resource record sets or latency alias resource record sets in a private hosted zone is unsupported.
+	// - For information about creating failover resource record sets in a private hosted zone, see [Configuring Failover in a Private Hosted Zone](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html) in the *Amazon Route 53 Developer Guide* .
+	AliasTarget interface{} `json:"aliasTarget"`
+	// *Optional:* Any comments you want to include about a change batch request.
+	Comment *string `json:"comment"`
+	// *Failover resource record sets only:* To configure failover, you add the `Failover` element to two resource record sets.
+	//
+	// For one resource record set, you specify `PRIMARY` as the value for `Failover` ; for the other resource record set, you specify `SECONDARY` . In addition, you include the `HealthCheckId` element and specify the health check that you want Amazon Route 53 to perform for each resource record set.
+	//
+	// Except where noted, the following failover behaviors assume that you have included the `HealthCheckId` element in both resource record sets:
+	//
+	// - When the primary resource record set is healthy, Route 53 responds to DNS queries with the applicable value from the primary resource record set regardless of the health of the secondary resource record set.
+	// - When the primary resource record set is unhealthy and the secondary resource record set is healthy, Route 53 responds to DNS queries with the applicable value from the secondary resource record set.
+	// - When the secondary resource record set is unhealthy, Route 53 responds to DNS queries with the applicable value from the primary resource record set regardless of the health of the primary resource record set.
+	// - If you omit the `HealthCheckId` element for the secondary resource record set, and if the primary resource record set is unhealthy, Route 53 always responds to DNS queries with the applicable value from the secondary resource record set. This is true regardless of the health of the associated endpoint.
+	//
+	// You can't create non-failover resource record sets that have the same values for the `Name` and `Type` elements as failover resource record sets.
+	//
+	// For failover alias resource record sets, you must also include the `EvaluateTargetHealth` element and set the value to true.
+	//
+	// For more information about configuring failover for Route 53, see the following topics in the *Amazon Route 53 Developer Guide* :
+	//
+	// - [Route 53 Health Checks and DNS Failover](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html)
+	// - [Configuring Failover in a Private Hosted Zone](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html)
+	Failover *string `json:"failover"`
+	// *Geolocation resource record sets only:* A complex type that lets you control how Amazon Route 53 responds to DNS queries based on the geographic origin of the query.
+	//
+	// For example, if you want all queries from Africa to be routed to a web server with an IP address of `192.0.2.111` , create a resource record set with a `Type` of `A` and a `ContinentCode` of `AF` .
+	//
+	// > Although creating geolocation and geolocation alias resource record sets in a private hosted zone is allowed, it's not supported.
+	//
+	// If you create separate resource record sets for overlapping geographic regions (for example, one resource record set for a continent and one for a country on the same continent), priority goes to the smallest geographic region. This allows you to route most queries for a continent to one resource and to route queries for a country on that continent to a different resource.
+	//
+	// You can't create two geolocation resource record sets that specify the same geographic location.
+	//
+	// The value `*` in the `CountryCode` element matches all geographic locations that aren't specified in other geolocation resource record sets that have the same values for the `Name` and `Type` elements.
+	//
+	// > Geolocation works by mapping IP addresses to locations. However, some IP addresses aren't mapped to geographic locations, so even if you create geolocation resource record sets that cover all seven continents, Route 53 will receive some DNS queries from locations that it can't identify. We recommend that you create a resource record set for which the value of `CountryCode` is `*` . Two groups of queries are routed to the resource that you specify in this record: queries that come from locations for which you haven't created geolocation resource record sets and queries from IP addresses that aren't mapped to a location. If you don't create a `*` resource record set, Route 53 returns a "no answer" response for queries from those locations.
+	//
+	// You can't create non-geolocation resource record sets that have the same values for the `Name` and `Type` elements as geolocation resource record sets.
+	GeoLocation interface{} `json:"geoLocation"`
+	// If you want Amazon Route 53 to return this resource record set in response to a DNS query only when the status of a health check is healthy, include the `HealthCheckId` element and specify the ID of the applicable health check.
+	//
+	// Route 53 determines whether a resource record set is healthy based on one of the following:
+	//
+	// - By periodically sending a request to the endpoint that is specified in the health check
+	// - By aggregating the status of a specified group of health checks (calculated health checks)
+	// - By determining the current state of a CloudWatch alarm (CloudWatch metric health checks)
+	//
+	// > Route 53 doesn't check the health of the endpoint that is specified in the resource record set, for example, the endpoint specified by the IP address in the `Value` element. When you add a `HealthCheckId` element to a resource record set, Route 53 checks the health of the endpoint that you specified in the health check.
+	//
+	// For more information, see the following topics in the *Amazon Route 53 Developer Guide* :
+	//
+	// - [How Amazon Route 53 Determines Whether an Endpoint Is Healthy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html)
+	// - [Route 53 Health Checks and DNS Failover](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html)
+	// - [Configuring Failover in a Private Hosted Zone](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html)
+	//
+	// *When to Specify HealthCheckId*
+	//
+	// Specifying a value for `HealthCheckId` is useful only when Route 53 is choosing between two or more resource record sets to respond to a DNS query, and you want Route 53 to base the choice in part on the status of a health check. Configuring health checks makes sense only in the following configurations:
+	//
+	// - *Non-alias resource record sets* : You're checking the health of a group of non-alias resource record sets that have the same routing policy, name, and type (such as multiple weighted records named www.example.com with a type of A) and you specify health check IDs for all the resource record sets.
+	//
+	// If the health check status for a resource record set is healthy, Route 53 includes the record among the records that it responds to DNS queries with.
+	//
+	// If the health check status for a resource record set is unhealthy, Route 53 stops responding to DNS queries using the value for that resource record set.
+	//
+	// If the health check status for all resource record sets in the group is unhealthy, Route 53 considers all resource record sets in the group healthy and responds to DNS queries accordingly.
+	// - *Alias resource record sets* : You specify the following settings:
+	//
+	// - You set `EvaluateTargetHealth` to true for an alias resource record set in a group of resource record sets that have the same routing policy, name, and type (such as multiple weighted records named www.example.com with a type of A).
+	// - You configure the alias resource record set to route traffic to a non-alias resource record set in the same hosted zone.
+	// - You specify a health check ID for the non-alias resource record set.
+	//
+	// If the health check status is healthy, Route 53 considers the alias resource record set to be healthy and includes the alias record among the records that it responds to DNS queries with.
+	//
+	// If the health check status is unhealthy, Route 53 stops responding to DNS queries using the alias resource record set.
+	//
+	// > The alias resource record set can also route traffic to a *group* of non-alias resource record sets that have the same routing policy, name, and type. In that configuration, associate health checks with all of the resource record sets in the group of non-alias resource record sets.
+	//
+	// *Geolocation Routing*
+	//
+	// For geolocation resource record sets, if an endpoint is unhealthy, Route 53 looks for a resource record set for the larger, associated geographic region. For example, suppose you have resource record sets for a state in the United States, for the entire United States, for North America, and a resource record set that has `*` for `CountryCode` is `*` , which applies to all locations. If the endpoint for the state resource record set is unhealthy, Route 53 checks for healthy resource record sets in the following order until it finds a resource record set for which the endpoint is healthy:
+	//
+	// - The United States
+	// - North America
+	// - The default resource record set
+	//
+	// *Specifying the Health Check Endpoint by Domain Name*
+	//
+	// If your health checks specify the endpoint only by domain name, we recommend that you create a separate health check for each endpoint. For example, create a health check for each `HTTP` server that is serving content for `www.example.com` . For the value of `FullyQualifiedDomainName` , specify the domain name of the server (such as `us-east-2-www.example.com` ), not the name of the resource record sets ( `www.example.com` ).
+	//
+	// > Health check results will be unpredictable if you do the following:
+	// >
+	// > - Create a health check that has the same value for `FullyQualifiedDomainName` as the name of a resource record set.
+	// > - Associate that health check with the resource record set.
+	HealthCheckId *string `json:"healthCheckId"`
+	// The ID of the hosted zone that you want to create records in.
+	//
+	// Specify either `HostedZoneName` or `HostedZoneId` , but not both. If you have multiple hosted zones with the same domain name, you must specify the hosted zone using `HostedZoneId` .
+	HostedZoneId *string `json:"hostedZoneId"`
+	// The name of the hosted zone that you want to create records in.
+	//
+	// You must include a trailing dot (for example, `www.example.com.` ) as part of the `HostedZoneName` .
+	//
+	// When you create a stack using an AWS::Route53::RecordSet that specifies `HostedZoneName` , AWS CloudFormation attempts to find a hosted zone whose name matches the HostedZoneName. If AWS CloudFormation cannot find a hosted zone with a matching domain name, or if there is more than one hosted zone with the specified domain name, AWS CloudFormation will not create the stack.
+	//
+	// Specify either `HostedZoneName` or `HostedZoneId` , but not both. If you have multiple hosted zones with the same domain name, you must specify the hosted zone using `HostedZoneId` .
+	HostedZoneName *string `json:"hostedZoneName"`
+	// *Multivalue answer resource record sets only* : To route traffic approximately randomly to multiple resources, such as web servers, create one multivalue answer record for each resource and specify `true` for `MultiValueAnswer` .
+	//
+	// Note the following:
+	//
+	// - If you associate a health check with a multivalue answer resource record set, Amazon Route 53 responds to DNS queries with the corresponding IP address only when the health check is healthy.
+	// - If you don't associate a health check with a multivalue answer record, Route 53 always considers the record to be healthy.
+	// - Route 53 responds to DNS queries with up to eight healthy records; if you have eight or fewer healthy records, Route 53 responds to all DNS queries with all the healthy records.
+	// - If you have more than eight healthy records, Route 53 responds to different DNS resolvers with different combinations of healthy records.
+	// - When all records are unhealthy, Route 53 responds to DNS queries with up to eight unhealthy records.
+	// - If a resource becomes unavailable after a resolver caches a response, client software typically tries another of the IP addresses in the response.
+	//
+	// You can't create multivalue answer alias records.
+	MultiValueAnswer interface{} `json:"multiValueAnswer"`
+	// *Latency-based resource record sets only:* The Amazon EC2 Region where you created the resource that this resource record set refers to.
+	//
+	// The resource typically is an AWS resource, such as an EC2 instance or an ELB load balancer, and is referred to by an IP address or a DNS domain name, depending on the record type.
+	//
+	// > Although creating latency and latency alias resource record sets in a private hosted zone is allowed, it's not supported.
+	//
+	// When Amazon Route 53 receives a DNS query for a domain name and type for which you have created latency resource record sets, Route 53 selects the latency resource record set that has the lowest latency between the end user and the associated Amazon EC2 Region. Route 53 then returns the value that is associated with the selected resource record set.
+	//
+	// Note the following:
+	//
+	// - You can only specify one `ResourceRecord` per latency resource record set.
+	// - You can only create one latency resource record set for each Amazon EC2 Region.
+	// - You aren't required to create latency resource record sets for all Amazon EC2 Regions. Route 53 will choose the region with the best latency from among the regions that you create latency resource record sets for.
+	// - You can't create non-latency resource record sets that have the same values for the `Name` and `Type` elements as latency resource record sets.
+	Region *string `json:"region"`
+	// One or more values that correspond with the value that you specified for the `Type` property.
+	//
+	// For example, if you specified `A` for `Type` , you specify one or more IP addresses in IPv4 format for `ResourceRecords` . For information about the format of values for each record type, see [Supported DNS Resource Record Types](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/ResourceRecordTypes.html) in the *Amazon Route 53 Developer Guide* .
+	//
+	// Note the following:
+	//
+	// - You can specify more than one value for all record types except CNAME and SOA.
+	// - The maximum length of a value is 4000 characters.
+	// - If you're creating an alias record, omit `ResourceRecords` .
+	ResourceRecords *[]*string `json:"resourceRecords"`
+	// *Resource record sets that have a routing policy other than simple:* An identifier that differentiates among multiple resource record sets that have the same combination of name and type, such as multiple weighted resource record sets named acme.example.com that have a type of A. In a group of resource record sets that have the same name and type, the value of `SetIdentifier` must be unique for each resource record set.
+	//
+	// For information about routing policies, see [Choosing a Routing Policy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html) in the *Amazon Route 53 Developer Guide* .
+	SetIdentifier *string `json:"setIdentifier"`
+	// The resource record cache time to live (TTL), in seconds. Note the following:.
+	//
+	// - If you're creating or updating an alias resource record set, omit `TTL` . Amazon Route 53 uses the value of `TTL` for the alias target.
+	// - If you're associating this resource record set with a health check (if you're adding a `HealthCheckId` element), we recommend that you specify a `TTL` of 60 seconds or less so clients respond quickly to changes in health status.
+	// - All of the resource record sets in a group of weighted resource record sets must have the same value for `TTL` .
+	// - If a group of weighted resource record sets includes one or more weighted alias resource record sets for which the alias target is an ELB load balancer, we recommend that you specify a `TTL` of 60 seconds for all of the non-alias weighted resource record sets that have the same name and type. Values other than 60 seconds (the TTL for load balancers) will change the effect of the values that you specify for `Weight` .
+	Ttl *string `json:"ttl"`
+	// *Weighted resource record sets only:* Among resource record sets that have the same combination of DNS name and type, a value that determines the proportion of DNS queries that Amazon Route 53 responds to using the current resource record set.
+	//
+	// Route 53 calculates the sum of the weights for the resource record sets that have the same combination of DNS name and type. Route 53 then responds to queries based on the ratio of a resource's weight to the total. Note the following:
+	//
+	// - You must specify a value for the `Weight` element for every weighted resource record set.
+	// - You can only specify one `ResourceRecord` per weighted resource record set.
+	// - You can't create latency, failover, or geolocation resource record sets that have the same values for the `Name` and `Type` elements as weighted resource record sets.
+	// - You can create a maximum of 100 weighted resource record sets that have the same values for the `Name` and `Type` elements.
+	// - For weighted (but not weighted alias) resource record sets, if you set `Weight` to `0` for a resource record set, Route 53 never responds to queries with the applicable value for that resource record set. However, if you set `Weight` to `0` for all resource record sets that have the same combination of DNS name and type, traffic is routed to all resources with equal probability.
+	//
+	// The effect of setting `Weight` to `0` is different when you associate health checks with weighted resource record sets. For more information, see [Options for Configuring Route 53 Active-Active and Active-Passive Failover](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html) in the *Amazon Route 53 Developer Guide* .
 	Weight *float64 `json:"weight"`
 }
 
@@ -4587,18 +6694,25 @@ type CfnRecordSetProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type CnameRecord interface {
 	RecordSet
 	DomainName() *string
 	Env() *awscdk.ResourceEnvironment
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Stack() awscdk.Stack
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for CnameRecord
@@ -4626,8 +6740,8 @@ func (j *jsiiProxy_CnameRecord) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CnameRecord) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CnameRecord) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -4657,13 +6771,14 @@ func (j *jsiiProxy_CnameRecord) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewCnameRecord(scope constructs.Construct, id *string, props *CnameRecordProps) CnameRecord {
 	_init_.Initialize()
 
 	j := jsiiProxy_CnameRecord{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.CnameRecord",
+		"monocdk.aws_route53.CnameRecord",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4671,27 +6786,26 @@ func NewCnameRecord(scope constructs.Construct, id *string, props *CnameRecordPr
 	return &j
 }
 
+// Experimental.
 func NewCnameRecord_Override(c CnameRecord, scope constructs.Construct, id *string, props *CnameRecordProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.CnameRecord",
+		"monocdk.aws_route53.CnameRecord",
 		[]interface{}{scope, id, props},
 		c,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CnameRecord_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.CnameRecord",
+		"monocdk.aws_route53.CnameRecord",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4701,13 +6815,14 @@ func CnameRecord_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func CnameRecord_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func CnameRecord_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.CnameRecord",
+		"monocdk.aws_route53.CnameRecord",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -4725,6 +6840,7 @@ func CnameRecord_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CnameRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4733,6 +6849,7 @@ func (c *jsiiProxy_CnameRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) 
 	)
 }
 
+// Experimental.
 func (c *jsiiProxy_CnameRecord) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -4752,6 +6869,7 @@ func (c *jsiiProxy_CnameRecord) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
+// Experimental.
 func (c *jsiiProxy_CnameRecord) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -4770,6 +6888,7 @@ func (c *jsiiProxy_CnameRecord) GetResourceArnAttribute(arnAttr *string, arnComp
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
+// Experimental.
 func (c *jsiiProxy_CnameRecord) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -4783,7 +6902,88 @@ func (c *jsiiProxy_CnameRecord) GetResourceNameAttribute(nameAttr *string) *stri
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CnameRecord) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CnameRecord) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CnameRecord) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CnameRecord) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CnameRecord) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (c *jsiiProxy_CnameRecord) ToString() *string {
 	var returns *string
 
@@ -4797,20 +6997,46 @@ func (c *jsiiProxy_CnameRecord) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CnameRecord) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Construction properties for a CnameRecord.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type CnameRecordProps struct {
+	// The hosted zone in which to define the new record.
+	// Experimental.
+	Zone IHostedZone `json:"zone"`
 	// A comment to add on the record.
+	// Experimental.
 	Comment *string `json:"comment"`
 	// The domain name for this record.
+	// Experimental.
 	RecordName *string `json:"recordName"`
 	// The resource record cache time to live (TTL).
+	// Experimental.
 	Ttl awscdk.Duration `json:"ttl"`
-	// The hosted zone in which to define the new record.
-	Zone IHostedZone `json:"zone"`
 	// The domain name.
+	// Experimental.
 	DomainName *string `json:"domainName"`
 }
 
@@ -4818,35 +7044,46 @@ type CnameRecordProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type CommonHostedZoneProps struct {
-	// Any comments that you want to include about the hosted zone.
-	Comment *string `json:"comment"`
-	// The Amazon Resource Name (ARN) for the log group that you want Amazon Route 53 to send query logs to.
-	QueryLogsLogGroupArn *string `json:"queryLogsLogGroupArn"`
 	// The name of the domain.
 	//
 	// For resource record types that include a domain
 	// name, specify a fully qualified domain name.
+	// Experimental.
 	ZoneName *string `json:"zoneName"`
+	// Any comments that you want to include about the hosted zone.
+	// Experimental.
+	Comment *string `json:"comment"`
+	// The Amazon Resource Name (ARN) for the log group that you want Amazon Route 53 to send query logs to.
+	// Experimental.
+	QueryLogsLogGroupArn *string `json:"queryLogsLogGroupArn"`
 }
 
 // A Cross Account Zone Delegation record.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type CrossAccountZoneDelegationRecord interface {
-	constructs.Construct
-	Node() constructs.Node
+	awscdk.Construct
+	Node() awscdk.ConstructNode
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for CrossAccountZoneDelegationRecord
 type jsiiProxy_CrossAccountZoneDelegationRecord struct {
-	internal.Type__constructsConstruct
+	internal.Type__awscdkConstruct
 }
 
-func (j *jsiiProxy_CrossAccountZoneDelegationRecord) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CrossAccountZoneDelegationRecord) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -4856,13 +7093,14 @@ func (j *jsiiProxy_CrossAccountZoneDelegationRecord) Node() constructs.Node {
 }
 
 
+// Experimental.
 func NewCrossAccountZoneDelegationRecord(scope constructs.Construct, id *string, props *CrossAccountZoneDelegationRecordProps) CrossAccountZoneDelegationRecord {
 	_init_.Initialize()
 
 	j := jsiiProxy_CrossAccountZoneDelegationRecord{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.CrossAccountZoneDelegationRecord",
+		"monocdk.aws_route53.CrossAccountZoneDelegationRecord",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4870,27 +7108,26 @@ func NewCrossAccountZoneDelegationRecord(scope constructs.Construct, id *string,
 	return &j
 }
 
+// Experimental.
 func NewCrossAccountZoneDelegationRecord_Override(c CrossAccountZoneDelegationRecord, scope constructs.Construct, id *string, props *CrossAccountZoneDelegationRecordProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.CrossAccountZoneDelegationRecord",
+		"monocdk.aws_route53.CrossAccountZoneDelegationRecord",
 		[]interface{}{scope, id, props},
 		c,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CrossAccountZoneDelegationRecord_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.CrossAccountZoneDelegationRecord",
+		"monocdk.aws_route53.CrossAccountZoneDelegationRecord",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4899,7 +7136,88 @@ func CrossAccountZoneDelegationRecord_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CrossAccountZoneDelegationRecord) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CrossAccountZoneDelegationRecord) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CrossAccountZoneDelegationRecord) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CrossAccountZoneDelegationRecord) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CrossAccountZoneDelegationRecord) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (c *jsiiProxy_CrossAccountZoneDelegationRecord) ToString() *string {
 	var returns *string
 
@@ -4913,22 +7231,49 @@ func (c *jsiiProxy_CrossAccountZoneDelegationRecord) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CrossAccountZoneDelegationRecord) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Construction properties for a CrossAccountZoneDelegationRecord.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type CrossAccountZoneDelegationRecordProps struct {
 	// The zone to be delegated.
+	// Experimental.
 	DelegatedZone IHostedZone `json:"delegatedZone"`
 	// The delegation role in the parent account.
+	// Experimental.
 	DelegationRole awsiam.IRole `json:"delegationRole"`
 	// The hosted zone id in the parent account.
+	// Experimental.
 	ParentHostedZoneId *string `json:"parentHostedZoneId"`
 	// The hosted zone name in the parent account.
+	// Experimental.
 	ParentHostedZoneName *string `json:"parentHostedZoneName"`
 	// The removal policy to apply to the record set.
+	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
 	// The resource record cache time to live (TTL).
+	// Experimental.
 	Ttl awscdk.Duration `json:"ttl"`
 }
 
@@ -4936,18 +7281,25 @@ type CrossAccountZoneDelegationRecordProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type DsRecord interface {
 	RecordSet
 	DomainName() *string
 	Env() *awscdk.ResourceEnvironment
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Stack() awscdk.Stack
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for DsRecord
@@ -4975,8 +7327,8 @@ func (j *jsiiProxy_DsRecord) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_DsRecord) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_DsRecord) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -5006,13 +7358,14 @@ func (j *jsiiProxy_DsRecord) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewDsRecord(scope constructs.Construct, id *string, props *DsRecordProps) DsRecord {
 	_init_.Initialize()
 
 	j := jsiiProxy_DsRecord{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.DsRecord",
+		"monocdk.aws_route53.DsRecord",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5020,27 +7373,26 @@ func NewDsRecord(scope constructs.Construct, id *string, props *DsRecordProps) D
 	return &j
 }
 
+// Experimental.
 func NewDsRecord_Override(d DsRecord, scope constructs.Construct, id *string, props *DsRecordProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.DsRecord",
+		"monocdk.aws_route53.DsRecord",
 		[]interface{}{scope, id, props},
 		d,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func DsRecord_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.DsRecord",
+		"monocdk.aws_route53.DsRecord",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -5050,13 +7402,14 @@ func DsRecord_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func DsRecord_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func DsRecord_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.DsRecord",
+		"monocdk.aws_route53.DsRecord",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -5074,6 +7427,7 @@ func DsRecord_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (d *jsiiProxy_DsRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		d,
@@ -5082,6 +7436,7 @@ func (d *jsiiProxy_DsRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
+// Experimental.
 func (d *jsiiProxy_DsRecord) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -5101,6 +7456,7 @@ func (d *jsiiProxy_DsRecord) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
+// Experimental.
 func (d *jsiiProxy_DsRecord) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -5119,6 +7475,7 @@ func (d *jsiiProxy_DsRecord) GetResourceArnAttribute(arnAttr *string, arnCompone
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
+// Experimental.
 func (d *jsiiProxy_DsRecord) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -5132,7 +7489,88 @@ func (d *jsiiProxy_DsRecord) GetResourceNameAttribute(nameAttr *string) *string 
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (d *jsiiProxy_DsRecord) OnPrepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (d *jsiiProxy_DsRecord) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (d *jsiiProxy_DsRecord) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (d *jsiiProxy_DsRecord) Prepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (d *jsiiProxy_DsRecord) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (d *jsiiProxy_DsRecord) ToString() *string {
 	var returns *string
 
@@ -5146,20 +7584,46 @@ func (d *jsiiProxy_DsRecord) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (d *jsiiProxy_DsRecord) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Construction properties for a DSRecord.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type DsRecordProps struct {
+	// The hosted zone in which to define the new record.
+	// Experimental.
+	Zone IHostedZone `json:"zone"`
 	// A comment to add on the record.
+	// Experimental.
 	Comment *string `json:"comment"`
 	// The domain name for this record.
+	// Experimental.
 	RecordName *string `json:"recordName"`
 	// The resource record cache time to live (TTL).
+	// Experimental.
 	Ttl awscdk.Duration `json:"ttl"`
-	// The hosted zone in which to define the new record.
-	Zone IHostedZone `json:"zone"`
 	// The DS values.
+	// Experimental.
 	Values *[]*string `json:"values"`
 }
 
@@ -5167,6 +7631,7 @@ type DsRecordProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type HostedZone interface {
 	awscdk.Resource
 	IHostedZone
@@ -5174,7 +7639,7 @@ type HostedZone interface {
 	HostedZoneArn() *string
 	HostedZoneId() *string
 	HostedZoneNameServers() *[]*string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Stack() awscdk.Stack
 	Vpcs() *[]*CfnHostedZone_VPCProperty
@@ -5184,7 +7649,13 @@ type HostedZone interface {
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for HostedZone
@@ -5233,8 +7704,8 @@ func (j *jsiiProxy_HostedZone) HostedZoneNameServers() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_HostedZone) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_HostedZone) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -5284,13 +7755,14 @@ func (j *jsiiProxy_HostedZone) ZoneName() *string {
 }
 
 
+// Experimental.
 func NewHostedZone(scope constructs.Construct, id *string, props *HostedZoneProps) HostedZone {
 	_init_.Initialize()
 
 	j := jsiiProxy_HostedZone{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.HostedZone",
+		"monocdk.aws_route53.HostedZone",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5298,11 +7770,12 @@ func NewHostedZone(scope constructs.Construct, id *string, props *HostedZoneProp
 	return &j
 }
 
+// Experimental.
 func NewHostedZone_Override(h HostedZone, scope constructs.Construct, id *string, props *HostedZoneProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.HostedZone",
+		"monocdk.aws_route53.HostedZone",
 		[]interface{}{scope, id, props},
 		h,
 	)
@@ -5311,13 +7784,14 @@ func NewHostedZone_Override(h HostedZone, scope constructs.Construct, id *string
 // Imports a hosted zone from another stack.
 //
 // Use when both hosted zone ID and hosted zone name are known.
+// Experimental.
 func HostedZone_FromHostedZoneAttributes(scope constructs.Construct, id *string, attrs *HostedZoneAttributes) IHostedZone {
 	_init_.Initialize()
 
 	var returns IHostedZone
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.HostedZone",
+		"monocdk.aws_route53.HostedZone",
 		"fromHostedZoneAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -5329,13 +7803,14 @@ func HostedZone_FromHostedZoneAttributes(scope constructs.Construct, id *string,
 // Import a Route 53 hosted zone defined either outside the CDK, or in a different CDK stack.
 //
 // Use when hosted zone ID is known. Hosted zone name becomes unavailable through this query.
+// Experimental.
 func HostedZone_FromHostedZoneId(scope constructs.Construct, id *string, hostedZoneId *string) IHostedZone {
 	_init_.Initialize()
 
 	var returns IHostedZone
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.HostedZone",
+		"monocdk.aws_route53.HostedZone",
 		"fromHostedZoneId",
 		[]interface{}{scope, id, hostedZoneId},
 		&returns,
@@ -5351,13 +7826,14 @@ func HostedZone_FromHostedZoneId(scope constructs.Construct, id *string, hostedZ
 // Use to easily query hosted zones.
 // See: https://docs.aws.amazon.com/cdk/latest/guide/environments.html
 //
+// Experimental.
 func HostedZone_FromLookup(scope constructs.Construct, id *string, query *HostedZoneProviderProps) IHostedZone {
 	_init_.Initialize()
 
 	var returns IHostedZone
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.HostedZone",
+		"monocdk.aws_route53.HostedZone",
 		"fromLookup",
 		[]interface{}{scope, id, query},
 		&returns,
@@ -5366,17 +7842,15 @@ func HostedZone_FromLookup(scope constructs.Construct, id *string, query *Hosted
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func HostedZone_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.HostedZone",
+		"monocdk.aws_route53.HostedZone",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -5386,13 +7860,14 @@ func HostedZone_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func HostedZone_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func HostedZone_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.HostedZone",
+		"monocdk.aws_route53.HostedZone",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -5402,6 +7877,7 @@ func HostedZone_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Add another VPC to this private hosted zone.
+// Experimental.
 func (h *jsiiProxy_HostedZone) AddVpc(vpc awsec2.IVpc) {
 	_jsii_.InvokeVoid(
 		h,
@@ -5419,6 +7895,7 @@ func (h *jsiiProxy_HostedZone) AddVpc(vpc awsec2.IVpc) {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (h *jsiiProxy_HostedZone) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		h,
@@ -5427,6 +7904,7 @@ func (h *jsiiProxy_HostedZone) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
+// Experimental.
 func (h *jsiiProxy_HostedZone) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -5446,6 +7924,7 @@ func (h *jsiiProxy_HostedZone) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
+// Experimental.
 func (h *jsiiProxy_HostedZone) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -5464,6 +7943,7 @@ func (h *jsiiProxy_HostedZone) GetResourceArnAttribute(arnAttr *string, arnCompo
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
+// Experimental.
 func (h *jsiiProxy_HostedZone) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -5477,7 +7957,88 @@ func (h *jsiiProxy_HostedZone) GetResourceNameAttribute(nameAttr *string) *strin
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (h *jsiiProxy_HostedZone) OnPrepare() {
+	_jsii_.InvokeVoid(
+		h,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (h *jsiiProxy_HostedZone) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		h,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (h *jsiiProxy_HostedZone) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		h,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (h *jsiiProxy_HostedZone) Prepare() {
+	_jsii_.InvokeVoid(
+		h,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (h *jsiiProxy_HostedZone) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		h,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (h *jsiiProxy_HostedZone) ToString() *string {
 	var returns *string
 
@@ -5491,14 +8052,37 @@ func (h *jsiiProxy_HostedZone) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (h *jsiiProxy_HostedZone) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		h,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Reference to a hosted zone.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type HostedZoneAttributes struct {
 	// Identifier of the hosted zone.
+	// Experimental.
 	HostedZoneId *string `json:"hostedZoneId"`
 	// Name of the hosted zone.
+	// Experimental.
 	ZoneName *string `json:"zoneName"`
 }
 
@@ -5506,22 +8090,27 @@ type HostedZoneAttributes struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type HostedZoneProps struct {
-	// Any comments that you want to include about the hosted zone.
-	Comment *string `json:"comment"`
-	// The Amazon Resource Name (ARN) for the log group that you want Amazon Route 53 to send query logs to.
-	QueryLogsLogGroupArn *string `json:"queryLogsLogGroupArn"`
 	// The name of the domain.
 	//
 	// For resource record types that include a domain
 	// name, specify a fully qualified domain name.
+	// Experimental.
 	ZoneName *string `json:"zoneName"`
+	// Any comments that you want to include about the hosted zone.
+	// Experimental.
+	Comment *string `json:"comment"`
+	// The Amazon Resource Name (ARN) for the log group that you want Amazon Route 53 to send query logs to.
+	// Experimental.
+	QueryLogsLogGroupArn *string `json:"queryLogsLogGroupArn"`
 	// A VPC that you want to associate with this hosted zone.
 	//
 	// When you specify
 	// this property, a private hosted zone will be created.
 	//
 	// You can associate additional VPCs to this private zone using `addVpc(vpc)`.
+	// Experimental.
 	Vpcs *[]awsec2.IVpc `json:"vpcs"`
 }
 
@@ -5529,21 +8118,27 @@ type HostedZoneProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type HostedZoneProviderProps struct {
 	// The zone domain e.g. example.com.
+	// Experimental.
 	DomainName *string `json:"domainName"`
 	// Whether the zone that is being looked up is a private hosted zone.
+	// Experimental.
 	PrivateZone *bool `json:"privateZone"`
 	// Specifies the ID of the VPC associated with a private hosted zone.
 	//
 	// If a VPC ID is provided and privateZone is false, no results will be returned
 	// and an error will be raised
+	// Experimental.
 	VpcId *string `json:"vpcId"`
 }
 
 // Classes that are valid alias record targets, like CloudFront distributions and load balancers, should implement this interface.
+// Experimental.
 type IAliasRecordTarget interface {
 	// Return hosted zone ID and DNS name, usable for Route53 alias targets.
+	// Experimental.
 	Bind(record IRecordSet, zone IHostedZone) *AliasRecordTargetConfig
 }
 
@@ -5566,17 +8161,22 @@ func (i *jsiiProxy_IAliasRecordTarget) Bind(record IRecordSet, zone IHostedZone)
 }
 
 // Imported or created hosted zone.
+// Experimental.
 type IHostedZone interface {
 	awscdk.IResource
 	// ARN of this hosted zone, such as arn:${Partition}:route53:::hostedzone/${Id}.
+	// Experimental.
 	HostedZoneArn() *string
 	// ID of this hosted zone, such as "Z23ABC4XYZL05B".
+	// Experimental.
 	HostedZoneId() *string
 	// Returns the set of name servers for the specific hosted zone. For example: ns1.example.com.
 	//
 	// This attribute will be undefined for private hosted zones or hosted zones imported from another stack.
+	// Experimental.
 	HostedZoneNameServers() *[]*string
 	// FQDN of this hosted zone.
+	// Experimental.
 	ZoneName() *string
 }
 
@@ -5626,6 +8226,7 @@ func (j *jsiiProxy_IHostedZone) ZoneName() *string {
 }
 
 // Represents a Route 53 private hosted zone.
+// Experimental.
 type IPrivateHostedZone interface {
 	IHostedZone
 }
@@ -5636,6 +8237,7 @@ type jsiiProxy_IPrivateHostedZone struct {
 }
 
 // Represents a Route 53 public hosted zone.
+// Experimental.
 type IPublicHostedZone interface {
 	IHostedZone
 }
@@ -5646,9 +8248,11 @@ type jsiiProxy_IPublicHostedZone struct {
 }
 
 // A record set.
+// Experimental.
 type IRecordSet interface {
 	awscdk.IResource
 	// The domain name of the record.
+	// Experimental.
 	DomainName() *string
 }
 
@@ -5671,18 +8275,25 @@ func (j *jsiiProxy_IRecordSet) DomainName() *string {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type MxRecord interface {
 	RecordSet
 	DomainName() *string
 	Env() *awscdk.ResourceEnvironment
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Stack() awscdk.Stack
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for MxRecord
@@ -5710,8 +8321,8 @@ func (j *jsiiProxy_MxRecord) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_MxRecord) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_MxRecord) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -5741,13 +8352,14 @@ func (j *jsiiProxy_MxRecord) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewMxRecord(scope constructs.Construct, id *string, props *MxRecordProps) MxRecord {
 	_init_.Initialize()
 
 	j := jsiiProxy_MxRecord{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.MxRecord",
+		"monocdk.aws_route53.MxRecord",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5755,27 +8367,26 @@ func NewMxRecord(scope constructs.Construct, id *string, props *MxRecordProps) M
 	return &j
 }
 
+// Experimental.
 func NewMxRecord_Override(m MxRecord, scope constructs.Construct, id *string, props *MxRecordProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.MxRecord",
+		"monocdk.aws_route53.MxRecord",
 		[]interface{}{scope, id, props},
 		m,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func MxRecord_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.MxRecord",
+		"monocdk.aws_route53.MxRecord",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -5785,13 +8396,14 @@ func MxRecord_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func MxRecord_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func MxRecord_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.MxRecord",
+		"monocdk.aws_route53.MxRecord",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -5809,6 +8421,7 @@ func MxRecord_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (m *jsiiProxy_MxRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		m,
@@ -5817,6 +8430,7 @@ func (m *jsiiProxy_MxRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
+// Experimental.
 func (m *jsiiProxy_MxRecord) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -5836,6 +8450,7 @@ func (m *jsiiProxy_MxRecord) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
+// Experimental.
 func (m *jsiiProxy_MxRecord) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -5854,6 +8469,7 @@ func (m *jsiiProxy_MxRecord) GetResourceArnAttribute(arnAttr *string, arnCompone
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
+// Experimental.
 func (m *jsiiProxy_MxRecord) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -5867,7 +8483,88 @@ func (m *jsiiProxy_MxRecord) GetResourceNameAttribute(nameAttr *string) *string 
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (m *jsiiProxy_MxRecord) OnPrepare() {
+	_jsii_.InvokeVoid(
+		m,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (m *jsiiProxy_MxRecord) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		m,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (m *jsiiProxy_MxRecord) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		m,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (m *jsiiProxy_MxRecord) Prepare() {
+	_jsii_.InvokeVoid(
+		m,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (m *jsiiProxy_MxRecord) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		m,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (m *jsiiProxy_MxRecord) ToString() *string {
 	var returns *string
 
@@ -5881,20 +8578,46 @@ func (m *jsiiProxy_MxRecord) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (m *jsiiProxy_MxRecord) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		m,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Construction properties for a MxRecord.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type MxRecordProps struct {
+	// The hosted zone in which to define the new record.
+	// Experimental.
+	Zone IHostedZone `json:"zone"`
 	// A comment to add on the record.
+	// Experimental.
 	Comment *string `json:"comment"`
 	// The domain name for this record.
+	// Experimental.
 	RecordName *string `json:"recordName"`
 	// The resource record cache time to live (TTL).
+	// Experimental.
 	Ttl awscdk.Duration `json:"ttl"`
-	// The hosted zone in which to define the new record.
-	Zone IHostedZone `json:"zone"`
 	// The values.
+	// Experimental.
 	Values *[]*MxRecordValue `json:"values"`
 }
 
@@ -5902,10 +8625,13 @@ type MxRecordProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type MxRecordValue struct {
 	// The mail server host name.
+	// Experimental.
 	HostName *string `json:"hostName"`
 	// The priority.
+	// Experimental.
 	Priority *float64 `json:"priority"`
 }
 
@@ -5913,18 +8639,25 @@ type MxRecordValue struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type NsRecord interface {
 	RecordSet
 	DomainName() *string
 	Env() *awscdk.ResourceEnvironment
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Stack() awscdk.Stack
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for NsRecord
@@ -5952,8 +8685,8 @@ func (j *jsiiProxy_NsRecord) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_NsRecord) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_NsRecord) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -5983,13 +8716,14 @@ func (j *jsiiProxy_NsRecord) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewNsRecord(scope constructs.Construct, id *string, props *NsRecordProps) NsRecord {
 	_init_.Initialize()
 
 	j := jsiiProxy_NsRecord{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.NsRecord",
+		"monocdk.aws_route53.NsRecord",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5997,27 +8731,26 @@ func NewNsRecord(scope constructs.Construct, id *string, props *NsRecordProps) N
 	return &j
 }
 
+// Experimental.
 func NewNsRecord_Override(n NsRecord, scope constructs.Construct, id *string, props *NsRecordProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.NsRecord",
+		"monocdk.aws_route53.NsRecord",
 		[]interface{}{scope, id, props},
 		n,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func NsRecord_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.NsRecord",
+		"monocdk.aws_route53.NsRecord",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -6027,13 +8760,14 @@ func NsRecord_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func NsRecord_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func NsRecord_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.NsRecord",
+		"monocdk.aws_route53.NsRecord",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -6051,6 +8785,7 @@ func NsRecord_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (n *jsiiProxy_NsRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		n,
@@ -6059,6 +8794,7 @@ func (n *jsiiProxy_NsRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
+// Experimental.
 func (n *jsiiProxy_NsRecord) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -6078,6 +8814,7 @@ func (n *jsiiProxy_NsRecord) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
+// Experimental.
 func (n *jsiiProxy_NsRecord) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -6096,6 +8833,7 @@ func (n *jsiiProxy_NsRecord) GetResourceArnAttribute(arnAttr *string, arnCompone
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
+// Experimental.
 func (n *jsiiProxy_NsRecord) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -6109,7 +8847,88 @@ func (n *jsiiProxy_NsRecord) GetResourceNameAttribute(nameAttr *string) *string 
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (n *jsiiProxy_NsRecord) OnPrepare() {
+	_jsii_.InvokeVoid(
+		n,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (n *jsiiProxy_NsRecord) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		n,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (n *jsiiProxy_NsRecord) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		n,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (n *jsiiProxy_NsRecord) Prepare() {
+	_jsii_.InvokeVoid(
+		n,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (n *jsiiProxy_NsRecord) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		n,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (n *jsiiProxy_NsRecord) ToString() *string {
 	var returns *string
 
@@ -6123,20 +8942,46 @@ func (n *jsiiProxy_NsRecord) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (n *jsiiProxy_NsRecord) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		n,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Construction properties for a NSRecord.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type NsRecordProps struct {
+	// The hosted zone in which to define the new record.
+	// Experimental.
+	Zone IHostedZone `json:"zone"`
 	// A comment to add on the record.
+	// Experimental.
 	Comment *string `json:"comment"`
 	// The domain name for this record.
+	// Experimental.
 	RecordName *string `json:"recordName"`
 	// The resource record cache time to live (TTL).
+	// Experimental.
 	Ttl awscdk.Duration `json:"ttl"`
-	// The hosted zone in which to define the new record.
-	Zone IHostedZone `json:"zone"`
 	// The NS values.
+	// Experimental.
 	Values *[]*string `json:"values"`
 }
 
@@ -6147,6 +8992,7 @@ type NsRecordProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type PrivateHostedZone interface {
 	HostedZone
 	IPrivateHostedZone
@@ -6154,7 +9000,7 @@ type PrivateHostedZone interface {
 	HostedZoneArn() *string
 	HostedZoneId() *string
 	HostedZoneNameServers() *[]*string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Stack() awscdk.Stack
 	Vpcs() *[]*CfnHostedZone_VPCProperty
@@ -6164,7 +9010,13 @@ type PrivateHostedZone interface {
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for PrivateHostedZone
@@ -6213,8 +9065,8 @@ func (j *jsiiProxy_PrivateHostedZone) HostedZoneNameServers() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_PrivateHostedZone) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_PrivateHostedZone) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -6264,13 +9116,14 @@ func (j *jsiiProxy_PrivateHostedZone) ZoneName() *string {
 }
 
 
+// Experimental.
 func NewPrivateHostedZone(scope constructs.Construct, id *string, props *PrivateHostedZoneProps) PrivateHostedZone {
 	_init_.Initialize()
 
 	j := jsiiProxy_PrivateHostedZone{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.PrivateHostedZone",
+		"monocdk.aws_route53.PrivateHostedZone",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -6278,11 +9131,12 @@ func NewPrivateHostedZone(scope constructs.Construct, id *string, props *Private
 	return &j
 }
 
+// Experimental.
 func NewPrivateHostedZone_Override(p PrivateHostedZone, scope constructs.Construct, id *string, props *PrivateHostedZoneProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.PrivateHostedZone",
+		"monocdk.aws_route53.PrivateHostedZone",
 		[]interface{}{scope, id, props},
 		p,
 	)
@@ -6291,13 +9145,14 @@ func NewPrivateHostedZone_Override(p PrivateHostedZone, scope constructs.Constru
 // Imports a hosted zone from another stack.
 //
 // Use when both hosted zone ID and hosted zone name are known.
+// Experimental.
 func PrivateHostedZone_FromHostedZoneAttributes(scope constructs.Construct, id *string, attrs *HostedZoneAttributes) IHostedZone {
 	_init_.Initialize()
 
 	var returns IHostedZone
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.PrivateHostedZone",
+		"monocdk.aws_route53.PrivateHostedZone",
 		"fromHostedZoneAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -6309,13 +9164,14 @@ func PrivateHostedZone_FromHostedZoneAttributes(scope constructs.Construct, id *
 // Import a Route 53 hosted zone defined either outside the CDK, or in a different CDK stack.
 //
 // Use when hosted zone ID is known. Hosted zone name becomes unavailable through this query.
+// Experimental.
 func PrivateHostedZone_FromHostedZoneId(scope constructs.Construct, id *string, hostedZoneId *string) IHostedZone {
 	_init_.Initialize()
 
 	var returns IHostedZone
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.PrivateHostedZone",
+		"monocdk.aws_route53.PrivateHostedZone",
 		"fromHostedZoneId",
 		[]interface{}{scope, id, hostedZoneId},
 		&returns,
@@ -6331,13 +9187,14 @@ func PrivateHostedZone_FromHostedZoneId(scope constructs.Construct, id *string, 
 // Use to easily query hosted zones.
 // See: https://docs.aws.amazon.com/cdk/latest/guide/environments.html
 //
+// Experimental.
 func PrivateHostedZone_FromLookup(scope constructs.Construct, id *string, query *HostedZoneProviderProps) IHostedZone {
 	_init_.Initialize()
 
 	var returns IHostedZone
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.PrivateHostedZone",
+		"monocdk.aws_route53.PrivateHostedZone",
 		"fromLookup",
 		[]interface{}{scope, id, query},
 		&returns,
@@ -6347,13 +9204,14 @@ func PrivateHostedZone_FromLookup(scope constructs.Construct, id *string, query 
 }
 
 // Import a Route 53 private hosted zone defined either outside the CDK, or in a different CDK stack.
+// Experimental.
 func PrivateHostedZone_FromPrivateHostedZoneId(scope constructs.Construct, id *string, privateHostedZoneId *string) IPrivateHostedZone {
 	_init_.Initialize()
 
 	var returns IPrivateHostedZone
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.PrivateHostedZone",
+		"monocdk.aws_route53.PrivateHostedZone",
 		"fromPrivateHostedZoneId",
 		[]interface{}{scope, id, privateHostedZoneId},
 		&returns,
@@ -6362,17 +9220,15 @@ func PrivateHostedZone_FromPrivateHostedZoneId(scope constructs.Construct, id *s
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func PrivateHostedZone_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.PrivateHostedZone",
+		"monocdk.aws_route53.PrivateHostedZone",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -6382,13 +9238,14 @@ func PrivateHostedZone_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func PrivateHostedZone_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func PrivateHostedZone_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.PrivateHostedZone",
+		"monocdk.aws_route53.PrivateHostedZone",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -6398,6 +9255,7 @@ func PrivateHostedZone_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Add another VPC to this private hosted zone.
+// Experimental.
 func (p *jsiiProxy_PrivateHostedZone) AddVpc(vpc awsec2.IVpc) {
 	_jsii_.InvokeVoid(
 		p,
@@ -6415,6 +9273,7 @@ func (p *jsiiProxy_PrivateHostedZone) AddVpc(vpc awsec2.IVpc) {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (p *jsiiProxy_PrivateHostedZone) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		p,
@@ -6423,6 +9282,7 @@ func (p *jsiiProxy_PrivateHostedZone) ApplyRemovalPolicy(policy awscdk.RemovalPo
 	)
 }
 
+// Experimental.
 func (p *jsiiProxy_PrivateHostedZone) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -6442,6 +9302,7 @@ func (p *jsiiProxy_PrivateHostedZone) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
+// Experimental.
 func (p *jsiiProxy_PrivateHostedZone) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -6460,6 +9321,7 @@ func (p *jsiiProxy_PrivateHostedZone) GetResourceArnAttribute(arnAttr *string, a
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
+// Experimental.
 func (p *jsiiProxy_PrivateHostedZone) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -6473,7 +9335,88 @@ func (p *jsiiProxy_PrivateHostedZone) GetResourceNameAttribute(nameAttr *string)
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (p *jsiiProxy_PrivateHostedZone) OnPrepare() {
+	_jsii_.InvokeVoid(
+		p,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (p *jsiiProxy_PrivateHostedZone) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		p,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (p *jsiiProxy_PrivateHostedZone) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		p,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (p *jsiiProxy_PrivateHostedZone) Prepare() {
+	_jsii_.InvokeVoid(
+		p,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (p *jsiiProxy_PrivateHostedZone) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		p,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (p *jsiiProxy_PrivateHostedZone) ToString() *string {
 	var returns *string
 
@@ -6487,24 +9430,49 @@ func (p *jsiiProxy_PrivateHostedZone) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (p *jsiiProxy_PrivateHostedZone) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		p,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Properties to create a Route 53 private hosted zone.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type PrivateHostedZoneProps struct {
-	// Any comments that you want to include about the hosted zone.
-	Comment *string `json:"comment"`
-	// The Amazon Resource Name (ARN) for the log group that you want Amazon Route 53 to send query logs to.
-	QueryLogsLogGroupArn *string `json:"queryLogsLogGroupArn"`
 	// The name of the domain.
 	//
 	// For resource record types that include a domain
 	// name, specify a fully qualified domain name.
+	// Experimental.
 	ZoneName *string `json:"zoneName"`
+	// Any comments that you want to include about the hosted zone.
+	// Experimental.
+	Comment *string `json:"comment"`
+	// The Amazon Resource Name (ARN) for the log group that you want Amazon Route 53 to send query logs to.
+	// Experimental.
+	QueryLogsLogGroupArn *string `json:"queryLogsLogGroupArn"`
 	// A VPC that you want to associate with this hosted zone.
 	//
 	// Private hosted zones must be associated with at least one VPC. You can
 	// associated additional VPCs using `addVpc(vpc)`.
+	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
 }
 
@@ -6512,6 +9480,7 @@ type PrivateHostedZoneProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type PublicHostedZone interface {
 	HostedZone
 	IPublicHostedZone
@@ -6520,7 +9489,7 @@ type PublicHostedZone interface {
 	HostedZoneArn() *string
 	HostedZoneId() *string
 	HostedZoneNameServers() *[]*string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Stack() awscdk.Stack
 	Vpcs() *[]*CfnHostedZone_VPCProperty
@@ -6531,7 +9500,13 @@ type PublicHostedZone interface {
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for PublicHostedZone
@@ -6590,8 +9565,8 @@ func (j *jsiiProxy_PublicHostedZone) HostedZoneNameServers() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_PublicHostedZone) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_PublicHostedZone) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -6641,13 +9616,14 @@ func (j *jsiiProxy_PublicHostedZone) ZoneName() *string {
 }
 
 
+// Experimental.
 func NewPublicHostedZone(scope constructs.Construct, id *string, props *PublicHostedZoneProps) PublicHostedZone {
 	_init_.Initialize()
 
 	j := jsiiProxy_PublicHostedZone{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.PublicHostedZone",
+		"monocdk.aws_route53.PublicHostedZone",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -6655,11 +9631,12 @@ func NewPublicHostedZone(scope constructs.Construct, id *string, props *PublicHo
 	return &j
 }
 
+// Experimental.
 func NewPublicHostedZone_Override(p PublicHostedZone, scope constructs.Construct, id *string, props *PublicHostedZoneProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.PublicHostedZone",
+		"monocdk.aws_route53.PublicHostedZone",
 		[]interface{}{scope, id, props},
 		p,
 	)
@@ -6668,13 +9645,14 @@ func NewPublicHostedZone_Override(p PublicHostedZone, scope constructs.Construct
 // Imports a hosted zone from another stack.
 //
 // Use when both hosted zone ID and hosted zone name are known.
+// Experimental.
 func PublicHostedZone_FromHostedZoneAttributes(scope constructs.Construct, id *string, attrs *HostedZoneAttributes) IHostedZone {
 	_init_.Initialize()
 
 	var returns IHostedZone
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.PublicHostedZone",
+		"monocdk.aws_route53.PublicHostedZone",
 		"fromHostedZoneAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -6686,13 +9664,14 @@ func PublicHostedZone_FromHostedZoneAttributes(scope constructs.Construct, id *s
 // Import a Route 53 hosted zone defined either outside the CDK, or in a different CDK stack.
 //
 // Use when hosted zone ID is known. Hosted zone name becomes unavailable through this query.
+// Experimental.
 func PublicHostedZone_FromHostedZoneId(scope constructs.Construct, id *string, hostedZoneId *string) IHostedZone {
 	_init_.Initialize()
 
 	var returns IHostedZone
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.PublicHostedZone",
+		"monocdk.aws_route53.PublicHostedZone",
 		"fromHostedZoneId",
 		[]interface{}{scope, id, hostedZoneId},
 		&returns,
@@ -6708,13 +9687,14 @@ func PublicHostedZone_FromHostedZoneId(scope constructs.Construct, id *string, h
 // Use to easily query hosted zones.
 // See: https://docs.aws.amazon.com/cdk/latest/guide/environments.html
 //
+// Experimental.
 func PublicHostedZone_FromLookup(scope constructs.Construct, id *string, query *HostedZoneProviderProps) IHostedZone {
 	_init_.Initialize()
 
 	var returns IHostedZone
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.PublicHostedZone",
+		"monocdk.aws_route53.PublicHostedZone",
 		"fromLookup",
 		[]interface{}{scope, id, query},
 		&returns,
@@ -6724,13 +9704,14 @@ func PublicHostedZone_FromLookup(scope constructs.Construct, id *string, query *
 }
 
 // Import a Route 53 public hosted zone defined either outside the CDK, or in a different CDK stack.
+// Experimental.
 func PublicHostedZone_FromPublicHostedZoneId(scope constructs.Construct, id *string, publicHostedZoneId *string) IPublicHostedZone {
 	_init_.Initialize()
 
 	var returns IPublicHostedZone
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.PublicHostedZone",
+		"monocdk.aws_route53.PublicHostedZone",
 		"fromPublicHostedZoneId",
 		[]interface{}{scope, id, publicHostedZoneId},
 		&returns,
@@ -6739,17 +9720,15 @@ func PublicHostedZone_FromPublicHostedZoneId(scope constructs.Construct, id *str
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func PublicHostedZone_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.PublicHostedZone",
+		"monocdk.aws_route53.PublicHostedZone",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -6759,13 +9738,14 @@ func PublicHostedZone_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func PublicHostedZone_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func PublicHostedZone_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.PublicHostedZone",
+		"monocdk.aws_route53.PublicHostedZone",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -6775,6 +9755,7 @@ func PublicHostedZone_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Adds a delegation from this zone to a designated zone.
+// Experimental.
 func (p *jsiiProxy_PublicHostedZone) AddDelegation(delegate IPublicHostedZone, opts *ZoneDelegationOptions) {
 	_jsii_.InvokeVoid(
 		p,
@@ -6784,6 +9765,7 @@ func (p *jsiiProxy_PublicHostedZone) AddDelegation(delegate IPublicHostedZone, o
 }
 
 // Add another VPC to this private hosted zone.
+// Experimental.
 func (p *jsiiProxy_PublicHostedZone) AddVpc(_vpc awsec2.IVpc) {
 	_jsii_.InvokeVoid(
 		p,
@@ -6801,6 +9783,7 @@ func (p *jsiiProxy_PublicHostedZone) AddVpc(_vpc awsec2.IVpc) {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (p *jsiiProxy_PublicHostedZone) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		p,
@@ -6809,6 +9792,7 @@ func (p *jsiiProxy_PublicHostedZone) ApplyRemovalPolicy(policy awscdk.RemovalPol
 	)
 }
 
+// Experimental.
 func (p *jsiiProxy_PublicHostedZone) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -6828,6 +9812,7 @@ func (p *jsiiProxy_PublicHostedZone) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
+// Experimental.
 func (p *jsiiProxy_PublicHostedZone) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -6846,6 +9831,7 @@ func (p *jsiiProxy_PublicHostedZone) GetResourceArnAttribute(arnAttr *string, ar
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
+// Experimental.
 func (p *jsiiProxy_PublicHostedZone) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -6859,7 +9845,88 @@ func (p *jsiiProxy_PublicHostedZone) GetResourceNameAttribute(nameAttr *string) 
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (p *jsiiProxy_PublicHostedZone) OnPrepare() {
+	_jsii_.InvokeVoid(
+		p,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (p *jsiiProxy_PublicHostedZone) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		p,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (p *jsiiProxy_PublicHostedZone) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		p,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (p *jsiiProxy_PublicHostedZone) Prepare() {
+	_jsii_.InvokeVoid(
+		p,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (p *jsiiProxy_PublicHostedZone) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		p,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (p *jsiiProxy_PublicHostedZone) ToString() *string {
 	var returns *string
 
@@ -6873,25 +9940,52 @@ func (p *jsiiProxy_PublicHostedZone) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (p *jsiiProxy_PublicHostedZone) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		p,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Construction properties for a PublicHostedZone.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type PublicHostedZoneProps struct {
-	// Any comments that you want to include about the hosted zone.
-	Comment *string `json:"comment"`
-	// The Amazon Resource Name (ARN) for the log group that you want Amazon Route 53 to send query logs to.
-	QueryLogsLogGroupArn *string `json:"queryLogsLogGroupArn"`
 	// The name of the domain.
 	//
 	// For resource record types that include a domain
 	// name, specify a fully qualified domain name.
+	// Experimental.
 	ZoneName *string `json:"zoneName"`
+	// Any comments that you want to include about the hosted zone.
+	// Experimental.
+	Comment *string `json:"comment"`
+	// The Amazon Resource Name (ARN) for the log group that you want Amazon Route 53 to send query logs to.
+	// Experimental.
+	QueryLogsLogGroupArn *string `json:"queryLogsLogGroupArn"`
 	// Whether to create a CAA record to restrict certificate authorities allowed to issue certificates for this domain to Amazon only.
+	// Experimental.
 	CaaAmazon *bool `json:"caaAmazon"`
 	// A principal which is trusted to assume a role for zone delegation.
+	// Experimental.
 	CrossAccountZoneDelegationPrincipal awsiam.IPrincipal `json:"crossAccountZoneDelegationPrincipal"`
 	// The name of the role created for cross account delegation.
+	// Experimental.
 	CrossAccountZoneDelegationRoleName *string `json:"crossAccountZoneDelegationRoleName"`
 }
 
@@ -6899,19 +9993,26 @@ type PublicHostedZoneProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type RecordSet interface {
 	awscdk.Resource
 	IRecordSet
 	DomainName() *string
 	Env() *awscdk.ResourceEnvironment
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Stack() awscdk.Stack
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for RecordSet
@@ -6940,8 +10041,8 @@ func (j *jsiiProxy_RecordSet) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_RecordSet) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_RecordSet) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -6971,13 +10072,14 @@ func (j *jsiiProxy_RecordSet) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewRecordSet(scope constructs.Construct, id *string, props *RecordSetProps) RecordSet {
 	_init_.Initialize()
 
 	j := jsiiProxy_RecordSet{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.RecordSet",
+		"monocdk.aws_route53.RecordSet",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -6985,27 +10087,26 @@ func NewRecordSet(scope constructs.Construct, id *string, props *RecordSetProps)
 	return &j
 }
 
+// Experimental.
 func NewRecordSet_Override(r RecordSet, scope constructs.Construct, id *string, props *RecordSetProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.RecordSet",
+		"monocdk.aws_route53.RecordSet",
 		[]interface{}{scope, id, props},
 		r,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func RecordSet_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.RecordSet",
+		"monocdk.aws_route53.RecordSet",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -7015,13 +10116,14 @@ func RecordSet_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func RecordSet_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func RecordSet_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.RecordSet",
+		"monocdk.aws_route53.RecordSet",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -7039,6 +10141,7 @@ func RecordSet_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (r *jsiiProxy_RecordSet) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		r,
@@ -7047,6 +10150,7 @@ func (r *jsiiProxy_RecordSet) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
+// Experimental.
 func (r *jsiiProxy_RecordSet) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -7066,6 +10170,7 @@ func (r *jsiiProxy_RecordSet) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
+// Experimental.
 func (r *jsiiProxy_RecordSet) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -7084,6 +10189,7 @@ func (r *jsiiProxy_RecordSet) GetResourceArnAttribute(arnAttr *string, arnCompon
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
+// Experimental.
 func (r *jsiiProxy_RecordSet) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -7097,7 +10203,88 @@ func (r *jsiiProxy_RecordSet) GetResourceNameAttribute(nameAttr *string) *string
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (r *jsiiProxy_RecordSet) OnPrepare() {
+	_jsii_.InvokeVoid(
+		r,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (r *jsiiProxy_RecordSet) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		r,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (r *jsiiProxy_RecordSet) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		r,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (r *jsiiProxy_RecordSet) Prepare() {
+	_jsii_.InvokeVoid(
+		r,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (r *jsiiProxy_RecordSet) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		r,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (r *jsiiProxy_RecordSet) ToString() *string {
 	var returns *string
 
@@ -7111,37 +10298,69 @@ func (r *jsiiProxy_RecordSet) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (r *jsiiProxy_RecordSet) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		r,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Options for a RecordSet.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type RecordSetOptions struct {
+	// The hosted zone in which to define the new record.
+	// Experimental.
+	Zone IHostedZone `json:"zone"`
 	// A comment to add on the record.
+	// Experimental.
 	Comment *string `json:"comment"`
 	// The domain name for this record.
+	// Experimental.
 	RecordName *string `json:"recordName"`
 	// The resource record cache time to live (TTL).
+	// Experimental.
 	Ttl awscdk.Duration `json:"ttl"`
-	// The hosted zone in which to define the new record.
-	Zone IHostedZone `json:"zone"`
 }
 
 // Construction properties for a RecordSet.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type RecordSetProps struct {
+	// The hosted zone in which to define the new record.
+	// Experimental.
+	Zone IHostedZone `json:"zone"`
 	// A comment to add on the record.
+	// Experimental.
 	Comment *string `json:"comment"`
 	// The domain name for this record.
+	// Experimental.
 	RecordName *string `json:"recordName"`
 	// The resource record cache time to live (TTL).
+	// Experimental.
 	Ttl awscdk.Duration `json:"ttl"`
-	// The hosted zone in which to define the new record.
-	Zone IHostedZone `json:"zone"`
 	// The record type.
+	// Experimental.
 	RecordType RecordType `json:"recordType"`
 	// The target for this record, either `RecordTarget.fromValues()` or `RecordTarget.fromAlias()`.
+	// Experimental.
 	Target RecordTarget `json:"target"`
 }
 
@@ -7149,6 +10368,7 @@ type RecordSetProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type RecordTarget interface {
 	AliasTarget() IAliasRecordTarget
 	Values() *[]*string
@@ -7180,13 +10400,14 @@ func (j *jsiiProxy_RecordTarget) Values() *[]*string {
 }
 
 
+// Experimental.
 func NewRecordTarget(values *[]*string, aliasTarget IAliasRecordTarget) RecordTarget {
 	_init_.Initialize()
 
 	j := jsiiProxy_RecordTarget{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.RecordTarget",
+		"monocdk.aws_route53.RecordTarget",
 		[]interface{}{values, aliasTarget},
 		&j,
 	)
@@ -7194,24 +10415,26 @@ func NewRecordTarget(values *[]*string, aliasTarget IAliasRecordTarget) RecordTa
 	return &j
 }
 
+// Experimental.
 func NewRecordTarget_Override(r RecordTarget, values *[]*string, aliasTarget IAliasRecordTarget) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.RecordTarget",
+		"monocdk.aws_route53.RecordTarget",
 		[]interface{}{values, aliasTarget},
 		r,
 	)
 }
 
 // Use an alias as target.
+// Experimental.
 func RecordTarget_FromAlias(aliasTarget IAliasRecordTarget) RecordTarget {
 	_init_.Initialize()
 
 	var returns RecordTarget
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.RecordTarget",
+		"monocdk.aws_route53.RecordTarget",
 		"fromAlias",
 		[]interface{}{aliasTarget},
 		&returns,
@@ -7221,6 +10444,7 @@ func RecordTarget_FromAlias(aliasTarget IAliasRecordTarget) RecordTarget {
 }
 
 // Use ip addresses as target.
+// Experimental.
 func RecordTarget_FromIpAddresses(ipAddresses ...*string) RecordTarget {
 	_init_.Initialize()
 
@@ -7232,7 +10456,7 @@ func RecordTarget_FromIpAddresses(ipAddresses ...*string) RecordTarget {
 	var returns RecordTarget
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.RecordTarget",
+		"monocdk.aws_route53.RecordTarget",
 		"fromIpAddresses",
 		args,
 		&returns,
@@ -7242,6 +10466,7 @@ func RecordTarget_FromIpAddresses(ipAddresses ...*string) RecordTarget {
 }
 
 // Use string values as target.
+// Experimental.
 func RecordTarget_FromValues(values ...*string) RecordTarget {
 	_init_.Initialize()
 
@@ -7253,7 +10478,7 @@ func RecordTarget_FromValues(values ...*string) RecordTarget {
 	var returns RecordTarget
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.RecordTarget",
+		"monocdk.aws_route53.RecordTarget",
 		"fromValues",
 		args,
 		&returns,
@@ -7263,6 +10488,7 @@ func RecordTarget_FromValues(values ...*string) RecordTarget {
 }
 
 // The record type.
+// Experimental.
 type RecordType string
 
 const (
@@ -7285,18 +10511,25 @@ const (
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type SrvRecord interface {
 	RecordSet
 	DomainName() *string
 	Env() *awscdk.ResourceEnvironment
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Stack() awscdk.Stack
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for SrvRecord
@@ -7324,8 +10557,8 @@ func (j *jsiiProxy_SrvRecord) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_SrvRecord) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_SrvRecord) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -7355,13 +10588,14 @@ func (j *jsiiProxy_SrvRecord) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewSrvRecord(scope constructs.Construct, id *string, props *SrvRecordProps) SrvRecord {
 	_init_.Initialize()
 
 	j := jsiiProxy_SrvRecord{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.SrvRecord",
+		"monocdk.aws_route53.SrvRecord",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -7369,27 +10603,26 @@ func NewSrvRecord(scope constructs.Construct, id *string, props *SrvRecordProps)
 	return &j
 }
 
+// Experimental.
 func NewSrvRecord_Override(s SrvRecord, scope constructs.Construct, id *string, props *SrvRecordProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.SrvRecord",
+		"monocdk.aws_route53.SrvRecord",
 		[]interface{}{scope, id, props},
 		s,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func SrvRecord_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.SrvRecord",
+		"monocdk.aws_route53.SrvRecord",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -7399,13 +10632,14 @@ func SrvRecord_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func SrvRecord_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func SrvRecord_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.SrvRecord",
+		"monocdk.aws_route53.SrvRecord",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -7423,6 +10657,7 @@ func SrvRecord_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (s *jsiiProxy_SrvRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		s,
@@ -7431,6 +10666,7 @@ func (s *jsiiProxy_SrvRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
+// Experimental.
 func (s *jsiiProxy_SrvRecord) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -7450,6 +10686,7 @@ func (s *jsiiProxy_SrvRecord) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
+// Experimental.
 func (s *jsiiProxy_SrvRecord) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -7468,6 +10705,7 @@ func (s *jsiiProxy_SrvRecord) GetResourceArnAttribute(arnAttr *string, arnCompon
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
+// Experimental.
 func (s *jsiiProxy_SrvRecord) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -7481,7 +10719,88 @@ func (s *jsiiProxy_SrvRecord) GetResourceNameAttribute(nameAttr *string) *string
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_SrvRecord) OnPrepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_SrvRecord) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (s *jsiiProxy_SrvRecord) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_SrvRecord) Prepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_SrvRecord) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (s *jsiiProxy_SrvRecord) ToString() *string {
 	var returns *string
 
@@ -7495,20 +10814,46 @@ func (s *jsiiProxy_SrvRecord) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (s *jsiiProxy_SrvRecord) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Construction properties for a SrvRecord.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type SrvRecordProps struct {
+	// The hosted zone in which to define the new record.
+	// Experimental.
+	Zone IHostedZone `json:"zone"`
 	// A comment to add on the record.
+	// Experimental.
 	Comment *string `json:"comment"`
 	// The domain name for this record.
+	// Experimental.
 	RecordName *string `json:"recordName"`
 	// The resource record cache time to live (TTL).
+	// Experimental.
 	Ttl awscdk.Duration `json:"ttl"`
-	// The hosted zone in which to define the new record.
-	Zone IHostedZone `json:"zone"`
 	// The values.
+	// Experimental.
 	Values *[]*SrvRecordValue `json:"values"`
 }
 
@@ -7516,14 +10861,19 @@ type SrvRecordProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type SrvRecordValue struct {
 	// The server host name.
+	// Experimental.
 	HostName *string `json:"hostName"`
 	// The port.
+	// Experimental.
 	Port *float64 `json:"port"`
 	// The priority.
+	// Experimental.
 	Priority *float64 `json:"priority"`
 	// The weight.
+	// Experimental.
 	Weight *float64 `json:"weight"`
 }
 
@@ -7531,18 +10881,25 @@ type SrvRecordValue struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type TxtRecord interface {
 	RecordSet
 	DomainName() *string
 	Env() *awscdk.ResourceEnvironment
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Stack() awscdk.Stack
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for TxtRecord
@@ -7570,8 +10927,8 @@ func (j *jsiiProxy_TxtRecord) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_TxtRecord) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_TxtRecord) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -7601,13 +10958,14 @@ func (j *jsiiProxy_TxtRecord) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewTxtRecord(scope constructs.Construct, id *string, props *TxtRecordProps) TxtRecord {
 	_init_.Initialize()
 
 	j := jsiiProxy_TxtRecord{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.TxtRecord",
+		"monocdk.aws_route53.TxtRecord",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -7615,27 +10973,26 @@ func NewTxtRecord(scope constructs.Construct, id *string, props *TxtRecordProps)
 	return &j
 }
 
+// Experimental.
 func NewTxtRecord_Override(t TxtRecord, scope constructs.Construct, id *string, props *TxtRecordProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.TxtRecord",
+		"monocdk.aws_route53.TxtRecord",
 		[]interface{}{scope, id, props},
 		t,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func TxtRecord_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.TxtRecord",
+		"monocdk.aws_route53.TxtRecord",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -7645,13 +11002,14 @@ func TxtRecord_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func TxtRecord_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func TxtRecord_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.TxtRecord",
+		"monocdk.aws_route53.TxtRecord",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -7669,6 +11027,7 @@ func TxtRecord_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (t *jsiiProxy_TxtRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		t,
@@ -7677,6 +11036,7 @@ func (t *jsiiProxy_TxtRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
+// Experimental.
 func (t *jsiiProxy_TxtRecord) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -7696,6 +11056,7 @@ func (t *jsiiProxy_TxtRecord) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
+// Experimental.
 func (t *jsiiProxy_TxtRecord) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -7714,6 +11075,7 @@ func (t *jsiiProxy_TxtRecord) GetResourceArnAttribute(arnAttr *string, arnCompon
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
+// Experimental.
 func (t *jsiiProxy_TxtRecord) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -7727,7 +11089,88 @@ func (t *jsiiProxy_TxtRecord) GetResourceNameAttribute(nameAttr *string) *string
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (t *jsiiProxy_TxtRecord) OnPrepare() {
+	_jsii_.InvokeVoid(
+		t,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (t *jsiiProxy_TxtRecord) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		t,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (t *jsiiProxy_TxtRecord) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		t,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (t *jsiiProxy_TxtRecord) Prepare() {
+	_jsii_.InvokeVoid(
+		t,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (t *jsiiProxy_TxtRecord) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		t,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (t *jsiiProxy_TxtRecord) ToString() *string {
 	var returns *string
 
@@ -7741,20 +11184,46 @@ func (t *jsiiProxy_TxtRecord) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (t *jsiiProxy_TxtRecord) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		t,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Construction properties for a TxtRecord.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type TxtRecordProps struct {
+	// The hosted zone in which to define the new record.
+	// Experimental.
+	Zone IHostedZone `json:"zone"`
 	// A comment to add on the record.
+	// Experimental.
 	Comment *string `json:"comment"`
 	// The domain name for this record.
+	// Experimental.
 	RecordName *string `json:"recordName"`
 	// The resource record cache time to live (TTL).
+	// Experimental.
 	Ttl awscdk.Duration `json:"ttl"`
-	// The hosted zone in which to define the new record.
-	Zone IHostedZone `json:"zone"`
 	// The text values.
+	// Experimental.
 	Values *[]*string `json:"values"`
 }
 
@@ -7762,17 +11231,24 @@ type TxtRecordProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type VpcEndpointServiceDomainName interface {
-	constructs.Construct
+	awscdk.Construct
 	DomainName() *string
 	SetDomainName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for VpcEndpointServiceDomainName
 type jsiiProxy_VpcEndpointServiceDomainName struct {
-	internal.Type__constructsConstruct
+	internal.Type__awscdkConstruct
 }
 
 func (j *jsiiProxy_VpcEndpointServiceDomainName) DomainName() *string {
@@ -7785,8 +11261,8 @@ func (j *jsiiProxy_VpcEndpointServiceDomainName) DomainName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_VpcEndpointServiceDomainName) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_VpcEndpointServiceDomainName) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -7796,13 +11272,14 @@ func (j *jsiiProxy_VpcEndpointServiceDomainName) Node() constructs.Node {
 }
 
 
+// Experimental.
 func NewVpcEndpointServiceDomainName(scope constructs.Construct, id *string, props *VpcEndpointServiceDomainNameProps) VpcEndpointServiceDomainName {
 	_init_.Initialize()
 
 	j := jsiiProxy_VpcEndpointServiceDomainName{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.VpcEndpointServiceDomainName",
+		"monocdk.aws_route53.VpcEndpointServiceDomainName",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -7810,11 +11287,12 @@ func NewVpcEndpointServiceDomainName(scope constructs.Construct, id *string, pro
 	return &j
 }
 
+// Experimental.
 func NewVpcEndpointServiceDomainName_Override(v VpcEndpointServiceDomainName, scope constructs.Construct, id *string, props *VpcEndpointServiceDomainNameProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.VpcEndpointServiceDomainName",
+		"monocdk.aws_route53.VpcEndpointServiceDomainName",
 		[]interface{}{scope, id, props},
 		v,
 	)
@@ -7828,17 +11306,15 @@ func (j *jsiiProxy_VpcEndpointServiceDomainName) SetDomainName(val *string) {
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func VpcEndpointServiceDomainName_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.VpcEndpointServiceDomainName",
+		"monocdk.aws_route53.VpcEndpointServiceDomainName",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -7847,7 +11323,88 @@ func VpcEndpointServiceDomainName_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (v *jsiiProxy_VpcEndpointServiceDomainName) OnPrepare() {
+	_jsii_.InvokeVoid(
+		v,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (v *jsiiProxy_VpcEndpointServiceDomainName) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		v,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (v *jsiiProxy_VpcEndpointServiceDomainName) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		v,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (v *jsiiProxy_VpcEndpointServiceDomainName) Prepare() {
+	_jsii_.InvokeVoid(
+		v,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (v *jsiiProxy_VpcEndpointServiceDomainName) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		v,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (v *jsiiProxy_VpcEndpointServiceDomainName) ToString() *string {
 	var returns *string
 
@@ -7861,10 +11418,31 @@ func (v *jsiiProxy_VpcEndpointServiceDomainName) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (v *jsiiProxy_VpcEndpointServiceDomainName) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		v,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Properties to configure a VPC Endpoint Service domain name.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type VpcEndpointServiceDomainNameProps struct {
 	// The domain name to use.
 	//
@@ -7873,10 +11451,13 @@ type VpcEndpointServiceDomainNameProps struct {
 	// private DNS can be used.
 	// See: https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-dns-validation.html
 	//
+	// Experimental.
 	DomainName *string `json:"domainName"`
 	// The VPC Endpoint Service to configure Private DNS for.
+	// Experimental.
 	EndpointService awsec2.IVpcEndpointService `json:"endpointService"`
 	// The public hosted zone to use for the domain.
+	// Experimental.
 	PublicHostedZone IPublicHostedZone `json:"publicHostedZone"`
 }
 
@@ -7884,10 +11465,13 @@ type VpcEndpointServiceDomainNameProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type ZoneDelegationOptions struct {
 	// A comment to add on the DNS record created to incorporate the delegation.
+	// Experimental.
 	Comment *string `json:"comment"`
 	// The TTL (Time To Live) of the DNS delegation record in DNS caches.
+	// Experimental.
 	Ttl awscdk.Duration `json:"ttl"`
 }
 
@@ -7895,18 +11479,25 @@ type ZoneDelegationOptions struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type ZoneDelegationRecord interface {
 	RecordSet
 	DomainName() *string
 	Env() *awscdk.ResourceEnvironment
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Stack() awscdk.Stack
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for ZoneDelegationRecord
@@ -7934,8 +11525,8 @@ func (j *jsiiProxy_ZoneDelegationRecord) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_ZoneDelegationRecord) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_ZoneDelegationRecord) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -7965,13 +11556,14 @@ func (j *jsiiProxy_ZoneDelegationRecord) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewZoneDelegationRecord(scope constructs.Construct, id *string, props *ZoneDelegationRecordProps) ZoneDelegationRecord {
 	_init_.Initialize()
 
 	j := jsiiProxy_ZoneDelegationRecord{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.ZoneDelegationRecord",
+		"monocdk.aws_route53.ZoneDelegationRecord",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -7979,27 +11571,26 @@ func NewZoneDelegationRecord(scope constructs.Construct, id *string, props *Zone
 	return &j
 }
 
+// Experimental.
 func NewZoneDelegationRecord_Override(z ZoneDelegationRecord, scope constructs.Construct, id *string, props *ZoneDelegationRecordProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.ZoneDelegationRecord",
+		"monocdk.aws_route53.ZoneDelegationRecord",
 		[]interface{}{scope, id, props},
 		z,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func ZoneDelegationRecord_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.ZoneDelegationRecord",
+		"monocdk.aws_route53.ZoneDelegationRecord",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -8009,13 +11600,14 @@ func ZoneDelegationRecord_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func ZoneDelegationRecord_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func ZoneDelegationRecord_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.ZoneDelegationRecord",
+		"monocdk.aws_route53.ZoneDelegationRecord",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -8033,6 +11625,7 @@ func ZoneDelegationRecord_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (z *jsiiProxy_ZoneDelegationRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		z,
@@ -8041,6 +11634,7 @@ func (z *jsiiProxy_ZoneDelegationRecord) ApplyRemovalPolicy(policy awscdk.Remova
 	)
 }
 
+// Experimental.
 func (z *jsiiProxy_ZoneDelegationRecord) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -8060,6 +11654,7 @@ func (z *jsiiProxy_ZoneDelegationRecord) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
+// Experimental.
 func (z *jsiiProxy_ZoneDelegationRecord) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -8078,6 +11673,7 @@ func (z *jsiiProxy_ZoneDelegationRecord) GetResourceArnAttribute(arnAttr *string
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
+// Experimental.
 func (z *jsiiProxy_ZoneDelegationRecord) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -8091,7 +11687,88 @@ func (z *jsiiProxy_ZoneDelegationRecord) GetResourceNameAttribute(nameAttr *stri
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (z *jsiiProxy_ZoneDelegationRecord) OnPrepare() {
+	_jsii_.InvokeVoid(
+		z,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (z *jsiiProxy_ZoneDelegationRecord) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		z,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (z *jsiiProxy_ZoneDelegationRecord) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		z,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (z *jsiiProxy_ZoneDelegationRecord) Prepare() {
+	_jsii_.InvokeVoid(
+		z,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (z *jsiiProxy_ZoneDelegationRecord) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		z,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (z *jsiiProxy_ZoneDelegationRecord) ToString() *string {
 	var returns *string
 
@@ -8105,20 +11782,46 @@ func (z *jsiiProxy_ZoneDelegationRecord) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (z *jsiiProxy_ZoneDelegationRecord) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		z,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Construction properties for a ZoneDelegationRecord.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type ZoneDelegationRecordProps struct {
+	// The hosted zone in which to define the new record.
+	// Experimental.
+	Zone IHostedZone `json:"zone"`
 	// A comment to add on the record.
+	// Experimental.
 	Comment *string `json:"comment"`
 	// The domain name for this record.
+	// Experimental.
 	RecordName *string `json:"recordName"`
 	// The resource record cache time to live (TTL).
+	// Experimental.
 	Ttl awscdk.Duration `json:"ttl"`
-	// The hosted zone in which to define the new record.
-	Zone IHostedZone `json:"zone"`
 	// The name servers to report in the delegation records.
+	// Experimental.
 	NameServers *[]*string `json:"nameServers"`
 }
 

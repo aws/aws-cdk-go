@@ -1,27 +1,30 @@
 package awsdynamodb
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsapplicationautoscaling"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsdynamodb/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesis"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsapplicationautoscaling"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/awsdynamodb/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awskinesis"
+	"github.com/aws/aws-cdk-go/awscdk/awskms"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // Represents an attribute for describing the key schema for the table and indexes.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type Attribute struct {
 	// The name of an attribute.
+	// Experimental.
 	Name *string `json:"name"`
 	// The data type of an attribute.
+	// Experimental.
 	Type AttributeType `json:"type"`
 }
 
@@ -31,6 +34,7 @@ type Attribute struct {
 //
 // See: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes
 //
+// Experimental.
 type AttributeType string
 
 const (
@@ -43,6 +47,7 @@ const (
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type BillingMode string
 
 const (
@@ -51,6 +56,57 @@ const (
 )
 
 // A CloudFormation `AWS::DynamoDB::GlobalTable`.
+//
+// The `AWS::DynamoDB::GlobalTable` resource enables you to create and manage a Version 2019.11.21 global table. This resource cannot be used to create or manage a Version 2017.11.29 global table.
+//
+// > You cannot convert a resource of type `AWS::DynamoDB::Table` into a resource of type `AWS::DynamoDB::GlobalTable` by changing its type in your template. *Doing so might result in the deletion of your DynamoDB table.*
+//
+// You should be aware of the following behaviors when working with DynamoDB global tables.
+//
+// - The IAM Principal executing the stack operation must have the permissions listed below in all regions where you plan to have a global table replica. The IAM Principal's permissions should not have restrictions based on IP source address. Some global tables operations (for example, adding a replica) are asynchronous, and require that the IAM Principal is valid until they complete. You should not delete the Principal (user or IAM role) until CloudFormation has finished updating your stack.
+//
+// - `dynamodb:CreateTable`
+// - `dynamodb:UpdateTable`
+// - `dynamodb:DeleteTable`
+// - `dynamodb:DescribeContinuousBackups`
+// - `dynamodb:DescribeContributorInsights`
+// - `dynamodb:DescribeTable`
+// - `dynamodb:DescribeTableReplicaAutoScaling`
+// - `dynamodb:DescribeTimeToLive`
+// - `dynamodb:ListTables`
+// - `dynamodb:UpdateTimeToLive`
+// - `dynamodb:UpdateContributorInsights`
+// - `dynamodb:UpdateContinuousBackups`
+// - `dynamodb:ListTagsOfResource`
+// - `dynamodb:TagResource`
+// - `dynamodb:UntagResource`
+// - `dynamodb:BatchWriteItem`
+// - `dynamodb:CreateTableReplica`
+// - `dynamodb:DeleteItem`
+// - `dynamodb:DeleteTableReplica`
+// - `dynamodb:DisableKinesisStreamingDestination`
+// - `dynamodb:EnableKinesisStreamingDestination`
+// - `dynamodb:GetItem`
+// - `dynamodb:PutItem`
+// - `dynamodb:Query`
+// - `dynamodb:Scan`
+// - `dynamodb:UpdateItem`
+// - `dynamodb:DescribeTableReplicaAutoScaling`
+// - `dynamodb:UpdateTableReplicaAutoScaling`
+// - `iam:CreateServiceLinkedRole`
+// - `kms:CreateGrant`
+// - `kms:DescribeKey`
+// - `application-autoscaling:DeleteScalingPolicy`
+// - `application-autoscaling:DeleteScheduledAction`
+// - `application-autoscaling:DeregisterScalableTarget`
+// - `application-autoscaling:DescribeScalingPolicies`
+// - `application-autoscaling:DescribeScalableTargets`
+// - `application-autoscaling:PutScalingPolicy`
+// - `application-autoscaling:PutScheduledAction`
+// - `application-autoscaling:RegisterScalableTarget`
+// - When using provisioned billing mode, CloudFormation will create an auto scaling policy on each of your replicas to control their write capacities. You must configure this policy using the `WriteProvisionedThroughputSettings` property. CloudFormation will ensure that all replicas have the same write capacity auto scaling property. You cannot directly specify a value for write capacity for a global table.
+// - If your table uses provisioned capacity, you must configure auto scaling directly in the `AWS::DynamoDB::GlobalTable` resource. You should not configure additional auto scaling policies on any of the table replicas or global secondary indexes, either via API or via `AWS::ApplicationAutoScaling::ScalableTarget` or `AWS::ApplicationAutoScaling::ScalingPolicy` . Doing so might result in unexpected behavior and is unsupported.
+// - In AWS CloudFormation , each global table is controlled by a single stack, in a single region, regardless of the number of replicas. When you deploy your template, CloudFormation will create/update all replicas as part of a single stack operation. You should not deploy the same `AWS::DynamoDB::GlobalTable` resource in multiple regions. Doing so will result in errors, and is unsupported. If you deploy your application template in multiple regions, you can use conditions to only create the resource in a single region. Alternatively, you can choose to define your `AWS::DynamoDB::GlobalTable` resources in a stack separate from your application stack, and make sure it is only deployed to a single region.
 //
 // TODO: EXAMPLE
 //
@@ -75,7 +131,7 @@ type CfnGlobalTable interface {
 	LocalSecondaryIndexes() interface{}
 	SetLocalSecondaryIndexes(val interface{})
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Replicas() interface{}
 	SetReplicas(val interface{})
@@ -101,10 +157,16 @@ type CfnGlobalTable interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -244,8 +306,8 @@ func (j *jsiiProxy_CfnGlobalTable) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGlobalTable) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnGlobalTable) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -346,13 +408,13 @@ func (j *jsiiProxy_CfnGlobalTable) WriteProvisionedThroughputSettings() interfac
 
 
 // Create a new `AWS::DynamoDB::GlobalTable`.
-func NewCfnGlobalTable(scope constructs.Construct, id *string, props *CfnGlobalTableProps) CfnGlobalTable {
+func NewCfnGlobalTable(scope awscdk.Construct, id *string, props *CfnGlobalTableProps) CfnGlobalTable {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnGlobalTable{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_dynamodb.CfnGlobalTable",
+		"monocdk.aws_dynamodb.CfnGlobalTable",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -361,11 +423,11 @@ func NewCfnGlobalTable(scope constructs.Construct, id *string, props *CfnGlobalT
 }
 
 // Create a new `AWS::DynamoDB::GlobalTable`.
-func NewCfnGlobalTable_Override(c CfnGlobalTable, scope constructs.Construct, id *string, props *CfnGlobalTableProps) {
+func NewCfnGlobalTable_Override(c CfnGlobalTable, scope awscdk.Construct, id *string, props *CfnGlobalTableProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_dynamodb.CfnGlobalTable",
+		"monocdk.aws_dynamodb.CfnGlobalTable",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -465,13 +527,14 @@ func (j *jsiiProxy_CfnGlobalTable) SetWriteProvisionedThroughputSettings(val int
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnGlobalTable_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_dynamodb.CfnGlobalTable",
+		"monocdk.aws_dynamodb.CfnGlobalTable",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -481,13 +544,14 @@ func CfnGlobalTable_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnGlobalTable_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_dynamodb.CfnGlobalTable",
+		"monocdk.aws_dynamodb.CfnGlobalTable",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -496,17 +560,15 @@ func CfnGlobalTable_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnGlobalTable_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_dynamodb.CfnGlobalTable",
+		"monocdk.aws_dynamodb.CfnGlobalTable",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -519,7 +581,7 @@ func CfnGlobalTable_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_dynamodb.CfnGlobalTable",
+		"monocdk.aws_dynamodb.CfnGlobalTable",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -527,6 +589,7 @@ func CfnGlobalTable_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnGlobalTable) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -539,6 +602,7 @@ func (c *jsiiProxy_CfnGlobalTable) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnGlobalTable) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -554,6 +618,7 @@ func (c *jsiiProxy_CfnGlobalTable) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnGlobalTable) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -599,6 +664,7 @@ func (c *jsiiProxy_CfnGlobalTable) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnGlobalTable) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -608,6 +674,7 @@ func (c *jsiiProxy_CfnGlobalTable) AddOverride(path *string, value interface{}) 
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnGlobalTable) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -619,6 +686,7 @@ func (c *jsiiProxy_CfnGlobalTable) AddPropertyDeletionOverride(propertyPath *str
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnGlobalTable) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -636,6 +704,7 @@ func (c *jsiiProxy_CfnGlobalTable) AddPropertyOverride(propertyPath *string, val
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnGlobalTable) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -648,6 +717,7 @@ func (c *jsiiProxy_CfnGlobalTable) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnGlobalTable) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -668,6 +738,7 @@ func (c *jsiiProxy_CfnGlobalTable) GetAtt(attributeName *string) awscdk.Referenc
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnGlobalTable) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -690,12 +761,80 @@ func (c *jsiiProxy_CfnGlobalTable) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnGlobalTable) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnGlobalTable) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnGlobalTable) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnGlobalTable) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnGlobalTable) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -716,6 +855,7 @@ func (c *jsiiProxy_CfnGlobalTable) RenderProperties(props *map[string]interface{
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnGlobalTable) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -729,9 +869,23 @@ func (c *jsiiProxy_CfnGlobalTable) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnGlobalTable) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnGlobalTable) ToString() *string {
 	var returns *string
 
@@ -745,6 +899,27 @@ func (c *jsiiProxy_CfnGlobalTable) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnGlobalTable) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnGlobalTable) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -753,205 +928,370 @@ func (c *jsiiProxy_CfnGlobalTable) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// Represents an attribute for describing the key schema for the table and indexes.
+//
 // TODO: EXAMPLE
 //
 type CfnGlobalTable_AttributeDefinitionProperty struct {
-	// `CfnGlobalTable.AttributeDefinitionProperty.AttributeName`.
+	// A name for the attribute.
 	AttributeName *string `json:"attributeName"`
-	// `CfnGlobalTable.AttributeDefinitionProperty.AttributeType`.
+	// The data type for the attribute, where:.
+	//
+	// - `S` - the attribute is of type String
+	// - `N` - the attribute is of type Number
+	// - `B` - the attribute is of type Binary
 	AttributeType *string `json:"attributeType"`
 }
 
+// Configures a scalable target and an autoscaling policy for a table or global secondary index's read or write capacity.
+//
 // TODO: EXAMPLE
 //
 type CfnGlobalTable_CapacityAutoScalingSettingsProperty struct {
-	// `CfnGlobalTable.CapacityAutoScalingSettingsProperty.MaxCapacity`.
+	// The maximum provisioned capacity units for the global table.
 	MaxCapacity *float64 `json:"maxCapacity"`
-	// `CfnGlobalTable.CapacityAutoScalingSettingsProperty.MinCapacity`.
+	// The minimum provisioned capacity units for the global table.
 	MinCapacity *float64 `json:"minCapacity"`
-	// `CfnGlobalTable.CapacityAutoScalingSettingsProperty.SeedCapacity`.
-	SeedCapacity *float64 `json:"seedCapacity"`
-	// `CfnGlobalTable.CapacityAutoScalingSettingsProperty.TargetTrackingScalingPolicyConfiguration`.
+	// Defines a target tracking scaling policy.
 	TargetTrackingScalingPolicyConfiguration interface{} `json:"targetTrackingScalingPolicyConfiguration"`
+	// When switching billing mode from `PAY_PER_REQUEST` to `PROVISIONED` , DynamoDB requires you to specify read and write capacity unit values for the table and for each global secondary index.
+	//
+	// These values will be applied to all replicas. The table will use these provisioned values until CloudFormation creates the autoscaling policies you configured in your template. CloudFormation cannot determine what capacity the table and its global secondary indexes will require in this time period, since they are application-dependent.
+	//
+	// If you want to switch a table's billing mode from `PAY_PER_REQUEST` to `PROVISIONED` , you must specify a value for this property for each autoscaled resource. If you specify different values for the same resource in different regions, CloudFormation will use the highest value found in either the `SeedCapacity` or `ReadCapacityUnits` properties. For example, if your global secondary index `myGSI` has a `SeedCapacity` of 10 in us-east-1 and a fixed `ReadCapacityUnits` of 20 in eu-west-1, CloudFormation will initially set the read capacity for `myGSI` to 20. Note that if you disable `ScaleIn` for `myGSI` in us-east-1, its read capacity units might not be set back to 10.
+	//
+	// You must also specify a value for `SeedCapacity` when you plan to switch a table's billing mode from `PROVISIONED` to `PAY_PER_REQUEST` , because CloudFormation might need to roll back the operation (reverting the billing mode to `PROVISIONED` ) and this cannot succeed without specifying a value for `SeedCapacity` .
+	SeedCapacity *float64 `json:"seedCapacity"`
 }
 
+// Configures contributor insights settings for a replica or one of its indexes.
+//
 // TODO: EXAMPLE
 //
 type CfnGlobalTable_ContributorInsightsSpecificationProperty struct {
-	// `CfnGlobalTable.ContributorInsightsSpecificationProperty.Enabled`.
+	// Indicates whether CloudWatch Contributor Insights are to be enabled (true) or disabled (false).
 	Enabled interface{} `json:"enabled"`
 }
 
+// Allows you to specify a global secondary index for the global table.
+//
+// The index will be defined on all replicas.
+//
 // TODO: EXAMPLE
 //
 type CfnGlobalTable_GlobalSecondaryIndexProperty struct {
-	// `CfnGlobalTable.GlobalSecondaryIndexProperty.IndexName`.
+	// The name of the global secondary index.
+	//
+	// The name must be unique among all other indexes on this table.
 	IndexName *string `json:"indexName"`
-	// `CfnGlobalTable.GlobalSecondaryIndexProperty.KeySchema`.
+	// The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:  - `HASH` - partition key - `RANGE` - sort key  > The partition key of an item is also known as its *hash attribute* .
+	//
+	// The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+	// >
+	// > The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
 	KeySchema interface{} `json:"keySchema"`
-	// `CfnGlobalTable.GlobalSecondaryIndexProperty.Projection`.
+	// Represents attributes that are copied (projected) from the table into the global secondary index.
+	//
+	// These are in addition to the primary key attributes and index key attributes, which are automatically projected.
 	Projection interface{} `json:"projection"`
-	// `CfnGlobalTable.GlobalSecondaryIndexProperty.WriteProvisionedThroughputSettings`.
+	// Defines write capacity settings for the global secondary index.
+	//
+	// You must specify a value for this property if the table's `BillingMode` is `PROVISIONED` . All replicas will have the same write capacity settings for this global secondary index.
 	WriteProvisionedThroughputSettings interface{} `json:"writeProvisionedThroughputSettings"`
 }
 
+// Represents *a single element* of a key schema.
+//
+// A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
+//
+// A `KeySchemaElement` represents exactly one attribute of the primary key. For example, a simple primary key would be represented by one `KeySchemaElement` (for the partition key). A composite primary key would require one `KeySchemaElement` for the partition key, and another `KeySchemaElement` for the sort key.
+//
+// A `KeySchemaElement` must be a scalar, top-level attribute (not a nested attribute). The data type must be one of String, Number, or Binary. The attribute cannot be nested within a List or a Map.
+//
 // TODO: EXAMPLE
 //
 type CfnGlobalTable_KeySchemaProperty struct {
-	// `CfnGlobalTable.KeySchemaProperty.AttributeName`.
+	// The name of a key attribute.
 	AttributeName *string `json:"attributeName"`
-	// `CfnGlobalTable.KeySchemaProperty.KeyType`.
+	// The role that this key attribute will assume:.
+	//
+	// - `HASH` - partition key
+	// - `RANGE` - sort key
+	//
+	// > The partition key of an item is also known as its *hash attribute* . The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+	// >
+	// > The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
 	KeyType *string `json:"keyType"`
 }
 
+// Represents the properties of a local secondary index.
+//
+// A local secondary index can only be created when its parent table is created.
+//
 // TODO: EXAMPLE
 //
 type CfnGlobalTable_LocalSecondaryIndexProperty struct {
-	// `CfnGlobalTable.LocalSecondaryIndexProperty.IndexName`.
+	// The name of the local secondary index.
+	//
+	// The name must be unique among all other indexes on this table.
 	IndexName *string `json:"indexName"`
-	// `CfnGlobalTable.LocalSecondaryIndexProperty.KeySchema`.
+	// The complete key schema for the local secondary index, consisting of one or more pairs of attribute names and key types:  - `HASH` - partition key - `RANGE` - sort key  > The partition key of an item is also known as its *hash attribute* .
+	//
+	// The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+	// >
+	// > The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
 	KeySchema interface{} `json:"keySchema"`
-	// `CfnGlobalTable.LocalSecondaryIndexProperty.Projection`.
+	// Represents attributes that are copied (projected) from the table into the local secondary index.
+	//
+	// These are in addition to the primary key attributes and index key attributes, which are automatically projected.
 	Projection interface{} `json:"projection"`
 }
 
+// Represents the settings used to enable point in time recovery.
+//
 // TODO: EXAMPLE
 //
 type CfnGlobalTable_PointInTimeRecoverySpecificationProperty struct {
-	// `CfnGlobalTable.PointInTimeRecoverySpecificationProperty.PointInTimeRecoveryEnabled`.
+	// Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.
 	PointInTimeRecoveryEnabled interface{} `json:"pointInTimeRecoveryEnabled"`
 }
 
+// Represents attributes that are copied (projected) from the table into an index.
+//
+// These are in addition to the primary key attributes and index key attributes, which are automatically projected.
+//
 // TODO: EXAMPLE
 //
 type CfnGlobalTable_ProjectionProperty struct {
-	// `CfnGlobalTable.ProjectionProperty.NonKeyAttributes`.
+	// Represents the non-key attribute names which will be projected into the index.
+	//
+	// For local secondary indexes, the total count of `NonKeyAttributes` summed across all of the local secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.
 	NonKeyAttributes *[]*string `json:"nonKeyAttributes"`
-	// `CfnGlobalTable.ProjectionProperty.ProjectionType`.
+	// The set of attributes that are projected into the index:.
+	//
+	// - `KEYS_ONLY` - Only the index and primary keys are projected into the index.
+	// - `INCLUDE` - In addition to the attributes described in `KEYS_ONLY` , the secondary index will include other non-key attributes that you specify.
+	// - `ALL` - All of the table attributes are projected into the index.
 	ProjectionType *string `json:"projectionType"`
 }
 
+// Allows you to specify the read capacity settings for a replica table or a replica global secondary index when the `BillingMode` is set to `PROVISIONED` .
+//
+// You must specify a value for either `ReadCapacityUnits` or `ReadCapacityAutoScalingSettings` , but not both. You can switch between fixed capacity and auto scaling.
+//
 // TODO: EXAMPLE
 //
 type CfnGlobalTable_ReadProvisionedThroughputSettingsProperty struct {
-	// `CfnGlobalTable.ReadProvisionedThroughputSettingsProperty.ReadCapacityAutoScalingSettings`.
+	// Specifies auto scaling settings for the replica table or global secondary index.
 	ReadCapacityAutoScalingSettings interface{} `json:"readCapacityAutoScalingSettings"`
-	// `CfnGlobalTable.ReadProvisionedThroughputSettingsProperty.ReadCapacityUnits`.
+	// Specifies a fixed read capacity for the replica table or global secondary index.
 	ReadCapacityUnits *float64 `json:"readCapacityUnits"`
 }
 
+// Represents the properties of a global secondary index that can be set on a per-replica basis.
+//
 // TODO: EXAMPLE
 //
 type CfnGlobalTable_ReplicaGlobalSecondaryIndexSpecificationProperty struct {
-	// `CfnGlobalTable.ReplicaGlobalSecondaryIndexSpecificationProperty.ContributorInsightsSpecification`.
-	ContributorInsightsSpecification interface{} `json:"contributorInsightsSpecification"`
-	// `CfnGlobalTable.ReplicaGlobalSecondaryIndexSpecificationProperty.IndexName`.
+	// The name of the global secondary index.
+	//
+	// The name must be unique among all other indexes on this table.
 	IndexName *string `json:"indexName"`
-	// `CfnGlobalTable.ReplicaGlobalSecondaryIndexSpecificationProperty.ReadProvisionedThroughputSettings`.
+	// Updates the status for contributor insights for a specific table or index.
+	//
+	// CloudWatch Contributor Insights for DynamoDB graphs display the partition key and (if applicable) sort key of frequently accessed items and frequently throttled items in plaintext. If you require the use of AWS Key Management Service (KMS) to encrypt this table’s partition key and sort key data with an AWS managed key or customer managed key, you should not enable CloudWatch Contributor Insights for DynamoDB for this table.
+	ContributorInsightsSpecification interface{} `json:"contributorInsightsSpecification"`
+	// Allows you to specify the read capacity settings for a replica global secondary index when the `BillingMode` is set to `PROVISIONED` .
 	ReadProvisionedThroughputSettings interface{} `json:"readProvisionedThroughputSettings"`
 }
 
+// Allows you to specify a KMS key identifier to be used for server-side encryption.
+//
+// The key can be specified via ARN, key ID, or alias. The key must be created in the same region as the replica.
+//
 // TODO: EXAMPLE
 //
 type CfnGlobalTable_ReplicaSSESpecificationProperty struct {
-	// `CfnGlobalTable.ReplicaSSESpecificationProperty.KMSMasterKeyId`.
+	// The AWS KMS key that should be used for the AWS KMS encryption.
+	//
+	// To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB key `alias/aws/dynamodb` .
 	KmsMasterKeyId *string `json:"kmsMasterKeyId"`
 }
 
+// Defines settings specific to a single replica of a global table.
+//
 // TODO: EXAMPLE
 //
 type CfnGlobalTable_ReplicaSpecificationProperty struct {
-	// `CfnGlobalTable.ReplicaSpecificationProperty.ContributorInsightsSpecification`.
-	ContributorInsightsSpecification interface{} `json:"contributorInsightsSpecification"`
-	// `CfnGlobalTable.ReplicaSpecificationProperty.GlobalSecondaryIndexes`.
-	GlobalSecondaryIndexes interface{} `json:"globalSecondaryIndexes"`
-	// `CfnGlobalTable.ReplicaSpecificationProperty.PointInTimeRecoverySpecification`.
-	PointInTimeRecoverySpecification interface{} `json:"pointInTimeRecoverySpecification"`
-	// `CfnGlobalTable.ReplicaSpecificationProperty.ReadProvisionedThroughputSettings`.
-	ReadProvisionedThroughputSettings interface{} `json:"readProvisionedThroughputSettings"`
-	// `CfnGlobalTable.ReplicaSpecificationProperty.Region`.
+	// The region in which this replica exists.
 	Region *string `json:"region"`
-	// `CfnGlobalTable.ReplicaSpecificationProperty.SSESpecification`.
+	// The settings used to enable or disable CloudWatch Contributor Insights for the specified replica.
+	//
+	// When not specified, defaults to contributor insights disabled for the replica.
+	ContributorInsightsSpecification interface{} `json:"contributorInsightsSpecification"`
+	// Defines additional settings for the global secondary indexes of this replica.
+	GlobalSecondaryIndexes interface{} `json:"globalSecondaryIndexes"`
+	// The settings used to enable point in time recovery.
+	//
+	// When not specified, defaults to point in time recovery disabled for the replica.
+	PointInTimeRecoverySpecification interface{} `json:"pointInTimeRecoverySpecification"`
+	// Defines read capacity settings for the replica table.
+	ReadProvisionedThroughputSettings interface{} `json:"readProvisionedThroughputSettings"`
+	// Allows you to specify a customer-managed key for the replica.
+	//
+	// When using customer-managed keys for server-side encryption, this property must have a value in all replicas.
 	SseSpecification interface{} `json:"sseSpecification"`
-	// `CfnGlobalTable.ReplicaSpecificationProperty.Tags`.
+	// An array of key-value pairs to apply to this replica.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
+// Represents the settings used to enable server-side encryption.
+//
 // TODO: EXAMPLE
 //
 type CfnGlobalTable_SSESpecificationProperty struct {
-	// `CfnGlobalTable.SSESpecificationProperty.SSEEnabled`.
+	// Indicates whether server-side encryption is performed using an AWS managed key or an AWS owned key.
+	//
+	// If disabled (false) or not specified, server-side encryption uses an AWS owned key. If enabled (true), the server-side encryption type is set to KMS and an AWS managed key is used ( AWS KMS charges apply). If you choose to use KMS encryption, you can also use customer managed KMS keys by specifying them in the `ReplicaSpecification.SSESpecification` object. You cannot mix AWS managed and customer managed KMS keys.
 	SseEnabled interface{} `json:"sseEnabled"`
-	// `CfnGlobalTable.SSESpecificationProperty.SSEType`.
+	// Server-side encryption type. The only supported value is:.
+	//
+	// - `KMS` - Server-side encryption that uses AWS Key Management Service . The key is stored in your account and is managed by AWS KMS ( AWS KMS charges apply).
 	SseType *string `json:"sseType"`
 }
 
+// Represents the DynamoDB Streams configuration for a table in DynamoDB.
+//
+// You can only modify this value if your `AWS::DynamoDB::GlobalTable` contains only one entry in `Replicas` . You must specify a value for this property if your `AWS::DynamoDB::GlobalTable` contains more than one replica.
+//
 // TODO: EXAMPLE
 //
 type CfnGlobalTable_StreamSpecificationProperty struct {
-	// `CfnGlobalTable.StreamSpecificationProperty.StreamViewType`.
+	// When an item in the table is modified, `StreamViewType` determines what information is written to the stream for this table.
+	//
+	// Valid values for `StreamViewType` are:
+	//
+	// - `KEYS_ONLY` - Only the key attributes of the modified item are written to the stream.
+	// - `NEW_IMAGE` - The entire item, as it appears after it was modified, is written to the stream.
+	// - `OLD_IMAGE` - The entire item, as it appeared before it was modified, is written to the stream.
+	// - `NEW_AND_OLD_IMAGES` - Both the new and the old item images of the item are written to the stream.
 	StreamViewType *string `json:"streamViewType"`
 }
 
+// Defines a target tracking scaling policy.
+//
 // TODO: EXAMPLE
 //
 type CfnGlobalTable_TargetTrackingScalingPolicyConfigurationProperty struct {
-	// `CfnGlobalTable.TargetTrackingScalingPolicyConfigurationProperty.DisableScaleIn`.
-	DisableScaleIn interface{} `json:"disableScaleIn"`
-	// `CfnGlobalTable.TargetTrackingScalingPolicyConfigurationProperty.ScaleInCooldown`.
-	ScaleInCooldown *float64 `json:"scaleInCooldown"`
-	// `CfnGlobalTable.TargetTrackingScalingPolicyConfigurationProperty.ScaleOutCooldown`.
-	ScaleOutCooldown *float64 `json:"scaleOutCooldown"`
-	// `CfnGlobalTable.TargetTrackingScalingPolicyConfigurationProperty.TargetValue`.
+	// Defines a target value for the scaling policy.
 	TargetValue *float64 `json:"targetValue"`
+	// Indicates whether scale in by the target tracking scaling policy is disabled.
+	//
+	// The default value is `false` .
+	DisableScaleIn interface{} `json:"disableScaleIn"`
+	// The amount of time, in seconds, after a scale-in activity completes before another scale-in activity can start.
+	ScaleInCooldown *float64 `json:"scaleInCooldown"`
+	// The amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start.
+	ScaleOutCooldown *float64 `json:"scaleOutCooldown"`
 }
 
+// Represents the settings used to enable or disable Time to Live (TTL) for the specified table.
+//
+// All replicas will have the same time to live configuration.
+//
 // TODO: EXAMPLE
 //
 type CfnGlobalTable_TimeToLiveSpecificationProperty struct {
-	// `CfnGlobalTable.TimeToLiveSpecificationProperty.AttributeName`.
-	AttributeName *string `json:"attributeName"`
-	// `CfnGlobalTable.TimeToLiveSpecificationProperty.Enabled`.
+	// Indicates whether TTL is to be enabled (true) or disabled (false) on the table.
 	Enabled interface{} `json:"enabled"`
+	// The name of the attribute used to store the expiration time for items in the table.
+	//
+	// Currently, you cannot directly change the attribute name used to evaluate time to live. In order to do so, you must first disable time to live, and then re-enable it with the new attribute name. It can take up to one hour for changes to time to live to take effect. If you attempt to modify time to live within that time window, your stack operation might be delayed.
+	AttributeName *string `json:"attributeName"`
 }
 
+// Specifies an auto scaling policy for write capacity.
+//
+// This policy will be applied to all replicas. This setting must be specified if `BillingMode` is set to `PROVISIONED` .
+//
 // TODO: EXAMPLE
 //
 type CfnGlobalTable_WriteProvisionedThroughputSettingsProperty struct {
-	// `CfnGlobalTable.WriteProvisionedThroughputSettingsProperty.WriteCapacityAutoScalingSettings`.
+	// Specifies auto scaling settings for the replica table or global secondary index.
 	WriteCapacityAutoScalingSettings interface{} `json:"writeCapacityAutoScalingSettings"`
 }
 
-// Properties for defining a `AWS::DynamoDB::GlobalTable`.
+// Properties for defining a `CfnGlobalTable`.
 //
 // TODO: EXAMPLE
 //
 type CfnGlobalTableProps struct {
-	// `AWS::DynamoDB::GlobalTable.AttributeDefinitions`.
+	// A list of attributes that describe the key schema for the global table and indexes.
 	AttributeDefinitions interface{} `json:"attributeDefinitions"`
-	// `AWS::DynamoDB::GlobalTable.BillingMode`.
-	BillingMode *string `json:"billingMode"`
-	// `AWS::DynamoDB::GlobalTable.GlobalSecondaryIndexes`.
-	GlobalSecondaryIndexes interface{} `json:"globalSecondaryIndexes"`
-	// `AWS::DynamoDB::GlobalTable.KeySchema`.
+	// Specifies the attributes that make up the primary key for the table.
+	//
+	// The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
 	KeySchema interface{} `json:"keySchema"`
-	// `AWS::DynamoDB::GlobalTable.LocalSecondaryIndexes`.
-	LocalSecondaryIndexes interface{} `json:"localSecondaryIndexes"`
-	// `AWS::DynamoDB::GlobalTable.Replicas`.
+	// Specifies the list of replicas for your global table.
+	//
+	// The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.
+	//
+	// > Adding a replica might take a few minutes for an empty table, or up to several hours for large tables. If you want to add or remove a replica, we recommend submitting an `UpdateStack` operation containing only that change.
+	// >
+	// > If you add or delete a replica during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new replica, you might need to manually delete the replica.
+	//
+	// You can create a new global table with up to two replicas. You can add or remove replicas after table creation, but you can only add or remove a single replica in each update.
 	Replicas interface{} `json:"replicas"`
-	// `AWS::DynamoDB::GlobalTable.SSESpecification`.
+	// Specifies how you are charged for read and write throughput and how you manage capacity. Valid values are:.
+	//
+	// - `PAY_PER_REQUEST`
+	// - `PROVISIONED`
+	//
+	// All replicas in your global table will have the same billing mode. If you use `PROVISIONED` billing mode, you must provide an auto scaling configuration via the `WriteProvisionedThroughputSettings` property. The default value of this property is `PROVISIONED` .
+	BillingMode *string `json:"billingMode"`
+	// Global secondary indexes to be created on the global table.
+	//
+	// You can create up to 20 global secondary indexes. Each replica in your global table will have the same global secondary index settings. You can only create or delete one global secondary index in a single stack operation.
+	//
+	// Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
+	GlobalSecondaryIndexes interface{} `json:"globalSecondaryIndexes"`
+	// Local secondary indexes to be created on the table.
+	//
+	// You can create up to five local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes. Each replica in your global table will have the same local secondary index settings.
+	LocalSecondaryIndexes interface{} `json:"localSecondaryIndexes"`
+	// Specifies the settings to enable server-side encryption.
+	//
+	// These settings will be applied to all replicas. If you plan to use customer-managed KMS keys, you must provide a key for each replica using the `ReplicaSpecification.ReplicaSSESpecification` property.
 	SseSpecification interface{} `json:"sseSpecification"`
-	// `AWS::DynamoDB::GlobalTable.StreamSpecification`.
+	// Specifies the streams settings on your global table.
+	//
+	// You must provide a value for this property if your global table contains more than one replica. You can only change the streams settings if your global table has only one replica.
 	StreamSpecification interface{} `json:"streamSpecification"`
-	// `AWS::DynamoDB::GlobalTable.TableName`.
+	// A name for the global table.
+	//
+	// If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID as the table name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
+	//
+	// > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	TableName *string `json:"tableName"`
-	// `AWS::DynamoDB::GlobalTable.TimeToLiveSpecification`.
+	// Specifies the Time to Live (TTL) settings for the table. This setting will be applied to all replicas.
+	//
+	// > For detailed information about the TTL feature of DynamoDB, see [Expiring Items with Time to Live](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html) in the Amazon DynamoDB Developer Guide.
 	TimeToLiveSpecification interface{} `json:"timeToLiveSpecification"`
-	// `AWS::DynamoDB::GlobalTable.WriteProvisionedThroughputSettings`.
+	// Specifies an auto scaling policy for write capacity.
+	//
+	// This policy will be applied to all replicas. This setting must be specified if `BillingMode` is set to `PROVISIONED` .
 	WriteProvisionedThroughputSettings interface{} `json:"writeProvisionedThroughputSettings"`
 }
 
 // A CloudFormation `AWS::DynamoDB::Table`.
+//
+// The `AWS::DynamoDB::Table` resource creates a DynamoDB table. For more information, see [CreateTable](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_CreateTable.html) in the *Amazon DynamoDB API Reference* .
+//
+// You should be aware of the following behaviors when working with DynamoDB tables:
+//
+// - AWS CloudFormation typically creates DynamoDB tables in parallel. However, if your template includes multiple DynamoDB tables with indexes, you must declare dependencies so that the tables are created sequentially. Amazon DynamoDB limits the number of tables with secondary indexes that are in the creating state. If you create multiple tables with indexes at the same time, DynamoDB returns an error and the stack operation fails. For an example, see [DynamoDB Table with a DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-examples-dependson) .
 //
 // TODO: EXAMPLE
 //
@@ -979,7 +1319,7 @@ type CfnTable interface {
 	LocalSecondaryIndexes() interface{}
 	SetLocalSecondaryIndexes(val interface{})
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PointInTimeRecoverySpecification() interface{}
 	SetPointInTimeRecoverySpecification(val interface{})
 	ProvisionedThroughput() interface{}
@@ -1008,10 +1348,16 @@ type CfnTable interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1161,8 +1507,8 @@ func (j *jsiiProxy_CfnTable) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTable) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnTable) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1283,13 +1629,13 @@ func (j *jsiiProxy_CfnTable) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::DynamoDB::Table`.
-func NewCfnTable(scope constructs.Construct, id *string, props *CfnTableProps) CfnTable {
+func NewCfnTable(scope awscdk.Construct, id *string, props *CfnTableProps) CfnTable {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnTable{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_dynamodb.CfnTable",
+		"monocdk.aws_dynamodb.CfnTable",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1298,11 +1644,11 @@ func NewCfnTable(scope constructs.Construct, id *string, props *CfnTableProps) C
 }
 
 // Create a new `AWS::DynamoDB::Table`.
-func NewCfnTable_Override(c CfnTable, scope constructs.Construct, id *string, props *CfnTableProps) {
+func NewCfnTable_Override(c CfnTable, scope awscdk.Construct, id *string, props *CfnTableProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_dynamodb.CfnTable",
+		"monocdk.aws_dynamodb.CfnTable",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1426,13 +1772,14 @@ func (j *jsiiProxy_CfnTable) SetTimeToLiveSpecification(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnTable_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_dynamodb.CfnTable",
+		"monocdk.aws_dynamodb.CfnTable",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1442,13 +1789,14 @@ func CfnTable_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnTable_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_dynamodb.CfnTable",
+		"monocdk.aws_dynamodb.CfnTable",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1457,17 +1805,15 @@ func CfnTable_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnTable_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_dynamodb.CfnTable",
+		"monocdk.aws_dynamodb.CfnTable",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1480,7 +1826,7 @@ func CfnTable_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_dynamodb.CfnTable",
+		"monocdk.aws_dynamodb.CfnTable",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1488,6 +1834,7 @@ func CfnTable_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnTable) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1500,6 +1847,7 @@ func (c *jsiiProxy_CfnTable) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnTable) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1515,6 +1863,7 @@ func (c *jsiiProxy_CfnTable) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnTable) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1560,6 +1909,7 @@ func (c *jsiiProxy_CfnTable) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnTable) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1569,6 +1919,7 @@ func (c *jsiiProxy_CfnTable) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnTable) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1580,6 +1931,7 @@ func (c *jsiiProxy_CfnTable) AddPropertyDeletionOverride(propertyPath *string) {
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnTable) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1597,6 +1949,7 @@ func (c *jsiiProxy_CfnTable) AddPropertyOverride(propertyPath *string, value int
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnTable) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1609,6 +1962,7 @@ func (c *jsiiProxy_CfnTable) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, opt
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnTable) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1629,6 +1983,7 @@ func (c *jsiiProxy_CfnTable) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnTable) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1651,12 +2006,80 @@ func (c *jsiiProxy_CfnTable) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnTable) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnTable) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnTable) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnTable) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnTable) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1677,6 +2100,7 @@ func (c *jsiiProxy_CfnTable) RenderProperties(props *map[string]interface{}) *ma
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnTable) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1690,9 +2114,23 @@ func (c *jsiiProxy_CfnTable) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnTable) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnTable) ToString() *string {
 	var returns *string
 
@@ -1706,6 +2144,27 @@ func (c *jsiiProxy_CfnTable) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnTable) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnTable) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1714,150 +2173,282 @@ func (c *jsiiProxy_CfnTable) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// Represents an attribute for describing the key schema for the table and indexes.
+//
 // TODO: EXAMPLE
 //
 type CfnTable_AttributeDefinitionProperty struct {
-	// `CfnTable.AttributeDefinitionProperty.AttributeName`.
+	// A name for the attribute.
 	AttributeName *string `json:"attributeName"`
-	// `CfnTable.AttributeDefinitionProperty.AttributeType`.
+	// The data type for the attribute, where:.
+	//
+	// - `S` - the attribute is of type String
+	// - `N` - the attribute is of type Number
+	// - `B` - the attribute is of type Binary
 	AttributeType *string `json:"attributeType"`
 }
 
+// The settings used to enable or disable CloudWatch Contributor Insights.
+//
 // TODO: EXAMPLE
 //
 type CfnTable_ContributorInsightsSpecificationProperty struct {
-	// `CfnTable.ContributorInsightsSpecificationProperty.Enabled`.
+	// Indicates whether CloudWatch Contributor Insights are to be enabled (true) or disabled (false).
 	Enabled interface{} `json:"enabled"`
 }
 
+// Represents the properties of a global secondary index.
+//
 // TODO: EXAMPLE
 //
 type CfnTable_GlobalSecondaryIndexProperty struct {
-	// `CfnTable.GlobalSecondaryIndexProperty.ContributorInsightsSpecification`.
-	ContributorInsightsSpecification interface{} `json:"contributorInsightsSpecification"`
-	// `CfnTable.GlobalSecondaryIndexProperty.IndexName`.
+	// The name of the global secondary index.
+	//
+	// The name must be unique among all other indexes on this table.
 	IndexName *string `json:"indexName"`
-	// `CfnTable.GlobalSecondaryIndexProperty.KeySchema`.
+	// The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:  - `HASH` - partition key - `RANGE` - sort key  > The partition key of an item is also known as its *hash attribute* .
+	//
+	// The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+	// >
+	// > The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
 	KeySchema interface{} `json:"keySchema"`
-	// `CfnTable.GlobalSecondaryIndexProperty.Projection`.
+	// Represents attributes that are copied (projected) from the table into the global secondary index.
+	//
+	// These are in addition to the primary key attributes and index key attributes, which are automatically projected.
 	Projection interface{} `json:"projection"`
-	// `CfnTable.GlobalSecondaryIndexProperty.ProvisionedThroughput`.
+	// The settings used to enable or disable CloudWatch Contributor Insights for the specified global secondary index.
+	ContributorInsightsSpecification interface{} `json:"contributorInsightsSpecification"`
+	// Represents the provisioned throughput settings for the specified global secondary index.
+	//
+	// For current minimum and maximum provisioned throughput values, see [Service, Account, and Table Quotas](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the *Amazon DynamoDB Developer Guide* .
 	ProvisionedThroughput interface{} `json:"provisionedThroughput"`
 }
 
+// Represents *a single element* of a key schema.
+//
+// A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
+//
+// A `KeySchemaElement` represents exactly one attribute of the primary key. For example, a simple primary key would be represented by one `KeySchemaElement` (for the partition key). A composite primary key would require one `KeySchemaElement` for the partition key, and another `KeySchemaElement` for the sort key.
+//
+// A `KeySchemaElement` must be a scalar, top-level attribute (not a nested attribute). The data type must be one of String, Number, or Binary. The attribute cannot be nested within a List or a Map.
+//
 // TODO: EXAMPLE
 //
 type CfnTable_KeySchemaProperty struct {
-	// `CfnTable.KeySchemaProperty.AttributeName`.
+	// The name of a key attribute.
 	AttributeName *string `json:"attributeName"`
-	// `CfnTable.KeySchemaProperty.KeyType`.
+	// The role that this key attribute will assume:.
+	//
+	// - `HASH` - partition key
+	// - `RANGE` - sort key
+	//
+	// > The partition key of an item is also known as its *hash attribute* . The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+	// >
+	// > The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
 	KeyType *string `json:"keyType"`
 }
 
+// The Kinesis Data Streams configuration for the specified table.
+//
 // TODO: EXAMPLE
 //
 type CfnTable_KinesisStreamSpecificationProperty struct {
-	// `CfnTable.KinesisStreamSpecificationProperty.StreamArn`.
+	// The ARN for a specific Kinesis data stream.
+	//
+	// Length Constraints: Minimum length of 37. Maximum length of 1024.
 	StreamArn *string `json:"streamArn"`
 }
 
+// Represents the properties of a local secondary index.
+//
+// A local secondary index can only be created when its parent table is created.
+//
 // TODO: EXAMPLE
 //
 type CfnTable_LocalSecondaryIndexProperty struct {
-	// `CfnTable.LocalSecondaryIndexProperty.IndexName`.
+	// The name of the local secondary index.
+	//
+	// The name must be unique among all other indexes on this table.
 	IndexName *string `json:"indexName"`
-	// `CfnTable.LocalSecondaryIndexProperty.KeySchema`.
+	// The complete key schema for the local secondary index, consisting of one or more pairs of attribute names and key types:  - `HASH` - partition key - `RANGE` - sort key  > The partition key of an item is also known as its *hash attribute* .
+	//
+	// The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+	// >
+	// > The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
 	KeySchema interface{} `json:"keySchema"`
-	// `CfnTable.LocalSecondaryIndexProperty.Projection`.
+	// Represents attributes that are copied (projected) from the table into the local secondary index.
+	//
+	// These are in addition to the primary key attributes and index key attributes, which are automatically projected.
 	Projection interface{} `json:"projection"`
 }
 
+// The settings used to enable point in time recovery.
+//
 // TODO: EXAMPLE
 //
 type CfnTable_PointInTimeRecoverySpecificationProperty struct {
-	// `CfnTable.PointInTimeRecoverySpecificationProperty.PointInTimeRecoveryEnabled`.
+	// Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.
 	PointInTimeRecoveryEnabled interface{} `json:"pointInTimeRecoveryEnabled"`
 }
 
+// Represents attributes that are copied (projected) from the table into an index.
+//
+// These are in addition to the primary key attributes and index key attributes, which are automatically projected.
+//
 // TODO: EXAMPLE
 //
 type CfnTable_ProjectionProperty struct {
-	// `CfnTable.ProjectionProperty.NonKeyAttributes`.
+	// Represents the non-key attribute names which will be projected into the index.
+	//
+	// For local secondary indexes, the total count of `NonKeyAttributes` summed across all of the local secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.
 	NonKeyAttributes *[]*string `json:"nonKeyAttributes"`
-	// `CfnTable.ProjectionProperty.ProjectionType`.
+	// The set of attributes that are projected into the index:.
+	//
+	// - `KEYS_ONLY` - Only the index and primary keys are projected into the index.
+	// - `INCLUDE` - In addition to the attributes described in `KEYS_ONLY` , the secondary index will include other non-key attributes that you specify.
+	// - `ALL` - All of the table attributes are projected into the index.
 	ProjectionType *string `json:"projectionType"`
 }
 
+// Throughput for the specified table, which consists of values for `ReadCapacityUnits` and `WriteCapacityUnits` .
+//
 // TODO: EXAMPLE
 //
 type CfnTable_ProvisionedThroughputProperty struct {
-	// `CfnTable.ProvisionedThroughputProperty.ReadCapacityUnits`.
+	// The maximum number of strongly consistent reads consumed per second before DynamoDB returns a `ThrottlingException` .
+	//
+	// For more information, see [Specifying Read and Write Requirements](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput) in the *Amazon DynamoDB Developer Guide* .
+	//
+	// If read/write capacity mode is `PAY_PER_REQUEST` the value is set to 0.
 	ReadCapacityUnits *float64 `json:"readCapacityUnits"`
-	// `CfnTable.ProvisionedThroughputProperty.WriteCapacityUnits`.
+	// The maximum number of writes consumed per second before DynamoDB returns a `ThrottlingException` .
+	//
+	// For more information, see [Specifying Read and Write Requirements](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput) in the *Amazon DynamoDB Developer Guide* .
+	//
+	// If read/write capacity mode is `PAY_PER_REQUEST` the value is set to 0.
 	WriteCapacityUnits *float64 `json:"writeCapacityUnits"`
 }
 
+// Represents the settings used to enable server-side encryption.
+//
 // TODO: EXAMPLE
 //
 type CfnTable_SSESpecificationProperty struct {
-	// `CfnTable.SSESpecificationProperty.KMSMasterKeyId`.
-	KmsMasterKeyId *string `json:"kmsMasterKeyId"`
-	// `CfnTable.SSESpecificationProperty.SSEEnabled`.
+	// Indicates whether server-side encryption is done using an AWS managed key or an AWS owned key.
+	//
+	// If enabled (true), server-side encryption type is set to `KMS` and an AWS managed key is used ( AWS KMS charges apply). If disabled (false) or not specified, server-side encryption is set to AWS owned key.
 	SseEnabled interface{} `json:"sseEnabled"`
-	// `CfnTable.SSESpecificationProperty.SSEType`.
+	// The AWS KMS key that should be used for the AWS KMS encryption.
+	//
+	// To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB key `alias/aws/dynamodb` .
+	KmsMasterKeyId *string `json:"kmsMasterKeyId"`
+	// Server-side encryption type. The only supported value is:.
+	//
+	// - `KMS` - Server-side encryption that uses AWS Key Management Service . The key is stored in your account and is managed by AWS KMS ( AWS KMS charges apply).
 	SseType *string `json:"sseType"`
 }
 
+// Represents the DynamoDB Streams configuration for a table in DynamoDB.
+//
 // TODO: EXAMPLE
 //
 type CfnTable_StreamSpecificationProperty struct {
-	// `CfnTable.StreamSpecificationProperty.StreamViewType`.
+	// When an item in the table is modified, `StreamViewType` determines what information is written to the stream for this table.
+	//
+	// Valid values for `StreamViewType` are:
+	//
+	// - `KEYS_ONLY` - Only the key attributes of the modified item are written to the stream.
+	// - `NEW_IMAGE` - The entire item, as it appears after it was modified, is written to the stream.
+	// - `OLD_IMAGE` - The entire item, as it appeared before it was modified, is written to the stream.
+	// - `NEW_AND_OLD_IMAGES` - Both the new and the old item images of the item are written to the stream.
 	StreamViewType *string `json:"streamViewType"`
 }
 
+// Represents the settings used to enable or disable Time to Live (TTL) for the specified table.
+//
 // TODO: EXAMPLE
 //
 type CfnTable_TimeToLiveSpecificationProperty struct {
-	// `CfnTable.TimeToLiveSpecificationProperty.AttributeName`.
+	// The name of the TTL attribute used to store the expiration time for items in the table.
+	//
+	// > To update this property, you must first disable TTL then enable TTL with the new attribute name.
 	AttributeName *string `json:"attributeName"`
-	// `CfnTable.TimeToLiveSpecificationProperty.Enabled`.
+	// Indicates whether TTL is to be enabled (true) or disabled (false) on the table.
 	Enabled interface{} `json:"enabled"`
 }
 
-// Properties for defining a `AWS::DynamoDB::Table`.
+// Properties for defining a `CfnTable`.
 //
 // TODO: EXAMPLE
 //
 type CfnTableProps struct {
-	// `AWS::DynamoDB::Table.AttributeDefinitions`.
-	AttributeDefinitions interface{} `json:"attributeDefinitions"`
-	// `AWS::DynamoDB::Table.BillingMode`.
-	BillingMode *string `json:"billingMode"`
-	// `AWS::DynamoDB::Table.ContributorInsightsSpecification`.
-	ContributorInsightsSpecification interface{} `json:"contributorInsightsSpecification"`
-	// `AWS::DynamoDB::Table.GlobalSecondaryIndexes`.
-	GlobalSecondaryIndexes interface{} `json:"globalSecondaryIndexes"`
-	// `AWS::DynamoDB::Table.KeySchema`.
+	// Specifies the attributes that make up the primary key for the table.
+	//
+	// The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
 	KeySchema interface{} `json:"keySchema"`
-	// `AWS::DynamoDB::Table.KinesisStreamSpecification`.
+	// A list of attributes that describe the key schema for the table and indexes.
+	//
+	// This property is required to create a DynamoDB table.
+	//
+	// Update requires: [Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt) . Replacement if you edit an existing AttributeDefinition.
+	AttributeDefinitions interface{} `json:"attributeDefinitions"`
+	// Specify how you are charged for read and write throughput and how you manage capacity.
+	//
+	// Valid values include:
+	//
+	// - `PROVISIONED` - We recommend using `PROVISIONED` for predictable workloads. `PROVISIONED` sets the billing mode to [Provisioned Mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual) .
+	// - `PAY_PER_REQUEST` - We recommend using `PAY_PER_REQUEST` for unpredictable workloads. `PAY_PER_REQUEST` sets the billing mode to [On-Demand Mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand) .
+	//
+	// If not specified, the default is `PROVISIONED` .
+	BillingMode *string `json:"billingMode"`
+	// The settings used to enable or disable CloudWatch Contributor Insights for the specified table.
+	ContributorInsightsSpecification interface{} `json:"contributorInsightsSpecification"`
+	// Global secondary indexes to be created on the table. You can create up to 20 global secondary indexes.
+	//
+	// > If you update a table to include a new global secondary index, AWS CloudFormation initiates the index creation and then proceeds with the stack update. AWS CloudFormation doesn't wait for the index to complete creation because the backfilling phase can take a long time, depending on the size of the table. You can't use the index or update the table until the index's status is `ACTIVE` . You can track its status by using the DynamoDB [DescribeTable](https://docs.aws.amazon.com/cli/latest/reference/dynamodb/describe-table.html) command.
+	// >
+	// > If you add or delete an index during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new index, you must manually delete the index.
+	// >
+	// > Updates are not supported. The following are exceptions:
+	// >
+	// > - If you update either the contributor insights specification or the provisioned throughput values of global secondary indexes, you can update the table without interruption.
+	// > - You can delete or add one global secondary index without interruption. If you do both in the same update (for example, by changing the index's logical ID), the update fails.
+	GlobalSecondaryIndexes interface{} `json:"globalSecondaryIndexes"`
+	// The Kinesis Data Streams configuration for the specified table.
 	KinesisStreamSpecification interface{} `json:"kinesisStreamSpecification"`
-	// `AWS::DynamoDB::Table.LocalSecondaryIndexes`.
+	// Local secondary indexes to be created on the table.
+	//
+	// You can create up to 5 local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes.
 	LocalSecondaryIndexes interface{} `json:"localSecondaryIndexes"`
-	// `AWS::DynamoDB::Table.PointInTimeRecoverySpecification`.
+	// The settings used to enable point in time recovery.
 	PointInTimeRecoverySpecification interface{} `json:"pointInTimeRecoverySpecification"`
-	// `AWS::DynamoDB::Table.ProvisionedThroughput`.
+	// Throughput for the specified table, which consists of values for `ReadCapacityUnits` and `WriteCapacityUnits` .
+	//
+	// For more information about the contents of a provisioned throughput structure, see [Amazon DynamoDB Table ProvisionedThroughput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-provisionedthroughput.html) .
+	//
+	// If you set `BillingMode` as `PROVISIONED` , you must specify this property. If you set `BillingMode` as `PAY_PER_REQUEST` , you cannot specify this property.
 	ProvisionedThroughput interface{} `json:"provisionedThroughput"`
-	// `AWS::DynamoDB::Table.SSESpecification`.
+	// Specifies the settings to enable server-side encryption.
 	SseSpecification interface{} `json:"sseSpecification"`
-	// `AWS::DynamoDB::Table.StreamSpecification`.
+	// The settings for the DynamoDB table stream, which capture changes to items stored in the table.
 	StreamSpecification interface{} `json:"streamSpecification"`
-	// `AWS::DynamoDB::Table.TableClass`.
+	// The table class of the new table.
+	//
+	// Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS` .
 	TableClass *string `json:"tableClass"`
-	// `AWS::DynamoDB::Table.TableName`.
+	// A name for the table.
+	//
+	// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the table name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
+	//
+	// > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	TableName *string `json:"tableName"`
-	// `AWS::DynamoDB::Table.Tags`.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags *[]*awscdk.CfnTag `json:"tags"`
-	// `AWS::DynamoDB::Table.TimeToLiveSpecification`.
+	// Specifies the Time to Live (TTL) settings for the table.
+	//
+	// > For detailed information about the TTL feature of DynamoDB, see [Expiring Items with Time to Live](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html) in the Amazon DynamoDB Developer Guide.
 	TimeToLiveSpecification interface{} `json:"timeToLiveSpecification"`
 }
 
@@ -1865,10 +2456,13 @@ type CfnTableProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type EnableScalingProps struct {
 	// Maximum capacity to scale to.
+	// Experimental.
 	MaxCapacity *float64 `json:"maxCapacity"`
 	// Minimum capacity to scale to.
+	// Experimental.
 	MinCapacity *float64 `json:"minCapacity"`
 }
 
@@ -1876,32 +2470,43 @@ type EnableScalingProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type GlobalSecondaryIndexProps struct {
 	// The name of the secondary index.
+	// Experimental.
 	IndexName *string `json:"indexName"`
 	// The non-key attributes that are projected into the secondary index.
+	// Experimental.
 	NonKeyAttributes *[]*string `json:"nonKeyAttributes"`
 	// The set of attributes that are projected into the secondary index.
+	// Experimental.
 	ProjectionType ProjectionType `json:"projectionType"`
 	// Partition key attribute definition.
+	// Experimental.
 	PartitionKey *Attribute `json:"partitionKey"`
 	// Sort key attribute definition.
+	// Experimental.
 	SortKey *Attribute `json:"sortKey"`
 	// The read capacity for the global secondary index.
 	//
 	// Can only be provided if table billingMode is Provisioned or undefined.
+	// Experimental.
 	ReadCapacity *float64 `json:"readCapacity"`
 	// The write capacity for the global secondary index.
 	//
 	// Can only be provided if table billingMode is Provisioned or undefined.
+	// Experimental.
 	WriteCapacity *float64 `json:"writeCapacity"`
 }
 
 // Interface for scalable attributes.
+// Experimental.
 type IScalableTableAttribute interface {
 	// Add scheduled scaling for this scaling attribute.
+	// Experimental.
 	ScaleOnSchedule(id *string, actions *awsapplicationautoscaling.ScalingSchedule)
 	// Scale out or in to keep utilization at a given level.
+	// Experimental.
 	ScaleOnUtilization(props *UtilizationScalingProps)
 }
 
@@ -1927,22 +2532,26 @@ func (i *jsiiProxy_IScalableTableAttribute) ScaleOnUtilization(props *Utilizatio
 }
 
 // An interface that represents a DynamoDB Table - either created with the CDK, or an existing one.
+// Experimental.
 type ITable interface {
 	awscdk.IResource
 	// Adds an IAM policy statement associated with this table to an IAM principal's policy.
 	//
 	// If `encryptionKey` is present, appropriate grants to the key needs to be added
 	// separately using the `table.encryptionKey.grant*` methods.
+	// Experimental.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Permits all DynamoDB operations ("dynamodb:*") to an IAM principal.
 	//
 	// Appropriate grants will also be added to the customer-managed KMS key
 	// if one was configured.
+	// Experimental.
 	GrantFullAccess(grantee awsiam.IGrantable) awsiam.Grant
 	// Permits an IAM principal all data read operations from this table: BatchGetItem, GetRecords, GetShardIterator, Query, GetItem, Scan.
 	//
 	// Appropriate grants will also be added to the customer-managed KMS key
 	// if one was configured.
+	// Experimental.
 	GrantReadData(grantee awsiam.IGrantable) awsiam.Grant
 	// Permits an IAM principal to all data read/write operations to this table.
 	//
@@ -1951,47 +2560,67 @@ type ITable interface {
 	//
 	// Appropriate grants will also be added to the customer-managed KMS key
 	// if one was configured.
+	// Experimental.
 	GrantReadWriteData(grantee awsiam.IGrantable) awsiam.Grant
 	// Adds an IAM policy statement associated with this table's stream to an IAM principal's policy.
 	//
 	// If `encryptionKey` is present, appropriate grants to the key needs to be added
 	// separately using the `table.encryptionKey.grant*` methods.
+	// Experimental.
 	GrantStream(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Permits an IAM principal all stream data read operations for this table's stream: DescribeStream, GetRecords, GetShardIterator, ListStreams.
 	//
 	// Appropriate grants will also be added to the customer-managed KMS key
 	// if one was configured.
+	// Experimental.
 	GrantStreamRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Permits an IAM Principal to list streams attached to current dynamodb table.
+	// Experimental.
 	GrantTableListStreams(grantee awsiam.IGrantable) awsiam.Grant
 	// Permits an IAM principal all data write operations to this table: BatchWriteItem, PutItem, UpdateItem, DeleteItem.
 	//
 	// Appropriate grants will also be added to the customer-managed KMS key
 	// if one was configured.
+	// Experimental.
 	GrantWriteData(grantee awsiam.IGrantable) awsiam.Grant
 	// Metric for the number of Errors executing all Lambdas.
+	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the conditional check failed requests.
+	// Experimental.
 	MetricConditionalCheckFailedRequests(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the consumed read capacity units.
+	// Experimental.
 	MetricConsumedReadCapacityUnits(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the consumed write capacity units.
+	// Experimental.
 	MetricConsumedWriteCapacityUnits(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the successful request latency.
+	// Experimental.
 	MetricSuccessfulRequestLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Metric for the system errors.
+	// Deprecated: use `metricSystemErrorsForOperations`
+	MetricSystemErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the system errors this table.
+	// Experimental.
 	MetricSystemErrorsForOperations(props *SystemErrorsForOperationsMetricOptions) awscloudwatch.IMetric
 	// Metric for throttled requests.
+	// Experimental.
 	MetricThrottledRequests(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the user errors.
+	// Experimental.
 	MetricUserErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Optional KMS encryption key associated with this table.
+	// Experimental.
 	EncryptionKey() awskms.IKey
 	// Arn of the dynamodb table.
+	// Experimental.
 	TableArn() *string
 	// Table name of the dynamodb table.
+	// Experimental.
 	TableName() *string
 	// ARN of the table's stream, if there is one.
+	// Experimental.
 	TableStreamArn() *string
 }
 
@@ -2179,6 +2808,19 @@ func (i *jsiiProxy_ITable) MetricSuccessfulRequestLatency(props *awscloudwatch.M
 	return returns
 }
 
+func (i *jsiiProxy_ITable) MetricSystemErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricSystemErrors",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
 func (i *jsiiProxy_ITable) MetricSystemErrorsForOperations(props *SystemErrorsForOperationsMetricOptions) awscloudwatch.IMetric {
 	var returns awscloudwatch.IMetric
 
@@ -2262,56 +2904,66 @@ func (j *jsiiProxy_ITable) TableStreamArn() *string {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type LocalSecondaryIndexProps struct {
 	// The name of the secondary index.
+	// Experimental.
 	IndexName *string `json:"indexName"`
 	// The non-key attributes that are projected into the secondary index.
+	// Experimental.
 	NonKeyAttributes *[]*string `json:"nonKeyAttributes"`
 	// The set of attributes that are projected into the secondary index.
+	// Experimental.
 	ProjectionType ProjectionType `json:"projectionType"`
 	// The attribute of a sort key for the local secondary index.
+	// Experimental.
 	SortKey *Attribute `json:"sortKey"`
 }
 
 // Supported DynamoDB table operations.
+// Experimental.
 type Operation string
 
 const (
-	Operation_BATCH_EXECUTE_STATEMENT Operation = "BATCH_EXECUTE_STATEMENT"
-	Operation_BATCH_GET_ITEM Operation = "BATCH_GET_ITEM"
-	Operation_BATCH_WRITE_ITEM Operation = "BATCH_WRITE_ITEM"
-	Operation_DELETE_ITEM Operation = "DELETE_ITEM"
-	Operation_EXECUTE_STATEMENT Operation = "EXECUTE_STATEMENT"
-	Operation_EXECUTE_TRANSACTION Operation = "EXECUTE_TRANSACTION"
 	Operation_GET_ITEM Operation = "GET_ITEM"
+	Operation_BATCH_GET_ITEM Operation = "BATCH_GET_ITEM"
+	Operation_SCAN Operation = "SCAN"
+	Operation_QUERY Operation = "QUERY"
 	Operation_GET_RECORDS Operation = "GET_RECORDS"
 	Operation_PUT_ITEM Operation = "PUT_ITEM"
-	Operation_QUERY Operation = "QUERY"
-	Operation_SCAN Operation = "SCAN"
-	Operation_TRANSACT_GET_ITEMS Operation = "TRANSACT_GET_ITEMS"
-	Operation_TRANSACT_WRITE_ITEMS Operation = "TRANSACT_WRITE_ITEMS"
+	Operation_DELETE_ITEM Operation = "DELETE_ITEM"
 	Operation_UPDATE_ITEM Operation = "UPDATE_ITEM"
+	Operation_BATCH_WRITE_ITEM Operation = "BATCH_WRITE_ITEM"
+	Operation_TRANSACT_WRITE_ITEMS Operation = "TRANSACT_WRITE_ITEMS"
+	Operation_TRANSACT_GET_ITEMS Operation = "TRANSACT_GET_ITEMS"
+	Operation_EXECUTE_TRANSACTION Operation = "EXECUTE_TRANSACTION"
+	Operation_BATCH_EXECUTE_STATEMENT Operation = "BATCH_EXECUTE_STATEMENT"
+	Operation_EXECUTE_STATEMENT Operation = "EXECUTE_STATEMENT"
 )
 
 // The set of attributes that are projected into the index.
 // See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Projection.html
 //
+// Experimental.
 type ProjectionType string
 
 const (
-	ProjectionType_ALL ProjectionType = "ALL"
-	ProjectionType_INCLUDE ProjectionType = "INCLUDE"
 	ProjectionType_KEYS_ONLY ProjectionType = "KEYS_ONLY"
+	ProjectionType_INCLUDE ProjectionType = "INCLUDE"
+	ProjectionType_ALL ProjectionType = "ALL"
 )
 
 // Represents the table schema attributes.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type SchemaOptions struct {
 	// Partition key attribute definition.
+	// Experimental.
 	PartitionKey *Attribute `json:"partitionKey"`
 	// Sort key attribute definition.
+	// Experimental.
 	SortKey *Attribute `json:"sortKey"`
 }
 
@@ -2319,43 +2971,58 @@ type SchemaOptions struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type SecondaryIndexProps struct {
 	// The name of the secondary index.
+	// Experimental.
 	IndexName *string `json:"indexName"`
 	// The non-key attributes that are projected into the secondary index.
+	// Experimental.
 	NonKeyAttributes *[]*string `json:"nonKeyAttributes"`
 	// The set of attributes that are projected into the secondary index.
+	// Experimental.
 	ProjectionType ProjectionType `json:"projectionType"`
 }
 
 // When an item in the table is modified, StreamViewType determines what information is written to the stream for this table.
 // See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_StreamSpecification.html
 //
+// Experimental.
 type StreamViewType string
 
 const (
-	StreamViewType_KEYS_ONLY StreamViewType = "KEYS_ONLY"
-	StreamViewType_NEW_AND_OLD_IMAGES StreamViewType = "NEW_AND_OLD_IMAGES"
 	StreamViewType_NEW_IMAGE StreamViewType = "NEW_IMAGE"
 	StreamViewType_OLD_IMAGE StreamViewType = "OLD_IMAGE"
+	StreamViewType_NEW_AND_OLD_IMAGES StreamViewType = "NEW_AND_OLD_IMAGES"
+	StreamViewType_KEYS_ONLY StreamViewType = "KEYS_ONLY"
 )
 
 // Options for configuring a system errors metric that considers multiple operations.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type SystemErrorsForOperationsMetricOptions struct {
 	// Account which this metric comes from.
+	// Experimental.
 	Account *string `json:"account"`
 	// The hex color code, prefixed with '#' (e.g. '#00ff00'), to use when this metric is rendered on a graph. The `Color` class has a set of standard colors that can be used here.
+	// Experimental.
 	Color *string `json:"color"`
 	// Dimensions of the metric.
+	// Deprecated: Use 'dimensionsMap' instead.
+	Dimensions *map[string]interface{} `json:"dimensions"`
+	// Dimensions of the metric.
+	// Experimental.
 	DimensionsMap *map[string]*string `json:"dimensionsMap"`
 	// Label for this metric when added to a Graph in a Dashboard.
+	// Experimental.
 	Label *string `json:"label"`
 	// The period over which the specified statistic is applied.
+	// Experimental.
 	Period awscdk.Duration `json:"period"`
 	// Region which this metric comes from.
+	// Experimental.
 	Region *string `json:"region"`
 	// What function to use for aggregating.
 	//
@@ -2367,6 +3034,7 @@ type SystemErrorsForOperationsMetricOptions struct {
 	// - "Sum" | "sum"
 	// - "SampleCount | "n"
 	// - "pNN.NN"
+	// Experimental.
 	Statistic *string `json:"statistic"`
 	// Unit used to filter the metric stream.
 	//
@@ -2378,8 +3046,10 @@ type SystemErrorsForOperationsMetricOptions struct {
 	// which is recommended in nearly all cases.
 	//
 	// CloudWatch does not honor this property for graphs.
+	// Experimental.
 	Unit awscloudwatch.Unit `json:"unit"`
 	// The operations to apply the metric to.
+	// Experimental.
 	Operations *[]Operation `json:"operations"`
 }
 
@@ -2387,13 +3057,14 @@ type SystemErrorsForOperationsMetricOptions struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type Table interface {
 	awscdk.Resource
 	ITable
 	EncryptionKey() awskms.IKey
 	Env() *awscdk.ResourceEnvironment
 	HasIndex() *bool
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	RegionalArns() *[]*string
 	Stack() awscdk.Stack
@@ -2423,11 +3094,18 @@ type Table interface {
 	MetricConsumedReadCapacityUnits(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricConsumedWriteCapacityUnits(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricSuccessfulRequestLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricSystemErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricSystemErrorsForOperations(props *SystemErrorsForOperationsMetricOptions) awscloudwatch.IMetric
 	MetricThrottledRequests(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricUserErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	Schema(indexName *string) *SchemaOptions
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for Table
@@ -2466,8 +3144,8 @@ func (j *jsiiProxy_Table) HasIndex() *bool {
 	return returns
 }
 
-func (j *jsiiProxy_Table) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_Table) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2537,13 +3215,14 @@ func (j *jsiiProxy_Table) TableStreamArn() *string {
 }
 
 
+// Experimental.
 func NewTable(scope constructs.Construct, id *string, props *TableProps) Table {
 	_init_.Initialize()
 
 	j := jsiiProxy_Table{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_dynamodb.Table",
+		"monocdk.aws_dynamodb.Table",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2551,24 +3230,26 @@ func NewTable(scope constructs.Construct, id *string, props *TableProps) Table {
 	return &j
 }
 
+// Experimental.
 func NewTable_Override(t Table, scope constructs.Construct, id *string, props *TableProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_dynamodb.Table",
+		"monocdk.aws_dynamodb.Table",
 		[]interface{}{scope, id, props},
 		t,
 	)
 }
 
 // Creates a Table construct that represents an external table via table arn.
+// Experimental.
 func Table_FromTableArn(scope constructs.Construct, id *string, tableArn *string) ITable {
 	_init_.Initialize()
 
 	var returns ITable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_dynamodb.Table",
+		"monocdk.aws_dynamodb.Table",
 		"fromTableArn",
 		[]interface{}{scope, id, tableArn},
 		&returns,
@@ -2578,13 +3259,14 @@ func Table_FromTableArn(scope constructs.Construct, id *string, tableArn *string
 }
 
 // Creates a Table construct that represents an external table.
+// Experimental.
 func Table_FromTableAttributes(scope constructs.Construct, id *string, attrs *TableAttributes) ITable {
 	_init_.Initialize()
 
 	var returns ITable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_dynamodb.Table",
+		"monocdk.aws_dynamodb.Table",
 		"fromTableAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -2594,13 +3276,14 @@ func Table_FromTableAttributes(scope constructs.Construct, id *string, attrs *Ta
 }
 
 // Creates a Table construct that represents an external table via table name.
+// Experimental.
 func Table_FromTableName(scope constructs.Construct, id *string, tableName *string) ITable {
 	_init_.Initialize()
 
 	var returns ITable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_dynamodb.Table",
+		"monocdk.aws_dynamodb.Table",
 		"fromTableName",
 		[]interface{}{scope, id, tableName},
 		&returns,
@@ -2609,17 +3292,32 @@ func Table_FromTableName(scope constructs.Construct, id *string, tableName *stri
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Permits an IAM Principal to list all DynamoDB Streams.
+// Deprecated: Use {@link #grantTableListStreams} for more granular permission
+func Table_GrantListStreams(grantee awsiam.IGrantable) awsiam.Grant {
+	_init_.Initialize()
+
+	var returns awsiam.Grant
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_dynamodb.Table",
+		"grantListStreams",
+		[]interface{}{grantee},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return whether the given object is a Construct.
+// Experimental.
 func Table_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_dynamodb.Table",
+		"monocdk.aws_dynamodb.Table",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2629,13 +3327,14 @@ func Table_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func Table_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func Table_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_dynamodb.Table",
+		"monocdk.aws_dynamodb.Table",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -2645,6 +3344,7 @@ func Table_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Add a global secondary index of table.
+// Experimental.
 func (t *jsiiProxy_Table) AddGlobalSecondaryIndex(props *GlobalSecondaryIndexProps) {
 	_jsii_.InvokeVoid(
 		t,
@@ -2654,6 +3354,7 @@ func (t *jsiiProxy_Table) AddGlobalSecondaryIndex(props *GlobalSecondaryIndexPro
 }
 
 // Add a local secondary index of table.
+// Experimental.
 func (t *jsiiProxy_Table) AddLocalSecondaryIndex(props *LocalSecondaryIndexProps) {
 	_jsii_.InvokeVoid(
 		t,
@@ -2671,6 +3372,7 @@ func (t *jsiiProxy_Table) AddLocalSecondaryIndex(props *LocalSecondaryIndexProps
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (t *jsiiProxy_Table) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		t,
@@ -2682,6 +3384,7 @@ func (t *jsiiProxy_Table) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 // Enable read capacity scaling for the given GSI.
 //
 // Returns: An object to configure additional AutoScaling settings for this attribute
+// Experimental.
 func (t *jsiiProxy_Table) AutoScaleGlobalSecondaryIndexReadCapacity(indexName *string, props *EnableScalingProps) IScalableTableAttribute {
 	var returns IScalableTableAttribute
 
@@ -2698,6 +3401,7 @@ func (t *jsiiProxy_Table) AutoScaleGlobalSecondaryIndexReadCapacity(indexName *s
 // Enable write capacity scaling for the given GSI.
 //
 // Returns: An object to configure additional AutoScaling settings for this attribute
+// Experimental.
 func (t *jsiiProxy_Table) AutoScaleGlobalSecondaryIndexWriteCapacity(indexName *string, props *EnableScalingProps) IScalableTableAttribute {
 	var returns IScalableTableAttribute
 
@@ -2714,6 +3418,7 @@ func (t *jsiiProxy_Table) AutoScaleGlobalSecondaryIndexWriteCapacity(indexName *
 // Enable read capacity scaling for this table.
 //
 // Returns: An object to configure additional AutoScaling settings
+// Experimental.
 func (t *jsiiProxy_Table) AutoScaleReadCapacity(props *EnableScalingProps) IScalableTableAttribute {
 	var returns IScalableTableAttribute
 
@@ -2730,6 +3435,7 @@ func (t *jsiiProxy_Table) AutoScaleReadCapacity(props *EnableScalingProps) IScal
 // Enable write capacity scaling for this table.
 //
 // Returns: An object to configure additional AutoScaling settings for this attribute
+// Experimental.
 func (t *jsiiProxy_Table) AutoScaleWriteCapacity(props *EnableScalingProps) IScalableTableAttribute {
 	var returns IScalableTableAttribute
 
@@ -2743,6 +3449,7 @@ func (t *jsiiProxy_Table) AutoScaleWriteCapacity(props *EnableScalingProps) ISca
 	return returns
 }
 
+// Experimental.
 func (t *jsiiProxy_Table) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -2762,6 +3469,7 @@ func (t *jsiiProxy_Table) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
+// Experimental.
 func (t *jsiiProxy_Table) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -2780,6 +3488,7 @@ func (t *jsiiProxy_Table) GetResourceArnAttribute(arnAttr *string, arnComponents
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
+// Experimental.
 func (t *jsiiProxy_Table) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -2797,6 +3506,7 @@ func (t *jsiiProxy_Table) GetResourceNameAttribute(nameAttr *string) *string {
 //
 // If `encryptionKey` is present, appropriate grants to the key needs to be added
 // separately using the `table.encryptionKey.grant*` methods.
+// Experimental.
 func (t *jsiiProxy_Table) Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant {
 	args := []interface{}{grantee}
 	for _, a := range actions {
@@ -2819,6 +3529,7 @@ func (t *jsiiProxy_Table) Grant(grantee awsiam.IGrantable, actions ...*string) a
 //
 // Appropriate grants will also be added to the customer-managed KMS key
 // if one was configured.
+// Experimental.
 func (t *jsiiProxy_Table) GrantFullAccess(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -2836,6 +3547,7 @@ func (t *jsiiProxy_Table) GrantFullAccess(grantee awsiam.IGrantable) awsiam.Gran
 //
 // Appropriate grants will also be added to the customer-managed KMS key
 // if one was configured.
+// Experimental.
 func (t *jsiiProxy_Table) GrantReadData(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -2856,6 +3568,7 @@ func (t *jsiiProxy_Table) GrantReadData(grantee awsiam.IGrantable) awsiam.Grant 
 //
 // Appropriate grants will also be added to the customer-managed KMS key
 // if one was configured.
+// Experimental.
 func (t *jsiiProxy_Table) GrantReadWriteData(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -2873,6 +3586,7 @@ func (t *jsiiProxy_Table) GrantReadWriteData(grantee awsiam.IGrantable) awsiam.G
 //
 // If `encryptionKey` is present, appropriate grants to the key needs to be added
 // separately using the `table.encryptionKey.grant*` methods.
+// Experimental.
 func (t *jsiiProxy_Table) GrantStream(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant {
 	args := []interface{}{grantee}
 	for _, a := range actions {
@@ -2895,6 +3609,7 @@ func (t *jsiiProxy_Table) GrantStream(grantee awsiam.IGrantable, actions ...*str
 //
 // Appropriate grants will also be added to the customer-managed KMS key
 // if one was configured.
+// Experimental.
 func (t *jsiiProxy_Table) GrantStreamRead(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -2909,6 +3624,7 @@ func (t *jsiiProxy_Table) GrantStreamRead(grantee awsiam.IGrantable) awsiam.Gran
 }
 
 // Permits an IAM Principal to list streams attached to current dynamodb table.
+// Experimental.
 func (t *jsiiProxy_Table) GrantTableListStreams(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -2926,6 +3642,7 @@ func (t *jsiiProxy_Table) GrantTableListStreams(grantee awsiam.IGrantable) awsia
 //
 // Appropriate grants will also be added to the customer-managed KMS key
 // if one was configured.
+// Experimental.
 func (t *jsiiProxy_Table) GrantWriteData(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -2943,6 +3660,7 @@ func (t *jsiiProxy_Table) GrantWriteData(grantee awsiam.IGrantable) awsiam.Grant
 //
 // By default, the metric will be calculated as a sum over a period of 5 minutes.
 // You can customize this by using the `statistic` and `period` properties.
+// Experimental.
 func (t *jsiiProxy_Table) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2960,6 +3678,7 @@ func (t *jsiiProxy_Table) Metric(metricName *string, props *awscloudwatch.Metric
 //
 // By default, the metric will be calculated as a sum over a period of 5 minutes.
 // You can customize this by using the `statistic` and `period` properties.
+// Experimental.
 func (t *jsiiProxy_Table) MetricConditionalCheckFailedRequests(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2977,6 +3696,7 @@ func (t *jsiiProxy_Table) MetricConditionalCheckFailedRequests(props *awscloudwa
 //
 // By default, the metric will be calculated as a sum over a period of 5 minutes.
 // You can customize this by using the `statistic` and `period` properties.
+// Experimental.
 func (t *jsiiProxy_Table) MetricConsumedReadCapacityUnits(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2994,6 +3714,7 @@ func (t *jsiiProxy_Table) MetricConsumedReadCapacityUnits(props *awscloudwatch.M
 //
 // By default, the metric will be calculated as a sum over a period of 5 minutes.
 // You can customize this by using the `statistic` and `period` properties.
+// Experimental.
 func (t *jsiiProxy_Table) MetricConsumedWriteCapacityUnits(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -3011,6 +3732,7 @@ func (t *jsiiProxy_Table) MetricConsumedWriteCapacityUnits(props *awscloudwatch.
 //
 // By default, the metric will be calculated as an average over a period of 5 minutes.
 // You can customize this by using the `statistic` and `period` properties.
+// Experimental.
 func (t *jsiiProxy_Table) MetricSuccessfulRequestLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -3025,10 +3747,26 @@ func (t *jsiiProxy_Table) MetricSuccessfulRequestLatency(props *awscloudwatch.Me
 }
 
 // Metric for the system errors this table.
+// Deprecated: use `metricSystemErrorsForOperations`.
+func (t *jsiiProxy_Table) MetricSystemErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		t,
+		"metricSystemErrors",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Metric for the system errors this table.
 //
 // This will sum errors across all possible operations.
 // Note that by default, each individual metric will be calculated as a sum over a period of 5 minutes.
 // You can customize this by using the `statistic` and `period` properties.
+// Experimental.
 func (t *jsiiProxy_Table) MetricSystemErrorsForOperations(props *SystemErrorsForOperationsMetricOptions) awscloudwatch.IMetric {
 	var returns awscloudwatch.IMetric
 
@@ -3045,6 +3783,7 @@ func (t *jsiiProxy_Table) MetricSystemErrorsForOperations(props *SystemErrorsFor
 // How many requests are throttled on this table.
 //
 // Default: sum over 5 minutes
+// Experimental.
 func (t *jsiiProxy_Table) MetricThrottledRequests(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -3065,6 +3804,7 @@ func (t *jsiiProxy_Table) MetricThrottledRequests(props *awscloudwatch.MetricOpt
 //
 // By default, the metric will be calculated as a sum over a period of 5 minutes.
 // You can customize this by using the `statistic` and `period` properties.
+// Experimental.
 func (t *jsiiProxy_Table) MetricUserErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -3078,9 +3818,77 @@ func (t *jsiiProxy_Table) MetricUserErrors(props *awscloudwatch.MetricOptions) a
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (t *jsiiProxy_Table) OnPrepare() {
+	_jsii_.InvokeVoid(
+		t,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (t *jsiiProxy_Table) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		t,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (t *jsiiProxy_Table) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		t,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (t *jsiiProxy_Table) Prepare() {
+	_jsii_.InvokeVoid(
+		t,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 // Get schema attributes of table or index.
 //
 // Returns: Schema of table or index.
+// Experimental.
 func (t *jsiiProxy_Table) Schema(indexName *string) *SchemaOptions {
 	var returns *SchemaOptions
 
@@ -3094,7 +3902,21 @@ func (t *jsiiProxy_Table) Schema(indexName *string) *SchemaOptions {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (t *jsiiProxy_Table) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		t,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (t *jsiiProxy_Table) ToString() *string {
 	var returns *string
 
@@ -3108,12 +3930,31 @@ func (t *jsiiProxy_Table) ToString() *string {
 	return returns
 }
 
+// Validate the table construct.
+//
+// Returns: an array of validation error message
+// Experimental.
+func (t *jsiiProxy_Table) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		t,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Reference to a dynamodb table.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type TableAttributes struct {
 	// KMS encryption key, if this table uses a customer-managed encryption key.
+	// Experimental.
 	EncryptionKey awskms.IKey `json:"encryptionKey"`
 	// The name of the global indexes set for this Table.
 	//
@@ -3121,6 +3962,7 @@ type TableAttributes struct {
 	// or {@link localIndexes},
 	// if you want methods like grantReadData()
 	// to grant permissions for indexes as well as the table itself.
+	// Experimental.
 	GlobalIndexes *[]*string `json:"globalIndexes"`
 	// The name of the local indexes set for this Table.
 	//
@@ -3128,16 +3970,20 @@ type TableAttributes struct {
 	// or {@link globalIndexes},
 	// if you want methods like grantReadData()
 	// to grant permissions for indexes as well as the table itself.
+	// Experimental.
 	LocalIndexes *[]*string `json:"localIndexes"`
 	// The ARN of the dynamodb table.
 	//
 	// One of this, or {@link tableName}, is required.
+	// Experimental.
 	TableArn *string `json:"tableArn"`
 	// The table name of the dynamodb table.
 	//
 	// One of this, or {@link tableArn}, is required.
+	// Experimental.
 	TableName *string `json:"tableName"`
 	// The ARN of the table's stream.
+	// Experimental.
 	TableStreamArn *string `json:"tableStreamArn"`
 }
 
@@ -3145,12 +3991,13 @@ type TableAttributes struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type TableEncryption string
 
 const (
-	TableEncryption_AWS_MANAGED TableEncryption = "AWS_MANAGED"
-	TableEncryption_CUSTOMER_MANAGED TableEncryption = "CUSTOMER_MANAGED"
 	TableEncryption_DEFAULT TableEncryption = "DEFAULT"
+	TableEncryption_CUSTOMER_MANAGED TableEncryption = "CUSTOMER_MANAGED"
+	TableEncryption_AWS_MANAGED TableEncryption = "AWS_MANAGED"
 )
 
 // Properties of a DynamoDB Table.
@@ -3159,24 +4006,32 @@ const (
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type TableOptions struct {
 	// Partition key attribute definition.
+	// Experimental.
 	PartitionKey *Attribute `json:"partitionKey"`
 	// Sort key attribute definition.
+	// Experimental.
 	SortKey *Attribute `json:"sortKey"`
 	// Specify how you are charged for read and write throughput and how you manage capacity.
+	// Experimental.
 	BillingMode BillingMode `json:"billingMode"`
 	// Whether CloudWatch contributor insights is enabled.
+	// Experimental.
 	ContributorInsightsEnabled *bool `json:"contributorInsightsEnabled"`
 	// Whether server-side encryption with an AWS managed customer master key is enabled.
 	//
 	// This property cannot be set if `serverSideEncryption` is set.
+	// Experimental.
 	Encryption TableEncryption `json:"encryption"`
 	// External KMS key to use for table encryption.
 	//
 	// This property can only be set if `encryption` is set to `TableEncryption.CUSTOMER_MANAGED`.
+	// Experimental.
 	EncryptionKey awskms.IKey `json:"encryptionKey"`
 	// Whether point-in-time recovery is enabled.
+	// Experimental.
 	PointInTimeRecovery *bool `json:"pointInTimeRecovery"`
 	// The read capacity for the table.
 	//
@@ -3184,16 +4039,28 @@ type TableOptions struct {
 	// those will share the table's provisioned throughput.
 	//
 	// Can only be provided if billingMode is Provisioned.
+	// Experimental.
 	ReadCapacity *float64 `json:"readCapacity"`
 	// The removal policy to apply to the DynamoDB Table.
+	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
 	// Regions where replica tables will be created.
+	// Experimental.
 	ReplicationRegions *[]*string `json:"replicationRegions"`
 	// The timeout for a table replication operation in a single region.
+	// Experimental.
 	ReplicationTimeout awscdk.Duration `json:"replicationTimeout"`
+	// Whether server-side encryption with an AWS managed customer master key is enabled.
+	//
+	// This property cannot be set if `encryption` and/or `encryptionKey` is set.
+	// Deprecated: This property is deprecated. In order to obtain the same behavior as
+	// enabling this, set the `encryption` property to `TableEncryption.AWS_MANAGED` instead.
+	ServerSideEncryption *bool `json:"serverSideEncryption"`
 	// When an item in the table is modified, StreamViewType determines what information is written to the stream for this table.
+	// Experimental.
 	Stream StreamViewType `json:"stream"`
 	// The name of TTL attribute.
+	// Experimental.
 	TimeToLiveAttribute *string `json:"timeToLiveAttribute"`
 	// Indicates whether CloudFormation stack waits for replication to finish.
 	//
@@ -3207,6 +4074,7 @@ type TableOptions struct {
 	// finish before starting new replicationRegion.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-replicas
 	//
+	// Experimental.
 	WaitForReplicationToFinish *bool `json:"waitForReplicationToFinish"`
 	// The write capacity for the table.
 	//
@@ -3214,6 +4082,7 @@ type TableOptions struct {
 	// those will share the table's provisioned throughput.
 	//
 	// Can only be provided if billingMode is Provisioned.
+	// Experimental.
 	WriteCapacity *float64 `json:"writeCapacity"`
 }
 
@@ -3221,24 +4090,32 @@ type TableOptions struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type TableProps struct {
 	// Partition key attribute definition.
+	// Experimental.
 	PartitionKey *Attribute `json:"partitionKey"`
 	// Sort key attribute definition.
+	// Experimental.
 	SortKey *Attribute `json:"sortKey"`
 	// Specify how you are charged for read and write throughput and how you manage capacity.
+	// Experimental.
 	BillingMode BillingMode `json:"billingMode"`
 	// Whether CloudWatch contributor insights is enabled.
+	// Experimental.
 	ContributorInsightsEnabled *bool `json:"contributorInsightsEnabled"`
 	// Whether server-side encryption with an AWS managed customer master key is enabled.
 	//
 	// This property cannot be set if `serverSideEncryption` is set.
+	// Experimental.
 	Encryption TableEncryption `json:"encryption"`
 	// External KMS key to use for table encryption.
 	//
 	// This property can only be set if `encryption` is set to `TableEncryption.CUSTOMER_MANAGED`.
+	// Experimental.
 	EncryptionKey awskms.IKey `json:"encryptionKey"`
 	// Whether point-in-time recovery is enabled.
+	// Experimental.
 	PointInTimeRecovery *bool `json:"pointInTimeRecovery"`
 	// The read capacity for the table.
 	//
@@ -3246,16 +4123,28 @@ type TableProps struct {
 	// those will share the table's provisioned throughput.
 	//
 	// Can only be provided if billingMode is Provisioned.
+	// Experimental.
 	ReadCapacity *float64 `json:"readCapacity"`
 	// The removal policy to apply to the DynamoDB Table.
+	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
 	// Regions where replica tables will be created.
+	// Experimental.
 	ReplicationRegions *[]*string `json:"replicationRegions"`
 	// The timeout for a table replication operation in a single region.
+	// Experimental.
 	ReplicationTimeout awscdk.Duration `json:"replicationTimeout"`
+	// Whether server-side encryption with an AWS managed customer master key is enabled.
+	//
+	// This property cannot be set if `encryption` and/or `encryptionKey` is set.
+	// Deprecated: This property is deprecated. In order to obtain the same behavior as
+	// enabling this, set the `encryption` property to `TableEncryption.AWS_MANAGED` instead.
+	ServerSideEncryption *bool `json:"serverSideEncryption"`
 	// When an item in the table is modified, StreamViewType determines what information is written to the stream for this table.
+	// Experimental.
 	Stream StreamViewType `json:"stream"`
 	// The name of TTL attribute.
+	// Experimental.
 	TimeToLiveAttribute *string `json:"timeToLiveAttribute"`
 	// Indicates whether CloudFormation stack waits for replication to finish.
 	//
@@ -3269,6 +4158,7 @@ type TableProps struct {
 	// finish before starting new replicationRegion.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-replicas
 	//
+	// Experimental.
 	WaitForReplicationToFinish *bool `json:"waitForReplicationToFinish"`
 	// The write capacity for the table.
 	//
@@ -3276,10 +4166,13 @@ type TableProps struct {
 	// those will share the table's provisioned throughput.
 	//
 	// Can only be provided if billingMode is Provisioned.
+	// Experimental.
 	WriteCapacity *float64 `json:"writeCapacity"`
 	// Kinesis Data Stream to capture item-level changes for the table.
+	// Experimental.
 	KinesisStream awskinesis.IStream `json:"kinesisStream"`
 	// Enforces a particular physical table name.
+	// Experimental.
 	TableName *string `json:"tableName"`
 }
 
@@ -3287,6 +4180,7 @@ type TableProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type UtilizationScalingProps struct {
 	// Indicates whether scale in by the target tracking policy is disabled.
 	//
@@ -3294,14 +4188,19 @@ type UtilizationScalingProps struct {
 	// won't remove capacity from the scalable resource. Otherwise, scale in is
 	// enabled and the target tracking policy can remove capacity from the
 	// scalable resource.
+	// Experimental.
 	DisableScaleIn *bool `json:"disableScaleIn"`
 	// A name for the scaling policy.
+	// Experimental.
 	PolicyName *string `json:"policyName"`
 	// Period after a scale in activity completes before another scale in activity can start.
+	// Experimental.
 	ScaleInCooldown awscdk.Duration `json:"scaleInCooldown"`
 	// Period after a scale out activity completes before another scale out activity can start.
+	// Experimental.
 	ScaleOutCooldown awscdk.Duration `json:"scaleOutCooldown"`
 	// Target utilization percentage for the attribute.
+	// Experimental.
 	TargetUtilizationPercent *float64 `json:"targetUtilizationPercent"`
 }
 

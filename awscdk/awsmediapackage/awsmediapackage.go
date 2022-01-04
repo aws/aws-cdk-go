@@ -1,15 +1,19 @@
 package awsmediapackage
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsmediapackage/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsmediapackage/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::MediaPackage::Asset`.
+//
+// Creates an asset to ingest VOD content.
+//
+// After it's created, the asset starts ingesting content and generates playback URLs for the packaging configurations associated with it. When ingest is complete, downstream devices use the appropriate URL to request VOD content from AWS Elemental MediaPackage .
 //
 // TODO: EXAMPLE
 //
@@ -26,7 +30,7 @@ type CfnAsset interface {
 	Id() *string
 	SetId(val *string)
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PackagingGroupId() *string
 	SetPackagingGroupId(val *string)
 	Ref() *string
@@ -49,10 +53,16 @@ type CfnAsset interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -152,8 +162,8 @@ func (j *jsiiProxy_CfnAsset) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAsset) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnAsset) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -244,13 +254,13 @@ func (j *jsiiProxy_CfnAsset) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::MediaPackage::Asset`.
-func NewCfnAsset(scope constructs.Construct, id *string, props *CfnAssetProps) CfnAsset {
+func NewCfnAsset(scope awscdk.Construct, id *string, props *CfnAssetProps) CfnAsset {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnAsset{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_mediapackage.CfnAsset",
+		"monocdk.aws_mediapackage.CfnAsset",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -259,11 +269,11 @@ func NewCfnAsset(scope constructs.Construct, id *string, props *CfnAssetProps) C
 }
 
 // Create a new `AWS::MediaPackage::Asset`.
-func NewCfnAsset_Override(c CfnAsset, scope constructs.Construct, id *string, props *CfnAssetProps) {
+func NewCfnAsset_Override(c CfnAsset, scope awscdk.Construct, id *string, props *CfnAssetProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_mediapackage.CfnAsset",
+		"monocdk.aws_mediapackage.CfnAsset",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -315,13 +325,14 @@ func (j *jsiiProxy_CfnAsset) SetSourceRoleArn(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnAsset_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_mediapackage.CfnAsset",
+		"monocdk.aws_mediapackage.CfnAsset",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -331,13 +342,14 @@ func CfnAsset_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnAsset_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_mediapackage.CfnAsset",
+		"monocdk.aws_mediapackage.CfnAsset",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -346,17 +358,15 @@ func CfnAsset_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnAsset_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_mediapackage.CfnAsset",
+		"monocdk.aws_mediapackage.CfnAsset",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -369,7 +379,7 @@ func CfnAsset_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_mediapackage.CfnAsset",
+		"monocdk.aws_mediapackage.CfnAsset",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -377,6 +387,7 @@ func CfnAsset_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnAsset) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -389,6 +400,7 @@ func (c *jsiiProxy_CfnAsset) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnAsset) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -404,6 +416,7 @@ func (c *jsiiProxy_CfnAsset) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnAsset) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -449,6 +462,7 @@ func (c *jsiiProxy_CfnAsset) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnAsset) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -458,6 +472,7 @@ func (c *jsiiProxy_CfnAsset) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnAsset) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -469,6 +484,7 @@ func (c *jsiiProxy_CfnAsset) AddPropertyDeletionOverride(propertyPath *string) {
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnAsset) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -486,6 +502,7 @@ func (c *jsiiProxy_CfnAsset) AddPropertyOverride(propertyPath *string, value int
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnAsset) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -498,6 +515,7 @@ func (c *jsiiProxy_CfnAsset) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, opt
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnAsset) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -518,6 +536,7 @@ func (c *jsiiProxy_CfnAsset) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnAsset) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -540,12 +559,80 @@ func (c *jsiiProxy_CfnAsset) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnAsset) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnAsset) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnAsset) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnAsset) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnAsset) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -566,6 +653,7 @@ func (c *jsiiProxy_CfnAsset) RenderProperties(props *map[string]interface{}) *ma
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnAsset) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -579,9 +667,23 @@ func (c *jsiiProxy_CfnAsset) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnAsset) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnAsset) ToString() *string {
 	var returns *string
 
@@ -595,6 +697,27 @@ func (c *jsiiProxy_CfnAsset) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnAsset) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnAsset) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -603,35 +726,43 @@ func (c *jsiiProxy_CfnAsset) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// The playback endpoint for a packaging configuration on an asset.
+//
 // TODO: EXAMPLE
 //
 type CfnAsset_EgressEndpointProperty struct {
-	// `CfnAsset.EgressEndpointProperty.PackagingConfigurationId`.
+	// The ID of a packaging configuration that's applied to this asset.
 	PackagingConfigurationId *string `json:"packagingConfigurationId"`
-	// `CfnAsset.EgressEndpointProperty.Url`.
+	// The URL that's used to request content from this endpoint.
 	Url *string `json:"url"`
 }
 
-// Properties for defining a `AWS::MediaPackage::Asset`.
+// Properties for defining a `CfnAsset`.
 //
 // TODO: EXAMPLE
 //
 type CfnAssetProps struct {
-	// `AWS::MediaPackage::Asset.Id`.
+	// Unique identifier that you assign to the asset.
 	Id *string `json:"id"`
-	// `AWS::MediaPackage::Asset.PackagingGroupId`.
+	// The ID of the packaging group associated with this asset.
 	PackagingGroupId *string `json:"packagingGroupId"`
-	// `AWS::MediaPackage::Asset.ResourceId`.
-	ResourceId *string `json:"resourceId"`
-	// `AWS::MediaPackage::Asset.SourceArn`.
+	// The ARN for the source content in Amazon S3.
 	SourceArn *string `json:"sourceArn"`
-	// `AWS::MediaPackage::Asset.SourceRoleArn`.
+	// The ARN for the IAM role that provides AWS Elemental MediaPackage access to the Amazon S3 bucket where the source content is stored.
+	//
+	// Valid format: arn:aws:iam::{accountID}:role/{name}
 	SourceRoleArn *string `json:"sourceRoleArn"`
-	// `AWS::MediaPackage::Asset.Tags`.
+	// Unique identifier for this asset, as it's configured in the key provider service.
+	ResourceId *string `json:"resourceId"`
+	// The tags to assign to the asset.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::MediaPackage::Channel`.
+//
+// Creates a channel to receive content.
+//
+// After it's created, a channel provides static input URLs. These URLs remain the same throughout the lifetime of the channel, regardless of any failures or upgrades that might occur. Use these URLs to configure the outputs of your upstream encoder.
 //
 // TODO: EXAMPLE
 //
@@ -652,7 +783,7 @@ type CfnChannel interface {
 	IngressAccessLogs() interface{}
 	SetIngressAccessLogs(val interface{})
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	Tags() awscdk.TagManager
@@ -667,10 +798,16 @@ type CfnChannel interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -780,8 +917,8 @@ func (j *jsiiProxy_CfnChannel) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnChannel) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnChannel) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -832,13 +969,13 @@ func (j *jsiiProxy_CfnChannel) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::MediaPackage::Channel`.
-func NewCfnChannel(scope constructs.Construct, id *string, props *CfnChannelProps) CfnChannel {
+func NewCfnChannel(scope awscdk.Construct, id *string, props *CfnChannelProps) CfnChannel {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnChannel{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_mediapackage.CfnChannel",
+		"monocdk.aws_mediapackage.CfnChannel",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -847,11 +984,11 @@ func NewCfnChannel(scope constructs.Construct, id *string, props *CfnChannelProp
 }
 
 // Create a new `AWS::MediaPackage::Channel`.
-func NewCfnChannel_Override(c CfnChannel, scope constructs.Construct, id *string, props *CfnChannelProps) {
+func NewCfnChannel_Override(c CfnChannel, scope awscdk.Construct, id *string, props *CfnChannelProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_mediapackage.CfnChannel",
+		"monocdk.aws_mediapackage.CfnChannel",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -895,13 +1032,14 @@ func (j *jsiiProxy_CfnChannel) SetIngressAccessLogs(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnChannel_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_mediapackage.CfnChannel",
+		"monocdk.aws_mediapackage.CfnChannel",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -911,13 +1049,14 @@ func CfnChannel_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnChannel_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_mediapackage.CfnChannel",
+		"monocdk.aws_mediapackage.CfnChannel",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -926,17 +1065,15 @@ func CfnChannel_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnChannel_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_mediapackage.CfnChannel",
+		"monocdk.aws_mediapackage.CfnChannel",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -949,7 +1086,7 @@ func CfnChannel_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_mediapackage.CfnChannel",
+		"monocdk.aws_mediapackage.CfnChannel",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -957,6 +1094,7 @@ func CfnChannel_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnChannel) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -969,6 +1107,7 @@ func (c *jsiiProxy_CfnChannel) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnChannel) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -984,6 +1123,7 @@ func (c *jsiiProxy_CfnChannel) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnChannel) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1029,6 +1169,7 @@ func (c *jsiiProxy_CfnChannel) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnChannel) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1038,6 +1179,7 @@ func (c *jsiiProxy_CfnChannel) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnChannel) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1049,6 +1191,7 @@ func (c *jsiiProxy_CfnChannel) AddPropertyDeletionOverride(propertyPath *string)
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnChannel) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1066,6 +1209,7 @@ func (c *jsiiProxy_CfnChannel) AddPropertyOverride(propertyPath *string, value i
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnChannel) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1078,6 +1222,7 @@ func (c *jsiiProxy_CfnChannel) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, o
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnChannel) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1098,6 +1243,7 @@ func (c *jsiiProxy_CfnChannel) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnChannel) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1120,12 +1266,80 @@ func (c *jsiiProxy_CfnChannel) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnChannel) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnChannel) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnChannel) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnChannel) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnChannel) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1146,6 +1360,7 @@ func (c *jsiiProxy_CfnChannel) RenderProperties(props *map[string]interface{}) *
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnChannel) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1159,9 +1374,23 @@ func (c *jsiiProxy_CfnChannel) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnChannel) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnChannel) ToString() *string {
 	var returns *string
 
@@ -1175,6 +1404,27 @@ func (c *jsiiProxy_CfnChannel) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnChannel) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnChannel) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1183,31 +1433,39 @@ func (c *jsiiProxy_CfnChannel) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// The access log configuration parameters for your channel.
+//
 // TODO: EXAMPLE
 //
 type CfnChannel_LogConfigurationProperty struct {
-	// `CfnChannel.LogConfigurationProperty.LogGroupName`.
+	// Sets a custom Amazon CloudWatch log group name.
 	LogGroupName *string `json:"logGroupName"`
 }
 
-// Properties for defining a `AWS::MediaPackage::Channel`.
+// Properties for defining a `CfnChannel`.
 //
 // TODO: EXAMPLE
 //
 type CfnChannelProps struct {
-	// `AWS::MediaPackage::Channel.Description`.
-	Description *string `json:"description"`
-	// `AWS::MediaPackage::Channel.EgressAccessLogs`.
-	EgressAccessLogs interface{} `json:"egressAccessLogs"`
-	// `AWS::MediaPackage::Channel.Id`.
+	// Unique identifier that you assign to the channel.
 	Id *string `json:"id"`
-	// `AWS::MediaPackage::Channel.IngressAccessLogs`.
+	// Any descriptive information that you want to add to the channel for future identification purposes.
+	Description *string `json:"description"`
+	// Configures egress access logs.
+	EgressAccessLogs interface{} `json:"egressAccessLogs"`
+	// Configures ingress access logs.
 	IngressAccessLogs interface{} `json:"ingressAccessLogs"`
-	// `AWS::MediaPackage::Channel.Tags`.
+	// The tags to assign to the channel.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::MediaPackage::OriginEndpoint`.
+//
+// Create an endpoint on an AWS Elemental MediaPackage channel.
+//
+// An endpoint represents a single delivery point of a channel, and defines content output handling through various components, such as packaging protocols, DRM and encryption integration, and more.
+//
+// After it's created, an endpoint provides a fixed public URL. This URL remains the same throughout the lifetime of the endpoint, regardless of any failures or upgrades that might occur. Integrate the URL with a downstream CDN (such as Amazon CloudFront) or playback device.
 //
 // TODO: EXAMPLE
 //
@@ -1239,7 +1497,7 @@ type CfnOriginEndpoint interface {
 	SetManifestName(val *string)
 	MssPackage() interface{}
 	SetMssPackage(val interface{})
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Origination() *string
 	SetOrigination(val *string)
 	Ref() *string
@@ -1262,10 +1520,16 @@ type CfnOriginEndpoint interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1435,8 +1699,8 @@ func (j *jsiiProxy_CfnOriginEndpoint) MssPackage() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnOriginEndpoint) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnOriginEndpoint) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1527,13 +1791,13 @@ func (j *jsiiProxy_CfnOriginEndpoint) Whitelist() *[]*string {
 
 
 // Create a new `AWS::MediaPackage::OriginEndpoint`.
-func NewCfnOriginEndpoint(scope constructs.Construct, id *string, props *CfnOriginEndpointProps) CfnOriginEndpoint {
+func NewCfnOriginEndpoint(scope awscdk.Construct, id *string, props *CfnOriginEndpointProps) CfnOriginEndpoint {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnOriginEndpoint{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_mediapackage.CfnOriginEndpoint",
+		"monocdk.aws_mediapackage.CfnOriginEndpoint",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1542,11 +1806,11 @@ func NewCfnOriginEndpoint(scope constructs.Construct, id *string, props *CfnOrig
 }
 
 // Create a new `AWS::MediaPackage::OriginEndpoint`.
-func NewCfnOriginEndpoint_Override(c CfnOriginEndpoint, scope constructs.Construct, id *string, props *CfnOriginEndpointProps) {
+func NewCfnOriginEndpoint_Override(c CfnOriginEndpoint, scope awscdk.Construct, id *string, props *CfnOriginEndpointProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_mediapackage.CfnOriginEndpoint",
+		"monocdk.aws_mediapackage.CfnOriginEndpoint",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1662,13 +1926,14 @@ func (j *jsiiProxy_CfnOriginEndpoint) SetWhitelist(val *[]*string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnOriginEndpoint_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_mediapackage.CfnOriginEndpoint",
+		"monocdk.aws_mediapackage.CfnOriginEndpoint",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1678,13 +1943,14 @@ func CfnOriginEndpoint_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnOriginEndpoint_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_mediapackage.CfnOriginEndpoint",
+		"monocdk.aws_mediapackage.CfnOriginEndpoint",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1693,17 +1959,15 @@ func CfnOriginEndpoint_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnOriginEndpoint_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_mediapackage.CfnOriginEndpoint",
+		"monocdk.aws_mediapackage.CfnOriginEndpoint",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1716,7 +1980,7 @@ func CfnOriginEndpoint_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_mediapackage.CfnOriginEndpoint",
+		"monocdk.aws_mediapackage.CfnOriginEndpoint",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1724,6 +1988,7 @@ func CfnOriginEndpoint_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnOriginEndpoint) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1736,6 +2001,7 @@ func (c *jsiiProxy_CfnOriginEndpoint) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnOriginEndpoint) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1751,6 +2017,7 @@ func (c *jsiiProxy_CfnOriginEndpoint) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnOriginEndpoint) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1796,6 +2063,7 @@ func (c *jsiiProxy_CfnOriginEndpoint) AddMetadata(key *string, value interface{}
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnOriginEndpoint) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1805,6 +2073,7 @@ func (c *jsiiProxy_CfnOriginEndpoint) AddOverride(path *string, value interface{
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnOriginEndpoint) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1816,6 +2085,7 @@ func (c *jsiiProxy_CfnOriginEndpoint) AddPropertyDeletionOverride(propertyPath *
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnOriginEndpoint) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1833,6 +2103,7 @@ func (c *jsiiProxy_CfnOriginEndpoint) AddPropertyOverride(propertyPath *string, 
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnOriginEndpoint) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1845,6 +2116,7 @@ func (c *jsiiProxy_CfnOriginEndpoint) ApplyRemovalPolicy(policy awscdk.RemovalPo
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnOriginEndpoint) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1865,6 +2137,7 @@ func (c *jsiiProxy_CfnOriginEndpoint) GetAtt(attributeName *string) awscdk.Refer
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnOriginEndpoint) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1887,12 +2160,80 @@ func (c *jsiiProxy_CfnOriginEndpoint) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnOriginEndpoint) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnOriginEndpoint) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnOriginEndpoint) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnOriginEndpoint) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnOriginEndpoint) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1913,6 +2254,7 @@ func (c *jsiiProxy_CfnOriginEndpoint) RenderProperties(props *map[string]interfa
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnOriginEndpoint) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1926,9 +2268,23 @@ func (c *jsiiProxy_CfnOriginEndpoint) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnOriginEndpoint) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnOriginEndpoint) ToString() *string {
 	var returns *string
 
@@ -1942,6 +2298,27 @@ func (c *jsiiProxy_CfnOriginEndpoint) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnOriginEndpoint) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnOriginEndpoint) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1950,234 +2327,403 @@ func (c *jsiiProxy_CfnOriginEndpoint) ValidateProperties(_properties interface{}
 	)
 }
 
+// Parameters for enabling CDN authorization on the endpoint.
+//
 // TODO: EXAMPLE
 //
 type CfnOriginEndpoint_AuthorizationProperty struct {
-	// `CfnOriginEndpoint.AuthorizationProperty.CdnIdentifierSecret`.
+	// The Amazon Resource Name (ARN) for the secret in AWS Secrets Manager that your Content Distribution Network (CDN) uses for authorization to access your endpoint.
 	CdnIdentifierSecret *string `json:"cdnIdentifierSecret"`
-	// `CfnOriginEndpoint.AuthorizationProperty.SecretsRoleArn`.
+	// The Amazon Resource Name (ARN) for the IAM role that allows MediaPackage to communicate with AWS Secrets Manager .
 	SecretsRoleArn *string `json:"secretsRoleArn"`
 }
 
+// Holds encryption information so that access to the content can be controlled by a DRM solution.
+//
 // TODO: EXAMPLE
 //
 type CfnOriginEndpoint_CmafEncryptionProperty struct {
-	// `CfnOriginEndpoint.CmafEncryptionProperty.ConstantInitializationVector`.
-	ConstantInitializationVector *string `json:"constantInitializationVector"`
-	// `CfnOriginEndpoint.CmafEncryptionProperty.KeyRotationIntervalSeconds`.
-	KeyRotationIntervalSeconds *float64 `json:"keyRotationIntervalSeconds"`
-	// `CfnOriginEndpoint.CmafEncryptionProperty.SpekeKeyProvider`.
+	// Parameters for the SPEKE key provider.
 	SpekeKeyProvider interface{} `json:"spekeKeyProvider"`
+	// An optional 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting blocks.
+	//
+	// If you don't specify a value, then MediaPackage creates the constant initialization vector (IV).
+	ConstantInitializationVector *string `json:"constantInitializationVector"`
+	// Number of seconds before AWS Elemental MediaPackage rotates to a new key.
+	//
+	// By default, rotation is set to 60 seconds. Set to `0` to disable key rotation.
+	KeyRotationIntervalSeconds *float64 `json:"keyRotationIntervalSeconds"`
 }
 
+// Parameters for Common Media Application Format (CMAF) packaging.
+//
 // TODO: EXAMPLE
 //
 type CfnOriginEndpoint_CmafPackageProperty struct {
-	// `CfnOriginEndpoint.CmafPackageProperty.Encryption`.
+	// Parameters for encrypting content.
 	Encryption interface{} `json:"encryption"`
-	// `CfnOriginEndpoint.CmafPackageProperty.HlsManifests`.
+	// A list of HLS manifest configurations that are available from this endpoint.
 	HlsManifests interface{} `json:"hlsManifests"`
-	// `CfnOriginEndpoint.CmafPackageProperty.SegmentDurationSeconds`.
+	// Duration (in seconds) of each segment.
+	//
+	// Actual segments are rounded to the nearest multiple of the source segment duration.
 	SegmentDurationSeconds *float64 `json:"segmentDurationSeconds"`
-	// `CfnOriginEndpoint.CmafPackageProperty.SegmentPrefix`.
+	// An optional custom string that is prepended to the name of each segment.
+	//
+	// If not specified, the segment prefix defaults to the ChannelId.
 	SegmentPrefix *string `json:"segmentPrefix"`
-	// `CfnOriginEndpoint.CmafPackageProperty.StreamSelection`.
+	// Limitations for outputs from the endpoint, based on the video bitrate.
 	StreamSelection interface{} `json:"streamSelection"`
 }
 
+// Holds encryption information so that access to the content can be controlled by a DRM solution.
+//
 // TODO: EXAMPLE
 //
 type CfnOriginEndpoint_DashEncryptionProperty struct {
-	// `CfnOriginEndpoint.DashEncryptionProperty.KeyRotationIntervalSeconds`.
-	KeyRotationIntervalSeconds *float64 `json:"keyRotationIntervalSeconds"`
-	// `CfnOriginEndpoint.DashEncryptionProperty.SpekeKeyProvider`.
+	// Parameters for the SPEKE key provider.
 	SpekeKeyProvider interface{} `json:"spekeKeyProvider"`
+	// Number of seconds before AWS Elemental MediaPackage rotates to a new key.
+	//
+	// By default, rotation is set to 60 seconds. Set to `0` to disable key rotation.
+	KeyRotationIntervalSeconds *float64 `json:"keyRotationIntervalSeconds"`
 }
 
+// Parameters for DASH packaging.
+//
 // TODO: EXAMPLE
 //
 type CfnOriginEndpoint_DashPackageProperty struct {
-	// `CfnOriginEndpoint.DashPackageProperty.AdsOnDeliveryRestrictions`.
+	// The flags on SCTE-35 segmentation descriptors that have to be present for MediaPackage to insert ad markers in the output manifest.
+	//
+	// For information about SCTE-35 in MediaPackage, see [SCTE-35 Message Options in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/scte.html) .
 	AdsOnDeliveryRestrictions *string `json:"adsOnDeliveryRestrictions"`
-	// `CfnOriginEndpoint.DashPackageProperty.AdTriggers`.
+	// Specifies the SCTE-35 message types that MediaPackage treats as ad markers in the output manifest.
+	//
+	// Valid values:
+	//
+	// - `BREAK`
+	// - `DISTRIBUTOR_ADVERTISEMENT`
+	// - `DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY` .
+	// - `DISTRIBUTOR_PLACEMENT_OPPORTUNITY` .
+	// - `PROVIDER_ADVERTISEMENT` .
+	// - `PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY` .
+	// - `PROVIDER_PLACEMENT_OPPORTUNITY` .
+	// - `SPLICE_INSERT` .
 	AdTriggers *[]*string `json:"adTriggers"`
-	// `CfnOriginEndpoint.DashPackageProperty.Encryption`.
+	// Parameters for encrypting content.
 	Encryption interface{} `json:"encryption"`
-	// `CfnOriginEndpoint.DashPackageProperty.ManifestLayout`.
+	// Determines the position of some tags in the manifest.
+	//
+	// Options:
+	//
+	// - `FULL` - elements like `SegmentTemplate` and `ContentProtection` are included in each `Representation` .
+	// - `COMPACT` - duplicate elements are combined and presented at the `AdaptationSet` level.
 	ManifestLayout *string `json:"manifestLayout"`
-	// `CfnOriginEndpoint.DashPackageProperty.ManifestWindowSeconds`.
+	// Time window (in seconds) contained in each manifest.
 	ManifestWindowSeconds *float64 `json:"manifestWindowSeconds"`
-	// `CfnOriginEndpoint.DashPackageProperty.MinBufferTimeSeconds`.
+	// Minimum amount of content (measured in seconds) that a player must keep available in the buffer.
 	MinBufferTimeSeconds *float64 `json:"minBufferTimeSeconds"`
-	// `CfnOriginEndpoint.DashPackageProperty.MinUpdatePeriodSeconds`.
+	// Minimum amount of time (in seconds) that the player should wait before requesting updates to the manifest.
 	MinUpdatePeriodSeconds *float64 `json:"minUpdatePeriodSeconds"`
-	// `CfnOriginEndpoint.DashPackageProperty.PeriodTriggers`.
+	// Controls whether MediaPackage produces single-period or multi-period DASH manifests.
+	//
+	// For more information about periods, see [Multi-period DASH in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/multi-period.html) .
+	//
+	// Valid values:
+	//
+	// - `ADS` - MediaPackage will produce multi-period DASH manifests. Periods are created based on the SCTE-35 ad markers present in the input manifest.
+	// - *No value* - MediaPackage will produce single-period DASH manifests. This is the default setting.
 	PeriodTriggers *[]*string `json:"periodTriggers"`
-	// `CfnOriginEndpoint.DashPackageProperty.Profile`.
+	// DASH profile for the output, such as HbbTV.
+	//
+	// Valid values:
+	//
+	// - `NONE` - the output doesn't use a DASH profile.
+	// - `HBBTV_1_5` - the output is HbbTV-compliant.
 	Profile *string `json:"profile"`
-	// `CfnOriginEndpoint.DashPackageProperty.SegmentDurationSeconds`.
+	// Duration (in seconds) of each fragment.
+	//
+	// Actual fragments are rounded to the nearest multiple of the source fragment duration.
 	SegmentDurationSeconds *float64 `json:"segmentDurationSeconds"`
-	// `CfnOriginEndpoint.DashPackageProperty.SegmentTemplateFormat`.
+	// Determines the type of variable used in the `media` URL of the `SegmentTemplate` tag in the manifest.
+	//
+	// Also specifies if segment timeline information is included in `SegmentTimeline` or `SegmentTemplate` .
+	//
+	// - `NUMBER_WITH_TIMELINE` - The `$Number$` variable is used in the `media` URL. The value of this variable is the sequential number of the segment. A full `SegmentTimeline` object is presented in each `SegmentTemplate` .
+	// - `NUMBER_WITH_DURATION` - The `$Number$` variable is used in the `media` URL and a `duration` attribute is added to the segment template. The `SegmentTimeline` object is removed from the representation.
+	// - `TIME_WITH_TIMELINE` - The `$Time$` variable is used in the `media` URL. The value of this variable is the timestamp of when the segment starts. A full `SegmentTimeline` object is presented in each `SegmentTemplate` .
 	SegmentTemplateFormat *string `json:"segmentTemplateFormat"`
-	// `CfnOriginEndpoint.DashPackageProperty.StreamSelection`.
+	// Limitations for outputs from the endpoint, based on the video bitrate.
 	StreamSelection interface{} `json:"streamSelection"`
-	// `CfnOriginEndpoint.DashPackageProperty.SuggestedPresentationDelaySeconds`.
+	// Amount of time (in seconds) that the player should be from the live point at the end of the manifest.
 	SuggestedPresentationDelaySeconds *float64 `json:"suggestedPresentationDelaySeconds"`
-	// `CfnOriginEndpoint.DashPackageProperty.UtcTiming`.
+	// Determines the type of UTC timing included in the DASH Media Presentation Description (MPD).
 	UtcTiming *string `json:"utcTiming"`
-	// `CfnOriginEndpoint.DashPackageProperty.UtcTimingUri`.
+	// Specifies the value attribute of the UTC timing field when utcTiming is set to HTTP-ISO or HTTP-HEAD.
 	UtcTimingUri *string `json:"utcTimingUri"`
 }
 
+// Holds encryption information so that access to the content can be controlled by a DRM solution.
+//
 // TODO: EXAMPLE
 //
 type CfnOriginEndpoint_HlsEncryptionProperty struct {
-	// `CfnOriginEndpoint.HlsEncryptionProperty.ConstantInitializationVector`.
-	ConstantInitializationVector *string `json:"constantInitializationVector"`
-	// `CfnOriginEndpoint.HlsEncryptionProperty.EncryptionMethod`.
-	EncryptionMethod *string `json:"encryptionMethod"`
-	// `CfnOriginEndpoint.HlsEncryptionProperty.KeyRotationIntervalSeconds`.
-	KeyRotationIntervalSeconds *float64 `json:"keyRotationIntervalSeconds"`
-	// `CfnOriginEndpoint.HlsEncryptionProperty.RepeatExtXKey`.
-	RepeatExtXKey interface{} `json:"repeatExtXKey"`
-	// `CfnOriginEndpoint.HlsEncryptionProperty.SpekeKeyProvider`.
+	// Parameters for the SPEKE key provider.
 	SpekeKeyProvider interface{} `json:"spekeKeyProvider"`
+	// A 128-bit, 16-byte hex value represented by a 32-character string, used with the key for encrypting blocks.
+	ConstantInitializationVector *string `json:"constantInitializationVector"`
+	// HLS encryption type.
+	EncryptionMethod *string `json:"encryptionMethod"`
+	// Number of seconds before AWS Elemental MediaPackage rotates to a new key.
+	//
+	// By default, rotation is set to 60 seconds. Set to `0` to disable key rotation.
+	KeyRotationIntervalSeconds *float64 `json:"keyRotationIntervalSeconds"`
+	// Repeat the `EXT-X-KEY` directive for every media segment.
+	//
+	// This might result in an increase in client requests to the DRM server.
+	RepeatExtXKey interface{} `json:"repeatExtXKey"`
 }
 
+// An HTTP Live Streaming (HLS) manifest configuration on a CMAF endpoint.
+//
 // TODO: EXAMPLE
 //
 type CfnOriginEndpoint_HlsManifestProperty struct {
-	// `CfnOriginEndpoint.HlsManifestProperty.AdMarkers`.
-	AdMarkers *string `json:"adMarkers"`
-	// `CfnOriginEndpoint.HlsManifestProperty.AdsOnDeliveryRestrictions`.
-	AdsOnDeliveryRestrictions *string `json:"adsOnDeliveryRestrictions"`
-	// `CfnOriginEndpoint.HlsManifestProperty.AdTriggers`.
-	AdTriggers *[]*string `json:"adTriggers"`
-	// `CfnOriginEndpoint.HlsManifestProperty.Id`.
+	// The manifest ID is required and must be unique within the OriginEndpoint.
+	//
+	// The ID can't be changed after the endpoint is created.
 	Id *string `json:"id"`
-	// `CfnOriginEndpoint.HlsManifestProperty.IncludeIframeOnlyStream`.
+	// Controls how ad markers are included in the packaged endpoint.
+	//
+	// Valid values are `none` , `passthrough` , or `scte35_enhanced` .
+	//
+	// - `NONE` - omits all SCTE-35 ad markers from the output.
+	// - `PASSTHROUGH` - creates a copy in the output of the SCTE-35 ad markers (comments) taken directly from the input manifest.
+	// - `SCTE35_ENHANCED` - generates ad markers and blackout tags in the output based on the SCTE-35 messages from the input manifest.
+	AdMarkers *string `json:"adMarkers"`
+	// The flags on SCTE-35 segmentation descriptors that have to be present for MediaPackage to insert ad markers in the output manifest.
+	//
+	// For information about SCTE-35 in MediaPackage, see [SCTE-35 Message Options in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/scte.html) .
+	AdsOnDeliveryRestrictions *string `json:"adsOnDeliveryRestrictions"`
+	// Specifies the SCTE-35 message types that MediaPackage treats as ad markers in the output manifest.
+	//
+	// Valid values:
+	//
+	// - `BREAK`
+	// - `DISTRIBUTOR_ADVERTISEMENT`
+	// - `DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY`
+	// - `DISTRIBUTOR_PLACEMENT_OPPORTUNITY`
+	// - `PROVIDER_ADVERTISEMENT`
+	// - `PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY`
+	// - `PROVIDER_PLACEMENT_OPPORTUNITY`
+	// - `SPLICE_INSERT`
+	AdTriggers *[]*string `json:"adTriggers"`
+	// Applies to stream sets with a single video track only.
+	//
+	// When true, the stream set includes an additional I-frame only stream, along with the other tracks. If false, this extra stream is not included.
 	IncludeIframeOnlyStream interface{} `json:"includeIframeOnlyStream"`
-	// `CfnOriginEndpoint.HlsManifestProperty.ManifestName`.
+	// A short string that's appended to the end of the endpoint URL to create a unique path to this endpoint.
+	//
+	// The manifestName on the HLSManifest object overrides the manifestName that you provided on the originEndpoint object.
 	ManifestName *string `json:"manifestName"`
-	// `CfnOriginEndpoint.HlsManifestProperty.PlaylistType`.
+	// When specified as either `event` or `vod` , a corresponding `EXT-X-PLAYLIST-TYPE` entry is included in the media playlist.
+	//
+	// Indicates if the playlist is live-to-VOD content.
 	PlaylistType *string `json:"playlistType"`
-	// `CfnOriginEndpoint.HlsManifestProperty.PlaylistWindowSeconds`.
+	// Time window (in seconds) contained in each parent manifest.
 	PlaylistWindowSeconds *float64 `json:"playlistWindowSeconds"`
-	// `CfnOriginEndpoint.HlsManifestProperty.ProgramDateTimeIntervalSeconds`.
+	// Inserts `EXT-X-PROGRAM-DATE-TIME` tags in the output manifest at the interval that you specify.
+	//
+	// Additionally, ID3Timed metadata messages are generated every 5 seconds starting when the content was ingested.
+	//
+	// Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.
+	//
+	// Omit this attribute or enter `0` to indicate that the `EXT-X-PROGRAM-DATE-TIME` tags are not included in the manifest.
 	ProgramDateTimeIntervalSeconds *float64 `json:"programDateTimeIntervalSeconds"`
-	// `CfnOriginEndpoint.HlsManifestProperty.Url`.
+	// The URL that's used to request this manifest from this endpoint.
 	Url *string `json:"url"`
 }
 
+// Parameters for Apple HLS packaging.
+//
 // TODO: EXAMPLE
 //
 type CfnOriginEndpoint_HlsPackageProperty struct {
-	// `CfnOriginEndpoint.HlsPackageProperty.AdMarkers`.
+	// Controls how ad markers are included in the packaged endpoint.
+	//
+	// Valid values are `none` , `passthrough` , or `scte35_enhanced` .
+	//
+	// - `NONE` - omits all SCTE-35 ad markers from the output.
+	// - `PASSTHROUGH` - creates a copy in the output of the SCTE-35 ad markers (comments) taken directly from the input manifest.
+	// - `SCTE35_ENHANCED` - generates ad markers and blackout tags in the output based on the SCTE-35 messages from the input manifest.
 	AdMarkers *string `json:"adMarkers"`
-	// `CfnOriginEndpoint.HlsPackageProperty.AdsOnDeliveryRestrictions`.
+	// The flags on SCTE-35 segmentation descriptors that have to be present for MediaPackage to insert ad markers in the output manifest.
+	//
+	// For information about SCTE-35 in MediaPackage, see [SCTE-35 Message Options in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/scte.html) .
 	AdsOnDeliveryRestrictions *string `json:"adsOnDeliveryRestrictions"`
-	// `CfnOriginEndpoint.HlsPackageProperty.AdTriggers`.
+	// Specifies the SCTE-35 message types that MediaPackage treats as ad markers in the output manifest.
+	//
+	// Valid values:
+	//
+	// - `BREAK`
+	// - `DISTRIBUTOR_ADVERTISEMENT`
+	// - `DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY`
+	// - `DISTRIBUTOR_PLACEMENT_OPPORTUNITY`
+	// - `PROVIDER_ADVERTISEMENT`
+	// - `PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY`
+	// - `PROVIDER_PLACEMENT_OPPORTUNITY`
+	// - `SPLICE_INSERT`
 	AdTriggers *[]*string `json:"adTriggers"`
-	// `CfnOriginEndpoint.HlsPackageProperty.Encryption`.
+	// Parameters for encrypting content.
 	Encryption interface{} `json:"encryption"`
-	// `CfnOriginEndpoint.HlsPackageProperty.IncludeIframeOnlyStream`.
+	// Only applies to stream sets with a single video track.
+	//
+	// When true, the stream set includes an additional I-frame only stream, along with the other tracks. If false, this extra stream is not included.
 	IncludeIframeOnlyStream interface{} `json:"includeIframeOnlyStream"`
-	// `CfnOriginEndpoint.HlsPackageProperty.PlaylistType`.
+	// When specified as either `event` or `vod` , a corresponding `EXT-X-PLAYLIST-TYPE` entry is included in the media playlist.
+	//
+	// Indicates if the playlist is live-to-VOD content.
 	PlaylistType *string `json:"playlistType"`
-	// `CfnOriginEndpoint.HlsPackageProperty.PlaylistWindowSeconds`.
+	// Time window (in seconds) contained in each parent manifest.
 	PlaylistWindowSeconds *float64 `json:"playlistWindowSeconds"`
-	// `CfnOriginEndpoint.HlsPackageProperty.ProgramDateTimeIntervalSeconds`.
+	// Inserts `EXT-X-PROGRAM-DATE-TIME` tags in the output manifest at the interval that you specify.
+	//
+	// Additionally, ID3Timed metadata messages are generated every 5 seconds starting when the content was ingested.
+	//
+	// Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.
+	//
+	// Omit this attribute or enter `0` to indicate that the `EXT-X-PROGRAM-DATE-TIME` tags are not included in the manifest.
 	ProgramDateTimeIntervalSeconds *float64 `json:"programDateTimeIntervalSeconds"`
-	// `CfnOriginEndpoint.HlsPackageProperty.SegmentDurationSeconds`.
+	// Duration (in seconds) of each fragment.
+	//
+	// Actual fragments are rounded to the nearest multiple of the source fragment duration.
 	SegmentDurationSeconds *float64 `json:"segmentDurationSeconds"`
-	// `CfnOriginEndpoint.HlsPackageProperty.StreamSelection`.
+	// Limitations for outputs from the endpoint, based on the video bitrate.
 	StreamSelection interface{} `json:"streamSelection"`
-	// `CfnOriginEndpoint.HlsPackageProperty.UseAudioRenditionGroup`.
+	// When true, AWS Elemental MediaPackage bundles all audio tracks in a rendition group.
+	//
+	// All other tracks in the stream can be used with any audio rendition from the group.
 	UseAudioRenditionGroup interface{} `json:"useAudioRenditionGroup"`
 }
 
+// Holds encryption information so that access to the content can be controlled by a DRM solution.
+//
 // TODO: EXAMPLE
 //
 type CfnOriginEndpoint_MssEncryptionProperty struct {
-	// `CfnOriginEndpoint.MssEncryptionProperty.SpekeKeyProvider`.
+	// Parameters for the SPEKE key provider.
 	SpekeKeyProvider interface{} `json:"spekeKeyProvider"`
 }
 
+// Parameters for Microsoft Smooth Streaming packaging.
+//
 // TODO: EXAMPLE
 //
 type CfnOriginEndpoint_MssPackageProperty struct {
-	// `CfnOriginEndpoint.MssPackageProperty.Encryption`.
+	// Parameters for encrypting content.
 	Encryption interface{} `json:"encryption"`
-	// `CfnOriginEndpoint.MssPackageProperty.ManifestWindowSeconds`.
+	// Time window (in seconds) contained in each manifest.
 	ManifestWindowSeconds *float64 `json:"manifestWindowSeconds"`
-	// `CfnOriginEndpoint.MssPackageProperty.SegmentDurationSeconds`.
+	// Duration (in seconds) of each fragment.
+	//
+	// Actual fragments are rounded to the nearest multiple of the source fragment duration.
 	SegmentDurationSeconds *float64 `json:"segmentDurationSeconds"`
-	// `CfnOriginEndpoint.MssPackageProperty.StreamSelection`.
+	// Limitations for outputs from the endpoint, based on the video bitrate.
 	StreamSelection interface{} `json:"streamSelection"`
 }
 
+// Keyprovider settings for DRM.
+//
 // TODO: EXAMPLE
 //
 type CfnOriginEndpoint_SpekeKeyProviderProperty struct {
-	// `CfnOriginEndpoint.SpekeKeyProviderProperty.CertificateArn`.
-	CertificateArn *string `json:"certificateArn"`
-	// `CfnOriginEndpoint.SpekeKeyProviderProperty.ResourceId`.
+	// Unique identifier for this endpoint, as it is configured in the key provider service.
 	ResourceId *string `json:"resourceId"`
-	// `CfnOriginEndpoint.SpekeKeyProviderProperty.RoleArn`.
+	// The ARN for the IAM role that's granted by the key provider to provide access to the key provider API.
+	//
+	// This role must have a trust policy that allows AWS Elemental MediaPackage to assume the role, and it must have a sufficient permissions policy to allow access to the specific key retrieval URL. Valid format: arn:aws:iam::{accountID}:role/{name}
 	RoleArn *string `json:"roleArn"`
-	// `CfnOriginEndpoint.SpekeKeyProviderProperty.SystemIds`.
+	// List of unique identifiers for the DRM systems to use, as defined in the CPIX specification.
 	SystemIds *[]*string `json:"systemIds"`
-	// `CfnOriginEndpoint.SpekeKeyProviderProperty.Url`.
+	// URL for the key provider’s key retrieval API endpoint.
+	//
+	// Must start with https://.
 	Url *string `json:"url"`
+	// The Amazon Resource Name (ARN) for the certificate that you imported to AWS Certificate Manager to add content key encryption to this endpoint.
+	//
+	// For this feature to work, your DRM key provider must support content key encryption.
+	CertificateArn *string `json:"certificateArn"`
 }
 
+// Limitations for outputs from the endpoint, based on the video bitrate.
+//
 // TODO: EXAMPLE
 //
 type CfnOriginEndpoint_StreamSelectionProperty struct {
-	// `CfnOriginEndpoint.StreamSelectionProperty.MaxVideoBitsPerSecond`.
+	// The upper limit of the bitrates that this endpoint serves.
+	//
+	// If the video track exceeds this threshold, then AWS Elemental MediaPackage excludes it from output. If you don't specify a value, it defaults to 2147483647 bits per second.
 	MaxVideoBitsPerSecond *float64 `json:"maxVideoBitsPerSecond"`
-	// `CfnOriginEndpoint.StreamSelectionProperty.MinVideoBitsPerSecond`.
+	// The lower limit of the bitrates that this endpoint serves.
+	//
+	// If the video track is below this threshold, then AWS Elemental MediaPackage excludes it from output. If you don't specify a value, it defaults to 0 bits per second.
 	MinVideoBitsPerSecond *float64 `json:"minVideoBitsPerSecond"`
-	// `CfnOriginEndpoint.StreamSelectionProperty.StreamOrder`.
+	// Order in which the different video bitrates are presented to the player.
+	//
+	// Valid values: `ORIGINAL` , `VIDEO_BITRATE_ASCENDING` , `VIDEO_BITRATE_DESCENDING` .
 	StreamOrder *string `json:"streamOrder"`
 }
 
-// Properties for defining a `AWS::MediaPackage::OriginEndpoint`.
+// Properties for defining a `CfnOriginEndpoint`.
 //
 // TODO: EXAMPLE
 //
 type CfnOriginEndpointProps struct {
-	// `AWS::MediaPackage::OriginEndpoint.Authorization`.
-	Authorization interface{} `json:"authorization"`
-	// `AWS::MediaPackage::OriginEndpoint.ChannelId`.
+	// The ID of the channel associated with this endpoint.
 	ChannelId *string `json:"channelId"`
-	// `AWS::MediaPackage::OriginEndpoint.CmafPackage`.
-	CmafPackage interface{} `json:"cmafPackage"`
-	// `AWS::MediaPackage::OriginEndpoint.DashPackage`.
-	DashPackage interface{} `json:"dashPackage"`
-	// `AWS::MediaPackage::OriginEndpoint.Description`.
-	Description *string `json:"description"`
-	// `AWS::MediaPackage::OriginEndpoint.HlsPackage`.
-	HlsPackage interface{} `json:"hlsPackage"`
-	// `AWS::MediaPackage::OriginEndpoint.Id`.
+	// The manifest ID is required and must be unique within the OriginEndpoint.
+	//
+	// The ID can't be changed after the endpoint is created.
 	Id *string `json:"id"`
-	// `AWS::MediaPackage::OriginEndpoint.ManifestName`.
+	// Parameters for CDN authorization.
+	Authorization interface{} `json:"authorization"`
+	// Parameters for Common Media Application Format (CMAF) packaging.
+	CmafPackage interface{} `json:"cmafPackage"`
+	// Parameters for DASH packaging.
+	DashPackage interface{} `json:"dashPackage"`
+	// Any descriptive information that you want to add to the endpoint for future identification purposes.
+	Description *string `json:"description"`
+	// Parameters for Apple HLS packaging.
+	HlsPackage interface{} `json:"hlsPackage"`
+	// A short string that's appended to the end of the endpoint URL to create a unique path to this endpoint.
 	ManifestName *string `json:"manifestName"`
-	// `AWS::MediaPackage::OriginEndpoint.MssPackage`.
+	// Parameters for Microsoft Smooth Streaming packaging.
 	MssPackage interface{} `json:"mssPackage"`
-	// `AWS::MediaPackage::OriginEndpoint.Origination`.
+	// Controls video origination from this endpoint.
+	//
+	// - `ALLOW` - enables this endpoint to serve content to requesting devices.
+	// - `DENY` - prevents this endpoint from serving content. Denying origination is helpful for harvesting live-to-VOD assets. For more information about harvesting and origination, see [Live-to-VOD Requirements](https://docs.aws.amazon.com/mediapackage/latest/ug/ltov-reqmts.html) .
 	Origination *string `json:"origination"`
-	// `AWS::MediaPackage::OriginEndpoint.StartoverWindowSeconds`.
+	// Maximum duration (seconds) of content to retain for startover playback.
+	//
+	// Omit this attribute or enter `0` to indicate that startover playback is disabled for this endpoint.
 	StartoverWindowSeconds *float64 `json:"startoverWindowSeconds"`
-	// `AWS::MediaPackage::OriginEndpoint.Tags`.
+	// The tags to assign to the endpoint.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
-	// `AWS::MediaPackage::OriginEndpoint.TimeDelaySeconds`.
+	// Minimum duration (seconds) of delay to enforce on the playback of live content.
+	//
+	// Omit this attribute or enter `0` to indicate that there is no time delay in effect for this endpoint
 	TimeDelaySeconds *float64 `json:"timeDelaySeconds"`
-	// `AWS::MediaPackage::OriginEndpoint.Whitelist`.
+	// The IP addresses that can access this endpoint.
 	Whitelist *[]*string `json:"whitelist"`
 }
 
 // A CloudFormation `AWS::MediaPackage::PackagingConfiguration`.
+//
+// Creates a packaging configuration in a packaging group.
+//
+// The packaging configuration represents a single delivery point for an asset. It determines the format and setting for the egressing content. Specify only one package format per configuration, such as `HlsPackage` .
 //
 // TODO: EXAMPLE
 //
@@ -2200,7 +2746,7 @@ type CfnPackagingConfiguration interface {
 	LogicalId() *string
 	MssPackage() interface{}
 	SetMssPackage(val interface{})
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PackagingGroupId() *string
 	SetPackagingGroupId(val *string)
 	Ref() *string
@@ -2217,10 +2763,16 @@ type CfnPackagingConfiguration interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -2340,8 +2892,8 @@ func (j *jsiiProxy_CfnPackagingConfiguration) MssPackage() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPackagingConfiguration) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnPackagingConfiguration) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2402,13 +2954,13 @@ func (j *jsiiProxy_CfnPackagingConfiguration) UpdatedProperites() *map[string]in
 
 
 // Create a new `AWS::MediaPackage::PackagingConfiguration`.
-func NewCfnPackagingConfiguration(scope constructs.Construct, id *string, props *CfnPackagingConfigurationProps) CfnPackagingConfiguration {
+func NewCfnPackagingConfiguration(scope awscdk.Construct, id *string, props *CfnPackagingConfigurationProps) CfnPackagingConfiguration {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnPackagingConfiguration{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_mediapackage.CfnPackagingConfiguration",
+		"monocdk.aws_mediapackage.CfnPackagingConfiguration",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2417,11 +2969,11 @@ func NewCfnPackagingConfiguration(scope constructs.Construct, id *string, props 
 }
 
 // Create a new `AWS::MediaPackage::PackagingConfiguration`.
-func NewCfnPackagingConfiguration_Override(c CfnPackagingConfiguration, scope constructs.Construct, id *string, props *CfnPackagingConfigurationProps) {
+func NewCfnPackagingConfiguration_Override(c CfnPackagingConfiguration, scope awscdk.Construct, id *string, props *CfnPackagingConfigurationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_mediapackage.CfnPackagingConfiguration",
+		"monocdk.aws_mediapackage.CfnPackagingConfiguration",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2481,13 +3033,14 @@ func (j *jsiiProxy_CfnPackagingConfiguration) SetPackagingGroupId(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnPackagingConfiguration_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_mediapackage.CfnPackagingConfiguration",
+		"monocdk.aws_mediapackage.CfnPackagingConfiguration",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2497,13 +3050,14 @@ func CfnPackagingConfiguration_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnPackagingConfiguration_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_mediapackage.CfnPackagingConfiguration",
+		"monocdk.aws_mediapackage.CfnPackagingConfiguration",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2512,17 +3066,15 @@ func CfnPackagingConfiguration_IsCfnResource(construct constructs.IConstruct) *b
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnPackagingConfiguration_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_mediapackage.CfnPackagingConfiguration",
+		"monocdk.aws_mediapackage.CfnPackagingConfiguration",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2535,7 +3087,7 @@ func CfnPackagingConfiguration_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_mediapackage.CfnPackagingConfiguration",
+		"monocdk.aws_mediapackage.CfnPackagingConfiguration",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2543,6 +3095,7 @@ func CfnPackagingConfiguration_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnPackagingConfiguration) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2555,6 +3108,7 @@ func (c *jsiiProxy_CfnPackagingConfiguration) AddDeletionOverride(path *string) 
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnPackagingConfiguration) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2570,6 +3124,7 @@ func (c *jsiiProxy_CfnPackagingConfiguration) AddDependsOn(target awscdk.CfnReso
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnPackagingConfiguration) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2615,6 +3170,7 @@ func (c *jsiiProxy_CfnPackagingConfiguration) AddMetadata(key *string, value int
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnPackagingConfiguration) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2624,6 +3180,7 @@ func (c *jsiiProxy_CfnPackagingConfiguration) AddOverride(path *string, value in
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnPackagingConfiguration) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2635,6 +3192,7 @@ func (c *jsiiProxy_CfnPackagingConfiguration) AddPropertyDeletionOverride(proper
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnPackagingConfiguration) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2652,6 +3210,7 @@ func (c *jsiiProxy_CfnPackagingConfiguration) AddPropertyOverride(propertyPath *
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnPackagingConfiguration) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2664,6 +3223,7 @@ func (c *jsiiProxy_CfnPackagingConfiguration) ApplyRemovalPolicy(policy awscdk.R
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnPackagingConfiguration) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2684,6 +3244,7 @@ func (c *jsiiProxy_CfnPackagingConfiguration) GetAtt(attributeName *string) awsc
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnPackagingConfiguration) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2706,12 +3267,80 @@ func (c *jsiiProxy_CfnPackagingConfiguration) Inspect(inspector awscdk.TreeInspe
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnPackagingConfiguration) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnPackagingConfiguration) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnPackagingConfiguration) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnPackagingConfiguration) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnPackagingConfiguration) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2732,6 +3361,7 @@ func (c *jsiiProxy_CfnPackagingConfiguration) RenderProperties(props *map[string
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnPackagingConfiguration) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2745,9 +3375,23 @@ func (c *jsiiProxy_CfnPackagingConfiguration) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnPackagingConfiguration) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnPackagingConfiguration) ToString() *string {
 	var returns *string
 
@@ -2761,6 +3405,27 @@ func (c *jsiiProxy_CfnPackagingConfiguration) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnPackagingConfiguration) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnPackagingConfiguration) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2769,177 +3434,258 @@ func (c *jsiiProxy_CfnPackagingConfiguration) ValidateProperties(_properties int
 	)
 }
 
+// Holds encryption information so that access to the content can be controlled by a DRM solution.
+//
 // TODO: EXAMPLE
 //
 type CfnPackagingConfiguration_CmafEncryptionProperty struct {
-	// `CfnPackagingConfiguration.CmafEncryptionProperty.SpekeKeyProvider`.
+	// Parameters for the SPEKE key provider.
 	SpekeKeyProvider interface{} `json:"spekeKeyProvider"`
 }
 
+// Parameters for a packaging configuration that uses Common Media Application Format (CMAF) packaging.
+//
 // TODO: EXAMPLE
 //
 type CfnPackagingConfiguration_CmafPackageProperty struct {
-	// `CfnPackagingConfiguration.CmafPackageProperty.Encryption`.
-	Encryption interface{} `json:"encryption"`
-	// `CfnPackagingConfiguration.CmafPackageProperty.HlsManifests`.
+	// A list of HLS manifest configurations that are available from this endpoint.
 	HlsManifests interface{} `json:"hlsManifests"`
-	// `CfnPackagingConfiguration.CmafPackageProperty.IncludeEncoderConfigurationInSegments`.
+	// Parameters for encrypting content.
+	Encryption interface{} `json:"encryption"`
+	// When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment.
+	//
+	// This lets you use different SPS/PPS/VPS settings for your assets during content playback.
 	IncludeEncoderConfigurationInSegments interface{} `json:"includeEncoderConfigurationInSegments"`
-	// `CfnPackagingConfiguration.CmafPackageProperty.SegmentDurationSeconds`.
+	// Duration (in seconds) of each segment.
+	//
+	// Actual segments are rounded to the nearest multiple of the source fragment duration.
 	SegmentDurationSeconds *float64 `json:"segmentDurationSeconds"`
 }
 
+// Holds encryption information so that access to the content can be controlled by a DRM solution.
+//
 // TODO: EXAMPLE
 //
 type CfnPackagingConfiguration_DashEncryptionProperty struct {
-	// `CfnPackagingConfiguration.DashEncryptionProperty.SpekeKeyProvider`.
+	// Parameters for the SPEKE key provider.
 	SpekeKeyProvider interface{} `json:"spekeKeyProvider"`
 }
 
+// Parameters for a DASH manifest.
+//
 // TODO: EXAMPLE
 //
 type CfnPackagingConfiguration_DashManifestProperty struct {
-	// `CfnPackagingConfiguration.DashManifestProperty.ManifestLayout`.
+	// Determines the position of some tags in the Media Presentation Description (MPD).
+	//
+	// When set to `FULL` , elements like `SegmentTemplate` and `ContentProtection` are included in each `Representation` . When set to `COMPACT` , duplicate elements are combined and presented at the AdaptationSet level.
 	ManifestLayout *string `json:"manifestLayout"`
-	// `CfnPackagingConfiguration.DashManifestProperty.ManifestName`.
+	// A short string that's appended to the end of the endpoint URL to create a unique path to this packaging configuration.
 	ManifestName *string `json:"manifestName"`
-	// `CfnPackagingConfiguration.DashManifestProperty.MinBufferTimeSeconds`.
+	// Minimum amount of content (measured in seconds) that a player must keep available in the buffer.
 	MinBufferTimeSeconds *float64 `json:"minBufferTimeSeconds"`
-	// `CfnPackagingConfiguration.DashManifestProperty.Profile`.
+	// The DASH profile type.
+	//
+	// When set to `HBBTV_1_5` , the content is compliant with HbbTV 1.5.
 	Profile *string `json:"profile"`
-	// `CfnPackagingConfiguration.DashManifestProperty.StreamSelection`.
+	// Limitations for outputs from the endpoint, based on the video bitrate.
 	StreamSelection interface{} `json:"streamSelection"`
 }
 
+// Parameters for a packaging configuration that uses Dynamic Adaptive Streaming over HTTP (DASH) packaging.
+//
 // TODO: EXAMPLE
 //
 type CfnPackagingConfiguration_DashPackageProperty struct {
-	// `CfnPackagingConfiguration.DashPackageProperty.DashManifests`.
+	// A list of DASH manifest configurations that are available from this endpoint.
 	DashManifests interface{} `json:"dashManifests"`
-	// `CfnPackagingConfiguration.DashPackageProperty.Encryption`.
+	// Parameters for encrypting content.
 	Encryption interface{} `json:"encryption"`
-	// `CfnPackagingConfiguration.DashPackageProperty.IncludeEncoderConfigurationInSegments`.
+	// When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment.
+	//
+	// This lets you use different SPS/PPS/VPS settings for your assets during content playback.
 	IncludeEncoderConfigurationInSegments interface{} `json:"includeEncoderConfigurationInSegments"`
-	// `CfnPackagingConfiguration.DashPackageProperty.PeriodTriggers`.
+	// Controls whether MediaPackage produces single-period or multi-period DASH manifests.
+	//
+	// For more information about periods, see [Multi-period DASH in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/multi-period.html) .
+	//
+	// Valid values:
+	//
+	// - `ADS` - MediaPackage will produce multi-period DASH manifests. Periods are created based on the SCTE-35 ad markers present in the input manifest.
+	// - *No value* - MediaPackage will produce single-period DASH manifests. This is the default setting.
 	PeriodTriggers *[]*string `json:"periodTriggers"`
-	// `CfnPackagingConfiguration.DashPackageProperty.SegmentDurationSeconds`.
+	// Duration (in seconds) of each fragment.
+	//
+	// Actual fragments are rounded to the nearest multiple of the source segment duration.
 	SegmentDurationSeconds *float64 `json:"segmentDurationSeconds"`
-	// `CfnPackagingConfiguration.DashPackageProperty.SegmentTemplateFormat`.
+	// Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).
+	//
+	// When set to `NUMBER_WITH_TIMELINE` , a full timeline is presented in each SegmentTemplate, with $Number$ media URLs. When set to `TIME_WITH_TIMELINE` , a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to `NUMBER_WITH_DURATION` , only a duration is included in each SegmentTemplate, with $Number$ media URLs.
 	SegmentTemplateFormat *string `json:"segmentTemplateFormat"`
 }
 
+// Holds encryption information so that access to the content can be controlled by a DRM solution.
+//
 // TODO: EXAMPLE
 //
 type CfnPackagingConfiguration_HlsEncryptionProperty struct {
-	// `CfnPackagingConfiguration.HlsEncryptionProperty.ConstantInitializationVector`.
-	ConstantInitializationVector *string `json:"constantInitializationVector"`
-	// `CfnPackagingConfiguration.HlsEncryptionProperty.EncryptionMethod`.
-	EncryptionMethod *string `json:"encryptionMethod"`
-	// `CfnPackagingConfiguration.HlsEncryptionProperty.SpekeKeyProvider`.
+	// Parameters for the SPEKE key provider.
 	SpekeKeyProvider interface{} `json:"spekeKeyProvider"`
+	// A 128-bit, 16-byte hex value represented by a 32-character string, used with the key for encrypting blocks.
+	//
+	// If you don't specify a constant initialization vector (IV), MediaPackage periodically rotates the IV.
+	ConstantInitializationVector *string `json:"constantInitializationVector"`
+	// HLS encryption type.
+	EncryptionMethod *string `json:"encryptionMethod"`
 }
 
+// Parameters for an HLS manifest.
+//
 // TODO: EXAMPLE
 //
 type CfnPackagingConfiguration_HlsManifestProperty struct {
-	// `CfnPackagingConfiguration.HlsManifestProperty.AdMarkers`.
+	// This setting controls ad markers in the packaged content.
+	//
+	// `NONE` omits SCTE-35 ad markers from the output. `PASSTHROUGH` copies SCTE-35 ad markers from the source content to the output. `SCTE35_ENHANCED` generates ad markers and blackout tags in the output, based on SCTE-35 messages in the source content.
 	AdMarkers *string `json:"adMarkers"`
-	// `CfnPackagingConfiguration.HlsManifestProperty.IncludeIframeOnlyStream`.
+	// Applies to stream sets with a single video track only.
+	//
+	// When enabled, the output includes an additional I-frame only stream, along with the other tracks.
 	IncludeIframeOnlyStream interface{} `json:"includeIframeOnlyStream"`
-	// `CfnPackagingConfiguration.HlsManifestProperty.ManifestName`.
+	// A short string that's appended to the end of the endpoint URL to create a unique path to this packaging configuration.
 	ManifestName *string `json:"manifestName"`
-	// `CfnPackagingConfiguration.HlsManifestProperty.ProgramDateTimeIntervalSeconds`.
+	// Inserts `EXT-X-PROGRAM-DATE-TIME` tags in the output manifest at the interval that you specify.
+	//
+	// Additionally, ID3Timed metadata messages are generated every 5 seconds starting when the content was ingested.
+	//
+	// Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.
+	//
+	// Omit this attribute or enter `0` to indicate that the `EXT-X-PROGRAM-DATE-TIME` tags are not included in the manifest.
 	ProgramDateTimeIntervalSeconds *float64 `json:"programDateTimeIntervalSeconds"`
-	// `CfnPackagingConfiguration.HlsManifestProperty.RepeatExtXKey`.
+	// Repeat the `EXT-X-KEY` directive for every media segment.
+	//
+	// This might result in an increase in client requests to the DRM server.
 	RepeatExtXKey interface{} `json:"repeatExtXKey"`
-	// `CfnPackagingConfiguration.HlsManifestProperty.StreamSelection`.
+	// Video bitrate limitations for outputs from this packaging configuration.
 	StreamSelection interface{} `json:"streamSelection"`
 }
 
+// Parameters for a packaging configuration that uses HTTP Live Streaming (HLS) packaging.
+//
 // TODO: EXAMPLE
 //
 type CfnPackagingConfiguration_HlsPackageProperty struct {
-	// `CfnPackagingConfiguration.HlsPackageProperty.Encryption`.
-	Encryption interface{} `json:"encryption"`
-	// `CfnPackagingConfiguration.HlsPackageProperty.HlsManifests`.
+	// A list of HLS manifest configurations that are available from this endpoint.
 	HlsManifests interface{} `json:"hlsManifests"`
-	// `CfnPackagingConfiguration.HlsPackageProperty.SegmentDurationSeconds`.
+	// Parameters for encrypting content.
+	Encryption interface{} `json:"encryption"`
+	// Duration (in seconds) of each fragment.
+	//
+	// Actual fragments are rounded to the nearest multiple of the source fragment duration.
 	SegmentDurationSeconds *float64 `json:"segmentDurationSeconds"`
-	// `CfnPackagingConfiguration.HlsPackageProperty.UseAudioRenditionGroup`.
+	// When true, AWS Elemental MediaPackage bundles all audio tracks in a rendition group.
+	//
+	// All other tracks in the stream can be used with any audio rendition from the group.
 	UseAudioRenditionGroup interface{} `json:"useAudioRenditionGroup"`
 }
 
+// Holds encryption information so that access to the content can be controlled by a DRM solution.
+//
 // TODO: EXAMPLE
 //
 type CfnPackagingConfiguration_MssEncryptionProperty struct {
-	// `CfnPackagingConfiguration.MssEncryptionProperty.SpekeKeyProvider`.
+	// Parameters for the SPEKE key provider.
 	SpekeKeyProvider interface{} `json:"spekeKeyProvider"`
 }
 
+// Parameters for a Microsoft Smooth manifest.
+//
 // TODO: EXAMPLE
 //
 type CfnPackagingConfiguration_MssManifestProperty struct {
-	// `CfnPackagingConfiguration.MssManifestProperty.ManifestName`.
+	// A short string that's appended to the end of the endpoint URL to create a unique path to this packaging configuration.
 	ManifestName *string `json:"manifestName"`
-	// `CfnPackagingConfiguration.MssManifestProperty.StreamSelection`.
+	// Video bitrate limitations for outputs from this packaging configuration.
 	StreamSelection interface{} `json:"streamSelection"`
 }
 
+// Parameters for a packaging configuration that uses Microsoft Smooth Streaming (MSS) packaging.
+//
 // TODO: EXAMPLE
 //
 type CfnPackagingConfiguration_MssPackageProperty struct {
-	// `CfnPackagingConfiguration.MssPackageProperty.Encryption`.
-	Encryption interface{} `json:"encryption"`
-	// `CfnPackagingConfiguration.MssPackageProperty.MssManifests`.
+	// A list of Microsoft Smooth manifest configurations that are available from this endpoint.
 	MssManifests interface{} `json:"mssManifests"`
-	// `CfnPackagingConfiguration.MssPackageProperty.SegmentDurationSeconds`.
+	// Parameters for encrypting content.
+	Encryption interface{} `json:"encryption"`
+	// Duration (in seconds) of each fragment.
+	//
+	// Actual fragments are rounded to the nearest multiple of the source fragment duration.
 	SegmentDurationSeconds *float64 `json:"segmentDurationSeconds"`
 }
 
+// A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that provides encryption keys.
+//
 // TODO: EXAMPLE
 //
 type CfnPackagingConfiguration_SpekeKeyProviderProperty struct {
-	// `CfnPackagingConfiguration.SpekeKeyProviderProperty.RoleArn`.
+	// The ARN for the IAM role that's granted by the key provider to provide access to the key provider API.
+	//
+	// Valid format: arn:aws:iam::{accountID}:role/{name}
 	RoleArn *string `json:"roleArn"`
-	// `CfnPackagingConfiguration.SpekeKeyProviderProperty.SystemIds`.
+	// List of unique identifiers for the DRM systems to use, as defined in the CPIX specification.
 	SystemIds *[]*string `json:"systemIds"`
-	// `CfnPackagingConfiguration.SpekeKeyProviderProperty.Url`.
+	// URL for the key provider's key retrieval API endpoint.
+	//
+	// Must start with https://.
 	Url *string `json:"url"`
 }
 
+// Limitations for outputs from the endpoint, based on the video bitrate.
+//
 // TODO: EXAMPLE
 //
 type CfnPackagingConfiguration_StreamSelectionProperty struct {
-	// `CfnPackagingConfiguration.StreamSelectionProperty.MaxVideoBitsPerSecond`.
+	// The upper limit of the bitrates that this endpoint serves.
+	//
+	// If the video track exceeds this threshold, then AWS Elemental MediaPackage excludes it from output. If you don't specify a value, it defaults to 2147483647 bits per second.
 	MaxVideoBitsPerSecond *float64 `json:"maxVideoBitsPerSecond"`
-	// `CfnPackagingConfiguration.StreamSelectionProperty.MinVideoBitsPerSecond`.
+	// The lower limit of the bitrates that this endpoint serves.
+	//
+	// If the video track is below this threshold, then AWS Elemental MediaPackage excludes it from output. If you don't specify a value, it defaults to 0 bits per second.
 	MinVideoBitsPerSecond *float64 `json:"minVideoBitsPerSecond"`
-	// `CfnPackagingConfiguration.StreamSelectionProperty.StreamOrder`.
+	// Order in which the different video bitrates are presented to the player.
+	//
+	// Valid values: `ORIGINAL` , `VIDEO_BITRATE_ASCENDING` , `VIDEO_BITRATE_DESCENDING` .
 	StreamOrder *string `json:"streamOrder"`
 }
 
-// Properties for defining a `AWS::MediaPackage::PackagingConfiguration`.
+// Properties for defining a `CfnPackagingConfiguration`.
 //
 // TODO: EXAMPLE
 //
 type CfnPackagingConfigurationProps struct {
-	// `AWS::MediaPackage::PackagingConfiguration.CmafPackage`.
-	CmafPackage interface{} `json:"cmafPackage"`
-	// `AWS::MediaPackage::PackagingConfiguration.DashPackage`.
-	DashPackage interface{} `json:"dashPackage"`
-	// `AWS::MediaPackage::PackagingConfiguration.HlsPackage`.
-	HlsPackage interface{} `json:"hlsPackage"`
-	// `AWS::MediaPackage::PackagingConfiguration.Id`.
+	// Unique identifier that you assign to the packaging configuration.
 	Id *string `json:"id"`
-	// `AWS::MediaPackage::PackagingConfiguration.MssPackage`.
-	MssPackage interface{} `json:"mssPackage"`
-	// `AWS::MediaPackage::PackagingConfiguration.PackagingGroupId`.
+	// The ID of the packaging group associated with this packaging configuration.
 	PackagingGroupId *string `json:"packagingGroupId"`
-	// `AWS::MediaPackage::PackagingConfiguration.Tags`.
+	// Parameters for CMAF packaging.
+	CmafPackage interface{} `json:"cmafPackage"`
+	// Parameters for DASH-ISO packaging.
+	DashPackage interface{} `json:"dashPackage"`
+	// Parameters for Apple HLS packaging.
+	HlsPackage interface{} `json:"hlsPackage"`
+	// Parameters for Microsoft Smooth Streaming packaging.
+	MssPackage interface{} `json:"mssPackage"`
+	// The tags to assign to the packaging configuration.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::MediaPackage::PackagingGroup`.
+//
+// Creates a packaging group.
+//
+// The packaging group holds one or more packaging configurations. When you create an asset, you specify the packaging group associated with the asset. The asset has playback endpoints for each packaging configuration within the group.
 //
 // TODO: EXAMPLE
 //
@@ -2959,7 +3705,7 @@ type CfnPackagingGroup interface {
 	Id() *string
 	SetId(val *string)
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	Tags() awscdk.TagManager
@@ -2974,10 +3720,16 @@ type CfnPackagingGroup interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -3087,8 +3839,8 @@ func (j *jsiiProxy_CfnPackagingGroup) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPackagingGroup) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnPackagingGroup) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -3139,13 +3891,13 @@ func (j *jsiiProxy_CfnPackagingGroup) UpdatedProperites() *map[string]interface{
 
 
 // Create a new `AWS::MediaPackage::PackagingGroup`.
-func NewCfnPackagingGroup(scope constructs.Construct, id *string, props *CfnPackagingGroupProps) CfnPackagingGroup {
+func NewCfnPackagingGroup(scope awscdk.Construct, id *string, props *CfnPackagingGroupProps) CfnPackagingGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnPackagingGroup{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_mediapackage.CfnPackagingGroup",
+		"monocdk.aws_mediapackage.CfnPackagingGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3154,11 +3906,11 @@ func NewCfnPackagingGroup(scope constructs.Construct, id *string, props *CfnPack
 }
 
 // Create a new `AWS::MediaPackage::PackagingGroup`.
-func NewCfnPackagingGroup_Override(c CfnPackagingGroup, scope constructs.Construct, id *string, props *CfnPackagingGroupProps) {
+func NewCfnPackagingGroup_Override(c CfnPackagingGroup, scope awscdk.Construct, id *string, props *CfnPackagingGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_mediapackage.CfnPackagingGroup",
+		"monocdk.aws_mediapackage.CfnPackagingGroup",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -3194,13 +3946,14 @@ func (j *jsiiProxy_CfnPackagingGroup) SetId(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnPackagingGroup_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_mediapackage.CfnPackagingGroup",
+		"monocdk.aws_mediapackage.CfnPackagingGroup",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -3210,13 +3963,14 @@ func CfnPackagingGroup_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnPackagingGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_mediapackage.CfnPackagingGroup",
+		"monocdk.aws_mediapackage.CfnPackagingGroup",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3225,17 +3979,15 @@ func CfnPackagingGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnPackagingGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_mediapackage.CfnPackagingGroup",
+		"monocdk.aws_mediapackage.CfnPackagingGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3248,7 +4000,7 @@ func CfnPackagingGroup_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_mediapackage.CfnPackagingGroup",
+		"monocdk.aws_mediapackage.CfnPackagingGroup",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -3256,6 +4008,7 @@ func CfnPackagingGroup_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnPackagingGroup) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3268,6 +4021,7 @@ func (c *jsiiProxy_CfnPackagingGroup) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnPackagingGroup) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3283,6 +4037,7 @@ func (c *jsiiProxy_CfnPackagingGroup) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnPackagingGroup) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3328,6 +4083,7 @@ func (c *jsiiProxy_CfnPackagingGroup) AddMetadata(key *string, value interface{}
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnPackagingGroup) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3337,6 +4093,7 @@ func (c *jsiiProxy_CfnPackagingGroup) AddOverride(path *string, value interface{
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnPackagingGroup) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3348,6 +4105,7 @@ func (c *jsiiProxy_CfnPackagingGroup) AddPropertyDeletionOverride(propertyPath *
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnPackagingGroup) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3365,6 +4123,7 @@ func (c *jsiiProxy_CfnPackagingGroup) AddPropertyOverride(propertyPath *string, 
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnPackagingGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3377,6 +4136,7 @@ func (c *jsiiProxy_CfnPackagingGroup) ApplyRemovalPolicy(policy awscdk.RemovalPo
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnPackagingGroup) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -3397,6 +4157,7 @@ func (c *jsiiProxy_CfnPackagingGroup) GetAtt(attributeName *string) awscdk.Refer
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnPackagingGroup) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -3419,12 +4180,80 @@ func (c *jsiiProxy_CfnPackagingGroup) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnPackagingGroup) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnPackagingGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnPackagingGroup) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnPackagingGroup) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnPackagingGroup) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -3445,6 +4274,7 @@ func (c *jsiiProxy_CfnPackagingGroup) RenderProperties(props *map[string]interfa
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnPackagingGroup) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -3458,9 +4288,23 @@ func (c *jsiiProxy_CfnPackagingGroup) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnPackagingGroup) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnPackagingGroup) ToString() *string {
 	var returns *string
 
@@ -3474,6 +4318,27 @@ func (c *jsiiProxy_CfnPackagingGroup) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnPackagingGroup) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnPackagingGroup) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3482,34 +4347,42 @@ func (c *jsiiProxy_CfnPackagingGroup) ValidateProperties(_properties interface{}
 	)
 }
 
+// Parameters for enabling CDN authorization.
+//
 // TODO: EXAMPLE
 //
 type CfnPackagingGroup_AuthorizationProperty struct {
-	// `CfnPackagingGroup.AuthorizationProperty.CdnIdentifierSecret`.
+	// The Amazon Resource Name (ARN) for the secret in AWS Secrets Manager that is used for CDN authorization.
 	CdnIdentifierSecret *string `json:"cdnIdentifierSecret"`
-	// `CfnPackagingGroup.AuthorizationProperty.SecretsRoleArn`.
+	// The Amazon Resource Name (ARN) for the IAM role that allows MediaPackage to communicate with AWS Secrets Manager .
 	SecretsRoleArn *string `json:"secretsRoleArn"`
 }
 
+// Sets a custom Amazon CloudWatch log group name for egress logs.
+//
+// If a log group name isn't specified, the default name is used: /aws/MediaPackage/EgressAccessLogs.
+//
 // TODO: EXAMPLE
 //
 type CfnPackagingGroup_LogConfigurationProperty struct {
-	// `CfnPackagingGroup.LogConfigurationProperty.LogGroupName`.
+	// Sets a custom Amazon CloudWatch log group name for egress logs.
+	//
+	// If a log group name isn't specified, the default name is used: /aws/MediaPackage/EgressAccessLogs.
 	LogGroupName *string `json:"logGroupName"`
 }
 
-// Properties for defining a `AWS::MediaPackage::PackagingGroup`.
+// Properties for defining a `CfnPackagingGroup`.
 //
 // TODO: EXAMPLE
 //
 type CfnPackagingGroupProps struct {
-	// `AWS::MediaPackage::PackagingGroup.Authorization`.
-	Authorization interface{} `json:"authorization"`
-	// `AWS::MediaPackage::PackagingGroup.EgressAccessLogs`.
-	EgressAccessLogs interface{} `json:"egressAccessLogs"`
-	// `AWS::MediaPackage::PackagingGroup.Id`.
+	// Unique identifier that you assign to the packaging group.
 	Id *string `json:"id"`
-	// `AWS::MediaPackage::PackagingGroup.Tags`.
+	// Parameters for CDN authorization.
+	Authorization interface{} `json:"authorization"`
+	// The configuration parameters for egress access logging.
+	EgressAccessLogs interface{} `json:"egressAccessLogs"`
+	// The tags to assign to the packaging group.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 

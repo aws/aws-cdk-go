@@ -1,15 +1,17 @@
 package awsxray
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsxray/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsxray/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::XRay::Group`.
+//
+// Use the `AWS::XRay::Group` resource to specify a group with a name and a filter expression.
 //
 // TODO: EXAMPLE
 //
@@ -28,7 +30,7 @@ type CfnGroup interface {
 	InsightsConfiguration() interface{}
 	SetInsightsConfiguration(val interface{})
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	Tags() *[]interface{}
@@ -44,10 +46,16 @@ type CfnGroup interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -147,8 +155,8 @@ func (j *jsiiProxy_CfnGroup) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGroup) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnGroup) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -199,13 +207,13 @@ func (j *jsiiProxy_CfnGroup) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::XRay::Group`.
-func NewCfnGroup(scope constructs.Construct, id *string, props *CfnGroupProps) CfnGroup {
+func NewCfnGroup(scope awscdk.Construct, id *string, props *CfnGroupProps) CfnGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnGroup{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_xray.CfnGroup",
+		"monocdk.aws_xray.CfnGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -214,11 +222,11 @@ func NewCfnGroup(scope constructs.Construct, id *string, props *CfnGroupProps) C
 }
 
 // Create a new `AWS::XRay::Group`.
-func NewCfnGroup_Override(c CfnGroup, scope constructs.Construct, id *string, props *CfnGroupProps) {
+func NewCfnGroup_Override(c CfnGroup, scope awscdk.Construct, id *string, props *CfnGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_xray.CfnGroup",
+		"monocdk.aws_xray.CfnGroup",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -262,13 +270,14 @@ func (j *jsiiProxy_CfnGroup) SetTags(val *[]interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnGroup_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_xray.CfnGroup",
+		"monocdk.aws_xray.CfnGroup",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -278,13 +287,14 @@ func CfnGroup_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_xray.CfnGroup",
+		"monocdk.aws_xray.CfnGroup",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -293,17 +303,15 @@ func CfnGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_xray.CfnGroup",
+		"monocdk.aws_xray.CfnGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -316,7 +324,7 @@ func CfnGroup_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_xray.CfnGroup",
+		"monocdk.aws_xray.CfnGroup",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -324,6 +332,7 @@ func CfnGroup_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnGroup) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -336,6 +345,7 @@ func (c *jsiiProxy_CfnGroup) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnGroup) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -351,6 +361,7 @@ func (c *jsiiProxy_CfnGroup) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnGroup) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -396,6 +407,7 @@ func (c *jsiiProxy_CfnGroup) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnGroup) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -405,6 +417,7 @@ func (c *jsiiProxy_CfnGroup) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnGroup) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -416,6 +429,7 @@ func (c *jsiiProxy_CfnGroup) AddPropertyDeletionOverride(propertyPath *string) {
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnGroup) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -433,6 +447,7 @@ func (c *jsiiProxy_CfnGroup) AddPropertyOverride(propertyPath *string, value int
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -445,6 +460,7 @@ func (c *jsiiProxy_CfnGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, opt
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnGroup) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -465,6 +481,7 @@ func (c *jsiiProxy_CfnGroup) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnGroup) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -487,12 +504,80 @@ func (c *jsiiProxy_CfnGroup) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnGroup) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnGroup) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnGroup) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnGroup) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -513,6 +598,7 @@ func (c *jsiiProxy_CfnGroup) RenderProperties(props *map[string]interface{}) *ma
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnGroup) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -526,9 +612,23 @@ func (c *jsiiProxy_CfnGroup) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnGroup) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnGroup) ToString() *string {
 	var returns *string
 
@@ -542,6 +642,27 @@ func (c *jsiiProxy_CfnGroup) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnGroup) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnGroup) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -550,31 +671,44 @@ func (c *jsiiProxy_CfnGroup) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// The structure containing configurations related to insights.
+//
 // TODO: EXAMPLE
 //
 type CfnGroup_InsightsConfigurationProperty struct {
-	// `CfnGroup.InsightsConfigurationProperty.InsightsEnabled`.
+	// Set the InsightsEnabled value to true to enable insights or false to disable insights.
 	InsightsEnabled interface{} `json:"insightsEnabled"`
-	// `CfnGroup.InsightsConfigurationProperty.NotificationsEnabled`.
+	// Set the NotificationsEnabled value to true to enable insights notifications.
+	//
+	// Notifications can only be enabled on a group with InsightsEnabled set to true.
 	NotificationsEnabled interface{} `json:"notificationsEnabled"`
 }
 
-// Properties for defining a `AWS::XRay::Group`.
+// Properties for defining a `CfnGroup`.
 //
 // TODO: EXAMPLE
 //
 type CfnGroupProps struct {
-	// `AWS::XRay::Group.FilterExpression`.
+	// The filter expression defining the parameters to include traces.
 	FilterExpression *string `json:"filterExpression"`
-	// `AWS::XRay::Group.GroupName`.
+	// The unique case-sensitive name of the group.
 	GroupName *string `json:"groupName"`
-	// `AWS::XRay::Group.InsightsConfiguration`.
+	// The structure containing configurations related to insights.
+	//
+	// - The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.
+	// - The NotificationsEnabled boolean can be set to true to enable insights notifications through Amazon EventBridge for the group.
 	InsightsConfiguration interface{} `json:"insightsConfiguration"`
-	// `AWS::XRay::Group.Tags`.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags *[]interface{} `json:"tags"`
 }
 
 // A CloudFormation `AWS::XRay::SamplingRule`.
+//
+// Use the `AWS::XRay::SamplingRule` resource to specify a sampling rule, which controls sampling behavior for instrumented applications. A new sampling rule is created by specifying a `SamplingRule` . To change the configuration of an existing sampling rule, specify a `SamplingRuleUpdate` .
+//
+// Services retrieve rules with [GetSamplingRules](https://docs.aws.amazon.com//xray/latest/api/API_GetSamplingRules.html) , and evaluate each rule in ascending order of *priority* for each request. If a rule matches, the service records a trace, borrowing it from the reservoir size. After 10 seconds, the service reports back to X-Ray with [GetSamplingTargets](https://docs.aws.amazon.com//xray/latest/api/API_GetSamplingTargets.html) to get updated versions of each in-use rule. The updated rule contains a trace quota that the service can use instead of borrowing from the reservoir.
 //
 // TODO: EXAMPLE
 //
@@ -587,7 +721,7 @@ type CfnSamplingRule interface {
 	CfnResourceType() *string
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	RuleName() *string
 	SetRuleName(val *string)
@@ -611,10 +745,16 @@ type CfnSamplingRule interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -684,8 +824,8 @@ func (j *jsiiProxy_CfnSamplingRule) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSamplingRule) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnSamplingRule) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -776,13 +916,13 @@ func (j *jsiiProxy_CfnSamplingRule) UpdatedProperites() *map[string]interface{} 
 
 
 // Create a new `AWS::XRay::SamplingRule`.
-func NewCfnSamplingRule(scope constructs.Construct, id *string, props *CfnSamplingRuleProps) CfnSamplingRule {
+func NewCfnSamplingRule(scope awscdk.Construct, id *string, props *CfnSamplingRuleProps) CfnSamplingRule {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnSamplingRule{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_xray.CfnSamplingRule",
+		"monocdk.aws_xray.CfnSamplingRule",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -791,11 +931,11 @@ func NewCfnSamplingRule(scope constructs.Construct, id *string, props *CfnSampli
 }
 
 // Create a new `AWS::XRay::SamplingRule`.
-func NewCfnSamplingRule_Override(c CfnSamplingRule, scope constructs.Construct, id *string, props *CfnSamplingRuleProps) {
+func NewCfnSamplingRule_Override(c CfnSamplingRule, scope awscdk.Construct, id *string, props *CfnSamplingRuleProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_xray.CfnSamplingRule",
+		"monocdk.aws_xray.CfnSamplingRule",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -847,13 +987,14 @@ func (j *jsiiProxy_CfnSamplingRule) SetTags(val *[]interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnSamplingRule_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_xray.CfnSamplingRule",
+		"monocdk.aws_xray.CfnSamplingRule",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -863,13 +1004,14 @@ func CfnSamplingRule_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnSamplingRule_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_xray.CfnSamplingRule",
+		"monocdk.aws_xray.CfnSamplingRule",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -878,17 +1020,15 @@ func CfnSamplingRule_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnSamplingRule_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_xray.CfnSamplingRule",
+		"monocdk.aws_xray.CfnSamplingRule",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -901,7 +1041,7 @@ func CfnSamplingRule_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_xray.CfnSamplingRule",
+		"monocdk.aws_xray.CfnSamplingRule",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -909,6 +1049,7 @@ func CfnSamplingRule_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnSamplingRule) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -921,6 +1062,7 @@ func (c *jsiiProxy_CfnSamplingRule) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnSamplingRule) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -936,6 +1078,7 @@ func (c *jsiiProxy_CfnSamplingRule) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnSamplingRule) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -981,6 +1124,7 @@ func (c *jsiiProxy_CfnSamplingRule) AddMetadata(key *string, value interface{}) 
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnSamplingRule) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -990,6 +1134,7 @@ func (c *jsiiProxy_CfnSamplingRule) AddOverride(path *string, value interface{})
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnSamplingRule) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1001,6 +1146,7 @@ func (c *jsiiProxy_CfnSamplingRule) AddPropertyDeletionOverride(propertyPath *st
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnSamplingRule) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1018,6 +1164,7 @@ func (c *jsiiProxy_CfnSamplingRule) AddPropertyOverride(propertyPath *string, va
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnSamplingRule) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1030,6 +1177,7 @@ func (c *jsiiProxy_CfnSamplingRule) ApplyRemovalPolicy(policy awscdk.RemovalPoli
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnSamplingRule) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1050,6 +1198,7 @@ func (c *jsiiProxy_CfnSamplingRule) GetAtt(attributeName *string) awscdk.Referen
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnSamplingRule) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1072,12 +1221,80 @@ func (c *jsiiProxy_CfnSamplingRule) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnSamplingRule) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnSamplingRule) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnSamplingRule) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnSamplingRule) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnSamplingRule) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1098,6 +1315,7 @@ func (c *jsiiProxy_CfnSamplingRule) RenderProperties(props *map[string]interface
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnSamplingRule) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1111,9 +1329,23 @@ func (c *jsiiProxy_CfnSamplingRule) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnSamplingRule) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnSamplingRule) ToString() *string {
 	var returns *string
 
@@ -1127,6 +1359,27 @@ func (c *jsiiProxy_CfnSamplingRule) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnSamplingRule) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnSamplingRule) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1135,91 +1388,133 @@ func (c *jsiiProxy_CfnSamplingRule) ValidateProperties(_properties interface{}) 
 	)
 }
 
+// A sampling rule that services use to decide whether to instrument a request.
+//
+// Rule fields can match properties of the service, or properties of a request. The service can ignore rules that don't match its properties.
+//
 // TODO: EXAMPLE
 //
 type CfnSamplingRule_SamplingRuleProperty struct {
-	// `CfnSamplingRule.SamplingRuleProperty.Attributes`.
+	// Matches attributes derived from the request.
+	//
+	// *Map Entries:* Maximum number of 5 items.
+	//
+	// *Key Length Constraints:* Minimum length of 1. Maximum length of 32.
+	//
+	// *Value Length Constraints:* Minimum length of 1. Maximum length of 32.
 	Attributes interface{} `json:"attributes"`
-	// `CfnSamplingRule.SamplingRuleProperty.FixedRate`.
+	// The percentage of matching requests to instrument, after the reservoir is exhausted.
 	FixedRate *float64 `json:"fixedRate"`
-	// `CfnSamplingRule.SamplingRuleProperty.Host`.
+	// Matches the hostname from a request URL.
 	Host *string `json:"host"`
-	// `CfnSamplingRule.SamplingRuleProperty.HTTPMethod`.
+	// Matches the HTTP method of a request.
 	HttpMethod *string `json:"httpMethod"`
-	// `CfnSamplingRule.SamplingRuleProperty.Priority`.
+	// The priority of the sampling rule.
 	Priority *float64 `json:"priority"`
-	// `CfnSamplingRule.SamplingRuleProperty.ReservoirSize`.
+	// A fixed number of matching requests to instrument per second, prior to applying the fixed rate.
+	//
+	// The reservoir is not used directly by services, but applies to all services using the rule collectively.
 	ReservoirSize *float64 `json:"reservoirSize"`
-	// `CfnSamplingRule.SamplingRuleProperty.ResourceARN`.
+	// Matches the ARN of the AWS resource on which the service runs.
 	ResourceArn *string `json:"resourceArn"`
-	// `CfnSamplingRule.SamplingRuleProperty.RuleARN`.
+	// The ARN of the sampling rule.
+	//
+	// You must specify either RuleARN or RuleName, but not both.
 	RuleArn *string `json:"ruleArn"`
-	// `CfnSamplingRule.SamplingRuleProperty.RuleName`.
+	// The name of the sampling rule.
+	//
+	// You must specify either RuleARN or RuleName, but not both.
 	RuleName *string `json:"ruleName"`
-	// `CfnSamplingRule.SamplingRuleProperty.ServiceName`.
+	// Matches the `name` that the service uses to identify itself in segments.
 	ServiceName *string `json:"serviceName"`
-	// `CfnSamplingRule.SamplingRuleProperty.ServiceType`.
+	// Matches the `origin` that the service uses to identify its type in segments.
 	ServiceType *string `json:"serviceType"`
-	// `CfnSamplingRule.SamplingRuleProperty.URLPath`.
+	// Matches the path from a request URL.
 	UrlPath *string `json:"urlPath"`
-	// `CfnSamplingRule.SamplingRuleProperty.Version`.
+	// The version of the sampling rule format ( `1` ).
 	Version *float64 `json:"version"`
 }
 
+// A [SamplingRule](https://docs.aws.amazon.com//xray/latest/api/API_SamplingRule.html) and its metadata.
+//
 // TODO: EXAMPLE
 //
 type CfnSamplingRule_SamplingRuleRecordProperty struct {
-	// `CfnSamplingRule.SamplingRuleRecordProperty.CreatedAt`.
+	// When the rule was created, in Unix time seconds.
 	CreatedAt *string `json:"createdAt"`
-	// `CfnSamplingRule.SamplingRuleRecordProperty.ModifiedAt`.
+	// When the rule was last modified, in Unix time seconds.
 	ModifiedAt *string `json:"modifiedAt"`
-	// `CfnSamplingRule.SamplingRuleRecordProperty.SamplingRule`.
+	// The sampling rule.
 	SamplingRule interface{} `json:"samplingRule"`
 }
 
+// A document specifying changes to a sampling rule's configuration.
+//
 // TODO: EXAMPLE
 //
 type CfnSamplingRule_SamplingRuleUpdateProperty struct {
-	// `CfnSamplingRule.SamplingRuleUpdateProperty.Attributes`.
+	// Matches attributes derived from the request.
+	//
+	// *Map Entries:* Maximum number of 5 items.
+	//
+	// *Key Length Constraints:* Minimum length of 1. Maximum length of 32.
+	//
+	// *Value Length Constraints:* Minimum length of 1. Maximum length of 32.
 	Attributes interface{} `json:"attributes"`
-	// `CfnSamplingRule.SamplingRuleUpdateProperty.FixedRate`.
+	// The percentage of matching requests to instrument, after the reservoir is exhausted.
 	FixedRate *float64 `json:"fixedRate"`
-	// `CfnSamplingRule.SamplingRuleUpdateProperty.Host`.
+	// Matches the hostname from a request URL.
 	Host *string `json:"host"`
-	// `CfnSamplingRule.SamplingRuleUpdateProperty.HTTPMethod`.
+	// Matches the HTTP method of a request.
 	HttpMethod *string `json:"httpMethod"`
-	// `CfnSamplingRule.SamplingRuleUpdateProperty.Priority`.
+	// The priority of the sampling rule.
 	Priority *float64 `json:"priority"`
-	// `CfnSamplingRule.SamplingRuleUpdateProperty.ReservoirSize`.
+	// A fixed number of matching requests to instrument per second, prior to applying the fixed rate.
+	//
+	// The reservoir is not used directly by services, but applies to all services using the rule collectively.
 	ReservoirSize *float64 `json:"reservoirSize"`
-	// `CfnSamplingRule.SamplingRuleUpdateProperty.ResourceARN`.
+	// Matches the ARN of the AWS resource on which the service runs.
 	ResourceArn *string `json:"resourceArn"`
-	// `CfnSamplingRule.SamplingRuleUpdateProperty.RuleARN`.
+	// The ARN of the sampling rule.
+	//
+	// You must specify either RuleARN or RuleName, but not both.
 	RuleArn *string `json:"ruleArn"`
-	// `CfnSamplingRule.SamplingRuleUpdateProperty.RuleName`.
+	// The name of the sampling rule.
+	//
+	// You must specify either RuleARN or RuleName, but not both.
 	RuleName *string `json:"ruleName"`
-	// `CfnSamplingRule.SamplingRuleUpdateProperty.ServiceName`.
+	// Matches the `name` that the service uses to identify itself in segments.
 	ServiceName *string `json:"serviceName"`
-	// `CfnSamplingRule.SamplingRuleUpdateProperty.ServiceType`.
+	// Matches the `origin` that the service uses to identify its type in segments.
 	ServiceType *string `json:"serviceType"`
-	// `CfnSamplingRule.SamplingRuleUpdateProperty.URLPath`.
+	// Matches the path from a request URL.
 	UrlPath *string `json:"urlPath"`
 }
 
-// Properties for defining a `AWS::XRay::SamplingRule`.
+// Properties for defining a `CfnSamplingRule`.
 //
 // TODO: EXAMPLE
 //
 type CfnSamplingRuleProps struct {
-	// `AWS::XRay::SamplingRule.RuleName`.
+	// The name of the sampling rule.
+	//
+	// Specify a rule by either name or ARN, but not both. Used only when deleting a sampling rule. When creating or updating a sampling rule, use the `RuleName` or `RuleARN` properties within `SamplingRule` or `SamplingRuleUpdate` .
 	RuleName *string `json:"ruleName"`
-	// `AWS::XRay::SamplingRule.SamplingRule`.
+	// The sampling rule to be created.
+	//
+	// Must be provided if creating a new sampling rule. Not valid when updating an existing sampling rule.
 	SamplingRule interface{} `json:"samplingRule"`
 	// `AWS::XRay::SamplingRule.SamplingRuleRecord`.
 	SamplingRuleRecord interface{} `json:"samplingRuleRecord"`
-	// `AWS::XRay::SamplingRule.SamplingRuleUpdate`.
+	// A document specifying changes to a sampling rule's configuration.
+	//
+	// Must be provided if updating an existing sampling rule. Not valid when creating a new sampling rule.
+	//
+	// > The `Version` of a sampling rule cannot be updated, and is not part of `SamplingRuleUpdate` .
 	SamplingRuleUpdate interface{} `json:"samplingRuleUpdate"`
-	// `AWS::XRay::SamplingRule.Tags`.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags *[]interface{} `json:"tags"`
 }
 

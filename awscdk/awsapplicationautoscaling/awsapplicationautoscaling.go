@@ -3,20 +3,21 @@ package awsapplicationautoscaling
 import (
 	"time"
 
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsapplicationautoscaling/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsapplicationautoscaling/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // An adjustment.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type AdjustmentTier struct {
 	// What number to adjust the capacity with.
 	//
@@ -25,16 +26,19 @@ type AdjustmentTier struct {
 	// StepScalingPolicy.
 	//
 	// Can be positive or negative.
+	// Experimental.
 	Adjustment *float64 `json:"adjustment"`
 	// Lower bound where this scaling tier applies.
 	//
 	// The scaling tier applies if the difference between the metric
 	// value and its alarm threshold is higher than this value.
+	// Experimental.
 	LowerBound *float64 `json:"lowerBound"`
 	// Upper bound where this scaling tier applies.
 	//
 	// The scaling tier applies if the difference between the metric
 	// value and its alarm threshold is lower than this value.
+	// Experimental.
 	UpperBound *float64 `json:"upperBound"`
 }
 
@@ -42,12 +46,13 @@ type AdjustmentTier struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type AdjustmentType string
 
 const (
 	AdjustmentType_CHANGE_IN_CAPACITY AdjustmentType = "CHANGE_IN_CAPACITY"
-	AdjustmentType_EXACT_CAPACITY AdjustmentType = "EXACT_CAPACITY"
 	AdjustmentType_PERCENT_CHANGE_IN_CAPACITY AdjustmentType = "PERCENT_CHANGE_IN_CAPACITY"
+	AdjustmentType_EXACT_CAPACITY AdjustmentType = "EXACT_CAPACITY"
 )
 
 // Represent an attribute for which autoscaling can be configured.
@@ -62,23 +67,30 @@ const (
 // - Hide away the PredefinedMetric enum for target tracking policies.
 // - Don't expose all scaling methods (for example Dynamo tables don't support
 //    Step Scaling, so the Dynamo subclass won't expose this method).
+// Experimental.
 type BaseScalableAttribute interface {
-	constructs.Construct
-	Node() constructs.Node
+	awscdk.Construct
+	Node() awscdk.ConstructNode
 	Props() *BaseScalableAttributeProps
 	DoScaleOnMetric(id *string, props *BasicStepScalingPolicyProps)
 	DoScaleOnSchedule(id *string, props *ScalingSchedule)
 	DoScaleToTrackMetric(id *string, props *BasicTargetTrackingScalingPolicyProps)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for BaseScalableAttribute
 type jsiiProxy_BaseScalableAttribute struct {
-	internal.Type__constructsConstruct
+	internal.Type__awscdkConstruct
 }
 
-func (j *jsiiProxy_BaseScalableAttribute) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_BaseScalableAttribute) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -98,27 +110,26 @@ func (j *jsiiProxy_BaseScalableAttribute) Props() *BaseScalableAttributeProps {
 }
 
 
+// Experimental.
 func NewBaseScalableAttribute_Override(b BaseScalableAttribute, scope constructs.Construct, id *string, props *BaseScalableAttributeProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_applicationautoscaling.BaseScalableAttribute",
+		"monocdk.aws_applicationautoscaling.BaseScalableAttribute",
 		[]interface{}{scope, id, props},
 		b,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func BaseScalableAttribute_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_applicationautoscaling.BaseScalableAttribute",
+		"monocdk.aws_applicationautoscaling.BaseScalableAttribute",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -128,6 +139,7 @@ func BaseScalableAttribute_IsConstruct(x interface{}) *bool {
 }
 
 // Scale out or in based on a metric value.
+// Experimental.
 func (b *jsiiProxy_BaseScalableAttribute) DoScaleOnMetric(id *string, props *BasicStepScalingPolicyProps) {
 	_jsii_.InvokeVoid(
 		b,
@@ -137,6 +149,7 @@ func (b *jsiiProxy_BaseScalableAttribute) DoScaleOnMetric(id *string, props *Bas
 }
 
 // Scale out or in based on time.
+// Experimental.
 func (b *jsiiProxy_BaseScalableAttribute) DoScaleOnSchedule(id *string, props *ScalingSchedule) {
 	_jsii_.InvokeVoid(
 		b,
@@ -146,6 +159,7 @@ func (b *jsiiProxy_BaseScalableAttribute) DoScaleOnSchedule(id *string, props *S
 }
 
 // Scale out or in in order to keep a metric around a target value.
+// Experimental.
 func (b *jsiiProxy_BaseScalableAttribute) DoScaleToTrackMetric(id *string, props *BasicTargetTrackingScalingPolicyProps) {
 	_jsii_.InvokeVoid(
 		b,
@@ -154,7 +168,88 @@ func (b *jsiiProxy_BaseScalableAttribute) DoScaleToTrackMetric(id *string, props
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (b *jsiiProxy_BaseScalableAttribute) OnPrepare() {
+	_jsii_.InvokeVoid(
+		b,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (b *jsiiProxy_BaseScalableAttribute) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		b,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (b *jsiiProxy_BaseScalableAttribute) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		b,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (b *jsiiProxy_BaseScalableAttribute) Prepare() {
+	_jsii_.InvokeVoid(
+		b,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (b *jsiiProxy_BaseScalableAttribute) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		b,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (b *jsiiProxy_BaseScalableAttribute) ToString() *string {
 	var returns *string
 
@@ -168,22 +263,49 @@ func (b *jsiiProxy_BaseScalableAttribute) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (b *jsiiProxy_BaseScalableAttribute) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		b,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Properties for a ScalableTableAttribute.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type BaseScalableAttributeProps struct {
 	// Maximum capacity to scale to.
+	// Experimental.
 	MaxCapacity *float64 `json:"maxCapacity"`
 	// Minimum capacity to scale to.
+	// Experimental.
 	MinCapacity *float64 `json:"minCapacity"`
 	// Scalable dimension of the attribute.
+	// Experimental.
 	Dimension *string `json:"dimension"`
 	// Resource ID of the attribute.
+	// Experimental.
 	ResourceId *string `json:"resourceId"`
 	// Role to use for scaling.
+	// Experimental.
 	Role awsiam.IRole `json:"role"`
 	// Service namespace of the scalable attribute.
+	// Experimental.
 	ServiceNamespace ServiceNamespace `json:"serviceNamespace"`
 }
 
@@ -197,6 +319,7 @@ type BaseScalableAttributeProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type BaseTargetTrackingProps struct {
 	// Indicates whether scale in by the target tracking policy is disabled.
 	//
@@ -204,19 +327,33 @@ type BaseTargetTrackingProps struct {
 	// won't remove capacity from the scalable resource. Otherwise, scale in is
 	// enabled and the target tracking policy can remove capacity from the
 	// scalable resource.
+	// Experimental.
 	DisableScaleIn *bool `json:"disableScaleIn"`
 	// A name for the scaling policy.
+	// Experimental.
 	PolicyName *string `json:"policyName"`
 	// Period after a scale in activity completes before another scale in activity can start.
+	// Experimental.
 	ScaleInCooldown awscdk.Duration `json:"scaleInCooldown"`
 	// Period after a scale out activity completes before another scale out activity can start.
+	// Experimental.
 	ScaleOutCooldown awscdk.Duration `json:"scaleOutCooldown"`
 }
 
 // TODO: EXAMPLE
 //
+// Experimental.
 type BasicStepScalingPolicyProps struct {
+	// Metric to scale on.
+	// Experimental.
+	Metric awscloudwatch.IMetric `json:"metric"`
+	// The intervals for scaling.
+	//
+	// Maps a range of metric values to a particular scaling behavior.
+	// Experimental.
+	ScalingSteps *[]*ScalingInterval `json:"scalingSteps"`
 	// How the adjustment numbers inside 'intervals' are interpreted.
+	// Experimental.
 	AdjustmentType AdjustmentType `json:"adjustmentType"`
 	// Grace period after scaling activity.
 	//
@@ -226,6 +363,7 @@ type BasicStepScalingPolicyProps struct {
 	// Subsequent scale ins during the cooldown period are ignored.
 	// See: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_StepScalingPolicyConfiguration.html
 	//
+	// Experimental.
 	Cooldown awscdk.Duration `json:"cooldown"`
 	// The number of data points out of the evaluation periods that must be breaching to trigger a scaling action.
 	//
@@ -233,6 +371,7 @@ type BasicStepScalingPolicyProps struct {
 	// `evaluationPeriods` is the N value.
 	//
 	// Only has meaning if `evaluationPeriods != 1`.
+	// Experimental.
 	DatapointsToAlarm *float64 `json:"datapointsToAlarm"`
 	// How many evaluation periods of the metric to wait before triggering a scaling action.
 	//
@@ -241,28 +380,26 @@ type BasicStepScalingPolicyProps struct {
 	//
 	// If `datapointsToAlarm` is not set, then all data points in the evaluation period
 	// must meet the criteria to trigger a scaling action.
+	// Experimental.
 	EvaluationPeriods *float64 `json:"evaluationPeriods"`
-	// Metric to scale on.
-	Metric awscloudwatch.IMetric `json:"metric"`
 	// Aggregation to apply to all data points over the evaluation periods.
 	//
 	// Only has meaning if `evaluationPeriods != 1`.
+	// Experimental.
 	MetricAggregationType MetricAggregationType `json:"metricAggregationType"`
 	// Minimum absolute number to adjust capacity with as result of percentage scaling.
 	//
 	// Only when using AdjustmentType = PercentChangeInCapacity, this number controls
 	// the minimum absolute effect size.
+	// Experimental.
 	MinAdjustmentMagnitude *float64 `json:"minAdjustmentMagnitude"`
-	// The intervals for scaling.
-	//
-	// Maps a range of metric values to a particular scaling behavior.
-	ScalingSteps *[]*ScalingInterval `json:"scalingSteps"`
 }
 
 // Properties for a Target Tracking policy that include the metric but exclude the target.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type BasicTargetTrackingScalingPolicyProps struct {
 	// Indicates whether scale in by the target tracking policy is disabled.
 	//
@@ -270,19 +407,27 @@ type BasicTargetTrackingScalingPolicyProps struct {
 	// won't remove capacity from the scalable resource. Otherwise, scale in is
 	// enabled and the target tracking policy can remove capacity from the
 	// scalable resource.
+	// Experimental.
 	DisableScaleIn *bool `json:"disableScaleIn"`
 	// A name for the scaling policy.
+	// Experimental.
 	PolicyName *string `json:"policyName"`
 	// Period after a scale in activity completes before another scale in activity can start.
+	// Experimental.
 	ScaleInCooldown awscdk.Duration `json:"scaleInCooldown"`
 	// Period after a scale out activity completes before another scale out activity can start.
+	// Experimental.
 	ScaleOutCooldown awscdk.Duration `json:"scaleOutCooldown"`
+	// The target value for the metric.
+	// Experimental.
+	TargetValue *float64 `json:"targetValue"`
 	// A custom metric for application autoscaling.
 	//
 	// The metric must track utilization. Scaling out will happen if the metric is higher than
 	// the target value, scaling in will happen in the metric is lower than the target value.
 	//
 	// Exactly one of customMetric or predefinedMetric must be specified.
+	// Experimental.
 	CustomMetric awscloudwatch.IMetric `json:"customMetric"`
 	// A predefined metric for application autoscaling.
 	//
@@ -290,18 +435,24 @@ type BasicTargetTrackingScalingPolicyProps struct {
 	// the target value, scaling in will happen in the metric is lower than the target value.
 	//
 	// Exactly one of customMetric or predefinedMetric must be specified.
+	// Experimental.
 	PredefinedMetric PredefinedMetric `json:"predefinedMetric"`
 	// Identify the resource associated with the metric type.
 	//
 	// Only used for predefined metric ALBRequestCountPerTarget.
 	//
 	// Example value: `app/<load-balancer-name>/<load-balancer-id>/targetgroup/<target-group-name>/<target-group-id>`
+	// Experimental.
 	ResourceLabel *string `json:"resourceLabel"`
-	// The target value for the metric.
-	TargetValue *float64 `json:"targetValue"`
 }
 
 // A CloudFormation `AWS::ApplicationAutoScaling::ScalableTarget`.
+//
+// The `AWS::ApplicationAutoScaling::ScalableTarget` resource specifies a resource that Application Auto Scaling can scale, such as an AWS::DynamoDB::Table or AWS::ECS::Service resource.
+//
+// > If the resource that you want Application Auto Scaling to scale is not yet created in your account, add a dependency on the resource when registering it as a scalable target using the [DependsOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) attribute.
+//
+// For more information, see [RegisterScalableTarget](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html) in the *Application Auto Scaling API Reference* .
 //
 // TODO: EXAMPLE
 //
@@ -317,7 +468,7 @@ type CfnScalableTarget interface {
 	SetMaxCapacity(val *float64)
 	MinCapacity() *float64
 	SetMinCapacity(val *float64)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	ResourceId() *string
 	SetResourceId(val *string)
@@ -343,10 +494,16 @@ type CfnScalableTarget interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -426,8 +583,8 @@ func (j *jsiiProxy_CfnScalableTarget) MinCapacity() *float64 {
 	return returns
 }
 
-func (j *jsiiProxy_CfnScalableTarget) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnScalableTarget) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -528,13 +685,13 @@ func (j *jsiiProxy_CfnScalableTarget) UpdatedProperites() *map[string]interface{
 
 
 // Create a new `AWS::ApplicationAutoScaling::ScalableTarget`.
-func NewCfnScalableTarget(scope constructs.Construct, id *string, props *CfnScalableTargetProps) CfnScalableTarget {
+func NewCfnScalableTarget(scope awscdk.Construct, id *string, props *CfnScalableTargetProps) CfnScalableTarget {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnScalableTarget{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_applicationautoscaling.CfnScalableTarget",
+		"monocdk.aws_applicationautoscaling.CfnScalableTarget",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -543,11 +700,11 @@ func NewCfnScalableTarget(scope constructs.Construct, id *string, props *CfnScal
 }
 
 // Create a new `AWS::ApplicationAutoScaling::ScalableTarget`.
-func NewCfnScalableTarget_Override(c CfnScalableTarget, scope constructs.Construct, id *string, props *CfnScalableTargetProps) {
+func NewCfnScalableTarget_Override(c CfnScalableTarget, scope awscdk.Construct, id *string, props *CfnScalableTargetProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_applicationautoscaling.CfnScalableTarget",
+		"monocdk.aws_applicationautoscaling.CfnScalableTarget",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -623,13 +780,14 @@ func (j *jsiiProxy_CfnScalableTarget) SetSuspendedState(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnScalableTarget_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_applicationautoscaling.CfnScalableTarget",
+		"monocdk.aws_applicationautoscaling.CfnScalableTarget",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -639,13 +797,14 @@ func CfnScalableTarget_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnScalableTarget_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_applicationautoscaling.CfnScalableTarget",
+		"monocdk.aws_applicationautoscaling.CfnScalableTarget",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -654,17 +813,15 @@ func CfnScalableTarget_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnScalableTarget_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_applicationautoscaling.CfnScalableTarget",
+		"monocdk.aws_applicationautoscaling.CfnScalableTarget",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -677,7 +834,7 @@ func CfnScalableTarget_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_applicationautoscaling.CfnScalableTarget",
+		"monocdk.aws_applicationautoscaling.CfnScalableTarget",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -685,6 +842,7 @@ func CfnScalableTarget_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnScalableTarget) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -697,6 +855,7 @@ func (c *jsiiProxy_CfnScalableTarget) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnScalableTarget) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -712,6 +871,7 @@ func (c *jsiiProxy_CfnScalableTarget) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnScalableTarget) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -757,6 +917,7 @@ func (c *jsiiProxy_CfnScalableTarget) AddMetadata(key *string, value interface{}
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnScalableTarget) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -766,6 +927,7 @@ func (c *jsiiProxy_CfnScalableTarget) AddOverride(path *string, value interface{
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnScalableTarget) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -777,6 +939,7 @@ func (c *jsiiProxy_CfnScalableTarget) AddPropertyDeletionOverride(propertyPath *
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnScalableTarget) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -794,6 +957,7 @@ func (c *jsiiProxy_CfnScalableTarget) AddPropertyOverride(propertyPath *string, 
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnScalableTarget) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -806,6 +970,7 @@ func (c *jsiiProxy_CfnScalableTarget) ApplyRemovalPolicy(policy awscdk.RemovalPo
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnScalableTarget) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -826,6 +991,7 @@ func (c *jsiiProxy_CfnScalableTarget) GetAtt(attributeName *string) awscdk.Refer
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnScalableTarget) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -848,12 +1014,80 @@ func (c *jsiiProxy_CfnScalableTarget) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnScalableTarget) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnScalableTarget) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnScalableTarget) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnScalableTarget) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnScalableTarget) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -874,6 +1108,7 @@ func (c *jsiiProxy_CfnScalableTarget) RenderProperties(props *map[string]interfa
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnScalableTarget) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -887,9 +1122,23 @@ func (c *jsiiProxy_CfnScalableTarget) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnScalableTarget) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnScalableTarget) ToString() *string {
 	var returns *string
 
@@ -903,6 +1152,27 @@ func (c *jsiiProxy_CfnScalableTarget) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnScalableTarget) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnScalableTarget) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -911,67 +1181,163 @@ func (c *jsiiProxy_CfnScalableTarget) ValidateProperties(_properties interface{}
 	)
 }
 
+// `ScalableTargetAction` specifies the minimum and maximum capacity for the `ScalableTargetAction` property of the [AWS::ApplicationAutoScaling::ScalableTarget ScheduledAction](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html) property type.
+//
 // TODO: EXAMPLE
 //
 type CfnScalableTarget_ScalableTargetActionProperty struct {
-	// `CfnScalableTarget.ScalableTargetActionProperty.MaxCapacity`.
+	// The maximum capacity.
 	MaxCapacity *float64 `json:"maxCapacity"`
-	// `CfnScalableTarget.ScalableTargetActionProperty.MinCapacity`.
+	// The minimum capacity.
 	MinCapacity *float64 `json:"minCapacity"`
 }
 
+// `ScheduledAction` is a property of the [AWS::ApplicationAutoScaling::ScalableTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html) resource that specifies a scheduled action for a scalable target.
+//
+// For more information, see [PutScheduledAction](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) in the *Application Auto Scaling API Reference* . For more information about scheduled scaling, including the format for cron expressions, see [Scheduled scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html) in the *Application Auto Scaling User Guide* .
+//
 // TODO: EXAMPLE
 //
 type CfnScalableTarget_ScheduledActionProperty struct {
-	// `CfnScalableTarget.ScheduledActionProperty.EndTime`.
-	EndTime interface{} `json:"endTime"`
-	// `CfnScalableTarget.ScheduledActionProperty.ScalableTargetAction`.
-	ScalableTargetAction interface{} `json:"scalableTargetAction"`
-	// `CfnScalableTarget.ScheduledActionProperty.Schedule`.
+	// The schedule for this action. The following formats are supported:.
+	//
+	// - At expressions - " `at( *yyyy* - *mm* - *dd* T *hh* : *mm* : *ss* )` "
+	// - Rate expressions - " `rate( *value* *unit* )` "
+	// - Cron expressions - " `cron( *fields* )` "
+	//
+	// At expressions are useful for one-time schedules. Cron expressions are useful for scheduled actions that run periodically at a specified date and time, and rate expressions are useful for scheduled actions that run at a regular interval.
+	//
+	// At and cron expressions use Universal Coordinated Time (UTC) by default.
+	//
+	// The cron format consists of six fields separated by white spaces: [Minutes] [Hours] [Day_of_Month] [Month] [Day_of_Week] [Year].
+	//
+	// For rate expressions, *value* is a positive integer and *unit* is `minute` | `minutes` | `hour` | `hours` | `day` | `days` .
 	Schedule *string `json:"schedule"`
-	// `CfnScalableTarget.ScheduledActionProperty.ScheduledActionName`.
+	// The name of the scheduled action.
+	//
+	// This name must be unique among all other scheduled actions on the specified scalable target.
 	ScheduledActionName *string `json:"scheduledActionName"`
-	// `CfnScalableTarget.ScheduledActionProperty.StartTime`.
+	// The date and time that the action is scheduled to end, in UTC.
+	EndTime interface{} `json:"endTime"`
+	// The new minimum and maximum capacity.
+	//
+	// You can set both values or just one. At the scheduled time, if the current capacity is below the minimum capacity, Application Auto Scaling scales out to the minimum capacity. If the current capacity is above the maximum capacity, Application Auto Scaling scales in to the maximum capacity.
+	ScalableTargetAction interface{} `json:"scalableTargetAction"`
+	// The date and time that the action is scheduled to begin, in UTC.
 	StartTime interface{} `json:"startTime"`
-	// `CfnScalableTarget.ScheduledActionProperty.Timezone`.
+	// The time zone used when referring to the date and time of a scheduled action, when the scheduled action uses an at or cron expression.
 	Timezone *string `json:"timezone"`
 }
 
+// `SuspendedState` is a property of the [AWS::ApplicationAutoScaling::ScalableTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html) resource that specifies whether the scaling activities for a scalable target are in a suspended state.
+//
 // TODO: EXAMPLE
 //
 type CfnScalableTarget_SuspendedStateProperty struct {
-	// `CfnScalableTarget.SuspendedStateProperty.DynamicScalingInSuspended`.
+	// Whether scale in by a target tracking scaling policy or a step scaling policy is suspended.
+	//
+	// Set the value to `true` if you don't want Application Auto Scaling to remove capacity when a scaling policy is triggered. The default is `false` .
 	DynamicScalingInSuspended interface{} `json:"dynamicScalingInSuspended"`
-	// `CfnScalableTarget.SuspendedStateProperty.DynamicScalingOutSuspended`.
+	// Whether scale out by a target tracking scaling policy or a step scaling policy is suspended.
+	//
+	// Set the value to `true` if you don't want Application Auto Scaling to add capacity when a scaling policy is triggered. The default is `false` .
 	DynamicScalingOutSuspended interface{} `json:"dynamicScalingOutSuspended"`
-	// `CfnScalableTarget.SuspendedStateProperty.ScheduledScalingSuspended`.
+	// Whether scheduled scaling is suspended.
+	//
+	// Set the value to `true` if you don't want Application Auto Scaling to add or remove capacity by initiating scheduled actions. The default is `false` .
 	ScheduledScalingSuspended interface{} `json:"scheduledScalingSuspended"`
 }
 
-// Properties for defining a `AWS::ApplicationAutoScaling::ScalableTarget`.
+// Properties for defining a `CfnScalableTarget`.
 //
 // TODO: EXAMPLE
 //
 type CfnScalableTargetProps struct {
-	// `AWS::ApplicationAutoScaling::ScalableTarget.MaxCapacity`.
+	// The maximum value that you plan to scale out to.
+	//
+	// When a scaling policy is in effect, Application Auto Scaling can scale out (expand) as needed to the maximum capacity limit in response to changing demand.
 	MaxCapacity *float64 `json:"maxCapacity"`
-	// `AWS::ApplicationAutoScaling::ScalableTarget.MinCapacity`.
+	// The minimum value that you plan to scale in to.
+	//
+	// When a scaling policy is in effect, Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to changing demand.
 	MinCapacity *float64 `json:"minCapacity"`
-	// `AWS::ApplicationAutoScaling::ScalableTarget.ResourceId`.
+	// The identifier of the resource associated with the scalable target.
+	//
+	// This string consists of the resource type and unique identifier.
+	//
+	// - ECS service - The resource type is `service` and the unique identifier is the cluster name and service name. Example: `service/default/sample-webapp` .
+	// - Spot Fleet - The resource type is `spot-fleet-request` and the unique identifier is the Spot Fleet request ID. Example: `spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE` .
+	// - EMR cluster - The resource type is `instancegroup` and the unique identifier is the cluster ID and instance group ID. Example: `instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0` .
+	// - AppStream 2.0 fleet - The resource type is `fleet` and the unique identifier is the fleet name. Example: `fleet/sample-fleet` .
+	// - DynamoDB table - The resource type is `table` and the unique identifier is the table name. Example: `table/my-table` .
+	// - DynamoDB global secondary index - The resource type is `index` and the unique identifier is the index name. Example: `table/my-table/index/my-table-index` .
+	// - Aurora DB cluster - The resource type is `cluster` and the unique identifier is the cluster name. Example: `cluster:my-db-cluster` .
+	// - SageMaker endpoint variant - The resource type is `variant` and the unique identifier is the resource ID. Example: `endpoint/my-end-point/variant/KMeansClustering` .
+	// - Custom resources are not supported with a resource type. This parameter must specify the `OutputValue` from the CloudFormation template stack used to access the resources. The unique identifier is defined by the service provider. More information is available in our [GitHub repository](https://docs.aws.amazon.com/https://github.com/aws/aws-auto-scaling-custom-resource) .
+	// - Amazon Comprehend document classification endpoint - The resource type and unique identifier are specified using the endpoint ARN. Example: `arn:aws:comprehend:us-west-2:123456789012:document-classifier-endpoint/EXAMPLE` .
+	// - Amazon Comprehend entity recognizer endpoint - The resource type and unique identifier are specified using the endpoint ARN. Example: `arn:aws:comprehend:us-west-2:123456789012:entity-recognizer-endpoint/EXAMPLE` .
+	// - Lambda provisioned concurrency - The resource type is `function` and the unique identifier is the function name with a function version or alias name suffix that is not `$LATEST` . Example: `function:my-function:prod` or `function:my-function:1` .
+	// - Amazon Keyspaces table - The resource type is `table` and the unique identifier is the table name. Example: `keyspace/mykeyspace/table/mytable` .
+	// - Amazon MSK cluster - The resource type and unique identifier are specified using the cluster ARN. Example: `arn:aws:kafka:us-east-1:123456789012:cluster/demo-cluster-1/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5` .
+	// - Amazon ElastiCache replication group - The resource type is `replication-group` and the unique identifier is the replication group name. Example: `replication-group/mycluster` .
+	// - Neptune cluster - The resource type is `cluster` and the unique identifier is the cluster name. Example: `cluster:mycluster` .
 	ResourceId *string `json:"resourceId"`
-	// `AWS::ApplicationAutoScaling::ScalableTarget.RoleARN`.
+	// Specify the Amazon Resource Name (ARN) of an Identity and Access Management (IAM) role that allows Application Auto Scaling to modify the scalable target on your behalf.
+	//
+	// This can be either an IAM service role that Application Auto Scaling can assume to make calls to other AWS resources on your behalf, or a service-linked role for the specified service. For more information, see [How Application Auto Scaling works with IAM](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html) in the *Application Auto Scaling User Guide* .
+	//
+	// To automatically create a service-linked role (recommended), specify the full ARN of the service-linked role in your stack template. To find the exact ARN of the service-linked role for your AWS or custom resource, see the [Service-linked roles](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-service-linked-roles.html) topic in the *Application Auto Scaling User Guide* . Look for the ARN in the table at the bottom of the page.
 	RoleArn *string `json:"roleArn"`
-	// `AWS::ApplicationAutoScaling::ScalableTarget.ScalableDimension`.
+	// The scalable dimension associated with the scalable target.
+	//
+	// This string consists of the service namespace, resource type, and scaling property.
+	//
+	// - `ecs:service:DesiredCount` - The desired task count of an ECS service.
+	// - `elasticmapreduce:instancegroup:InstanceCount` - The instance count of an EMR Instance Group.
+	// - `ec2:spot-fleet-request:TargetCapacity` - The target capacity of a Spot Fleet.
+	// - `appstream:fleet:DesiredCapacity` - The desired capacity of an AppStream 2.0 fleet.
+	// - `dynamodb:table:ReadCapacityUnits` - The provisioned read capacity for a DynamoDB table.
+	// - `dynamodb:table:WriteCapacityUnits` - The provisioned write capacity for a DynamoDB table.
+	// - `dynamodb:index:ReadCapacityUnits` - The provisioned read capacity for a DynamoDB global secondary index.
+	// - `dynamodb:index:WriteCapacityUnits` - The provisioned write capacity for a DynamoDB global secondary index.
+	// - `rds:cluster:ReadReplicaCount` - The count of Aurora Replicas in an Aurora DB cluster. Available for Aurora MySQL-compatible edition and Aurora PostgreSQL-compatible edition.
+	// - `sagemaker:variant:DesiredInstanceCount` - The number of EC2 instances for a SageMaker model endpoint variant.
+	// - `custom-resource:ResourceType:Property` - The scalable dimension for a custom resource provided by your own application or service.
+	// - `comprehend:document-classifier-endpoint:DesiredInferenceUnits` - The number of inference units for an Amazon Comprehend document classification endpoint.
+	// - `comprehend:entity-recognizer-endpoint:DesiredInferenceUnits` - The number of inference units for an Amazon Comprehend entity recognizer endpoint.
+	// - `lambda:function:ProvisionedConcurrency` - The provisioned concurrency for a Lambda function.
+	// - `cassandra:table:ReadCapacityUnits` - The provisioned read capacity for an Amazon Keyspaces table.
+	// - `cassandra:table:WriteCapacityUnits` - The provisioned write capacity for an Amazon Keyspaces table.
+	// - `kafka:broker-storage:VolumeSize` - The provisioned volume size (in GiB) for brokers in an Amazon MSK cluster.
+	// - `elasticache:replication-group:NodeGroups` - The number of node groups for an Amazon ElastiCache replication group.
+	// - `elasticache:replication-group:Replicas` - The number of replicas per node group for an Amazon ElastiCache replication group.
+	// - `neptune:cluster:ReadReplicaCount` - The count of read replicas in an Amazon Neptune DB cluster.
 	ScalableDimension *string `json:"scalableDimension"`
-	// `AWS::ApplicationAutoScaling::ScalableTarget.ScheduledActions`.
-	ScheduledActions interface{} `json:"scheduledActions"`
-	// `AWS::ApplicationAutoScaling::ScalableTarget.ServiceNamespace`.
+	// The namespace of the AWS service that provides the resource, or a `custom-resource` .
 	ServiceNamespace *string `json:"serviceNamespace"`
-	// `AWS::ApplicationAutoScaling::ScalableTarget.SuspendedState`.
+	// The scheduled actions for the scalable target. Duplicates aren't allowed.
+	//
+	// For more information about using scheduled scaling, see [Scheduled scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html) in the *Application Auto Scaling User Guide* .
+	ScheduledActions interface{} `json:"scheduledActions"`
+	// An embedded object that contains attributes and attribute values that are used to suspend and resume automatic scaling.
+	//
+	// Setting the value of an attribute to `true` suspends the specified scaling activities. Setting it to `false` (default) resumes the specified scaling activities.
+	//
+	// *Suspension Outcomes*
+	//
+	// - For `DynamicScalingInSuspended` , while a suspension is in effect, all scale-in activities that are triggered by a scaling policy are suspended.
+	// - For `DynamicScalingOutSuspended` , while a suspension is in effect, all scale-out activities that are triggered by a scaling policy are suspended.
+	// - For `ScheduledScalingSuspended` , while a suspension is in effect, all scaling activities that involve scheduled actions are suspended.
+	//
+	// For more information, see [Suspending and resuming scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-suspend-resume-scaling.html) in the *Application Auto Scaling User Guide* .
 	SuspendedState interface{} `json:"suspendedState"`
 }
 
 // A CloudFormation `AWS::ApplicationAutoScaling::ScalingPolicy`.
+//
+// The `AWS::ApplicationAutoScaling::ScalingPolicy` resource defines a scaling policy that Application Auto Scaling uses to adjust the capacity of a scalable target.
+//
+// For more information, see [PutScalingPolicy](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScalingPolicy.html) in the *Application Auto Scaling API Reference* . For more information about Application Auto Scaling scaling policies, see [Target tracking scaling policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step scaling policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) in the *Application Auto Scaling User Guide* .
 //
 // TODO: EXAMPLE
 //
@@ -983,7 +1349,7 @@ type CfnScalingPolicy interface {
 	CfnResourceType() *string
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PolicyName() *string
 	SetPolicyName(val *string)
 	PolicyType() *string
@@ -1013,10 +1379,16 @@ type CfnScalingPolicy interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1076,8 +1448,8 @@ func (j *jsiiProxy_CfnScalingPolicy) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnScalingPolicy) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnScalingPolicy) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1198,13 +1570,13 @@ func (j *jsiiProxy_CfnScalingPolicy) UpdatedProperites() *map[string]interface{}
 
 
 // Create a new `AWS::ApplicationAutoScaling::ScalingPolicy`.
-func NewCfnScalingPolicy(scope constructs.Construct, id *string, props *CfnScalingPolicyProps) CfnScalingPolicy {
+func NewCfnScalingPolicy(scope awscdk.Construct, id *string, props *CfnScalingPolicyProps) CfnScalingPolicy {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnScalingPolicy{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_applicationautoscaling.CfnScalingPolicy",
+		"monocdk.aws_applicationautoscaling.CfnScalingPolicy",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1213,11 +1585,11 @@ func NewCfnScalingPolicy(scope constructs.Construct, id *string, props *CfnScali
 }
 
 // Create a new `AWS::ApplicationAutoScaling::ScalingPolicy`.
-func NewCfnScalingPolicy_Override(c CfnScalingPolicy, scope constructs.Construct, id *string, props *CfnScalingPolicyProps) {
+func NewCfnScalingPolicy_Override(c CfnScalingPolicy, scope awscdk.Construct, id *string, props *CfnScalingPolicyProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_applicationautoscaling.CfnScalingPolicy",
+		"monocdk.aws_applicationautoscaling.CfnScalingPolicy",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1293,13 +1665,14 @@ func (j *jsiiProxy_CfnScalingPolicy) SetTargetTrackingScalingPolicyConfiguration
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnScalingPolicy_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_applicationautoscaling.CfnScalingPolicy",
+		"monocdk.aws_applicationautoscaling.CfnScalingPolicy",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1309,13 +1682,14 @@ func CfnScalingPolicy_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnScalingPolicy_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_applicationautoscaling.CfnScalingPolicy",
+		"monocdk.aws_applicationautoscaling.CfnScalingPolicy",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1324,17 +1698,15 @@ func CfnScalingPolicy_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnScalingPolicy_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_applicationautoscaling.CfnScalingPolicy",
+		"monocdk.aws_applicationautoscaling.CfnScalingPolicy",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1347,7 +1719,7 @@ func CfnScalingPolicy_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_applicationautoscaling.CfnScalingPolicy",
+		"monocdk.aws_applicationautoscaling.CfnScalingPolicy",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1355,6 +1727,7 @@ func CfnScalingPolicy_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnScalingPolicy) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1367,6 +1740,7 @@ func (c *jsiiProxy_CfnScalingPolicy) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnScalingPolicy) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1382,6 +1756,7 @@ func (c *jsiiProxy_CfnScalingPolicy) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnScalingPolicy) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1427,6 +1802,7 @@ func (c *jsiiProxy_CfnScalingPolicy) AddMetadata(key *string, value interface{})
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnScalingPolicy) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1436,6 +1812,7 @@ func (c *jsiiProxy_CfnScalingPolicy) AddOverride(path *string, value interface{}
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnScalingPolicy) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1447,6 +1824,7 @@ func (c *jsiiProxy_CfnScalingPolicy) AddPropertyDeletionOverride(propertyPath *s
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnScalingPolicy) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1464,6 +1842,7 @@ func (c *jsiiProxy_CfnScalingPolicy) AddPropertyOverride(propertyPath *string, v
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnScalingPolicy) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1476,6 +1855,7 @@ func (c *jsiiProxy_CfnScalingPolicy) ApplyRemovalPolicy(policy awscdk.RemovalPol
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnScalingPolicy) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1496,6 +1876,7 @@ func (c *jsiiProxy_CfnScalingPolicy) GetAtt(attributeName *string) awscdk.Refere
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnScalingPolicy) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1518,12 +1899,80 @@ func (c *jsiiProxy_CfnScalingPolicy) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnScalingPolicy) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnScalingPolicy) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnScalingPolicy) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnScalingPolicy) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnScalingPolicy) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1544,6 +1993,7 @@ func (c *jsiiProxy_CfnScalingPolicy) RenderProperties(props *map[string]interfac
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnScalingPolicy) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1557,9 +2007,23 @@ func (c *jsiiProxy_CfnScalingPolicy) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnScalingPolicy) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnScalingPolicy) ToString() *string {
 	var returns *string
 
@@ -1573,6 +2037,27 @@ func (c *jsiiProxy_CfnScalingPolicy) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnScalingPolicy) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnScalingPolicy) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1581,102 +2066,296 @@ func (c *jsiiProxy_CfnScalingPolicy) ValidateProperties(_properties interface{})
 	)
 }
 
+// Contains customized metric specification information for a target tracking scaling policy for Application Auto Scaling.
+//
+// For information about the available metrics for a service, see [AWS services that publish CloudWatch metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html) in the *Amazon CloudWatch User Guide* .
+//
+// To create your customized metric specification:
+//
+// - Add values for each required parameter from CloudWatch. You can use an existing metric, or a new metric that you create. To use your own metric, you must first publish the metric to CloudWatch. For more information, see [Publish custom metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html) in the *Amazon CloudWatch User Guide* .
+// - Choose a metric that changes proportionally with capacity. The value of the metric should increase or decrease in inverse proportion to the number of capacity units. That is, the value of the metric should decrease when capacity increases, and increase when capacity decreases.
+//
+// For more information about CloudWatch, see [Amazon CloudWatch concepts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html) .
+//
+// `CustomizedMetricSpecification` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy TargetTrackingScalingPolicyConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html) property type.
+//
 // TODO: EXAMPLE
 //
 type CfnScalingPolicy_CustomizedMetricSpecificationProperty struct {
-	// `CfnScalingPolicy.CustomizedMetricSpecificationProperty.Dimensions`.
-	Dimensions interface{} `json:"dimensions"`
-	// `CfnScalingPolicy.CustomizedMetricSpecificationProperty.MetricName`.
+	// The name of the metric.
 	MetricName *string `json:"metricName"`
-	// `CfnScalingPolicy.CustomizedMetricSpecificationProperty.Namespace`.
+	// The namespace of the metric.
 	Namespace *string `json:"namespace"`
-	// `CfnScalingPolicy.CustomizedMetricSpecificationProperty.Statistic`.
+	// The statistic of the metric.
 	Statistic *string `json:"statistic"`
-	// `CfnScalingPolicy.CustomizedMetricSpecificationProperty.Unit`.
+	// The dimensions of the metric.
+	//
+	// Conditional: If you published your metric with dimensions, you must specify the same dimensions in your scaling policy.
+	Dimensions interface{} `json:"dimensions"`
+	// The unit of the metric.
 	Unit *string `json:"unit"`
 }
 
+// `MetricDimension` specifies a name/value pair that is part of the identity of a CloudWatch metric for the `Dimensions` property of the [AWS::ApplicationAutoScaling::ScalingPolicy CustomizedMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html) property type. Duplicate dimensions are not allowed.
+//
 // TODO: EXAMPLE
 //
 type CfnScalingPolicy_MetricDimensionProperty struct {
-	// `CfnScalingPolicy.MetricDimensionProperty.Name`.
+	// The name of the dimension.
 	Name *string `json:"name"`
-	// `CfnScalingPolicy.MetricDimensionProperty.Value`.
+	// The value of the dimension.
 	Value *string `json:"value"`
 }
 
+// Contains predefined metric specification information for a target tracking scaling policy for Application Auto Scaling.
+//
+// `PredefinedMetricSpecification` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy TargetTrackingScalingPolicyConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html) property type.
+//
 // TODO: EXAMPLE
 //
 type CfnScalingPolicy_PredefinedMetricSpecificationProperty struct {
-	// `CfnScalingPolicy.PredefinedMetricSpecificationProperty.PredefinedMetricType`.
+	// The metric type.
+	//
+	// The `ALBRequestCountPerTarget` metric type applies only to Spot fleet requests and ECS services.
 	PredefinedMetricType *string `json:"predefinedMetricType"`
-	// `CfnScalingPolicy.PredefinedMetricSpecificationProperty.ResourceLabel`.
+	// Identifies the resource associated with the metric type.
+	//
+	// You can't specify a resource label unless the metric type is `ALBRequestCountPerTarget` and there is a target group attached to the Spot Fleet or ECS service.
+	//
+	// You create the resource label by appending the final portion of the load balancer ARN and the final portion of the target group ARN into a single value, separated by a forward slash (/). The format of the resource label is:
+	//
+	// `app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff` .
+	//
+	// Where:
+	//
+	// - app/<load-balancer-name>/<load-balancer-id> is the final portion of the load balancer ARN
+	// - targetgroup/<target-group-name>/<target-group-id> is the final portion of the target group ARN.
+	//
+	// To find the ARN for an Application Load Balancer, use the [DescribeLoadBalancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html) API operation. To find the ARN for the target group, use the [DescribeTargetGroups](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html) API operation.
 	ResourceLabel *string `json:"resourceLabel"`
 }
 
+// `StepAdjustment` specifies a step adjustment for the `StepAdjustments` property of the [AWS::ApplicationAutoScaling::ScalingPolicy StepScalingPolicyConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration.html) property type.
+//
+// For the following examples, suppose that you have an alarm with a breach threshold of 50:
+//
+// - To trigger a step adjustment when the metric is greater than or equal to 50 and less than 60, specify a lower bound of 0 and an upper bound of 10.
+// - To trigger a step adjustment when the metric is greater than 40 and less than or equal to 50, specify a lower bound of -10 and an upper bound of 0.
+//
+// For more information, see [Step adjustments](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html#as-scaling-steps) in the *Application Auto Scaling User Guide* .
+//
+// You can find a sample template snippet in the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#aws-resource-applicationautoscaling-scalingpolicy--examples) section of the `AWS::ApplicationAutoScaling::ScalingPolicy` documentation.
+//
 // TODO: EXAMPLE
 //
 type CfnScalingPolicy_StepAdjustmentProperty struct {
-	// `CfnScalingPolicy.StepAdjustmentProperty.MetricIntervalLowerBound`.
-	MetricIntervalLowerBound *float64 `json:"metricIntervalLowerBound"`
-	// `CfnScalingPolicy.StepAdjustmentProperty.MetricIntervalUpperBound`.
-	MetricIntervalUpperBound *float64 `json:"metricIntervalUpperBound"`
-	// `CfnScalingPolicy.StepAdjustmentProperty.ScalingAdjustment`.
+	// The amount by which to scale.
+	//
+	// The adjustment is based on the value that you specified in the `AdjustmentType` property (either an absolute number or a percentage). A positive value adds to the current capacity and a negative number subtracts from the current capacity.
 	ScalingAdjustment *float64 `json:"scalingAdjustment"`
+	// The lower bound for the difference between the alarm threshold and the CloudWatch metric.
+	//
+	// If the metric value is above the breach threshold, the lower bound is inclusive (the metric must be greater than or equal to the threshold plus the lower bound). Otherwise, it is exclusive (the metric must be greater than the threshold plus the lower bound). A null value indicates negative infinity.
+	//
+	// You must specify at least one upper or lower bound.
+	MetricIntervalLowerBound *float64 `json:"metricIntervalLowerBound"`
+	// The upper bound for the difference between the alarm threshold and the CloudWatch metric.
+	//
+	// If the metric value is above the breach threshold, the upper bound is exclusive (the metric must be less than the threshold plus the upper bound). Otherwise, it is inclusive (the metric must be less than or equal to the threshold plus the upper bound). A null value indicates positive infinity.
+	//
+	// You must specify at least one upper or lower bound.
+	MetricIntervalUpperBound *float64 `json:"metricIntervalUpperBound"`
 }
 
+// `StepScalingPolicyConfiguration` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html) resource that specifies a step scaling policy configuration for Application Auto Scaling.
+//
+// For more information, see [PutScalingPolicy](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScalingPolicy.html) in the *Application Auto Scaling API Reference* . For more information about step scaling policies, see [Step scaling policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) in the *Application Auto Scaling User Guide* .
+//
 // TODO: EXAMPLE
 //
 type CfnScalingPolicy_StepScalingPolicyConfigurationProperty struct {
-	// `CfnScalingPolicy.StepScalingPolicyConfigurationProperty.AdjustmentType`.
+	// Specifies whether the `ScalingAdjustment` value in the `StepAdjustment` property is an absolute number or a percentage of the current capacity.
 	AdjustmentType *string `json:"adjustmentType"`
-	// `CfnScalingPolicy.StepScalingPolicyConfigurationProperty.Cooldown`.
+	// The amount of time, in seconds, to wait for a previous scaling activity to take effect.
+	//
+	// With scale-out policies, the intention is to continuously (but not excessively) scale out. After Application Auto Scaling successfully scales out using a step scaling policy, it starts to calculate the cooldown time. The scaling policy won't increase the desired capacity again unless either a larger scale out is triggered or the cooldown period ends. While the cooldown period is in effect, capacity added by the initiating scale-out activity is calculated as part of the desired capacity for the next scale-out activity. For example, when an alarm triggers a step scaling policy to increase the capacity by 2, the scaling activity completes successfully, and a cooldown period starts. If the alarm triggers again during the cooldown period but at a more aggressive step adjustment of 3, the previous increase of 2 is considered part of the current capacity. Therefore, only 1 is added to the capacity.
+	//
+	// With scale-in policies, the intention is to scale in conservatively to protect your application’s availability, so scale-in activities are blocked until the cooldown period has expired. However, if another alarm triggers a scale-out activity during the cooldown period after a scale-in activity, Application Auto Scaling scales out the target immediately. In this case, the cooldown period for the scale-in activity stops and doesn't complete.
+	//
+	// Application Auto Scaling provides a default value of 600 for Amazon ElastiCache replication groups and a default value of 300 for the following scalable targets:
+	//
+	// - AppStream 2.0 fleets
+	// - Aurora DB clusters
+	// - ECS services
+	// - EMR clusters
+	// - Neptune clusters
+	// - SageMaker endpoint variants
+	// - Spot Fleets
+	// - Custom resources
+	//
+	// For all other scalable targets, the default value is 0:
+	//
+	// - Amazon Comprehend document classification and entity recognizer endpoints
+	// - DynamoDB tables and global secondary indexes
+	// - Amazon Keyspaces tables
+	// - Lambda provisioned concurrency
+	// - Amazon MSK broker storage
 	Cooldown *float64 `json:"cooldown"`
-	// `CfnScalingPolicy.StepScalingPolicyConfigurationProperty.MetricAggregationType`.
+	// The aggregation type for the CloudWatch metrics.
+	//
+	// Valid values are `Minimum` , `Maximum` , and `Average` . If the aggregation type is null, the value is treated as `Average` .
 	MetricAggregationType *string `json:"metricAggregationType"`
-	// `CfnScalingPolicy.StepScalingPolicyConfigurationProperty.MinAdjustmentMagnitude`.
+	// The minimum value to scale by when the adjustment type is `PercentChangeInCapacity` .
+	//
+	// For example, suppose that you create a step scaling policy to scale out an Amazon ECS service by 25 percent and you specify a `MinAdjustmentMagnitude` of 2. If the service has 4 tasks and the scaling policy is performed, 25 percent of 4 is 1. However, because you specified a `MinAdjustmentMagnitude` of 2, Application Auto Scaling scales out the service by 2 tasks.
 	MinAdjustmentMagnitude *float64 `json:"minAdjustmentMagnitude"`
-	// `CfnScalingPolicy.StepScalingPolicyConfigurationProperty.StepAdjustments`.
+	// A set of adjustments that enable you to scale based on the size of the alarm breach.
+	//
+	// At least one step adjustment is required if you are adding a new step scaling policy configuration.
 	StepAdjustments interface{} `json:"stepAdjustments"`
 }
 
+// `TargetTrackingScalingPolicyConfiguration` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html) resource that specifies a target tracking scaling policy configuration for Application Auto Scaling. Use a target tracking scaling policy to adjust the capacity of the specified scalable target in response to actual workloads, so that resource utilization remains at or near the target utilization value.
+//
+// For more information, see [PutScalingPolicy](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScalingPolicy.html) in the *Application Auto Scaling API Reference* . For more information about target tracking scaling policies, see [Target tracking scaling policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) in the *Application Auto Scaling User Guide* .
+//
 // TODO: EXAMPLE
 //
 type CfnScalingPolicy_TargetTrackingScalingPolicyConfigurationProperty struct {
-	// `CfnScalingPolicy.TargetTrackingScalingPolicyConfigurationProperty.CustomizedMetricSpecification`.
-	CustomizedMetricSpecification interface{} `json:"customizedMetricSpecification"`
-	// `CfnScalingPolicy.TargetTrackingScalingPolicyConfigurationProperty.DisableScaleIn`.
-	DisableScaleIn interface{} `json:"disableScaleIn"`
-	// `CfnScalingPolicy.TargetTrackingScalingPolicyConfigurationProperty.PredefinedMetricSpecification`.
-	PredefinedMetricSpecification interface{} `json:"predefinedMetricSpecification"`
-	// `CfnScalingPolicy.TargetTrackingScalingPolicyConfigurationProperty.ScaleInCooldown`.
-	ScaleInCooldown *float64 `json:"scaleInCooldown"`
-	// `CfnScalingPolicy.TargetTrackingScalingPolicyConfigurationProperty.ScaleOutCooldown`.
-	ScaleOutCooldown *float64 `json:"scaleOutCooldown"`
-	// `CfnScalingPolicy.TargetTrackingScalingPolicyConfigurationProperty.TargetValue`.
+	// The target value for the metric.
+	//
+	// Although this property accepts numbers of type Double, it won't accept values that are either too small or too large. Values must be in the range of -2^360 to 2^360. The value must be a valid number based on the choice of metric. For example, if the metric is CPU utilization, then the target value is a percent value that represents how much of the CPU can be used before scaling out.
 	TargetValue *float64 `json:"targetValue"`
+	// A customized metric.
+	//
+	// You can specify either a predefined metric or a customized metric.
+	CustomizedMetricSpecification interface{} `json:"customizedMetricSpecification"`
+	// Indicates whether scale in by the target tracking scaling policy is disabled.
+	//
+	// If the value is `true` , scale in is disabled and the target tracking scaling policy won't remove capacity from the scalable target. Otherwise, scale in is enabled and the target tracking scaling policy can remove capacity from the scalable target. The default value is `false` .
+	DisableScaleIn interface{} `json:"disableScaleIn"`
+	// A predefined metric.
+	//
+	// You can specify either a predefined metric or a customized metric.
+	PredefinedMetricSpecification interface{} `json:"predefinedMetricSpecification"`
+	// The amount of time, in seconds, after a scale-in activity completes before another scale-in activity can start.
+	//
+	// With the *scale-in cooldown period* , the intention is to scale in conservatively to protect your application’s availability, so scale-in activities are blocked until the cooldown period has expired. However, if another alarm triggers a scale-out activity during the scale-in cooldown period, Application Auto Scaling scales out the target immediately. In this case, the scale-in cooldown period stops and doesn't complete.
+	//
+	// Application Auto Scaling provides a default value of 600 for Amazon ElastiCache replication groups and a default value of 300 for the following scalable targets:
+	//
+	// - AppStream 2.0 fleets
+	// - Aurora DB clusters
+	// - ECS services
+	// - EMR clusters
+	// - Neptune clusters
+	// - SageMaker endpoint variants
+	// - Spot Fleets
+	// - Custom resources
+	//
+	// For all other scalable targets, the default value is 0:
+	//
+	// - Amazon Comprehend document classification and entity recognizer endpoints
+	// - DynamoDB tables and global secondary indexes
+	// - Amazon Keyspaces tables
+	// - Lambda provisioned concurrency
+	// - Amazon MSK broker storage
+	ScaleInCooldown *float64 `json:"scaleInCooldown"`
+	// The amount of time, in seconds, to wait for a previous scale-out activity to take effect.
+	//
+	// With the *scale-out cooldown period* , the intention is to continuously (but not excessively) scale out. After Application Auto Scaling successfully scales out using a target tracking scaling policy, it starts to calculate the cooldown time. The scaling policy won't increase the desired capacity again unless either a larger scale out is triggered or the cooldown period ends. While the cooldown period is in effect, the capacity added by the initiating scale-out activity is calculated as part of the desired capacity for the next scale-out activity.
+	//
+	// Application Auto Scaling provides a default value of 600 for Amazon ElastiCache replication groups and a default value of 300 for the following scalable targets:
+	//
+	// - AppStream 2.0 fleets
+	// - Aurora DB clusters
+	// - ECS services
+	// - EMR clusters
+	// - Neptune clusters
+	// - SageMaker endpoint variants
+	// - Spot Fleets
+	// - Custom resources
+	//
+	// For all other scalable targets, the default value is 0:
+	//
+	// - Amazon Comprehend document classification and entity recognizer endpoints
+	// - DynamoDB tables and global secondary indexes
+	// - Amazon Keyspaces tables
+	// - Lambda provisioned concurrency
+	// - Amazon MSK broker storage
+	ScaleOutCooldown *float64 `json:"scaleOutCooldown"`
 }
 
-// Properties for defining a `AWS::ApplicationAutoScaling::ScalingPolicy`.
+// Properties for defining a `CfnScalingPolicy`.
 //
 // TODO: EXAMPLE
 //
 type CfnScalingPolicyProps struct {
-	// `AWS::ApplicationAutoScaling::ScalingPolicy.PolicyName`.
+	// The name of the scaling policy.
 	PolicyName *string `json:"policyName"`
-	// `AWS::ApplicationAutoScaling::ScalingPolicy.PolicyType`.
+	// The scaling policy type.
+	//
+	// The following policy types are supported:
+	//
+	// `TargetTrackingScaling` —Not supported for Amazon EMR
+	//
+	// `StepScaling` —Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune.
 	PolicyType *string `json:"policyType"`
-	// `AWS::ApplicationAutoScaling::ScalingPolicy.ResourceId`.
+	// The identifier of the resource associated with the scaling policy.
+	//
+	// This string consists of the resource type and unique identifier.
+	//
+	// - ECS service - The resource type is `service` and the unique identifier is the cluster name and service name. Example: `service/default/sample-webapp` .
+	// - Spot Fleet - The resource type is `spot-fleet-request` and the unique identifier is the Spot Fleet request ID. Example: `spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE` .
+	// - EMR cluster - The resource type is `instancegroup` and the unique identifier is the cluster ID and instance group ID. Example: `instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0` .
+	// - AppStream 2.0 fleet - The resource type is `fleet` and the unique identifier is the fleet name. Example: `fleet/sample-fleet` .
+	// - DynamoDB table - The resource type is `table` and the unique identifier is the table name. Example: `table/my-table` .
+	// - DynamoDB global secondary index - The resource type is `index` and the unique identifier is the index name. Example: `table/my-table/index/my-table-index` .
+	// - Aurora DB cluster - The resource type is `cluster` and the unique identifier is the cluster name. Example: `cluster:my-db-cluster` .
+	// - SageMaker endpoint variant - The resource type is `variant` and the unique identifier is the resource ID. Example: `endpoint/my-end-point/variant/KMeansClustering` .
+	// - Custom resources are not supported with a resource type. This parameter must specify the `OutputValue` from the CloudFormation template stack used to access the resources. The unique identifier is defined by the service provider. More information is available in our [GitHub repository](https://docs.aws.amazon.com/https://github.com/aws/aws-auto-scaling-custom-resource) .
+	// - Amazon Comprehend document classification endpoint - The resource type and unique identifier are specified using the endpoint ARN. Example: `arn:aws:comprehend:us-west-2:123456789012:document-classifier-endpoint/EXAMPLE` .
+	// - Amazon Comprehend entity recognizer endpoint - The resource type and unique identifier are specified using the endpoint ARN. Example: `arn:aws:comprehend:us-west-2:123456789012:entity-recognizer-endpoint/EXAMPLE` .
+	// - Lambda provisioned concurrency - The resource type is `function` and the unique identifier is the function name with a function version or alias name suffix that is not `$LATEST` . Example: `function:my-function:prod` or `function:my-function:1` .
+	// - Amazon Keyspaces table - The resource type is `table` and the unique identifier is the table name. Example: `keyspace/mykeyspace/table/mytable` .
+	// - Amazon MSK cluster - The resource type and unique identifier are specified using the cluster ARN. Example: `arn:aws:kafka:us-east-1:123456789012:cluster/demo-cluster-1/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5` .
+	// - Amazon ElastiCache replication group - The resource type is `replication-group` and the unique identifier is the replication group name. Example: `replication-group/mycluster` .
+	// - Neptune cluster - The resource type is `cluster` and the unique identifier is the cluster name. Example: `cluster:mycluster` .
 	ResourceId *string `json:"resourceId"`
-	// `AWS::ApplicationAutoScaling::ScalingPolicy.ScalableDimension`.
+	// The scalable dimension. This string consists of the service namespace, resource type, and scaling property.
+	//
+	// - `ecs:service:DesiredCount` - The desired task count of an ECS service.
+	// - `elasticmapreduce:instancegroup:InstanceCount` - The instance count of an EMR Instance Group.
+	// - `ec2:spot-fleet-request:TargetCapacity` - The target capacity of a Spot Fleet.
+	// - `appstream:fleet:DesiredCapacity` - The desired capacity of an AppStream 2.0 fleet.
+	// - `dynamodb:table:ReadCapacityUnits` - The provisioned read capacity for a DynamoDB table.
+	// - `dynamodb:table:WriteCapacityUnits` - The provisioned write capacity for a DynamoDB table.
+	// - `dynamodb:index:ReadCapacityUnits` - The provisioned read capacity for a DynamoDB global secondary index.
+	// - `dynamodb:index:WriteCapacityUnits` - The provisioned write capacity for a DynamoDB global secondary index.
+	// - `rds:cluster:ReadReplicaCount` - The count of Aurora Replicas in an Aurora DB cluster. Available for Aurora MySQL-compatible edition and Aurora PostgreSQL-compatible edition.
+	// - `sagemaker:variant:DesiredInstanceCount` - The number of EC2 instances for a SageMaker model endpoint variant.
+	// - `custom-resource:ResourceType:Property` - The scalable dimension for a custom resource provided by your own application or service.
+	// - `comprehend:document-classifier-endpoint:DesiredInferenceUnits` - The number of inference units for an Amazon Comprehend document classification endpoint.
+	// - `comprehend:entity-recognizer-endpoint:DesiredInferenceUnits` - The number of inference units for an Amazon Comprehend entity recognizer endpoint.
+	// - `lambda:function:ProvisionedConcurrency` - The provisioned concurrency for a Lambda function.
+	// - `cassandra:table:ReadCapacityUnits` - The provisioned read capacity for an Amazon Keyspaces table.
+	// - `cassandra:table:WriteCapacityUnits` - The provisioned write capacity for an Amazon Keyspaces table.
+	// - `kafka:broker-storage:VolumeSize` - The provisioned volume size (in GiB) for brokers in an Amazon MSK cluster.
+	// - `elasticache:replication-group:NodeGroups` - The number of node groups for an Amazon ElastiCache replication group.
+	// - `elasticache:replication-group:Replicas` - The number of replicas per node group for an Amazon ElastiCache replication group.
+	// - `neptune:cluster:ReadReplicaCount` - The count of read replicas in an Amazon Neptune DB cluster.
 	ScalableDimension *string `json:"scalableDimension"`
-	// `AWS::ApplicationAutoScaling::ScalingPolicy.ScalingTargetId`.
+	// The CloudFormation-generated ID of an Application Auto Scaling scalable target.
+	//
+	// For more information about the ID, see the Return Value section of the `AWS::ApplicationAutoScaling::ScalableTarget` resource.
+	//
+	// > You must specify either the `ScalingTargetId` property, or the `ResourceId` , `ScalableDimension` , and `ServiceNamespace` properties, but not both.
 	ScalingTargetId *string `json:"scalingTargetId"`
-	// `AWS::ApplicationAutoScaling::ScalingPolicy.ServiceNamespace`.
+	// The namespace of the AWS service that provides the resource, or a `custom-resource` .
 	ServiceNamespace *string `json:"serviceNamespace"`
-	// `AWS::ApplicationAutoScaling::ScalingPolicy.StepScalingPolicyConfiguration`.
+	// A step scaling policy.
 	StepScalingPolicyConfiguration interface{} `json:"stepScalingPolicyConfiguration"`
-	// `AWS::ApplicationAutoScaling::ScalingPolicy.TargetTrackingScalingPolicyConfiguration`.
+	// A target tracking scaling policy.
 	TargetTrackingScalingPolicyConfiguration interface{} `json:"targetTrackingScalingPolicyConfiguration"`
 }
 
@@ -1689,18 +2368,25 @@ type CfnScalingPolicyProps struct {
 //
 // See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions
 //
+// Experimental.
 type CronOptions struct {
 	// The day of the month to run this rule at.
+	// Experimental.
 	Day *string `json:"day"`
 	// The hour to run this rule at.
+	// Experimental.
 	Hour *string `json:"hour"`
 	// The minute to run this rule at.
+	// Experimental.
 	Minute *string `json:"minute"`
 	// The month to run this rule at.
+	// Experimental.
 	Month *string `json:"month"`
 	// The day of the week to run this rule at.
+	// Experimental.
 	WeekDay *string `json:"weekDay"`
 	// The year to run this rule at.
+	// Experimental.
 	Year *string `json:"year"`
 }
 
@@ -1708,15 +2394,20 @@ type CronOptions struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type EnableScalingProps struct {
 	// Maximum capacity to scale to.
+	// Experimental.
 	MaxCapacity *float64 `json:"maxCapacity"`
 	// Minimum capacity to scale to.
+	// Experimental.
 	MinCapacity *float64 `json:"minCapacity"`
 }
 
+// Experimental.
 type IScalableTarget interface {
 	awscdk.IResource
+	// Experimental.
 	ScalableTargetId() *string
 }
 
@@ -1736,48 +2427,51 @@ func (j *jsiiProxy_IScalableTarget) ScalableTargetId() *string {
 }
 
 // How the scaling metric is going to be aggregated.
+// Experimental.
 type MetricAggregationType string
 
 const (
 	MetricAggregationType_AVERAGE MetricAggregationType = "AVERAGE"
-	MetricAggregationType_MAXIMUM MetricAggregationType = "MAXIMUM"
 	MetricAggregationType_MINIMUM MetricAggregationType = "MINIMUM"
+	MetricAggregationType_MAXIMUM MetricAggregationType = "MAXIMUM"
 )
 
 // One of the predefined autoscaling metrics.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type PredefinedMetric string
 
 const (
-	PredefinedMetric_ALB_REQUEST_COUNT_PER_TARGET PredefinedMetric = "ALB_REQUEST_COUNT_PER_TARGET"
-	PredefinedMetric_DYANMODB_WRITE_CAPACITY_UTILIZATION PredefinedMetric = "DYANMODB_WRITE_CAPACITY_UTILIZATION"
 	PredefinedMetric_DYNAMODB_READ_CAPACITY_UTILIZATION PredefinedMetric = "DYNAMODB_READ_CAPACITY_UTILIZATION"
+	PredefinedMetric_DYANMODB_WRITE_CAPACITY_UTILIZATION PredefinedMetric = "DYANMODB_WRITE_CAPACITY_UTILIZATION"
+	PredefinedMetric_ALB_REQUEST_COUNT_PER_TARGET PredefinedMetric = "ALB_REQUEST_COUNT_PER_TARGET"
+	PredefinedMetric_RDS_READER_AVERAGE_CPU_UTILIZATION PredefinedMetric = "RDS_READER_AVERAGE_CPU_UTILIZATION"
+	PredefinedMetric_RDS_READER_AVERAGE_DATABASE_CONNECTIONS PredefinedMetric = "RDS_READER_AVERAGE_DATABASE_CONNECTIONS"
 	PredefinedMetric_EC2_SPOT_FLEET_REQUEST_AVERAGE_CPU_UTILIZATION PredefinedMetric = "EC2_SPOT_FLEET_REQUEST_AVERAGE_CPU_UTILIZATION"
 	PredefinedMetric_EC2_SPOT_FLEET_REQUEST_AVERAGE_NETWORK_IN PredefinedMetric = "EC2_SPOT_FLEET_REQUEST_AVERAGE_NETWORK_IN"
 	PredefinedMetric_EC2_SPOT_FLEET_REQUEST_AVERAGE_NETWORK_OUT PredefinedMetric = "EC2_SPOT_FLEET_REQUEST_AVERAGE_NETWORK_OUT"
+	PredefinedMetric_SAGEMAKER_VARIANT_INVOCATIONS_PER_INSTANCE PredefinedMetric = "SAGEMAKER_VARIANT_INVOCATIONS_PER_INSTANCE"
 	PredefinedMetric_ECS_SERVICE_AVERAGE_CPU_UTILIZATION PredefinedMetric = "ECS_SERVICE_AVERAGE_CPU_UTILIZATION"
 	PredefinedMetric_ECS_SERVICE_AVERAGE_MEMORY_UTILIZATION PredefinedMetric = "ECS_SERVICE_AVERAGE_MEMORY_UTILIZATION"
-	PredefinedMetric_ELASTICACHE_DATABASE_MEMORY_USAGE_COUNTED_FOR_EVICT_PERCENTAGE PredefinedMetric = "ELASTICACHE_DATABASE_MEMORY_USAGE_COUNTED_FOR_EVICT_PERCENTAGE"
+	PredefinedMetric_LAMBDA_PROVISIONED_CONCURRENCY_UTILIZATION PredefinedMetric = "LAMBDA_PROVISIONED_CONCURRENCY_UTILIZATION"
+	PredefinedMetric_KAFKA_BROKER_STORAGE_UTILIZATION PredefinedMetric = "KAFKA_BROKER_STORAGE_UTILIZATION"
 	PredefinedMetric_ELASTICACHE_PRIMARY_ENGINE_CPU_UTILIZATION PredefinedMetric = "ELASTICACHE_PRIMARY_ENGINE_CPU_UTILIZATION"
 	PredefinedMetric_ELASTICACHE_REPLICA_ENGINE_CPU_UTILIZATION PredefinedMetric = "ELASTICACHE_REPLICA_ENGINE_CPU_UTILIZATION"
-	PredefinedMetric_KAFKA_BROKER_STORAGE_UTILIZATION PredefinedMetric = "KAFKA_BROKER_STORAGE_UTILIZATION"
-	PredefinedMetric_LAMBDA_PROVISIONED_CONCURRENCY_UTILIZATION PredefinedMetric = "LAMBDA_PROVISIONED_CONCURRENCY_UTILIZATION"
-	PredefinedMetric_RDS_READER_AVERAGE_CPU_UTILIZATION PredefinedMetric = "RDS_READER_AVERAGE_CPU_UTILIZATION"
-	PredefinedMetric_RDS_READER_AVERAGE_DATABASE_CONNECTIONS PredefinedMetric = "RDS_READER_AVERAGE_DATABASE_CONNECTIONS"
-	PredefinedMetric_SAGEMAKER_VARIANT_INVOCATIONS_PER_INSTANCE PredefinedMetric = "SAGEMAKER_VARIANT_INVOCATIONS_PER_INSTANCE"
+	PredefinedMetric_ELASTICACHE_DATABASE_MEMORY_USAGE_COUNTED_FOR_EVICT_PERCENTAGE PredefinedMetric = "ELASTICACHE_DATABASE_MEMORY_USAGE_COUNTED_FOR_EVICT_PERCENTAGE"
 )
 
 // Define a scalable target.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type ScalableTarget interface {
 	awscdk.Resource
 	IScalableTarget
 	Env() *awscdk.ResourceEnvironment
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Role() awsiam.IRole
 	ScalableTargetId() *string
@@ -1787,10 +2481,16 @@ type ScalableTarget interface {
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	ScaleOnMetric(id *string, props *BasicStepScalingPolicyProps) StepScalingPolicy
 	ScaleOnSchedule(id *string, action *ScalingSchedule)
 	ScaleToTrackMetric(id *string, props *BasicTargetTrackingScalingPolicyProps) TargetTrackingScalingPolicy
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for ScalableTarget
@@ -1809,8 +2509,8 @@ func (j *jsiiProxy_ScalableTarget) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_ScalableTarget) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_ScalableTarget) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1860,13 +2560,14 @@ func (j *jsiiProxy_ScalableTarget) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewScalableTarget(scope constructs.Construct, id *string, props *ScalableTargetProps) ScalableTarget {
 	_init_.Initialize()
 
 	j := jsiiProxy_ScalableTarget{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_applicationautoscaling.ScalableTarget",
+		"monocdk.aws_applicationautoscaling.ScalableTarget",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1874,23 +2575,25 @@ func NewScalableTarget(scope constructs.Construct, id *string, props *ScalableTa
 	return &j
 }
 
+// Experimental.
 func NewScalableTarget_Override(s ScalableTarget, scope constructs.Construct, id *string, props *ScalableTargetProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_applicationautoscaling.ScalableTarget",
+		"monocdk.aws_applicationautoscaling.ScalableTarget",
 		[]interface{}{scope, id, props},
 		s,
 	)
 }
 
+// Experimental.
 func ScalableTarget_FromScalableTargetId(scope constructs.Construct, id *string, scalableTargetId *string) IScalableTarget {
 	_init_.Initialize()
 
 	var returns IScalableTarget
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_applicationautoscaling.ScalableTarget",
+		"monocdk.aws_applicationautoscaling.ScalableTarget",
 		"fromScalableTargetId",
 		[]interface{}{scope, id, scalableTargetId},
 		&returns,
@@ -1899,17 +2602,15 @@ func ScalableTarget_FromScalableTargetId(scope constructs.Construct, id *string,
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func ScalableTarget_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_applicationautoscaling.ScalableTarget",
+		"monocdk.aws_applicationautoscaling.ScalableTarget",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1919,13 +2620,14 @@ func ScalableTarget_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func ScalableTarget_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func ScalableTarget_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_applicationautoscaling.ScalableTarget",
+		"monocdk.aws_applicationautoscaling.ScalableTarget",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -1935,6 +2637,7 @@ func ScalableTarget_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Add a policy statement to the role's policy.
+// Experimental.
 func (s *jsiiProxy_ScalableTarget) AddToRolePolicy(statement awsiam.PolicyStatement) {
 	_jsii_.InvokeVoid(
 		s,
@@ -1952,6 +2655,7 @@ func (s *jsiiProxy_ScalableTarget) AddToRolePolicy(statement awsiam.PolicyStatem
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (s *jsiiProxy_ScalableTarget) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		s,
@@ -1960,6 +2664,7 @@ func (s *jsiiProxy_ScalableTarget) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 	)
 }
 
+// Experimental.
 func (s *jsiiProxy_ScalableTarget) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -1979,6 +2684,7 @@ func (s *jsiiProxy_ScalableTarget) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
+// Experimental.
 func (s *jsiiProxy_ScalableTarget) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -1997,6 +2703,7 @@ func (s *jsiiProxy_ScalableTarget) GetResourceArnAttribute(arnAttr *string, arnC
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
+// Experimental.
 func (s *jsiiProxy_ScalableTarget) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -2010,7 +2717,75 @@ func (s *jsiiProxy_ScalableTarget) GetResourceNameAttribute(nameAttr *string) *s
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_ScalableTarget) OnPrepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_ScalableTarget) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (s *jsiiProxy_ScalableTarget) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_ScalableTarget) Prepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 // Scale out or in, in response to a metric.
+// Experimental.
 func (s *jsiiProxy_ScalableTarget) ScaleOnMetric(id *string, props *BasicStepScalingPolicyProps) StepScalingPolicy {
 	var returns StepScalingPolicy
 
@@ -2025,6 +2800,7 @@ func (s *jsiiProxy_ScalableTarget) ScaleOnMetric(id *string, props *BasicStepSca
 }
 
 // Scale out or in based on time.
+// Experimental.
 func (s *jsiiProxy_ScalableTarget) ScaleOnSchedule(id *string, action *ScalingSchedule) {
 	_jsii_.InvokeVoid(
 		s,
@@ -2034,6 +2810,7 @@ func (s *jsiiProxy_ScalableTarget) ScaleOnSchedule(id *string, action *ScalingSc
 }
 
 // Scale out or in in order to keep a metric around a target value.
+// Experimental.
 func (s *jsiiProxy_ScalableTarget) ScaleToTrackMetric(id *string, props *BasicTargetTrackingScalingPolicyProps) TargetTrackingScalingPolicy {
 	var returns TargetTrackingScalingPolicy
 
@@ -2047,7 +2824,21 @@ func (s *jsiiProxy_ScalableTarget) ScaleToTrackMetric(id *string, props *BasicTa
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_ScalableTarget) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (s *jsiiProxy_ScalableTarget) ToString() *string {
 	var returns *string
 
@@ -2061,14 +2852,37 @@ func (s *jsiiProxy_ScalableTarget) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (s *jsiiProxy_ScalableTarget) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Properties for a scalable target.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type ScalableTargetProps struct {
 	// The maximum value that Application Auto Scaling can use to scale a target during a scaling activity.
+	// Experimental.
 	MaxCapacity *float64 `json:"maxCapacity"`
 	// The minimum value that Application Auto Scaling can use to scale a target during a scaling activity.
+	// Experimental.
 	MinCapacity *float64 `json:"minCapacity"`
 	// The resource identifier to associate with this scalable target.
 	//
@@ -2077,6 +2891,7 @@ type ScalableTargetProps struct {
 	// Example value: `service/ecsStack-MyECSCluster-AB12CDE3F4GH/ecsStack-MyECSService-AB12CDE3F4GH`
 	// See: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html
 	//
+	// Experimental.
 	ResourceId *string `json:"resourceId"`
 	// The scalable dimension that's associated with the scalable target.
 	//
@@ -2085,6 +2900,7 @@ type ScalableTargetProps struct {
 	// Example value: `ecs:service:DesiredCount`
 	// See: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_ScalingPolicy.html
 	//
+	// Experimental.
 	ScalableDimension *string `json:"scalableDimension"`
 	// The namespace of the AWS service that provides the resource or custom-resource for a resource provided by your own application or service.
 	//
@@ -2092,8 +2908,10 @@ type ScalableTargetProps struct {
 	// action in the Application Auto Scaling API Reference.
 	// See: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html
 	//
+	// Experimental.
 	ServiceNamespace ServiceNamespace `json:"serviceNamespace"`
 	// Role that allows Application Auto Scaling to modify your scalable target.
+	// Experimental.
 	Role awsiam.IRole `json:"role"`
 }
 
@@ -2101,6 +2919,7 @@ type ScalableTargetProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type ScalingInterval struct {
 	// The capacity adjustment to apply in this interval.
 	//
@@ -2112,14 +2931,17 @@ type ScalingInterval struct {
 	//    capacity to itself. The number can be in the range [-100..100].
 	// - ExactCapacity: set the capacity to this number. The number must
 	//    be positive.
+	// Experimental.
 	Change *float64 `json:"change"`
 	// The lower bound of the interval.
 	//
 	// The scaling adjustment will be applied if the metric is higher than this value.
+	// Experimental.
 	Lower *float64 `json:"lower"`
 	// The upper bound of the interval.
 	//
 	// The scaling adjustment will be applied if the metric is lower than this value.
+	// Experimental.
 	Upper *float64 `json:"upper"`
 }
 
@@ -2127,8 +2949,13 @@ type ScalingInterval struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type ScalingSchedule struct {
+	// When to perform this action.
+	// Experimental.
+	Schedule Schedule `json:"schedule"`
 	// When this scheduled action expires.
+	// Experimental.
 	EndTime *time.Time `json:"endTime"`
 	// The new maximum capacity.
 	//
@@ -2136,6 +2963,7 @@ type ScalingSchedule struct {
 	// capacity, Application Auto Scaling scales in to the maximum capacity.
 	//
 	// At least one of maxCapacity and minCapacity must be supplied.
+	// Experimental.
 	MaxCapacity *float64 `json:"maxCapacity"`
 	// The new minimum capacity.
 	//
@@ -2143,10 +2971,10 @@ type ScalingSchedule struct {
 	// capacity, Application Auto Scaling scales out to the minimum capacity.
 	//
 	// At least one of maxCapacity and minCapacity must be supplied.
+	// Experimental.
 	MinCapacity *float64 `json:"minCapacity"`
-	// When to perform this action.
-	Schedule Schedule `json:"schedule"`
 	// When this scheduled action becomes active.
+	// Experimental.
 	StartTime *time.Time `json:"startTime"`
 }
 
@@ -2154,6 +2982,7 @@ type ScalingSchedule struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type Schedule interface {
 	ExpressionString() *string
 }
@@ -2174,24 +3003,26 @@ func (j *jsiiProxy_Schedule) ExpressionString() *string {
 }
 
 
+// Experimental.
 func NewSchedule_Override(s Schedule) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_applicationautoscaling.Schedule",
+		"monocdk.aws_applicationautoscaling.Schedule",
 		nil, // no parameters
 		s,
 	)
 }
 
 // Construct a Schedule from a moment in time.
+// Experimental.
 func Schedule_At(moment *time.Time) Schedule {
 	_init_.Initialize()
 
 	var returns Schedule
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_applicationautoscaling.Schedule",
+		"monocdk.aws_applicationautoscaling.Schedule",
 		"at",
 		[]interface{}{moment},
 		&returns,
@@ -2201,13 +3032,14 @@ func Schedule_At(moment *time.Time) Schedule {
 }
 
 // Create a schedule from a set of cron fields.
+// Experimental.
 func Schedule_Cron(options *CronOptions) Schedule {
 	_init_.Initialize()
 
 	var returns Schedule
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_applicationautoscaling.Schedule",
+		"monocdk.aws_applicationautoscaling.Schedule",
 		"cron",
 		[]interface{}{options},
 		&returns,
@@ -2217,13 +3049,14 @@ func Schedule_Cron(options *CronOptions) Schedule {
 }
 
 // Construct a schedule from a literal schedule expression.
+// Experimental.
 func Schedule_Expression(expression *string) Schedule {
 	_init_.Initialize()
 
 	var returns Schedule
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_applicationautoscaling.Schedule",
+		"monocdk.aws_applicationautoscaling.Schedule",
 		"expression",
 		[]interface{}{expression},
 		&returns,
@@ -2233,13 +3066,14 @@ func Schedule_Expression(expression *string) Schedule {
 }
 
 // Construct a schedule from an interval and a time unit.
+// Experimental.
 func Schedule_Rate(duration awscdk.Duration) Schedule {
 	_init_.Initialize()
 
 	var returns Schedule
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_applicationautoscaling.Schedule",
+		"monocdk.aws_applicationautoscaling.Schedule",
 		"rate",
 		[]interface{}{duration},
 		&returns,
@@ -2252,21 +3086,22 @@ func Schedule_Rate(duration awscdk.Duration) Schedule {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type ServiceNamespace string
 
 const (
-	ServiceNamespace_APPSTREAM ServiceNamespace = "APPSTREAM"
-	ServiceNamespace_COMPREHEND ServiceNamespace = "COMPREHEND"
-	ServiceNamespace_CUSTOM_RESOURCE ServiceNamespace = "CUSTOM_RESOURCE"
-	ServiceNamespace_DYNAMODB ServiceNamespace = "DYNAMODB"
-	ServiceNamespace_EC2 ServiceNamespace = "EC2"
 	ServiceNamespace_ECS ServiceNamespace = "ECS"
 	ServiceNamespace_ELASTIC_MAP_REDUCE ServiceNamespace = "ELASTIC_MAP_REDUCE"
-	ServiceNamespace_ELASTICACHE ServiceNamespace = "ELASTICACHE"
-	ServiceNamespace_KAFKA ServiceNamespace = "KAFKA"
-	ServiceNamespace_LAMBDA ServiceNamespace = "LAMBDA"
+	ServiceNamespace_EC2 ServiceNamespace = "EC2"
+	ServiceNamespace_APPSTREAM ServiceNamespace = "APPSTREAM"
+	ServiceNamespace_DYNAMODB ServiceNamespace = "DYNAMODB"
 	ServiceNamespace_RDS ServiceNamespace = "RDS"
 	ServiceNamespace_SAGEMAKER ServiceNamespace = "SAGEMAKER"
+	ServiceNamespace_CUSTOM_RESOURCE ServiceNamespace = "CUSTOM_RESOURCE"
+	ServiceNamespace_LAMBDA ServiceNamespace = "LAMBDA"
+	ServiceNamespace_COMPREHEND ServiceNamespace = "COMPREHEND"
+	ServiceNamespace_KAFKA ServiceNamespace = "KAFKA"
+	ServiceNamespace_ELASTICACHE ServiceNamespace = "ELASTICACHE"
 )
 
 // Define a step scaling action.
@@ -2279,21 +3114,28 @@ const (
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type StepScalingAction interface {
-	constructs.Construct
-	Node() constructs.Node
+	awscdk.Construct
+	Node() awscdk.ConstructNode
 	ScalingPolicyArn() *string
 	AddAdjustment(adjustment *AdjustmentTier)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for StepScalingAction
 type jsiiProxy_StepScalingAction struct {
-	internal.Type__constructsConstruct
+	internal.Type__awscdkConstruct
 }
 
-func (j *jsiiProxy_StepScalingAction) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_StepScalingAction) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2313,13 +3155,14 @@ func (j *jsiiProxy_StepScalingAction) ScalingPolicyArn() *string {
 }
 
 
+// Experimental.
 func NewStepScalingAction(scope constructs.Construct, id *string, props *StepScalingActionProps) StepScalingAction {
 	_init_.Initialize()
 
 	j := jsiiProxy_StepScalingAction{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_applicationautoscaling.StepScalingAction",
+		"monocdk.aws_applicationautoscaling.StepScalingAction",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2327,27 +3170,26 @@ func NewStepScalingAction(scope constructs.Construct, id *string, props *StepSca
 	return &j
 }
 
+// Experimental.
 func NewStepScalingAction_Override(s StepScalingAction, scope constructs.Construct, id *string, props *StepScalingActionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_applicationautoscaling.StepScalingAction",
+		"monocdk.aws_applicationautoscaling.StepScalingAction",
 		[]interface{}{scope, id, props},
 		s,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func StepScalingAction_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_applicationautoscaling.StepScalingAction",
+		"monocdk.aws_applicationautoscaling.StepScalingAction",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2357,6 +3199,7 @@ func StepScalingAction_IsConstruct(x interface{}) *bool {
 }
 
 // Add an adjusment interval to the ScalingAction.
+// Experimental.
 func (s *jsiiProxy_StepScalingAction) AddAdjustment(adjustment *AdjustmentTier) {
 	_jsii_.InvokeVoid(
 		s,
@@ -2365,7 +3208,88 @@ func (s *jsiiProxy_StepScalingAction) AddAdjustment(adjustment *AdjustmentTier) 
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_StepScalingAction) OnPrepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_StepScalingAction) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (s *jsiiProxy_StepScalingAction) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_StepScalingAction) Prepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_StepScalingAction) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (s *jsiiProxy_StepScalingAction) ToString() *string {
 	var returns *string
 
@@ -2379,12 +3303,37 @@ func (s *jsiiProxy_StepScalingAction) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (s *jsiiProxy_StepScalingAction) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Properties for a scaling policy.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type StepScalingActionProps struct {
+	// The scalable target.
+	// Experimental.
+	ScalingTarget IScalableTarget `json:"scalingTarget"`
 	// How the adjustment numbers are interpreted.
+	// Experimental.
 	AdjustmentType AdjustmentType `json:"adjustmentType"`
 	// Grace period after scaling activity.
 	//
@@ -2395,18 +3344,20 @@ type StepScalingActionProps struct {
 	// ignored.
 	// See: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_StepScalingPolicyConfiguration.html
 	//
+	// Experimental.
 	Cooldown awscdk.Duration `json:"cooldown"`
 	// The aggregation type for the CloudWatch metrics.
+	// Experimental.
 	MetricAggregationType MetricAggregationType `json:"metricAggregationType"`
 	// Minimum absolute number to adjust capacity with as result of percentage scaling.
 	//
 	// Only when using AdjustmentType = PercentChangeInCapacity, this number controls
 	// the minimum absolute effect size.
+	// Experimental.
 	MinAdjustmentMagnitude *float64 `json:"minAdjustmentMagnitude"`
 	// A name for the scaling policy.
+	// Experimental.
 	PolicyName *string `json:"policyName"`
-	// The scalable target.
-	ScalingTarget IScalableTarget `json:"scalingTarget"`
 }
 
 // Define a scaling strategy which scales depending on absolute values of some metric.
@@ -2417,19 +3368,26 @@ type StepScalingActionProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type StepScalingPolicy interface {
-	constructs.Construct
+	awscdk.Construct
 	LowerAction() StepScalingAction
 	LowerAlarm() awscloudwatch.Alarm
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	UpperAction() StepScalingAction
 	UpperAlarm() awscloudwatch.Alarm
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for StepScalingPolicy
 type jsiiProxy_StepScalingPolicy struct {
-	internal.Type__constructsConstruct
+	internal.Type__awscdkConstruct
 }
 
 func (j *jsiiProxy_StepScalingPolicy) LowerAction() StepScalingAction {
@@ -2452,8 +3410,8 @@ func (j *jsiiProxy_StepScalingPolicy) LowerAlarm() awscloudwatch.Alarm {
 	return returns
 }
 
-func (j *jsiiProxy_StepScalingPolicy) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_StepScalingPolicy) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2483,13 +3441,14 @@ func (j *jsiiProxy_StepScalingPolicy) UpperAlarm() awscloudwatch.Alarm {
 }
 
 
+// Experimental.
 func NewStepScalingPolicy(scope constructs.Construct, id *string, props *StepScalingPolicyProps) StepScalingPolicy {
 	_init_.Initialize()
 
 	j := jsiiProxy_StepScalingPolicy{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_applicationautoscaling.StepScalingPolicy",
+		"monocdk.aws_applicationautoscaling.StepScalingPolicy",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2497,27 +3456,26 @@ func NewStepScalingPolicy(scope constructs.Construct, id *string, props *StepSca
 	return &j
 }
 
+// Experimental.
 func NewStepScalingPolicy_Override(s StepScalingPolicy, scope constructs.Construct, id *string, props *StepScalingPolicyProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_applicationautoscaling.StepScalingPolicy",
+		"monocdk.aws_applicationautoscaling.StepScalingPolicy",
 		[]interface{}{scope, id, props},
 		s,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func StepScalingPolicy_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_applicationautoscaling.StepScalingPolicy",
+		"monocdk.aws_applicationautoscaling.StepScalingPolicy",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2526,7 +3484,88 @@ func StepScalingPolicy_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_StepScalingPolicy) OnPrepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_StepScalingPolicy) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (s *jsiiProxy_StepScalingPolicy) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_StepScalingPolicy) Prepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_StepScalingPolicy) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (s *jsiiProxy_StepScalingPolicy) ToString() *string {
 	var returns *string
 
@@ -2540,10 +3579,40 @@ func (s *jsiiProxy_StepScalingPolicy) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (s *jsiiProxy_StepScalingPolicy) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // TODO: EXAMPLE
 //
+// Experimental.
 type StepScalingPolicyProps struct {
+	// Metric to scale on.
+	// Experimental.
+	Metric awscloudwatch.IMetric `json:"metric"`
+	// The intervals for scaling.
+	//
+	// Maps a range of metric values to a particular scaling behavior.
+	// Experimental.
+	ScalingSteps *[]*ScalingInterval `json:"scalingSteps"`
 	// How the adjustment numbers inside 'intervals' are interpreted.
+	// Experimental.
 	AdjustmentType AdjustmentType `json:"adjustmentType"`
 	// Grace period after scaling activity.
 	//
@@ -2553,6 +3622,7 @@ type StepScalingPolicyProps struct {
 	// Subsequent scale ins during the cooldown period are ignored.
 	// See: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_StepScalingPolicyConfiguration.html
 	//
+	// Experimental.
 	Cooldown awscdk.Duration `json:"cooldown"`
 	// The number of data points out of the evaluation periods that must be breaching to trigger a scaling action.
 	//
@@ -2560,6 +3630,7 @@ type StepScalingPolicyProps struct {
 	// `evaluationPeriods` is the N value.
 	//
 	// Only has meaning if `evaluationPeriods != 1`.
+	// Experimental.
 	DatapointsToAlarm *float64 `json:"datapointsToAlarm"`
 	// How many evaluation periods of the metric to wait before triggering a scaling action.
 	//
@@ -2568,42 +3639,47 @@ type StepScalingPolicyProps struct {
 	//
 	// If `datapointsToAlarm` is not set, then all data points in the evaluation period
 	// must meet the criteria to trigger a scaling action.
+	// Experimental.
 	EvaluationPeriods *float64 `json:"evaluationPeriods"`
-	// Metric to scale on.
-	Metric awscloudwatch.IMetric `json:"metric"`
 	// Aggregation to apply to all data points over the evaluation periods.
 	//
 	// Only has meaning if `evaluationPeriods != 1`.
+	// Experimental.
 	MetricAggregationType MetricAggregationType `json:"metricAggregationType"`
 	// Minimum absolute number to adjust capacity with as result of percentage scaling.
 	//
 	// Only when using AdjustmentType = PercentChangeInCapacity, this number controls
 	// the minimum absolute effect size.
+	// Experimental.
 	MinAdjustmentMagnitude *float64 `json:"minAdjustmentMagnitude"`
-	// The intervals for scaling.
-	//
-	// Maps a range of metric values to a particular scaling behavior.
-	ScalingSteps *[]*ScalingInterval `json:"scalingSteps"`
 	// The scaling target.
+	// Experimental.
 	ScalingTarget IScalableTarget `json:"scalingTarget"`
 }
 
 // TODO: EXAMPLE
 //
+// Experimental.
 type TargetTrackingScalingPolicy interface {
-	constructs.Construct
-	Node() constructs.Node
+	awscdk.Construct
+	Node() awscdk.ConstructNode
 	ScalingPolicyArn() *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for TargetTrackingScalingPolicy
 type jsiiProxy_TargetTrackingScalingPolicy struct {
-	internal.Type__constructsConstruct
+	internal.Type__awscdkConstruct
 }
 
-func (j *jsiiProxy_TargetTrackingScalingPolicy) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_TargetTrackingScalingPolicy) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2623,13 +3699,14 @@ func (j *jsiiProxy_TargetTrackingScalingPolicy) ScalingPolicyArn() *string {
 }
 
 
+// Experimental.
 func NewTargetTrackingScalingPolicy(scope constructs.Construct, id *string, props *TargetTrackingScalingPolicyProps) TargetTrackingScalingPolicy {
 	_init_.Initialize()
 
 	j := jsiiProxy_TargetTrackingScalingPolicy{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_applicationautoscaling.TargetTrackingScalingPolicy",
+		"monocdk.aws_applicationautoscaling.TargetTrackingScalingPolicy",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2637,27 +3714,26 @@ func NewTargetTrackingScalingPolicy(scope constructs.Construct, id *string, prop
 	return &j
 }
 
+// Experimental.
 func NewTargetTrackingScalingPolicy_Override(t TargetTrackingScalingPolicy, scope constructs.Construct, id *string, props *TargetTrackingScalingPolicyProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_applicationautoscaling.TargetTrackingScalingPolicy",
+		"monocdk.aws_applicationautoscaling.TargetTrackingScalingPolicy",
 		[]interface{}{scope, id, props},
 		t,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func TargetTrackingScalingPolicy_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_applicationautoscaling.TargetTrackingScalingPolicy",
+		"monocdk.aws_applicationautoscaling.TargetTrackingScalingPolicy",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2666,7 +3742,88 @@ func TargetTrackingScalingPolicy_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (t *jsiiProxy_TargetTrackingScalingPolicy) OnPrepare() {
+	_jsii_.InvokeVoid(
+		t,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (t *jsiiProxy_TargetTrackingScalingPolicy) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		t,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (t *jsiiProxy_TargetTrackingScalingPolicy) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		t,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (t *jsiiProxy_TargetTrackingScalingPolicy) Prepare() {
+	_jsii_.InvokeVoid(
+		t,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (t *jsiiProxy_TargetTrackingScalingPolicy) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		t,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (t *jsiiProxy_TargetTrackingScalingPolicy) ToString() *string {
 	var returns *string
 
@@ -2680,12 +3837,33 @@ func (t *jsiiProxy_TargetTrackingScalingPolicy) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (t *jsiiProxy_TargetTrackingScalingPolicy) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		t,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Properties for a concrete TargetTrackingPolicy.
 //
 // Adds the scalingTarget.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type TargetTrackingScalingPolicyProps struct {
 	// Indicates whether scale in by the target tracking policy is disabled.
 	//
@@ -2693,19 +3871,27 @@ type TargetTrackingScalingPolicyProps struct {
 	// won't remove capacity from the scalable resource. Otherwise, scale in is
 	// enabled and the target tracking policy can remove capacity from the
 	// scalable resource.
+	// Experimental.
 	DisableScaleIn *bool `json:"disableScaleIn"`
 	// A name for the scaling policy.
+	// Experimental.
 	PolicyName *string `json:"policyName"`
 	// Period after a scale in activity completes before another scale in activity can start.
+	// Experimental.
 	ScaleInCooldown awscdk.Duration `json:"scaleInCooldown"`
 	// Period after a scale out activity completes before another scale out activity can start.
+	// Experimental.
 	ScaleOutCooldown awscdk.Duration `json:"scaleOutCooldown"`
+	// The target value for the metric.
+	// Experimental.
+	TargetValue *float64 `json:"targetValue"`
 	// A custom metric for application autoscaling.
 	//
 	// The metric must track utilization. Scaling out will happen if the metric is higher than
 	// the target value, scaling in will happen in the metric is lower than the target value.
 	//
 	// Exactly one of customMetric or predefinedMetric must be specified.
+	// Experimental.
 	CustomMetric awscloudwatch.IMetric `json:"customMetric"`
 	// A predefined metric for application autoscaling.
 	//
@@ -2713,15 +3899,16 @@ type TargetTrackingScalingPolicyProps struct {
 	// the target value, scaling in will happen in the metric is lower than the target value.
 	//
 	// Exactly one of customMetric or predefinedMetric must be specified.
+	// Experimental.
 	PredefinedMetric PredefinedMetric `json:"predefinedMetric"`
 	// Identify the resource associated with the metric type.
 	//
 	// Only used for predefined metric ALBRequestCountPerTarget.
 	//
 	// Example value: `app/<load-balancer-name>/<load-balancer-id>/targetgroup/<target-group-name>/<target-group-id>`
+	// Experimental.
 	ResourceLabel *string `json:"resourceLabel"`
-	// The target value for the metric.
-	TargetValue *float64 `json:"targetValue"`
+	// Experimental.
 	ScalingTarget IScalableTarget `json:"scalingTarget"`
 }
 

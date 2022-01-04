@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_cloudwatch_actions.ApplicationScalingAction",
+		"monocdk.aws_cloudwatch_actions.ApplicationScalingAction",
 		reflect.TypeOf((*ApplicationScalingAction)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -20,7 +20,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_cloudwatch_actions.AutoScalingAction",
+		"monocdk.aws_cloudwatch_actions.AutoScalingAction",
 		reflect.TypeOf((*AutoScalingAction)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -32,7 +32,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_cloudwatch_actions.Ec2Action",
+		"monocdk.aws_cloudwatch_actions.Ec2Action",
 		reflect.TypeOf((*Ec2Action)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -44,17 +44,17 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_cloudwatch_actions.Ec2InstanceAction",
+		"monocdk.aws_cloudwatch_actions.Ec2InstanceAction",
 		reflect.TypeOf((*Ec2InstanceAction)(nil)).Elem(),
 		map[string]interface{}{
-			"REBOOT": Ec2InstanceAction_REBOOT,
-			"RECOVER": Ec2InstanceAction_RECOVER,
 			"STOP": Ec2InstanceAction_STOP,
 			"TERMINATE": Ec2InstanceAction_TERMINATE,
+			"RECOVER": Ec2InstanceAction_RECOVER,
+			"REBOOT": Ec2InstanceAction_REBOOT,
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_cloudwatch_actions.SnsAction",
+		"monocdk.aws_cloudwatch_actions.SnsAction",
 		reflect.TypeOf((*SnsAction)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},

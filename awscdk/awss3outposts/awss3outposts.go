@@ -1,15 +1,19 @@
 package awss3outposts
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3outposts/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awss3outposts/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::S3Outposts::AccessPoint`.
+//
+// The AWS::S3Outposts::AccessPoint resource specifies an access point and associates it with the specified Amazon S3 on Outposts bucket. For more information, see [Managing data access with Amazon S3 access points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html) .
+//
+// > S3 on Outposts supports only VPC-style access points.
 //
 // TODO: EXAMPLE
 //
@@ -26,7 +30,7 @@ type CfnAccessPoint interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Policy() interface{}
 	SetPolicy(val interface{})
 	Ref() *string
@@ -44,10 +48,16 @@ type CfnAccessPoint interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -137,8 +147,8 @@ func (j *jsiiProxy_CfnAccessPoint) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAccessPoint) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnAccessPoint) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -199,13 +209,13 @@ func (j *jsiiProxy_CfnAccessPoint) VpcConfiguration() interface{} {
 
 
 // Create a new `AWS::S3Outposts::AccessPoint`.
-func NewCfnAccessPoint(scope constructs.Construct, id *string, props *CfnAccessPointProps) CfnAccessPoint {
+func NewCfnAccessPoint(scope awscdk.Construct, id *string, props *CfnAccessPointProps) CfnAccessPoint {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnAccessPoint{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_s3outposts.CfnAccessPoint",
+		"monocdk.aws_s3outposts.CfnAccessPoint",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -214,11 +224,11 @@ func NewCfnAccessPoint(scope constructs.Construct, id *string, props *CfnAccessP
 }
 
 // Create a new `AWS::S3Outposts::AccessPoint`.
-func NewCfnAccessPoint_Override(c CfnAccessPoint, scope constructs.Construct, id *string, props *CfnAccessPointProps) {
+func NewCfnAccessPoint_Override(c CfnAccessPoint, scope awscdk.Construct, id *string, props *CfnAccessPointProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_s3outposts.CfnAccessPoint",
+		"monocdk.aws_s3outposts.CfnAccessPoint",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -262,13 +272,14 @@ func (j *jsiiProxy_CfnAccessPoint) SetVpcConfiguration(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnAccessPoint_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_s3outposts.CfnAccessPoint",
+		"monocdk.aws_s3outposts.CfnAccessPoint",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -278,13 +289,14 @@ func CfnAccessPoint_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnAccessPoint_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_s3outposts.CfnAccessPoint",
+		"monocdk.aws_s3outposts.CfnAccessPoint",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -293,17 +305,15 @@ func CfnAccessPoint_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnAccessPoint_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_s3outposts.CfnAccessPoint",
+		"monocdk.aws_s3outposts.CfnAccessPoint",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -316,7 +326,7 @@ func CfnAccessPoint_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_s3outposts.CfnAccessPoint",
+		"monocdk.aws_s3outposts.CfnAccessPoint",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -324,6 +334,7 @@ func CfnAccessPoint_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnAccessPoint) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -336,6 +347,7 @@ func (c *jsiiProxy_CfnAccessPoint) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnAccessPoint) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -351,6 +363,7 @@ func (c *jsiiProxy_CfnAccessPoint) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnAccessPoint) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -396,6 +409,7 @@ func (c *jsiiProxy_CfnAccessPoint) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnAccessPoint) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -405,6 +419,7 @@ func (c *jsiiProxy_CfnAccessPoint) AddOverride(path *string, value interface{}) 
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnAccessPoint) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -416,6 +431,7 @@ func (c *jsiiProxy_CfnAccessPoint) AddPropertyDeletionOverride(propertyPath *str
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnAccessPoint) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -433,6 +449,7 @@ func (c *jsiiProxy_CfnAccessPoint) AddPropertyOverride(propertyPath *string, val
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnAccessPoint) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -445,6 +462,7 @@ func (c *jsiiProxy_CfnAccessPoint) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnAccessPoint) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -465,6 +483,7 @@ func (c *jsiiProxy_CfnAccessPoint) GetAtt(attributeName *string) awscdk.Referenc
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnAccessPoint) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -487,12 +506,80 @@ func (c *jsiiProxy_CfnAccessPoint) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnAccessPoint) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnAccessPoint) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnAccessPoint) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnAccessPoint) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnAccessPoint) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -513,6 +600,7 @@ func (c *jsiiProxy_CfnAccessPoint) RenderProperties(props *map[string]interface{
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnAccessPoint) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -526,9 +614,23 @@ func (c *jsiiProxy_CfnAccessPoint) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnAccessPoint) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnAccessPoint) ToString() *string {
 	var returns *string
 
@@ -542,6 +644,27 @@ func (c *jsiiProxy_CfnAccessPoint) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnAccessPoint) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnAccessPoint) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -550,29 +673,40 @@ func (c *jsiiProxy_CfnAccessPoint) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// Contains the virtual private cloud (VPC) configuration for the specified access point.
+//
 // TODO: EXAMPLE
 //
 type CfnAccessPoint_VpcConfigurationProperty struct {
-	// `CfnAccessPoint.VpcConfigurationProperty.VpcId`.
+	// The ID of the VPC configuration.
 	VpcId *string `json:"vpcId"`
 }
 
-// Properties for defining a `AWS::S3Outposts::AccessPoint`.
+// Properties for defining a `CfnAccessPoint`.
 //
 // TODO: EXAMPLE
 //
 type CfnAccessPointProps struct {
-	// `AWS::S3Outposts::AccessPoint.Bucket`.
+	// The Amazon Resource Name (ARN) of the S3 on Outposts bucket that is associated with this access point.
 	Bucket *string `json:"bucket"`
-	// `AWS::S3Outposts::AccessPoint.Name`.
+	// The name of this access point.
 	Name *string `json:"name"`
-	// `AWS::S3Outposts::AccessPoint.Policy`.
-	Policy interface{} `json:"policy"`
-	// `AWS::S3Outposts::AccessPoint.VpcConfiguration`.
+	// The virtual private cloud (VPC) configuration for this access point, if one exists.
 	VpcConfiguration interface{} `json:"vpcConfiguration"`
+	// The access point policy associated with this access point.
+	Policy interface{} `json:"policy"`
 }
 
 // A CloudFormation `AWS::S3Outposts::Bucket`.
+//
+// The AWS::S3Outposts::Bucket resource specifies a new Amazon S3 on Outposts bucket. To create an S3 on Outposts bucket, you must have S3 on Outposts capacity provisioned on your Outpost. For more information, see [Using Amazon S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html) .
+//
+// S3 on Outposts buckets support the following:
+//
+// - Tags
+// - Lifecycle configuration rules for deleting expired objects
+//
+// For a complete list of restrictions and Amazon S3 feature limitations on S3 on Outposts, see [Amazon S3 on Outposts Restrictions and Limitations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OnOutpostsRestrictionsLimitations.html) .
 //
 // TODO: EXAMPLE
 //
@@ -589,7 +723,7 @@ type CfnBucket interface {
 	LifecycleConfiguration() interface{}
 	SetLifecycleConfiguration(val interface{})
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OutpostId() *string
 	SetOutpostId(val *string)
 	Ref() *string
@@ -606,10 +740,16 @@ type CfnBucket interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -699,8 +839,8 @@ func (j *jsiiProxy_CfnBucket) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBucket) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnBucket) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -761,13 +901,13 @@ func (j *jsiiProxy_CfnBucket) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::S3Outposts::Bucket`.
-func NewCfnBucket(scope constructs.Construct, id *string, props *CfnBucketProps) CfnBucket {
+func NewCfnBucket(scope awscdk.Construct, id *string, props *CfnBucketProps) CfnBucket {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnBucket{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_s3outposts.CfnBucket",
+		"monocdk.aws_s3outposts.CfnBucket",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -776,11 +916,11 @@ func NewCfnBucket(scope constructs.Construct, id *string, props *CfnBucketProps)
 }
 
 // Create a new `AWS::S3Outposts::Bucket`.
-func NewCfnBucket_Override(c CfnBucket, scope constructs.Construct, id *string, props *CfnBucketProps) {
+func NewCfnBucket_Override(c CfnBucket, scope awscdk.Construct, id *string, props *CfnBucketProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_s3outposts.CfnBucket",
+		"monocdk.aws_s3outposts.CfnBucket",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -816,13 +956,14 @@ func (j *jsiiProxy_CfnBucket) SetOutpostId(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnBucket_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_s3outposts.CfnBucket",
+		"monocdk.aws_s3outposts.CfnBucket",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -832,13 +973,14 @@ func CfnBucket_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnBucket_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_s3outposts.CfnBucket",
+		"monocdk.aws_s3outposts.CfnBucket",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -847,17 +989,15 @@ func CfnBucket_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnBucket_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_s3outposts.CfnBucket",
+		"monocdk.aws_s3outposts.CfnBucket",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -870,7 +1010,7 @@ func CfnBucket_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_s3outposts.CfnBucket",
+		"monocdk.aws_s3outposts.CfnBucket",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -878,6 +1018,7 @@ func CfnBucket_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnBucket) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -890,6 +1031,7 @@ func (c *jsiiProxy_CfnBucket) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnBucket) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -905,6 +1047,7 @@ func (c *jsiiProxy_CfnBucket) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnBucket) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -950,6 +1093,7 @@ func (c *jsiiProxy_CfnBucket) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnBucket) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -959,6 +1103,7 @@ func (c *jsiiProxy_CfnBucket) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnBucket) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -970,6 +1115,7 @@ func (c *jsiiProxy_CfnBucket) AddPropertyDeletionOverride(propertyPath *string) 
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnBucket) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -987,6 +1133,7 @@ func (c *jsiiProxy_CfnBucket) AddPropertyOverride(propertyPath *string, value in
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnBucket) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -999,6 +1146,7 @@ func (c *jsiiProxy_CfnBucket) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, op
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnBucket) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1019,6 +1167,7 @@ func (c *jsiiProxy_CfnBucket) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnBucket) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1041,12 +1190,80 @@ func (c *jsiiProxy_CfnBucket) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnBucket) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnBucket) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnBucket) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnBucket) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnBucket) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1067,6 +1284,7 @@ func (c *jsiiProxy_CfnBucket) RenderProperties(props *map[string]interface{}) *m
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnBucket) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1080,9 +1298,23 @@ func (c *jsiiProxy_CfnBucket) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnBucket) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnBucket) ToString() *string {
 	var returns *string
 
@@ -1096,6 +1328,27 @@ func (c *jsiiProxy_CfnBucket) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnBucket) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnBucket) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1104,38 +1357,60 @@ func (c *jsiiProxy_CfnBucket) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 on Outposts waits before permanently removing all parts of the upload.
+//
+// For more information, see [Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Policy](https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config) .
+//
 // TODO: EXAMPLE
 //
 type CfnBucket_AbortIncompleteMultipartUploadProperty struct {
-	// `CfnBucket.AbortIncompleteMultipartUploadProperty.DaysAfterInitiation`.
+	// Specifies the number of days after initiation that Amazon S3 on Outposts aborts an incomplete multipart upload.
 	DaysAfterInitiation *float64 `json:"daysAfterInitiation"`
 }
 
+// The container for the lifecycle configuration for the objects stored in an S3 on Outposts bucket.
+//
 // TODO: EXAMPLE
 //
 type CfnBucket_LifecycleConfigurationProperty struct {
-	// `CfnBucket.LifecycleConfigurationProperty.Rules`.
+	// The container for the lifecycle configuration rules for the objects stored in the S3 on Outposts bucket.
 	Rules interface{} `json:"rules"`
 }
 
+// A container for an Amazon S3 on Outposts bucket lifecycle rule.
+//
 // TODO: EXAMPLE
 //
 type CfnBucket_RuleProperty struct {
-	// `CfnBucket.RuleProperty.AbortIncompleteMultipartUpload`.
+	// The container for the abort incomplete multipart upload rule.
 	AbortIncompleteMultipartUpload interface{} `json:"abortIncompleteMultipartUpload"`
-	// `CfnBucket.RuleProperty.ExpirationDate`.
+	// Specifies the expiration for the lifecycle of the object by specifying an expiry date.
 	ExpirationDate *string `json:"expirationDate"`
-	// `CfnBucket.RuleProperty.ExpirationInDays`.
+	// Specifies the expiration for the lifecycle of the object in the form of days that the object has been in the S3 on Outposts bucket.
 	ExpirationInDays *float64 `json:"expirationInDays"`
-	// `CfnBucket.RuleProperty.Filter`.
+	// The container for the filter of the lifecycle rule.
 	Filter interface{} `json:"filter"`
-	// `CfnBucket.RuleProperty.Id`.
+	// The unique identifier for the lifecycle rule.
+	//
+	// The value can't be longer than 255 characters.
 	Id *string `json:"id"`
-	// `CfnBucket.RuleProperty.Status`.
+	// If `Enabled` , the rule is currently being applied.
+	//
+	// If `Disabled` , the rule is not currently being applied.
 	Status *string `json:"status"`
 }
 
 // A CloudFormation `AWS::S3Outposts::BucketPolicy`.
+//
+// This resource applies a bucket policy to an Amazon S3 on Outposts bucket.
+//
+// If you are using an identity other than the root user of the AWS account that owns the S3 on Outposts bucket, the calling identity must have the `s3-outposts:PutBucketPolicy` permissions on the specified Outposts bucket and belong to the bucket owner's account in order to use this resource.
+//
+// If you don't have `s3-outposts:PutBucketPolicy` permissions, S3 on Outposts returns a `403 Access Denied` error.
+//
+// > The root user of the AWS account that owns an Outposts bucket can *always* use this resource, even if the policy explicitly denies the root user the ability to perform actions on this resource.
+//
+// For more information, see the AWS::IAM::Policy [PolicyDocument](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html#cfn-iam-policy-policydocument) resource description in this guide and [Access Policy Language Overview](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-policy-language-overview.html) .
 //
 // TODO: EXAMPLE
 //
@@ -1149,7 +1424,7 @@ type CfnBucketPolicy interface {
 	CfnResourceType() *string
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PolicyDocument() interface{}
 	SetPolicyDocument(val interface{})
 	Ref() *string
@@ -1165,10 +1440,16 @@ type CfnBucketPolicy interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1238,8 +1519,8 @@ func (j *jsiiProxy_CfnBucketPolicy) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBucketPolicy) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnBucketPolicy) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1290,13 +1571,13 @@ func (j *jsiiProxy_CfnBucketPolicy) UpdatedProperites() *map[string]interface{} 
 
 
 // Create a new `AWS::S3Outposts::BucketPolicy`.
-func NewCfnBucketPolicy(scope constructs.Construct, id *string, props *CfnBucketPolicyProps) CfnBucketPolicy {
+func NewCfnBucketPolicy(scope awscdk.Construct, id *string, props *CfnBucketPolicyProps) CfnBucketPolicy {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnBucketPolicy{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_s3outposts.CfnBucketPolicy",
+		"monocdk.aws_s3outposts.CfnBucketPolicy",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1305,11 +1586,11 @@ func NewCfnBucketPolicy(scope constructs.Construct, id *string, props *CfnBucket
 }
 
 // Create a new `AWS::S3Outposts::BucketPolicy`.
-func NewCfnBucketPolicy_Override(c CfnBucketPolicy, scope constructs.Construct, id *string, props *CfnBucketPolicyProps) {
+func NewCfnBucketPolicy_Override(c CfnBucketPolicy, scope awscdk.Construct, id *string, props *CfnBucketPolicyProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_s3outposts.CfnBucketPolicy",
+		"monocdk.aws_s3outposts.CfnBucketPolicy",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1337,13 +1618,14 @@ func (j *jsiiProxy_CfnBucketPolicy) SetPolicyDocument(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnBucketPolicy_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_s3outposts.CfnBucketPolicy",
+		"monocdk.aws_s3outposts.CfnBucketPolicy",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1353,13 +1635,14 @@ func CfnBucketPolicy_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnBucketPolicy_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_s3outposts.CfnBucketPolicy",
+		"monocdk.aws_s3outposts.CfnBucketPolicy",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1368,17 +1651,15 @@ func CfnBucketPolicy_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnBucketPolicy_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_s3outposts.CfnBucketPolicy",
+		"monocdk.aws_s3outposts.CfnBucketPolicy",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1391,7 +1672,7 @@ func CfnBucketPolicy_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_s3outposts.CfnBucketPolicy",
+		"monocdk.aws_s3outposts.CfnBucketPolicy",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1399,6 +1680,7 @@ func CfnBucketPolicy_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnBucketPolicy) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1411,6 +1693,7 @@ func (c *jsiiProxy_CfnBucketPolicy) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnBucketPolicy) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1426,6 +1709,7 @@ func (c *jsiiProxy_CfnBucketPolicy) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnBucketPolicy) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1471,6 +1755,7 @@ func (c *jsiiProxy_CfnBucketPolicy) AddMetadata(key *string, value interface{}) 
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnBucketPolicy) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1480,6 +1765,7 @@ func (c *jsiiProxy_CfnBucketPolicy) AddOverride(path *string, value interface{})
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnBucketPolicy) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1491,6 +1777,7 @@ func (c *jsiiProxy_CfnBucketPolicy) AddPropertyDeletionOverride(propertyPath *st
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnBucketPolicy) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1508,6 +1795,7 @@ func (c *jsiiProxy_CfnBucketPolicy) AddPropertyOverride(propertyPath *string, va
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnBucketPolicy) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1520,6 +1808,7 @@ func (c *jsiiProxy_CfnBucketPolicy) ApplyRemovalPolicy(policy awscdk.RemovalPoli
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnBucketPolicy) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1540,6 +1829,7 @@ func (c *jsiiProxy_CfnBucketPolicy) GetAtt(attributeName *string) awscdk.Referen
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnBucketPolicy) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1562,12 +1852,80 @@ func (c *jsiiProxy_CfnBucketPolicy) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnBucketPolicy) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnBucketPolicy) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnBucketPolicy) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnBucketPolicy) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnBucketPolicy) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1588,6 +1946,7 @@ func (c *jsiiProxy_CfnBucketPolicy) RenderProperties(props *map[string]interface
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnBucketPolicy) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1601,9 +1960,23 @@ func (c *jsiiProxy_CfnBucketPolicy) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnBucketPolicy) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnBucketPolicy) ToString() *string {
 	var returns *string
 
@@ -1617,6 +1990,27 @@ func (c *jsiiProxy_CfnBucketPolicy) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnBucketPolicy) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnBucketPolicy) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1625,33 +2019,53 @@ func (c *jsiiProxy_CfnBucketPolicy) ValidateProperties(_properties interface{}) 
 	)
 }
 
-// Properties for defining a `AWS::S3Outposts::BucketPolicy`.
+// Properties for defining a `CfnBucketPolicy`.
 //
 // TODO: EXAMPLE
 //
 type CfnBucketPolicyProps struct {
-	// `AWS::S3Outposts::BucketPolicy.Bucket`.
+	// The name of the Amazon S3 Outposts bucket to which the policy applies.
 	Bucket *string `json:"bucket"`
-	// `AWS::S3Outposts::BucketPolicy.PolicyDocument`.
+	// A policy document containing permissions to add to the specified bucket.
+	//
+	// In IAM, you must provide policy documents in JSON format. However, in CloudFormation, you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM. For more information, see the AWS::IAM::Policy [PolicyDocument](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html#cfn-iam-policy-policydocument) resource description in this guide and [Access Policy Language Overview](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-policy-language-overview.html) .
 	PolicyDocument interface{} `json:"policyDocument"`
 }
 
-// Properties for defining a `AWS::S3Outposts::Bucket`.
+// Properties for defining a `CfnBucket`.
 //
 // TODO: EXAMPLE
 //
 type CfnBucketProps struct {
-	// `AWS::S3Outposts::Bucket.BucketName`.
+	// A name for the S3 on Outposts bucket.
+	//
+	// If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name. The bucket name must contain only lowercase letters, numbers, periods (.), and dashes (-) and must follow [Amazon S3 bucket restrictions and limitations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/BucketRestrictions.html) . For more information, see [Bucket naming rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/BucketRestrictions.html#bucketnamingrules) .
+	//
+	// > If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
 	BucketName *string `json:"bucketName"`
-	// `AWS::S3Outposts::Bucket.LifecycleConfiguration`.
-	LifecycleConfiguration interface{} `json:"lifecycleConfiguration"`
-	// `AWS::S3Outposts::Bucket.OutpostId`.
+	// The ID of the Outpost of the specified bucket.
 	OutpostId *string `json:"outpostId"`
-	// `AWS::S3Outposts::Bucket.Tags`.
+	// Creates a new lifecycle configuration for the S3 on Outposts bucket or replaces an existing lifecycle configuration.
+	//
+	// Outposts buckets only support lifecycle configurations that delete/expire objects after a certain period of time and abort incomplete multipart uploads.
+	LifecycleConfiguration interface{} `json:"lifecycleConfiguration"`
+	// Sets the tags for an S3 on Outposts bucket. For more information, see [Using Amazon S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html) .
+	//
+	// Use tags to organize your AWS bill to reflect your own cost structure. To do this, sign up to get your AWS account bill with tag key values included. Then, to see the cost of combined resources, organize your billing information according to resources with the same tag key values. For example, you can tag several resources with a specific application name, and then organize your billing information to see the total cost of that application across several services. For more information, see [Cost allocation and tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) .
+	//
+	// > Within a bucket, if you add a tag that has the same key as an existing tag, the new value overwrites the old value. For more information, see [Using cost allocation and bucket tags](https://docs.aws.amazon.com/AmazonS3/latest/userguide/CostAllocTagging.html) .
+	//
+	// To use this resource, you must have permissions to perform the `s3-outposts:PutBucketTagging` . The S3 on Outposts bucket owner has this permission by default and can grant this permission to others. For more information about permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources) and [Managing access permissions to your Amazon S3 resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html) .
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::S3Outposts::Endpoint`.
+//
+// This AWS::S3Outposts::Endpoint resource specifies an endpoint and associates it with the specified Outpost.
+//
+// Amazon S3 on Outposts access points simplify managing data access at scale for shared datasets in S3 on Outposts. S3 on Outposts uses endpoints to connect to S3 on Outposts buckets so that you can perform actions within your virtual private cloud (VPC). For more information, see [Accessing S3 on Outposts using VPC-only access points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/AccessingS3Outposts.html) .
+//
+// > It can take up to 5 minutes for this resource to be created.
 //
 // TODO: EXAMPLE
 //
@@ -1673,7 +2087,7 @@ type CfnEndpoint interface {
 	CustomerOwnedIpv4Pool() *string
 	SetCustomerOwnedIpv4Pool(val *string)
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OutpostId() *string
 	SetOutpostId(val *string)
 	Ref() *string
@@ -1693,10 +2107,16 @@ type CfnEndpoint interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1836,8 +2256,8 @@ func (j *jsiiProxy_CfnEndpoint) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEndpoint) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnEndpoint) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1908,13 +2328,13 @@ func (j *jsiiProxy_CfnEndpoint) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::S3Outposts::Endpoint`.
-func NewCfnEndpoint(scope constructs.Construct, id *string, props *CfnEndpointProps) CfnEndpoint {
+func NewCfnEndpoint(scope awscdk.Construct, id *string, props *CfnEndpointProps) CfnEndpoint {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnEndpoint{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_s3outposts.CfnEndpoint",
+		"monocdk.aws_s3outposts.CfnEndpoint",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1923,11 +2343,11 @@ func NewCfnEndpoint(scope constructs.Construct, id *string, props *CfnEndpointPr
 }
 
 // Create a new `AWS::S3Outposts::Endpoint`.
-func NewCfnEndpoint_Override(c CfnEndpoint, scope constructs.Construct, id *string, props *CfnEndpointProps) {
+func NewCfnEndpoint_Override(c CfnEndpoint, scope awscdk.Construct, id *string, props *CfnEndpointProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_s3outposts.CfnEndpoint",
+		"monocdk.aws_s3outposts.CfnEndpoint",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1979,13 +2399,14 @@ func (j *jsiiProxy_CfnEndpoint) SetSubnetId(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnEndpoint_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_s3outposts.CfnEndpoint",
+		"monocdk.aws_s3outposts.CfnEndpoint",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1995,13 +2416,14 @@ func CfnEndpoint_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnEndpoint_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_s3outposts.CfnEndpoint",
+		"monocdk.aws_s3outposts.CfnEndpoint",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2010,17 +2432,15 @@ func CfnEndpoint_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnEndpoint_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_s3outposts.CfnEndpoint",
+		"monocdk.aws_s3outposts.CfnEndpoint",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2033,7 +2453,7 @@ func CfnEndpoint_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_s3outposts.CfnEndpoint",
+		"monocdk.aws_s3outposts.CfnEndpoint",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2041,6 +2461,7 @@ func CfnEndpoint_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnEndpoint) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2053,6 +2474,7 @@ func (c *jsiiProxy_CfnEndpoint) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnEndpoint) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2068,6 +2490,7 @@ func (c *jsiiProxy_CfnEndpoint) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnEndpoint) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2113,6 +2536,7 @@ func (c *jsiiProxy_CfnEndpoint) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnEndpoint) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2122,6 +2546,7 @@ func (c *jsiiProxy_CfnEndpoint) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnEndpoint) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2133,6 +2558,7 @@ func (c *jsiiProxy_CfnEndpoint) AddPropertyDeletionOverride(propertyPath *string
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnEndpoint) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2150,6 +2576,7 @@ func (c *jsiiProxy_CfnEndpoint) AddPropertyOverride(propertyPath *string, value 
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnEndpoint) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2162,6 +2589,7 @@ func (c *jsiiProxy_CfnEndpoint) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, 
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnEndpoint) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2182,6 +2610,7 @@ func (c *jsiiProxy_CfnEndpoint) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnEndpoint) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2204,12 +2633,80 @@ func (c *jsiiProxy_CfnEndpoint) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnEndpoint) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnEndpoint) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnEndpoint) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnEndpoint) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnEndpoint) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2230,6 +2727,7 @@ func (c *jsiiProxy_CfnEndpoint) RenderProperties(props *map[string]interface{}) 
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnEndpoint) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2243,9 +2741,23 @@ func (c *jsiiProxy_CfnEndpoint) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnEndpoint) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnEndpoint) ToString() *string {
 	var returns *string
 
@@ -2259,6 +2771,27 @@ func (c *jsiiProxy_CfnEndpoint) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnEndpoint) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnEndpoint) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2267,27 +2800,35 @@ func (c *jsiiProxy_CfnEndpoint) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// The container for the network interface.
+//
 // TODO: EXAMPLE
 //
 type CfnEndpoint_NetworkInterfaceProperty struct {
-	// `CfnEndpoint.NetworkInterfaceProperty.NetworkInterfaceId`.
+	// The ID for the network interface.
 	NetworkInterfaceId *string `json:"networkInterfaceId"`
 }
 
-// Properties for defining a `AWS::S3Outposts::Endpoint`.
+// Properties for defining a `CfnEndpoint`.
 //
 // TODO: EXAMPLE
 //
 type CfnEndpointProps struct {
-	// `AWS::S3Outposts::Endpoint.AccessType`.
-	AccessType *string `json:"accessType"`
-	// `AWS::S3Outposts::Endpoint.CustomerOwnedIpv4Pool`.
-	CustomerOwnedIpv4Pool *string `json:"customerOwnedIpv4Pool"`
-	// `AWS::S3Outposts::Endpoint.OutpostId`.
+	// The ID of the Outpost.
 	OutpostId *string `json:"outpostId"`
-	// `AWS::S3Outposts::Endpoint.SecurityGroupId`.
+	// The ID of the security group to use with the endpoint.
 	SecurityGroupId *string `json:"securityGroupId"`
-	// `AWS::S3Outposts::Endpoint.SubnetId`.
+	// The ID of the subnet.
 	SubnetId *string `json:"subnetId"`
+	// The container for the type of connectivity used to access the Amazon S3 on Outposts endpoint.
+	//
+	// To use the Amazon VPC , choose `Private` . To use the endpoint with an on-premises network, choose `CustomerOwnedIp` . If you choose `CustomerOwnedIp` , you must also provide the customer-owned IP address pool (CoIP pool).
+	//
+	// > `Private` is the default access type value.
+	AccessType *string `json:"accessType"`
+	// The ID of the customer-owned IPv4 address pool (CoIP pool) for the endpoint.
+	//
+	// IP addresses are allocated from this pool for the endpoint.
+	CustomerOwnedIpv4Pool *string `json:"customerOwnedIpv4Pool"`
 }
 

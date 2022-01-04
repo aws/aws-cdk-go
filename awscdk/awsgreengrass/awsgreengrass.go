@@ -1,15 +1,23 @@
 package awsgreengrass
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsgreengrass/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsgreengrass/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::Greengrass::ConnectorDefinition`.
+//
+// The `AWS::Greengrass::ConnectorDefinition` resource represents a connector definition for AWS IoT Greengrass . Connector definitions are used to organize your connector definition versions.
+//
+// Connector definitions can reference multiple connector definition versions. All connector definition versions must be associated with a connector definition. Each connector definition version can contain one or more connectors.
+//
+// > When you create a connector definition, you can optionally include an initial connector definition version. To associate a connector definition version later, create an [`AWS::Greengrass::ConnectorDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-connectordefinitionversion.html) resource and specify the ID of this connector definition.
+// >
+// > After you create the connector definition version that contains the connectors you want to deploy, you must add it to your group version. For more information, see [`AWS::Greengrass::Group`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html) .
 //
 // TODO: EXAMPLE
 //
@@ -29,7 +37,7 @@ type CfnConnectorDefinition interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	Tags() awscdk.TagManager
@@ -44,10 +52,16 @@ type CfnConnectorDefinition interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -167,8 +181,8 @@ func (j *jsiiProxy_CfnConnectorDefinition) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConnectorDefinition) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnConnectorDefinition) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -219,13 +233,13 @@ func (j *jsiiProxy_CfnConnectorDefinition) UpdatedProperites() *map[string]inter
 
 
 // Create a new `AWS::Greengrass::ConnectorDefinition`.
-func NewCfnConnectorDefinition(scope constructs.Construct, id *string, props *CfnConnectorDefinitionProps) CfnConnectorDefinition {
+func NewCfnConnectorDefinition(scope awscdk.Construct, id *string, props *CfnConnectorDefinitionProps) CfnConnectorDefinition {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnConnectorDefinition{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_greengrass.CfnConnectorDefinition",
+		"monocdk.aws_greengrass.CfnConnectorDefinition",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -234,11 +248,11 @@ func NewCfnConnectorDefinition(scope constructs.Construct, id *string, props *Cf
 }
 
 // Create a new `AWS::Greengrass::ConnectorDefinition`.
-func NewCfnConnectorDefinition_Override(c CfnConnectorDefinition, scope constructs.Construct, id *string, props *CfnConnectorDefinitionProps) {
+func NewCfnConnectorDefinition_Override(c CfnConnectorDefinition, scope awscdk.Construct, id *string, props *CfnConnectorDefinitionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_greengrass.CfnConnectorDefinition",
+		"monocdk.aws_greengrass.CfnConnectorDefinition",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -266,13 +280,14 @@ func (j *jsiiProxy_CfnConnectorDefinition) SetName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnConnectorDefinition_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnConnectorDefinition",
+		"monocdk.aws_greengrass.CfnConnectorDefinition",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -282,13 +297,14 @@ func CfnConnectorDefinition_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnConnectorDefinition_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnConnectorDefinition",
+		"monocdk.aws_greengrass.CfnConnectorDefinition",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -297,17 +313,15 @@ func CfnConnectorDefinition_IsCfnResource(construct constructs.IConstruct) *bool
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnConnectorDefinition_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnConnectorDefinition",
+		"monocdk.aws_greengrass.CfnConnectorDefinition",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -320,7 +334,7 @@ func CfnConnectorDefinition_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_greengrass.CfnConnectorDefinition",
+		"monocdk.aws_greengrass.CfnConnectorDefinition",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -328,6 +342,7 @@ func CfnConnectorDefinition_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnConnectorDefinition) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -340,6 +355,7 @@ func (c *jsiiProxy_CfnConnectorDefinition) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnConnectorDefinition) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -355,6 +371,7 @@ func (c *jsiiProxy_CfnConnectorDefinition) AddDependsOn(target awscdk.CfnResourc
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnConnectorDefinition) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -400,6 +417,7 @@ func (c *jsiiProxy_CfnConnectorDefinition) AddMetadata(key *string, value interf
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnConnectorDefinition) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -409,6 +427,7 @@ func (c *jsiiProxy_CfnConnectorDefinition) AddOverride(path *string, value inter
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnConnectorDefinition) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -420,6 +439,7 @@ func (c *jsiiProxy_CfnConnectorDefinition) AddPropertyDeletionOverride(propertyP
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnConnectorDefinition) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -437,6 +457,7 @@ func (c *jsiiProxy_CfnConnectorDefinition) AddPropertyOverride(propertyPath *str
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnConnectorDefinition) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -449,6 +470,7 @@ func (c *jsiiProxy_CfnConnectorDefinition) ApplyRemovalPolicy(policy awscdk.Remo
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnConnectorDefinition) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -469,6 +491,7 @@ func (c *jsiiProxy_CfnConnectorDefinition) GetAtt(attributeName *string) awscdk.
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnConnectorDefinition) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -491,12 +514,80 @@ func (c *jsiiProxy_CfnConnectorDefinition) Inspect(inspector awscdk.TreeInspecto
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnConnectorDefinition) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnConnectorDefinition) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnConnectorDefinition) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnConnectorDefinition) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnConnectorDefinition) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -517,6 +608,7 @@ func (c *jsiiProxy_CfnConnectorDefinition) RenderProperties(props *map[string]in
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnConnectorDefinition) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -530,9 +622,23 @@ func (c *jsiiProxy_CfnConnectorDefinition) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnConnectorDefinition) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnConnectorDefinition) ToString() *string {
 	var returns *string
 
@@ -546,6 +652,27 @@ func (c *jsiiProxy_CfnConnectorDefinition) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnConnectorDefinition) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnConnectorDefinition) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -554,38 +681,77 @@ func (c *jsiiProxy_CfnConnectorDefinition) ValidateProperties(_properties interf
 	)
 }
 
+// A connector definition version contains a list of connectors.
+//
+// > After you create a connector definition version that contains the connectors you want to deploy, you must add it to your group version. For more information, see [`AWS::Greengrass::Group`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html) .
+//
+// In an AWS CloudFormation template, `ConnectorDefinitionVersion` is the property type of the `InitialVersion` property in the [`AWS::Greengrass::ConnectorDefinition`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-connectordefinition.html) resource.
+//
 // TODO: EXAMPLE
 //
 type CfnConnectorDefinition_ConnectorDefinitionVersionProperty struct {
-	// `CfnConnectorDefinition.ConnectorDefinitionVersionProperty.Connectors`.
+	// The connectors in this version.
+	//
+	// Only one instance of a given connector can be added to a connector definition version at a time.
 	Connectors interface{} `json:"connectors"`
 }
 
+// Connectors are modules that provide built-in integration with local infrastructure, device protocols, AWS , and other cloud services.
+//
+// For more information, see [Integrate with Services and Protocols Using Greengrass Connectors](https://docs.aws.amazon.com/greengrass/latest/developerguide/connectors.html) in the *Developer Guide* .
+//
+// In an AWS CloudFormation template, the `Connectors` property of the [`ConnectorDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-connectordefinition-connectordefinitionversion.html) property type contains a list of `Connector` property types.
+//
 // TODO: EXAMPLE
 //
 type CfnConnectorDefinition_ConnectorProperty struct {
-	// `CfnConnectorDefinition.ConnectorProperty.ConnectorArn`.
+	// The Amazon Resource Name (ARN) of the connector.
+	//
+	// For more information about connectors provided by AWS , see [Greengrass Connectors Provided by AWS](https://docs.aws.amazon.com/greengrass/latest/developerguide/connectors-list.html) .
 	ConnectorArn *string `json:"connectorArn"`
-	// `CfnConnectorDefinition.ConnectorProperty.Id`.
+	// A descriptive or arbitrary ID for the connector.
+	//
+	// This value must be unique within the connector definition version. Maximum length is 128 characters with pattern `[a-zA-Z0-9:_-]+` .
 	Id *string `json:"id"`
-	// `CfnConnectorDefinition.ConnectorProperty.Parameters`.
+	// The parameters or configuration used by the connector.
+	//
+	// For more information about connectors provided by AWS , see [Greengrass Connectors Provided by AWS](https://docs.aws.amazon.com/greengrass/latest/developerguide/connectors-list.html) .
 	Parameters interface{} `json:"parameters"`
 }
 
-// Properties for defining a `AWS::Greengrass::ConnectorDefinition`.
+// Properties for defining a `CfnConnectorDefinition`.
 //
 // TODO: EXAMPLE
 //
 type CfnConnectorDefinitionProps struct {
-	// `AWS::Greengrass::ConnectorDefinition.InitialVersion`.
-	InitialVersion interface{} `json:"initialVersion"`
-	// `AWS::Greengrass::ConnectorDefinition.Name`.
+	// The name of the connector definition.
 	Name *string `json:"name"`
-	// `AWS::Greengrass::ConnectorDefinition.Tags`.
+	// The connector definition version to include when the connector definition is created.
+	//
+	// A connector definition version contains a list of [`connector`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-connectordefinition-connector.html) property types.
+	//
+	// > To associate a connector definition version after the connector definition is created, create an [`AWS::Greengrass::ConnectorDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-connectordefinitionversion.html) resource and specify the ID of this connector definition.
+	InitialVersion interface{} `json:"initialVersion"`
+	// Application-specific metadata to attach to the connector definition.
+	//
+	// You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tagging Your AWS IoT Greengrass Resources](https://docs.aws.amazon.com/greengrass/latest/developerguide/tagging.html) in the *Developer Guide* .
+	//
+	// This `Json` property type is processed as a map of key-value pairs. It uses the following format, which is different from most `Tags` implementations in AWS CloudFormation templates.
+	//
+	// ```json
+	// "Tags": { "KeyName0": "value", "KeyName1": "value", "KeyName2": "value"
+	// }
+	// ```
 	Tags interface{} `json:"tags"`
 }
 
 // A CloudFormation `AWS::Greengrass::ConnectorDefinitionVersion`.
+//
+// The `AWS::Greengrass::ConnectorDefinitionVersion` resource represents a connector definition version for AWS IoT Greengrass . A connector definition version contains a list of connectors.
+//
+// > To create a connector definition version, you must specify the ID of the connector definition that you want to associate with the version. For information about creating a connector definition, see [`AWS::Greengrass::ConnectorDefinition`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-connectordefinition.html) .
+// >
+// > After you create a connector definition version that contains the connectors you want to deploy, you must add it to your group version. For more information, see [`AWS::Greengrass::Group`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html) .
 //
 // TODO: EXAMPLE
 //
@@ -601,7 +767,7 @@ type CfnConnectorDefinitionVersion interface {
 	SetConnectors(val interface{})
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	UpdatedProperites() *map[string]interface{}
@@ -615,10 +781,16 @@ type CfnConnectorDefinitionVersion interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -698,8 +870,8 @@ func (j *jsiiProxy_CfnConnectorDefinitionVersion) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConnectorDefinitionVersion) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnConnectorDefinitionVersion) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -740,13 +912,13 @@ func (j *jsiiProxy_CfnConnectorDefinitionVersion) UpdatedProperites() *map[strin
 
 
 // Create a new `AWS::Greengrass::ConnectorDefinitionVersion`.
-func NewCfnConnectorDefinitionVersion(scope constructs.Construct, id *string, props *CfnConnectorDefinitionVersionProps) CfnConnectorDefinitionVersion {
+func NewCfnConnectorDefinitionVersion(scope awscdk.Construct, id *string, props *CfnConnectorDefinitionVersionProps) CfnConnectorDefinitionVersion {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnConnectorDefinitionVersion{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_greengrass.CfnConnectorDefinitionVersion",
+		"monocdk.aws_greengrass.CfnConnectorDefinitionVersion",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -755,11 +927,11 @@ func NewCfnConnectorDefinitionVersion(scope constructs.Construct, id *string, pr
 }
 
 // Create a new `AWS::Greengrass::ConnectorDefinitionVersion`.
-func NewCfnConnectorDefinitionVersion_Override(c CfnConnectorDefinitionVersion, scope constructs.Construct, id *string, props *CfnConnectorDefinitionVersionProps) {
+func NewCfnConnectorDefinitionVersion_Override(c CfnConnectorDefinitionVersion, scope awscdk.Construct, id *string, props *CfnConnectorDefinitionVersionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_greengrass.CfnConnectorDefinitionVersion",
+		"monocdk.aws_greengrass.CfnConnectorDefinitionVersion",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -787,13 +959,14 @@ func (j *jsiiProxy_CfnConnectorDefinitionVersion) SetConnectors(val interface{})
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnConnectorDefinitionVersion_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnConnectorDefinitionVersion",
+		"monocdk.aws_greengrass.CfnConnectorDefinitionVersion",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -803,13 +976,14 @@ func CfnConnectorDefinitionVersion_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnConnectorDefinitionVersion_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnConnectorDefinitionVersion",
+		"monocdk.aws_greengrass.CfnConnectorDefinitionVersion",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -818,17 +992,15 @@ func CfnConnectorDefinitionVersion_IsCfnResource(construct constructs.IConstruct
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnConnectorDefinitionVersion_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnConnectorDefinitionVersion",
+		"monocdk.aws_greengrass.CfnConnectorDefinitionVersion",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -841,7 +1013,7 @@ func CfnConnectorDefinitionVersion_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_greengrass.CfnConnectorDefinitionVersion",
+		"monocdk.aws_greengrass.CfnConnectorDefinitionVersion",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -849,6 +1021,7 @@ func CfnConnectorDefinitionVersion_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnConnectorDefinitionVersion) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -861,6 +1034,7 @@ func (c *jsiiProxy_CfnConnectorDefinitionVersion) AddDeletionOverride(path *stri
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnConnectorDefinitionVersion) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -876,6 +1050,7 @@ func (c *jsiiProxy_CfnConnectorDefinitionVersion) AddDependsOn(target awscdk.Cfn
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnConnectorDefinitionVersion) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -921,6 +1096,7 @@ func (c *jsiiProxy_CfnConnectorDefinitionVersion) AddMetadata(key *string, value
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnConnectorDefinitionVersion) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -930,6 +1106,7 @@ func (c *jsiiProxy_CfnConnectorDefinitionVersion) AddOverride(path *string, valu
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnConnectorDefinitionVersion) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -941,6 +1118,7 @@ func (c *jsiiProxy_CfnConnectorDefinitionVersion) AddPropertyDeletionOverride(pr
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnConnectorDefinitionVersion) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -958,6 +1136,7 @@ func (c *jsiiProxy_CfnConnectorDefinitionVersion) AddPropertyOverride(propertyPa
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnConnectorDefinitionVersion) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -970,6 +1149,7 @@ func (c *jsiiProxy_CfnConnectorDefinitionVersion) ApplyRemovalPolicy(policy awsc
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnConnectorDefinitionVersion) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -990,6 +1170,7 @@ func (c *jsiiProxy_CfnConnectorDefinitionVersion) GetAtt(attributeName *string) 
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnConnectorDefinitionVersion) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1012,12 +1193,80 @@ func (c *jsiiProxy_CfnConnectorDefinitionVersion) Inspect(inspector awscdk.TreeI
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnConnectorDefinitionVersion) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnConnectorDefinitionVersion) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnConnectorDefinitionVersion) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnConnectorDefinitionVersion) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnConnectorDefinitionVersion) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1038,6 +1287,7 @@ func (c *jsiiProxy_CfnConnectorDefinitionVersion) RenderProperties(props *map[st
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnConnectorDefinitionVersion) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1051,9 +1301,23 @@ func (c *jsiiProxy_CfnConnectorDefinitionVersion) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnConnectorDefinitionVersion) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnConnectorDefinitionVersion) ToString() *string {
 	var returns *string
 
@@ -1067,6 +1331,27 @@ func (c *jsiiProxy_CfnConnectorDefinitionVersion) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnConnectorDefinitionVersion) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnConnectorDefinitionVersion) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1075,29 +1360,53 @@ func (c *jsiiProxy_CfnConnectorDefinitionVersion) ValidateProperties(_properties
 	)
 }
 
+// Connectors are modules that provide built-in integration with local infrastructure, device protocols, AWS , and other cloud services.
+//
+// For more information, see [Integrate with Services and Protocols Using Greengrass Connectors](https://docs.aws.amazon.com/greengrass/latest/developerguide/connectors.html) in the *Developer Guide* .
+//
+// In an AWS CloudFormation template, the `Connectors` property of the [`AWS::Greengrass::ConnectorDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-connectordefinitionversion.html) resource contains a list of `Connector` property types.
+//
 // TODO: EXAMPLE
 //
 type CfnConnectorDefinitionVersion_ConnectorProperty struct {
-	// `CfnConnectorDefinitionVersion.ConnectorProperty.ConnectorArn`.
+	// The Amazon Resource Name (ARN) of the connector.
+	//
+	// For more information about connectors provided by AWS , see [Greengrass Connectors Provided by AWS](https://docs.aws.amazon.com/greengrass/latest/developerguide/connectors-list.html) .
 	ConnectorArn *string `json:"connectorArn"`
-	// `CfnConnectorDefinitionVersion.ConnectorProperty.Id`.
+	// A descriptive or arbitrary ID for the connector.
+	//
+	// This value must be unique within the connector definition version. Maximum length is 128 characters with pattern `[a-zA-Z0-9:_-]+` .
 	Id *string `json:"id"`
-	// `CfnConnectorDefinitionVersion.ConnectorProperty.Parameters`.
+	// The parameters or configuration that the connector uses.
+	//
+	// For more information about connectors provided by AWS , see [Greengrass Connectors Provided by AWS](https://docs.aws.amazon.com/greengrass/latest/developerguide/connectors-list.html) .
 	Parameters interface{} `json:"parameters"`
 }
 
-// Properties for defining a `AWS::Greengrass::ConnectorDefinitionVersion`.
+// Properties for defining a `CfnConnectorDefinitionVersion`.
 //
 // TODO: EXAMPLE
 //
 type CfnConnectorDefinitionVersionProps struct {
-	// `AWS::Greengrass::ConnectorDefinitionVersion.ConnectorDefinitionId`.
+	// The ID of the connector definition associated with this version.
+	//
+	// This value is a GUID.
 	ConnectorDefinitionId *string `json:"connectorDefinitionId"`
-	// `AWS::Greengrass::ConnectorDefinitionVersion.Connectors`.
+	// The connectors in this version.
+	//
+	// Only one instance of a given connector can be added to the connector definition version at a time.
 	Connectors interface{} `json:"connectors"`
 }
 
 // A CloudFormation `AWS::Greengrass::CoreDefinition`.
+//
+// The `AWS::Greengrass::CoreDefinition` resource represents a core definition for AWS IoT Greengrass . Core definitions are used to organize your core definition versions.
+//
+// Core definitions can reference multiple core definition versions. All core definition versions must be associated with a core definition. Each core definition version can contain one Greengrass core.
+//
+// > When you create a core definition, you can optionally include an initial core definition version. To associate a core definition version later, create an [`AWS::Greengrass::CoreDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-coredefinitionversion.html) resource and specify the ID of this core definition.
+// >
+// > After you create the core definition version that contains the core you want to deploy, you must add it to your group version. For more information, see [`AWS::Greengrass::Group`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html) .
 //
 // TODO: EXAMPLE
 //
@@ -1117,7 +1426,7 @@ type CfnCoreDefinition interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	Tags() awscdk.TagManager
@@ -1132,10 +1441,16 @@ type CfnCoreDefinition interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1255,8 +1570,8 @@ func (j *jsiiProxy_CfnCoreDefinition) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCoreDefinition) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnCoreDefinition) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1307,13 +1622,13 @@ func (j *jsiiProxy_CfnCoreDefinition) UpdatedProperites() *map[string]interface{
 
 
 // Create a new `AWS::Greengrass::CoreDefinition`.
-func NewCfnCoreDefinition(scope constructs.Construct, id *string, props *CfnCoreDefinitionProps) CfnCoreDefinition {
+func NewCfnCoreDefinition(scope awscdk.Construct, id *string, props *CfnCoreDefinitionProps) CfnCoreDefinition {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnCoreDefinition{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_greengrass.CfnCoreDefinition",
+		"monocdk.aws_greengrass.CfnCoreDefinition",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1322,11 +1637,11 @@ func NewCfnCoreDefinition(scope constructs.Construct, id *string, props *CfnCore
 }
 
 // Create a new `AWS::Greengrass::CoreDefinition`.
-func NewCfnCoreDefinition_Override(c CfnCoreDefinition, scope constructs.Construct, id *string, props *CfnCoreDefinitionProps) {
+func NewCfnCoreDefinition_Override(c CfnCoreDefinition, scope awscdk.Construct, id *string, props *CfnCoreDefinitionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_greengrass.CfnCoreDefinition",
+		"monocdk.aws_greengrass.CfnCoreDefinition",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1354,13 +1669,14 @@ func (j *jsiiProxy_CfnCoreDefinition) SetName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnCoreDefinition_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnCoreDefinition",
+		"monocdk.aws_greengrass.CfnCoreDefinition",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1370,13 +1686,14 @@ func CfnCoreDefinition_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnCoreDefinition_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnCoreDefinition",
+		"monocdk.aws_greengrass.CfnCoreDefinition",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1385,17 +1702,15 @@ func CfnCoreDefinition_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnCoreDefinition_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnCoreDefinition",
+		"monocdk.aws_greengrass.CfnCoreDefinition",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1408,7 +1723,7 @@ func CfnCoreDefinition_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_greengrass.CfnCoreDefinition",
+		"monocdk.aws_greengrass.CfnCoreDefinition",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1416,6 +1731,7 @@ func CfnCoreDefinition_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnCoreDefinition) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1428,6 +1744,7 @@ func (c *jsiiProxy_CfnCoreDefinition) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnCoreDefinition) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1443,6 +1760,7 @@ func (c *jsiiProxy_CfnCoreDefinition) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnCoreDefinition) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1488,6 +1806,7 @@ func (c *jsiiProxy_CfnCoreDefinition) AddMetadata(key *string, value interface{}
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnCoreDefinition) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1497,6 +1816,7 @@ func (c *jsiiProxy_CfnCoreDefinition) AddOverride(path *string, value interface{
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnCoreDefinition) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1508,6 +1828,7 @@ func (c *jsiiProxy_CfnCoreDefinition) AddPropertyDeletionOverride(propertyPath *
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnCoreDefinition) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1525,6 +1846,7 @@ func (c *jsiiProxy_CfnCoreDefinition) AddPropertyOverride(propertyPath *string, 
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnCoreDefinition) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1537,6 +1859,7 @@ func (c *jsiiProxy_CfnCoreDefinition) ApplyRemovalPolicy(policy awscdk.RemovalPo
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnCoreDefinition) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1557,6 +1880,7 @@ func (c *jsiiProxy_CfnCoreDefinition) GetAtt(attributeName *string) awscdk.Refer
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnCoreDefinition) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1579,12 +1903,80 @@ func (c *jsiiProxy_CfnCoreDefinition) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnCoreDefinition) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnCoreDefinition) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnCoreDefinition) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnCoreDefinition) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnCoreDefinition) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1605,6 +1997,7 @@ func (c *jsiiProxy_CfnCoreDefinition) RenderProperties(props *map[string]interfa
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnCoreDefinition) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1618,9 +2011,23 @@ func (c *jsiiProxy_CfnCoreDefinition) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnCoreDefinition) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnCoreDefinition) ToString() *string {
 	var returns *string
 
@@ -1634,6 +2041,27 @@ func (c *jsiiProxy_CfnCoreDefinition) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnCoreDefinition) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnCoreDefinition) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1642,40 +2070,79 @@ func (c *jsiiProxy_CfnCoreDefinition) ValidateProperties(_properties interface{}
 	)
 }
 
+// A core definition version contains a Greengrass [core](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-coredefinition-core.html) .
+//
+// > After you create a core definition version that contains the core you want to deploy, you must add it to your group version. For more information, see [`AWS::Greengrass::Group`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html) .
+//
+// In an AWS CloudFormation template, `CoreDefinitionVersion` is the property type of the `InitialVersion` property in the [`AWS::Greengrass::CoreDefinition`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-coredefinition.html) resource.
+//
 // TODO: EXAMPLE
 //
 type CfnCoreDefinition_CoreDefinitionVersionProperty struct {
-	// `CfnCoreDefinition.CoreDefinitionVersionProperty.Cores`.
+	// The Greengrass core in this version.
+	//
+	// Currently, the `Cores` property for a core definition version can contain only one core.
 	Cores interface{} `json:"cores"`
 }
 
+// A core is an AWS IoT device that runs the AWS IoT Greengrass core software and manages local processes for a Greengrass group.
+//
+// For more information, see [What Is AWS IoT Greengrass ?](https://docs.aws.amazon.com/greengrass/latest/developerguide/what-is-gg.html) in the *Developer Guide* .
+//
+// In an AWS CloudFormation template, the `Cores` property of the [`CoreDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-coredefinition-coredefinitionversion.html) property type contains a list of `Core` property types. Currently, the list can contain only one core.
+//
 // TODO: EXAMPLE
 //
 type CfnCoreDefinition_CoreProperty struct {
-	// `CfnCoreDefinition.CoreProperty.CertificateArn`.
+	// The Amazon Resource Name (ARN) of the device certificate for the core.
+	//
+	// This X.509 certificate is used to authenticate the core with AWS IoT and AWS IoT Greengrass services.
 	CertificateArn *string `json:"certificateArn"`
-	// `CfnCoreDefinition.CoreProperty.Id`.
+	// A descriptive or arbitrary ID for the core.
+	//
+	// This value must be unique within the core definition version. Maximum length is 128 characters with pattern `[a-zA-Z0-9:_-]+` .
 	Id *string `json:"id"`
-	// `CfnCoreDefinition.CoreProperty.SyncShadow`.
-	SyncShadow interface{} `json:"syncShadow"`
-	// `CfnCoreDefinition.CoreProperty.ThingArn`.
+	// The ARN of the core, which is an AWS IoT device (thing).
 	ThingArn *string `json:"thingArn"`
+	// Indicates whether the core's local shadow is synced with the cloud automatically.
+	//
+	// The default is false.
+	SyncShadow interface{} `json:"syncShadow"`
 }
 
-// Properties for defining a `AWS::Greengrass::CoreDefinition`.
+// Properties for defining a `CfnCoreDefinition`.
 //
 // TODO: EXAMPLE
 //
 type CfnCoreDefinitionProps struct {
-	// `AWS::Greengrass::CoreDefinition.InitialVersion`.
-	InitialVersion interface{} `json:"initialVersion"`
-	// `AWS::Greengrass::CoreDefinition.Name`.
+	// The name of the core definition.
 	Name *string `json:"name"`
-	// `AWS::Greengrass::CoreDefinition.Tags`.
+	// The core definition version to include when the core definition is created.
+	//
+	// Currently, a core definition version can contain only one [`core`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-coredefinition-core.html) .
+	//
+	// > To associate a core definition version after the core definition is created, create an [`AWS::Greengrass::CoreDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-coredefinitionversion.html) resource and specify the ID of this core definition.
+	InitialVersion interface{} `json:"initialVersion"`
+	// Application-specific metadata to attach to the core definition.
+	//
+	// You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tagging Your AWS IoT Greengrass Resources](https://docs.aws.amazon.com/greengrass/latest/developerguide/tagging.html) in the *Developer Guide* .
+	//
+	// This `Json` property type is processed as a map of key-value pairs. It uses the following format, which is different from most `Tags` implementations in AWS CloudFormation templates.
+	//
+	// ```json
+	// "Tags": { "KeyName0": "value", "KeyName1": "value", "KeyName2": "value"
+	// }
+	// ```
 	Tags interface{} `json:"tags"`
 }
 
 // A CloudFormation `AWS::Greengrass::CoreDefinitionVersion`.
+//
+// The `AWS::Greengrass::CoreDefinitionVersion` resource represents a core definition version for AWS IoT Greengrass . A core definition version contains a Greengrass core.
+//
+// > To create a core definition version, you must specify the ID of the core definition that you want to associate with the version. For information about creating a core definition, see [`AWS::Greengrass::CoreDefinition`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-coredefinition.html) .
+// >
+// > After you create a core definition version that contains the core you want to deploy, you must add it to your group version. For more information, see [`AWS::Greengrass::Group`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html) .
 //
 // TODO: EXAMPLE
 //
@@ -1691,7 +2158,7 @@ type CfnCoreDefinitionVersion interface {
 	SetCores(val interface{})
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	UpdatedProperites() *map[string]interface{}
@@ -1705,10 +2172,16 @@ type CfnCoreDefinitionVersion interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1788,8 +2261,8 @@ func (j *jsiiProxy_CfnCoreDefinitionVersion) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCoreDefinitionVersion) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnCoreDefinitionVersion) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1830,13 +2303,13 @@ func (j *jsiiProxy_CfnCoreDefinitionVersion) UpdatedProperites() *map[string]int
 
 
 // Create a new `AWS::Greengrass::CoreDefinitionVersion`.
-func NewCfnCoreDefinitionVersion(scope constructs.Construct, id *string, props *CfnCoreDefinitionVersionProps) CfnCoreDefinitionVersion {
+func NewCfnCoreDefinitionVersion(scope awscdk.Construct, id *string, props *CfnCoreDefinitionVersionProps) CfnCoreDefinitionVersion {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnCoreDefinitionVersion{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_greengrass.CfnCoreDefinitionVersion",
+		"monocdk.aws_greengrass.CfnCoreDefinitionVersion",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1845,11 +2318,11 @@ func NewCfnCoreDefinitionVersion(scope constructs.Construct, id *string, props *
 }
 
 // Create a new `AWS::Greengrass::CoreDefinitionVersion`.
-func NewCfnCoreDefinitionVersion_Override(c CfnCoreDefinitionVersion, scope constructs.Construct, id *string, props *CfnCoreDefinitionVersionProps) {
+func NewCfnCoreDefinitionVersion_Override(c CfnCoreDefinitionVersion, scope awscdk.Construct, id *string, props *CfnCoreDefinitionVersionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_greengrass.CfnCoreDefinitionVersion",
+		"monocdk.aws_greengrass.CfnCoreDefinitionVersion",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1877,13 +2350,14 @@ func (j *jsiiProxy_CfnCoreDefinitionVersion) SetCores(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnCoreDefinitionVersion_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnCoreDefinitionVersion",
+		"monocdk.aws_greengrass.CfnCoreDefinitionVersion",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1893,13 +2367,14 @@ func CfnCoreDefinitionVersion_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnCoreDefinitionVersion_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnCoreDefinitionVersion",
+		"monocdk.aws_greengrass.CfnCoreDefinitionVersion",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1908,17 +2383,15 @@ func CfnCoreDefinitionVersion_IsCfnResource(construct constructs.IConstruct) *bo
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnCoreDefinitionVersion_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnCoreDefinitionVersion",
+		"monocdk.aws_greengrass.CfnCoreDefinitionVersion",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1931,7 +2404,7 @@ func CfnCoreDefinitionVersion_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_greengrass.CfnCoreDefinitionVersion",
+		"monocdk.aws_greengrass.CfnCoreDefinitionVersion",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1939,6 +2412,7 @@ func CfnCoreDefinitionVersion_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnCoreDefinitionVersion) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1951,6 +2425,7 @@ func (c *jsiiProxy_CfnCoreDefinitionVersion) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnCoreDefinitionVersion) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1966,6 +2441,7 @@ func (c *jsiiProxy_CfnCoreDefinitionVersion) AddDependsOn(target awscdk.CfnResou
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnCoreDefinitionVersion) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2011,6 +2487,7 @@ func (c *jsiiProxy_CfnCoreDefinitionVersion) AddMetadata(key *string, value inte
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnCoreDefinitionVersion) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2020,6 +2497,7 @@ func (c *jsiiProxy_CfnCoreDefinitionVersion) AddOverride(path *string, value int
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnCoreDefinitionVersion) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2031,6 +2509,7 @@ func (c *jsiiProxy_CfnCoreDefinitionVersion) AddPropertyDeletionOverride(propert
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnCoreDefinitionVersion) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2048,6 +2527,7 @@ func (c *jsiiProxy_CfnCoreDefinitionVersion) AddPropertyOverride(propertyPath *s
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnCoreDefinitionVersion) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2060,6 +2540,7 @@ func (c *jsiiProxy_CfnCoreDefinitionVersion) ApplyRemovalPolicy(policy awscdk.Re
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnCoreDefinitionVersion) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2080,6 +2561,7 @@ func (c *jsiiProxy_CfnCoreDefinitionVersion) GetAtt(attributeName *string) awscd
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnCoreDefinitionVersion) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2102,12 +2584,80 @@ func (c *jsiiProxy_CfnCoreDefinitionVersion) Inspect(inspector awscdk.TreeInspec
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnCoreDefinitionVersion) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnCoreDefinitionVersion) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnCoreDefinitionVersion) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnCoreDefinitionVersion) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnCoreDefinitionVersion) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2128,6 +2678,7 @@ func (c *jsiiProxy_CfnCoreDefinitionVersion) RenderProperties(props *map[string]
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnCoreDefinitionVersion) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2141,9 +2692,23 @@ func (c *jsiiProxy_CfnCoreDefinitionVersion) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnCoreDefinitionVersion) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnCoreDefinitionVersion) ToString() *string {
 	var returns *string
 
@@ -2157,6 +2722,27 @@ func (c *jsiiProxy_CfnCoreDefinitionVersion) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnCoreDefinitionVersion) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnCoreDefinitionVersion) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2165,31 +2751,55 @@ func (c *jsiiProxy_CfnCoreDefinitionVersion) ValidateProperties(_properties inte
 	)
 }
 
+// A core is an AWS IoT device that runs the AWS IoT Greengrass core software and manages local processes for a Greengrass group.
+//
+// For more information, see [What Is AWS IoT Greengrass ?](https://docs.aws.amazon.com/greengrass/latest/developerguide/what-is-gg.html) in the *Developer Guide* .
+//
+// In an AWS CloudFormation template, the `Cores` property of the [`AWS::Greengrass::CoreDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-coredefinitionversion.html) resource contains a list of `Core` property types. Currently, the list can contain only one core.
+//
 // TODO: EXAMPLE
 //
 type CfnCoreDefinitionVersion_CoreProperty struct {
-	// `CfnCoreDefinitionVersion.CoreProperty.CertificateArn`.
+	// The ARN of the device certificate for the core.
+	//
+	// This X.509 certificate is used to authenticate the core with AWS IoT and AWS IoT Greengrass services.
 	CertificateArn *string `json:"certificateArn"`
-	// `CfnCoreDefinitionVersion.CoreProperty.Id`.
+	// A descriptive or arbitrary ID for the core.
+	//
+	// This value must be unique within the core definition version. Maximum length is 128 characters with pattern `[a-zA-Z0-9:_-]+` .
 	Id *string `json:"id"`
-	// `CfnCoreDefinitionVersion.CoreProperty.SyncShadow`.
-	SyncShadow interface{} `json:"syncShadow"`
-	// `CfnCoreDefinitionVersion.CoreProperty.ThingArn`.
+	// The Amazon Resource Name (ARN) of the core, which is an AWS IoT device (thing).
 	ThingArn *string `json:"thingArn"`
+	// Indicates whether the core's local shadow is synced with the cloud automatically.
+	//
+	// The default is false.
+	SyncShadow interface{} `json:"syncShadow"`
 }
 
-// Properties for defining a `AWS::Greengrass::CoreDefinitionVersion`.
+// Properties for defining a `CfnCoreDefinitionVersion`.
 //
 // TODO: EXAMPLE
 //
 type CfnCoreDefinitionVersionProps struct {
-	// `AWS::Greengrass::CoreDefinitionVersion.CoreDefinitionId`.
+	// The ID of the core definition associated with this version.
+	//
+	// This value is a GUID.
 	CoreDefinitionId *string `json:"coreDefinitionId"`
-	// `AWS::Greengrass::CoreDefinitionVersion.Cores`.
+	// The Greengrass core in this version.
+	//
+	// Currently, the `Cores` property for a core definition version can contain only one core.
 	Cores interface{} `json:"cores"`
 }
 
 // A CloudFormation `AWS::Greengrass::DeviceDefinition`.
+//
+// The `AWS::Greengrass::DeviceDefinition` resource represents a device definition for AWS IoT Greengrass . Device definitions are used to organize your device definition versions.
+//
+// Device definitions can reference multiple device definition versions. All device definition versions must be associated with a device definition. Each device definition version can contain one or more devices.
+//
+// > When you create a device definition, you can optionally include an initial device definition version. To associate a device definition version later, create an [`AWS::Greengrass::DeviceDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-devicedefinitionversion.html) resource and specify the ID of this device definition.
+// >
+// > After you create the device definition version that contains the devices you want to deploy, you must add it to your group version. For more information, see [`AWS::Greengrass::Group`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html) .
 //
 // TODO: EXAMPLE
 //
@@ -2209,7 +2819,7 @@ type CfnDeviceDefinition interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	Tags() awscdk.TagManager
@@ -2224,10 +2834,16 @@ type CfnDeviceDefinition interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -2347,8 +2963,8 @@ func (j *jsiiProxy_CfnDeviceDefinition) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDeviceDefinition) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnDeviceDefinition) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2399,13 +3015,13 @@ func (j *jsiiProxy_CfnDeviceDefinition) UpdatedProperites() *map[string]interfac
 
 
 // Create a new `AWS::Greengrass::DeviceDefinition`.
-func NewCfnDeviceDefinition(scope constructs.Construct, id *string, props *CfnDeviceDefinitionProps) CfnDeviceDefinition {
+func NewCfnDeviceDefinition(scope awscdk.Construct, id *string, props *CfnDeviceDefinitionProps) CfnDeviceDefinition {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDeviceDefinition{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_greengrass.CfnDeviceDefinition",
+		"monocdk.aws_greengrass.CfnDeviceDefinition",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2414,11 +3030,11 @@ func NewCfnDeviceDefinition(scope constructs.Construct, id *string, props *CfnDe
 }
 
 // Create a new `AWS::Greengrass::DeviceDefinition`.
-func NewCfnDeviceDefinition_Override(c CfnDeviceDefinition, scope constructs.Construct, id *string, props *CfnDeviceDefinitionProps) {
+func NewCfnDeviceDefinition_Override(c CfnDeviceDefinition, scope awscdk.Construct, id *string, props *CfnDeviceDefinitionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_greengrass.CfnDeviceDefinition",
+		"monocdk.aws_greengrass.CfnDeviceDefinition",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2446,13 +3062,14 @@ func (j *jsiiProxy_CfnDeviceDefinition) SetName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnDeviceDefinition_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnDeviceDefinition",
+		"monocdk.aws_greengrass.CfnDeviceDefinition",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2462,13 +3079,14 @@ func CfnDeviceDefinition_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnDeviceDefinition_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnDeviceDefinition",
+		"monocdk.aws_greengrass.CfnDeviceDefinition",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2477,17 +3095,15 @@ func CfnDeviceDefinition_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnDeviceDefinition_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnDeviceDefinition",
+		"monocdk.aws_greengrass.CfnDeviceDefinition",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2500,7 +3116,7 @@ func CfnDeviceDefinition_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_greengrass.CfnDeviceDefinition",
+		"monocdk.aws_greengrass.CfnDeviceDefinition",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2508,6 +3124,7 @@ func CfnDeviceDefinition_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnDeviceDefinition) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2520,6 +3137,7 @@ func (c *jsiiProxy_CfnDeviceDefinition) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnDeviceDefinition) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2535,6 +3153,7 @@ func (c *jsiiProxy_CfnDeviceDefinition) AddDependsOn(target awscdk.CfnResource) 
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnDeviceDefinition) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2580,6 +3199,7 @@ func (c *jsiiProxy_CfnDeviceDefinition) AddMetadata(key *string, value interface
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnDeviceDefinition) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2589,6 +3209,7 @@ func (c *jsiiProxy_CfnDeviceDefinition) AddOverride(path *string, value interfac
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnDeviceDefinition) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2600,6 +3221,7 @@ func (c *jsiiProxy_CfnDeviceDefinition) AddPropertyDeletionOverride(propertyPath
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnDeviceDefinition) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2617,6 +3239,7 @@ func (c *jsiiProxy_CfnDeviceDefinition) AddPropertyOverride(propertyPath *string
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnDeviceDefinition) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2629,6 +3252,7 @@ func (c *jsiiProxy_CfnDeviceDefinition) ApplyRemovalPolicy(policy awscdk.Removal
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnDeviceDefinition) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2649,6 +3273,7 @@ func (c *jsiiProxy_CfnDeviceDefinition) GetAtt(attributeName *string) awscdk.Ref
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnDeviceDefinition) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2671,12 +3296,80 @@ func (c *jsiiProxy_CfnDeviceDefinition) Inspect(inspector awscdk.TreeInspector) 
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDeviceDefinition) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDeviceDefinition) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDeviceDefinition) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnDeviceDefinition) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDeviceDefinition) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2697,6 +3390,7 @@ func (c *jsiiProxy_CfnDeviceDefinition) RenderProperties(props *map[string]inter
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnDeviceDefinition) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2710,9 +3404,23 @@ func (c *jsiiProxy_CfnDeviceDefinition) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDeviceDefinition) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnDeviceDefinition) ToString() *string {
 	var returns *string
 
@@ -2726,6 +3434,27 @@ func (c *jsiiProxy_CfnDeviceDefinition) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDeviceDefinition) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnDeviceDefinition) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2734,40 +3463,75 @@ func (c *jsiiProxy_CfnDeviceDefinition) ValidateProperties(_properties interface
 	)
 }
 
+// A device definition version contains a list of [devices](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-devicedefinition-device.html) .
+//
+// > After you create a device definition version that contains the devices you want to deploy, you must add it to your group version. For more information, see [`AWS::Greengrass::Group`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html) .
+//
+// In an AWS CloudFormation template, `DeviceDefinitionVersion` is the property type of the `InitialVersion` property in the [`AWS::Greengrass::DeviceDefinition`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-devicedefinition.html) resource.
+//
 // TODO: EXAMPLE
 //
 type CfnDeviceDefinition_DeviceDefinitionVersionProperty struct {
-	// `CfnDeviceDefinition.DeviceDefinitionVersionProperty.Devices`.
+	// The devices in this version.
 	Devices interface{} `json:"devices"`
 }
 
+// A device is an AWS IoT device (thing) that's added to a Greengrass group.
+//
+// Greengrass devices can communicate with the Greengrass core in the same group. For more information, see [What Is AWS IoT Greengrass ?](https://docs.aws.amazon.com/greengrass/latest/developerguide/what-is-gg.html) in the *Developer Guide* .
+//
+// In an AWS CloudFormation template, the `Devices` property of the [`DeviceDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-devicedefinition-devicedefinitionversion.html) property type contains a list of `Device` property types.
+//
 // TODO: EXAMPLE
 //
 type CfnDeviceDefinition_DeviceProperty struct {
-	// `CfnDeviceDefinition.DeviceProperty.CertificateArn`.
+	// The Amazon Resource Name (ARN) of the device certificate for the device.
+	//
+	// This X.509 certificate is used to authenticate the device with AWS IoT and AWS IoT Greengrass services.
 	CertificateArn *string `json:"certificateArn"`
-	// `CfnDeviceDefinition.DeviceProperty.Id`.
+	// A descriptive or arbitrary ID for the device.
+	//
+	// This value must be unique within the device definition version. Maximum length is 128 characters with pattern `[a-zA-Z0-9:_-]+` .
 	Id *string `json:"id"`
-	// `CfnDeviceDefinition.DeviceProperty.SyncShadow`.
-	SyncShadow interface{} `json:"syncShadow"`
-	// `CfnDeviceDefinition.DeviceProperty.ThingArn`.
+	// The ARN of the device, which is an AWS IoT device (thing).
 	ThingArn *string `json:"thingArn"`
+	// Indicates whether the device's local shadow is synced with the cloud automatically.
+	SyncShadow interface{} `json:"syncShadow"`
 }
 
-// Properties for defining a `AWS::Greengrass::DeviceDefinition`.
+// Properties for defining a `CfnDeviceDefinition`.
 //
 // TODO: EXAMPLE
 //
 type CfnDeviceDefinitionProps struct {
-	// `AWS::Greengrass::DeviceDefinition.InitialVersion`.
-	InitialVersion interface{} `json:"initialVersion"`
-	// `AWS::Greengrass::DeviceDefinition.Name`.
+	// The name of the device definition.
 	Name *string `json:"name"`
-	// `AWS::Greengrass::DeviceDefinition.Tags`.
+	// The device definition version to include when the device definition is created.
+	//
+	// A device definition version contains a list of [`device`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-devicedefinition-device.html) property types.
+	//
+	// > To associate a device definition version after the device definition is created, create an [`AWS::Greengrass::DeviceDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-devicedefinitionversion.html) resource and specify the ID of this device definition.
+	InitialVersion interface{} `json:"initialVersion"`
+	// Application-specific metadata to attach to the device definition.
+	//
+	// You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tagging Your AWS IoT Greengrass Resources](https://docs.aws.amazon.com/greengrass/latest/developerguide/tagging.html) in the *Developer Guide* .
+	//
+	// This `Json` property type is processed as a map of key-value pairs. It uses the following format, which is different from most `Tags` implementations in AWS CloudFormation templates.
+	//
+	// ```json
+	// "Tags": { "KeyName0": "value", "KeyName1": "value", "KeyName2": "value"
+	// }
+	// ```
 	Tags interface{} `json:"tags"`
 }
 
 // A CloudFormation `AWS::Greengrass::DeviceDefinitionVersion`.
+//
+// The `AWS::Greengrass::DeviceDefinitionVersion` resource represents a device definition version for AWS IoT Greengrass . A device definition version contains a list of devices.
+//
+// > To create a device definition version, you must specify the ID of the device definition that you want to associate with the version. For information about creating a device definition, see [`AWS::Greengrass::DeviceDefinition`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-devicedefinition.html) .
+// >
+// > After you create a device definition version that contains the devices you want to deploy, you must add it to your group version. For more information, see [`AWS::Greengrass::Group`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html) .
 //
 // TODO: EXAMPLE
 //
@@ -2783,7 +3547,7 @@ type CfnDeviceDefinitionVersion interface {
 	Devices() interface{}
 	SetDevices(val interface{})
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	UpdatedProperites() *map[string]interface{}
@@ -2797,10 +3561,16 @@ type CfnDeviceDefinitionVersion interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -2880,8 +3650,8 @@ func (j *jsiiProxy_CfnDeviceDefinitionVersion) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDeviceDefinitionVersion) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnDeviceDefinitionVersion) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2922,13 +3692,13 @@ func (j *jsiiProxy_CfnDeviceDefinitionVersion) UpdatedProperites() *map[string]i
 
 
 // Create a new `AWS::Greengrass::DeviceDefinitionVersion`.
-func NewCfnDeviceDefinitionVersion(scope constructs.Construct, id *string, props *CfnDeviceDefinitionVersionProps) CfnDeviceDefinitionVersion {
+func NewCfnDeviceDefinitionVersion(scope awscdk.Construct, id *string, props *CfnDeviceDefinitionVersionProps) CfnDeviceDefinitionVersion {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDeviceDefinitionVersion{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_greengrass.CfnDeviceDefinitionVersion",
+		"monocdk.aws_greengrass.CfnDeviceDefinitionVersion",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2937,11 +3707,11 @@ func NewCfnDeviceDefinitionVersion(scope constructs.Construct, id *string, props
 }
 
 // Create a new `AWS::Greengrass::DeviceDefinitionVersion`.
-func NewCfnDeviceDefinitionVersion_Override(c CfnDeviceDefinitionVersion, scope constructs.Construct, id *string, props *CfnDeviceDefinitionVersionProps) {
+func NewCfnDeviceDefinitionVersion_Override(c CfnDeviceDefinitionVersion, scope awscdk.Construct, id *string, props *CfnDeviceDefinitionVersionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_greengrass.CfnDeviceDefinitionVersion",
+		"monocdk.aws_greengrass.CfnDeviceDefinitionVersion",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2969,13 +3739,14 @@ func (j *jsiiProxy_CfnDeviceDefinitionVersion) SetDevices(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnDeviceDefinitionVersion_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnDeviceDefinitionVersion",
+		"monocdk.aws_greengrass.CfnDeviceDefinitionVersion",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2985,13 +3756,14 @@ func CfnDeviceDefinitionVersion_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnDeviceDefinitionVersion_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnDeviceDefinitionVersion",
+		"monocdk.aws_greengrass.CfnDeviceDefinitionVersion",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3000,17 +3772,15 @@ func CfnDeviceDefinitionVersion_IsCfnResource(construct constructs.IConstruct) *
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnDeviceDefinitionVersion_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnDeviceDefinitionVersion",
+		"monocdk.aws_greengrass.CfnDeviceDefinitionVersion",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3023,7 +3793,7 @@ func CfnDeviceDefinitionVersion_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_greengrass.CfnDeviceDefinitionVersion",
+		"monocdk.aws_greengrass.CfnDeviceDefinitionVersion",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -3031,6 +3801,7 @@ func CfnDeviceDefinitionVersion_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnDeviceDefinitionVersion) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3043,6 +3814,7 @@ func (c *jsiiProxy_CfnDeviceDefinitionVersion) AddDeletionOverride(path *string)
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnDeviceDefinitionVersion) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3058,6 +3830,7 @@ func (c *jsiiProxy_CfnDeviceDefinitionVersion) AddDependsOn(target awscdk.CfnRes
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnDeviceDefinitionVersion) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3103,6 +3876,7 @@ func (c *jsiiProxy_CfnDeviceDefinitionVersion) AddMetadata(key *string, value in
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnDeviceDefinitionVersion) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3112,6 +3886,7 @@ func (c *jsiiProxy_CfnDeviceDefinitionVersion) AddOverride(path *string, value i
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnDeviceDefinitionVersion) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3123,6 +3898,7 @@ func (c *jsiiProxy_CfnDeviceDefinitionVersion) AddPropertyDeletionOverride(prope
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnDeviceDefinitionVersion) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3140,6 +3916,7 @@ func (c *jsiiProxy_CfnDeviceDefinitionVersion) AddPropertyOverride(propertyPath 
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnDeviceDefinitionVersion) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3152,6 +3929,7 @@ func (c *jsiiProxy_CfnDeviceDefinitionVersion) ApplyRemovalPolicy(policy awscdk.
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnDeviceDefinitionVersion) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -3172,6 +3950,7 @@ func (c *jsiiProxy_CfnDeviceDefinitionVersion) GetAtt(attributeName *string) aws
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnDeviceDefinitionVersion) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -3194,12 +3973,80 @@ func (c *jsiiProxy_CfnDeviceDefinitionVersion) Inspect(inspector awscdk.TreeInsp
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDeviceDefinitionVersion) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDeviceDefinitionVersion) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDeviceDefinitionVersion) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnDeviceDefinitionVersion) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDeviceDefinitionVersion) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -3220,6 +4067,7 @@ func (c *jsiiProxy_CfnDeviceDefinitionVersion) RenderProperties(props *map[strin
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnDeviceDefinitionVersion) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -3233,9 +4081,23 @@ func (c *jsiiProxy_CfnDeviceDefinitionVersion) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDeviceDefinitionVersion) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnDeviceDefinitionVersion) ToString() *string {
 	var returns *string
 
@@ -3249,6 +4111,27 @@ func (c *jsiiProxy_CfnDeviceDefinitionVersion) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDeviceDefinitionVersion) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnDeviceDefinitionVersion) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3257,31 +4140,51 @@ func (c *jsiiProxy_CfnDeviceDefinitionVersion) ValidateProperties(_properties in
 	)
 }
 
+// A device is an AWS IoT device (thing) that's added to a Greengrass group.
+//
+// Greengrass devices can communicate with the Greengrass core in the same group. For more information, see [What Is AWS IoT Greengrass ?](https://docs.aws.amazon.com/greengrass/latest/developerguide/what-is-gg.html) in the *Developer Guide* .
+//
+// In an AWS CloudFormation template, the `Devices` property of the [`AWS::Greengrass::DeviceDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-devicedefinitionversion.html) resource contains a list of `Device` property types.
+//
 // TODO: EXAMPLE
 //
 type CfnDeviceDefinitionVersion_DeviceProperty struct {
-	// `CfnDeviceDefinitionVersion.DeviceProperty.CertificateArn`.
+	// The ARN of the device certificate for the device.
+	//
+	// This X.509 certificate is used to authenticate the device with AWS IoT and AWS IoT Greengrass services.
 	CertificateArn *string `json:"certificateArn"`
-	// `CfnDeviceDefinitionVersion.DeviceProperty.Id`.
+	// A descriptive or arbitrary ID for the device.
+	//
+	// This value must be unique within the device definition version. Maximum length is 128 characters with pattern `[a-zA-Z0-9:_-]+` .
 	Id *string `json:"id"`
-	// `CfnDeviceDefinitionVersion.DeviceProperty.SyncShadow`.
-	SyncShadow interface{} `json:"syncShadow"`
-	// `CfnDeviceDefinitionVersion.DeviceProperty.ThingArn`.
+	// The Amazon Resource Name (ARN) of the device, which is an AWS IoT device (thing).
 	ThingArn *string `json:"thingArn"`
+	// Indicates whether the device's local shadow is synced with the cloud automatically.
+	SyncShadow interface{} `json:"syncShadow"`
 }
 
-// Properties for defining a `AWS::Greengrass::DeviceDefinitionVersion`.
+// Properties for defining a `CfnDeviceDefinitionVersion`.
 //
 // TODO: EXAMPLE
 //
 type CfnDeviceDefinitionVersionProps struct {
-	// `AWS::Greengrass::DeviceDefinitionVersion.DeviceDefinitionId`.
+	// The ID of the device definition associated with this version.
+	//
+	// This value is a GUID.
 	DeviceDefinitionId *string `json:"deviceDefinitionId"`
-	// `AWS::Greengrass::DeviceDefinitionVersion.Devices`.
+	// The devices in this version.
 	Devices interface{} `json:"devices"`
 }
 
 // A CloudFormation `AWS::Greengrass::FunctionDefinition`.
+//
+// The `AWS::Greengrass::FunctionDefinition` resource represents a function definition for AWS IoT Greengrass . Function definitions are used to organize your function definition versions.
+//
+// Function definitions can reference multiple function definition versions. All function definition versions must be associated with a function definition. Each function definition version can contain one or more functions.
+//
+// > When you create a function definition, you can optionally include an initial function definition version. To associate a function definition version later, create an [`AWS::Greengrass::FunctionDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-functiondefinitionversion.html) resource and specify the ID of this function definition.
+// >
+// > After you create the function definition version that contains the functions you want to deploy, you must add it to your group version. For more information, see [`AWS::Greengrass::Group`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html) .
 //
 // TODO: EXAMPLE
 //
@@ -3301,7 +4204,7 @@ type CfnFunctionDefinition interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	Tags() awscdk.TagManager
@@ -3316,10 +4219,16 @@ type CfnFunctionDefinition interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -3439,8 +4348,8 @@ func (j *jsiiProxy_CfnFunctionDefinition) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFunctionDefinition) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnFunctionDefinition) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -3491,13 +4400,13 @@ func (j *jsiiProxy_CfnFunctionDefinition) UpdatedProperites() *map[string]interf
 
 
 // Create a new `AWS::Greengrass::FunctionDefinition`.
-func NewCfnFunctionDefinition(scope constructs.Construct, id *string, props *CfnFunctionDefinitionProps) CfnFunctionDefinition {
+func NewCfnFunctionDefinition(scope awscdk.Construct, id *string, props *CfnFunctionDefinitionProps) CfnFunctionDefinition {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnFunctionDefinition{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_greengrass.CfnFunctionDefinition",
+		"monocdk.aws_greengrass.CfnFunctionDefinition",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3506,11 +4415,11 @@ func NewCfnFunctionDefinition(scope constructs.Construct, id *string, props *Cfn
 }
 
 // Create a new `AWS::Greengrass::FunctionDefinition`.
-func NewCfnFunctionDefinition_Override(c CfnFunctionDefinition, scope constructs.Construct, id *string, props *CfnFunctionDefinitionProps) {
+func NewCfnFunctionDefinition_Override(c CfnFunctionDefinition, scope awscdk.Construct, id *string, props *CfnFunctionDefinitionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_greengrass.CfnFunctionDefinition",
+		"monocdk.aws_greengrass.CfnFunctionDefinition",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -3538,13 +4447,14 @@ func (j *jsiiProxy_CfnFunctionDefinition) SetName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnFunctionDefinition_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnFunctionDefinition",
+		"monocdk.aws_greengrass.CfnFunctionDefinition",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -3554,13 +4464,14 @@ func CfnFunctionDefinition_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnFunctionDefinition_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnFunctionDefinition",
+		"monocdk.aws_greengrass.CfnFunctionDefinition",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3569,17 +4480,15 @@ func CfnFunctionDefinition_IsCfnResource(construct constructs.IConstruct) *bool 
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnFunctionDefinition_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnFunctionDefinition",
+		"monocdk.aws_greengrass.CfnFunctionDefinition",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3592,7 +4501,7 @@ func CfnFunctionDefinition_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_greengrass.CfnFunctionDefinition",
+		"monocdk.aws_greengrass.CfnFunctionDefinition",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -3600,6 +4509,7 @@ func CfnFunctionDefinition_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnFunctionDefinition) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3612,6 +4522,7 @@ func (c *jsiiProxy_CfnFunctionDefinition) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnFunctionDefinition) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3627,6 +4538,7 @@ func (c *jsiiProxy_CfnFunctionDefinition) AddDependsOn(target awscdk.CfnResource
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnFunctionDefinition) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3672,6 +4584,7 @@ func (c *jsiiProxy_CfnFunctionDefinition) AddMetadata(key *string, value interfa
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnFunctionDefinition) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3681,6 +4594,7 @@ func (c *jsiiProxy_CfnFunctionDefinition) AddOverride(path *string, value interf
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnFunctionDefinition) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3692,6 +4606,7 @@ func (c *jsiiProxy_CfnFunctionDefinition) AddPropertyDeletionOverride(propertyPa
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnFunctionDefinition) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3709,6 +4624,7 @@ func (c *jsiiProxy_CfnFunctionDefinition) AddPropertyOverride(propertyPath *stri
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnFunctionDefinition) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3721,6 +4637,7 @@ func (c *jsiiProxy_CfnFunctionDefinition) ApplyRemovalPolicy(policy awscdk.Remov
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnFunctionDefinition) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -3741,6 +4658,7 @@ func (c *jsiiProxy_CfnFunctionDefinition) GetAtt(attributeName *string) awscdk.R
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnFunctionDefinition) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -3763,12 +4681,80 @@ func (c *jsiiProxy_CfnFunctionDefinition) Inspect(inspector awscdk.TreeInspector
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnFunctionDefinition) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnFunctionDefinition) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnFunctionDefinition) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnFunctionDefinition) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnFunctionDefinition) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -3789,6 +4775,7 @@ func (c *jsiiProxy_CfnFunctionDefinition) RenderProperties(props *map[string]int
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnFunctionDefinition) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -3802,9 +4789,23 @@ func (c *jsiiProxy_CfnFunctionDefinition) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnFunctionDefinition) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnFunctionDefinition) ToString() *string {
 	var returns *string
 
@@ -3818,6 +4819,27 @@ func (c *jsiiProxy_CfnFunctionDefinition) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnFunctionDefinition) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnFunctionDefinition) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3826,106 +4848,211 @@ func (c *jsiiProxy_CfnFunctionDefinition) ValidateProperties(_properties interfa
 	)
 }
 
+// The default configuration that applies to all Lambda functions in the function definition version.
+//
+// Individual Lambda functions can override these settings.
+//
+// In an AWS CloudFormation template, `DefaultConfig` is a property of the [`FunctionDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-functiondefinitionversion.html) property type.
+//
 // TODO: EXAMPLE
 //
 type CfnFunctionDefinition_DefaultConfigProperty struct {
-	// `CfnFunctionDefinition.DefaultConfigProperty.Execution`.
+	// Configuration settings for the Lambda execution environment on the AWS IoT Greengrass core.
 	Execution interface{} `json:"execution"`
 }
 
+// The environment configuration for a Lambda function on the AWS IoT Greengrass core.
+//
+// In an AWS CloudFormation template, `Environment` is a property of the [`FunctionConfiguration`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-functionconfiguration.html) property type.
+//
 // TODO: EXAMPLE
 //
 type CfnFunctionDefinition_EnvironmentProperty struct {
-	// `CfnFunctionDefinition.EnvironmentProperty.AccessSysfs`.
+	// Indicates whether the function is allowed to access the `/sys` directory on the core device, which allows the read device information from `/sys` .
+	//
+	// > This property applies only to Lambda functions that run in a Greengrass container.
 	AccessSysfs interface{} `json:"accessSysfs"`
-	// `CfnFunctionDefinition.EnvironmentProperty.Execution`.
+	// Settings for the Lambda execution environment in AWS IoT Greengrass .
 	Execution interface{} `json:"execution"`
-	// `CfnFunctionDefinition.EnvironmentProperty.ResourceAccessPolicies`.
+	// A list of the [resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-resourceinstance.html) in the group that the function can access, with the corresponding read-only or read-write permissions. The maximum is 10 resources.
+	//
+	// > This property applies only for Lambda functions that run in a Greengrass container.
 	ResourceAccessPolicies interface{} `json:"resourceAccessPolicies"`
-	// `CfnFunctionDefinition.EnvironmentProperty.Variables`.
+	// Environment variables for the Lambda function.
 	Variables interface{} `json:"variables"`
 }
 
+// Configuration settings for the Lambda execution environment on the AWS IoT Greengrass core.
+//
+// In an AWS CloudFormation template, `Execution` is a property of the [`DefaultConfig`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-defaultconfig.html) property type for a function definition version and the [`Environment`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-environment.html) property type for a function.
+//
 // TODO: EXAMPLE
 //
 type CfnFunctionDefinition_ExecutionProperty struct {
-	// `CfnFunctionDefinition.ExecutionProperty.IsolationMode`.
+	// The containerization that the Lambda function runs in.
+	//
+	// Valid values are `GreengrassContainer` or `NoContainer` . Typically, this is `GreengrassContainer` . For more information, see [Containerization](https://docs.aws.amazon.com/greengrass/latest/developerguide/lambda-group-config.html#lambda-function-containerization) in the *Developer Guide* .
+	//
+	// - When set on the [`DefaultConfig`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-defaultconfig.html) property of a function definition version, this setting is used as the default containerization for all Lambda functions in the function definition version.
+	// - When set on the [`Environment`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-environment.html) property of a function, this setting applies to the individual function and overrides the default. Omit this value to run the function with the default containerization.
+	//
+	// > We recommend that you run in a Greengrass container unless your business case requires that you run without containerization.
 	IsolationMode *string `json:"isolationMode"`
-	// `CfnFunctionDefinition.ExecutionProperty.RunAs`.
+	// The user and group permissions used to run the Lambda function.
+	//
+	// Typically, this is the ggc_user and ggc_group. For more information, see [Run as](https://docs.aws.amazon.com/greengrass/latest/developerguide/lambda-group-config.html#lambda-access-identity.html) in the *Developer Guide* .
+	//
+	// - When set on the [`DefaultConfig`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-defaultconfig.html) property of a function definition version, this setting is used as the default access identity for all Lambda functions in the function definition version.
+	// - When set on the [`Environment`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-environment.html) property of a function, this setting applies to the individual function and overrides the default. You can override the user, group, or both. Omit this value to run the function with the default permissions.
+	//
+	// > Running as the root user increases risks to your data and device. Do not run as root (UID/GID=0) unless your business case requires it. For more information and requirements, see [Running a Lambda Function as Root](https://docs.aws.amazon.com/greengrass/latest/developerguide/lambda-group-config.html#lambda-running-as-root) .
 	RunAs interface{} `json:"runAs"`
 }
 
+// The group-specific configuration settings for a Lambda function.
+//
+// These settings configure the function's behavior in the Greengrass group. For more information, see [Controlling Execution of Greengrass Lambda Functions by Using Group-Specific Configuration](https://docs.aws.amazon.com/greengrass/latest/developerguide/lambda-group-config.html) in the *Developer Guide* .
+//
+// In an AWS CloudFormation template, `FunctionConfiguration` is a property of the [`Function`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-function.html) property type.
+//
 // TODO: EXAMPLE
 //
 type CfnFunctionDefinition_FunctionConfigurationProperty struct {
-	// `CfnFunctionDefinition.FunctionConfigurationProperty.EncodingType`.
+	// The expected encoding type of the input payload for the function.
+	//
+	// Valid values are `json` (default) and `binary` .
 	EncodingType *string `json:"encodingType"`
-	// `CfnFunctionDefinition.FunctionConfigurationProperty.Environment`.
+	// The environment configuration of the function.
 	Environment interface{} `json:"environment"`
-	// `CfnFunctionDefinition.FunctionConfigurationProperty.ExecArgs`.
+	// The execution arguments.
 	ExecArgs *string `json:"execArgs"`
-	// `CfnFunctionDefinition.FunctionConfigurationProperty.Executable`.
+	// The name of the function executable.
 	Executable *string `json:"executable"`
-	// `CfnFunctionDefinition.FunctionConfigurationProperty.MemorySize`.
+	// The memory size (in KB) required by the function.
+	//
+	// > This property applies only to Lambda functions that run in a Greengrass container.
 	MemorySize *float64 `json:"memorySize"`
-	// `CfnFunctionDefinition.FunctionConfigurationProperty.Pinned`.
+	// Indicates whether the function is pinned (or *long-lived* ).
+	//
+	// Pinned functions start when the core starts and process all requests in the same container. The default value is false.
 	Pinned interface{} `json:"pinned"`
-	// `CfnFunctionDefinition.FunctionConfigurationProperty.Timeout`.
+	// The allowed execution time (in seconds) after which the function should terminate.
+	//
+	// For pinned functions, this timeout applies for each request.
 	Timeout *float64 `json:"timeout"`
 }
 
+// A function definition version contains a list of functions.
+//
+// > After you create a function definition version that contains the functions you want to deploy, you must add it to your group version. For more information, see [`AWS::Greengrass::Group`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html) .
+//
+// In an AWS CloudFormation template, `FunctionDefinitionVersion` is the property type of the `InitialVersion` property in the [`AWS::Greengrass::FunctionDefinition`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-functiondefinition.html) resource.
+//
 // TODO: EXAMPLE
 //
 type CfnFunctionDefinition_FunctionDefinitionVersionProperty struct {
-	// `CfnFunctionDefinition.FunctionDefinitionVersionProperty.DefaultConfig`.
-	DefaultConfig interface{} `json:"defaultConfig"`
-	// `CfnFunctionDefinition.FunctionDefinitionVersionProperty.Functions`.
+	// The functions in this version.
 	Functions interface{} `json:"functions"`
+	// The default configuration that applies to all Lambda functions in the group.
+	//
+	// Individual Lambda functions can override these settings.
+	DefaultConfig interface{} `json:"defaultConfig"`
 }
 
+// A function is a Lambda function that's referenced from an AWS IoT Greengrass group.
+//
+// The function is deployed to a Greengrass core where it runs locally. For more information, see [Run Lambda Functions on the AWS IoT Greengrass Core](https://docs.aws.amazon.com/greengrass/latest/developerguide/lambda-functions.html) in the *Developer Guide* .
+//
+// In an AWS CloudFormation template, the `Functions` property of the [`FunctionDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-functiondefinitionversion.html) property type contains a list of `Function` property types.
+//
 // TODO: EXAMPLE
 //
 type CfnFunctionDefinition_FunctionProperty struct {
-	// `CfnFunctionDefinition.FunctionProperty.FunctionArn`.
+	// The Amazon Resource Name (ARN) of the alias (recommended) or version of the referenced Lambda function.
 	FunctionArn *string `json:"functionArn"`
-	// `CfnFunctionDefinition.FunctionProperty.FunctionConfiguration`.
+	// The group-specific settings of the Lambda function.
+	//
+	// These settings configure the function's behavior in the Greengrass group.
 	FunctionConfiguration interface{} `json:"functionConfiguration"`
-	// `CfnFunctionDefinition.FunctionProperty.Id`.
+	// A descriptive or arbitrary ID for the function.
+	//
+	// This value must be unique within the function definition version. Maximum length is 128 characters with pattern `[a-zA-Z0-9:_-]+` .
 	Id *string `json:"id"`
 }
 
+// A list of the [resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-resourceinstance.html) in the group that the function can access, with the corresponding read-only or read-write permissions. The maximum is 10 resources.
+//
+// > This property applies only to Lambda functions that run in a Greengrass container.
+//
+// In an AWS CloudFormation template, `ResourceAccessPolicy` is a property of the [`Environment`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-environment.html) property type.
+//
 // TODO: EXAMPLE
 //
 type CfnFunctionDefinition_ResourceAccessPolicyProperty struct {
-	// `CfnFunctionDefinition.ResourceAccessPolicyProperty.Permission`.
-	Permission *string `json:"permission"`
-	// `CfnFunctionDefinition.ResourceAccessPolicyProperty.ResourceId`.
+	// The ID of the resource.
+	//
+	// This ID is assigned to the resource when you create the resource definition.
 	ResourceId *string `json:"resourceId"`
+	// The read-only or read-write access that the Lambda function has to the resource.
+	//
+	// Valid values are `ro` or `rw` .
+	Permission *string `json:"permission"`
 }
 
+// The access identity whose permissions are used to run the Lambda function.
+//
+// This setting overrides the default access identity that's specified for the group (by default, ggc_user and ggc_group). You can override the user, group, or both. For more information, see [Run as](https://docs.aws.amazon.com/greengrass/latest/developerguide/lambda-group-config.html#lambda-access-identity.html) in the *Developer Guide* .
+//
+// > Running as the root user increases risks to your data and device. Do not run as root (UID/GID=0) unless your business case requires it. For more information and requirements, see [Running a Lambda Function as Root](https://docs.aws.amazon.com/greengrass/latest/developerguide/lambda-group-config.html#lambda-running-as-root) .
+//
+// In an AWS CloudFormation template, `RunAs` is a property of the [`Execution`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-execution.html) property type.
+//
 // TODO: EXAMPLE
 //
 type CfnFunctionDefinition_RunAsProperty struct {
-	// `CfnFunctionDefinition.RunAsProperty.Gid`.
+	// The group ID whose permissions are used to run the Lambda function.
+	//
+	// You can use the `getent group` command on your core device to look up the group ID.
 	Gid *float64 `json:"gid"`
-	// `CfnFunctionDefinition.RunAsProperty.Uid`.
+	// The user ID whose permissions are used to run the Lambda function.
+	//
+	// You can use the `getent passwd` command on your core device to look up the user ID.
 	Uid *float64 `json:"uid"`
 }
 
-// Properties for defining a `AWS::Greengrass::FunctionDefinition`.
+// Properties for defining a `CfnFunctionDefinition`.
 //
 // TODO: EXAMPLE
 //
 type CfnFunctionDefinitionProps struct {
-	// `AWS::Greengrass::FunctionDefinition.InitialVersion`.
-	InitialVersion interface{} `json:"initialVersion"`
-	// `AWS::Greengrass::FunctionDefinition.Name`.
+	// The name of the function definition.
 	Name *string `json:"name"`
-	// `AWS::Greengrass::FunctionDefinition.Tags`.
+	// The function definition version to include when the function definition is created.
+	//
+	// A function definition version contains a list of [`function`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-function.html) property types.
+	//
+	// > To associate a function definition version after the function definition is created, create an [`AWS::Greengrass::FunctionDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-functiondefinitionversion.html) resource and specify the ID of this function definition.
+	InitialVersion interface{} `json:"initialVersion"`
+	// Application-specific metadata to attach to the function definition.
+	//
+	// You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tagging Your AWS IoT Greengrass Resources](https://docs.aws.amazon.com/greengrass/latest/developerguide/tagging.html) in the *Developer Guide* .
+	//
+	// This `Json` property type is processed as a map of key-value pairs. It uses the following format, which is different from most `Tags` implementations in AWS CloudFormation templates.
+	//
+	// ```json
+	// "Tags": { "KeyName0": "value", "KeyName1": "value", "KeyName2": "value"
+	// }
+	// ```
 	Tags interface{} `json:"tags"`
 }
 
 // A CloudFormation `AWS::Greengrass::FunctionDefinitionVersion`.
+//
+// The `AWS::Greengrass::FunctionDefinitionVersion` resource represents a function definition version for AWS IoT Greengrass . A function definition version contains contain a list of functions.
+//
+// > To create a function definition version, you must specify the ID of the function definition that you want to associate with the version. For information about creating a function definition, see [`AWS::Greengrass::FunctionDefinition`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-functiondefinition.html) .
+// >
+// > After you create a function definition version that contains the functions you want to deploy, you must add it to your group version. For more information, see [`AWS::Greengrass::Group`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html) .
 //
 // TODO: EXAMPLE
 //
@@ -3943,7 +5070,7 @@ type CfnFunctionDefinitionVersion interface {
 	Functions() interface{}
 	SetFunctions(val interface{})
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	UpdatedProperites() *map[string]interface{}
@@ -3957,10 +5084,16 @@ type CfnFunctionDefinitionVersion interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -4050,8 +5183,8 @@ func (j *jsiiProxy_CfnFunctionDefinitionVersion) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFunctionDefinitionVersion) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnFunctionDefinitionVersion) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -4092,13 +5225,13 @@ func (j *jsiiProxy_CfnFunctionDefinitionVersion) UpdatedProperites() *map[string
 
 
 // Create a new `AWS::Greengrass::FunctionDefinitionVersion`.
-func NewCfnFunctionDefinitionVersion(scope constructs.Construct, id *string, props *CfnFunctionDefinitionVersionProps) CfnFunctionDefinitionVersion {
+func NewCfnFunctionDefinitionVersion(scope awscdk.Construct, id *string, props *CfnFunctionDefinitionVersionProps) CfnFunctionDefinitionVersion {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnFunctionDefinitionVersion{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_greengrass.CfnFunctionDefinitionVersion",
+		"monocdk.aws_greengrass.CfnFunctionDefinitionVersion",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4107,11 +5240,11 @@ func NewCfnFunctionDefinitionVersion(scope constructs.Construct, id *string, pro
 }
 
 // Create a new `AWS::Greengrass::FunctionDefinitionVersion`.
-func NewCfnFunctionDefinitionVersion_Override(c CfnFunctionDefinitionVersion, scope constructs.Construct, id *string, props *CfnFunctionDefinitionVersionProps) {
+func NewCfnFunctionDefinitionVersion_Override(c CfnFunctionDefinitionVersion, scope awscdk.Construct, id *string, props *CfnFunctionDefinitionVersionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_greengrass.CfnFunctionDefinitionVersion",
+		"monocdk.aws_greengrass.CfnFunctionDefinitionVersion",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -4147,13 +5280,14 @@ func (j *jsiiProxy_CfnFunctionDefinitionVersion) SetFunctions(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnFunctionDefinitionVersion_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnFunctionDefinitionVersion",
+		"monocdk.aws_greengrass.CfnFunctionDefinitionVersion",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -4163,13 +5297,14 @@ func CfnFunctionDefinitionVersion_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnFunctionDefinitionVersion_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnFunctionDefinitionVersion",
+		"monocdk.aws_greengrass.CfnFunctionDefinitionVersion",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -4178,17 +5313,15 @@ func CfnFunctionDefinitionVersion_IsCfnResource(construct constructs.IConstruct)
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnFunctionDefinitionVersion_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnFunctionDefinitionVersion",
+		"monocdk.aws_greengrass.CfnFunctionDefinitionVersion",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4201,7 +5334,7 @@ func CfnFunctionDefinitionVersion_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_greengrass.CfnFunctionDefinitionVersion",
+		"monocdk.aws_greengrass.CfnFunctionDefinitionVersion",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -4209,6 +5342,7 @@ func CfnFunctionDefinitionVersion_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnFunctionDefinitionVersion) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4221,6 +5355,7 @@ func (c *jsiiProxy_CfnFunctionDefinitionVersion) AddDeletionOverride(path *strin
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnFunctionDefinitionVersion) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4236,6 +5371,7 @@ func (c *jsiiProxy_CfnFunctionDefinitionVersion) AddDependsOn(target awscdk.CfnR
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnFunctionDefinitionVersion) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4281,6 +5417,7 @@ func (c *jsiiProxy_CfnFunctionDefinitionVersion) AddMetadata(key *string, value 
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnFunctionDefinitionVersion) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4290,6 +5427,7 @@ func (c *jsiiProxy_CfnFunctionDefinitionVersion) AddOverride(path *string, value
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnFunctionDefinitionVersion) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4301,6 +5439,7 @@ func (c *jsiiProxy_CfnFunctionDefinitionVersion) AddPropertyDeletionOverride(pro
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnFunctionDefinitionVersion) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4318,6 +5457,7 @@ func (c *jsiiProxy_CfnFunctionDefinitionVersion) AddPropertyOverride(propertyPat
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnFunctionDefinitionVersion) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4330,6 +5470,7 @@ func (c *jsiiProxy_CfnFunctionDefinitionVersion) ApplyRemovalPolicy(policy awscd
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnFunctionDefinitionVersion) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -4350,6 +5491,7 @@ func (c *jsiiProxy_CfnFunctionDefinitionVersion) GetAtt(attributeName *string) a
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnFunctionDefinitionVersion) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -4372,12 +5514,80 @@ func (c *jsiiProxy_CfnFunctionDefinitionVersion) Inspect(inspector awscdk.TreeIn
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnFunctionDefinitionVersion) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnFunctionDefinitionVersion) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnFunctionDefinitionVersion) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnFunctionDefinitionVersion) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnFunctionDefinitionVersion) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -4398,6 +5608,7 @@ func (c *jsiiProxy_CfnFunctionDefinitionVersion) RenderProperties(props *map[str
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnFunctionDefinitionVersion) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -4411,9 +5622,23 @@ func (c *jsiiProxy_CfnFunctionDefinitionVersion) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnFunctionDefinitionVersion) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnFunctionDefinitionVersion) ToString() *string {
 	var returns *string
 
@@ -4427,6 +5652,27 @@ func (c *jsiiProxy_CfnFunctionDefinitionVersion) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnFunctionDefinitionVersion) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnFunctionDefinitionVersion) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4435,97 +5681,197 @@ func (c *jsiiProxy_CfnFunctionDefinitionVersion) ValidateProperties(_properties 
 	)
 }
 
+// The default configuration that applies to all Lambda functions in the function definition version.
+//
+// Individual Lambda functions can override these settings.
+//
+// In an AWS CloudFormation template, `DefaultConfig` is a property of the [`AWS::Greengrass::FunctionDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-functiondefinitionversion.html) resource.
+//
 // TODO: EXAMPLE
 //
 type CfnFunctionDefinitionVersion_DefaultConfigProperty struct {
-	// `CfnFunctionDefinitionVersion.DefaultConfigProperty.Execution`.
+	// Configuration settings for the Lambda execution environment on the AWS IoT Greengrass core.
 	Execution interface{} `json:"execution"`
 }
 
+// The environment configuration for a Lambda function on the AWS IoT Greengrass core.
+//
+// In an AWS CloudFormation template, `Environment` is a property of the [`FunctionConfiguration`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-functionconfiguration.html) property type.
+//
 // TODO: EXAMPLE
 //
 type CfnFunctionDefinitionVersion_EnvironmentProperty struct {
-	// `CfnFunctionDefinitionVersion.EnvironmentProperty.AccessSysfs`.
+	// Indicates whether the function is allowed to access the `/sys` directory on the core device, which allows the read device information from `/sys` .
+	//
+	// > This property applies only to Lambda functions that run in a Greengrass container.
 	AccessSysfs interface{} `json:"accessSysfs"`
-	// `CfnFunctionDefinitionVersion.EnvironmentProperty.Execution`.
+	// Settings for the Lambda execution environment in AWS IoT Greengrass .
 	Execution interface{} `json:"execution"`
-	// `CfnFunctionDefinitionVersion.EnvironmentProperty.ResourceAccessPolicies`.
+	// A list of the [resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-resourceinstance.html) in the group that the function can access, with the corresponding read-only or read-write permissions. The maximum is 10 resources.
+	//
+	// > This property applies only to Lambda functions that run in a Greengrass container.
 	ResourceAccessPolicies interface{} `json:"resourceAccessPolicies"`
-	// `CfnFunctionDefinitionVersion.EnvironmentProperty.Variables`.
+	// Environment variables for the Lambda function.
 	Variables interface{} `json:"variables"`
 }
 
+// Configuration settings for the Lambda execution environment on the AWS IoT Greengrass core.
+//
+// In an AWS CloudFormation template, `Execution` is a property of the [`DefaultConfig`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-defaultconfig.html) property type for a function definition version and the [`Environment`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-environment.html) property type for a function.
+//
 // TODO: EXAMPLE
 //
 type CfnFunctionDefinitionVersion_ExecutionProperty struct {
-	// `CfnFunctionDefinitionVersion.ExecutionProperty.IsolationMode`.
+	// The containerization that the Lambda function runs in.
+	//
+	// Valid values are `GreengrassContainer` or `NoContainer` . Typically, this is `GreengrassContainer` . For more information, see [Containerization](https://docs.aws.amazon.com/greengrass/latest/developerguide/lambda-group-config.html#lambda-function-containerization) in the *Developer Guide* .
+	//
+	// - When set on the [`DefaultConfig`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-defaultconfig.html) property of a function definition version, this setting is used as the default containerization for all Lambda functions in the function definition version.
+	// - When set on the [`Environment`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-environment.html) property of a function, this setting applies to the individual function and overrides the default. Omit this value to run the function with the default containerization.
+	//
+	// > We recommend that you run in a Greengrass container unless your business case requires that you run without containerization.
 	IsolationMode *string `json:"isolationMode"`
-	// `CfnFunctionDefinitionVersion.ExecutionProperty.RunAs`.
+	// The user and group permissions used to run the Lambda function.
+	//
+	// Typically, this is the ggc_user and ggc_group. For more information, see [Run as](https://docs.aws.amazon.com/greengrass/latest/developerguide/lambda-group-config.html#lambda-access-identity.html) in the *Developer Guide* .
+	//
+	// - When set on the [`DefaultConfig`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-defaultconfig.html) property of a function definition version, this setting is used as the default access identity for all Lambda functions in the function definition version.
+	// - When set on the [`Environment`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-environment.html) property of a function, this setting applies to the individual function and overrides the default. You can override the user, group, or both. Omit this value to run the function with the default permissions.
+	//
+	// > Running as the root user increases risks to your data and device. Do not run as root (UID/GID=0) unless your business case requires it. For more information and requirements, see [Running a Lambda Function as Root](https://docs.aws.amazon.com/greengrass/latest/developerguide/lambda-group-config.html#lambda-running-as-root) .
 	RunAs interface{} `json:"runAs"`
 }
 
+// The group-specific configuration settings for a Lambda function.
+//
+// These settings configure the function's behavior in the Greengrass group. For more information, see [Controlling Execution of Greengrass Lambda Functions by Using Group-Specific Configuration](https://docs.aws.amazon.com/greengrass/latest/developerguide/lambda-group-config.html) in the *Developer Guide* .
+//
+// In an AWS CloudFormation template, `FunctionConfiguration` is a property of the [`Function`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-function.html) property type.
+//
 // TODO: EXAMPLE
 //
 type CfnFunctionDefinitionVersion_FunctionConfigurationProperty struct {
-	// `CfnFunctionDefinitionVersion.FunctionConfigurationProperty.EncodingType`.
+	// The expected encoding type of the input payload for the function.
+	//
+	// Valid values are `json` (default) and `binary` .
 	EncodingType *string `json:"encodingType"`
-	// `CfnFunctionDefinitionVersion.FunctionConfigurationProperty.Environment`.
+	// The environment configuration of the function.
 	Environment interface{} `json:"environment"`
-	// `CfnFunctionDefinitionVersion.FunctionConfigurationProperty.ExecArgs`.
+	// The execution arguments.
 	ExecArgs *string `json:"execArgs"`
-	// `CfnFunctionDefinitionVersion.FunctionConfigurationProperty.Executable`.
+	// The name of the function executable.
 	Executable *string `json:"executable"`
-	// `CfnFunctionDefinitionVersion.FunctionConfigurationProperty.MemorySize`.
+	// The memory size (in KB) required by the function.
+	//
+	// > This property applies only to Lambda functions that run in a Greengrass container.
 	MemorySize *float64 `json:"memorySize"`
-	// `CfnFunctionDefinitionVersion.FunctionConfigurationProperty.Pinned`.
+	// Indicates whether the function is pinned (or *long-lived* ).
+	//
+	// Pinned functions start when the core starts and process all requests in the same container. The default value is false.
 	Pinned interface{} `json:"pinned"`
-	// `CfnFunctionDefinitionVersion.FunctionConfigurationProperty.Timeout`.
+	// The allowed execution time (in seconds) after which the function should terminate.
+	//
+	// For pinned functions, this timeout applies for each request.
 	Timeout *float64 `json:"timeout"`
 }
 
+// A function is a Lambda function that's referenced from an AWS IoT Greengrass group.
+//
+// The function is deployed to a Greengrass core where it runs locally. For more information, see [Run Lambda Functions on the AWS IoT Greengrass Core](https://docs.aws.amazon.com/greengrass/latest/developerguide/lambda-functions.html) in the *Developer Guide* .
+//
+// In an AWS CloudFormation template, the `Functions` property of the [`AWS::Greengrass::FunctionDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-functiondefinitionversion.html) resource contains a list of `Function` property types.
+//
 // TODO: EXAMPLE
 //
 type CfnFunctionDefinitionVersion_FunctionProperty struct {
-	// `CfnFunctionDefinitionVersion.FunctionProperty.FunctionArn`.
+	// The Amazon Resource Name (ARN) of the alias (recommended) or version of the referenced Lambda function.
 	FunctionArn *string `json:"functionArn"`
-	// `CfnFunctionDefinitionVersion.FunctionProperty.FunctionConfiguration`.
+	// The group-specific settings of the Lambda function.
+	//
+	// These settings configure the function's behavior in the Greengrass group.
 	FunctionConfiguration interface{} `json:"functionConfiguration"`
-	// `CfnFunctionDefinitionVersion.FunctionProperty.Id`.
+	// A descriptive or arbitrary ID for the function.
+	//
+	// This value must be unique within the function definition version. Maximum length is 128 characters with pattern `[a-zA-Z0-9:_-]+` .
 	Id *string `json:"id"`
 }
 
+// A list of the [resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-resourceinstance.html) in the group that the function can access, with the corresponding read-only or read-write permissions. The maximum is 10 resources.
+//
+// > This property applies only to Lambda functions that run in a Greengrass container.
+//
+// In an AWS CloudFormation template, `ResourceAccessPolicy` is a property of the [`Environment`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-environment.html) property type.
+//
 // TODO: EXAMPLE
 //
 type CfnFunctionDefinitionVersion_ResourceAccessPolicyProperty struct {
-	// `CfnFunctionDefinitionVersion.ResourceAccessPolicyProperty.Permission`.
-	Permission *string `json:"permission"`
-	// `CfnFunctionDefinitionVersion.ResourceAccessPolicyProperty.ResourceId`.
+	// The ID of the resource.
+	//
+	// This ID is assigned to the resource when you create the resource definition.
 	ResourceId *string `json:"resourceId"`
+	// The read-only or read-write access that the Lambda function has to the resource.
+	//
+	// Valid values are `ro` or `rw` .
+	Permission *string `json:"permission"`
 }
 
+// The user and group permissions used to run the Lambda function.
+//
+// This setting overrides the default access identity that's specified for the group (by default, ggc_user and ggc_group). You can override the user, group, or both. For more information, see [Run as](https://docs.aws.amazon.com/greengrass/latest/developerguide/lambda-group-config.html#lambda-access-identity.html) in the *Developer Guide* .
+//
+// > Running as the root user increases risks to your data and device. Do not run as root (UID/GID=0) unless your business case requires it. For more information and requirements, see [Running a Lambda Function as Root](https://docs.aws.amazon.com/greengrass/latest/developerguide/lambda-group-config.html#lambda-running-as-root) .
+//
+// In an AWS CloudFormation template, `RunAs` is a property of the [`Execution`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-execution.html) property type.
+//
 // TODO: EXAMPLE
 //
 type CfnFunctionDefinitionVersion_RunAsProperty struct {
-	// `CfnFunctionDefinitionVersion.RunAsProperty.Gid`.
+	// The group ID whose permissions are used to run the Lambda function.
+	//
+	// You can use the `getent group` command on your core device to look up the group ID.
 	Gid *float64 `json:"gid"`
-	// `CfnFunctionDefinitionVersion.RunAsProperty.Uid`.
+	// The user ID whose permissions are used to run the Lambda function.
+	//
+	// You can use the `getent passwd` command on your core device to look up the user ID.
 	Uid *float64 `json:"uid"`
 }
 
-// Properties for defining a `AWS::Greengrass::FunctionDefinitionVersion`.
+// Properties for defining a `CfnFunctionDefinitionVersion`.
 //
 // TODO: EXAMPLE
 //
 type CfnFunctionDefinitionVersionProps struct {
-	// `AWS::Greengrass::FunctionDefinitionVersion.DefaultConfig`.
-	DefaultConfig interface{} `json:"defaultConfig"`
-	// `AWS::Greengrass::FunctionDefinitionVersion.FunctionDefinitionId`.
+	// The ID of the function definition associated with this version.
+	//
+	// This value is a GUID.
 	FunctionDefinitionId *string `json:"functionDefinitionId"`
-	// `AWS::Greengrass::FunctionDefinitionVersion.Functions`.
+	// The functions in this version.
 	Functions interface{} `json:"functions"`
+	// The default configuration that applies to all Lambda functions in the group.
+	//
+	// Individual Lambda functions can override these settings.
+	DefaultConfig interface{} `json:"defaultConfig"`
 }
 
 // A CloudFormation `AWS::Greengrass::Group`.
+//
+// AWS IoT Greengrass seamlessly extends AWS to edge devices so they can act locally on the data they generate, while still using the cloud for management, analytics, and durable storage. With AWS IoT Greengrass , connected devices can run AWS Lambda functions, execute predictions based on machine learning models, keep device data in sync, and communicate with other devices securely – even when not connected to the internet. For more information, see the [Developer Guide](https://docs.aws.amazon.com/greengrass/latest/developerguide/what-is-gg.html) .
+//
+// > For AWS Region support, see [AWS CloudFormation Support for AWS IoT Greengrass](https://docs.aws.amazon.com/greengrass/latest/developerguide/cloudformation-support.html) in the *Developer Guide* .
+//
+// The `AWS::Greengrass::Group` resource represents a group in AWS IoT Greengrass . In the AWS IoT Greengrass API, groups are used to organize your group versions.
+//
+// Groups can reference multiple group versions. All group versions must be associated with a group. A group version references a device definition version, subscription definition version, and other version types that contain the components you want to deploy to a Greengrass core device.
+//
+// To deploy a group version, the group version must reference a core definition version that contains one core. Other version types are optionally included, depending on your business need.
+//
+// > When you create a group, you can optionally include an initial group version. To associate a group version later, create a [`AWS::Greengrass::GroupVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-groupversion.html) resource and specify the ID of this group.
+// >
+// > To change group components (such as devices, subscriptions, or functions), you must create new versions. This is because versions are immutable. For example, to add a function, you create a function definition version that contains the new function (and all other functions that you want to deploy). Then you create a group version that references the new function definition version (and all other version types that you want to deploy).
+//
+// *Deploying a Group Version*
+//
+// After you create the group version in your AWS CloudFormation template, you can deploy it using the [`aws greengrass create-deployment`](https://docs.aws.amazon.com/greengrass/latest/apireference/createdeployment-post.html) command in the AWS CLI or from the *Greengrass* node in the AWS IoT console. To deploy a group version, you must have a Greengrass service role associated with your AWS account . For more information, see [AWS CloudFormation Support for AWS IoT Greengrass](https://docs.aws.amazon.com/greengrass/latest/developerguide/cloudformation-support.html) in the *Developer Guide* .
 //
 // TODO: EXAMPLE
 //
@@ -4547,7 +5893,7 @@ type CfnGroup interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	RoleArn() *string
 	SetRoleArn(val *string)
@@ -4564,10 +5910,16 @@ type CfnGroup interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -4707,8 +6059,8 @@ func (j *jsiiProxy_CfnGroup) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGroup) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnGroup) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -4769,13 +6121,13 @@ func (j *jsiiProxy_CfnGroup) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::Greengrass::Group`.
-func NewCfnGroup(scope constructs.Construct, id *string, props *CfnGroupProps) CfnGroup {
+func NewCfnGroup(scope awscdk.Construct, id *string, props *CfnGroupProps) CfnGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnGroup{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_greengrass.CfnGroup",
+		"monocdk.aws_greengrass.CfnGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4784,11 +6136,11 @@ func NewCfnGroup(scope constructs.Construct, id *string, props *CfnGroupProps) C
 }
 
 // Create a new `AWS::Greengrass::Group`.
-func NewCfnGroup_Override(c CfnGroup, scope constructs.Construct, id *string, props *CfnGroupProps) {
+func NewCfnGroup_Override(c CfnGroup, scope awscdk.Construct, id *string, props *CfnGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_greengrass.CfnGroup",
+		"monocdk.aws_greengrass.CfnGroup",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -4824,13 +6176,14 @@ func (j *jsiiProxy_CfnGroup) SetRoleArn(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnGroup_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnGroup",
+		"monocdk.aws_greengrass.CfnGroup",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -4840,13 +6193,14 @@ func CfnGroup_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnGroup",
+		"monocdk.aws_greengrass.CfnGroup",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -4855,17 +6209,15 @@ func CfnGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnGroup",
+		"monocdk.aws_greengrass.CfnGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4878,7 +6230,7 @@ func CfnGroup_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_greengrass.CfnGroup",
+		"monocdk.aws_greengrass.CfnGroup",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -4886,6 +6238,7 @@ func CfnGroup_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnGroup) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4898,6 +6251,7 @@ func (c *jsiiProxy_CfnGroup) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnGroup) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4913,6 +6267,7 @@ func (c *jsiiProxy_CfnGroup) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnGroup) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4958,6 +6313,7 @@ func (c *jsiiProxy_CfnGroup) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnGroup) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4967,6 +6323,7 @@ func (c *jsiiProxy_CfnGroup) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnGroup) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4978,6 +6335,7 @@ func (c *jsiiProxy_CfnGroup) AddPropertyDeletionOverride(propertyPath *string) {
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnGroup) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4995,6 +6353,7 @@ func (c *jsiiProxy_CfnGroup) AddPropertyOverride(propertyPath *string, value int
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5007,6 +6366,7 @@ func (c *jsiiProxy_CfnGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, opt
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnGroup) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -5027,6 +6387,7 @@ func (c *jsiiProxy_CfnGroup) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnGroup) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -5049,12 +6410,80 @@ func (c *jsiiProxy_CfnGroup) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnGroup) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnGroup) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnGroup) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnGroup) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -5075,6 +6504,7 @@ func (c *jsiiProxy_CfnGroup) RenderProperties(props *map[string]interface{}) *ma
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnGroup) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -5088,9 +6518,23 @@ func (c *jsiiProxy_CfnGroup) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnGroup) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnGroup) ToString() *string {
 	var returns *string
 
@@ -5104,6 +6548,27 @@ func (c *jsiiProxy_CfnGroup) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnGroup) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnGroup) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5112,41 +6577,68 @@ func (c *jsiiProxy_CfnGroup) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// A group version in AWS IoT Greengrass , which references of a core definition version, device definition version, subscription definition version, and other version types that contain the components you want to deploy to a Greengrass core device.
+//
+// The group version must reference a core definition version that contains one core. Other version types are optionally included, depending on your business need.
+//
+// In an AWS CloudFormation template, `GroupVersion` is the property type of the `InitialVersion` property in the [`AWS::Greengrass::Group`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html) resource.
+//
 // TODO: EXAMPLE
 //
 type CfnGroup_GroupVersionProperty struct {
-	// `CfnGroup.GroupVersionProperty.ConnectorDefinitionVersionArn`.
+	// The Amazon Resource Name (ARN) of the connector definition version that contains the connectors you want to deploy with the group version.
 	ConnectorDefinitionVersionArn *string `json:"connectorDefinitionVersionArn"`
-	// `CfnGroup.GroupVersionProperty.CoreDefinitionVersionArn`.
+	// The ARN of the core definition version that contains the core you want to deploy with the group version.
+	//
+	// Currently, the core definition version can contain only one core.
 	CoreDefinitionVersionArn *string `json:"coreDefinitionVersionArn"`
-	// `CfnGroup.GroupVersionProperty.DeviceDefinitionVersionArn`.
+	// The ARN of the device definition version that contains the devices you want to deploy with the group version.
 	DeviceDefinitionVersionArn *string `json:"deviceDefinitionVersionArn"`
-	// `CfnGroup.GroupVersionProperty.FunctionDefinitionVersionArn`.
+	// The ARN of the function definition version that contains the functions you want to deploy with the group version.
 	FunctionDefinitionVersionArn *string `json:"functionDefinitionVersionArn"`
-	// `CfnGroup.GroupVersionProperty.LoggerDefinitionVersionArn`.
+	// The ARN of the logger definition version that contains the loggers you want to deploy with the group version.
 	LoggerDefinitionVersionArn *string `json:"loggerDefinitionVersionArn"`
-	// `CfnGroup.GroupVersionProperty.ResourceDefinitionVersionArn`.
+	// The ARN of the resource definition version that contains the resources you want to deploy with the group version.
 	ResourceDefinitionVersionArn *string `json:"resourceDefinitionVersionArn"`
-	// `CfnGroup.GroupVersionProperty.SubscriptionDefinitionVersionArn`.
+	// The ARN of the subscription definition version that contains the subscriptions you want to deploy with the group version.
 	SubscriptionDefinitionVersionArn *string `json:"subscriptionDefinitionVersionArn"`
 }
 
-// Properties for defining a `AWS::Greengrass::Group`.
+// Properties for defining a `CfnGroup`.
 //
 // TODO: EXAMPLE
 //
 type CfnGroupProps struct {
-	// `AWS::Greengrass::Group.InitialVersion`.
-	InitialVersion interface{} `json:"initialVersion"`
-	// `AWS::Greengrass::Group.Name`.
+	// The name of the group.
 	Name *string `json:"name"`
-	// `AWS::Greengrass::Group.RoleArn`.
+	// The group version to include when the group is created.
+	//
+	// A group version references the Amazon Resource Name (ARN) of a core definition version, device definition version, subscription definition version, and other version types. The group version must reference a core definition version that contains one core. Other version types are optionally included, depending on your business need.
+	//
+	// > To associate a group version after the group is created, create an [`AWS::Greengrass::GroupVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-groupversion.html) resource and specify the ID of this group.
+	InitialVersion interface{} `json:"initialVersion"`
+	// The Amazon Resource Name (ARN) of the IAM role attached to the group.
+	//
+	// This role contains the permissions that Lambda functions and connectors use to interact with other AWS services.
 	RoleArn *string `json:"roleArn"`
-	// `AWS::Greengrass::Group.Tags`.
+	// Application-specific metadata to attach to the group.
+	//
+	// You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tagging Your AWS IoT Greengrass Resources](https://docs.aws.amazon.com/greengrass/latest/developerguide/tagging.html) in the *Developer Guide* .
+	//
+	// This `Json` property type is processed as a map of key-value pairs. It uses the following format, which is different from most `Tags` implementations in AWS CloudFormation templates.
+	//
+	// ```json
+	// "Tags": { "KeyName0": "value", "KeyName1": "value", "KeyName2": "value"
+	// }
+	// ```
 	Tags interface{} `json:"tags"`
 }
 
 // A CloudFormation `AWS::Greengrass::GroupVersion`.
+//
+// The `AWS::Greengrass::GroupVersion` resource represents a group version in AWS IoT Greengrass . A group version references a core definition version, device definition version, subscription definition version, and other version types that contain the components you want to deploy to a Greengrass core device. The group version must reference a core definition version that contains one core. Other version types are optionally included, depending on your business need.
+//
+// > To create a group version, you must specify the ID of the group that you want to associate with the version. For information about creating a group, see [`AWS::Greengrass::Group`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html) .
 //
 // TODO: EXAMPLE
 //
@@ -5170,7 +6662,7 @@ type CfnGroupVersion interface {
 	LoggerDefinitionVersionArn() *string
 	SetLoggerDefinitionVersionArn(val *string)
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	ResourceDefinitionVersionArn() *string
 	SetResourceDefinitionVersionArn(val *string)
@@ -5188,10 +6680,16 @@ type CfnGroupVersion interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -5311,8 +6809,8 @@ func (j *jsiiProxy_CfnGroupVersion) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGroupVersion) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnGroupVersion) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -5373,13 +6871,13 @@ func (j *jsiiProxy_CfnGroupVersion) UpdatedProperites() *map[string]interface{} 
 
 
 // Create a new `AWS::Greengrass::GroupVersion`.
-func NewCfnGroupVersion(scope constructs.Construct, id *string, props *CfnGroupVersionProps) CfnGroupVersion {
+func NewCfnGroupVersion(scope awscdk.Construct, id *string, props *CfnGroupVersionProps) CfnGroupVersion {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnGroupVersion{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_greengrass.CfnGroupVersion",
+		"monocdk.aws_greengrass.CfnGroupVersion",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5388,11 +6886,11 @@ func NewCfnGroupVersion(scope constructs.Construct, id *string, props *CfnGroupV
 }
 
 // Create a new `AWS::Greengrass::GroupVersion`.
-func NewCfnGroupVersion_Override(c CfnGroupVersion, scope constructs.Construct, id *string, props *CfnGroupVersionProps) {
+func NewCfnGroupVersion_Override(c CfnGroupVersion, scope awscdk.Construct, id *string, props *CfnGroupVersionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_greengrass.CfnGroupVersion",
+		"monocdk.aws_greengrass.CfnGroupVersion",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -5468,13 +6966,14 @@ func (j *jsiiProxy_CfnGroupVersion) SetSubscriptionDefinitionVersionArn(val *str
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnGroupVersion_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnGroupVersion",
+		"monocdk.aws_greengrass.CfnGroupVersion",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -5484,13 +6983,14 @@ func CfnGroupVersion_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnGroupVersion_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnGroupVersion",
+		"monocdk.aws_greengrass.CfnGroupVersion",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -5499,17 +6999,15 @@ func CfnGroupVersion_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnGroupVersion_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnGroupVersion",
+		"monocdk.aws_greengrass.CfnGroupVersion",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -5522,7 +7020,7 @@ func CfnGroupVersion_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_greengrass.CfnGroupVersion",
+		"monocdk.aws_greengrass.CfnGroupVersion",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -5530,6 +7028,7 @@ func CfnGroupVersion_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnGroupVersion) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5542,6 +7041,7 @@ func (c *jsiiProxy_CfnGroupVersion) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnGroupVersion) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5557,6 +7057,7 @@ func (c *jsiiProxy_CfnGroupVersion) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnGroupVersion) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5602,6 +7103,7 @@ func (c *jsiiProxy_CfnGroupVersion) AddMetadata(key *string, value interface{}) 
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnGroupVersion) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5611,6 +7113,7 @@ func (c *jsiiProxy_CfnGroupVersion) AddOverride(path *string, value interface{})
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnGroupVersion) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5622,6 +7125,7 @@ func (c *jsiiProxy_CfnGroupVersion) AddPropertyDeletionOverride(propertyPath *st
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnGroupVersion) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5639,6 +7143,7 @@ func (c *jsiiProxy_CfnGroupVersion) AddPropertyOverride(propertyPath *string, va
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnGroupVersion) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5651,6 +7156,7 @@ func (c *jsiiProxy_CfnGroupVersion) ApplyRemovalPolicy(policy awscdk.RemovalPoli
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnGroupVersion) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -5671,6 +7177,7 @@ func (c *jsiiProxy_CfnGroupVersion) GetAtt(attributeName *string) awscdk.Referen
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnGroupVersion) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -5693,12 +7200,80 @@ func (c *jsiiProxy_CfnGroupVersion) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnGroupVersion) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnGroupVersion) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnGroupVersion) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnGroupVersion) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnGroupVersion) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -5719,6 +7294,7 @@ func (c *jsiiProxy_CfnGroupVersion) RenderProperties(props *map[string]interface
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnGroupVersion) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -5732,9 +7308,23 @@ func (c *jsiiProxy_CfnGroupVersion) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnGroupVersion) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnGroupVersion) ToString() *string {
 	var returns *string
 
@@ -5748,6 +7338,27 @@ func (c *jsiiProxy_CfnGroupVersion) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnGroupVersion) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnGroupVersion) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5756,30 +7367,42 @@ func (c *jsiiProxy_CfnGroupVersion) ValidateProperties(_properties interface{}) 
 	)
 }
 
-// Properties for defining a `AWS::Greengrass::GroupVersion`.
+// Properties for defining a `CfnGroupVersion`.
 //
 // TODO: EXAMPLE
 //
 type CfnGroupVersionProps struct {
-	// `AWS::Greengrass::GroupVersion.ConnectorDefinitionVersionArn`.
-	ConnectorDefinitionVersionArn *string `json:"connectorDefinitionVersionArn"`
-	// `AWS::Greengrass::GroupVersion.CoreDefinitionVersionArn`.
-	CoreDefinitionVersionArn *string `json:"coreDefinitionVersionArn"`
-	// `AWS::Greengrass::GroupVersion.DeviceDefinitionVersionArn`.
-	DeviceDefinitionVersionArn *string `json:"deviceDefinitionVersionArn"`
-	// `AWS::Greengrass::GroupVersion.FunctionDefinitionVersionArn`.
-	FunctionDefinitionVersionArn *string `json:"functionDefinitionVersionArn"`
-	// `AWS::Greengrass::GroupVersion.GroupId`.
+	// The ID of the group associated with this version.
+	//
+	// This value is a GUID.
 	GroupId *string `json:"groupId"`
-	// `AWS::Greengrass::GroupVersion.LoggerDefinitionVersionArn`.
+	// The Amazon Resource Name (ARN) of the connector definition version that contains the connectors you want to deploy with the group version.
+	ConnectorDefinitionVersionArn *string `json:"connectorDefinitionVersionArn"`
+	// The ARN of the core definition version that contains the core you want to deploy with the group version.
+	//
+	// Currently, the core definition version can contain only one core.
+	CoreDefinitionVersionArn *string `json:"coreDefinitionVersionArn"`
+	// The ARN of the device definition version that contains the devices you want to deploy with the group version.
+	DeviceDefinitionVersionArn *string `json:"deviceDefinitionVersionArn"`
+	// The ARN of the function definition version that contains the functions you want to deploy with the group version.
+	FunctionDefinitionVersionArn *string `json:"functionDefinitionVersionArn"`
+	// The ARN of the logger definition version that contains the loggers you want to deploy with the group version.
 	LoggerDefinitionVersionArn *string `json:"loggerDefinitionVersionArn"`
-	// `AWS::Greengrass::GroupVersion.ResourceDefinitionVersionArn`.
+	// The ARN of the resource definition version that contains the resources you want to deploy with the group version.
 	ResourceDefinitionVersionArn *string `json:"resourceDefinitionVersionArn"`
-	// `AWS::Greengrass::GroupVersion.SubscriptionDefinitionVersionArn`.
+	// The ARN of the subscription definition version that contains the subscriptions you want to deploy with the group version.
 	SubscriptionDefinitionVersionArn *string `json:"subscriptionDefinitionVersionArn"`
 }
 
 // A CloudFormation `AWS::Greengrass::LoggerDefinition`.
+//
+// The `AWS::Greengrass::LoggerDefinition` resource represents a logger definition for AWS IoT Greengrass . Logger definitions are used to organize your logger definition versions.
+//
+// Logger definitions can reference multiple logger definition versions. All logger definition versions must be associated with a logger definition. Each logger definition version can contain one or more loggers.
+//
+// > When you create a logger definition, you can optionally include an initial logger definition version. To associate a logger definition version later, create an [`AWS::Greengrass::LoggerDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-loggerdefinitionversion.html) resource and specify the ID of this logger definition.
+// >
+// > After you create the logger definition version that contains the loggers you want to deploy, you must add it to your group version. For more information, see [`AWS::Greengrass::Group`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html) .
 //
 // TODO: EXAMPLE
 //
@@ -5799,7 +7422,7 @@ type CfnLoggerDefinition interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	Tags() awscdk.TagManager
@@ -5814,10 +7437,16 @@ type CfnLoggerDefinition interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -5937,8 +7566,8 @@ func (j *jsiiProxy_CfnLoggerDefinition) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLoggerDefinition) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnLoggerDefinition) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -5989,13 +7618,13 @@ func (j *jsiiProxy_CfnLoggerDefinition) UpdatedProperites() *map[string]interfac
 
 
 // Create a new `AWS::Greengrass::LoggerDefinition`.
-func NewCfnLoggerDefinition(scope constructs.Construct, id *string, props *CfnLoggerDefinitionProps) CfnLoggerDefinition {
+func NewCfnLoggerDefinition(scope awscdk.Construct, id *string, props *CfnLoggerDefinitionProps) CfnLoggerDefinition {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnLoggerDefinition{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_greengrass.CfnLoggerDefinition",
+		"monocdk.aws_greengrass.CfnLoggerDefinition",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -6004,11 +7633,11 @@ func NewCfnLoggerDefinition(scope constructs.Construct, id *string, props *CfnLo
 }
 
 // Create a new `AWS::Greengrass::LoggerDefinition`.
-func NewCfnLoggerDefinition_Override(c CfnLoggerDefinition, scope constructs.Construct, id *string, props *CfnLoggerDefinitionProps) {
+func NewCfnLoggerDefinition_Override(c CfnLoggerDefinition, scope awscdk.Construct, id *string, props *CfnLoggerDefinitionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_greengrass.CfnLoggerDefinition",
+		"monocdk.aws_greengrass.CfnLoggerDefinition",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -6036,13 +7665,14 @@ func (j *jsiiProxy_CfnLoggerDefinition) SetName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnLoggerDefinition_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnLoggerDefinition",
+		"monocdk.aws_greengrass.CfnLoggerDefinition",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -6052,13 +7682,14 @@ func CfnLoggerDefinition_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnLoggerDefinition_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnLoggerDefinition",
+		"monocdk.aws_greengrass.CfnLoggerDefinition",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -6067,17 +7698,15 @@ func CfnLoggerDefinition_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnLoggerDefinition_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnLoggerDefinition",
+		"monocdk.aws_greengrass.CfnLoggerDefinition",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -6090,7 +7719,7 @@ func CfnLoggerDefinition_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_greengrass.CfnLoggerDefinition",
+		"monocdk.aws_greengrass.CfnLoggerDefinition",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -6098,6 +7727,7 @@ func CfnLoggerDefinition_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnLoggerDefinition) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6110,6 +7740,7 @@ func (c *jsiiProxy_CfnLoggerDefinition) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnLoggerDefinition) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6125,6 +7756,7 @@ func (c *jsiiProxy_CfnLoggerDefinition) AddDependsOn(target awscdk.CfnResource) 
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnLoggerDefinition) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6170,6 +7802,7 @@ func (c *jsiiProxy_CfnLoggerDefinition) AddMetadata(key *string, value interface
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnLoggerDefinition) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6179,6 +7812,7 @@ func (c *jsiiProxy_CfnLoggerDefinition) AddOverride(path *string, value interfac
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnLoggerDefinition) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6190,6 +7824,7 @@ func (c *jsiiProxy_CfnLoggerDefinition) AddPropertyDeletionOverride(propertyPath
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnLoggerDefinition) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6207,6 +7842,7 @@ func (c *jsiiProxy_CfnLoggerDefinition) AddPropertyOverride(propertyPath *string
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnLoggerDefinition) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6219,6 +7855,7 @@ func (c *jsiiProxy_CfnLoggerDefinition) ApplyRemovalPolicy(policy awscdk.Removal
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnLoggerDefinition) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -6239,6 +7876,7 @@ func (c *jsiiProxy_CfnLoggerDefinition) GetAtt(attributeName *string) awscdk.Ref
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnLoggerDefinition) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -6261,12 +7899,80 @@ func (c *jsiiProxy_CfnLoggerDefinition) Inspect(inspector awscdk.TreeInspector) 
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnLoggerDefinition) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnLoggerDefinition) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnLoggerDefinition) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnLoggerDefinition) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnLoggerDefinition) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -6287,6 +7993,7 @@ func (c *jsiiProxy_CfnLoggerDefinition) RenderProperties(props *map[string]inter
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnLoggerDefinition) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -6300,9 +8007,23 @@ func (c *jsiiProxy_CfnLoggerDefinition) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnLoggerDefinition) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnLoggerDefinition) ToString() *string {
 	var returns *string
 
@@ -6316,6 +8037,27 @@ func (c *jsiiProxy_CfnLoggerDefinition) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnLoggerDefinition) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnLoggerDefinition) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6324,42 +8066,83 @@ func (c *jsiiProxy_CfnLoggerDefinition) ValidateProperties(_properties interface
 	)
 }
 
+// A logger definition version contains a list of [loggers](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-loggerdefinition-logger.html) .
+//
+// > After you create a logger definition version that contains the loggers you want to deploy, you must add it to your group version. For more information, see [`AWS::Greengrass::Group`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html) .
+//
+// In an AWS CloudFormation template, `LoggerDefinitionVersion` is the property type of the `InitialVersion` property in the [`AWS::Greengrass::LoggerDefinition`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-loggerdefinition.html) resource.
+//
 // TODO: EXAMPLE
 //
 type CfnLoggerDefinition_LoggerDefinitionVersionProperty struct {
-	// `CfnLoggerDefinition.LoggerDefinitionVersionProperty.Loggers`.
+	// The loggers in this version.
 	Loggers interface{} `json:"loggers"`
 }
 
+// A logger represents logging settings for the AWS IoT Greengrass group, which can be stored in CloudWatch and the local file system of your core device.
+//
+// All log entries include a timestamp, log level, and information about the event. For more information, see [Monitoring with AWS IoT Greengrass Logs](https://docs.aws.amazon.com/greengrass/latest/developerguide/greengrass-logs-overview.html) in the *Developer Guide* .
+//
+// In an AWS CloudFormation template, the `Loggers` property of the [`LoggerDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-loggerdefinition-loggerdefinitionversion.html) property type contains a list of `Logger` property types.
+//
 // TODO: EXAMPLE
 //
 type CfnLoggerDefinition_LoggerProperty struct {
-	// `CfnLoggerDefinition.LoggerProperty.Component`.
+	// The source of the log event.
+	//
+	// Valid values are `GreengrassSystem` or `Lambda` . When `GreengrassSystem` is used, events from Greengrass system components are logged. When `Lambda` is used, events from user-defined Lambda functions are logged.
 	Component *string `json:"component"`
-	// `CfnLoggerDefinition.LoggerProperty.Id`.
+	// A descriptive or arbitrary ID for the logger.
+	//
+	// This value must be unique within the logger definition version. Maximum length is 128 characters with pattern `[a-zA-Z0-9:_-]+` .
 	Id *string `json:"id"`
-	// `CfnLoggerDefinition.LoggerProperty.Level`.
+	// The log-level threshold.
+	//
+	// Log events below this threshold are filtered out and aren't stored. Valid values are `DEBUG` , `INFO` (recommended), `WARN` , `ERROR` , or `FATAL` .
 	Level *string `json:"level"`
-	// `CfnLoggerDefinition.LoggerProperty.Space`.
-	Space *float64 `json:"space"`
-	// `CfnLoggerDefinition.LoggerProperty.Type`.
+	// The storage mechanism for log events.
+	//
+	// Valid values are `FileSystem` or `AWSCloudWatch` . When `AWSCloudWatch` is used, log events are sent to CloudWatch Logs . When `FileSystem` is used, log events are stored on the local file system.
 	Type *string `json:"type"`
+	// The amount of file space (in KB) to use when writing logs to the local file system.
+	//
+	// This property does not apply for CloudWatch Logs .
+	Space *float64 `json:"space"`
 }
 
-// Properties for defining a `AWS::Greengrass::LoggerDefinition`.
+// Properties for defining a `CfnLoggerDefinition`.
 //
 // TODO: EXAMPLE
 //
 type CfnLoggerDefinitionProps struct {
-	// `AWS::Greengrass::LoggerDefinition.InitialVersion`.
-	InitialVersion interface{} `json:"initialVersion"`
-	// `AWS::Greengrass::LoggerDefinition.Name`.
+	// The name of the logger definition.
 	Name *string `json:"name"`
-	// `AWS::Greengrass::LoggerDefinition.Tags`.
+	// The logger definition version to include when the logger definition is created.
+	//
+	// A logger definition version contains a list of [`logger`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-loggerdefinition-logger.html) property types.
+	//
+	// > To associate a logger definition version after the logger definition is created, create an [`AWS::Greengrass::LoggerDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-loggerdefinitionversion.html) resource and specify the ID of this logger definition.
+	InitialVersion interface{} `json:"initialVersion"`
+	// Application-specific metadata to attach to the logger definition.
+	//
+	// You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tagging Your AWS IoT Greengrass Resources](https://docs.aws.amazon.com/greengrass/latest/developerguide/tagging.html) in the *Developer Guide* .
+	//
+	// This `Json` property type is processed as a map of key-value pairs. It uses the following format, which is different from most `Tags` implementations in AWS CloudFormation templates.
+	//
+	// ```json
+	// "Tags": { "KeyName0": "value", "KeyName1": "value", "KeyName2": "value"
+	// }
+	// ```
 	Tags interface{} `json:"tags"`
 }
 
 // A CloudFormation `AWS::Greengrass::LoggerDefinitionVersion`.
+//
+// The `AWS::Greengrass::LoggerDefinitionVersion` resource represents a logger definition version for AWS IoT Greengrass . A logger definition version contains a list of loggers.
+//
+// > To create a logger definition version, you must specify the ID of the logger definition that you want to associate with the version. For information about creating a logger definition, see [`AWS::Greengrass::LoggerDefinition`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-loggerdefinition.html) .
+// >
+// > After you create a logger definition version that contains the loggers you want to deploy, you must add it to your group version. For more information, see [`AWS::Greengrass::Group`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html) .
 //
 // TODO: EXAMPLE
 //
@@ -6375,7 +8158,7 @@ type CfnLoggerDefinitionVersion interface {
 	Loggers() interface{}
 	SetLoggers(val interface{})
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	UpdatedProperites() *map[string]interface{}
@@ -6389,10 +8172,16 @@ type CfnLoggerDefinitionVersion interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -6472,8 +8261,8 @@ func (j *jsiiProxy_CfnLoggerDefinitionVersion) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLoggerDefinitionVersion) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnLoggerDefinitionVersion) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -6514,13 +8303,13 @@ func (j *jsiiProxy_CfnLoggerDefinitionVersion) UpdatedProperites() *map[string]i
 
 
 // Create a new `AWS::Greengrass::LoggerDefinitionVersion`.
-func NewCfnLoggerDefinitionVersion(scope constructs.Construct, id *string, props *CfnLoggerDefinitionVersionProps) CfnLoggerDefinitionVersion {
+func NewCfnLoggerDefinitionVersion(scope awscdk.Construct, id *string, props *CfnLoggerDefinitionVersionProps) CfnLoggerDefinitionVersion {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnLoggerDefinitionVersion{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_greengrass.CfnLoggerDefinitionVersion",
+		"monocdk.aws_greengrass.CfnLoggerDefinitionVersion",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -6529,11 +8318,11 @@ func NewCfnLoggerDefinitionVersion(scope constructs.Construct, id *string, props
 }
 
 // Create a new `AWS::Greengrass::LoggerDefinitionVersion`.
-func NewCfnLoggerDefinitionVersion_Override(c CfnLoggerDefinitionVersion, scope constructs.Construct, id *string, props *CfnLoggerDefinitionVersionProps) {
+func NewCfnLoggerDefinitionVersion_Override(c CfnLoggerDefinitionVersion, scope awscdk.Construct, id *string, props *CfnLoggerDefinitionVersionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_greengrass.CfnLoggerDefinitionVersion",
+		"monocdk.aws_greengrass.CfnLoggerDefinitionVersion",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -6561,13 +8350,14 @@ func (j *jsiiProxy_CfnLoggerDefinitionVersion) SetLoggers(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnLoggerDefinitionVersion_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnLoggerDefinitionVersion",
+		"monocdk.aws_greengrass.CfnLoggerDefinitionVersion",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -6577,13 +8367,14 @@ func CfnLoggerDefinitionVersion_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnLoggerDefinitionVersion_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnLoggerDefinitionVersion",
+		"monocdk.aws_greengrass.CfnLoggerDefinitionVersion",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -6592,17 +8383,15 @@ func CfnLoggerDefinitionVersion_IsCfnResource(construct constructs.IConstruct) *
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnLoggerDefinitionVersion_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnLoggerDefinitionVersion",
+		"monocdk.aws_greengrass.CfnLoggerDefinitionVersion",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -6615,7 +8404,7 @@ func CfnLoggerDefinitionVersion_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_greengrass.CfnLoggerDefinitionVersion",
+		"monocdk.aws_greengrass.CfnLoggerDefinitionVersion",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -6623,6 +8412,7 @@ func CfnLoggerDefinitionVersion_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnLoggerDefinitionVersion) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6635,6 +8425,7 @@ func (c *jsiiProxy_CfnLoggerDefinitionVersion) AddDeletionOverride(path *string)
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnLoggerDefinitionVersion) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6650,6 +8441,7 @@ func (c *jsiiProxy_CfnLoggerDefinitionVersion) AddDependsOn(target awscdk.CfnRes
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnLoggerDefinitionVersion) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6695,6 +8487,7 @@ func (c *jsiiProxy_CfnLoggerDefinitionVersion) AddMetadata(key *string, value in
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnLoggerDefinitionVersion) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6704,6 +8497,7 @@ func (c *jsiiProxy_CfnLoggerDefinitionVersion) AddOverride(path *string, value i
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnLoggerDefinitionVersion) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6715,6 +8509,7 @@ func (c *jsiiProxy_CfnLoggerDefinitionVersion) AddPropertyDeletionOverride(prope
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnLoggerDefinitionVersion) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6732,6 +8527,7 @@ func (c *jsiiProxy_CfnLoggerDefinitionVersion) AddPropertyOverride(propertyPath 
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnLoggerDefinitionVersion) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6744,6 +8540,7 @@ func (c *jsiiProxy_CfnLoggerDefinitionVersion) ApplyRemovalPolicy(policy awscdk.
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnLoggerDefinitionVersion) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -6764,6 +8561,7 @@ func (c *jsiiProxy_CfnLoggerDefinitionVersion) GetAtt(attributeName *string) aws
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnLoggerDefinitionVersion) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -6786,12 +8584,80 @@ func (c *jsiiProxy_CfnLoggerDefinitionVersion) Inspect(inspector awscdk.TreeInsp
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnLoggerDefinitionVersion) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnLoggerDefinitionVersion) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnLoggerDefinitionVersion) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnLoggerDefinitionVersion) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnLoggerDefinitionVersion) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -6812,6 +8678,7 @@ func (c *jsiiProxy_CfnLoggerDefinitionVersion) RenderProperties(props *map[strin
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnLoggerDefinitionVersion) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -6825,9 +8692,23 @@ func (c *jsiiProxy_CfnLoggerDefinitionVersion) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnLoggerDefinitionVersion) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnLoggerDefinitionVersion) ToString() *string {
 	var returns *string
 
@@ -6841,6 +8722,27 @@ func (c *jsiiProxy_CfnLoggerDefinitionVersion) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnLoggerDefinitionVersion) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnLoggerDefinitionVersion) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6849,33 +8751,59 @@ func (c *jsiiProxy_CfnLoggerDefinitionVersion) ValidateProperties(_properties in
 	)
 }
 
+// A logger represents logging settings for the AWS IoT Greengrass group, which can be stored in CloudWatch and the local file system of your core device.
+//
+// All log entries include a timestamp, log level, and information about the event. For more information, see [Monitoring with AWS IoT Greengrass Logs](https://docs.aws.amazon.com/greengrass/latest/developerguide/greengrass-logs-overview.html) in the *Developer Guide* .
+//
+// In an AWS CloudFormation template, the `Loggers` property of the [`AWS::Greengrass::LoggerDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-loggerdefinitionversion.html) resource contains a list of `Logger` property types.
+//
 // TODO: EXAMPLE
 //
 type CfnLoggerDefinitionVersion_LoggerProperty struct {
-	// `CfnLoggerDefinitionVersion.LoggerProperty.Component`.
+	// The source of the log event.
+	//
+	// Valid values are `GreengrassSystem` or `Lambda` . When `GreengrassSystem` is used, events from Greengrass system components are logged. When `Lambda` is used, events from user-defined Lambda functions are logged.
 	Component *string `json:"component"`
-	// `CfnLoggerDefinitionVersion.LoggerProperty.Id`.
+	// A descriptive or arbitrary ID for the logger.
+	//
+	// This value must be unique within the logger definition version. Maximum length is 128 characters with pattern `[a-zA-Z0-9:_-]+` .
 	Id *string `json:"id"`
-	// `CfnLoggerDefinitionVersion.LoggerProperty.Level`.
+	// The log-level threshold.
+	//
+	// Log events below this threshold are filtered out and aren't stored. Valid values are `DEBUG` , `INFO` (recommended), `WARN` , `ERROR` , or `FATAL` .
 	Level *string `json:"level"`
-	// `CfnLoggerDefinitionVersion.LoggerProperty.Space`.
-	Space *float64 `json:"space"`
-	// `CfnLoggerDefinitionVersion.LoggerProperty.Type`.
+	// The storage mechanism for log events.
+	//
+	// Valid values are `FileSystem` or `AWSCloudWatch` . When `AWSCloudWatch` is used, log events are sent to CloudWatch Logs . When `FileSystem` is used, log events are stored on the local file system.
 	Type *string `json:"type"`
+	// The amount of file space (in KB) to use when writing logs to the local file system.
+	//
+	// This property does not apply for CloudWatch Logs .
+	Space *float64 `json:"space"`
 }
 
-// Properties for defining a `AWS::Greengrass::LoggerDefinitionVersion`.
+// Properties for defining a `CfnLoggerDefinitionVersion`.
 //
 // TODO: EXAMPLE
 //
 type CfnLoggerDefinitionVersionProps struct {
-	// `AWS::Greengrass::LoggerDefinitionVersion.LoggerDefinitionId`.
+	// The ID of the logger definition associated with this version.
+	//
+	// This value is a GUID.
 	LoggerDefinitionId *string `json:"loggerDefinitionId"`
-	// `AWS::Greengrass::LoggerDefinitionVersion.Loggers`.
+	// The loggers in this version.
 	Loggers interface{} `json:"loggers"`
 }
 
 // A CloudFormation `AWS::Greengrass::ResourceDefinition`.
+//
+// The `AWS::Greengrass::ResourceDefinition` resource represents a resource definition for AWS IoT Greengrass . Resource definitions are used to organize your resource definition versions.
+//
+// Resource definitions can reference multiple resource definition versions. All resource definition versions must be associated with a resource definition. Each resource definition version can contain one or more resources. (In AWS CloudFormation , resources are named *resource instances* .)
+//
+// > When you create a resource definition, you can optionally include an initial resource definition version. To associate a resource definition version later, create an [`AWS::Greengrass::ResourceDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-resourcedefinitionversion.html) resource and specify the ID of this resource definition.
+// >
+// > After you create the resource definition version that contains the resources you want to deploy, you must add it to your group version. For more information, see [`AWS::Greengrass::Group`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html) .
 //
 // TODO: EXAMPLE
 //
@@ -6895,7 +8823,7 @@ type CfnResourceDefinition interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	Tags() awscdk.TagManager
@@ -6910,10 +8838,16 @@ type CfnResourceDefinition interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -7033,8 +8967,8 @@ func (j *jsiiProxy_CfnResourceDefinition) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResourceDefinition) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnResourceDefinition) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -7085,13 +9019,13 @@ func (j *jsiiProxy_CfnResourceDefinition) UpdatedProperites() *map[string]interf
 
 
 // Create a new `AWS::Greengrass::ResourceDefinition`.
-func NewCfnResourceDefinition(scope constructs.Construct, id *string, props *CfnResourceDefinitionProps) CfnResourceDefinition {
+func NewCfnResourceDefinition(scope awscdk.Construct, id *string, props *CfnResourceDefinitionProps) CfnResourceDefinition {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnResourceDefinition{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_greengrass.CfnResourceDefinition",
+		"monocdk.aws_greengrass.CfnResourceDefinition",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -7100,11 +9034,11 @@ func NewCfnResourceDefinition(scope constructs.Construct, id *string, props *Cfn
 }
 
 // Create a new `AWS::Greengrass::ResourceDefinition`.
-func NewCfnResourceDefinition_Override(c CfnResourceDefinition, scope constructs.Construct, id *string, props *CfnResourceDefinitionProps) {
+func NewCfnResourceDefinition_Override(c CfnResourceDefinition, scope awscdk.Construct, id *string, props *CfnResourceDefinitionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_greengrass.CfnResourceDefinition",
+		"monocdk.aws_greengrass.CfnResourceDefinition",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -7132,13 +9066,14 @@ func (j *jsiiProxy_CfnResourceDefinition) SetName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnResourceDefinition_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnResourceDefinition",
+		"monocdk.aws_greengrass.CfnResourceDefinition",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -7148,13 +9083,14 @@ func CfnResourceDefinition_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnResourceDefinition_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnResourceDefinition",
+		"monocdk.aws_greengrass.CfnResourceDefinition",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -7163,17 +9099,15 @@ func CfnResourceDefinition_IsCfnResource(construct constructs.IConstruct) *bool 
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnResourceDefinition_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnResourceDefinition",
+		"monocdk.aws_greengrass.CfnResourceDefinition",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -7186,7 +9120,7 @@ func CfnResourceDefinition_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_greengrass.CfnResourceDefinition",
+		"monocdk.aws_greengrass.CfnResourceDefinition",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -7194,6 +9128,7 @@ func CfnResourceDefinition_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnResourceDefinition) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7206,6 +9141,7 @@ func (c *jsiiProxy_CfnResourceDefinition) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnResourceDefinition) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7221,6 +9157,7 @@ func (c *jsiiProxy_CfnResourceDefinition) AddDependsOn(target awscdk.CfnResource
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnResourceDefinition) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7266,6 +9203,7 @@ func (c *jsiiProxy_CfnResourceDefinition) AddMetadata(key *string, value interfa
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnResourceDefinition) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7275,6 +9213,7 @@ func (c *jsiiProxy_CfnResourceDefinition) AddOverride(path *string, value interf
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnResourceDefinition) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7286,6 +9225,7 @@ func (c *jsiiProxy_CfnResourceDefinition) AddPropertyDeletionOverride(propertyPa
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnResourceDefinition) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7303,6 +9243,7 @@ func (c *jsiiProxy_CfnResourceDefinition) AddPropertyOverride(propertyPath *stri
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnResourceDefinition) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7315,6 +9256,7 @@ func (c *jsiiProxy_CfnResourceDefinition) ApplyRemovalPolicy(policy awscdk.Remov
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnResourceDefinition) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -7335,6 +9277,7 @@ func (c *jsiiProxy_CfnResourceDefinition) GetAtt(attributeName *string) awscdk.R
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnResourceDefinition) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -7357,12 +9300,80 @@ func (c *jsiiProxy_CfnResourceDefinition) Inspect(inspector awscdk.TreeInspector
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnResourceDefinition) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnResourceDefinition) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnResourceDefinition) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnResourceDefinition) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnResourceDefinition) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -7383,6 +9394,7 @@ func (c *jsiiProxy_CfnResourceDefinition) RenderProperties(props *map[string]int
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnResourceDefinition) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -7396,9 +9408,23 @@ func (c *jsiiProxy_CfnResourceDefinition) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnResourceDefinition) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnResourceDefinition) ToString() *string {
 	var returns *string
 
@@ -7412,6 +9438,27 @@ func (c *jsiiProxy_CfnResourceDefinition) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnResourceDefinition) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnResourceDefinition) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7420,122 +9467,231 @@ func (c *jsiiProxy_CfnResourceDefinition) ValidateProperties(_properties interfa
 	)
 }
 
+// Settings that define additional Linux OS group permissions to give to the Lambda function process.
+//
+// You can give the permissions of the Linux group that owns the resource or choose another Linux group. These permissions are in addition to the function's `RunAs` permissions.
+//
+// In an AWS CloudFormation template, `GroupOwnerSetting` is a property of the [`LocalDeviceResourceData`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-localdeviceresourcedata.html) and [`LocalVolumeResourceData`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-localvolumeresourcedata.html) property types.
+//
 // TODO: EXAMPLE
 //
 type CfnResourceDefinition_GroupOwnerSettingProperty struct {
-	// `CfnResourceDefinition.GroupOwnerSettingProperty.AutoAddGroupOwner`.
+	// Indicates whether to give the privileges of the Linux group that owns the resource to the Lambda process.
+	//
+	// This gives the Lambda process the file access permissions of the Linux group.
 	AutoAddGroupOwner interface{} `json:"autoAddGroupOwner"`
-	// `CfnResourceDefinition.GroupOwnerSettingProperty.GroupOwner`.
+	// The name of the Linux group whose privileges you want to add to the Lambda process.
+	//
+	// This value is ignored if `AutoAddGroupOwner` is true.
 	GroupOwner *string `json:"groupOwner"`
 }
 
+// Settings for a local device resource, which represents a file under `/dev` .
+//
+// For more information, see [Access Local Resources with Lambda Functions](https://docs.aws.amazon.com/greengrass/latest/developerguide/access-local-resources.html) in the *Developer Guide* .
+//
+// In an AWS CloudFormation template, `LocalDeviceResourceData` can be used in the [`ResourceDataContainer`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourcedatacontainer.html) property type.
+//
 // TODO: EXAMPLE
 //
 type CfnResourceDefinition_LocalDeviceResourceDataProperty struct {
-	// `CfnResourceDefinition.LocalDeviceResourceDataProperty.GroupOwnerSetting`.
-	GroupOwnerSetting interface{} `json:"groupOwnerSetting"`
-	// `CfnResourceDefinition.LocalDeviceResourceDataProperty.SourcePath`.
+	// The local absolute path of the device resource.
+	//
+	// The source path for a device resource can refer only to a character device or block device under `/dev` .
 	SourcePath *string `json:"sourcePath"`
+	// Settings that define additional Linux OS group permissions to give to the Lambda function process.
+	GroupOwnerSetting interface{} `json:"groupOwnerSetting"`
 }
 
+// Settings for a local volume resource, which represents a file or directory on the root file system.
+//
+// For more information, see [Access Local Resources with Lambda Functions](https://docs.aws.amazon.com/greengrass/latest/developerguide/access-local-resources.html) in the *Developer Guide* .
+//
+// In an AWS CloudFormation template, `LocalVolumeResourceData` can be used in the [`ResourceDataContainer`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourcedatacontainer.html) property type.
+//
 // TODO: EXAMPLE
 //
 type CfnResourceDefinition_LocalVolumeResourceDataProperty struct {
-	// `CfnResourceDefinition.LocalVolumeResourceDataProperty.DestinationPath`.
+	// The absolute local path of the resource in the Lambda environment.
 	DestinationPath *string `json:"destinationPath"`
-	// `CfnResourceDefinition.LocalVolumeResourceDataProperty.GroupOwnerSetting`.
-	GroupOwnerSetting interface{} `json:"groupOwnerSetting"`
-	// `CfnResourceDefinition.LocalVolumeResourceDataProperty.SourcePath`.
+	// The local absolute path of the volume resource on the host.
+	//
+	// The source path for a volume resource type cannot start with `/sys` .
 	SourcePath *string `json:"sourcePath"`
+	// Settings that define additional Linux OS group permissions to give to the Lambda function process.
+	GroupOwnerSetting interface{} `json:"groupOwnerSetting"`
 }
 
+// A container for resource data, which defines the resource type.
+//
+// The container takes only one of the following supported resource data types: `LocalDeviceResourceData` , `LocalVolumeResourceData` , `SageMakerMachineLearningModelResourceData` , `S3MachineLearningModelResourceData` , or `SecretsManagerSecretResourceData` .
+//
+// > Only one resource type can be defined for a `ResourceDataContainer` instance.
+//
+// In an AWS CloudFormation template, `ResourceDataContainer` is a property of the [`ResourceInstance`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourceinstance.html) property type.
+//
 // TODO: EXAMPLE
 //
 type CfnResourceDefinition_ResourceDataContainerProperty struct {
-	// `CfnResourceDefinition.ResourceDataContainerProperty.LocalDeviceResourceData`.
+	// Settings for a local device resource.
 	LocalDeviceResourceData interface{} `json:"localDeviceResourceData"`
-	// `CfnResourceDefinition.ResourceDataContainerProperty.LocalVolumeResourceData`.
+	// Settings for a local volume resource.
 	LocalVolumeResourceData interface{} `json:"localVolumeResourceData"`
-	// `CfnResourceDefinition.ResourceDataContainerProperty.S3MachineLearningModelResourceData`.
+	// Settings for a machine learning resource stored in Amazon S3 .
 	S3MachineLearningModelResourceData interface{} `json:"s3MachineLearningModelResourceData"`
-	// `CfnResourceDefinition.ResourceDataContainerProperty.SageMakerMachineLearningModelResourceData`.
+	// Settings for a machine learning resource saved as an SageMaker training job.
 	SageMakerMachineLearningModelResourceData interface{} `json:"sageMakerMachineLearningModelResourceData"`
-	// `CfnResourceDefinition.ResourceDataContainerProperty.SecretsManagerSecretResourceData`.
+	// Settings for a secret resource.
 	SecretsManagerSecretResourceData interface{} `json:"secretsManagerSecretResourceData"`
 }
 
+// A resource definition version contains a list of resources. (In AWS CloudFormation , resources are named *resource instances* .).
+//
+// > After you create a resource definition version that contains the resources you want to deploy, you must add it to your group version. For more information, see [`AWS::Greengrass::Group`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html) .
+//
+// In an AWS CloudFormation template, `ResourceDefinitionVersion` is the property type of the `InitialVersion` property in the [`AWS::Greengrass::ResourceDefinition`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-resourcedefinition.html) resource.
+//
 // TODO: EXAMPLE
 //
 type CfnResourceDefinition_ResourceDefinitionVersionProperty struct {
-	// `CfnResourceDefinition.ResourceDefinitionVersionProperty.Resources`.
+	// The resources in this version.
 	Resources interface{} `json:"resources"`
 }
 
+// The owner setting for a downloaded machine learning resource.
+//
+// For more information, see [Access Machine Learning Resources from Lambda Functions](https://docs.aws.amazon.com/greengrass/latest/developerguide/access-ml-resources.html) in the *Developer Guide* .
+//
+// In an AWS CloudFormation template, `ResourceDownloadOwnerSetting` is the property type of the `OwnerSetting` property for the [`S3MachineLearningModelResourceData`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-s3machinelearningmodelresourcedata.html) and [`SageMakerMachineLearningModelResourceData`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-sagemakermachinelearningmodelresourcedata.html) property types.
+//
 // TODO: EXAMPLE
 //
 type CfnResourceDefinition_ResourceDownloadOwnerSettingProperty struct {
-	// `CfnResourceDefinition.ResourceDownloadOwnerSettingProperty.GroupOwner`.
+	// The group owner of the machine learning resource.
+	//
+	// This is the group ID (GID) of an existing Linux OS group on the system. The group's permissions are added to the Lambda process.
 	GroupOwner *string `json:"groupOwner"`
-	// `CfnResourceDefinition.ResourceDownloadOwnerSettingProperty.GroupPermission`.
+	// The permissions that the group owner has to the machine learning resource.
+	//
+	// Valid values are `rw` (read-write) or `ro` (read-only).
 	GroupPermission *string `json:"groupPermission"`
 }
 
+// A local resource, machine learning resource, or secret resource.
+//
+// For more information, see [Access Local Resources with Lambda Functions](https://docs.aws.amazon.com/greengrass/latest/developerguide/access-local-resources.html) , [Perform Machine Learning Inference](https://docs.aws.amazon.com/greengrass/latest/developerguide/ml-inference.html) , and [Deploy Secrets to the AWS IoT Greengrass Core](https://docs.aws.amazon.com/greengrass/latest/developerguide/secrets.html) in the *Developer Guide* .
+//
+// In an AWS CloudFormation template, the `Resources` property of the [`AWS::Greengrass::ResourceDefinition`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-resourcedefinition.html) resource contains a list of `ResourceInstance` property types.
+//
 // TODO: EXAMPLE
 //
 type CfnResourceDefinition_ResourceInstanceProperty struct {
-	// `CfnResourceDefinition.ResourceInstanceProperty.Id`.
+	// A descriptive or arbitrary ID for the resource.
+	//
+	// This value must be unique within the resource definition version. Maximum length is 128 characters with pattern `[a-zA-Z0-9:_-]+` .
 	Id *string `json:"id"`
-	// `CfnResourceDefinition.ResourceInstanceProperty.Name`.
+	// The descriptive resource name, which is displayed on the AWS IoT Greengrass console.
+	//
+	// Maximum length 128 characters with pattern [a-zA-Z0-9:_-]+. This must be unique within a Greengrass group.
 	Name *string `json:"name"`
-	// `CfnResourceDefinition.ResourceInstanceProperty.ResourceDataContainer`.
+	// A container for resource data.
+	//
+	// The container takes only one of the following supported resource data types: `LocalDeviceResourceData` , `LocalVolumeResourceData` , `SageMakerMachineLearningModelResourceData` , `S3MachineLearningModelResourceData` , or `SecretsManagerSecretResourceData` .
+	//
+	// > Only one resource type can be defined for a `ResourceDataContainer` instance.
 	ResourceDataContainer interface{} `json:"resourceDataContainer"`
 }
 
+// Settings for an Amazon S3 machine learning resource.
+//
+// For more information, see [Perform Machine Learning Inference](https://docs.aws.amazon.com/greengrass/latest/developerguide/ml-inference.html) in the *Developer Guide* .
+//
+// In an AWS CloudFormation template, `S3MachineLearningModelResourceData` can be used in the [`ResourceDataContainer`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourcedatacontainer.html) property type.
+//
 // TODO: EXAMPLE
 //
 type CfnResourceDefinition_S3MachineLearningModelResourceDataProperty struct {
-	// `CfnResourceDefinition.S3MachineLearningModelResourceDataProperty.DestinationPath`.
+	// The absolute local path of the resource inside the Lambda environment.
 	DestinationPath *string `json:"destinationPath"`
-	// `CfnResourceDefinition.S3MachineLearningModelResourceDataProperty.OwnerSetting`.
-	OwnerSetting interface{} `json:"ownerSetting"`
-	// `CfnResourceDefinition.S3MachineLearningModelResourceDataProperty.S3Uri`.
+	// The URI of the source model in an Amazon S3 bucket.
+	//
+	// The model package must be in `tar.gz` or `.zip` format.
 	S3Uri *string `json:"s3Uri"`
+	// The owner setting for the downloaded machine learning resource.
+	//
+	// For more information, see [Access Machine Learning Resources from Lambda Functions](https://docs.aws.amazon.com/greengrass/latest/developerguide/access-ml-resources.html) in the *Developer Guide* .
+	OwnerSetting interface{} `json:"ownerSetting"`
 }
 
+// Settings for an Secrets Manager machine learning resource.
+//
+// For more information, see [Perform Machine Learning Inference](https://docs.aws.amazon.com/greengrass/latest/developerguide/ml-inference.html) in the *Developer Guide* .
+//
+// In an AWS CloudFormation template, `SageMakerMachineLearningModelResourceData` can be used in the [`ResourceDataContainer`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourcedatacontainer.html) property type.
+//
 // TODO: EXAMPLE
 //
 type CfnResourceDefinition_SageMakerMachineLearningModelResourceDataProperty struct {
-	// `CfnResourceDefinition.SageMakerMachineLearningModelResourceDataProperty.DestinationPath`.
+	// The absolute local path of the resource inside the Lambda environment.
 	DestinationPath *string `json:"destinationPath"`
-	// `CfnResourceDefinition.SageMakerMachineLearningModelResourceDataProperty.OwnerSetting`.
-	OwnerSetting interface{} `json:"ownerSetting"`
-	// `CfnResourceDefinition.SageMakerMachineLearningModelResourceDataProperty.SageMakerJobArn`.
+	// The Amazon Resource Name (ARN) of the Amazon SageMaker training job that represents the source model.
 	SageMakerJobArn *string `json:"sageMakerJobArn"`
+	// The owner setting for the downloaded machine learning resource.
+	//
+	// For more information, see [Access Machine Learning Resources from Lambda Functions](https://docs.aws.amazon.com/greengrass/latest/developerguide/access-ml-resources.html) in the *Developer Guide* .
+	OwnerSetting interface{} `json:"ownerSetting"`
 }
 
+// Settings for a secret resource, which references a secret from AWS Secrets Manager .
+//
+// AWS IoT Greengrass stores a local, encrypted copy of the secret on the Greengrass core, where it can be securely accessed by connectors and Lambda functions. For more information, see [Deploy Secrets to the AWS IoT Greengrass Core](https://docs.aws.amazon.com/greengrass/latest/developerguide/secrets.html) in the *Developer Guide* .
+//
+// In an AWS CloudFormation template, `SecretsManagerSecretResourceData` can be used in the [`ResourceDataContainer`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourcedatacontainer.html) property type.
+//
 // TODO: EXAMPLE
 //
 type CfnResourceDefinition_SecretsManagerSecretResourceDataProperty struct {
-	// `CfnResourceDefinition.SecretsManagerSecretResourceDataProperty.AdditionalStagingLabelsToDownload`.
-	AdditionalStagingLabelsToDownload *[]*string `json:"additionalStagingLabelsToDownload"`
-	// `CfnResourceDefinition.SecretsManagerSecretResourceDataProperty.ARN`.
+	// The Amazon Resource Name (ARN) of the Secrets Manager secret to make available on the core.
+	//
+	// The value of the secret's latest version (represented by the `AWSCURRENT` staging label) is included by default.
 	Arn *string `json:"arn"`
+	// The staging labels whose values you want to make available on the core, in addition to `AWSCURRENT` .
+	AdditionalStagingLabelsToDownload *[]*string `json:"additionalStagingLabelsToDownload"`
 }
 
-// Properties for defining a `AWS::Greengrass::ResourceDefinition`.
+// Properties for defining a `CfnResourceDefinition`.
 //
 // TODO: EXAMPLE
 //
 type CfnResourceDefinitionProps struct {
-	// `AWS::Greengrass::ResourceDefinition.InitialVersion`.
-	InitialVersion interface{} `json:"initialVersion"`
-	// `AWS::Greengrass::ResourceDefinition.Name`.
+	// The name of the resource definition.
 	Name *string `json:"name"`
-	// `AWS::Greengrass::ResourceDefinition.Tags`.
+	// The resource definition version to include when the resource definition is created.
+	//
+	// A resource definition version contains a list of [`resource instance`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourceinstance.html) property types.
+	//
+	// > To associate a resource definition version after the resource definition is created, create an [`AWS::Greengrass::ResourceDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-resourcedefinitionversion.html) resource and specify the ID of this resource definition.
+	InitialVersion interface{} `json:"initialVersion"`
+	// Application-specific metadata to attach to the resource definition.
+	//
+	// You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tagging Your AWS IoT Greengrass Resources](https://docs.aws.amazon.com/greengrass/latest/developerguide/tagging.html) in the *Developer Guide* .
+	//
+	// This `Json` property type is processed as a map of key-value pairs. It uses the following format, which is different from most `Tags` implementations in AWS CloudFormation templates.
+	//
+	// ```json
+	// "Tags": { "KeyName0": "value", "KeyName1": "value", "KeyName2": "value"
+	// }
+	// ```
 	Tags interface{} `json:"tags"`
 }
 
 // A CloudFormation `AWS::Greengrass::ResourceDefinitionVersion`.
+//
+// The `AWS::Greengrass::ResourceDefinitionVersion` resource represents a resource definition version for AWS IoT Greengrass . A resource definition version contains a list of resources. (In AWS CloudFormation , resources are named *resource instances* .)
+//
+// > To create a resource definition version, you must specify the ID of the resource definition that you want to associate with the version. For information about creating a resource definition, see [`AWS::Greengrass::ResourceDefinition`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-resourcedefinition.html) .
+// >
+// > After you create a resource definition version that contains the resources you want to deploy, you must add it to your group version. For more information, see [`AWS::Greengrass::Group`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html) .
 //
 // TODO: EXAMPLE
 //
@@ -7547,7 +9703,7 @@ type CfnResourceDefinitionVersion interface {
 	CfnResourceType() *string
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	ResourceDefinitionId() *string
 	SetResourceDefinitionId(val *string)
@@ -7565,10 +9721,16 @@ type CfnResourceDefinitionVersion interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -7628,8 +9790,8 @@ func (j *jsiiProxy_CfnResourceDefinitionVersion) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResourceDefinitionVersion) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnResourceDefinitionVersion) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -7690,13 +9852,13 @@ func (j *jsiiProxy_CfnResourceDefinitionVersion) UpdatedProperites() *map[string
 
 
 // Create a new `AWS::Greengrass::ResourceDefinitionVersion`.
-func NewCfnResourceDefinitionVersion(scope constructs.Construct, id *string, props *CfnResourceDefinitionVersionProps) CfnResourceDefinitionVersion {
+func NewCfnResourceDefinitionVersion(scope awscdk.Construct, id *string, props *CfnResourceDefinitionVersionProps) CfnResourceDefinitionVersion {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnResourceDefinitionVersion{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_greengrass.CfnResourceDefinitionVersion",
+		"monocdk.aws_greengrass.CfnResourceDefinitionVersion",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -7705,11 +9867,11 @@ func NewCfnResourceDefinitionVersion(scope constructs.Construct, id *string, pro
 }
 
 // Create a new `AWS::Greengrass::ResourceDefinitionVersion`.
-func NewCfnResourceDefinitionVersion_Override(c CfnResourceDefinitionVersion, scope constructs.Construct, id *string, props *CfnResourceDefinitionVersionProps) {
+func NewCfnResourceDefinitionVersion_Override(c CfnResourceDefinitionVersion, scope awscdk.Construct, id *string, props *CfnResourceDefinitionVersionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_greengrass.CfnResourceDefinitionVersion",
+		"monocdk.aws_greengrass.CfnResourceDefinitionVersion",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -7737,13 +9899,14 @@ func (j *jsiiProxy_CfnResourceDefinitionVersion) SetResources(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnResourceDefinitionVersion_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnResourceDefinitionVersion",
+		"monocdk.aws_greengrass.CfnResourceDefinitionVersion",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -7753,13 +9916,14 @@ func CfnResourceDefinitionVersion_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnResourceDefinitionVersion_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnResourceDefinitionVersion",
+		"monocdk.aws_greengrass.CfnResourceDefinitionVersion",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -7768,17 +9932,15 @@ func CfnResourceDefinitionVersion_IsCfnResource(construct constructs.IConstruct)
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnResourceDefinitionVersion_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnResourceDefinitionVersion",
+		"monocdk.aws_greengrass.CfnResourceDefinitionVersion",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -7791,7 +9953,7 @@ func CfnResourceDefinitionVersion_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_greengrass.CfnResourceDefinitionVersion",
+		"monocdk.aws_greengrass.CfnResourceDefinitionVersion",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -7799,6 +9961,7 @@ func CfnResourceDefinitionVersion_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnResourceDefinitionVersion) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7811,6 +9974,7 @@ func (c *jsiiProxy_CfnResourceDefinitionVersion) AddDeletionOverride(path *strin
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnResourceDefinitionVersion) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7826,6 +9990,7 @@ func (c *jsiiProxy_CfnResourceDefinitionVersion) AddDependsOn(target awscdk.CfnR
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnResourceDefinitionVersion) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7871,6 +10036,7 @@ func (c *jsiiProxy_CfnResourceDefinitionVersion) AddMetadata(key *string, value 
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnResourceDefinitionVersion) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7880,6 +10046,7 @@ func (c *jsiiProxy_CfnResourceDefinitionVersion) AddOverride(path *string, value
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnResourceDefinitionVersion) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7891,6 +10058,7 @@ func (c *jsiiProxy_CfnResourceDefinitionVersion) AddPropertyDeletionOverride(pro
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnResourceDefinitionVersion) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7908,6 +10076,7 @@ func (c *jsiiProxy_CfnResourceDefinitionVersion) AddPropertyOverride(propertyPat
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnResourceDefinitionVersion) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7920,6 +10089,7 @@ func (c *jsiiProxy_CfnResourceDefinitionVersion) ApplyRemovalPolicy(policy awscd
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnResourceDefinitionVersion) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -7940,6 +10110,7 @@ func (c *jsiiProxy_CfnResourceDefinitionVersion) GetAtt(attributeName *string) a
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnResourceDefinitionVersion) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -7962,12 +10133,80 @@ func (c *jsiiProxy_CfnResourceDefinitionVersion) Inspect(inspector awscdk.TreeIn
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnResourceDefinitionVersion) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnResourceDefinitionVersion) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnResourceDefinitionVersion) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnResourceDefinitionVersion) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnResourceDefinitionVersion) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -7988,6 +10227,7 @@ func (c *jsiiProxy_CfnResourceDefinitionVersion) RenderProperties(props *map[str
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnResourceDefinitionVersion) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -8001,9 +10241,23 @@ func (c *jsiiProxy_CfnResourceDefinitionVersion) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnResourceDefinitionVersion) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnResourceDefinitionVersion) ToString() *string {
 	var returns *string
 
@@ -8017,6 +10271,27 @@ func (c *jsiiProxy_CfnResourceDefinitionVersion) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnResourceDefinitionVersion) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnResourceDefinitionVersion) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8025,113 +10300,207 @@ func (c *jsiiProxy_CfnResourceDefinitionVersion) ValidateProperties(_properties 
 	)
 }
 
+// Settings that define additional Linux OS group permissions to give to the Lambda function process.
+//
+// You can give the permissions of the Linux group that owns the resource or choose another Linux group. These permissions are in addition to the function's `RunAs` permissions.
+//
+// In an AWS CloudFormation template, `GroupOwnerSetting` is a property of the [`LocalDeviceResourceData`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-localdeviceresourcedata.html) and [`LocalVolumeResourceData`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-localvolumeresourcedata.html) property types.
+//
 // TODO: EXAMPLE
 //
 type CfnResourceDefinitionVersion_GroupOwnerSettingProperty struct {
-	// `CfnResourceDefinitionVersion.GroupOwnerSettingProperty.AutoAddGroupOwner`.
+	// Indicates whether to give the privileges of the Linux group that owns the resource to the Lambda process.
+	//
+	// This gives the Lambda process the file access permissions of the Linux group.
 	AutoAddGroupOwner interface{} `json:"autoAddGroupOwner"`
-	// `CfnResourceDefinitionVersion.GroupOwnerSettingProperty.GroupOwner`.
+	// The name of the Linux group whose privileges you want to add to the Lambda process.
+	//
+	// This value is ignored if `AutoAddGroupOwner` is true.
 	GroupOwner *string `json:"groupOwner"`
 }
 
+// Settings for a local device resource, which represents a file under `/dev` .
+//
+// For more information, see [Access Local Resources with Lambda Functions](https://docs.aws.amazon.com/greengrass/latest/developerguide/access-local-resources.html) in the *Developer Guide* .
+//
+// In an AWS CloudFormation template, `LocalDeviceResourceData` can be used in the [`ResourceDataContainer`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-resourcedatacontainer.html) property type.
+//
 // TODO: EXAMPLE
 //
 type CfnResourceDefinitionVersion_LocalDeviceResourceDataProperty struct {
-	// `CfnResourceDefinitionVersion.LocalDeviceResourceDataProperty.GroupOwnerSetting`.
-	GroupOwnerSetting interface{} `json:"groupOwnerSetting"`
-	// `CfnResourceDefinitionVersion.LocalDeviceResourceDataProperty.SourcePath`.
+	// The local absolute path of the device resource.
+	//
+	// The source path for a device resource can refer only to a character device or block device under `/dev` .
 	SourcePath *string `json:"sourcePath"`
+	// Settings that define additional Linux OS group permissions to give to the Lambda function process.
+	GroupOwnerSetting interface{} `json:"groupOwnerSetting"`
 }
 
+// Settings for a local volume resource, which represents a file or directory on the root file system.
+//
+// For more information, see [Access Local Resources with Lambda Functions](https://docs.aws.amazon.com/greengrass/latest/developerguide/access-local-resources.html) in the *Developer Guide* .
+//
+// In an AWS CloudFormation template, `LocalVolumeResourceData` can be used in the [`ResourceDataContainer`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-resourcedatacontainer.html) property type.
+//
 // TODO: EXAMPLE
 //
 type CfnResourceDefinitionVersion_LocalVolumeResourceDataProperty struct {
-	// `CfnResourceDefinitionVersion.LocalVolumeResourceDataProperty.DestinationPath`.
+	// The absolute local path of the resource in the Lambda environment.
 	DestinationPath *string `json:"destinationPath"`
-	// `CfnResourceDefinitionVersion.LocalVolumeResourceDataProperty.GroupOwnerSetting`.
-	GroupOwnerSetting interface{} `json:"groupOwnerSetting"`
-	// `CfnResourceDefinitionVersion.LocalVolumeResourceDataProperty.SourcePath`.
+	// The local absolute path of the volume resource on the host.
+	//
+	// The source path for a volume resource type cannot start with `/sys` .
 	SourcePath *string `json:"sourcePath"`
+	// Settings that define additional Linux OS group permissions to give to the Lambda function process.
+	GroupOwnerSetting interface{} `json:"groupOwnerSetting"`
 }
 
+// A container for resource data, which defines the resource type.
+//
+// The container takes only one of the following supported resource data types: `LocalDeviceResourceData` , `LocalVolumeResourceData` , `SageMakerMachineLearningModelResourceData` , `S3MachineLearningModelResourceData` , or `SecretsManagerSecretResourceData` .
+//
+// > Only one resource type can be defined for a `ResourceDataContainer` instance.
+//
+// In an AWS CloudFormation template, `ResourceDataContainer` is a property of the [`ResourceInstance`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-resourceinstance.html) property type.
+//
 // TODO: EXAMPLE
 //
 type CfnResourceDefinitionVersion_ResourceDataContainerProperty struct {
-	// `CfnResourceDefinitionVersion.ResourceDataContainerProperty.LocalDeviceResourceData`.
+	// Settings for a local device resource.
 	LocalDeviceResourceData interface{} `json:"localDeviceResourceData"`
-	// `CfnResourceDefinitionVersion.ResourceDataContainerProperty.LocalVolumeResourceData`.
+	// Settings for a local volume resource.
 	LocalVolumeResourceData interface{} `json:"localVolumeResourceData"`
-	// `CfnResourceDefinitionVersion.ResourceDataContainerProperty.S3MachineLearningModelResourceData`.
+	// Settings for a machine learning resource stored in Amazon S3 .
 	S3MachineLearningModelResourceData interface{} `json:"s3MachineLearningModelResourceData"`
-	// `CfnResourceDefinitionVersion.ResourceDataContainerProperty.SageMakerMachineLearningModelResourceData`.
+	// Settings for a machine learning resource saved as an SageMaker training job.
 	SageMakerMachineLearningModelResourceData interface{} `json:"sageMakerMachineLearningModelResourceData"`
-	// `CfnResourceDefinitionVersion.ResourceDataContainerProperty.SecretsManagerSecretResourceData`.
+	// Settings for a secret resource.
 	SecretsManagerSecretResourceData interface{} `json:"secretsManagerSecretResourceData"`
 }
 
+// The owner setting for a downloaded machine learning resource.
+//
+// For more information, see [Access Machine Learning Resources from Lambda Functions](https://docs.aws.amazon.com/greengrass/latest/developerguide/access-ml-resources.html) in the *Developer Guide* .
+//
+// In an AWS CloudFormation template, `ResourceDownloadOwnerSetting` is the property type of the `OwnerSetting` property for the [`S3MachineLearningModelResourceData`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-s3machinelearningmodelresourcedata.html) and [`SageMakerMachineLearningModelResourceData`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-sagemakermachinelearningmodelresourcedata.html) property types.
+//
 // TODO: EXAMPLE
 //
 type CfnResourceDefinitionVersion_ResourceDownloadOwnerSettingProperty struct {
-	// `CfnResourceDefinitionVersion.ResourceDownloadOwnerSettingProperty.GroupOwner`.
+	// The group owner of the machine learning resource.
+	//
+	// This is the group ID (GID) of an existing Linux OS group on the system. The group's permissions are added to the Lambda process.
 	GroupOwner *string `json:"groupOwner"`
-	// `CfnResourceDefinitionVersion.ResourceDownloadOwnerSettingProperty.GroupPermission`.
+	// The permissions that the group owner has to the machine learning resource.
+	//
+	// Valid values are `rw` (read-write) or `ro` (read-only).
 	GroupPermission *string `json:"groupPermission"`
 }
 
+// A local resource, machine learning resource, or secret resource.
+//
+// For more information, see [Access Local Resources with Lambda Functions](https://docs.aws.amazon.com/greengrass/latest/developerguide/access-local-resources.html) , [Perform Machine Learning Inference](https://docs.aws.amazon.com/greengrass/latest/developerguide/ml-inference.html) , and [Deploy Secrets to the AWS IoT Greengrass Core](https://docs.aws.amazon.com/greengrass/latest/developerguide/secrets.html) in the *Developer Guide* .
+//
+// In an AWS CloudFormation template, the `Resources` property of the [`AWS::Greengrass::ResourceDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-resourcedefinitionversion.html) resource contains a list of `ResourceInstance` property types.
+//
 // TODO: EXAMPLE
 //
 type CfnResourceDefinitionVersion_ResourceInstanceProperty struct {
-	// `CfnResourceDefinitionVersion.ResourceInstanceProperty.Id`.
+	// A descriptive or arbitrary ID for the resource.
+	//
+	// This value must be unique within the resource definition version. Maximum length is 128 characters with pattern `[a-zA-Z0-9:_-]+` .
 	Id *string `json:"id"`
-	// `CfnResourceDefinitionVersion.ResourceInstanceProperty.Name`.
+	// The descriptive resource name, which is displayed on the AWS IoT Greengrass console.
+	//
+	// Maximum length 128 characters with pattern [a-zA-Z0-9:_-]+. This must be unique within a Greengrass group.
 	Name *string `json:"name"`
-	// `CfnResourceDefinitionVersion.ResourceInstanceProperty.ResourceDataContainer`.
+	// A container for resource data.
+	//
+	// The container takes only one of the following supported resource data types: `LocalDeviceResourceData` , `LocalVolumeResourceData` , `SageMakerMachineLearningModelResourceData` , `S3MachineLearningModelResourceData` , or `SecretsManagerSecretResourceData` .
+	//
+	// > Only one resource type can be defined for a `ResourceDataContainer` instance.
 	ResourceDataContainer interface{} `json:"resourceDataContainer"`
 }
 
+// Settings for an Amazon S3 machine learning resource.
+//
+// For more information, see [Perform Machine Learning Inference](https://docs.aws.amazon.com/greengrass/latest/developerguide/ml-inference.html) in the *Developer Guide* .
+//
+// In an AWS CloudFormation template, `S3MachineLearningModelResourceData` can be used in the [`ResourceDataContainer`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-resourcedatacontainer.html) property type.
+//
 // TODO: EXAMPLE
 //
 type CfnResourceDefinitionVersion_S3MachineLearningModelResourceDataProperty struct {
-	// `CfnResourceDefinitionVersion.S3MachineLearningModelResourceDataProperty.DestinationPath`.
+	// The absolute local path of the resource inside the Lambda environment.
 	DestinationPath *string `json:"destinationPath"`
-	// `CfnResourceDefinitionVersion.S3MachineLearningModelResourceDataProperty.OwnerSetting`.
-	OwnerSetting interface{} `json:"ownerSetting"`
-	// `CfnResourceDefinitionVersion.S3MachineLearningModelResourceDataProperty.S3Uri`.
+	// The URI of the source model in an Amazon S3 bucket.
+	//
+	// The model package must be in `tar.gz` or `.zip` format.
 	S3Uri *string `json:"s3Uri"`
+	// The owner setting for the downloaded machine learning resource.
+	//
+	// For more information, see [Access Machine Learning Resources from Lambda Functions](https://docs.aws.amazon.com/greengrass/latest/developerguide/access-ml-resources.html) in the *Developer Guide* .
+	OwnerSetting interface{} `json:"ownerSetting"`
 }
 
+// Settings for an Secrets Manager machine learning resource.
+//
+// For more information, see [Perform Machine Learning Inference](https://docs.aws.amazon.com/greengrass/latest/developerguide/ml-inference.html) in the *Developer Guide* .
+//
+// In an AWS CloudFormation template, `SageMakerMachineLearningModelResourceData` can be used in the [`ResourceDataContainer`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-resourcedatacontainer.html) property type.
+//
 // TODO: EXAMPLE
 //
 type CfnResourceDefinitionVersion_SageMakerMachineLearningModelResourceDataProperty struct {
-	// `CfnResourceDefinitionVersion.SageMakerMachineLearningModelResourceDataProperty.DestinationPath`.
+	// The absolute local path of the resource inside the Lambda environment.
 	DestinationPath *string `json:"destinationPath"`
-	// `CfnResourceDefinitionVersion.SageMakerMachineLearningModelResourceDataProperty.OwnerSetting`.
-	OwnerSetting interface{} `json:"ownerSetting"`
-	// `CfnResourceDefinitionVersion.SageMakerMachineLearningModelResourceDataProperty.SageMakerJobArn`.
+	// The Amazon Resource Name (ARN) of the Amazon SageMaker training job that represents the source model.
 	SageMakerJobArn *string `json:"sageMakerJobArn"`
+	// The owner setting for the downloaded machine learning resource.
+	//
+	// For more information, see [Access Machine Learning Resources from Lambda Functions](https://docs.aws.amazon.com/greengrass/latest/developerguide/access-ml-resources.html) in the *Developer Guide* .
+	OwnerSetting interface{} `json:"ownerSetting"`
 }
 
+// Settings for a secret resource, which references a secret from AWS Secrets Manager .
+//
+// AWS IoT Greengrass stores a local, encrypted copy of the secret on the Greengrass core, where it can be securely accessed by connectors and Lambda functions. For more information, see [Deploy Secrets to the AWS IoT Greengrass Core](https://docs.aws.amazon.com/greengrass/latest/developerguide/secrets.html) in the *Developer Guide* .
+//
+// In an AWS CloudFormation template, `SecretsManagerSecretResourceData` can be used in the [`ResourceDataContainer`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-resourcedatacontainer.html) property type.
+//
 // TODO: EXAMPLE
 //
 type CfnResourceDefinitionVersion_SecretsManagerSecretResourceDataProperty struct {
-	// `CfnResourceDefinitionVersion.SecretsManagerSecretResourceDataProperty.AdditionalStagingLabelsToDownload`.
-	AdditionalStagingLabelsToDownload *[]*string `json:"additionalStagingLabelsToDownload"`
-	// `CfnResourceDefinitionVersion.SecretsManagerSecretResourceDataProperty.ARN`.
+	// The Amazon Resource Name (ARN) of the Secrets Manager secret to make available on the core.
+	//
+	// The value of the secret's latest version (represented by the `AWSCURRENT` staging label) is included by default.
 	Arn *string `json:"arn"`
+	// The staging labels whose values you want to make available on the core, in addition to `AWSCURRENT` .
+	AdditionalStagingLabelsToDownload *[]*string `json:"additionalStagingLabelsToDownload"`
 }
 
-// Properties for defining a `AWS::Greengrass::ResourceDefinitionVersion`.
+// Properties for defining a `CfnResourceDefinitionVersion`.
 //
 // TODO: EXAMPLE
 //
 type CfnResourceDefinitionVersionProps struct {
-	// `AWS::Greengrass::ResourceDefinitionVersion.ResourceDefinitionId`.
+	// The ID of the resource definition associated with this version.
+	//
+	// This value is a GUID.
 	ResourceDefinitionId *string `json:"resourceDefinitionId"`
-	// `AWS::Greengrass::ResourceDefinitionVersion.Resources`.
+	// The resources in this version.
 	Resources interface{} `json:"resources"`
 }
 
 // A CloudFormation `AWS::Greengrass::SubscriptionDefinition`.
+//
+// The `AWS::Greengrass::SubscriptionDefinition` resource represents a subscription definition for AWS IoT Greengrass . Subscription definitions are used to organize your subscription definition versions.
+//
+// Subscription definitions can reference multiple subscription definition versions. All subscription definition versions must be associated with a subscription definition. Each subscription definition version can contain one or more subscriptions.
+//
+// > When you create a subscription definition, you can optionally include an initial subscription definition version. To associate a subscription definition version later, create an [`AWS::Greengrass::SubscriptionDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-subscriptiondefinitionversion.html) resource and specify the ID of this subscription definition.
+// >
+// > After you create the subscription definition version that contains the subscriptions you want to deploy, you must add it to your group version. For more information, see [`AWS::Greengrass::Group`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html) .
 //
 // TODO: EXAMPLE
 //
@@ -8151,7 +10520,7 @@ type CfnSubscriptionDefinition interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	Tags() awscdk.TagManager
@@ -8166,10 +10535,16 @@ type CfnSubscriptionDefinition interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -8289,8 +10664,8 @@ func (j *jsiiProxy_CfnSubscriptionDefinition) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSubscriptionDefinition) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnSubscriptionDefinition) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -8341,13 +10716,13 @@ func (j *jsiiProxy_CfnSubscriptionDefinition) UpdatedProperites() *map[string]in
 
 
 // Create a new `AWS::Greengrass::SubscriptionDefinition`.
-func NewCfnSubscriptionDefinition(scope constructs.Construct, id *string, props *CfnSubscriptionDefinitionProps) CfnSubscriptionDefinition {
+func NewCfnSubscriptionDefinition(scope awscdk.Construct, id *string, props *CfnSubscriptionDefinitionProps) CfnSubscriptionDefinition {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnSubscriptionDefinition{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_greengrass.CfnSubscriptionDefinition",
+		"monocdk.aws_greengrass.CfnSubscriptionDefinition",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -8356,11 +10731,11 @@ func NewCfnSubscriptionDefinition(scope constructs.Construct, id *string, props 
 }
 
 // Create a new `AWS::Greengrass::SubscriptionDefinition`.
-func NewCfnSubscriptionDefinition_Override(c CfnSubscriptionDefinition, scope constructs.Construct, id *string, props *CfnSubscriptionDefinitionProps) {
+func NewCfnSubscriptionDefinition_Override(c CfnSubscriptionDefinition, scope awscdk.Construct, id *string, props *CfnSubscriptionDefinitionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_greengrass.CfnSubscriptionDefinition",
+		"monocdk.aws_greengrass.CfnSubscriptionDefinition",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -8388,13 +10763,14 @@ func (j *jsiiProxy_CfnSubscriptionDefinition) SetName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnSubscriptionDefinition_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnSubscriptionDefinition",
+		"monocdk.aws_greengrass.CfnSubscriptionDefinition",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -8404,13 +10780,14 @@ func CfnSubscriptionDefinition_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnSubscriptionDefinition_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnSubscriptionDefinition",
+		"monocdk.aws_greengrass.CfnSubscriptionDefinition",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -8419,17 +10796,15 @@ func CfnSubscriptionDefinition_IsCfnResource(construct constructs.IConstruct) *b
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnSubscriptionDefinition_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnSubscriptionDefinition",
+		"monocdk.aws_greengrass.CfnSubscriptionDefinition",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -8442,7 +10817,7 @@ func CfnSubscriptionDefinition_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_greengrass.CfnSubscriptionDefinition",
+		"monocdk.aws_greengrass.CfnSubscriptionDefinition",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -8450,6 +10825,7 @@ func CfnSubscriptionDefinition_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnSubscriptionDefinition) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8462,6 +10838,7 @@ func (c *jsiiProxy_CfnSubscriptionDefinition) AddDeletionOverride(path *string) 
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnSubscriptionDefinition) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8477,6 +10854,7 @@ func (c *jsiiProxy_CfnSubscriptionDefinition) AddDependsOn(target awscdk.CfnReso
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnSubscriptionDefinition) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8522,6 +10900,7 @@ func (c *jsiiProxy_CfnSubscriptionDefinition) AddMetadata(key *string, value int
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnSubscriptionDefinition) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8531,6 +10910,7 @@ func (c *jsiiProxy_CfnSubscriptionDefinition) AddOverride(path *string, value in
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnSubscriptionDefinition) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8542,6 +10922,7 @@ func (c *jsiiProxy_CfnSubscriptionDefinition) AddPropertyDeletionOverride(proper
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnSubscriptionDefinition) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8559,6 +10940,7 @@ func (c *jsiiProxy_CfnSubscriptionDefinition) AddPropertyOverride(propertyPath *
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnSubscriptionDefinition) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8571,6 +10953,7 @@ func (c *jsiiProxy_CfnSubscriptionDefinition) ApplyRemovalPolicy(policy awscdk.R
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnSubscriptionDefinition) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -8591,6 +10974,7 @@ func (c *jsiiProxy_CfnSubscriptionDefinition) GetAtt(attributeName *string) awsc
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnSubscriptionDefinition) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -8613,12 +10997,80 @@ func (c *jsiiProxy_CfnSubscriptionDefinition) Inspect(inspector awscdk.TreeInspe
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnSubscriptionDefinition) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnSubscriptionDefinition) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnSubscriptionDefinition) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnSubscriptionDefinition) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnSubscriptionDefinition) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -8639,6 +11091,7 @@ func (c *jsiiProxy_CfnSubscriptionDefinition) RenderProperties(props *map[string
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnSubscriptionDefinition) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -8652,9 +11105,23 @@ func (c *jsiiProxy_CfnSubscriptionDefinition) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnSubscriptionDefinition) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnSubscriptionDefinition) ToString() *string {
 	var returns *string
 
@@ -8668,6 +11135,27 @@ func (c *jsiiProxy_CfnSubscriptionDefinition) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnSubscriptionDefinition) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnSubscriptionDefinition) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8676,40 +11164,77 @@ func (c *jsiiProxy_CfnSubscriptionDefinition) ValidateProperties(_properties int
 	)
 }
 
+// A subscription definition version contains a list of [subscriptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-subscriptiondefinition-subscription.html) .
+//
+// > After you create a subscription definition version that contains the subscriptions you want to deploy, you must add it to your group version. For more information, see [`AWS::Greengrass::Group`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html) .
+//
+// In an AWS CloudFormation template, `SubscriptionDefinitionVersion` is the property type of the `InitialVersion` property in the [`AWS::Greengrass::SubscriptionDefinition`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-subscriptiondefinition.html) resource.
+//
 // TODO: EXAMPLE
 //
 type CfnSubscriptionDefinition_SubscriptionDefinitionVersionProperty struct {
-	// `CfnSubscriptionDefinition.SubscriptionDefinitionVersionProperty.Subscriptions`.
+	// The subscriptions in this version.
 	Subscriptions interface{} `json:"subscriptions"`
 }
 
+// Subscriptions define how MQTT messages can be exchanged between devices, functions, and connectors in the group, and with AWS IoT or the local shadow service.
+//
+// A subscription defines a message source, message target, and a topic (or subject) that's used to route messages from the source to the target. A subscription defines the message flow in one direction, from the source to the target. For two-way communication, you must set up two subscriptions, one for each direction.
+//
+// In an AWS CloudFormation template, the `Subscriptions` property of the [`SubscriptionDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-subscriptiondefinition-subscriptiondefinitionversion.html) property type contains a list of `Subscription` property types.
+//
 // TODO: EXAMPLE
 //
 type CfnSubscriptionDefinition_SubscriptionProperty struct {
-	// `CfnSubscriptionDefinition.SubscriptionProperty.Id`.
+	// A descriptive or arbitrary ID for the subscription.
+	//
+	// This value must be unique within the subscription definition version. Maximum length is 128 characters with pattern `[a-zA-Z0-9:_-]+` .
 	Id *string `json:"id"`
-	// `CfnSubscriptionDefinition.SubscriptionProperty.Source`.
+	// The originator of the message.
+	//
+	// The value can be a thing ARN, the ARN of a Lambda function alias (recommended) or version, a connector ARN, `cloud` (which represents the AWS IoT cloud), or `GGShadowService` .
 	Source *string `json:"source"`
-	// `CfnSubscriptionDefinition.SubscriptionProperty.Subject`.
+	// The MQTT topic used to route the message.
 	Subject *string `json:"subject"`
-	// `CfnSubscriptionDefinition.SubscriptionProperty.Target`.
+	// The destination of the message.
+	//
+	// The value can be a thing ARN, the ARN of a Lambda function alias (recommended) or version, a connector ARN, `cloud` (which represents the AWS IoT cloud), or `GGShadowService` .
 	Target *string `json:"target"`
 }
 
-// Properties for defining a `AWS::Greengrass::SubscriptionDefinition`.
+// Properties for defining a `CfnSubscriptionDefinition`.
 //
 // TODO: EXAMPLE
 //
 type CfnSubscriptionDefinitionProps struct {
-	// `AWS::Greengrass::SubscriptionDefinition.InitialVersion`.
-	InitialVersion interface{} `json:"initialVersion"`
-	// `AWS::Greengrass::SubscriptionDefinition.Name`.
+	// The name of the subscription definition.
 	Name *string `json:"name"`
-	// `AWS::Greengrass::SubscriptionDefinition.Tags`.
+	// The subscription definition version to include when the subscription definition is created.
+	//
+	// A subscription definition version contains a list of [`subscription`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-subscriptiondefinition-subscription.html) property types.
+	//
+	// > To associate a subscription definition version after the subscription definition is created, create an [`AWS::Greengrass::SubscriptionDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-subscriptiondefinitionversion.html) resource and specify the ID of this subscription definition.
+	InitialVersion interface{} `json:"initialVersion"`
+	// Application-specific metadata to attach to the subscription definition.
+	//
+	// You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tagging Your AWS IoT Greengrass Resources](https://docs.aws.amazon.com/greengrass/latest/developerguide/tagging.html) in the *Developer Guide* .
+	//
+	// This `Json` property type is processed as a map of key-value pairs. It uses the following format, which is different from most `Tags` implementations in AWS CloudFormation templates.
+	//
+	// ```json
+	// "Tags": { "KeyName0": "value", "KeyName1": "value", "KeyName2": "value"
+	// }
+	// ```
 	Tags interface{} `json:"tags"`
 }
 
 // A CloudFormation `AWS::Greengrass::SubscriptionDefinitionVersion`.
+//
+// The `AWS::Greengrass::SubscriptionDefinitionVersion` resource represents a subscription definition version for AWS IoT Greengrass . A subscription definition version contains a list of subscriptions.
+//
+// > To create a subscription definition version, you must specify the ID of the subscription definition that you want to associate with the version. For information about creating a subscription definition, see [`AWS::Greengrass::SubscriptionDefinition`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-subscriptiondefinition.html) .
+// >
+// > After you create a subscription definition version that contains the subscriptions you want to deploy, you must add it to your group version. For more information, see [`AWS::Greengrass::Group`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html) .
 //
 // TODO: EXAMPLE
 //
@@ -8721,7 +11246,7 @@ type CfnSubscriptionDefinitionVersion interface {
 	CfnResourceType() *string
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	SubscriptionDefinitionId() *string
@@ -8739,10 +11264,16 @@ type CfnSubscriptionDefinitionVersion interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -8802,8 +11333,8 @@ func (j *jsiiProxy_CfnSubscriptionDefinitionVersion) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSubscriptionDefinitionVersion) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnSubscriptionDefinitionVersion) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -8864,13 +11395,13 @@ func (j *jsiiProxy_CfnSubscriptionDefinitionVersion) UpdatedProperites() *map[st
 
 
 // Create a new `AWS::Greengrass::SubscriptionDefinitionVersion`.
-func NewCfnSubscriptionDefinitionVersion(scope constructs.Construct, id *string, props *CfnSubscriptionDefinitionVersionProps) CfnSubscriptionDefinitionVersion {
+func NewCfnSubscriptionDefinitionVersion(scope awscdk.Construct, id *string, props *CfnSubscriptionDefinitionVersionProps) CfnSubscriptionDefinitionVersion {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnSubscriptionDefinitionVersion{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_greengrass.CfnSubscriptionDefinitionVersion",
+		"monocdk.aws_greengrass.CfnSubscriptionDefinitionVersion",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -8879,11 +11410,11 @@ func NewCfnSubscriptionDefinitionVersion(scope constructs.Construct, id *string,
 }
 
 // Create a new `AWS::Greengrass::SubscriptionDefinitionVersion`.
-func NewCfnSubscriptionDefinitionVersion_Override(c CfnSubscriptionDefinitionVersion, scope constructs.Construct, id *string, props *CfnSubscriptionDefinitionVersionProps) {
+func NewCfnSubscriptionDefinitionVersion_Override(c CfnSubscriptionDefinitionVersion, scope awscdk.Construct, id *string, props *CfnSubscriptionDefinitionVersionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_greengrass.CfnSubscriptionDefinitionVersion",
+		"monocdk.aws_greengrass.CfnSubscriptionDefinitionVersion",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -8911,13 +11442,14 @@ func (j *jsiiProxy_CfnSubscriptionDefinitionVersion) SetSubscriptions(val interf
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnSubscriptionDefinitionVersion_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnSubscriptionDefinitionVersion",
+		"monocdk.aws_greengrass.CfnSubscriptionDefinitionVersion",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -8927,13 +11459,14 @@ func CfnSubscriptionDefinitionVersion_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnSubscriptionDefinitionVersion_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnSubscriptionDefinitionVersion",
+		"monocdk.aws_greengrass.CfnSubscriptionDefinitionVersion",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -8942,17 +11475,15 @@ func CfnSubscriptionDefinitionVersion_IsCfnResource(construct constructs.IConstr
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnSubscriptionDefinitionVersion_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_greengrass.CfnSubscriptionDefinitionVersion",
+		"monocdk.aws_greengrass.CfnSubscriptionDefinitionVersion",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -8965,7 +11496,7 @@ func CfnSubscriptionDefinitionVersion_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_greengrass.CfnSubscriptionDefinitionVersion",
+		"monocdk.aws_greengrass.CfnSubscriptionDefinitionVersion",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -8973,6 +11504,7 @@ func CfnSubscriptionDefinitionVersion_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnSubscriptionDefinitionVersion) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8985,6 +11517,7 @@ func (c *jsiiProxy_CfnSubscriptionDefinitionVersion) AddDeletionOverride(path *s
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnSubscriptionDefinitionVersion) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -9000,6 +11533,7 @@ func (c *jsiiProxy_CfnSubscriptionDefinitionVersion) AddDependsOn(target awscdk.
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnSubscriptionDefinitionVersion) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -9045,6 +11579,7 @@ func (c *jsiiProxy_CfnSubscriptionDefinitionVersion) AddMetadata(key *string, va
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnSubscriptionDefinitionVersion) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -9054,6 +11589,7 @@ func (c *jsiiProxy_CfnSubscriptionDefinitionVersion) AddOverride(path *string, v
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnSubscriptionDefinitionVersion) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -9065,6 +11601,7 @@ func (c *jsiiProxy_CfnSubscriptionDefinitionVersion) AddPropertyDeletionOverride
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnSubscriptionDefinitionVersion) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -9082,6 +11619,7 @@ func (c *jsiiProxy_CfnSubscriptionDefinitionVersion) AddPropertyOverride(propert
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnSubscriptionDefinitionVersion) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -9094,6 +11632,7 @@ func (c *jsiiProxy_CfnSubscriptionDefinitionVersion) ApplyRemovalPolicy(policy a
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnSubscriptionDefinitionVersion) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -9114,6 +11653,7 @@ func (c *jsiiProxy_CfnSubscriptionDefinitionVersion) GetAtt(attributeName *strin
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnSubscriptionDefinitionVersion) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -9136,12 +11676,80 @@ func (c *jsiiProxy_CfnSubscriptionDefinitionVersion) Inspect(inspector awscdk.Tr
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnSubscriptionDefinitionVersion) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnSubscriptionDefinitionVersion) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnSubscriptionDefinitionVersion) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnSubscriptionDefinitionVersion) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnSubscriptionDefinitionVersion) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -9162,6 +11770,7 @@ func (c *jsiiProxy_CfnSubscriptionDefinitionVersion) RenderProperties(props *map
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnSubscriptionDefinitionVersion) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -9175,9 +11784,23 @@ func (c *jsiiProxy_CfnSubscriptionDefinitionVersion) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnSubscriptionDefinitionVersion) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnSubscriptionDefinitionVersion) ToString() *string {
 	var returns *string
 
@@ -9191,6 +11814,27 @@ func (c *jsiiProxy_CfnSubscriptionDefinitionVersion) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnSubscriptionDefinitionVersion) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnSubscriptionDefinitionVersion) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -9199,27 +11843,41 @@ func (c *jsiiProxy_CfnSubscriptionDefinitionVersion) ValidateProperties(_propert
 	)
 }
 
+// Subscriptions define how MQTT messages can be exchanged between devices, functions, and connectors in the group, and with AWS IoT or the local shadow service.
+//
+// A subscription defines a message source, message target, and a topic (or subject) that's used to route messages from the source to the target. A subscription defines the message flow in one direction, from the source to the target. For two-way communication, you must set up two subscriptions, one for each direction.
+//
+// In an AWS CloudFormation template, the `Subscriptions` property of the [`AWS::Greengrass::SubscriptionDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-subscriptiondefinitionversion.html) resource contains a list of `Subscription` property types.
+//
 // TODO: EXAMPLE
 //
 type CfnSubscriptionDefinitionVersion_SubscriptionProperty struct {
-	// `CfnSubscriptionDefinitionVersion.SubscriptionProperty.Id`.
+	// A descriptive or arbitrary ID for the subscription.
+	//
+	// This value must be unique within the subscription definition version. Maximum length is 128 characters with pattern `[a-zA-Z0-9:_-]+` .
 	Id *string `json:"id"`
-	// `CfnSubscriptionDefinitionVersion.SubscriptionProperty.Source`.
+	// The originator of the message.
+	//
+	// The value can be a thing ARN, the ARN of a Lambda function alias (recommended) or version, a connector ARN, `cloud` (which represents the AWS IoT cloud), or `GGShadowService` .
 	Source *string `json:"source"`
-	// `CfnSubscriptionDefinitionVersion.SubscriptionProperty.Subject`.
+	// The MQTT topic used to route the message.
 	Subject *string `json:"subject"`
-	// `CfnSubscriptionDefinitionVersion.SubscriptionProperty.Target`.
+	// The destination of the message.
+	//
+	// The value can be a thing ARN, the ARN of a Lambda function alias (recommended) or version, a connector ARN, `cloud` (which represents the AWS IoT cloud), or `GGShadowService` .
 	Target *string `json:"target"`
 }
 
-// Properties for defining a `AWS::Greengrass::SubscriptionDefinitionVersion`.
+// Properties for defining a `CfnSubscriptionDefinitionVersion`.
 //
 // TODO: EXAMPLE
 //
 type CfnSubscriptionDefinitionVersionProps struct {
-	// `AWS::Greengrass::SubscriptionDefinitionVersion.SubscriptionDefinitionId`.
+	// The ID of the subscription definition associated with this version.
+	//
+	// This value is a GUID.
 	SubscriptionDefinitionId *string `json:"subscriptionDefinitionId"`
-	// `AWS::Greengrass::SubscriptionDefinitionVersion.Subscriptions`.
+	// The subscriptions in this version.
 	Subscriptions interface{} `json:"subscriptions"`
 }
 

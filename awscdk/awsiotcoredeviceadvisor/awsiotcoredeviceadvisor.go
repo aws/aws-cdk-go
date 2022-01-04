@@ -1,15 +1,19 @@
 package awsiotcoredeviceadvisor
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiotcoredeviceadvisor/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsiotcoredeviceadvisor/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::IoTCoreDeviceAdvisor::SuiteDefinition`.
+//
+// Creates a Device Advisor test suite.
+//
+// Requires permission to access the [CreateSuiteDefinition](https://docs.aws.amazon.com//service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
 //
 // TODO: EXAMPLE
 //
@@ -24,7 +28,7 @@ type CfnSuiteDefinition interface {
 	CfnResourceType() *string
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	SuiteDefinitionConfiguration() interface{}
@@ -41,10 +45,16 @@ type CfnSuiteDefinition interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -134,8 +144,8 @@ func (j *jsiiProxy_CfnSuiteDefinition) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSuiteDefinition) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnSuiteDefinition) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -196,13 +206,13 @@ func (j *jsiiProxy_CfnSuiteDefinition) UpdatedProperites() *map[string]interface
 
 
 // Create a new `AWS::IoTCoreDeviceAdvisor::SuiteDefinition`.
-func NewCfnSuiteDefinition(scope constructs.Construct, id *string, props *CfnSuiteDefinitionProps) CfnSuiteDefinition {
+func NewCfnSuiteDefinition(scope awscdk.Construct, id *string, props *CfnSuiteDefinitionProps) CfnSuiteDefinition {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnSuiteDefinition{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iotcoredeviceadvisor.CfnSuiteDefinition",
+		"monocdk.aws_iotcoredeviceadvisor.CfnSuiteDefinition",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -211,11 +221,11 @@ func NewCfnSuiteDefinition(scope constructs.Construct, id *string, props *CfnSui
 }
 
 // Create a new `AWS::IoTCoreDeviceAdvisor::SuiteDefinition`.
-func NewCfnSuiteDefinition_Override(c CfnSuiteDefinition, scope constructs.Construct, id *string, props *CfnSuiteDefinitionProps) {
+func NewCfnSuiteDefinition_Override(c CfnSuiteDefinition, scope awscdk.Construct, id *string, props *CfnSuiteDefinitionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iotcoredeviceadvisor.CfnSuiteDefinition",
+		"monocdk.aws_iotcoredeviceadvisor.CfnSuiteDefinition",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -235,13 +245,14 @@ func (j *jsiiProxy_CfnSuiteDefinition) SetSuiteDefinitionConfiguration(val inter
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnSuiteDefinition_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotcoredeviceadvisor.CfnSuiteDefinition",
+		"monocdk.aws_iotcoredeviceadvisor.CfnSuiteDefinition",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -251,13 +262,14 @@ func CfnSuiteDefinition_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnSuiteDefinition_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotcoredeviceadvisor.CfnSuiteDefinition",
+		"monocdk.aws_iotcoredeviceadvisor.CfnSuiteDefinition",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -266,17 +278,15 @@ func CfnSuiteDefinition_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnSuiteDefinition_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotcoredeviceadvisor.CfnSuiteDefinition",
+		"monocdk.aws_iotcoredeviceadvisor.CfnSuiteDefinition",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -289,7 +299,7 @@ func CfnSuiteDefinition_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_iotcoredeviceadvisor.CfnSuiteDefinition",
+		"monocdk.aws_iotcoredeviceadvisor.CfnSuiteDefinition",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -297,6 +307,7 @@ func CfnSuiteDefinition_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnSuiteDefinition) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -309,6 +320,7 @@ func (c *jsiiProxy_CfnSuiteDefinition) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnSuiteDefinition) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -324,6 +336,7 @@ func (c *jsiiProxy_CfnSuiteDefinition) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnSuiteDefinition) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -369,6 +382,7 @@ func (c *jsiiProxy_CfnSuiteDefinition) AddMetadata(key *string, value interface{
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnSuiteDefinition) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -378,6 +392,7 @@ func (c *jsiiProxy_CfnSuiteDefinition) AddOverride(path *string, value interface
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnSuiteDefinition) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -389,6 +404,7 @@ func (c *jsiiProxy_CfnSuiteDefinition) AddPropertyDeletionOverride(propertyPath 
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnSuiteDefinition) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -406,6 +422,7 @@ func (c *jsiiProxy_CfnSuiteDefinition) AddPropertyOverride(propertyPath *string,
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnSuiteDefinition) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -418,6 +435,7 @@ func (c *jsiiProxy_CfnSuiteDefinition) ApplyRemovalPolicy(policy awscdk.RemovalP
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnSuiteDefinition) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -438,6 +456,7 @@ func (c *jsiiProxy_CfnSuiteDefinition) GetAtt(attributeName *string) awscdk.Refe
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnSuiteDefinition) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -460,12 +479,80 @@ func (c *jsiiProxy_CfnSuiteDefinition) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnSuiteDefinition) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnSuiteDefinition) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnSuiteDefinition) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnSuiteDefinition) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnSuiteDefinition) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -486,6 +573,7 @@ func (c *jsiiProxy_CfnSuiteDefinition) RenderProperties(props *map[string]interf
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnSuiteDefinition) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -499,9 +587,23 @@ func (c *jsiiProxy_CfnSuiteDefinition) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnSuiteDefinition) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnSuiteDefinition) ToString() *string {
 	var returns *string
 
@@ -515,6 +617,27 @@ func (c *jsiiProxy_CfnSuiteDefinition) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnSuiteDefinition) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnSuiteDefinition) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -523,14 +646,40 @@ func (c *jsiiProxy_CfnSuiteDefinition) ValidateProperties(_properties interface{
 	)
 }
 
-// Properties for defining a `AWS::IoTCoreDeviceAdvisor::SuiteDefinition`.
+// Properties for defining a `CfnSuiteDefinition`.
 //
 // TODO: EXAMPLE
 //
 type CfnSuiteDefinitionProps struct {
-	// `AWS::IoTCoreDeviceAdvisor::SuiteDefinition.SuiteDefinitionConfiguration`.
+	// The configuration of the Suite Definition. Listed below are the required elements of the `SuiteDefinitionConfiguration` .
+	//
+	// - ***devicePermissionRoleArn*** - The device permission arn.
+	//
+	// This is a required element.
+	//
+	// *Type:* String
+	// - ***devices*** - The list of configured devices under test. For more information on devices under test, see [DeviceUnderTest](https://docs.aws.amazon.com/iot/latest/apireference/API_iotdeviceadvisor_DeviceUnderTest.html)
+	//
+	// Not a required element.
+	//
+	// *Type:* List of devices under test
+	// - ***intendedForQualification*** - The tests intended for qualification in a suite.
+	//
+	// Not a required element.
+	//
+	// *Type:* Boolean
+	// - ***rootGroup*** - The test suite root group. For more information on creating and using root groups see the [Device Advisor workflow](https://docs.aws.amazon.com/iot/latest/developerguide/device-advisor-workflow.html) .
+	//
+	// This is a required element.
+	//
+	// *Type:* String
+	// - ***suiteDefinitionName*** - The Suite Definition Configuration name.
+	//
+	// This is a required element.
+	//
+	// *Type:* String
 	SuiteDefinitionConfiguration interface{} `json:"suiteDefinitionConfiguration"`
-	// `AWS::IoTCoreDeviceAdvisor::SuiteDefinition.Tags`.
+	// Metadata that can be used to manage the the Suite Definition.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 

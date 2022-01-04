@@ -1,15 +1,17 @@
 package awscustomerprofiles
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscustomerprofiles/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscustomerprofiles/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::CustomerProfiles::Domain`.
+//
+// The AWS::CustomerProfiles::Domain resource specifies an Amazon Connect Customer Profiles Domain.
 //
 // TODO: EXAMPLE
 //
@@ -31,7 +33,7 @@ type CfnDomain interface {
 	DomainName() *string
 	SetDomainName(val *string)
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	Tags() awscdk.TagManager
@@ -46,10 +48,16 @@ type CfnDomain interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -169,8 +177,8 @@ func (j *jsiiProxy_CfnDomain) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDomain) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnDomain) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -221,13 +229,13 @@ func (j *jsiiProxy_CfnDomain) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::CustomerProfiles::Domain`.
-func NewCfnDomain(scope constructs.Construct, id *string, props *CfnDomainProps) CfnDomain {
+func NewCfnDomain(scope awscdk.Construct, id *string, props *CfnDomainProps) CfnDomain {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDomain{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_customerprofiles.CfnDomain",
+		"monocdk.aws_customerprofiles.CfnDomain",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -236,11 +244,11 @@ func NewCfnDomain(scope constructs.Construct, id *string, props *CfnDomainProps)
 }
 
 // Create a new `AWS::CustomerProfiles::Domain`.
-func NewCfnDomain_Override(c CfnDomain, scope constructs.Construct, id *string, props *CfnDomainProps) {
+func NewCfnDomain_Override(c CfnDomain, scope awscdk.Construct, id *string, props *CfnDomainProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_customerprofiles.CfnDomain",
+		"monocdk.aws_customerprofiles.CfnDomain",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -284,13 +292,14 @@ func (j *jsiiProxy_CfnDomain) SetDomainName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnDomain_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_customerprofiles.CfnDomain",
+		"monocdk.aws_customerprofiles.CfnDomain",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -300,13 +309,14 @@ func CfnDomain_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnDomain_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_customerprofiles.CfnDomain",
+		"monocdk.aws_customerprofiles.CfnDomain",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -315,17 +325,15 @@ func CfnDomain_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnDomain_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_customerprofiles.CfnDomain",
+		"monocdk.aws_customerprofiles.CfnDomain",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -338,7 +346,7 @@ func CfnDomain_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_customerprofiles.CfnDomain",
+		"monocdk.aws_customerprofiles.CfnDomain",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -346,6 +354,7 @@ func CfnDomain_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnDomain) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -358,6 +367,7 @@ func (c *jsiiProxy_CfnDomain) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnDomain) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -373,6 +383,7 @@ func (c *jsiiProxy_CfnDomain) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnDomain) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -418,6 +429,7 @@ func (c *jsiiProxy_CfnDomain) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnDomain) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -427,6 +439,7 @@ func (c *jsiiProxy_CfnDomain) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnDomain) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -438,6 +451,7 @@ func (c *jsiiProxy_CfnDomain) AddPropertyDeletionOverride(propertyPath *string) 
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnDomain) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -455,6 +469,7 @@ func (c *jsiiProxy_CfnDomain) AddPropertyOverride(propertyPath *string, value in
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnDomain) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -467,6 +482,7 @@ func (c *jsiiProxy_CfnDomain) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, op
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnDomain) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -487,6 +503,7 @@ func (c *jsiiProxy_CfnDomain) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnDomain) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -509,12 +526,80 @@ func (c *jsiiProxy_CfnDomain) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDomain) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDomain) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDomain) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnDomain) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDomain) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -535,6 +620,7 @@ func (c *jsiiProxy_CfnDomain) RenderProperties(props *map[string]interface{}) *m
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnDomain) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -548,9 +634,23 @@ func (c *jsiiProxy_CfnDomain) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDomain) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnDomain) ToString() *string {
 	var returns *string
 
@@ -564,6 +664,27 @@ func (c *jsiiProxy_CfnDomain) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDomain) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnDomain) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -572,24 +693,30 @@ func (c *jsiiProxy_CfnDomain) ValidateProperties(_properties interface{}) {
 	)
 }
 
-// Properties for defining a `AWS::CustomerProfiles::Domain`.
+// Properties for defining a `CfnDomain`.
 //
 // TODO: EXAMPLE
 //
 type CfnDomainProps struct {
-	// `AWS::CustomerProfiles::Domain.DeadLetterQueueUrl`.
-	DeadLetterQueueUrl *string `json:"deadLetterQueueUrl"`
-	// `AWS::CustomerProfiles::Domain.DefaultEncryptionKey`.
-	DefaultEncryptionKey *string `json:"defaultEncryptionKey"`
-	// `AWS::CustomerProfiles::Domain.DefaultExpirationDays`.
-	DefaultExpirationDays *float64 `json:"defaultExpirationDays"`
-	// `AWS::CustomerProfiles::Domain.DomainName`.
+	// The unique name of the domain.
 	DomainName *string `json:"domainName"`
-	// `AWS::CustomerProfiles::Domain.Tags`.
+	// The URL of the SQS dead letter queue, which is used for reporting errors associated with ingesting data from third party applications.
+	//
+	// You must set up a policy on the DeadLetterQueue for the SendMessage operation to enable Amazon Connect Customer Profiles to send messages to the DeadLetterQueue.
+	DeadLetterQueueUrl *string `json:"deadLetterQueueUrl"`
+	// The default encryption key, which is an AWS managed key, is used when no specific type of encryption key is specified.
+	//
+	// It is used to encrypt all data before it is placed in permanent or semi-permanent storage.
+	DefaultEncryptionKey *string `json:"defaultEncryptionKey"`
+	// The default number of days until the data within the domain expires.
+	DefaultExpirationDays *float64 `json:"defaultExpirationDays"`
+	// The tags used to organize, track, or control access for this resource.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::CustomerProfiles::Integration`.
+//
+// The AWS::CustomerProfiles::Integration resource specifies an Amazon Connect Customer Profiles Integration.
 //
 // TODO: EXAMPLE
 //
@@ -607,7 +734,7 @@ type CfnIntegration interface {
 	FlowDefinition() interface{}
 	SetFlowDefinition(val interface{})
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	ObjectTypeName() *string
 	SetObjectTypeName(val *string)
 	Ref() *string
@@ -626,10 +753,16 @@ type CfnIntegration interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -729,8 +862,8 @@ func (j *jsiiProxy_CfnIntegration) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIntegration) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnIntegration) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -801,13 +934,13 @@ func (j *jsiiProxy_CfnIntegration) Uri() *string {
 
 
 // Create a new `AWS::CustomerProfiles::Integration`.
-func NewCfnIntegration(scope constructs.Construct, id *string, props *CfnIntegrationProps) CfnIntegration {
+func NewCfnIntegration(scope awscdk.Construct, id *string, props *CfnIntegrationProps) CfnIntegration {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnIntegration{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_customerprofiles.CfnIntegration",
+		"monocdk.aws_customerprofiles.CfnIntegration",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -816,11 +949,11 @@ func NewCfnIntegration(scope constructs.Construct, id *string, props *CfnIntegra
 }
 
 // Create a new `AWS::CustomerProfiles::Integration`.
-func NewCfnIntegration_Override(c CfnIntegration, scope constructs.Construct, id *string, props *CfnIntegrationProps) {
+func NewCfnIntegration_Override(c CfnIntegration, scope awscdk.Construct, id *string, props *CfnIntegrationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_customerprofiles.CfnIntegration",
+		"monocdk.aws_customerprofiles.CfnIntegration",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -864,13 +997,14 @@ func (j *jsiiProxy_CfnIntegration) SetUri(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnIntegration_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_customerprofiles.CfnIntegration",
+		"monocdk.aws_customerprofiles.CfnIntegration",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -880,13 +1014,14 @@ func CfnIntegration_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnIntegration_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_customerprofiles.CfnIntegration",
+		"monocdk.aws_customerprofiles.CfnIntegration",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -895,17 +1030,15 @@ func CfnIntegration_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnIntegration_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_customerprofiles.CfnIntegration",
+		"monocdk.aws_customerprofiles.CfnIntegration",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -918,7 +1051,7 @@ func CfnIntegration_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_customerprofiles.CfnIntegration",
+		"monocdk.aws_customerprofiles.CfnIntegration",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -926,6 +1059,7 @@ func CfnIntegration_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnIntegration) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -938,6 +1072,7 @@ func (c *jsiiProxy_CfnIntegration) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnIntegration) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -953,6 +1088,7 @@ func (c *jsiiProxy_CfnIntegration) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnIntegration) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -998,6 +1134,7 @@ func (c *jsiiProxy_CfnIntegration) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnIntegration) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1007,6 +1144,7 @@ func (c *jsiiProxy_CfnIntegration) AddOverride(path *string, value interface{}) 
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnIntegration) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1018,6 +1156,7 @@ func (c *jsiiProxy_CfnIntegration) AddPropertyDeletionOverride(propertyPath *str
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnIntegration) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1035,6 +1174,7 @@ func (c *jsiiProxy_CfnIntegration) AddPropertyOverride(propertyPath *string, val
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnIntegration) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1047,6 +1187,7 @@ func (c *jsiiProxy_CfnIntegration) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnIntegration) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1067,6 +1208,7 @@ func (c *jsiiProxy_CfnIntegration) GetAtt(attributeName *string) awscdk.Referenc
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnIntegration) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1089,12 +1231,80 @@ func (c *jsiiProxy_CfnIntegration) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnIntegration) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnIntegration) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnIntegration) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnIntegration) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnIntegration) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1115,6 +1325,7 @@ func (c *jsiiProxy_CfnIntegration) RenderProperties(props *map[string]interface{
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnIntegration) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1128,9 +1339,23 @@ func (c *jsiiProxy_CfnIntegration) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnIntegration) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnIntegration) ToString() *string {
 	var returns *string
 
@@ -1144,6 +1369,27 @@ func (c *jsiiProxy_CfnIntegration) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnIntegration) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnIntegration) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1170,8 +1416,6 @@ type CfnIntegration_ConnectorOperatorProperty struct {
 // TODO: EXAMPLE
 //
 type CfnIntegration_FlowDefinitionProperty struct {
-	// `CfnIntegration.FlowDefinitionProperty.Description`.
-	Description *string `json:"description"`
 	// `CfnIntegration.FlowDefinitionProperty.FlowName`.
 	FlowName *string `json:"flowName"`
 	// `CfnIntegration.FlowDefinitionProperty.KmsArn`.
@@ -1182,6 +1426,8 @@ type CfnIntegration_FlowDefinitionProperty struct {
 	Tasks interface{} `json:"tasks"`
 	// `CfnIntegration.FlowDefinitionProperty.TriggerConfig`.
 	TriggerConfig interface{} `json:"triggerConfig"`
+	// `CfnIntegration.FlowDefinitionProperty.Description`.
+	Description *string `json:"description"`
 }
 
 // TODO: EXAMPLE
@@ -1210,25 +1456,25 @@ type CfnIntegration_S3SourcePropertiesProperty struct {
 // TODO: EXAMPLE
 //
 type CfnIntegration_SalesforceSourcePropertiesProperty struct {
+	// `CfnIntegration.SalesforceSourcePropertiesProperty.Object`.
+	Object *string `json:"object"`
 	// `CfnIntegration.SalesforceSourcePropertiesProperty.EnableDynamicFieldUpdate`.
 	EnableDynamicFieldUpdate interface{} `json:"enableDynamicFieldUpdate"`
 	// `CfnIntegration.SalesforceSourcePropertiesProperty.IncludeDeletedRecords`.
 	IncludeDeletedRecords interface{} `json:"includeDeletedRecords"`
-	// `CfnIntegration.SalesforceSourcePropertiesProperty.Object`.
-	Object *string `json:"object"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnIntegration_ScheduledTriggerPropertiesProperty struct {
+	// `CfnIntegration.ScheduledTriggerPropertiesProperty.ScheduleExpression`.
+	ScheduleExpression *string `json:"scheduleExpression"`
 	// `CfnIntegration.ScheduledTriggerPropertiesProperty.DataPullMode`.
 	DataPullMode *string `json:"dataPullMode"`
 	// `CfnIntegration.ScheduledTriggerPropertiesProperty.FirstExecutionFrom`.
 	FirstExecutionFrom *float64 `json:"firstExecutionFrom"`
 	// `CfnIntegration.ScheduledTriggerPropertiesProperty.ScheduleEndTime`.
 	ScheduleEndTime *float64 `json:"scheduleEndTime"`
-	// `CfnIntegration.ScheduledTriggerPropertiesProperty.ScheduleExpression`.
-	ScheduleExpression *string `json:"scheduleExpression"`
 	// `CfnIntegration.ScheduledTriggerPropertiesProperty.ScheduleOffset`.
 	ScheduleOffset *float64 `json:"scheduleOffset"`
 	// `CfnIntegration.ScheduledTriggerPropertiesProperty.ScheduleStartTime`.
@@ -1262,14 +1508,14 @@ type CfnIntegration_SourceConnectorPropertiesProperty struct {
 // TODO: EXAMPLE
 //
 type CfnIntegration_SourceFlowConfigProperty struct {
-	// `CfnIntegration.SourceFlowConfigProperty.ConnectorProfileName`.
-	ConnectorProfileName *string `json:"connectorProfileName"`
 	// `CfnIntegration.SourceFlowConfigProperty.ConnectorType`.
 	ConnectorType *string `json:"connectorType"`
-	// `CfnIntegration.SourceFlowConfigProperty.IncrementalPullConfig`.
-	IncrementalPullConfig interface{} `json:"incrementalPullConfig"`
 	// `CfnIntegration.SourceFlowConfigProperty.SourceConnectorProperties`.
 	SourceConnectorProperties interface{} `json:"sourceConnectorProperties"`
+	// `CfnIntegration.SourceFlowConfigProperty.ConnectorProfileName`.
+	ConnectorProfileName *string `json:"connectorProfileName"`
+	// `CfnIntegration.SourceFlowConfigProperty.IncrementalPullConfig`.
+	IncrementalPullConfig interface{} `json:"incrementalPullConfig"`
 }
 
 // TODO: EXAMPLE
@@ -1284,25 +1530,25 @@ type CfnIntegration_TaskPropertiesMapProperty struct {
 // TODO: EXAMPLE
 //
 type CfnIntegration_TaskProperty struct {
+	// `CfnIntegration.TaskProperty.SourceFields`.
+	SourceFields *[]*string `json:"sourceFields"`
+	// `CfnIntegration.TaskProperty.TaskType`.
+	TaskType *string `json:"taskType"`
 	// `CfnIntegration.TaskProperty.ConnectorOperator`.
 	ConnectorOperator interface{} `json:"connectorOperator"`
 	// `CfnIntegration.TaskProperty.DestinationField`.
 	DestinationField *string `json:"destinationField"`
-	// `CfnIntegration.TaskProperty.SourceFields`.
-	SourceFields *[]*string `json:"sourceFields"`
 	// `CfnIntegration.TaskProperty.TaskProperties`.
 	TaskProperties interface{} `json:"taskProperties"`
-	// `CfnIntegration.TaskProperty.TaskType`.
-	TaskType *string `json:"taskType"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnIntegration_TriggerConfigProperty struct {
-	// `CfnIntegration.TriggerConfigProperty.TriggerProperties`.
-	TriggerProperties interface{} `json:"triggerProperties"`
 	// `CfnIntegration.TriggerConfigProperty.TriggerType`.
 	TriggerType *string `json:"triggerType"`
+	// `CfnIntegration.TriggerConfigProperty.TriggerProperties`.
+	TriggerProperties interface{} `json:"triggerProperties"`
 }
 
 // TODO: EXAMPLE
@@ -1319,24 +1565,26 @@ type CfnIntegration_ZendeskSourcePropertiesProperty struct {
 	Object *string `json:"object"`
 }
 
-// Properties for defining a `AWS::CustomerProfiles::Integration`.
+// Properties for defining a `CfnIntegration`.
 //
 // TODO: EXAMPLE
 //
 type CfnIntegrationProps struct {
-	// `AWS::CustomerProfiles::Integration.DomainName`.
+	// The unique name of the domain.
 	DomainName *string `json:"domainName"`
+	// The name of the profile object type mapping to use.
+	ObjectTypeName *string `json:"objectTypeName"`
 	// `AWS::CustomerProfiles::Integration.FlowDefinition`.
 	FlowDefinition interface{} `json:"flowDefinition"`
-	// `AWS::CustomerProfiles::Integration.ObjectTypeName`.
-	ObjectTypeName *string `json:"objectTypeName"`
-	// `AWS::CustomerProfiles::Integration.Tags`.
+	// The tags used to organize, track, or control access for this resource.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
-	// `AWS::CustomerProfiles::Integration.Uri`.
+	// The URI of the S3 bucket or any other type of data source.
 	Uri *string `json:"uri"`
 }
 
 // A CloudFormation `AWS::CustomerProfiles::ObjectType`.
+//
+// The AWS::CustomerProfiles::ObjectType resource specifies an Amazon Connect Customer Profiles Object Type Mapping.
 //
 // TODO: EXAMPLE
 //
@@ -1364,7 +1612,7 @@ type CfnObjectType interface {
 	Keys() interface{}
 	SetKeys(val interface{})
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	ObjectTypeName() *string
 	SetObjectTypeName(val *string)
 	Ref() *string
@@ -1383,10 +1631,16 @@ type CfnObjectType interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1536,8 +1790,8 @@ func (j *jsiiProxy_CfnObjectType) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnObjectType) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnObjectType) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1608,13 +1862,13 @@ func (j *jsiiProxy_CfnObjectType) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::CustomerProfiles::ObjectType`.
-func NewCfnObjectType(scope constructs.Construct, id *string, props *CfnObjectTypeProps) CfnObjectType {
+func NewCfnObjectType(scope awscdk.Construct, id *string, props *CfnObjectTypeProps) CfnObjectType {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnObjectType{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_customerprofiles.CfnObjectType",
+		"monocdk.aws_customerprofiles.CfnObjectType",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1623,11 +1877,11 @@ func NewCfnObjectType(scope constructs.Construct, id *string, props *CfnObjectTy
 }
 
 // Create a new `AWS::CustomerProfiles::ObjectType`.
-func NewCfnObjectType_Override(c CfnObjectType, scope constructs.Construct, id *string, props *CfnObjectTypeProps) {
+func NewCfnObjectType_Override(c CfnObjectType, scope awscdk.Construct, id *string, props *CfnObjectTypeProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_customerprofiles.CfnObjectType",
+		"monocdk.aws_customerprofiles.CfnObjectType",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1711,13 +1965,14 @@ func (j *jsiiProxy_CfnObjectType) SetTemplateId(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnObjectType_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_customerprofiles.CfnObjectType",
+		"monocdk.aws_customerprofiles.CfnObjectType",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1727,13 +1982,14 @@ func CfnObjectType_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnObjectType_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_customerprofiles.CfnObjectType",
+		"monocdk.aws_customerprofiles.CfnObjectType",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1742,17 +1998,15 @@ func CfnObjectType_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnObjectType_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_customerprofiles.CfnObjectType",
+		"monocdk.aws_customerprofiles.CfnObjectType",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1765,7 +2019,7 @@ func CfnObjectType_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_customerprofiles.CfnObjectType",
+		"monocdk.aws_customerprofiles.CfnObjectType",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1773,6 +2027,7 @@ func CfnObjectType_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnObjectType) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1785,6 +2040,7 @@ func (c *jsiiProxy_CfnObjectType) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnObjectType) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1800,6 +2056,7 @@ func (c *jsiiProxy_CfnObjectType) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnObjectType) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1845,6 +2102,7 @@ func (c *jsiiProxy_CfnObjectType) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnObjectType) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1854,6 +2112,7 @@ func (c *jsiiProxy_CfnObjectType) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnObjectType) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1865,6 +2124,7 @@ func (c *jsiiProxy_CfnObjectType) AddPropertyDeletionOverride(propertyPath *stri
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnObjectType) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1882,6 +2142,7 @@ func (c *jsiiProxy_CfnObjectType) AddPropertyOverride(propertyPath *string, valu
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnObjectType) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1894,6 +2155,7 @@ func (c *jsiiProxy_CfnObjectType) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnObjectType) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1914,6 +2176,7 @@ func (c *jsiiProxy_CfnObjectType) GetAtt(attributeName *string) awscdk.Reference
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnObjectType) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1936,12 +2199,80 @@ func (c *jsiiProxy_CfnObjectType) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnObjectType) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnObjectType) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnObjectType) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnObjectType) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnObjectType) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1962,6 +2293,7 @@ func (c *jsiiProxy_CfnObjectType) RenderProperties(props *map[string]interface{}
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnObjectType) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1975,9 +2307,23 @@ func (c *jsiiProxy_CfnObjectType) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnObjectType) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnObjectType) ToString() *string {
 	var returns *string
 
@@ -1991,6 +2337,27 @@ func (c *jsiiProxy_CfnObjectType) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnObjectType) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnObjectType) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1999,68 +2366,92 @@ func (c *jsiiProxy_CfnObjectType) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// A map of the name and ObjectType field.
+//
 // TODO: EXAMPLE
 //
 type CfnObjectType_FieldMapProperty struct {
-	// `CfnObjectType.FieldMapProperty.Name`.
+	// Name of the field.
 	Name *string `json:"name"`
-	// `CfnObjectType.FieldMapProperty.ObjectTypeField`.
+	// Represents a field in a ProfileObjectType.
 	ObjectTypeField interface{} `json:"objectTypeField"`
 }
 
+// A unique key map that can be used to map data to the profile.
+//
 // TODO: EXAMPLE
 //
 type CfnObjectType_KeyMapProperty struct {
-	// `CfnObjectType.KeyMapProperty.Name`.
+	// Name of the key.
 	Name *string `json:"name"`
-	// `CfnObjectType.KeyMapProperty.ObjectTypeKeyList`.
+	// A list of ObjectTypeKey.
 	ObjectTypeKeyList interface{} `json:"objectTypeKeyList"`
 }
 
+// Represents a field in a ProfileObjectType.
+//
 // TODO: EXAMPLE
 //
 type CfnObjectType_ObjectTypeFieldProperty struct {
-	// `CfnObjectType.ObjectTypeFieldProperty.ContentType`.
+	// The content type of the field.
+	//
+	// Used for determining equality when searching.
 	ContentType *string `json:"contentType"`
-	// `CfnObjectType.ObjectTypeFieldProperty.Source`.
+	// A field of a ProfileObject.
+	//
+	// For example: _source.FirstName, where “_source” is a ProfileObjectType of a Zendesk user and “FirstName” is a field in that ObjectType.
 	Source *string `json:"source"`
-	// `CfnObjectType.ObjectTypeFieldProperty.Target`.
+	// The location of the data in the standard ProfileObject model.
+	//
+	// For example: _profile.Address.PostalCode.
 	Target *string `json:"target"`
 }
 
+// An object that defines the Key element of a ProfileObject.
+//
+// A Key is a special element that can be used to search for a customer profile.
+//
 // TODO: EXAMPLE
 //
 type CfnObjectType_ObjectTypeKeyProperty struct {
-	// `CfnObjectType.ObjectTypeKeyProperty.FieldNames`.
+	// The reference for the key name of the fields map.
 	FieldNames *[]*string `json:"fieldNames"`
-	// `CfnObjectType.ObjectTypeKeyProperty.StandardIdentifiers`.
+	// The types of keys that a ProfileObject can have.
+	//
+	// Each ProfileObject can have only 1 UNIQUE key but multiple PROFILE keys. PROFILE means that this key can be used to tie an object to a PROFILE. UNIQUE means that it can be used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is only used to match a profile but is not persisted to be used for searching of the profile. A NEW_ONLY key is only used if the profile does not already exist before the object is ingested, otherwise it is only used for matching objects to profiles.
 	StandardIdentifiers *[]*string `json:"standardIdentifiers"`
 }
 
-// Properties for defining a `AWS::CustomerProfiles::ObjectType`.
+// Properties for defining a `CfnObjectType`.
 //
 // TODO: EXAMPLE
 //
 type CfnObjectTypeProps struct {
-	// `AWS::CustomerProfiles::ObjectType.AllowProfileCreation`.
-	AllowProfileCreation interface{} `json:"allowProfileCreation"`
-	// `AWS::CustomerProfiles::ObjectType.Description`.
-	Description *string `json:"description"`
-	// `AWS::CustomerProfiles::ObjectType.DomainName`.
+	// The unique name of the domain.
 	DomainName *string `json:"domainName"`
-	// `AWS::CustomerProfiles::ObjectType.EncryptionKey`.
+	// Indicates whether a profile should be created when data is received if one doesn’t exist for an object of this type.
+	//
+	// The default is `FALSE` . If the AllowProfileCreation flag is set to `FALSE` , then the service tries to fetch a standard profile and associate this object with the profile. If it is set to `TRUE` , and if no match is found, then the service creates a new standard profile.
+	AllowProfileCreation interface{} `json:"allowProfileCreation"`
+	// The description of the profile object type mapping.
+	Description *string `json:"description"`
+	// The customer-provided key to encrypt the profile object that will be created in this profile object type mapping.
+	//
+	// If not specified the system will use the encryption key of the domain.
 	EncryptionKey *string `json:"encryptionKey"`
-	// `AWS::CustomerProfiles::ObjectType.ExpirationDays`.
+	// The number of days until the data of this type expires.
 	ExpirationDays *float64 `json:"expirationDays"`
-	// `AWS::CustomerProfiles::ObjectType.Fields`.
+	// A list of field definitions for the object type mapping.
 	Fields interface{} `json:"fields"`
-	// `AWS::CustomerProfiles::ObjectType.Keys`.
+	// A list of keys that can be used to map data to the profile or search for the profile.
 	Keys interface{} `json:"keys"`
-	// `AWS::CustomerProfiles::ObjectType.ObjectTypeName`.
+	// The name of the profile object type.
 	ObjectTypeName *string `json:"objectTypeName"`
-	// `AWS::CustomerProfiles::ObjectType.Tags`.
+	// The tags used to organize, track, or control access for this resource.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
-	// `AWS::CustomerProfiles::ObjectType.TemplateId`.
+	// A unique identifier for the template mapping.
+	//
+	// This can be used instead of specifying the Keys and Fields properties directly.
 	TemplateId *string `json:"templateId"`
 }
 

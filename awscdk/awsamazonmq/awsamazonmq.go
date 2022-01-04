@@ -1,15 +1,36 @@
 package awsamazonmq
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsamazonmq/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsamazonmq/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::AmazonMQ::Broker`.
+//
+// A *broker* is a message broker environment running on Amazon MQ . It is the basic building block of Amazon MQ .
+//
+// The `AWS::AmazonMQ::Broker` resource lets you create Amazon MQ for ActiveMQ and Amazon MQ for RabbitMQ brokers, add configuration changes or modify users for a speified ActiveMQ broker, return information about the specified broker, and delete the broker. For more information, see [How Amazon MQ works](https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/amazon-mq-how-it-works.html) in the *Amazon MQ Developer Guide* .
+//
+// - `ec2:CreateNetworkInterface`
+//
+// This permission is required to allow Amazon MQ to create an elastic network interface (ENI) on behalf of your account.
+// - `ec2:CreateNetworkInterfacePermission`
+//
+// This permission is required to attach the ENI to the broker instance.
+// - `ec2:DeleteNetworkInterface`
+// - `ec2:DeleteNetworkInterfacePermission`
+// - `ec2:DetachNetworkInterface`
+// - `ec2:DescribeInternetGateways`
+// - `ec2:DescribeNetworkInterfaces`
+// - `ec2:DescribeNetworkInterfacePermissions`
+// - `ec2:DescribeRouteTables`
+// - `ec2:DescribeSecurityGroups`
+// - `ec2:DescribeSubnets`
+// - `ec2:DescribeVpcs`
 //
 // TODO: EXAMPLE
 //
@@ -54,7 +75,7 @@ type CfnBroker interface {
 	SetLogs(val interface{})
 	MaintenanceWindowStartTime() interface{}
 	SetMaintenanceWindowStartTime(val interface{})
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PubliclyAccessible() interface{}
 	SetPubliclyAccessible(val interface{})
 	Ref() *string
@@ -79,10 +100,16 @@ type CfnBroker interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -352,8 +379,8 @@ func (j *jsiiProxy_CfnBroker) MaintenanceWindowStartTime() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBroker) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnBroker) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -454,13 +481,13 @@ func (j *jsiiProxy_CfnBroker) Users() interface{} {
 
 
 // Create a new `AWS::AmazonMQ::Broker`.
-func NewCfnBroker(scope constructs.Construct, id *string, props *CfnBrokerProps) CfnBroker {
+func NewCfnBroker(scope awscdk.Construct, id *string, props *CfnBrokerProps) CfnBroker {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnBroker{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_amazonmq.CfnBroker",
+		"monocdk.aws_amazonmq.CfnBroker",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -469,11 +496,11 @@ func NewCfnBroker(scope constructs.Construct, id *string, props *CfnBrokerProps)
 }
 
 // Create a new `AWS::AmazonMQ::Broker`.
-func NewCfnBroker_Override(c CfnBroker, scope constructs.Construct, id *string, props *CfnBrokerProps) {
+func NewCfnBroker_Override(c CfnBroker, scope awscdk.Construct, id *string, props *CfnBrokerProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_amazonmq.CfnBroker",
+		"monocdk.aws_amazonmq.CfnBroker",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -621,13 +648,14 @@ func (j *jsiiProxy_CfnBroker) SetUsers(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnBroker_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_amazonmq.CfnBroker",
+		"monocdk.aws_amazonmq.CfnBroker",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -637,13 +665,14 @@ func CfnBroker_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnBroker_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_amazonmq.CfnBroker",
+		"monocdk.aws_amazonmq.CfnBroker",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -652,17 +681,15 @@ func CfnBroker_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnBroker_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_amazonmq.CfnBroker",
+		"monocdk.aws_amazonmq.CfnBroker",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -675,7 +702,7 @@ func CfnBroker_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_amazonmq.CfnBroker",
+		"monocdk.aws_amazonmq.CfnBroker",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -683,6 +710,7 @@ func CfnBroker_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnBroker) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -695,6 +723,7 @@ func (c *jsiiProxy_CfnBroker) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnBroker) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -710,6 +739,7 @@ func (c *jsiiProxy_CfnBroker) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnBroker) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -755,6 +785,7 @@ func (c *jsiiProxy_CfnBroker) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnBroker) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -764,6 +795,7 @@ func (c *jsiiProxy_CfnBroker) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnBroker) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -775,6 +807,7 @@ func (c *jsiiProxy_CfnBroker) AddPropertyDeletionOverride(propertyPath *string) 
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnBroker) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -792,6 +825,7 @@ func (c *jsiiProxy_CfnBroker) AddPropertyOverride(propertyPath *string, value in
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnBroker) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -804,6 +838,7 @@ func (c *jsiiProxy_CfnBroker) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, op
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnBroker) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -824,6 +859,7 @@ func (c *jsiiProxy_CfnBroker) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnBroker) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -846,12 +882,80 @@ func (c *jsiiProxy_CfnBroker) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnBroker) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnBroker) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnBroker) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnBroker) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnBroker) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -872,6 +976,7 @@ func (c *jsiiProxy_CfnBroker) RenderProperties(props *map[string]interface{}) *m
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnBroker) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -885,9 +990,23 @@ func (c *jsiiProxy_CfnBroker) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnBroker) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnBroker) ToString() *string {
 	var returns *string
 
@@ -901,6 +1020,27 @@ func (c *jsiiProxy_CfnBroker) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnBroker) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnBroker) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -909,137 +1049,231 @@ func (c *jsiiProxy_CfnBroker) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// A list of information about the configuration.
+//
+// > Does not apply to RabbitMQ brokers.
+//
 // TODO: EXAMPLE
 //
 type CfnBroker_ConfigurationIdProperty struct {
-	// `CfnBroker.ConfigurationIdProperty.Id`.
+	// The unique ID that Amazon MQ generates for the configuration.
 	Id *string `json:"id"`
-	// `CfnBroker.ConfigurationIdProperty.Revision`.
+	// The revision number of the configuration.
 	Revision *float64 `json:"revision"`
 }
 
+// Encryption options for the broker.
+//
+// > Does not apply to RabbitMQ brokers.
+//
 // TODO: EXAMPLE
 //
 type CfnBroker_EncryptionOptionsProperty struct {
-	// `CfnBroker.EncryptionOptionsProperty.KmsKeyId`.
-	KmsKeyId *string `json:"kmsKeyId"`
-	// `CfnBroker.EncryptionOptionsProperty.UseAwsOwnedKey`.
+	// Enables the use of an AWS owned CMK using AWS KMS (KMS).
+	//
+	// Set to `true` by default, if no value is provided, for example, for RabbitMQ brokers.
 	UseAwsOwnedKey interface{} `json:"useAwsOwnedKey"`
+	// The customer master key (CMK) to use for the A AWS KMS (KMS).
+	//
+	// This key is used to encrypt your data at rest. If not provided, Amazon MQ will use a default CMK to encrypt your data.
+	KmsKeyId *string `json:"kmsKeyId"`
 }
 
+// Optional. The metadata of the LDAP server used to authenticate and authorize connections to the broker.
+//
+// > Does not apply to RabbitMQ brokers.
+//
 // TODO: EXAMPLE
 //
 type CfnBroker_LdapServerMetadataProperty struct {
-	// `CfnBroker.LdapServerMetadataProperty.Hosts`.
+	// Specifies the location of the LDAP server such as AWS Directory Service for Microsoft Active Directory .
+	//
+	// Optional failover server.
 	Hosts *[]*string `json:"hosts"`
-	// `CfnBroker.LdapServerMetadataProperty.RoleBase`.
+	// The distinguished name of the node in the directory information tree (DIT) to search for roles or groups.
+	//
+	// For example, `ou=group` , `ou=corp` , `dc=corp` , `dc=example` , `dc=com` .
 	RoleBase *string `json:"roleBase"`
-	// `CfnBroker.LdapServerMetadataProperty.RoleName`.
-	RoleName *string `json:"roleName"`
-	// `CfnBroker.LdapServerMetadataProperty.RoleSearchMatching`.
+	// The LDAP search filter used to find roles within the roleBase.
+	//
+	// The distinguished name of the user matched by userSearchMatching is substituted into the `{0}` placeholder in the search filter. The client's username is substituted into the `{1}` placeholder. For example, if you set this option to `(member=uid={1})` for the user janedoe, the search filter becomes `(member=uid=janedoe)` after string substitution. It matches all role entries that have a member attribute equal to `uid=janedoe` under the subtree selected by the `RoleBases` .
 	RoleSearchMatching *string `json:"roleSearchMatching"`
-	// `CfnBroker.LdapServerMetadataProperty.RoleSearchSubtree`.
-	RoleSearchSubtree interface{} `json:"roleSearchSubtree"`
-	// `CfnBroker.LdapServerMetadataProperty.ServiceAccountPassword`.
+	// Service account password.
+	//
+	// A service account is an account in your LDAP server that has access to initiate a connection. For example, `cn=admin` , `dc=corp` , `dc=example` , `dc=com` .
 	ServiceAccountPassword *string `json:"serviceAccountPassword"`
-	// `CfnBroker.LdapServerMetadataProperty.ServiceAccountUsername`.
+	// Service account username.
+	//
+	// A service account is an account in your LDAP server that has access to initiate a connection. For example, `cn=admin` , `ou=corp` , `dc=corp` , `dc=example` , `dc=com` .
 	ServiceAccountUsername *string `json:"serviceAccountUsername"`
-	// `CfnBroker.LdapServerMetadataProperty.UserBase`.
+	// Select a particular subtree of the directory information tree (DIT) to search for user entries.
+	//
+	// The subtree is specified by a DN, which specifies the base node of the subtree. For example, by setting this option to `ou=Users` , `ou=corp` , `dc=corp` , `dc=example` , `dc=com` , the search for user entries is restricted to the subtree beneath `ou=Users` , `ou=corp` , `dc=corp` , `dc=example` , `dc=com` .
 	UserBase *string `json:"userBase"`
-	// `CfnBroker.LdapServerMetadataProperty.UserRoleName`.
-	UserRoleName *string `json:"userRoleName"`
-	// `CfnBroker.LdapServerMetadataProperty.UserSearchMatching`.
+	// The LDAP search filter used to find users within the `userBase` .
+	//
+	// The client's username is substituted into the `{0}` placeholder in the search filter. For example, if this option is set to `(uid={0})` and the received username is `janedoe` , the search filter becomes `(uid=janedoe)` after string substitution. It will result in matching an entry like `uid=janedoe` , `ou=Users` , `ou=corp` , `dc=corp` , `dc=example` , `dc=com` .
 	UserSearchMatching *string `json:"userSearchMatching"`
-	// `CfnBroker.LdapServerMetadataProperty.UserSearchSubtree`.
+	// The group name attribute in a role entry whose value is the name of that role.
+	//
+	// For example, you can specify `cn` for a group entry's common name. If authentication succeeds, then the user is assigned the the value of the `cn` attribute for each role entry that they are a member of.
+	RoleName *string `json:"roleName"`
+	// The directory search scope for the role.
+	//
+	// If set to true, scope is to search the entire subtree.
+	RoleSearchSubtree interface{} `json:"roleSearchSubtree"`
+	// The name of the LDAP attribute in the user's directory entry for the user's group membership.
+	//
+	// In some cases, user roles may be identified by the value of an attribute in the user's directory entry. The `UserRoleName` option allows you to provide the name of this attribute.
+	UserRoleName *string `json:"userRoleName"`
+	// The directory search scope for the user.
+	//
+	// If set to true, scope is to search the entire subtree.
 	UserSearchSubtree interface{} `json:"userSearchSubtree"`
 }
 
+// The list of information about logs to be enabled for the specified broker.
+//
 // TODO: EXAMPLE
 //
 type CfnBroker_LogListProperty struct {
-	// `CfnBroker.LogListProperty.Audit`.
+	// Enables audit logging.
+	//
+	// Every user management action made using JMX or the ActiveMQ Web Console is logged. Does not apply to RabbitMQ brokers.
 	Audit interface{} `json:"audit"`
-	// `CfnBroker.LogListProperty.General`.
+	// Enables general logging.
 	General interface{} `json:"general"`
 }
 
+// The parameters that determine the `WeeklyStartTime` to apply pending updates or patches to the broker.
+//
 // TODO: EXAMPLE
 //
 type CfnBroker_MaintenanceWindowProperty struct {
-	// `CfnBroker.MaintenanceWindowProperty.DayOfWeek`.
+	// The day of the week.
 	DayOfWeek *string `json:"dayOfWeek"`
-	// `CfnBroker.MaintenanceWindowProperty.TimeOfDay`.
+	// The time, in 24-hour format.
 	TimeOfDay *string `json:"timeOfDay"`
-	// `CfnBroker.MaintenanceWindowProperty.TimeZone`.
+	// The time zone, UTC by default, in either the Country/City format, or the UTC offset format.
 	TimeZone *string `json:"timeZone"`
 }
 
+// A key-value pair to associate with the broker.
+//
 // TODO: EXAMPLE
 //
 type CfnBroker_TagsEntryProperty struct {
-	// `CfnBroker.TagsEntryProperty.Key`.
+	// The key in a key-value pair.
 	Key *string `json:"key"`
-	// `CfnBroker.TagsEntryProperty.Value`.
+	// The value in a key-value pair.
 	Value *string `json:"value"`
 }
 
+// The list of broker users (persons or applications) who can access queues and topics.
+//
+// For Amazon MQ for RabbitMQ brokers, one and only one administrative user is accepted and created when a broker is first provisioned. All subsequent broker users are created via the RabbitMQ web console or by using the RabbitMQ management API.
+//
 // TODO: EXAMPLE
 //
 type CfnBroker_UserProperty struct {
-	// `CfnBroker.UserProperty.ConsoleAccess`.
-	ConsoleAccess interface{} `json:"consoleAccess"`
-	// `CfnBroker.UserProperty.Groups`.
-	Groups *[]*string `json:"groups"`
-	// `CfnBroker.UserProperty.Password`.
+	// The password of the user.
+	//
+	// This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas, colons, or equal signs (,:=).
 	Password *string `json:"password"`
-	// `CfnBroker.UserProperty.Username`.
+	// The username of the broker user.
+	//
+	// For Amazon MQ for ActiveMQ brokers, this value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). For Amazon MQ for RabbitMQ brokers, this value can contain only alphanumeric characters, dashes, periods, underscores (- . _). This value must not contain a tilde (~) character. Amazon MQ prohibts using guest as a valid usename. This value must be 2-100 characters long.
+	//
+	// > Do not add personally identifiable information (PII) or other confidential or sensitive information in broker usernames. Broker usernames are accessible to other AWS services, including CloudWatch Logs . Broker usernames are not intended to be used for private or sensitive data.
 	Username *string `json:"username"`
+	// Enables access to the ActiveMQ web console for the ActiveMQ user.
+	//
+	// Does not apply to RabbitMQ brokers.
+	ConsoleAccess interface{} `json:"consoleAccess"`
+	// The list of groups (20 maximum) to which the ActiveMQ user belongs.
+	//
+	// This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long. Does not apply to RabbitMQ brokers.
+	Groups *[]*string `json:"groups"`
 }
 
-// Properties for defining a `AWS::AmazonMQ::Broker`.
+// Properties for defining a `CfnBroker`.
 //
 // TODO: EXAMPLE
 //
 type CfnBrokerProps struct {
-	// `AWS::AmazonMQ::Broker.AuthenticationStrategy`.
-	AuthenticationStrategy *string `json:"authenticationStrategy"`
-	// `AWS::AmazonMQ::Broker.AutoMinorVersionUpgrade`.
+	// Enables automatic upgrades to new minor versions for brokers, as new broker engine versions are released and supported by Amazon MQ.
+	//
+	// Automatic upgrades occur during the scheduled maintenance window of the broker or after a manual broker reboot.
 	AutoMinorVersionUpgrade interface{} `json:"autoMinorVersionUpgrade"`
-	// `AWS::AmazonMQ::Broker.BrokerName`.
+	// The name of the broker.
+	//
+	// This value must be unique in your AWS account , 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain white spaces, brackets, wildcard characters, or special characters.
+	//
+	// > Do not add personally identifiable information (PII) or other confidential or sensitive information in broker names. Broker names are accessible to other AWS services, including C CloudWatch Logs . Broker names are not intended to be used for private or sensitive data.
 	BrokerName *string `json:"brokerName"`
-	// `AWS::AmazonMQ::Broker.Configuration`.
-	Configuration interface{} `json:"configuration"`
-	// `AWS::AmazonMQ::Broker.DeploymentMode`.
+	// The deployment mode of the broker. Available values:.
+	//
+	// - `SINGLE_INSTANCE`
+	// - `ACTIVE_STANDBY_MULTI_AZ`
+	// - `CLUSTER_MULTI_AZ`
 	DeploymentMode *string `json:"deploymentMode"`
-	// `AWS::AmazonMQ::Broker.EncryptionOptions`.
-	EncryptionOptions interface{} `json:"encryptionOptions"`
-	// `AWS::AmazonMQ::Broker.EngineType`.
+	// The type of broker engine.
+	//
+	// Currently, Amazon MQ supports `ACTIVEMQ` and `RABBITMQ` .
 	EngineType *string `json:"engineType"`
-	// `AWS::AmazonMQ::Broker.EngineVersion`.
+	// The version of the broker engine.
+	//
+	// For a list of supported engine versions, see [Engine](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) in the *Amazon MQ Developer Guide* .
 	EngineVersion *string `json:"engineVersion"`
-	// `AWS::AmazonMQ::Broker.HostInstanceType`.
+	// The broker's instance type.
 	HostInstanceType *string `json:"hostInstanceType"`
-	// `AWS::AmazonMQ::Broker.LdapServerMetadata`.
-	LdapServerMetadata interface{} `json:"ldapServerMetadata"`
-	// `AWS::AmazonMQ::Broker.Logs`.
-	Logs interface{} `json:"logs"`
-	// `AWS::AmazonMQ::Broker.MaintenanceWindowStartTime`.
-	MaintenanceWindowStartTime interface{} `json:"maintenanceWindowStartTime"`
-	// `AWS::AmazonMQ::Broker.PubliclyAccessible`.
+	// Enables connections from applications outside of the VPC that hosts the broker's subnets.
 	PubliclyAccessible interface{} `json:"publiclyAccessible"`
-	// `AWS::AmazonMQ::Broker.SecurityGroups`.
-	SecurityGroups *[]*string `json:"securityGroups"`
-	// `AWS::AmazonMQ::Broker.StorageType`.
-	StorageType *string `json:"storageType"`
-	// `AWS::AmazonMQ::Broker.SubnetIds`.
-	SubnetIds *[]*string `json:"subnetIds"`
-	// `AWS::AmazonMQ::Broker.Tags`.
-	Tags *[]*CfnBroker_TagsEntryProperty `json:"tags"`
-	// `AWS::AmazonMQ::Broker.Users`.
+	// The list of broker users (persons or applications) who can access queues and topics.
+	//
+	// For Amazon MQ for RabbitMQ brokers, one and only one administrative user is accepted and created when a broker is first provisioned. All subsequent RabbitMQ users are created by via the RabbitMQ web console or by using the RabbitMQ management API.
 	Users interface{} `json:"users"`
+	// Optional.
+	//
+	// The authentication strategy used to secure the broker. The default is `SIMPLE` .
+	AuthenticationStrategy *string `json:"authenticationStrategy"`
+	// A list of information about the configuration.
+	//
+	// Does not apply to RabbitMQ brokers.
+	Configuration interface{} `json:"configuration"`
+	// Encryption options for the broker.
+	//
+	// Does not apply to RabbitMQ brokers.
+	EncryptionOptions interface{} `json:"encryptionOptions"`
+	// Optional.
+	//
+	// The metadata of the LDAP server used to authenticate and authorize connections to the broker. Does not apply to RabbitMQ brokers.
+	LdapServerMetadata interface{} `json:"ldapServerMetadata"`
+	// Enables Amazon CloudWatch logging for brokers.
+	Logs interface{} `json:"logs"`
+	// The scheduled time period relative to UTC during which Amazon MQ begins to apply pending updates or patches to the broker.
+	MaintenanceWindowStartTime interface{} `json:"maintenanceWindowStartTime"`
+	// The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.
+	SecurityGroups *[]*string `json:"securityGroups"`
+	// The broker's storage type.
+	StorageType *string `json:"storageType"`
+	// The list of groups that define which subnets and IP ranges the broker can use from different Availability Zones.
+	//
+	// If you specify more than one subnet, the subnets must be in different Availability Zones. Amazon MQ will not be able to create VPC endpoints for your broker with multiple subnets in the same Availability Zone. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ deployment (ACTIVEMQ) requires two subnets. A CLUSTER_MULTI_AZ deployment (RABBITMQ) has no subnet requirements when deployed with public accessibility, deployment without public accessibility requires at least one subnet.
+	//
+	// > If you specify subnets in a shared VPC for a RabbitMQ broker, the associated VPC to which the specified subnets belong must be owned by your AWS account . Amazon MQ will not be able to create VPC enpoints in VPCs that are not owned by your AWS account .
+	SubnetIds *[]*string `json:"subnetIds"`
+	// An array of key-value pairs.
+	//
+	// For more information, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *Billing and Cost Management User Guide* .
+	Tags *[]*CfnBroker_TagsEntryProperty `json:"tags"`
 }
 
 // A CloudFormation `AWS::AmazonMQ::Configuration`.
+//
+// Creates a new configuration for the specified configuration name. Amazon MQ uses the default configuration (the engine type and version).
+//
+// > Does not apply to RabbitMQ brokers.
 //
 // TODO: EXAMPLE
 //
@@ -1066,7 +1300,7 @@ type CfnConfiguration interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	Tags() awscdk.TagManager
@@ -1081,10 +1315,16 @@ type CfnConfiguration interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1234,8 +1474,8 @@ func (j *jsiiProxy_CfnConfiguration) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConfiguration) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnConfiguration) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1286,13 +1526,13 @@ func (j *jsiiProxy_CfnConfiguration) UpdatedProperites() *map[string]interface{}
 
 
 // Create a new `AWS::AmazonMQ::Configuration`.
-func NewCfnConfiguration(scope constructs.Construct, id *string, props *CfnConfigurationProps) CfnConfiguration {
+func NewCfnConfiguration(scope awscdk.Construct, id *string, props *CfnConfigurationProps) CfnConfiguration {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnConfiguration{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_amazonmq.CfnConfiguration",
+		"monocdk.aws_amazonmq.CfnConfiguration",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1301,11 +1541,11 @@ func NewCfnConfiguration(scope constructs.Construct, id *string, props *CfnConfi
 }
 
 // Create a new `AWS::AmazonMQ::Configuration`.
-func NewCfnConfiguration_Override(c CfnConfiguration, scope constructs.Construct, id *string, props *CfnConfigurationProps) {
+func NewCfnConfiguration_Override(c CfnConfiguration, scope awscdk.Construct, id *string, props *CfnConfigurationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_amazonmq.CfnConfiguration",
+		"monocdk.aws_amazonmq.CfnConfiguration",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1365,13 +1605,14 @@ func (j *jsiiProxy_CfnConfiguration) SetName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnConfiguration_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_amazonmq.CfnConfiguration",
+		"monocdk.aws_amazonmq.CfnConfiguration",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1381,13 +1622,14 @@ func CfnConfiguration_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnConfiguration_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_amazonmq.CfnConfiguration",
+		"monocdk.aws_amazonmq.CfnConfiguration",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1396,17 +1638,15 @@ func CfnConfiguration_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnConfiguration_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_amazonmq.CfnConfiguration",
+		"monocdk.aws_amazonmq.CfnConfiguration",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1419,7 +1659,7 @@ func CfnConfiguration_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_amazonmq.CfnConfiguration",
+		"monocdk.aws_amazonmq.CfnConfiguration",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1427,6 +1667,7 @@ func CfnConfiguration_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnConfiguration) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1439,6 +1680,7 @@ func (c *jsiiProxy_CfnConfiguration) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnConfiguration) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1454,6 +1696,7 @@ func (c *jsiiProxy_CfnConfiguration) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnConfiguration) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1499,6 +1742,7 @@ func (c *jsiiProxy_CfnConfiguration) AddMetadata(key *string, value interface{})
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnConfiguration) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1508,6 +1752,7 @@ func (c *jsiiProxy_CfnConfiguration) AddOverride(path *string, value interface{}
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnConfiguration) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1519,6 +1764,7 @@ func (c *jsiiProxy_CfnConfiguration) AddPropertyDeletionOverride(propertyPath *s
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnConfiguration) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1536,6 +1782,7 @@ func (c *jsiiProxy_CfnConfiguration) AddPropertyOverride(propertyPath *string, v
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnConfiguration) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1548,6 +1795,7 @@ func (c *jsiiProxy_CfnConfiguration) ApplyRemovalPolicy(policy awscdk.RemovalPol
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnConfiguration) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1568,6 +1816,7 @@ func (c *jsiiProxy_CfnConfiguration) GetAtt(attributeName *string) awscdk.Refere
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnConfiguration) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1590,12 +1839,80 @@ func (c *jsiiProxy_CfnConfiguration) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnConfiguration) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnConfiguration) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnConfiguration) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnConfiguration) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnConfiguration) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1616,6 +1933,7 @@ func (c *jsiiProxy_CfnConfiguration) RenderProperties(props *map[string]interfac
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnConfiguration) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1629,9 +1947,23 @@ func (c *jsiiProxy_CfnConfiguration) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnConfiguration) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnConfiguration) ToString() *string {
 	var returns *string
 
@@ -1645,6 +1977,27 @@ func (c *jsiiProxy_CfnConfiguration) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnConfiguration) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnConfiguration) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1653,16 +2006,22 @@ func (c *jsiiProxy_CfnConfiguration) ValidateProperties(_properties interface{})
 	)
 }
 
+// A key-value pair to associate with the configuration.
+//
 // TODO: EXAMPLE
 //
 type CfnConfiguration_TagsEntryProperty struct {
-	// `CfnConfiguration.TagsEntryProperty.Key`.
+	// The key in a key-value pair.
 	Key *string `json:"key"`
-	// `CfnConfiguration.TagsEntryProperty.Value`.
+	// The value in a key-value pair.
 	Value *string `json:"value"`
 }
 
 // A CloudFormation `AWS::AmazonMQ::ConfigurationAssociation`.
+//
+// Use the AWS CloudFormation `AWS::AmazonMQ::ConfigurationAssociation` resource to associate a configuration with a broker, or return information about the specified ConfigurationAssociation. Only use one per broker, and don't use a configuration on the broker resource if you have associated a configuration with that broker.
+//
+// > Does not apply to RabbitMQ brokers.
 //
 // TODO: EXAMPLE
 //
@@ -1678,7 +2037,7 @@ type CfnConfigurationAssociation interface {
 	SetConfiguration(val interface{})
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	UpdatedProperites() *map[string]interface{}
@@ -1692,10 +2051,16 @@ type CfnConfigurationAssociation interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1775,8 +2140,8 @@ func (j *jsiiProxy_CfnConfigurationAssociation) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConfigurationAssociation) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnConfigurationAssociation) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1817,13 +2182,13 @@ func (j *jsiiProxy_CfnConfigurationAssociation) UpdatedProperites() *map[string]
 
 
 // Create a new `AWS::AmazonMQ::ConfigurationAssociation`.
-func NewCfnConfigurationAssociation(scope constructs.Construct, id *string, props *CfnConfigurationAssociationProps) CfnConfigurationAssociation {
+func NewCfnConfigurationAssociation(scope awscdk.Construct, id *string, props *CfnConfigurationAssociationProps) CfnConfigurationAssociation {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnConfigurationAssociation{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_amazonmq.CfnConfigurationAssociation",
+		"monocdk.aws_amazonmq.CfnConfigurationAssociation",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1832,11 +2197,11 @@ func NewCfnConfigurationAssociation(scope constructs.Construct, id *string, prop
 }
 
 // Create a new `AWS::AmazonMQ::ConfigurationAssociation`.
-func NewCfnConfigurationAssociation_Override(c CfnConfigurationAssociation, scope constructs.Construct, id *string, props *CfnConfigurationAssociationProps) {
+func NewCfnConfigurationAssociation_Override(c CfnConfigurationAssociation, scope awscdk.Construct, id *string, props *CfnConfigurationAssociationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_amazonmq.CfnConfigurationAssociation",
+		"monocdk.aws_amazonmq.CfnConfigurationAssociation",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1864,13 +2229,14 @@ func (j *jsiiProxy_CfnConfigurationAssociation) SetConfiguration(val interface{}
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnConfigurationAssociation_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_amazonmq.CfnConfigurationAssociation",
+		"monocdk.aws_amazonmq.CfnConfigurationAssociation",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1880,13 +2246,14 @@ func CfnConfigurationAssociation_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnConfigurationAssociation_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_amazonmq.CfnConfigurationAssociation",
+		"monocdk.aws_amazonmq.CfnConfigurationAssociation",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1895,17 +2262,15 @@ func CfnConfigurationAssociation_IsCfnResource(construct constructs.IConstruct) 
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnConfigurationAssociation_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_amazonmq.CfnConfigurationAssociation",
+		"monocdk.aws_amazonmq.CfnConfigurationAssociation",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1918,7 +2283,7 @@ func CfnConfigurationAssociation_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_amazonmq.CfnConfigurationAssociation",
+		"monocdk.aws_amazonmq.CfnConfigurationAssociation",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1926,6 +2291,7 @@ func CfnConfigurationAssociation_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnConfigurationAssociation) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1938,6 +2304,7 @@ func (c *jsiiProxy_CfnConfigurationAssociation) AddDeletionOverride(path *string
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnConfigurationAssociation) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1953,6 +2320,7 @@ func (c *jsiiProxy_CfnConfigurationAssociation) AddDependsOn(target awscdk.CfnRe
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnConfigurationAssociation) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1998,6 +2366,7 @@ func (c *jsiiProxy_CfnConfigurationAssociation) AddMetadata(key *string, value i
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnConfigurationAssociation) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2007,6 +2376,7 @@ func (c *jsiiProxy_CfnConfigurationAssociation) AddOverride(path *string, value 
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnConfigurationAssociation) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2018,6 +2388,7 @@ func (c *jsiiProxy_CfnConfigurationAssociation) AddPropertyDeletionOverride(prop
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnConfigurationAssociation) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2035,6 +2406,7 @@ func (c *jsiiProxy_CfnConfigurationAssociation) AddPropertyOverride(propertyPath
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnConfigurationAssociation) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2047,6 +2419,7 @@ func (c *jsiiProxy_CfnConfigurationAssociation) ApplyRemovalPolicy(policy awscdk
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnConfigurationAssociation) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2067,6 +2440,7 @@ func (c *jsiiProxy_CfnConfigurationAssociation) GetAtt(attributeName *string) aw
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnConfigurationAssociation) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2089,12 +2463,80 @@ func (c *jsiiProxy_CfnConfigurationAssociation) Inspect(inspector awscdk.TreeIns
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnConfigurationAssociation) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnConfigurationAssociation) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnConfigurationAssociation) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnConfigurationAssociation) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnConfigurationAssociation) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2115,6 +2557,7 @@ func (c *jsiiProxy_CfnConfigurationAssociation) RenderProperties(props *map[stri
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnConfigurationAssociation) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2128,9 +2571,23 @@ func (c *jsiiProxy_CfnConfigurationAssociation) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnConfigurationAssociation) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnConfigurationAssociation) ToString() *string {
 	var returns *string
 
@@ -2144,6 +2601,27 @@ func (c *jsiiProxy_CfnConfigurationAssociation) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnConfigurationAssociation) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnConfigurationAssociation) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2152,44 +2630,54 @@ func (c *jsiiProxy_CfnConfigurationAssociation) ValidateProperties(_properties i
 	)
 }
 
+// The `ConfigurationId` property type specifies a configuration Id and the revision of a configuration.
+//
 // TODO: EXAMPLE
 //
 type CfnConfigurationAssociation_ConfigurationIdProperty struct {
-	// `CfnConfigurationAssociation.ConfigurationIdProperty.Id`.
+	// The unique ID that Amazon MQ generates for the configuration.
 	Id *string `json:"id"`
-	// `CfnConfigurationAssociation.ConfigurationIdProperty.Revision`.
+	// The revision number of the configuration.
 	Revision *float64 `json:"revision"`
 }
 
-// Properties for defining a `AWS::AmazonMQ::ConfigurationAssociation`.
+// Properties for defining a `CfnConfigurationAssociation`.
 //
 // TODO: EXAMPLE
 //
 type CfnConfigurationAssociationProps struct {
-	// `AWS::AmazonMQ::ConfigurationAssociation.Broker`.
+	// The broker to associate with a configuration.
 	Broker *string `json:"broker"`
-	// `AWS::AmazonMQ::ConfigurationAssociation.Configuration`.
+	// The configuration to associate with a broker.
 	Configuration interface{} `json:"configuration"`
 }
 
-// Properties for defining a `AWS::AmazonMQ::Configuration`.
+// Properties for defining a `CfnConfiguration`.
 //
 // TODO: EXAMPLE
 //
 type CfnConfigurationProps struct {
-	// `AWS::AmazonMQ::Configuration.AuthenticationStrategy`.
-	AuthenticationStrategy *string `json:"authenticationStrategy"`
-	// `AWS::AmazonMQ::Configuration.Data`.
+	// The base64-encoded XML configuration.
 	Data *string `json:"data"`
-	// `AWS::AmazonMQ::Configuration.Description`.
-	Description *string `json:"description"`
-	// `AWS::AmazonMQ::Configuration.EngineType`.
+	// The type of broker engine.
+	//
+	// Note: Currently, Amazon MQ only supports ACTIVEMQ for creating and editing broker configurations.
 	EngineType *string `json:"engineType"`
-	// `AWS::AmazonMQ::Configuration.EngineVersion`.
+	// The version of the broker engine.
+	//
+	// For a list of supported engine versions, see [](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html)
 	EngineVersion *string `json:"engineVersion"`
-	// `AWS::AmazonMQ::Configuration.Name`.
+	// The name of the configuration.
+	//
+	// This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
 	Name *string `json:"name"`
-	// `AWS::AmazonMQ::Configuration.Tags`.
+	// Optional.
+	//
+	// The authentication strategy associated with the configuration. The default is `SIMPLE` .
+	AuthenticationStrategy *string `json:"authenticationStrategy"`
+	// The description of the configuration.
+	Description *string `json:"description"`
+	// Create tags when creating the configuration.
 	Tags *[]*CfnConfiguration_TagsEntryProperty `json:"tags"`
 }
 

@@ -1,15 +1,19 @@
 package awslookoutequipment
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslookoutequipment/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awslookoutequipment/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::LookoutEquipment::InferenceScheduler`.
+//
+// Creates a scheduled inference. Scheduling an inference is setting up a continuous real-time inference plan to analyze new measurement data. When setting up the schedule, you provide an Amazon S3 bucket location for the input data, assign it a delimiter between separate entries in the data, set an offset delay if desired, and set the frequency of inferencing. You must also provide an Amazon S3 bucket location for the output data.
+//
+// > Updating some properties below (for example, InferenceSchedulerName and ServerSideKmsKeyId) triggers a resource replacement, which requires a new model. To replace such a property using AWS CloudFormation , but without creating a completely new stack, you must replace ModelName. If you need to replace the property, but want to use the same model, delete the current stack and create a new one with the updated properties.
 //
 // TODO: EXAMPLE
 //
@@ -34,7 +38,7 @@ type CfnInferenceScheduler interface {
 	LogicalId() *string
 	ModelName() *string
 	SetModelName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	RoleArn() *string
 	SetRoleArn(val *string)
@@ -53,10 +57,16 @@ type CfnInferenceScheduler interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -186,8 +196,8 @@ func (j *jsiiProxy_CfnInferenceScheduler) ModelName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInferenceScheduler) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnInferenceScheduler) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -258,13 +268,13 @@ func (j *jsiiProxy_CfnInferenceScheduler) UpdatedProperites() *map[string]interf
 
 
 // Create a new `AWS::LookoutEquipment::InferenceScheduler`.
-func NewCfnInferenceScheduler(scope constructs.Construct, id *string, props *CfnInferenceSchedulerProps) CfnInferenceScheduler {
+func NewCfnInferenceScheduler(scope awscdk.Construct, id *string, props *CfnInferenceSchedulerProps) CfnInferenceScheduler {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnInferenceScheduler{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_lookoutequipment.CfnInferenceScheduler",
+		"monocdk.aws_lookoutequipment.CfnInferenceScheduler",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -273,11 +283,11 @@ func NewCfnInferenceScheduler(scope constructs.Construct, id *string, props *Cfn
 }
 
 // Create a new `AWS::LookoutEquipment::InferenceScheduler`.
-func NewCfnInferenceScheduler_Override(c CfnInferenceScheduler, scope constructs.Construct, id *string, props *CfnInferenceSchedulerProps) {
+func NewCfnInferenceScheduler_Override(c CfnInferenceScheduler, scope awscdk.Construct, id *string, props *CfnInferenceSchedulerProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_lookoutequipment.CfnInferenceScheduler",
+		"monocdk.aws_lookoutequipment.CfnInferenceScheduler",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -353,13 +363,14 @@ func (j *jsiiProxy_CfnInferenceScheduler) SetServerSideKmsKeyId(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnInferenceScheduler_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lookoutequipment.CfnInferenceScheduler",
+		"monocdk.aws_lookoutequipment.CfnInferenceScheduler",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -369,13 +380,14 @@ func CfnInferenceScheduler_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnInferenceScheduler_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lookoutequipment.CfnInferenceScheduler",
+		"monocdk.aws_lookoutequipment.CfnInferenceScheduler",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -384,17 +396,15 @@ func CfnInferenceScheduler_IsCfnResource(construct constructs.IConstruct) *bool 
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnInferenceScheduler_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lookoutequipment.CfnInferenceScheduler",
+		"monocdk.aws_lookoutequipment.CfnInferenceScheduler",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -407,7 +417,7 @@ func CfnInferenceScheduler_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_lookoutequipment.CfnInferenceScheduler",
+		"monocdk.aws_lookoutequipment.CfnInferenceScheduler",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -415,6 +425,7 @@ func CfnInferenceScheduler_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnInferenceScheduler) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -427,6 +438,7 @@ func (c *jsiiProxy_CfnInferenceScheduler) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnInferenceScheduler) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -442,6 +454,7 @@ func (c *jsiiProxy_CfnInferenceScheduler) AddDependsOn(target awscdk.CfnResource
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnInferenceScheduler) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -487,6 +500,7 @@ func (c *jsiiProxy_CfnInferenceScheduler) AddMetadata(key *string, value interfa
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnInferenceScheduler) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -496,6 +510,7 @@ func (c *jsiiProxy_CfnInferenceScheduler) AddOverride(path *string, value interf
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnInferenceScheduler) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -507,6 +522,7 @@ func (c *jsiiProxy_CfnInferenceScheduler) AddPropertyDeletionOverride(propertyPa
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnInferenceScheduler) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -524,6 +540,7 @@ func (c *jsiiProxy_CfnInferenceScheduler) AddPropertyOverride(propertyPath *stri
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnInferenceScheduler) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -536,6 +553,7 @@ func (c *jsiiProxy_CfnInferenceScheduler) ApplyRemovalPolicy(policy awscdk.Remov
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnInferenceScheduler) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -556,6 +574,7 @@ func (c *jsiiProxy_CfnInferenceScheduler) GetAtt(attributeName *string) awscdk.R
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnInferenceScheduler) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -578,12 +597,80 @@ func (c *jsiiProxy_CfnInferenceScheduler) Inspect(inspector awscdk.TreeInspector
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnInferenceScheduler) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnInferenceScheduler) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnInferenceScheduler) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnInferenceScheduler) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnInferenceScheduler) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -604,6 +691,7 @@ func (c *jsiiProxy_CfnInferenceScheduler) RenderProperties(props *map[string]int
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnInferenceScheduler) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -617,9 +705,23 @@ func (c *jsiiProxy_CfnInferenceScheduler) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnInferenceScheduler) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnInferenceScheduler) ToString() *string {
 	var returns *string
 
@@ -633,6 +735,27 @@ func (c *jsiiProxy_CfnInferenceScheduler) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnInferenceScheduler) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnInferenceScheduler) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -641,28 +764,34 @@ func (c *jsiiProxy_CfnInferenceScheduler) ValidateProperties(_properties interfa
 	)
 }
 
-// Properties for defining a `AWS::LookoutEquipment::InferenceScheduler`.
+// Properties for defining a `CfnInferenceScheduler`.
 //
 // TODO: EXAMPLE
 //
 type CfnInferenceSchedulerProps struct {
-	// `AWS::LookoutEquipment::InferenceScheduler.DataDelayOffsetInMinutes`.
-	DataDelayOffsetInMinutes *float64 `json:"dataDelayOffsetInMinutes"`
-	// `AWS::LookoutEquipment::InferenceScheduler.DataInputConfiguration`.
+	// Specifies configuration information for the input data for the inference scheduler, including delimiter, format, and dataset location.
 	DataInputConfiguration interface{} `json:"dataInputConfiguration"`
-	// `AWS::LookoutEquipment::InferenceScheduler.DataOutputConfiguration`.
+	// Specifies configuration information for the output results for the inference scheduler, including the Amazon S3 location for the output.
 	DataOutputConfiguration interface{} `json:"dataOutputConfiguration"`
-	// `AWS::LookoutEquipment::InferenceScheduler.DataUploadFrequency`.
+	// How often data is uploaded to the source S3 bucket for the input data.
+	//
+	// This value is the length of time between data uploads. For instance, if you select 5 minutes, Amazon Lookout for Equipment will upload the real-time data to the source bucket once every 5 minutes. This frequency also determines how often Amazon Lookout for Equipment starts a scheduled inference on your data. In this example, it starts once every 5 minutes.
 	DataUploadFrequency *string `json:"dataUploadFrequency"`
-	// `AWS::LookoutEquipment::InferenceScheduler.InferenceSchedulerName`.
-	InferenceSchedulerName *string `json:"inferenceSchedulerName"`
-	// `AWS::LookoutEquipment::InferenceScheduler.ModelName`.
+	// The name of the ML model used for the inference scheduler.
 	ModelName *string `json:"modelName"`
-	// `AWS::LookoutEquipment::InferenceScheduler.RoleArn`.
+	// The Amazon Resource Name (ARN) of a role with permission to access the data source being used for the inference.
 	RoleArn *string `json:"roleArn"`
-	// `AWS::LookoutEquipment::InferenceScheduler.ServerSideKmsKeyId`.
+	// A period of time (in minutes) by which inference on the data is delayed after the data starts.
+	//
+	// For instance, if an offset delay time of five minutes was selected, inference will not begin on the data until the first data measurement after the five minute mark. For example, if five minutes is selected, the inference scheduler will wake up at the configured frequency with the additional five minute delay time to check the customer S3 bucket. The customer can upload data at the same frequency and they don't need to stop and restart the scheduler when uploading new data.
+	DataDelayOffsetInMinutes *float64 `json:"dataDelayOffsetInMinutes"`
+	// The name of the inference scheduler.
+	InferenceSchedulerName *string `json:"inferenceSchedulerName"`
+	// Provides the identifier of the AWS KMS key used to encrypt inference scheduler data by Amazon Lookout for Equipment .
 	ServerSideKmsKeyId *string `json:"serverSideKmsKeyId"`
-	// `AWS::LookoutEquipment::InferenceScheduler.Tags`.
+	// Any tags associated with the inference scheduler.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 

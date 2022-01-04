@@ -1,15 +1,23 @@
 package awsresourcegroups
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsresourcegroups/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsresourcegroups/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::ResourceGroups::Group`.
+//
+// Creates a resource group with the specified name and description. You can optionally include either a resource query or a service configuration. For more information about constructing a resource query, see [Build queries and groups in AWS Resource Groups](https://docs.aws.amazon.com//ARG/latest/userguide/getting_started-query.html) in the *AWS Resource Groups User Guide* . For more information about service-linked groups and service configurations, see [Service configurations for Resource Groups](https://docs.aws.amazon.com//ARG/latest/APIReference/about-slg.html) .
+//
+// *Minimum permissions*
+//
+// To run this command, you must have the following permissions:
+//
+// - `resource-groups:CreateGroup`
 //
 // TODO: EXAMPLE
 //
@@ -28,7 +36,7 @@ type CfnGroup interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	ResourceQuery() interface{}
 	SetResourceQuery(val interface{})
@@ -47,10 +55,16 @@ type CfnGroup interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -150,8 +164,8 @@ func (j *jsiiProxy_CfnGroup) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGroup) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnGroup) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -222,13 +236,13 @@ func (j *jsiiProxy_CfnGroup) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::ResourceGroups::Group`.
-func NewCfnGroup(scope constructs.Construct, id *string, props *CfnGroupProps) CfnGroup {
+func NewCfnGroup(scope awscdk.Construct, id *string, props *CfnGroupProps) CfnGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnGroup{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_resourcegroups.CfnGroup",
+		"monocdk.aws_resourcegroups.CfnGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -237,11 +251,11 @@ func NewCfnGroup(scope constructs.Construct, id *string, props *CfnGroupProps) C
 }
 
 // Create a new `AWS::ResourceGroups::Group`.
-func NewCfnGroup_Override(c CfnGroup, scope constructs.Construct, id *string, props *CfnGroupProps) {
+func NewCfnGroup_Override(c CfnGroup, scope awscdk.Construct, id *string, props *CfnGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_resourcegroups.CfnGroup",
+		"monocdk.aws_resourcegroups.CfnGroup",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -293,13 +307,14 @@ func (j *jsiiProxy_CfnGroup) SetResources(val *[]*string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnGroup_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_resourcegroups.CfnGroup",
+		"monocdk.aws_resourcegroups.CfnGroup",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -309,13 +324,14 @@ func CfnGroup_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_resourcegroups.CfnGroup",
+		"monocdk.aws_resourcegroups.CfnGroup",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -324,17 +340,15 @@ func CfnGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_resourcegroups.CfnGroup",
+		"monocdk.aws_resourcegroups.CfnGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -347,7 +361,7 @@ func CfnGroup_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_resourcegroups.CfnGroup",
+		"monocdk.aws_resourcegroups.CfnGroup",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -355,6 +369,7 @@ func CfnGroup_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnGroup) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -367,6 +382,7 @@ func (c *jsiiProxy_CfnGroup) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnGroup) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -382,6 +398,7 @@ func (c *jsiiProxy_CfnGroup) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnGroup) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -427,6 +444,7 @@ func (c *jsiiProxy_CfnGroup) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnGroup) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -436,6 +454,7 @@ func (c *jsiiProxy_CfnGroup) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnGroup) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -447,6 +466,7 @@ func (c *jsiiProxy_CfnGroup) AddPropertyDeletionOverride(propertyPath *string) {
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnGroup) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -464,6 +484,7 @@ func (c *jsiiProxy_CfnGroup) AddPropertyOverride(propertyPath *string, value int
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -476,6 +497,7 @@ func (c *jsiiProxy_CfnGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, opt
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnGroup) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -496,6 +518,7 @@ func (c *jsiiProxy_CfnGroup) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnGroup) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -518,12 +541,80 @@ func (c *jsiiProxy_CfnGroup) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnGroup) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnGroup) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnGroup) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnGroup) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -544,6 +635,7 @@ func (c *jsiiProxy_CfnGroup) RenderProperties(props *map[string]interface{}) *ma
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnGroup) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -557,9 +649,23 @@ func (c *jsiiProxy_CfnGroup) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnGroup) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnGroup) ToString() *string {
 	var returns *string
 
@@ -573,6 +679,27 @@ func (c *jsiiProxy_CfnGroup) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnGroup) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnGroup) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -581,69 +708,144 @@ func (c *jsiiProxy_CfnGroup) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// One of the items in the service configuration assigned to a resource group.
+//
+// A service configuration can consist of one or more items. For details service configurations and how to construct them, see [Service configurations for resource groups](https://docs.aws.amazon.com//ARG/latest/APIReference/about-slg.html) in the *AWS Resource Groups User Guide* .
+//
 // TODO: EXAMPLE
 //
 type CfnGroup_ConfigurationItemProperty struct {
-	// `CfnGroup.ConfigurationItemProperty.Parameters`.
+	// A collection of parameters for this configuration item.
+	//
+	// For the list of parameters that you can use with each configuration item `Type` , see [Supported resource types and parameters](https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html#about-slg-types) in the *AWS Resource Groups User Guide* .
 	Parameters interface{} `json:"parameters"`
-	// `CfnGroup.ConfigurationItemProperty.Type`.
+	// Specifies the type of configuration item.
+	//
+	// Each item must have a unique value for type. For the list of the types that you can specify for a configuration item, see [Supported resource types and parameters](https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html#about-slg-types) in the *AWS Resource Groups User Guide* .
 	Type *string `json:"type"`
 }
 
+// One parameter for a group configuration item.
+//
+// For details about service configurations and how to construct them, see [Service configurations for resource groups](https://docs.aws.amazon.com//ARG/latest/APIReference/about-slg.html) in the *AWS Resource Groups User Guide* .
+//
 // TODO: EXAMPLE
 //
 type CfnGroup_ConfigurationParameterProperty struct {
-	// `CfnGroup.ConfigurationParameterProperty.Name`.
+	// The name of the group configuration parameter.
+	//
+	// For the list of parameters that you can use with each configuration item type, see [Supported resource types and parameters](https://docs.aws.amazon.com//ARG/latest/APIReference/about-slg.html#about-slg-types) in the *AWS Resource Groups User Guide* .
 	Name *string `json:"name"`
-	// `CfnGroup.ConfigurationParameterProperty.Values`.
+	// The value or values to be used for the specified parameter.
+	//
+	// For the list of values you can use with each parameter, see [Supported resource types and parameters](https://docs.aws.amazon.com//ARG/latest/APIReference/about-slg.html#about-slg-types) .
 	Values *[]*string `json:"values"`
 }
 
+// Specifies details within a `ResourceQuery` structure that determines the membership of the resource group.
+//
+// The contents required in the `Query` structure are determined by the `Type` property of the containing `ResourceQuery` structure.
+//
 // TODO: EXAMPLE
 //
 type CfnGroup_QueryProperty struct {
-	// `CfnGroup.QueryProperty.ResourceTypeFilters`.
+	// Specifies limits to the types of resources that can be included in the resource group.
+	//
+	// For example, if `ResourceTypeFilters` is `["AWS::EC2::Instance", "AWS::DynamoDB::Table"]` , only EC2 instances or DynamoDB tables can be members of this resource group. The default value is `["AWS::AllSupported"]` .
 	ResourceTypeFilters *[]*string `json:"resourceTypeFilters"`
-	// `CfnGroup.QueryProperty.StackIdentifier`.
+	// Specifies the ARN of a CloudFormation stack.
+	//
+	// All supported resources of the CloudFormation stack are members of the resource group. If you don't specify an ARN, this parameter defaults to the current stack that you are defining, which means that all the resources of the current stack are grouped.
+	//
+	// You can specify a value for `StackIdentifier` only when the `ResourceQuery.Type` property is `CLOUDFORMATION_STACK_1_0.`
 	StackIdentifier *string `json:"stackIdentifier"`
-	// `CfnGroup.QueryProperty.TagFilters`.
+	// A list of key-value pair objects that limit which resources can be members of the resource group.
+	//
+	// This property is required when the `ResourceQuery.Type` property is `TAG_FILTERS_1_0` .
+	//
+	// A resource must have a tag that matches every filter that is provided in the `TagFilters` list.
 	TagFilters interface{} `json:"tagFilters"`
 }
 
+// The query used to dynamically define the members of a group.
+//
+// For more information about how to construct a query, see [Build queries and groups in AWS Resource Groups](https://docs.aws.amazon.com//ARG/latest/userguide/gettingstarted-query.html) .
+//
 // TODO: EXAMPLE
 //
 type CfnGroup_ResourceQueryProperty struct {
-	// `CfnGroup.ResourceQueryProperty.Query`.
+	// The query that defines the membership of the group.
+	//
+	// This is a structure with properties that depend on the `Type` .
+	//
+	// The `Query` structure must be included in the following scenarios:
+	//
+	// - When the `Type` is `TAG_FILTERS_1_0` , you must specify a `Query` structure that contains a `TagFilters` list of tags. Resources with tags that match those in the `TagFilter` list become members of the resource group.
+	// - When the `Type` is `CLOUDFORMATION_STACK_1_0` then this field is required only when you must specify a CloudFormation stack other than the one you are defining. To do this, the `Query` structure must contain the `StackIdentifier` property. If you don't specify either a `Query` structure or a `StackIdentifier` within that `Query` , then it defaults to the CloudFormation stack that you're currently constructing.
 	Query interface{} `json:"query"`
-	// `CfnGroup.ResourceQueryProperty.Type`.
+	// Specifies the type of resource query that determines this group's membership. There are two valid query types:.
+	//
+	// - `TAG_FILTERS_1_0` indicates that the group is a tag-based group. To complete the group membership, you must include the `TagFilters` property to specify the tag filters to use in the query.
+	// - `CLOUDFORMATION_STACK_1_0` , the default, indicates that the group is a CloudFormation stack-based group. Group membership is based on the CloudFormation stack. You must specify the `StackIdentifier` property in the query to define which stack to associate the group with, or leave it empty to default to the stack where the group is defined.
 	Type *string `json:"type"`
 }
 
+// Specifies a single tag key and optional values that you can use to specify membership in a tag-based group.
+//
+// An AWS resource that doesn't have a matching tag key and value is rejected as a member of the group.
+//
+// A `TagFilter` object includes two properties: `Key` (a string) and `Values` (a list of strings). Only resources in the account that are tagged with a matching key-value pair are members of the group. The `Values` property of `TagFilter` is optional, but specifying it narrows the query results.
+//
+// As an example, suppose the `TagFilters` string is `[{"Key": "Stage", "Values": ["Test", "Beta"]}, {"Key": "Storage"}]` . In this case, only resources with all of the following tags are members of the group:
+//
+// - `Stage` tag key with a value of either `Test` or `Beta`
+// - `Storage` tag key with any value
+//
 // TODO: EXAMPLE
 //
 type CfnGroup_TagFilterProperty struct {
-	// `CfnGroup.TagFilterProperty.Key`.
+	// A string that defines a tag key.
+	//
+	// Only resources in the account that are tagged with a specified tag key are members of the tag-based resource group.
+	//
+	// This field is required when the `ResourceQuery` structure's `Type` property is `TAG_FILTERS_1_0` . You must specify at least one tag key.
 	Key *string `json:"key"`
-	// `CfnGroup.TagFilterProperty.Values`.
+	// A list of tag values that can be included in the tag-based resource group.
+	//
+	// This is optional. If you don't specify a value or values for a key, then an AWS resource with any value for that key is a member.
 	Values *[]*string `json:"values"`
 }
 
-// Properties for defining a `AWS::ResourceGroups::Group`.
+// Properties for defining a `CfnGroup`.
 //
 // TODO: EXAMPLE
 //
 type CfnGroupProps struct {
-	// `AWS::ResourceGroups::Group.Configuration`.
-	Configuration interface{} `json:"configuration"`
-	// `AWS::ResourceGroups::Group.Description`.
-	Description *string `json:"description"`
-	// `AWS::ResourceGroups::Group.Name`.
+	// The name of a resource group.
+	//
+	// The name must be unique within the AWS Region in which you create the resource. To create multiple resource groups based on the same CloudFormation stack, you must generate unique names for each.
 	Name *string `json:"name"`
-	// `AWS::ResourceGroups::Group.ResourceQuery`.
+	// The service configuration currently associated with the resource group and in effect for the members of the resource group.
+	//
+	// A `Configuration` consists of one or more `ConfigurationItem` entries. For information about service configurations for resource groups and how to construct them, see [Service configurations for resource groups](https://docs.aws.amazon.com//ARG/latest/APIReference/about-slg.html) in the *AWS Resource Groups User Guide* .
+	//
+	// > You can include either a `Configuration` or a `ResourceQuery` , but not both.
+	Configuration interface{} `json:"configuration"`
+	// The description of the resource group.
+	Description *string `json:"description"`
+	// The resource query structure that is used to dynamically determine which AWS resources are members of the associated resource group.
+	//
+	// For more information about queries and how to construct them, see [Build queries and groups in AWS Resource Groups](https://docs.aws.amazon.com//ARG/latest/userguide/gettingstarted-query.html) in the *AWS Resource Groups User Guide*
+	//
+	// > - You can include either a `ResourceQuery` or a `Configuration` , but not both.
+	// > - You can specify the group's membership either by using a `ResourceQuery` or by using a list of `Resources` , but not both.
 	ResourceQuery interface{} `json:"resourceQuery"`
-	// `AWS::ResourceGroups::Group.Resources`.
+	// A list of the Amazon Resource Names (ARNs) of AWS resources that you want to add to the specified group.
+	//
+	// > - You can specify the group membership either by using a list of `Resources` or by using a `ResourceQuery` , but not both.
+	// > - You can include a `Resources` property only if you also specify a `Configuration` property.
 	Resources *[]*string `json:"resources"`
-	// `AWS::ResourceGroups::Group.Tags`.
+	// The tag key and value pairs that are attached to the resource group.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 

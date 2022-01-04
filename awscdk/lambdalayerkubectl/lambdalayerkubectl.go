@@ -1,25 +1,26 @@
 package lambdalayerkubectl
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
-	"github.com/aws/aws-cdk-go/awscdk/v2/lambdalayerkubectl/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/lambdalayerkubectl/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // An AWS Lambda layer that includes `kubectl` and `helm`.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type KubectlLayer interface {
 	awslambda.LayerVersion
 	CompatibleRuntimes() *[]awslambda.Runtime
 	Env() *awscdk.ResourceEnvironment
 	LayerVersionArn() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Stack() awscdk.Stack
 	AddPermission(id *string, permission *awslambda.LayerVersionPermission)
@@ -27,7 +28,13 @@ type KubectlLayer interface {
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for KubectlLayer
@@ -65,8 +72,8 @@ func (j *jsiiProxy_KubectlLayer) LayerVersionArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_KubectlLayer) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_KubectlLayer) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -96,13 +103,14 @@ func (j *jsiiProxy_KubectlLayer) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewKubectlLayer(scope constructs.Construct, id *string) KubectlLayer {
 	_init_.Initialize()
 
 	j := jsiiProxy_KubectlLayer{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.lambda_layer_kubectl.KubectlLayer",
+		"monocdk.lambda_layer_kubectl.KubectlLayer",
 		[]interface{}{scope, id},
 		&j,
 	)
@@ -110,11 +118,12 @@ func NewKubectlLayer(scope constructs.Construct, id *string) KubectlLayer {
 	return &j
 }
 
+// Experimental.
 func NewKubectlLayer_Override(k KubectlLayer, scope constructs.Construct, id *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.lambda_layer_kubectl.KubectlLayer",
+		"monocdk.lambda_layer_kubectl.KubectlLayer",
 		[]interface{}{scope, id},
 		k,
 	)
@@ -123,13 +132,14 @@ func NewKubectlLayer_Override(k KubectlLayer, scope constructs.Construct, id *st
 // Imports a layer version by ARN.
 //
 // Assumes it is compatible with all Lambda runtimes.
+// Experimental.
 func KubectlLayer_FromLayerVersionArn(scope constructs.Construct, id *string, layerVersionArn *string) awslambda.ILayerVersion {
 	_init_.Initialize()
 
 	var returns awslambda.ILayerVersion
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.lambda_layer_kubectl.KubectlLayer",
+		"monocdk.lambda_layer_kubectl.KubectlLayer",
 		"fromLayerVersionArn",
 		[]interface{}{scope, id, layerVersionArn},
 		&returns,
@@ -139,13 +149,14 @@ func KubectlLayer_FromLayerVersionArn(scope constructs.Construct, id *string, la
 }
 
 // Imports a Layer that has been defined externally.
+// Experimental.
 func KubectlLayer_FromLayerVersionAttributes(scope constructs.Construct, id *string, attrs *awslambda.LayerVersionAttributes) awslambda.ILayerVersion {
 	_init_.Initialize()
 
 	var returns awslambda.ILayerVersion
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.lambda_layer_kubectl.KubectlLayer",
+		"monocdk.lambda_layer_kubectl.KubectlLayer",
 		"fromLayerVersionAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -154,17 +165,15 @@ func KubectlLayer_FromLayerVersionAttributes(scope constructs.Construct, id *str
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func KubectlLayer_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.lambda_layer_kubectl.KubectlLayer",
+		"monocdk.lambda_layer_kubectl.KubectlLayer",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -174,13 +183,14 @@ func KubectlLayer_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func KubectlLayer_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func KubectlLayer_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.lambda_layer_kubectl.KubectlLayer",
+		"monocdk.lambda_layer_kubectl.KubectlLayer",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -197,6 +207,7 @@ func KubectlLayer_IsResource(construct constructs.IConstruct) *bool {
 // Lambda function using the layer (for example, a CloudFormation changeset
 // execution role) also needs to have the ``lambda:GetLayerVersion``
 // permission on the layer version.
+// Experimental.
 func (k *jsiiProxy_KubectlLayer) AddPermission(id *string, permission *awslambda.LayerVersionPermission) {
 	_jsii_.InvokeVoid(
 		k,
@@ -214,6 +225,7 @@ func (k *jsiiProxy_KubectlLayer) AddPermission(id *string, permission *awslambda
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (k *jsiiProxy_KubectlLayer) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		k,
@@ -222,6 +234,7 @@ func (k *jsiiProxy_KubectlLayer) ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	)
 }
 
+// Experimental.
 func (k *jsiiProxy_KubectlLayer) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -241,6 +254,7 @@ func (k *jsiiProxy_KubectlLayer) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
+// Experimental.
 func (k *jsiiProxy_KubectlLayer) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -259,6 +273,7 @@ func (k *jsiiProxy_KubectlLayer) GetResourceArnAttribute(arnAttr *string, arnCom
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
+// Experimental.
 func (k *jsiiProxy_KubectlLayer) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -272,13 +287,114 @@ func (k *jsiiProxy_KubectlLayer) GetResourceNameAttribute(nameAttr *string) *str
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (k *jsiiProxy_KubectlLayer) OnPrepare() {
+	_jsii_.InvokeVoid(
+		k,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (k *jsiiProxy_KubectlLayer) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		k,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (k *jsiiProxy_KubectlLayer) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		k,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (k *jsiiProxy_KubectlLayer) Prepare() {
+	_jsii_.InvokeVoid(
+		k,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (k *jsiiProxy_KubectlLayer) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		k,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (k *jsiiProxy_KubectlLayer) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		k,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (k *jsiiProxy_KubectlLayer) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		k,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)

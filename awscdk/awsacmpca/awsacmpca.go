@@ -1,18 +1,19 @@
 package awsacmpca
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsacmpca/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsacmpca/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // Defines a Certificate for ACMPCA.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type CertificateAuthority interface {
 }
 
@@ -22,13 +23,14 @@ type jsiiProxy_CertificateAuthority struct {
 }
 
 // Import an existing Certificate given an ARN.
+// Experimental.
 func CertificateAuthority_FromCertificateAuthorityArn(scope constructs.Construct, id *string, certificateAuthorityArn *string) ICertificateAuthority {
 	_init_.Initialize()
 
 	var returns ICertificateAuthority
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_acmpca.CertificateAuthority",
+		"monocdk.aws_acmpca.CertificateAuthority",
 		"fromCertificateAuthorityArn",
 		[]interface{}{scope, id, certificateAuthorityArn},
 		&returns,
@@ -38,6 +40,8 @@ func CertificateAuthority_FromCertificateAuthorityArn(scope constructs.Construct
 }
 
 // A CloudFormation `AWS::ACMPCA::Certificate`.
+//
+// The `AWS::ACMPCA::Certificate` resource is used to issue a certificate using your private certificate authority. For more information, see the [IssueCertificate](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_IssueCertificate.html) action.
 //
 // TODO: EXAMPLE
 //
@@ -57,7 +61,7 @@ type CfnCertificate interface {
 	CfnResourceType() *string
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	SigningAlgorithm() *string
 	SetSigningAlgorithm(val *string)
@@ -79,10 +83,16 @@ type CfnCertificate interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -192,8 +202,8 @@ func (j *jsiiProxy_CfnCertificate) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCertificate) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnCertificate) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -274,13 +284,13 @@ func (j *jsiiProxy_CfnCertificate) ValidityNotBefore() interface{} {
 
 
 // Create a new `AWS::ACMPCA::Certificate`.
-func NewCfnCertificate(scope constructs.Construct, id *string, props *CfnCertificateProps) CfnCertificate {
+func NewCfnCertificate(scope awscdk.Construct, id *string, props *CfnCertificateProps) CfnCertificate {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnCertificate{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_acmpca.CfnCertificate",
+		"monocdk.aws_acmpca.CfnCertificate",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -289,11 +299,11 @@ func NewCfnCertificate(scope constructs.Construct, id *string, props *CfnCertifi
 }
 
 // Create a new `AWS::ACMPCA::Certificate`.
-func NewCfnCertificate_Override(c CfnCertificate, scope constructs.Construct, id *string, props *CfnCertificateProps) {
+func NewCfnCertificate_Override(c CfnCertificate, scope awscdk.Construct, id *string, props *CfnCertificateProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_acmpca.CfnCertificate",
+		"monocdk.aws_acmpca.CfnCertificate",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -361,13 +371,14 @@ func (j *jsiiProxy_CfnCertificate) SetValidityNotBefore(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnCertificate_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_acmpca.CfnCertificate",
+		"monocdk.aws_acmpca.CfnCertificate",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -377,13 +388,14 @@ func CfnCertificate_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnCertificate_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_acmpca.CfnCertificate",
+		"monocdk.aws_acmpca.CfnCertificate",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -392,17 +404,15 @@ func CfnCertificate_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnCertificate_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_acmpca.CfnCertificate",
+		"monocdk.aws_acmpca.CfnCertificate",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -415,7 +425,7 @@ func CfnCertificate_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_acmpca.CfnCertificate",
+		"monocdk.aws_acmpca.CfnCertificate",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -423,6 +433,7 @@ func CfnCertificate_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnCertificate) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -435,6 +446,7 @@ func (c *jsiiProxy_CfnCertificate) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnCertificate) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -450,6 +462,7 @@ func (c *jsiiProxy_CfnCertificate) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnCertificate) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -495,6 +508,7 @@ func (c *jsiiProxy_CfnCertificate) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnCertificate) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -504,6 +518,7 @@ func (c *jsiiProxy_CfnCertificate) AddOverride(path *string, value interface{}) 
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnCertificate) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -515,6 +530,7 @@ func (c *jsiiProxy_CfnCertificate) AddPropertyDeletionOverride(propertyPath *str
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnCertificate) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -532,6 +548,7 @@ func (c *jsiiProxy_CfnCertificate) AddPropertyOverride(propertyPath *string, val
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnCertificate) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -544,6 +561,7 @@ func (c *jsiiProxy_CfnCertificate) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnCertificate) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -564,6 +582,7 @@ func (c *jsiiProxy_CfnCertificate) GetAtt(attributeName *string) awscdk.Referenc
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnCertificate) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -586,12 +605,80 @@ func (c *jsiiProxy_CfnCertificate) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnCertificate) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnCertificate) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnCertificate) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnCertificate) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnCertificate) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -612,6 +699,7 @@ func (c *jsiiProxy_CfnCertificate) RenderProperties(props *map[string]interface{
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnCertificate) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -625,9 +713,23 @@ func (c *jsiiProxy_CfnCertificate) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnCertificate) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnCertificate) ToString() *string {
 	var returns *string
 
@@ -641,6 +743,27 @@ func (c *jsiiProxy_CfnCertificate) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnCertificate) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnCertificate) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -649,167 +772,235 @@ func (c *jsiiProxy_CfnCertificate) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// Contains X.509 certificate information to be placed in an issued certificate. An `APIPassthrough` or `APICSRPassthrough` template variant must be selected, or else this parameter is ignored.
+//
+// If conflicting or duplicate certificate information is supplied from other sources, ACM Private CA applies [order of operation rules](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html#template-order-of-operations) to determine what information is used.
+//
 // TODO: EXAMPLE
 //
 type CfnCertificate_ApiPassthroughProperty struct {
-	// `CfnCertificate.ApiPassthroughProperty.Extensions`.
+	// Specifies X.509 extension information for a certificate.
 	Extensions interface{} `json:"extensions"`
-	// `CfnCertificate.ApiPassthroughProperty.Subject`.
+	// Contains information about the certificate subject.
+	//
+	// The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
 	Subject interface{} `json:"subject"`
 }
 
+// Describes an Electronic Data Interchange (EDI) entity as described in as defined in [Subject Alternative Name](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc5280) in RFC 5280.
+//
 // TODO: EXAMPLE
 //
 type CfnCertificate_EdiPartyNameProperty struct {
-	// `CfnCertificate.EdiPartyNameProperty.NameAssigner`.
+	// Specifies the name assigner.
 	NameAssigner *string `json:"nameAssigner"`
-	// `CfnCertificate.EdiPartyNameProperty.PartyName`.
+	// Specifies the party name.
 	PartyName *string `json:"partyName"`
 }
 
+// Specifies additional purposes for which the certified public key may be used other than basic purposes indicated in the `KeyUsage` extension.
+//
 // TODO: EXAMPLE
 //
 type CfnCertificate_ExtendedKeyUsageProperty struct {
-	// `CfnCertificate.ExtendedKeyUsageProperty.ExtendedKeyUsageObjectIdentifier`.
+	// Specifies a custom `ExtendedKeyUsage` with an object identifier (OID).
 	ExtendedKeyUsageObjectIdentifier *string `json:"extendedKeyUsageObjectIdentifier"`
-	// `CfnCertificate.ExtendedKeyUsageProperty.ExtendedKeyUsageType`.
+	// Specifies a standard `ExtendedKeyUsage` as defined as in [RFC 5280](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc5280#section-4.2.1.12) .
 	ExtendedKeyUsageType *string `json:"extendedKeyUsageType"`
 }
 
+// Contains X.509 extension information for a certificate.
+//
 // TODO: EXAMPLE
 //
 type CfnCertificate_ExtensionsProperty struct {
-	// `CfnCertificate.ExtensionsProperty.CertificatePolicies`.
+	// Contains a sequence of one or more policy information terms, each of which consists of an object identifier (OID) and optional qualifiers.
+	//
+	// For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier) .
+	//
+	// In an end-entity certificate, these terms indicate the policy under which the certificate was issued and the purposes for which it may be used. In a CA certificate, these terms limit the set of policies for certification paths that include this certificate.
 	CertificatePolicies interface{} `json:"certificatePolicies"`
-	// `CfnCertificate.ExtensionsProperty.ExtendedKeyUsage`.
+	// Specifies additional purposes for which the certified public key may be used other than basic purposes indicated in the `KeyUsage` extension.
 	ExtendedKeyUsage interface{} `json:"extendedKeyUsage"`
-	// `CfnCertificate.ExtensionsProperty.KeyUsage`.
+	// Defines one or more purposes for which the key contained in the certificate can be used.
+	//
+	// Default value for each option is false.
 	KeyUsage interface{} `json:"keyUsage"`
-	// `CfnCertificate.ExtensionsProperty.SubjectAlternativeNames`.
+	// The subject alternative name extension allows identities to be bound to the subject of the certificate.
+	//
+	// These identities may be included in addition to or in place of the identity in the subject field of the certificate.
 	SubjectAlternativeNames interface{} `json:"subjectAlternativeNames"`
 }
 
+// Describes an ASN.1 X.400 `GeneralName` as defined in [RFC 5280](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc5280) . Only one of the following naming options should be provided. Providing more than one option results in an `InvalidArgsException` error.
+//
 // TODO: EXAMPLE
 //
 type CfnCertificate_GeneralNameProperty struct {
-	// `CfnCertificate.GeneralNameProperty.DirectoryName`.
+	// Contains information about the certificate subject.
+	//
+	// The certificate can be one issued by your private certificate authority (CA) or it can be your private CA certificate. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate. The DN must be unique for each entity, but your private CA can issue more than one certificate with the same DN to the same entity.
 	DirectoryName interface{} `json:"directoryName"`
-	// `CfnCertificate.GeneralNameProperty.DnsName`.
+	// Represents `GeneralName` as a DNS name.
 	DnsName *string `json:"dnsName"`
-	// `CfnCertificate.GeneralNameProperty.EdiPartyName`.
+	// Represents `GeneralName` as an `EdiPartyName` object.
 	EdiPartyName interface{} `json:"ediPartyName"`
-	// `CfnCertificate.GeneralNameProperty.IpAddress`.
+	// Represents `GeneralName` as an IPv4 or IPv6 address.
 	IpAddress *string `json:"ipAddress"`
-	// `CfnCertificate.GeneralNameProperty.OtherName`.
+	// Represents `GeneralName` using an `OtherName` object.
 	OtherName interface{} `json:"otherName"`
-	// `CfnCertificate.GeneralNameProperty.RegisteredId`.
+	// Represents `GeneralName` as an object identifier (OID).
 	RegisteredId *string `json:"registeredId"`
-	// `CfnCertificate.GeneralNameProperty.Rfc822Name`.
+	// Represents `GeneralName` as an [RFC 822](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc822) email address.
 	Rfc822Name *string `json:"rfc822Name"`
-	// `CfnCertificate.GeneralNameProperty.UniformResourceIdentifier`.
+	// Represents `GeneralName` as a URI.
 	UniformResourceIdentifier *string `json:"uniformResourceIdentifier"`
 }
 
+// Defines one or more purposes for which the key contained in the certificate can be used.
+//
+// Default value for each option is false.
+//
 // TODO: EXAMPLE
 //
 type CfnCertificate_KeyUsageProperty struct {
-	// `CfnCertificate.KeyUsageProperty.CRLSign`.
+	// Key can be used to sign CRLs.
 	CrlSign interface{} `json:"crlSign"`
-	// `CfnCertificate.KeyUsageProperty.DataEncipherment`.
+	// Key can be used to decipher data.
 	DataEncipherment interface{} `json:"dataEncipherment"`
-	// `CfnCertificate.KeyUsageProperty.DecipherOnly`.
+	// Key can be used only to decipher data.
 	DecipherOnly interface{} `json:"decipherOnly"`
-	// `CfnCertificate.KeyUsageProperty.DigitalSignature`.
+	// Key can be used for digital signing.
 	DigitalSignature interface{} `json:"digitalSignature"`
-	// `CfnCertificate.KeyUsageProperty.EncipherOnly`.
+	// Key can be used only to encipher data.
 	EncipherOnly interface{} `json:"encipherOnly"`
-	// `CfnCertificate.KeyUsageProperty.KeyAgreement`.
+	// Key can be used in a key-agreement protocol.
 	KeyAgreement interface{} `json:"keyAgreement"`
-	// `CfnCertificate.KeyUsageProperty.KeyCertSign`.
+	// Key can be used to sign certificates.
 	KeyCertSign interface{} `json:"keyCertSign"`
-	// `CfnCertificate.KeyUsageProperty.KeyEncipherment`.
+	// Key can be used to encipher data.
 	KeyEncipherment interface{} `json:"keyEncipherment"`
-	// `CfnCertificate.KeyUsageProperty.NonRepudiation`.
+	// Key can be used for non-repudiation.
 	NonRepudiation interface{} `json:"nonRepudiation"`
 }
 
+// Defines a custom ASN.1 X.400 `GeneralName` using an object identifier (OID) and value. The OID must satisfy the regular expression shown below. For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier) .
+//
 // TODO: EXAMPLE
 //
 type CfnCertificate_OtherNameProperty struct {
-	// `CfnCertificate.OtherNameProperty.TypeId`.
+	// Specifies an OID.
 	TypeId *string `json:"typeId"`
-	// `CfnCertificate.OtherNameProperty.Value`.
+	// Specifies an OID value.
 	Value *string `json:"value"`
 }
 
+// Defines the X.509 `CertificatePolicies` extension.
+//
 // TODO: EXAMPLE
 //
 type CfnCertificate_PolicyInformationProperty struct {
-	// `CfnCertificate.PolicyInformationProperty.CertPolicyId`.
+	// Specifies the object identifier (OID) of the certificate policy under which the certificate was issued.
+	//
+	// For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier) .
 	CertPolicyId *string `json:"certPolicyId"`
-	// `CfnCertificate.PolicyInformationProperty.PolicyQualifiers`.
+	// Modifies the given `CertPolicyId` with a qualifier.
+	//
+	// ACM Private CA supports the certification practice statement (CPS) qualifier.
 	PolicyQualifiers interface{} `json:"policyQualifiers"`
 }
 
+// Modifies the `CertPolicyId` of a `PolicyInformation` object with a qualifier.
+//
+// ACM Private CA supports the certification practice statement (CPS) qualifier.
+//
 // TODO: EXAMPLE
 //
 type CfnCertificate_PolicyQualifierInfoProperty struct {
-	// `CfnCertificate.PolicyQualifierInfoProperty.PolicyQualifierId`.
+	// Identifies the qualifier modifying a `CertPolicyId` .
 	PolicyQualifierId *string `json:"policyQualifierId"`
-	// `CfnCertificate.PolicyQualifierInfoProperty.Qualifier`.
+	// Defines the qualifier type.
+	//
+	// ACM Private CA supports the use of a URI for a CPS qualifier in this field.
 	Qualifier interface{} `json:"qualifier"`
 }
 
+// Defines a `PolicyInformation` qualifier.
+//
+// ACM Private CA supports the [certification practice statement (CPS) qualifier](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc5280#section-4.2.1.4) defined in RFC 5280.
+//
 // TODO: EXAMPLE
 //
 type CfnCertificate_QualifierProperty struct {
-	// `CfnCertificate.QualifierProperty.CpsUri`.
+	// Contains a pointer to a certification practice statement (CPS) published by the CA.
 	CpsUri *string `json:"cpsUri"`
 }
 
+// Contains information about the certificate subject.
+//
+// The `Subject` field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The `Subject` must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
+//
 // TODO: EXAMPLE
 //
 type CfnCertificate_SubjectProperty struct {
-	// `CfnCertificate.SubjectProperty.CommonName`.
+	// For CA and end-entity certificates in a private PKI, the common name (CN) can be any string within the length limit.
+	//
+	// Note: In publicly trusted certificates, the common name must be a fully qualified domain name (FQDN) associated with the certificate subject.
 	CommonName *string `json:"commonName"`
-	// `CfnCertificate.SubjectProperty.Country`.
+	// Two-digit code that specifies the country in which the certificate subject located.
 	Country *string `json:"country"`
-	// `CfnCertificate.SubjectProperty.DistinguishedNameQualifier`.
+	// Disambiguating information for the certificate subject.
 	DistinguishedNameQualifier *string `json:"distinguishedNameQualifier"`
-	// `CfnCertificate.SubjectProperty.GenerationQualifier`.
+	// Typically a qualifier appended to the name of an individual.
+	//
+	// Examples include Jr. for junior, Sr. for senior, and III for third.
 	GenerationQualifier *string `json:"generationQualifier"`
-	// `CfnCertificate.SubjectProperty.GivenName`.
+	// First name.
 	GivenName *string `json:"givenName"`
-	// `CfnCertificate.SubjectProperty.Initials`.
+	// Concatenation that typically contains the first letter of the *GivenName* , the first letter of the middle name if one exists, and the first letter of the *Surname* .
 	Initials *string `json:"initials"`
-	// `CfnCertificate.SubjectProperty.Locality`.
+	// The locality (such as a city or town) in which the certificate subject is located.
 	Locality *string `json:"locality"`
-	// `CfnCertificate.SubjectProperty.Organization`.
+	// Legal name of the organization with which the certificate subject is affiliated.
 	Organization *string `json:"organization"`
-	// `CfnCertificate.SubjectProperty.OrganizationalUnit`.
+	// A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated.
 	OrganizationalUnit *string `json:"organizationalUnit"`
-	// `CfnCertificate.SubjectProperty.Pseudonym`.
+	// Typically a shortened version of a longer *GivenName* .
+	//
+	// For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza.
 	Pseudonym *string `json:"pseudonym"`
-	// `CfnCertificate.SubjectProperty.SerialNumber`.
+	// The certificate serial number.
 	SerialNumber *string `json:"serialNumber"`
-	// `CfnCertificate.SubjectProperty.State`.
+	// State in which the subject of the certificate is located.
 	State *string `json:"state"`
-	// `CfnCertificate.SubjectProperty.Surname`.
+	// Family name.
+	//
+	// In the US and the UK, for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first.
 	Surname *string `json:"surname"`
-	// `CfnCertificate.SubjectProperty.Title`.
+	// A title such as Mr.
+	//
+	// or Ms., which is pre-pended to the name to refer formally to the certificate subject.
 	Title *string `json:"title"`
 }
 
+// Length of time for which the certificate issued by your private certificate authority (CA), or by the private CA itself, is valid in days, months, or years.
+//
+// You can issue a certificate by calling the `IssueCertificate` operation.
+//
 // TODO: EXAMPLE
 //
 type CfnCertificate_ValidityProperty struct {
-	// `CfnCertificate.ValidityProperty.Type`.
+	// Specifies whether the `Value` parameter represents days, months, or years.
 	Type *string `json:"type"`
-	// `CfnCertificate.ValidityProperty.Value`.
+	// A long integer interpreted according to the value of `Type` , below.
 	Value *float64 `json:"value"`
 }
 
 // A CloudFormation `AWS::ACMPCA::CertificateAuthority`.
+//
+// Use the `AWS::ACMPCA::CertificateAuthority` resource to create a private CA. Once the CA exists, you can use the `AWS::ACMPCA::Certificate` resource to issue a new CA certificate. Alternatively, you can issue a CA certificate using an on-premises CA, and then use the `AWS::ACMPCA::CertificateAuthorityActivation` resource to import the new CA certificate and activate the CA.
+//
+// > Before removing a `AWS::ACMPCA::CertificateAuthority` resource from the CloudFormation stack, disable the affected CA. Otherwise, the action will fail. You can disable the CA by removing its associated `AWS::ACMPCA::CertificateAuthorityActivation` resource from CloudFormation.
 //
 // TODO: EXAMPLE
 //
@@ -829,7 +1020,7 @@ type CfnCertificateAuthority interface {
 	KeyStorageSecurityStandard() *string
 	SetKeyStorageSecurityStandard(val *string)
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	RevocationConfiguration() interface{}
 	SetRevocationConfiguration(val interface{})
@@ -852,10 +1043,16 @@ type CfnCertificateAuthority interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -965,8 +1162,8 @@ func (j *jsiiProxy_CfnCertificateAuthority) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCertificateAuthority) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnCertificateAuthority) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1057,13 +1254,13 @@ func (j *jsiiProxy_CfnCertificateAuthority) UpdatedProperites() *map[string]inte
 
 
 // Create a new `AWS::ACMPCA::CertificateAuthority`.
-func NewCfnCertificateAuthority(scope constructs.Construct, id *string, props *CfnCertificateAuthorityProps) CfnCertificateAuthority {
+func NewCfnCertificateAuthority(scope awscdk.Construct, id *string, props *CfnCertificateAuthorityProps) CfnCertificateAuthority {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnCertificateAuthority{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_acmpca.CfnCertificateAuthority",
+		"monocdk.aws_acmpca.CfnCertificateAuthority",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1072,11 +1269,11 @@ func NewCfnCertificateAuthority(scope constructs.Construct, id *string, props *C
 }
 
 // Create a new `AWS::ACMPCA::CertificateAuthority`.
-func NewCfnCertificateAuthority_Override(c CfnCertificateAuthority, scope constructs.Construct, id *string, props *CfnCertificateAuthorityProps) {
+func NewCfnCertificateAuthority_Override(c CfnCertificateAuthority, scope awscdk.Construct, id *string, props *CfnCertificateAuthorityProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_acmpca.CfnCertificateAuthority",
+		"monocdk.aws_acmpca.CfnCertificateAuthority",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1144,13 +1341,14 @@ func (j *jsiiProxy_CfnCertificateAuthority) SetType(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnCertificateAuthority_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_acmpca.CfnCertificateAuthority",
+		"monocdk.aws_acmpca.CfnCertificateAuthority",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1160,13 +1358,14 @@ func CfnCertificateAuthority_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnCertificateAuthority_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_acmpca.CfnCertificateAuthority",
+		"monocdk.aws_acmpca.CfnCertificateAuthority",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1175,17 +1374,15 @@ func CfnCertificateAuthority_IsCfnResource(construct constructs.IConstruct) *boo
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnCertificateAuthority_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_acmpca.CfnCertificateAuthority",
+		"monocdk.aws_acmpca.CfnCertificateAuthority",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1198,7 +1395,7 @@ func CfnCertificateAuthority_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_acmpca.CfnCertificateAuthority",
+		"monocdk.aws_acmpca.CfnCertificateAuthority",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1206,6 +1403,7 @@ func CfnCertificateAuthority_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnCertificateAuthority) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1218,6 +1416,7 @@ func (c *jsiiProxy_CfnCertificateAuthority) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnCertificateAuthority) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1233,6 +1432,7 @@ func (c *jsiiProxy_CfnCertificateAuthority) AddDependsOn(target awscdk.CfnResour
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnCertificateAuthority) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1278,6 +1478,7 @@ func (c *jsiiProxy_CfnCertificateAuthority) AddMetadata(key *string, value inter
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnCertificateAuthority) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1287,6 +1488,7 @@ func (c *jsiiProxy_CfnCertificateAuthority) AddOverride(path *string, value inte
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnCertificateAuthority) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1298,6 +1500,7 @@ func (c *jsiiProxy_CfnCertificateAuthority) AddPropertyDeletionOverride(property
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnCertificateAuthority) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1315,6 +1518,7 @@ func (c *jsiiProxy_CfnCertificateAuthority) AddPropertyOverride(propertyPath *st
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnCertificateAuthority) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1327,6 +1531,7 @@ func (c *jsiiProxy_CfnCertificateAuthority) ApplyRemovalPolicy(policy awscdk.Rem
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnCertificateAuthority) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1347,6 +1552,7 @@ func (c *jsiiProxy_CfnCertificateAuthority) GetAtt(attributeName *string) awscdk
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnCertificateAuthority) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1369,12 +1575,80 @@ func (c *jsiiProxy_CfnCertificateAuthority) Inspect(inspector awscdk.TreeInspect
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnCertificateAuthority) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnCertificateAuthority) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnCertificateAuthority) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnCertificateAuthority) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnCertificateAuthority) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1395,6 +1669,7 @@ func (c *jsiiProxy_CfnCertificateAuthority) RenderProperties(props *map[string]i
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnCertificateAuthority) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1408,9 +1683,23 @@ func (c *jsiiProxy_CfnCertificateAuthority) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnCertificateAuthority) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnCertificateAuthority) ToString() *string {
 	var returns *string
 
@@ -1424,6 +1713,27 @@ func (c *jsiiProxy_CfnCertificateAuthority) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnCertificateAuthority) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnCertificateAuthority) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1432,162 +1742,255 @@ func (c *jsiiProxy_CfnCertificateAuthority) ValidateProperties(_properties inter
 	)
 }
 
+// Provides access information used by the `authorityInfoAccess` and `subjectInfoAccess` extensions described in [RFC 5280](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc5280) .
+//
 // TODO: EXAMPLE
 //
 type CfnCertificateAuthority_AccessDescriptionProperty struct {
-	// `CfnCertificateAuthority.AccessDescriptionProperty.AccessLocation`.
+	// The location of `AccessDescription` information.
 	AccessLocation interface{} `json:"accessLocation"`
-	// `CfnCertificateAuthority.AccessDescriptionProperty.AccessMethod`.
+	// The type and format of `AccessDescription` information.
 	AccessMethod interface{} `json:"accessMethod"`
 }
 
+// Describes the type and format of extension access.
+//
+// Only one of `CustomObjectIdentifier` or `AccessMethodType` may be provided. Providing both results in `InvalidArgsException` .
+//
 // TODO: EXAMPLE
 //
 type CfnCertificateAuthority_AccessMethodProperty struct {
-	// `CfnCertificateAuthority.AccessMethodProperty.AccessMethodType`.
+	// Specifies the `AccessMethod` .
 	AccessMethodType *string `json:"accessMethodType"`
-	// `CfnCertificateAuthority.AccessMethodProperty.CustomObjectIdentifier`.
+	// An object identifier (OID) specifying the `AccessMethod` .
+	//
+	// The OID must satisfy the regular expression shown below. For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier) .
 	CustomObjectIdentifier *string `json:"customObjectIdentifier"`
 }
 
+// Contains configuration information for a certificate revocation list (CRL).
+//
+// Your private certificate authority (CA) creates base CRLs. Delta CRLs are not supported. You can enable CRLs for your new or an existing private CA by setting the *Enabled* parameter to `true` . Your private CA writes CRLs to an S3 bucket that you specify in the *S3BucketName* parameter. You can hide the name of your bucket by specifying a value for the *CustomCname* parameter. Your private CA copies the CNAME or the S3 bucket name to the *CRL Distribution Points* extension of each certificate it issues. Your S3 bucket policy must give write permission to ACM Private CA.
+//
+// ACM Private CA assets that are stored in Amazon S3 can be protected with encryption. For more information, see [Encrypting Your CRLs](https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaCreateCa.html#crl-encryption) .
+//
+// Your private CA uses the value in the *ExpirationInDays* parameter to calculate the *nextUpdate* field in the CRL. The CRL is refreshed at 1/2 the age of next update or when a certificate is revoked. When a certificate is revoked, it is recorded in the next CRL that is generated and in the next audit report. Only time valid certificates are listed in the CRL. Expired certificates are not included.
+//
+// A CRL is typically updated approximately 30 minutes after a certificate is revoked. If for any reason a CRL update fails, ACM Private CA makes further attempts every 15 minutes.
+//
+// CRLs contain the following fields:
+//
+// - *Version* : The current version number defined in RFC 5280 is V2. The integer value is 0x1.
+// - *Signature Algorithm* : The name of the algorithm used to sign the CRL.
+// - *Issuer* : The X.500 distinguished name of your private CA that issued the CRL.
+// - *Last Update* : The issue date and time of this CRL.
+// - *Next Update* : The day and time by which the next CRL will be issued.
+// - *Revoked Certificates* : List of revoked certificates. Each list item contains the following information.
+//
+// - *Serial Number* : The serial number, in hexadecimal format, of the revoked certificate.
+// - *Revocation Date* : Date and time the certificate was revoked.
+// - *CRL Entry Extensions* : Optional extensions for the CRL entry.
+//
+// - *X509v3 CRL Reason Code* : Reason the certificate was revoked.
+// - *CRL Extensions* : Optional extensions for the CRL.
+//
+// - *X509v3 Authority Key Identifier* : Identifies the public key associated with the private key used to sign the certificate.
+// - *X509v3 CRL Number:* : Decimal sequence number for the CRL.
+// - *Signature Algorithm* : Algorithm used by your private CA to sign the CRL.
+// - *Signature Value* : Signature computed over the CRL.
+//
+// Certificate revocation lists created by ACM Private CA are DER-encoded. You can use the following OpenSSL command to list a CRL.
+//
+// `openssl crl -inform DER -text -in *crl_path* -noout`
+//
+// For more information, see [Planning a certificate revocation list (CRL)](https://docs.aws.amazon.com/acm-pca/latest/userguide/crl-planning.html) in the *AWS Certificate Manager Private Certificate Authority (PCA) User Guide*
+//
 // TODO: EXAMPLE
 //
 type CfnCertificateAuthority_CrlConfigurationProperty struct {
-	// `CfnCertificateAuthority.CrlConfigurationProperty.CustomCname`.
+	// Name inserted into the certificate *CRL Distribution Points* extension that enables the use of an alias for the CRL distribution point.
+	//
+	// Use this value if you don't want the name of your S3 bucket to be public.
 	CustomCname *string `json:"customCname"`
-	// `CfnCertificateAuthority.CrlConfigurationProperty.Enabled`.
+	// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.
+	//
+	// You can use this value to enable certificate revocation for a new CA when you call the `CreateCertificateAuthority` operation or for an existing CA when you call the `UpdateCertificateAuthority` operation.
 	Enabled interface{} `json:"enabled"`
-	// `CfnCertificateAuthority.CrlConfigurationProperty.ExpirationInDays`.
+	// Validity period of the CRL in days.
 	ExpirationInDays *float64 `json:"expirationInDays"`
-	// `CfnCertificateAuthority.CrlConfigurationProperty.S3BucketName`.
+	// Name of the S3 bucket that contains the CRL.
+	//
+	// If you do not provide a value for the *CustomCname* argument, the name of your S3 bucket is placed into the *CRL Distribution Points* extension of the issued certificate. You can change the name of your bucket by calling the [UpdateCertificateAuthority](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_UpdateCertificateAuthority.html) operation. You must specify a [bucket policy](https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaCreateCa.html#s3-policies) that allows ACM Private CA to write the CRL to your bucket.
 	S3BucketName *string `json:"s3BucketName"`
-	// `CfnCertificateAuthority.CrlConfigurationProperty.S3ObjectAcl`.
+	// Determines whether the CRL will be publicly readable or privately held in the CRL Amazon S3 bucket.
+	//
+	// If you choose PUBLIC_READ, the CRL will be accessible over the public internet. If you choose BUCKET_OWNER_FULL_CONTROL, only the owner of the CRL S3 bucket can access the CRL, and your PKI clients may need an alternative method of access.
+	//
+	// If no value is specified, the default is PUBLIC_READ.
+	//
+	// > This default can cause CA creation to fail in some circumstances. If you have enabled the Block Public Access (BPA) feature in your S3 account, then you must specify the value of this parameter as `BUCKET_OWNER_FULL_CONTROL` , and not doing so results in an error. If you have disabled BPA in S3, then you can specify either `BUCKET_OWNER_FULL_CONTROL` or `PUBLIC_READ` as the value.
+	//
+	// For more information, see [Blocking public access to the S3 bucket](https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaCreateCa.html#s3-bpa) .
 	S3ObjectAcl *string `json:"s3ObjectAcl"`
 }
 
+// Describes the certificate extensions to be added to the certificate signing request (CSR).
+//
 // TODO: EXAMPLE
 //
 type CfnCertificateAuthority_CsrExtensionsProperty struct {
-	// `CfnCertificateAuthority.CsrExtensionsProperty.KeyUsage`.
+	// Indicates the purpose of the certificate and of the key contained in the certificate.
 	KeyUsage interface{} `json:"keyUsage"`
-	// `CfnCertificateAuthority.CsrExtensionsProperty.SubjectInformationAccess`.
+	// For CA certificates, provides a path to additional information pertaining to the CA, such as revocation and policy.
+	//
+	// For more information, see [Subject Information Access](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc5280#section-4.2.2.2) in RFC 5280.
 	SubjectInformationAccess interface{} `json:"subjectInformationAccess"`
 }
 
+// Describes an Electronic Data Interchange (EDI) entity as described in as defined in [Subject Alternative Name](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc5280) in RFC 5280.
+//
 // TODO: EXAMPLE
 //
 type CfnCertificateAuthority_EdiPartyNameProperty struct {
-	// `CfnCertificateAuthority.EdiPartyNameProperty.NameAssigner`.
+	// Specifies the name assigner.
 	NameAssigner *string `json:"nameAssigner"`
-	// `CfnCertificateAuthority.EdiPartyNameProperty.PartyName`.
+	// Specifies the party name.
 	PartyName *string `json:"partyName"`
 }
 
+// Describes an ASN.1 X.400 `GeneralName` as defined in [RFC 5280](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc5280) . Only one of the following naming options should be provided. Providing more than one option results in an `InvalidArgsException` error.
+//
 // TODO: EXAMPLE
 //
 type CfnCertificateAuthority_GeneralNameProperty struct {
-	// `CfnCertificateAuthority.GeneralNameProperty.DirectoryName`.
+	// Contains information about the certificate subject.
+	//
+	// The certificate can be one issued by your private certificate authority (CA) or it can be your private CA certificate. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate. The DN must be unique for each entity, but your private CA can issue more than one certificate with the same DN to the same entity.
 	DirectoryName interface{} `json:"directoryName"`
-	// `CfnCertificateAuthority.GeneralNameProperty.DnsName`.
+	// Represents `GeneralName` as a DNS name.
 	DnsName *string `json:"dnsName"`
-	// `CfnCertificateAuthority.GeneralNameProperty.EdiPartyName`.
+	// Represents `GeneralName` as an `EdiPartyName` object.
 	EdiPartyName interface{} `json:"ediPartyName"`
-	// `CfnCertificateAuthority.GeneralNameProperty.IpAddress`.
+	// Represents `GeneralName` as an IPv4 or IPv6 address.
 	IpAddress *string `json:"ipAddress"`
-	// `CfnCertificateAuthority.GeneralNameProperty.OtherName`.
+	// Represents `GeneralName` using an `OtherName` object.
 	OtherName interface{} `json:"otherName"`
-	// `CfnCertificateAuthority.GeneralNameProperty.RegisteredId`.
+	// Represents `GeneralName` as an object identifier (OID).
 	RegisteredId *string `json:"registeredId"`
-	// `CfnCertificateAuthority.GeneralNameProperty.Rfc822Name`.
+	// Represents `GeneralName` as an [RFC 822](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc822) email address.
 	Rfc822Name *string `json:"rfc822Name"`
-	// `CfnCertificateAuthority.GeneralNameProperty.UniformResourceIdentifier`.
+	// Represents `GeneralName` as a URI.
 	UniformResourceIdentifier *string `json:"uniformResourceIdentifier"`
 }
 
+// Defines one or more purposes for which the key contained in the certificate can be used.
+//
+// Default value for each option is false.
+//
 // TODO: EXAMPLE
 //
 type CfnCertificateAuthority_KeyUsageProperty struct {
-	// `CfnCertificateAuthority.KeyUsageProperty.CRLSign`.
+	// Key can be used to sign CRLs.
 	CrlSign interface{} `json:"crlSign"`
-	// `CfnCertificateAuthority.KeyUsageProperty.DataEncipherment`.
+	// Key can be used to decipher data.
 	DataEncipherment interface{} `json:"dataEncipherment"`
-	// `CfnCertificateAuthority.KeyUsageProperty.DecipherOnly`.
+	// Key can be used only to decipher data.
 	DecipherOnly interface{} `json:"decipherOnly"`
-	// `CfnCertificateAuthority.KeyUsageProperty.DigitalSignature`.
+	// Key can be used for digital signing.
 	DigitalSignature interface{} `json:"digitalSignature"`
-	// `CfnCertificateAuthority.KeyUsageProperty.EncipherOnly`.
+	// Key can be used only to encipher data.
 	EncipherOnly interface{} `json:"encipherOnly"`
-	// `CfnCertificateAuthority.KeyUsageProperty.KeyAgreement`.
+	// Key can be used in a key-agreement protocol.
 	KeyAgreement interface{} `json:"keyAgreement"`
-	// `CfnCertificateAuthority.KeyUsageProperty.KeyCertSign`.
+	// Key can be used to sign certificates.
 	KeyCertSign interface{} `json:"keyCertSign"`
-	// `CfnCertificateAuthority.KeyUsageProperty.KeyEncipherment`.
+	// Key can be used to encipher data.
 	KeyEncipherment interface{} `json:"keyEncipherment"`
-	// `CfnCertificateAuthority.KeyUsageProperty.NonRepudiation`.
+	// Key can be used for non-repudiation.
 	NonRepudiation interface{} `json:"nonRepudiation"`
 }
 
+// Contains information to enable and configure Online Certificate Status Protocol (OCSP) for validating certificate revocation status.
+//
 // TODO: EXAMPLE
 //
 type CfnCertificateAuthority_OcspConfigurationProperty struct {
-	// `CfnCertificateAuthority.OcspConfigurationProperty.Enabled`.
+	// Flag enabling use of the Online Certificate Status Protocol (OCSP) for validating certificate revocation status.
 	Enabled interface{} `json:"enabled"`
-	// `CfnCertificateAuthority.OcspConfigurationProperty.OcspCustomCname`.
+	// By default, ACM Private CA injects an Amazon domain into certificates being validated by the Online Certificate Status Protocol (OCSP).
+	//
+	// A customer can alternatively use this object to define a CNAME specifying a customized OCSP domain.
+	//
+	// Note: The value of the CNAME must not include a protocol prefix such as "http://" or "https://".
 	OcspCustomCname *string `json:"ocspCustomCname"`
 }
 
+// Defines a custom ASN.1 X.400 `GeneralName` using an object identifier (OID) and value. The OID must satisfy the regular expression shown below. For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier) .
+//
 // TODO: EXAMPLE
 //
 type CfnCertificateAuthority_OtherNameProperty struct {
-	// `CfnCertificateAuthority.OtherNameProperty.TypeId`.
+	// Specifies an OID.
 	TypeId *string `json:"typeId"`
-	// `CfnCertificateAuthority.OtherNameProperty.Value`.
+	// Specifies an OID value.
 	Value *string `json:"value"`
 }
 
+// Certificate revocation information used by the CreateCertificateAuthority and UpdateCertificateAuthority actions.
+//
+// Your private certificate authority (CA) can configure Online Certificate Status Protocol (OCSP) support and/or maintain a certificate revocation list (CRL). OCSP returns validation information about certificates as requested by clients, and a CRL contains an updated list of certificates revoked by your CA. For more information, see [RevokeCertificate](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_RevokeCertificate.html) .
+//
 // TODO: EXAMPLE
 //
 type CfnCertificateAuthority_RevocationConfigurationProperty struct {
-	// `CfnCertificateAuthority.RevocationConfigurationProperty.CrlConfiguration`.
+	// Configuration of the certificate revocation list (CRL), if any, maintained by your private CA.
 	CrlConfiguration interface{} `json:"crlConfiguration"`
-	// `CfnCertificateAuthority.RevocationConfigurationProperty.OcspConfiguration`.
+	// Configuration of Online Certificate Status Protocol (OCSP) support, if any, maintained by your private CA.
 	OcspConfiguration interface{} `json:"ocspConfiguration"`
 }
 
+// ASN1 subject for the certificate authority.
+//
 // TODO: EXAMPLE
 //
 type CfnCertificateAuthority_SubjectProperty struct {
-	// `CfnCertificateAuthority.SubjectProperty.CommonName`.
+	// Fully qualified domain name (FQDN) associated with the certificate subject.
 	CommonName *string `json:"commonName"`
-	// `CfnCertificateAuthority.SubjectProperty.Country`.
+	// Two-digit code that specifies the country in which the certificate subject located.
 	Country *string `json:"country"`
-	// `CfnCertificateAuthority.SubjectProperty.DistinguishedNameQualifier`.
+	// Disambiguating information for the certificate subject.
 	DistinguishedNameQualifier *string `json:"distinguishedNameQualifier"`
-	// `CfnCertificateAuthority.SubjectProperty.GenerationQualifier`.
+	// Typically a qualifier appended to the name of an individual.
+	//
+	// Examples include Jr. for junior, Sr. for senior, and III for third.
 	GenerationQualifier *string `json:"generationQualifier"`
-	// `CfnCertificateAuthority.SubjectProperty.GivenName`.
+	// First name.
 	GivenName *string `json:"givenName"`
-	// `CfnCertificateAuthority.SubjectProperty.Initials`.
+	// Concatenation that typically contains the first letter of the GivenName, the first letter of the middle name if one exists, and the first letter of the SurName.
 	Initials *string `json:"initials"`
-	// `CfnCertificateAuthority.SubjectProperty.Locality`.
+	// The locality (such as a city or town) in which the certificate subject is located.
 	Locality *string `json:"locality"`
-	// `CfnCertificateAuthority.SubjectProperty.Organization`.
+	// Legal name of the organization with which the certificate subject is affiliated.
 	Organization *string `json:"organization"`
-	// `CfnCertificateAuthority.SubjectProperty.OrganizationalUnit`.
+	// A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated.
 	OrganizationalUnit *string `json:"organizationalUnit"`
-	// `CfnCertificateAuthority.SubjectProperty.Pseudonym`.
+	// Typically a shortened version of a longer GivenName.
+	//
+	// For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza.
 	Pseudonym *string `json:"pseudonym"`
-	// `CfnCertificateAuthority.SubjectProperty.SerialNumber`.
+	// The certificate serial number.
 	SerialNumber *string `json:"serialNumber"`
-	// `CfnCertificateAuthority.SubjectProperty.State`.
+	// State in which the subject of the certificate is located.
 	State *string `json:"state"`
-	// `CfnCertificateAuthority.SubjectProperty.Surname`.
+	// Family name.
 	Surname *string `json:"surname"`
-	// `CfnCertificateAuthority.SubjectProperty.Title`.
+	// A personal title such as Mr.
 	Title *string `json:"title"`
 }
 
 // A CloudFormation `AWS::ACMPCA::CertificateAuthorityActivation`.
+//
+// The `AWS::ACMPCA::CertificateAuthorityActivation` resource creates and installs a CA certificate on a CA. If no status is specified, the `AWS::ACMPCA::CertificateAuthorityActivation` resource status defaults to ACTIVE. Once the CA has a CA certificate installed, you can use the resource to toggle the CA status field between `ACTIVE` and `DISABLED` .
 //
 // TODO: EXAMPLE
 //
@@ -1606,7 +2009,7 @@ type CfnCertificateAuthorityActivation interface {
 	CfnResourceType() *string
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	Status() *string
@@ -1622,10 +2025,16 @@ type CfnCertificateAuthorityActivation interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1725,8 +2134,8 @@ func (j *jsiiProxy_CfnCertificateAuthorityActivation) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCertificateAuthorityActivation) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnCertificateAuthorityActivation) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1777,13 +2186,13 @@ func (j *jsiiProxy_CfnCertificateAuthorityActivation) UpdatedProperites() *map[s
 
 
 // Create a new `AWS::ACMPCA::CertificateAuthorityActivation`.
-func NewCfnCertificateAuthorityActivation(scope constructs.Construct, id *string, props *CfnCertificateAuthorityActivationProps) CfnCertificateAuthorityActivation {
+func NewCfnCertificateAuthorityActivation(scope awscdk.Construct, id *string, props *CfnCertificateAuthorityActivationProps) CfnCertificateAuthorityActivation {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnCertificateAuthorityActivation{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_acmpca.CfnCertificateAuthorityActivation",
+		"monocdk.aws_acmpca.CfnCertificateAuthorityActivation",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1792,11 +2201,11 @@ func NewCfnCertificateAuthorityActivation(scope constructs.Construct, id *string
 }
 
 // Create a new `AWS::ACMPCA::CertificateAuthorityActivation`.
-func NewCfnCertificateAuthorityActivation_Override(c CfnCertificateAuthorityActivation, scope constructs.Construct, id *string, props *CfnCertificateAuthorityActivationProps) {
+func NewCfnCertificateAuthorityActivation_Override(c CfnCertificateAuthorityActivation, scope awscdk.Construct, id *string, props *CfnCertificateAuthorityActivationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_acmpca.CfnCertificateAuthorityActivation",
+		"monocdk.aws_acmpca.CfnCertificateAuthorityActivation",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1840,13 +2249,14 @@ func (j *jsiiProxy_CfnCertificateAuthorityActivation) SetStatus(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnCertificateAuthorityActivation_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_acmpca.CfnCertificateAuthorityActivation",
+		"monocdk.aws_acmpca.CfnCertificateAuthorityActivation",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1856,13 +2266,14 @@ func CfnCertificateAuthorityActivation_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnCertificateAuthorityActivation_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_acmpca.CfnCertificateAuthorityActivation",
+		"monocdk.aws_acmpca.CfnCertificateAuthorityActivation",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1871,17 +2282,15 @@ func CfnCertificateAuthorityActivation_IsCfnResource(construct constructs.IConst
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnCertificateAuthorityActivation_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_acmpca.CfnCertificateAuthorityActivation",
+		"monocdk.aws_acmpca.CfnCertificateAuthorityActivation",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1894,7 +2303,7 @@ func CfnCertificateAuthorityActivation_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_acmpca.CfnCertificateAuthorityActivation",
+		"monocdk.aws_acmpca.CfnCertificateAuthorityActivation",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1902,6 +2311,7 @@ func CfnCertificateAuthorityActivation_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnCertificateAuthorityActivation) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1914,6 +2324,7 @@ func (c *jsiiProxy_CfnCertificateAuthorityActivation) AddDeletionOverride(path *
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnCertificateAuthorityActivation) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1929,6 +2340,7 @@ func (c *jsiiProxy_CfnCertificateAuthorityActivation) AddDependsOn(target awscdk
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnCertificateAuthorityActivation) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1974,6 +2386,7 @@ func (c *jsiiProxy_CfnCertificateAuthorityActivation) AddMetadata(key *string, v
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnCertificateAuthorityActivation) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1983,6 +2396,7 @@ func (c *jsiiProxy_CfnCertificateAuthorityActivation) AddOverride(path *string, 
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnCertificateAuthorityActivation) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1994,6 +2408,7 @@ func (c *jsiiProxy_CfnCertificateAuthorityActivation) AddPropertyDeletionOverrid
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnCertificateAuthorityActivation) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2011,6 +2426,7 @@ func (c *jsiiProxy_CfnCertificateAuthorityActivation) AddPropertyOverride(proper
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnCertificateAuthorityActivation) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2023,6 +2439,7 @@ func (c *jsiiProxy_CfnCertificateAuthorityActivation) ApplyRemovalPolicy(policy 
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnCertificateAuthorityActivation) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2043,6 +2460,7 @@ func (c *jsiiProxy_CfnCertificateAuthorityActivation) GetAtt(attributeName *stri
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnCertificateAuthorityActivation) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2065,12 +2483,80 @@ func (c *jsiiProxy_CfnCertificateAuthorityActivation) Inspect(inspector awscdk.T
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnCertificateAuthorityActivation) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnCertificateAuthorityActivation) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnCertificateAuthorityActivation) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnCertificateAuthorityActivation) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnCertificateAuthorityActivation) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2091,6 +2577,7 @@ func (c *jsiiProxy_CfnCertificateAuthorityActivation) RenderProperties(props *ma
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnCertificateAuthorityActivation) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2104,9 +2591,23 @@ func (c *jsiiProxy_CfnCertificateAuthorityActivation) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnCertificateAuthorityActivation) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnCertificateAuthorityActivation) ToString() *string {
 	var returns *string
 
@@ -2120,6 +2621,27 @@ func (c *jsiiProxy_CfnCertificateAuthorityActivation) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnCertificateAuthorityActivation) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnCertificateAuthorityActivation) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2128,66 +2650,100 @@ func (c *jsiiProxy_CfnCertificateAuthorityActivation) ValidateProperties(_proper
 	)
 }
 
-// Properties for defining a `AWS::ACMPCA::CertificateAuthorityActivation`.
+// Properties for defining a `CfnCertificateAuthorityActivation`.
 //
 // TODO: EXAMPLE
 //
 type CfnCertificateAuthorityActivationProps struct {
-	// `AWS::ACMPCA::CertificateAuthorityActivation.Certificate`.
+	// The Base64 PEM-encoded certificate authority certificate.
 	Certificate *string `json:"certificate"`
-	// `AWS::ACMPCA::CertificateAuthorityActivation.CertificateAuthorityArn`.
+	// The Amazon Resource Name (ARN) of your private CA.
 	CertificateAuthorityArn *string `json:"certificateAuthorityArn"`
-	// `AWS::ACMPCA::CertificateAuthorityActivation.CertificateChain`.
+	// The Base64 PEM-encoded certificate chain that chains up to the root CA certificate that you used to sign your private CA certificate.
 	CertificateChain *string `json:"certificateChain"`
-	// `AWS::ACMPCA::CertificateAuthorityActivation.Status`.
+	// Status of your private CA.
 	Status *string `json:"status"`
 }
 
-// Properties for defining a `AWS::ACMPCA::CertificateAuthority`.
+// Properties for defining a `CfnCertificateAuthority`.
 //
 // TODO: EXAMPLE
 //
 type CfnCertificateAuthorityProps struct {
-	// `AWS::ACMPCA::CertificateAuthority.CsrExtensions`.
-	CsrExtensions interface{} `json:"csrExtensions"`
-	// `AWS::ACMPCA::CertificateAuthority.KeyAlgorithm`.
+	// Type of the public key algorithm and size, in bits, of the key pair that your CA creates when it issues a certificate.
+	//
+	// When you create a subordinate CA, you must use a key algorithm supported by the parent CA.
 	KeyAlgorithm *string `json:"keyAlgorithm"`
-	// `AWS::ACMPCA::CertificateAuthority.KeyStorageSecurityStandard`.
-	KeyStorageSecurityStandard *string `json:"keyStorageSecurityStandard"`
-	// `AWS::ACMPCA::CertificateAuthority.RevocationConfiguration`.
-	RevocationConfiguration interface{} `json:"revocationConfiguration"`
-	// `AWS::ACMPCA::CertificateAuthority.SigningAlgorithm`.
+	// Name of the algorithm your private CA uses to sign certificate requests.
+	//
+	// This parameter should not be confused with the `SigningAlgorithm` parameter used to sign certificates when they are issued.
 	SigningAlgorithm *string `json:"signingAlgorithm"`
-	// `AWS::ACMPCA::CertificateAuthority.Subject`.
+	// Structure that contains X.500 distinguished name information for your private CA.
 	Subject interface{} `json:"subject"`
-	// `AWS::ACMPCA::CertificateAuthority.Tags`.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
-	// `AWS::ACMPCA::CertificateAuthority.Type`.
+	// Type of your private CA.
 	Type *string `json:"type"`
+	// Specifies information to be added to the extension section of the certificate signing request (CSR).
+	CsrExtensions interface{} `json:"csrExtensions"`
+	// Specifies a cryptographic key management compliance standard used for handling CA keys.
+	//
+	// Default: FIPS_140_2_LEVEL_3_OR_HIGHER
+	//
+	// Note: `FIPS_140_2_LEVEL_3_OR_HIGHER` is not supported in Region ap-northeast-3. When creating a CA in the ap-northeast-3, you must provide `FIPS_140_2_LEVEL_2_OR_HIGHER` as the argument for `KeyStorageSecurityStandard` . Failure to do this results in an `InvalidArgsException` with the message, "A certificate authority cannot be created in this region with the specified security standard."
+	KeyStorageSecurityStandard *string `json:"keyStorageSecurityStandard"`
+	// Information about the certificate revocation list (CRL) created and maintained by your private CA.
+	//
+	// Certificate revocation information used by the CreateCertificateAuthority and UpdateCertificateAuthority actions. Your certificate authority can create and maintain a certificate revocation list (CRL). A CRL contains information about certificates that have been revoked.
+	RevocationConfiguration interface{} `json:"revocationConfiguration"`
+	// Key-value pairs that will be attached to the new private CA.
+	//
+	// You can associate up to 50 tags with a private CA. For information using tags with IAM to manage permissions, see [Controlling Access Using IAM Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html) .
+	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
-// Properties for defining a `AWS::ACMPCA::Certificate`.
+// Properties for defining a `CfnCertificate`.
 //
 // TODO: EXAMPLE
 //
 type CfnCertificateProps struct {
-	// `AWS::ACMPCA::Certificate.ApiPassthrough`.
-	ApiPassthrough interface{} `json:"apiPassthrough"`
-	// `AWS::ACMPCA::Certificate.CertificateAuthorityArn`.
+	// The Amazon Resource Name (ARN) for the private CA issues the certificate.
 	CertificateAuthorityArn *string `json:"certificateAuthorityArn"`
-	// `AWS::ACMPCA::Certificate.CertificateSigningRequest`.
+	// The certificate signing request (CSR) for the certificate.
 	CertificateSigningRequest *string `json:"certificateSigningRequest"`
-	// `AWS::ACMPCA::Certificate.SigningAlgorithm`.
+	// The name of the algorithm that will be used to sign the certificate to be issued.
+	//
+	// This parameter should not be confused with the `SigningAlgorithm` parameter used to sign a CSR in the `CreateCertificateAuthority` action.
+	//
+	// > The specified signing algorithm family (RSA or ECDSA) must match the algorithm family of the CA's secret key.
 	SigningAlgorithm *string `json:"signingAlgorithm"`
-	// `AWS::ACMPCA::Certificate.TemplateArn`.
-	TemplateArn *string `json:"templateArn"`
-	// `AWS::ACMPCA::Certificate.Validity`.
+	// The period of time during which the certificate will be valid.
 	Validity interface{} `json:"validity"`
-	// `AWS::ACMPCA::Certificate.ValidityNotBefore`.
+	// Specifies X.509 certificate information to be included in the issued certificate. An `APIPassthrough` or `APICSRPassthrough` template variant must be selected, or else this parameter is ignored.
+	ApiPassthrough interface{} `json:"apiPassthrough"`
+	// Specifies a custom configuration template to use when issuing a certificate.
+	//
+	// If this parameter is not provided, ACM Private CA defaults to the `EndEntityCertificate/V1` template. For more information about ACM Private CA templates, see [Using Templates](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) .
+	TemplateArn *string `json:"templateArn"`
+	// Information describing the start of the validity period of the certificate.
+	//
+	// This parameter sets the “Not Before" date for the certificate.
+	//
+	// By default, when issuing a certificate, ACM Private CA sets the "Not Before" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies across computer systems. The `ValidityNotBefore` parameter can be used to customize the “Not Before” value.
+	//
+	// Unlike the `Validity` parameter, the `ValidityNotBefore` parameter is optional.
+	//
+	// The `ValidityNotBefore` value is expressed as an explicit date and time, using the `Validity` type value `ABSOLUTE` .
 	ValidityNotBefore interface{} `json:"validityNotBefore"`
 }
 
 // A CloudFormation `AWS::ACMPCA::Permission`.
+//
+// Grants permissions to the AWS Certificate Manager (ACM) service principal ( `acm.amazonaws.com` ) to perform [IssueCertificate](https://docs.aws.amazon.com/latest/APIReference/API_IssueCertificate.html) , [GetCertificate](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_GetCertificate.html) , and [ListPermissions](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListPermissions.html) actions on a CA. These actions are needed for the ACM principal to renew private PKI certificates requested through ACM and residing in the same AWS account as the CA.
+//
+// **About permissions** - If the private CA and the certificates it issues reside in the same account, you can use `AWS::ACMPCA::Permission` to grant permissions for ACM to carry out automatic certificate renewals.
+// - For automatic certificate renewal to succeed, the ACM service principal needs permissions to create, retrieve, and list permissions.
+// - If the private CA and the ACM certificates reside in different accounts, then permissions cannot be used to enable automatic renewals. Instead, the ACM certificate owner must set up a resource-based policy to enable cross-account issuance and renewals. For more information, see [Using a Resource Based Policy with ACM Private CA](https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-rbp.html) .
+//
+// > To update an `AWS::ACMPCA::Permission` resource, you must first delete the existing permission resource from the CloudFormation stack and then create a new permission resource with updated properties.
 //
 // TODO: EXAMPLE
 //
@@ -2203,7 +2759,7 @@ type CfnPermission interface {
 	CfnResourceType() *string
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Principal() *string
 	SetPrincipal(val *string)
 	Ref() *string
@@ -2221,10 +2777,16 @@ type CfnPermission interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -2304,8 +2866,8 @@ func (j *jsiiProxy_CfnPermission) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPermission) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnPermission) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2366,13 +2928,13 @@ func (j *jsiiProxy_CfnPermission) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::ACMPCA::Permission`.
-func NewCfnPermission(scope constructs.Construct, id *string, props *CfnPermissionProps) CfnPermission {
+func NewCfnPermission(scope awscdk.Construct, id *string, props *CfnPermissionProps) CfnPermission {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnPermission{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_acmpca.CfnPermission",
+		"monocdk.aws_acmpca.CfnPermission",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2381,11 +2943,11 @@ func NewCfnPermission(scope constructs.Construct, id *string, props *CfnPermissi
 }
 
 // Create a new `AWS::ACMPCA::Permission`.
-func NewCfnPermission_Override(c CfnPermission, scope constructs.Construct, id *string, props *CfnPermissionProps) {
+func NewCfnPermission_Override(c CfnPermission, scope awscdk.Construct, id *string, props *CfnPermissionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_acmpca.CfnPermission",
+		"monocdk.aws_acmpca.CfnPermission",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2429,13 +2991,14 @@ func (j *jsiiProxy_CfnPermission) SetSourceAccount(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnPermission_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_acmpca.CfnPermission",
+		"monocdk.aws_acmpca.CfnPermission",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2445,13 +3008,14 @@ func CfnPermission_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnPermission_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_acmpca.CfnPermission",
+		"monocdk.aws_acmpca.CfnPermission",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2460,17 +3024,15 @@ func CfnPermission_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnPermission_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_acmpca.CfnPermission",
+		"monocdk.aws_acmpca.CfnPermission",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2483,7 +3045,7 @@ func CfnPermission_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_acmpca.CfnPermission",
+		"monocdk.aws_acmpca.CfnPermission",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2491,6 +3053,7 @@ func CfnPermission_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnPermission) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2503,6 +3066,7 @@ func (c *jsiiProxy_CfnPermission) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnPermission) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2518,6 +3082,7 @@ func (c *jsiiProxy_CfnPermission) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnPermission) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2563,6 +3128,7 @@ func (c *jsiiProxy_CfnPermission) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnPermission) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2572,6 +3138,7 @@ func (c *jsiiProxy_CfnPermission) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnPermission) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2583,6 +3150,7 @@ func (c *jsiiProxy_CfnPermission) AddPropertyDeletionOverride(propertyPath *stri
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnPermission) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2600,6 +3168,7 @@ func (c *jsiiProxy_CfnPermission) AddPropertyOverride(propertyPath *string, valu
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnPermission) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2612,6 +3181,7 @@ func (c *jsiiProxy_CfnPermission) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnPermission) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2632,6 +3202,7 @@ func (c *jsiiProxy_CfnPermission) GetAtt(attributeName *string) awscdk.Reference
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnPermission) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2654,12 +3225,80 @@ func (c *jsiiProxy_CfnPermission) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnPermission) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnPermission) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnPermission) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnPermission) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnPermission) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2680,6 +3319,7 @@ func (c *jsiiProxy_CfnPermission) RenderProperties(props *map[string]interface{}
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnPermission) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2693,9 +3333,23 @@ func (c *jsiiProxy_CfnPermission) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnPermission) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnPermission) ToString() *string {
 	var returns *string
 
@@ -2709,6 +3363,27 @@ func (c *jsiiProxy_CfnPermission) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnPermission) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnPermission) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2717,25 +3392,31 @@ func (c *jsiiProxy_CfnPermission) ValidateProperties(_properties interface{}) {
 	)
 }
 
-// Properties for defining a `AWS::ACMPCA::Permission`.
+// Properties for defining a `CfnPermission`.
 //
 // TODO: EXAMPLE
 //
 type CfnPermissionProps struct {
-	// `AWS::ACMPCA::Permission.Actions`.
+	// The private CA actions that can be performed by the designated AWS service.
+	//
+	// Supported actions are `IssueCertificate` , `GetCertificate` , and `ListPermissions` .
 	Actions *[]*string `json:"actions"`
-	// `AWS::ACMPCA::Permission.CertificateAuthorityArn`.
+	// The Amazon Resource Number (ARN) of the private CA from which the permission was issued.
 	CertificateAuthorityArn *string `json:"certificateAuthorityArn"`
-	// `AWS::ACMPCA::Permission.Principal`.
+	// The AWS service or entity that holds the permission.
+	//
+	// At this time, the only valid principal is `acm.amazonaws.com` .
 	Principal *string `json:"principal"`
-	// `AWS::ACMPCA::Permission.SourceAccount`.
+	// The ID of the account that assigned the permission.
 	SourceAccount *string `json:"sourceAccount"`
 }
 
 // Interface which all CertificateAuthority based class must implement.
+// Experimental.
 type ICertificateAuthority interface {
 	awscdk.IResource
 	// The Amazon Resource Name of the Certificate.
+	// Experimental.
 	CertificateAuthorityArn() *string
 }
 

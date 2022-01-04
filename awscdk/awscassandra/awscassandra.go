@@ -1,15 +1,17 @@
 package awscassandra
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscassandra/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscassandra/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::Cassandra::Keyspace`.
+//
+// The `AWS::Cassandra::Keyspace` resource allows you to create a new keyspace in Amazon Keyspaces (for Apache Cassandra). For more information, see [Create a keyspace and a table](https://docs.aws.amazon.com/keyspaces/latest/devguide/getting-started.ddl.html) in the *Amazon Keyspaces Developer Guide* .
 //
 // TODO: EXAMPLE
 //
@@ -23,7 +25,7 @@ type CfnKeyspace interface {
 	KeyspaceName() *string
 	SetKeyspaceName(val *string)
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	Tags() awscdk.TagManager
@@ -38,10 +40,16 @@ type CfnKeyspace interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -111,8 +119,8 @@ func (j *jsiiProxy_CfnKeyspace) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnKeyspace) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnKeyspace) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -163,13 +171,13 @@ func (j *jsiiProxy_CfnKeyspace) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::Cassandra::Keyspace`.
-func NewCfnKeyspace(scope constructs.Construct, id *string, props *CfnKeyspaceProps) CfnKeyspace {
+func NewCfnKeyspace(scope awscdk.Construct, id *string, props *CfnKeyspaceProps) CfnKeyspace {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnKeyspace{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_cassandra.CfnKeyspace",
+		"monocdk.aws_cassandra.CfnKeyspace",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -178,11 +186,11 @@ func NewCfnKeyspace(scope constructs.Construct, id *string, props *CfnKeyspacePr
 }
 
 // Create a new `AWS::Cassandra::Keyspace`.
-func NewCfnKeyspace_Override(c CfnKeyspace, scope constructs.Construct, id *string, props *CfnKeyspaceProps) {
+func NewCfnKeyspace_Override(c CfnKeyspace, scope awscdk.Construct, id *string, props *CfnKeyspaceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_cassandra.CfnKeyspace",
+		"monocdk.aws_cassandra.CfnKeyspace",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -202,13 +210,14 @@ func (j *jsiiProxy_CfnKeyspace) SetKeyspaceName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnKeyspace_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_cassandra.CfnKeyspace",
+		"monocdk.aws_cassandra.CfnKeyspace",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -218,13 +227,14 @@ func CfnKeyspace_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnKeyspace_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_cassandra.CfnKeyspace",
+		"monocdk.aws_cassandra.CfnKeyspace",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -233,17 +243,15 @@ func CfnKeyspace_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnKeyspace_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_cassandra.CfnKeyspace",
+		"monocdk.aws_cassandra.CfnKeyspace",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -256,7 +264,7 @@ func CfnKeyspace_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_cassandra.CfnKeyspace",
+		"monocdk.aws_cassandra.CfnKeyspace",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -264,6 +272,7 @@ func CfnKeyspace_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnKeyspace) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -276,6 +285,7 @@ func (c *jsiiProxy_CfnKeyspace) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnKeyspace) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -291,6 +301,7 @@ func (c *jsiiProxy_CfnKeyspace) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnKeyspace) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -336,6 +347,7 @@ func (c *jsiiProxy_CfnKeyspace) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnKeyspace) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -345,6 +357,7 @@ func (c *jsiiProxy_CfnKeyspace) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnKeyspace) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -356,6 +369,7 @@ func (c *jsiiProxy_CfnKeyspace) AddPropertyDeletionOverride(propertyPath *string
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnKeyspace) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -373,6 +387,7 @@ func (c *jsiiProxy_CfnKeyspace) AddPropertyOverride(propertyPath *string, value 
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnKeyspace) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -385,6 +400,7 @@ func (c *jsiiProxy_CfnKeyspace) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, 
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnKeyspace) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -405,6 +421,7 @@ func (c *jsiiProxy_CfnKeyspace) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnKeyspace) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -427,12 +444,80 @@ func (c *jsiiProxy_CfnKeyspace) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnKeyspace) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnKeyspace) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnKeyspace) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnKeyspace) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnKeyspace) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -453,6 +538,7 @@ func (c *jsiiProxy_CfnKeyspace) RenderProperties(props *map[string]interface{}) 
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnKeyspace) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -466,9 +552,23 @@ func (c *jsiiProxy_CfnKeyspace) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnKeyspace) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnKeyspace) ToString() *string {
 	var returns *string
 
@@ -482,6 +582,27 @@ func (c *jsiiProxy_CfnKeyspace) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnKeyspace) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnKeyspace) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -490,18 +611,26 @@ func (c *jsiiProxy_CfnKeyspace) ValidateProperties(_properties interface{}) {
 	)
 }
 
-// Properties for defining a `AWS::Cassandra::Keyspace`.
+// Properties for defining a `CfnKeyspace`.
 //
 // TODO: EXAMPLE
 //
 type CfnKeyspaceProps struct {
-	// `AWS::Cassandra::Keyspace.KeyspaceName`.
+	// The name of the keyspace to be created.
+	//
+	// The keyspace name is case sensitive. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the keyspace name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
+	//
+	// *Length constraints:* Minimum length of 3. Maximum length of 255.
+	//
+	// *Pattern:* `^[a-zA-Z0-9][a-zA-Z0-9_]{1,47}$`
 	KeyspaceName *string `json:"keyspaceName"`
-	// `AWS::Cassandra::Keyspace.Tags`.
+	// A list of key-value pair tags to be attached to the resource.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::Cassandra::Table`.
+//
+// The `AWS::Cassandra::Table` resource allows you to create a new table in Amazon Keyspaces (for Apache Cassandra). For more information, see [Create a keyspace and a table](https://docs.aws.amazon.com/keyspaces/latest/devguide/getting-started.ddl.html) in the *Amazon Keyspaces Developer Guide* .
 //
 // TODO: EXAMPLE
 //
@@ -523,7 +652,7 @@ type CfnTable interface {
 	KeyspaceName() *string
 	SetKeyspaceName(val *string)
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PartitionKeyColumns() interface{}
 	SetPartitionKeyColumns(val interface{})
 	PointInTimeRecoveryEnabled() interface{}
@@ -546,10 +675,16 @@ type CfnTable interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -659,8 +794,8 @@ func (j *jsiiProxy_CfnTable) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTable) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnTable) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -751,13 +886,13 @@ func (j *jsiiProxy_CfnTable) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::Cassandra::Table`.
-func NewCfnTable(scope constructs.Construct, id *string, props *CfnTableProps) CfnTable {
+func NewCfnTable(scope awscdk.Construct, id *string, props *CfnTableProps) CfnTable {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnTable{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_cassandra.CfnTable",
+		"monocdk.aws_cassandra.CfnTable",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -766,11 +901,11 @@ func NewCfnTable(scope constructs.Construct, id *string, props *CfnTableProps) C
 }
 
 // Create a new `AWS::Cassandra::Table`.
-func NewCfnTable_Override(c CfnTable, scope constructs.Construct, id *string, props *CfnTableProps) {
+func NewCfnTable_Override(c CfnTable, scope awscdk.Construct, id *string, props *CfnTableProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_cassandra.CfnTable",
+		"monocdk.aws_cassandra.CfnTable",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -854,13 +989,14 @@ func (j *jsiiProxy_CfnTable) SetTableName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnTable_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_cassandra.CfnTable",
+		"monocdk.aws_cassandra.CfnTable",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -870,13 +1006,14 @@ func CfnTable_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnTable_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_cassandra.CfnTable",
+		"monocdk.aws_cassandra.CfnTable",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -885,17 +1022,15 @@ func CfnTable_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnTable_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_cassandra.CfnTable",
+		"monocdk.aws_cassandra.CfnTable",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -908,7 +1043,7 @@ func CfnTable_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_cassandra.CfnTable",
+		"monocdk.aws_cassandra.CfnTable",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -916,6 +1051,7 @@ func CfnTable_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnTable) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -928,6 +1064,7 @@ func (c *jsiiProxy_CfnTable) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnTable) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -943,6 +1080,7 @@ func (c *jsiiProxy_CfnTable) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnTable) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -988,6 +1126,7 @@ func (c *jsiiProxy_CfnTable) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnTable) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -997,6 +1136,7 @@ func (c *jsiiProxy_CfnTable) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnTable) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1008,6 +1148,7 @@ func (c *jsiiProxy_CfnTable) AddPropertyDeletionOverride(propertyPath *string) {
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnTable) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1025,6 +1166,7 @@ func (c *jsiiProxy_CfnTable) AddPropertyOverride(propertyPath *string, value int
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnTable) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1037,6 +1179,7 @@ func (c *jsiiProxy_CfnTable) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, opt
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnTable) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1057,6 +1200,7 @@ func (c *jsiiProxy_CfnTable) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnTable) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1079,12 +1223,80 @@ func (c *jsiiProxy_CfnTable) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnTable) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnTable) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnTable) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnTable) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnTable) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1105,6 +1317,7 @@ func (c *jsiiProxy_CfnTable) RenderProperties(props *map[string]interface{}) *ma
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnTable) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1118,9 +1331,23 @@ func (c *jsiiProxy_CfnTable) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnTable) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnTable) ToString() *string {
 	var returns *string
 
@@ -1134,6 +1361,27 @@ func (c *jsiiProxy_CfnTable) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnTable) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnTable) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1142,75 +1390,144 @@ func (c *jsiiProxy_CfnTable) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// Determines the billing mode for the table - On-demand or provisioned.
+//
 // TODO: EXAMPLE
 //
 type CfnTable_BillingModeProperty struct {
-	// `CfnTable.BillingModeProperty.Mode`.
+	// The billing mode for the table:.
+	//
+	// - On-demand mode - `ON_DEMAND`
+	// - Provisioned mode - `PROVISIONED`
+	//
+	// > If you choose `PROVISIONED` mode, then you also need to specify provisioned throughput (read and write capacity) for the table.
+	//
+	// Valid values: `ON_DEMAND` | `PROVISIONED`
 	Mode *string `json:"mode"`
-	// `CfnTable.BillingModeProperty.ProvisionedThroughput`.
+	// The provisioned read capacity and write capacity for the table.
+	//
+	// For more information, see [Provisioned throughput capacity mode](https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html#ReadWriteCapacityMode.Provisioned) in the *Amazon Keyspaces Developer Guide* .
 	ProvisionedThroughput interface{} `json:"provisionedThroughput"`
 }
 
+// Defines an individual column within the clustering key.
+//
 // TODO: EXAMPLE
 //
 type CfnTable_ClusteringKeyColumnProperty struct {
-	// `CfnTable.ClusteringKeyColumnProperty.Column`.
+	// The name and data type of this clustering key column.
 	Column interface{} `json:"column"`
-	// `CfnTable.ClusteringKeyColumnProperty.OrderBy`.
+	// The order in which this column's data is stored:.
+	//
+	// - `ASC` (default) - The column's data is stored in ascending order.
+	// - `DESC` - The column's data is stored in descending order.
 	OrderBy *string `json:"orderBy"`
 }
 
+// The name and data type of an individual column in a table.
+//
 // TODO: EXAMPLE
 //
 type CfnTable_ColumnProperty struct {
-	// `CfnTable.ColumnProperty.ColumnName`.
+	// The name of the column.
+	//
+	// For more information, see [Identifiers](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.elements.identifier) in the *Amazon Keyspaces Developer Guide* .
 	ColumnName *string `json:"columnName"`
-	// `CfnTable.ColumnProperty.ColumnType`.
+	// The data type of the column.
+	//
+	// For more information, see [Data types](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types) in the *Amazon Keyspaces Developer Guide* .
 	ColumnType *string `json:"columnType"`
 }
 
+// Specifies the encryption at rest option selected for the table.
+//
 // TODO: EXAMPLE
 //
 type CfnTable_EncryptionSpecificationProperty struct {
-	// `CfnTable.EncryptionSpecificationProperty.EncryptionType`.
+	// The encryption at rest options for the table.
+	//
+	// - *AWS owned key* (default) - `AWS_OWNED_KMS_KEY`
+	// - *Customer managed key* - `CUSTOMER_MANAGED_KMS_KEY`
+	//
+	// > If you choose `CUSTOMER_MANAGED_KMS_KEY` , a `kms_key_identifier` in the format of a key ARN is required.
+	//
+	// Valid values: `CUSTOMER_MANAGED_KMS_KEY` | `AWS_OWNED_KMS_KEY` .
 	EncryptionType *string `json:"encryptionType"`
-	// `CfnTable.EncryptionSpecificationProperty.KmsKeyIdentifier`.
+	// Requires a `kms_key_identifier` in the format of a key ARN.
 	KmsKeyIdentifier *string `json:"kmsKeyIdentifier"`
 }
 
+// The provisioned throughput for the table, which consists of `ReadCapacityUnits` and `WriteCapacityUnits` .
+//
 // TODO: EXAMPLE
 //
 type CfnTable_ProvisionedThroughputProperty struct {
-	// `CfnTable.ProvisionedThroughputProperty.ReadCapacityUnits`.
+	// The amount of read capacity that's provisioned for the table.
+	//
+	// For more information, see [Read/write capacity mode](https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html) in the *Amazon Keyspaces Developer Guide* .
 	ReadCapacityUnits *float64 `json:"readCapacityUnits"`
-	// `CfnTable.ProvisionedThroughputProperty.WriteCapacityUnits`.
+	// The amount of write capacity that's provisioned for the table.
+	//
+	// For more information, see [Read/write capacity mode](https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html) in the *Amazon Keyspaces Developer Guide* .
 	WriteCapacityUnits *float64 `json:"writeCapacityUnits"`
 }
 
-// Properties for defining a `AWS::Cassandra::Table`.
+// Properties for defining a `CfnTable`.
 //
 // TODO: EXAMPLE
 //
 type CfnTableProps struct {
-	// `AWS::Cassandra::Table.BillingMode`.
-	BillingMode interface{} `json:"billingMode"`
-	// `AWS::Cassandra::Table.ClusteringKeyColumns`.
-	ClusteringKeyColumns interface{} `json:"clusteringKeyColumns"`
-	// `AWS::Cassandra::Table.DefaultTimeToLive`.
-	DefaultTimeToLive *float64 `json:"defaultTimeToLive"`
-	// `AWS::Cassandra::Table.EncryptionSpecification`.
-	EncryptionSpecification interface{} `json:"encryptionSpecification"`
-	// `AWS::Cassandra::Table.KeyspaceName`.
+	// The name of the keyspace in which to create the table.
+	//
+	// The keyspace must already exist.
 	KeyspaceName *string `json:"keyspaceName"`
-	// `AWS::Cassandra::Table.PartitionKeyColumns`.
+	// One or more columns that uniquely identify every row in the table.
+	//
+	// Every table must have a partition key.
 	PartitionKeyColumns interface{} `json:"partitionKeyColumns"`
-	// `AWS::Cassandra::Table.PointInTimeRecoveryEnabled`.
+	// The billing mode for the table, which determines how you'll be charged for reads and writes:.
+	//
+	// - *On-demand mode* (default) - You pay based on the actual reads and writes your application performs.
+	// - *Provisioned mode* - Lets you specify the number of reads and writes per second that you need for your application.
+	//
+	// If you don't specify a value for this property, then the table will use on-demand mode.
+	BillingMode interface{} `json:"billingMode"`
+	// One or more columns that determine how the table data is sorted.
+	ClusteringKeyColumns interface{} `json:"clusteringKeyColumns"`
+	// The default Time To Live (TTL) value for all rows in a table in seconds.
+	//
+	// The maximum configurable value is 630,720,000 seconds, which is the equivalent of 20 years. By default, the TTL value for a table is 0, which means data does not expire.
+	//
+	// For more information, see [Setting the default TTL value for a table](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl) in the *Amazon Keyspaces Developer Guide* .
+	DefaultTimeToLive *float64 `json:"defaultTimeToLive"`
+	// The encryption at rest options for the table.
+	//
+	// - *AWS owned key* (default) - The key is owned by Amazon Keyspaces.
+	// - *Customer managed key* - The key is stored in your account and is created, owned, and managed by you.
+	//
+	// > If you choose encryption with a customer managed key, you must specify a valid customer managed KMS key with permissions granted to Amazon Keyspaces.
+	//
+	// For more information, see [Encryption at rest in Amazon Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html) in the *Amazon Keyspaces Developer Guide* .
+	EncryptionSpecification interface{} `json:"encryptionSpecification"`
+	// Specifies if point-in-time recovery is enabled or disabled for the table.
+	//
+	// The options are `PointInTimeRecoveryEnabled=true` and `PointInTimeRecoveryEnabled=false` . If not specified, the default is `PointInTimeRecoveryEnabled=false` .
 	PointInTimeRecoveryEnabled interface{} `json:"pointInTimeRecoveryEnabled"`
-	// `AWS::Cassandra::Table.RegularColumns`.
+	// One or more columns that are not part of the primary key - that is, columns that are *not* defined as partition key columns or clustering key columns.
+	//
+	// You can add regular columns to existing tables by adding them to the template.
 	RegularColumns interface{} `json:"regularColumns"`
-	// `AWS::Cassandra::Table.TableName`.
+	// The name of the table to be created.
+	//
+	// The table name is case sensitive. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the table name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
+	//
+	// > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+	//
+	// *Length constraints:* Minimum length of 3. Maximum length of 255.
+	//
+	// *Pattern:* `^[a-zA-Z0-9][a-zA-Z0-9_]{1,47}$`
 	TableName *string `json:"tableName"`
-	// `AWS::Cassandra::Table.Tags`.
+	// A list of key-value pair tags to be attached to the resource.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 

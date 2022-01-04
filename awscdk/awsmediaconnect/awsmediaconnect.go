@@ -1,15 +1,17 @@
 package awsmediaconnect
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsmediaconnect/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsmediaconnect/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::MediaConnect::Flow`.
+//
+// The AWS::MediaConnect::Flow resource defines a connection between one or more video sources and one or more outputs. For each flow, you specify the transport protocol to use, encryption information, and details for any outputs or entitlements that you want. AWS Elemental MediaConnect returns an ingest endpoint where you can send your live video as a single unicast stream. The service replicates and distributes the video to every output that you specify, whether inside or outside the AWS Cloud. You can also set up entitlements on a flow to allow other AWS accounts to access your content.
 //
 // TODO: EXAMPLE
 //
@@ -30,7 +32,7 @@ type CfnFlow interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Source() interface{}
 	SetSource(val interface{})
@@ -48,10 +50,16 @@ type CfnFlow interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -181,8 +189,8 @@ func (j *jsiiProxy_CfnFlow) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFlow) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnFlow) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -243,13 +251,13 @@ func (j *jsiiProxy_CfnFlow) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::MediaConnect::Flow`.
-func NewCfnFlow(scope constructs.Construct, id *string, props *CfnFlowProps) CfnFlow {
+func NewCfnFlow(scope awscdk.Construct, id *string, props *CfnFlowProps) CfnFlow {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnFlow{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_mediaconnect.CfnFlow",
+		"monocdk.aws_mediaconnect.CfnFlow",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -258,11 +266,11 @@ func NewCfnFlow(scope constructs.Construct, id *string, props *CfnFlowProps) Cfn
 }
 
 // Create a new `AWS::MediaConnect::Flow`.
-func NewCfnFlow_Override(c CfnFlow, scope constructs.Construct, id *string, props *CfnFlowProps) {
+func NewCfnFlow_Override(c CfnFlow, scope awscdk.Construct, id *string, props *CfnFlowProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_mediaconnect.CfnFlow",
+		"monocdk.aws_mediaconnect.CfnFlow",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -306,13 +314,14 @@ func (j *jsiiProxy_CfnFlow) SetSourceFailoverConfig(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnFlow_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_mediaconnect.CfnFlow",
+		"monocdk.aws_mediaconnect.CfnFlow",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -322,13 +331,14 @@ func CfnFlow_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnFlow_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_mediaconnect.CfnFlow",
+		"monocdk.aws_mediaconnect.CfnFlow",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -337,17 +347,15 @@ func CfnFlow_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnFlow_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_mediaconnect.CfnFlow",
+		"monocdk.aws_mediaconnect.CfnFlow",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -360,7 +368,7 @@ func CfnFlow_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_mediaconnect.CfnFlow",
+		"monocdk.aws_mediaconnect.CfnFlow",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -368,6 +376,7 @@ func CfnFlow_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnFlow) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -380,6 +389,7 @@ func (c *jsiiProxy_CfnFlow) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnFlow) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -395,6 +405,7 @@ func (c *jsiiProxy_CfnFlow) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnFlow) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -440,6 +451,7 @@ func (c *jsiiProxy_CfnFlow) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnFlow) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -449,6 +461,7 @@ func (c *jsiiProxy_CfnFlow) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnFlow) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -460,6 +473,7 @@ func (c *jsiiProxy_CfnFlow) AddPropertyDeletionOverride(propertyPath *string) {
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnFlow) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -477,6 +491,7 @@ func (c *jsiiProxy_CfnFlow) AddPropertyOverride(propertyPath *string, value inte
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnFlow) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -489,6 +504,7 @@ func (c *jsiiProxy_CfnFlow) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, opti
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnFlow) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -509,6 +525,7 @@ func (c *jsiiProxy_CfnFlow) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnFlow) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -531,12 +548,80 @@ func (c *jsiiProxy_CfnFlow) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnFlow) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnFlow) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnFlow) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnFlow) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnFlow) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -557,6 +642,7 @@ func (c *jsiiProxy_CfnFlow) RenderProperties(props *map[string]interface{}) *map
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnFlow) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -570,9 +656,23 @@ func (c *jsiiProxy_CfnFlow) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnFlow) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnFlow) ToString() *string {
 	var returns *string
 
@@ -586,6 +686,27 @@ func (c *jsiiProxy_CfnFlow) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnFlow) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnFlow) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -594,74 +715,118 @@ func (c *jsiiProxy_CfnFlow) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// Information about the encryption of the flow.
+//
 // TODO: EXAMPLE
 //
 type CfnFlow_EncryptionProperty struct {
-	// `CfnFlow.EncryptionProperty.Algorithm`.
-	Algorithm *string `json:"algorithm"`
-	// `CfnFlow.EncryptionProperty.ConstantInitializationVector`.
-	ConstantInitializationVector *string `json:"constantInitializationVector"`
-	// `CfnFlow.EncryptionProperty.DeviceId`.
-	DeviceId *string `json:"deviceId"`
-	// `CfnFlow.EncryptionProperty.KeyType`.
-	KeyType *string `json:"keyType"`
-	// `CfnFlow.EncryptionProperty.Region`.
-	Region *string `json:"region"`
-	// `CfnFlow.EncryptionProperty.ResourceId`.
-	ResourceId *string `json:"resourceId"`
-	// `CfnFlow.EncryptionProperty.RoleArn`.
+	// The Amazon Resource Name (ARN) of the role that you created during setup (when you set up MediaConnect as a trusted entity).
 	RoleArn *string `json:"roleArn"`
-	// `CfnFlow.EncryptionProperty.SecretArn`.
+	// The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
+	Algorithm *string `json:"algorithm"`
+	// A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content.
+	//
+	// This parameter is not valid for static key encryption.
+	ConstantInitializationVector *string `json:"constantInitializationVector"`
+	// The value of one of the devices that you configured with your digital rights management (DRM) platform key provider.
+	//
+	// This parameter is required for SPEKE encryption and is not valid for static key encryption.
+	DeviceId *string `json:"deviceId"`
+	// The type of key that is used for the encryption.
+	//
+	// If you don't specify a `keyType` value, the service uses the default setting ( `static-key` ).
+	KeyType *string `json:"keyType"`
+	// The AWS Region that the API Gateway proxy endpoint was created in.
+	//
+	// This parameter is required for SPEKE encryption and is not valid for static key encryption.
+	Region *string `json:"region"`
+	// An identifier for the content.
+	//
+	// The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+	ResourceId *string `json:"resourceId"`
+	// The ARN of the secret that you created in AWS Secrets Manager to store the encryption key.
 	SecretArn *string `json:"secretArn"`
-	// `CfnFlow.EncryptionProperty.Url`.
+	// The URL from the API Gateway proxy that you set up to talk to your key server.
+	//
+	// This parameter is required for SPEKE encryption and is not valid for static key encryption.
 	Url *string `json:"url"`
 }
 
+// The settings for source failover.
+//
 // TODO: EXAMPLE
 //
 type CfnFlow_FailoverConfigProperty struct {
-	// `CfnFlow.FailoverConfigProperty.RecoveryWindow`.
+	// The size of the buffer (delay) that the service maintains.
+	//
+	// A larger buffer means a longer delay in transmitting the stream, but more room for error correction. A smaller buffer means a shorter delay, but less room for error correction.
 	RecoveryWindow *float64 `json:"recoveryWindow"`
-	// `CfnFlow.FailoverConfigProperty.State`.
+	// The state of source failover on the flow.
+	//
+	// If the state is disabled, the flow can have only one source. If the state is enabled, the flow can have one or two sources.
 	State *string `json:"state"`
 }
 
+// The details of the sources of the flow.
+//
+// If you are creating a flow with a VPC source, you must first create the flow with a temporary standard source by doing the following:
+//
+// - Use CloudFormation to create a flow with a standard source that uses the flow’s public IP address.
+// - Use CloudFormation to create the VPC interface to add to this flow. This can also be done as part of the previous step.
+// - After CloudFormation has created the flow and the VPC interface, update the source to point to the VPC interface that you created.
+//
 // TODO: EXAMPLE
 //
 type CfnFlow_SourceProperty struct {
-	// `CfnFlow.SourceProperty.Decryption`.
+	// The type of encryption that is used on the content ingested from the source.
 	Decryption interface{} `json:"decryption"`
-	// `CfnFlow.SourceProperty.Description`.
+	// A description of the source.
+	//
+	// This description is not visible outside of the current AWS account.
 	Description *string `json:"description"`
-	// `CfnFlow.SourceProperty.EntitlementArn`.
+	// The ARN of the entitlement that allows you to subscribe to content that comes from another AWS account.
+	//
+	// The entitlement is set by the content originator and the ARN is generated as part of the originator’s flow.
 	EntitlementArn *string `json:"entitlementArn"`
-	// `CfnFlow.SourceProperty.IngestIp`.
+	// The IP address that the flow listens on for incoming content.
 	IngestIp *string `json:"ingestIp"`
-	// `CfnFlow.SourceProperty.IngestPort`.
+	// The port that the flow listens on for incoming content.
+	//
+	// If the protocol of the source is Zixi, the port must be set to 2088.
 	IngestPort *float64 `json:"ingestPort"`
-	// `CfnFlow.SourceProperty.MaxBitrate`.
+	// The maximum bitrate for RIST, RTP, and RTP-FEC streams.
 	MaxBitrate *float64 `json:"maxBitrate"`
-	// `CfnFlow.SourceProperty.MaxLatency`.
+	// The maximum latency in milliseconds for a RIST or Zixi-based source.
 	MaxLatency *float64 `json:"maxLatency"`
-	// `CfnFlow.SourceProperty.MinLatency`.
+	// The minimum latency in milliseconds for SRT-based streams.
+	//
+	// In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender’s minimum latency and the receiver’s minimum latency.
 	MinLatency *float64 `json:"minLatency"`
-	// `CfnFlow.SourceProperty.Name`.
+	// The name of the source.
 	Name *string `json:"name"`
-	// `CfnFlow.SourceProperty.Protocol`.
+	// The protocol that is used by the source.
+	//
+	// For a full list of available protocols, see: [Source protocols](https://docs.aws.amazon.com/mediaconnect/latest/api/v1-flows-flowarn-source.html#v1-flows-flowarn-source-prop-setsourcerequest-protocol) in the *AWS Elemental MediaConnect API Reference* .
 	Protocol *string `json:"protocol"`
-	// `CfnFlow.SourceProperty.SourceArn`.
+	// The ARN of the source.
 	SourceArn *string `json:"sourceArn"`
-	// `CfnFlow.SourceProperty.SourceIngestPort`.
+	// The port that the flow will be listening on for incoming content.
 	SourceIngestPort *string `json:"sourceIngestPort"`
-	// `CfnFlow.SourceProperty.StreamId`.
+	// The stream ID that you want to use for the transport.
+	//
+	// This parameter applies only to Zixi-based streams.
 	StreamId *string `json:"streamId"`
-	// `CfnFlow.SourceProperty.VpcInterfaceName`.
+	// The name of the VPC interface that the source content comes from.
 	VpcInterfaceName *string `json:"vpcInterfaceName"`
-	// `CfnFlow.SourceProperty.WhitelistCidr`.
+	// The range of IP addresses that are allowed to contribute content to your source.
+	//
+	// Format the IP addresses as a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
 	WhitelistCidr *string `json:"whitelistCidr"`
 }
 
 // A CloudFormation `AWS::MediaConnect::FlowEntitlement`.
+//
+// The AWS::MediaConnect::FlowEntitlement resource defines the permission that an AWS account grants to another AWS account to allow access to the content in a specific AWS Elemental MediaConnect flow. The content originator grants an entitlement to a specific AWS account (the subscriber). When an entitlement is granted, the subscriber can create a flow using the originator's flow as the source. Each flow can have up to 50 entitlements.
 //
 // TODO: EXAMPLE
 //
@@ -686,7 +851,7 @@ type CfnFlowEntitlement interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	Subscribers() *[]*string
@@ -702,10 +867,16 @@ type CfnFlowEntitlement interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -835,8 +1006,8 @@ func (j *jsiiProxy_CfnFlowEntitlement) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFlowEntitlement) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnFlowEntitlement) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -887,13 +1058,13 @@ func (j *jsiiProxy_CfnFlowEntitlement) UpdatedProperites() *map[string]interface
 
 
 // Create a new `AWS::MediaConnect::FlowEntitlement`.
-func NewCfnFlowEntitlement(scope constructs.Construct, id *string, props *CfnFlowEntitlementProps) CfnFlowEntitlement {
+func NewCfnFlowEntitlement(scope awscdk.Construct, id *string, props *CfnFlowEntitlementProps) CfnFlowEntitlement {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnFlowEntitlement{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_mediaconnect.CfnFlowEntitlement",
+		"monocdk.aws_mediaconnect.CfnFlowEntitlement",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -902,11 +1073,11 @@ func NewCfnFlowEntitlement(scope constructs.Construct, id *string, props *CfnFlo
 }
 
 // Create a new `AWS::MediaConnect::FlowEntitlement`.
-func NewCfnFlowEntitlement_Override(c CfnFlowEntitlement, scope constructs.Construct, id *string, props *CfnFlowEntitlementProps) {
+func NewCfnFlowEntitlement_Override(c CfnFlowEntitlement, scope awscdk.Construct, id *string, props *CfnFlowEntitlementProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_mediaconnect.CfnFlowEntitlement",
+		"monocdk.aws_mediaconnect.CfnFlowEntitlement",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -974,13 +1145,14 @@ func (j *jsiiProxy_CfnFlowEntitlement) SetSubscribers(val *[]*string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnFlowEntitlement_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_mediaconnect.CfnFlowEntitlement",
+		"monocdk.aws_mediaconnect.CfnFlowEntitlement",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -990,13 +1162,14 @@ func CfnFlowEntitlement_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnFlowEntitlement_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_mediaconnect.CfnFlowEntitlement",
+		"monocdk.aws_mediaconnect.CfnFlowEntitlement",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1005,17 +1178,15 @@ func CfnFlowEntitlement_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnFlowEntitlement_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_mediaconnect.CfnFlowEntitlement",
+		"monocdk.aws_mediaconnect.CfnFlowEntitlement",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1028,7 +1199,7 @@ func CfnFlowEntitlement_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_mediaconnect.CfnFlowEntitlement",
+		"monocdk.aws_mediaconnect.CfnFlowEntitlement",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1036,6 +1207,7 @@ func CfnFlowEntitlement_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnFlowEntitlement) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1048,6 +1220,7 @@ func (c *jsiiProxy_CfnFlowEntitlement) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnFlowEntitlement) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1063,6 +1236,7 @@ func (c *jsiiProxy_CfnFlowEntitlement) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnFlowEntitlement) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1108,6 +1282,7 @@ func (c *jsiiProxy_CfnFlowEntitlement) AddMetadata(key *string, value interface{
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnFlowEntitlement) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1117,6 +1292,7 @@ func (c *jsiiProxy_CfnFlowEntitlement) AddOverride(path *string, value interface
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnFlowEntitlement) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1128,6 +1304,7 @@ func (c *jsiiProxy_CfnFlowEntitlement) AddPropertyDeletionOverride(propertyPath 
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnFlowEntitlement) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1145,6 +1322,7 @@ func (c *jsiiProxy_CfnFlowEntitlement) AddPropertyOverride(propertyPath *string,
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnFlowEntitlement) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1157,6 +1335,7 @@ func (c *jsiiProxy_CfnFlowEntitlement) ApplyRemovalPolicy(policy awscdk.RemovalP
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnFlowEntitlement) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1177,6 +1356,7 @@ func (c *jsiiProxy_CfnFlowEntitlement) GetAtt(attributeName *string) awscdk.Refe
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnFlowEntitlement) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1199,12 +1379,80 @@ func (c *jsiiProxy_CfnFlowEntitlement) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnFlowEntitlement) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnFlowEntitlement) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnFlowEntitlement) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnFlowEntitlement) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnFlowEntitlement) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1225,6 +1473,7 @@ func (c *jsiiProxy_CfnFlowEntitlement) RenderProperties(props *map[string]interf
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnFlowEntitlement) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1238,9 +1487,23 @@ func (c *jsiiProxy_CfnFlowEntitlement) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnFlowEntitlement) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnFlowEntitlement) ToString() *string {
 	var returns *string
 
@@ -1254,6 +1517,27 @@ func (c *jsiiProxy_CfnFlowEntitlement) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnFlowEntitlement) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnFlowEntitlement) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1262,51 +1546,75 @@ func (c *jsiiProxy_CfnFlowEntitlement) ValidateProperties(_properties interface{
 	)
 }
 
+// Information about the encryption of the flow.
+//
 // TODO: EXAMPLE
 //
 type CfnFlowEntitlement_EncryptionProperty struct {
-	// `CfnFlowEntitlement.EncryptionProperty.Algorithm`.
+	// The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
 	Algorithm *string `json:"algorithm"`
-	// `CfnFlowEntitlement.EncryptionProperty.ConstantInitializationVector`.
-	ConstantInitializationVector *string `json:"constantInitializationVector"`
-	// `CfnFlowEntitlement.EncryptionProperty.DeviceId`.
-	DeviceId *string `json:"deviceId"`
-	// `CfnFlowEntitlement.EncryptionProperty.KeyType`.
-	KeyType *string `json:"keyType"`
-	// `CfnFlowEntitlement.EncryptionProperty.Region`.
-	Region *string `json:"region"`
-	// `CfnFlowEntitlement.EncryptionProperty.ResourceId`.
-	ResourceId *string `json:"resourceId"`
-	// `CfnFlowEntitlement.EncryptionProperty.RoleArn`.
+	// The Amazon Resource Name (ARN) of the role that you created during setup (when you set up MediaConnect as a trusted entity).
 	RoleArn *string `json:"roleArn"`
-	// `CfnFlowEntitlement.EncryptionProperty.SecretArn`.
+	// A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content.
+	//
+	// This parameter is not valid for static key encryption.
+	ConstantInitializationVector *string `json:"constantInitializationVector"`
+	// The value of one of the devices that you configured with your digital rights management (DRM) platform key provider.
+	//
+	// This parameter is required for SPEKE encryption and is not valid for static key encryption.
+	DeviceId *string `json:"deviceId"`
+	// The type of key that is used for the encryption.
+	//
+	// If you don't specify a `keyType` value, the service uses the default setting ( `static-key` ).
+	KeyType *string `json:"keyType"`
+	// The AWS Region that the API Gateway proxy endpoint was created in.
+	//
+	// This parameter is required for SPEKE encryption and is not valid for static key encryption.
+	Region *string `json:"region"`
+	// An identifier for the content.
+	//
+	// The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+	ResourceId *string `json:"resourceId"`
+	// The ARN of the secret that you created in AWS Secrets Manager to store the encryption key.
 	SecretArn *string `json:"secretArn"`
-	// `CfnFlowEntitlement.EncryptionProperty.Url`.
+	// The URL from the API Gateway proxy that you set up to talk to your key server.
+	//
+	// This parameter is required for SPEKE encryption and is not valid for static key encryption.
 	Url *string `json:"url"`
 }
 
-// Properties for defining a `AWS::MediaConnect::FlowEntitlement`.
+// Properties for defining a `CfnFlowEntitlement`.
 //
 // TODO: EXAMPLE
 //
 type CfnFlowEntitlementProps struct {
-	// `AWS::MediaConnect::FlowEntitlement.DataTransferSubscriberFeePercent`.
-	DataTransferSubscriberFeePercent *float64 `json:"dataTransferSubscriberFeePercent"`
-	// `AWS::MediaConnect::FlowEntitlement.Description`.
+	// A description of the entitlement.
+	//
+	// This description appears only on the MediaConnect console and is not visible outside of the current AWS account.
 	Description *string `json:"description"`
-	// `AWS::MediaConnect::FlowEntitlement.Encryption`.
-	Encryption interface{} `json:"encryption"`
-	// `AWS::MediaConnect::FlowEntitlement.EntitlementStatus`.
-	EntitlementStatus *string `json:"entitlementStatus"`
-	// `AWS::MediaConnect::FlowEntitlement.FlowArn`.
+	// The Amazon Resource Name (ARN) of the flow.
 	FlowArn *string `json:"flowArn"`
-	// `AWS::MediaConnect::FlowEntitlement.Name`.
+	// The name of the entitlement.
+	//
+	// This value must be unique within the current flow.
 	Name *string `json:"name"`
-	// `AWS::MediaConnect::FlowEntitlement.Subscribers`.
+	// The AWS account IDs that you want to share your content with.
+	//
+	// The receiving accounts (subscribers) will be allowed to create their own flows using your content as the source.
 	Subscribers *[]*string `json:"subscribers"`
+	// The percentage of the entitlement data transfer fee that you want the subscriber to be responsible for.
+	DataTransferSubscriberFeePercent *float64 `json:"dataTransferSubscriberFeePercent"`
+	// The type of encryption that MediaConnect will use on the output that is associated with the entitlement.
+	Encryption interface{} `json:"encryption"`
+	// An indication of whether the new entitlement should be enabled or disabled as soon as it is created.
+	//
+	// If you don’t specify the entitlementStatus field in your request, MediaConnect sets it to ENABLED.
+	EntitlementStatus *string `json:"entitlementStatus"`
 }
 
 // A CloudFormation `AWS::MediaConnect::FlowOutput`.
+//
+// The AWS::MediaConnect::FlowOutput resource defines the destination address, protocol, and port that AWS Elemental MediaConnect sends the ingested video to. Each flow can have up to 50 outputs. An output can have the same protocol or a different protocol from the source.
 //
 // TODO: EXAMPLE
 //
@@ -1335,7 +1643,7 @@ type CfnFlowOutput interface {
 	SetMinLatency(val *float64)
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Port() *float64
 	SetPort(val *float64)
 	Protocol() *string
@@ -1361,10 +1669,16 @@ type CfnFlowOutput interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1514,8 +1828,8 @@ func (j *jsiiProxy_CfnFlowOutput) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFlowOutput) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnFlowOutput) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1616,13 +1930,13 @@ func (j *jsiiProxy_CfnFlowOutput) VpcInterfaceAttachment() interface{} {
 
 
 // Create a new `AWS::MediaConnect::FlowOutput`.
-func NewCfnFlowOutput(scope constructs.Construct, id *string, props *CfnFlowOutputProps) CfnFlowOutput {
+func NewCfnFlowOutput(scope awscdk.Construct, id *string, props *CfnFlowOutputProps) CfnFlowOutput {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnFlowOutput{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_mediaconnect.CfnFlowOutput",
+		"monocdk.aws_mediaconnect.CfnFlowOutput",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1631,11 +1945,11 @@ func NewCfnFlowOutput(scope constructs.Construct, id *string, props *CfnFlowOutp
 }
 
 // Create a new `AWS::MediaConnect::FlowOutput`.
-func NewCfnFlowOutput_Override(c CfnFlowOutput, scope constructs.Construct, id *string, props *CfnFlowOutputProps) {
+func NewCfnFlowOutput_Override(c CfnFlowOutput, scope awscdk.Construct, id *string, props *CfnFlowOutputProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_mediaconnect.CfnFlowOutput",
+		"monocdk.aws_mediaconnect.CfnFlowOutput",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1759,13 +2073,14 @@ func (j *jsiiProxy_CfnFlowOutput) SetVpcInterfaceAttachment(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnFlowOutput_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_mediaconnect.CfnFlowOutput",
+		"monocdk.aws_mediaconnect.CfnFlowOutput",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1775,13 +2090,14 @@ func CfnFlowOutput_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnFlowOutput_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_mediaconnect.CfnFlowOutput",
+		"monocdk.aws_mediaconnect.CfnFlowOutput",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1790,17 +2106,15 @@ func CfnFlowOutput_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnFlowOutput_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_mediaconnect.CfnFlowOutput",
+		"monocdk.aws_mediaconnect.CfnFlowOutput",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1813,7 +2127,7 @@ func CfnFlowOutput_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_mediaconnect.CfnFlowOutput",
+		"monocdk.aws_mediaconnect.CfnFlowOutput",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1821,6 +2135,7 @@ func CfnFlowOutput_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnFlowOutput) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1833,6 +2148,7 @@ func (c *jsiiProxy_CfnFlowOutput) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnFlowOutput) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1848,6 +2164,7 @@ func (c *jsiiProxy_CfnFlowOutput) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnFlowOutput) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1893,6 +2210,7 @@ func (c *jsiiProxy_CfnFlowOutput) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnFlowOutput) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1902,6 +2220,7 @@ func (c *jsiiProxy_CfnFlowOutput) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnFlowOutput) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1913,6 +2232,7 @@ func (c *jsiiProxy_CfnFlowOutput) AddPropertyDeletionOverride(propertyPath *stri
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnFlowOutput) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1930,6 +2250,7 @@ func (c *jsiiProxy_CfnFlowOutput) AddPropertyOverride(propertyPath *string, valu
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnFlowOutput) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1942,6 +2263,7 @@ func (c *jsiiProxy_CfnFlowOutput) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnFlowOutput) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1962,6 +2284,7 @@ func (c *jsiiProxy_CfnFlowOutput) GetAtt(attributeName *string) awscdk.Reference
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnFlowOutput) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1984,12 +2307,80 @@ func (c *jsiiProxy_CfnFlowOutput) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnFlowOutput) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnFlowOutput) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnFlowOutput) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnFlowOutput) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnFlowOutput) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2010,6 +2401,7 @@ func (c *jsiiProxy_CfnFlowOutput) RenderProperties(props *map[string]interface{}
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnFlowOutput) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2023,9 +2415,23 @@ func (c *jsiiProxy_CfnFlowOutput) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnFlowOutput) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnFlowOutput) ToString() *string {
 	var returns *string
 
@@ -2039,6 +2445,27 @@ func (c *jsiiProxy_CfnFlowOutput) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnFlowOutput) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnFlowOutput) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2047,77 +2474,99 @@ func (c *jsiiProxy_CfnFlowOutput) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// Information about the encryption of the flow.
+//
 // TODO: EXAMPLE
 //
 type CfnFlowOutput_EncryptionProperty struct {
-	// `CfnFlowOutput.EncryptionProperty.Algorithm`.
-	Algorithm *string `json:"algorithm"`
-	// `CfnFlowOutput.EncryptionProperty.KeyType`.
-	KeyType *string `json:"keyType"`
-	// `CfnFlowOutput.EncryptionProperty.RoleArn`.
+	// The Amazon Resource Name (ARN) of the role that you created during setup (when you set up MediaConnect as a trusted entity).
 	RoleArn *string `json:"roleArn"`
-	// `CfnFlowOutput.EncryptionProperty.SecretArn`.
+	// The ARN of the secret that you created in AWS Secrets Manager to store the encryption key.
 	SecretArn *string `json:"secretArn"`
+	// The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
+	Algorithm *string `json:"algorithm"`
+	// The type of key that is used for the encryption.
+	//
+	// If you don't specify a `keyType` value, the service uses the default setting ( `static-key` ).
+	KeyType *string `json:"keyType"`
 }
 
+// The VPC interface that you want to send your output to.
+//
 // TODO: EXAMPLE
 //
 type CfnFlowOutput_VpcInterfaceAttachmentProperty struct {
-	// `CfnFlowOutput.VpcInterfaceAttachmentProperty.VpcInterfaceName`.
+	// The name of the VPC interface that you want to send your output to.
 	VpcInterfaceName *string `json:"vpcInterfaceName"`
 }
 
-// Properties for defining a `AWS::MediaConnect::FlowOutput`.
+// Properties for defining a `CfnFlowOutput`.
 //
 // TODO: EXAMPLE
 //
 type CfnFlowOutputProps struct {
-	// `AWS::MediaConnect::FlowOutput.CidrAllowList`.
-	CidrAllowList *[]*string `json:"cidrAllowList"`
-	// `AWS::MediaConnect::FlowOutput.Description`.
-	Description *string `json:"description"`
-	// `AWS::MediaConnect::FlowOutput.Destination`.
-	Destination *string `json:"destination"`
-	// `AWS::MediaConnect::FlowOutput.Encryption`.
-	Encryption interface{} `json:"encryption"`
-	// `AWS::MediaConnect::FlowOutput.FlowArn`.
+	// The Amazon Resource Name (ARN) of the flow.
 	FlowArn *string `json:"flowArn"`
-	// `AWS::MediaConnect::FlowOutput.MaxLatency`.
-	MaxLatency *float64 `json:"maxLatency"`
-	// `AWS::MediaConnect::FlowOutput.MinLatency`.
-	MinLatency *float64 `json:"minLatency"`
-	// `AWS::MediaConnect::FlowOutput.Name`.
-	Name *string `json:"name"`
-	// `AWS::MediaConnect::FlowOutput.Port`.
-	Port *float64 `json:"port"`
-	// `AWS::MediaConnect::FlowOutput.Protocol`.
+	// The protocol to use for the output.
 	Protocol *string `json:"protocol"`
-	// `AWS::MediaConnect::FlowOutput.RemoteId`.
+	// The range of IP addresses that are allowed to initiate output requests to this flow.
+	//
+	// Format the IP addresses as a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
+	CidrAllowList *[]*string `json:"cidrAllowList"`
+	// A description of the output.
+	//
+	// This description is not visible outside of the current AWS account even if the account grants entitlements to other accounts.
+	Description *string `json:"description"`
+	// The IP address where you want to send the output.
+	Destination *string `json:"destination"`
+	// The encryption credentials that you want to use for the output.
+	Encryption interface{} `json:"encryption"`
+	// The maximum latency in milliseconds for Zixi-based streams.
+	MaxLatency *float64 `json:"maxLatency"`
+	// The minimum latency in milliseconds for SRT-based streams.
+	//
+	// In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender’s minimum latency and the receiver’s minimum latency.
+	MinLatency *float64 `json:"minLatency"`
+	// The name of the VPC interface.
+	Name *string `json:"name"`
+	// The port to use when MediaConnect distributes content to the output.
+	Port *float64 `json:"port"`
+	// The identifier that is assigned to the Zixi receiver.
+	//
+	// This parameter applies only to outputs that use Zixi pull.
 	RemoteId *string `json:"remoteId"`
-	// `AWS::MediaConnect::FlowOutput.SmoothingLatency`.
+	// The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
 	SmoothingLatency *float64 `json:"smoothingLatency"`
-	// `AWS::MediaConnect::FlowOutput.StreamId`.
+	// The stream ID that you want to use for the transport.
+	//
+	// This parameter applies only to Zixi-based streams.
 	StreamId *string `json:"streamId"`
-	// `AWS::MediaConnect::FlowOutput.VpcInterfaceAttachment`.
+	// The VPC interface that you want to send your output to.
 	VpcInterfaceAttachment interface{} `json:"vpcInterfaceAttachment"`
 }
 
-// Properties for defining a `AWS::MediaConnect::Flow`.
+// Properties for defining a `CfnFlow`.
 //
 // TODO: EXAMPLE
 //
 type CfnFlowProps struct {
-	// `AWS::MediaConnect::Flow.AvailabilityZone`.
-	AvailabilityZone *string `json:"availabilityZone"`
-	// `AWS::MediaConnect::Flow.Name`.
+	// The name of the flow.
 	Name *string `json:"name"`
-	// `AWS::MediaConnect::Flow.Source`.
+	// The settings for the source that you want to use for the new flow.
 	Source interface{} `json:"source"`
-	// `AWS::MediaConnect::Flow.SourceFailoverConfig`.
+	// The Availability Zone that you want to create the flow in.
+	//
+	// These options are limited to the Availability Zones within the current AWS Region.
+	AvailabilityZone *string `json:"availabilityZone"`
+	// The settings for source failover.
 	SourceFailoverConfig interface{} `json:"sourceFailoverConfig"`
 }
 
 // A CloudFormation `AWS::MediaConnect::FlowSource`.
+//
+// The AWS::MediaConnect::FlowSource resource is the external video content that includes configuration information (encryption and source type) and a network address. Each flow has at least one source. A standard source comes from a source other than another AWS Elemental MediaConnect flow, such as an on-premises encoder. An entitled source comes from a MediaConnect flow that is owned by another AWS account and has granted an entitlement to your account.
+//
+// Note: MediaConnect does not currently support using CloudFormation to add sources that use the SRT-listener protocol.
 //
 // TODO: EXAMPLE
 //
@@ -2148,7 +2597,7 @@ type CfnFlowSource interface {
 	SetMaxLatency(val *float64)
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Protocol() *string
 	SetProtocol(val *string)
 	Ref() *string
@@ -2170,10 +2619,16 @@ type CfnFlowSource interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -2343,8 +2798,8 @@ func (j *jsiiProxy_CfnFlowSource) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFlowSource) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnFlowSource) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2425,13 +2880,13 @@ func (j *jsiiProxy_CfnFlowSource) WhitelistCidr() *string {
 
 
 // Create a new `AWS::MediaConnect::FlowSource`.
-func NewCfnFlowSource(scope constructs.Construct, id *string, props *CfnFlowSourceProps) CfnFlowSource {
+func NewCfnFlowSource(scope awscdk.Construct, id *string, props *CfnFlowSourceProps) CfnFlowSource {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnFlowSource{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_mediaconnect.CfnFlowSource",
+		"monocdk.aws_mediaconnect.CfnFlowSource",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2440,11 +2895,11 @@ func NewCfnFlowSource(scope constructs.Construct, id *string, props *CfnFlowSour
 }
 
 // Create a new `AWS::MediaConnect::FlowSource`.
-func NewCfnFlowSource_Override(c CfnFlowSource, scope constructs.Construct, id *string, props *CfnFlowSourceProps) {
+func NewCfnFlowSource_Override(c CfnFlowSource, scope awscdk.Construct, id *string, props *CfnFlowSourceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_mediaconnect.CfnFlowSource",
+		"monocdk.aws_mediaconnect.CfnFlowSource",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2552,13 +3007,14 @@ func (j *jsiiProxy_CfnFlowSource) SetWhitelistCidr(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnFlowSource_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_mediaconnect.CfnFlowSource",
+		"monocdk.aws_mediaconnect.CfnFlowSource",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2568,13 +3024,14 @@ func CfnFlowSource_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnFlowSource_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_mediaconnect.CfnFlowSource",
+		"monocdk.aws_mediaconnect.CfnFlowSource",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2583,17 +3040,15 @@ func CfnFlowSource_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnFlowSource_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_mediaconnect.CfnFlowSource",
+		"monocdk.aws_mediaconnect.CfnFlowSource",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2606,7 +3061,7 @@ func CfnFlowSource_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_mediaconnect.CfnFlowSource",
+		"monocdk.aws_mediaconnect.CfnFlowSource",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2614,6 +3069,7 @@ func CfnFlowSource_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnFlowSource) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2626,6 +3082,7 @@ func (c *jsiiProxy_CfnFlowSource) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnFlowSource) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2641,6 +3098,7 @@ func (c *jsiiProxy_CfnFlowSource) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnFlowSource) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2686,6 +3144,7 @@ func (c *jsiiProxy_CfnFlowSource) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnFlowSource) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2695,6 +3154,7 @@ func (c *jsiiProxy_CfnFlowSource) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnFlowSource) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2706,6 +3166,7 @@ func (c *jsiiProxy_CfnFlowSource) AddPropertyDeletionOverride(propertyPath *stri
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnFlowSource) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2723,6 +3184,7 @@ func (c *jsiiProxy_CfnFlowSource) AddPropertyOverride(propertyPath *string, valu
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnFlowSource) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2735,6 +3197,7 @@ func (c *jsiiProxy_CfnFlowSource) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnFlowSource) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2755,6 +3218,7 @@ func (c *jsiiProxy_CfnFlowSource) GetAtt(attributeName *string) awscdk.Reference
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnFlowSource) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2777,12 +3241,80 @@ func (c *jsiiProxy_CfnFlowSource) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnFlowSource) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnFlowSource) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnFlowSource) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnFlowSource) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnFlowSource) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2803,6 +3335,7 @@ func (c *jsiiProxy_CfnFlowSource) RenderProperties(props *map[string]interface{}
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnFlowSource) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2816,9 +3349,23 @@ func (c *jsiiProxy_CfnFlowSource) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnFlowSource) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnFlowSource) ToString() *string {
 	var returns *string
 
@@ -2832,6 +3379,27 @@ func (c *jsiiProxy_CfnFlowSource) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnFlowSource) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnFlowSource) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2840,61 +3408,97 @@ func (c *jsiiProxy_CfnFlowSource) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// Information about the encryption of the flow.
+//
 // TODO: EXAMPLE
 //
 type CfnFlowSource_EncryptionProperty struct {
-	// `CfnFlowSource.EncryptionProperty.Algorithm`.
+	// The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
 	Algorithm *string `json:"algorithm"`
-	// `CfnFlowSource.EncryptionProperty.ConstantInitializationVector`.
-	ConstantInitializationVector *string `json:"constantInitializationVector"`
-	// `CfnFlowSource.EncryptionProperty.DeviceId`.
-	DeviceId *string `json:"deviceId"`
-	// `CfnFlowSource.EncryptionProperty.KeyType`.
-	KeyType *string `json:"keyType"`
-	// `CfnFlowSource.EncryptionProperty.Region`.
-	Region *string `json:"region"`
-	// `CfnFlowSource.EncryptionProperty.ResourceId`.
-	ResourceId *string `json:"resourceId"`
-	// `CfnFlowSource.EncryptionProperty.RoleArn`.
+	// The Amazon Resource Name (ARN) of the role that you created during setup (when you set up MediaConnect as a trusted entity).
 	RoleArn *string `json:"roleArn"`
-	// `CfnFlowSource.EncryptionProperty.SecretArn`.
+	// A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content.
+	//
+	// This parameter is not valid for static key encryption.
+	ConstantInitializationVector *string `json:"constantInitializationVector"`
+	// The value of one of the devices that you configured with your digital rights management (DRM) platform key provider.
+	//
+	// This parameter is required for SPEKE encryption and is not valid for static key encryption.
+	DeviceId *string `json:"deviceId"`
+	// The type of key that is used for the encryption.
+	//
+	// If you don't specify a `keyType` value, the service uses the default setting ( `static-key` ).
+	KeyType *string `json:"keyType"`
+	// The AWS Region that the API Gateway proxy endpoint was created in.
+	//
+	// This parameter is required for SPEKE encryption and is not valid for static key encryption.
+	Region *string `json:"region"`
+	// An identifier for the content.
+	//
+	// The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+	ResourceId *string `json:"resourceId"`
+	// The ARN of the secret that you created in AWS Secrets Manager to store the encryption key.
 	SecretArn *string `json:"secretArn"`
-	// `CfnFlowSource.EncryptionProperty.Url`.
+	// The URL from the API Gateway proxy that you set up to talk to your key server.
+	//
+	// This parameter is required for SPEKE encryption and is not valid for static key encryption.
 	Url *string `json:"url"`
 }
 
-// Properties for defining a `AWS::MediaConnect::FlowSource`.
+// Properties for defining a `CfnFlowSource`.
 //
 // TODO: EXAMPLE
 //
 type CfnFlowSourceProps struct {
-	// `AWS::MediaConnect::FlowSource.Decryption`.
-	Decryption interface{} `json:"decryption"`
-	// `AWS::MediaConnect::FlowSource.Description`.
+	// A description of the source.
+	//
+	// This description is not visible outside of the current AWS account.
 	Description *string `json:"description"`
-	// `AWS::MediaConnect::FlowSource.EntitlementArn`.
-	EntitlementArn *string `json:"entitlementArn"`
-	// `AWS::MediaConnect::FlowSource.FlowArn`.
-	FlowArn *string `json:"flowArn"`
-	// `AWS::MediaConnect::FlowSource.IngestPort`.
-	IngestPort *float64 `json:"ingestPort"`
-	// `AWS::MediaConnect::FlowSource.MaxBitrate`.
-	MaxBitrate *float64 `json:"maxBitrate"`
-	// `AWS::MediaConnect::FlowSource.MaxLatency`.
-	MaxLatency *float64 `json:"maxLatency"`
-	// `AWS::MediaConnect::FlowSource.Name`.
+	// The name of the source.
 	Name *string `json:"name"`
-	// `AWS::MediaConnect::FlowSource.Protocol`.
+	// The type of encryption that is used on the content ingested from the source.
+	Decryption interface{} `json:"decryption"`
+	// The ARN of the entitlement that allows you to subscribe to the flow.
+	//
+	// The entitlement is set by the content originator, and the ARN is generated as part of the originator's flow.
+	EntitlementArn *string `json:"entitlementArn"`
+	// The Amazon Resource Name (ARN) of the flow.
+	FlowArn *string `json:"flowArn"`
+	// The port that the flow listens on for incoming content.
+	//
+	// If the protocol of the source is Zixi, the port must be set to 2088.
+	IngestPort *float64 `json:"ingestPort"`
+	// The maximum bitrate for RIST, RTP, and RTP-FEC streams.
+	MaxBitrate *float64 `json:"maxBitrate"`
+	// The maximum latency in milliseconds.
+	//
+	// This parameter applies only to RIST-based, Zixi-based, and Fujitsu-based streams.
+	MaxLatency *float64 `json:"maxLatency"`
+	// The protocol that the source uses to deliver the content to MediaConnect.
 	Protocol *string `json:"protocol"`
-	// `AWS::MediaConnect::FlowSource.StreamId`.
+	// The stream ID that you want to use for the transport.
+	//
+	// This parameter applies only to Zixi-based streams.
 	StreamId *string `json:"streamId"`
-	// `AWS::MediaConnect::FlowSource.VpcInterfaceName`.
+	// The name of the VPC interface that you want to send your output to.
 	VpcInterfaceName *string `json:"vpcInterfaceName"`
-	// `AWS::MediaConnect::FlowSource.WhitelistCidr`.
+	// The range of IP addresses that are allowed to contribute content to your source.
+	//
+	// Format the IP addresses as a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
 	WhitelistCidr *string `json:"whitelistCidr"`
 }
 
 // A CloudFormation `AWS::MediaConnect::FlowVpcInterface`.
+//
+// The AWS::MediaConnect::FlowVpcInterface resource is a connection between your AWS Elemental MediaConnect flow and a virtual private cloud (VPC) that you created using the Amazon Virtual Private Cloud service.
+//
+// To avoid streaming your content over the public internet, you can add up to two VPC interfaces to your flow and use those connections to transfer content between your VPC and MediaConnect.
+//
+// You can update an existing flow to add a VPC interface. If you haven’t created the flow yet, you must create the flow with a temporary standard source by doing the following:
+//
+// - Use CloudFormation to create a flow with a standard source that uses to the flow’s public IP address.
+// - Use CloudFormation to create a VPC interface to add to this flow. This can also be done as part of the previous step.
+// - After CloudFormation has created the flow and the VPC interface, update the source to point to the VPC interface that you created.
 //
 // TODO: EXAMPLE
 //
@@ -2911,7 +3515,7 @@ type CfnFlowVpcInterface interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	RoleArn() *string
 	SetRoleArn(val *string)
@@ -2931,10 +3535,16 @@ type CfnFlowVpcInterface interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -3024,8 +3634,8 @@ func (j *jsiiProxy_CfnFlowVpcInterface) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFlowVpcInterface) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnFlowVpcInterface) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -3096,13 +3706,13 @@ func (j *jsiiProxy_CfnFlowVpcInterface) UpdatedProperites() *map[string]interfac
 
 
 // Create a new `AWS::MediaConnect::FlowVpcInterface`.
-func NewCfnFlowVpcInterface(scope constructs.Construct, id *string, props *CfnFlowVpcInterfaceProps) CfnFlowVpcInterface {
+func NewCfnFlowVpcInterface(scope awscdk.Construct, id *string, props *CfnFlowVpcInterfaceProps) CfnFlowVpcInterface {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnFlowVpcInterface{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_mediaconnect.CfnFlowVpcInterface",
+		"monocdk.aws_mediaconnect.CfnFlowVpcInterface",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3111,11 +3721,11 @@ func NewCfnFlowVpcInterface(scope constructs.Construct, id *string, props *CfnFl
 }
 
 // Create a new `AWS::MediaConnect::FlowVpcInterface`.
-func NewCfnFlowVpcInterface_Override(c CfnFlowVpcInterface, scope constructs.Construct, id *string, props *CfnFlowVpcInterfaceProps) {
+func NewCfnFlowVpcInterface_Override(c CfnFlowVpcInterface, scope awscdk.Construct, id *string, props *CfnFlowVpcInterfaceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_mediaconnect.CfnFlowVpcInterface",
+		"monocdk.aws_mediaconnect.CfnFlowVpcInterface",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -3167,13 +3777,14 @@ func (j *jsiiProxy_CfnFlowVpcInterface) SetSubnetId(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnFlowVpcInterface_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_mediaconnect.CfnFlowVpcInterface",
+		"monocdk.aws_mediaconnect.CfnFlowVpcInterface",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -3183,13 +3794,14 @@ func CfnFlowVpcInterface_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnFlowVpcInterface_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_mediaconnect.CfnFlowVpcInterface",
+		"monocdk.aws_mediaconnect.CfnFlowVpcInterface",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3198,17 +3810,15 @@ func CfnFlowVpcInterface_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnFlowVpcInterface_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_mediaconnect.CfnFlowVpcInterface",
+		"monocdk.aws_mediaconnect.CfnFlowVpcInterface",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3221,7 +3831,7 @@ func CfnFlowVpcInterface_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_mediaconnect.CfnFlowVpcInterface",
+		"monocdk.aws_mediaconnect.CfnFlowVpcInterface",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -3229,6 +3839,7 @@ func CfnFlowVpcInterface_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnFlowVpcInterface) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3241,6 +3852,7 @@ func (c *jsiiProxy_CfnFlowVpcInterface) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnFlowVpcInterface) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3256,6 +3868,7 @@ func (c *jsiiProxy_CfnFlowVpcInterface) AddDependsOn(target awscdk.CfnResource) 
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnFlowVpcInterface) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3301,6 +3914,7 @@ func (c *jsiiProxy_CfnFlowVpcInterface) AddMetadata(key *string, value interface
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnFlowVpcInterface) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3310,6 +3924,7 @@ func (c *jsiiProxy_CfnFlowVpcInterface) AddOverride(path *string, value interfac
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnFlowVpcInterface) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3321,6 +3936,7 @@ func (c *jsiiProxy_CfnFlowVpcInterface) AddPropertyDeletionOverride(propertyPath
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnFlowVpcInterface) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3338,6 +3954,7 @@ func (c *jsiiProxy_CfnFlowVpcInterface) AddPropertyOverride(propertyPath *string
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnFlowVpcInterface) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3350,6 +3967,7 @@ func (c *jsiiProxy_CfnFlowVpcInterface) ApplyRemovalPolicy(policy awscdk.Removal
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnFlowVpcInterface) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -3370,6 +3988,7 @@ func (c *jsiiProxy_CfnFlowVpcInterface) GetAtt(attributeName *string) awscdk.Ref
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnFlowVpcInterface) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -3392,12 +4011,80 @@ func (c *jsiiProxy_CfnFlowVpcInterface) Inspect(inspector awscdk.TreeInspector) 
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnFlowVpcInterface) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnFlowVpcInterface) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnFlowVpcInterface) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnFlowVpcInterface) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnFlowVpcInterface) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -3418,6 +4105,7 @@ func (c *jsiiProxy_CfnFlowVpcInterface) RenderProperties(props *map[string]inter
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnFlowVpcInterface) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -3431,9 +4119,23 @@ func (c *jsiiProxy_CfnFlowVpcInterface) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnFlowVpcInterface) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnFlowVpcInterface) ToString() *string {
 	var returns *string
 
@@ -3447,6 +4149,27 @@ func (c *jsiiProxy_CfnFlowVpcInterface) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnFlowVpcInterface) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnFlowVpcInterface) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3455,20 +4178,28 @@ func (c *jsiiProxy_CfnFlowVpcInterface) ValidateProperties(_properties interface
 	)
 }
 
-// Properties for defining a `AWS::MediaConnect::FlowVpcInterface`.
+// Properties for defining a `CfnFlowVpcInterface`.
 //
 // TODO: EXAMPLE
 //
 type CfnFlowVpcInterfaceProps struct {
-	// `AWS::MediaConnect::FlowVpcInterface.FlowArn`.
+	// The Amazon Resource Name (ARN) of the flow.
 	FlowArn *string `json:"flowArn"`
-	// `AWS::MediaConnect::FlowVpcInterface.Name`.
+	// The name of the VPC Interface.
+	//
+	// This value must be unique within the current flow.
 	Name *string `json:"name"`
-	// `AWS::MediaConnect::FlowVpcInterface.RoleArn`.
+	// The Amazon Resource Name (ARN) of the role that you created when you set up MediaConnect as a trusted service.
 	RoleArn *string `json:"roleArn"`
-	// `AWS::MediaConnect::FlowVpcInterface.SecurityGroupIds`.
+	// The VPC security groups that you want MediaConnect to use for your VPC configuration.
+	//
+	// You must include at least one security group in the request.
 	SecurityGroupIds *[]*string `json:"securityGroupIds"`
-	// `AWS::MediaConnect::FlowVpcInterface.SubnetId`.
+	// The subnet IDs that you want to use for your VPC interface.
+	//
+	// A range of IP addresses in your VPC. When you create your VPC, you specify a range of IPv4 addresses for the VPC in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16. This is the primary CIDR block for your VPC. When you create a subnet for your VPC, you specify the CIDR block for the subnet, which is a subset of the VPC CIDR block.
+	//
+	// The subnets that you use across all VPC interfaces on the flow must be in the same Availability Zone as the flow.
 	SubnetId *string `json:"subnetId"`
 }
 

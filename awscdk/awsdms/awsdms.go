@@ -1,15 +1,17 @@
 package awsdms
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsdms/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsdms/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::DMS::Certificate`.
+//
+// The `AWS::DMS::Certificate` resource creates an SSL certificate that encrypts connections between AWS DMS endpoints and the replication instance.
 //
 // TODO: EXAMPLE
 //
@@ -27,7 +29,7 @@ type CfnCertificate interface {
 	CfnResourceType() *string
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	UpdatedProperites() *map[string]interface{}
@@ -41,10 +43,16 @@ type CfnCertificate interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -134,8 +142,8 @@ func (j *jsiiProxy_CfnCertificate) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCertificate) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnCertificate) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -176,13 +184,13 @@ func (j *jsiiProxy_CfnCertificate) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::DMS::Certificate`.
-func NewCfnCertificate(scope constructs.Construct, id *string, props *CfnCertificateProps) CfnCertificate {
+func NewCfnCertificate(scope awscdk.Construct, id *string, props *CfnCertificateProps) CfnCertificate {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnCertificate{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_dms.CfnCertificate",
+		"monocdk.aws_dms.CfnCertificate",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -191,11 +199,11 @@ func NewCfnCertificate(scope constructs.Construct, id *string, props *CfnCertifi
 }
 
 // Create a new `AWS::DMS::Certificate`.
-func NewCfnCertificate_Override(c CfnCertificate, scope constructs.Construct, id *string, props *CfnCertificateProps) {
+func NewCfnCertificate_Override(c CfnCertificate, scope awscdk.Construct, id *string, props *CfnCertificateProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_dms.CfnCertificate",
+		"monocdk.aws_dms.CfnCertificate",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -231,13 +239,14 @@ func (j *jsiiProxy_CfnCertificate) SetCertificateWallet(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnCertificate_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_dms.CfnCertificate",
+		"monocdk.aws_dms.CfnCertificate",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -247,13 +256,14 @@ func CfnCertificate_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnCertificate_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_dms.CfnCertificate",
+		"monocdk.aws_dms.CfnCertificate",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -262,17 +272,15 @@ func CfnCertificate_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnCertificate_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_dms.CfnCertificate",
+		"monocdk.aws_dms.CfnCertificate",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -285,7 +293,7 @@ func CfnCertificate_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_dms.CfnCertificate",
+		"monocdk.aws_dms.CfnCertificate",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -293,6 +301,7 @@ func CfnCertificate_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnCertificate) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -305,6 +314,7 @@ func (c *jsiiProxy_CfnCertificate) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnCertificate) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -320,6 +330,7 @@ func (c *jsiiProxy_CfnCertificate) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnCertificate) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -365,6 +376,7 @@ func (c *jsiiProxy_CfnCertificate) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnCertificate) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -374,6 +386,7 @@ func (c *jsiiProxy_CfnCertificate) AddOverride(path *string, value interface{}) 
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnCertificate) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -385,6 +398,7 @@ func (c *jsiiProxy_CfnCertificate) AddPropertyDeletionOverride(propertyPath *str
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnCertificate) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -402,6 +416,7 @@ func (c *jsiiProxy_CfnCertificate) AddPropertyOverride(propertyPath *string, val
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnCertificate) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -414,6 +429,7 @@ func (c *jsiiProxy_CfnCertificate) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnCertificate) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -434,6 +450,7 @@ func (c *jsiiProxy_CfnCertificate) GetAtt(attributeName *string) awscdk.Referenc
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnCertificate) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -456,12 +473,80 @@ func (c *jsiiProxy_CfnCertificate) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnCertificate) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnCertificate) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnCertificate) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnCertificate) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnCertificate) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -482,6 +567,7 @@ func (c *jsiiProxy_CfnCertificate) RenderProperties(props *map[string]interface{
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnCertificate) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -495,9 +581,23 @@ func (c *jsiiProxy_CfnCertificate) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnCertificate) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnCertificate) ToString() *string {
 	var returns *string
 
@@ -511,6 +611,27 @@ func (c *jsiiProxy_CfnCertificate) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnCertificate) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnCertificate) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -519,20 +640,28 @@ func (c *jsiiProxy_CfnCertificate) ValidateProperties(_properties interface{}) {
 	)
 }
 
-// Properties for defining a `AWS::DMS::Certificate`.
+// Properties for defining a `CfnCertificate`.
 //
 // TODO: EXAMPLE
 //
 type CfnCertificateProps struct {
-	// `AWS::DMS::Certificate.CertificateIdentifier`.
+	// A customer-assigned name for the certificate.
+	//
+	// Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two consecutive hyphens.
 	CertificateIdentifier *string `json:"certificateIdentifier"`
-	// `AWS::DMS::Certificate.CertificatePem`.
+	// The contents of a `.pem` file, which contains an X.509 certificate.
 	CertificatePem *string `json:"certificatePem"`
-	// `AWS::DMS::Certificate.CertificateWallet`.
+	// The location of an imported Oracle Wallet certificate for use with SSL.
+	//
+	// Example: `filebase64("${path.root}/rds-ca-2019-root.sso")`
 	CertificateWallet *string `json:"certificateWallet"`
 }
 
 // A CloudFormation `AWS::DMS::Endpoint`.
+//
+// The `AWS::DMS::Endpoint` resource creates an AWS DMS endpoint.
+//
+// Currently, the only endpoint setting types that AWS CloudFormation supports are *DynamoDBSettings* , *ElasticSearchSettings* , and *NeptuneSettings* .
 //
 // TODO: EXAMPLE
 //
@@ -579,7 +708,7 @@ type CfnEndpoint interface {
 	SetMySqlSettings(val interface{})
 	NeptuneSettings() interface{}
 	SetNeptuneSettings(val interface{})
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OracleSettings() interface{}
 	SetOracleSettings(val interface{})
 	Password() *string
@@ -618,10 +747,16 @@ type CfnEndpoint interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -861,8 +996,8 @@ func (j *jsiiProxy_CfnEndpoint) NeptuneSettings() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEndpoint) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnEndpoint) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1033,13 +1168,13 @@ func (j *jsiiProxy_CfnEndpoint) Username() *string {
 
 
 // Create a new `AWS::DMS::Endpoint`.
-func NewCfnEndpoint(scope constructs.Construct, id *string, props *CfnEndpointProps) CfnEndpoint {
+func NewCfnEndpoint(scope awscdk.Construct, id *string, props *CfnEndpointProps) CfnEndpoint {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnEndpoint{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_dms.CfnEndpoint",
+		"monocdk.aws_dms.CfnEndpoint",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1048,11 +1183,11 @@ func NewCfnEndpoint(scope constructs.Construct, id *string, props *CfnEndpointPr
 }
 
 // Create a new `AWS::DMS::Endpoint`.
-func NewCfnEndpoint_Override(c CfnEndpoint, scope constructs.Construct, id *string, props *CfnEndpointProps) {
+func NewCfnEndpoint_Override(c CfnEndpoint, scope awscdk.Construct, id *string, props *CfnEndpointProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_dms.CfnEndpoint",
+		"monocdk.aws_dms.CfnEndpoint",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1296,13 +1431,14 @@ func (j *jsiiProxy_CfnEndpoint) SetUsername(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnEndpoint_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_dms.CfnEndpoint",
+		"monocdk.aws_dms.CfnEndpoint",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1312,13 +1448,14 @@ func CfnEndpoint_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnEndpoint_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_dms.CfnEndpoint",
+		"monocdk.aws_dms.CfnEndpoint",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1327,17 +1464,15 @@ func CfnEndpoint_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnEndpoint_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_dms.CfnEndpoint",
+		"monocdk.aws_dms.CfnEndpoint",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1350,7 +1485,7 @@ func CfnEndpoint_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_dms.CfnEndpoint",
+		"monocdk.aws_dms.CfnEndpoint",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1358,6 +1493,7 @@ func CfnEndpoint_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnEndpoint) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1370,6 +1506,7 @@ func (c *jsiiProxy_CfnEndpoint) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnEndpoint) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1385,6 +1522,7 @@ func (c *jsiiProxy_CfnEndpoint) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnEndpoint) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1430,6 +1568,7 @@ func (c *jsiiProxy_CfnEndpoint) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnEndpoint) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1439,6 +1578,7 @@ func (c *jsiiProxy_CfnEndpoint) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnEndpoint) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1450,6 +1590,7 @@ func (c *jsiiProxy_CfnEndpoint) AddPropertyDeletionOverride(propertyPath *string
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnEndpoint) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1467,6 +1608,7 @@ func (c *jsiiProxy_CfnEndpoint) AddPropertyOverride(propertyPath *string, value 
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnEndpoint) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1479,6 +1621,7 @@ func (c *jsiiProxy_CfnEndpoint) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, 
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnEndpoint) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1499,6 +1642,7 @@ func (c *jsiiProxy_CfnEndpoint) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnEndpoint) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1521,12 +1665,80 @@ func (c *jsiiProxy_CfnEndpoint) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnEndpoint) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnEndpoint) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnEndpoint) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnEndpoint) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnEndpoint) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1547,6 +1759,7 @@ func (c *jsiiProxy_CfnEndpoint) RenderProperties(props *map[string]interface{}) 
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnEndpoint) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1560,9 +1773,23 @@ func (c *jsiiProxy_CfnEndpoint) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnEndpoint) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnEndpoint) ToString() *string {
 	var returns *string
 
@@ -1576,6 +1803,27 @@ func (c *jsiiProxy_CfnEndpoint) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnEndpoint) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnEndpoint) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1584,316 +1832,434 @@ func (c *jsiiProxy_CfnEndpoint) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// Not currently supported by AWS CloudFormation .
+//
 // TODO: EXAMPLE
 //
 type CfnEndpoint_DocDbSettingsProperty struct {
-	// `CfnEndpoint.DocDbSettingsProperty.SecretsManagerAccessRoleArn`.
+	// Not currently supported by AWS CloudFormation .
 	SecretsManagerAccessRoleArn *string `json:"secretsManagerAccessRoleArn"`
-	// `CfnEndpoint.DocDbSettingsProperty.SecretsManagerSecretId`.
+	// Not currently supported by AWS CloudFormation .
 	SecretsManagerSecretId *string `json:"secretsManagerSecretId"`
 }
 
+// Provides the Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role used to define an Amazon DynamoDB target endpoint.
+//
 // TODO: EXAMPLE
 //
 type CfnEndpoint_DynamoDbSettingsProperty struct {
-	// `CfnEndpoint.DynamoDbSettingsProperty.ServiceAccessRoleArn`.
+	// The Amazon Resource Name (ARN) used by the service to access the IAM role.
+	//
+	// The role must allow the `iam:PassRole` action.
 	ServiceAccessRoleArn *string `json:"serviceAccessRoleArn"`
 }
 
+// Provides information that defines an OpenSearch endpoint.
+//
 // TODO: EXAMPLE
 //
 type CfnEndpoint_ElasticsearchSettingsProperty struct {
-	// `CfnEndpoint.ElasticsearchSettingsProperty.EndpointUri`.
+	// The endpoint for the OpenSearch cluster.
+	//
+	// AWS DMS uses HTTPS if a transport protocol (http/https) is not specified.
 	EndpointUri *string `json:"endpointUri"`
-	// `CfnEndpoint.ElasticsearchSettingsProperty.ErrorRetryDuration`.
+	// The maximum number of seconds for which DMS retries failed API requests to the OpenSearch cluster.
 	ErrorRetryDuration *float64 `json:"errorRetryDuration"`
-	// `CfnEndpoint.ElasticsearchSettingsProperty.FullLoadErrorPercentage`.
+	// The maximum percentage of records that can fail to be written before a full load operation stops.
+	//
+	// To avoid early failure, this counter is only effective after 1000 records are transferred. OpenSearch also has the concept of error monitoring during the last 10 minutes of an Observation Window. If transfer of all records fail in the last 10 minutes, the full load operation stops.
 	FullLoadErrorPercentage *float64 `json:"fullLoadErrorPercentage"`
-	// `CfnEndpoint.ElasticsearchSettingsProperty.ServiceAccessRoleArn`.
+	// The Amazon Resource Name (ARN) used by the service to access the IAM role.
+	//
+	// The role must allow the `iam:PassRole` action.
 	ServiceAccessRoleArn *string `json:"serviceAccessRoleArn"`
 }
 
+// Not currently supported by AWS CloudFormation .
+//
 // TODO: EXAMPLE
 //
 type CfnEndpoint_IbmDb2SettingsProperty struct {
-	// `CfnEndpoint.IbmDb2SettingsProperty.SecretsManagerAccessRoleArn`.
+	// Not currently supported by AWS CloudFormation .
 	SecretsManagerAccessRoleArn *string `json:"secretsManagerAccessRoleArn"`
-	// `CfnEndpoint.IbmDb2SettingsProperty.SecretsManagerSecretId`.
+	// Not currently supported by AWS CloudFormation .
 	SecretsManagerSecretId *string `json:"secretsManagerSecretId"`
 }
 
+// Not currently supported by AWS CloudFormation .
+//
 // TODO: EXAMPLE
 //
 type CfnEndpoint_KafkaSettingsProperty struct {
-	// `CfnEndpoint.KafkaSettingsProperty.Broker`.
+	// Not currently supported by AWS CloudFormation .
 	Broker *string `json:"broker"`
-	// `CfnEndpoint.KafkaSettingsProperty.IncludeControlDetails`.
+	// Shows detailed control information for table definition, column definition, and table and column changes in the Kafka message output.
+	//
+	// The default is `false` .
 	IncludeControlDetails interface{} `json:"includeControlDetails"`
-	// `CfnEndpoint.KafkaSettingsProperty.IncludeNullAndEmpty`.
+	// Include NULL and empty columns for records migrated to the endpoint.
+	//
+	// The default is `false` .
 	IncludeNullAndEmpty interface{} `json:"includeNullAndEmpty"`
-	// `CfnEndpoint.KafkaSettingsProperty.IncludeTableAlterOperations`.
+	// Includes any data definition language (DDL) operations that change the table in the control data, such as `rename-table` , `drop-table` , `add-column` , `drop-column` , and `rename-column` .
+	//
+	// The default is `false` .
 	IncludeTableAlterOperations interface{} `json:"includeTableAlterOperations"`
-	// `CfnEndpoint.KafkaSettingsProperty.IncludeTransactionDetails`.
+	// Provides detailed transaction information from the source database.
+	//
+	// This information includes a commit timestamp, a log position, and values for `transaction_id` , previous `transaction_id` , and `transaction_record_id` (the record offset within a transaction). The default is `false` .
 	IncludeTransactionDetails interface{} `json:"includeTransactionDetails"`
-	// `CfnEndpoint.KafkaSettingsProperty.NoHexPrefix`.
+	// Set this optional parameter to `true` to avoid adding a '0x' prefix to raw data in hexadecimal format.
+	//
+	// For example, by default, AWS DMS adds a '0x' prefix to the LOB column type in hexadecimal format moving from an Oracle source to a Kafka target. Use the `NoHexPrefix` endpoint setting to enable migration of RAW data type columns without adding the '0x' prefix.
 	NoHexPrefix interface{} `json:"noHexPrefix"`
-	// `CfnEndpoint.KafkaSettingsProperty.PartitionIncludeSchemaTable`.
+	// Prefixes schema and table names to partition values, when the partition type is `primary-key-type` .
+	//
+	// Doing this increases data distribution among Kafka partitions. For example, suppose that a SysBench schema has thousands of tables and each table has only limited range for a primary key. In this case, the same primary key is sent from thousands of tables to the same partition, which causes throttling. The default is `false` .
 	PartitionIncludeSchemaTable interface{} `json:"partitionIncludeSchemaTable"`
-	// `CfnEndpoint.KafkaSettingsProperty.SaslPassword`.
+	// The secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
 	SaslPassword *string `json:"saslPassword"`
-	// `CfnEndpoint.KafkaSettingsProperty.SaslUserName`.
+	// The secure user name you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
 	SaslUserName *string `json:"saslUserName"`
-	// `CfnEndpoint.KafkaSettingsProperty.SecurityProtocol`.
+	// Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS).
+	//
+	// Options include `ssl-encryption` , `ssl-authentication` , and `sasl-ssl` . `sasl-ssl` requires `SaslUsername` and `SaslPassword` .
 	SecurityProtocol *string `json:"securityProtocol"`
-	// `CfnEndpoint.KafkaSettingsProperty.SslCaCertificateArn`.
+	// The Amazon Resource Name (ARN) for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
 	SslCaCertificateArn *string `json:"sslCaCertificateArn"`
-	// `CfnEndpoint.KafkaSettingsProperty.SslClientCertificateArn`.
+	// The Amazon Resource Name (ARN) of the client certificate used to securely connect to a Kafka target endpoint.
 	SslClientCertificateArn *string `json:"sslClientCertificateArn"`
-	// `CfnEndpoint.KafkaSettingsProperty.SslClientKeyArn`.
+	// The Amazon Resource Name (ARN) for the client private key used to securely connect to a Kafka target endpoint.
 	SslClientKeyArn *string `json:"sslClientKeyArn"`
-	// `CfnEndpoint.KafkaSettingsProperty.SslClientKeyPassword`.
+	// The password for the client private key used to securely connect to a Kafka target endpoint.
 	SslClientKeyPassword *string `json:"sslClientKeyPassword"`
-	// `CfnEndpoint.KafkaSettingsProperty.Topic`.
+	// Not currently supported by AWS CloudFormation .
 	Topic *string `json:"topic"`
 }
 
+// Not currently supported by AWS CloudFormation ..
+//
 // TODO: EXAMPLE
 //
 type CfnEndpoint_KinesisSettingsProperty struct {
-	// `CfnEndpoint.KinesisSettingsProperty.IncludeControlDetails`.
+	// Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output.
+	//
+	// The default is `false` .
 	IncludeControlDetails interface{} `json:"includeControlDetails"`
-	// `CfnEndpoint.KinesisSettingsProperty.IncludeNullAndEmpty`.
+	// Include NULL and empty columns for records migrated to the endpoint.
+	//
+	// The default is `false` .
 	IncludeNullAndEmpty interface{} `json:"includeNullAndEmpty"`
-	// `CfnEndpoint.KinesisSettingsProperty.IncludeTableAlterOperations`.
+	// Includes any data definition language (DDL) operations that change the table in the control data, such as `rename-table` , `drop-table` , `add-column` , `drop-column` , and `rename-column` .
+	//
+	// The default is `false` .
 	IncludeTableAlterOperations interface{} `json:"includeTableAlterOperations"`
-	// `CfnEndpoint.KinesisSettingsProperty.IncludeTransactionDetails`.
+	// Provides detailed transaction information from the source database.
+	//
+	// This information includes a commit timestamp, a log position, and values for `transaction_id` , previous `transaction_id` , and `transaction_record_id` (the record offset within a transaction). The default is `false` .
 	IncludeTransactionDetails interface{} `json:"includeTransactionDetails"`
-	// `CfnEndpoint.KinesisSettingsProperty.MessageFormat`.
+	// Not currently supported by AWS CloudFormation .
 	MessageFormat *string `json:"messageFormat"`
-	// `CfnEndpoint.KinesisSettingsProperty.NoHexPrefix`.
+	// Set this optional parameter to `true` to avoid adding a '0x' prefix to raw data in hexadecimal format.
+	//
+	// For example, by default, AWS DMS adds a '0x' prefix to the LOB column type in hexadecimal format moving from an Oracle source to an Amazon Kinesis target. Use the `NoHexPrefix` endpoint setting to enable migration of RAW data type columns without adding the '0x' prefix.
 	NoHexPrefix interface{} `json:"noHexPrefix"`
-	// `CfnEndpoint.KinesisSettingsProperty.PartitionIncludeSchemaTable`.
+	// Prefixes schema and table names to partition values, when the partition type is `primary-key-type` .
+	//
+	// Doing this increases data distribution among Kinesis shards. For example, suppose that a SysBench schema has thousands of tables and each table has only limited range for a primary key. In this case, the same primary key is sent from thousands of tables to the same shard, which causes throttling. The default is `false` .
 	PartitionIncludeSchemaTable interface{} `json:"partitionIncludeSchemaTable"`
-	// `CfnEndpoint.KinesisSettingsProperty.ServiceAccessRoleArn`.
+	// Not currently supported by AWS CloudFormation .
 	ServiceAccessRoleArn *string `json:"serviceAccessRoleArn"`
-	// `CfnEndpoint.KinesisSettingsProperty.StreamArn`.
+	// Not currently supported by AWS CloudFormation .
 	StreamArn *string `json:"streamArn"`
 }
 
+// Not currently supported by AWS CloudFormation .
+//
 // TODO: EXAMPLE
 //
 type CfnEndpoint_MicrosoftSqlServerSettingsProperty struct {
-	// `CfnEndpoint.MicrosoftSqlServerSettingsProperty.SecretsManagerAccessRoleArn`.
+	// Not currently supported by AWS CloudFormation .
 	SecretsManagerAccessRoleArn *string `json:"secretsManagerAccessRoleArn"`
-	// `CfnEndpoint.MicrosoftSqlServerSettingsProperty.SecretsManagerSecretId`.
+	// Not currently supported by AWS CloudFormation .
 	SecretsManagerSecretId *string `json:"secretsManagerSecretId"`
 }
 
+// Not currently supported by AWS CloudFormation .
+//
 // TODO: EXAMPLE
 //
 type CfnEndpoint_MongoDbSettingsProperty struct {
-	// `CfnEndpoint.MongoDbSettingsProperty.AuthMechanism`.
+	// Not currently supported by AWS CloudFormation .
 	AuthMechanism *string `json:"authMechanism"`
-	// `CfnEndpoint.MongoDbSettingsProperty.AuthSource`.
+	// Not currently supported by AWS CloudFormation .
 	AuthSource *string `json:"authSource"`
-	// `CfnEndpoint.MongoDbSettingsProperty.AuthType`.
+	// Not currently supported by AWS CloudFormation .
 	AuthType *string `json:"authType"`
-	// `CfnEndpoint.MongoDbSettingsProperty.DatabaseName`.
+	// Not currently supported by AWS CloudFormation .
 	DatabaseName *string `json:"databaseName"`
-	// `CfnEndpoint.MongoDbSettingsProperty.DocsToInvestigate`.
+	// Not currently supported by AWS CloudFormation .
 	DocsToInvestigate *string `json:"docsToInvestigate"`
-	// `CfnEndpoint.MongoDbSettingsProperty.ExtractDocId`.
+	// Not currently supported by AWS CloudFormation .
 	ExtractDocId *string `json:"extractDocId"`
-	// `CfnEndpoint.MongoDbSettingsProperty.NestingLevel`.
+	// Not currently supported by AWS CloudFormation .
 	NestingLevel *string `json:"nestingLevel"`
-	// `CfnEndpoint.MongoDbSettingsProperty.Password`.
+	// Not currently supported by AWS CloudFormation .
 	Password *string `json:"password"`
-	// `CfnEndpoint.MongoDbSettingsProperty.Port`.
+	// Not currently supported by AWS CloudFormation .
 	Port *float64 `json:"port"`
-	// `CfnEndpoint.MongoDbSettingsProperty.SecretsManagerAccessRoleArn`.
+	// Not currently supported by AWS CloudFormation .
 	SecretsManagerAccessRoleArn *string `json:"secretsManagerAccessRoleArn"`
-	// `CfnEndpoint.MongoDbSettingsProperty.SecretsManagerSecretId`.
+	// Not currently supported by AWS CloudFormation .
 	SecretsManagerSecretId *string `json:"secretsManagerSecretId"`
-	// `CfnEndpoint.MongoDbSettingsProperty.ServerName`.
+	// Not currently supported by AWS CloudFormation .
 	ServerName *string `json:"serverName"`
-	// `CfnEndpoint.MongoDbSettingsProperty.Username`.
+	// Not currently supported by AWS CloudFormation .
 	Username *string `json:"username"`
 }
 
+// Not currently supported by AWS CloudFormation .
+//
 // TODO: EXAMPLE
 //
 type CfnEndpoint_MySqlSettingsProperty struct {
-	// `CfnEndpoint.MySqlSettingsProperty.SecretsManagerAccessRoleArn`.
+	// Not currently supported by AWS CloudFormation .
 	SecretsManagerAccessRoleArn *string `json:"secretsManagerAccessRoleArn"`
-	// `CfnEndpoint.MySqlSettingsProperty.SecretsManagerSecretId`.
+	// Not currently supported by AWS CloudFormation .
 	SecretsManagerSecretId *string `json:"secretsManagerSecretId"`
 }
 
+// Provides information that defines an Amazon Neptune endpoint.
+//
 // TODO: EXAMPLE
 //
 type CfnEndpoint_NeptuneSettingsProperty struct {
-	// `CfnEndpoint.NeptuneSettingsProperty.ErrorRetryDuration`.
+	// The number of milliseconds for AWS DMS to wait to retry a bulk-load of migrated graph data to the Neptune target database before raising an error.
+	//
+	// The default is 250.
 	ErrorRetryDuration *float64 `json:"errorRetryDuration"`
-	// `CfnEndpoint.NeptuneSettingsProperty.IamAuthEnabled`.
+	// If you want AWS Identity and Access Management (IAM) authorization enabled for this endpoint, set this parameter to `true` .
+	//
+	// Then attach the appropriate IAM policy document to your service role specified by `ServiceAccessRoleArn` . The default is `false` .
 	IamAuthEnabled interface{} `json:"iamAuthEnabled"`
-	// `CfnEndpoint.NeptuneSettingsProperty.MaxFileSize`.
+	// The maximum size in kilobytes of migrated graph data stored in a .csv file before AWS DMS bulk-loads the data to the Neptune target database. The default is 1,048,576 KB. If the bulk load is successful, AWS DMS clears the bucket, ready to store the next batch of migrated graph data.
 	MaxFileSize *float64 `json:"maxFileSize"`
-	// `CfnEndpoint.NeptuneSettingsProperty.MaxRetryCount`.
+	// The number of times for AWS DMS to retry a bulk load of migrated graph data to the Neptune target database before raising an error.
+	//
+	// The default is 5.
 	MaxRetryCount *float64 `json:"maxRetryCount"`
-	// `CfnEndpoint.NeptuneSettingsProperty.S3BucketFolder`.
+	// A folder path where you want AWS DMS to store migrated graph data in the S3 bucket specified by `S3BucketName`.
 	S3BucketFolder *string `json:"s3BucketFolder"`
-	// `CfnEndpoint.NeptuneSettingsProperty.S3BucketName`.
+	// The name of the Amazon S3 bucket where AWS DMS can temporarily store migrated graph data in .csv files before bulk-loading it to the Neptune target database. AWS DMS maps the SQL source data to graph data before storing it in these .csv files.
 	S3BucketName *string `json:"s3BucketName"`
-	// `CfnEndpoint.NeptuneSettingsProperty.ServiceAccessRoleArn`.
+	// The Amazon Resource Name (ARN) of the service role that you created for the Neptune target endpoint.
+	//
+	// The role must allow the `iam:PassRole` action. For more information, see [Creating an IAM Service Role for Accessing Amazon Neptune as a Target](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Neptune.html#CHAP_Target.Neptune.ServiceRole) in the *AWS Database Migration Service User Guide.*
 	ServiceAccessRoleArn *string `json:"serviceAccessRoleArn"`
 }
 
+// Not currently supported by AWS CloudFormation .
+//
 // TODO: EXAMPLE
 //
 type CfnEndpoint_OracleSettingsProperty struct {
-	// `CfnEndpoint.OracleSettingsProperty.SecretsManagerAccessRoleArn`.
+	// Not currently supported by AWS CloudFormation .
 	SecretsManagerAccessRoleArn *string `json:"secretsManagerAccessRoleArn"`
-	// `CfnEndpoint.OracleSettingsProperty.SecretsManagerOracleAsmAccessRoleArn`.
+	// Not currently supported by AWS CloudFormation .
 	SecretsManagerOracleAsmAccessRoleArn *string `json:"secretsManagerOracleAsmAccessRoleArn"`
-	// `CfnEndpoint.OracleSettingsProperty.SecretsManagerOracleAsmSecretId`.
+	// Not currently supported by AWS CloudFormation .
 	SecretsManagerOracleAsmSecretId *string `json:"secretsManagerOracleAsmSecretId"`
-	// `CfnEndpoint.OracleSettingsProperty.SecretsManagerSecretId`.
+	// Not currently supported by AWS CloudFormation .
 	SecretsManagerSecretId *string `json:"secretsManagerSecretId"`
 }
 
+// Not currently supported by AWS CloudFormation .
+//
 // TODO: EXAMPLE
 //
 type CfnEndpoint_PostgreSqlSettingsProperty struct {
-	// `CfnEndpoint.PostgreSqlSettingsProperty.SecretsManagerAccessRoleArn`.
+	// Not currently supported by AWS CloudFormation .
 	SecretsManagerAccessRoleArn *string `json:"secretsManagerAccessRoleArn"`
-	// `CfnEndpoint.PostgreSqlSettingsProperty.SecretsManagerSecretId`.
+	// Not currently supported by AWS CloudFormation .
 	SecretsManagerSecretId *string `json:"secretsManagerSecretId"`
 }
 
+// Provides information that defines a Redis target endpoint.
+//
 // TODO: EXAMPLE
 //
 type CfnEndpoint_RedisSettingsProperty struct {
-	// `CfnEndpoint.RedisSettingsProperty.AuthPassword`.
+	// The password provided with the `auth-role` and `auth-token` options of the `AuthType` setting for a Redis target endpoint.
 	AuthPassword *string `json:"authPassword"`
-	// `CfnEndpoint.RedisSettingsProperty.AuthType`.
+	// The type of authentication to perform when connecting to a Redis target.
+	//
+	// Options include `none` , `auth-token` , and `auth-role` . The `auth-token` option requires an `AuthPassword` value to be provided. The `auth-role` option requires `AuthUserName` and `AuthPassword` values to be provided.
 	AuthType *string `json:"authType"`
-	// `CfnEndpoint.RedisSettingsProperty.AuthUserName`.
+	// The user name provided with the `auth-role` option of the `AuthType` setting for a Redis target endpoint.
 	AuthUserName *string `json:"authUserName"`
-	// `CfnEndpoint.RedisSettingsProperty.Port`.
+	// Transmission Control Protocol (TCP) port for the endpoint.
 	Port *float64 `json:"port"`
-	// `CfnEndpoint.RedisSettingsProperty.ServerName`.
+	// Fully qualified domain name of the endpoint.
 	ServerName *string `json:"serverName"`
-	// `CfnEndpoint.RedisSettingsProperty.SslCaCertificateArn`.
+	// The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
 	SslCaCertificateArn *string `json:"sslCaCertificateArn"`
-	// `CfnEndpoint.RedisSettingsProperty.SslSecurityProtocol`.
+	// The connection to a Redis target endpoint using Transport Layer Security (TLS).
+	//
+	// Valid values include `plaintext` and `ssl-encryption` . The default is `ssl-encryption` . The `ssl-encryption` option makes an encrypted connection. Optionally, you can identify an Amazon Resource Name (ARN) for an SSL certificate authority (CA) using the `SslCaCertificateArn` setting. If an ARN isn't given for a CA, DMS uses the Amazon root CA.
+	//
+	// The `plaintext` option doesn't provide Transport Layer Security (TLS) encryption for traffic between endpoint and database.
 	SslSecurityProtocol *string `json:"sslSecurityProtocol"`
 }
 
+// Not currently supported by AWS CloudFormation .
+//
 // TODO: EXAMPLE
 //
 type CfnEndpoint_RedshiftSettingsProperty struct {
-	// `CfnEndpoint.RedshiftSettingsProperty.SecretsManagerAccessRoleArn`.
+	// Not currently supported by AWS CloudFormation .
 	SecretsManagerAccessRoleArn *string `json:"secretsManagerAccessRoleArn"`
-	// `CfnEndpoint.RedshiftSettingsProperty.SecretsManagerSecretId`.
+	// Not currently supported by AWS CloudFormation .
 	SecretsManagerSecretId *string `json:"secretsManagerSecretId"`
 }
 
+// Not currently supported by AWS CloudFormation .
+//
 // TODO: EXAMPLE
 //
 type CfnEndpoint_S3SettingsProperty struct {
-	// `CfnEndpoint.S3SettingsProperty.BucketFolder`.
+	// Not currently supported by AWS CloudFormation .
 	BucketFolder *string `json:"bucketFolder"`
-	// `CfnEndpoint.S3SettingsProperty.BucketName`.
+	// Not currently supported by AWS CloudFormation .
 	BucketName *string `json:"bucketName"`
-	// `CfnEndpoint.S3SettingsProperty.CompressionType`.
+	// Not currently supported by AWS CloudFormation .
 	CompressionType *string `json:"compressionType"`
-	// `CfnEndpoint.S3SettingsProperty.CsvDelimiter`.
+	// Not currently supported by AWS CloudFormation .
 	CsvDelimiter *string `json:"csvDelimiter"`
-	// `CfnEndpoint.S3SettingsProperty.CsvRowDelimiter`.
+	// Not currently supported by AWS CloudFormation .
 	CsvRowDelimiter *string `json:"csvRowDelimiter"`
-	// `CfnEndpoint.S3SettingsProperty.ExternalTableDefinition`.
+	// Not currently supported by AWS CloudFormation .
 	ExternalTableDefinition *string `json:"externalTableDefinition"`
-	// `CfnEndpoint.S3SettingsProperty.ServiceAccessRoleArn`.
+	// Not currently supported by AWS CloudFormation .
 	ServiceAccessRoleArn *string `json:"serviceAccessRoleArn"`
 }
 
+// Not currently supported by AWS CloudFormation .
+//
 // TODO: EXAMPLE
 //
 type CfnEndpoint_SybaseSettingsProperty struct {
-	// `CfnEndpoint.SybaseSettingsProperty.SecretsManagerAccessRoleArn`.
+	// Not currently supported by AWS CloudFormation .
 	SecretsManagerAccessRoleArn *string `json:"secretsManagerAccessRoleArn"`
-	// `CfnEndpoint.SybaseSettingsProperty.SecretsManagerSecretId`.
+	// Not currently supported by AWS CloudFormation .
 	SecretsManagerSecretId *string `json:"secretsManagerSecretId"`
 }
 
-// Properties for defining a `AWS::DMS::Endpoint`.
+// Properties for defining a `CfnEndpoint`.
 //
 // TODO: EXAMPLE
 //
 type CfnEndpointProps struct {
-	// `AWS::DMS::Endpoint.CertificateArn`.
-	CertificateArn *string `json:"certificateArn"`
-	// `AWS::DMS::Endpoint.DatabaseName`.
-	DatabaseName *string `json:"databaseName"`
-	// `AWS::DMS::Endpoint.DocDbSettings`.
-	DocDbSettings interface{} `json:"docDbSettings"`
-	// `AWS::DMS::Endpoint.DynamoDbSettings`.
-	DynamoDbSettings interface{} `json:"dynamoDbSettings"`
-	// `AWS::DMS::Endpoint.ElasticsearchSettings`.
-	ElasticsearchSettings interface{} `json:"elasticsearchSettings"`
-	// `AWS::DMS::Endpoint.EndpointIdentifier`.
-	EndpointIdentifier *string `json:"endpointIdentifier"`
-	// `AWS::DMS::Endpoint.EndpointType`.
+	// The type of endpoint.
+	//
+	// Valid values are `source` and `target` .
 	EndpointType *string `json:"endpointType"`
-	// `AWS::DMS::Endpoint.EngineName`.
+	// The type of engine for the endpoint.
+	//
+	// Valid values, depending on the `EndpointType` value, include `"mysql"` , `"oracle"` , `"postgres"` , `"mariadb"` , `"aurora"` , `"aurora-postgresql"` , `"opensearch"` , `"redshift"` , `"s3"` , `"db2"` , `"azuredb"` , `"sybase"` , `"dynamodb"` , `"mongodb"` , `"kinesis"` , `"kafka"` , `"elasticsearch"` , `"docdb"` , `"sqlserver"` , and `"neptune"` .
 	EngineName *string `json:"engineName"`
-	// `AWS::DMS::Endpoint.ExtraConnectionAttributes`.
+	// The Amazon Resource Name (ARN) for the certificate.
+	CertificateArn *string `json:"certificateArn"`
+	// The name of the endpoint database.
+	//
+	// For a MySQL source or target endpoint, do not specify DatabaseName.
+	DatabaseName *string `json:"databaseName"`
+	// Settings in JSON format for the source DocumentDB endpoint.
+	//
+	// For more information about the available settings, see the configuration properties section in [Using DocumentDB as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.DocumentDB.html) in the *AWS Database Migration Service User Guide.*
+	DocDbSettings interface{} `json:"docDbSettings"`
+	// Settings in JSON format for the target Amazon DynamoDB endpoint.
+	//
+	// For information about other available settings, see [Using Object Mapping to Migrate Data to DynamoDB](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.DynamoDB.html#CHAP_Target.DynamoDB.ObjectMapping) in the *AWS Database Migration Service User Guide.*
+	DynamoDbSettings interface{} `json:"dynamoDbSettings"`
+	// Settings in JSON format for the target OpenSearch endpoint.
+	//
+	// For more information about the available settings, see [Extra Connection Attributes When Using OpenSearch as a Target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html#CHAP_Target.Elasticsearch.Configuration) in the *AWS Database Migration Service User Guide* .
+	ElasticsearchSettings interface{} `json:"elasticsearchSettings"`
+	// The database endpoint identifier.
+	//
+	// Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen, or contain two consecutive hyphens.
+	EndpointIdentifier *string `json:"endpointIdentifier"`
+	// Additional attributes associated with the connection.
+	//
+	// Each attribute is specified as a name-value pair associated by an equal sign (=). Multiple attributes are separated by a semicolon (;) with no additional white space. For information on the attributes available for connecting your source or target endpoint, see [Working with AWS DMS Endpoints](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Endpoints.html) in the *AWS Database Migration Service User Guide.*
 	ExtraConnectionAttributes *string `json:"extraConnectionAttributes"`
-	// `AWS::DMS::Endpoint.IbmDb2Settings`.
+	// Not currently supported by AWS CloudFormation .
 	IbmDb2Settings interface{} `json:"ibmDb2Settings"`
-	// `AWS::DMS::Endpoint.KafkaSettings`.
+	// Settings in JSON format for the target Apache Kafka endpoint.
+	//
+	// For more information about the available settings, see [Using object mapping to migrate data to a Kafka topic](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kafka.html#CHAP_Target.Kafka.ObjectMapping) in the *AWS Database Migration Service User Guide.*
 	KafkaSettings interface{} `json:"kafkaSettings"`
-	// `AWS::DMS::Endpoint.KinesisSettings`.
+	// Settings in JSON format for the target endpoint for Amazon Kinesis Data Streams.
+	//
+	// For more information about the available settings, see [Using Amazon Kinesis Data Streams as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kinesis.html) in the *AWS Database Migration Service User Guide.*
 	KinesisSettings interface{} `json:"kinesisSettings"`
-	// `AWS::DMS::Endpoint.KmsKeyId`.
+	// An AWS KMS key identifier that is used to encrypt the connection parameters for the endpoint.
+	//
+	// If you don't specify a value for the `KmsKeyId` parameter, then AWS DMS uses your default encryption key.
+	//
+	// AWS KMS creates the default encryption key for your AWS account . Your AWS account has a different default encryption key for each AWS Region .
 	KmsKeyId *string `json:"kmsKeyId"`
-	// `AWS::DMS::Endpoint.MicrosoftSqlServerSettings`.
+	// Not currently supported by AWS CloudFormation .
 	MicrosoftSqlServerSettings interface{} `json:"microsoftSqlServerSettings"`
-	// `AWS::DMS::Endpoint.MongoDbSettings`.
+	// Not currently supported by AWS CloudFormation .
 	MongoDbSettings interface{} `json:"mongoDbSettings"`
-	// `AWS::DMS::Endpoint.MySqlSettings`.
+	// Settings in JSON format for the source and target MySQL endpoint.
+	//
+	// For information about other available settings, see [Extra connection attributes when using MySQL as a source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MySQL.html#CHAP_Source.MySQL.ConnectionAttrib) and [Extra connection attributes when using a MySQL-compatible database as a target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.MySQL.html#CHAP_Target.MySQL.ConnectionAttrib) in the *AWS Database Migration Service User Guide.*
 	MySqlSettings interface{} `json:"mySqlSettings"`
 	// `AWS::DMS::Endpoint.NeptuneSettings`.
 	NeptuneSettings interface{} `json:"neptuneSettings"`
-	// `AWS::DMS::Endpoint.OracleSettings`.
+	// Settings in JSON format for the source and target Oracle endpoint.
+	//
+	// For information about other available settings, see [Extra connection attributes when using Oracle as a source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.ConnectionAttrib) and [Extra connection attributes when using Oracle as a target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Oracle.html#CHAP_Target.Oracle.ConnectionAttrib) in the *AWS Database Migration Service User Guide.*
 	OracleSettings interface{} `json:"oracleSettings"`
-	// `AWS::DMS::Endpoint.Password`.
+	// The password to be used to log in to the endpoint database.
 	Password *string `json:"password"`
-	// `AWS::DMS::Endpoint.Port`.
+	// The port used by the endpoint database.
 	Port *float64 `json:"port"`
-	// `AWS::DMS::Endpoint.PostgreSqlSettings`.
+	// Not currently supported by AWS CloudFormation .
 	PostgreSqlSettings interface{} `json:"postgreSqlSettings"`
-	// `AWS::DMS::Endpoint.RedisSettings`.
+	// Settings in JSON format for the target Redis endpoint.
 	RedisSettings interface{} `json:"redisSettings"`
-	// `AWS::DMS::Endpoint.RedshiftSettings`.
+	// Not currently supported by AWS CloudFormation .
 	RedshiftSettings interface{} `json:"redshiftSettings"`
-	// `AWS::DMS::Endpoint.ResourceIdentifier`.
+	// A friendly name for the resource identifier at the end of the `EndpointArn` response parameter that is returned in the created `Endpoint` object.
+	//
+	// The value for this parameter can have up to 31 characters. It can contain only ASCII letters, digits, and hyphen ('-'). Also, it can't end with a hyphen or contain two consecutive hyphens, and can only begin with a letter, such as `Example-App-ARN1` . For example, this value might result in the `EndpointArn` value `arn:aws:dms:eu-west-1:012345678901:rep:Example-App-ARN1` . If you don't specify a `ResourceIdentifier` value, AWS DMS generates a default identifier value for the end of `EndpointArn` .
 	ResourceIdentifier *string `json:"resourceIdentifier"`
-	// `AWS::DMS::Endpoint.S3Settings`.
+	// Settings in JSON format for the target Amazon S3 endpoint.
+	//
+	// For more information about the available settings, see [Extra Connection Attributes When Using Amazon S3 as a Target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring) in the *AWS Database Migration Service User Guide.*
 	S3Settings interface{} `json:"s3Settings"`
-	// `AWS::DMS::Endpoint.ServerName`.
+	// The name of the server where the endpoint database resides.
 	ServerName *string `json:"serverName"`
-	// `AWS::DMS::Endpoint.SslMode`.
+	// The Secure Sockets Layer (SSL) mode to use for the SSL connection. The default is `none` .
+	//
+	// > When `engine_name` is set to S3, then the only allowed value is `none` .
 	SslMode *string `json:"sslMode"`
-	// `AWS::DMS::Endpoint.SybaseSettings`.
+	// Settings in JSON format for the source and target SAP ASE endpoint.
+	//
+	// For information about other available settings, see [Extra connection attributes when using SAP ASE as a source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.SAP.html#CHAP_Source.SAP.ConnectionAttrib) and [Extra connection attributes when using SAP ASE as a target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.SAP.html#CHAP_Target.SAP.ConnectionAttrib) in the *AWS Database Migration Service User Guide.*
 	SybaseSettings interface{} `json:"sybaseSettings"`
-	// `AWS::DMS::Endpoint.Tags`.
+	// One or more tags to be assigned to the endpoint.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
-	// `AWS::DMS::Endpoint.Username`.
+	// The user name to be used to log in to the endpoint database.
 	Username *string `json:"username"`
 }
 
 // A CloudFormation `AWS::DMS::EventSubscription`.
+//
+// Use the `AWS::DMS::EventSubscription` resource to get notifications for AWS Database Migration Service events through the Amazon Simple Notification Service. For more information, see [Using AWS DMS Event Notification](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html) in the *AWS Database Migration Service User Guide.*
 //
 // TODO: EXAMPLE
 //
@@ -1909,7 +2275,7 @@ type CfnEventSubscription interface {
 	EventCategories() *[]*string
 	SetEventCategories(val *[]*string)
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	SnsTopicArn() *string
 	SetSnsTopicArn(val *string)
@@ -1932,10 +2298,16 @@ type CfnEventSubscription interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -2015,8 +2387,8 @@ func (j *jsiiProxy_CfnEventSubscription) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEventSubscription) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnEventSubscription) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2107,13 +2479,13 @@ func (j *jsiiProxy_CfnEventSubscription) UpdatedProperites() *map[string]interfa
 
 
 // Create a new `AWS::DMS::EventSubscription`.
-func NewCfnEventSubscription(scope constructs.Construct, id *string, props *CfnEventSubscriptionProps) CfnEventSubscription {
+func NewCfnEventSubscription(scope awscdk.Construct, id *string, props *CfnEventSubscriptionProps) CfnEventSubscription {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnEventSubscription{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_dms.CfnEventSubscription",
+		"monocdk.aws_dms.CfnEventSubscription",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2122,11 +2494,11 @@ func NewCfnEventSubscription(scope constructs.Construct, id *string, props *CfnE
 }
 
 // Create a new `AWS::DMS::EventSubscription`.
-func NewCfnEventSubscription_Override(c CfnEventSubscription, scope constructs.Construct, id *string, props *CfnEventSubscriptionProps) {
+func NewCfnEventSubscription_Override(c CfnEventSubscription, scope awscdk.Construct, id *string, props *CfnEventSubscriptionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_dms.CfnEventSubscription",
+		"monocdk.aws_dms.CfnEventSubscription",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2186,13 +2558,14 @@ func (j *jsiiProxy_CfnEventSubscription) SetSubscriptionName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnEventSubscription_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_dms.CfnEventSubscription",
+		"monocdk.aws_dms.CfnEventSubscription",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2202,13 +2575,14 @@ func CfnEventSubscription_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnEventSubscription_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_dms.CfnEventSubscription",
+		"monocdk.aws_dms.CfnEventSubscription",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2217,17 +2591,15 @@ func CfnEventSubscription_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnEventSubscription_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_dms.CfnEventSubscription",
+		"monocdk.aws_dms.CfnEventSubscription",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2240,7 +2612,7 @@ func CfnEventSubscription_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_dms.CfnEventSubscription",
+		"monocdk.aws_dms.CfnEventSubscription",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2248,6 +2620,7 @@ func CfnEventSubscription_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnEventSubscription) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2260,6 +2633,7 @@ func (c *jsiiProxy_CfnEventSubscription) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnEventSubscription) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2275,6 +2649,7 @@ func (c *jsiiProxy_CfnEventSubscription) AddDependsOn(target awscdk.CfnResource)
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnEventSubscription) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2320,6 +2695,7 @@ func (c *jsiiProxy_CfnEventSubscription) AddMetadata(key *string, value interfac
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnEventSubscription) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2329,6 +2705,7 @@ func (c *jsiiProxy_CfnEventSubscription) AddOverride(path *string, value interfa
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnEventSubscription) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2340,6 +2717,7 @@ func (c *jsiiProxy_CfnEventSubscription) AddPropertyDeletionOverride(propertyPat
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnEventSubscription) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2357,6 +2735,7 @@ func (c *jsiiProxy_CfnEventSubscription) AddPropertyOverride(propertyPath *strin
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnEventSubscription) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2369,6 +2748,7 @@ func (c *jsiiProxy_CfnEventSubscription) ApplyRemovalPolicy(policy awscdk.Remova
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnEventSubscription) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2389,6 +2769,7 @@ func (c *jsiiProxy_CfnEventSubscription) GetAtt(attributeName *string) awscdk.Re
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnEventSubscription) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2411,12 +2792,80 @@ func (c *jsiiProxy_CfnEventSubscription) Inspect(inspector awscdk.TreeInspector)
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnEventSubscription) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnEventSubscription) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnEventSubscription) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnEventSubscription) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnEventSubscription) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2437,6 +2886,7 @@ func (c *jsiiProxy_CfnEventSubscription) RenderProperties(props *map[string]inte
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnEventSubscription) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2450,9 +2900,23 @@ func (c *jsiiProxy_CfnEventSubscription) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnEventSubscription) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnEventSubscription) ToString() *string {
 	var returns *string
 
@@ -2466,6 +2930,27 @@ func (c *jsiiProxy_CfnEventSubscription) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnEventSubscription) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnEventSubscription) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2474,28 +2959,46 @@ func (c *jsiiProxy_CfnEventSubscription) ValidateProperties(_properties interfac
 	)
 }
 
-// Properties for defining a `AWS::DMS::EventSubscription`.
+// Properties for defining a `CfnEventSubscription`.
 //
 // TODO: EXAMPLE
 //
 type CfnEventSubscriptionProps struct {
-	// `AWS::DMS::EventSubscription.Enabled`.
-	Enabled interface{} `json:"enabled"`
-	// `AWS::DMS::EventSubscription.EventCategories`.
-	EventCategories *[]*string `json:"eventCategories"`
-	// `AWS::DMS::EventSubscription.SnsTopicArn`.
+	// The Amazon Resource Name (ARN) of the Amazon SNS topic created for event notification.
+	//
+	// The ARN is created by Amazon SNS when you create a topic and subscribe to it.
 	SnsTopicArn *string `json:"snsTopicArn"`
-	// `AWS::DMS::EventSubscription.SourceIds`.
+	// Indicates whether to activate the subscription.
+	//
+	// If you don't specify this property, AWS CloudFormation activates the subscription.
+	Enabled interface{} `json:"enabled"`
+	// A list of event categories for a source type that you want to subscribe to.
+	//
+	// If you don't specify this property, you are notified about all event categories. For more information, see [Working with Events and Notifications](https://docs.aws.amazon.com//dms/latest/userguide/CHAP_Events.html) in the *AWS DMS User Guide* .
+	EventCategories *[]*string `json:"eventCategories"`
+	// A list of identifiers for which AWS DMS provides notification events.
+	//
+	// If you don't specify a value, notifications are provided for all sources.
+	//
+	// If you specify multiple values, they must be of the same type. For example, if you specify a database instance ID, then all of the other values must be database instance IDs.
 	SourceIds *[]*string `json:"sourceIds"`
-	// `AWS::DMS::EventSubscription.SourceType`.
+	// The type of AWS DMS resource that generates the events.
+	//
+	// For example, if you want to be notified of events generated by a replication instance, you set this parameter to `replication-instance` . If this value isn't specified, all events are returned.
+	//
+	// Valid values: `replication-instance` | `replication-task`
 	SourceType *string `json:"sourceType"`
-	// `AWS::DMS::EventSubscription.SubscriptionName`.
+	// The name of the AWS DMS event notification subscription.
+	//
+	// This name must be less than 255 characters.
 	SubscriptionName *string `json:"subscriptionName"`
-	// `AWS::DMS::EventSubscription.Tags`.
+	// One or more tags to be assigned to the event subscription.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::DMS::ReplicationInstance`.
+//
+// The `AWS::DMS::ReplicationInstance` resource creates an AWS DMS replication instance.
 //
 // TODO: EXAMPLE
 //
@@ -2523,7 +3026,7 @@ type CfnReplicationInstance interface {
 	LogicalId() *string
 	MultiAz() interface{}
 	SetMultiAz(val interface{})
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PreferredMaintenanceWindow() *string
 	SetPreferredMaintenanceWindow(val *string)
 	PubliclyAccessible() interface{}
@@ -2552,10 +3055,16 @@ type CfnReplicationInstance interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -2705,8 +3214,8 @@ func (j *jsiiProxy_CfnReplicationInstance) MultiAz() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnReplicationInstance) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnReplicationInstance) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2827,13 +3336,13 @@ func (j *jsiiProxy_CfnReplicationInstance) VpcSecurityGroupIds() *[]*string {
 
 
 // Create a new `AWS::DMS::ReplicationInstance`.
-func NewCfnReplicationInstance(scope constructs.Construct, id *string, props *CfnReplicationInstanceProps) CfnReplicationInstance {
+func NewCfnReplicationInstance(scope awscdk.Construct, id *string, props *CfnReplicationInstanceProps) CfnReplicationInstance {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnReplicationInstance{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_dms.CfnReplicationInstance",
+		"monocdk.aws_dms.CfnReplicationInstance",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2842,11 +3351,11 @@ func NewCfnReplicationInstance(scope constructs.Construct, id *string, props *Cf
 }
 
 // Create a new `AWS::DMS::ReplicationInstance`.
-func NewCfnReplicationInstance_Override(c CfnReplicationInstance, scope constructs.Construct, id *string, props *CfnReplicationInstanceProps) {
+func NewCfnReplicationInstance_Override(c CfnReplicationInstance, scope awscdk.Construct, id *string, props *CfnReplicationInstanceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_dms.CfnReplicationInstance",
+		"monocdk.aws_dms.CfnReplicationInstance",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2970,13 +3479,14 @@ func (j *jsiiProxy_CfnReplicationInstance) SetVpcSecurityGroupIds(val *[]*string
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnReplicationInstance_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_dms.CfnReplicationInstance",
+		"monocdk.aws_dms.CfnReplicationInstance",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2986,13 +3496,14 @@ func CfnReplicationInstance_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnReplicationInstance_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_dms.CfnReplicationInstance",
+		"monocdk.aws_dms.CfnReplicationInstance",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3001,17 +3512,15 @@ func CfnReplicationInstance_IsCfnResource(construct constructs.IConstruct) *bool
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnReplicationInstance_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_dms.CfnReplicationInstance",
+		"monocdk.aws_dms.CfnReplicationInstance",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3024,7 +3533,7 @@ func CfnReplicationInstance_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_dms.CfnReplicationInstance",
+		"monocdk.aws_dms.CfnReplicationInstance",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -3032,6 +3541,7 @@ func CfnReplicationInstance_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnReplicationInstance) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3044,6 +3554,7 @@ func (c *jsiiProxy_CfnReplicationInstance) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnReplicationInstance) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3059,6 +3570,7 @@ func (c *jsiiProxy_CfnReplicationInstance) AddDependsOn(target awscdk.CfnResourc
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnReplicationInstance) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3104,6 +3616,7 @@ func (c *jsiiProxy_CfnReplicationInstance) AddMetadata(key *string, value interf
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnReplicationInstance) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3113,6 +3626,7 @@ func (c *jsiiProxy_CfnReplicationInstance) AddOverride(path *string, value inter
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnReplicationInstance) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3124,6 +3638,7 @@ func (c *jsiiProxy_CfnReplicationInstance) AddPropertyDeletionOverride(propertyP
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnReplicationInstance) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3141,6 +3656,7 @@ func (c *jsiiProxy_CfnReplicationInstance) AddPropertyOverride(propertyPath *str
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnReplicationInstance) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3153,6 +3669,7 @@ func (c *jsiiProxy_CfnReplicationInstance) ApplyRemovalPolicy(policy awscdk.Remo
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnReplicationInstance) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -3173,6 +3690,7 @@ func (c *jsiiProxy_CfnReplicationInstance) GetAtt(attributeName *string) awscdk.
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnReplicationInstance) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -3195,12 +3713,80 @@ func (c *jsiiProxy_CfnReplicationInstance) Inspect(inspector awscdk.TreeInspecto
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnReplicationInstance) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnReplicationInstance) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnReplicationInstance) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnReplicationInstance) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnReplicationInstance) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -3221,6 +3807,7 @@ func (c *jsiiProxy_CfnReplicationInstance) RenderProperties(props *map[string]in
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnReplicationInstance) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -3234,9 +3821,23 @@ func (c *jsiiProxy_CfnReplicationInstance) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnReplicationInstance) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnReplicationInstance) ToString() *string {
 	var returns *string
 
@@ -3250,6 +3851,27 @@ func (c *jsiiProxy_CfnReplicationInstance) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnReplicationInstance) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnReplicationInstance) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3258,44 +3880,92 @@ func (c *jsiiProxy_CfnReplicationInstance) ValidateProperties(_properties interf
 	)
 }
 
-// Properties for defining a `AWS::DMS::ReplicationInstance`.
+// Properties for defining a `CfnReplicationInstance`.
 //
 // TODO: EXAMPLE
 //
 type CfnReplicationInstanceProps struct {
-	// `AWS::DMS::ReplicationInstance.AllocatedStorage`.
-	AllocatedStorage *float64 `json:"allocatedStorage"`
-	// `AWS::DMS::ReplicationInstance.AllowMajorVersionUpgrade`.
-	AllowMajorVersionUpgrade interface{} `json:"allowMajorVersionUpgrade"`
-	// `AWS::DMS::ReplicationInstance.AutoMinorVersionUpgrade`.
-	AutoMinorVersionUpgrade interface{} `json:"autoMinorVersionUpgrade"`
-	// `AWS::DMS::ReplicationInstance.AvailabilityZone`.
-	AvailabilityZone *string `json:"availabilityZone"`
-	// `AWS::DMS::ReplicationInstance.EngineVersion`.
-	EngineVersion *string `json:"engineVersion"`
-	// `AWS::DMS::ReplicationInstance.KmsKeyId`.
-	KmsKeyId *string `json:"kmsKeyId"`
-	// `AWS::DMS::ReplicationInstance.MultiAZ`.
-	MultiAz interface{} `json:"multiAz"`
-	// `AWS::DMS::ReplicationInstance.PreferredMaintenanceWindow`.
-	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow"`
-	// `AWS::DMS::ReplicationInstance.PubliclyAccessible`.
-	PubliclyAccessible interface{} `json:"publiclyAccessible"`
-	// `AWS::DMS::ReplicationInstance.ReplicationInstanceClass`.
+	// The compute and memory capacity of the replication instance as defined for the specified replication instance class.
+	//
+	// For example to specify the instance class dms.c4.large, set this parameter to `"dms.c4.large"` .
+	//
+	// For more information on the settings and capacities for the available replication instance classes, see [Selecting the right AWS DMS replication instance for your migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth) .
 	ReplicationInstanceClass *string `json:"replicationInstanceClass"`
-	// `AWS::DMS::ReplicationInstance.ReplicationInstanceIdentifier`.
+	// The amount of storage (in gigabytes) to be initially allocated for the replication instance.
+	AllocatedStorage *float64 `json:"allocatedStorage"`
+	// Indicates that major version upgrades are allowed.
+	//
+	// Changing this parameter does not result in an outage, and the change is asynchronously applied as soon as possible.
+	//
+	// This parameter must be set to `true` when specifying a value for the `EngineVersion` parameter that is a different major version than the replication instance's current version.
+	AllowMajorVersionUpgrade interface{} `json:"allowMajorVersionUpgrade"`
+	// A value that indicates whether minor engine upgrades are applied automatically to the replication instance during the maintenance window.
+	//
+	// This parameter defaults to `true` .
+	//
+	// Default: `true`
+	AutoMinorVersionUpgrade interface{} `json:"autoMinorVersionUpgrade"`
+	// The Availability Zone that the replication instance will be created in.
+	//
+	// The default value is a random, system-chosen Availability Zone in the endpoint's AWS Region , for example: `us-east-1d`
+	AvailabilityZone *string `json:"availabilityZone"`
+	// The engine version number of the replication instance.
+	//
+	// If an engine version number is not specified when a replication instance is created, the default is the latest engine version available.
+	EngineVersion *string `json:"engineVersion"`
+	// An AWS KMS key identifier that is used to encrypt the data on the replication instance.
+	//
+	// If you don't specify a value for the `KmsKeyId` parameter, then AWS DMS uses your default encryption key.
+	//
+	// AWS KMS creates the default encryption key for your AWS account . Your AWS account has a different default encryption key for each AWS Region .
+	KmsKeyId *string `json:"kmsKeyId"`
+	// Specifies whether the replication instance is a Multi-AZ deployment.
+	//
+	// You can't set the `AvailabilityZone` parameter if the Multi-AZ parameter is set to `true` .
+	MultiAz interface{} `json:"multiAz"`
+	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+	//
+	// Format: `ddd:hh24:mi-ddd:hh24:mi`
+	//
+	// Default: A 30-minute window selected at random from an 8-hour block of time per AWS Region , occurring on a random day of the week.
+	//
+	// Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun
+	//
+	// Constraints: Minimum 30-minute window.
+	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow"`
+	// Specifies the accessibility options for the replication instance.
+	//
+	// A value of `true` represents an instance with a public IP address. A value of `false` represents an instance with a private IP address. The default value is `true` .
+	PubliclyAccessible interface{} `json:"publiclyAccessible"`
+	// The replication instance identifier. This parameter is stored as a lowercase string.
+	//
+	// Constraints:
+	//
+	// - Must contain 1-63 alphanumeric characters or hyphens.
+	// - First character must be a letter.
+	// - Can't end with a hyphen or contain two consecutive hyphens.
+	//
+	// Example: `myrepinstance`
 	ReplicationInstanceIdentifier *string `json:"replicationInstanceIdentifier"`
-	// `AWS::DMS::ReplicationInstance.ReplicationSubnetGroupIdentifier`.
+	// A subnet group to associate with the replication instance.
 	ReplicationSubnetGroupIdentifier *string `json:"replicationSubnetGroupIdentifier"`
-	// `AWS::DMS::ReplicationInstance.ResourceIdentifier`.
+	// A friendly name for the resource identifier at the end of the `EndpointArn` response parameter that is returned in the created `Endpoint` object.
+	//
+	// The value for this parameter can have up to 31 characters. It can contain only ASCII letters, digits, and hyphen ('-'). Also, it can't end with a hyphen or contain two consecutive hyphens, and can only begin with a letter, such as `Example-App-ARN1` . For example, this value might result in the `EndpointArn` value `arn:aws:dms:eu-west-1:012345678901:rep:Example-App-ARN1` . If you don't specify a `ResourceIdentifier` value, AWS DMS generates a default identifier value for the end of `EndpointArn` .
 	ResourceIdentifier *string `json:"resourceIdentifier"`
-	// `AWS::DMS::ReplicationInstance.Tags`.
+	// One or more tags to be assigned to the replication instance.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
-	// `AWS::DMS::ReplicationInstance.VpcSecurityGroupIds`.
+	// Specifies the VPC security group to be used with the replication instance.
+	//
+	// The VPC security group must work with the VPC containing the replication instance.
 	VpcSecurityGroupIds *[]*string `json:"vpcSecurityGroupIds"`
 }
 
 // A CloudFormation `AWS::DMS::ReplicationSubnetGroup`.
+//
+// The `AWS::DMS::ReplicationSubnetGroup` resource creates an AWS DMS replication subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region.
+//
+// > Resource creation will fail if the `dms-vpc-role` IAM role doesn't already exist. For more information, see [Creating the IAM Roles to Use With the AWS CLI and AWS DMS API](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.APIRole.html) in the *AWS Database Migration Service User Guide.*
 //
 // TODO: EXAMPLE
 //
@@ -3307,7 +3977,7 @@ type CfnReplicationSubnetGroup interface {
 	CfnResourceType() *string
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	ReplicationSubnetGroupDescription() *string
 	SetReplicationSubnetGroupDescription(val *string)
@@ -3328,10 +3998,16 @@ type CfnReplicationSubnetGroup interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -3391,8 +4067,8 @@ func (j *jsiiProxy_CfnReplicationSubnetGroup) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnReplicationSubnetGroup) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnReplicationSubnetGroup) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -3473,13 +4149,13 @@ func (j *jsiiProxy_CfnReplicationSubnetGroup) UpdatedProperites() *map[string]in
 
 
 // Create a new `AWS::DMS::ReplicationSubnetGroup`.
-func NewCfnReplicationSubnetGroup(scope constructs.Construct, id *string, props *CfnReplicationSubnetGroupProps) CfnReplicationSubnetGroup {
+func NewCfnReplicationSubnetGroup(scope awscdk.Construct, id *string, props *CfnReplicationSubnetGroupProps) CfnReplicationSubnetGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnReplicationSubnetGroup{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_dms.CfnReplicationSubnetGroup",
+		"monocdk.aws_dms.CfnReplicationSubnetGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3488,11 +4164,11 @@ func NewCfnReplicationSubnetGroup(scope constructs.Construct, id *string, props 
 }
 
 // Create a new `AWS::DMS::ReplicationSubnetGroup`.
-func NewCfnReplicationSubnetGroup_Override(c CfnReplicationSubnetGroup, scope constructs.Construct, id *string, props *CfnReplicationSubnetGroupProps) {
+func NewCfnReplicationSubnetGroup_Override(c CfnReplicationSubnetGroup, scope awscdk.Construct, id *string, props *CfnReplicationSubnetGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_dms.CfnReplicationSubnetGroup",
+		"monocdk.aws_dms.CfnReplicationSubnetGroup",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -3528,13 +4204,14 @@ func (j *jsiiProxy_CfnReplicationSubnetGroup) SetSubnetIds(val *[]*string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnReplicationSubnetGroup_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_dms.CfnReplicationSubnetGroup",
+		"monocdk.aws_dms.CfnReplicationSubnetGroup",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -3544,13 +4221,14 @@ func CfnReplicationSubnetGroup_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnReplicationSubnetGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_dms.CfnReplicationSubnetGroup",
+		"monocdk.aws_dms.CfnReplicationSubnetGroup",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3559,17 +4237,15 @@ func CfnReplicationSubnetGroup_IsCfnResource(construct constructs.IConstruct) *b
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnReplicationSubnetGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_dms.CfnReplicationSubnetGroup",
+		"monocdk.aws_dms.CfnReplicationSubnetGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3582,7 +4258,7 @@ func CfnReplicationSubnetGroup_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_dms.CfnReplicationSubnetGroup",
+		"monocdk.aws_dms.CfnReplicationSubnetGroup",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -3590,6 +4266,7 @@ func CfnReplicationSubnetGroup_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnReplicationSubnetGroup) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3602,6 +4279,7 @@ func (c *jsiiProxy_CfnReplicationSubnetGroup) AddDeletionOverride(path *string) 
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnReplicationSubnetGroup) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3617,6 +4295,7 @@ func (c *jsiiProxy_CfnReplicationSubnetGroup) AddDependsOn(target awscdk.CfnReso
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnReplicationSubnetGroup) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3662,6 +4341,7 @@ func (c *jsiiProxy_CfnReplicationSubnetGroup) AddMetadata(key *string, value int
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnReplicationSubnetGroup) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3671,6 +4351,7 @@ func (c *jsiiProxy_CfnReplicationSubnetGroup) AddOverride(path *string, value in
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnReplicationSubnetGroup) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3682,6 +4363,7 @@ func (c *jsiiProxy_CfnReplicationSubnetGroup) AddPropertyDeletionOverride(proper
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnReplicationSubnetGroup) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3699,6 +4381,7 @@ func (c *jsiiProxy_CfnReplicationSubnetGroup) AddPropertyOverride(propertyPath *
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnReplicationSubnetGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3711,6 +4394,7 @@ func (c *jsiiProxy_CfnReplicationSubnetGroup) ApplyRemovalPolicy(policy awscdk.R
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnReplicationSubnetGroup) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -3731,6 +4415,7 @@ func (c *jsiiProxy_CfnReplicationSubnetGroup) GetAtt(attributeName *string) awsc
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnReplicationSubnetGroup) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -3753,12 +4438,80 @@ func (c *jsiiProxy_CfnReplicationSubnetGroup) Inspect(inspector awscdk.TreeInspe
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnReplicationSubnetGroup) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnReplicationSubnetGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnReplicationSubnetGroup) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnReplicationSubnetGroup) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnReplicationSubnetGroup) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -3779,6 +4532,7 @@ func (c *jsiiProxy_CfnReplicationSubnetGroup) RenderProperties(props *map[string
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnReplicationSubnetGroup) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -3792,9 +4546,23 @@ func (c *jsiiProxy_CfnReplicationSubnetGroup) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnReplicationSubnetGroup) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnReplicationSubnetGroup) ToString() *string {
 	var returns *string
 
@@ -3808,6 +4576,27 @@ func (c *jsiiProxy_CfnReplicationSubnetGroup) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnReplicationSubnetGroup) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnReplicationSubnetGroup) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3816,22 +4605,26 @@ func (c *jsiiProxy_CfnReplicationSubnetGroup) ValidateProperties(_properties int
 	)
 }
 
-// Properties for defining a `AWS::DMS::ReplicationSubnetGroup`.
+// Properties for defining a `CfnReplicationSubnetGroup`.
 //
 // TODO: EXAMPLE
 //
 type CfnReplicationSubnetGroupProps struct {
-	// `AWS::DMS::ReplicationSubnetGroup.ReplicationSubnetGroupDescription`.
+	// The description for the subnet group.
 	ReplicationSubnetGroupDescription *string `json:"replicationSubnetGroupDescription"`
-	// `AWS::DMS::ReplicationSubnetGroup.ReplicationSubnetGroupIdentifier`.
-	ReplicationSubnetGroupIdentifier *string `json:"replicationSubnetGroupIdentifier"`
-	// `AWS::DMS::ReplicationSubnetGroup.SubnetIds`.
+	// One or more subnet IDs to be assigned to the subnet group.
 	SubnetIds *[]*string `json:"subnetIds"`
-	// `AWS::DMS::ReplicationSubnetGroup.Tags`.
+	// The identifier for the replication subnet group.
+	//
+	// If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the identifier.
+	ReplicationSubnetGroupIdentifier *string `json:"replicationSubnetGroupIdentifier"`
+	// One or more tags to be assigned to the subnet group.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::DMS::ReplicationTask`.
+//
+// The `AWS::DMS::ReplicationTask` resource creates an AWS DMS replication task.
 //
 // TODO: EXAMPLE
 //
@@ -3851,7 +4644,7 @@ type CfnReplicationTask interface {
 	LogicalId() *string
 	MigrationType() *string
 	SetMigrationType(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	ReplicationInstanceArn() *string
 	SetReplicationInstanceArn(val *string)
@@ -3882,10 +4675,16 @@ type CfnReplicationTask interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -3985,8 +4784,8 @@ func (j *jsiiProxy_CfnReplicationTask) MigrationType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnReplicationTask) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnReplicationTask) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -4117,13 +4916,13 @@ func (j *jsiiProxy_CfnReplicationTask) UpdatedProperites() *map[string]interface
 
 
 // Create a new `AWS::DMS::ReplicationTask`.
-func NewCfnReplicationTask(scope constructs.Construct, id *string, props *CfnReplicationTaskProps) CfnReplicationTask {
+func NewCfnReplicationTask(scope awscdk.Construct, id *string, props *CfnReplicationTaskProps) CfnReplicationTask {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnReplicationTask{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_dms.CfnReplicationTask",
+		"monocdk.aws_dms.CfnReplicationTask",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4132,11 +4931,11 @@ func NewCfnReplicationTask(scope constructs.Construct, id *string, props *CfnRep
 }
 
 // Create a new `AWS::DMS::ReplicationTask`.
-func NewCfnReplicationTask_Override(c CfnReplicationTask, scope constructs.Construct, id *string, props *CfnReplicationTaskProps) {
+func NewCfnReplicationTask_Override(c CfnReplicationTask, scope awscdk.Construct, id *string, props *CfnReplicationTaskProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_dms.CfnReplicationTask",
+		"monocdk.aws_dms.CfnReplicationTask",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -4244,13 +5043,14 @@ func (j *jsiiProxy_CfnReplicationTask) SetTaskData(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnReplicationTask_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_dms.CfnReplicationTask",
+		"monocdk.aws_dms.CfnReplicationTask",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -4260,13 +5060,14 @@ func CfnReplicationTask_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnReplicationTask_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_dms.CfnReplicationTask",
+		"monocdk.aws_dms.CfnReplicationTask",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -4275,17 +5076,15 @@ func CfnReplicationTask_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnReplicationTask_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_dms.CfnReplicationTask",
+		"monocdk.aws_dms.CfnReplicationTask",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4298,7 +5097,7 @@ func CfnReplicationTask_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_dms.CfnReplicationTask",
+		"monocdk.aws_dms.CfnReplicationTask",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -4306,6 +5105,7 @@ func CfnReplicationTask_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnReplicationTask) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4318,6 +5118,7 @@ func (c *jsiiProxy_CfnReplicationTask) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnReplicationTask) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4333,6 +5134,7 @@ func (c *jsiiProxy_CfnReplicationTask) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnReplicationTask) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4378,6 +5180,7 @@ func (c *jsiiProxy_CfnReplicationTask) AddMetadata(key *string, value interface{
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnReplicationTask) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4387,6 +5190,7 @@ func (c *jsiiProxy_CfnReplicationTask) AddOverride(path *string, value interface
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnReplicationTask) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4398,6 +5202,7 @@ func (c *jsiiProxy_CfnReplicationTask) AddPropertyDeletionOverride(propertyPath 
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnReplicationTask) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4415,6 +5220,7 @@ func (c *jsiiProxy_CfnReplicationTask) AddPropertyOverride(propertyPath *string,
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnReplicationTask) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4427,6 +5233,7 @@ func (c *jsiiProxy_CfnReplicationTask) ApplyRemovalPolicy(policy awscdk.RemovalP
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnReplicationTask) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -4447,6 +5254,7 @@ func (c *jsiiProxy_CfnReplicationTask) GetAtt(attributeName *string) awscdk.Refe
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnReplicationTask) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -4469,12 +5277,80 @@ func (c *jsiiProxy_CfnReplicationTask) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnReplicationTask) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnReplicationTask) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnReplicationTask) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnReplicationTask) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnReplicationTask) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -4495,6 +5371,7 @@ func (c *jsiiProxy_CfnReplicationTask) RenderProperties(props *map[string]interf
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnReplicationTask) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -4508,9 +5385,23 @@ func (c *jsiiProxy_CfnReplicationTask) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnReplicationTask) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnReplicationTask) ToString() *string {
 	var returns *string
 
@@ -4524,6 +5415,27 @@ func (c *jsiiProxy_CfnReplicationTask) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnReplicationTask) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnReplicationTask) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4532,35 +5444,67 @@ func (c *jsiiProxy_CfnReplicationTask) ValidateProperties(_properties interface{
 	)
 }
 
-// Properties for defining a `AWS::DMS::ReplicationTask`.
+// Properties for defining a `CfnReplicationTask`.
 //
 // TODO: EXAMPLE
 //
 type CfnReplicationTaskProps struct {
-	// `AWS::DMS::ReplicationTask.CdcStartPosition`.
-	CdcStartPosition *string `json:"cdcStartPosition"`
-	// `AWS::DMS::ReplicationTask.CdcStartTime`.
-	CdcStartTime *float64 `json:"cdcStartTime"`
-	// `AWS::DMS::ReplicationTask.CdcStopPosition`.
-	CdcStopPosition *string `json:"cdcStopPosition"`
-	// `AWS::DMS::ReplicationTask.MigrationType`.
+	// The migration type.
+	//
+	// Valid values: `full-load` | `cdc` | `full-load-and-cdc`
 	MigrationType *string `json:"migrationType"`
-	// `AWS::DMS::ReplicationTask.ReplicationInstanceArn`.
+	// The Amazon Resource Name (ARN) of a replication instance.
 	ReplicationInstanceArn *string `json:"replicationInstanceArn"`
-	// `AWS::DMS::ReplicationTask.ReplicationTaskIdentifier`.
-	ReplicationTaskIdentifier *string `json:"replicationTaskIdentifier"`
-	// `AWS::DMS::ReplicationTask.ReplicationTaskSettings`.
-	ReplicationTaskSettings *string `json:"replicationTaskSettings"`
-	// `AWS::DMS::ReplicationTask.ResourceIdentifier`.
-	ResourceIdentifier *string `json:"resourceIdentifier"`
-	// `AWS::DMS::ReplicationTask.SourceEndpointArn`.
+	// An Amazon Resource Name (ARN) that uniquely identifies the source endpoint.
 	SourceEndpointArn *string `json:"sourceEndpointArn"`
-	// `AWS::DMS::ReplicationTask.TableMappings`.
+	// The table mappings for the task, in JSON format.
+	//
+	// For more information, see [Using Table Mapping to Specify Task Settings](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html) in the *AWS Database Migration Service User Guide.*
 	TableMappings *string `json:"tableMappings"`
-	// `AWS::DMS::ReplicationTask.Tags`.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
-	// `AWS::DMS::ReplicationTask.TargetEndpointArn`.
+	// An Amazon Resource Name (ARN) that uniquely identifies the target endpoint.
 	TargetEndpointArn *string `json:"targetEndpointArn"`
+	// Indicates when you want a change data capture (CDC) operation to start.
+	//
+	// Use either CdcStartPosition or CdcStartTime to specify when you want a CDC operation to start. Specifying both values results in an error.
+	//
+	// The value can be in date, checkpoint, or LSN/SCN format.
+	//
+	// Date Example: --cdc-start-position “2018-03-08T12:12:12”
+	//
+	// Checkpoint Example: --cdc-start-position "checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93"
+	//
+	// LSN Example: --cdc-start-position “mysql-bin-changelog.000024:373”
+	//
+	// > When you use this task setting with a source PostgreSQL database, a logical replication slot should already be created and associated with the source endpoint. You can verify this by setting the `slotName` extra connection attribute to the name of this logical replication slot. For more information, see [Extra Connection Attributes When Using PostgreSQL as a Source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib) .
+	CdcStartPosition *string `json:"cdcStartPosition"`
+	// Indicates the start time for a change data capture (CDC) operation.
+	CdcStartTime *float64 `json:"cdcStartTime"`
+	// Indicates when you want a change data capture (CDC) operation to stop.
+	//
+	// The value can be either server time or commit time.
+	//
+	// Server time example: --cdc-stop-position “server_time:2018-02-09T12:12:12”
+	//
+	// Commit time example: --cdc-stop-position “commit_time: 2018-02-09T12:12:12 “
+	CdcStopPosition *string `json:"cdcStopPosition"`
+	// An identifier for the replication task.
+	//
+	// Constraints:
+	//
+	// - Must contain 1-255 alphanumeric characters or hyphens.
+	// - First character must be a letter.
+	// - Cannot end with a hyphen or contain two consecutive hyphens.
+	ReplicationTaskIdentifier *string `json:"replicationTaskIdentifier"`
+	// Overall settings for the task, in JSON format.
+	//
+	// For more information, see [Specifying Task Settings for AWS Database Migration Service Tasks](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html) in the *AWS Database Migration Service User Guide.*
+	ReplicationTaskSettings *string `json:"replicationTaskSettings"`
+	// A friendly name for the resource identifier at the end of the `EndpointArn` response parameter that is returned in the created `Endpoint` object.
+	//
+	// The value for this parameter can have up to 31 characters. It can contain only ASCII letters, digits, and hyphen ('-'). Also, it can't end with a hyphen or contain two consecutive hyphens, and can only begin with a letter, such as `Example-App-ARN1` . For example, this value might result in the `EndpointArn` value `arn:aws:dms:eu-west-1:012345678901:rep:Example-App-ARN1` . If you don't specify a `ResourceIdentifier` value, AWS DMS generates a default identifier value for the end of `EndpointArn` .
+	ResourceIdentifier *string `json:"resourceIdentifier"`
+	// One or more tags to be assigned to the replication task.
+	Tags *[]*awscdk.CfnTag `json:"tags"`
 	// `AWS::DMS::ReplicationTask.TaskData`.
 	TaskData *string `json:"taskData"`
 }

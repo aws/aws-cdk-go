@@ -1,15 +1,17 @@
 package awsapplicationinsights
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsapplicationinsights/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsapplicationinsights/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::ApplicationInsights::Application`.
+//
+// The `AWS::ApplicationInsights::Application` resource adds an application that is created from a resource group.
 //
 // TODO: EXAMPLE
 //
@@ -32,7 +34,7 @@ type CfnApplication interface {
 	LogicalId() *string
 	LogPatternSets() interface{}
 	SetLogPatternSets(val interface{})
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OpsCenterEnabled() interface{}
 	SetOpsCenterEnabled(val interface{})
 	OpsItemSnsTopicArn() *string
@@ -53,10 +55,16 @@ type CfnApplication interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -176,8 +184,8 @@ func (j *jsiiProxy_CfnApplication) LogPatternSets() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApplication) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnApplication) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -258,13 +266,13 @@ func (j *jsiiProxy_CfnApplication) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::ApplicationInsights::Application`.
-func NewCfnApplication(scope constructs.Construct, id *string, props *CfnApplicationProps) CfnApplication {
+func NewCfnApplication(scope awscdk.Construct, id *string, props *CfnApplicationProps) CfnApplication {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnApplication{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_applicationinsights.CfnApplication",
+		"monocdk.aws_applicationinsights.CfnApplication",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -273,11 +281,11 @@ func NewCfnApplication(scope constructs.Construct, id *string, props *CfnApplica
 }
 
 // Create a new `AWS::ApplicationInsights::Application`.
-func NewCfnApplication_Override(c CfnApplication, scope constructs.Construct, id *string, props *CfnApplicationProps) {
+func NewCfnApplication_Override(c CfnApplication, scope awscdk.Construct, id *string, props *CfnApplicationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_applicationinsights.CfnApplication",
+		"monocdk.aws_applicationinsights.CfnApplication",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -353,13 +361,14 @@ func (j *jsiiProxy_CfnApplication) SetResourceGroupName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnApplication_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_applicationinsights.CfnApplication",
+		"monocdk.aws_applicationinsights.CfnApplication",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -369,13 +378,14 @@ func CfnApplication_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnApplication_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_applicationinsights.CfnApplication",
+		"monocdk.aws_applicationinsights.CfnApplication",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -384,17 +394,15 @@ func CfnApplication_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnApplication_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_applicationinsights.CfnApplication",
+		"monocdk.aws_applicationinsights.CfnApplication",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -407,7 +415,7 @@ func CfnApplication_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_applicationinsights.CfnApplication",
+		"monocdk.aws_applicationinsights.CfnApplication",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -415,6 +423,7 @@ func CfnApplication_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnApplication) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -427,6 +436,7 @@ func (c *jsiiProxy_CfnApplication) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnApplication) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -442,6 +452,7 @@ func (c *jsiiProxy_CfnApplication) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnApplication) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -487,6 +498,7 @@ func (c *jsiiProxy_CfnApplication) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnApplication) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -496,6 +508,7 @@ func (c *jsiiProxy_CfnApplication) AddOverride(path *string, value interface{}) 
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnApplication) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -507,6 +520,7 @@ func (c *jsiiProxy_CfnApplication) AddPropertyDeletionOverride(propertyPath *str
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnApplication) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -524,6 +538,7 @@ func (c *jsiiProxy_CfnApplication) AddPropertyOverride(propertyPath *string, val
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnApplication) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -536,6 +551,7 @@ func (c *jsiiProxy_CfnApplication) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnApplication) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -556,6 +572,7 @@ func (c *jsiiProxy_CfnApplication) GetAtt(attributeName *string) awscdk.Referenc
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnApplication) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -578,12 +595,80 @@ func (c *jsiiProxy_CfnApplication) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnApplication) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnApplication) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnApplication) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnApplication) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnApplication) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -604,6 +689,7 @@ func (c *jsiiProxy_CfnApplication) RenderProperties(props *map[string]interface{
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnApplication) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -617,9 +703,23 @@ func (c *jsiiProxy_CfnApplication) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnApplication) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnApplication) ToString() *string {
 	var returns *string
 
@@ -633,6 +733,27 @@ func (c *jsiiProxy_CfnApplication) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnApplication) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnApplication) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -641,173 +762,251 @@ func (c *jsiiProxy_CfnApplication) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// The `AWS::ApplicationInsights::Application AlarmMetric` property type defines a metric to monitor for the component.
+//
 // TODO: EXAMPLE
 //
 type CfnApplication_AlarmMetricProperty struct {
-	// `CfnApplication.AlarmMetricProperty.AlarmMetricName`.
+	// The name of the metric to be monitored for the component.
+	//
+	// For metrics supported by Application Insights, see [Logs and metrics supported by Amazon CloudWatch Application Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/appinsights-logs-and-metrics.html) .
 	AlarmMetricName *string `json:"alarmMetricName"`
 }
 
+// The `AWS::ApplicationInsights::Application Alarm` property type defines a CloudWatch alarm to be monitored for the component.
+//
 // TODO: EXAMPLE
 //
 type CfnApplication_AlarmProperty struct {
-	// `CfnApplication.AlarmProperty.AlarmName`.
+	// The name of the CloudWatch alarm to be monitored for the component.
 	AlarmName *string `json:"alarmName"`
-	// `CfnApplication.AlarmProperty.Severity`.
+	// Indicates the degree of outage when the alarm goes off.
 	Severity *string `json:"severity"`
 }
 
+// The `AWS::ApplicationInsights::Application ComponentConfiguration` property type defines the configuration settings of the component.
+//
 // TODO: EXAMPLE
 //
 type CfnApplication_ComponentConfigurationProperty struct {
-	// `CfnApplication.ComponentConfigurationProperty.ConfigurationDetails`.
+	// The configuration settings.
 	ConfigurationDetails interface{} `json:"configurationDetails"`
-	// `CfnApplication.ComponentConfigurationProperty.SubComponentTypeConfigurations`.
+	// Sub-component configurations of the component.
 	SubComponentTypeConfigurations interface{} `json:"subComponentTypeConfigurations"`
 }
 
+// The `AWS::ApplicationInsights::Application ComponentMonitoringSetting` property type defines the monitoring setting of the component.
+//
 // TODO: EXAMPLE
 //
 type CfnApplication_ComponentMonitoringSettingProperty struct {
-	// `CfnApplication.ComponentMonitoringSettingProperty.ComponentARN`.
-	ComponentArn *string `json:"componentArn"`
-	// `CfnApplication.ComponentMonitoringSettingProperty.ComponentConfigurationMode`.
+	// Component monitoring can be configured in one of the following three modes:.
+	//
+	// - `DEFAULT` : The component will be configured with the recommended default monitoring settings of the selected `Tier` .
+	// - `CUSTOM` : The component will be configured with the customized monitoring settings that are specified in `CustomComponentConfiguration` . If used, `CustomComponentConfiguration` must be provided.
+	// - `DEFAULT_WITH_OVERWRITE` : The component will be configured with the recommended default monitoring settings of the selected `Tier` , and merged with customized overwrite settings that are specified in `DefaultOverwriteComponentConfiguration` . If used, `DefaultOverwriteComponentConfiguration` must be provided.
 	ComponentConfigurationMode *string `json:"componentConfigurationMode"`
-	// `CfnApplication.ComponentMonitoringSettingProperty.ComponentName`.
-	ComponentName *string `json:"componentName"`
-	// `CfnApplication.ComponentMonitoringSettingProperty.CustomComponentConfiguration`.
-	CustomComponentConfiguration interface{} `json:"customComponentConfiguration"`
-	// `CfnApplication.ComponentMonitoringSettingProperty.DefaultOverwriteComponentConfiguration`.
-	DefaultOverwriteComponentConfiguration interface{} `json:"defaultOverwriteComponentConfiguration"`
-	// `CfnApplication.ComponentMonitoringSettingProperty.Tier`.
+	// The tier of the application component.
+	//
+	// Supported tiers include `DOT_NET_WORKER` , `DOT_NET_WEB` , `DOT_NET_CORE` , `SQL_SERVER` , and `DEFAULT` .
 	Tier *string `json:"tier"`
+	// The ARN of the component.
+	ComponentArn *string `json:"componentArn"`
+	// The name of the component.
+	ComponentName *string `json:"componentName"`
+	// Customized monitoring settings.
+	//
+	// Required if CUSTOM mode is configured in `ComponentConfigurationMode` .
+	CustomComponentConfiguration interface{} `json:"customComponentConfiguration"`
+	// Customized overwrite monitoring settings.
+	//
+	// Required if CUSTOM mode is configured in `ComponentConfigurationMode` .
+	DefaultOverwriteComponentConfiguration interface{} `json:"defaultOverwriteComponentConfiguration"`
 }
 
+// The `AWS::ApplicationInsights::Application ConfigurationDetails` property type specifies the configuration settings.
+//
 // TODO: EXAMPLE
 //
 type CfnApplication_ConfigurationDetailsProperty struct {
-	// `CfnApplication.ConfigurationDetailsProperty.AlarmMetrics`.
+	// A list of metrics to monitor for the component.
+	//
+	// All component types can use `AlarmMetrics` .
 	AlarmMetrics interface{} `json:"alarmMetrics"`
-	// `CfnApplication.ConfigurationDetailsProperty.Alarms`.
+	// A list of alarms to monitor for the component.
+	//
+	// All component types can use `Alarm` .
 	Alarms interface{} `json:"alarms"`
-	// `CfnApplication.ConfigurationDetailsProperty.JMXPrometheusExporter`.
+	// A list of Java metrics to monitor for the component.
 	JmxPrometheusExporter interface{} `json:"jmxPrometheusExporter"`
-	// `CfnApplication.ConfigurationDetailsProperty.Logs`.
+	// A list of logs to monitor for the component.
+	//
+	// Only Amazon EC2 instances can use `Logs` .
 	Logs interface{} `json:"logs"`
-	// `CfnApplication.ConfigurationDetailsProperty.WindowsEvents`.
+	// A list of Windows Events to monitor for the component.
+	//
+	// Only Amazon EC2 instances running on Windows can use `WindowsEvents` .
 	WindowsEvents interface{} `json:"windowsEvents"`
 }
 
+// The `AWS::ApplicationInsights::Application CustomComponent` property type describes a custom component by grouping similar standalone instances to monitor.
+//
 // TODO: EXAMPLE
 //
 type CfnApplication_CustomComponentProperty struct {
-	// `CfnApplication.CustomComponentProperty.ComponentName`.
+	// The name of the component.
 	ComponentName *string `json:"componentName"`
-	// `CfnApplication.CustomComponentProperty.ResourceList`.
+	// The list of resource ARNs that belong to the component.
 	ResourceList *[]*string `json:"resourceList"`
 }
 
+// The `AWS::ApplicationInsights::Application JMXPrometheusExporter` property type defines the JMXPrometheus Exporter configuration.
+//
+// For more information, see the [component configuration](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/component-config-sections.html#component-configuration-prometheus) in the CloudWatch Application Insights documentation.
+//
 // TODO: EXAMPLE
 //
 type CfnApplication_JMXPrometheusExporterProperty struct {
-	// `CfnApplication.JMXPrometheusExporterProperty.HostPort`.
+	// The host and port to connect to through remote JMX.
+	//
+	// Only one of `jmxURL` and `hostPort` can be specified.
 	HostPort *string `json:"hostPort"`
-	// `CfnApplication.JMXPrometheusExporterProperty.JMXURL`.
+	// The complete JMX URL to connect to.
 	Jmxurl *string `json:"jmxurl"`
-	// `CfnApplication.JMXPrometheusExporterProperty.PrometheusPort`.
+	// The target port to send Prometheus metrics to.
+	//
+	// If not specified, the default port `9404` is used.
 	PrometheusPort *string `json:"prometheusPort"`
 }
 
+// The `AWS::ApplicationInsights::Application LogPattern` property type specifies an object that defines the log patterns that belong to a `LogPatternSet` .
+//
 // TODO: EXAMPLE
 //
 type CfnApplication_LogPatternProperty struct {
-	// `CfnApplication.LogPatternProperty.Pattern`.
+	// A regular expression that defines the log pattern.
+	//
+	// A log pattern can contain up to 50 characters, and it cannot be empty.
 	Pattern *string `json:"pattern"`
-	// `CfnApplication.LogPatternProperty.PatternName`.
+	// The name of the log pattern.
+	//
+	// A log pattern name can contain up to 50 characters, and it cannot be empty. The characters can be Unicode letters, digits, or one of the following symbols: period, dash, underscore.
 	PatternName *string `json:"patternName"`
-	// `CfnApplication.LogPatternProperty.Rank`.
+	// The rank of the log pattern.
 	Rank *float64 `json:"rank"`
 }
 
+// The `AWS::ApplicationInsights::Application LogPatternSet` property type specifies the log pattern set.
+//
 // TODO: EXAMPLE
 //
 type CfnApplication_LogPatternSetProperty struct {
-	// `CfnApplication.LogPatternSetProperty.LogPatterns`.
+	// A list of objects that define the log patterns that belong to `LogPatternSet` .
 	LogPatterns interface{} `json:"logPatterns"`
-	// `CfnApplication.LogPatternSetProperty.PatternSetName`.
+	// The name of the log pattern.
+	//
+	// A log pattern name can contain up to 30 characters, and it cannot be empty. The characters can be Unicode letters, digits, or one of the following symbols: period, dash, underscore.
 	PatternSetName *string `json:"patternSetName"`
 }
 
+// The `AWS::ApplicationInsights::Application Log` property type specifies a log to monitor for the component.
+//
 // TODO: EXAMPLE
 //
 type CfnApplication_LogProperty struct {
-	// `CfnApplication.LogProperty.Encoding`.
-	Encoding *string `json:"encoding"`
-	// `CfnApplication.LogProperty.LogGroupName`.
-	LogGroupName *string `json:"logGroupName"`
-	// `CfnApplication.LogProperty.LogPath`.
-	LogPath *string `json:"logPath"`
-	// `CfnApplication.LogProperty.LogType`.
+	// The log type decides the log patterns against which Application Insights analyzes the log.
+	//
+	// The log type is selected from the following: `SQL_SERVER` , `IIS` , `APPLICATION` , and `DEFAULT` .
 	LogType *string `json:"logType"`
-	// `CfnApplication.LogProperty.PatternSet`.
+	// The type of encoding of the logs to be monitored.
+	//
+	// The specified encoding should be included in the list of CloudWatch agent supported encodings. If not provided, CloudWatch Application Insights uses the default encoding type for the log type:
+	//
+	// - `APPLICATION/DEFAULT` : utf-8 encoding
+	// - `SQL_SERVER` : utf-16 encoding
+	// - `IIS` : ascii encoding
+	Encoding *string `json:"encoding"`
+	// The CloudWatch log group name to be associated with the monitored log.
+	LogGroupName *string `json:"logGroupName"`
+	// The path of the logs to be monitored.
+	//
+	// The log path must be an absolute Windows or Linux system file path. For more information, see [CloudWatch Agent Configuration File: Logs Section](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Agent-Configuration-File-Details.html#CloudWatch-Agent-Configuration-File-Logssection) .
+	LogPath *string `json:"logPath"`
+	// The log pattern set.
 	PatternSet *string `json:"patternSet"`
 }
 
+// The `AWS::ApplicationInsights::Application SubComponentConfigurationDetails` property type specifies the configuration settings of the sub-components.
+//
 // TODO: EXAMPLE
 //
 type CfnApplication_SubComponentConfigurationDetailsProperty struct {
-	// `CfnApplication.SubComponentConfigurationDetailsProperty.AlarmMetrics`.
+	// A list of metrics to monitor for the component.
+	//
+	// All component types can use `AlarmMetrics` .
 	AlarmMetrics interface{} `json:"alarmMetrics"`
-	// `CfnApplication.SubComponentConfigurationDetailsProperty.Logs`.
+	// A list of logs to monitor for the component.
+	//
+	// Only Amazon EC2 instances can use `Logs` .
 	Logs interface{} `json:"logs"`
-	// `CfnApplication.SubComponentConfigurationDetailsProperty.WindowsEvents`.
+	// A list of Windows Events to monitor for the component.
+	//
+	// Only Amazon EC2 instances running on Windows can use `WindowsEvents` .
 	WindowsEvents interface{} `json:"windowsEvents"`
 }
 
+// The `AWS::ApplicationInsights::Application SubComponentTypeConfiguration` property type specifies the sub-component configurations for a component.
+//
 // TODO: EXAMPLE
 //
 type CfnApplication_SubComponentTypeConfigurationProperty struct {
-	// `CfnApplication.SubComponentTypeConfigurationProperty.SubComponentConfigurationDetails`.
+	// The configuration settings of the sub-components.
 	SubComponentConfigurationDetails interface{} `json:"subComponentConfigurationDetails"`
-	// `CfnApplication.SubComponentTypeConfigurationProperty.SubComponentType`.
+	// The sub-component type.
 	SubComponentType *string `json:"subComponentType"`
 }
 
+// The `AWS::ApplicationInsights::Application WindowsEvent` property type specifies a Windows Event to monitor for the component.
+//
 // TODO: EXAMPLE
 //
 type CfnApplication_WindowsEventProperty struct {
-	// `CfnApplication.WindowsEventProperty.EventLevels`.
+	// The levels of event to log.
+	//
+	// You must specify each level to log. Possible values include `INFORMATION` , `WARNING` , `ERROR` , `CRITICAL` , and `VERBOSE` . This field is required for each type of Windows Event to log.
 	EventLevels *[]*string `json:"eventLevels"`
-	// `CfnApplication.WindowsEventProperty.EventName`.
+	// The type of Windows Events to log, equivalent to the Windows Event log channel name.
+	//
+	// For example, System, Security, CustomEventName, and so on. This field is required for each type of Windows event to log.
 	EventName *string `json:"eventName"`
-	// `CfnApplication.WindowsEventProperty.LogGroupName`.
+	// The CloudWatch log group name to be associated with the monitored log.
 	LogGroupName *string `json:"logGroupName"`
-	// `CfnApplication.WindowsEventProperty.PatternSet`.
+	// The log pattern set.
 	PatternSet *string `json:"patternSet"`
 }
 
-// Properties for defining a `AWS::ApplicationInsights::Application`.
+// Properties for defining a `CfnApplication`.
 //
 // TODO: EXAMPLE
 //
 type CfnApplicationProps struct {
-	// `AWS::ApplicationInsights::Application.AutoConfigurationEnabled`.
-	AutoConfigurationEnabled interface{} `json:"autoConfigurationEnabled"`
-	// `AWS::ApplicationInsights::Application.ComponentMonitoringSettings`.
-	ComponentMonitoringSettings interface{} `json:"componentMonitoringSettings"`
-	// `AWS::ApplicationInsights::Application.CustomComponents`.
-	CustomComponents interface{} `json:"customComponents"`
-	// `AWS::ApplicationInsights::Application.CWEMonitorEnabled`.
-	CweMonitorEnabled interface{} `json:"cweMonitorEnabled"`
-	// `AWS::ApplicationInsights::Application.LogPatternSets`.
-	LogPatternSets interface{} `json:"logPatternSets"`
-	// `AWS::ApplicationInsights::Application.OpsCenterEnabled`.
-	OpsCenterEnabled interface{} `json:"opsCenterEnabled"`
-	// `AWS::ApplicationInsights::Application.OpsItemSNSTopicArn`.
-	OpsItemSnsTopicArn *string `json:"opsItemSnsTopicArn"`
-	// `AWS::ApplicationInsights::Application.ResourceGroupName`.
+	// The name of the resource group used for the application.
 	ResourceGroupName *string `json:"resourceGroupName"`
-	// `AWS::ApplicationInsights::Application.Tags`.
+	// If set to `true` , the application components will be configured with the monitoring configuration recommended by Application Insights.
+	AutoConfigurationEnabled interface{} `json:"autoConfigurationEnabled"`
+	// The monitoring settings of the components.
+	ComponentMonitoringSettings interface{} `json:"componentMonitoringSettings"`
+	// Describes a custom component by grouping similar standalone instances to monitor.
+	CustomComponents interface{} `json:"customComponents"`
+	// Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as `instance terminated` , `failed deployment` , and others.
+	CweMonitorEnabled interface{} `json:"cweMonitorEnabled"`
+	// The log pattern sets.
+	LogPatternSets interface{} `json:"logPatternSets"`
+	// Indicates whether Application Insights will create OpsItems for any problem that is detected by Application Insights for an application.
+	OpsCenterEnabled interface{} `json:"opsCenterEnabled"`
+	// The SNS topic provided to Application Insights that is associated with the created OpsItems to receive SNS notifications for opsItem updates.
+	OpsItemSnsTopicArn *string `json:"opsItemSnsTopicArn"`
+	// An array of `Tags` .
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
