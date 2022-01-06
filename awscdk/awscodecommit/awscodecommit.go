@@ -1,16 +1,16 @@
 package awscodecommit
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscodecommit/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awscodestarnotifications"
-	"github.com/aws/aws-cdk-go/awscdk/awsevents"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/awss3assets"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodecommit/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodestarnotifications"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3assets"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::CodeCommit::Repository`.
@@ -33,7 +33,7 @@ type CfnRepository interface {
 	SetCode(val interface{})
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	Ref() *string
 	RepositoryDescription() *string
 	SetRepositoryDescription(val *string)
@@ -54,16 +54,10 @@ type CfnRepository interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -173,8 +167,8 @@ func (j *jsiiProxy_CfnRepository) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRepository) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnRepository) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -255,13 +249,13 @@ func (j *jsiiProxy_CfnRepository) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::CodeCommit::Repository`.
-func NewCfnRepository(scope awscdk.Construct, id *string, props *CfnRepositoryProps) CfnRepository {
+func NewCfnRepository(scope constructs.Construct, id *string, props *CfnRepositoryProps) CfnRepository {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnRepository{}
 
 	_jsii_.Create(
-		"monocdk.aws_codecommit.CfnRepository",
+		"aws-cdk-lib.aws_codecommit.CfnRepository",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -270,11 +264,11 @@ func NewCfnRepository(scope awscdk.Construct, id *string, props *CfnRepositoryPr
 }
 
 // Create a new `AWS::CodeCommit::Repository`.
-func NewCfnRepository_Override(c CfnRepository, scope awscdk.Construct, id *string, props *CfnRepositoryProps) {
+func NewCfnRepository_Override(c CfnRepository, scope constructs.Construct, id *string, props *CfnRepositoryProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_codecommit.CfnRepository",
+		"aws-cdk-lib.aws_codecommit.CfnRepository",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -318,14 +312,13 @@ func (j *jsiiProxy_CfnRepository) SetTriggers(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnRepository_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codecommit.CfnRepository",
+		"aws-cdk-lib.aws_codecommit.CfnRepository",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -335,14 +328,13 @@ func CfnRepository_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnRepository_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codecommit.CfnRepository",
+		"aws-cdk-lib.aws_codecommit.CfnRepository",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -351,15 +343,17 @@ func CfnRepository_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func CfnRepository_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codecommit.CfnRepository",
+		"aws-cdk-lib.aws_codecommit.CfnRepository",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -372,7 +366,7 @@ func CfnRepository_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_codecommit.CfnRepository",
+		"aws-cdk-lib.aws_codecommit.CfnRepository",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -380,7 +374,6 @@ func CfnRepository_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnRepository) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -393,7 +386,6 @@ func (c *jsiiProxy_CfnRepository) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnRepository) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -409,7 +401,6 @@ func (c *jsiiProxy_CfnRepository) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnRepository) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -455,7 +446,6 @@ func (c *jsiiProxy_CfnRepository) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnRepository) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -465,7 +455,6 @@ func (c *jsiiProxy_CfnRepository) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnRepository) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -477,7 +466,6 @@ func (c *jsiiProxy_CfnRepository) AddPropertyDeletionOverride(propertyPath *stri
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnRepository) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -495,7 +483,6 @@ func (c *jsiiProxy_CfnRepository) AddPropertyOverride(propertyPath *string, valu
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnRepository) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -508,7 +495,6 @@ func (c *jsiiProxy_CfnRepository) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnRepository) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -529,7 +515,6 @@ func (c *jsiiProxy_CfnRepository) GetAtt(attributeName *string) awscdk.Reference
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnRepository) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -552,80 +537,12 @@ func (c *jsiiProxy_CfnRepository) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnRepository) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnRepository) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnRepository) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnRepository) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnRepository) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -646,7 +563,6 @@ func (c *jsiiProxy_CfnRepository) RenderProperties(props *map[string]interface{}
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnRepository) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -660,23 +576,9 @@ func (c *jsiiProxy_CfnRepository) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnRepository) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnRepository) ToString() *string {
 	var returns *string
 
@@ -690,27 +592,6 @@ func (c *jsiiProxy_CfnRepository) ToString() *string {
 	return returns
 }
 
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnRepository) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Experimental.
 func (c *jsiiProxy_CfnRepository) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -768,11 +649,11 @@ type CfnRepository_RepositoryTriggerProperty struct {
 type CfnRepository_S3Property struct {
 	// The name of the Amazon S3 bucket that contains the ZIP file with the content that will be committed to the new repository.
 	//
-	// This can be specified using an ARN or the name of the bucket in the AWS account . Changes to this property are ignored after initial resource creation.
+	// This can be specified using the name of the bucket in the AWS account . Changes to this property are ignored after initial resource creation.
 	Bucket *string `json:"bucket"`
 	// The key to use for accessing the Amazon S3 bucket.
 	//
-	// Changes to this property are ignored after initial resource creation.
+	// Changes to this property are ignored after initial resource creation. For more information, see [Creating object key names](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html) and [Uploading objects](https://docs.aws.amazon.com/AmazonS3/latest/userguide/upload-objects.html) in the Amazon S3 User Guide.
 	Key *string `json:"key"`
 	// The object version of the ZIP file, if versioning is enabled for the Amazon S3 bucket.
 	//
@@ -809,7 +690,6 @@ type CfnRepositoryProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Code interface {
 	Bind(scope constructs.Construct) *CodeConfig
 }
@@ -819,26 +699,24 @@ type jsiiProxy_Code struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewCode_Override(c Code) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_codecommit.Code",
+		"aws-cdk-lib.aws_codecommit.Code",
 		nil, // no parameters
 		c,
 	)
 }
 
 // Code from user-supplied asset.
-// Experimental.
 func Code_FromAsset(asset awss3assets.Asset, branch *string) Code {
 	_init_.Initialize()
 
 	var returns Code
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codecommit.Code",
+		"aws-cdk-lib.aws_codecommit.Code",
 		"fromAsset",
 		[]interface{}{asset, branch},
 		&returns,
@@ -848,14 +726,13 @@ func Code_FromAsset(asset awss3assets.Asset, branch *string) Code {
 }
 
 // Code from directory.
-// Experimental.
 func Code_FromDirectory(directoryPath *string, branch *string) Code {
 	_init_.Initialize()
 
 	var returns Code
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codecommit.Code",
+		"aws-cdk-lib.aws_codecommit.Code",
 		"fromDirectory",
 		[]interface{}{directoryPath, branch},
 		&returns,
@@ -865,14 +742,13 @@ func Code_FromDirectory(directoryPath *string, branch *string) Code {
 }
 
 // Code from preexisting ZIP file.
-// Experimental.
 func Code_FromZipFile(filePath *string, branch *string) Code {
 	_init_.Initialize()
 
 	var returns Code
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codecommit.Code",
+		"aws-cdk-lib.aws_codecommit.Code",
 		"fromZipFile",
 		[]interface{}{filePath, branch},
 		&returns,
@@ -882,7 +758,6 @@ func Code_FromZipFile(filePath *string, branch *string) Code {
 }
 
 // This method is called after a repository is passed this instance of Code in its 'code' property.
-// Experimental.
 func (c *jsiiProxy_Code) Bind(scope constructs.Construct) *CodeConfig {
 	var returns *CodeConfig
 
@@ -900,93 +775,65 @@ func (c *jsiiProxy_Code) Bind(scope constructs.Construct) *CodeConfig {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CodeConfig struct {
 	// represents the underlying code structure.
-	// Experimental.
 	Code *CfnRepository_CodeProperty `json:"code"`
 }
 
-// Experimental.
 type IRepository interface {
 	awscodestarnotifications.INotificationRuleSource
 	awscdk.IResource
 	// Grant the given principal identity permissions to perform the actions on this repository.
-	// Experimental.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grant the given identity permissions to pull this repository.
-	// Experimental.
 	GrantPull(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant the given identity permissions to pull and push this repository.
-	// Experimental.
 	GrantPullPush(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant the given identity permissions to read this repository.
-	// Experimental.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
-	// Defines a CodeStar Notification rule which triggers when a pull request is merged.
-	// Deprecated: this method has a typo in its name, use notifyOnPullRequestMerged instead
-	NotifiyOnPullRequestMerged(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule
 	// Defines a CodeStar Notification rule triggered when the project events specified by you are emitted. Similar to `onEvent` API.
 	//
 	// You can also use the methods to define rules for the specific event emitted.
 	// eg: `notifyOnPullRequstCreated`.
 	//
 	// Returns: CodeStar Notifications rule associated with this repository.
-	// Experimental.
 	NotifyOn(id *string, target awscodestarnotifications.INotificationRuleTarget, options *RepositoryNotifyOnOptions) awscodestarnotifications.INotificationRule
 	// Defines a CodeStar Notification rule which triggers when an approval rule is overridden.
-	// Experimental.
 	NotifyOnApprovalRuleOverridden(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule
 	// Defines a CodeStar Notification rule which triggers when an approval status is changed.
-	// Experimental.
 	NotifyOnApprovalStatusChanged(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule
 	// Defines a CodeStar Notification rule which triggers when a new branch or tag is created.
-	// Experimental.
 	NotifyOnBranchOrTagCreated(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule
 	// Defines a CodeStar Notification rule which triggers when a branch or tag is deleted.
-	// Experimental.
 	NotifyOnBranchOrTagDeleted(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule
 	// Defines a CodeStar Notification rule which triggers when a comment is made on a pull request.
-	// Experimental.
 	NotifyOnPullRequestComment(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule
 	// Defines a CodeStar Notification rule which triggers when a pull request is created.
-	// Experimental.
 	NotifyOnPullRequestCreated(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule
 	// Defines a CodeStar Notification rule which triggers when a pull request is merged.
-	// Experimental.
 	NotifyOnPullRequestMerged(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule
 	// Defines a CloudWatch event rule which triggers when a comment is made on a commit.
-	// Experimental.
 	OnCommentOnCommit(id *string, options *awsevents.OnEventOptions) awsevents.Rule
 	// Defines a CloudWatch event rule which triggers when a comment is made on a pull request.
-	// Experimental.
 	OnCommentOnPullRequest(id *string, options *awsevents.OnEventOptions) awsevents.Rule
 	// Defines a CloudWatch event rule which triggers when a commit is pushed to a branch.
-	// Experimental.
 	OnCommit(id *string, options *OnCommitOptions) awsevents.Rule
 	// Defines a CloudWatch event rule which triggers for repository events.
 	//
 	// Use
 	// `rule.addEventPattern(pattern)` to specify a filter.
-	// Experimental.
 	OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule
 	// Defines a CloudWatch event rule which triggers when a pull request state is changed.
-	// Experimental.
 	OnPullRequestStateChange(id *string, options *awsevents.OnEventOptions) awsevents.Rule
 	// Defines a CloudWatch event rule which triggers when a reference is created (i.e. a new branch/tag is created) to the repository.
-	// Experimental.
 	OnReferenceCreated(id *string, options *awsevents.OnEventOptions) awsevents.Rule
 	// Defines a CloudWatch event rule which triggers when a reference is delete (i.e. a branch/tag is deleted) from the repository.
-	// Experimental.
 	OnReferenceDeleted(id *string, options *awsevents.OnEventOptions) awsevents.Rule
 	// Defines a CloudWatch event rule which triggers when a reference is updated (i.e. a commit is pushed to an existing or new branch) from the repository.
-	// Experimental.
 	OnReferenceUpdated(id *string, options *awsevents.OnEventOptions) awsevents.Rule
 	// Defines a CloudWatch event rule which triggers when a "CodeCommit Repository State Change" event occurs.
-	// Experimental.
 	OnStateChange(id *string, options *awsevents.OnEventOptions) awsevents.Rule
 	// The ARN of this Repository.
-	// Experimental.
 	RepositoryArn() *string
 	// The HTTPS (GRC) clone URL.
 	//
@@ -996,16 +843,12 @@ type IRepository interface {
 	// access, identity providers, and temporary credentials.
 	// See: https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-git-remote-codecommit.html
 	//
-	// Experimental.
 	RepositoryCloneUrlGrc() *string
 	// The HTTP clone URL.
-	// Experimental.
 	RepositoryCloneUrlHttp() *string
 	// The SSH clone URL.
-	// Experimental.
 	RepositoryCloneUrlSsh() *string
 	// The human-visible name of this Repository.
-	// Experimental.
 	RepositoryName() *string
 }
 
@@ -1066,19 +909,6 @@ func (i *jsiiProxy_IRepository) GrantRead(grantee awsiam.IGrantable) awsiam.Gran
 		i,
 		"grantRead",
 		[]interface{}{grantee},
-		&returns,
-	)
-
-	return returns
-}
-
-func (i *jsiiProxy_IRepository) NotifiyOnPullRequestMerged(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule {
-	var returns awscodestarnotifications.INotificationRule
-
-	_jsii_.Invoke(
-		i,
-		"notifiyOnPullRequestMerged",
-		[]interface{}{id, target, options},
 		&returns,
 	)
 
@@ -1387,8 +1217,8 @@ func (j *jsiiProxy_IRepository) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_IRepository) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_IRepository) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1411,10 +1241,8 @@ func (j *jsiiProxy_IRepository) Stack() awscdk.Stack {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type OnCommitOptions struct {
 	// A description of the rule's purpose.
-	// Experimental.
 	Description *string `json:"description"`
 	// Additional restrictions for the event to route to the specified target.
 	//
@@ -1423,23 +1251,18 @@ type OnCommitOptions struct {
 	// on top of that filtering.
 	// See: https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html
 	//
-	// Experimental.
 	EventPattern *awsevents.EventPattern `json:"eventPattern"`
 	// A name for the rule.
-	// Experimental.
 	RuleName *string `json:"ruleName"`
 	// The target to register for the event.
-	// Experimental.
 	Target awsevents.IRuleTarget `json:"target"`
 	// The branch to monitor.
-	// Experimental.
 	Branches *[]*string `json:"branches"`
 }
 
 // Fields of CloudWatch Events that change references.
 // See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/EventTypes.html#codebuild_event_type
 //
-// Experimental.
 type ReferenceEvent interface {
 }
 
@@ -1452,7 +1275,7 @@ func ReferenceEvent_CommitId() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_codecommit.ReferenceEvent",
+		"aws-cdk-lib.aws_codecommit.ReferenceEvent",
 		"commitId",
 		&returns,
 	)
@@ -1463,7 +1286,7 @@ func ReferenceEvent_EventType() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_codecommit.ReferenceEvent",
+		"aws-cdk-lib.aws_codecommit.ReferenceEvent",
 		"eventType",
 		&returns,
 	)
@@ -1474,7 +1297,7 @@ func ReferenceEvent_ReferenceFullName() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_codecommit.ReferenceEvent",
+		"aws-cdk-lib.aws_codecommit.ReferenceEvent",
 		"referenceFullName",
 		&returns,
 	)
@@ -1485,7 +1308,7 @@ func ReferenceEvent_ReferenceName() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_codecommit.ReferenceEvent",
+		"aws-cdk-lib.aws_codecommit.ReferenceEvent",
 		"referenceName",
 		&returns,
 	)
@@ -1496,7 +1319,7 @@ func ReferenceEvent_ReferenceType() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_codecommit.ReferenceEvent",
+		"aws-cdk-lib.aws_codecommit.ReferenceEvent",
 		"referenceType",
 		&returns,
 	)
@@ -1507,7 +1330,7 @@ func ReferenceEvent_RepositoryId() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_codecommit.ReferenceEvent",
+		"aws-cdk-lib.aws_codecommit.ReferenceEvent",
 		"repositoryId",
 		&returns,
 	)
@@ -1518,7 +1341,7 @@ func ReferenceEvent_RepositoryName() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_codecommit.ReferenceEvent",
+		"aws-cdk-lib.aws_codecommit.ReferenceEvent",
 		"repositoryName",
 		&returns,
 	)
@@ -1529,12 +1352,11 @@ func ReferenceEvent_RepositoryName() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Repository interface {
 	awscdk.Resource
 	IRepository
 	Env() *awscdk.ResourceEnvironment
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	PhysicalName() *string
 	RepositoryArn() *string
 	RepositoryCloneUrlGrc() *string
@@ -1565,18 +1387,12 @@ type Repository interface {
 	OnCommentOnPullRequest(id *string, options *awsevents.OnEventOptions) awsevents.Rule
 	OnCommit(id *string, options *OnCommitOptions) awsevents.Rule
 	OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule
-	OnPrepare()
 	OnPullRequestStateChange(id *string, options *awsevents.OnEventOptions) awsevents.Rule
 	OnReferenceCreated(id *string, options *awsevents.OnEventOptions) awsevents.Rule
 	OnReferenceDeleted(id *string, options *awsevents.OnEventOptions) awsevents.Rule
 	OnReferenceUpdated(id *string, options *awsevents.OnEventOptions) awsevents.Rule
 	OnStateChange(id *string, options *awsevents.OnEventOptions) awsevents.Rule
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for Repository
@@ -1595,8 +1411,8 @@ func (j *jsiiProxy_Repository) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_Repository) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_Repository) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1676,14 +1492,13 @@ func (j *jsiiProxy_Repository) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewRepository(scope constructs.Construct, id *string, props *RepositoryProps) Repository {
 	_init_.Initialize()
 
 	j := jsiiProxy_Repository{}
 
 	_jsii_.Create(
-		"monocdk.aws_codecommit.Repository",
+		"aws-cdk-lib.aws_codecommit.Repository",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1691,26 +1506,24 @@ func NewRepository(scope constructs.Construct, id *string, props *RepositoryProp
 	return &j
 }
 
-// Experimental.
 func NewRepository_Override(r Repository, scope constructs.Construct, id *string, props *RepositoryProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_codecommit.Repository",
+		"aws-cdk-lib.aws_codecommit.Repository",
 		[]interface{}{scope, id, props},
 		r,
 	)
 }
 
 // Imports a codecommit repository.
-// Experimental.
 func Repository_FromRepositoryArn(scope constructs.Construct, id *string, repositoryArn *string) IRepository {
 	_init_.Initialize()
 
 	var returns IRepository
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codecommit.Repository",
+		"aws-cdk-lib.aws_codecommit.Repository",
 		"fromRepositoryArn",
 		[]interface{}{scope, id, repositoryArn},
 		&returns,
@@ -1719,14 +1532,13 @@ func Repository_FromRepositoryArn(scope constructs.Construct, id *string, reposi
 	return returns
 }
 
-// Experimental.
 func Repository_FromRepositoryName(scope constructs.Construct, id *string, repositoryName *string) IRepository {
 	_init_.Initialize()
 
 	var returns IRepository
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codecommit.Repository",
+		"aws-cdk-lib.aws_codecommit.Repository",
 		"fromRepositoryName",
 		[]interface{}{scope, id, repositoryName},
 		&returns,
@@ -1735,15 +1547,17 @@ func Repository_FromRepositoryName(scope constructs.Construct, id *string, repos
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func Repository_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codecommit.Repository",
+		"aws-cdk-lib.aws_codecommit.Repository",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1753,14 +1567,13 @@ func Repository_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
-func Repository_IsResource(construct awscdk.IConstruct) *bool {
+func Repository_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codecommit.Repository",
+		"aws-cdk-lib.aws_codecommit.Repository",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -1778,7 +1591,6 @@ func Repository_IsResource(construct awscdk.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (r *jsiiProxy_Repository) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		r,
@@ -1788,7 +1600,6 @@ func (r *jsiiProxy_Repository) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 }
 
 // Returns a source configuration for notification rule.
-// Experimental.
 func (r *jsiiProxy_Repository) BindAsNotificationRuleSource(_scope constructs.Construct) *awscodestarnotifications.NotificationRuleSourceConfig {
 	var returns *awscodestarnotifications.NotificationRuleSourceConfig
 
@@ -1802,7 +1613,6 @@ func (r *jsiiProxy_Repository) BindAsNotificationRuleSource(_scope constructs.Co
 	return returns
 }
 
-// Experimental.
 func (r *jsiiProxy_Repository) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -1822,7 +1632,6 @@ func (r *jsiiProxy_Repository) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (r *jsiiProxy_Repository) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -1841,7 +1650,6 @@ func (r *jsiiProxy_Repository) GetResourceArnAttribute(arnAttr *string, arnCompo
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (r *jsiiProxy_Repository) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -1856,7 +1664,6 @@ func (r *jsiiProxy_Repository) GetResourceNameAttribute(nameAttr *string) *strin
 }
 
 // Grant the given principal identity permissions to perform the actions on this repository.
-// Experimental.
 func (r *jsiiProxy_Repository) Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant {
 	args := []interface{}{grantee}
 	for _, a := range actions {
@@ -1876,7 +1683,6 @@ func (r *jsiiProxy_Repository) Grant(grantee awsiam.IGrantable, actions ...*stri
 }
 
 // Grant the given identity permissions to pull this repository.
-// Experimental.
 func (r *jsiiProxy_Repository) GrantPull(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -1891,7 +1697,6 @@ func (r *jsiiProxy_Repository) GrantPull(grantee awsiam.IGrantable) awsiam.Grant
 }
 
 // Grant the given identity permissions to pull and push this repository.
-// Experimental.
 func (r *jsiiProxy_Repository) GrantPullPush(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -1906,7 +1711,6 @@ func (r *jsiiProxy_Repository) GrantPullPush(grantee awsiam.IGrantable) awsiam.G
 }
 
 // Grant the given identity permissions to read this repository.
-// Experimental.
 func (r *jsiiProxy_Repository) GrantRead(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -1921,7 +1725,6 @@ func (r *jsiiProxy_Repository) GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 }
 
 // Defines a CodeStar Notification rule which triggers when a pull request is merged.
-// Experimental.
 func (r *jsiiProxy_Repository) NotifiyOnPullRequestMerged(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule {
 	var returns awscodestarnotifications.INotificationRule
 
@@ -1936,7 +1739,6 @@ func (r *jsiiProxy_Repository) NotifiyOnPullRequestMerged(id *string, target aws
 }
 
 // Create a trigger to notify another service to run actions on repository events.
-// Experimental.
 func (r *jsiiProxy_Repository) Notify(arn *string, options *RepositoryTriggerOptions) Repository {
 	var returns Repository
 
@@ -1954,7 +1756,6 @@ func (r *jsiiProxy_Repository) Notify(arn *string, options *RepositoryTriggerOpt
 //
 // You can also use the methods to define rules for the specific event emitted.
 // eg: `notifyOnPullRequstCreated`.
-// Experimental.
 func (r *jsiiProxy_Repository) NotifyOn(id *string, target awscodestarnotifications.INotificationRuleTarget, options *RepositoryNotifyOnOptions) awscodestarnotifications.INotificationRule {
 	var returns awscodestarnotifications.INotificationRule
 
@@ -1969,7 +1770,6 @@ func (r *jsiiProxy_Repository) NotifyOn(id *string, target awscodestarnotificati
 }
 
 // Defines a CodeStar Notification rule which triggers when an approval rule is overridden.
-// Experimental.
 func (r *jsiiProxy_Repository) NotifyOnApprovalRuleOverridden(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule {
 	var returns awscodestarnotifications.INotificationRule
 
@@ -1984,7 +1784,6 @@ func (r *jsiiProxy_Repository) NotifyOnApprovalRuleOverridden(id *string, target
 }
 
 // Defines a CodeStar Notification rule which triggers when an approval status is changed.
-// Experimental.
 func (r *jsiiProxy_Repository) NotifyOnApprovalStatusChanged(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule {
 	var returns awscodestarnotifications.INotificationRule
 
@@ -1999,7 +1798,6 @@ func (r *jsiiProxy_Repository) NotifyOnApprovalStatusChanged(id *string, target 
 }
 
 // Defines a CodeStar Notification rule which triggers when a new branch or tag is created.
-// Experimental.
 func (r *jsiiProxy_Repository) NotifyOnBranchOrTagCreated(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule {
 	var returns awscodestarnotifications.INotificationRule
 
@@ -2014,7 +1812,6 @@ func (r *jsiiProxy_Repository) NotifyOnBranchOrTagCreated(id *string, target aws
 }
 
 // Defines a CodeStar Notification rule which triggers when a branch or tag is deleted.
-// Experimental.
 func (r *jsiiProxy_Repository) NotifyOnBranchOrTagDeleted(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule {
 	var returns awscodestarnotifications.INotificationRule
 
@@ -2029,7 +1826,6 @@ func (r *jsiiProxy_Repository) NotifyOnBranchOrTagDeleted(id *string, target aws
 }
 
 // Defines a CodeStar Notification rule which triggers when a comment is made on a pull request.
-// Experimental.
 func (r *jsiiProxy_Repository) NotifyOnPullRequestComment(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule {
 	var returns awscodestarnotifications.INotificationRule
 
@@ -2044,7 +1840,6 @@ func (r *jsiiProxy_Repository) NotifyOnPullRequestComment(id *string, target aws
 }
 
 // Defines a CodeStar Notification rule which triggers when a pull request is created.
-// Experimental.
 func (r *jsiiProxy_Repository) NotifyOnPullRequestCreated(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule {
 	var returns awscodestarnotifications.INotificationRule
 
@@ -2059,7 +1854,6 @@ func (r *jsiiProxy_Repository) NotifyOnPullRequestCreated(id *string, target aws
 }
 
 // Defines a CodeStar Notification rule which triggers when a pull request is merged.
-// Experimental.
 func (r *jsiiProxy_Repository) NotifyOnPullRequestMerged(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule {
 	var returns awscodestarnotifications.INotificationRule
 
@@ -2074,7 +1868,6 @@ func (r *jsiiProxy_Repository) NotifyOnPullRequestMerged(id *string, target awsc
 }
 
 // Defines a CloudWatch event rule which triggers when a comment is made on a commit.
-// Experimental.
 func (r *jsiiProxy_Repository) OnCommentOnCommit(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
 	var returns awsevents.Rule
 
@@ -2089,7 +1882,6 @@ func (r *jsiiProxy_Repository) OnCommentOnCommit(id *string, options *awsevents.
 }
 
 // Defines a CloudWatch event rule which triggers when a comment is made on a pull request.
-// Experimental.
 func (r *jsiiProxy_Repository) OnCommentOnPullRequest(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
 	var returns awsevents.Rule
 
@@ -2104,7 +1896,6 @@ func (r *jsiiProxy_Repository) OnCommentOnPullRequest(id *string, options *awsev
 }
 
 // Defines a CloudWatch event rule which triggers when a commit is pushed to a branch.
-// Experimental.
 func (r *jsiiProxy_Repository) OnCommit(id *string, options *OnCommitOptions) awsevents.Rule {
 	var returns awsevents.Rule
 
@@ -2122,7 +1913,6 @@ func (r *jsiiProxy_Repository) OnCommit(id *string, options *OnCommitOptions) aw
 //
 // Use
 // `rule.addEventPattern(pattern)` to specify a filter.
-// Experimental.
 func (r *jsiiProxy_Repository) OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
 	var returns awsevents.Rule
 
@@ -2136,25 +1926,7 @@ func (r *jsiiProxy_Repository) OnEvent(id *string, options *awsevents.OnEventOpt
 	return returns
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (r *jsiiProxy_Repository) OnPrepare() {
-	_jsii_.InvokeVoid(
-		r,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
 // Defines a CloudWatch event rule which triggers when a pull request state is changed.
-// Experimental.
 func (r *jsiiProxy_Repository) OnPullRequestStateChange(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
 	var returns awsevents.Rule
 
@@ -2169,7 +1941,6 @@ func (r *jsiiProxy_Repository) OnPullRequestStateChange(id *string, options *aws
 }
 
 // Defines a CloudWatch event rule which triggers when a reference is created (i.e. a new branch/tag is created) to the repository.
-// Experimental.
 func (r *jsiiProxy_Repository) OnReferenceCreated(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
 	var returns awsevents.Rule
 
@@ -2184,7 +1955,6 @@ func (r *jsiiProxy_Repository) OnReferenceCreated(id *string, options *awsevents
 }
 
 // Defines a CloudWatch event rule which triggers when a reference is delete (i.e. a branch/tag is deleted) from the repository.
-// Experimental.
 func (r *jsiiProxy_Repository) OnReferenceDeleted(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
 	var returns awsevents.Rule
 
@@ -2199,7 +1969,6 @@ func (r *jsiiProxy_Repository) OnReferenceDeleted(id *string, options *awsevents
 }
 
 // Defines a CloudWatch event rule which triggers when a reference is updated (i.e. a commit is pushed to an existing or new branch) from the repository.
-// Experimental.
 func (r *jsiiProxy_Repository) OnReferenceUpdated(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
 	var returns awsevents.Rule
 
@@ -2214,7 +1983,6 @@ func (r *jsiiProxy_Repository) OnReferenceUpdated(id *string, options *awsevents
 }
 
 // Defines a CloudWatch event rule which triggers when a "CodeCommit Repository State Change" event occurs.
-// Experimental.
 func (r *jsiiProxy_Repository) OnStateChange(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
 	var returns awsevents.Rule
 
@@ -2228,71 +1996,7 @@ func (r *jsiiProxy_Repository) OnStateChange(id *string, options *awsevents.OnEv
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (r *jsiiProxy_Repository) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		r,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (r *jsiiProxy_Repository) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		r,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (r *jsiiProxy_Repository) Prepare() {
-	_jsii_.InvokeVoid(
-		r,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (r *jsiiProxy_Repository) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		r,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
-// Experimental.
 func (r *jsiiProxy_Repository) ToString() *string {
 	var returns *string
 
@@ -2306,28 +2010,7 @@ func (r *jsiiProxy_Repository) ToString() *string {
 	return returns
 }
 
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (r *jsiiProxy_Repository) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		r,
-		"validate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Repository events that will cause the trigger to run actions in another service.
-// Experimental.
 type RepositoryEventTrigger string
 
 const (
@@ -2340,7 +2023,6 @@ const (
 // List of event types for AWS CodeCommit.
 // See: https://docs.aws.amazon.com/dtconsole/latest/userguide/concepts.html#events-ref-repositories
 //
-// Experimental.
 type RepositoryNotificationEvents string
 
 const (
@@ -2361,50 +2043,41 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type RepositoryNotifyOnOptions struct {
 	// The level of detail to include in the notifications for this resource.
 	//
 	// BASIC will include only the contents of the event as it would appear in AWS CloudWatch.
 	// FULL will include any supplemental information provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created.
-	// Experimental.
 	DetailType awscodestarnotifications.DetailType `json:"detailType"`
 	// The status of the notification rule.
 	//
 	// If the enabled is set to DISABLED, notifications aren't sent for the notification rule.
-	// Experimental.
 	Enabled *bool `json:"enabled"`
 	// The name for the notification rule.
 	//
 	// Notification rule names must be unique in your AWS account.
-	// Experimental.
 	NotificationRuleName *string `json:"notificationRuleName"`
 	// A list of event types associated with this notification rule for CodeCommit repositories.
 	//
 	// For a complete list of event types and IDs, see Notification concepts in the Developer Tools Console User Guide.
 	// See: https://docs.aws.amazon.com/dtconsole/latest/userguide/concepts.html#concepts-api
 	//
-	// Experimental.
 	Events *[]RepositoryNotificationEvents `json:"events"`
 }
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type RepositoryProps struct {
 	// Name of the repository.
 	//
 	// This property is required for all CodeCommit repositories.
-	// Experimental.
 	RepositoryName *string `json:"repositoryName"`
 	// The contents with which to initialize the repository after it has been created.
-	// Experimental.
 	Code Code `json:"code"`
 	// A description of the repository.
 	//
 	// Use the description to identify the
 	// purpose of the repository.
-	// Experimental.
 	Description *string `json:"description"`
 }
 
@@ -2412,22 +2085,17 @@ type RepositoryProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type RepositoryTriggerOptions struct {
 	// The names of the branches in the AWS CodeCommit repository that contain events that you want to include in the trigger.
 	//
 	// If you don't specify at
 	// least one branch, the trigger applies to all branches.
-	// Experimental.
 	Branches *[]*string `json:"branches"`
 	// When an event is triggered, additional information that AWS CodeCommit includes when it sends information to the target.
-	// Experimental.
 	CustomData *string `json:"customData"`
 	// The repository events for which AWS CodeCommit sends information to the target, which you specified in the DestinationArn property.If you don't specify events, the trigger runs for all repository events.
-	// Experimental.
 	Events *[]RepositoryEventTrigger `json:"events"`
 	// A name for the trigger.Triggers on a repository must have unique names.
-	// Experimental.
 	Name *string `json:"name"`
 }
 
