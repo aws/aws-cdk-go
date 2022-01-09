@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"monocdk.aws_iam.AccountPrincipal",
+		"aws-cdk-lib.aws_iam.AccountPrincipal",
 		reflect.TypeOf((*AccountPrincipal)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "accountId", GoGetter: "AccountId"},
@@ -32,7 +32,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_iam.AccountRootPrincipal",
+		"aws-cdk-lib.aws_iam.AccountRootPrincipal",
 		reflect.TypeOf((*AccountRootPrincipal)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "accountId", GoGetter: "AccountId"},
@@ -56,15 +56,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iam.AddToPrincipalPolicyResult",
+		"aws-cdk-lib.aws_iam.AddToPrincipalPolicyResult",
 		reflect.TypeOf((*AddToPrincipalPolicyResult)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iam.AddToResourcePolicyResult",
+		"aws-cdk-lib.aws_iam.AddToResourcePolicyResult",
 		reflect.TypeOf((*AddToResourcePolicyResult)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_iam.AnyPrincipal",
+		"aws-cdk-lib.aws_iam.AnyPrincipal",
 		reflect.TypeOf((*AnyPrincipal)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addToAssumeRolePolicy", GoMethod: "AddToAssumeRolePolicy"},
@@ -87,30 +87,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_iam.Anyone",
-		reflect.TypeOf((*Anyone)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "addToAssumeRolePolicy", GoMethod: "AddToAssumeRolePolicy"},
-			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
-			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
-			_jsii_.MemberProperty{JsiiProperty: "arn", GoGetter: "Arn"},
-			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
-			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
-			_jsii_.MemberProperty{JsiiProperty: "policyFragment", GoGetter: "PolicyFragment"},
-			_jsii_.MemberProperty{JsiiProperty: "principalAccount", GoGetter: "PrincipalAccount"},
-			_jsii_.MemberMethod{JsiiMethod: "toJSON", GoMethod: "ToJSON"},
-			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "withConditions", GoMethod: "WithConditions"},
-			_jsii_.MemberMethod{JsiiMethod: "withSessionTags", GoMethod: "WithSessionTags"},
-		},
-		func() interface{} {
-			j := jsiiProxy_Anyone{}
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_AnyPrincipal)
-			return &j
-		},
-	)
-	_jsii_.RegisterClass(
-		"monocdk.aws_iam.ArnPrincipal",
+		"aws-cdk-lib.aws_iam.ArnPrincipal",
 		reflect.TypeOf((*ArnPrincipal)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addToAssumeRolePolicy", GoMethod: "AddToAssumeRolePolicy"},
@@ -133,7 +110,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_iam.CanonicalUserPrincipal",
+		"aws-cdk-lib.aws_iam.CanonicalUserPrincipal",
 		reflect.TypeOf((*CanonicalUserPrincipal)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addToAssumeRolePolicy", GoMethod: "AddToAssumeRolePolicy"},
@@ -156,7 +133,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_iam.CfnAccessKey",
+		"aws-cdk-lib.aws_iam.CfnAccessKey",
 		reflect.TypeOf((*CfnAccessKey)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -176,22 +153,16 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "serial", GoGetter: "Serial"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "status", GoGetter: "Status"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "userName", GoGetter: "UserName"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -202,11 +173,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iam.CfnAccessKeyProps",
+		"aws-cdk-lib.aws_iam.CfnAccessKeyProps",
 		reflect.TypeOf((*CfnAccessKeyProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_iam.CfnGroup",
+		"aws-cdk-lib.aws_iam.CfnGroup",
 		reflect.TypeOf((*CfnGroup)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -228,21 +199,15 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "managedPolicyArns", GoGetter: "ManagedPolicyArns"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "path", GoGetter: "Path"},
 			_jsii_.MemberProperty{JsiiProperty: "policies", GoGetter: "Policies"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -253,15 +218,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iam.CfnGroup.PolicyProperty",
+		"aws-cdk-lib.aws_iam.CfnGroup.PolicyProperty",
 		reflect.TypeOf((*CfnGroup_PolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iam.CfnGroupProps",
+		"aws-cdk-lib.aws_iam.CfnGroupProps",
 		reflect.TypeOf((*CfnGroupProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_iam.CfnInstanceProfile",
+		"aws-cdk-lib.aws_iam.CfnInstanceProfile",
 		reflect.TypeOf((*CfnInstanceProfile)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -282,21 +247,15 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "instanceProfileName", GoGetter: "InstanceProfileName"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "path", GoGetter: "Path"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "roles", GoGetter: "Roles"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -307,11 +266,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iam.CfnInstanceProfileProps",
+		"aws-cdk-lib.aws_iam.CfnInstanceProfileProps",
 		reflect.TypeOf((*CfnInstanceProfileProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_iam.CfnManagedPolicy",
+		"aws-cdk-lib.aws_iam.CfnManagedPolicy",
 		reflect.TypeOf((*CfnManagedPolicy)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -333,23 +292,17 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "managedPolicyName", GoGetter: "ManagedPolicyName"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "path", GoGetter: "Path"},
 			_jsii_.MemberProperty{JsiiProperty: "policyDocument", GoGetter: "PolicyDocument"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "roles", GoGetter: "Roles"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "users", GoGetter: "Users"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -360,11 +313,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iam.CfnManagedPolicyProps",
+		"aws-cdk-lib.aws_iam.CfnManagedPolicyProps",
 		reflect.TypeOf((*CfnManagedPolicyProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_iam.CfnOIDCProvider",
+		"aws-cdk-lib.aws_iam.CfnOIDCProvider",
 		reflect.TypeOf((*CfnOIDCProvider)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -385,22 +338,16 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "thumbprintList", GoGetter: "ThumbprintList"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "url", GoGetter: "Url"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -411,11 +358,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iam.CfnOIDCProviderProps",
+		"aws-cdk-lib.aws_iam.CfnOIDCProviderProps",
 		reflect.TypeOf((*CfnOIDCProviderProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_iam.CfnPolicy",
+		"aws-cdk-lib.aws_iam.CfnPolicy",
 		reflect.TypeOf((*CfnPolicy)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -435,23 +382,17 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "policyDocument", GoGetter: "PolicyDocument"},
 			_jsii_.MemberProperty{JsiiProperty: "policyName", GoGetter: "PolicyName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "roles", GoGetter: "Roles"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "users", GoGetter: "Users"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -462,11 +403,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iam.CfnPolicyProps",
+		"aws-cdk-lib.aws_iam.CfnPolicyProps",
 		reflect.TypeOf((*CfnPolicyProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_iam.CfnRole",
+		"aws-cdk-lib.aws_iam.CfnRole",
 		reflect.TypeOf((*CfnRole)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -491,24 +432,18 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "managedPolicyArns", GoGetter: "ManagedPolicyArns"},
 			_jsii_.MemberProperty{JsiiProperty: "maxSessionDuration", GoGetter: "MaxSessionDuration"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "path", GoGetter: "Path"},
 			_jsii_.MemberProperty{JsiiProperty: "permissionsBoundary", GoGetter: "PermissionsBoundary"},
 			_jsii_.MemberProperty{JsiiProperty: "policies", GoGetter: "Policies"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "roleName", GoGetter: "RoleName"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -519,15 +454,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iam.CfnRole.PolicyProperty",
+		"aws-cdk-lib.aws_iam.CfnRole.PolicyProperty",
 		reflect.TypeOf((*CfnRole_PolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iam.CfnRoleProps",
+		"aws-cdk-lib.aws_iam.CfnRoleProps",
 		reflect.TypeOf((*CfnRoleProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_iam.CfnSAMLProvider",
+		"aws-cdk-lib.aws_iam.CfnSAMLProvider",
 		reflect.TypeOf((*CfnSAMLProvider)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -548,21 +483,15 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "samlMetadataDocument", GoGetter: "SamlMetadataDocument"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -573,11 +502,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iam.CfnSAMLProviderProps",
+		"aws-cdk-lib.aws_iam.CfnSAMLProviderProps",
 		reflect.TypeOf((*CfnSAMLProviderProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_iam.CfnServerCertificate",
+		"aws-cdk-lib.aws_iam.CfnServerCertificate",
 		reflect.TypeOf((*CfnServerCertificate)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -599,23 +528,17 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "path", GoGetter: "Path"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "privateKey", GoGetter: "PrivateKey"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "serverCertificateName", GoGetter: "ServerCertificateName"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -626,11 +549,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iam.CfnServerCertificateProps",
+		"aws-cdk-lib.aws_iam.CfnServerCertificateProps",
 		reflect.TypeOf((*CfnServerCertificateProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_iam.CfnServiceLinkedRole",
+		"aws-cdk-lib.aws_iam.CfnServiceLinkedRole",
 		reflect.TypeOf((*CfnServiceLinkedRole)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -652,19 +575,13 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -675,11 +592,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iam.CfnServiceLinkedRoleProps",
+		"aws-cdk-lib.aws_iam.CfnServiceLinkedRoleProps",
 		reflect.TypeOf((*CfnServiceLinkedRoleProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_iam.CfnUser",
+		"aws-cdk-lib.aws_iam.CfnUser",
 		reflect.TypeOf((*CfnUser)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -702,24 +619,18 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "loginProfile", GoGetter: "LoginProfile"},
 			_jsii_.MemberProperty{JsiiProperty: "managedPolicyArns", GoGetter: "ManagedPolicyArns"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "path", GoGetter: "Path"},
 			_jsii_.MemberProperty{JsiiProperty: "permissionsBoundary", GoGetter: "PermissionsBoundary"},
 			_jsii_.MemberProperty{JsiiProperty: "policies", GoGetter: "Policies"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "userName", GoGetter: "UserName"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -730,19 +641,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iam.CfnUser.LoginProfileProperty",
+		"aws-cdk-lib.aws_iam.CfnUser.LoginProfileProperty",
 		reflect.TypeOf((*CfnUser_LoginProfileProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iam.CfnUser.PolicyProperty",
+		"aws-cdk-lib.aws_iam.CfnUser.PolicyProperty",
 		reflect.TypeOf((*CfnUser_PolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iam.CfnUserProps",
+		"aws-cdk-lib.aws_iam.CfnUserProps",
 		reflect.TypeOf((*CfnUserProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_iam.CfnUserToGroupAddition",
+		"aws-cdk-lib.aws_iam.CfnUserToGroupAddition",
 		reflect.TypeOf((*CfnUserToGroupAddition)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -762,20 +673,14 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "users", GoGetter: "Users"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -786,11 +691,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iam.CfnUserToGroupAdditionProps",
+		"aws-cdk-lib.aws_iam.CfnUserToGroupAdditionProps",
 		reflect.TypeOf((*CfnUserToGroupAdditionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_iam.CfnVirtualMFADevice",
+		"aws-cdk-lib.aws_iam.CfnVirtualMFADevice",
 		reflect.TypeOf((*CfnVirtualMFADevice)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -810,22 +715,16 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "path", GoGetter: "Path"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "users", GoGetter: "Users"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "virtualMfaDeviceName", GoGetter: "VirtualMfaDeviceName"},
 		},
@@ -837,25 +736,25 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iam.CfnVirtualMFADeviceProps",
+		"aws-cdk-lib.aws_iam.CfnVirtualMFADeviceProps",
 		reflect.TypeOf((*CfnVirtualMFADeviceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iam.CommonGrantOptions",
+		"aws-cdk-lib.aws_iam.CommonGrantOptions",
 		reflect.TypeOf((*CommonGrantOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_iam.CompositeDependable",
+		"aws-cdk-lib.aws_iam.CompositeDependable",
 		reflect.TypeOf((*CompositeDependable)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
 			j := jsiiProxy_CompositeDependable{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIDependable)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIDependable)
 			return &j
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_iam.CompositePrincipal",
+		"aws-cdk-lib.aws_iam.CompositePrincipal",
 		reflect.TypeOf((*CompositePrincipal)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addPrincipals", GoMethod: "AddPrincipals"},
@@ -878,7 +777,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_iam.Effect",
+		"aws-cdk-lib.aws_iam.Effect",
 		reflect.TypeOf((*Effect)(nil)).Elem(),
 		map[string]interface{}{
 			"ALLOW": Effect_ALLOW,
@@ -886,7 +785,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_iam.FederatedPrincipal",
+		"aws-cdk-lib.aws_iam.FederatedPrincipal",
 		reflect.TypeOf((*FederatedPrincipal)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addToAssumeRolePolicy", GoMethod: "AddToAssumeRolePolicy"},
@@ -910,11 +809,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iam.FromRoleArnOptions",
+		"aws-cdk-lib.aws_iam.FromRoleArnOptions",
 		reflect.TypeOf((*FromRoleArnOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_iam.Grant",
+		"aws-cdk-lib.aws_iam.Grant",
 		reflect.TypeOf((*Grant)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyBefore", GoMethod: "ApplyBefore"},
@@ -925,24 +824,24 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_Grant{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIDependable)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIDependable)
 			return &j
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iam.GrantOnPrincipalAndResourceOptions",
+		"aws-cdk-lib.aws_iam.GrantOnPrincipalAndResourceOptions",
 		reflect.TypeOf((*GrantOnPrincipalAndResourceOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iam.GrantOnPrincipalOptions",
+		"aws-cdk-lib.aws_iam.GrantOnPrincipalOptions",
 		reflect.TypeOf((*GrantOnPrincipalOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iam.GrantWithResourceOptions",
+		"aws-cdk-lib.aws_iam.GrantWithResourceOptions",
 		reflect.TypeOf((*GrantWithResourceOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_iam.Group",
+		"aws-cdk-lib.aws_iam.Group",
 		reflect.TypeOf((*Group)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addManagedPolicy", GoMethod: "AddManagedPolicy"},
@@ -960,17 +859,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "groupArn", GoGetter: "GroupArn"},
 			_jsii_.MemberProperty{JsiiProperty: "groupName", GoGetter: "GroupName"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "policyFragment", GoGetter: "PolicyFragment"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "principalAccount", GoGetter: "PrincipalAccount"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_Group{}
@@ -980,15 +873,14 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iam.GroupProps",
+		"aws-cdk-lib.aws_iam.GroupProps",
 		reflect.TypeOf((*GroupProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_iam.IAssumeRolePrincipal",
+		"aws-cdk-lib.aws_iam.IAssumeRolePrincipal",
 		reflect.TypeOf((*IAssumeRolePrincipal)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addToAssumeRolePolicy", GoMethod: "AddToAssumeRolePolicy"},
-			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
@@ -1002,7 +894,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_iam.IGrantable",
+		"aws-cdk-lib.aws_iam.IGrantable",
 		reflect.TypeOf((*IGrantable)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
@@ -1012,11 +904,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_iam.IGroup",
+		"aws-cdk-lib.aws_iam.IGroup",
 		reflect.TypeOf((*IGroup)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addManagedPolicy", GoMethod: "AddManagedPolicy"},
-			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
@@ -1037,11 +928,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_iam.IIdentity",
+		"aws-cdk-lib.aws_iam.IIdentity",
 		reflect.TypeOf((*IIdentity)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addManagedPolicy", GoMethod: "AddManagedPolicy"},
-			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
@@ -1061,7 +951,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_iam.IManagedPolicy",
+		"aws-cdk-lib.aws_iam.IManagedPolicy",
 		reflect.TypeOf((*IManagedPolicy)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "managedPolicyArn", GoGetter: "ManagedPolicyArn"},
@@ -1071,7 +961,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_iam.IOpenIdConnectProvider",
+		"aws-cdk-lib.aws_iam.IOpenIdConnectProvider",
 		reflect.TypeOf((*IOpenIdConnectProvider)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -1088,7 +978,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_iam.IPolicy",
+		"aws-cdk-lib.aws_iam.IPolicy",
 		reflect.TypeOf((*IPolicy)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -1104,10 +994,9 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_iam.IPrincipal",
+		"aws-cdk-lib.aws_iam.IPrincipal",
 		reflect.TypeOf((*IPrincipal)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
@@ -1121,7 +1010,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_iam.IResourceWithPolicy",
+		"aws-cdk-lib.aws_iam.IResourceWithPolicy",
 		reflect.TypeOf((*IResourceWithPolicy)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addToResourcePolicy", GoMethod: "AddToResourcePolicy"},
@@ -1137,11 +1026,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_iam.IRole",
+		"aws-cdk-lib.aws_iam.IRole",
 		reflect.TypeOf((*IRole)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addManagedPolicy", GoMethod: "AddManagedPolicy"},
-			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
@@ -1164,7 +1052,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_iam.ISamlProvider",
+		"aws-cdk-lib.aws_iam.ISamlProvider",
 		reflect.TypeOf((*ISamlProvider)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -1180,12 +1068,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_iam.IUser",
+		"aws-cdk-lib.aws_iam.IUser",
 		reflect.TypeOf((*IUser)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addManagedPolicy", GoMethod: "AddManagedPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToGroup", GoMethod: "AddToGroup"},
-			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
@@ -1206,7 +1093,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_iam.LazyRole",
+		"aws-cdk-lib.aws_iam.LazyRole",
 		reflect.TypeOf((*LazyRole)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addManagedPolicy", GoMethod: "AddManagedPolicy"},
@@ -1223,20 +1110,14 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "grantPassRole", GoMethod: "GrantPassRole"},
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "policyFragment", GoGetter: "PolicyFragment"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "principalAccount", GoGetter: "PrincipalAccount"},
 			_jsii_.MemberProperty{JsiiProperty: "roleArn", GoGetter: "RoleArn"},
 			_jsii_.MemberProperty{JsiiProperty: "roleId", GoGetter: "RoleId"},
 			_jsii_.MemberProperty{JsiiProperty: "roleName", GoGetter: "RoleName"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_LazyRole{}
@@ -1246,11 +1127,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iam.LazyRoleProps",
+		"aws-cdk-lib.aws_iam.LazyRoleProps",
 		reflect.TypeOf((*LazyRoleProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_iam.ManagedPolicy",
+		"aws-cdk-lib.aws_iam.ManagedPolicy",
 		reflect.TypeOf((*ManagedPolicy)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addStatements", GoMethod: "AddStatements"},
@@ -1267,16 +1148,10 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "managedPolicyArn", GoGetter: "ManagedPolicyArn"},
 			_jsii_.MemberProperty{JsiiProperty: "managedPolicyName", GoGetter: "ManagedPolicyName"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "path", GoGetter: "Path"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ManagedPolicy{}
@@ -1286,11 +1161,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iam.ManagedPolicyProps",
+		"aws-cdk-lib.aws_iam.ManagedPolicyProps",
 		reflect.TypeOf((*ManagedPolicyProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_iam.OpenIdConnectPrincipal",
+		"aws-cdk-lib.aws_iam.OpenIdConnectPrincipal",
 		reflect.TypeOf((*OpenIdConnectPrincipal)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addToAssumeRolePolicy", GoMethod: "AddToAssumeRolePolicy"},
@@ -1314,7 +1189,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_iam.OpenIdConnectProvider",
+		"aws-cdk-lib.aws_iam.OpenIdConnectProvider",
 		reflect.TypeOf((*OpenIdConnectProvider)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -1323,17 +1198,11 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "openIdConnectProviderArn", GoGetter: "OpenIdConnectProviderArn"},
 			_jsii_.MemberProperty{JsiiProperty: "openIdConnectProviderIssuer", GoGetter: "OpenIdConnectProviderIssuer"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_OpenIdConnectProvider{}
@@ -1343,11 +1212,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iam.OpenIdConnectProviderProps",
+		"aws-cdk-lib.aws_iam.OpenIdConnectProviderProps",
 		reflect.TypeOf((*OpenIdConnectProviderProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_iam.OrganizationPrincipal",
+		"aws-cdk-lib.aws_iam.OrganizationPrincipal",
 		reflect.TypeOf((*OrganizationPrincipal)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addToAssumeRolePolicy", GoMethod: "AddToAssumeRolePolicy"},
@@ -1370,7 +1239,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_iam.PermissionsBoundary",
+		"aws-cdk-lib.aws_iam.PermissionsBoundary",
 		reflect.TypeOf((*PermissionsBoundary)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "apply", GoMethod: "Apply"},
@@ -1381,7 +1250,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_iam.Policy",
+		"aws-cdk-lib.aws_iam.Policy",
 		reflect.TypeOf((*Policy)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addStatements", GoMethod: "AddStatements"},
@@ -1395,16 +1264,10 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "policyName", GoGetter: "PolicyName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_Policy{}
@@ -1414,7 +1277,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_iam.PolicyDocument",
+		"aws-cdk-lib.aws_iam.PolicyDocument",
 		reflect.TypeOf((*PolicyDocument)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addStatements", GoMethod: "AddStatements"},
@@ -1435,15 +1298,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iam.PolicyDocumentProps",
+		"aws-cdk-lib.aws_iam.PolicyDocumentProps",
 		reflect.TypeOf((*PolicyDocumentProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iam.PolicyProps",
+		"aws-cdk-lib.aws_iam.PolicyProps",
 		reflect.TypeOf((*PolicyProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_iam.PolicyStatement",
+		"aws-cdk-lib.aws_iam.PolicyStatement",
 		reflect.TypeOf((*PolicyStatement)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addAccountCondition", GoMethod: "AddAccountCondition"},
@@ -1479,11 +1342,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iam.PolicyStatementProps",
+		"aws-cdk-lib.aws_iam.PolicyStatementProps",
 		reflect.TypeOf((*PolicyStatementProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_iam.PrincipalBase",
+		"aws-cdk-lib.aws_iam.PrincipalBase",
 		reflect.TypeOf((*PrincipalBase)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addToAssumeRolePolicy", GoMethod: "AddToAssumeRolePolicy"},
@@ -1505,7 +1368,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_iam.PrincipalPolicyFragment",
+		"aws-cdk-lib.aws_iam.PrincipalPolicyFragment",
 		reflect.TypeOf((*PrincipalPolicyFragment)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "conditions", GoGetter: "Conditions"},
@@ -1516,7 +1379,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_iam.PrincipalWithConditions",
+		"aws-cdk-lib.aws_iam.PrincipalWithConditions",
 		reflect.TypeOf((*PrincipalWithConditions)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addCondition", GoMethod: "AddCondition"},
@@ -1541,7 +1404,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_iam.Role",
+		"aws-cdk-lib.aws_iam.Role",
 		reflect.TypeOf((*Role)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addManagedPolicy", GoMethod: "AddManagedPolicy"},
@@ -1559,21 +1422,15 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "grantPassRole", GoMethod: "GrantPassRole"},
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "permissionsBoundary", GoGetter: "PermissionsBoundary"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "policyFragment", GoGetter: "PolicyFragment"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "principalAccount", GoGetter: "PrincipalAccount"},
 			_jsii_.MemberProperty{JsiiProperty: "roleArn", GoGetter: "RoleArn"},
 			_jsii_.MemberProperty{JsiiProperty: "roleId", GoGetter: "RoleId"},
 			_jsii_.MemberProperty{JsiiProperty: "roleName", GoGetter: "RoleName"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "withoutPolicyUpdates", GoMethod: "WithoutPolicyUpdates"},
 		},
 		func() interface{} {
@@ -1584,11 +1441,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iam.RoleProps",
+		"aws-cdk-lib.aws_iam.RoleProps",
 		reflect.TypeOf((*RoleProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_iam.SamlConsolePrincipal",
+		"aws-cdk-lib.aws_iam.SamlConsolePrincipal",
 		reflect.TypeOf((*SamlConsolePrincipal)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addToAssumeRolePolicy", GoMethod: "AddToAssumeRolePolicy"},
@@ -1612,7 +1469,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_iam.SamlMetadataDocument",
+		"aws-cdk-lib.aws_iam.SamlMetadataDocument",
 		reflect.TypeOf((*SamlMetadataDocument)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "xml", GoGetter: "Xml"},
@@ -1622,7 +1479,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_iam.SamlPrincipal",
+		"aws-cdk-lib.aws_iam.SamlPrincipal",
 		reflect.TypeOf((*SamlPrincipal)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addToAssumeRolePolicy", GoMethod: "AddToAssumeRolePolicy"},
@@ -1646,7 +1503,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_iam.SamlProvider",
+		"aws-cdk-lib.aws_iam.SamlProvider",
 		reflect.TypeOf((*SamlProvider)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -1655,16 +1512,10 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "samlProviderArn", GoGetter: "SamlProviderArn"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_SamlProvider{}
@@ -1674,11 +1525,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iam.SamlProviderProps",
+		"aws-cdk-lib.aws_iam.SamlProviderProps",
 		reflect.TypeOf((*SamlProviderProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_iam.ServicePrincipal",
+		"aws-cdk-lib.aws_iam.ServicePrincipal",
 		reflect.TypeOf((*ServicePrincipal)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addToAssumeRolePolicy", GoMethod: "AddToAssumeRolePolicy"},
@@ -1701,11 +1552,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iam.ServicePrincipalOpts",
+		"aws-cdk-lib.aws_iam.ServicePrincipalOpts",
 		reflect.TypeOf((*ServicePrincipalOpts)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_iam.SessionTagsPrincipal",
+		"aws-cdk-lib.aws_iam.SessionTagsPrincipal",
 		reflect.TypeOf((*SessionTagsPrincipal)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addToAssumeRolePolicy", GoMethod: "AddToAssumeRolePolicy"},
@@ -1727,7 +1578,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_iam.StarPrincipal",
+		"aws-cdk-lib.aws_iam.StarPrincipal",
 		reflect.TypeOf((*StarPrincipal)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addToAssumeRolePolicy", GoMethod: "AddToAssumeRolePolicy"},
@@ -1749,7 +1600,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_iam.UnknownPrincipal",
+		"aws-cdk-lib.aws_iam.UnknownPrincipal",
 		reflect.TypeOf((*UnknownPrincipal)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
@@ -1765,11 +1616,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iam.UnknownPrincipalProps",
+		"aws-cdk-lib.aws_iam.UnknownPrincipalProps",
 		reflect.TypeOf((*UnknownPrincipalProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_iam.User",
+		"aws-cdk-lib.aws_iam.User",
 		reflect.TypeOf((*User)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addManagedPolicy", GoMethod: "AddManagedPolicy"},
@@ -1785,20 +1636,14 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "permissionsBoundary", GoGetter: "PermissionsBoundary"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "policyFragment", GoGetter: "PolicyFragment"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "principalAccount", GoGetter: "PrincipalAccount"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "userArn", GoGetter: "UserArn"},
 			_jsii_.MemberProperty{JsiiProperty: "userName", GoGetter: "UserName"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_User{}
@@ -1809,15 +1654,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iam.UserAttributes",
+		"aws-cdk-lib.aws_iam.UserAttributes",
 		reflect.TypeOf((*UserAttributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iam.UserProps",
+		"aws-cdk-lib.aws_iam.UserProps",
 		reflect.TypeOf((*UserProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_iam.WebIdentityPrincipal",
+		"aws-cdk-lib.aws_iam.WebIdentityPrincipal",
 		reflect.TypeOf((*WebIdentityPrincipal)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addToAssumeRolePolicy", GoMethod: "AddToAssumeRolePolicy"},
@@ -1841,7 +1686,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iam.WithoutPolicyUpdatesOptions",
+		"aws-cdk-lib.aws_iam.WithoutPolicyUpdatesOptions",
 		reflect.TypeOf((*WithoutPolicyUpdatesOptions)(nil)).Elem(),
 	)
 }
