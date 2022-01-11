@@ -383,6 +383,10 @@ type WebSocketLambdaAuthorizerProps struct {
 	// Experimental.
 	AuthorizerName *string `json:"authorizerName"`
 	// The identity source for which authorization is requested.
+	//
+	// Request parameter match `'route.request.querystring|header.[a-zA-z0-9._-]+'`.
+	// Staged variable match `'stageVariables.[a-zA-Z0-9._-]+'`.
+	// Context parameter match `'context.[a-zA-Z0-9._-]+'`.
 	// Experimental.
 	IdentitySource *[]*string `json:"identitySource"`
 }

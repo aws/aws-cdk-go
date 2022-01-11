@@ -107,16 +107,9 @@ func init() {
 			return &j
 		},
 	)
-	_jsii_.RegisterInterface(
+	_jsii_.RegisterStruct(
 		"monocdk.aws_waf.CfnIPSet.IPSetDescriptorProperty",
 		reflect.TypeOf((*CfnIPSet_IPSetDescriptorProperty)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
-			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
-		},
-		func() interface{} {
-			return &jsiiProxy_CfnIPSet_IPSetDescriptorProperty{}
-		},
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_waf.CfnIPSetProps",

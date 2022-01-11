@@ -1049,6 +1049,14 @@ func init() {
 		"monocdk.aws_ecs.ContainerImageConfig",
 		reflect.TypeOf((*ContainerImageConfig)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"monocdk.aws_ecs.CpuArchitecture",
+		reflect.TypeOf((*CpuArchitecture)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_CpuArchitecture{}
+		},
+	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_ecs.CpuUtilizationScalingProps",
 		reflect.TypeOf((*CpuUtilizationScalingProps)(nil)).Elem(),
@@ -2076,6 +2084,14 @@ func init() {
 			"NAT": NetworkMode_NAT,
 		},
 	)
+	_jsii_.RegisterClass(
+		"monocdk.aws_ecs.OperatingSystemFamily",
+		reflect.TypeOf((*OperatingSystemFamily)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_OperatingSystemFamily{}
+		},
+	)
 	_jsii_.RegisterEnum(
 		"monocdk.aws_ecs.PidMode",
 		reflect.TypeOf((*PidMode)(nil)).Elem(),
@@ -2162,6 +2178,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_ecs.RequestCountScalingProps",
 		reflect.TypeOf((*RequestCountScalingProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_ecs.RuntimePlatform",
+		reflect.TypeOf((*RuntimePlatform)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"monocdk.aws_ecs.S3EnvironmentFile",

@@ -219,6 +219,7 @@ type Bucket interface {
 	AddToResourcePolicy(permission awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	ArnForObjects(keyPattern *string) *string
+	EnableEventBridgeNotification()
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
@@ -716,6 +717,15 @@ func (b *jsiiProxy_Bucket) ArnForObjects(keyPattern *string) *string {
 	)
 
 	return returns
+}
+
+// Experimental.
+func (b *jsiiProxy_Bucket) EnableEventBridgeNotification() {
+	_jsii_.InvokeVoid(
+		b,
+		"enableEventBridgeNotification",
+		nil, // no parameters
+	)
 }
 
 // Experimental.
@@ -1314,6 +1324,7 @@ type BucketBase interface {
 	AddToResourcePolicy(permission awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	ArnForObjects(keyPattern *string) *string
+	EnableEventBridgeNotification()
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
@@ -1696,6 +1707,15 @@ func (b *jsiiProxy_BucketBase) ArnForObjects(keyPattern *string) *string {
 	)
 
 	return returns
+}
+
+// Experimental.
+func (b *jsiiProxy_BucketBase) EnableEventBridgeNotification() {
+	_jsii_.InvokeVoid(
+		b,
+		"enableEventBridgeNotification",
+		nil, // no parameters
+	)
 }
 
 // Experimental.
@@ -2633,6 +2653,9 @@ type BucketProps struct {
 	//
 	// Experimental.
 	EnforceSSL *bool `json:"enforceSSL"`
+	// Whether this bucket should send notifications to Amazon EventBridge or not.
+	// Experimental.
+	EventBridgeEnabled *bool `json:"eventBridgeEnabled"`
 	// Inteligent Tiering Configurations.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/userguide/intelligent-tiering.html
 	//
@@ -4708,7 +4731,7 @@ type CfnBucket_EncryptionConfigurationProperty struct {
 
 // Amazon S3 can send events to Amazon EventBridge whenever certain events happen in your bucket, see [Using EventBridge](https://docs.aws.amazon.com/AmazonS3/latest/userguide/EventBridge.html) in the *Amazon S3 User Guide* .
 //
-// Unlike other destinations, delivery of events to EventBridge can be either enabled or disabled for a bucket. If enabled, all events will be sent to EventBridge and you can use EventBridge rules and filters to route events to additional targets. For more information, see [What Is Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html) in the *Amazon EventBridge User Guide*
+// Unlike other destinations, delivery of events to EventBridge can be either enabled or disabled for a bucket. If enabled, all events will be sent to EventBridge and you can use EventBridge rules to route events to additional targets. For more information, see [What Is Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html) in the *Amazon EventBridge User Guide*
 //
 // TODO: EXAMPLE
 //

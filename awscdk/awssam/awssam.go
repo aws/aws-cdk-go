@@ -1819,6 +1819,8 @@ type CfnApplicationProps struct {
 type CfnFunction interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	Architectures() *[]*string
+	SetArchitectures(val *[]*string)
 	AssumeRolePolicyDocument() interface{}
 	SetAssumeRolePolicyDocument(val interface{})
 	AutoPublishAlias() *string
@@ -1918,6 +1920,16 @@ type CfnFunction interface {
 type jsiiProxy_CfnFunction struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnFunction) Architectures() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"architectures",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnFunction) AssumeRolePolicyDocument() interface{} {
@@ -2354,6 +2366,14 @@ func NewCfnFunction_Override(c CfnFunction, scope awscdk.Construct, id *string, 
 		"monocdk.aws_sam.CfnFunction",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnFunction) SetArchitectures(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"architectures",
+		val,
 	)
 }
 
@@ -3257,24 +3277,11 @@ type CfnFunction_FunctionSAMPTProperty struct {
 	FunctionName *string `json:"functionName"`
 }
 
-type CfnFunction_IAMPolicyDocumentProperty interface {
+// TODO: EXAMPLE
+//
+type CfnFunction_IAMPolicyDocumentProperty struct {
 	// `CfnFunction.IAMPolicyDocumentProperty.Statement`.
-	Statement() interface{}
-}
-
-// The jsii proxy for CfnFunction_IAMPolicyDocumentProperty
-type jsiiProxy_CfnFunction_IAMPolicyDocumentProperty struct {
-	_ byte // padding
-}
-
-func (j *jsiiProxy_CfnFunction_IAMPolicyDocumentProperty) Statement() interface{} {
-	var returns interface{}
-	_jsii_.Get(
-		j,
-		"statement",
-		&returns,
-	)
-	return returns
+	Statement interface{} `json:"statement"`
 }
 
 // TODO: EXAMPLE
@@ -3533,6 +3540,8 @@ type CfnFunction_VpcConfigProperty struct {
 // TODO: EXAMPLE
 //
 type CfnFunctionProps struct {
+	// `AWS::Serverless::Function.Architectures`.
+	Architectures *[]*string `json:"architectures"`
 	// `AWS::Serverless::Function.AssumeRolePolicyDocument`.
 	AssumeRolePolicyDocument interface{} `json:"assumeRolePolicyDocument"`
 	// `AWS::Serverless::Function.AutoPublishAlias`.
@@ -6903,24 +6912,11 @@ type CfnStateMachine_FunctionSAMPTProperty struct {
 	FunctionName *string `json:"functionName"`
 }
 
-type CfnStateMachine_IAMPolicyDocumentProperty interface {
+// TODO: EXAMPLE
+//
+type CfnStateMachine_IAMPolicyDocumentProperty struct {
 	// `CfnStateMachine.IAMPolicyDocumentProperty.Statement`.
-	Statement() interface{}
-}
-
-// The jsii proxy for CfnStateMachine_IAMPolicyDocumentProperty
-type jsiiProxy_CfnStateMachine_IAMPolicyDocumentProperty struct {
-	_ byte // padding
-}
-
-func (j *jsiiProxy_CfnStateMachine_IAMPolicyDocumentProperty) Statement() interface{} {
-	var returns interface{}
-	_jsii_.Get(
-		j,
-		"statement",
-		&returns,
-	)
-	return returns
+	Statement interface{} `json:"statement"`
 }
 
 // TODO: EXAMPLE

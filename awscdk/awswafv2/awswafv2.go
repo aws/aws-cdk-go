@@ -3159,7 +3159,10 @@ type CfnRuleGroup_GeoMatchStatementProperty struct {
 // > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
 //
 // This configuration is used only for `IPSetReferenceStatement` . For `GeoMatchStatement` and `RateBasedStatement` , use `ForwardedIPConfig` instead.
-type CfnRuleGroup_IPSetForwardedIPConfigurationProperty interface {
+//
+// TODO: EXAMPLE
+//
+type CfnRuleGroup_IPSetForwardedIPConfigurationProperty struct {
 	// The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
 	//
 	// > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
@@ -3168,13 +3171,13 @@ type CfnRuleGroup_IPSetForwardedIPConfigurationProperty interface {
 	//
 	// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
 	// - `NO_MATCH` - Treat the web request as not matching the rule statement.
-	FallbackBehavior() *string
+	FallbackBehavior *string `json:"fallbackBehavior"`
 	// The name of the HTTP header to use for the IP address.
 	//
 	// For example, to use the X-Forwarded-For (XFF) header, set this to `X-Forwarded-For` .
 	//
 	// > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-	HeaderName() *string
+	HeaderName *string `json:"headerName"`
 	// The position in the header to search for the IP address.
 	//
 	// The header can contain IP addresses of the original client and also of proxies. For example, the header value could be `10.1.1.1, 127.0.0.0, 10.10.10.10` where the first IP address identifies the original client and the rest identify proxies that the request went through.
@@ -3184,42 +3187,7 @@ type CfnRuleGroup_IPSetForwardedIPConfigurationProperty interface {
 	// - FIRST - Inspect the first IP address in the list of IP addresses in the header. This is usually the client's original IP.
 	// - LAST - Inspect the last IP address in the list of IP addresses in the header.
 	// - ANY - Inspect all IP addresses in the header for a match. If the header contains more than 10 IP addresses, AWS WAF inspects the last 10.
-	Position() *string
-}
-
-// The jsii proxy for CfnRuleGroup_IPSetForwardedIPConfigurationProperty
-type jsiiProxy_CfnRuleGroup_IPSetForwardedIPConfigurationProperty struct {
-	_ byte // padding
-}
-
-func (j *jsiiProxy_CfnRuleGroup_IPSetForwardedIPConfigurationProperty) FallbackBehavior() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"fallbackBehavior",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnRuleGroup_IPSetForwardedIPConfigurationProperty) HeaderName() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"headerName",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnRuleGroup_IPSetForwardedIPConfigurationProperty) Position() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"position",
-		&returns,
-	)
-	return returns
+	Position *string `json:"position"`
 }
 
 // A rule statement used to detect web requests coming from particular IP addresses or address ranges.
@@ -3227,40 +3195,18 @@ func (j *jsiiProxy_CfnRuleGroup_IPSetForwardedIPConfigurationProperty) Position(
 // To use this, create an `IPSet` that specifies the addresses you want to detect, then use the ARN of that set in this statement.
 //
 // Each IP set rule statement references an IP set. You create and maintain the set independent of your rules. This allows you to use the single set in multiple rules. When you update the referenced set, AWS WAF automatically updates all rules that reference it.
-type CfnRuleGroup_IPSetReferenceStatementProperty interface {
+//
+// TODO: EXAMPLE
+//
+type CfnRuleGroup_IPSetReferenceStatementProperty struct {
 	// The Amazon Resource Name (ARN) of the `IPSet` that this statement references.
-	Arn() *string
+	Arn *string `json:"arn"`
 	// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin.
 	//
 	// Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
 	//
 	// > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-	IpSetForwardedIpConfig() interface{}
-}
-
-// The jsii proxy for CfnRuleGroup_IPSetReferenceStatementProperty
-type jsiiProxy_CfnRuleGroup_IPSetReferenceStatementProperty struct {
-	_ byte // padding
-}
-
-func (j *jsiiProxy_CfnRuleGroup_IPSetReferenceStatementProperty) Arn() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"arn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnRuleGroup_IPSetReferenceStatementProperty) IpSetForwardedIpConfig() interface{} {
-	var returns interface{}
-	_jsii_.Get(
-		j,
-		"ipSetForwardedIpConfig",
-		&returns,
-	)
-	return returns
+	IpSetForwardedIpConfig interface{} `json:"ipSetForwardedIpConfig"`
 }
 
 // Determines how long a `CAPTCHA` token remains valid after the client successfully solves a `CAPTCHA` puzzle.
@@ -4944,7 +4890,10 @@ type CfnWebACL_GeoMatchStatementProperty struct {
 // > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
 //
 // This configuration is used only for `IPSetReferenceStatement` . For `GeoMatchStatement` and `RateBasedStatement` , use `ForwardedIPConfig` instead.
-type CfnWebACL_IPSetForwardedIPConfigurationProperty interface {
+//
+// TODO: EXAMPLE
+//
+type CfnWebACL_IPSetForwardedIPConfigurationProperty struct {
 	// The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
 	//
 	// > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
@@ -4953,13 +4902,13 @@ type CfnWebACL_IPSetForwardedIPConfigurationProperty interface {
 	//
 	// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
 	// - `NO_MATCH` - Treat the web request as not matching the rule statement.
-	FallbackBehavior() *string
+	FallbackBehavior *string `json:"fallbackBehavior"`
 	// The name of the HTTP header to use for the IP address.
 	//
 	// For example, to use the X-Forwarded-For (XFF) header, set this to `X-Forwarded-For` .
 	//
 	// > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-	HeaderName() *string
+	HeaderName *string `json:"headerName"`
 	// The position in the header to search for the IP address.
 	//
 	// The header can contain IP addresses of the original client and also of proxies. For example, the header value could be `10.1.1.1, 127.0.0.0, 10.10.10.10` where the first IP address identifies the original client and the rest identify proxies that the request went through.
@@ -4969,42 +4918,7 @@ type CfnWebACL_IPSetForwardedIPConfigurationProperty interface {
 	// - FIRST - Inspect the first IP address in the list of IP addresses in the header. This is usually the client's original IP.
 	// - LAST - Inspect the last IP address in the list of IP addresses in the header.
 	// - ANY - Inspect all IP addresses in the header for a match. If the header contains more than 10 IP addresses, AWS WAF inspects the last 10.
-	Position() *string
-}
-
-// The jsii proxy for CfnWebACL_IPSetForwardedIPConfigurationProperty
-type jsiiProxy_CfnWebACL_IPSetForwardedIPConfigurationProperty struct {
-	_ byte // padding
-}
-
-func (j *jsiiProxy_CfnWebACL_IPSetForwardedIPConfigurationProperty) FallbackBehavior() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"fallbackBehavior",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnWebACL_IPSetForwardedIPConfigurationProperty) HeaderName() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"headerName",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnWebACL_IPSetForwardedIPConfigurationProperty) Position() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"position",
-		&returns,
-	)
-	return returns
+	Position *string `json:"position"`
 }
 
 // A rule statement used to detect web requests coming from particular IP addresses or address ranges.
@@ -5012,40 +4926,18 @@ func (j *jsiiProxy_CfnWebACL_IPSetForwardedIPConfigurationProperty) Position() *
 // To use this, create an `IPSet` that specifies the addresses you want to detect, then use the ARN of that set in this statement.
 //
 // Each IP set rule statement references an IP set. You create and maintain the set independent of your rules. This allows you to use the single set in multiple rules. When you update the referenced set, AWS WAF automatically updates all rules that reference it.
-type CfnWebACL_IPSetReferenceStatementProperty interface {
+//
+// TODO: EXAMPLE
+//
+type CfnWebACL_IPSetReferenceStatementProperty struct {
 	// The Amazon Resource Name (ARN) of the IP set that this statement references.
-	Arn() *string
+	Arn *string `json:"arn"`
 	// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin.
 	//
 	// Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
 	//
 	// > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-	IpSetForwardedIpConfig() interface{}
-}
-
-// The jsii proxy for CfnWebACL_IPSetReferenceStatementProperty
-type jsiiProxy_CfnWebACL_IPSetReferenceStatementProperty struct {
-	_ byte // padding
-}
-
-func (j *jsiiProxy_CfnWebACL_IPSetReferenceStatementProperty) Arn() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"arn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnWebACL_IPSetReferenceStatementProperty) IpSetForwardedIpConfig() interface{} {
-	var returns interface{}
-	_jsii_.Get(
-		j,
-		"ipSetForwardedIpConfig",
-		&returns,
-	)
-	return returns
+	IpSetForwardedIpConfig interface{} `json:"ipSetForwardedIpConfig"`
 }
 
 // Determines how long a `CAPTCHA` token remains valid after the client successfully solves a `CAPTCHA` puzzle.

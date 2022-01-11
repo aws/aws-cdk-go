@@ -2977,7 +2977,7 @@ type CfnCapacityProvider_AutoScalingGroupProviderProperty struct {
 	ManagedScaling interface{} `json:"managedScaling"`
 	// The managed termination protection setting to use for the Auto Scaling group capacity provider.
 	//
-	// This determines whether the Auto Scaling group has managed termination protection.
+	// This determines whether the Auto Scaling group has managed termination protection. The default is disabled.
 	//
 	// > When using managed termination protection, managed scaling must also be used otherwise managed termination protection doesn't work.
 	//
@@ -7610,7 +7610,9 @@ type CfnTaskDefinition_ContainerDefinitionProperty struct {
 	//
 	// If using the EC2 launch type, you must specify either a task-level memory value or a container-level memory value. If you specify both a container-level `memory` and `memoryReservation` value, `memory` must be greater than `memoryReservation` . If you specify `memoryReservation` , then that value is subtracted from the available memory resources for the container instance where the container is placed. Otherwise, the value of `memory` is used.
 	//
-	// The Docker daemon reserves a minimum of 4 MiB of memory for a container. Therefore, we recommend that you specify fewer than 4 MiB of memory for your containers.
+	// The Docker 20.10.0 or later daemon reserves a minimum of 6 MiB of memory for a container, so you should not specify fewer than 6 MiB of memory for your containers.
+	//
+	// The Docker 19.03.13-ce or earlier daemon reserves a minimum of 4 MiB of memory for a container, so you should not specify fewer than 4 MiB of memory for your containers.
 	Memory *float64 `json:"memory"`
 	// The soft limit (in MiB) of memory to reserve for the container.
 	//
@@ -8186,10 +8188,14 @@ type CfnTaskDefinition_ResourceRequirementProperty struct {
 
 // Information about the platform for the Amazon ECS service or task.
 //
+// For more informataion about `RuntimePlatform` , see [RuntimePlatform](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform) in the *Amazon Elastic Container Service Developer Guide* .
+//
 // TODO: EXAMPLE
 //
 type CfnTaskDefinition_RuntimePlatformProperty struct {
 	// The CPU architecture.
+	//
+	// You can run your Linux tasks on an ARM-based platform by setting the value to `ARM64` . This option is avaiable for tasks that run on Linuc Amazon EC2 instance or Linux containers on Fargate.
 	CpuArchitecture *string `json:"cpuArchitecture"`
 	// The operating system.
 	OperatingSystemFamily *string `json:"operatingSystemFamily"`
@@ -11127,6 +11133,60 @@ type ContainerImageConfig struct {
 	// Specifies the credentials used to access the image repository.
 	// Experimental.
 	RepositoryCredentials *CfnTaskDefinition_RepositoryCredentialsProperty `json:"repositoryCredentials"`
+}
+
+// The CpuArchitecture for Fargate Runtime Platform.
+//
+// TODO: EXAMPLE
+//
+// Experimental.
+type CpuArchitecture interface {
+}
+
+// The jsii proxy struct for CpuArchitecture
+type jsiiProxy_CpuArchitecture struct {
+	_ byte // padding
+}
+
+// Other cpu architecture.
+// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-runtimeplatform.html#cfn-ecs-taskdefinition-runtimeplatform-cpuarchitecture for all available cpu architecture.
+//
+// Experimental.
+func CpuArchitecture_Of(cpuArchitecture *string) CpuArchitecture {
+	_init_.Initialize()
+
+	var returns CpuArchitecture
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_ecs.CpuArchitecture",
+		"of",
+		[]interface{}{cpuArchitecture},
+		&returns,
+	)
+
+	return returns
+}
+
+func CpuArchitecture_ARM64() CpuArchitecture {
+	_init_.Initialize()
+	var returns CpuArchitecture
+	_jsii_.StaticGet(
+		"monocdk.aws_ecs.CpuArchitecture",
+		"ARM64",
+		&returns,
+	)
+	return returns
+}
+
+func CpuArchitecture_X86_64() CpuArchitecture {
+	_init_.Initialize()
+	var returns CpuArchitecture
+	_jsii_.StaticGet(
+		"monocdk.aws_ecs.CpuArchitecture",
+		"X86_64",
+		&returns,
+	)
+	return returns
 }
 
 // The properties for enabling scaling based on CPU utilization.
@@ -16578,6 +16638,11 @@ type FargateTaskDefinitionProps struct {
 	// Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) - Available cpu values: 4096 (4 vCPU)
 	// Experimental.
 	MemoryLimitMiB *float64 `json:"memoryLimitMiB"`
+	// The operating system that your task definitions are running on.
+	//
+	// A runtimePlatform is supported only for tasks using the Fargate launch type.
+	// Experimental.
+	RuntimePlatform *RuntimePlatform `json:"runtimePlatform"`
 }
 
 // FireLens enables you to use task definition parameters to route logs to an AWS service   or AWS Partner Network (APN) destination for log storage and analytics.
@@ -19434,6 +19499,126 @@ const (
 	NetworkMode_NAT NetworkMode = "NAT"
 )
 
+// The operating system for Fargate Runtime Platform.
+//
+// TODO: EXAMPLE
+//
+// Experimental.
+type OperatingSystemFamily interface {
+}
+
+// The jsii proxy struct for OperatingSystemFamily
+type jsiiProxy_OperatingSystemFamily struct {
+	_ byte // padding
+}
+
+// Other operating system family.
+// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-runtimeplatform.html#cfn-ecs-taskdefinition-runtimeplatform-operatingsystemfamily for all available operating system family.
+//
+// Experimental.
+func OperatingSystemFamily_Of(family *string) OperatingSystemFamily {
+	_init_.Initialize()
+
+	var returns OperatingSystemFamily
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_ecs.OperatingSystemFamily",
+		"of",
+		[]interface{}{family},
+		&returns,
+	)
+
+	return returns
+}
+
+func OperatingSystemFamily_LINUX() OperatingSystemFamily {
+	_init_.Initialize()
+	var returns OperatingSystemFamily
+	_jsii_.StaticGet(
+		"monocdk.aws_ecs.OperatingSystemFamily",
+		"LINUX",
+		&returns,
+	)
+	return returns
+}
+
+func OperatingSystemFamily_WINDOWS_SERVER_2004_CORE() OperatingSystemFamily {
+	_init_.Initialize()
+	var returns OperatingSystemFamily
+	_jsii_.StaticGet(
+		"monocdk.aws_ecs.OperatingSystemFamily",
+		"WINDOWS_SERVER_2004_CORE",
+		&returns,
+	)
+	return returns
+}
+
+func OperatingSystemFamily_WINDOWS_SERVER_2016_FULL() OperatingSystemFamily {
+	_init_.Initialize()
+	var returns OperatingSystemFamily
+	_jsii_.StaticGet(
+		"monocdk.aws_ecs.OperatingSystemFamily",
+		"WINDOWS_SERVER_2016_FULL",
+		&returns,
+	)
+	return returns
+}
+
+func OperatingSystemFamily_WINDOWS_SERVER_2019_CORE() OperatingSystemFamily {
+	_init_.Initialize()
+	var returns OperatingSystemFamily
+	_jsii_.StaticGet(
+		"monocdk.aws_ecs.OperatingSystemFamily",
+		"WINDOWS_SERVER_2019_CORE",
+		&returns,
+	)
+	return returns
+}
+
+func OperatingSystemFamily_WINDOWS_SERVER_2019_FULL() OperatingSystemFamily {
+	_init_.Initialize()
+	var returns OperatingSystemFamily
+	_jsii_.StaticGet(
+		"monocdk.aws_ecs.OperatingSystemFamily",
+		"WINDOWS_SERVER_2019_FULL",
+		&returns,
+	)
+	return returns
+}
+
+func OperatingSystemFamily_WINDOWS_SERVER_2022_CORE() OperatingSystemFamily {
+	_init_.Initialize()
+	var returns OperatingSystemFamily
+	_jsii_.StaticGet(
+		"monocdk.aws_ecs.OperatingSystemFamily",
+		"WINDOWS_SERVER_2022_CORE",
+		&returns,
+	)
+	return returns
+}
+
+func OperatingSystemFamily_WINDOWS_SERVER_2022_FULL() OperatingSystemFamily {
+	_init_.Initialize()
+	var returns OperatingSystemFamily
+	_jsii_.StaticGet(
+		"monocdk.aws_ecs.OperatingSystemFamily",
+		"WINDOWS_SERVER_2022_FULL",
+		&returns,
+	)
+	return returns
+}
+
+func OperatingSystemFamily_WINDOWS_SERVER_20H2_CORE() OperatingSystemFamily {
+	_init_.Initialize()
+	var returns OperatingSystemFamily
+	_jsii_.StaticGet(
+		"monocdk.aws_ecs.OperatingSystemFamily",
+		"WINDOWS_SERVER_20H2_CORE",
+		&returns,
+	)
+	return returns
+}
+
 // The process namespace to use for the containers in the task.
 // Experimental.
 type PidMode string
@@ -20010,6 +20195,20 @@ type RequestCountScalingProps struct {
 	// The ALB target group name.
 	// Experimental.
 	TargetGroup awselasticloadbalancingv2.ApplicationTargetGroup `json:"targetGroup"`
+}
+
+// The interface for Runtime Platform.
+//
+// TODO: EXAMPLE
+//
+// Experimental.
+type RuntimePlatform struct {
+	// The CpuArchitecture for Fargate Runtime Platform.
+	// Experimental.
+	CpuArchitecture CpuArchitecture `json:"cpuArchitecture"`
+	// The operating system for Fargate Runtime Platform.
+	// Experimental.
+	OperatingSystemFamily OperatingSystemFamily `json:"operatingSystemFamily"`
 }
 
 // Environment file from S3.
@@ -21853,6 +22052,11 @@ type TaskDefinitionProps struct {
 	// Not supported in Fargate.
 	// Experimental.
 	PlacementConstraints *[]PlacementConstraint `json:"placementConstraints"`
+	// The operating system that your task definitions are running on.
+	//
+	// A runtimePlatform is supported only for tasks using the Fargate launch type.
+	// Experimental.
+	RuntimePlatform *RuntimePlatform `json:"runtimePlatform"`
 }
 
 // The details of a tmpfs mount for a container.

@@ -1466,7 +1466,7 @@ type CfnMap_MapConfigurationProperty struct {
 	//
 	// Valid styles: `VectorEsriStreets` , `VectorEsriTopographic` , `VectorEsriNavigation` , `VectorEsriDarkGrayCanvas` , `VectorEsriLightGrayCanvas` , `VectorHereBerlin` .
 	//
-	// > When using HERE as your data provider, and selecting the Style `VectorHereBerlin` , you may not use HERE Maps for Asset Management. See the [AWS Service Terms](https://docs.aws.amazon.com/service-terms/) for Amazon Location Service.
+	// > When using HERE as your data provider, and selecting the Style `VectorHereBerlin` , you may not use HERE Technologies maps for Asset Management. See the [AWS Service Terms](https://docs.aws.amazon.com/service-terms/) for Amazon Location Service.
 	Style *string `json:"style"`
 }
 
@@ -3728,7 +3728,7 @@ func (c *jsiiProxy_CfnTracker) ValidateProperties(_properties interface{}) {
 
 // A CloudFormation `AWS::Location::TrackerConsumer`.
 //
-// The `AWS::Location::TrackerConsumer` resource specifies an association between a geofence collection and a tracker resource. This allows the tracker resource to communicate location data to the linked geofence collection.
+// The `AWS::Location::TrackerConsumer` resource specifies an association between a geofence collection and a tracker resource. The geofence collection is referred to as the *consumer* of the tracker. This allows the tracker resource to communicate location data to the linked geofence collection.
 //
 // > Currently not supported — Cross-account configurations, such as creating associations between a tracker resource in one account and a geofence collection in another account.
 //
@@ -4344,9 +4344,7 @@ func (c *jsiiProxy_CfnTrackerConsumer) ValidateProperties(_properties interface{
 // TODO: EXAMPLE
 //
 type CfnTrackerConsumerProps struct {
-	// The Amazon Resource Name (ARN) for the geofence collection to be disassociated from the tracker resource.
-	//
-	// Used when you need to specify a resource across all AWS .
+	// The Amazon Resource Name (ARN) for the geofence collection that consumes the tracker resource updates.
 	//
 	// - Format example: `arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer`
 	ConsumerArn *string `json:"consumerArn"`

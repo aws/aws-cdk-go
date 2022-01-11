@@ -280,15 +280,9 @@ func init() {
 		"monocdk.aws_networkfirewall.CfnRuleGroup.HeaderProperty",
 		reflect.TypeOf((*CfnRuleGroup_HeaderProperty)(nil)).Elem(),
 	)
-	_jsii_.RegisterInterface(
+	_jsii_.RegisterStruct(
 		"monocdk.aws_networkfirewall.CfnRuleGroup.IPSetProperty",
 		reflect.TypeOf((*CfnRuleGroup_IPSetProperty)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "definition", GoGetter: "Definition"},
-		},
-		func() interface{} {
-			return &jsiiProxy_CfnRuleGroup_IPSetProperty{}
-		},
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_networkfirewall.CfnRuleGroup.MatchAttributesProperty",

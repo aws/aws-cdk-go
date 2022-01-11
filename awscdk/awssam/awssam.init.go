@@ -164,6 +164,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "architectures", GoGetter: "Architectures"},
 			_jsii_.MemberProperty{JsiiProperty: "assumeRolePolicyDocument", GoGetter: "AssumeRolePolicyDocument"},
 			_jsii_.MemberProperty{JsiiProperty: "autoPublishAlias", GoGetter: "AutoPublishAlias"},
 			_jsii_.MemberProperty{JsiiProperty: "autoPublishCodeSha256", GoGetter: "AutoPublishCodeSha256"},
@@ -315,15 +316,9 @@ func init() {
 		"monocdk.aws_sam.CfnFunction.FunctionSAMPTProperty",
 		reflect.TypeOf((*CfnFunction_FunctionSAMPTProperty)(nil)).Elem(),
 	)
-	_jsii_.RegisterInterface(
+	_jsii_.RegisterStruct(
 		"monocdk.aws_sam.CfnFunction.IAMPolicyDocumentProperty",
 		reflect.TypeOf((*CfnFunction_IAMPolicyDocumentProperty)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "statement", GoGetter: "Statement"},
-		},
-		func() interface{} {
-			return &jsiiProxy_CfnFunction_IAMPolicyDocumentProperty{}
-		},
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_sam.CfnFunction.IdentitySAMPTProperty",
@@ -710,15 +705,9 @@ func init() {
 		"monocdk.aws_sam.CfnStateMachine.FunctionSAMPTProperty",
 		reflect.TypeOf((*CfnStateMachine_FunctionSAMPTProperty)(nil)).Elem(),
 	)
-	_jsii_.RegisterInterface(
+	_jsii_.RegisterStruct(
 		"monocdk.aws_sam.CfnStateMachine.IAMPolicyDocumentProperty",
 		reflect.TypeOf((*CfnStateMachine_IAMPolicyDocumentProperty)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "statement", GoGetter: "Statement"},
-		},
-		func() interface{} {
-			return &jsiiProxy_CfnStateMachine_IAMPolicyDocumentProperty{}
-		},
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_sam.CfnStateMachine.LogDestinationProperty",

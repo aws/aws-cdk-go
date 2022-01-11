@@ -12081,6 +12081,9 @@ type OriginProps struct {
 }
 
 // Defines what protocols CloudFront will use to connect to an origin.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type OriginProtocolPolicy string
 

@@ -2087,7 +2087,7 @@ type CfnGlobalReplicationGroup_GlobalReplicationGroupMemberProperty struct {
 	ReplicationGroupId *string `json:"replicationGroupId"`
 	// The Amazon region of the Global datastore member.
 	ReplicationGroupRegion *string `json:"replicationGroupRegion"`
-	// Indicates the role of the replication group, primary or secondary.
+	// Indicates the role of the replication group, `PRIMARY` or `SECONDARY` .
 	Role *string `json:"role"`
 }
 

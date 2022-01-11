@@ -3203,24 +3203,12 @@ type CfnRuleGroup_HeaderProperty struct {
 // A list of IP addresses and address ranges, in CIDR notation.
 //
 // This is part of a `RuleGroup.RuleVariables` .
-type CfnRuleGroup_IPSetProperty interface {
+//
+// TODO: EXAMPLE
+//
+type CfnRuleGroup_IPSetProperty struct {
 	// The list of IP addresses and address ranges, in CIDR notation.
-	Definition() *[]*string
-}
-
-// The jsii proxy for CfnRuleGroup_IPSetProperty
-type jsiiProxy_CfnRuleGroup_IPSetProperty struct {
-	_ byte // padding
-}
-
-func (j *jsiiProxy_CfnRuleGroup_IPSetProperty) Definition() *[]*string {
-	var returns *[]*string
-	_jsii_.Get(
-		j,
-		"definition",
-		&returns,
-	)
-	return returns
+	Definition *[]*string `json:"definition"`
 }
 
 // Criteria for Network Firewall to use to inspect an individual packet in stateless rule inspection.

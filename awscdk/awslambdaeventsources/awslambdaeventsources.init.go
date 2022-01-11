@@ -26,7 +26,12 @@ func init() {
 			"SASL_SCRAM_512_AUTH": AuthenticationMethod_SASL_SCRAM_512_AUTH,
 			"SASL_SCRAM_256_AUTH": AuthenticationMethod_SASL_SCRAM_256_AUTH,
 			"BASIC_AUTH": AuthenticationMethod_BASIC_AUTH,
+			"CLIENT_CERTIFICATE_TLS_AUTH": AuthenticationMethod_CLIENT_CERTIFICATE_TLS_AUTH,
 		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_lambda_event_sources.BaseStreamEventSourceProps",
+		reflect.TypeOf((*BaseStreamEventSourceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"monocdk.aws_lambda_event_sources.DynamoEventSource",

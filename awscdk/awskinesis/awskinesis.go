@@ -2916,6 +2916,8 @@ type StreamProps struct {
 	// Experimental.
 	RetentionPeriod awscdk.Duration `json:"retentionPeriod"`
 	// The number of shards for the stream.
+	//
+	// Can only be provided if streamMode is Provisioned.
 	// Experimental.
 	ShardCount *float64 `json:"shardCount"`
 	// The capacity mode of this stream.

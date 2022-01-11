@@ -3153,9 +3153,11 @@ type CfnCapacityReservationProps struct {
 	//
 	// Default: `open`
 	InstanceMatchCriteria *string `json:"instanceMatchCriteria"`
-	// The Amazon Resource Name (ARN) of the Outpost on which the Capacity Reservation was created.
+	// The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
 	OutPostArn *string `json:"outPostArn"`
-	// `AWS::EC2::CapacityReservation.PlacementGroupArn`.
+	// The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
+	//
+	// For more information, see [Capacity Reservations for cluster placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html) in the *Amazon EC2 User Guide* .
 	PlacementGroupArn *string `json:"placementGroupArn"`
 	// The tags to apply to the Capacity Reservation during launch.
 	TagSpecifications interface{} `json:"tagSpecifications"`
@@ -9382,9 +9384,13 @@ type CfnEC2Fleet_MemoryGiBPerVCpuRequestProperty struct {
 // TODO: EXAMPLE
 //
 type CfnEC2Fleet_MemoryMiBRequestProperty struct {
-	// `CfnEC2Fleet.MemoryMiBRequestProperty.Max`.
+	// The maximum amount of memory, in MiB.
+	//
+	// To specify no maximum limit, omit this parameter.
 	Max *float64 `json:"max"`
-	// `CfnEC2Fleet.MemoryMiBRequestProperty.Min`.
+	// The minimum amount of memory, in MiB.
+	//
+	// To specify no minimum limit, specify `0` .
 	Min *float64 `json:"min"`
 }
 
@@ -9643,7 +9649,7 @@ type CfnEC2FleetProps struct {
 	// - `request` - The EC2 Fleet places an asynchronous one-time request for your desired capacity, but does submit Spot requests in alternative capacity pools if Spot capacity is unavailable, and does not maintain Spot capacity if Spot Instances are interrupted.
 	// - `instant` - The EC2 Fleet places a synchronous one-time request for your desired capacity, and returns errors for any instances that could not be launched.
 	//
-	// For more information, see [EC2 Fleet request types](https://docs.aws.amazon.com/https://docs.aws.amazon.com/ec2-fleet-request-type.html) in the *Amazon EC2 User Guide* .
+	// For more information, see [EC2 Fleet request types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-request-type.html) in the *Amazon EC2 User Guide* .
 	Type *string `json:"type"`
 	// The start date and time of the request, in UTC format (for example, *YYYY* - *MM* - *DD* T *HH* : *MM* : *SS* Z).
 	//
@@ -13149,7 +13155,7 @@ type CfnFlowLogProps struct {
 	//
 	// Default: 600
 	MaxAggregationInterval *float64 `json:"maxAggregationInterval"`
-	// The tags for the flow log.
+	// The tags to apply to the flow logs.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
@@ -15154,8 +15160,6 @@ type CfnIPAM_IpamOperatingRegionProperty struct {
 
 // A CloudFormation `AWS::EC2::IPAMAllocation`.
 //
-// In IPAM, an allocation is a CIDR assignment from an IPAM pool to another resource or IPAM pool.
-//
 // TODO: EXAMPLE
 //
 type CfnIPAMAllocation interface {
@@ -15828,7 +15832,7 @@ type CfnIPAMAllocationProps struct {
 	//
 	// Possible values: Any available IPv4 or IPv6 CIDR.
 	Cidr *string `json:"cidr"`
-	// A description for the allocation.
+	// A description of the pool allocation.
 	Description *string `json:"description"`
 	// The netmask length of the CIDR you would like to allocate from the IPAM pool. Note the following:.
 	//
@@ -16749,16 +16753,10 @@ func (c *jsiiProxy_CfnIPAMPool) ValidateProperties(_properties interface{}) {
 	)
 }
 
-// The CIDR provisioned to the IPAM pool.
-//
-// A CIDR is a representation of an IP address and its associated network mask (or netmask) and refers to a range of IP addresses. An IPv4 CIDR example is `10.24.34.0/23` . An IPv6 CIDR example is `2001:DB8::/32` .
-//
 // TODO: EXAMPLE
 //
 type CfnIPAMPool_ProvisionedCidrProperty struct {
-	// The CIDR provisioned to the IPAM pool.
-	//
-	// A CIDR is a representation of an IP address and its associated network mask (or netmask) and refers to a range of IP addresses. An IPv4 CIDR example is `10.24.34.0/23` . An IPv6 CIDR example is `2001:DB8::/32` .
+	// `CfnIPAMPool.ProvisionedCidrProperty.Cidr`.
 	Cidr *string `json:"cidr"`
 }
 
@@ -16769,7 +16767,7 @@ type CfnIPAMPool_ProvisionedCidrProperty struct {
 type CfnIPAMPoolProps struct {
 	// The address family of the pool.
 	AddressFamily *string `json:"addressFamily"`
-	// The ID of the scope in which you would like to create the IPAM pool.
+	// `AWS::EC2::IPAMPool.IpamScopeId`.
 	IpamScopeId *string `json:"ipamScopeId"`
 	// The default netmask length for allocations added to this pool.
 	//
@@ -16799,7 +16797,7 @@ type CfnIPAMPoolProps struct {
 	//
 	// In IPAM, the locale is the AWS Region where you want to make an IPAM pool available for allocations. Only resources in the same Region as the locale of the pool can get IP address allocations from the pool. You can only allocate a CIDR for a VPC, for example, from an IPAM pool that shares a locale with the VPC’s Region. Note that once you choose a Locale for a pool, you cannot modify it. If you choose an AWS Region for locale that has not been configured as an operating Region for the IPAM, you'll get an error.
 	Locale *string `json:"locale"`
-	// Information about the CIDRs provisioned to an IPAM pool.
+	// `AWS::EC2::IPAMPool.ProvisionedCidrs`.
 	ProvisionedCidrs interface{} `json:"provisionedCidrs"`
 	// Determines if a pool is publicly advertisable.
 	//
@@ -17538,7 +17536,7 @@ func (c *jsiiProxy_CfnIPAMScope) ValidateProperties(_properties interface{}) {
 // TODO: EXAMPLE
 //
 type CfnIPAMScopeProps struct {
-	// The ID of the IPAM for which you're creating this scope.
+	// `AWS::EC2::IPAMScope.IpamId`.
 	IpamId *string `json:"ipamId"`
 	// The description of the scope.
 	Description *string `json:"description"`
@@ -19443,7 +19441,7 @@ type CfnInstanceProps struct {
 	//
 	// If you make an update to an instance that requires replacement, you must assign a new private IP address. During a replacement, AWS CloudFormation creates a new instance but doesn't delete the old instance until the stack has successfully updated. If the stack update fails, AWS CloudFormation uses the old instance to roll back the stack to the previous working state. The old and new instances cannot have the same private IP address.
 	PrivateIpAddress *string `json:"privateIpAddress"`
-	// Whether to propagate the EC2 instance tags to the EBS volumes.
+	// `AWS::EC2::Instance.PropagateTagsToVolumeOnCreation`.
 	PropagateTagsToVolumeOnCreation interface{} `json:"propagateTagsToVolumeOnCreation"`
 	// The ID of the RAM disk to select.
 	//
@@ -55137,7 +55135,9 @@ type CfnVPCEndpointServiceProps struct {
 	GatewayLoadBalancerArns *[]*string `json:"gatewayLoadBalancerArns"`
 	// The Amazon Resource Names (ARNs) of one or more Network Load Balancers for your service.
 	NetworkLoadBalancerArns *[]*string `json:"networkLoadBalancerArns"`
-	// `AWS::EC2::VPCEndpointService.PayerResponsibility`.
+	// The entity that is responsible for the endpoint costs.
+	//
+	// The default is the endpoint owner. If you set the payer responsibility to the service owner, you cannot set it back to the endpoint owner.
 	PayerResponsibility *string `json:"payerResponsibility"`
 }
 

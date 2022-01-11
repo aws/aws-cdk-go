@@ -1779,6 +1779,9 @@ type LustreConfiguration struct {
 }
 
 // The different kinds of file system deployments used by Lustre.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LustreDeploymentType string
 

@@ -4460,8 +4460,16 @@ type CfnMaintenanceWindowTaskProps struct {
 	// > `LoggingInfo` has been deprecated. To specify an Amazon S3 bucket to contain logs, instead use the `OutputS3BucketName` and `OutputS3KeyPrefix` options in the `TaskInvocationParameters` structure. For information about how Systems Manager handles these options for the supported maintenance window task types, see [AWS Systems Manager MaintenanceWindowTask TaskInvocationParameters](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html) .
 	LoggingInfo interface{} `json:"loggingInfo"`
 	// The maximum number of targets this task can be run for, in parallel.
+	//
+	// > Although this element is listed as "Required: No", a value can be omitted only when you are registering or updating a [targetless task](https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html) You must provide a value in all other cases.
+	// >
+	// > For maintenance window tasks without a target specified, you can't supply a value for this option. Instead, the system inserts a placeholder value of `1` . This value doesn't affect the running of your task.
 	MaxConcurrency *string `json:"maxConcurrency"`
 	// The maximum number of errors allowed before this task stops being scheduled.
+	//
+	// > Although this element is listed as "Required: No", a value can be omitted only when you are registering or updating a [targetless task](https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html) You must provide a value in all other cases.
+	// >
+	// > For maintenance window tasks without a target specified, you can't supply a value for this option. Instead, the system inserts a placeholder value of `1` . This value doesn't affect the running of your task.
 	MaxErrors *string `json:"maxErrors"`
 	// The task name.
 	Name *string `json:"name"`
@@ -5278,6 +5286,8 @@ type CfnParameterProps struct {
 	// Information about the parameter.
 	Description *string `json:"description"`
 	// The name of the parameter.
+	//
+	// > The maximum length constraint listed below includes capacity for additional system attributes that aren't part of the name. The maximum length for a parameter name, including the full length of the parameter ARN, is 1011 characters. For example, the length of the following parameter name is 65 characters, not 20 characters: `arn:aws:ssm:us-east-2:111222333444:parameter/ExampleParameterName`
 	Name *string `json:"name"`
 	// Information about the policies assigned to a parameter.
 	//

@@ -2056,6 +2056,7 @@ func (j *jsiiProxy_IQueue) QueueUrl() *string {
 type Queue interface {
 	QueueBase
 	AutoCreatePolicy() *bool
+	DeadLetterQueue() *DeadLetterQueue
 	EncryptionMasterKey() awskms.IKey
 	Env() *awscdk.ResourceEnvironment
 	Fifo() *bool
@@ -2103,6 +2104,16 @@ func (j *jsiiProxy_Queue) AutoCreatePolicy() *bool {
 	_jsii_.Get(
 		j,
 		"autoCreatePolicy",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Queue) DeadLetterQueue() *DeadLetterQueue {
+	var returns *DeadLetterQueue
+	_jsii_.Get(
+		j,
+		"deadLetterQueue",
 		&returns,
 	)
 	return returns

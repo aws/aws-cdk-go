@@ -124,6 +124,7 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDependencyFileSet", GoMethod: "AddDependencyFileSet"},
 			_jsii_.MemberMethod{JsiiMethod: "addOutputDirectory", GoMethod: "AddOutputDirectory"},
+			_jsii_.MemberMethod{JsiiMethod: "addStepDependency", GoMethod: "AddStepDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "buildEnvironment", GoGetter: "BuildEnvironment"},
 			_jsii_.MemberProperty{JsiiProperty: "commands", GoGetter: "Commands"},
 			_jsii_.MemberMethod{JsiiMethod: "configurePrimaryOutput", GoMethod: "ConfigurePrimaryOutput"},
@@ -146,6 +147,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "rolePolicyStatements", GoGetter: "RolePolicyStatements"},
 			_jsii_.MemberProperty{JsiiProperty: "securityGroups", GoGetter: "SecurityGroups"},
 			_jsii_.MemberProperty{JsiiProperty: "subnetSelection", GoGetter: "SubnetSelection"},
+			_jsii_.MemberProperty{JsiiProperty: "timeout", GoGetter: "Timeout"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "vpc", GoGetter: "Vpc"},
 		},
@@ -220,6 +222,7 @@ func init() {
 		reflect.TypeOf((*CodePipelineSource)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDependencyFileSet", GoMethod: "AddDependencyFileSet"},
+			_jsii_.MemberMethod{JsiiMethod: "addStepDependency", GoMethod: "AddStepDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "configurePrimaryOutput", GoMethod: "ConfigurePrimaryOutput"},
 			_jsii_.MemberProperty{JsiiProperty: "dependencies", GoGetter: "Dependencies"},
 			_jsii_.MemberProperty{JsiiProperty: "dependencyFileSets", GoGetter: "DependencyFileSets"},
@@ -242,6 +245,7 @@ func init() {
 		reflect.TypeOf((*ConfirmPermissionsBroadening)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDependencyFileSet", GoMethod: "AddDependencyFileSet"},
+			_jsii_.MemberMethod{JsiiMethod: "addStepDependency", GoMethod: "AddStepDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "configurePrimaryOutput", GoMethod: "ConfigurePrimaryOutput"},
 			_jsii_.MemberProperty{JsiiProperty: "dependencies", GoGetter: "Dependencies"},
 			_jsii_.MemberProperty{JsiiProperty: "dependencyFileSets", GoGetter: "DependencyFileSets"},
@@ -381,6 +385,7 @@ func init() {
 		reflect.TypeOf((*ManualApprovalStep)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDependencyFileSet", GoMethod: "AddDependencyFileSet"},
+			_jsii_.MemberMethod{JsiiMethod: "addStepDependency", GoMethod: "AddStepDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "comment", GoGetter: "Comment"},
 			_jsii_.MemberMethod{JsiiMethod: "configurePrimaryOutput", GoMethod: "ConfigurePrimaryOutput"},
 			_jsii_.MemberProperty{JsiiProperty: "dependencies", GoGetter: "Dependencies"},
@@ -497,6 +502,7 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDependencyFileSet", GoMethod: "AddDependencyFileSet"},
 			_jsii_.MemberMethod{JsiiMethod: "addOutputDirectory", GoMethod: "AddOutputDirectory"},
+			_jsii_.MemberMethod{JsiiMethod: "addStepDependency", GoMethod: "AddStepDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "commands", GoGetter: "Commands"},
 			_jsii_.MemberMethod{JsiiMethod: "configurePrimaryOutput", GoMethod: "ConfigurePrimaryOutput"},
 			_jsii_.MemberProperty{JsiiProperty: "dependencies", GoGetter: "Dependencies"},
@@ -642,6 +648,7 @@ func init() {
 		reflect.TypeOf((*Step)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDependencyFileSet", GoMethod: "AddDependencyFileSet"},
+			_jsii_.MemberMethod{JsiiMethod: "addStepDependency", GoMethod: "AddStepDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "configurePrimaryOutput", GoMethod: "ConfigurePrimaryOutput"},
 			_jsii_.MemberProperty{JsiiProperty: "dependencies", GoGetter: "Dependencies"},
 			_jsii_.MemberProperty{JsiiProperty: "dependencyFileSets", GoGetter: "DependencyFileSets"},

@@ -1889,6 +1889,8 @@ type CfnCertificate_DomainValidationOptionProperty struct {
 	//
 	// Use the Route 53 `ListHostedZones` API to discover IDs for available hosted zones.
 	//
+	// This option is required for publicly trusted certificates.
+	//
 	// > The `ListHostedZones` API returns IDs in the format "/hostedzone/Z111111QQQQQQQ", but CloudFormation requires the IDs to be in the format "Z111111QQQQQQQ".
 	//
 	// When you change your `DomainValidationOptions` , a new resource is created.

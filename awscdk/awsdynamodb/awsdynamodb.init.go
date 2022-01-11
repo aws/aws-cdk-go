@@ -410,6 +410,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricSystemErrors", GoMethod: "MetricSystemErrors"},
 			_jsii_.MemberMethod{JsiiMethod: "metricSystemErrorsForOperations", GoMethod: "MetricSystemErrorsForOperations"},
 			_jsii_.MemberMethod{JsiiMethod: "metricThrottledRequests", GoMethod: "MetricThrottledRequests"},
+			_jsii_.MemberMethod{JsiiMethod: "metricThrottledRequestsForOperation", GoMethod: "MetricThrottledRequestsForOperation"},
 			_jsii_.MemberMethod{JsiiMethod: "metricUserErrors", GoMethod: "MetricUserErrors"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},

@@ -252,28 +252,13 @@ func init() {
 		"monocdk.aws_wafv2.CfnRuleGroup.GeoMatchStatementProperty",
 		reflect.TypeOf((*CfnRuleGroup_GeoMatchStatementProperty)(nil)).Elem(),
 	)
-	_jsii_.RegisterInterface(
+	_jsii_.RegisterStruct(
 		"monocdk.aws_wafv2.CfnRuleGroup.IPSetForwardedIPConfigurationProperty",
 		reflect.TypeOf((*CfnRuleGroup_IPSetForwardedIPConfigurationProperty)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "fallbackBehavior", GoGetter: "FallbackBehavior"},
-			_jsii_.MemberProperty{JsiiProperty: "headerName", GoGetter: "HeaderName"},
-			_jsii_.MemberProperty{JsiiProperty: "position", GoGetter: "Position"},
-		},
-		func() interface{} {
-			return &jsiiProxy_CfnRuleGroup_IPSetForwardedIPConfigurationProperty{}
-		},
 	)
-	_jsii_.RegisterInterface(
+	_jsii_.RegisterStruct(
 		"monocdk.aws_wafv2.CfnRuleGroup.IPSetReferenceStatementProperty",
 		reflect.TypeOf((*CfnRuleGroup_IPSetReferenceStatementProperty)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "arn", GoGetter: "Arn"},
-			_jsii_.MemberProperty{JsiiProperty: "ipSetForwardedIpConfig", GoGetter: "IpSetForwardedIpConfig"},
-		},
-		func() interface{} {
-			return &jsiiProxy_CfnRuleGroup_IPSetReferenceStatementProperty{}
-		},
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_wafv2.CfnRuleGroup.ImmunityTimePropertyProperty",
@@ -474,28 +459,13 @@ func init() {
 		"monocdk.aws_wafv2.CfnWebACL.GeoMatchStatementProperty",
 		reflect.TypeOf((*CfnWebACL_GeoMatchStatementProperty)(nil)).Elem(),
 	)
-	_jsii_.RegisterInterface(
+	_jsii_.RegisterStruct(
 		"monocdk.aws_wafv2.CfnWebACL.IPSetForwardedIPConfigurationProperty",
 		reflect.TypeOf((*CfnWebACL_IPSetForwardedIPConfigurationProperty)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "fallbackBehavior", GoGetter: "FallbackBehavior"},
-			_jsii_.MemberProperty{JsiiProperty: "headerName", GoGetter: "HeaderName"},
-			_jsii_.MemberProperty{JsiiProperty: "position", GoGetter: "Position"},
-		},
-		func() interface{} {
-			return &jsiiProxy_CfnWebACL_IPSetForwardedIPConfigurationProperty{}
-		},
 	)
-	_jsii_.RegisterInterface(
+	_jsii_.RegisterStruct(
 		"monocdk.aws_wafv2.CfnWebACL.IPSetReferenceStatementProperty",
 		reflect.TypeOf((*CfnWebACL_IPSetReferenceStatementProperty)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "arn", GoGetter: "Arn"},
-			_jsii_.MemberProperty{JsiiProperty: "ipSetForwardedIpConfig", GoGetter: "IpSetForwardedIpConfig"},
-		},
-		func() interface{} {
-			return &jsiiProxy_CfnWebACL_IPSetReferenceStatementProperty{}
-		},
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_wafv2.CfnWebACL.ImmunityTimePropertyProperty",

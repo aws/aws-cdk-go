@@ -3495,7 +3495,7 @@ type CfnSimulationApplicationProps struct {
 	SimulationSoftwareSuite interface{} `json:"simulationSoftwareSuite"`
 	// The current revision id.
 	CurrentRevisionId *string `json:"currentRevisionId"`
-	// `AWS::RoboMaker::SimulationApplication.Environment`.
+	// The environment of the simulation application.
 	Environment *string `json:"environment"`
 	// The name of the simulation application.
 	Name *string `json:"name"`

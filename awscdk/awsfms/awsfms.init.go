@@ -111,16 +111,9 @@ func init() {
 			return &j
 		},
 	)
-	_jsii_.RegisterInterface(
+	_jsii_.RegisterStruct(
 		"monocdk.aws_fms.CfnPolicy.IEMapProperty",
 		reflect.TypeOf((*CfnPolicy_IEMapProperty)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "account", GoGetter: "Account"},
-			_jsii_.MemberProperty{JsiiProperty: "orgunit", GoGetter: "Orgunit"},
-		},
-		func() interface{} {
-			return &jsiiProxy_CfnPolicy_IEMapProperty{}
-		},
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_fms.CfnPolicy.PolicyTagProperty",

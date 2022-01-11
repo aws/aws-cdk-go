@@ -2862,7 +2862,7 @@ type CfnUserPool_AdminCreateUserConfigProperty struct {
 	//
 	// To reset the account after that time limit, you must call `AdminCreateUser` again, specifying `"RESEND"` for the `MessageAction` parameter. The default value for this parameter is 7.
 	//
-	// > If you set a value for `TemporaryPasswordValidityDays` in `PasswordPolicy` , that value will be used and `UnusedAccountValidityDays` will be deprecated for that user pool.
+	// > If you set a value for `TemporaryPasswordValidityDays` in `PasswordPolicy` , that value will be used, and `UnusedAccountValidityDays` will be no longer be an available parameter for that user pool.
 	UnusedAccountValidityDays *float64 `json:"unusedAccountValidityDays"`
 }
 
@@ -2884,16 +2884,20 @@ type CfnUserPool_CustomSMSSenderProperty struct {
 	LambdaVersion *string `json:"lambdaVersion"`
 }
 
-// The configuration for the user pool's device tracking.
+// The device tracking configuration for a user pool. A user pool with device tracking deactivated returns a null value.
+//
+// > When you provide values for any DeviceConfiguration field, you activate device tracking.
 //
 // TODO: EXAMPLE
 //
 type CfnUserPool_DeviceConfigurationProperty struct {
-	// Indicates whether a challenge is required on a new device.
+	// When true, device authentication can replace SMS and time-based one-time password (TOTP) factors for multi-factor authentication (MFA).
 	//
-	// Only applicable to a new device.
+	// > Users that sign in with devices that have not been confirmed or remembered will still have to provide a second factor, whether or not ChallengeRequiredOnNewDevice is true, when your user pool requires MFA.
 	ChallengeRequiredOnNewDevice interface{} `json:"challengeRequiredOnNewDevice"`
-	// If true, a device is only remembered on user prompt.
+	// When true, users can opt in to remembering their device.
+	//
+	// Your app code must use callback functions to return the user's choice.
 	DeviceOnlyRememberedOnUserPrompt interface{} `json:"deviceOnlyRememberedOnUserPrompt"`
 }
 
@@ -2909,17 +2913,17 @@ type CfnUserPool_EmailConfigurationProperty struct {
 	// - Event publishing – Amazon SES can track the number of send, delivery, open, click, bounce, and complaint events for each email sent. Use event publishing to send information about these events to other AWS services such as SNS and CloudWatch.
 	// - IP pool management – When leasing dedicated IP addresses with Amazon SES, you can create groups of IP addresses, called dedicated IP pools. You can then associate the dedicated IP pools with configuration sets.
 	ConfigurationSet *string `json:"configurationSet"`
-	// Specifies whether Amazon Cognito emails your users by using its built-in email functionality or your Amazon SES email configuration.
+	// Specifies whether Amazon Cognito emails your users by using its built-in email functionality or your Amazon Simple Email Service email configuration.
 	//
 	// Specify one of the following values:
 	//
-	// - **COGNITO_DEFAULT** - When Amazon Cognito emails your users, it uses its built-in email functionality. When you use the default option, Amazon Cognito allows only a limited number of emails each day for your user pool. For typical production environments, the default email limit is below the required delivery volume. To achieve a higher delivery volume, specify DEVELOPER to use your Amazon SES email configuration.
+	// - **COGNITO_DEFAULT** - When Amazon Cognito emails your users, it uses its built-in email functionality. When you use the default option, Amazon Cognito allows only a limited number of emails each day for your user pool. For typical production environments, the default email limit is less than the required delivery volume. To achieve a higher delivery volume, specify DEVELOPER to use your Amazon SES email configuration.
 	//
-	// To look up the email delivery limit for the default option, see [Limits in Amazon Cognito](https://docs.aws.amazon.com/cognito/latest/developerguide/limits.html) in the *Amazon Cognito Developer Guide* .
+	// To look up the email delivery limit for the default option, see [Limits in](https://docs.aws.amazon.com/cognito/latest/developerguide/limits.html) in the *Developer Guide* .
 	//
-	// The default FROM address is no-reply@verificationemail.com. To customize the FROM address, provide the ARN of an Amazon SES verified email address for the `SourceArn` parameter.
+	// The default FROM address is `no-reply@verificationemail.com` . To customize the FROM address, provide the Amazon Resource Name (ARN) of an Amazon SES verified email address for the `SourceArn` parameter.
 	//
-	// If EmailSendingAccount is COGNITO_DEFAULT, the following parameters aren't allowed:
+	// If EmailSendingAccount is COGNITO_DEFAULT, you can't use the following parameters:
 	//
 	// - EmailVerificationMessage
 	// - EmailVerificationSubject
@@ -2935,19 +2939,19 @@ type CfnUserPool_EmailConfigurationProperty struct {
 	//
 	// If you use this option, you must provide the ARN of an Amazon SES verified email address for the `SourceArn` parameter.
 	//
-	// Before Amazon Cognito can email your users, it requires additional permissions to call Amazon SES on your behalf. When you update your user pool with this option, Amazon Cognito creates a *service-linked role* , which is a type of IAM role, in your AWS account . This role contains the permissions that allow Amazon Cognito to access Amazon SES and send email messages with your address. For more information about the service-linked role that Amazon Cognito creates, see [Using Service-Linked Roles for Amazon Cognito](https://docs.aws.amazon.com/cognito/latest/developerguide/using-service-linked-roles.html) in the *Amazon Cognito Developer Guide* .
+	// Before Amazon Cognito can email your users, it requires additional permissions to call Amazon SES on your behalf. When you update your user pool with this option, Amazon Cognito creates a *service-linked role* , which is a type of role, in your AWS account . This role contains the permissions that allow to access Amazon SES and send email messages with your address. For more information about the service-linked role that Amazon Cognito creates, see [Using Service-Linked Roles for Amazon Cognito](https://docs.aws.amazon.com/cognito/latest/developerguide/using-service-linked-roles.html) in the *Amazon Cognito Developer Guide* .
 	EmailSendingAccount *string `json:"emailSendingAccount"`
 	// Identifies either the sender's email address or the sender's name with their email address.
 	//
 	// For example, `testuser@example.com` or `Test User <testuser@example.com>` . This address appears before the body of the email.
 	From *string `json:"from"`
-	// The destination to which the receiver of the email should reply to.
+	// The destination to which the receiver of the email should reply.
 	ReplyToEmailAddress *string `json:"replyToEmailAddress"`
-	// The Amazon Resource Name (ARN) of a verified email address in Amazon SES.
+	// The ARN of a verified email address in Amazon SES.
 	//
-	// This email address is used in one of the following ways, depending on the value that you specify for the `EmailSendingAccount` parameter:
+	// Amazon Cognito uses this email address in one of the following ways, depending on the value that you specify for the `EmailSendingAccount` parameter:
 	//
-	// - If you specify `COGNITO_DEFAULT` , Amazon Cognito uses this address as the custom FROM address when it emails your users by using its built-in email account.
+	// - If you specify `COGNITO_DEFAULT` , Amazon Cognito uses this address as the custom FROM address when it emails your users using its built-in email account.
 	// - If you specify `DEVELOPER` , Amazon Cognito emails your users with this address by calling Amazon SES on your behalf.
 	SourceArn *string `json:"sourceArn"`
 }
@@ -3004,7 +3008,7 @@ type CfnUserPool_LambdaConfigProperty struct {
 	VerifyAuthChallengeResponse *string `json:"verifyAuthChallengeResponse"`
 }
 
-// The minimum and maximum value of an attribute that is of the number data type.
+// The minimum and maximum values of an attribute that is of the number data type.
 //
 // TODO: EXAMPLE
 //
@@ -3020,9 +3024,9 @@ type CfnUserPool_NumberAttributeConstraintsProperty struct {
 // TODO: EXAMPLE
 //
 type CfnUserPool_PasswordPolicyProperty struct {
-	// The minimum length of the password policy that you have set.
+	// The minimum length of the password in the policy that you have set.
 	//
-	// Cannot be less than 6.
+	// This value can't be less than 6.
 	MinimumLength *float64 `json:"minimumLength"`
 	// In the password policy that you have set, refers to whether you have required users to use at least one lowercase letter in their password.
 	RequireLowercase interface{} `json:"requireLowercase"`
@@ -3032,11 +3036,11 @@ type CfnUserPool_PasswordPolicyProperty struct {
 	RequireSymbols interface{} `json:"requireSymbols"`
 	// In the password policy that you have set, refers to whether you have required users to use at least one uppercase letter in their password.
 	RequireUppercase interface{} `json:"requireUppercase"`
-	// In the password policy you have set, refers to the number of days a temporary password is valid.
+	// The number of days a temporary password is valid in the password policy.
 	//
-	// If the user does not sign-in during this time, their password will need to be reset by an administrator.
+	// If the user doesn't sign in during this time, an administrator must reset their password.
 	//
-	// > When you set `TemporaryPasswordValidityDays` for a user pool, you will no longer be able to set the deprecated `UnusedAccountValidityDays` value for that user pool.
+	// > When you set `TemporaryPasswordValidityDays` for a user pool, you can no longer set the deprecated `UnusedAccountValidityDays` value for that user pool.
 	TemporaryPasswordValidityDays *float64 `json:"temporaryPasswordValidityDays"`
 }
 
@@ -3073,7 +3077,7 @@ type CfnUserPool_SchemaAttributeProperty struct {
 	DeveloperOnlyAttribute interface{} `json:"developerOnlyAttribute"`
 	// Specifies whether the value of the attribute can be changed.
 	//
-	// For any user pool attribute that's mapped to an identity provider attribute, you must set this parameter to `true` . Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider. If an attribute is immutable, Amazon Cognito throws an error when it attempts to update the attribute. For more information, see [Specifying Identity Provider Attribute Mappings for Your User Pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html) .
+	// For any user pool attribute that is mapped to an identity provider attribute, you must set this parameter to `true` . Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider. If an attribute is immutable, Amazon Cognito throws an error when it attempts to update the attribute. For more information, see [Specifying Identity Provider Attribute Mappings for Your User Pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html) .
 	Mutable interface{} `json:"mutable"`
 	// A schema attribute of the name type.
 	Name *string `json:"name"`
@@ -3081,7 +3085,7 @@ type CfnUserPool_SchemaAttributeProperty struct {
 	NumberAttributeConstraints interface{} `json:"numberAttributeConstraints"`
 	// Specifies whether a user pool attribute is required.
 	//
-	// If the attribute is required and the user does not provide a value, registration or sign-in will fail.
+	// If the attribute is required and the user doesn't provide a value, registration or sign-in will fail.
 	Required interface{} `json:"required"`
 	// Specifies the constraints for an attribute of the string type.
 	StringAttributeConstraints interface{} `json:"stringAttributeConstraints"`
@@ -3098,9 +3102,9 @@ type CfnUserPool_SmsConfigurationProperty struct {
 	//
 	// We recommend you use `ExternalId` to add security to your IAM role, which is used to call Amazon SNS to send SMS messages for your user pool. If you provide an `ExternalId` , the Cognito User Pool uses it when attempting to assume your IAM role. You can also set your roles trust policy to require the `ExternalID` . If you use the Cognito Management Console to create a role for SMS MFA, Cognito creates a role with the required permissions and a trust policy that uses `ExternalId` .
 	ExternalId *string `json:"externalId"`
-	// The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) caller.
+	// The Amazon Resource Name (ARN) of the Amazon SNS caller.
 	//
-	// This is the ARN of the IAM role in your AWS account which Cognito will use to send SMS messages. SMS messages are subject to a [spending limit](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html) .
+	// This is the ARN of the IAM role in your AWS account that Amazon Cognito will use to send SMS messages. SMS messages are subject to a [spending limit](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html) .
 	SnsCallerArn *string `json:"snsCallerArn"`
 }
 
@@ -3131,12 +3135,12 @@ type CfnUserPool_UserPoolAddOnsProperty struct {
 // TODO: EXAMPLE
 //
 type CfnUserPool_UsernameConfigurationProperty struct {
-	// Specifies whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
+	// Specifies whether username case sensitivity will be applied for all users in the user pool through Amazon Cognito APIs.
 	//
 	// Valid values include:
 	//
-	// - *`True`* : Enables case sensitivity for all username input. When this option is set to `True` , users must sign in using the exact capitalization of their given username. For example, “UserName”. This is the default value.
-	// - *`False`* : Enables case insensitivity for all username input. For example, when this option is set to `False` , users will be able to sign in using either "username" or "Username". This option also enables both `preferred_username` and `email` alias to be case insensitive, in addition to the `username` attribute.
+	// - *`True`* : Enables case sensitivity for all username input. When this option is set to `True` , users must sign in using the exact capitalization of their given username, such as “UserName”. This is the default value.
+	// - *`False`* : Enables case insensitivity for all username input. For example, when this option is set to `False` , users can sign in using either "username" or "Username". This option also enables both `preferred_username` and `email` alias to be case insensitive, in addition to the `username` attribute.
 	CaseSensitive interface{} `json:"caseSensitive"`
 }
 
@@ -4162,7 +4166,7 @@ func (c *jsiiProxy_CfnUserPoolClient) ValidateProperties(_properties interface{}
 
 // The Amazon Pinpoint analytics configuration for collecting metrics for a user pool.
 //
-// > In regions where Pinpoint is not available, Cognito User Pools only supports sending events to Amazon Pinpoint projects in us-east-1. In regions where Pinpoint is available, Cognito User Pools will support sending events to Amazon Pinpoint projects within that same region.
+// > In Regions where Pinpoint isn't available, User Pools only supports sending events to Amazon Pinpoint projects in us-east-1. In Regions where Pinpoint is available, User Pools will support sending events to Amazon Pinpoint projects within that same Region.
 //
 // TODO: EXAMPLE
 //
@@ -4173,7 +4177,7 @@ type CfnUserPoolClient_AnalyticsConfigurationProperty struct {
 	ApplicationId *string `json:"applicationId"`
 	// The external ID.
 	ExternalId *string `json:"externalId"`
-	// The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics.
+	// The ARN of an AWS Identity and Access Management role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics.
 	RoleArn *string `json:"roleArn"`
 	// If `UserDataShared` is `true` , Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
 	UserDataShared interface{} `json:"userDataShared"`
@@ -4211,7 +4215,7 @@ type CfnUserPoolClientProps struct {
 	//
 	// Set to `client_credentials` to specify that the client should get the access token (and, optionally, ID token, based on scopes) from the token endpoint using a combination of client and client_secret.
 	AllowedOAuthFlows *[]*string `json:"allowedOAuthFlows"`
-	// Set to true if the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
+	// Set to true if the client is allowed to follow the OAuth protocol when interacting with Amazon Cognito user pools.
 	AllowedOAuthFlowsUserPoolClient interface{} `json:"allowedOAuthFlowsUserPoolClient"`
 	// The allowed OAuth scopes.
 	//
@@ -4219,7 +4223,7 @@ type CfnUserPoolClientProps struct {
 	AllowedOAuthScopes *[]*string `json:"allowedOAuthScopes"`
 	// The Amazon Pinpoint analytics configuration for collecting metrics for this user pool.
 	//
-	// > In regions where Pinpoint is not available, Cognito User Pools only supports sending events to Amazon Pinpoint projects in us-east-1. In regions where Pinpoint is available, Cognito User Pools will support sending events to Amazon Pinpoint projects within that same region.
+	// > In AWS Regions where isn't available, User Pools only supports sending events to Amazon Pinpoint projects in AWS Region us-east-1. In Regions where is available, User Pools will support sending events to Amazon Pinpoint projects within that same Region.
 	AnalyticsConfiguration interface{} `json:"analyticsConfiguration"`
 	// A list of allowed redirect (callback) URLs for the identity providers.
 	//
@@ -4251,20 +4255,20 @@ type CfnUserPoolClientProps struct {
 	//
 	// App callback URLs such as myapp://example are also supported.
 	DefaultRedirectUri *string `json:"defaultRedirectUri"`
-	// Enables or disables token revocation. For more information about revoking tokens, see [RevokeToken](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html) .
+	// Activates or deactivates token revocation. For more information about revoking tokens, see [RevokeToken](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html) .
 	//
-	// If you don't include this parameter, token revocation is automatically enabled for the new user pool client.
+	// If you don't include this parameter, token revocation is automatically activated for the new user pool client.
 	EnableTokenRevocation interface{} `json:"enableTokenRevocation"`
 	// The authentication flows that are supported by the user pool clients.
 	//
-	// Flow names without the `ALLOW_` prefix are deprecated in favor of new names with the `ALLOW_` prefix. Note that values with `ALLOW_` prefix cannot be used along with values without `ALLOW_` prefix.
+	// Flow names without the `ALLOW_` prefix are no longer supported, in favor of new names with the `ALLOW_` prefix. Note that values with `ALLOW_` prefix must be used only along with the `ALLOW_` prefix.
 	//
 	// Valid values include:
 	//
-	// - `ALLOW_ADMIN_USER_PASSWORD_AUTH` : Enable admin based user password authentication flow `ADMIN_USER_PASSWORD_AUTH` . This setting replaces the `ADMIN_NO_SRP_AUTH` setting. With this authentication flow, Cognito receives the password in the request instead of using the SRP (Secure Remote Password protocol) protocol to verify passwords.
-	// - `ALLOW_CUSTOM_AUTH` : Enable Lambda trigger based authentication.
-	// - `ALLOW_USER_PASSWORD_AUTH` : Enable user password-based authentication. In this flow, Cognito receives the password in the request instead of using the SRP protocol to verify passwords.
-	// - `ALLOW_USER_SRP_AUTH` : Enable SRP based authentication.
+	// - `ALLOW_ADMIN_USER_PASSWORD_AUTH` : Enable admin based user password authentication flow `ADMIN_USER_PASSWORD_AUTH` . This setting replaces the `ADMIN_NO_SRP_AUTH` setting. With this authentication flow, Amazon Cognito receives the password in the request instead of using the Secure Remote Password (SRP) protocol to verify passwords.
+	// - `ALLOW_CUSTOM_AUTH` : Enable AWS Lambda trigger based authentication.
+	// - `ALLOW_USER_PASSWORD_AUTH` : Enable user password-based authentication. In this flow, Amazon Cognito receives the password in the request instead of using the SRP protocol to verify passwords.
+	// - `ALLOW_USER_SRP_AUTH` : Enable SRP-based authentication.
 	// - `ALLOW_REFRESH_TOKEN_AUTH` : Enable authflow to refresh tokens.
 	ExplicitAuthFlows *[]*string `json:"explicitAuthFlows"`
 	// Boolean to specify whether you want to generate a secret for the user pool client being created.
@@ -4279,7 +4283,7 @@ type CfnUserPoolClientProps struct {
 	PreventUserExistenceErrors *string `json:"preventUserExistenceErrors"`
 	// The read attributes.
 	ReadAttributes *[]*string `json:"readAttributes"`
-	// The time limit, in days, after which the refresh token is no longer valid and cannot be used.
+	// The time limit, in days, after which the refresh token is no longer valid and can't be used.
 	RefreshTokenValidity *float64 `json:"refreshTokenValidity"`
 	// A list of provider names for the identity providers that are supported on this client.
 	//
@@ -4291,7 +4295,7 @@ type CfnUserPoolClientProps struct {
 	TokenValidityUnits interface{} `json:"tokenValidityUnits"`
 	// The user pool attributes that the app client can write to.
 	//
-	// If your app client allows users to sign in through an identity provider, this array must include all attributes that are mapped to identity provider attributes. Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider. If your app client lacks write access to a mapped attribute, Amazon Cognito throws an error when it attempts to update the attribute. For more information, see [Specifying Identity Provider Attribute Mappings for Your User Pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html) .
+	// If your app client allows users to sign in through an identity provider, this array must include all attributes that are mapped to identity provider attributes. Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider. If your app client lacks write access to a mapped attribute, Amazon Cognito throws an error when it tries to update the attribute. For more information, see [Specifying Identity Provider Attribute Mappings for Your User Pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html) .
 	WriteAttributes *[]*string `json:"writeAttributes"`
 }
 
@@ -5642,15 +5646,15 @@ type CfnUserPoolGroupProps struct {
 	//
 	// Must be unique.
 	GroupName *string `json:"groupName"`
-	// A nonnegative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool.
+	// A non-negative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool.
 	//
-	// Zero is the highest precedence value. Groups with lower `Precedence` values take precedence over groups with higher or null `Precedence` values. If a user belongs to two or more groups, it is the group with the lowest precedence value whose role ARN will be used in the `cognito:roles` and `cognito:preferred_role` claims in the user's tokens.
+	// Zero is the highest precedence value. Groups with lower `Precedence` values take precedence over groups with higher ornull `Precedence` values. If a user belongs to two or more groups, it is the group with the lowest precedence value whose role ARN is given in the user's tokens for the `cognito:roles` and `cognito:preferred_role` claims.
 	//
-	// Two groups can have the same `Precedence` value. If this happens, neither group takes precedence over the other. If two groups with the same `Precedence` have the same role ARN, that role is used in the `cognito:preferred_role` claim in tokens for users in each group. If the two groups have different role ARNs, the `cognito:preferred_role` claim is not set in users' tokens.
+	// Two groups can have the same `Precedence` value. If this happens, neither group takes precedence over the other. If two groups with the same `Precedence` have the same role ARN, that role is used in the `cognito:preferred_role` claim in tokens for users in each group. If the two groups have different role ARNs, the `cognito:preferred_role` claim isn't set in users' tokens.
 	//
 	// The default `Precedence` value is null.
 	Precedence *float64 `json:"precedence"`
-	// The role ARN for the group.
+	// The role Amazon Resource Name (ARN) for the group.
 	RoleArn *string `json:"roleArn"`
 }
 
@@ -6380,7 +6384,7 @@ type CfnUserPoolIdentityProviderProps struct {
 	// - key_id
 	// - private_key
 	// - authorize_scopes
-	// - For OIDC providers:
+	// - For OpenID Connect (OIDC) providers:
 	//
 	// - client_id
 	// - client_secret
@@ -6391,10 +6395,11 @@ type CfnUserPoolIdentityProviderProps struct {
 	// - token_url *if not available from discovery URL specified by oidc_issuer key*
 	// - attributes_url *if not available from discovery URL specified by oidc_issuer key*
 	// - jwks_uri *if not available from discovery URL specified by oidc_issuer key*
+	// - attributes_url_add_attributes *a read-only property that is set automatically*
 	// - For SAML providers:
 	//
 	// - MetadataFile OR MetadataURL
-	// - IDPSignout *optional*
+	// - IDPSignout (optional)
 	ProviderDetails interface{} `json:"providerDetails"`
 }
 
@@ -6440,7 +6445,7 @@ type CfnUserPoolProps struct {
 	EnabledMfas *[]*string `json:"enabledMfas"`
 	// The Lambda trigger configuration information for the new user pool.
 	//
-	// > In a push model, event sources (such as Amazon S3 and custom applications) need permission to invoke a function. So you will need to make an extra call to add permission for these event sources to invoke your Lambda function.
+	// > In a push model, event sources (such as Amazon S3 and custom applications) need permission to invoke a function. So you must make an extra call to add permission for these event sources to invoke your Lambda function.
 	// >
 	// > For more information on using the Lambda API to add permission, see [AddPermission](https://docs.aws.amazon.com/lambda/latest/dg/API_AddPermission.html) .
 	// >
@@ -6448,9 +6453,9 @@ type CfnUserPoolProps struct {
 	LambdaConfig interface{} `json:"lambdaConfig"`
 	// The multi-factor (MFA) configuration. Valid values include:.
 	//
-	// - `OFF` MFA will not be used for any users.
+	// - `OFF` MFA won't be used for any users.
 	// - `ON` MFA is required for all users to sign in.
-	// - `OPTIONAL` MFA will be required only for individual users who have an MFA factor enabled.
+	// - `OPTIONAL` MFA will be required only for individual users who have an MFA factor activated.
 	MfaConfiguration *string `json:"mfaConfiguration"`
 	// The policy associated with a user pool.
 	Policies interface{} `json:"policies"`
@@ -6474,7 +6479,7 @@ type CfnUserPoolProps struct {
 	//
 	// For example, when this is set to `False` , users will be able to sign in using either "username" or "Username". This configuration is immutable once it has been set.
 	UsernameConfiguration interface{} `json:"usernameConfiguration"`
-	// Used to enable advanced security risk detection.
+	// Enables advanced security risk detection.
 	//
 	// Set the key `AdvancedSecurityMode` to the value "AUDIT".
 	UserPoolAddOns interface{} `json:"userPoolAddOns"`
@@ -7850,9 +7855,9 @@ type CfnUserPoolRiskConfigurationAttachment_AccountTakeoverActionTypeProperty st
 	// The event action.
 	//
 	// - `BLOCK` Choosing this action will block the request.
-	// - `MFA_IF_CONFIGURED` Throw MFA challenge if user has configured it, else allow the request.
-	// - `MFA_REQUIRED` Throw MFA challenge if user has configured it, else block the request.
-	// - `NO_ACTION` Allow the user sign-in.
+	// - `MFA_IF_CONFIGURED` Present an MFA challenge if user has configured it, else allow the request.
+	// - `MFA_REQUIRED` Present an MFA challenge if user has configured it, else block the request.
+	// - `NO_ACTION` Allow the user to sign in.
 	EventAction *string `json:"eventAction"`
 	// Flag specifying whether to send a notification.
 	Notify interface{} `json:"notify"`
@@ -7911,15 +7916,15 @@ type CfnUserPoolRiskConfigurationAttachment_CompromisedCredentialsRiskConfigurat
 type CfnUserPoolRiskConfigurationAttachment_NotifyConfigurationTypeProperty struct {
 	// The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy.
 	//
-	// It permits Amazon Cognito to send for the email address specified in the `From` parameter.
+	// This identity permits Amazon Cognito to send for the email address specified in the `From` parameter.
 	SourceArn *string `json:"sourceArn"`
 	// Email template used when a detected risk event is blocked.
 	BlockEmail interface{} `json:"blockEmail"`
 	// The email address that is sending the email.
 	//
-	// It must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES.
+	// The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
 	From *string `json:"from"`
-	// The MFA email template used when MFA is challenged as part of a detected risk.
+	// The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk.
 	MfaEmail interface{} `json:"mfaEmail"`
 	// The email template used when a detected risk event is allowed.
 	NoActionEmail interface{} `json:"noActionEmail"`
@@ -7932,11 +7937,11 @@ type CfnUserPoolRiskConfigurationAttachment_NotifyConfigurationTypeProperty stru
 // TODO: EXAMPLE
 //
 type CfnUserPoolRiskConfigurationAttachment_NotifyEmailTypeProperty struct {
-	// The subject.
+	// The email subject.
 	Subject *string `json:"subject"`
-	// The HTML body.
+	// The email HTML body.
 	HtmlBody *string `json:"htmlBody"`
-	// The text body.
+	// The email text body.
 	TextBody *string `json:"textBody"`
 }
 
@@ -7947,9 +7952,9 @@ type CfnUserPoolRiskConfigurationAttachment_NotifyEmailTypeProperty struct {
 type CfnUserPoolRiskConfigurationAttachment_RiskExceptionConfigurationTypeProperty struct {
 	// Overrides the risk decision to always block the pre-authentication requests.
 	//
-	// The IP range is in CIDR notation: a compact representation of an IP address and its associated routing prefix.
+	// The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
 	BlockedIpRangeList *[]*string `json:"blockedIpRangeList"`
-	// Risk detection is not performed on the IP addresses in the range list.
+	// Risk detection isn't performed on the IP addresses in this range list.
 	//
 	// The IP range is in CIDR notation.
 	SkippedIpRangeList *[]*string `json:"skippedIpRangeList"`
@@ -7966,9 +7971,9 @@ type CfnUserPoolRiskConfigurationAttachmentProps struct {
 	ClientId *string `json:"clientId"`
 	// The user pool ID.
 	UserPoolId *string `json:"userPoolId"`
-	// The account takeover risk configuration object including the `NotifyConfiguration` object and `Actions` to take in the case of an account takeover.
+	// The account takeover risk configuration object, including the `NotifyConfiguration` object and `Actions` to take if there is an account takeover.
 	AccountTakeoverRiskConfiguration interface{} `json:"accountTakeoverRiskConfiguration"`
-	// The compromised credentials risk configuration object including the `EventFilter` and the `EventAction`.
+	// The compromised credentials risk configuration object, including the `EventFilter` and the `EventAction` .
 	CompromisedCredentialsRiskConfiguration interface{} `json:"compromisedCredentialsRiskConfiguration"`
 	// The configuration to override the risk decision.
 	RiskExceptionConfiguration interface{} `json:"riskExceptionConfiguration"`
@@ -9389,9 +9394,9 @@ type CfnUserPoolUserProps struct {
 	ClientMetadata interface{} `json:"clientMetadata"`
 	// Specify `"EMAIL"` if email will be used to send the welcome message.
 	//
-	// Specify `"SMS"` if the phone number will be used. The default value is `"SMS"` . More than one value can be specified.
+	// Specify `"SMS"` if the phone number will be used. The default value is `"SMS"` . You can specify more than one value.
 	DesiredDeliveryMediums *[]*string `json:"desiredDeliveryMediums"`
-	// This parameter is only used if the `phone_number_verified` or `email_verified` attribute is set to `True` .
+	// This parameter is used only if the `phone_number_verified` or `email_verified` attribute is set to `True` .
 	//
 	// Otherwise, it is ignored.
 	//
@@ -9399,9 +9404,9 @@ type CfnUserPoolUserProps struct {
 	//
 	// If this parameter is set to `False` , the API throws an `AliasExistsException` error if the alias already exists. The default value is `False` .
 	ForceAliasCreation interface{} `json:"forceAliasCreation"`
-	// Set to `"RESEND"` to resend the invitation message to a user that already exists and reset the expiration limit on the user's account.
+	// Set to `RESEND` to resend the invitation message to a user that already exists and reset the expiration limit on the user's account.
 	//
-	// Set to `"SUPPRESS"` to suppress sending the message. Only one value can be specified.
+	// Set to `SUPPRESS` to suppress sending the message. You can specify only one value.
 	MessageAction *string `json:"messageAction"`
 	// The user attributes and attribute values to be set for the user to be created.
 	//
@@ -9418,15 +9423,15 @@ type CfnUserPoolUserProps struct {
 	UserAttributes interface{} `json:"userAttributes"`
 	// The username for the user.
 	//
-	// Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
+	// Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username can't be changed.
 	Username *string `json:"username"`
 	// The user's validation data.
 	//
 	// This is an array of name-value pairs that contain user attributes and attribute values that you can use for custom validation, such as restricting the types of user accounts that can be registered. For example, you might choose to allow or disallow user sign-up based on the user's domain.
 	//
-	// To configure custom validation, you must create a Pre Sign-up Lambda trigger for the user pool as described in the Amazon Cognito Developer Guide. The Lambda trigger receives the validation data and uses it in the validation process.
+	// To configure custom validation, you must create a Pre Sign-up AWS Lambda trigger for the user pool as described in the Amazon Cognito Developer Guide. The Lambda trigger receives the validation data and uses it in the validation process.
 	//
-	// The user's validation data is not persisted.
+	// The user's validation data isn't persisted.
 	ValidationData interface{} `json:"validationData"`
 }
 

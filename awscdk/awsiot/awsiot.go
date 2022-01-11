@@ -6062,8 +6062,6 @@ type CfnJobTemplateProps struct {
 
 // A CloudFormation `AWS::IoT::Logging`.
 //
-// Sets the logging options in the V2 logging service.
-//
 // TODO: EXAMPLE
 //
 type CfnLogging interface {
@@ -6696,13 +6694,11 @@ func (c *jsiiProxy_CfnLogging) ValidateProperties(_properties interface{}) {
 // TODO: EXAMPLE
 //
 type CfnLoggingProps struct {
-	// The unique identifier of the account to use when writing to CloudWatch logs.
+	// `AWS::IoT::Logging.AccountId`.
 	AccountId *string `json:"accountId"`
-	// The logging level.
-	//
-	// Valid values are `DEBUG` , `INFO` , `ERROR` , `WARN` , and `DISABLED` .
+	// `AWS::IoT::Logging.DefaultLogLevel`.
 	DefaultLogLevel *string `json:"defaultLogLevel"`
-	// The ARN of the role that allows IoT to write to Cloudwatch logs.
+	// `AWS::IoT::Logging.RoleArn`.
 	RoleArn *string `json:"roleArn"`
 }
 
@@ -9492,8 +9488,6 @@ type CfnProvisioningTemplateProps struct {
 
 // A CloudFormation `AWS::IoT::ResourceSpecificLogging`.
 //
-// Sets the logging options for a specific resource in the V2 logging service.
-//
 // TODO: EXAMPLE
 //
 type CfnResourceSpecificLogging interface {
@@ -10137,13 +10131,11 @@ func (c *jsiiProxy_CfnResourceSpecificLogging) ValidateProperties(_properties in
 // TODO: EXAMPLE
 //
 type CfnResourceSpecificLoggingProps struct {
-	// The logging level.
-	//
-	// Valid values are `DEBUG` , `INFO` , `ERROR` , `WARN` , and `DISABLED` .
+	// `AWS::IoT::ResourceSpecificLogging.LogLevel`.
 	LogLevel *string `json:"logLevel"`
-	// The log target name.
+	// `AWS::IoT::ResourceSpecificLogging.TargetName`.
 	TargetName *string `json:"targetName"`
-	// The log target type.
+	// `AWS::IoT::ResourceSpecificLogging.TargetType`.
 	TargetType *string `json:"targetType"`
 }
 

@@ -9,6 +9,382 @@ import (
 	"github.com/aws/constructs-go/constructs/v3"
 )
 
+// Define a new IAM Access Key.
+//
+// TODO: EXAMPLE
+//
+// Experimental.
+type AccessKey interface {
+	awscdk.Resource
+	IAccessKey
+	AccessKeyId() *string
+	Env() *awscdk.ResourceEnvironment
+	Node() awscdk.ConstructNode
+	PhysicalName() *string
+	SecretAccessKey() awscdk.SecretValue
+	Stack() awscdk.Stack
+	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	GeneratePhysicalName() *string
+	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
+	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
+	ToString() *string
+	Validate() *[]*string
+}
+
+// The jsii proxy struct for AccessKey
+type jsiiProxy_AccessKey struct {
+	internal.Type__awscdkResource
+	jsiiProxy_IAccessKey
+}
+
+func (j *jsiiProxy_AccessKey) AccessKeyId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"accessKeyId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_AccessKey) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_AccessKey) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_AccessKey) PhysicalName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"physicalName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_AccessKey) SecretAccessKey() awscdk.SecretValue {
+	var returns awscdk.SecretValue
+	_jsii_.Get(
+		j,
+		"secretAccessKey",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_AccessKey) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
+
+// Experimental.
+func NewAccessKey(scope constructs.Construct, id *string, props *AccessKeyProps) AccessKey {
+	_init_.Initialize()
+
+	j := jsiiProxy_AccessKey{}
+
+	_jsii_.Create(
+		"monocdk.aws_iam.AccessKey",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewAccessKey_Override(a AccessKey, scope constructs.Construct, id *string, props *AccessKeyProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_iam.AccessKey",
+		[]interface{}{scope, id, props},
+		a,
+	)
+}
+
+// Return whether the given object is a Construct.
+// Experimental.
+func AccessKey_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_iam.AccessKey",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a Resource.
+// Experimental.
+func AccessKey_IsResource(construct awscdk.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_iam.AccessKey",
+		"isResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Apply the given removal policy to this resource.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
+func (a *jsiiProxy_AccessKey) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		a,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
+// Experimental.
+func (a *jsiiProxy_AccessKey) GeneratePhysicalName() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		a,
+		"generatePhysicalName",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
+//
+// Normally, this token will resolve to `arnAttr`, but if the resource is
+// referenced across environments, `arnComponents` will be used to synthesize
+// a concrete ARN with the resource's physical name. Make sure to reference
+// `this.physicalName` in `arnComponents`.
+// Experimental.
+func (a *jsiiProxy_AccessKey) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		a,
+		"getResourceArnAttribute",
+		[]interface{}{arnAttr, arnComponents},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
+//
+// Normally, this token will resolve to `nameAttr`, but if the resource is
+// referenced across environments, it will be resolved to `this.physicalName`,
+// which will be a concrete name.
+// Experimental.
+func (a *jsiiProxy_AccessKey) GetResourceNameAttribute(nameAttr *string) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		a,
+		"getResourceNameAttribute",
+		[]interface{}{nameAttr},
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (a *jsiiProxy_AccessKey) OnPrepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (a *jsiiProxy_AccessKey) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (a *jsiiProxy_AccessKey) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (a *jsiiProxy_AccessKey) Prepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (a *jsiiProxy_AccessKey) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
+// Returns a string representation of this construct.
+// Experimental.
+func (a *jsiiProxy_AccessKey) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		a,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (a *jsiiProxy_AccessKey) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Properties for defining an IAM access key.
+//
+// TODO: EXAMPLE
+//
+// Experimental.
+type AccessKeyProps struct {
+	// The IAM user this key will belong to.
+	//
+	// Changing this value will result in the access key being deleted and a new
+	// access key (with a different ID and secret value) being assigned to the new
+	// user.
+	// Experimental.
+	User IUser `json:"user"`
+	// A CloudFormation-specific value that signifies the access key should be replaced/rotated.
+	//
+	// This value can only be incremented. Incrementing this
+	// value will cause CloudFormation to replace the Access Key resource.
+	// Experimental.
+	Serial *float64 `json:"serial"`
+	// The status of the access key.
+	//
+	// An Active access key is allowed to be used
+	// to make API calls; An Inactive key cannot.
+	// Experimental.
+	Status AccessKeyStatus `json:"status"`
+}
+
+// Valid statuses for an IAM Access Key.
+// Experimental.
+type AccessKeyStatus string
+
+const (
+	AccessKeyStatus_ACTIVE AccessKeyStatus = "ACTIVE"
+	AccessKeyStatus_INACTIVE AccessKeyStatus = "INACTIVE"
+)
+
 // Specify AWS account ID as the principal entity in a policy to delegate authority to the account.
 //
 // TODO: EXAMPLE
@@ -11963,6 +12339,45 @@ type GroupProps struct {
 	// in the IAM User Guide.
 	// Experimental.
 	Path *string `json:"path"`
+}
+
+// Represents an IAM Access Key.
+// See: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html
+//
+// Experimental.
+type IAccessKey interface {
+	awscdk.IResource
+	// The Access Key ID.
+	// Experimental.
+	AccessKeyId() *string
+	// The Secret Access Key.
+	// Experimental.
+	SecretAccessKey() awscdk.SecretValue
+}
+
+// The jsii proxy for IAccessKey
+type jsiiProxy_IAccessKey struct {
+	internal.Type__awscdkIResource
+}
+
+func (j *jsiiProxy_IAccessKey) AccessKeyId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"accessKeyId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IAccessKey) SecretAccessKey() awscdk.SecretValue {
+	var returns awscdk.SecretValue
+	_jsii_.Get(
+		j,
+		"secretAccessKey",
+		&returns,
+	)
+	return returns
 }
 
 // A type of principal that has more control over its own representation in AssumeRolePolicyDocuments.

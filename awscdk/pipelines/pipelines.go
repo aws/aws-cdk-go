@@ -1008,6 +1008,12 @@ type CodeBuildOptions struct {
 	// Only used if 'vpc' is supplied.
 	// Experimental.
 	SubnetSelection *awsec2.SubnetSelection `json:"subnetSelection"`
+	// The number of minutes after which AWS CodeBuild stops the build if it's not complete.
+	//
+	// For valid values, see the timeoutInMinutes field in the AWS
+	// CodeBuild User Guide.
+	// Experimental.
+	Timeout awscdk.Duration `json:"timeout"`
 	// The VPC where to create the CodeBuild network interfaces in.
 	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
@@ -1040,9 +1046,11 @@ type CodeBuildStep interface {
 	RolePolicyStatements() *[]awsiam.PolicyStatement
 	SecurityGroups() *[]awsec2.ISecurityGroup
 	SubnetSelection() *awsec2.SubnetSelection
+	Timeout() awscdk.Duration
 	Vpc() awsec2.IVpc
 	AddDependencyFileSet(fs FileSet)
 	AddOutputDirectory(directory *string) FileSet
+	AddStepDependency(step Step)
 	ConfigurePrimaryOutput(fs FileSet)
 	PrimaryOutputDirectory(directory *string) FileSet
 	ToString() *string
@@ -1253,6 +1261,16 @@ func (j *jsiiProxy_CodeBuildStep) SubnetSelection() *awsec2.SubnetSelection {
 	return returns
 }
 
+func (j *jsiiProxy_CodeBuildStep) Timeout() awscdk.Duration {
+	var returns awscdk.Duration
+	_jsii_.Get(
+		j,
+		"timeout",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CodeBuildStep) Vpc() awsec2.IVpc {
 	var returns awsec2.IVpc
 	_jsii_.Get(
@@ -1290,6 +1308,23 @@ func NewCodeBuildStep_Override(c CodeBuildStep, id *string, props *CodeBuildStep
 	)
 }
 
+// Define a sequence of steps to be executed in order.
+// Experimental.
+func CodeBuildStep_Sequence(steps *[]Step) *[]Step {
+	_init_.Initialize()
+
+	var returns *[]Step
+
+	_jsii_.StaticInvoke(
+		"monocdk.pipelines.CodeBuildStep",
+		"sequence",
+		[]interface{}{steps},
+		&returns,
+	)
+
+	return returns
+}
+
 // Add an additional FileSet to the set of file sets required by this step.
 //
 // This will lead to a dependency on the producer of that file set.
@@ -1322,6 +1357,16 @@ func (c *jsiiProxy_CodeBuildStep) AddOutputDirectory(directory *string) FileSet 
 	)
 
 	return returns
+}
+
+// Add a dependency on another step.
+// Experimental.
+func (c *jsiiProxy_CodeBuildStep) AddStepDependency(step Step) {
+	_jsii_.InvokeVoid(
+		c,
+		"addStepDependency",
+		[]interface{}{step},
+	)
 }
 
 // Configure the given FileSet as the primary output of this step.
@@ -1471,6 +1516,12 @@ type CodeBuildStepProps struct {
 	// Only used if 'vpc' is supplied.
 	// Experimental.
 	SubnetSelection *awsec2.SubnetSelection `json:"subnetSelection"`
+	// The number of minutes after which AWS CodeBuild stops the build if it's not complete.
+	//
+	// For valid values, see the timeoutInMinutes field in the AWS
+	// CodeBuild User Guide.
+	// Experimental.
+	Timeout awscdk.Duration `json:"timeout"`
 	// The VPC where to execute the SimpleSynth.
 	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
@@ -2078,6 +2129,7 @@ type CodePipelineSource interface {
 	IsSource() *bool
 	PrimaryOutput() FileSet
 	AddDependencyFileSet(fs FileSet)
+	AddStepDependency(step Step)
 	ConfigurePrimaryOutput(fs FileSet)
 	GetAction(output awscodepipeline.Artifact, actionName *string, runOrder *float64) awscodepipelineactions.Action
 	ProduceAction(stage awscodepipeline.IStage, options *ProduceActionOptions) *CodePipelineActionFactoryResult
@@ -2263,6 +2315,23 @@ func CodePipelineSource_S3(bucket awss3.IBucket, objectKey *string, props *S3Sou
 	return returns
 }
 
+// Define a sequence of steps to be executed in order.
+// Experimental.
+func CodePipelineSource_Sequence(steps *[]Step) *[]Step {
+	_init_.Initialize()
+
+	var returns *[]Step
+
+	_jsii_.StaticInvoke(
+		"monocdk.pipelines.CodePipelineSource",
+		"sequence",
+		[]interface{}{steps},
+		&returns,
+	)
+
+	return returns
+}
+
 // Add an additional FileSet to the set of file sets required by this step.
 //
 // This will lead to a dependency on the producer of that file set.
@@ -2272,6 +2341,16 @@ func (c *jsiiProxy_CodePipelineSource) AddDependencyFileSet(fs FileSet) {
 		c,
 		"addDependencyFileSet",
 		[]interface{}{fs},
+	)
+}
+
+// Add a dependency on another step.
+// Experimental.
+func (c *jsiiProxy_CodePipelineSource) AddStepDependency(step Step) {
+	_jsii_.InvokeVoid(
+		c,
+		"addStepDependency",
+		[]interface{}{step},
 	)
 }
 
@@ -2345,6 +2424,7 @@ type ConfirmPermissionsBroadening interface {
 	IsSource() *bool
 	PrimaryOutput() FileSet
 	AddDependencyFileSet(fs FileSet)
+	AddStepDependency(step Step)
 	ConfigurePrimaryOutput(fs FileSet)
 	ProduceAction(stage awscodepipeline.IStage, options *ProduceActionOptions) *CodePipelineActionFactoryResult
 	ToString() *string
@@ -2433,6 +2513,23 @@ func NewConfirmPermissionsBroadening_Override(c ConfirmPermissionsBroadening, id
 	)
 }
 
+// Define a sequence of steps to be executed in order.
+// Experimental.
+func ConfirmPermissionsBroadening_Sequence(steps *[]Step) *[]Step {
+	_init_.Initialize()
+
+	var returns *[]Step
+
+	_jsii_.StaticInvoke(
+		"monocdk.pipelines.ConfirmPermissionsBroadening",
+		"sequence",
+		[]interface{}{steps},
+		&returns,
+	)
+
+	return returns
+}
+
 // Add an additional FileSet to the set of file sets required by this step.
 //
 // This will lead to a dependency on the producer of that file set.
@@ -2442,6 +2539,16 @@ func (c *jsiiProxy_ConfirmPermissionsBroadening) AddDependencyFileSet(fs FileSet
 		c,
 		"addDependencyFileSet",
 		[]interface{}{fs},
+	)
+}
+
+// Add a dependency on another step.
+// Experimental.
+func (c *jsiiProxy_ConfirmPermissionsBroadening) AddStepDependency(step Step) {
+	_jsii_.InvokeVoid(
+		c,
+		"addStepDependency",
+		[]interface{}{step},
 	)
 }
 
@@ -2823,7 +2930,7 @@ func DockerCredential_CustomRegistry(registryDomain *string, secret awssecretsma
 
 // Creates a DockerCredential for DockerHub.
 //
-// Convenience method for `fromCustomRegistry('index.docker.io', opts)`.
+// Convenience method for `customRegistry('https://index.docker.io/v1/', opts)`.
 // Experimental.
 func DockerCredential_DockerHub(secret awssecretsmanager.ISecret, opts *ExternalDockerCredentialOptions) DockerCredential {
 	_init_.Initialize()
@@ -3215,6 +3322,7 @@ type ManualApprovalStep interface {
 	IsSource() *bool
 	PrimaryOutput() FileSet
 	AddDependencyFileSet(fs FileSet)
+	AddStepDependency(step Step)
 	ConfigurePrimaryOutput(fs FileSet)
 	ToString() *string
 }
@@ -3311,6 +3419,23 @@ func NewManualApprovalStep_Override(m ManualApprovalStep, id *string, props *Man
 	)
 }
 
+// Define a sequence of steps to be executed in order.
+// Experimental.
+func ManualApprovalStep_Sequence(steps *[]Step) *[]Step {
+	_init_.Initialize()
+
+	var returns *[]Step
+
+	_jsii_.StaticInvoke(
+		"monocdk.pipelines.ManualApprovalStep",
+		"sequence",
+		[]interface{}{steps},
+		&returns,
+	)
+
+	return returns
+}
+
 // Add an additional FileSet to the set of file sets required by this step.
 //
 // This will lead to a dependency on the producer of that file set.
@@ -3320,6 +3445,16 @@ func (m *jsiiProxy_ManualApprovalStep) AddDependencyFileSet(fs FileSet) {
 		m,
 		"addDependencyFileSet",
 		[]interface{}{fs},
+	)
+}
+
+// Add a dependency on another step.
+// Experimental.
+func (m *jsiiProxy_ManualApprovalStep) AddStepDependency(step Step) {
+	_jsii_.InvokeVoid(
+		m,
+		"addStepDependency",
+		[]interface{}{step},
 	)
 }
 
@@ -4238,6 +4373,7 @@ type ShellStep interface {
 	PrimaryOutput() FileSet
 	AddDependencyFileSet(fs FileSet)
 	AddOutputDirectory(directory *string) FileSet
+	AddStepDependency(step Step)
 	ConfigurePrimaryOutput(fs FileSet)
 	PrimaryOutputDirectory(directory *string) FileSet
 	ToString() *string
@@ -4385,6 +4521,23 @@ func NewShellStep_Override(s ShellStep, id *string, props *ShellStepProps) {
 	)
 }
 
+// Define a sequence of steps to be executed in order.
+// Experimental.
+func ShellStep_Sequence(steps *[]Step) *[]Step {
+	_init_.Initialize()
+
+	var returns *[]Step
+
+	_jsii_.StaticInvoke(
+		"monocdk.pipelines.ShellStep",
+		"sequence",
+		[]interface{}{steps},
+		&returns,
+	)
+
+	return returns
+}
+
 // Add an additional FileSet to the set of file sets required by this step.
 //
 // This will lead to a dependency on the producer of that file set.
@@ -4417,6 +4570,16 @@ func (s *jsiiProxy_ShellStep) AddOutputDirectory(directory *string) FileSet {
 	)
 
 	return returns
+}
+
+// Add a dependency on another step.
+// Experimental.
+func (s *jsiiProxy_ShellStep) AddStepDependency(step Step) {
+	_jsii_.InvokeVoid(
+		s,
+		"addStepDependency",
+		[]interface{}{step},
+	)
 }
 
 // Configure the given FileSet as the primary output of this step.
@@ -5626,6 +5789,7 @@ type Step interface {
 	IsSource() *bool
 	PrimaryOutput() FileSet
 	AddDependencyFileSet(fs FileSet)
+	AddStepDependency(step Step)
 	ConfigurePrimaryOutput(fs FileSet)
 	ToString() *string
 }
@@ -5697,6 +5861,23 @@ func NewStep_Override(s Step, id *string) {
 	)
 }
 
+// Define a sequence of steps to be executed in order.
+// Experimental.
+func Step_Sequence(steps *[]Step) *[]Step {
+	_init_.Initialize()
+
+	var returns *[]Step
+
+	_jsii_.StaticInvoke(
+		"monocdk.pipelines.Step",
+		"sequence",
+		[]interface{}{steps},
+		&returns,
+	)
+
+	return returns
+}
+
 // Add an additional FileSet to the set of file sets required by this step.
 //
 // This will lead to a dependency on the producer of that file set.
@@ -5706,6 +5887,16 @@ func (s *jsiiProxy_Step) AddDependencyFileSet(fs FileSet) {
 		s,
 		"addDependencyFileSet",
 		[]interface{}{fs},
+	)
+}
+
+// Add a dependency on another step.
+// Experimental.
+func (s *jsiiProxy_Step) AddStepDependency(step Step) {
+	_jsii_.InvokeVoid(
+		s,
+		"addStepDependency",
+		[]interface{}{step},
 	)
 }
 

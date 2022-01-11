@@ -3097,6 +3097,7 @@ type Table interface {
 	MetricSystemErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricSystemErrorsForOperations(props *SystemErrorsForOperationsMetricOptions) awscloudwatch.IMetric
 	MetricThrottledRequests(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricThrottledRequestsForOperation(operation *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricUserErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	OnPrepare()
 	OnSynthesize(session constructs.ISynthesisSession)
@@ -3783,7 +3784,7 @@ func (t *jsiiProxy_Table) MetricSystemErrorsForOperations(props *SystemErrorsFor
 // How many requests are throttled on this table.
 //
 // Default: sum over 5 minutes
-// Experimental.
+// Deprecated: Do not use this function. It returns an invalid metric. Use `metricThrottledRequestsForOperation` instead.
 func (t *jsiiProxy_Table) MetricThrottledRequests(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -3791,6 +3792,23 @@ func (t *jsiiProxy_Table) MetricThrottledRequests(props *awscloudwatch.MetricOpt
 		t,
 		"metricThrottledRequests",
 		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// How many requests are throttled on this table, for the given operation.
+//
+// Default: sum over 5 minutes
+// Experimental.
+func (t *jsiiProxy_Table) MetricThrottledRequestsForOperation(operation *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		t,
+		"metricThrottledRequestsForOperation",
+		[]interface{}{operation, props},
 		&returns,
 	)
 

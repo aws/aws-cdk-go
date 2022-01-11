@@ -5727,8 +5727,8 @@ type jsiiProxy_SecretStringValueBeta1 struct {
 // ```ts
 //      // Creates a new IAM user, access and secret keys, and stores the secret access key in a Secret.
 //      const user = new iam.User(this, 'User');
-//      const accessKey = new iam.CfnAccessKey(this, 'AccessKey', { userName: user.userName });
-//      const secretValue = secretsmanager.SecretStringValueBeta1.fromToken(accessKey.attrSecretAccessKey);
+//      const accessKey = new iam.AccessKey(this, 'AccessKey', { user });
+//      const secretValue = secretsmanager.SecretStringValueBeta1.fromToken(accessKey.secretAccessKey.toString());
 //      new secretsmanager.Secret(this, 'Secret', {
 //        secretStringBeta1: secretValue,
 //      });
@@ -5738,7 +5738,7 @@ type jsiiProxy_SecretStringValueBeta1 struct {
 //      const secretValue = secretsmanager.SecretStringValueBeta1.fromToken(JSON.stringify({
 //        username: user.userName,
 //        database: 'foo',
-//        password: accessKey.attrSecretAccessKey
+//        password: accessKey.secretAccessKey.toString(),
 //      }));
 //
 // Note that the value being a Token does *not* guarantee safety. For example, a Lazy-evaluated string

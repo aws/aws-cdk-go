@@ -190,6 +190,9 @@ type AwsCloudFormationStackProperties struct {
 	// The role that is passed to CloudFormation to execute the change set.
 	// Experimental.
 	CloudFormationExecutionRoleArn *string `json:"cloudFormationExecutionRoleArn"`
+	// The role to use to look up values from the target AWS account.
+	// Experimental.
+	LookupRole *BootstrapRole `json:"lookupRole"`
 	// Values for CloudFormation stack parameters that should be passed when the stack is deployed.
 	// Experimental.
 	Parameters *map[string]*string `json:"parameters"`
@@ -228,6 +231,26 @@ type AwsDestination struct {
 	// The region where this asset will need to be published.
 	// Experimental.
 	Region *string `json:"region"`
+}
+
+// Information needed to access an IAM role created as part of the bootstrap process.
+//
+// TODO: EXAMPLE
+//
+// Experimental.
+type BootstrapRole struct {
+	// The ARN of the IAM role created as part of bootrapping e.g. lookupRoleArn.
+	// Experimental.
+	Arn *string `json:"arn"`
+	// External ID to use when assuming the bootstrap role.
+	// Experimental.
+	AssumeRoleExternalId *string `json:"assumeRoleExternalId"`
+	// Name of SSM parameter with bootstrap stack version.
+	// Experimental.
+	BootstrapStackVersionSsmParameter *string `json:"bootstrapStackVersionSsmParameter"`
+	// Version of bootstrap stack required to use this role.
+	// Experimental.
+	RequiresBootstrapStackVersion *float64 `json:"requiresBootstrapStackVersion"`
 }
 
 // Metadata Entry spec for container images.

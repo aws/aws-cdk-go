@@ -779,7 +779,7 @@ type CfnSlackChannelConfigurationProps struct {
 	SlackWorkspaceId *string `json:"slackWorkspaceId"`
 	// The list of IAM policy ARNs that are applied as channel guardrails.
 	//
-	// The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set.
+	// The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set. Currently, only 1 IAM policy is supported.
 	GuardrailPolicies *[]*string `json:"guardrailPolicies"`
 	// Specifies the logging level for this configuration. This property affects the log entries pushed to Amazon CloudWatch Logs.
 	//

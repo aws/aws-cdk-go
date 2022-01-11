@@ -8,6 +8,47 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
+		"monocdk.aws_iam.AccessKey",
+		reflect.TypeOf((*AccessKey)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "accessKeyId", GoGetter: "AccessKeyId"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
+			_jsii_.MemberProperty{JsiiProperty: "secretAccessKey", GoGetter: "SecretAccessKey"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+		},
+		func() interface{} {
+			j := jsiiProxy_AccessKey{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IAccessKey)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_iam.AccessKeyProps",
+		reflect.TypeOf((*AccessKeyProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"monocdk.aws_iam.AccessKeyStatus",
+		reflect.TypeOf((*AccessKeyStatus)(nil)).Elem(),
+		map[string]interface{}{
+			"ACTIVE": AccessKeyStatus_ACTIVE,
+			"INACTIVE": AccessKeyStatus_INACTIVE,
+		},
+	)
+	_jsii_.RegisterClass(
 		"monocdk.aws_iam.AccountPrincipal",
 		reflect.TypeOf((*AccountPrincipal)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -982,6 +1023,23 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_iam.GroupProps",
 		reflect.TypeOf((*GroupProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterInterface(
+		"monocdk.aws_iam.IAccessKey",
+		reflect.TypeOf((*IAccessKey)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "accessKeyId", GoGetter: "AccessKeyId"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "secretAccessKey", GoGetter: "SecretAccessKey"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IAccessKey{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
 	)
 	_jsii_.RegisterInterface(
 		"monocdk.aws_iam.IAssumeRolePrincipal",
