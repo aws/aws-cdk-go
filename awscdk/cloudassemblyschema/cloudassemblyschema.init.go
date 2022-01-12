@@ -63,6 +63,10 @@ func init() {
 		reflect.TypeOf((*AwsDestination)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.cloud_assembly_schema.BootstrapRole",
+		reflect.TypeOf((*BootstrapRole)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.cloud_assembly_schema.ContainerImageAssetMetadataEntry",
 		reflect.TypeOf((*ContainerImageAssetMetadataEntry)(nil)).Elem(),
 	)

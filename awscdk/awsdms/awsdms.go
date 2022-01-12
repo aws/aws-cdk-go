@@ -1933,7 +1933,7 @@ type CfnEndpointProps struct {
 	CertificateArn *string `json:"certificateArn"`
 	// The name of the endpoint database.
 	//
-	// For a MySQL source or target endpoint, do not specify DatabaseName.
+	// For a MySQL source or target endpoint, do not specify DatabaseName. To migrate to a specific database, use this setting and `targetDbType` .
 	DatabaseName *string `json:"databaseName"`
 	// Settings in JSON format for the source DocumentDB endpoint.
 	//

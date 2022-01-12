@@ -94,6 +94,14 @@ func init() {
 		reflect.TypeOf((*NodejsFunctionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_lambda_nodejs.OutputFormat",
+		reflect.TypeOf((*OutputFormat)(nil)).Elem(),
+		map[string]interface{}{
+			"CJS": OutputFormat_CJS,
+			"ESM": OutputFormat_ESM,
+		},
+	)
+	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_lambda_nodejs.SourceMapMode",
 		reflect.TypeOf((*SourceMapMode)(nil)).Elem(),
 		map[string]interface{}{

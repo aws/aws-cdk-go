@@ -110,6 +110,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "findMetadataByType", GoMethod: "FindMetadataByType"},
 			_jsii_.MemberProperty{JsiiProperty: "hierarchicalId", GoGetter: "HierarchicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "id", GoGetter: "Id"},
+			_jsii_.MemberProperty{JsiiProperty: "lookupRole", GoGetter: "LookupRole"},
 			_jsii_.MemberProperty{JsiiProperty: "manifest", GoGetter: "Manifest"},
 			_jsii_.MemberProperty{JsiiProperty: "messages", GoGetter: "Messages"},
 			_jsii_.MemberProperty{JsiiProperty: "originalName", GoGetter: "OriginalName"},

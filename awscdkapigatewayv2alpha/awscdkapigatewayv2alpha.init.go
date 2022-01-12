@@ -875,6 +875,16 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-apigatewayv2-alpha.WebSocketApiKeySelectionExpression",
+		reflect.TypeOf((*WebSocketApiKeySelectionExpression)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "customApiKeySelector", GoGetter: "CustomApiKeySelector"},
+		},
+		func() interface{} {
+			return &jsiiProxy_WebSocketApiKeySelectionExpression{}
+		},
+	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-apigatewayv2-alpha.WebSocketApiProps",
 		reflect.TypeOf((*WebSocketApiProps)(nil)).Elem(),

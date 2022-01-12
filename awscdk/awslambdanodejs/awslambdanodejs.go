@@ -85,6 +85,8 @@ type BundlingOptions struct {
 	// that should be installed (`nodeModules`) in a Lambda compatible
 	// environment.
 	ForceDockerBundling *bool `json:"forceDockerBundling"`
+	// Output format for the generated JavaScript files.
+	Format OutputFormat `json:"format"`
 	// Whether to preserve the original `name` values even in minified code.
 	//
 	// In JavaScript the `name` property on functions and classes defaults to a
@@ -1159,6 +1161,17 @@ type NodejsFunctionProps struct {
 	// supported.
 	Runtime awslambda.Runtime `json:"runtime"`
 }
+
+// Output format for the generated JavaScript files.
+//
+// TODO: EXAMPLE
+//
+type OutputFormat string
+
+const (
+	OutputFormat_CJS OutputFormat = "CJS"
+	OutputFormat_ESM OutputFormat = "ESM"
+)
 
 // SourceMap mode for esbuild.
 //

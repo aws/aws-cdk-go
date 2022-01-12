@@ -210,6 +210,7 @@ type Bucket interface {
 	AddToResourcePolicy(permission awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	ArnForObjects(keyPattern *string) *string
+	EnableEventBridgeNotification()
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
@@ -688,6 +689,14 @@ func (b *jsiiProxy_Bucket) ArnForObjects(keyPattern *string) *string {
 	return returns
 }
 
+func (b *jsiiProxy_Bucket) EnableEventBridgeNotification() {
+	_jsii_.InvokeVoid(
+		b,
+		"enableEventBridgeNotification",
+		nil, // no parameters
+	)
+}
+
 func (b *jsiiProxy_Bucket) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -1154,6 +1163,7 @@ type BucketBase interface {
 	AddToResourcePolicy(permission awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	ArnForObjects(keyPattern *string) *string
+	EnableEventBridgeNotification()
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
@@ -1524,6 +1534,14 @@ func (b *jsiiProxy_BucketBase) ArnForObjects(keyPattern *string) *string {
 	)
 
 	return returns
+}
+
+func (b *jsiiProxy_BucketBase) EnableEventBridgeNotification() {
+	_jsii_.InvokeVoid(
+		b,
+		"enableEventBridgeNotification",
+		nil, // no parameters
+	)
 }
 
 func (b *jsiiProxy_BucketBase) GeneratePhysicalName() *string {
@@ -2209,6 +2227,8 @@ type BucketProps struct {
 	// See: https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-ssl-requests-only.html
 	//
 	EnforceSSL *bool `json:"enforceSSL"`
+	// Whether this bucket should send notifications to Amazon EventBridge or not.
+	EventBridgeEnabled *bool `json:"eventBridgeEnabled"`
 	// Inteligent Tiering Configurations.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/userguide/intelligent-tiering.html
 	//

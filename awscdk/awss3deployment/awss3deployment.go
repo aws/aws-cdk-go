@@ -428,6 +428,9 @@ func (i *jsiiProxy_ISource) Bind(scope constructs.Construct, context *Deployment
 }
 
 // Indicates whether server-side encryption is enabled for the object, and whether that encryption is from the AWS Key Management Service (AWS KMS) or from Amazon S3 managed encryption (SSE-S3).
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#SysMetadata
 //
 type ServerSideEncryption string
@@ -444,6 +447,9 @@ const (
 //      Source.bucket(bucket, key)
 //      Source.asset('/local/path/to/directory')
 //      Source.asset('/local/path/to/a/file.zip')
+//
+// TODO: EXAMPLE
+//
 type Source interface {
 }
 
@@ -501,6 +507,9 @@ type SourceConfig struct {
 }
 
 // Storage class used for storing the object.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#SysMetadata
 //
 type StorageClass string

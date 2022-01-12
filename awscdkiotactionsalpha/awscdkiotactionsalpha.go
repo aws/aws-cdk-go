@@ -274,24 +274,24 @@ type CommonActionProps struct {
 // TODO: EXAMPLE
 //
 // Experimental.
-type FirehoseStreamAction interface {
+type FirehosePutRecordAction interface {
 	awscdkiotalpha.IAction
 	Bind(rule awscdkiotalpha.ITopicRule) *awscdkiotalpha.ActionConfig
 }
 
-// The jsii proxy struct for FirehoseStreamAction
-type jsiiProxy_FirehoseStreamAction struct {
+// The jsii proxy struct for FirehosePutRecordAction
+type jsiiProxy_FirehosePutRecordAction struct {
 	internal.Type__awscdkiotalphaIAction
 }
 
 // Experimental.
-func NewFirehoseStreamAction(stream awscdkkinesisfirehosealpha.IDeliveryStream, props *FirehoseStreamActionProps) FirehoseStreamAction {
+func NewFirehosePutRecordAction(stream awscdkkinesisfirehosealpha.IDeliveryStream, props *FirehosePutRecordActionProps) FirehosePutRecordAction {
 	_init_.Initialize()
 
-	j := jsiiProxy_FirehoseStreamAction{}
+	j := jsiiProxy_FirehosePutRecordAction{}
 
 	_jsii_.Create(
-		"@aws-cdk/aws-iot-actions-alpha.FirehoseStreamAction",
+		"@aws-cdk/aws-iot-actions-alpha.FirehosePutRecordAction",
 		[]interface{}{stream, props},
 		&j,
 	)
@@ -300,11 +300,11 @@ func NewFirehoseStreamAction(stream awscdkkinesisfirehosealpha.IDeliveryStream, 
 }
 
 // Experimental.
-func NewFirehoseStreamAction_Override(f FirehoseStreamAction, stream awscdkkinesisfirehosealpha.IDeliveryStream, props *FirehoseStreamActionProps) {
+func NewFirehosePutRecordAction_Override(f FirehosePutRecordAction, stream awscdkkinesisfirehosealpha.IDeliveryStream, props *FirehosePutRecordActionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"@aws-cdk/aws-iot-actions-alpha.FirehoseStreamAction",
+		"@aws-cdk/aws-iot-actions-alpha.FirehosePutRecordAction",
 		[]interface{}{stream, props},
 		f,
 	)
@@ -312,7 +312,7 @@ func NewFirehoseStreamAction_Override(f FirehoseStreamAction, stream awscdkkines
 
 // (experimental) Returns the topic rule action specification.
 // Experimental.
-func (f *jsiiProxy_FirehoseStreamAction) Bind(rule awscdkiotalpha.ITopicRule) *awscdkiotalpha.ActionConfig {
+func (f *jsiiProxy_FirehosePutRecordAction) Bind(rule awscdkiotalpha.ITopicRule) *awscdkiotalpha.ActionConfig {
 	var returns *awscdkiotalpha.ActionConfig
 
 	_jsii_.Invoke(
@@ -330,7 +330,7 @@ func (f *jsiiProxy_FirehoseStreamAction) Bind(rule awscdkiotalpha.ITopicRule) *a
 // TODO: EXAMPLE
 //
 // Experimental.
-type FirehoseStreamActionProps struct {
+type FirehosePutRecordActionProps struct {
 	// The IAM role that allows access to AWS service.
 	// Experimental.
 	Role awsiam.IRole `json:"role"`
@@ -343,7 +343,7 @@ type FirehoseStreamActionProps struct {
 	BatchMode *bool `json:"batchMode"`
 	// A character separator that will be used to separate records written to the Kinesis Data Firehose stream.
 	// Experimental.
-	RecordSeparator FirehoseStreamRecordSeparator `json:"recordSeparator"`
+	RecordSeparator FirehoseRecordSeparator `json:"recordSeparator"`
 }
 
 // Record Separator to be used to separate records.
@@ -351,13 +351,13 @@ type FirehoseStreamActionProps struct {
 // TODO: EXAMPLE
 //
 // Experimental.
-type FirehoseStreamRecordSeparator string
+type FirehoseRecordSeparator string
 
 const (
-	FirehoseStreamRecordSeparator_NEWLINE FirehoseStreamRecordSeparator = "NEWLINE"
-	FirehoseStreamRecordSeparator_TAB FirehoseStreamRecordSeparator = "TAB"
-	FirehoseStreamRecordSeparator_WINDOWS_NEWLINE FirehoseStreamRecordSeparator = "WINDOWS_NEWLINE"
-	FirehoseStreamRecordSeparator_COMMA FirehoseStreamRecordSeparator = "COMMA"
+	FirehoseRecordSeparator_NEWLINE FirehoseRecordSeparator = "NEWLINE"
+	FirehoseRecordSeparator_TAB FirehoseRecordSeparator = "TAB"
+	FirehoseRecordSeparator_WINDOWS_NEWLINE FirehoseRecordSeparator = "WINDOWS_NEWLINE"
+	FirehoseRecordSeparator_COMMA FirehoseRecordSeparator = "COMMA"
 )
 
 // The action to invoke an AWS Lambda function, passing in an MQTT message.

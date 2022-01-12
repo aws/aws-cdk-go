@@ -62,7 +62,7 @@ func (a *jsiiProxy_Annotations) AddDeprecation(api *string, message *string) {
 
 // Adds an { "error": <message> } metadata entry to this construct.
 //
-// The toolkit will fail synthesis when errors are reported.
+// The toolkit will fail deployment of any stack that has errors reported against it.
 func (a *jsiiProxy_Annotations) AddError(message *string) {
 	_jsii_.InvokeVoid(
 		a,
@@ -1296,6 +1296,9 @@ type BundlingOptions struct {
 }
 
 // The type of output that a bundling operation is producing.
+//
+// TODO: EXAMPLE
+//
 type BundlingOutput string
 
 const (
@@ -13392,11 +13395,20 @@ type DefaultStackSynthesizerProps struct {
 	ImageAssetsRepositoryName *string `json:"imageAssetsRepositoryName"`
 	// The role to use to look up values from the target AWS account during synthesis.
 	LookupRoleArn *string `json:"lookupRoleArn"`
+	// External ID to use when assuming lookup role.
+	LookupRoleExternalId *string `json:"lookupRoleExternalId"`
 	// Qualifier to disambiguate multiple environments in the same account.
 	//
 	// You can use this and leave the other naming properties empty if you have deployed
 	// the bootstrap environment with standard names but only differnet qualifiers.
 	Qualifier *string `json:"qualifier"`
+	// Use the bootstrapped lookup role for (read-only) stack operations.
+	//
+	// Use the lookup role when performing a `cdk diff`. If set to `false`, the
+	// `deploy role` credentials will be used to perform a `cdk diff`.
+	//
+	// Requires bootstrap stack version 8.
+	UseLookupRoleForStackOperations *bool `json:"useLookupRoleForStackOperations"`
 }
 
 // Default resolver implementation.
@@ -20416,6 +20428,8 @@ type SynthesizeStackArtifactOptions struct {
 	BootstrapStackVersionSsmParameter *string `json:"bootstrapStackVersionSsmParameter"`
 	// The role that is passed to CloudFormation to execute the change set.
 	CloudFormationExecutionRoleArn *string `json:"cloudFormationExecutionRoleArn"`
+	// The role to use to look up values from the target AWS account.
+	LookupRole *cloudassemblyschema.BootstrapRole `json:"lookupRole"`
 	// Values for CloudFormation stack parameters that should be passed when the stack is deployed.
 	Parameters *map[string]*string `json:"parameters"`
 	// Version of bootstrap stack required to deploy this stack.

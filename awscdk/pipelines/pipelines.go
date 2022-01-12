@@ -1589,7 +1589,7 @@ func DockerCredential_CustomRegistry(registryDomain *string, secret awssecretsma
 
 // Creates a DockerCredential for DockerHub.
 //
-// Convenience method for `fromCustomRegistry('index.docker.io', opts)`.
+// Convenience method for `customRegistry('https://index.docker.io/v1/', opts)`.
 func DockerCredential_DockerHub(secret awssecretsmanager.ISecret, opts *ExternalDockerCredentialOptions) DockerCredential {
 	_init_.Initialize()
 

@@ -14905,6 +14905,17 @@ func SourceAccessConfigurationType_BASIC_AUTH() SourceAccessConfigurationType {
 	return returns
 }
 
+func SourceAccessConfigurationType_CLIENT_CERTIFICATE_TLS_AUTH() SourceAccessConfigurationType {
+	_init_.Initialize()
+	var returns SourceAccessConfigurationType
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_lambda.SourceAccessConfigurationType",
+		"CLIENT_CERTIFICATE_TLS_AUTH",
+		&returns,
+	)
+	return returns
+}
+
 func SourceAccessConfigurationType_SASL_SCRAM_256_AUTH() SourceAccessConfigurationType {
 	_init_.Initialize()
 	var returns SourceAccessConfigurationType

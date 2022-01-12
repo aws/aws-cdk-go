@@ -60,29 +60,29 @@ func init() {
 		reflect.TypeOf((*CommonActionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"@aws-cdk/aws-iot-actions-alpha.FirehoseStreamAction",
-		reflect.TypeOf((*FirehoseStreamAction)(nil)).Elem(),
+		"@aws-cdk/aws-iot-actions-alpha.FirehosePutRecordAction",
+		reflect.TypeOf((*FirehosePutRecordAction)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
 		},
 		func() interface{} {
-			j := jsiiProxy_FirehoseStreamAction{}
+			j := jsiiProxy_FirehosePutRecordAction{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkiotalphaIAction)
 			return &j
 		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/aws-iot-actions-alpha.FirehoseStreamActionProps",
-		reflect.TypeOf((*FirehoseStreamActionProps)(nil)).Elem(),
+		"@aws-cdk/aws-iot-actions-alpha.FirehosePutRecordActionProps",
+		reflect.TypeOf((*FirehosePutRecordActionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"@aws-cdk/aws-iot-actions-alpha.FirehoseStreamRecordSeparator",
-		reflect.TypeOf((*FirehoseStreamRecordSeparator)(nil)).Elem(),
+		"@aws-cdk/aws-iot-actions-alpha.FirehoseRecordSeparator",
+		reflect.TypeOf((*FirehoseRecordSeparator)(nil)).Elem(),
 		map[string]interface{}{
-			"NEWLINE": FirehoseStreamRecordSeparator_NEWLINE,
-			"TAB": FirehoseStreamRecordSeparator_TAB,
-			"WINDOWS_NEWLINE": FirehoseStreamRecordSeparator_WINDOWS_NEWLINE,
-			"COMMA": FirehoseStreamRecordSeparator_COMMA,
+			"NEWLINE": FirehoseRecordSeparator_NEWLINE,
+			"TAB": FirehoseRecordSeparator_TAB,
+			"WINDOWS_NEWLINE": FirehoseRecordSeparator_WINDOWS_NEWLINE,
+			"COMMA": FirehoseRecordSeparator_COMMA,
 		},
 	)
 	_jsii_.RegisterClass(

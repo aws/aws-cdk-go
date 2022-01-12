@@ -9430,6 +9430,58 @@ type ContainerImageConfig struct {
 	RepositoryCredentials *CfnTaskDefinition_RepositoryCredentialsProperty `json:"repositoryCredentials"`
 }
 
+// The CpuArchitecture for Fargate Runtime Platform.
+//
+// TODO: EXAMPLE
+//
+type CpuArchitecture interface {
+}
+
+// The jsii proxy struct for CpuArchitecture
+type jsiiProxy_CpuArchitecture struct {
+	_ byte // padding
+}
+
+// Other cpu architecture.
+// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-runtimeplatform.html#cfn-ecs-taskdefinition-runtimeplatform-cpuarchitecture for all available cpu architecture.
+//
+func CpuArchitecture_Of(cpuArchitecture *string) CpuArchitecture {
+	_init_.Initialize()
+
+	var returns CpuArchitecture
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ecs.CpuArchitecture",
+		"of",
+		[]interface{}{cpuArchitecture},
+		&returns,
+	)
+
+	return returns
+}
+
+func CpuArchitecture_ARM64() CpuArchitecture {
+	_init_.Initialize()
+	var returns CpuArchitecture
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ecs.CpuArchitecture",
+		"ARM64",
+		&returns,
+	)
+	return returns
+}
+
+func CpuArchitecture_X86_64() CpuArchitecture {
+	_init_.Initialize()
+	var returns CpuArchitecture
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ecs.CpuArchitecture",
+		"X86_64",
+		&returns,
+	)
+	return returns
+}
+
 // The properties for enabling scaling based on CPU utilization.
 //
 // TODO: EXAMPLE
@@ -13806,6 +13858,10 @@ type FargateTaskDefinitionProps struct {
 	//
 	// Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) - Available cpu values: 4096 (4 vCPU)
 	MemoryLimitMiB *float64 `json:"memoryLimitMiB"`
+	// The operating system that your task definitions are running on.
+	//
+	// A runtimePlatform is supported only for tasks using the Fargate launch type.
+	RuntimePlatform *RuntimePlatform `json:"runtimePlatform"`
 }
 
 // FireLens enables you to use task definition parameters to route logs to an AWS service   or AWS Partner Network (APN) destination for log storage and analytics.
@@ -16189,6 +16245,124 @@ const (
 	NetworkMode_NAT NetworkMode = "NAT"
 )
 
+// The operating system for Fargate Runtime Platform.
+//
+// TODO: EXAMPLE
+//
+type OperatingSystemFamily interface {
+}
+
+// The jsii proxy struct for OperatingSystemFamily
+type jsiiProxy_OperatingSystemFamily struct {
+	_ byte // padding
+}
+
+// Other operating system family.
+// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-runtimeplatform.html#cfn-ecs-taskdefinition-runtimeplatform-operatingsystemfamily for all available operating system family.
+//
+func OperatingSystemFamily_Of(family *string) OperatingSystemFamily {
+	_init_.Initialize()
+
+	var returns OperatingSystemFamily
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ecs.OperatingSystemFamily",
+		"of",
+		[]interface{}{family},
+		&returns,
+	)
+
+	return returns
+}
+
+func OperatingSystemFamily_LINUX() OperatingSystemFamily {
+	_init_.Initialize()
+	var returns OperatingSystemFamily
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ecs.OperatingSystemFamily",
+		"LINUX",
+		&returns,
+	)
+	return returns
+}
+
+func OperatingSystemFamily_WINDOWS_SERVER_2004_CORE() OperatingSystemFamily {
+	_init_.Initialize()
+	var returns OperatingSystemFamily
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ecs.OperatingSystemFamily",
+		"WINDOWS_SERVER_2004_CORE",
+		&returns,
+	)
+	return returns
+}
+
+func OperatingSystemFamily_WINDOWS_SERVER_2016_FULL() OperatingSystemFamily {
+	_init_.Initialize()
+	var returns OperatingSystemFamily
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ecs.OperatingSystemFamily",
+		"WINDOWS_SERVER_2016_FULL",
+		&returns,
+	)
+	return returns
+}
+
+func OperatingSystemFamily_WINDOWS_SERVER_2019_CORE() OperatingSystemFamily {
+	_init_.Initialize()
+	var returns OperatingSystemFamily
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ecs.OperatingSystemFamily",
+		"WINDOWS_SERVER_2019_CORE",
+		&returns,
+	)
+	return returns
+}
+
+func OperatingSystemFamily_WINDOWS_SERVER_2019_FULL() OperatingSystemFamily {
+	_init_.Initialize()
+	var returns OperatingSystemFamily
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ecs.OperatingSystemFamily",
+		"WINDOWS_SERVER_2019_FULL",
+		&returns,
+	)
+	return returns
+}
+
+func OperatingSystemFamily_WINDOWS_SERVER_2022_CORE() OperatingSystemFamily {
+	_init_.Initialize()
+	var returns OperatingSystemFamily
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ecs.OperatingSystemFamily",
+		"WINDOWS_SERVER_2022_CORE",
+		&returns,
+	)
+	return returns
+}
+
+func OperatingSystemFamily_WINDOWS_SERVER_2022_FULL() OperatingSystemFamily {
+	_init_.Initialize()
+	var returns OperatingSystemFamily
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ecs.OperatingSystemFamily",
+		"WINDOWS_SERVER_2022_FULL",
+		&returns,
+	)
+	return returns
+}
+
+func OperatingSystemFamily_WINDOWS_SERVER_20H2_CORE() OperatingSystemFamily {
+	_init_.Initialize()
+	var returns OperatingSystemFamily
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ecs.OperatingSystemFamily",
+		"WINDOWS_SERVER_20H2_CORE",
+		&returns,
+	)
+	return returns
+}
+
 // The process namespace to use for the containers in the task.
 type PidMode string
 
@@ -16721,6 +16895,17 @@ type RequestCountScalingProps struct {
 	RequestsPerTarget *float64 `json:"requestsPerTarget"`
 	// The ALB target group name.
 	TargetGroup awselasticloadbalancingv2.ApplicationTargetGroup `json:"targetGroup"`
+}
+
+// The interface for Runtime Platform.
+//
+// TODO: EXAMPLE
+//
+type RuntimePlatform struct {
+	// The CpuArchitecture for Fargate Runtime Platform.
+	CpuArchitecture CpuArchitecture `json:"cpuArchitecture"`
+	// The operating system for Fargate Runtime Platform.
+	OperatingSystemFamily OperatingSystemFamily `json:"operatingSystemFamily"`
 }
 
 // Environment file from S3.
@@ -18223,6 +18408,10 @@ type TaskDefinitionProps struct {
 	//
 	// Not supported in Fargate.
 	PlacementConstraints *[]PlacementConstraint `json:"placementConstraints"`
+	// The operating system that your task definitions are running on.
+	//
+	// A runtimePlatform is supported only for tasks using the Fargate launch type.
+	RuntimePlatform *RuntimePlatform `json:"runtimePlatform"`
 }
 
 // The details of a tmpfs mount for a container.

@@ -35,10 +35,6 @@ The code snippet below creates an AWS IoT Rule that invoke a Lambda function
 when it is triggered.
 
 ```ts
-import * as iot from '@aws-cdk/aws-iot-alpha';
-import * as actions from '@aws-cdk/aws-iot-actions-alpha';
-import * as lambda from 'aws-cdk-lib/aws-lambda';
-
 const func = new lambda.Function(this, 'MyFunction', {
   runtime: lambda.Runtime.NODEJS_14_X,
   handler: 'index.handler',
@@ -61,10 +57,6 @@ The code snippet below creates an AWS IoT Rule that put objects to a S3 bucket
 when it is triggered.
 
 ```ts
-import * as iot from '@aws-cdk/aws-iot-alpha';
-import * as actions from '@aws-cdk/aws-iot-actions-alpha';
-import * as s3 from 'aws-cdk-lib/aws-s3';
-
 const bucket = new s3.Bucket(this, 'MyBucket');
 
 new iot.TopicRule(this, 'TopicRule', {
@@ -83,6 +75,8 @@ by the number of the current timestamp in milliseconds as `1636289461203`. So if
 You can also set specific `key` as following:
 
 ```ts
+const bucket = new s3.Bucket(this, 'MyBucket');
+
 new iot.TopicRule(this, 'TopicRule', {
   sql: iot.IotSql.fromStringAsVer20160323(
     "SELECT topic(2) as device_id, year, month, day FROM 'device/+/data'",
@@ -98,6 +92,8 @@ new iot.TopicRule(this, 'TopicRule', {
 If you wanna set access control to the S3 bucket object, you can specify `accessControl` as following:
 
 ```ts
+const bucket = new s3.Bucket(this, 'MyBucket');
+
 new iot.TopicRule(this, 'TopicRule', {
   sql: iot.IotSql.fromStringAsVer20160323("SELECT * FROM 'device/+/data'"),
   actions: [
@@ -114,8 +110,6 @@ The code snippet below creates an AWS IoT Rule that put logs to CloudWatch Logs
 when it is triggered.
 
 ```ts
-import * as iot from '@aws-cdk/aws-iot-alpha';
-import * as actions from '@aws-cdk/aws-iot-actions-alpha';
 import * as logs from 'aws-cdk-lib/aws-logs';
 
 const logGroup = new logs.LogGroup(this, 'MyLogGroup');
@@ -132,9 +126,6 @@ The code snippet below creates an AWS IoT Rule that capture CloudWatch metrics
 when it is triggered.
 
 ```ts
-import * as iot from '@aws-cdk/aws-iot-alpha';
-import * as actions from '@aws-cdk/aws-iot-actions-alpha';
-
 const topicRule = new iot.TopicRule(this, 'TopicRule', {
   sql: iot.IotSql.fromStringAsVer20160323(
     "SELECT topic(2) as device_id, namespace, unit, value, timestamp FROM 'device/+/data'",
@@ -157,8 +148,6 @@ The code snippet below creates an AWS IoT Rule that changes the state of an Amaz
 
 ```ts
 import * as cloudwatch from 'aws-cdk-lib/aws-cloudwatch';
-import * as iot from '@aws-cdk/aws-iot-alpha';
-import * as actions from '@aws-cdk/aws-iot-actions-alpha';
 
 const metric = new cloudwatch.Metric({
   namespace: 'MyNamespace',
@@ -189,9 +178,6 @@ The code snippet below creates an AWS IoT Rule that put records to Put records
 to Kinesis Data Firehose stream when it is triggered.
 
 ```ts
-import * as iot from '@aws-cdk/aws-iot-alpha';
-import * as actions from '@aws-cdk/aws-iot-actions-alpha';
-import * as s3 from 'aws-cdk-lib/aws-s3';
 import * as firehose from '@aws-cdk/aws-kinesisfirehose-alpha';
 import * as destinations from '@aws-cdk/aws-kinesisfirehose-destinations-alpha';
 
@@ -203,9 +189,9 @@ const stream = new firehose.DeliveryStream(this, 'MyStream', {
 const topicRule = new iot.TopicRule(this, 'TopicRule', {
   sql: iot.IotSql.fromStringAsVer20160323("SELECT * FROM 'device/+/data'"),
   actions: [
-    new actions.FirehoseStreamAction(stream, {
+    new actions.FirehosePutRecordAction(stream, {
       batchMode: true,
-      recordSeparator: actions.FirehoseStreamRecordSeparator.NEWLINE,
+      recordSeparator: actions.FirehoseRecordSeparator.NEWLINE,
     }),
   ],
 });
@@ -217,8 +203,6 @@ The code snippet below creates an AWS IoT Rule that send messages
 to an SQS queue when it is triggered:
 
 ```ts
-import * as iot from '@aws-cdk/aws-iot-alpha';
-import * as actions from '@aws-cdk/aws-iot-actions-alpha';
 import * as sqs from 'aws-cdk-lib/aws-sqs';
 
 const queue = new sqs.Queue(this, 'MyQueue');
@@ -231,7 +215,7 @@ const topicRule = new iot.TopicRule(this, 'TopicRule', {
     new actions.SqsQueueAction(queue, {
       useBase64: true, // optional property, default is 'false'
     }),
-  ]
+  ],
 });
 ```
 

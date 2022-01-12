@@ -4560,6 +4560,8 @@ type CfnParameterProps struct {
 	// *Allowed Values* : String | StringList
 	Type *string `json:"type"`
 	// The parameter value.
+	//
+	// > If type is `StringList` , the system returns a comma-separated string with no spaces between commas in the `Value` field.
 	Value *string `json:"value"`
 	// A regular expression used to validate the parameter value.
 	//
@@ -4572,6 +4574,8 @@ type CfnParameterProps struct {
 	// Information about the parameter.
 	Description *string `json:"description"`
 	// The name of the parameter.
+	//
+	// > The maximum length constraint listed below includes capacity for additional system attributes that aren't part of the name. The maximum length for a parameter name, including the full length of the parameter ARN, is 1011 characters. For example, the length of the following parameter name is 65 characters, not 20 characters: `arn:aws:ssm:us-east-2:111222333444:parameter/ExampleParameterName`
 	Name *string `json:"name"`
 	// Information about the policies assigned to a parameter.
 	//

@@ -2050,11 +2050,15 @@ type CfnCluster_EncryptionConfigProperty struct {
 // TODO: EXAMPLE
 //
 type CfnCluster_KubernetesNetworkConfigProperty struct {
-	// `CfnCluster.KubernetesNetworkConfigProperty.IpFamily`.
-	IpFamily *string `json:"ipFamily"`
-	// The CIDR block to assign Kubernetes service IP addresses from.
+	// Specify which IP family is used to assign Kubernetes Pod and Service IP addresses.
 	//
-	// If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. The block must meet the following requirements:
+	// If you don't specify a value, `ipv4` is used by default. You can only specify an IP family when you create a cluster and can't change this value once the cluster is created. If you specify `ipv6` , the VPC and subnets that you specify for cluster creation must have both IPv4 and IPv6 CIDR blocks assigned to them.
+	//
+	// You can only specify `ipv6` for 1.21 and later clusters that use version 1.10.1 or later of the Amazon VPC CNI add-on. If you specify `ipv6` , then ensure that your VPC meets the requirements listed in the considerations listed in [Assigning IPv6 addresses to Pods and Services](https://docs.aws.amazon.com/eks/latest/userguide/cni-ipv6.html) in the Amazon EKS User Guide. Kubernetes assigns Services IPv6 addresses from the unique local address range (fc00::/7). You can't specify a custom IPv6 CIDR block. Pod addresses are assigned from the subnet's IPv6 CIDR.
+	IpFamily *string `json:"ipFamily"`
+	// Don't specify a value if you select `ipv6` for *ipFamily* .
+	//
+	// The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. The block must meet the following requirements:
 	//
 	// - Within one of the following private IP address blocks: 10.0.0.0/8, 172.16.0.0/12, or 192.168.0.0/16.
 	// - Doesn't overlap with any CIDR block assigned to the VPC that you selected for VPC.
@@ -2062,7 +2066,7 @@ type CfnCluster_KubernetesNetworkConfigProperty struct {
 	//
 	// > You can only specify a custom CIDR block when you create a cluster and can't change this value once the cluster is created.
 	ServiceIpv4Cidr *string `json:"serviceIpv4Cidr"`
-	// `CfnCluster.KubernetesNetworkConfigProperty.ServiceIpv6Cidr`.
+	// The CIDR block that Kubernetes Pod and Service IP addresses are assigned from if you created a 1.21 or later cluster with version 1.10.1 or later of the Amazon VPC CNI add-on and specified `ipv6` for *ipFamily* when you created the cluster. Kubernetes assigns Service addresses from the unique local address range ( `fc00::/7` ) because you can't specify a custom IPv6 CIDR block when you create the cluster.
 	ServiceIpv6Cidr *string `json:"serviceIpv6Cidr"`
 }
 
@@ -2800,7 +2804,7 @@ type CfnFargateProfileProps struct {
 
 // A CloudFormation `AWS::EKS::Nodegroup`.
 //
-// Creates a managed node group for an Amazon EKS cluster. You can only create a node group for your cluster that is equal to the current Kubernetes version for the cluster.
+// Creates a managed node group for an Amazon EKS cluster. You can only create a node group for your cluster that is equal to the current Kubernetes version for the cluster. All node groups are created with the latest AMI release version for the respective minor Kubernetes version of the cluster, unless you deploy a custom AMI using a launch template. For more information about using launch templates, see [Launch template support](https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html) .
 //
 // An Amazon EKS managed node group is an Amazon EC2 Auto Scaling group and associated Amazon EC2 instances that are managed by AWS for an Amazon EKS cluster. Each node group uses a version of the Amazon EKS optimized Amazon Linux 2 AMI. For more information, see [Managed Node Groups](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html) in the *Amazon EKS User Guide* .
 //
@@ -3736,16 +3740,9 @@ type CfnNodegroupProps struct {
 	//
 	// If you specify `launchTemplate` , then don't specify [`SubnetId`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html) in your launch template, or the node group deployment will fail. For more information about using launch templates with Amazon EKS, see [Launch template support](https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html) in the *Amazon EKS User Guide* .
 	Subnets *[]*string `json:"subnets"`
-	// The AMI type for your node group. The following values are examples:.
+	// The AMI type for your node group.
 	//
-	// - `AL2_x86_64` – Use for Amazon Linux 2 non-GPU instances.
-	// - `AL2_x86_64_GPU` – Use for Amazon Linux 2 GPU instances.
-	// - `AL2_ARM_64` – Use for Amazon Linux 2 Arm instances.
-	// - `CUSTOM` – Use when specifying a custom AMI ID with a launch template. For more information, see [Specifying an AMI](https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html#launch-template-custom-ami) in the *Amazon EKS User Guide* .
-	// - `BOTTLEROCKET_ARM_64` – Use for Bottlerocket Arm instances.
-	// - `BOTTLEROCKET_x86_64` – Use for Bottlerocket x86_64 instances.
-	//
-	// If you specify `launchTemplate` , and your launch template uses a custom AMI, then don't specify `amiType` , or the node group deployment will fail. For more information about using launch templates with Amazon EKS, see [Launch template support](https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html) in the *Amazon EKS User Guide* .
+	// GPU instance types should use the `AL2_x86_64_GPU` AMI type. Non-GPU instances should use the `AL2_x86_64` AMI type. Arm instances should use the `AL2_ARM_64` AMI type. All types use the Amazon EKS optimized Amazon Linux 2 AMI. If you specify `launchTemplate` , and your launch template uses a custom AMI, then don't specify `amiType` , or the node group deployment will fail. For more information about using launch templates with Amazon EKS, see [Launch template support](https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html) in the *Amazon EKS User Guide* .
 	AmiType *string `json:"amiType"`
 	// The capacity type of your managed node group.
 	CapacityType *string `json:"capacityType"`
@@ -4844,6 +4841,8 @@ type ClusterProps struct {
 	DefaultCapacityType DefaultCapacityType `json:"defaultCapacityType"`
 	// The IAM role to pass to the Kubectl Lambda Handler.
 	KubectlLambdaRole awsiam.IRole `json:"kubectlLambdaRole"`
+	// The tags assigned to the EKS cluster.
+	Tags *map[string]*string `json:"tags"`
 }
 
 // Options for configuring an EKS cluster.

@@ -4986,12 +4986,90 @@ func (w *jsiiProxy_WebSocketApi) ToString() *string {
 	return returns
 }
 
+// Represents the currently available API Key Selection Expressions.
+//
+// TODO: EXAMPLE
+//
+// Experimental.
+type WebSocketApiKeySelectionExpression interface {
+	CustomApiKeySelector() *string
+}
+
+// The jsii proxy struct for WebSocketApiKeySelectionExpression
+type jsiiProxy_WebSocketApiKeySelectionExpression struct {
+	_ byte // padding
+}
+
+func (j *jsiiProxy_WebSocketApiKeySelectionExpression) CustomApiKeySelector() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"customApiKeySelector",
+		&returns,
+	)
+	return returns
+}
+
+
+// Experimental.
+func NewWebSocketApiKeySelectionExpression(customApiKeySelector *string) WebSocketApiKeySelectionExpression {
+	_init_.Initialize()
+
+	j := jsiiProxy_WebSocketApiKeySelectionExpression{}
+
+	_jsii_.Create(
+		"@aws-cdk/aws-apigatewayv2-alpha.WebSocketApiKeySelectionExpression",
+		[]interface{}{customApiKeySelector},
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewWebSocketApiKeySelectionExpression_Override(w WebSocketApiKeySelectionExpression, customApiKeySelector *string) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/aws-apigatewayv2-alpha.WebSocketApiKeySelectionExpression",
+		[]interface{}{customApiKeySelector},
+		w,
+	)
+}
+
+func WebSocketApiKeySelectionExpression_AUTHORIZER_USAGE_IDENTIFIER_KEY() WebSocketApiKeySelectionExpression {
+	_init_.Initialize()
+	var returns WebSocketApiKeySelectionExpression
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-apigatewayv2-alpha.WebSocketApiKeySelectionExpression",
+		"AUTHORIZER_USAGE_IDENTIFIER_KEY",
+		&returns,
+	)
+	return returns
+}
+
+func WebSocketApiKeySelectionExpression_HEADER_X_API_KEY() WebSocketApiKeySelectionExpression {
+	_init_.Initialize()
+	var returns WebSocketApiKeySelectionExpression
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-apigatewayv2-alpha.WebSocketApiKeySelectionExpression",
+		"HEADER_X_API_KEY",
+		&returns,
+	)
+	return returns
+}
+
 // Props for WebSocket API.
 //
 // TODO: EXAMPLE
 //
 // Experimental.
 type WebSocketApiProps struct {
+	// An API key selection expression.
+	//
+	// Providing this option will require an API Key be provided to access the API.
+	// Experimental.
+	ApiKeySelectionExpression WebSocketApiKeySelectionExpression `json:"apiKeySelectionExpression"`
 	// Name for the WebSocket API resource.
 	// Experimental.
 	ApiName *string `json:"apiName"`
@@ -6022,6 +6100,9 @@ type WebSocketRouteProps struct {
 	// The API the route is associated with.
 	// Experimental.
 	WebSocketApi IWebSocketApi `json:"webSocketApi"`
+	// Whether the route requires an API Key to be provided.
+	// Experimental.
+	ApiKeyRequired *bool `json:"apiKeyRequired"`
 }
 
 // Represents a stage where an instance of the API is deployed.

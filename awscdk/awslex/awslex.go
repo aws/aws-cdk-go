@@ -743,10 +743,12 @@ type CfnBot_DialogCodeHookSettingProperty struct {
 	Enabled interface{} `json:"enabled"`
 }
 
+// Provides information about the external source of the slot type's definition.
+//
 // TODO: EXAMPLE
 //
 type CfnBot_ExternalSourceSettingProperty struct {
-	// `CfnBot.ExternalSourceSettingProperty.GrammarSlotTypeSetting`.
+	// Settings required for a slot type based on a grammar that you provide.
 	GrammarSlotTypeSetting interface{} `json:"grammarSlotTypeSetting"`
 }
 
@@ -818,21 +820,25 @@ type CfnBot_FulfillmentUpdatesSpecificationProperty struct {
 	UpdateResponse interface{} `json:"updateResponse"`
 }
 
+// Settings required for a slot type based on a grammar that you provide.
+//
 // TODO: EXAMPLE
 //
 type CfnBot_GrammarSlotTypeSettingProperty struct {
-	// `CfnBot.GrammarSlotTypeSettingProperty.Source`.
+	// The source of the grammar used to create the slot type.
 	Source interface{} `json:"source"`
 }
 
+// Describes the Amazon S3 bucket name and location for the grammar that is the source of the slot type.
+//
 // TODO: EXAMPLE
 //
 type CfnBot_GrammarSlotTypeSourceProperty struct {
-	// `CfnBot.GrammarSlotTypeSourceProperty.S3BucketName`.
+	// The name of the S3 bucket that contains the grammar source.
 	S3BucketName *string `json:"s3BucketName"`
-	// `CfnBot.GrammarSlotTypeSourceProperty.S3ObjectKey`.
+	// The path to the grammar in the S3 bucket.
 	S3ObjectKey *string `json:"s3ObjectKey"`
-	// `CfnBot.GrammarSlotTypeSourceProperty.KmsKeyArn`.
+	// The AWS Key Management Service key required to decrypt the contents of the grammar, if any.
 	KmsKeyArn *string `json:"kmsKeyArn"`
 }
 
@@ -1199,7 +1205,7 @@ type CfnBot_SlotTypeProperty struct {
 	//
 	// Use the description to help identify the slot type in lists.
 	Description *string `json:"description"`
-	// `CfnBot.SlotTypeProperty.ExternalSourceSetting`.
+	// Sets the type of external information used to create the slot type.
 	ExternalSourceSetting interface{} `json:"externalSourceSetting"`
 	// The built-in slot type used as a parent of this slot type.
 	//
@@ -2715,12 +2721,16 @@ type CfnBotVersion_BotVersionLocaleDetailsProperty struct {
 	SourceBotVersion *string `json:"sourceBotVersion"`
 }
 
+// Specifies the locale that Amazon Lex adds to this version.
+//
+// You can choose the Draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
+//
 // TODO: EXAMPLE
 //
 type CfnBotVersion_BotVersionLocaleSpecificationProperty struct {
-	// `CfnBotVersion.BotVersionLocaleSpecificationProperty.BotVersionLocaleDetails`.
+	// The version of a bot used for a bot locale.
 	BotVersionLocaleDetails interface{} `json:"botVersionLocaleDetails"`
-	// `CfnBotVersion.BotVersionLocaleSpecificationProperty.LocaleId`.
+	// The identifier of the locale to add to the version.
 	LocaleId *string `json:"localeId"`
 }
 
@@ -3253,6 +3263,10 @@ func (c *jsiiProxy_CfnResourcePolicy) ValidateProperties(_properties interface{}
 	)
 }
 
+// The resource policy to add to the resource.
+//
+// The policy is a JSON structure that contains one or more statements that define the policy. The policy must follow the IAM policy syntax. For more information about the contents of a JSON policy document, see the [IAM JSON policy reference](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html) .
+//
 // TODO: EXAMPLE
 //
 type CfnResourcePolicy_PolicyProperty struct {

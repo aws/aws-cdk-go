@@ -48,8 +48,11 @@ An application that has been created outside of the stack can be imported into y
 Applications can be imported by their ARN via the `Application.fromApplicationArn()` API:
 
 ```ts
-const importedApplication = appreg.Application.fromApplicationArn(this, 'MyImportedApplication',
-  'arn:aws:servicecatalog:us-east-1:012345678910:/applications/0aqmvxvgmry0ecc4mjhwypun6i');
+const importedApplication = appreg.Application.fromApplicationArn(
+  this,
+  'MyImportedApplication',
+  'arn:aws:servicecatalog:us-east-1:012345678910:/applications/0aqmvxvgmry0ecc4mjhwypun6i',
+);
 ```
 
 ## Attribute Group
@@ -78,8 +81,11 @@ An attribute group that has been created outside of the stack can be imported in
 Attribute groups can be imported by their ARN via the `AttributeGroup.fromAttributeGroupArn()` API:
 
 ```ts
-const importedAttributeGroup = appreg.AttributeGroup.fromAttributeGroupArn(this, 'MyImportedAttrGroup',
-  'arn:aws:servicecatalog:us-east-1:012345678910:/attribute-groups/0aqmvxvgmry0ecc4mjhwypun6i');
+const importedAttributeGroup = appreg.AttributeGroup.fromAttributeGroupArn(
+  this,
+  'MyImportedAttrGroup',
+  'arn:aws:servicecatalog:us-east-1:012345678910:/attribute-groups/0aqmvxvgmry0ecc4mjhwypun6i',
+);
 ```
 
 ## Associations
@@ -95,7 +101,9 @@ CDK will fail at deploy time.
 
 You can associate an attribute group with an application with the `associateAttributeGroup()` API:
 
-```ts basic-constructs
+```ts
+declare const application: appreg.Application;
+declare const attributeGroup: appreg.AttributeGroup;
 application.associateAttributeGroup(attributeGroup);
 ```
 
@@ -103,9 +111,11 @@ application.associateAttributeGroup(attributeGroup);
 
 You can associate a stack with an application with the `associateStack()` API:
 
-```ts basic-constructs
-const myStack = new cdk.Stack(app, 'MyStack');
+```ts
+const app = new App();
+const myStack = new Stack(app, 'MyStack');
 
+declare const application: appreg.Application;
 application.associateStack(myStack);
 ```
 

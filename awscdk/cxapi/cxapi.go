@@ -697,6 +697,7 @@ type CloudFormationStackArtifact interface {
 	Environment() *Environment
 	HierarchicalId() *string
 	Id() *string
+	LookupRole() *cloudassemblyschema.BootstrapRole
 	Manifest() *cloudassemblyschema.ArtifactManifest
 	Messages() *[]*SynthesisMessage
 	OriginalName() *string
@@ -823,6 +824,16 @@ func (j *jsiiProxy_CloudFormationStackArtifact) Id() *string {
 	_jsii_.Get(
 		j,
 		"id",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CloudFormationStackArtifact) LookupRole() *cloudassemblyschema.BootstrapRole {
+	var returns *cloudassemblyschema.BootstrapRole
+	_jsii_.Get(
+		j,
+		"lookupRole",
 		&returns,
 	)
 	return returns

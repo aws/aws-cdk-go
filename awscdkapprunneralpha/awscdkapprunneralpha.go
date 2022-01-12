@@ -222,6 +222,9 @@ type CodeRepositoryProps struct {
 }
 
 // The source of the App Runner configuration.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ConfigurationSourceType string
 
@@ -1402,6 +1405,9 @@ type ServiceProps struct {
 }
 
 // Represents the App Runner service source.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Source interface {
 	Bind(scope constructs.Construct) *SourceConfig
