@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"monocdk.aws_lambda_event_sources.ApiEventSource",
+		"aws-cdk-lib.aws_lambda_event_sources.ApiEventSource",
 		reflect.TypeOf((*ApiEventSource)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -20,21 +20,16 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_lambda_event_sources.AuthenticationMethod",
+		"aws-cdk-lib.aws_lambda_event_sources.AuthenticationMethod",
 		reflect.TypeOf((*AuthenticationMethod)(nil)).Elem(),
 		map[string]interface{}{
 			"SASL_SCRAM_512_AUTH": AuthenticationMethod_SASL_SCRAM_512_AUTH,
 			"SASL_SCRAM_256_AUTH": AuthenticationMethod_SASL_SCRAM_256_AUTH,
 			"BASIC_AUTH": AuthenticationMethod_BASIC_AUTH,
-			"CLIENT_CERTIFICATE_TLS_AUTH": AuthenticationMethod_CLIENT_CERTIFICATE_TLS_AUTH,
 		},
 	)
-	_jsii_.RegisterStruct(
-		"monocdk.aws_lambda_event_sources.BaseStreamEventSourceProps",
-		reflect.TypeOf((*BaseStreamEventSourceProps)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_lambda_event_sources.DynamoEventSource",
+		"aws-cdk-lib.aws_lambda_event_sources.DynamoEventSource",
 		reflect.TypeOf((*DynamoEventSource)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -49,15 +44,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_lambda_event_sources.DynamoEventSourceProps",
+		"aws-cdk-lib.aws_lambda_event_sources.DynamoEventSourceProps",
 		reflect.TypeOf((*DynamoEventSourceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_lambda_event_sources.KafkaEventSourceProps",
+		"aws-cdk-lib.aws_lambda_event_sources.KafkaEventSourceProps",
 		reflect.TypeOf((*KafkaEventSourceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_lambda_event_sources.KinesisEventSource",
+		"aws-cdk-lib.aws_lambda_event_sources.KinesisEventSource",
 		reflect.TypeOf((*KinesisEventSource)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -73,11 +68,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_lambda_event_sources.KinesisEventSourceProps",
+		"aws-cdk-lib.aws_lambda_event_sources.KinesisEventSourceProps",
 		reflect.TypeOf((*KinesisEventSourceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_lambda_event_sources.ManagedKafkaEventSource",
+		"aws-cdk-lib.aws_lambda_event_sources.ManagedKafkaEventSource",
 		reflect.TypeOf((*ManagedKafkaEventSource)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -92,11 +87,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_lambda_event_sources.ManagedKafkaEventSourceProps",
+		"aws-cdk-lib.aws_lambda_event_sources.ManagedKafkaEventSourceProps",
 		reflect.TypeOf((*ManagedKafkaEventSourceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_lambda_event_sources.S3EventSource",
+		"aws-cdk-lib.aws_lambda_event_sources.S3EventSource",
 		reflect.TypeOf((*S3EventSource)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -109,11 +104,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_lambda_event_sources.S3EventSourceProps",
+		"aws-cdk-lib.aws_lambda_event_sources.S3EventSourceProps",
 		reflect.TypeOf((*S3EventSourceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_lambda_event_sources.SelfManagedKafkaEventSource",
+		"aws-cdk-lib.aws_lambda_event_sources.SelfManagedKafkaEventSource",
 		reflect.TypeOf((*SelfManagedKafkaEventSource)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -127,11 +122,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_lambda_event_sources.SelfManagedKafkaEventSourceProps",
+		"aws-cdk-lib.aws_lambda_event_sources.SelfManagedKafkaEventSourceProps",
 		reflect.TypeOf((*SelfManagedKafkaEventSourceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_lambda_event_sources.SnsDlq",
+		"aws-cdk-lib.aws_lambda_event_sources.SnsDlq",
 		reflect.TypeOf((*SnsDlq)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -143,7 +138,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_lambda_event_sources.SnsEventSource",
+		"aws-cdk-lib.aws_lambda_event_sources.SnsEventSource",
 		reflect.TypeOf((*SnsEventSource)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -156,11 +151,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_lambda_event_sources.SnsEventSourceProps",
+		"aws-cdk-lib.aws_lambda_event_sources.SnsEventSourceProps",
 		reflect.TypeOf((*SnsEventSourceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_lambda_event_sources.SqsDlq",
+		"aws-cdk-lib.aws_lambda_event_sources.SqsDlq",
 		reflect.TypeOf((*SqsDlq)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -172,7 +167,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_lambda_event_sources.SqsEventSource",
+		"aws-cdk-lib.aws_lambda_event_sources.SqsEventSource",
 		reflect.TypeOf((*SqsEventSource)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -186,11 +181,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_lambda_event_sources.SqsEventSourceProps",
+		"aws-cdk-lib.aws_lambda_event_sources.SqsEventSourceProps",
 		reflect.TypeOf((*SqsEventSourceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_lambda_event_sources.StreamEventSource",
+		"aws-cdk-lib.aws_lambda_event_sources.StreamEventSource",
 		reflect.TypeOf((*StreamEventSource)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -204,7 +199,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_lambda_event_sources.StreamEventSourceProps",
+		"aws-cdk-lib.aws_lambda_event_sources.StreamEventSourceProps",
 		reflect.TypeOf((*StreamEventSourceProps)(nil)).Elem(),
 	)
 }
