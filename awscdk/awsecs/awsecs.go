@@ -31,7 +31,7 @@ import (
 //
 type AddAutoScalingGroupCapacityOptions struct {
 	// Specifies whether the containers can access the container instance role.
-	CanContainersAccessInstanceRole *bool `json:"canContainersAccessInstanceRole"`
+	CanContainersAccessInstanceRole *bool `json:"canContainersAccessInstanceRole" yaml:"canContainersAccessInstanceRole"`
 	// What type of machine image this is.
 	//
 	// Depending on the setting, different UserData will automatically be added
@@ -41,13 +41,13 @@ type AddAutoScalingGroupCapacityOptions struct {
 	// `addAutoScalingGroup()`, you must specify this value. If you are adding an
 	// `autoScalingGroup` via `addCapacity`, this value will be determined
 	// from the `machineImage` you pass.
-	MachineImageType MachineImageType `json:"machineImageType"`
+	MachineImageType MachineImageType `json:"machineImageType" yaml:"machineImageType"`
 	// Specify whether to enable Automated Draining for Spot Instances running Amazon ECS Services.
 	//
 	// For more information, see [Using Spot Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-spot.html).
-	SpotInstanceDraining *bool `json:"spotInstanceDraining"`
+	SpotInstanceDraining *bool `json:"spotInstanceDraining" yaml:"spotInstanceDraining"`
 	// If {@link AddAutoScalingGroupCapacityOptions.taskDrainTime} is non-zero, then the ECS cluster creates an SNS Topic to as part of a system to drain instances of tasks when the instance is being shut down. If this property is provided, then this key will be used to encrypt the contents of that SNS Topic. See [SNS Data Encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-data-encryption.html) for more information.
-	TopicEncryptionKey awskms.IKey `json:"topicEncryptionKey"`
+	TopicEncryptionKey awskms.IKey `json:"topicEncryptionKey" yaml:"topicEncryptionKey"`
 }
 
 // The properties for adding instance capacity to an AutoScalingGroup.
@@ -56,7 +56,7 @@ type AddAutoScalingGroupCapacityOptions struct {
 //
 type AddCapacityOptions struct {
 	// Specifies whether the containers can access the container instance role.
-	CanContainersAccessInstanceRole *bool `json:"canContainersAccessInstanceRole"`
+	CanContainersAccessInstanceRole *bool `json:"canContainersAccessInstanceRole" yaml:"canContainersAccessInstanceRole"`
 	// What type of machine image this is.
 	//
 	// Depending on the setting, different UserData will automatically be added
@@ -66,21 +66,21 @@ type AddCapacityOptions struct {
 	// `addAutoScalingGroup()`, you must specify this value. If you are adding an
 	// `autoScalingGroup` via `addCapacity`, this value will be determined
 	// from the `machineImage` you pass.
-	MachineImageType MachineImageType `json:"machineImageType"`
+	MachineImageType MachineImageType `json:"machineImageType" yaml:"machineImageType"`
 	// Specify whether to enable Automated Draining for Spot Instances running Amazon ECS Services.
 	//
 	// For more information, see [Using Spot Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-spot.html).
-	SpotInstanceDraining *bool `json:"spotInstanceDraining"`
+	SpotInstanceDraining *bool `json:"spotInstanceDraining" yaml:"spotInstanceDraining"`
 	// If {@link AddAutoScalingGroupCapacityOptions.taskDrainTime} is non-zero, then the ECS cluster creates an SNS Topic to as part of a system to drain instances of tasks when the instance is being shut down. If this property is provided, then this key will be used to encrypt the contents of that SNS Topic. See [SNS Data Encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-data-encryption.html) for more information.
-	TopicEncryptionKey awskms.IKey `json:"topicEncryptionKey"`
+	TopicEncryptionKey awskms.IKey `json:"topicEncryptionKey" yaml:"topicEncryptionKey"`
 	// Whether the instances can initiate connections to anywhere by default.
-	AllowAllOutbound *bool `json:"allowAllOutbound"`
+	AllowAllOutbound *bool `json:"allowAllOutbound" yaml:"allowAllOutbound"`
 	// Whether instances in the Auto Scaling Group should have public IP addresses associated with them.
-	AssociatePublicIpAddress *bool `json:"associatePublicIpAddress"`
+	AssociatePublicIpAddress *bool `json:"associatePublicIpAddress" yaml:"associatePublicIpAddress"`
 	// The name of the Auto Scaling group.
 	//
 	// This name must be unique per Region per account.
-	AutoScalingGroupName *string `json:"autoScalingGroupName"`
+	AutoScalingGroupName *string `json:"autoScalingGroupName" yaml:"autoScalingGroupName"`
 	// Specifies how block devices are exposed to the instance. You can specify virtual devices and EBS volumes.
 	//
 	// Each instance that is launched has an associated root device volume,
@@ -89,23 +89,23 @@ type AddCapacityOptions struct {
 	// instance store volumes to attach to an instance when it is launched.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html
 	//
-	BlockDevices *[]*awsautoscaling.BlockDevice `json:"blockDevices"`
+	BlockDevices *[]*awsautoscaling.BlockDevice `json:"blockDevices" yaml:"blockDevices"`
 	// Default scaling cooldown for this AutoScalingGroup.
-	Cooldown awscdk.Duration `json:"cooldown"`
+	Cooldown awscdk.Duration `json:"cooldown" yaml:"cooldown"`
 	// Initial amount of instances in the fleet.
 	//
 	// If this is set to a number, every deployment will reset the amount of
 	// instances to this number. It is recommended to leave this value blank.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-desiredcapacity
 	//
-	DesiredCapacity *float64 `json:"desiredCapacity"`
+	DesiredCapacity *float64 `json:"desiredCapacity" yaml:"desiredCapacity"`
 	// Enable monitoring for group metrics, these metrics describe the group rather than any of its instances.
 	//
 	// To report all group metrics use `GroupMetrics.all()`
 	// Group metrics are reported in a granularity of 1 minute at no additional charge.
-	GroupMetrics *[]awsautoscaling.GroupMetrics `json:"groupMetrics"`
+	GroupMetrics *[]awsautoscaling.GroupMetrics `json:"groupMetrics" yaml:"groupMetrics"`
 	// Configuration for health checks.
-	HealthCheck awsautoscaling.HealthCheck `json:"healthCheck"`
+	HealthCheck awsautoscaling.HealthCheck `json:"healthCheck" yaml:"healthCheck"`
 	// If the ASG has scheduled actions, don't reset unchanged group sizes.
 	//
 	// Only used if the ASG has scheduled actions (which may scale your ASG up
@@ -113,18 +113,18 @@ type AddCapacityOptions struct {
 	// will only be reset if it has been changed in the CDK app. If false, the
 	// sizes will always be changed back to what they were in the CDK app
 	// on deployment.
-	IgnoreUnmodifiedSizeProperties *bool `json:"ignoreUnmodifiedSizeProperties"`
+	IgnoreUnmodifiedSizeProperties *bool `json:"ignoreUnmodifiedSizeProperties" yaml:"ignoreUnmodifiedSizeProperties"`
 	// Controls whether instances in this group are launched with detailed or basic monitoring.
 	//
 	// When detailed monitoring is enabled, Amazon CloudWatch generates metrics every minute and your account
 	// is charged a fee. When you disable detailed monitoring, CloudWatch generates metrics every 5 minutes.
 	// See: https://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-monitoring.html#enable-as-instance-metrics
 	//
-	InstanceMonitoring awsautoscaling.Monitoring `json:"instanceMonitoring"`
+	InstanceMonitoring awsautoscaling.Monitoring `json:"instanceMonitoring" yaml:"instanceMonitoring"`
 	// Name of SSH keypair to grant access to instances.
-	KeyName *string `json:"keyName"`
+	KeyName *string `json:"keyName" yaml:"keyName"`
 	// Maximum number of instances in the fleet.
-	MaxCapacity *float64 `json:"maxCapacity"`
+	MaxCapacity *float64 `json:"maxCapacity" yaml:"maxCapacity"`
 	// The maximum amount of time that an instance can be in service.
 	//
 	// The maximum duration applies
@@ -135,9 +135,9 @@ type AddCapacityOptions struct {
 	// leave this property undefined.
 	// See: https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html
 	//
-	MaxInstanceLifetime awscdk.Duration `json:"maxInstanceLifetime"`
+	MaxInstanceLifetime awscdk.Duration `json:"maxInstanceLifetime" yaml:"maxInstanceLifetime"`
 	// Minimum number of instances in the fleet.
-	MinCapacity *float64 `json:"minCapacity"`
+	MinCapacity *float64 `json:"minCapacity" yaml:"minCapacity"`
 	// Whether newly-launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in.
 	//
 	// By default, Auto Scaling can terminate an instance at any time after launch
@@ -148,11 +148,11 @@ type AddCapacityOptions struct {
 	//
 	// This flag must be enabled if the Auto Scaling Group will be associated with
 	// an ECS Capacity Provider with managed termination protection.
-	NewInstancesProtectedFromScaleIn *bool `json:"newInstancesProtectedFromScaleIn"`
+	NewInstancesProtectedFromScaleIn *bool `json:"newInstancesProtectedFromScaleIn" yaml:"newInstancesProtectedFromScaleIn"`
 	// Configure autoscaling group to send notifications about fleet changes to an SNS topic(s).
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-notificationconfigurations
 	//
-	Notifications *[]*awsautoscaling.NotificationConfiguration `json:"notifications"`
+	Notifications *[]*awsautoscaling.NotificationConfiguration `json:"notifications" yaml:"notifications"`
 	// Configure waiting for signals during deployment.
 	//
 	// Use this to pause the CloudFormation deployment to wait for the instances
@@ -170,18 +170,18 @@ type AddCapacityOptions struct {
 	// command in the Auto Scaling rolling updates sample template:
 	//
 	// https://github.com/awslabs/aws-cloudformation-templates/blob/master/aws/services/AutoScaling/AutoScalingRollingUpdates.yaml
-	Signals awsautoscaling.Signals `json:"signals"`
+	Signals awsautoscaling.Signals `json:"signals" yaml:"signals"`
 	// The maximum hourly price (in USD) to be paid for any Spot Instance launched to fulfill the request.
 	//
 	// Spot Instances are
 	// launched when the price you specify exceeds the current Spot market price.
-	SpotPrice *string `json:"spotPrice"`
+	SpotPrice *string `json:"spotPrice" yaml:"spotPrice"`
 	// A policy or a list of policies that are used to select the instances to terminate.
 	//
 	// The policies are executed in the order that you list them.
 	// See: https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html
 	//
-	TerminationPolicies *[]awsautoscaling.TerminationPolicy `json:"terminationPolicies"`
+	TerminationPolicies *[]awsautoscaling.TerminationPolicy `json:"terminationPolicies" yaml:"terminationPolicies"`
 	// What to do when an AutoScalingGroup's instance configuration is changed.
 	//
 	// This is applied when any of the settings on the ASG are changed that
@@ -189,11 +189,11 @@ type AddCapacityOptions struct {
 	// scripts, etc.). It indicates how the existing instances should be
 	// replaced with new instances matching the new config. By default, nothing
 	// is done and only new instances are launched with the new config.
-	UpdatePolicy awsautoscaling.UpdatePolicy `json:"updatePolicy"`
+	UpdatePolicy awsautoscaling.UpdatePolicy `json:"updatePolicy" yaml:"updatePolicy"`
 	// Where to place instances within the VPC.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 	// The EC2 instance type to use when launching instances into the AutoScalingGroup.
-	InstanceType awsec2.InstanceType `json:"instanceType"`
+	InstanceType awsec2.InstanceType `json:"instanceType" yaml:"instanceType"`
 	// The ECS-optimized AMI variant to use.
 	//
 	// The default is to use an ECS-optimized AMI of Amazon Linux 2 which is
@@ -213,7 +213,7 @@ type AddCapacityOptions struct {
 	// AMIs](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html).
 	//
 	// You must define either `machineImage` or `machineImageType`, not both.
-	MachineImage awsec2.IMachineImage `json:"machineImage"`
+	MachineImage awsec2.IMachineImage `json:"machineImage" yaml:"machineImage"`
 }
 
 // The ECS-optimized AMI variant to use.
@@ -298,9 +298,9 @@ func (a *jsiiProxy_AppMeshProxyConfiguration) Bind(_scope constructs.Construct, 
 //
 type AppMeshProxyConfigurationConfigProps struct {
 	// The name of the container that will serve as the App Mesh proxy.
-	ContainerName *string `json:"containerName"`
+	ContainerName *string `json:"containerName" yaml:"containerName"`
 	// The set of network configuration parameters to provide the Container Network Interface (CNI) plugin.
-	Properties *AppMeshProxyConfigurationProps `json:"properties"`
+	Properties *AppMeshProxyConfigurationProps `json:"properties" yaml:"properties"`
 }
 
 // Interface for setting the properties of proxy configuration.
@@ -311,27 +311,27 @@ type AppMeshProxyConfigurationProps struct {
 	// The list of ports that the application uses.
 	//
 	// Network traffic to these ports is forwarded to the ProxyIngressPort and ProxyEgressPort.
-	AppPorts *[]*float64 `json:"appPorts"`
+	AppPorts *[]*float64 `json:"appPorts" yaml:"appPorts"`
 	// Specifies the port that outgoing traffic from the AppPorts is directed to.
-	ProxyEgressPort *float64 `json:"proxyEgressPort"`
+	ProxyEgressPort *float64 `json:"proxyEgressPort" yaml:"proxyEgressPort"`
 	// Specifies the port that incoming traffic to the AppPorts is directed to.
-	ProxyIngressPort *float64 `json:"proxyIngressPort"`
+	ProxyIngressPort *float64 `json:"proxyIngressPort" yaml:"proxyIngressPort"`
 	// The egress traffic going to these specified IP addresses is ignored and not redirected to the ProxyEgressPort.
 	//
 	// It can be an empty list.
-	EgressIgnoredIPs *[]*string `json:"egressIgnoredIPs"`
+	EgressIgnoredIPs *[]*string `json:"egressIgnoredIPs" yaml:"egressIgnoredIPs"`
 	// The egress traffic going to these specified ports is ignored and not redirected to the ProxyEgressPort.
 	//
 	// It can be an empty list.
-	EgressIgnoredPorts *[]*float64 `json:"egressIgnoredPorts"`
+	EgressIgnoredPorts *[]*float64 `json:"egressIgnoredPorts" yaml:"egressIgnoredPorts"`
 	// The group ID (GID) of the proxy container as defined by the user parameter in a container definition.
 	//
 	// This is used to ensure the proxy ignores its own traffic. If IgnoredUID is specified, this field can be empty.
-	IgnoredGID *float64 `json:"ignoredGID"`
+	IgnoredGID *float64 `json:"ignoredGID" yaml:"ignoredGID"`
 	// The user ID (UID) of the proxy container as defined by the user parameter in a container definition.
 	//
 	// This is used to ensure the proxy ignores its own traffic. If IgnoredGID is specified, this field can be empty.
-	IgnoredUID *float64 `json:"ignoredUID"`
+	IgnoredUID *float64 `json:"ignoredUID" yaml:"ignoredUID"`
 }
 
 // An Auto Scaling Group Capacity Provider.
@@ -473,7 +473,7 @@ func (a *jsiiProxy_AsgCapacityProvider) ToString() *string {
 //
 type AsgCapacityProviderProps struct {
 	// Specifies whether the containers can access the container instance role.
-	CanContainersAccessInstanceRole *bool `json:"canContainersAccessInstanceRole"`
+	CanContainersAccessInstanceRole *bool `json:"canContainersAccessInstanceRole" yaml:"canContainersAccessInstanceRole"`
 	// What type of machine image this is.
 	//
 	// Depending on the setting, different UserData will automatically be added
@@ -483,37 +483,37 @@ type AsgCapacityProviderProps struct {
 	// `addAutoScalingGroup()`, you must specify this value. If you are adding an
 	// `autoScalingGroup` via `addCapacity`, this value will be determined
 	// from the `machineImage` you pass.
-	MachineImageType MachineImageType `json:"machineImageType"`
+	MachineImageType MachineImageType `json:"machineImageType" yaml:"machineImageType"`
 	// Specify whether to enable Automated Draining for Spot Instances running Amazon ECS Services.
 	//
 	// For more information, see [Using Spot Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-spot.html).
-	SpotInstanceDraining *bool `json:"spotInstanceDraining"`
+	SpotInstanceDraining *bool `json:"spotInstanceDraining" yaml:"spotInstanceDraining"`
 	// If {@link AddAutoScalingGroupCapacityOptions.taskDrainTime} is non-zero, then the ECS cluster creates an SNS Topic to as part of a system to drain instances of tasks when the instance is being shut down. If this property is provided, then this key will be used to encrypt the contents of that SNS Topic. See [SNS Data Encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-data-encryption.html) for more information.
-	TopicEncryptionKey awskms.IKey `json:"topicEncryptionKey"`
+	TopicEncryptionKey awskms.IKey `json:"topicEncryptionKey" yaml:"topicEncryptionKey"`
 	// The autoscaling group to add as a Capacity Provider.
-	AutoScalingGroup awsautoscaling.IAutoScalingGroup `json:"autoScalingGroup"`
+	AutoScalingGroup awsautoscaling.IAutoScalingGroup `json:"autoScalingGroup" yaml:"autoScalingGroup"`
 	// The name of the capacity provider.
 	//
 	// If a name is specified,
 	// it cannot start with `aws`, `ecs`, or `fargate`. If no name is specified,
 	// a default name in the CFNStackName-CFNResourceName-RandomString format is used.
-	CapacityProviderName *string `json:"capacityProviderName"`
+	CapacityProviderName *string `json:"capacityProviderName" yaml:"capacityProviderName"`
 	// Whether to enable managed scaling.
-	EnableManagedScaling *bool `json:"enableManagedScaling"`
+	EnableManagedScaling *bool `json:"enableManagedScaling" yaml:"enableManagedScaling"`
 	// Whether to enable managed termination protection.
-	EnableManagedTerminationProtection *bool `json:"enableManagedTerminationProtection"`
+	EnableManagedTerminationProtection *bool `json:"enableManagedTerminationProtection" yaml:"enableManagedTerminationProtection"`
 	// Maximum scaling step size.
 	//
 	// In most cases this should be left alone.
-	MaximumScalingStepSize *float64 `json:"maximumScalingStepSize"`
+	MaximumScalingStepSize *float64 `json:"maximumScalingStepSize" yaml:"maximumScalingStepSize"`
 	// Minimum scaling step size.
 	//
 	// In most cases this should be left alone.
-	MinimumScalingStepSize *float64 `json:"minimumScalingStepSize"`
+	MinimumScalingStepSize *float64 `json:"minimumScalingStepSize" yaml:"minimumScalingStepSize"`
 	// Target capacity percent.
 	//
 	// In most cases this should be left alone.
-	TargetCapacityPercent *float64 `json:"targetCapacityPercent"`
+	TargetCapacityPercent *float64 `json:"targetCapacityPercent" yaml:"targetCapacityPercent"`
 }
 
 // Environment file from a local directory.
@@ -760,25 +760,25 @@ func (a *jsiiProxy_AssetImage) Bind(scope constructs.Construct, containerDefinit
 //
 type AssetImageProps struct {
 	// Glob patterns to exclude from the copy.
-	Exclude *[]*string `json:"exclude"`
+	Exclude *[]*string `json:"exclude" yaml:"exclude"`
 	// A strategy for how to handle symlinks.
-	FollowSymlinks awscdk.SymlinkFollowMode `json:"followSymlinks"`
+	FollowSymlinks awscdk.SymlinkFollowMode `json:"followSymlinks" yaml:"followSymlinks"`
 	// The ignore behavior to use for exclude patterns.
-	IgnoreMode awscdk.IgnoreMode `json:"ignoreMode"`
+	IgnoreMode awscdk.IgnoreMode `json:"ignoreMode" yaml:"ignoreMode"`
 	// Extra information to encode into the fingerprint (e.g. build instructions and other inputs).
-	ExtraHash *string `json:"extraHash"`
+	ExtraHash *string `json:"extraHash" yaml:"extraHash"`
 	// Build args to pass to the `docker build` command.
 	//
 	// Since Docker build arguments are resolved before deployment, keys and
 	// values cannot refer to unresolved tokens (such as `lambda.functionArn` or
 	// `queue.queueUrl`).
-	BuildArgs *map[string]*string `json:"buildArgs"`
+	BuildArgs *map[string]*string `json:"buildArgs" yaml:"buildArgs"`
 	// Path to the Dockerfile (relative to the directory).
-	File *string `json:"file"`
+	File *string `json:"file" yaml:"file"`
 	// Options to control which parameters are used to invalidate the asset hash.
-	Invalidation *awsecrassets.DockerImageAssetInvalidationOptions `json:"invalidation"`
+	Invalidation *awsecrassets.DockerImageAssetInvalidationOptions `json:"invalidation" yaml:"invalidation"`
 	// Docker target to build to.
-	Target *string `json:"target"`
+	Target *string `json:"target" yaml:"target"`
 }
 
 // The options for using a cloudmap service.
@@ -787,11 +787,11 @@ type AssetImageProps struct {
 //
 type AssociateCloudMapServiceOptions struct {
 	// The cloudmap service to register with.
-	Service awsservicediscovery.IService `json:"service"`
+	Service awsservicediscovery.IService `json:"service" yaml:"service"`
 	// The container to point to for a SRV record.
-	Container ContainerDefinition `json:"container"`
+	Container ContainerDefinition `json:"container" yaml:"container"`
 	// The port to point to for a SRV record.
-	ContainerPort *float64 `json:"containerPort"`
+	ContainerPort *float64 `json:"containerPort" yaml:"containerPort"`
 }
 
 // The authorization configuration details for the Amazon EFS file system.
@@ -804,13 +804,13 @@ type AuthorizationConfig struct {
 	// If an access point is specified, the root directory value will be
 	// relative to the directory set for the access point.
 	// If specified, transit encryption must be enabled in the EFSVolumeConfiguration.
-	AccessPointId *string `json:"accessPointId"`
+	AccessPointId *string `json:"accessPointId" yaml:"accessPointId"`
 	// Whether or not to use the Amazon ECS task IAM role defined in a task definition when mounting the Amazon EFS file system.
 	//
 	// If enabled, transit encryption must be enabled in the EFSVolumeConfiguration.
 	//
 	// Valid values: ENABLED | DISABLED
-	Iam *string `json:"iam"`
+	Iam *string `json:"iam" yaml:"iam"`
 }
 
 // A log driver that sends log information to CloudWatch Logs.
@@ -928,19 +928,19 @@ type AwsLogDriverProps struct {
 	// this option, then the log stream takes the following format:
 	//
 	//      prefix-name/container-name/ecs-task-id
-	StreamPrefix *string `json:"streamPrefix"`
+	StreamPrefix *string `json:"streamPrefix" yaml:"streamPrefix"`
 	// This option defines a multiline start pattern in Python strftime format.
 	//
 	// A log message consists of a line that matches the pattern and any
 	// following lines that don’t match the pattern. Thus the matched line is
 	// the delimiter between log messages.
-	DatetimeFormat *string `json:"datetimeFormat"`
+	DatetimeFormat *string `json:"datetimeFormat" yaml:"datetimeFormat"`
 	// The log group to log to.
-	LogGroup awslogs.ILogGroup `json:"logGroup"`
+	LogGroup awslogs.ILogGroup `json:"logGroup" yaml:"logGroup"`
 	// The number of days log events are kept in CloudWatch Logs when the log group is automatically created by this construct.
-	LogRetention awslogs.RetentionDays `json:"logRetention"`
+	LogRetention awslogs.RetentionDays `json:"logRetention" yaml:"logRetention"`
 	// The delivery mode of log messages from the container to awslogs.
-	Mode AwsLogDriverMode `json:"mode"`
+	Mode AwsLogDriverMode `json:"mode" yaml:"mode"`
 	// This option defines a multiline start pattern using a regular expression.
 	//
 	// A log message consists of a line that matches the pattern and any
@@ -948,7 +948,7 @@ type AwsLogDriverProps struct {
 	// the delimiter between log messages.
 	//
 	// This option is ignored if datetimeFormat is also configured.
-	MultilinePattern *string `json:"multilinePattern"`
+	MultilinePattern *string `json:"multilinePattern" yaml:"multilinePattern"`
 }
 
 // TODO: EXAMPLE
@@ -959,24 +959,24 @@ type BaseLogDriverProps struct {
 	// If there is collision between
 	// label and env keys, the value of the env takes precedence. Adds additional fields
 	// to the extra attributes of a logging message.
-	Env *[]*string `json:"env"`
+	Env *[]*string `json:"env" yaml:"env"`
 	// The env-regex option is similar to and compatible with env.
 	//
 	// Its value is a regular
 	// expression to match logging-related environment variables. It is used for advanced
 	// log tag options.
-	EnvRegex *string `json:"envRegex"`
+	EnvRegex *string `json:"envRegex" yaml:"envRegex"`
 	// The labels option takes an array of keys.
 	//
 	// If there is collision
 	// between label and env keys, the value of the env takes precedence. Adds additional
 	// fields to the extra attributes of a logging message.
-	Labels *[]*string `json:"labels"`
+	Labels *[]*string `json:"labels" yaml:"labels"`
 	// By default, Docker uses the first 12 characters of the container ID to tag log messages.
 	//
 	// Refer to the log tag option documentation for customizing the
 	// log tag format.
-	Tag *string `json:"tag"`
+	Tag *string `json:"tag" yaml:"tag"`
 }
 
 // The base class for Ec2Service and FargateService services.
@@ -1516,42 +1516,42 @@ func (b *jsiiProxy_BaseService) ToString() *string {
 //
 type BaseServiceOptions struct {
 	// The name of the cluster that hosts the service.
-	Cluster ICluster `json:"cluster"`
+	Cluster ICluster `json:"cluster" yaml:"cluster"`
 	// A list of Capacity Provider strategies used to place a service.
-	CapacityProviderStrategies *[]*CapacityProviderStrategy `json:"capacityProviderStrategies"`
+	CapacityProviderStrategies *[]*CapacityProviderStrategy `json:"capacityProviderStrategies" yaml:"capacityProviderStrategies"`
 	// Whether to enable the deployment circuit breaker.
 	//
 	// If this property is defined, circuit breaker will be implicitly
 	// enabled.
-	CircuitBreaker *DeploymentCircuitBreaker `json:"circuitBreaker"`
+	CircuitBreaker *DeploymentCircuitBreaker `json:"circuitBreaker" yaml:"circuitBreaker"`
 	// The options for configuring an Amazon ECS service to use service discovery.
-	CloudMapOptions *CloudMapOptions `json:"cloudMapOptions"`
+	CloudMapOptions *CloudMapOptions `json:"cloudMapOptions" yaml:"cloudMapOptions"`
 	// Specifies which deployment controller to use for the service.
 	//
 	// For more information, see
 	// [Amazon ECS Deployment Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
-	DeploymentController *DeploymentController `json:"deploymentController"`
+	DeploymentController *DeploymentController `json:"deploymentController" yaml:"deploymentController"`
 	// The desired number of instantiations of the task definition to keep running on the service.
-	DesiredCount *float64 `json:"desiredCount"`
+	DesiredCount *float64 `json:"desiredCount" yaml:"desiredCount"`
 	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 	//
 	// For more information, see
 	// [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html)
-	EnableECSManagedTags *bool `json:"enableECSManagedTags"`
+	EnableECSManagedTags *bool `json:"enableECSManagedTags" yaml:"enableECSManagedTags"`
 	// Whether to enable the ability to execute into a container.
-	EnableExecuteCommand *bool `json:"enableExecuteCommand"`
+	EnableExecuteCommand *bool `json:"enableExecuteCommand" yaml:"enableExecuteCommand"`
 	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks after a task has first started.
-	HealthCheckGracePeriod awscdk.Duration `json:"healthCheckGracePeriod"`
+	HealthCheckGracePeriod awscdk.Duration `json:"healthCheckGracePeriod" yaml:"healthCheckGracePeriod"`
 	// The maximum number of tasks, specified as a percentage of the Amazon ECS service's DesiredCount value, that can run in a service during a deployment.
-	MaxHealthyPercent *float64 `json:"maxHealthyPercent"`
+	MaxHealthyPercent *float64 `json:"maxHealthyPercent" yaml:"maxHealthyPercent"`
 	// The minimum number of tasks, specified as a percentage of the Amazon ECS service's DesiredCount value, that must continue to run and remain healthy during a deployment.
-	MinHealthyPercent *float64 `json:"minHealthyPercent"`
+	MinHealthyPercent *float64 `json:"minHealthyPercent" yaml:"minHealthyPercent"`
 	// Specifies whether to propagate the tags from the task definition or the service to the tasks in the service.
 	//
 	// Valid values are: PropagatedTagSource.SERVICE, PropagatedTagSource.TASK_DEFINITION or PropagatedTagSource.NONE
-	PropagateTags PropagatedTagSource `json:"propagateTags"`
+	PropagateTags PropagatedTagSource `json:"propagateTags" yaml:"propagateTags"`
 	// The name of the service.
-	ServiceName *string `json:"serviceName"`
+	ServiceName *string `json:"serviceName" yaml:"serviceName"`
 }
 
 // Complete base service properties that are required to be supplied by the implementation of the BaseService class.
@@ -1560,42 +1560,42 @@ type BaseServiceOptions struct {
 //
 type BaseServiceProps struct {
 	// The name of the cluster that hosts the service.
-	Cluster ICluster `json:"cluster"`
+	Cluster ICluster `json:"cluster" yaml:"cluster"`
 	// A list of Capacity Provider strategies used to place a service.
-	CapacityProviderStrategies *[]*CapacityProviderStrategy `json:"capacityProviderStrategies"`
+	CapacityProviderStrategies *[]*CapacityProviderStrategy `json:"capacityProviderStrategies" yaml:"capacityProviderStrategies"`
 	// Whether to enable the deployment circuit breaker.
 	//
 	// If this property is defined, circuit breaker will be implicitly
 	// enabled.
-	CircuitBreaker *DeploymentCircuitBreaker `json:"circuitBreaker"`
+	CircuitBreaker *DeploymentCircuitBreaker `json:"circuitBreaker" yaml:"circuitBreaker"`
 	// The options for configuring an Amazon ECS service to use service discovery.
-	CloudMapOptions *CloudMapOptions `json:"cloudMapOptions"`
+	CloudMapOptions *CloudMapOptions `json:"cloudMapOptions" yaml:"cloudMapOptions"`
 	// Specifies which deployment controller to use for the service.
 	//
 	// For more information, see
 	// [Amazon ECS Deployment Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
-	DeploymentController *DeploymentController `json:"deploymentController"`
+	DeploymentController *DeploymentController `json:"deploymentController" yaml:"deploymentController"`
 	// The desired number of instantiations of the task definition to keep running on the service.
-	DesiredCount *float64 `json:"desiredCount"`
+	DesiredCount *float64 `json:"desiredCount" yaml:"desiredCount"`
 	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 	//
 	// For more information, see
 	// [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html)
-	EnableECSManagedTags *bool `json:"enableECSManagedTags"`
+	EnableECSManagedTags *bool `json:"enableECSManagedTags" yaml:"enableECSManagedTags"`
 	// Whether to enable the ability to execute into a container.
-	EnableExecuteCommand *bool `json:"enableExecuteCommand"`
+	EnableExecuteCommand *bool `json:"enableExecuteCommand" yaml:"enableExecuteCommand"`
 	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks after a task has first started.
-	HealthCheckGracePeriod awscdk.Duration `json:"healthCheckGracePeriod"`
+	HealthCheckGracePeriod awscdk.Duration `json:"healthCheckGracePeriod" yaml:"healthCheckGracePeriod"`
 	// The maximum number of tasks, specified as a percentage of the Amazon ECS service's DesiredCount value, that can run in a service during a deployment.
-	MaxHealthyPercent *float64 `json:"maxHealthyPercent"`
+	MaxHealthyPercent *float64 `json:"maxHealthyPercent" yaml:"maxHealthyPercent"`
 	// The minimum number of tasks, specified as a percentage of the Amazon ECS service's DesiredCount value, that must continue to run and remain healthy during a deployment.
-	MinHealthyPercent *float64 `json:"minHealthyPercent"`
+	MinHealthyPercent *float64 `json:"minHealthyPercent" yaml:"minHealthyPercent"`
 	// Specifies whether to propagate the tags from the task definition or the service to the tasks in the service.
 	//
 	// Valid values are: PropagatedTagSource.SERVICE, PropagatedTagSource.TASK_DEFINITION or PropagatedTagSource.NONE
-	PropagateTags PropagatedTagSource `json:"propagateTags"`
+	PropagateTags PropagatedTagSource `json:"propagateTags" yaml:"propagateTags"`
 	// The name of the service.
-	ServiceName *string `json:"serviceName"`
+	ServiceName *string `json:"serviceName" yaml:"serviceName"`
 	// The launch type on which to run your service.
 	//
 	// LaunchType will be omitted if capacity provider strategies are specified on the service.
@@ -1603,7 +1603,7 @@ type BaseServiceProps struct {
 	//
 	// Valid values are: LaunchType.ECS or LaunchType.FARGATE or LaunchType.EXTERNAL
 	//
-	LaunchType LaunchType `json:"launchType"`
+	LaunchType LaunchType `json:"launchType" yaml:"launchType"`
 }
 
 // Instance resource used for bin packing.
@@ -1674,7 +1674,7 @@ func (b *jsiiProxy_BottleRocketImage) GetImage(scope constructs.Construct) *awse
 //
 type BottleRocketImageProps struct {
 	// The CPU architecture.
-	Architecture awsec2.InstanceArchitecture `json:"architecture"`
+	Architecture awsec2.InstanceArchitecture `json:"architecture" yaml:"architecture"`
 	// Whether the AMI ID is cached to be stable between deployments.
 	//
 	// By default, the newest image is used on each deployment. This will cause
@@ -1690,11 +1690,11 @@ type BottleRocketImageProps struct {
 	// more information.
 	//
 	// Can not be set to `true` in environment-agnostic stacks.
-	CachedInContext *bool `json:"cachedInContext"`
+	CachedInContext *bool `json:"cachedInContext" yaml:"cachedInContext"`
 	// The Amazon ECS variant to use.
 	//
 	// Only `aws-ecs-1` is currently available
-	Variant BottlerocketEcsVariant `json:"variant"`
+	Variant BottlerocketEcsVariant `json:"variant" yaml:"variant"`
 }
 
 // Amazon ECS variant.
@@ -1847,17 +1847,17 @@ const (
 //
 type CapacityProviderStrategy struct {
 	// The name of the capacity provider.
-	CapacityProvider *string `json:"capacityProvider"`
+	CapacityProvider *string `json:"capacityProvider" yaml:"capacityProvider"`
 	// The base value designates how many tasks, at a minimum, to run on the specified capacity provider.
 	//
 	// Only one
 	// capacity provider in a capacity provider strategy can have a base defined. If no value is specified, the default
 	// value of 0 is used.
-	Base *float64 `json:"base"`
+	Base *float64 `json:"base" yaml:"base"`
 	// The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider.
 	//
 	// The weight value is taken into consideration after the base value, if defined, is satisfied.
-	Weight *float64 `json:"weight"`
+	Weight *float64 `json:"weight" yaml:"weight"`
 }
 
 // A CloudFormation `AWS::ECS::CapacityProvider`.
@@ -2371,9 +2371,9 @@ func (c *jsiiProxy_CfnCapacityProvider) ValidateProperties(_properties interface
 //
 type CfnCapacityProvider_AutoScalingGroupProviderProperty struct {
 	// The Amazon Resource Name (ARN) or short name that identifies the Auto Scaling group.
-	AutoScalingGroupArn *string `json:"autoScalingGroupArn"`
+	AutoScalingGroupArn *string `json:"autoScalingGroupArn" yaml:"autoScalingGroupArn"`
 	// The managed scaling settings for the Auto Scaling group capacity provider.
-	ManagedScaling interface{} `json:"managedScaling"`
+	ManagedScaling interface{} `json:"managedScaling" yaml:"managedScaling"`
 	// The managed termination protection setting to use for the Auto Scaling group capacity provider.
 	//
 	// This determines whether the Auto Scaling group has managed termination protection. The default is disabled.
@@ -2383,7 +2383,7 @@ type CfnCapacityProvider_AutoScalingGroupProviderProperty struct {
 	// When managed termination protection is enabled, Amazon ECS prevents the Amazon EC2 instances in an Auto Scaling group that contain tasks from being terminated during a scale-in action. The Auto Scaling group and each instance in the Auto Scaling group must have instance protection from scale-in actions enabled as well. For more information, see [Instance Protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection) in the *AWS Auto Scaling User Guide* .
 	//
 	// When managed termination protection is disabled, your Amazon EC2 instances aren't protected from termination when the Auto Scaling group scales in.
-	ManagedTerminationProtection *string `json:"managedTerminationProtection"`
+	ManagedTerminationProtection *string `json:"managedTerminationProtection" yaml:"managedTerminationProtection"`
 }
 
 // The `ManagedScaling` property specifies the settings for the Auto Scaling group capacity provider.
@@ -2398,21 +2398,21 @@ type CfnCapacityProvider_ManagedScalingProperty struct {
 	// The period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group.
 	//
 	// If this parameter is omitted, the default value of `300` seconds is used.
-	InstanceWarmupPeriod *float64 `json:"instanceWarmupPeriod"`
+	InstanceWarmupPeriod *float64 `json:"instanceWarmupPeriod" yaml:"instanceWarmupPeriod"`
 	// The maximum number of container instances that Amazon ECS scales in or scales out at one time.
 	//
 	// If this parameter is omitted, the default value of `10000` is used.
-	MaximumScalingStepSize *float64 `json:"maximumScalingStepSize"`
+	MaximumScalingStepSize *float64 `json:"maximumScalingStepSize" yaml:"maximumScalingStepSize"`
 	// The minimum number of container instances that Amazon ECS scales in or scales out at one time.
 	//
 	// If this parameter is omitted, the default value of `1` is used.
-	MinimumScalingStepSize *float64 `json:"minimumScalingStepSize"`
+	MinimumScalingStepSize *float64 `json:"minimumScalingStepSize" yaml:"minimumScalingStepSize"`
 	// Determines whether to enable managed scaling for the capacity provider.
-	Status *string `json:"status"`
+	Status *string `json:"status" yaml:"status"`
 	// The target capacity value for the capacity provider.
 	//
 	// The specified value must be greater than `0` and less than or equal to `100` . A value of `100` results in the Amazon EC2 instances in your Auto Scaling group being completely used.
-	TargetCapacity *float64 `json:"targetCapacity"`
+	TargetCapacity *float64 `json:"targetCapacity" yaml:"targetCapacity"`
 }
 
 // Properties for defining a `CfnCapacityProvider`.
@@ -2421,11 +2421,11 @@ type CfnCapacityProvider_ManagedScalingProperty struct {
 //
 type CfnCapacityProviderProps struct {
 	// The Auto Scaling group settings for the capacity provider.
-	AutoScalingGroupProvider interface{} `json:"autoScalingGroupProvider"`
+	AutoScalingGroupProvider interface{} `json:"autoScalingGroupProvider" yaml:"autoScalingGroupProvider"`
 	// The name of the capacity provider.
 	//
 	// If a name is specified, it cannot start with `aws` , `ecs` , or `fargate` . If no name is specified, a default name in the `CFNStackName-CFNResourceName-RandomString` format is used.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The metadata that you apply to the capacity provider to help you categorize and organize it.
 	//
 	// Each tag consists of a key and an optional value. You define both.
@@ -2439,7 +2439,7 @@ type CfnCapacityProviderProps struct {
 	// - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
 	// - Tag keys and values are case-sensitive.
 	// - Do not use `aws:` , `AWS:` , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::ECS::Cluster`.
@@ -3026,9 +3026,9 @@ type CfnCluster_CapacityProviderStrategyItemProperty struct {
 	// The *base* value designates how many tasks, at a minimum, to run on the specified capacity provider.
 	//
 	// Only one capacity provider in a capacity provider strategy can have a *base* defined. If no value is specified, the default value of `0` is used.
-	Base *float64 `json:"base"`
+	Base *float64 `json:"base" yaml:"base"`
 	// The short name of the capacity provider.
-	CapacityProvider *string `json:"capacityProvider"`
+	CapacityProvider *string `json:"capacityProvider" yaml:"capacityProvider"`
 	// The *weight* value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider.
 	//
 	// The `weight` value is taken into consideration after the `base` value, if defined, is satisfied.
@@ -3036,7 +3036,7 @@ type CfnCluster_CapacityProviderStrategyItemProperty struct {
 	// If no `weight` value is specified, the default value of `0` is used. When multiple capacity providers are specified within a capacity provider strategy, at least one of the capacity providers must have a weight value greater than zero and any capacity providers with a weight of `0` can't be used to place tasks. If you specify multiple capacity providers in a strategy that all have a weight of `0` , any `RunTask` or `CreateService` actions using the capacity provider strategy will fail.
 	//
 	// An example scenario for using weights is defining a strategy that contains two capacity providers and both have a weight of `1` , then when the `base` is satisfied, the tasks will be split evenly across the two capacity providers. Using that same logic, if you specify a weight of `1` for *capacityProviderA* and a weight of `4` for *capacityProviderB* , then for every one task that's run using *capacityProviderA* , four tasks would use *capacityProviderB* .
-	Weight *float64 `json:"weight"`
+	Weight *float64 `json:"weight" yaml:"weight"`
 }
 
 // The execute command configuration for the cluster.
@@ -3045,7 +3045,7 @@ type CfnCluster_CapacityProviderStrategyItemProperty struct {
 //
 type CfnCluster_ClusterConfigurationProperty struct {
 	// The details of the execute command configuration.
-	ExecuteCommandConfiguration interface{} `json:"executeCommandConfiguration"`
+	ExecuteCommandConfiguration interface{} `json:"executeCommandConfiguration" yaml:"executeCommandConfiguration"`
 }
 
 // The settings to use when creating a cluster.
@@ -3058,11 +3058,11 @@ type CfnCluster_ClusterSettingsProperty struct {
 	// The name of the cluster setting.
 	//
 	// The only supported value is `containerInsights` .
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The value to set for the cluster setting.
 	//
 	// The supported values are `enabled` and `disabled` . If `enabled` is specified, CloudWatch Container Insights will be enabled for the cluster, otherwise it will be disabled unless the `containerInsights` account setting is enabled. If a cluster value is specified, it will override the `containerInsights` value set with [PutAccountSetting](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSetting.html) or [PutAccountSettingDefault](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSettingDefault.html) .
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // The details of the execute command configuration.
@@ -3071,17 +3071,17 @@ type CfnCluster_ClusterSettingsProperty struct {
 //
 type CfnCluster_ExecuteCommandConfigurationProperty struct {
 	// Specify an AWS Key Management Service key ID to encrypt the data between the local client and the container.
-	KmsKeyId *string `json:"kmsKeyId"`
+	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
 	// The log configuration for the results of the execute command actions.
 	//
 	// The logs can be sent to CloudWatch Logs or an Amazon S3 bucket. When `logging=OVERRIDE` is specified, a `logConfiguration` must be provided.
-	LogConfiguration interface{} `json:"logConfiguration"`
+	LogConfiguration interface{} `json:"logConfiguration" yaml:"logConfiguration"`
 	// The log setting to use for redirecting logs for your execute command results. The following log settings are available.
 	//
 	// - `NONE` : The execute command session is not logged.
 	// - `DEFAULT` : The `awslogs` configuration in the task definition is used. If no logging parameter is specified, it defaults to this value. If no `awslogs` log driver is configured in the task definition, the output won't be logged.
 	// - `OVERRIDE` : Specify the logging details as a part of `logConfiguration` . If the `OVERRIDE` logging option is specified, the `logConfiguration` is required.
-	Logging *string `json:"logging"`
+	Logging *string `json:"logging" yaml:"logging"`
 }
 
 // The log configuration for the results of the execute command actions.
@@ -3094,21 +3094,21 @@ type CfnCluster_ExecuteCommandLogConfigurationProperty struct {
 	// Determines whether to enable encryption on the CloudWatch logs.
 	//
 	// If not specified, encryption will be disabled.
-	CloudWatchEncryptionEnabled interface{} `json:"cloudWatchEncryptionEnabled"`
+	CloudWatchEncryptionEnabled interface{} `json:"cloudWatchEncryptionEnabled" yaml:"cloudWatchEncryptionEnabled"`
 	// The name of the CloudWatch log group to send logs to.
 	//
 	// > The CloudWatch log group must already be created.
-	CloudWatchLogGroupName *string `json:"cloudWatchLogGroupName"`
+	CloudWatchLogGroupName *string `json:"cloudWatchLogGroupName" yaml:"cloudWatchLogGroupName"`
 	// The name of the S3 bucket to send logs to.
 	//
 	// > The S3 bucket must already be created.
-	S3BucketName *string `json:"s3BucketName"`
+	S3BucketName *string `json:"s3BucketName" yaml:"s3BucketName"`
 	// Determines whether to use encryption on the S3 logs.
 	//
 	// If not specified, encryption is not used.
-	S3EncryptionEnabled interface{} `json:"s3EncryptionEnabled"`
+	S3EncryptionEnabled interface{} `json:"s3EncryptionEnabled" yaml:"s3EncryptionEnabled"`
 	// An optional folder in the S3 bucket to place logs in.
-	S3KeyPrefix *string `json:"s3KeyPrefix"`
+	S3KeyPrefix *string `json:"s3KeyPrefix" yaml:"s3KeyPrefix"`
 }
 
 // A CloudFormation `AWS::ECS::ClusterCapacityProviderAssociations`.
@@ -3631,11 +3631,11 @@ func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) ValidateProperties(_p
 //
 type CfnClusterCapacityProviderAssociations_CapacityProviderStrategyProperty struct {
 	// The short name of the capacity provider.
-	CapacityProvider *string `json:"capacityProvider"`
+	CapacityProvider *string `json:"capacityProvider" yaml:"capacityProvider"`
 	// The *base* value designates how many tasks, at a minimum, to run on the specified capacity provider.
 	//
 	// Only one capacity provider in a capacity provider strategy can have a *base* defined. If no value is specified, the default value of `0` is used.
-	Base *float64 `json:"base"`
+	Base *float64 `json:"base" yaml:"base"`
 	// The *weight* value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider.
 	//
 	// The `weight` value is taken into consideration after the `base` value, if defined, is satisfied.
@@ -3643,7 +3643,7 @@ type CfnClusterCapacityProviderAssociations_CapacityProviderStrategyProperty str
 	// If no `weight` value is specified, the default value of `0` is used. When multiple capacity providers are specified within a capacity provider strategy, at least one of the capacity providers must have a weight value greater than zero and any capacity providers with a weight of `0` will not be used to place tasks. If you specify multiple capacity providers in a strategy that all have a weight of `0` , any `RunTask` or `CreateService` actions using the capacity provider strategy will fail.
 	//
 	// An example scenario for using weights is defining a strategy that contains two capacity providers and both have a weight of `1` , then when the `base` is satisfied, the tasks will be split evenly across the two capacity providers. Using that same logic, if you specify a weight of `1` for *capacityProviderA* and a weight of `4` for *capacityProviderB* , then for every one task that is run using *capacityProviderA* , four tasks would use *capacityProviderB* .
-	Weight *float64 `json:"weight"`
+	Weight *float64 `json:"weight" yaml:"weight"`
 }
 
 // Properties for defining a `CfnClusterCapacityProviderAssociations`.
@@ -3652,11 +3652,11 @@ type CfnClusterCapacityProviderAssociations_CapacityProviderStrategyProperty str
 //
 type CfnClusterCapacityProviderAssociationsProps struct {
 	// The capacity providers to associate with the cluster.
-	CapacityProviders *[]*string `json:"capacityProviders"`
+	CapacityProviders *[]*string `json:"capacityProviders" yaml:"capacityProviders"`
 	// The cluster the capacity provider association is the target of.
-	Cluster *string `json:"cluster"`
+	Cluster *string `json:"cluster" yaml:"cluster"`
 	// The default capacity provider strategy to associate with the cluster.
-	DefaultCapacityProviderStrategy interface{} `json:"defaultCapacityProviderStrategy"`
+	DefaultCapacityProviderStrategy interface{} `json:"defaultCapacityProviderStrategy" yaml:"defaultCapacityProviderStrategy"`
 }
 
 // Properties for defining a `CfnCluster`.
@@ -3671,21 +3671,21 @@ type CfnClusterProps struct {
 	// If specifying a capacity provider that uses an Auto Scaling group, the capacity provider must already be created and not already associated with another cluster.
 	//
 	// To use an AWS Fargate capacity provider, specify either the `FARGATE` or `FARGATE_SPOT` capacity providers. The AWS Fargate capacity providers are available to all accounts and only need to be associated with a cluster to be used.
-	CapacityProviders *[]*string `json:"capacityProviders"`
+	CapacityProviders *[]*string `json:"capacityProviders" yaml:"capacityProviders"`
 	// A user-generated string that you use to identify your cluster.
 	//
 	// If you don't specify a name, AWS CloudFormation generates a unique physical ID for the name.
-	ClusterName *string `json:"clusterName"`
+	ClusterName *string `json:"clusterName" yaml:"clusterName"`
 	// The setting to use when creating a cluster.
 	//
 	// This parameter is used to enable CloudWatch Container Insights for a cluster. If this value is specified, it will override the `containerInsights` value set with [PutAccountSetting](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSetting.html) or [PutAccountSettingDefault](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSettingDefault.html) .
-	ClusterSettings interface{} `json:"clusterSettings"`
+	ClusterSettings interface{} `json:"clusterSettings" yaml:"clusterSettings"`
 	// The execute command configuration for the cluster.
-	Configuration interface{} `json:"configuration"`
+	Configuration interface{} `json:"configuration" yaml:"configuration"`
 	// The default capacity provider strategy for the cluster.
 	//
 	// When services or tasks are run in the cluster with no launch type or capacity provider strategy specified, the default capacity provider strategy is used.
-	DefaultCapacityProviderStrategy interface{} `json:"defaultCapacityProviderStrategy"`
+	DefaultCapacityProviderStrategy interface{} `json:"defaultCapacityProviderStrategy" yaml:"defaultCapacityProviderStrategy"`
 	// The metadata that you apply to the cluster to help you categorize and organize them.
 	//
 	// Each tag consists of a key and an optional value. You define both.
@@ -3699,7 +3699,7 @@ type CfnClusterProps struct {
 	// - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
 	// - Tag keys and values are case-sensitive.
 	// - Do not use `aws:` , `AWS:` , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::ECS::PrimaryTaskSet`.
@@ -4220,11 +4220,11 @@ func (c *jsiiProxy_CfnPrimaryTaskSet) ValidateProperties(_properties interface{}
 //
 type CfnPrimaryTaskSetProps struct {
 	// The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task set exists in.
-	Cluster *string `json:"cluster"`
+	Cluster *string `json:"cluster" yaml:"cluster"`
 	// The short name or full Amazon Resource Name (ARN) of the service that the task set exists in.
-	Service *string `json:"service"`
+	Service *string `json:"service" yaml:"service"`
 	// The short name or full Amazon Resource Name (ARN) of the task set to set as the primary task set in the deployment.
-	TaskSetId *string `json:"taskSetId"`
+	TaskSetId *string `json:"taskSetId" yaml:"taskSetId"`
 }
 
 // A CloudFormation `AWS::ECS::Service`.
@@ -5122,17 +5122,17 @@ type CfnService_AwsVpcConfigurationProperty struct {
 	// There's a limit of 16 subnets that can be specified per `AwsVpcConfiguration` .
 	//
 	// > All specified subnets must be from the same VPC.
-	Subnets *[]*string `json:"subnets"`
+	Subnets *[]*string `json:"subnets" yaml:"subnets"`
 	// Whether the task's elastic network interface receives a public IP address.
 	//
 	// The default value is `DISABLED` .
-	AssignPublicIp *string `json:"assignPublicIp"`
+	AssignPublicIp *string `json:"assignPublicIp" yaml:"assignPublicIp"`
 	// The IDs of the security groups associated with the task or service.
 	//
 	// If you don't specify a security group, the default security group for the VPC is used. There's a limit of 5 security groups that can be specified per `AwsVpcConfiguration` .
 	//
 	// > All specified security groups must be from the same VPC.
-	SecurityGroups *[]*string `json:"securityGroups"`
+	SecurityGroups *[]*string `json:"securityGroups" yaml:"securityGroups"`
 }
 
 // The details of a capacity provider strategy.
@@ -5151,9 +5151,9 @@ type CfnService_CapacityProviderStrategyItemProperty struct {
 	// The *base* value designates how many tasks, at a minimum, to run on the specified capacity provider.
 	//
 	// Only one capacity provider in a capacity provider strategy can have a *base* defined. If no value is specified, the default value of `0` is used.
-	Base *float64 `json:"base"`
+	Base *float64 `json:"base" yaml:"base"`
 	// The short name of the capacity provider.
-	CapacityProvider *string `json:"capacityProvider"`
+	CapacityProvider *string `json:"capacityProvider" yaml:"capacityProvider"`
 	// The *weight* value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider.
 	//
 	// The `weight` value is taken into consideration after the `base` value, if defined, is satisfied.
@@ -5161,7 +5161,7 @@ type CfnService_CapacityProviderStrategyItemProperty struct {
 	// If no `weight` value is specified, the default value of `0` is used. When multiple capacity providers are specified within a capacity provider strategy, at least one of the capacity providers must have a weight value greater than zero and any capacity providers with a weight of `0` can't be used to place tasks. If you specify multiple capacity providers in a strategy that all have a weight of `0` , any `RunTask` or `CreateService` actions using the capacity provider strategy will fail.
 	//
 	// An example scenario for using weights is defining a strategy that contains two capacity providers and both have a weight of `1` , then when the `base` is satisfied, the tasks will be split evenly across the two capacity providers. Using that same logic, if you specify a weight of `1` for *capacityProviderA* and a weight of `4` for *capacityProviderB* , then for every one task that's run using *capacityProviderA* , four tasks would use *capacityProviderB* .
-	Weight *float64 `json:"weight"`
+	Weight *float64 `json:"weight" yaml:"weight"`
 }
 
 // > The deployment circuit breaker can only be used for services using the rolling update ( `ECS` ) deployment type.
@@ -5172,11 +5172,11 @@ type CfnService_CapacityProviderStrategyItemProperty struct {
 //
 type CfnService_DeploymentCircuitBreakerProperty struct {
 	// Determines whether to enable the deployment circuit breaker logic for the service.
-	Enable interface{} `json:"enable"`
+	Enable interface{} `json:"enable" yaml:"enable"`
 	// Determines whether to enable Amazon ECS to roll back the service if a service deployment fails.
 	//
 	// If rollback is enabled, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
-	Rollback interface{} `json:"rollback"`
+	Rollback interface{} `json:"rollback" yaml:"rollback"`
 }
 
 // The `DeploymentConfiguration` property specifies optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
@@ -5187,19 +5187,19 @@ type CfnService_DeploymentConfigurationProperty struct {
 	// > The deployment circuit breaker can only be used for services using the rolling update ( `ECS` ) deployment type that are not behind a Classic Load Balancer.
 	//
 	// The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If enabled, a service deployment will transition to a failed state and stop launching new tasks. You can also enable Amazon ECS to roll back your service to the last completed deployment after a failure. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide* .
-	DeploymentCircuitBreaker interface{} `json:"deploymentCircuitBreaker"`
+	DeploymentCircuitBreaker interface{} `json:"deploymentCircuitBreaker" yaml:"deploymentCircuitBreaker"`
 	// If a service is using the rolling update ( `ECS` ) deployment type, the *maximum percent* parameter represents an upper limit on the number of tasks in a service that are allowed in the `RUNNING` or `PENDING` state during a deployment, as a percentage of the desired number of tasks (rounded down to the nearest integer), and while any container instances are in the `DRAINING` state if the service contains tasks using the EC2 launch type.
 	//
 	// This parameter enables you to define the deployment batch size. For example, if your service has a desired number of four tasks and a maximum percent value of 200%, the scheduler may start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default value for maximum percent is 200%.
 	//
 	// If a service is using the blue/green ( `CODE_DEPLOY` ) or `EXTERNAL` deployment types and tasks that use the EC2 launch type, the *maximum percent* value is set to the default value and is used to define the upper limit on the number of the tasks in the service that remain in the `RUNNING` state while the container instances are in the `DRAINING` state. If the tasks in the service use the Fargate launch type, the maximum percent value is not used, although it is returned when describing your service.
-	MaximumPercent *float64 `json:"maximumPercent"`
+	MaximumPercent *float64 `json:"maximumPercent" yaml:"maximumPercent"`
 	// If a service is using the rolling update ( `ECS` ) deployment type, the *minimum healthy percent* represents a lower limit on the number of tasks in a service that must remain in the `RUNNING` state during a deployment, as a percentage of the desired number of tasks (rounded up to the nearest integer), and while any container instances are in the `DRAINING` state if the service contains tasks using the EC2 launch type.
 	//
 	// This parameter enables you to deploy without using additional cluster capacity. For example, if your service has a desired number of four tasks and a minimum healthy percent of 50%, the scheduler may stop two existing tasks to free up cluster capacity before starting two new tasks. Tasks for services that *do not* use a load balancer are considered healthy if they're in the `RUNNING` state; tasks for services that *do* use a load balancer are considered healthy if they're in the `RUNNING` state and they're reported as healthy by the load balancer. The default value for minimum healthy percent is 100%.
 	//
 	// If a service is using the blue/green ( `CODE_DEPLOY` ) or `EXTERNAL` deployment types and tasks that use the EC2 launch type, the *minimum healthy percent* value is set to the default value and is used to define the lower limit on the number of the tasks in the service that remain in the `RUNNING` state while the container instances are in the `DRAINING` state. If the tasks in the service use the Fargate launch type, the minimum healthy percent value is not used, although it is returned when describing your service.
-	MinimumHealthyPercent *float64 `json:"minimumHealthyPercent"`
+	MinimumHealthyPercent *float64 `json:"minimumHealthyPercent" yaml:"minimumHealthyPercent"`
 }
 
 // The deployment controller to use for the service.
@@ -5214,7 +5214,7 @@ type CfnService_DeploymentControllerProperty struct {
 	// - **ECS** - The rolling update ( `ECS` ) deployment type involves replacing the current running version of the container with the latest version. The number of containers Amazon ECS adds or removes from the service during a rolling update is controlled by adjusting the minimum and maximum number of healthy tasks allowed during a service deployment, as specified in the [DeploymentConfiguration](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeploymentConfiguration.html) .
 	// - **CODE_DEPLOY** - The blue/green ( `CODE_DEPLOY` ) deployment type uses the blue/green deployment model powered by AWS CodeDeploy , which allows you to verify a new deployment of a service before sending production traffic to it.
 	// - **EXTERNAL** - The external ( `EXTERNAL` ) deployment type enables you to use any third-party deployment controller for full control over the deployment process for an Amazon ECS service.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 }
 
 // The `LoadBalancer` property specifies details on a load balancer that is used with a service.
@@ -5229,13 +5229,13 @@ type CfnService_LoadBalancerProperty struct {
 	// The port on the container to associate with the load balancer.
 	//
 	// This port must correspond to a `containerPort` in the task definition the tasks in the service are using. For tasks that use the EC2 launch type, the container instance they're launched on must allow ingress traffic on the `hostPort` of the port mapping.
-	ContainerPort *float64 `json:"containerPort"`
+	ContainerPort *float64 `json:"containerPort" yaml:"containerPort"`
 	// The name of the container (as it appears in a container definition) to associate with the load balancer.
-	ContainerName *string `json:"containerName"`
+	ContainerName *string `json:"containerName" yaml:"containerName"`
 	// The name of the load balancer to associate with the Amazon ECS service or task set.
 	//
 	// A load balancer name is only specified when using a Classic Load Balancer. If you are using an Application Load Balancer or a Network Load Balancer the load balancer name parameter should be omitted.
-	LoadBalancerName *string `json:"loadBalancerName"`
+	LoadBalancerName *string `json:"loadBalancerName" yaml:"loadBalancerName"`
 	// The full Amazon Resource Name (ARN) of the Elastic Load Balancing target group or groups associated with a service or task set.
 	//
 	// A target group ARN is only specified when using an Application Load Balancer or Network Load Balancer. If you're using a Classic Load Balancer, omit the target group ARN.
@@ -5245,7 +5245,7 @@ type CfnService_LoadBalancerProperty struct {
 	// For services using the `CODE_DEPLOY` deployment controller, you're required to define two target groups for the load balancer. For more information, see [Blue/Green Deployment with CodeDeploy](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-bluegreen.html) in the *Amazon Elastic Container Service Developer Guide* .
 	//
 	// > If your service's task definition uses the `awsvpc` network mode, you must choose `ip` as the target type, not `instance` . Do this when creating your target groups because tasks that use the `awsvpc` network mode are associated with an elastic network interface, not an Amazon EC2 instance. This network mode is required for the Fargate launch type.
-	TargetGroupArn *string `json:"targetGroupArn"`
+	TargetGroupArn *string `json:"targetGroupArn" yaml:"targetGroupArn"`
 }
 
 // The `NetworkConfiguration` property specifies an object representing the network configuration for a task or service.
@@ -5256,7 +5256,7 @@ type CfnService_NetworkConfigurationProperty struct {
 	// The VPC subnets and security groups that are associated with a task.
 	//
 	// > All specified subnets and security groups must be from the same VPC.
-	AwsvpcConfiguration interface{} `json:"awsvpcConfiguration"`
+	AwsvpcConfiguration interface{} `json:"awsvpcConfiguration" yaml:"awsvpcConfiguration"`
 }
 
 // The `PlacementConstraint` property specifies an object representing a constraint on task placement in the task definition.
@@ -5269,11 +5269,11 @@ type CfnService_PlacementConstraintProperty struct {
 	// The type of constraint.
 	//
 	// Use `distinctInstance` to ensure that each task in a particular group is running on a different container instance. Use `memberOf` to restrict the selection to a group of valid candidates.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// A cluster query language expression to apply to the constraint.
 	//
 	// The expression can have a maximum length of 2000 characters. You can't specify an expression if the constraint type is `distinctInstance` . For more information, see [Cluster query language](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html) in the *Amazon Elastic Container Service Developer Guide* .
-	Expression *string `json:"expression"`
+	Expression *string `json:"expression" yaml:"expression"`
 }
 
 // The `PlacementStrategy` property specifies the task placement strategy for a task or service.
@@ -5286,11 +5286,11 @@ type CfnService_PlacementStrategyProperty struct {
 	// The type of placement strategy.
 	//
 	// The `random` placement strategy randomly places tasks on available candidates. The `spread` placement strategy spreads placement across available candidates evenly based on the `field` parameter. The `binpack` strategy places tasks on available candidates that have the least available amount of the resource that's specified with the `field` parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory but still enough to run the task.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// The field to apply the placement strategy against.
 	//
 	// For the `spread` placement strategy, valid values are `instanceId` (or `host` , which has the same effect), or any platform or custom attribute that's applied to a container instance, such as `attribute:ecs.availability-zone` . For the `binpack` placement strategy, valid values are `cpu` and `memory` . For the `random` placement strategy, this field is not used.
-	Field *string `json:"field"`
+	Field *string `json:"field" yaml:"field"`
 }
 
 // The `ServiceRegistry` property specifies details of the service registry.
@@ -5303,19 +5303,19 @@ type CfnService_ServiceRegistryProperty struct {
 	// The container name value to be used for your service discovery service.
 	//
 	// It's already specified in the task definition. If the task definition that your service task specifies uses the `bridge` or `host` network mode, you must specify a `containerName` and `containerPort` combination from the task definition. If the task definition that your service task specifies uses the `awsvpc` network mode and a type SRV DNS record is used, you must specify either a `containerName` and `containerPort` combination or a `port` value. However, you can't specify both.
-	ContainerName *string `json:"containerName"`
+	ContainerName *string `json:"containerName" yaml:"containerName"`
 	// The port value to be used for your service discovery service.
 	//
 	// It's already specified in the task definition. If the task definition your service task specifies uses the `bridge` or `host` network mode, you must specify a `containerName` and `containerPort` combination from the task definition. If the task definition your service task specifies uses the `awsvpc` network mode and a type SRV DNS record is used, you must specify either a `containerName` and `containerPort` combination or a `port` value. However, you can't specify both.
-	ContainerPort *float64 `json:"containerPort"`
+	ContainerPort *float64 `json:"containerPort" yaml:"containerPort"`
 	// The port value used if your service discovery service specified an SRV record.
 	//
 	// This field might be used if both the `awsvpc` network mode and SRV records are used.
-	Port *float64 `json:"port"`
+	Port *float64 `json:"port" yaml:"port"`
 	// The Amazon Resource Name (ARN) of the service registry.
 	//
 	// The currently supported service registry is AWS Cloud Map . For more information, see [CreateService](https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html) .
-	RegistryArn *string `json:"registryArn"`
+	RegistryArn *string `json:"registryArn" yaml:"registryArn"`
 }
 
 // Properties for defining a `CfnService`.
@@ -5336,65 +5336,65 @@ type CfnServiceProps struct {
 	// To use an AWS Fargate capacity provider, specify either the `FARGATE` or `FARGATE_SPOT` capacity providers. The AWS Fargate capacity providers are available to all accounts and only need to be associated with a cluster to be used.
 	//
 	// The PutClusterCapacityProviders API operation is used to update the list of available capacity providers for a cluster after the cluster is created.
-	CapacityProviderStrategy interface{} `json:"capacityProviderStrategy"`
+	CapacityProviderStrategy interface{} `json:"capacityProviderStrategy" yaml:"capacityProviderStrategy"`
 	// The short name or full Amazon Resource Name (ARN) of the cluster that you run your service on.
 	//
 	// If you do not specify a cluster, the default cluster is assumed.
-	Cluster *string `json:"cluster"`
+	Cluster *string `json:"cluster" yaml:"cluster"`
 	// Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
-	DeploymentConfiguration interface{} `json:"deploymentConfiguration"`
+	DeploymentConfiguration interface{} `json:"deploymentConfiguration" yaml:"deploymentConfiguration"`
 	// The deployment controller to use for the service.
 	//
 	// If no deployment controller is specified, the default value of `ECS` is used.
-	DeploymentController interface{} `json:"deploymentController"`
+	DeploymentController interface{} `json:"deploymentController" yaml:"deploymentController"`
 	// The number of instantiations of the specified task definition to place and keep running on your cluster.
 	//
 	// For new services, if a desired count is not specified, a default value of `1` is used. When using the `DAEMON` scheduling strategy, the desired count is not required.
 	//
 	// For existing services, if a desired count is not specified, it is omitted from the operation.
-	DesiredCount *float64 `json:"desiredCount"`
+	DesiredCount *float64 `json:"desiredCount" yaml:"desiredCount"`
 	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 	//
 	// For more information, see [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html) in the *Amazon Elastic Container Service Developer Guide* .
-	EnableEcsManagedTags interface{} `json:"enableEcsManagedTags"`
+	EnableEcsManagedTags interface{} `json:"enableEcsManagedTags" yaml:"enableEcsManagedTags"`
 	// Determines whether the execute command functionality is enabled for the service.
 	//
 	// If `true` , the execute command functionality is enabled for all containers in tasks as part of the service.
-	EnableExecuteCommand interface{} `json:"enableExecuteCommand"`
+	EnableExecuteCommand interface{} `json:"enableExecuteCommand" yaml:"enableExecuteCommand"`
 	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks after a task has first started.
 	//
 	// This is only used when your service is configured to use a load balancer. If your service has a load balancer defined and you don't specify a health check grace period value, the default value of `0` is used.
 	//
 	// If your service's tasks take a while to start and respond to Elastic Load Balancing health checks, you can specify a health check grace period of up to 2,147,483,647 seconds (about 69 years). During that time, the Amazon ECS service scheduler ignores health check status. This grace period can prevent the service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.
-	HealthCheckGracePeriodSeconds *float64 `json:"healthCheckGracePeriodSeconds"`
+	HealthCheckGracePeriodSeconds *float64 `json:"healthCheckGracePeriodSeconds" yaml:"healthCheckGracePeriodSeconds"`
 	// The launch type on which to run your service.
 	//
 	// For more information, see [Amazon ECS Launch Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide* .
-	LaunchType *string `json:"launchType"`
+	LaunchType *string `json:"launchType" yaml:"launchType"`
 	// A list of load balancer objects to associate with the service.
 	//
 	// If you specify the `Role` property, `LoadBalancers` must be specified as well. For information about the number of load balancers that you can specify per service, see [Service Load Balancing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html) in the *Amazon Elastic Container Service Developer Guide* .
-	LoadBalancers interface{} `json:"loadBalancers"`
+	LoadBalancers interface{} `json:"loadBalancers" yaml:"loadBalancers"`
 	// The network configuration for the service.
 	//
 	// This parameter is required for task definitions that use the `awsvpc` network mode to receive their own elastic network interface, and it is not supported for other network modes. For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) in the *Amazon Elastic Container Service Developer Guide* .
-	NetworkConfiguration interface{} `json:"networkConfiguration"`
+	NetworkConfiguration interface{} `json:"networkConfiguration" yaml:"networkConfiguration"`
 	// An array of placement constraint objects to use for tasks in your service.
 	//
 	// You can specify a maximum of 10 constraints for each task. This limit includes constraints in the task definition and those specified at runtime.
-	PlacementConstraints interface{} `json:"placementConstraints"`
+	PlacementConstraints interface{} `json:"placementConstraints" yaml:"placementConstraints"`
 	// The placement strategy objects to use for tasks in your service.
 	//
 	// You can specify a maximum of five strategy rules per service. For more information, see [Task Placement Strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html) in the *Amazon Elastic Container Service Developer Guide* .
-	PlacementStrategies interface{} `json:"placementStrategies"`
+	PlacementStrategies interface{} `json:"placementStrategies" yaml:"placementStrategies"`
 	// The platform version that your tasks in the service are running on.
 	//
 	// A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the `LATEST` platform version is used. For more information, see [AWS Fargate platform versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html) in the *Amazon Elastic Container Service Developer Guide* .
-	PlatformVersion *string `json:"platformVersion"`
+	PlatformVersion *string `json:"platformVersion" yaml:"platformVersion"`
 	// Specifies whether to propagate the tags from the task definition or the service to the tasks in the service.
 	//
 	// If no value is specified, the tags are not propagated. Tags can only be propagated to the tasks within the service during service creation. To add tags to a task after service creation, use the [TagResource](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_TagResource.html) API action.
-	PropagateTags *string `json:"propagateTags"`
+	PropagateTags *string `json:"propagateTags" yaml:"propagateTags"`
 	// The name or full Amazon Resource Name (ARN) of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf.
 	//
 	// This parameter is only permitted if you are using a load balancer with your service and your task definition doesn't use the `awsvpc` network mode. If you specify the `role` parameter, you must also specify a load balancer object with the `loadBalancers` parameter.
@@ -5402,7 +5402,7 @@ type CfnServiceProps struct {
 	// > If your account has already created the Amazon ECS service-linked role, that role is used for your service unless you specify a role here. The service-linked role is required if your task definition uses the `awsvpc` network mode or if the service is configured to use service discovery, an external deployment controller, multiple target groups, or Elastic Inference accelerators in which case you don't specify a role here. For more information, see [Using service-linked roles for Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html) in the *Amazon Elastic Container Service Developer Guide* .
 	//
 	// If your specified role has a path other than `/` , then you must either specify the full role ARN (this is recommended) or prefix the role name with the path. For example, if a role with the name `bar` has a path of `/foo/` then you would specify `/foo/bar` as the role name. For more information, see [Friendly names and paths](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) in the *IAM User Guide* .
-	Role *string `json:"role"`
+	Role *string `json:"role" yaml:"role"`
 	// The scheduling strategy to use for the service. For more information, see [Services](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html) .
 	//
 	// There are two service scheduler strategies available:
@@ -5411,15 +5411,15 @@ type CfnServiceProps struct {
 	// - `DAEMON` -The daemon scheduling strategy deploys exactly one task on each active container instance that meets all of the task placement constraints that you specify in your cluster. The service scheduler also evaluates the task placement constraints for running tasks and will stop tasks that don't meet the placement constraints. When you're using this strategy, you don't need to specify a desired number of tasks, a task placement strategy, or use Service Auto Scaling policies.
 	//
 	// > Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy.
-	SchedulingStrategy *string `json:"schedulingStrategy"`
+	SchedulingStrategy *string `json:"schedulingStrategy" yaml:"schedulingStrategy"`
 	// The name of your service.
 	//
 	// Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. Service names must be unique within a cluster, but you can have similarly named services in multiple clusters within a Region or across multiple Regions.
-	ServiceName *string `json:"serviceName"`
+	ServiceName *string `json:"serviceName" yaml:"serviceName"`
 	// The details of the service discovery registry to associate with this service. For more information, see [Service discovery](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html) .
 	//
 	// > Each service may be associated with one service registry. Multiple service registries for each service isn't supported.
-	ServiceRegistries interface{} `json:"serviceRegistries"`
+	ServiceRegistries interface{} `json:"serviceRegistries" yaml:"serviceRegistries"`
 	// The metadata that you apply to the service to help you categorize and organize them.
 	//
 	// Each tag consists of a key and an optional value, both of which you define. When a service is deleted, the tags are deleted as well.
@@ -5433,13 +5433,13 @@ type CfnServiceProps struct {
 	// - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
 	// - Tag keys and values are case-sensitive.
 	// - Do not use `aws:` , `AWS:` , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// The `family` and `revision` ( `family:revision` ) or full ARN of the task definition to run in your service.
 	//
 	// The `revision` is required in order for the resource to stabilize.
 	//
 	// A task definition must be specified if the service is using either the `ECS` or `CODE_DEPLOY` deployment controllers.
-	TaskDefinition *string `json:"taskDefinition"`
+	TaskDefinition *string `json:"taskDefinition" yaml:"taskDefinition"`
 }
 
 // A CloudFormation `AWS::ECS::TaskDefinition`.
@@ -6244,11 +6244,11 @@ type CfnTaskDefinition_AuthorizationConfigProperty struct {
 	// The Amazon EFS access point ID to use.
 	//
 	// If an access point is specified, the root directory value specified in the `EFSVolumeConfiguration` must either be omitted or set to `/` which will enforce the path set on the EFS access point. If an access point is used, transit encryption must be enabled in the `EFSVolumeConfiguration` . For more information, see [Working with Amazon EFS Access Points](https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html) in the *Amazon Elastic File System User Guide* .
-	AccessPointId *string `json:"accessPointId"`
+	AccessPointId *string `json:"accessPointId" yaml:"accessPointId"`
 	// Determines whether to use the Amazon ECS task IAM role defined in a task definition when mounting the Amazon EFS file system.
 	//
 	// If enabled, transit encryption must be enabled in the `EFSVolumeConfiguration` . If this parameter is omitted, the default value of `DISABLED` is used. For more information, see [Using Amazon EFS Access Points](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/efs-volumes.html#efs-volume-accesspoints) in the *Amazon Elastic Container Service Developer Guide* .
-	Iam *string `json:"iam"`
+	Iam *string `json:"iam" yaml:"iam"`
 }
 
 // The `ContainerDefinition` property specifies a container definition.
@@ -6261,7 +6261,7 @@ type CfnTaskDefinition_ContainerDefinitionProperty struct {
 	// The command that's passed to the container.
 	//
 	// This parameter maps to `Cmd` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `COMMAND` parameter to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) . For more information, see [https://docs.docker.com/engine/reference/builder/#cmd](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/builder/#cmd) . If there are multiple arguments, each argument is a separated string in the array.
-	Command *[]*string `json:"command"`
+	Command *[]*string `json:"command" yaml:"command"`
 	// The number of `cpu` units reserved for the container.
 	//
 	// This parameter maps to `CpuShares` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--cpu-shares` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
@@ -6278,7 +6278,7 @@ type CfnTaskDefinition_ContainerDefinitionProperty struct {
 	// - *Agent versions greater than or equal to 1.2.0:* Null, zero, and CPU values of 1 are passed to Docker as 2.
 	//
 	// On Windows container instances, the CPU limit is enforced as an absolute limit, or a quota. Windows containers only have access to the specified amount of CPU that's described in the task definition. A null or zero CPU value is passed to Docker as `0` , which Windows interprets as 1% of one CPU.
-	Cpu *float64 `json:"cpu"`
+	Cpu *float64 `json:"cpu" yaml:"cpu"`
 	// The dependencies defined for container startup and shutdown.
 	//
 	// A container can contain multiple dependencies. When a dependency is defined for container startup, for container shutdown it is reversed.
@@ -6289,29 +6289,29 @@ type CfnTaskDefinition_ContainerDefinitionProperty struct {
 	//
 	// - Linux platform version `1.3.0` or later.
 	// - Windows platform version `1.0.0` or later.
-	DependsOn interface{} `json:"dependsOn"`
+	DependsOn interface{} `json:"dependsOn" yaml:"dependsOn"`
 	// When this parameter is true, networking is disabled within the container.
 	//
 	// This parameter maps to `NetworkDisabled` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) .
 	//
 	// > This parameter is not supported for Windows containers.
-	DisableNetworking interface{} `json:"disableNetworking"`
+	DisableNetworking interface{} `json:"disableNetworking" yaml:"disableNetworking"`
 	// A list of DNS search domains that are presented to the container.
 	//
 	// This parameter maps to `DnsSearch` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--dns-search` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
 	//
 	// > This parameter is not supported for Windows containers.
-	DnsSearchDomains *[]*string `json:"dnsSearchDomains"`
+	DnsSearchDomains *[]*string `json:"dnsSearchDomains" yaml:"dnsSearchDomains"`
 	// A list of DNS servers that are presented to the container.
 	//
 	// This parameter maps to `Dns` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--dns` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
 	//
 	// > This parameter is not supported for Windows containers.
-	DnsServers *[]*string `json:"dnsServers"`
+	DnsServers *[]*string `json:"dnsServers" yaml:"dnsServers"`
 	// A key/value map of labels to add to the container.
 	//
 	// This parameter maps to `Labels` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--label` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) . This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: `sudo docker version --format '{{.Server.APIVersion}}'`
-	DockerLabels interface{} `json:"dockerLabels"`
+	DockerLabels interface{} `json:"dockerLabels" yaml:"dockerLabels"`
 	// A list of strings to provide custom labels for SELinux and AppArmor multi-level security systems.
 	//
 	// This field isn't valid for containers in tasks using the Fargate launch type.
@@ -6325,19 +6325,19 @@ type CfnTaskDefinition_ContainerDefinitionProperty struct {
 	// For more information about valid values, see [Docker Run Security Configuration](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
 	//
 	// Valid values: "no-new-privileges" | "apparmor:PROFILE" | "label:value" | "credentialspec:CredentialSpecFilePath"
-	DockerSecurityOptions *[]*string `json:"dockerSecurityOptions"`
+	DockerSecurityOptions *[]*string `json:"dockerSecurityOptions" yaml:"dockerSecurityOptions"`
 	// > Early versions of the Amazon ECS container agent don't properly handle `entryPoint` parameters.
 	//
 	// If you have problems using `entryPoint` , update your container agent or enter your commands and arguments as `command` array items instead.
 	//
 	// The entry point that's passed to the container. This parameter maps to `Entrypoint` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--entrypoint` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) . For more information, see [https://docs.docker.com/engine/reference/builder/#entrypoint](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/builder/#entrypoint) .
-	EntryPoint *[]*string `json:"entryPoint"`
+	EntryPoint *[]*string `json:"entryPoint" yaml:"entryPoint"`
 	// The environment variables to pass to a container.
 	//
 	// This parameter maps to `Env` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--env` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
 	//
 	// > We don't recommend that you use plaintext environment variables for sensitive information, such as credential data.
-	Environment interface{} `json:"environment"`
+	Environment interface{} `json:"environment" yaml:"environment"`
 	// A list of files containing the environment variables to pass to a container.
 	//
 	// This parameter maps to the `--env-file` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
@@ -6345,33 +6345,33 @@ type CfnTaskDefinition_ContainerDefinitionProperty struct {
 	// You can specify up to ten environment files. The file must have a `.env` file extension. Each line in an environment file contains an environment variable in `VARIABLE=VALUE` format. Lines beginning with `#` are treated as comments and are ignored. For more information about the environment variable file syntax, see [Declare default environment variables in file](https://docs.aws.amazon.com/https://docs.docker.com/compose/env-file/) .
 	//
 	// If there are environment variables specified using the `environment` parameter in a container definition, they take precedence over the variables contained within an environment file. If multiple environment files are specified that contain the same variable, they're processed from the top down. We recommend that you use unique variable names. For more information, see [Specifying Environment Variables](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html) in the *Amazon Elastic Container Service Developer Guide* .
-	EnvironmentFiles interface{} `json:"environmentFiles"`
+	EnvironmentFiles interface{} `json:"environmentFiles" yaml:"environmentFiles"`
 	// If the `essential` parameter of a container is marked as `true` , and that container fails or stops for any reason, all other containers that are part of the task are stopped.
 	//
 	// If the `essential` parameter of a container is marked as `false` , its failure doesn't affect the rest of the containers in a task. If this parameter is omitted, a container is assumed to be essential.
 	//
 	// All tasks must have at least one essential container. If you have an application that's composed of multiple containers, group containers that are used for a common purpose into components, and separate the different components into multiple task definitions. For more information, see [Application Architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/application_architecture.html) in the *Amazon Elastic Container Service Developer Guide* .
-	Essential interface{} `json:"essential"`
+	Essential interface{} `json:"essential" yaml:"essential"`
 	// A list of hostnames and IP address mappings to append to the `/etc/hosts` file on the container.
 	//
 	// This parameter maps to `ExtraHosts` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--add-host` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
 	//
 	// > This parameter isn't supported for Windows containers or tasks that use the `awsvpc` network mode.
-	ExtraHosts interface{} `json:"extraHosts"`
+	ExtraHosts interface{} `json:"extraHosts" yaml:"extraHosts"`
 	// The FireLens configuration for the container.
 	//
 	// This is used to specify and configure a log router for container logs. For more information, see [Custom Log Routing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html) in the *Amazon Elastic Container Service Developer Guide* .
-	FirelensConfiguration interface{} `json:"firelensConfiguration"`
+	FirelensConfiguration interface{} `json:"firelensConfiguration" yaml:"firelensConfiguration"`
 	// The container health check command and associated configuration parameters for the container.
 	//
 	// This parameter maps to `HealthCheck` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `HEALTHCHECK` parameter of [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
-	HealthCheck interface{} `json:"healthCheck"`
+	HealthCheck interface{} `json:"healthCheck" yaml:"healthCheck"`
 	// The hostname to use for your container.
 	//
 	// This parameter maps to `Hostname` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--hostname` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
 	//
 	// > The `hostname` parameter is not supported if you're using the `awsvpc` network mode.
-	Hostname *string `json:"hostname"`
+	Hostname *string `json:"hostname" yaml:"hostname"`
 	// The image used to start a container.
 	//
 	// This string is passed directly to the Docker daemon. By default, images in the Docker Hub registry are available. Other repositories are specified with either `*repository-url* / *image* : *tag*` or `*repository-url* / *image* @ *digest*` . Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to `Image` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `IMAGE` parameter of [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
@@ -6381,21 +6381,21 @@ type CfnTaskDefinition_ContainerDefinitionProperty struct {
 	// - Images in official repositories on Docker Hub use a single name (for example, `ubuntu` or `mongo` ).
 	// - Images in other repositories on Docker Hub are qualified with an organization name (for example, `amazon/amazon-ecs-agent` ).
 	// - Images in other online repositories are qualified further by a domain name (for example, `quay.io/assemblyline/ubuntu` ).
-	Image *string `json:"image"`
+	Image *string `json:"image" yaml:"image"`
 	// When this parameter is `true` , you can deploy containerized applications that require `stdin` or a `tty` to be allocated.
 	//
 	// This parameter maps to `OpenStdin` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--interactive` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
-	Interactive interface{} `json:"interactive"`
+	Interactive interface{} `json:"interactive" yaml:"interactive"`
 	// The `links` parameter allows containers to communicate with each other without the need for port mappings.
 	//
 	// This parameter is only supported if the network mode of a task definition is `bridge` . The `name:internalName` construct is analogous to `name:alias` in Docker links. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. For more information about linking Docker containers, go to [Legacy container links](https://docs.aws.amazon.com/https://docs.docker.com/network/links/) in the Docker documentation. This parameter maps to `Links` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--link` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
 	//
 	// > This parameter is not supported for Windows containers. > Containers that are collocated on a single container instance may be able to communicate with each other without requiring links or host port mappings. Network isolation is achieved on the container instance using security groups and VPC settings.
-	Links *[]*string `json:"links"`
+	Links *[]*string `json:"links" yaml:"links"`
 	// Linux-specific modifications that are applied to the container, such as Linux kernel capabilities. For more information see [KernelCapabilities](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_KernelCapabilities.html) .
 	//
 	// > This parameter is not supported for Windows containers.
-	LinuxParameters interface{} `json:"linuxParameters"`
+	LinuxParameters interface{} `json:"linuxParameters" yaml:"linuxParameters"`
 	// The log configuration specification for the container.
 	//
 	// This parameter maps to `LogConfig` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--log-driver` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) . By default, containers use the same logging driver that the Docker daemon uses. However, the container may use a different logging driver than the Docker daemon by specifying a log driver with this parameter in the container definition. To use a different logging driver for a container, the log system must be configured properly on the container instance (or on a different log server for remote logging options). For more information on the options for different supported log drivers, see [Configure logging drivers](https://docs.aws.amazon.com/https://docs.docker.com/engine/admin/logging/overview/) in the Docker documentation.
@@ -6405,7 +6405,7 @@ type CfnTaskDefinition_ContainerDefinitionProperty struct {
 	// This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: `sudo docker version --format '{{.Server.APIVersion}}'`
 	//
 	// > The Amazon ECS container agent running on a container instance must register the logging drivers available on that instance with the `ECS_AVAILABLE_LOGGING_DRIVERS` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS Container Agent Configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide* .
-	LogConfiguration interface{} `json:"logConfiguration"`
+	LogConfiguration interface{} `json:"logConfiguration" yaml:"logConfiguration"`
 	// The amount (in MiB) of memory to present to the container.
 	//
 	// If your container attempts to exceed the memory specified here, the container is killed. The total amount of memory reserved for all containers within a task must be lower than the task `memory` value, if one is specified. This parameter maps to `Memory` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--memory` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
@@ -6417,7 +6417,7 @@ type CfnTaskDefinition_ContainerDefinitionProperty struct {
 	// The Docker 20.10.0 or later daemon reserves a minimum of 6 MiB of memory for a container, so you should not specify fewer than 6 MiB of memory for your containers.
 	//
 	// The Docker 19.03.13-ce or earlier daemon reserves a minimum of 4 MiB of memory for a container, so you should not specify fewer than 4 MiB of memory for your containers.
-	Memory *float64 `json:"memory"`
+	Memory *float64 `json:"memory" yaml:"memory"`
 	// The soft limit (in MiB) of memory to reserve for the container.
 	//
 	// When system memory is under heavy contention, Docker attempts to keep the container memory to this soft limit. However, your container can consume more memory when it needs to, up to either the hard limit specified with the `memory` parameter (if applicable), or all of the available memory on the container instance, whichever comes first. This parameter maps to `MemoryReservation` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--memory-reservation` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
@@ -6427,17 +6427,17 @@ type CfnTaskDefinition_ContainerDefinitionProperty struct {
 	// For example, if your container normally uses 128 MiB of memory, but occasionally bursts to 256 MiB of memory for short periods of time, you can set a `memoryReservation` of 128 MiB, and a `memory` hard limit of 300 MiB. This configuration would allow the container to only reserve 128 MiB of memory from the remaining resources on the container instance, but also allow the container to consume more memory resources when needed.
 	//
 	// The Docker daemon reserves a minimum of 4 MiB of memory for a container. Therefore, we recommend that you specify fewer than 4 MiB of memory for your containers.
-	MemoryReservation *float64 `json:"memoryReservation"`
+	MemoryReservation *float64 `json:"memoryReservation" yaml:"memoryReservation"`
 	// The mount points for data volumes in your container.
 	//
 	// This parameter maps to `Volumes` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--volume` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
 	//
 	// Windows containers can mount whole directories on the same drive as `$env:ProgramData` . Windows containers can't mount directories on a different drive, and mount point can't be across drives.
-	MountPoints interface{} `json:"mountPoints"`
+	MountPoints interface{} `json:"mountPoints" yaml:"mountPoints"`
 	// The name of a container.
 	//
 	// If you're linking multiple containers together in a task definition, the `name` of one container can be entered in the `links` of another container to connect the containers. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. This parameter maps to `name` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--name` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The list of port mappings for the container.
 	//
 	// Port mappings allow containers to access ports on the host container instance to send or receive traffic.
@@ -6449,33 +6449,33 @@ type CfnTaskDefinition_ContainerDefinitionProperty struct {
 	// This parameter maps to `PortBindings` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--publish` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) . If the network mode of a task definition is set to `none` , then you can't specify port mappings. If the network mode of a task definition is set to `host` , then host ports must either be undefined or they must match the container port in the port mapping.
 	//
 	// > After a task reaches the `RUNNING` status, manual and automatic host and container port assignments are visible in the *Network Bindings* section of a container description for a selected task in the Amazon ECS console. The assignments are also visible in the `networkBindings` section [DescribeTasks](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTasks.html) responses.
-	PortMappings interface{} `json:"portMappings"`
+	PortMappings interface{} `json:"portMappings" yaml:"portMappings"`
 	// When this parameter is true, the container is given elevated privileges on the host container instance (similar to the `root` user).
 	//
 	// This parameter maps to `Privileged` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--privileged` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
 	//
 	// > This parameter is not supported for Windows containers or tasks run on AWS Fargate .
-	Privileged interface{} `json:"privileged"`
+	Privileged interface{} `json:"privileged" yaml:"privileged"`
 	// When this parameter is `true` , a TTY is allocated.
 	//
 	// This parameter maps to `Tty` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--tty` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
-	PseudoTerminal interface{} `json:"pseudoTerminal"`
+	PseudoTerminal interface{} `json:"pseudoTerminal" yaml:"pseudoTerminal"`
 	// When this parameter is true, the container is given read-only access to its root file system.
 	//
 	// This parameter maps to `ReadonlyRootfs` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--read-only` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
 	//
 	// > This parameter is not supported for Windows containers.
-	ReadonlyRootFilesystem interface{} `json:"readonlyRootFilesystem"`
+	ReadonlyRootFilesystem interface{} `json:"readonlyRootFilesystem" yaml:"readonlyRootFilesystem"`
 	// The private repository authentication credentials to use.
-	RepositoryCredentials interface{} `json:"repositoryCredentials"`
+	RepositoryCredentials interface{} `json:"repositoryCredentials" yaml:"repositoryCredentials"`
 	// The type and amount of a resource to assign to a container.
 	//
 	// The only supported resource is a GPU.
-	ResourceRequirements interface{} `json:"resourceRequirements"`
+	ResourceRequirements interface{} `json:"resourceRequirements" yaml:"resourceRequirements"`
 	// The secrets to pass to the container.
 	//
 	// For more information, see [Specifying Sensitive Data](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html) in the *Amazon Elastic Container Service Developer Guide* .
-	Secrets interface{} `json:"secrets"`
+	Secrets interface{} `json:"secrets" yaml:"secrets"`
 	// Time duration (in seconds) to wait before giving up on resolving dependencies for a container.
 	//
 	// For example, you specify two containers in a task definition with containerA having a dependency on containerB reaching a `COMPLETE` , `SUCCESS` , or `HEALTHY` status. If a `startTimeout` value is specified for containerB and it doesn't reach the desired status within that time then containerA gives up and not start. This results in the task transitioning to a `STOPPED` state.
@@ -6488,7 +6488,7 @@ type CfnTaskDefinition_ContainerDefinitionProperty struct {
 	// - Windows platform version `1.0.0` or later.
 	//
 	// For tasks using the EC2 launch type, your container instances require at least version `1.26.0` of the container agent to enable a container start timeout value. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html) in the *Amazon Elastic Container Service Developer Guide* . If you're using an Amazon ECS-optimized Linux AMI, your instance needs at least version `1.26.0-1` of the `ecs-init` package. If your container instances are launched from version `20190301` or later, then they contain the required versions of the container agent and `ecs-init` . For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide* .
-	StartTimeout *float64 `json:"startTimeout"`
+	StartTimeout *float64 `json:"startTimeout" yaml:"startTimeout"`
 	// Time duration (in seconds) to wait before the container is forcefully killed if it doesn't exit normally on its own.
 	//
 	// For tasks using the Fargate launch type, the task or service requires the following platforms:
@@ -6499,19 +6499,19 @@ type CfnTaskDefinition_ContainerDefinitionProperty struct {
 	// The max stop timeout value is 120 seconds and if the parameter is not specified, the default value of 30 seconds is used.
 	//
 	// For tasks that use the EC2 launch type, if the `stopTimeout` parameter isn't specified, the value set for the Amazon ECS container agent configuration variable `ECS_CONTAINER_STOP_TIMEOUT` is used. If neither the `stopTimeout` parameter or the `ECS_CONTAINER_STOP_TIMEOUT` agent configuration variable are set, then the default values of 30 seconds for Linux containers and 30 seconds on Windows containers are used. Your container instances require at least version 1.26.0 of the container agent to enable a container stop timeout value. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html) in the *Amazon Elastic Container Service Developer Guide* . If you're using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the `ecs-init` package. If your container instances are launched from version `20190301` or later, then they contain the required versions of the container agent and `ecs-init` . For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide* .
-	StopTimeout *float64 `json:"stopTimeout"`
+	StopTimeout *float64 `json:"stopTimeout" yaml:"stopTimeout"`
 	// A list of namespaced kernel parameters to set in the container.
 	//
 	// This parameter maps to `Sysctls` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--sysctl` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
 	//
 	// > We don't recommended that you specify network-related `systemControls` parameters for multiple containers in a single task that also uses either the `awsvpc` or `host` network modes. For tasks that use the `awsvpc` network mode, the container that's started last determines which `systemControls` parameters take effect. For tasks that use the `host` network mode, it changes the container instance's namespaced kernel parameters as well as the containers.
-	SystemControls interface{} `json:"systemControls"`
+	SystemControls interface{} `json:"systemControls" yaml:"systemControls"`
 	// A list of `ulimits` to set in the container.
 	//
 	// This parameter maps to `Ulimits` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--ulimit` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) . Valid naming values are displayed in the [Ulimit](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_Ulimit.html) data type. This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: `sudo docker version --format '{{.Server.APIVersion}}'`
 	//
 	// > This parameter is not supported for Windows containers.
-	Ulimits interface{} `json:"ulimits"`
+	Ulimits interface{} `json:"ulimits" yaml:"ulimits"`
 	// The user to use inside the container.
 	//
 	// This parameter maps to `User` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--user` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
@@ -6528,15 +6528,15 @@ type CfnTaskDefinition_ContainerDefinitionProperty struct {
 	// - `uid:group`
 	//
 	// > This parameter is not supported for Windows containers.
-	User *string `json:"user"`
+	User *string `json:"user" yaml:"user"`
 	// Data volumes to mount from another container.
 	//
 	// This parameter maps to `VolumesFrom` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--volumes-from` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
-	VolumesFrom interface{} `json:"volumesFrom"`
+	VolumesFrom interface{} `json:"volumesFrom" yaml:"volumesFrom"`
 	// The working directory to run commands inside the container in.
 	//
 	// This parameter maps to `WorkingDir` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--workdir` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
-	WorkingDirectory *string `json:"workingDirectory"`
+	WorkingDirectory *string `json:"workingDirectory" yaml:"workingDirectory"`
 }
 
 // The `ContainerDependency` property specifies the dependencies defined for container startup and shutdown.
@@ -6556,9 +6556,9 @@ type CfnTaskDefinition_ContainerDependencyProperty struct {
 	// - `COMPLETE` - This condition validates that a dependent container runs to completion (exits) before permitting other containers to start. This can be useful for nonessential containers that run a script and then exit. This condition can't be set on an essential container.
 	// - `SUCCESS` - This condition is the same as `COMPLETE` , but it also requires that the container exits with a `zero` status. This condition can't be set on an essential container.
 	// - `HEALTHY` - This condition validates that the dependent container passes its Docker health check before permitting other containers to start. This requires that the dependent container has health checks configured. This condition is confirmed only at task startup.
-	Condition *string `json:"condition"`
+	Condition *string `json:"condition" yaml:"condition"`
 	// The name of a container.
-	ContainerName *string `json:"containerName"`
+	ContainerName *string `json:"containerName" yaml:"containerName"`
 }
 
 // The `Device` property specifies an object representing a container instance host device.
@@ -6567,13 +6567,13 @@ type CfnTaskDefinition_ContainerDependencyProperty struct {
 //
 type CfnTaskDefinition_DeviceProperty struct {
 	// The path inside the container at which to expose the host device.
-	ContainerPath *string `json:"containerPath"`
+	ContainerPath *string `json:"containerPath" yaml:"containerPath"`
 	// The path for the device on the host container instance.
-	HostPath *string `json:"hostPath"`
+	HostPath *string `json:"hostPath" yaml:"hostPath"`
 	// The explicit permissions to provide to the container for the device.
 	//
 	// By default, the container has permissions for `read` , `write` , and `mknod` for the device.
-	Permissions *[]*string `json:"permissions"`
+	Permissions *[]*string `json:"permissions" yaml:"permissions"`
 }
 
 // The `DockerVolumeConfiguration` property specifies a Docker volume configuration and is used when you use Docker volumes.
@@ -6586,38 +6586,38 @@ type CfnTaskDefinition_DockerVolumeConfigurationProperty struct {
 	// If this value is `true` , the Docker volume is created if it doesn't already exist.
 	//
 	// > This field is only used if the `scope` is `shared` .
-	Autoprovision interface{} `json:"autoprovision"`
+	Autoprovision interface{} `json:"autoprovision" yaml:"autoprovision"`
 	// The Docker volume driver to use.
 	//
 	// The driver value must match the driver name provided by Docker because it is used for task placement. If the driver was installed using the Docker plugin CLI, use `docker plugin ls` to retrieve the driver name from your container instance. If the driver was installed using another method, use Docker plugin discovery to retrieve the driver name. For more information, see [Docker plugin discovery](https://docs.aws.amazon.com/https://docs.docker.com/engine/extend/plugin_api/#plugin-discovery) . This parameter maps to `Driver` in the [Create a volume](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/VolumeCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `xxdriver` option to [docker volume create](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/commandline/volume_create/) .
-	Driver *string `json:"driver"`
+	Driver *string `json:"driver" yaml:"driver"`
 	// A map of Docker driver-specific options passed through.
 	//
 	// This parameter maps to `DriverOpts` in the [Create a volume](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/VolumeCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `xxopt` option to [docker volume create](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/commandline/volume_create/) .
-	DriverOpts interface{} `json:"driverOpts"`
+	DriverOpts interface{} `json:"driverOpts" yaml:"driverOpts"`
 	// Custom metadata to add to your Docker volume.
 	//
 	// This parameter maps to `Labels` in the [Create a volume](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/VolumeCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `xxlabel` option to [docker volume create](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/commandline/volume_create/) .
-	Labels interface{} `json:"labels"`
+	Labels interface{} `json:"labels" yaml:"labels"`
 	// The scope for the Docker volume that determines its lifecycle.
 	//
 	// Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are scoped as `shared` persist after the task stops.
-	Scope *string `json:"scope"`
+	Scope *string `json:"scope" yaml:"scope"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnTaskDefinition_EfsVolumeConfigurationProperty struct {
 	// `CfnTaskDefinition.EfsVolumeConfigurationProperty.FileSystemId`.
-	FileSystemId *string `json:"fileSystemId"`
+	FileSystemId *string `json:"fileSystemId" yaml:"fileSystemId"`
 	// `CfnTaskDefinition.EfsVolumeConfigurationProperty.AuthorizationConfig`.
-	AuthorizationConfig interface{} `json:"authorizationConfig"`
+	AuthorizationConfig interface{} `json:"authorizationConfig" yaml:"authorizationConfig"`
 	// `CfnTaskDefinition.EfsVolumeConfigurationProperty.RootDirectory`.
-	RootDirectory *string `json:"rootDirectory"`
+	RootDirectory *string `json:"rootDirectory" yaml:"rootDirectory"`
 	// `CfnTaskDefinition.EfsVolumeConfigurationProperty.TransitEncryption`.
-	TransitEncryption *string `json:"transitEncryption"`
+	TransitEncryption *string `json:"transitEncryption" yaml:"transitEncryption"`
 	// `CfnTaskDefinition.EfsVolumeConfigurationProperty.TransitEncryptionPort`.
-	TransitEncryptionPort *float64 `json:"transitEncryptionPort"`
+	TransitEncryptionPort *float64 `json:"transitEncryptionPort" yaml:"transitEncryptionPort"`
 }
 
 // A list of files containing the environment variables to pass to a container.
@@ -6637,9 +6637,9 @@ type CfnTaskDefinition_EnvironmentFileProperty struct {
 	// The file type to use.
 	//
 	// The only supported value is `s3` .
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// The Amazon Resource Name (ARN) of the Amazon S3 object containing the environment variable file.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // The amount of ephemeral storage to allocate for the task.
@@ -6657,7 +6657,7 @@ type CfnTaskDefinition_EphemeralStorageProperty struct {
 	// The total amount, in GiB, of ephemeral storage to set for the task.
 	//
 	// The minimum supported value is `21` GiB and the maximum supported value is `200` GiB.
-	SizeInGiB *float64 `json:"sizeInGiB"`
+	SizeInGiB *float64 `json:"sizeInGiB" yaml:"sizeInGiB"`
 }
 
 // The FireLens configuration for the container.
@@ -6676,11 +6676,11 @@ type CfnTaskDefinition_FirelensConfigurationProperty struct {
 	// - `enable-ecs-log-metadata` , which can be `true` or `false`
 	// - `config-file-type` , which can be `s3` or `file`
 	// - `config-file-value` , which is either an S3 ARN or a file path
-	Options interface{} `json:"options"`
+	Options interface{} `json:"options" yaml:"options"`
 	// The log router to use.
 	//
 	// The valid values are `fluentd` or `fluentbit` .
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 }
 
 // The `HealthCheck` property specifies an object representing a container health check.
@@ -6709,25 +6709,25 @@ type CfnTaskDefinition_HealthCheckProperty struct {
 	// `"CMD-SHELL", "curl -f http://localhost/ || exit 1"`
 	//
 	// An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see `HealthCheck` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) .
-	Command *[]*string `json:"command"`
+	Command *[]*string `json:"command" yaml:"command"`
 	// The time period in seconds between each health check execution.
 	//
 	// You may specify between 5 and 300 seconds. The default value is 30 seconds.
-	Interval *float64 `json:"interval"`
+	Interval *float64 `json:"interval" yaml:"interval"`
 	// The number of times to retry a failed health check before the container is considered unhealthy.
 	//
 	// You may specify between 1 and 10 retries. The default value is 3.
-	Retries *float64 `json:"retries"`
+	Retries *float64 `json:"retries" yaml:"retries"`
 	// The optional grace period to provide containers time to bootstrap before failed health checks count towards the maximum number of retries.
 	//
 	// You can specify between 0 and 300 seconds. By default, the `startPeriod` is disabled.
 	//
 	// > If a health check succeeds within the `startPeriod` , then the container is considered healthy and any subsequent failures count toward the maximum number of retries.
-	StartPeriod *float64 `json:"startPeriod"`
+	StartPeriod *float64 `json:"startPeriod" yaml:"startPeriod"`
 	// The time period in seconds to wait for a health check to succeed before it is considered a failure.
 	//
 	// You may specify between 2 and 60 seconds. The default value is 5.
-	Timeout *float64 `json:"timeout"`
+	Timeout *float64 `json:"timeout" yaml:"timeout"`
 }
 
 // The `HostEntry` property specifies a hostname and an IP address that are added to the `/etc/hosts` file of a container through the `extraHosts` parameter of its `ContainerDefinition` resource.
@@ -6736,9 +6736,9 @@ type CfnTaskDefinition_HealthCheckProperty struct {
 //
 type CfnTaskDefinition_HostEntryProperty struct {
 	// The hostname to use in the `/etc/hosts` entry.
-	Hostname *string `json:"hostname"`
+	Hostname *string `json:"hostname" yaml:"hostname"`
 	// The IP address to use in the `/etc/hosts` entry.
-	IpAddress *string `json:"ipAddress"`
+	IpAddress *string `json:"ipAddress" yaml:"ipAddress"`
 }
 
 // The `HostVolumeProperties` property specifies details on a container instance bind mount host volume.
@@ -6751,7 +6751,7 @@ type CfnTaskDefinition_HostVolumePropertiesProperty struct {
 	// If this parameter is empty, then the Docker daemon has assigned a host path for you. If the `host` parameter contains a `sourcePath` file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the `sourcePath` value doesn't exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported.
 	//
 	// If you're using the Fargate launch type, the `sourcePath` parameter is not supported.
-	SourcePath *string `json:"sourcePath"`
+	SourcePath *string `json:"sourcePath" yaml:"sourcePath"`
 }
 
 // Details on an Elastic Inference accelerator.
@@ -6764,9 +6764,9 @@ type CfnTaskDefinition_InferenceAcceleratorProperty struct {
 	// The Elastic Inference accelerator device name.
 	//
 	// The `deviceName` must also be referenced in a container definition as a [ResourceRequirement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-resourcerequirement.html) .
-	DeviceName *string `json:"deviceName"`
+	DeviceName *string `json:"deviceName" yaml:"deviceName"`
 	// The Elastic Inference accelerator type to use.
-	DeviceType *string `json:"deviceType"`
+	DeviceType *string `json:"deviceType" yaml:"deviceType"`
 }
 
 // The `KernelCapabilities` property specifies the Linux capabilities for the container that are added to or dropped from the default configuration that is provided by Docker.
@@ -6783,13 +6783,13 @@ type CfnTaskDefinition_KernelCapabilitiesProperty struct {
 	// > Tasks launched on AWS Fargate only support adding the `SYS_PTRACE` kernel capability.
 	//
 	// Valid values: `"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT" | "SYS_CHROOT" | "SYS_MODULE" | "SYS_NICE" | "SYS_PACCT" | "SYS_PTRACE" | "SYS_RAWIO" | "SYS_RESOURCE" | "SYS_TIME" | "SYS_TTY_CONFIG" | "SYSLOG" | "WAKE_ALARM"`
-	Add *[]*string `json:"add"`
+	Add *[]*string `json:"add" yaml:"add"`
 	// The Linux capabilities for the container that have been removed from the default configuration provided by Docker.
 	//
 	// This parameter maps to `CapDrop` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--cap-drop` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
 	//
 	// Valid values: `"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT" | "SYS_CHROOT" | "SYS_MODULE" | "SYS_NICE" | "SYS_PACCT" | "SYS_PTRACE" | "SYS_RAWIO" | "SYS_RESOURCE" | "SYS_TIME" | "SYS_TTY_CONFIG" | "SYSLOG" | "WAKE_ALARM"`
-	Drop *[]*string `json:"drop"`
+	Drop *[]*string `json:"drop" yaml:"drop"`
 }
 
 // The `KeyValuePair` property specifies a key-value pair object.
@@ -6800,11 +6800,11 @@ type CfnTaskDefinition_KeyValuePairProperty struct {
 	// The name of the key-value pair.
 	//
 	// For environment variables, this is the name of the environment variable.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The value of the key-value pair.
 	//
 	// For environment variables, this is the value of the environment variable.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // The `LinuxParameters` property specifies Linux-specific options that are applied to the container, such as Linux [KernelCapabilities](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_KernelCapabilities.html) .
@@ -6815,17 +6815,17 @@ type CfnTaskDefinition_LinuxParametersProperty struct {
 	// The Linux capabilities for the container that are added to or dropped from the default configuration provided by Docker.
 	//
 	// > For tasks that use the Fargate launch type, `capabilities` is supported for all platform versions but the `add` parameter is only supported if using platform version 1.4.0 or later.
-	Capabilities interface{} `json:"capabilities"`
+	Capabilities interface{} `json:"capabilities" yaml:"capabilities"`
 	// Any host devices to expose to the container.
 	//
 	// This parameter maps to `Devices` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--device` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
 	//
 	// > If you're using tasks that use the Fargate launch type, the `devices` parameter isn't supported.
-	Devices interface{} `json:"devices"`
+	Devices interface{} `json:"devices" yaml:"devices"`
 	// Run an `init` process inside the container that forwards signals and reaps processes.
 	//
 	// This parameter maps to the `--init` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) . This parameter requires version 1.25 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: `sudo docker version --format '{{.Server.APIVersion}}'`
-	InitProcessEnabled interface{} `json:"initProcessEnabled"`
+	InitProcessEnabled interface{} `json:"initProcessEnabled" yaml:"initProcessEnabled"`
 	// The total amount of swap memory (in MiB) a container can use.
 	//
 	// This parameter will be translated to the `--memory-swap` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) where the value would be the sum of the container memory plus the `maxSwap` value.
@@ -6833,25 +6833,25 @@ type CfnTaskDefinition_LinuxParametersProperty struct {
 	// If a `maxSwap` value of `0` is specified, the container will not use swap. Accepted values are `0` or any positive integer. If the `maxSwap` parameter is omitted, the container will use the swap configuration for the container instance it is running on. A `maxSwap` value must be set for the `swappiness` parameter to be used.
 	//
 	// > If you're using tasks that use the Fargate launch type, the `maxSwap` parameter isn't supported.
-	MaxSwap *float64 `json:"maxSwap"`
+	MaxSwap *float64 `json:"maxSwap" yaml:"maxSwap"`
 	// The value for the size (in MiB) of the `/dev/shm` volume.
 	//
 	// This parameter maps to the `--shm-size` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
 	//
 	// > If you are using tasks that use the Fargate launch type, the `sharedMemorySize` parameter is not supported.
-	SharedMemorySize *float64 `json:"sharedMemorySize"`
+	SharedMemorySize *float64 `json:"sharedMemorySize" yaml:"sharedMemorySize"`
 	// This allows you to tune a container's memory swappiness behavior.
 	//
 	// A `swappiness` value of `0` will cause swapping to not happen unless absolutely necessary. A `swappiness` value of `100` will cause pages to be swapped very aggressively. Accepted values are whole numbers between `0` and `100` . If the `swappiness` parameter is not specified, a default value of `60` is used. If a value is not specified for `maxSwap` then this parameter is ignored. This parameter maps to the `--memory-swappiness` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
 	//
 	// > If you're using tasks that use the Fargate launch type, the `swappiness` parameter isn't supported.
-	Swappiness *float64 `json:"swappiness"`
+	Swappiness *float64 `json:"swappiness" yaml:"swappiness"`
 	// The container path, mount options, and size (in MiB) of the tmpfs mount.
 	//
 	// This parameter maps to the `--tmpfs` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
 	//
 	// > If you're using tasks that use the Fargate launch type, the `tmpfs` parameter isn't supported.
-	Tmpfs interface{} `json:"tmpfs"`
+	Tmpfs interface{} `json:"tmpfs" yaml:"tmpfs"`
 }
 
 // The `LogConfiguration` property specifies log configuration options to send to a custom log driver for the container.
@@ -6870,15 +6870,15 @@ type CfnTaskDefinition_LogConfigurationProperty struct {
 	// For more information about using the `awsfirelens` log driver, see [Custom log routing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html) in the *Amazon Elastic Container Service Developer Guide* .
 	//
 	// > If you have a custom driver that isn't listed, you can fork the Amazon ECS container agent project that's [available on GitHub](https://docs.aws.amazon.com/https://github.com/aws/amazon-ecs-agent) and customize it to work with that driver. We encourage you to submit pull requests for changes that you would like to have included. However, we don't currently provide support for running modified copies of this software.
-	LogDriver *string `json:"logDriver"`
+	LogDriver *string `json:"logDriver" yaml:"logDriver"`
 	// The configuration options to send to the log driver.
 	//
 	// This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: `sudo docker version --format '{{.Server.APIVersion}}'`
-	Options interface{} `json:"options"`
+	Options interface{} `json:"options" yaml:"options"`
 	// The secrets to pass to the log configuration.
 	//
 	// For more information, see [Specifying Sensitive Data](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html) in the *Amazon Elastic Container Service Developer Guide* .
-	SecretOptions interface{} `json:"secretOptions"`
+	SecretOptions interface{} `json:"secretOptions" yaml:"secretOptions"`
 }
 
 // The `MountPoint` property specifies details on a volume mount point that is used in a container definition.
@@ -6887,15 +6887,15 @@ type CfnTaskDefinition_LogConfigurationProperty struct {
 //
 type CfnTaskDefinition_MountPointProperty struct {
 	// The path on the container to mount the host volume at.
-	ContainerPath *string `json:"containerPath"`
+	ContainerPath *string `json:"containerPath" yaml:"containerPath"`
 	// If this value is `true` , the container has read-only access to the volume.
 	//
 	// If this value is `false` , then the container can write to the volume. The default value is `false` .
-	ReadOnly interface{} `json:"readOnly"`
+	ReadOnly interface{} `json:"readOnly" yaml:"readOnly"`
 	// The name of the volume to mount.
 	//
 	// Must be a volume name referenced in the `name` parameter of task definition `volume` .
-	SourceVolume *string `json:"sourceVolume"`
+	SourceVolume *string `json:"sourceVolume" yaml:"sourceVolume"`
 }
 
 // The `PortMapping` property specifies a port mapping.
@@ -6914,7 +6914,7 @@ type CfnTaskDefinition_PortMappingProperty struct {
 	// If you use containers in a task with the `awsvpc` or `host` network mode, specify the exposed ports using `containerPort` .
 	//
 	// If you use containers in a task with the `bridge` network mode and you specify a container port and not a host port, your container automatically receives a host port in the ephemeral port range. For more information, see `hostPort` . Port mappings that are automatically assigned in this way do not count toward the 100 reserved ports limit of a container instance.
-	ContainerPort *float64 `json:"containerPort"`
+	ContainerPort *float64 `json:"containerPort" yaml:"containerPort"`
 	// The port number on the container instance to reserve for your container.
 	//
 	// If you are using containers in a task with the `awsvpc` or `host` network mode, the `hostPort` can either be left blank or set to the same value as the `containerPort` .
@@ -6926,11 +6926,11 @@ type CfnTaskDefinition_PortMappingProperty struct {
 	// > The default ephemeral port range from 49153 through 65535 is always used for Docker versions before 1.6.0.
 	//
 	// The default reserved ports are 22 for SSH, the Docker ports 2375 and 2376, and the Amazon ECS container agent ports 51678-51680. Any host port that was previously specified in a running task is also reserved while the task is running (after a task stops, the host port is released). The current reserved ports are displayed in the `remainingResources` of [DescribeContainerInstances](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeContainerInstances.html) output. A container instance can have up to 100 reserved ports at a time, including the default reserved ports. Automatically assigned ports don't count toward the 100 reserved ports limit.
-	HostPort *float64 `json:"hostPort"`
+	HostPort *float64 `json:"hostPort" yaml:"hostPort"`
 	// The protocol used for the port mapping.
 	//
 	// Valid values are `tcp` and `udp` . The default is `tcp` .
-	Protocol *string `json:"protocol"`
+	Protocol *string `json:"protocol" yaml:"protocol"`
 }
 
 // The `ProxyConfiguration` property specifies the details for the App Mesh proxy.
@@ -6943,7 +6943,7 @@ type CfnTaskDefinition_PortMappingProperty struct {
 //
 type CfnTaskDefinition_ProxyConfigurationProperty struct {
 	// The name of the container that will serve as the App Mesh proxy.
-	ContainerName *string `json:"containerName"`
+	ContainerName *string `json:"containerName" yaml:"containerName"`
 	// The set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified as key-value pairs.
 	//
 	// - `IgnoredUID` - (Required) The user ID (UID) of the proxy container as defined by the `user` parameter in a container definition. This is used to ensure the proxy ignores its own traffic. If `IgnoredGID` is specified, this field can be empty.
@@ -6953,11 +6953,11 @@ type CfnTaskDefinition_ProxyConfigurationProperty struct {
 	// - `ProxyEgressPort` - (Required) Specifies the port that outgoing traffic from the `AppPorts` is directed to.
 	// - `EgressIgnoredPorts` - (Required) The egress traffic going to the specified ports is ignored and not redirected to the `ProxyEgressPort` . It can be an empty list.
 	// - `EgressIgnoredIPs` - (Required) The egress traffic going to the specified IP addresses is ignored and not redirected to the `ProxyEgressPort` . It can be an empty list.
-	ProxyConfigurationProperties interface{} `json:"proxyConfigurationProperties"`
+	ProxyConfigurationProperties interface{} `json:"proxyConfigurationProperties" yaml:"proxyConfigurationProperties"`
 	// The proxy type.
 	//
 	// The only supported value is `APPMESH` .
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 }
 
 // The `RepositoryCredentials` property specifies the repository credentials for private registry authentication.
@@ -6968,7 +6968,7 @@ type CfnTaskDefinition_RepositoryCredentialsProperty struct {
 	// The Amazon Resource Name (ARN) of the secret containing the private repository credentials.
 	//
 	// > When you use the Amazon ECS API, AWS CLI , or AWS SDK, if the secret exists in the same Region as the task that you're launching then you can use either the full ARN or the name of the secret. When you use the AWS Management Console, you must specify the full ARN of the secret.
-	CredentialsParameter *string `json:"credentialsParameter"`
+	CredentialsParameter *string `json:"credentialsParameter" yaml:"credentialsParameter"`
 }
 
 // The `ResourceRequirement` property specifies the type and amount of a resource to assign to a container.
@@ -6981,13 +6981,13 @@ type CfnTaskDefinition_ResourceRequirementProperty struct {
 	// The type of resource to assign to a container.
 	//
 	// The supported values are `GPU` or `InferenceAccelerator` .
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// The value for the specified resource type.
 	//
 	// If the `GPU` type is used, the value is the number of physical `GPUs` the Amazon ECS container agent will reserve for the container. The number of GPUs reserved for all containers in a task should not exceed the number of available GPUs on the container instance the task is launched on.
 	//
 	// If the `InferenceAccelerator` type is used, the `value` should match the `DeviceName` for an [InferenceAccelerator](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-inferenceaccelerator.html) specified in a task definition.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // Information about the platform for the Amazon ECS service or task.
@@ -7000,9 +7000,9 @@ type CfnTaskDefinition_RuntimePlatformProperty struct {
 	// The CPU architecture.
 	//
 	// You can run your Linux tasks on an ARM-based platform by setting the value to `ARM64` . This option is avaiable for tasks that run on Linuc Amazon EC2 instance or Linux containers on Fargate.
-	CpuArchitecture *string `json:"cpuArchitecture"`
+	CpuArchitecture *string `json:"cpuArchitecture" yaml:"cpuArchitecture"`
 	// The operating system.
-	OperatingSystemFamily *string `json:"operatingSystemFamily"`
+	OperatingSystemFamily *string `json:"operatingSystemFamily" yaml:"operatingSystemFamily"`
 }
 
 // The `Secret` property specifies an object representing the secret to expose to your container.
@@ -7013,13 +7013,13 @@ type CfnTaskDefinition_RuntimePlatformProperty struct {
 //
 type CfnTaskDefinition_SecretProperty struct {
 	// The name of the secret.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The secret to expose to the container.
 	//
 	// The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the SSM Parameter Store.
 	//
 	// > If the SSM Parameter Store parameter exists in the same Region as the task you're launching, then you can use either the full ARN or name of the parameter. If the parameter exists in a different Region, then the full ARN must be specified.
-	ValueFrom *string `json:"valueFrom"`
+	ValueFrom *string `json:"valueFrom" yaml:"valueFrom"`
 }
 
 // A list of namespaced kernel parameters to set in the container.
@@ -7035,9 +7035,9 @@ type CfnTaskDefinition_SecretProperty struct {
 //
 type CfnTaskDefinition_SystemControlProperty struct {
 	// The namespaced kernel parameter to set a `value` for.
-	Namespace *string `json:"namespace"`
+	Namespace *string `json:"namespace" yaml:"namespace"`
 	// The value for the namespaced kernel parameter that's specified in `namespace` .
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // The `TaskDefinitionPlacementConstraint` property specifies an object representing a constraint on task placement in the task definition.
@@ -7052,11 +7052,11 @@ type CfnTaskDefinition_TaskDefinitionPlacementConstraintProperty struct {
 	// The type of constraint.
 	//
 	// The `MemberOf` constraint restricts selection to be from a group of valid candidates.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// A cluster query language expression to apply to the constraint.
 	//
 	// For more information, see [Cluster query language](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html) in the *Amazon Elastic Container Service Developer Guide* .
-	Expression *string `json:"expression"`
+	Expression *string `json:"expression" yaml:"expression"`
 }
 
 // The `Tmpfs` property specifies the container path, mount options, and size of the tmpfs mount.
@@ -7065,13 +7065,13 @@ type CfnTaskDefinition_TaskDefinitionPlacementConstraintProperty struct {
 //
 type CfnTaskDefinition_TmpfsProperty struct {
 	// The maximum size (in MiB) of the tmpfs volume.
-	Size *float64 `json:"size"`
+	Size *float64 `json:"size" yaml:"size"`
 	// The absolute file path where the tmpfs volume is to be mounted.
-	ContainerPath *string `json:"containerPath"`
+	ContainerPath *string `json:"containerPath" yaml:"containerPath"`
 	// The list of tmpfs volume mount options.
 	//
 	// Valid values: `"defaults" | "ro" | "rw" | "suid" | "nosuid" | "dev" | "nodev" | "exec" | "noexec" | "sync" | "async" | "dirsync" | "remount" | "mand" | "nomand" | "atime" | "noatime" | "diratime" | "nodiratime" | "bind" | "rbind" | "unbindable" | "runbindable" | "private" | "rprivate" | "shared" | "rshared" | "slave" | "rslave" | "relatime" | "norelatime" | "strictatime" | "nostrictatime" | "mode" | "uid" | "gid" | "nr_inodes" | "nr_blocks" | "mpol"`
-	MountOptions *[]*string `json:"mountOptions"`
+	MountOptions *[]*string `json:"mountOptions" yaml:"mountOptions"`
 }
 
 // The `Ulimit` property specifies the `ulimit` settings to pass to the container.
@@ -7080,11 +7080,11 @@ type CfnTaskDefinition_TmpfsProperty struct {
 //
 type CfnTaskDefinition_UlimitProperty struct {
 	// The hard limit for the ulimit type.
-	HardLimit *float64 `json:"hardLimit"`
+	HardLimit *float64 `json:"hardLimit" yaml:"hardLimit"`
 	// The `type` of the `ulimit` .
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The soft limit for the ulimit type.
-	SoftLimit *float64 `json:"softLimit"`
+	SoftLimit *float64 `json:"softLimit" yaml:"softLimit"`
 }
 
 // The `VolumeFrom` property specifies details on a data volume from another container in the same task definition.
@@ -7095,9 +7095,9 @@ type CfnTaskDefinition_VolumeFromProperty struct {
 	// If this value is `true` , the container has read-only access to the volume.
 	//
 	// If this value is `false` , then the container can write to the volume. The default value is `false` .
-	ReadOnly interface{} `json:"readOnly"`
+	ReadOnly interface{} `json:"readOnly" yaml:"readOnly"`
 	// The name of another container within the same task definition to mount volumes from.
-	SourceContainer *string `json:"sourceContainer"`
+	SourceContainer *string `json:"sourceContainer" yaml:"sourceContainer"`
 }
 
 // The `Volume` property specifies a data volume used in a task definition.
@@ -7112,19 +7112,19 @@ type CfnTaskDefinition_VolumeProperty struct {
 	// Windows containers only support the use of the `local` driver. To use bind mounts, specify the `host` parameter instead.
 	//
 	// > Docker volumes aren't supported by tasks run on AWS Fargate .
-	DockerVolumeConfiguration interface{} `json:"dockerVolumeConfiguration"`
+	DockerVolumeConfiguration interface{} `json:"dockerVolumeConfiguration" yaml:"dockerVolumeConfiguration"`
 	// `CfnTaskDefinition.VolumeProperty.EfsVolumeConfiguration`.
-	EfsVolumeConfiguration interface{} `json:"efsVolumeConfiguration"`
+	EfsVolumeConfiguration interface{} `json:"efsVolumeConfiguration" yaml:"efsVolumeConfiguration"`
 	// This parameter is specified when you use bind mount host volumes.
 	//
 	// The contents of the `host` parameter determine whether your bind mount host volume persists on the host container instance and where it's stored. If the `host` parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.
 	//
 	// Windows containers can mount whole directories on the same drive as `$env:ProgramData` . Windows containers can't mount directories on a different drive, and mount point can't be across drives. For example, you can mount `C:\my\path:C:\my\path` and `D:\:D:\` , but not `D:\my\path:C:\my\path` or `D:\:C:\my\path` .
-	Host interface{} `json:"host"`
+	Host interface{} `json:"host" yaml:"host"`
 	// The name of the volume.
 	//
 	// Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. This name is referenced in the `sourceVolume` parameter of container definition `mountPoints` .
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // Properties for defining a `CfnTaskDefinition`.
@@ -7135,7 +7135,7 @@ type CfnTaskDefinitionProps struct {
 	// A list of container definitions in JSON format that describe the different containers that make up your task.
 	//
 	// For more information about container definition parameters and defaults, see [Amazon ECS Task Definitions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html) in the *Amazon Elastic Container Service Developer Guide* .
-	ContainerDefinitions interface{} `json:"containerDefinitions"`
+	ContainerDefinitions interface{} `json:"containerDefinitions" yaml:"containerDefinitions"`
 	// The number of `cpu` units used by the task.
 	//
 	// If you use the EC2 launch type, this field is optional. Any value can be used. If you use the Fargate launch type, this field is required. You must use one of the following values. The value that you choose determines your range of valid values for the `memory` parameter.
@@ -7147,13 +7147,13 @@ type CfnTaskDefinitionProps struct {
 	// - 1024 (1 vCPU) - Available `memory` values: 2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB)
 	// - 2048 (2 vCPU) - Available `memory` values: Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB)
 	// - 4096 (4 vCPU) - Available `memory` values: Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB)
-	Cpu *string `json:"cpu"`
+	Cpu *string `json:"cpu" yaml:"cpu"`
 	// The ephemeral storage settings to use for tasks run with the task definition.
-	EphemeralStorage interface{} `json:"ephemeralStorage"`
+	EphemeralStorage interface{} `json:"ephemeralStorage" yaml:"ephemeralStorage"`
 	// The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent permission to make AWS API calls on your behalf.
 	//
 	// The task execution IAM role is required depending on the requirements of your task. For more information, see [Amazon ECS task execution IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html) in the *Amazon Elastic Container Service Developer Guide* .
-	ExecutionRoleArn *string `json:"executionRoleArn"`
+	ExecutionRoleArn *string `json:"executionRoleArn" yaml:"executionRoleArn"`
 	// The name of a family that this task definition is registered to.
 	//
 	// Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.
@@ -7161,9 +7161,9 @@ type CfnTaskDefinitionProps struct {
 	// A family groups multiple versions of a task definition. Amazon ECS gives the first task definition that you registered to a family a revision number of 1. Amazon ECS gives sequential revision numbers to each task definition that you add.
 	//
 	// > To use revision numbers when you update a task definition, specify this property. If you don't specify a value, AWS CloudFormation generates a new task definition each time that you update it.
-	Family *string `json:"family"`
+	Family *string `json:"family" yaml:"family"`
 	// The Elastic Inference accelerators to use for the containers in the task.
-	InferenceAccelerators interface{} `json:"inferenceAccelerators"`
+	InferenceAccelerators interface{} `json:"inferenceAccelerators" yaml:"inferenceAccelerators"`
 	// The IPC resource namespace to use for the containers in the task.
 	//
 	// The valid values are `host` , `task` , or `none` . If `host` is specified, then all containers within the tasks that specified the `host` IPC mode on the same container instance share the same IPC resources with the host Amazon EC2 instance. If `task` is specified, all containers within the specified task share the same IPC resources. If `none` is specified, then IPC resources within the containers of a task are private and not shared with other containers in a task or on the container instance. If no value is specified, then the IPC resource namespace sharing depends on the Docker daemon setting on the container instance. For more information, see [IPC settings](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#ipc-settings---ipc) in the *Docker run reference* .
@@ -7176,7 +7176,7 @@ type CfnTaskDefinitionProps struct {
 	// - For tasks that use the `task` IPC mode, IPC namespace related `systemControls` will apply to all containers within a task.
 	//
 	// > This parameter is not supported for Windows containers or tasks run on AWS Fargate .
-	IpcMode *string `json:"ipcMode"`
+	IpcMode *string `json:"ipcMode" yaml:"ipcMode"`
 	// The amount (in MiB) of memory used by the task.
 	//
 	// If your tasks runs on Amazon EC2 instances, you must specify either a task-level memory value or a container-level memory value. This field is optional and any value can be used. If a task-level memory value is specified, the container-level memory value is optional. For more information regarding container-level memory and memory reservation, see [ContainerDefinition](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) .
@@ -7188,7 +7188,7 @@ type CfnTaskDefinitionProps struct {
 	// - 2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB) - Available `cpu` values: 1024 (1 vCPU)
 	// - Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB) - Available `cpu` values: 2048 (2 vCPU)
 	// - Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) - Available `cpu` values: 4096 (4 vCPU)
-	Memory *string `json:"memory"`
+	Memory *string `json:"memory" yaml:"memory"`
 	// The Docker networking mode to use for the containers in the task.
 	//
 	// The valid values are `none` , `bridge` , `awsvpc` , and `host` . The default Docker network mode is `bridge` . If you are using the Fargate launch type, the `awsvpc` network mode is required. If you are using the EC2 launch type, any network mode can be used. If the network mode is set to `none` , you cannot specify port mappings in your container definitions, and the tasks containers do not have external connectivity. The `host` and `awsvpc` network modes offer the highest networking performance for containers because they use the EC2 network stack instead of the virtualized network stack provided by the `bridge` mode.
@@ -7204,7 +7204,7 @@ type CfnTaskDefinitionProps struct {
 	// Docker for Windows uses different network modes than Docker for Linux. When you register a task definition with Windows containers, you must not specify a network mode. If you use the console to register a task definition with Windows containers, you must choose the `<default>` network mode object.
 	//
 	// For more information, see [Network settings](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#network-settings) in the *Docker run reference* .
-	NetworkMode *string `json:"networkMode"`
+	NetworkMode *string `json:"networkMode" yaml:"networkMode"`
 	// The process namespace to use for the containers in the task.
 	//
 	// The valid values are `host` or `task` . If `host` is specified, then all containers within the tasks that specified the `host` PID mode on the same container instance share the same process namespace with the host Amazon EC2 instance. If `task` is specified, all containers within the specified task share the same process namespace. If no value is specified, the default is a private namespace. For more information, see [PID settings](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#pid-settings---pid) in the *Docker run reference* .
@@ -7212,25 +7212,25 @@ type CfnTaskDefinitionProps struct {
 	// If the `host` PID mode is used, be aware that there is a heightened risk of undesired process namespace expose. For more information, see [Docker security](https://docs.aws.amazon.com/https://docs.docker.com/engine/security/security/) .
 	//
 	// > This parameter is not supported for Windows containers or tasks run on AWS Fargate .
-	PidMode *string `json:"pidMode"`
+	PidMode *string `json:"pidMode" yaml:"pidMode"`
 	// An array of placement constraint objects to use for tasks.
 	//
 	// > This parameter isn't supported for tasks run on AWS Fargate .
-	PlacementConstraints interface{} `json:"placementConstraints"`
+	PlacementConstraints interface{} `json:"placementConstraints" yaml:"placementConstraints"`
 	// The `ProxyConfiguration` property specifies the configuration details for the App Mesh proxy.
 	//
 	// Your Amazon ECS container instances require at least version 1.26.0 of the container agent and at least version 1.26.0-1 of the `ecs-init` package to enable a proxy configuration. If your container instances are launched from the Amazon ECS-optimized AMI version `20190301` or later, then they contain the required versions of the container agent and `ecs-init` . For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide* .
-	ProxyConfiguration interface{} `json:"proxyConfiguration"`
+	ProxyConfiguration interface{} `json:"proxyConfiguration" yaml:"proxyConfiguration"`
 	// The task launch types the task definition was validated against.
 	//
 	// To determine which task launch types the task definition is validated for, see the `TaskDefinition$compatibilities` parameter.
-	RequiresCompatibilities *[]*string `json:"requiresCompatibilities"`
+	RequiresCompatibilities *[]*string `json:"requiresCompatibilities" yaml:"requiresCompatibilities"`
 	// The operating system that your task definitions are running on.
 	//
 	// A platform family is specified only for tasks using the Fargate launch type.
 	//
 	// When you specify a task in a service, this value must match the `runtimePlatform` value of the service.
-	RuntimePlatform interface{} `json:"runtimePlatform"`
+	RuntimePlatform interface{} `json:"runtimePlatform" yaml:"runtimePlatform"`
 	// The metadata that you apply to the task definition to help you categorize and organize them.
 	//
 	// Each tag consists of a key and an optional value. You define both of them.
@@ -7244,19 +7244,19 @@ type CfnTaskDefinitionProps struct {
 	// - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
 	// - Tag keys and values are case-sensitive.
 	// - Do not use `aws:` , `AWS:` , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// The short name or full Amazon Resource Name (ARN) of the AWS Identity and Access Management role that grants containers in the task permission to call AWS APIs on your behalf.
 	//
 	// For more information, see [Amazon ECS Task Role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html) in the *Amazon Elastic Container Service Developer Guide* .
 	//
 	// IAM roles for tasks on Windows require that the `-EnableTaskIAMRole` option is set when you launch the Amazon ECS-optimized Windows AMI. Your containers must also run some configuration code to use the feature. For more information, see [Windows IAM roles for tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows_task_IAM_roles.html) in the *Amazon Elastic Container Service Developer Guide* .
-	TaskRoleArn *string `json:"taskRoleArn"`
+	TaskRoleArn *string `json:"taskRoleArn" yaml:"taskRoleArn"`
 	// The list of data volume definitions for the task.
 	//
 	// For more information, see [Using data volumes in tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html) in the *Amazon Elastic Container Service Developer Guide* .
 	//
 	// > The `host` and `sourcePath` parameters aren't supported for tasks run on AWS Fargate .
-	Volumes interface{} `json:"volumes"`
+	Volumes interface{} `json:"volumes" yaml:"volumes"`
 }
 
 // A CloudFormation `AWS::ECS::TaskSet`.
@@ -7932,17 +7932,17 @@ type CfnTaskSet_AwsVpcConfigurationProperty struct {
 	// There's a limit of 16 subnets that can be specified per `AwsVpcConfiguration` .
 	//
 	// > All specified subnets must be from the same VPC.
-	Subnets *[]*string `json:"subnets"`
+	Subnets *[]*string `json:"subnets" yaml:"subnets"`
 	// Whether the task's elastic network interface receives a public IP address.
 	//
 	// The default value is `DISABLED` .
-	AssignPublicIp *string `json:"assignPublicIp"`
+	AssignPublicIp *string `json:"assignPublicIp" yaml:"assignPublicIp"`
 	// The IDs of the security groups associated with the task or service.
 	//
 	// If you don't specify a security group, the default security group for the VPC is used. There's a limit of 5 security groups that can be specified per `AwsVpcConfiguration` .
 	//
 	// > All specified security groups must be from the same VPC.
-	SecurityGroups *[]*string `json:"securityGroups"`
+	SecurityGroups *[]*string `json:"securityGroups" yaml:"securityGroups"`
 }
 
 // Details on the load balancer or load balancers to use with a task set.
@@ -7951,15 +7951,15 @@ type CfnTaskSet_AwsVpcConfigurationProperty struct {
 //
 type CfnTaskSet_LoadBalancerProperty struct {
 	// The name of the container (as it appears in a container definition) to associate with the load balancer.
-	ContainerName *string `json:"containerName"`
+	ContainerName *string `json:"containerName" yaml:"containerName"`
 	// The port on the container to associate with the load balancer.
 	//
 	// This port must correspond to a `containerPort` in the task definition the tasks in the service are using. For tasks that use the EC2 launch type, the container instance they're launched on must allow ingress traffic on the `hostPort` of the port mapping.
-	ContainerPort *float64 `json:"containerPort"`
+	ContainerPort *float64 `json:"containerPort" yaml:"containerPort"`
 	// The name of the load balancer to associate with the Amazon ECS service or task set.
 	//
 	// A load balancer name is only specified when using a Classic Load Balancer. If you are using an Application Load Balancer or a Network Load Balancer the load balancer name parameter should be omitted.
-	LoadBalancerName *string `json:"loadBalancerName"`
+	LoadBalancerName *string `json:"loadBalancerName" yaml:"loadBalancerName"`
 	// The full Amazon Resource Name (ARN) of the Elastic Load Balancing target group or groups associated with a service or task set.
 	//
 	// A target group ARN is only specified when using an Application Load Balancer or Network Load Balancer. If you're using a Classic Load Balancer, omit the target group ARN.
@@ -7969,7 +7969,7 @@ type CfnTaskSet_LoadBalancerProperty struct {
 	// For services using the `CODE_DEPLOY` deployment controller, you're required to define two target groups for the load balancer. For more information, see [Blue/Green Deployment with CodeDeploy](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-bluegreen.html) in the *Amazon Elastic Container Service Developer Guide* .
 	//
 	// > If your service's task definition uses the `awsvpc` network mode, you must choose `ip` as the target type, not `instance` . Do this when creating your target groups because tasks that use the `awsvpc` network mode are associated with an elastic network interface, not an Amazon EC2 instance. This network mode is required for the Fargate launch type.
-	TargetGroupArn *string `json:"targetGroupArn"`
+	TargetGroupArn *string `json:"targetGroupArn" yaml:"targetGroupArn"`
 }
 
 // The network configuration for a task.
@@ -7980,7 +7980,7 @@ type CfnTaskSet_NetworkConfigurationProperty struct {
 	// The VPC subnets and security groups that are associated with a task.
 	//
 	// > All specified subnets and security groups must be from the same VPC.
-	AwsVpcConfiguration interface{} `json:"awsVpcConfiguration"`
+	AwsVpcConfiguration interface{} `json:"awsVpcConfiguration" yaml:"awsVpcConfiguration"`
 }
 
 // A floating-point percentage of the desired number of tasks to place and keep running in the task set.
@@ -7989,11 +7989,11 @@ type CfnTaskSet_NetworkConfigurationProperty struct {
 //
 type CfnTaskSet_ScaleProperty struct {
 	// The unit of measure for the scale value.
-	Unit *string `json:"unit"`
+	Unit *string `json:"unit" yaml:"unit"`
 	// The value, specified as a percent total of a service's `desiredCount` , to scale the task set.
 	//
 	// Accepted values are numbers between 0 and 100.
-	Value *float64 `json:"value"`
+	Value *float64 `json:"value" yaml:"value"`
 }
 
 // The details for the service registry.
@@ -8004,19 +8004,19 @@ type CfnTaskSet_ServiceRegistryProperty struct {
 	// The container name value to be used for your service discovery service.
 	//
 	// It's already specified in the task definition. If the task definition that your service task specifies uses the `bridge` or `host` network mode, you must specify a `containerName` and `containerPort` combination from the task definition. If the task definition that your service task specifies uses the `awsvpc` network mode and a type SRV DNS record is used, you must specify either a `containerName` and `containerPort` combination or a `port` value. However, you can't specify both.
-	ContainerName *string `json:"containerName"`
+	ContainerName *string `json:"containerName" yaml:"containerName"`
 	// The port value to be used for your service discovery service.
 	//
 	// It's already specified in the task definition. If the task definition your service task specifies uses the `bridge` or `host` network mode, you must specify a `containerName` and `containerPort` combination from the task definition. If the task definition your service task specifies uses the `awsvpc` network mode and a type SRV DNS record is used, you must specify either a `containerName` and `containerPort` combination or a `port` value. However, you can't specify both.
-	ContainerPort *float64 `json:"containerPort"`
+	ContainerPort *float64 `json:"containerPort" yaml:"containerPort"`
 	// The port value used if your service discovery service specified an SRV record.
 	//
 	// This field might be used if both the `awsvpc` network mode and SRV records are used.
-	Port *float64 `json:"port"`
+	Port *float64 `json:"port" yaml:"port"`
 	// The Amazon Resource Name (ARN) of the service registry.
 	//
 	// The currently supported service registry is AWS Cloud Map . For more information, see [CreateService](https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html) .
-	RegistryArn *string `json:"registryArn"`
+	RegistryArn *string `json:"registryArn" yaml:"registryArn"`
 }
 
 // Properties for defining a `CfnTaskSet`.
@@ -8025,37 +8025,37 @@ type CfnTaskSet_ServiceRegistryProperty struct {
 //
 type CfnTaskSetProps struct {
 	// The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
-	Cluster *string `json:"cluster"`
+	Cluster *string `json:"cluster" yaml:"cluster"`
 	// The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
-	Service *string `json:"service"`
+	Service *string `json:"service" yaml:"service"`
 	// The task definition for the tasks in the task set to use.
-	TaskDefinition *string `json:"taskDefinition"`
+	TaskDefinition *string `json:"taskDefinition" yaml:"taskDefinition"`
 	// An optional non-unique tag that identifies this task set in external systems.
 	//
 	// If the task set is associated with a service discovery registry, the tasks in this task set will have the `ECS_TASK_SET_EXTERNAL_ID` AWS Cloud Map attribute set to the provided value.
-	ExternalId *string `json:"externalId"`
+	ExternalId *string `json:"externalId" yaml:"externalId"`
 	// The launch type that new tasks in the task set uses.
 	//
 	// For more information, see [Amazon ECS Launch Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide* .
 	//
 	// If a `launchType` is specified, the `capacityProviderStrategy` parameter must be omitted.
-	LaunchType *string `json:"launchType"`
+	LaunchType *string `json:"launchType" yaml:"launchType"`
 	// A load balancer object representing the load balancer to use with the task set.
 	//
 	// The supported load balancer types are either an Application Load Balancer or a Network Load Balancer.
-	LoadBalancers interface{} `json:"loadBalancers"`
+	LoadBalancers interface{} `json:"loadBalancers" yaml:"loadBalancers"`
 	// The network configuration for the task set.
-	NetworkConfiguration interface{} `json:"networkConfiguration"`
+	NetworkConfiguration interface{} `json:"networkConfiguration" yaml:"networkConfiguration"`
 	// The platform version that the tasks in the task set uses.
 	//
 	// A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the `LATEST` platform version is used.
-	PlatformVersion *string `json:"platformVersion"`
+	PlatformVersion *string `json:"platformVersion" yaml:"platformVersion"`
 	// A floating-point percentage of your desired number of tasks to place and keep running in the task set.
-	Scale interface{} `json:"scale"`
+	Scale interface{} `json:"scale" yaml:"scale"`
 	// The details of the service discovery registries to assign to this task set.
 	//
 	// For more information, see [Service Discovery](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html) .
-	ServiceRegistries interface{} `json:"serviceRegistries"`
+	ServiceRegistries interface{} `json:"serviceRegistries" yaml:"serviceRegistries"`
 }
 
 // The options for creating an AWS Cloud Map namespace.
@@ -8064,13 +8064,13 @@ type CfnTaskSetProps struct {
 //
 type CloudMapNamespaceOptions struct {
 	// The name of the namespace, such as example.com.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The type of CloudMap Namespace to create.
-	Type awsservicediscovery.NamespaceType `json:"type"`
+	Type awsservicediscovery.NamespaceType `json:"type" yaml:"type"`
 	// The VPC to associate the namespace with.
 	//
 	// This property is required for private DNS namespaces.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 }
 
 // The options to enabling AWS Cloud Map for an Amazon ECS service.
@@ -8079,23 +8079,23 @@ type CloudMapNamespaceOptions struct {
 //
 type CloudMapOptions struct {
 	// The service discovery namespace for the Cloud Map service to attach to the ECS service.
-	CloudMapNamespace awsservicediscovery.INamespace `json:"cloudMapNamespace"`
+	CloudMapNamespace awsservicediscovery.INamespace `json:"cloudMapNamespace" yaml:"cloudMapNamespace"`
 	// The container to point to for a SRV record.
-	Container ContainerDefinition `json:"container"`
+	Container ContainerDefinition `json:"container" yaml:"container"`
 	// The port to point to for a SRV record.
-	ContainerPort *float64 `json:"containerPort"`
+	ContainerPort *float64 `json:"containerPort" yaml:"containerPort"`
 	// The DNS record type that you want AWS Cloud Map to create.
 	//
 	// The supported record types are A or SRV.
-	DnsRecordType awsservicediscovery.DnsRecordType `json:"dnsRecordType"`
+	DnsRecordType awsservicediscovery.DnsRecordType `json:"dnsRecordType" yaml:"dnsRecordType"`
 	// The amount of time that you want DNS resolvers to cache the settings for this record.
-	DnsTtl awscdk.Duration `json:"dnsTtl"`
+	DnsTtl awscdk.Duration `json:"dnsTtl" yaml:"dnsTtl"`
 	// The number of 30-second intervals that you want Cloud Map to wait after receiving an UpdateInstanceCustomHealthStatus request before it changes the health status of a service instance.
 	//
 	// NOTE: This is used for HealthCheckCustomConfig
-	FailureThreshold *float64 `json:"failureThreshold"`
+	FailureThreshold *float64 `json:"failureThreshold" yaml:"failureThreshold"`
 	// The name of the Cloud Map service to attach to the ECS service.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // A regional grouping of one or more container instances on which you can run tasks and services.
@@ -8547,21 +8547,21 @@ func (c *jsiiProxy_Cluster) ToString() *string {
 //
 type ClusterAttributes struct {
 	// The name of the cluster.
-	ClusterName *string `json:"clusterName"`
+	ClusterName *string `json:"clusterName" yaml:"clusterName"`
 	// The security groups associated with the container instances registered to the cluster.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// The VPC associated with the cluster.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// Autoscaling group added to the cluster if capacity is added.
-	AutoscalingGroup awsautoscaling.IAutoScalingGroup `json:"autoscalingGroup"`
+	AutoscalingGroup awsautoscaling.IAutoScalingGroup `json:"autoscalingGroup" yaml:"autoscalingGroup"`
 	// The Amazon Resource Name (ARN) that identifies the cluster.
-	ClusterArn *string `json:"clusterArn"`
+	ClusterArn *string `json:"clusterArn" yaml:"clusterArn"`
 	// The AWS Cloud Map namespace to associate with the cluster.
-	DefaultCloudMapNamespace awsservicediscovery.INamespace `json:"defaultCloudMapNamespace"`
+	DefaultCloudMapNamespace awsservicediscovery.INamespace `json:"defaultCloudMapNamespace" yaml:"defaultCloudMapNamespace"`
 	// The execute command configuration for the cluster.
-	ExecuteCommandConfiguration *ExecuteCommandConfiguration `json:"executeCommandConfiguration"`
+	ExecuteCommandConfiguration *ExecuteCommandConfiguration `json:"executeCommandConfiguration" yaml:"executeCommandConfiguration"`
 	// Specifies whether the cluster has EC2 instance capacity.
-	HasEc2Capacity *bool `json:"hasEc2Capacity"`
+	HasEc2Capacity *bool `json:"hasEc2Capacity" yaml:"hasEc2Capacity"`
 }
 
 // The properties used to define an ECS cluster.
@@ -8570,19 +8570,19 @@ type ClusterAttributes struct {
 //
 type ClusterProps struct {
 	// The ec2 capacity to add to the cluster.
-	Capacity *AddCapacityOptions `json:"capacity"`
+	Capacity *AddCapacityOptions `json:"capacity" yaml:"capacity"`
 	// The name for the cluster.
-	ClusterName *string `json:"clusterName"`
+	ClusterName *string `json:"clusterName" yaml:"clusterName"`
 	// If true CloudWatch Container Insights will be enabled for the cluster.
-	ContainerInsights *bool `json:"containerInsights"`
+	ContainerInsights *bool `json:"containerInsights" yaml:"containerInsights"`
 	// The service discovery namespace created in this cluster.
-	DefaultCloudMapNamespace *CloudMapNamespaceOptions `json:"defaultCloudMapNamespace"`
+	DefaultCloudMapNamespace *CloudMapNamespaceOptions `json:"defaultCloudMapNamespace" yaml:"defaultCloudMapNamespace"`
 	// Whether to enable Fargate Capacity Providers.
-	EnableFargateCapacityProviders *bool `json:"enableFargateCapacityProviders"`
+	EnableFargateCapacityProviders *bool `json:"enableFargateCapacityProviders" yaml:"enableFargateCapacityProviders"`
 	// The execute command configuration for the cluster.
-	ExecuteCommandConfiguration *ExecuteCommandConfiguration `json:"executeCommandConfiguration"`
+	ExecuteCommandConfiguration *ExecuteCommandConfiguration `json:"executeCommandConfiguration" yaml:"executeCommandConfiguration"`
 	// The VPC where your ECS instances will be running or your ENIs will be deployed.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 }
 
 // The common task definition attributes used across all types of task definitions.
@@ -8591,11 +8591,11 @@ type ClusterProps struct {
 //
 type CommonTaskDefinitionAttributes struct {
 	// The arn of the task definition.
-	TaskDefinitionArn *string `json:"taskDefinitionArn"`
+	TaskDefinitionArn *string `json:"taskDefinitionArn" yaml:"taskDefinitionArn"`
 	// The networking mode to use for the containers in the task.
-	NetworkMode NetworkMode `json:"networkMode"`
+	NetworkMode NetworkMode `json:"networkMode" yaml:"networkMode"`
 	// The name of the IAM role that grants containers in the task permission to call AWS APIs on your behalf.
-	TaskRole awsiam.IRole `json:"taskRole"`
+	TaskRole awsiam.IRole `json:"taskRole" yaml:"taskRole"`
 }
 
 // The common properties for all task definitions.
@@ -8609,20 +8609,20 @@ type CommonTaskDefinitionProps struct {
 	// The name of the IAM task execution role that grants the ECS agent permission to call AWS APIs on your behalf.
 	//
 	// The role will be used to retrieve container images from ECR and create CloudWatch log groups.
-	ExecutionRole awsiam.IRole `json:"executionRole"`
+	ExecutionRole awsiam.IRole `json:"executionRole" yaml:"executionRole"`
 	// The name of a family that this task definition is registered to.
 	//
 	// A family groups multiple versions of a task definition.
-	Family *string `json:"family"`
+	Family *string `json:"family" yaml:"family"`
 	// The configuration details for the App Mesh proxy.
-	ProxyConfiguration ProxyConfiguration `json:"proxyConfiguration"`
+	ProxyConfiguration ProxyConfiguration `json:"proxyConfiguration" yaml:"proxyConfiguration"`
 	// The name of the IAM role that grants containers in the task permission to call AWS APIs on your behalf.
-	TaskRole awsiam.IRole `json:"taskRole"`
+	TaskRole awsiam.IRole `json:"taskRole" yaml:"taskRole"`
 	// The list of volume definitions for the task.
 	//
 	// For more information, see
 	// [Task Definition Parameter Volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide//task_definition_parameters.html#volumes).
-	Volumes *[]*Volume `json:"volumes"`
+	Volumes *[]*Volume `json:"volumes" yaml:"volumes"`
 }
 
 // The task launch type compatibility requirement.
@@ -9062,37 +9062,37 @@ type ContainerDefinitionOptions struct {
 	// Images in the Docker Hub registry are available by default.
 	// Other repositories are specified with either repository-url/image:tag or repository-url/image@digest.
 	// TODO: Update these to specify using classes of IContainerImage
-	Image ContainerImage `json:"image"`
+	Image ContainerImage `json:"image" yaml:"image"`
 	// The command that is passed to the container.
 	//
 	// If you provide a shell command as a single string, you have to quote command-line arguments.
-	Command *[]*string `json:"command"`
+	Command *[]*string `json:"command" yaml:"command"`
 	// The name of the container.
-	ContainerName *string `json:"containerName"`
+	ContainerName *string `json:"containerName" yaml:"containerName"`
 	// The minimum number of CPU units to reserve for the container.
-	Cpu *float64 `json:"cpu"`
+	Cpu *float64 `json:"cpu" yaml:"cpu"`
 	// Specifies whether networking is disabled within the container.
 	//
 	// When this parameter is true, networking is disabled within the container.
-	DisableNetworking *bool `json:"disableNetworking"`
+	DisableNetworking *bool `json:"disableNetworking" yaml:"disableNetworking"`
 	// A list of DNS search domains that are presented to the container.
-	DnsSearchDomains *[]*string `json:"dnsSearchDomains"`
+	DnsSearchDomains *[]*string `json:"dnsSearchDomains" yaml:"dnsSearchDomains"`
 	// A list of DNS servers that are presented to the container.
-	DnsServers *[]*string `json:"dnsServers"`
+	DnsServers *[]*string `json:"dnsServers" yaml:"dnsServers"`
 	// A key/value map of labels to add to the container.
-	DockerLabels *map[string]*string `json:"dockerLabels"`
+	DockerLabels *map[string]*string `json:"dockerLabels" yaml:"dockerLabels"`
 	// A list of strings to provide custom labels for SELinux and AppArmor multi-level security systems.
-	DockerSecurityOptions *[]*string `json:"dockerSecurityOptions"`
+	DockerSecurityOptions *[]*string `json:"dockerSecurityOptions" yaml:"dockerSecurityOptions"`
 	// The ENTRYPOINT value to pass to the container.
 	// See: https://docs.docker.com/engine/reference/builder/#entrypoint
 	//
-	EntryPoint *[]*string `json:"entryPoint"`
+	EntryPoint *[]*string `json:"entryPoint" yaml:"entryPoint"`
 	// The environment variables to pass to the container.
-	Environment *map[string]*string `json:"environment"`
+	Environment *map[string]*string `json:"environment" yaml:"environment"`
 	// The environment files to pass to the container.
 	// See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html
 	//
-	EnvironmentFiles *[]EnvironmentFile `json:"environmentFiles"`
+	EnvironmentFiles *[]EnvironmentFile `json:"environmentFiles" yaml:"environmentFiles"`
 	// Specifies whether the container is marked essential.
 	//
 	// If the essential parameter of a container is marked as true, and that container fails
@@ -9101,30 +9101,30 @@ type ContainerDefinitionOptions struct {
 	// affect the rest of the containers in a task. All tasks must have at least one essential container.
 	//
 	// If this parameter is omitted, a container is assumed to be essential.
-	Essential *bool `json:"essential"`
+	Essential *bool `json:"essential" yaml:"essential"`
 	// A list of hostnames and IP address mappings to append to the /etc/hosts file on the container.
-	ExtraHosts *map[string]*string `json:"extraHosts"`
+	ExtraHosts *map[string]*string `json:"extraHosts" yaml:"extraHosts"`
 	// The number of GPUs assigned to the container.
-	GpuCount *float64 `json:"gpuCount"`
+	GpuCount *float64 `json:"gpuCount" yaml:"gpuCount"`
 	// The health check command and associated configuration parameters for the container.
-	HealthCheck *HealthCheck `json:"healthCheck"`
+	HealthCheck *HealthCheck `json:"healthCheck" yaml:"healthCheck"`
 	// The hostname to use for your container.
-	Hostname *string `json:"hostname"`
+	Hostname *string `json:"hostname" yaml:"hostname"`
 	// The inference accelerators referenced by the container.
-	InferenceAcceleratorResources *[]*string `json:"inferenceAcceleratorResources"`
+	InferenceAcceleratorResources *[]*string `json:"inferenceAcceleratorResources" yaml:"inferenceAcceleratorResources"`
 	// Linux-specific modifications that are applied to the container, such as Linux kernel capabilities.
 	//
 	// For more information see [KernelCapabilities](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_KernelCapabilities.html).
-	LinuxParameters LinuxParameters `json:"linuxParameters"`
+	LinuxParameters LinuxParameters `json:"linuxParameters" yaml:"linuxParameters"`
 	// The log configuration specification for the container.
-	Logging LogDriver `json:"logging"`
+	Logging LogDriver `json:"logging" yaml:"logging"`
 	// The amount (in MiB) of memory to present to the container.
 	//
 	// If your container attempts to exceed the allocated memory, the container
 	// is terminated.
 	//
 	// At least one of memoryLimitMiB and memoryReservationMiB is required for non-Fargate services.
-	MemoryLimitMiB *float64 `json:"memoryLimitMiB"`
+	MemoryLimitMiB *float64 `json:"memoryLimitMiB" yaml:"memoryLimitMiB"`
 	// The soft limit (in MiB) of memory to reserve for the container.
 	//
 	// When system memory is under heavy contention, Docker attempts to keep the
@@ -9134,29 +9134,29 @@ type ContainerDefinitionOptions struct {
 	// instance, whichever comes first.
 	//
 	// At least one of memoryLimitMiB and memoryReservationMiB is required for non-Fargate services.
-	MemoryReservationMiB *float64 `json:"memoryReservationMiB"`
+	MemoryReservationMiB *float64 `json:"memoryReservationMiB" yaml:"memoryReservationMiB"`
 	// The port mappings to add to the container definition.
-	PortMappings *[]*PortMapping `json:"portMappings"`
+	PortMappings *[]*PortMapping `json:"portMappings" yaml:"portMappings"`
 	// Specifies whether the container is marked as privileged.
 	//
 	// When this parameter is true, the container is given elevated privileges on the host container instance (similar to the root user).
-	Privileged *bool `json:"privileged"`
+	Privileged *bool `json:"privileged" yaml:"privileged"`
 	// When this parameter is true, the container is given read-only access to its root file system.
-	ReadonlyRootFilesystem *bool `json:"readonlyRootFilesystem"`
+	ReadonlyRootFilesystem *bool `json:"readonlyRootFilesystem" yaml:"readonlyRootFilesystem"`
 	// The secret environment variables to pass to the container.
-	Secrets *map[string]Secret `json:"secrets"`
+	Secrets *map[string]Secret `json:"secrets" yaml:"secrets"`
 	// Time duration (in seconds) to wait before giving up on resolving dependencies for a container.
-	StartTimeout awscdk.Duration `json:"startTimeout"`
+	StartTimeout awscdk.Duration `json:"startTimeout" yaml:"startTimeout"`
 	// Time duration (in seconds) to wait before the container is forcefully killed if it doesn't exit normally on its own.
-	StopTimeout awscdk.Duration `json:"stopTimeout"`
+	StopTimeout awscdk.Duration `json:"stopTimeout" yaml:"stopTimeout"`
 	// A list of namespaced kernel parameters to set in the container.
 	// See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#container_definition_systemcontrols
 	//
-	SystemControls *[]*SystemControl `json:"systemControls"`
+	SystemControls *[]*SystemControl `json:"systemControls" yaml:"systemControls"`
 	// The user name to use inside the container.
-	User *string `json:"user"`
+	User *string `json:"user" yaml:"user"`
 	// The working directory in which to run commands inside the container.
-	WorkingDirectory *string `json:"workingDirectory"`
+	WorkingDirectory *string `json:"workingDirectory" yaml:"workingDirectory"`
 }
 
 // The properties in a container definition.
@@ -9170,37 +9170,37 @@ type ContainerDefinitionProps struct {
 	// Images in the Docker Hub registry are available by default.
 	// Other repositories are specified with either repository-url/image:tag or repository-url/image@digest.
 	// TODO: Update these to specify using classes of IContainerImage
-	Image ContainerImage `json:"image"`
+	Image ContainerImage `json:"image" yaml:"image"`
 	// The command that is passed to the container.
 	//
 	// If you provide a shell command as a single string, you have to quote command-line arguments.
-	Command *[]*string `json:"command"`
+	Command *[]*string `json:"command" yaml:"command"`
 	// The name of the container.
-	ContainerName *string `json:"containerName"`
+	ContainerName *string `json:"containerName" yaml:"containerName"`
 	// The minimum number of CPU units to reserve for the container.
-	Cpu *float64 `json:"cpu"`
+	Cpu *float64 `json:"cpu" yaml:"cpu"`
 	// Specifies whether networking is disabled within the container.
 	//
 	// When this parameter is true, networking is disabled within the container.
-	DisableNetworking *bool `json:"disableNetworking"`
+	DisableNetworking *bool `json:"disableNetworking" yaml:"disableNetworking"`
 	// A list of DNS search domains that are presented to the container.
-	DnsSearchDomains *[]*string `json:"dnsSearchDomains"`
+	DnsSearchDomains *[]*string `json:"dnsSearchDomains" yaml:"dnsSearchDomains"`
 	// A list of DNS servers that are presented to the container.
-	DnsServers *[]*string `json:"dnsServers"`
+	DnsServers *[]*string `json:"dnsServers" yaml:"dnsServers"`
 	// A key/value map of labels to add to the container.
-	DockerLabels *map[string]*string `json:"dockerLabels"`
+	DockerLabels *map[string]*string `json:"dockerLabels" yaml:"dockerLabels"`
 	// A list of strings to provide custom labels for SELinux and AppArmor multi-level security systems.
-	DockerSecurityOptions *[]*string `json:"dockerSecurityOptions"`
+	DockerSecurityOptions *[]*string `json:"dockerSecurityOptions" yaml:"dockerSecurityOptions"`
 	// The ENTRYPOINT value to pass to the container.
 	// See: https://docs.docker.com/engine/reference/builder/#entrypoint
 	//
-	EntryPoint *[]*string `json:"entryPoint"`
+	EntryPoint *[]*string `json:"entryPoint" yaml:"entryPoint"`
 	// The environment variables to pass to the container.
-	Environment *map[string]*string `json:"environment"`
+	Environment *map[string]*string `json:"environment" yaml:"environment"`
 	// The environment files to pass to the container.
 	// See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html
 	//
-	EnvironmentFiles *[]EnvironmentFile `json:"environmentFiles"`
+	EnvironmentFiles *[]EnvironmentFile `json:"environmentFiles" yaml:"environmentFiles"`
 	// Specifies whether the container is marked essential.
 	//
 	// If the essential parameter of a container is marked as true, and that container fails
@@ -9209,30 +9209,30 @@ type ContainerDefinitionProps struct {
 	// affect the rest of the containers in a task. All tasks must have at least one essential container.
 	//
 	// If this parameter is omitted, a container is assumed to be essential.
-	Essential *bool `json:"essential"`
+	Essential *bool `json:"essential" yaml:"essential"`
 	// A list of hostnames and IP address mappings to append to the /etc/hosts file on the container.
-	ExtraHosts *map[string]*string `json:"extraHosts"`
+	ExtraHosts *map[string]*string `json:"extraHosts" yaml:"extraHosts"`
 	// The number of GPUs assigned to the container.
-	GpuCount *float64 `json:"gpuCount"`
+	GpuCount *float64 `json:"gpuCount" yaml:"gpuCount"`
 	// The health check command and associated configuration parameters for the container.
-	HealthCheck *HealthCheck `json:"healthCheck"`
+	HealthCheck *HealthCheck `json:"healthCheck" yaml:"healthCheck"`
 	// The hostname to use for your container.
-	Hostname *string `json:"hostname"`
+	Hostname *string `json:"hostname" yaml:"hostname"`
 	// The inference accelerators referenced by the container.
-	InferenceAcceleratorResources *[]*string `json:"inferenceAcceleratorResources"`
+	InferenceAcceleratorResources *[]*string `json:"inferenceAcceleratorResources" yaml:"inferenceAcceleratorResources"`
 	// Linux-specific modifications that are applied to the container, such as Linux kernel capabilities.
 	//
 	// For more information see [KernelCapabilities](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_KernelCapabilities.html).
-	LinuxParameters LinuxParameters `json:"linuxParameters"`
+	LinuxParameters LinuxParameters `json:"linuxParameters" yaml:"linuxParameters"`
 	// The log configuration specification for the container.
-	Logging LogDriver `json:"logging"`
+	Logging LogDriver `json:"logging" yaml:"logging"`
 	// The amount (in MiB) of memory to present to the container.
 	//
 	// If your container attempts to exceed the allocated memory, the container
 	// is terminated.
 	//
 	// At least one of memoryLimitMiB and memoryReservationMiB is required for non-Fargate services.
-	MemoryLimitMiB *float64 `json:"memoryLimitMiB"`
+	MemoryLimitMiB *float64 `json:"memoryLimitMiB" yaml:"memoryLimitMiB"`
 	// The soft limit (in MiB) of memory to reserve for the container.
 	//
 	// When system memory is under heavy contention, Docker attempts to keep the
@@ -9242,33 +9242,33 @@ type ContainerDefinitionProps struct {
 	// instance, whichever comes first.
 	//
 	// At least one of memoryLimitMiB and memoryReservationMiB is required for non-Fargate services.
-	MemoryReservationMiB *float64 `json:"memoryReservationMiB"`
+	MemoryReservationMiB *float64 `json:"memoryReservationMiB" yaml:"memoryReservationMiB"`
 	// The port mappings to add to the container definition.
-	PortMappings *[]*PortMapping `json:"portMappings"`
+	PortMappings *[]*PortMapping `json:"portMappings" yaml:"portMappings"`
 	// Specifies whether the container is marked as privileged.
 	//
 	// When this parameter is true, the container is given elevated privileges on the host container instance (similar to the root user).
-	Privileged *bool `json:"privileged"`
+	Privileged *bool `json:"privileged" yaml:"privileged"`
 	// When this parameter is true, the container is given read-only access to its root file system.
-	ReadonlyRootFilesystem *bool `json:"readonlyRootFilesystem"`
+	ReadonlyRootFilesystem *bool `json:"readonlyRootFilesystem" yaml:"readonlyRootFilesystem"`
 	// The secret environment variables to pass to the container.
-	Secrets *map[string]Secret `json:"secrets"`
+	Secrets *map[string]Secret `json:"secrets" yaml:"secrets"`
 	// Time duration (in seconds) to wait before giving up on resolving dependencies for a container.
-	StartTimeout awscdk.Duration `json:"startTimeout"`
+	StartTimeout awscdk.Duration `json:"startTimeout" yaml:"startTimeout"`
 	// Time duration (in seconds) to wait before the container is forcefully killed if it doesn't exit normally on its own.
-	StopTimeout awscdk.Duration `json:"stopTimeout"`
+	StopTimeout awscdk.Duration `json:"stopTimeout" yaml:"stopTimeout"`
 	// A list of namespaced kernel parameters to set in the container.
 	// See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#container_definition_systemcontrols
 	//
-	SystemControls *[]*SystemControl `json:"systemControls"`
+	SystemControls *[]*SystemControl `json:"systemControls" yaml:"systemControls"`
 	// The user name to use inside the container.
-	User *string `json:"user"`
+	User *string `json:"user" yaml:"user"`
 	// The working directory in which to run commands inside the container.
-	WorkingDirectory *string `json:"workingDirectory"`
+	WorkingDirectory *string `json:"workingDirectory" yaml:"workingDirectory"`
 	// The name of the task definition that includes this container definition.
 	//
 	// [disable-awslint:ref-via-interface]
-	TaskDefinition TaskDefinition `json:"taskDefinition"`
+	TaskDefinition TaskDefinition `json:"taskDefinition" yaml:"taskDefinition"`
 }
 
 // The details of a dependency on another container in the task definition.
@@ -9279,12 +9279,12 @@ type ContainerDefinitionProps struct {
 //
 type ContainerDependency struct {
 	// The container to depend on.
-	Container ContainerDefinition `json:"container"`
+	Container ContainerDefinition `json:"container" yaml:"container"`
 	// The state the container needs to be in to satisfy the dependency and proceed with startup.
 	//
 	// Valid values are ContainerDependencyCondition.START, ContainerDependencyCondition.COMPLETE,
 	// ContainerDependencyCondition.SUCCESS and ContainerDependencyCondition.HEALTHY.
-	Condition ContainerDependencyCondition `json:"condition"`
+	Condition ContainerDependencyCondition `json:"condition" yaml:"condition"`
 }
 
 type ContainerDependencyCondition string
@@ -9425,9 +9425,9 @@ func (c *jsiiProxy_ContainerImage) Bind(scope constructs.Construct, containerDef
 //
 type ContainerImageConfig struct {
 	// Specifies the name of the container image.
-	ImageName *string `json:"imageName"`
+	ImageName *string `json:"imageName" yaml:"imageName"`
 	// Specifies the credentials used to access the image repository.
-	RepositoryCredentials *CfnTaskDefinition_RepositoryCredentialsProperty `json:"repositoryCredentials"`
+	RepositoryCredentials *CfnTaskDefinition_RepositoryCredentialsProperty `json:"repositoryCredentials" yaml:"repositoryCredentials"`
 }
 
 // The CpuArchitecture for Fargate Runtime Platform.
@@ -9493,15 +9493,15 @@ type CpuUtilizationScalingProps struct {
 	// won't remove capacity from the scalable resource. Otherwise, scale in is
 	// enabled and the target tracking policy can remove capacity from the
 	// scalable resource.
-	DisableScaleIn *bool `json:"disableScaleIn"`
+	DisableScaleIn *bool `json:"disableScaleIn" yaml:"disableScaleIn"`
 	// A name for the scaling policy.
-	PolicyName *string `json:"policyName"`
+	PolicyName *string `json:"policyName" yaml:"policyName"`
 	// Period after a scale in activity completes before another scale in activity can start.
-	ScaleInCooldown awscdk.Duration `json:"scaleInCooldown"`
+	ScaleInCooldown awscdk.Duration `json:"scaleInCooldown" yaml:"scaleInCooldown"`
 	// Period after a scale out activity completes before another scale out activity can start.
-	ScaleOutCooldown awscdk.Duration `json:"scaleOutCooldown"`
+	ScaleOutCooldown awscdk.Duration `json:"scaleOutCooldown" yaml:"scaleOutCooldown"`
 	// The target value for CPU utilization across all tasks in the service.
-	TargetUtilizationPercent *float64 `json:"targetUtilizationPercent"`
+	TargetUtilizationPercent *float64 `json:"targetUtilizationPercent" yaml:"targetUtilizationPercent"`
 }
 
 // The deployment circuit breaker to use for the service.
@@ -9510,7 +9510,7 @@ type CpuUtilizationScalingProps struct {
 //
 type DeploymentCircuitBreaker struct {
 	// Whether to enable rollback on deployment failure.
-	Rollback *bool `json:"rollback"`
+	Rollback *bool `json:"rollback" yaml:"rollback"`
 }
 
 // The deployment controller to use for the service.
@@ -9519,7 +9519,7 @@ type DeploymentCircuitBreaker struct {
 //
 type DeploymentController struct {
 	// The deployment controller type to use.
-	Type DeploymentControllerType `json:"type"`
+	Type DeploymentControllerType `json:"type" yaml:"type"`
 }
 
 // The deployment controller type to use for the service.
@@ -9540,13 +9540,13 @@ const (
 //
 type Device struct {
 	// The path for the device on the host container instance.
-	HostPath *string `json:"hostPath"`
+	HostPath *string `json:"hostPath" yaml:"hostPath"`
 	// The path inside the container at which to expose the host device.
-	ContainerPath *string `json:"containerPath"`
+	ContainerPath *string `json:"containerPath" yaml:"containerPath"`
 	// The explicit permissions to provide to the container for the device.
 	//
 	// By default, the container has permissions for read, write, and mknod for the device.
-	Permissions *[]DevicePermission `json:"permissions"`
+	Permissions *[]DevicePermission `json:"permissions" yaml:"permissions"`
 }
 
 // Permissions for device access.
@@ -9566,17 +9566,17 @@ const (
 //
 type DockerVolumeConfiguration struct {
 	// The Docker volume driver to use.
-	Driver *string `json:"driver"`
+	Driver *string `json:"driver" yaml:"driver"`
 	// The scope for the Docker volume that determines its lifecycle.
-	Scope Scope `json:"scope"`
+	Scope Scope `json:"scope" yaml:"scope"`
 	// Specifies whether the Docker volume should be created if it does not already exist.
 	//
 	// If true is specified, the Docker volume will be created for you.
-	Autoprovision *bool `json:"autoprovision"`
+	Autoprovision *bool `json:"autoprovision" yaml:"autoprovision"`
 	// A map of Docker driver-specific options passed through.
-	DriverOpts *map[string]*string `json:"driverOpts"`
+	DriverOpts *map[string]*string `json:"driverOpts" yaml:"driverOpts"`
 	// Custom metadata to add to your Docker volume.
-	Labels *map[string]*string `json:"labels"`
+	Labels *map[string]*string `json:"labels" yaml:"labels"`
 }
 
 // This creates a service using the EC2 launch type on an ECS cluster.
@@ -10196,11 +10196,11 @@ func (e *jsiiProxy_Ec2Service) ToString() *string {
 //
 type Ec2ServiceAttributes struct {
 	// The cluster that hosts the service.
-	Cluster ICluster `json:"cluster"`
+	Cluster ICluster `json:"cluster" yaml:"cluster"`
 	// The service ARN.
-	ServiceArn *string `json:"serviceArn"`
+	ServiceArn *string `json:"serviceArn" yaml:"serviceArn"`
 	// The name of the service.
-	ServiceName *string `json:"serviceName"`
+	ServiceName *string `json:"serviceName" yaml:"serviceName"`
 }
 
 // The properties for defining a service using the EC2 launch type.
@@ -10209,78 +10209,78 @@ type Ec2ServiceAttributes struct {
 //
 type Ec2ServiceProps struct {
 	// The name of the cluster that hosts the service.
-	Cluster ICluster `json:"cluster"`
+	Cluster ICluster `json:"cluster" yaml:"cluster"`
 	// A list of Capacity Provider strategies used to place a service.
-	CapacityProviderStrategies *[]*CapacityProviderStrategy `json:"capacityProviderStrategies"`
+	CapacityProviderStrategies *[]*CapacityProviderStrategy `json:"capacityProviderStrategies" yaml:"capacityProviderStrategies"`
 	// Whether to enable the deployment circuit breaker.
 	//
 	// If this property is defined, circuit breaker will be implicitly
 	// enabled.
-	CircuitBreaker *DeploymentCircuitBreaker `json:"circuitBreaker"`
+	CircuitBreaker *DeploymentCircuitBreaker `json:"circuitBreaker" yaml:"circuitBreaker"`
 	// The options for configuring an Amazon ECS service to use service discovery.
-	CloudMapOptions *CloudMapOptions `json:"cloudMapOptions"`
+	CloudMapOptions *CloudMapOptions `json:"cloudMapOptions" yaml:"cloudMapOptions"`
 	// Specifies which deployment controller to use for the service.
 	//
 	// For more information, see
 	// [Amazon ECS Deployment Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
-	DeploymentController *DeploymentController `json:"deploymentController"`
+	DeploymentController *DeploymentController `json:"deploymentController" yaml:"deploymentController"`
 	// The desired number of instantiations of the task definition to keep running on the service.
-	DesiredCount *float64 `json:"desiredCount"`
+	DesiredCount *float64 `json:"desiredCount" yaml:"desiredCount"`
 	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 	//
 	// For more information, see
 	// [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html)
-	EnableECSManagedTags *bool `json:"enableECSManagedTags"`
+	EnableECSManagedTags *bool `json:"enableECSManagedTags" yaml:"enableECSManagedTags"`
 	// Whether to enable the ability to execute into a container.
-	EnableExecuteCommand *bool `json:"enableExecuteCommand"`
+	EnableExecuteCommand *bool `json:"enableExecuteCommand" yaml:"enableExecuteCommand"`
 	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks after a task has first started.
-	HealthCheckGracePeriod awscdk.Duration `json:"healthCheckGracePeriod"`
+	HealthCheckGracePeriod awscdk.Duration `json:"healthCheckGracePeriod" yaml:"healthCheckGracePeriod"`
 	// The maximum number of tasks, specified as a percentage of the Amazon ECS service's DesiredCount value, that can run in a service during a deployment.
-	MaxHealthyPercent *float64 `json:"maxHealthyPercent"`
+	MaxHealthyPercent *float64 `json:"maxHealthyPercent" yaml:"maxHealthyPercent"`
 	// The minimum number of tasks, specified as a percentage of the Amazon ECS service's DesiredCount value, that must continue to run and remain healthy during a deployment.
-	MinHealthyPercent *float64 `json:"minHealthyPercent"`
+	MinHealthyPercent *float64 `json:"minHealthyPercent" yaml:"minHealthyPercent"`
 	// Specifies whether to propagate the tags from the task definition or the service to the tasks in the service.
 	//
 	// Valid values are: PropagatedTagSource.SERVICE, PropagatedTagSource.TASK_DEFINITION or PropagatedTagSource.NONE
-	PropagateTags PropagatedTagSource `json:"propagateTags"`
+	PropagateTags PropagatedTagSource `json:"propagateTags" yaml:"propagateTags"`
 	// The name of the service.
-	ServiceName *string `json:"serviceName"`
+	ServiceName *string `json:"serviceName" yaml:"serviceName"`
 	// The task definition to use for tasks in the service.
 	//
 	// [disable-awslint:ref-via-interface]
-	TaskDefinition TaskDefinition `json:"taskDefinition"`
+	TaskDefinition TaskDefinition `json:"taskDefinition" yaml:"taskDefinition"`
 	// Specifies whether the task's elastic network interface receives a public IP address.
 	//
 	// If true, each task will receive a public IP address.
 	//
 	// This property is only used for tasks that use the awsvpc network mode.
-	AssignPublicIp *bool `json:"assignPublicIp"`
+	AssignPublicIp *bool `json:"assignPublicIp" yaml:"assignPublicIp"`
 	// Specifies whether the service will use the daemon scheduling strategy.
 	//
 	// If true, the service scheduler deploys exactly one task on each container instance in your cluster.
 	//
 	// When you are using this strategy, do not specify a desired number of tasks orany task placement strategies.
-	Daemon *bool `json:"daemon"`
+	Daemon *bool `json:"daemon" yaml:"daemon"`
 	// The placement constraints to use for tasks in the service.
 	//
 	// For more information, see
 	// [Amazon ECS Task Placement Constraints](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html).
-	PlacementConstraints *[]PlacementConstraint `json:"placementConstraints"`
+	PlacementConstraints *[]PlacementConstraint `json:"placementConstraints" yaml:"placementConstraints"`
 	// The placement strategies to use for tasks in the service.
 	//
 	// For more information, see
 	// [Amazon ECS Task Placement Strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html).
-	PlacementStrategies *[]PlacementStrategy `json:"placementStrategies"`
+	PlacementStrategies *[]PlacementStrategy `json:"placementStrategies" yaml:"placementStrategies"`
 	// The security groups to associate with the service.
 	//
 	// If you do not specify a security group, a new security group is created.
 	//
 	// This property is only used for tasks that use the awsvpc network mode.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// The subnets to associate with the service.
 	//
 	// This property is only used for tasks that use the awsvpc network mode.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 
 // The details of a task definition run on an EC2 cluster.
@@ -10848,11 +10848,11 @@ func (e *jsiiProxy_Ec2TaskDefinition) ToString() *string {
 //
 type Ec2TaskDefinitionAttributes struct {
 	// The arn of the task definition.
-	TaskDefinitionArn *string `json:"taskDefinitionArn"`
+	TaskDefinitionArn *string `json:"taskDefinitionArn" yaml:"taskDefinitionArn"`
 	// The networking mode to use for the containers in the task.
-	NetworkMode NetworkMode `json:"networkMode"`
+	NetworkMode NetworkMode `json:"networkMode" yaml:"networkMode"`
 	// The name of the IAM role that grants containers in the task permission to call AWS APIs on your behalf.
-	TaskRole awsiam.IRole `json:"taskRole"`
+	TaskRole awsiam.IRole `json:"taskRole" yaml:"taskRole"`
 }
 
 // The properties for a task definition run on an EC2 cluster.
@@ -10863,42 +10863,42 @@ type Ec2TaskDefinitionProps struct {
 	// The name of the IAM task execution role that grants the ECS agent permission to call AWS APIs on your behalf.
 	//
 	// The role will be used to retrieve container images from ECR and create CloudWatch log groups.
-	ExecutionRole awsiam.IRole `json:"executionRole"`
+	ExecutionRole awsiam.IRole `json:"executionRole" yaml:"executionRole"`
 	// The name of a family that this task definition is registered to.
 	//
 	// A family groups multiple versions of a task definition.
-	Family *string `json:"family"`
+	Family *string `json:"family" yaml:"family"`
 	// The configuration details for the App Mesh proxy.
-	ProxyConfiguration ProxyConfiguration `json:"proxyConfiguration"`
+	ProxyConfiguration ProxyConfiguration `json:"proxyConfiguration" yaml:"proxyConfiguration"`
 	// The name of the IAM role that grants containers in the task permission to call AWS APIs on your behalf.
-	TaskRole awsiam.IRole `json:"taskRole"`
+	TaskRole awsiam.IRole `json:"taskRole" yaml:"taskRole"`
 	// The list of volume definitions for the task.
 	//
 	// For more information, see
 	// [Task Definition Parameter Volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide//task_definition_parameters.html#volumes).
-	Volumes *[]*Volume `json:"volumes"`
+	Volumes *[]*Volume `json:"volumes" yaml:"volumes"`
 	// The inference accelerators to use for the containers in the task.
 	//
 	// Not supported in Fargate.
-	InferenceAccelerators *[]*InferenceAccelerator `json:"inferenceAccelerators"`
+	InferenceAccelerators *[]*InferenceAccelerator `json:"inferenceAccelerators" yaml:"inferenceAccelerators"`
 	// The IPC resource namespace to use for the containers in the task.
 	//
 	// Not supported in Fargate and Windows containers.
-	IpcMode IpcMode `json:"ipcMode"`
+	IpcMode IpcMode `json:"ipcMode" yaml:"ipcMode"`
 	// The Docker networking mode to use for the containers in the task.
 	//
 	// The valid values are none, bridge, awsvpc, and host.
-	NetworkMode NetworkMode `json:"networkMode"`
+	NetworkMode NetworkMode `json:"networkMode" yaml:"networkMode"`
 	// The process namespace to use for the containers in the task.
 	//
 	// Not supported in Fargate and Windows containers.
-	PidMode PidMode `json:"pidMode"`
+	PidMode PidMode `json:"pidMode" yaml:"pidMode"`
 	// An array of placement constraint objects to use for the task.
 	//
 	// You can
 	// specify a maximum of 10 constraints per task (this limit includes
 	// constraints in the task definition and those specified at run time).
-	PlacementConstraints *[]PlacementConstraint `json:"placementConstraints"`
+	PlacementConstraints *[]PlacementConstraint `json:"placementConstraints" yaml:"placementConstraints"`
 }
 
 // An image from an Amazon ECR repository.
@@ -11149,26 +11149,26 @@ type EcsOptimizedImageOptions struct {
 	// more information.
 	//
 	// Can not be set to `true` in environment-agnostic stacks.
-	CachedInContext *bool `json:"cachedInContext"`
+	CachedInContext *bool `json:"cachedInContext" yaml:"cachedInContext"`
 }
 
 // TODO: EXAMPLE
 //
 type EcsTarget struct {
 	// The name of the container.
-	ContainerName *string `json:"containerName"`
+	ContainerName *string `json:"containerName" yaml:"containerName"`
 	// Listener and properties for adding target group to the listener.
-	Listener ListenerConfig `json:"listener"`
+	Listener ListenerConfig `json:"listener" yaml:"listener"`
 	// ID for a target group to be created.
-	NewTargetGroupId *string `json:"newTargetGroupId"`
+	NewTargetGroupId *string `json:"newTargetGroupId" yaml:"newTargetGroupId"`
 	// The port number of the container.
 	//
 	// Only applicable when using application/network load balancers.
-	ContainerPort *float64 `json:"containerPort"`
+	ContainerPort *float64 `json:"containerPort" yaml:"containerPort"`
 	// The protocol used for the port mapping.
 	//
 	// Only applicable when using application load balancers.
-	Protocol Protocol `json:"protocol"`
+	Protocol Protocol `json:"protocol" yaml:"protocol"`
 }
 
 // The configuration for an Elastic FileSystem volume.
@@ -11177,23 +11177,23 @@ type EcsTarget struct {
 //
 type EfsVolumeConfiguration struct {
 	// The Amazon EFS file system ID to use.
-	FileSystemId *string `json:"fileSystemId"`
+	FileSystemId *string `json:"fileSystemId" yaml:"fileSystemId"`
 	// The authorization configuration details for the Amazon EFS file system.
-	AuthorizationConfig *AuthorizationConfig `json:"authorizationConfig"`
+	AuthorizationConfig *AuthorizationConfig `json:"authorizationConfig" yaml:"authorizationConfig"`
 	// The directory within the Amazon EFS file system to mount as the root directory inside the host.
 	//
 	// Specifying / will have the same effect as omitting this parameter.
-	RootDirectory *string `json:"rootDirectory"`
+	RootDirectory *string `json:"rootDirectory" yaml:"rootDirectory"`
 	// Whether or not to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server.
 	//
 	// Transit encryption must be enabled if Amazon EFS IAM authorization is used.
 	//
 	// Valid values: ENABLED | DISABLED
-	TransitEncryption *string `json:"transitEncryption"`
+	TransitEncryption *string `json:"transitEncryption" yaml:"transitEncryption"`
 	// The port to use when sending encrypted data between the Amazon ECS host and the Amazon EFS server.
 	//
 	// EFS mount helper uses.
-	TransitEncryptionPort *float64 `json:"transitEncryptionPort"`
+	TransitEncryptionPort *float64 `json:"transitEncryptionPort" yaml:"transitEncryptionPort"`
 }
 
 // Constructs for types of environment files.
@@ -11273,9 +11273,9 @@ func (e *jsiiProxy_EnvironmentFile) Bind(scope constructs.Construct) *Environmen
 //
 type EnvironmentFileConfig struct {
 	// The type of environment file.
-	FileType EnvironmentFileType `json:"fileType"`
+	FileType EnvironmentFileType `json:"fileType" yaml:"fileType"`
 	// The location of the environment file in S3.
-	S3Location *awss3.Location `json:"s3Location"`
+	S3Location *awss3.Location `json:"s3Location" yaml:"s3Location"`
 }
 
 // Type of environment file to be included in the container definition.
@@ -11294,13 +11294,13 @@ const (
 //
 type ExecuteCommandConfiguration struct {
 	// The AWS Key Management Service key ID to encrypt the data between the local client and the container.
-	KmsKey awskms.IKey `json:"kmsKey"`
+	KmsKey awskms.IKey `json:"kmsKey" yaml:"kmsKey"`
 	// The log configuration for the results of the execute command actions.
 	//
 	// The logs can be sent to CloudWatch Logs or an Amazon S3 bucket.
-	LogConfiguration *ExecuteCommandLogConfiguration `json:"logConfiguration"`
+	LogConfiguration *ExecuteCommandLogConfiguration `json:"logConfiguration" yaml:"logConfiguration"`
 	// The log settings to use for logging the execute command session.
-	Logging ExecuteCommandLogging `json:"logging"`
+	Logging ExecuteCommandLogging `json:"logging" yaml:"logging"`
 }
 
 // The log configuration for the results of the execute command actions.
@@ -11312,19 +11312,19 @@ type ExecuteCommandConfiguration struct {
 //
 type ExecuteCommandLogConfiguration struct {
 	// Whether or not to enable encryption on the CloudWatch logs.
-	CloudWatchEncryptionEnabled *bool `json:"cloudWatchEncryptionEnabled"`
+	CloudWatchEncryptionEnabled *bool `json:"cloudWatchEncryptionEnabled" yaml:"cloudWatchEncryptionEnabled"`
 	// The name of the CloudWatch log group to send logs to.
 	//
 	// The CloudWatch log group must already be created.
-	CloudWatchLogGroup awslogs.ILogGroup `json:"cloudWatchLogGroup"`
+	CloudWatchLogGroup awslogs.ILogGroup `json:"cloudWatchLogGroup" yaml:"cloudWatchLogGroup"`
 	// The name of the S3 bucket to send logs to.
 	//
 	// The S3 bucket must already be created.
-	S3Bucket awss3.IBucket `json:"s3Bucket"`
+	S3Bucket awss3.IBucket `json:"s3Bucket" yaml:"s3Bucket"`
 	// Whether or not to enable encryption on the CloudWatch logs.
-	S3EncryptionEnabled *bool `json:"s3EncryptionEnabled"`
+	S3EncryptionEnabled *bool `json:"s3EncryptionEnabled" yaml:"s3EncryptionEnabled"`
 	// An optional folder in the S3 bucket to place logs in.
-	S3KeyPrefix *string `json:"s3KeyPrefix"`
+	S3KeyPrefix *string `json:"s3KeyPrefix" yaml:"s3KeyPrefix"`
 }
 
 // The log settings to use to for logging the execute command session.
@@ -11903,11 +11903,11 @@ func (e *jsiiProxy_ExternalService) ToString() *string {
 //
 type ExternalServiceAttributes struct {
 	// The cluster that hosts the service.
-	Cluster ICluster `json:"cluster"`
+	Cluster ICluster `json:"cluster" yaml:"cluster"`
 	// The service ARN.
-	ServiceArn *string `json:"serviceArn"`
+	ServiceArn *string `json:"serviceArn" yaml:"serviceArn"`
 	// The name of the service.
-	ServiceName *string `json:"serviceName"`
+	ServiceName *string `json:"serviceName" yaml:"serviceName"`
 }
 
 // The properties for defining a service using the External launch type.
@@ -11916,50 +11916,50 @@ type ExternalServiceAttributes struct {
 //
 type ExternalServiceProps struct {
 	// The name of the cluster that hosts the service.
-	Cluster ICluster `json:"cluster"`
+	Cluster ICluster `json:"cluster" yaml:"cluster"`
 	// A list of Capacity Provider strategies used to place a service.
-	CapacityProviderStrategies *[]*CapacityProviderStrategy `json:"capacityProviderStrategies"`
+	CapacityProviderStrategies *[]*CapacityProviderStrategy `json:"capacityProviderStrategies" yaml:"capacityProviderStrategies"`
 	// Whether to enable the deployment circuit breaker.
 	//
 	// If this property is defined, circuit breaker will be implicitly
 	// enabled.
-	CircuitBreaker *DeploymentCircuitBreaker `json:"circuitBreaker"`
+	CircuitBreaker *DeploymentCircuitBreaker `json:"circuitBreaker" yaml:"circuitBreaker"`
 	// The options for configuring an Amazon ECS service to use service discovery.
-	CloudMapOptions *CloudMapOptions `json:"cloudMapOptions"`
+	CloudMapOptions *CloudMapOptions `json:"cloudMapOptions" yaml:"cloudMapOptions"`
 	// Specifies which deployment controller to use for the service.
 	//
 	// For more information, see
 	// [Amazon ECS Deployment Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
-	DeploymentController *DeploymentController `json:"deploymentController"`
+	DeploymentController *DeploymentController `json:"deploymentController" yaml:"deploymentController"`
 	// The desired number of instantiations of the task definition to keep running on the service.
-	DesiredCount *float64 `json:"desiredCount"`
+	DesiredCount *float64 `json:"desiredCount" yaml:"desiredCount"`
 	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 	//
 	// For more information, see
 	// [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html)
-	EnableECSManagedTags *bool `json:"enableECSManagedTags"`
+	EnableECSManagedTags *bool `json:"enableECSManagedTags" yaml:"enableECSManagedTags"`
 	// Whether to enable the ability to execute into a container.
-	EnableExecuteCommand *bool `json:"enableExecuteCommand"`
+	EnableExecuteCommand *bool `json:"enableExecuteCommand" yaml:"enableExecuteCommand"`
 	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks after a task has first started.
-	HealthCheckGracePeriod awscdk.Duration `json:"healthCheckGracePeriod"`
+	HealthCheckGracePeriod awscdk.Duration `json:"healthCheckGracePeriod" yaml:"healthCheckGracePeriod"`
 	// The maximum number of tasks, specified as a percentage of the Amazon ECS service's DesiredCount value, that can run in a service during a deployment.
-	MaxHealthyPercent *float64 `json:"maxHealthyPercent"`
+	MaxHealthyPercent *float64 `json:"maxHealthyPercent" yaml:"maxHealthyPercent"`
 	// The minimum number of tasks, specified as a percentage of the Amazon ECS service's DesiredCount value, that must continue to run and remain healthy during a deployment.
-	MinHealthyPercent *float64 `json:"minHealthyPercent"`
+	MinHealthyPercent *float64 `json:"minHealthyPercent" yaml:"minHealthyPercent"`
 	// Specifies whether to propagate the tags from the task definition or the service to the tasks in the service.
 	//
 	// Valid values are: PropagatedTagSource.SERVICE, PropagatedTagSource.TASK_DEFINITION or PropagatedTagSource.NONE
-	PropagateTags PropagatedTagSource `json:"propagateTags"`
+	PropagateTags PropagatedTagSource `json:"propagateTags" yaml:"propagateTags"`
 	// The name of the service.
-	ServiceName *string `json:"serviceName"`
+	ServiceName *string `json:"serviceName" yaml:"serviceName"`
 	// The task definition to use for tasks in the service.
 	//
 	// [disable-awslint:ref-via-interface]
-	TaskDefinition TaskDefinition `json:"taskDefinition"`
+	TaskDefinition TaskDefinition `json:"taskDefinition" yaml:"taskDefinition"`
 	// The security groups to associate with the service.
 	//
 	// If you do not specify a security group, a new security group is created.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 }
 
 // The details of a task definition run on an External cluster.
@@ -12527,11 +12527,11 @@ func (e *jsiiProxy_ExternalTaskDefinition) ToString() *string {
 //
 type ExternalTaskDefinitionAttributes struct {
 	// The arn of the task definition.
-	TaskDefinitionArn *string `json:"taskDefinitionArn"`
+	TaskDefinitionArn *string `json:"taskDefinitionArn" yaml:"taskDefinitionArn"`
 	// The networking mode to use for the containers in the task.
-	NetworkMode NetworkMode `json:"networkMode"`
+	NetworkMode NetworkMode `json:"networkMode" yaml:"networkMode"`
 	// The name of the IAM role that grants containers in the task permission to call AWS APIs on your behalf.
-	TaskRole awsiam.IRole `json:"taskRole"`
+	TaskRole awsiam.IRole `json:"taskRole" yaml:"taskRole"`
 }
 
 // The properties for a task definition run on an External cluster.
@@ -12542,20 +12542,20 @@ type ExternalTaskDefinitionProps struct {
 	// The name of the IAM task execution role that grants the ECS agent permission to call AWS APIs on your behalf.
 	//
 	// The role will be used to retrieve container images from ECR and create CloudWatch log groups.
-	ExecutionRole awsiam.IRole `json:"executionRole"`
+	ExecutionRole awsiam.IRole `json:"executionRole" yaml:"executionRole"`
 	// The name of a family that this task definition is registered to.
 	//
 	// A family groups multiple versions of a task definition.
-	Family *string `json:"family"`
+	Family *string `json:"family" yaml:"family"`
 	// The configuration details for the App Mesh proxy.
-	ProxyConfiguration ProxyConfiguration `json:"proxyConfiguration"`
+	ProxyConfiguration ProxyConfiguration `json:"proxyConfiguration" yaml:"proxyConfiguration"`
 	// The name of the IAM role that grants containers in the task permission to call AWS APIs on your behalf.
-	TaskRole awsiam.IRole `json:"taskRole"`
+	TaskRole awsiam.IRole `json:"taskRole" yaml:"taskRole"`
 	// The list of volume definitions for the task.
 	//
 	// For more information, see
 	// [Task Definition Parameter Volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide//task_definition_parameters.html#volumes).
-	Volumes *[]*Volume `json:"volumes"`
+	Volumes *[]*Volume `json:"volumes" yaml:"volumes"`
 }
 
 // The platform version on which to run your service.
@@ -13156,11 +13156,11 @@ func (f *jsiiProxy_FargateService) ToString() *string {
 //
 type FargateServiceAttributes struct {
 	// The cluster that hosts the service.
-	Cluster ICluster `json:"cluster"`
+	Cluster ICluster `json:"cluster" yaml:"cluster"`
 	// The service ARN.
-	ServiceArn *string `json:"serviceArn"`
+	ServiceArn *string `json:"serviceArn" yaml:"serviceArn"`
 	// The name of the service.
-	ServiceName *string `json:"serviceName"`
+	ServiceName *string `json:"serviceName" yaml:"serviceName"`
 }
 
 // The properties for defining a service using the Fargate launch type.
@@ -13169,62 +13169,62 @@ type FargateServiceAttributes struct {
 //
 type FargateServiceProps struct {
 	// The name of the cluster that hosts the service.
-	Cluster ICluster `json:"cluster"`
+	Cluster ICluster `json:"cluster" yaml:"cluster"`
 	// A list of Capacity Provider strategies used to place a service.
-	CapacityProviderStrategies *[]*CapacityProviderStrategy `json:"capacityProviderStrategies"`
+	CapacityProviderStrategies *[]*CapacityProviderStrategy `json:"capacityProviderStrategies" yaml:"capacityProviderStrategies"`
 	// Whether to enable the deployment circuit breaker.
 	//
 	// If this property is defined, circuit breaker will be implicitly
 	// enabled.
-	CircuitBreaker *DeploymentCircuitBreaker `json:"circuitBreaker"`
+	CircuitBreaker *DeploymentCircuitBreaker `json:"circuitBreaker" yaml:"circuitBreaker"`
 	// The options for configuring an Amazon ECS service to use service discovery.
-	CloudMapOptions *CloudMapOptions `json:"cloudMapOptions"`
+	CloudMapOptions *CloudMapOptions `json:"cloudMapOptions" yaml:"cloudMapOptions"`
 	// Specifies which deployment controller to use for the service.
 	//
 	// For more information, see
 	// [Amazon ECS Deployment Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
-	DeploymentController *DeploymentController `json:"deploymentController"`
+	DeploymentController *DeploymentController `json:"deploymentController" yaml:"deploymentController"`
 	// The desired number of instantiations of the task definition to keep running on the service.
-	DesiredCount *float64 `json:"desiredCount"`
+	DesiredCount *float64 `json:"desiredCount" yaml:"desiredCount"`
 	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 	//
 	// For more information, see
 	// [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html)
-	EnableECSManagedTags *bool `json:"enableECSManagedTags"`
+	EnableECSManagedTags *bool `json:"enableECSManagedTags" yaml:"enableECSManagedTags"`
 	// Whether to enable the ability to execute into a container.
-	EnableExecuteCommand *bool `json:"enableExecuteCommand"`
+	EnableExecuteCommand *bool `json:"enableExecuteCommand" yaml:"enableExecuteCommand"`
 	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks after a task has first started.
-	HealthCheckGracePeriod awscdk.Duration `json:"healthCheckGracePeriod"`
+	HealthCheckGracePeriod awscdk.Duration `json:"healthCheckGracePeriod" yaml:"healthCheckGracePeriod"`
 	// The maximum number of tasks, specified as a percentage of the Amazon ECS service's DesiredCount value, that can run in a service during a deployment.
-	MaxHealthyPercent *float64 `json:"maxHealthyPercent"`
+	MaxHealthyPercent *float64 `json:"maxHealthyPercent" yaml:"maxHealthyPercent"`
 	// The minimum number of tasks, specified as a percentage of the Amazon ECS service's DesiredCount value, that must continue to run and remain healthy during a deployment.
-	MinHealthyPercent *float64 `json:"minHealthyPercent"`
+	MinHealthyPercent *float64 `json:"minHealthyPercent" yaml:"minHealthyPercent"`
 	// Specifies whether to propagate the tags from the task definition or the service to the tasks in the service.
 	//
 	// Valid values are: PropagatedTagSource.SERVICE, PropagatedTagSource.TASK_DEFINITION or PropagatedTagSource.NONE
-	PropagateTags PropagatedTagSource `json:"propagateTags"`
+	PropagateTags PropagatedTagSource `json:"propagateTags" yaml:"propagateTags"`
 	// The name of the service.
-	ServiceName *string `json:"serviceName"`
+	ServiceName *string `json:"serviceName" yaml:"serviceName"`
 	// The task definition to use for tasks in the service.
 	//
 	// [disable-awslint:ref-via-interface]
-	TaskDefinition TaskDefinition `json:"taskDefinition"`
+	TaskDefinition TaskDefinition `json:"taskDefinition" yaml:"taskDefinition"`
 	// Specifies whether the task's elastic network interface receives a public IP address.
 	//
 	// If true, each task will receive a public IP address.
-	AssignPublicIp *bool `json:"assignPublicIp"`
+	AssignPublicIp *bool `json:"assignPublicIp" yaml:"assignPublicIp"`
 	// The platform version on which to run your service.
 	//
 	// If one is not specified, the LATEST platform version is used by default. For more information, see
 	// [AWS Fargate Platform Versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html)
 	// in the Amazon Elastic Container Service Developer Guide.
-	PlatformVersion FargatePlatformVersion `json:"platformVersion"`
+	PlatformVersion FargatePlatformVersion `json:"platformVersion" yaml:"platformVersion"`
 	// The security groups to associate with the service.
 	//
 	// If you do not specify a security group, a new security group is created.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// The subnets to associate with the service.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 
 // The details of a task definition run on a Fargate cluster.
@@ -13792,11 +13792,11 @@ func (f *jsiiProxy_FargateTaskDefinition) ToString() *string {
 //
 type FargateTaskDefinitionAttributes struct {
 	// The arn of the task definition.
-	TaskDefinitionArn *string `json:"taskDefinitionArn"`
+	TaskDefinitionArn *string `json:"taskDefinitionArn" yaml:"taskDefinitionArn"`
 	// The networking mode to use for the containers in the task.
-	NetworkMode NetworkMode `json:"networkMode"`
+	NetworkMode NetworkMode `json:"networkMode" yaml:"networkMode"`
 	// The name of the IAM role that grants containers in the task permission to call AWS APIs on your behalf.
-	TaskRole awsiam.IRole `json:"taskRole"`
+	TaskRole awsiam.IRole `json:"taskRole" yaml:"taskRole"`
 }
 
 // The properties for a task definition.
@@ -13807,20 +13807,20 @@ type FargateTaskDefinitionProps struct {
 	// The name of the IAM task execution role that grants the ECS agent permission to call AWS APIs on your behalf.
 	//
 	// The role will be used to retrieve container images from ECR and create CloudWatch log groups.
-	ExecutionRole awsiam.IRole `json:"executionRole"`
+	ExecutionRole awsiam.IRole `json:"executionRole" yaml:"executionRole"`
 	// The name of a family that this task definition is registered to.
 	//
 	// A family groups multiple versions of a task definition.
-	Family *string `json:"family"`
+	Family *string `json:"family" yaml:"family"`
 	// The configuration details for the App Mesh proxy.
-	ProxyConfiguration ProxyConfiguration `json:"proxyConfiguration"`
+	ProxyConfiguration ProxyConfiguration `json:"proxyConfiguration" yaml:"proxyConfiguration"`
 	// The name of the IAM role that grants containers in the task permission to call AWS APIs on your behalf.
-	TaskRole awsiam.IRole `json:"taskRole"`
+	TaskRole awsiam.IRole `json:"taskRole" yaml:"taskRole"`
 	// The list of volume definitions for the task.
 	//
 	// For more information, see
 	// [Task Definition Parameter Volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide//task_definition_parameters.html#volumes).
-	Volumes *[]*Volume `json:"volumes"`
+	Volumes *[]*Volume `json:"volumes" yaml:"volumes"`
 	// The number of cpu units used by the task.
 	//
 	// For tasks using the Fargate launch type,
@@ -13836,13 +13836,13 @@ type FargateTaskDefinitionProps struct {
 	// 2048 (2 vCPU) - Available memory values: Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB)
 	//
 	// 4096 (4 vCPU) - Available memory values: Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB)
-	Cpu *float64 `json:"cpu"`
+	Cpu *float64 `json:"cpu" yaml:"cpu"`
 	// The amount (in GiB) of ephemeral storage to be allocated to the task.
 	//
 	// The maximum supported value is 200 GiB.
 	//
 	// NOTE: This parameter is only supported for tasks hosted on AWS Fargate using platform version 1.4.0 or later.
-	EphemeralStorageGiB *float64 `json:"ephemeralStorageGiB"`
+	EphemeralStorageGiB *float64 `json:"ephemeralStorageGiB" yaml:"ephemeralStorageGiB"`
 	// The amount (in MiB) of memory used by the task.
 	//
 	// For tasks using the Fargate launch type,
@@ -13857,11 +13857,11 @@ type FargateTaskDefinitionProps struct {
 	// Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB) - Available cpu values: 2048 (2 vCPU)
 	//
 	// Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) - Available cpu values: 4096 (4 vCPU)
-	MemoryLimitMiB *float64 `json:"memoryLimitMiB"`
+	MemoryLimitMiB *float64 `json:"memoryLimitMiB" yaml:"memoryLimitMiB"`
 	// The operating system that your task definitions are running on.
 	//
 	// A runtimePlatform is supported only for tasks using the Fargate launch type.
-	RuntimePlatform *RuntimePlatform `json:"runtimePlatform"`
+	RuntimePlatform *RuntimePlatform `json:"runtimePlatform" yaml:"runtimePlatform"`
 }
 
 // FireLens enables you to use task definition parameters to route logs to an AWS service   or AWS Partner Network (APN) destination for log storage and analytics.
@@ -13944,28 +13944,28 @@ type FireLensLogDriverProps struct {
 	// If there is collision between
 	// label and env keys, the value of the env takes precedence. Adds additional fields
 	// to the extra attributes of a logging message.
-	Env *[]*string `json:"env"`
+	Env *[]*string `json:"env" yaml:"env"`
 	// The env-regex option is similar to and compatible with env.
 	//
 	// Its value is a regular
 	// expression to match logging-related environment variables. It is used for advanced
 	// log tag options.
-	EnvRegex *string `json:"envRegex"`
+	EnvRegex *string `json:"envRegex" yaml:"envRegex"`
 	// The labels option takes an array of keys.
 	//
 	// If there is collision
 	// between label and env keys, the value of the env takes precedence. Adds additional
 	// fields to the extra attributes of a logging message.
-	Labels *[]*string `json:"labels"`
+	Labels *[]*string `json:"labels" yaml:"labels"`
 	// By default, Docker uses the first 12 characters of the container ID to tag log messages.
 	//
 	// Refer to the log tag option documentation for customizing the
 	// log tag format.
-	Tag *string `json:"tag"`
+	Tag *string `json:"tag" yaml:"tag"`
 	// The configuration options to send to the log driver.
-	Options *map[string]*string `json:"options"`
+	Options *map[string]*string `json:"options" yaml:"options"`
 	// The secrets to pass to the log configuration.
-	SecretOptions *map[string]Secret `json:"secretOptions"`
+	SecretOptions *map[string]Secret `json:"secretOptions" yaml:"secretOptions"`
 }
 
 // Firelens Configuration https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html#firelens-taskdef.
@@ -13974,9 +13974,9 @@ type FireLensLogDriverProps struct {
 //
 type FirelensConfig struct {
 	// The log router to use.
-	Type FirelensLogRouterType `json:"type"`
+	Type FirelensLogRouterType `json:"type" yaml:"type"`
 	// Firelens options.
-	Options *FirelensOptions `json:"options"`
+	Options *FirelensOptions `json:"options" yaml:"options"`
 }
 
 // Firelens configuration file type, s3 or file path.
@@ -14426,37 +14426,37 @@ type FirelensLogRouterDefinitionOptions struct {
 	// Images in the Docker Hub registry are available by default.
 	// Other repositories are specified with either repository-url/image:tag or repository-url/image@digest.
 	// TODO: Update these to specify using classes of IContainerImage
-	Image ContainerImage `json:"image"`
+	Image ContainerImage `json:"image" yaml:"image"`
 	// The command that is passed to the container.
 	//
 	// If you provide a shell command as a single string, you have to quote command-line arguments.
-	Command *[]*string `json:"command"`
+	Command *[]*string `json:"command" yaml:"command"`
 	// The name of the container.
-	ContainerName *string `json:"containerName"`
+	ContainerName *string `json:"containerName" yaml:"containerName"`
 	// The minimum number of CPU units to reserve for the container.
-	Cpu *float64 `json:"cpu"`
+	Cpu *float64 `json:"cpu" yaml:"cpu"`
 	// Specifies whether networking is disabled within the container.
 	//
 	// When this parameter is true, networking is disabled within the container.
-	DisableNetworking *bool `json:"disableNetworking"`
+	DisableNetworking *bool `json:"disableNetworking" yaml:"disableNetworking"`
 	// A list of DNS search domains that are presented to the container.
-	DnsSearchDomains *[]*string `json:"dnsSearchDomains"`
+	DnsSearchDomains *[]*string `json:"dnsSearchDomains" yaml:"dnsSearchDomains"`
 	// A list of DNS servers that are presented to the container.
-	DnsServers *[]*string `json:"dnsServers"`
+	DnsServers *[]*string `json:"dnsServers" yaml:"dnsServers"`
 	// A key/value map of labels to add to the container.
-	DockerLabels *map[string]*string `json:"dockerLabels"`
+	DockerLabels *map[string]*string `json:"dockerLabels" yaml:"dockerLabels"`
 	// A list of strings to provide custom labels for SELinux and AppArmor multi-level security systems.
-	DockerSecurityOptions *[]*string `json:"dockerSecurityOptions"`
+	DockerSecurityOptions *[]*string `json:"dockerSecurityOptions" yaml:"dockerSecurityOptions"`
 	// The ENTRYPOINT value to pass to the container.
 	// See: https://docs.docker.com/engine/reference/builder/#entrypoint
 	//
-	EntryPoint *[]*string `json:"entryPoint"`
+	EntryPoint *[]*string `json:"entryPoint" yaml:"entryPoint"`
 	// The environment variables to pass to the container.
-	Environment *map[string]*string `json:"environment"`
+	Environment *map[string]*string `json:"environment" yaml:"environment"`
 	// The environment files to pass to the container.
 	// See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html
 	//
-	EnvironmentFiles *[]EnvironmentFile `json:"environmentFiles"`
+	EnvironmentFiles *[]EnvironmentFile `json:"environmentFiles" yaml:"environmentFiles"`
 	// Specifies whether the container is marked essential.
 	//
 	// If the essential parameter of a container is marked as true, and that container fails
@@ -14465,30 +14465,30 @@ type FirelensLogRouterDefinitionOptions struct {
 	// affect the rest of the containers in a task. All tasks must have at least one essential container.
 	//
 	// If this parameter is omitted, a container is assumed to be essential.
-	Essential *bool `json:"essential"`
+	Essential *bool `json:"essential" yaml:"essential"`
 	// A list of hostnames and IP address mappings to append to the /etc/hosts file on the container.
-	ExtraHosts *map[string]*string `json:"extraHosts"`
+	ExtraHosts *map[string]*string `json:"extraHosts" yaml:"extraHosts"`
 	// The number of GPUs assigned to the container.
-	GpuCount *float64 `json:"gpuCount"`
+	GpuCount *float64 `json:"gpuCount" yaml:"gpuCount"`
 	// The health check command and associated configuration parameters for the container.
-	HealthCheck *HealthCheck `json:"healthCheck"`
+	HealthCheck *HealthCheck `json:"healthCheck" yaml:"healthCheck"`
 	// The hostname to use for your container.
-	Hostname *string `json:"hostname"`
+	Hostname *string `json:"hostname" yaml:"hostname"`
 	// The inference accelerators referenced by the container.
-	InferenceAcceleratorResources *[]*string `json:"inferenceAcceleratorResources"`
+	InferenceAcceleratorResources *[]*string `json:"inferenceAcceleratorResources" yaml:"inferenceAcceleratorResources"`
 	// Linux-specific modifications that are applied to the container, such as Linux kernel capabilities.
 	//
 	// For more information see [KernelCapabilities](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_KernelCapabilities.html).
-	LinuxParameters LinuxParameters `json:"linuxParameters"`
+	LinuxParameters LinuxParameters `json:"linuxParameters" yaml:"linuxParameters"`
 	// The log configuration specification for the container.
-	Logging LogDriver `json:"logging"`
+	Logging LogDriver `json:"logging" yaml:"logging"`
 	// The amount (in MiB) of memory to present to the container.
 	//
 	// If your container attempts to exceed the allocated memory, the container
 	// is terminated.
 	//
 	// At least one of memoryLimitMiB and memoryReservationMiB is required for non-Fargate services.
-	MemoryLimitMiB *float64 `json:"memoryLimitMiB"`
+	MemoryLimitMiB *float64 `json:"memoryLimitMiB" yaml:"memoryLimitMiB"`
 	// The soft limit (in MiB) of memory to reserve for the container.
 	//
 	// When system memory is under heavy contention, Docker attempts to keep the
@@ -14498,31 +14498,31 @@ type FirelensLogRouterDefinitionOptions struct {
 	// instance, whichever comes first.
 	//
 	// At least one of memoryLimitMiB and memoryReservationMiB is required for non-Fargate services.
-	MemoryReservationMiB *float64 `json:"memoryReservationMiB"`
+	MemoryReservationMiB *float64 `json:"memoryReservationMiB" yaml:"memoryReservationMiB"`
 	// The port mappings to add to the container definition.
-	PortMappings *[]*PortMapping `json:"portMappings"`
+	PortMappings *[]*PortMapping `json:"portMappings" yaml:"portMappings"`
 	// Specifies whether the container is marked as privileged.
 	//
 	// When this parameter is true, the container is given elevated privileges on the host container instance (similar to the root user).
-	Privileged *bool `json:"privileged"`
+	Privileged *bool `json:"privileged" yaml:"privileged"`
 	// When this parameter is true, the container is given read-only access to its root file system.
-	ReadonlyRootFilesystem *bool `json:"readonlyRootFilesystem"`
+	ReadonlyRootFilesystem *bool `json:"readonlyRootFilesystem" yaml:"readonlyRootFilesystem"`
 	// The secret environment variables to pass to the container.
-	Secrets *map[string]Secret `json:"secrets"`
+	Secrets *map[string]Secret `json:"secrets" yaml:"secrets"`
 	// Time duration (in seconds) to wait before giving up on resolving dependencies for a container.
-	StartTimeout awscdk.Duration `json:"startTimeout"`
+	StartTimeout awscdk.Duration `json:"startTimeout" yaml:"startTimeout"`
 	// Time duration (in seconds) to wait before the container is forcefully killed if it doesn't exit normally on its own.
-	StopTimeout awscdk.Duration `json:"stopTimeout"`
+	StopTimeout awscdk.Duration `json:"stopTimeout" yaml:"stopTimeout"`
 	// A list of namespaced kernel parameters to set in the container.
 	// See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#container_definition_systemcontrols
 	//
-	SystemControls *[]*SystemControl `json:"systemControls"`
+	SystemControls *[]*SystemControl `json:"systemControls" yaml:"systemControls"`
 	// The user name to use inside the container.
-	User *string `json:"user"`
+	User *string `json:"user" yaml:"user"`
 	// The working directory in which to run commands inside the container.
-	WorkingDirectory *string `json:"workingDirectory"`
+	WorkingDirectory *string `json:"workingDirectory" yaml:"workingDirectory"`
 	// Firelens configuration.
-	FirelensConfig *FirelensConfig `json:"firelensConfig"`
+	FirelensConfig *FirelensConfig `json:"firelensConfig" yaml:"firelensConfig"`
 }
 
 // The properties in a firelens log router.
@@ -14536,37 +14536,37 @@ type FirelensLogRouterProps struct {
 	// Images in the Docker Hub registry are available by default.
 	// Other repositories are specified with either repository-url/image:tag or repository-url/image@digest.
 	// TODO: Update these to specify using classes of IContainerImage
-	Image ContainerImage `json:"image"`
+	Image ContainerImage `json:"image" yaml:"image"`
 	// The command that is passed to the container.
 	//
 	// If you provide a shell command as a single string, you have to quote command-line arguments.
-	Command *[]*string `json:"command"`
+	Command *[]*string `json:"command" yaml:"command"`
 	// The name of the container.
-	ContainerName *string `json:"containerName"`
+	ContainerName *string `json:"containerName" yaml:"containerName"`
 	// The minimum number of CPU units to reserve for the container.
-	Cpu *float64 `json:"cpu"`
+	Cpu *float64 `json:"cpu" yaml:"cpu"`
 	// Specifies whether networking is disabled within the container.
 	//
 	// When this parameter is true, networking is disabled within the container.
-	DisableNetworking *bool `json:"disableNetworking"`
+	DisableNetworking *bool `json:"disableNetworking" yaml:"disableNetworking"`
 	// A list of DNS search domains that are presented to the container.
-	DnsSearchDomains *[]*string `json:"dnsSearchDomains"`
+	DnsSearchDomains *[]*string `json:"dnsSearchDomains" yaml:"dnsSearchDomains"`
 	// A list of DNS servers that are presented to the container.
-	DnsServers *[]*string `json:"dnsServers"`
+	DnsServers *[]*string `json:"dnsServers" yaml:"dnsServers"`
 	// A key/value map of labels to add to the container.
-	DockerLabels *map[string]*string `json:"dockerLabels"`
+	DockerLabels *map[string]*string `json:"dockerLabels" yaml:"dockerLabels"`
 	// A list of strings to provide custom labels for SELinux and AppArmor multi-level security systems.
-	DockerSecurityOptions *[]*string `json:"dockerSecurityOptions"`
+	DockerSecurityOptions *[]*string `json:"dockerSecurityOptions" yaml:"dockerSecurityOptions"`
 	// The ENTRYPOINT value to pass to the container.
 	// See: https://docs.docker.com/engine/reference/builder/#entrypoint
 	//
-	EntryPoint *[]*string `json:"entryPoint"`
+	EntryPoint *[]*string `json:"entryPoint" yaml:"entryPoint"`
 	// The environment variables to pass to the container.
-	Environment *map[string]*string `json:"environment"`
+	Environment *map[string]*string `json:"environment" yaml:"environment"`
 	// The environment files to pass to the container.
 	// See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html
 	//
-	EnvironmentFiles *[]EnvironmentFile `json:"environmentFiles"`
+	EnvironmentFiles *[]EnvironmentFile `json:"environmentFiles" yaml:"environmentFiles"`
 	// Specifies whether the container is marked essential.
 	//
 	// If the essential parameter of a container is marked as true, and that container fails
@@ -14575,30 +14575,30 @@ type FirelensLogRouterProps struct {
 	// affect the rest of the containers in a task. All tasks must have at least one essential container.
 	//
 	// If this parameter is omitted, a container is assumed to be essential.
-	Essential *bool `json:"essential"`
+	Essential *bool `json:"essential" yaml:"essential"`
 	// A list of hostnames and IP address mappings to append to the /etc/hosts file on the container.
-	ExtraHosts *map[string]*string `json:"extraHosts"`
+	ExtraHosts *map[string]*string `json:"extraHosts" yaml:"extraHosts"`
 	// The number of GPUs assigned to the container.
-	GpuCount *float64 `json:"gpuCount"`
+	GpuCount *float64 `json:"gpuCount" yaml:"gpuCount"`
 	// The health check command and associated configuration parameters for the container.
-	HealthCheck *HealthCheck `json:"healthCheck"`
+	HealthCheck *HealthCheck `json:"healthCheck" yaml:"healthCheck"`
 	// The hostname to use for your container.
-	Hostname *string `json:"hostname"`
+	Hostname *string `json:"hostname" yaml:"hostname"`
 	// The inference accelerators referenced by the container.
-	InferenceAcceleratorResources *[]*string `json:"inferenceAcceleratorResources"`
+	InferenceAcceleratorResources *[]*string `json:"inferenceAcceleratorResources" yaml:"inferenceAcceleratorResources"`
 	// Linux-specific modifications that are applied to the container, such as Linux kernel capabilities.
 	//
 	// For more information see [KernelCapabilities](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_KernelCapabilities.html).
-	LinuxParameters LinuxParameters `json:"linuxParameters"`
+	LinuxParameters LinuxParameters `json:"linuxParameters" yaml:"linuxParameters"`
 	// The log configuration specification for the container.
-	Logging LogDriver `json:"logging"`
+	Logging LogDriver `json:"logging" yaml:"logging"`
 	// The amount (in MiB) of memory to present to the container.
 	//
 	// If your container attempts to exceed the allocated memory, the container
 	// is terminated.
 	//
 	// At least one of memoryLimitMiB and memoryReservationMiB is required for non-Fargate services.
-	MemoryLimitMiB *float64 `json:"memoryLimitMiB"`
+	MemoryLimitMiB *float64 `json:"memoryLimitMiB" yaml:"memoryLimitMiB"`
 	// The soft limit (in MiB) of memory to reserve for the container.
 	//
 	// When system memory is under heavy contention, Docker attempts to keep the
@@ -14608,35 +14608,35 @@ type FirelensLogRouterProps struct {
 	// instance, whichever comes first.
 	//
 	// At least one of memoryLimitMiB and memoryReservationMiB is required for non-Fargate services.
-	MemoryReservationMiB *float64 `json:"memoryReservationMiB"`
+	MemoryReservationMiB *float64 `json:"memoryReservationMiB" yaml:"memoryReservationMiB"`
 	// The port mappings to add to the container definition.
-	PortMappings *[]*PortMapping `json:"portMappings"`
+	PortMappings *[]*PortMapping `json:"portMappings" yaml:"portMappings"`
 	// Specifies whether the container is marked as privileged.
 	//
 	// When this parameter is true, the container is given elevated privileges on the host container instance (similar to the root user).
-	Privileged *bool `json:"privileged"`
+	Privileged *bool `json:"privileged" yaml:"privileged"`
 	// When this parameter is true, the container is given read-only access to its root file system.
-	ReadonlyRootFilesystem *bool `json:"readonlyRootFilesystem"`
+	ReadonlyRootFilesystem *bool `json:"readonlyRootFilesystem" yaml:"readonlyRootFilesystem"`
 	// The secret environment variables to pass to the container.
-	Secrets *map[string]Secret `json:"secrets"`
+	Secrets *map[string]Secret `json:"secrets" yaml:"secrets"`
 	// Time duration (in seconds) to wait before giving up on resolving dependencies for a container.
-	StartTimeout awscdk.Duration `json:"startTimeout"`
+	StartTimeout awscdk.Duration `json:"startTimeout" yaml:"startTimeout"`
 	// Time duration (in seconds) to wait before the container is forcefully killed if it doesn't exit normally on its own.
-	StopTimeout awscdk.Duration `json:"stopTimeout"`
+	StopTimeout awscdk.Duration `json:"stopTimeout" yaml:"stopTimeout"`
 	// A list of namespaced kernel parameters to set in the container.
 	// See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#container_definition_systemcontrols
 	//
-	SystemControls *[]*SystemControl `json:"systemControls"`
+	SystemControls *[]*SystemControl `json:"systemControls" yaml:"systemControls"`
 	// The user name to use inside the container.
-	User *string `json:"user"`
+	User *string `json:"user" yaml:"user"`
 	// The working directory in which to run commands inside the container.
-	WorkingDirectory *string `json:"workingDirectory"`
+	WorkingDirectory *string `json:"workingDirectory" yaml:"workingDirectory"`
 	// The name of the task definition that includes this container definition.
 	//
 	// [disable-awslint:ref-via-interface]
-	TaskDefinition TaskDefinition `json:"taskDefinition"`
+	TaskDefinition TaskDefinition `json:"taskDefinition" yaml:"taskDefinition"`
 	// Firelens configuration.
-	FirelensConfig *FirelensConfig `json:"firelensConfig"`
+	FirelensConfig *FirelensConfig `json:"firelensConfig" yaml:"firelensConfig"`
 }
 
 // Firelens log router type, fluentbit or fluentd.
@@ -14655,13 +14655,13 @@ const (
 //
 type FirelensOptions struct {
 	// Custom configuration file, S3 ARN or a file path.
-	ConfigFileValue *string `json:"configFileValue"`
+	ConfigFileValue *string `json:"configFileValue" yaml:"configFileValue"`
 	// Custom configuration file, s3 or file.
-	ConfigFileType FirelensConfigFileType `json:"configFileType"`
+	ConfigFileType FirelensConfigFileType `json:"configFileType" yaml:"configFileType"`
 	// By default, Amazon ECS adds additional fields in your log entries that help identify the source of the logs.
 	//
 	// You can disable this action by setting enable-ecs-log-metadata to false.
-	EnableECSLogMetadata *bool `json:"enableECSLogMetadata"`
+	EnableECSLogMetadata *bool `json:"enableECSLogMetadata" yaml:"enableECSLogMetadata"`
 }
 
 // A log driver that sends log information to journald Logs.
@@ -14746,43 +14746,43 @@ type FluentdLogDriverProps struct {
 	// If there is collision between
 	// label and env keys, the value of the env takes precedence. Adds additional fields
 	// to the extra attributes of a logging message.
-	Env *[]*string `json:"env"`
+	Env *[]*string `json:"env" yaml:"env"`
 	// The env-regex option is similar to and compatible with env.
 	//
 	// Its value is a regular
 	// expression to match logging-related environment variables. It is used for advanced
 	// log tag options.
-	EnvRegex *string `json:"envRegex"`
+	EnvRegex *string `json:"envRegex" yaml:"envRegex"`
 	// The labels option takes an array of keys.
 	//
 	// If there is collision
 	// between label and env keys, the value of the env takes precedence. Adds additional
 	// fields to the extra attributes of a logging message.
-	Labels *[]*string `json:"labels"`
+	Labels *[]*string `json:"labels" yaml:"labels"`
 	// By default, Docker uses the first 12 characters of the container ID to tag log messages.
 	//
 	// Refer to the log tag option documentation for customizing the
 	// log tag format.
-	Tag *string `json:"tag"`
+	Tag *string `json:"tag" yaml:"tag"`
 	// By default, the logging driver connects to localhost:24224.
 	//
 	// Supply the
 	// address option to connect to a different address. tcp(default) and unix
 	// sockets are supported.
-	Address *string `json:"address"`
+	Address *string `json:"address" yaml:"address"`
 	// Docker connects to Fluentd in the background.
 	//
 	// Messages are buffered until
 	// the connection is established.
-	AsyncConnect *bool `json:"asyncConnect"`
+	AsyncConnect *bool `json:"asyncConnect" yaml:"asyncConnect"`
 	// The amount of data to buffer before flushing to disk.
-	BufferLimit *float64 `json:"bufferLimit"`
+	BufferLimit *float64 `json:"bufferLimit" yaml:"bufferLimit"`
 	// The maximum number of retries.
-	MaxRetries *float64 `json:"maxRetries"`
+	MaxRetries *float64 `json:"maxRetries" yaml:"maxRetries"`
 	// How long to wait between retries.
-	RetryWait awscdk.Duration `json:"retryWait"`
+	RetryWait awscdk.Duration `json:"retryWait" yaml:"retryWait"`
 	// Generates event logs in nanosecond resolution.
-	SubSecondPrecision *bool `json:"subSecondPrecision"`
+	SubSecondPrecision *bool `json:"subSecondPrecision" yaml:"subSecondPrecision"`
 }
 
 // The type of compression the GELF driver uses to compress each log message.
@@ -14876,46 +14876,46 @@ type GelfLogDriverProps struct {
 	// If there is collision between
 	// label and env keys, the value of the env takes precedence. Adds additional fields
 	// to the extra attributes of a logging message.
-	Env *[]*string `json:"env"`
+	Env *[]*string `json:"env" yaml:"env"`
 	// The env-regex option is similar to and compatible with env.
 	//
 	// Its value is a regular
 	// expression to match logging-related environment variables. It is used for advanced
 	// log tag options.
-	EnvRegex *string `json:"envRegex"`
+	EnvRegex *string `json:"envRegex" yaml:"envRegex"`
 	// The labels option takes an array of keys.
 	//
 	// If there is collision
 	// between label and env keys, the value of the env takes precedence. Adds additional
 	// fields to the extra attributes of a logging message.
-	Labels *[]*string `json:"labels"`
+	Labels *[]*string `json:"labels" yaml:"labels"`
 	// By default, Docker uses the first 12 characters of the container ID to tag log messages.
 	//
 	// Refer to the log tag option documentation for customizing the
 	// log tag format.
-	Tag *string `json:"tag"`
+	Tag *string `json:"tag" yaml:"tag"`
 	// The address of the GELF server.
 	//
 	// tcp and udp are the only supported URI
 	// specifier and you must specify the port.
-	Address *string `json:"address"`
+	Address *string `json:"address" yaml:"address"`
 	// UDP Only The level of compression when gzip or zlib is the gelf-compression-type.
 	//
 	// An integer in the range of -1 to 9 (BestCompression). Higher levels provide more
 	// compression at lower speed. Either -1 or 0 disables compression.
-	CompressionLevel *float64 `json:"compressionLevel"`
+	CompressionLevel *float64 `json:"compressionLevel" yaml:"compressionLevel"`
 	// UDP Only The type of compression the GELF driver uses to compress each log message.
 	//
 	// Allowed values are gzip, zlib and none.
-	CompressionType GelfCompressionType `json:"compressionType"`
+	CompressionType GelfCompressionType `json:"compressionType" yaml:"compressionType"`
 	// TCP Only The maximum number of reconnection attempts when the connection drop.
 	//
 	// A positive integer.
-	TcpMaxReconnect *float64 `json:"tcpMaxReconnect"`
+	TcpMaxReconnect *float64 `json:"tcpMaxReconnect" yaml:"tcpMaxReconnect"`
 	// TCP Only The number of seconds to wait between reconnection attempts.
 	//
 	// A positive integer.
-	TcpReconnectDelay awscdk.Duration `json:"tcpReconnectDelay"`
+	TcpReconnectDelay awscdk.Duration `json:"tcpReconnectDelay" yaml:"tcpReconnectDelay"`
 }
 
 // A log driver that sends logs to the specified driver.
@@ -15004,11 +15004,11 @@ type GenericLogDriverProps struct {
 	// For more information about using the awslogs log driver, see
 	// [Using the awslogs Log Driver](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html)
 	// in the Amazon Elastic Container Service Developer Guide.
-	LogDriver *string `json:"logDriver"`
+	LogDriver *string `json:"logDriver" yaml:"logDriver"`
 	// The configuration options to send to the log driver.
-	Options *map[string]*string `json:"options"`
+	Options *map[string]*string `json:"options" yaml:"options"`
 	// The secrets to pass to the log configuration.
-	SecretOptions *map[string]Secret `json:"secretOptions"`
+	SecretOptions *map[string]Secret `json:"secretOptions" yaml:"secretOptions"`
 }
 
 // The health check command and associated configuration parameters for the container.
@@ -15022,23 +15022,23 @@ type HealthCheck struct {
 	// CMD-SHELL to run the command with the container's default shell.
 	//
 	// For example: [ "CMD-SHELL", "curl -f http://localhost/ || exit 1" ]
-	Command *[]*string `json:"command"`
+	Command *[]*string `json:"command" yaml:"command"`
 	// The time period in seconds between each health check execution.
 	//
 	// You may specify between 5 and 300 seconds.
-	Interval awscdk.Duration `json:"interval"`
+	Interval awscdk.Duration `json:"interval" yaml:"interval"`
 	// The number of times to retry a failed health check before the container is considered unhealthy.
 	//
 	// You may specify between 1 and 10 retries.
-	Retries *float64 `json:"retries"`
+	Retries *float64 `json:"retries" yaml:"retries"`
 	// The optional grace period within which to provide containers time to bootstrap before failed health checks count towards the maximum number of retries.
 	//
 	// You may specify between 0 and 300 seconds.
-	StartPeriod awscdk.Duration `json:"startPeriod"`
+	StartPeriod awscdk.Duration `json:"startPeriod" yaml:"startPeriod"`
 	// The time period in seconds to wait for a health check to succeed before it is considered a failure.
 	//
 	// You may specify between 2 and 60 seconds.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 }
 
 // The details on a container instance bind mount host volume.
@@ -15052,7 +15052,7 @@ type Host struct {
 	// If the location does exist, the contents of the source path folder are exported.
 	//
 	// This property is not supported for tasks that use the Fargate launch type.
-	SourcePath *string `json:"sourcePath"`
+	SourcePath *string `json:"sourcePath" yaml:"sourcePath"`
 }
 
 // The interface for BaseService.
@@ -15430,11 +15430,11 @@ func (i *jsiiProxy_ITaskDefinitionExtension) Extend(taskDefinition TaskDefinitio
 //
 type InferenceAccelerator struct {
 	// The Elastic Inference accelerator device name.
-	DeviceName *string `json:"deviceName"`
+	DeviceName *string `json:"deviceName" yaml:"deviceName"`
 	// The Elastic Inference accelerator type to use.
 	//
 	// The allowed values are: eia2.medium, eia2.large and eia2.xlarge.
-	DeviceType *string `json:"deviceType"`
+	DeviceType *string `json:"deviceType" yaml:"deviceType"`
 }
 
 // The IPC resource namespace to use for the containers in the task.
@@ -15528,24 +15528,24 @@ type JournaldLogDriverProps struct {
 	// If there is collision between
 	// label and env keys, the value of the env takes precedence. Adds additional fields
 	// to the extra attributes of a logging message.
-	Env *[]*string `json:"env"`
+	Env *[]*string `json:"env" yaml:"env"`
 	// The env-regex option is similar to and compatible with env.
 	//
 	// Its value is a regular
 	// expression to match logging-related environment variables. It is used for advanced
 	// log tag options.
-	EnvRegex *string `json:"envRegex"`
+	EnvRegex *string `json:"envRegex" yaml:"envRegex"`
 	// The labels option takes an array of keys.
 	//
 	// If there is collision
 	// between label and env keys, the value of the env takes precedence. Adds additional
 	// fields to the extra attributes of a logging message.
-	Labels *[]*string `json:"labels"`
+	Labels *[]*string `json:"labels" yaml:"labels"`
 	// By default, Docker uses the first 12 characters of the container ID to tag log messages.
 	//
 	// Refer to the log tag option documentation for customizing the
 	// log tag format.
-	Tag *string `json:"tag"`
+	Tag *string `json:"tag" yaml:"tag"`
 }
 
 // A log driver that sends log information to json-file Logs.
@@ -15630,37 +15630,37 @@ type JsonFileLogDriverProps struct {
 	// If there is collision between
 	// label and env keys, the value of the env takes precedence. Adds additional fields
 	// to the extra attributes of a logging message.
-	Env *[]*string `json:"env"`
+	Env *[]*string `json:"env" yaml:"env"`
 	// The env-regex option is similar to and compatible with env.
 	//
 	// Its value is a regular
 	// expression to match logging-related environment variables. It is used for advanced
 	// log tag options.
-	EnvRegex *string `json:"envRegex"`
+	EnvRegex *string `json:"envRegex" yaml:"envRegex"`
 	// The labels option takes an array of keys.
 	//
 	// If there is collision
 	// between label and env keys, the value of the env takes precedence. Adds additional
 	// fields to the extra attributes of a logging message.
-	Labels *[]*string `json:"labels"`
+	Labels *[]*string `json:"labels" yaml:"labels"`
 	// By default, Docker uses the first 12 characters of the container ID to tag log messages.
 	//
 	// Refer to the log tag option documentation for customizing the
 	// log tag format.
-	Tag *string `json:"tag"`
+	Tag *string `json:"tag" yaml:"tag"`
 	// Toggles compression for rotated logs.
-	Compress *bool `json:"compress"`
+	Compress *bool `json:"compress" yaml:"compress"`
 	// The maximum number of log files that can be present.
 	//
 	// If rolling the logs creates
 	// excess files, the oldest file is removed. Only effective when max-size is also set.
 	// A positive integer.
-	MaxFile *float64 `json:"maxFile"`
+	MaxFile *float64 `json:"maxFile" yaml:"maxFile"`
 	// The maximum size of the log before it is rolled.
 	//
 	// A positive integer plus a modifier
 	// representing the unit of measure (k, m, or g).
-	MaxSize *string `json:"maxSize"`
+	MaxSize *string `json:"maxSize" yaml:"maxSize"`
 }
 
 // The launch type of an ECS service.
@@ -15844,9 +15844,9 @@ func (l *jsiiProxy_LinuxParameters) ToString() *string {
 //
 type LinuxParametersProps struct {
 	// Specifies whether to run an init process inside the container that forwards signals and reaps processes.
-	InitProcessEnabled *bool `json:"initProcessEnabled"`
+	InitProcessEnabled *bool `json:"initProcessEnabled" yaml:"initProcessEnabled"`
 	// The value for the size (in MiB) of the /dev/shm volume.
-	SharedMemorySize *float64 `json:"sharedMemorySize"`
+	SharedMemorySize *float64 `json:"sharedMemorySize" yaml:"sharedMemorySize"`
 }
 
 // Base class for configuring listener when registering targets.
@@ -15921,15 +15921,15 @@ func (l *jsiiProxy_ListenerConfig) AddTargets(id *string, target *LoadBalancerTa
 //
 type LoadBalancerTargetOptions struct {
 	// The name of the container.
-	ContainerName *string `json:"containerName"`
+	ContainerName *string `json:"containerName" yaml:"containerName"`
 	// The port number of the container.
 	//
 	// Only applicable when using application/network load balancers.
-	ContainerPort *float64 `json:"containerPort"`
+	ContainerPort *float64 `json:"containerPort" yaml:"containerPort"`
 	// The protocol used for the port mapping.
 	//
 	// Only applicable when using application load balancers.
-	Protocol Protocol `json:"protocol"`
+	Protocol Protocol `json:"protocol" yaml:"protocol"`
 }
 
 // The base class for log drivers.
@@ -16006,11 +16006,11 @@ type LogDriverConfig struct {
 	// For more information about using the awsfirelens log driver, see
 	// [Custom Log Routing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html)
 	// in the Amazon Elastic Container Service Developer Guide.
-	LogDriver *string `json:"logDriver"`
+	LogDriver *string `json:"logDriver" yaml:"logDriver"`
 	// The configuration options to send to the log driver.
-	Options *map[string]*string `json:"options"`
+	Options *map[string]*string `json:"options" yaml:"options"`
 	// The secrets to pass to the log configuration.
-	SecretOptions *[]*CfnTaskDefinition_SecretProperty `json:"secretOptions"`
+	SecretOptions *[]*CfnTaskDefinition_SecretProperty `json:"secretOptions" yaml:"secretOptions"`
 }
 
 // The base class for log drivers.
@@ -16202,15 +16202,15 @@ type MemoryUtilizationScalingProps struct {
 	// won't remove capacity from the scalable resource. Otherwise, scale in is
 	// enabled and the target tracking policy can remove capacity from the
 	// scalable resource.
-	DisableScaleIn *bool `json:"disableScaleIn"`
+	DisableScaleIn *bool `json:"disableScaleIn" yaml:"disableScaleIn"`
 	// A name for the scaling policy.
-	PolicyName *string `json:"policyName"`
+	PolicyName *string `json:"policyName" yaml:"policyName"`
 	// Period after a scale in activity completes before another scale in activity can start.
-	ScaleInCooldown awscdk.Duration `json:"scaleInCooldown"`
+	ScaleInCooldown awscdk.Duration `json:"scaleInCooldown" yaml:"scaleInCooldown"`
 	// Period after a scale out activity completes before another scale out activity can start.
-	ScaleOutCooldown awscdk.Duration `json:"scaleOutCooldown"`
+	ScaleOutCooldown awscdk.Duration `json:"scaleOutCooldown" yaml:"scaleOutCooldown"`
 	// The target value for memory utilization across all tasks in the service.
-	TargetUtilizationPercent *float64 `json:"targetUtilizationPercent"`
+	TargetUtilizationPercent *float64 `json:"targetUtilizationPercent" yaml:"targetUtilizationPercent"`
 }
 
 // The details of data volume mount points for a container.
@@ -16219,16 +16219,16 @@ type MemoryUtilizationScalingProps struct {
 //
 type MountPoint struct {
 	// The path on the container to mount the host volume at.
-	ContainerPath *string `json:"containerPath"`
+	ContainerPath *string `json:"containerPath" yaml:"containerPath"`
 	// Specifies whether to give the container read-only access to the volume.
 	//
 	// If this value is true, the container has read-only access to the volume.
 	// If this value is false, then the container can write to the volume.
-	ReadOnly *bool `json:"readOnly"`
+	ReadOnly *bool `json:"readOnly" yaml:"readOnly"`
 	// The name of the volume to mount.
 	//
 	// Must be a volume name referenced in the name parameter of task definition volume.
-	SourceVolume *string `json:"sourceVolume"`
+	SourceVolume *string `json:"sourceVolume" yaml:"sourceVolume"`
 }
 
 // The networking mode to use for the containers in the task.
@@ -16595,7 +16595,7 @@ type PortMapping struct {
 	//
 	// For more information, see hostPort.
 	// Port mappings that are automatically assigned in this way do not count toward the 100 reserved ports limit of a container instance.
-	ContainerPort *float64 `json:"containerPort"`
+	ContainerPort *float64 `json:"containerPort" yaml:"containerPort"`
 	// The port number on the container instance to reserve for your container.
 	//
 	// If you are using containers in a task with the awsvpc or host network mode,
@@ -16606,11 +16606,11 @@ type PortMapping struct {
 	// you can omit the hostPort (or set it to 0) while specifying a containerPort and
 	// your container automatically receives a port in the ephemeral port range for
 	// your container instance operating system and Docker version.
-	HostPort *float64 `json:"hostPort"`
+	HostPort *float64 `json:"hostPort" yaml:"hostPort"`
 	// The protocol used for the port mapping.
 	//
 	// Valid values are Protocol.TCP and Protocol.UDP.
-	Protocol Protocol `json:"protocol"`
+	Protocol Protocol `json:"protocol" yaml:"protocol"`
 }
 
 // Propagate tags from either service or task definition.
@@ -16870,7 +16870,7 @@ type RepositoryImageProps struct {
 	// The secret to expose to the container that contains the credentials for the image repository.
 	//
 	// The supported value is the full ARN of an AWS Secrets Manager secret.
-	Credentials awssecretsmanager.ISecret `json:"credentials"`
+	Credentials awssecretsmanager.ISecret `json:"credentials" yaml:"credentials"`
 }
 
 // The properties for enabling scaling based on Application Load Balancer (ALB) request counts.
@@ -16884,17 +16884,17 @@ type RequestCountScalingProps struct {
 	// won't remove capacity from the scalable resource. Otherwise, scale in is
 	// enabled and the target tracking policy can remove capacity from the
 	// scalable resource.
-	DisableScaleIn *bool `json:"disableScaleIn"`
+	DisableScaleIn *bool `json:"disableScaleIn" yaml:"disableScaleIn"`
 	// A name for the scaling policy.
-	PolicyName *string `json:"policyName"`
+	PolicyName *string `json:"policyName" yaml:"policyName"`
 	// Period after a scale in activity completes before another scale in activity can start.
-	ScaleInCooldown awscdk.Duration `json:"scaleInCooldown"`
+	ScaleInCooldown awscdk.Duration `json:"scaleInCooldown" yaml:"scaleInCooldown"`
 	// Period after a scale out activity completes before another scale out activity can start.
-	ScaleOutCooldown awscdk.Duration `json:"scaleOutCooldown"`
+	ScaleOutCooldown awscdk.Duration `json:"scaleOutCooldown" yaml:"scaleOutCooldown"`
 	// The number of ALB requests per target.
-	RequestsPerTarget *float64 `json:"requestsPerTarget"`
+	RequestsPerTarget *float64 `json:"requestsPerTarget" yaml:"requestsPerTarget"`
 	// The ALB target group name.
-	TargetGroup awselasticloadbalancingv2.ApplicationTargetGroup `json:"targetGroup"`
+	TargetGroup awselasticloadbalancingv2.ApplicationTargetGroup `json:"targetGroup" yaml:"targetGroup"`
 }
 
 // The interface for Runtime Platform.
@@ -16903,9 +16903,9 @@ type RequestCountScalingProps struct {
 //
 type RuntimePlatform struct {
 	// The CpuArchitecture for Fargate Runtime Platform.
-	CpuArchitecture CpuArchitecture `json:"cpuArchitecture"`
+	CpuArchitecture CpuArchitecture `json:"cpuArchitecture" yaml:"cpuArchitecture"`
 	// The operating system for Fargate Runtime Platform.
-	OperatingSystemFamily OperatingSystemFamily `json:"operatingSystemFamily"`
+	OperatingSystemFamily OperatingSystemFamily `json:"operatingSystemFamily" yaml:"operatingSystemFamily"`
 }
 
 // Environment file from S3.
@@ -17186,17 +17186,17 @@ func (s *jsiiProxy_ScalableTaskCount) ToString() *string {
 //
 type ScalableTaskCountProps struct {
 	// Maximum capacity to scale to.
-	MaxCapacity *float64 `json:"maxCapacity"`
+	MaxCapacity *float64 `json:"maxCapacity" yaml:"maxCapacity"`
 	// Minimum capacity to scale to.
-	MinCapacity *float64 `json:"minCapacity"`
+	MinCapacity *float64 `json:"minCapacity" yaml:"minCapacity"`
 	// Scalable dimension of the attribute.
-	Dimension *string `json:"dimension"`
+	Dimension *string `json:"dimension" yaml:"dimension"`
 	// Resource ID of the attribute.
-	ResourceId *string `json:"resourceId"`
+	ResourceId *string `json:"resourceId" yaml:"resourceId"`
 	// Role to use for scaling.
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 	// Service namespace of the scalable attribute.
-	ServiceNamespace awsapplicationautoscaling.ServiceNamespace `json:"serviceNamespace"`
+	ServiceNamespace awsapplicationautoscaling.ServiceNamespace `json:"serviceNamespace" yaml:"serviceNamespace"`
 }
 
 // The scope for the Docker volume that determines its lifecycle.
@@ -17216,17 +17216,17 @@ const (
 //
 type ScratchSpace struct {
 	// The path on the container to mount the scratch volume at.
-	ContainerPath *string `json:"containerPath"`
+	ContainerPath *string `json:"containerPath" yaml:"containerPath"`
 	// The name of the scratch volume to mount.
 	//
 	// Must be a volume name referenced in the name parameter of task definition volume.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// Specifies whether to give the container read-only access to the scratch volume.
 	//
 	// If this value is true, the container has read-only access to the scratch volume.
 	// If this value is false, then the container can write to the scratch volume.
-	ReadOnly *bool `json:"readOnly"`
-	SourcePath *string `json:"sourcePath"`
+	ReadOnly *bool `json:"readOnly" yaml:"readOnly"`
+	SourcePath *string `json:"sourcePath" yaml:"sourcePath"`
 }
 
 // A secret environment variable.
@@ -17403,58 +17403,58 @@ type SplunkLogDriverProps struct {
 	// If there is collision between
 	// label and env keys, the value of the env takes precedence. Adds additional fields
 	// to the extra attributes of a logging message.
-	Env *[]*string `json:"env"`
+	Env *[]*string `json:"env" yaml:"env"`
 	// The env-regex option is similar to and compatible with env.
 	//
 	// Its value is a regular
 	// expression to match logging-related environment variables. It is used for advanced
 	// log tag options.
-	EnvRegex *string `json:"envRegex"`
+	EnvRegex *string `json:"envRegex" yaml:"envRegex"`
 	// The labels option takes an array of keys.
 	//
 	// If there is collision
 	// between label and env keys, the value of the env takes precedence. Adds additional
 	// fields to the extra attributes of a logging message.
-	Labels *[]*string `json:"labels"`
+	Labels *[]*string `json:"labels" yaml:"labels"`
 	// By default, Docker uses the first 12 characters of the container ID to tag log messages.
 	//
 	// Refer to the log tag option documentation for customizing the
 	// log tag format.
-	Tag *string `json:"tag"`
+	Tag *string `json:"tag" yaml:"tag"`
 	// Path to your Splunk Enterprise, self-service Splunk Cloud instance, or Splunk Cloud managed cluster (including port and scheme used by HTTP Event Collector) in one of the following formats: https://your_splunk_instance:8088 or https://input-prd-p-XXXXXXX.cloud.splunk.com:8088 or https://http-inputs-XXXXXXXX.splunkcloud.com.
-	Url *string `json:"url"`
+	Url *string `json:"url" yaml:"url"`
 	// Name to use for validating server certificate.
-	CaName *string `json:"caName"`
+	CaName *string `json:"caName" yaml:"caName"`
 	// Path to root certificate.
-	CaPath *string `json:"caPath"`
+	CaPath *string `json:"caPath" yaml:"caPath"`
 	// Message format.
 	//
 	// Can be inline, json or raw.
-	Format SplunkLogFormat `json:"format"`
+	Format SplunkLogFormat `json:"format" yaml:"format"`
 	// Enable/disable gzip compression to send events to Splunk Enterprise or Splunk Cloud instance.
-	Gzip *bool `json:"gzip"`
+	Gzip *bool `json:"gzip" yaml:"gzip"`
 	// Set compression level for gzip.
 	//
 	// Valid values are -1 (default), 0 (no compression),
 	// 1 (best speed) ... 9 (best compression).
-	GzipLevel *float64 `json:"gzipLevel"`
+	GzipLevel *float64 `json:"gzipLevel" yaml:"gzipLevel"`
 	// Event index.
-	Index *string `json:"index"`
+	Index *string `json:"index" yaml:"index"`
 	// Ignore server certificate validation.
-	InsecureSkipVerify *string `json:"insecureSkipVerify"`
+	InsecureSkipVerify *string `json:"insecureSkipVerify" yaml:"insecureSkipVerify"`
 	// Splunk HTTP Event Collector token (Secret).
 	//
 	// The splunk-token is added to the SecretOptions property of the Log Driver Configuration. So the secret value will not be
 	// resolved or viewable as plain text.
 	//
 	// Please provide at least one of `token` or `secretToken`.
-	SecretToken Secret `json:"secretToken"`
+	SecretToken Secret `json:"secretToken" yaml:"secretToken"`
 	// Event source.
-	Source *string `json:"source"`
+	Source *string `json:"source" yaml:"source"`
 	// Event source type.
-	SourceType *string `json:"sourceType"`
+	SourceType *string `json:"sourceType" yaml:"sourceType"`
 	// Verify on start, that docker can connect to Splunk server.
-	VerifyConnection *bool `json:"verifyConnection"`
+	VerifyConnection *bool `json:"verifyConnection" yaml:"verifyConnection"`
 }
 
 // Log Message Format.
@@ -17548,61 +17548,61 @@ type SyslogLogDriverProps struct {
 	// If there is collision between
 	// label and env keys, the value of the env takes precedence. Adds additional fields
 	// to the extra attributes of a logging message.
-	Env *[]*string `json:"env"`
+	Env *[]*string `json:"env" yaml:"env"`
 	// The env-regex option is similar to and compatible with env.
 	//
 	// Its value is a regular
 	// expression to match logging-related environment variables. It is used for advanced
 	// log tag options.
-	EnvRegex *string `json:"envRegex"`
+	EnvRegex *string `json:"envRegex" yaml:"envRegex"`
 	// The labels option takes an array of keys.
 	//
 	// If there is collision
 	// between label and env keys, the value of the env takes precedence. Adds additional
 	// fields to the extra attributes of a logging message.
-	Labels *[]*string `json:"labels"`
+	Labels *[]*string `json:"labels" yaml:"labels"`
 	// By default, Docker uses the first 12 characters of the container ID to tag log messages.
 	//
 	// Refer to the log tag option documentation for customizing the
 	// log tag format.
-	Tag *string `json:"tag"`
+	Tag *string `json:"tag" yaml:"tag"`
 	// The address of an external syslog server.
 	//
 	// The URI specifier may be
 	// [tcp|udp|tcp+tls]://host:port, unix://path, or unixgram://path.
-	Address *string `json:"address"`
+	Address *string `json:"address" yaml:"address"`
 	// The syslog facility to use.
 	//
 	// Can be the number or name for any valid
 	// syslog facility. See the syslog documentation:
 	// https://tools.ietf.org/html/rfc5424#section-6.2.1.
-	Facility *string `json:"facility"`
+	Facility *string `json:"facility" yaml:"facility"`
 	// The syslog message format to use.
 	//
 	// If not specified the local UNIX syslog
 	// format is used, without a specified hostname. Specify rfc3164 for the RFC-3164
 	// compatible format, rfc5424 for RFC-5424 compatible format, or rfc5424micro
 	// for RFC-5424 compatible format with microsecond timestamp resolution.
-	Format *string `json:"format"`
+	Format *string `json:"format" yaml:"format"`
 	// The absolute path to the trust certificates signed by the CA.
 	//
 	// Ignored
 	// if the address protocol is not tcp+tls.
-	TlsCaCert *string `json:"tlsCaCert"`
+	TlsCaCert *string `json:"tlsCaCert" yaml:"tlsCaCert"`
 	// The absolute path to the TLS certificate file.
 	//
 	// Ignored if the address
 	// protocol is not tcp+tls.
-	TlsCert *string `json:"tlsCert"`
+	TlsCert *string `json:"tlsCert" yaml:"tlsCert"`
 	// The absolute path to the TLS key file.
 	//
 	// Ignored if the address protocol
 	// is not tcp+tls.
-	TlsKey *string `json:"tlsKey"`
+	TlsKey *string `json:"tlsKey" yaml:"tlsKey"`
 	// If set to true, TLS verification is skipped when connecting to the syslog daemon.
 	//
 	// Ignored if the address protocol is not tcp+tls.
-	TlsSkipVerify *bool `json:"tlsSkipVerify"`
+	TlsSkipVerify *bool `json:"tlsSkipVerify" yaml:"tlsSkipVerify"`
 }
 
 // Kernel parameters to set in the container.
@@ -17611,9 +17611,9 @@ type SyslogLogDriverProps struct {
 //
 type SystemControl struct {
 	// The namespaced kernel parameter for which to set a value.
-	Namespace *string `json:"namespace"`
+	Namespace *string `json:"namespace" yaml:"namespace"`
 	// The value for the namespaced kernel parameter specified in namespace.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // A special type of {@link ContainerImage} that uses an ECR repository for the image, but a CloudFormation Parameter for the tag of the image in that repository.
@@ -18316,13 +18316,13 @@ func (t *jsiiProxy_TaskDefinition) ToString() *string {
 //
 type TaskDefinitionAttributes struct {
 	// The arn of the task definition.
-	TaskDefinitionArn *string `json:"taskDefinitionArn"`
+	TaskDefinitionArn *string `json:"taskDefinitionArn" yaml:"taskDefinitionArn"`
 	// The networking mode to use for the containers in the task.
-	NetworkMode NetworkMode `json:"networkMode"`
+	NetworkMode NetworkMode `json:"networkMode" yaml:"networkMode"`
 	// The name of the IAM role that grants containers in the task permission to call AWS APIs on your behalf.
-	TaskRole awsiam.IRole `json:"taskRole"`
+	TaskRole awsiam.IRole `json:"taskRole" yaml:"taskRole"`
 	// What launch types this task definition should be compatible with.
-	Compatibility Compatibility `json:"compatibility"`
+	Compatibility Compatibility `json:"compatibility" yaml:"compatibility"`
 }
 
 // The properties for task definitions.
@@ -18333,22 +18333,22 @@ type TaskDefinitionProps struct {
 	// The name of the IAM task execution role that grants the ECS agent permission to call AWS APIs on your behalf.
 	//
 	// The role will be used to retrieve container images from ECR and create CloudWatch log groups.
-	ExecutionRole awsiam.IRole `json:"executionRole"`
+	ExecutionRole awsiam.IRole `json:"executionRole" yaml:"executionRole"`
 	// The name of a family that this task definition is registered to.
 	//
 	// A family groups multiple versions of a task definition.
-	Family *string `json:"family"`
+	Family *string `json:"family" yaml:"family"`
 	// The configuration details for the App Mesh proxy.
-	ProxyConfiguration ProxyConfiguration `json:"proxyConfiguration"`
+	ProxyConfiguration ProxyConfiguration `json:"proxyConfiguration" yaml:"proxyConfiguration"`
 	// The name of the IAM role that grants containers in the task permission to call AWS APIs on your behalf.
-	TaskRole awsiam.IRole `json:"taskRole"`
+	TaskRole awsiam.IRole `json:"taskRole" yaml:"taskRole"`
 	// The list of volume definitions for the task.
 	//
 	// For more information, see
 	// [Task Definition Parameter Volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide//task_definition_parameters.html#volumes).
-	Volumes *[]*Volume `json:"volumes"`
+	Volumes *[]*Volume `json:"volumes" yaml:"volumes"`
 	// The task launch type compatiblity requirement.
-	Compatibility Compatibility `json:"compatibility"`
+	Compatibility Compatibility `json:"compatibility" yaml:"compatibility"`
 	// The number of cpu units used by the task.
 	//
 	// If you are using the EC2 launch type, this field is optional and any value can be used.
@@ -18364,19 +18364,19 @@ type TaskDefinitionProps struct {
 	// 2048 (2 vCPU) - Available memory values: Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB)
 	//
 	// 4096 (4 vCPU) - Available memory values: Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB)
-	Cpu *string `json:"cpu"`
+	Cpu *string `json:"cpu" yaml:"cpu"`
 	// The amount (in GiB) of ephemeral storage to be allocated to the task.
 	//
 	// Only supported in Fargate platform version 1.4.0 or later.
-	EphemeralStorageGiB *float64 `json:"ephemeralStorageGiB"`
+	EphemeralStorageGiB *float64 `json:"ephemeralStorageGiB" yaml:"ephemeralStorageGiB"`
 	// The inference accelerators to use for the containers in the task.
 	//
 	// Not supported in Fargate.
-	InferenceAccelerators *[]*InferenceAccelerator `json:"inferenceAccelerators"`
+	InferenceAccelerators *[]*InferenceAccelerator `json:"inferenceAccelerators" yaml:"inferenceAccelerators"`
 	// The IPC resource namespace to use for the containers in the task.
 	//
 	// Not supported in Fargate and Windows containers.
-	IpcMode IpcMode `json:"ipcMode"`
+	IpcMode IpcMode `json:"ipcMode" yaml:"ipcMode"`
 	// The amount (in MiB) of memory used by the task.
 	//
 	// If using the EC2 launch type, this field is optional and any value can be used.
@@ -18392,26 +18392,26 @@ type TaskDefinitionProps struct {
 	// Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB) - Available cpu values: 2048 (2 vCPU)
 	//
 	// Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) - Available cpu values: 4096 (4 vCPU)
-	MemoryMiB *string `json:"memoryMiB"`
+	MemoryMiB *string `json:"memoryMiB" yaml:"memoryMiB"`
 	// The networking mode to use for the containers in the task.
 	//
 	// On Fargate, the only supported networking mode is AwsVpc.
-	NetworkMode NetworkMode `json:"networkMode"`
+	NetworkMode NetworkMode `json:"networkMode" yaml:"networkMode"`
 	// The process namespace to use for the containers in the task.
 	//
 	// Not supported in Fargate and Windows containers.
-	PidMode PidMode `json:"pidMode"`
+	PidMode PidMode `json:"pidMode" yaml:"pidMode"`
 	// The placement constraints to use for tasks in the service.
 	//
 	// You can specify a maximum of 10 constraints per task (this limit includes
 	// constraints in the task definition and those specified at run time).
 	//
 	// Not supported in Fargate.
-	PlacementConstraints *[]PlacementConstraint `json:"placementConstraints"`
+	PlacementConstraints *[]PlacementConstraint `json:"placementConstraints" yaml:"placementConstraints"`
 	// The operating system that your task definitions are running on.
 	//
 	// A runtimePlatform is supported only for tasks using the Fargate launch type.
-	RuntimePlatform *RuntimePlatform `json:"runtimePlatform"`
+	RuntimePlatform *RuntimePlatform `json:"runtimePlatform" yaml:"runtimePlatform"`
 }
 
 // The details of a tmpfs mount for a container.
@@ -18420,14 +18420,14 @@ type TaskDefinitionProps struct {
 //
 type Tmpfs struct {
 	// The absolute file path where the tmpfs volume is to be mounted.
-	ContainerPath *string `json:"containerPath"`
+	ContainerPath *string `json:"containerPath" yaml:"containerPath"`
 	// The size (in MiB) of the tmpfs volume.
-	Size *float64 `json:"size"`
+	Size *float64 `json:"size" yaml:"size"`
 	// The list of tmpfs volume mount options.
 	//
 	// For more information, see
 	// [TmpfsMountOptions](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_Tmpfs.html).
-	MountOptions *[]TmpfsMountOption `json:"mountOptions"`
+	MountOptions *[]TmpfsMountOption `json:"mountOptions" yaml:"mountOptions"`
 }
 
 // The supported options for a tmpfs mount for a container.
@@ -18486,22 +18486,22 @@ type TrackCustomMetricProps struct {
 	// won't remove capacity from the scalable resource. Otherwise, scale in is
 	// enabled and the target tracking policy can remove capacity from the
 	// scalable resource.
-	DisableScaleIn *bool `json:"disableScaleIn"`
+	DisableScaleIn *bool `json:"disableScaleIn" yaml:"disableScaleIn"`
 	// A name for the scaling policy.
-	PolicyName *string `json:"policyName"`
+	PolicyName *string `json:"policyName" yaml:"policyName"`
 	// Period after a scale in activity completes before another scale in activity can start.
-	ScaleInCooldown awscdk.Duration `json:"scaleInCooldown"`
+	ScaleInCooldown awscdk.Duration `json:"scaleInCooldown" yaml:"scaleInCooldown"`
 	// Period after a scale out activity completes before another scale out activity can start.
-	ScaleOutCooldown awscdk.Duration `json:"scaleOutCooldown"`
+	ScaleOutCooldown awscdk.Duration `json:"scaleOutCooldown" yaml:"scaleOutCooldown"`
 	// The custom CloudWatch metric to track.
 	//
 	// The metric must represent utilization; that is, you will always get the following behavior:
 	//
 	// - metric > targetValue => scale out
 	// - metric < targetValue => scale in
-	Metric awscloudwatch.IMetric `json:"metric"`
+	Metric awscloudwatch.IMetric `json:"metric" yaml:"metric"`
 	// The target value for the custom CloudWatch metric.
-	TargetValue *float64 `json:"targetValue"`
+	TargetValue *float64 `json:"targetValue" yaml:"targetValue"`
 }
 
 // The ulimit settings to pass to the container.
@@ -18512,13 +18512,13 @@ type TrackCustomMetricProps struct {
 //
 type Ulimit struct {
 	// The hard limit for the ulimit type.
-	HardLimit *float64 `json:"hardLimit"`
+	HardLimit *float64 `json:"hardLimit" yaml:"hardLimit"`
 	// The type of the ulimit.
 	//
 	// For more information, see [UlimitName](https://docs.aws.amazon.com/cdk/api/latest/typescript/api/aws-ecs/ulimitname.html#aws_ecs_UlimitName).
-	Name UlimitName `json:"name"`
+	Name UlimitName `json:"name" yaml:"name"`
 	// The soft limit for the ulimit type.
-	SoftLimit *float64 `json:"softLimit"`
+	SoftLimit *float64 `json:"softLimit" yaml:"softLimit"`
 }
 
 // Type of resource to set a limit on.
@@ -18556,13 +18556,13 @@ type Volume struct {
 	//
 	// Up to 255 letters (uppercase and lowercase), numbers, and hyphens are allowed.
 	// This name is referenced in the sourceVolume parameter of container definition mountPoints.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// This property is specified when you are using Docker volumes.
 	//
 	// Docker volumes are only supported when you are using the EC2 launch type.
 	// Windows containers only support the use of the local driver.
 	// To use bind mounts, specify a host instead.
-	DockerVolumeConfiguration *DockerVolumeConfiguration `json:"dockerVolumeConfiguration"`
+	DockerVolumeConfiguration *DockerVolumeConfiguration `json:"dockerVolumeConfiguration" yaml:"dockerVolumeConfiguration"`
 	// This property is specified when you are using Amazon EFS.
 	//
 	// When specifying Amazon EFS volumes in tasks using the Fargate launch type,
@@ -18570,7 +18570,7 @@ type Volume struct {
 	// The supervisor container uses a small amount of the task's memory.
 	// The supervisor container is visible when querying the task metadata version 4 endpoint,
 	// but is not visible in CloudWatch Container Insights.
-	EfsVolumeConfiguration *EfsVolumeConfiguration `json:"efsVolumeConfiguration"`
+	EfsVolumeConfiguration *EfsVolumeConfiguration `json:"efsVolumeConfiguration" yaml:"efsVolumeConfiguration"`
 	// This property is specified when you are using bind mount host volumes.
 	//
 	// Bind mount host volumes are supported when you are using either the EC2 or Fargate launch types.
@@ -18578,7 +18578,7 @@ type Volume struct {
 	// host container instance and where it is stored. If the host parameter is empty, then the Docker
 	// daemon assigns a host path for your data volume. However, the data is not guaranteed to persist
 	// after the containers associated with it stop running.
-	Host *Host `json:"host"`
+	Host *Host `json:"host" yaml:"host"`
 }
 
 // The details on a data volume from another container in the same task definition.
@@ -18590,9 +18590,9 @@ type VolumeFrom struct {
 	//
 	// If this value is true, the container has read-only access to the volume.
 	// If this value is false, then the container can write to the volume.
-	ReadOnly *bool `json:"readOnly"`
+	ReadOnly *bool `json:"readOnly" yaml:"readOnly"`
 	// The name of another container within the same task definition from which to mount volumes.
-	SourceContainer *string `json:"sourceContainer"`
+	SourceContainer *string `json:"sourceContainer" yaml:"sourceContainer"`
 }
 
 // ECS-optimized Windows version list.

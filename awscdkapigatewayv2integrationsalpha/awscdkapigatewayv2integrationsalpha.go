@@ -157,20 +157,20 @@ func (h *jsiiProxy_HttpAlbIntegration) Bind(options *awscdkapigatewayv2alpha.Htt
 type HttpAlbIntegrationProps struct {
 	// The HTTP method that must be used to invoke the underlying HTTP proxy.
 	// Experimental.
-	Method awscdkapigatewayv2alpha.HttpMethod `json:"method"`
+	Method awscdkapigatewayv2alpha.HttpMethod `json:"method" yaml:"method"`
 	// Specifies how to transform HTTP requests before sending them to the backend.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html
 	//
 	// Experimental.
-	ParameterMapping awscdkapigatewayv2alpha.ParameterMapping `json:"parameterMapping"`
+	ParameterMapping awscdkapigatewayv2alpha.ParameterMapping `json:"parameterMapping" yaml:"parameterMapping"`
 	// Specifies the server name to verified by HTTPS when calling the backend integration.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-integration-tlsconfig.html
 	//
 	// Experimental.
-	SecureServerName *string `json:"secureServerName"`
+	SecureServerName *string `json:"secureServerName" yaml:"secureServerName"`
 	// The vpc link to be used for the private integration.
 	// Experimental.
-	VpcLink awscdkapigatewayv2alpha.IVpcLink `json:"vpcLink"`
+	VpcLink awscdkapigatewayv2alpha.IVpcLink `json:"vpcLink" yaml:"vpcLink"`
 }
 
 // The Lambda Proxy integration resource for HTTP API.
@@ -239,12 +239,12 @@ type HttpLambdaIntegrationProps struct {
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html
 	//
 	// Experimental.
-	ParameterMapping awscdkapigatewayv2alpha.ParameterMapping `json:"parameterMapping"`
+	ParameterMapping awscdkapigatewayv2alpha.ParameterMapping `json:"parameterMapping" yaml:"parameterMapping"`
 	// Version of the payload sent to the lambda handler.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
 	//
 	// Experimental.
-	PayloadFormatVersion awscdkapigatewayv2alpha.PayloadFormatVersion `json:"payloadFormatVersion"`
+	PayloadFormatVersion awscdkapigatewayv2alpha.PayloadFormatVersion `json:"payloadFormatVersion" yaml:"payloadFormatVersion"`
 }
 
 // The Network Load Balancer integration resource for HTTP API.
@@ -392,20 +392,20 @@ func (h *jsiiProxy_HttpNlbIntegration) Bind(options *awscdkapigatewayv2alpha.Htt
 type HttpNlbIntegrationProps struct {
 	// The HTTP method that must be used to invoke the underlying HTTP proxy.
 	// Experimental.
-	Method awscdkapigatewayv2alpha.HttpMethod `json:"method"`
+	Method awscdkapigatewayv2alpha.HttpMethod `json:"method" yaml:"method"`
 	// Specifies how to transform HTTP requests before sending them to the backend.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html
 	//
 	// Experimental.
-	ParameterMapping awscdkapigatewayv2alpha.ParameterMapping `json:"parameterMapping"`
+	ParameterMapping awscdkapigatewayv2alpha.ParameterMapping `json:"parameterMapping" yaml:"parameterMapping"`
 	// Specifies the server name to verified by HTTPS when calling the backend integration.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-integration-tlsconfig.html
 	//
 	// Experimental.
-	SecureServerName *string `json:"secureServerName"`
+	SecureServerName *string `json:"secureServerName" yaml:"secureServerName"`
 	// The vpc link to be used for the private integration.
 	// Experimental.
-	VpcLink awscdkapigatewayv2alpha.IVpcLink `json:"vpcLink"`
+	VpcLink awscdkapigatewayv2alpha.IVpcLink `json:"vpcLink" yaml:"vpcLink"`
 }
 
 // Base options for private integration.
@@ -416,20 +416,20 @@ type HttpNlbIntegrationProps struct {
 type HttpPrivateIntegrationOptions struct {
 	// The HTTP method that must be used to invoke the underlying HTTP proxy.
 	// Experimental.
-	Method awscdkapigatewayv2alpha.HttpMethod `json:"method"`
+	Method awscdkapigatewayv2alpha.HttpMethod `json:"method" yaml:"method"`
 	// Specifies how to transform HTTP requests before sending them to the backend.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html
 	//
 	// Experimental.
-	ParameterMapping awscdkapigatewayv2alpha.ParameterMapping `json:"parameterMapping"`
+	ParameterMapping awscdkapigatewayv2alpha.ParameterMapping `json:"parameterMapping" yaml:"parameterMapping"`
 	// Specifies the server name to verified by HTTPS when calling the backend integration.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-integration-tlsconfig.html
 	//
 	// Experimental.
-	SecureServerName *string `json:"secureServerName"`
+	SecureServerName *string `json:"secureServerName" yaml:"secureServerName"`
 	// The vpc link to be used for the private integration.
 	// Experimental.
-	VpcLink awscdkapigatewayv2alpha.IVpcLink `json:"vpcLink"`
+	VpcLink awscdkapigatewayv2alpha.IVpcLink `json:"vpcLink" yaml:"vpcLink"`
 }
 
 // The Service Discovery integration resource for HTTP API.
@@ -577,20 +577,20 @@ func (h *jsiiProxy_HttpServiceDiscoveryIntegration) Bind(_arg *awscdkapigatewayv
 type HttpServiceDiscoveryIntegrationProps struct {
 	// The HTTP method that must be used to invoke the underlying HTTP proxy.
 	// Experimental.
-	Method awscdkapigatewayv2alpha.HttpMethod `json:"method"`
+	Method awscdkapigatewayv2alpha.HttpMethod `json:"method" yaml:"method"`
 	// Specifies how to transform HTTP requests before sending them to the backend.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html
 	//
 	// Experimental.
-	ParameterMapping awscdkapigatewayv2alpha.ParameterMapping `json:"parameterMapping"`
+	ParameterMapping awscdkapigatewayv2alpha.ParameterMapping `json:"parameterMapping" yaml:"parameterMapping"`
 	// Specifies the server name to verified by HTTPS when calling the backend integration.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-integration-tlsconfig.html
 	//
 	// Experimental.
-	SecureServerName *string `json:"secureServerName"`
+	SecureServerName *string `json:"secureServerName" yaml:"secureServerName"`
 	// The vpc link to be used for the private integration.
 	// Experimental.
-	VpcLink awscdkapigatewayv2alpha.IVpcLink `json:"vpcLink"`
+	VpcLink awscdkapigatewayv2alpha.IVpcLink `json:"vpcLink" yaml:"vpcLink"`
 }
 
 // The HTTP Proxy integration resource for HTTP API.
@@ -657,12 +657,12 @@ func (h *jsiiProxy_HttpUrlIntegration) Bind(_arg *awscdkapigatewayv2alpha.HttpRo
 type HttpUrlIntegrationProps struct {
 	// The HTTP method that must be used to invoke the underlying HTTP proxy.
 	// Experimental.
-	Method awscdkapigatewayv2alpha.HttpMethod `json:"method"`
+	Method awscdkapigatewayv2alpha.HttpMethod `json:"method" yaml:"method"`
 	// Specifies how to transform HTTP requests before sending them to the backend.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html
 	//
 	// Experimental.
-	ParameterMapping awscdkapigatewayv2alpha.ParameterMapping `json:"parameterMapping"`
+	ParameterMapping awscdkapigatewayv2alpha.ParameterMapping `json:"parameterMapping" yaml:"parameterMapping"`
 }
 
 // Lambda WebSocket Integration.
@@ -709,6 +709,62 @@ func NewWebSocketLambdaIntegration_Override(w WebSocketLambdaIntegration, id *st
 // (experimental) Bind this integration to the route.
 // Experimental.
 func (w *jsiiProxy_WebSocketLambdaIntegration) Bind(options *awscdkapigatewayv2alpha.WebSocketRouteIntegrationBindOptions) *awscdkapigatewayv2alpha.WebSocketRouteIntegrationConfig {
+	var returns *awscdkapigatewayv2alpha.WebSocketRouteIntegrationConfig
+
+	_jsii_.Invoke(
+		w,
+		"bind",
+		[]interface{}{options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Mock WebSocket Integration.
+//
+// TODO: EXAMPLE
+//
+// Experimental.
+type WebSocketMockIntegration interface {
+	awscdkapigatewayv2alpha.WebSocketRouteIntegration
+	Bind(options *awscdkapigatewayv2alpha.WebSocketRouteIntegrationBindOptions) *awscdkapigatewayv2alpha.WebSocketRouteIntegrationConfig
+}
+
+// The jsii proxy struct for WebSocketMockIntegration
+type jsiiProxy_WebSocketMockIntegration struct {
+	internal.Type__awscdkapigatewayv2alphaWebSocketRouteIntegration
+}
+
+// Experimental.
+func NewWebSocketMockIntegration(id *string) WebSocketMockIntegration {
+	_init_.Initialize()
+
+	j := jsiiProxy_WebSocketMockIntegration{}
+
+	_jsii_.Create(
+		"@aws-cdk/aws-apigatewayv2-integrations-alpha.WebSocketMockIntegration",
+		[]interface{}{id},
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewWebSocketMockIntegration_Override(w WebSocketMockIntegration, id *string) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/aws-apigatewayv2-integrations-alpha.WebSocketMockIntegration",
+		[]interface{}{id},
+		w,
+	)
+}
+
+// (experimental) Bind this integration to the route.
+// Experimental.
+func (w *jsiiProxy_WebSocketMockIntegration) Bind(options *awscdkapigatewayv2alpha.WebSocketRouteIntegrationBindOptions) *awscdkapigatewayv2alpha.WebSocketRouteIntegrationConfig {
 	var returns *awscdkapigatewayv2alpha.WebSocketRouteIntegrationConfig
 
 	_jsii_.Invoke(

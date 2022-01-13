@@ -602,15 +602,15 @@ func (c *jsiiProxy_CfnAnomalyMonitor) ValidateProperties(_properties interface{}
 //
 type CfnAnomalyMonitorProps struct {
 	// The name of the monitor.
-	MonitorName *string `json:"monitorName"`
+	MonitorName *string `json:"monitorName" yaml:"monitorName"`
 	// The possible type values.
-	MonitorType *string `json:"monitorType"`
+	MonitorType *string `json:"monitorType" yaml:"monitorType"`
 	// The dimensions to evaluate.
-	MonitorDimension *string `json:"monitorDimension"`
+	MonitorDimension *string `json:"monitorDimension" yaml:"monitorDimension"`
 	// The array of `MonitorSpecification` in JSON array format.
 	//
 	// For instance, you can use `MonitorSpecification` to specify a tag, Cost Category, or linked account for your custom anomaly monitor. For further information, see the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html#aws-resource-ce-anomalymonitor--examples) section of this page.
-	MonitorSpecification *string `json:"monitorSpecification"`
+	MonitorSpecification *string `json:"monitorSpecification" yaml:"monitorSpecification"`
 }
 
 // A CloudFormation `AWS::CE::AnomalySubscription`.
@@ -1193,11 +1193,11 @@ func (c *jsiiProxy_CfnAnomalySubscription) ValidateProperties(_properties interf
 //
 type CfnAnomalySubscription_SubscriberProperty struct {
 	// The email address or SNS Topic Amazon Resource Name (ARN), depending on the `Type` .
-	Address *string `json:"address"`
+	Address *string `json:"address" yaml:"address"`
 	// The notification delivery channel.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// Indicates if the subscriber accepts the notifications.
-	Status *string `json:"status"`
+	Status *string `json:"status" yaml:"status"`
 }
 
 // Properties for defining a `CfnAnomalySubscription`.
@@ -1206,15 +1206,15 @@ type CfnAnomalySubscription_SubscriberProperty struct {
 //
 type CfnAnomalySubscriptionProps struct {
 	// The frequency that anomaly reports are sent over email.
-	Frequency *string `json:"frequency"`
+	Frequency *string `json:"frequency" yaml:"frequency"`
 	// A list of cost anomaly monitors.
-	MonitorArnList *[]*string `json:"monitorArnList"`
+	MonitorArnList *[]*string `json:"monitorArnList" yaml:"monitorArnList"`
 	// A list of subscribers to notify.
-	Subscribers interface{} `json:"subscribers"`
+	Subscribers interface{} `json:"subscribers" yaml:"subscribers"`
 	// The name for the subscription.
-	SubscriptionName *string `json:"subscriptionName"`
+	SubscriptionName *string `json:"subscriptionName" yaml:"subscriptionName"`
 	// The dollar value that triggers a notification if the threshold is exceeded.
-	Threshold *float64 `json:"threshold"`
+	Threshold *float64 `json:"threshold" yaml:"threshold"`
 }
 
 // A CloudFormation `AWS::CE::CostCategory`.
@@ -1797,16 +1797,16 @@ func (c *jsiiProxy_CfnCostCategory) ValidateProperties(_properties interface{}) 
 //
 type CfnCostCategoryProps struct {
 	// The unique name of the Cost Category.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The array of CostCategoryRule in JSON array format.
 	//
 	// > Rules are processed in order. If there are multiple rules that match the line item, then the first rule to match is used to determine that Cost Category value.
-	Rules *string `json:"rules"`
+	Rules *string `json:"rules" yaml:"rules"`
 	// The rule schema version in this particular Cost Category.
-	RuleVersion *string `json:"ruleVersion"`
+	RuleVersion *string `json:"ruleVersion" yaml:"ruleVersion"`
 	// `AWS::CE::CostCategory.DefaultValue`.
-	DefaultValue *string `json:"defaultValue"`
+	DefaultValue *string `json:"defaultValue" yaml:"defaultValue"`
 	// The split charge rules that are used to allocate your charges between your Cost Category values.
-	SplitChargeRules *string `json:"splitChargeRules"`
+	SplitChargeRules *string `json:"splitChargeRules" yaml:"splitChargeRules"`
 }
 

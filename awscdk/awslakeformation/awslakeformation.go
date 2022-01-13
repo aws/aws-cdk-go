@@ -507,7 +507,7 @@ func (c *jsiiProxy_CfnDataLakeSettings) ValidateProperties(_properties interface
 //
 type CfnDataLakeSettings_DataLakePrincipalProperty struct {
 	// An identifier for the Lake Formation principal.
-	DataLakePrincipalIdentifier *string `json:"dataLakePrincipalIdentifier"`
+	DataLakePrincipalIdentifier *string `json:"dataLakePrincipalIdentifier" yaml:"dataLakePrincipalIdentifier"`
 }
 
 // Properties for defining a `CfnDataLakeSettings`.
@@ -516,9 +516,9 @@ type CfnDataLakeSettings_DataLakePrincipalProperty struct {
 //
 type CfnDataLakeSettingsProps struct {
 	// A list of AWS Lake Formation principals.
-	Admins interface{} `json:"admins"`
+	Admins interface{} `json:"admins" yaml:"admins"`
 	// `AWS::LakeFormation::DataLakeSettings.TrustedResourceOwners`.
-	TrustedResourceOwners *[]*string `json:"trustedResourceOwners"`
+	TrustedResourceOwners *[]*string `json:"trustedResourceOwners" yaml:"trustedResourceOwners"`
 }
 
 // A CloudFormation `AWS::LakeFormation::Permissions`.
@@ -1061,7 +1061,7 @@ type CfnPermissions_ColumnWildcardProperty struct {
 	// Excludes column names.
 	//
 	// Any column with this name will be excluded.
-	ExcludedColumnNames *[]*string `json:"excludedColumnNames"`
+	ExcludedColumnNames *[]*string `json:"excludedColumnNames" yaml:"excludedColumnNames"`
 }
 
 // The Lake Formation principal.
@@ -1070,7 +1070,7 @@ type CfnPermissions_ColumnWildcardProperty struct {
 //
 type CfnPermissions_DataLakePrincipalProperty struct {
 	// An identifier for the Lake Formation principal.
-	DataLakePrincipalIdentifier *string `json:"dataLakePrincipalIdentifier"`
+	DataLakePrincipalIdentifier *string `json:"dataLakePrincipalIdentifier" yaml:"dataLakePrincipalIdentifier"`
 }
 
 // A structure for a data location object where permissions are granted or revoked.
@@ -1079,9 +1079,9 @@ type CfnPermissions_DataLakePrincipalProperty struct {
 //
 type CfnPermissions_DataLocationResourceProperty struct {
 	// `CfnPermissions.DataLocationResourceProperty.CatalogId`.
-	CatalogId *string `json:"catalogId"`
+	CatalogId *string `json:"catalogId" yaml:"catalogId"`
 	// Currently not supported by AWS CloudFormation .
-	S3Resource *string `json:"s3Resource"`
+	S3Resource *string `json:"s3Resource" yaml:"s3Resource"`
 }
 
 // A structure for the database object.
@@ -1090,11 +1090,11 @@ type CfnPermissions_DataLocationResourceProperty struct {
 //
 type CfnPermissions_DatabaseResourceProperty struct {
 	// `CfnPermissions.DatabaseResourceProperty.CatalogId`.
-	CatalogId *string `json:"catalogId"`
+	CatalogId *string `json:"catalogId" yaml:"catalogId"`
 	// The name of the database resource.
 	//
 	// Unique to the Data Catalog.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // A structure for the resource.
@@ -1103,15 +1103,15 @@ type CfnPermissions_DatabaseResourceProperty struct {
 //
 type CfnPermissions_ResourceProperty struct {
 	// A structure for the database object.
-	DatabaseResource interface{} `json:"databaseResource"`
+	DatabaseResource interface{} `json:"databaseResource" yaml:"databaseResource"`
 	// Currently not supported by AWS CloudFormation .
-	DataLocationResource interface{} `json:"dataLocationResource"`
+	DataLocationResource interface{} `json:"dataLocationResource" yaml:"dataLocationResource"`
 	// A structure for the table object.
 	//
 	// A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
-	TableResource interface{} `json:"tableResource"`
+	TableResource interface{} `json:"tableResource" yaml:"tableResource"`
 	// Currently not supported by AWS CloudFormation .
-	TableWithColumnsResource interface{} `json:"tableWithColumnsResource"`
+	TableWithColumnsResource interface{} `json:"tableWithColumnsResource" yaml:"tableWithColumnsResource"`
 }
 
 // A structure for the table object.
@@ -1122,15 +1122,15 @@ type CfnPermissions_ResourceProperty struct {
 //
 type CfnPermissions_TableResourceProperty struct {
 	// `CfnPermissions.TableResourceProperty.CatalogId`.
-	CatalogId *string `json:"catalogId"`
+	CatalogId *string `json:"catalogId" yaml:"catalogId"`
 	// The name of the database for the table.
 	//
 	// Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
-	DatabaseName *string `json:"databaseName"`
+	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
 	// The name of the table.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// `CfnPermissions.TableResourceProperty.TableWildcard`.
-	TableWildcard interface{} `json:"tableWildcard"`
+	TableWildcard interface{} `json:"tableWildcard" yaml:"tableWildcard"`
 }
 
 // TODO: EXAMPLE
@@ -1146,23 +1146,23 @@ type CfnPermissions_TableWildcardProperty struct {
 //
 type CfnPermissions_TableWithColumnsResourceProperty struct {
 	// `CfnPermissions.TableWithColumnsResourceProperty.CatalogId`.
-	CatalogId *string `json:"catalogId"`
+	CatalogId *string `json:"catalogId" yaml:"catalogId"`
 	// The list of column names for the table.
 	//
 	// At least one of `ColumnNames` or `ColumnWildcard` is required.
-	ColumnNames *[]*string `json:"columnNames"`
+	ColumnNames *[]*string `json:"columnNames" yaml:"columnNames"`
 	// A wildcard specified by a `ColumnWildcard` object.
 	//
 	// At least one of `ColumnNames` or `ColumnWildcard` is required.
-	ColumnWildcard interface{} `json:"columnWildcard"`
+	ColumnWildcard interface{} `json:"columnWildcard" yaml:"columnWildcard"`
 	// The name of the database for the table with columns resource.
 	//
 	// Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
-	DatabaseName *string `json:"databaseName"`
+	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
 	// The name of the table resource.
 	//
 	// A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // Properties for defining a `CfnPermissions`.
@@ -1171,13 +1171,13 @@ type CfnPermissions_TableWithColumnsResourceProperty struct {
 //
 type CfnPermissionsProps struct {
 	// The AWS Lake Formation principal.
-	DataLakePrincipal interface{} `json:"dataLakePrincipal"`
+	DataLakePrincipal interface{} `json:"dataLakePrincipal" yaml:"dataLakePrincipal"`
 	// A structure for the resource.
-	Resource interface{} `json:"resource"`
+	Resource interface{} `json:"resource" yaml:"resource"`
 	// The permissions granted or revoked.
-	Permissions *[]*string `json:"permissions"`
+	Permissions *[]*string `json:"permissions" yaml:"permissions"`
 	// Indicates whether to grant the ability to grant permissions (as a subset of permissions granted).
-	PermissionsWithGrantOption *[]*string `json:"permissionsWithGrantOption"`
+	PermissionsWithGrantOption *[]*string `json:"permissionsWithGrantOption" yaml:"permissionsWithGrantOption"`
 }
 
 // A CloudFormation `AWS::LakeFormation::Resource`.
@@ -1698,10 +1698,10 @@ func (c *jsiiProxy_CfnResource) ValidateProperties(_properties interface{}) {
 //
 type CfnResourceProps struct {
 	// The Amazon Resource Name (ARN) of the resource.
-	ResourceArn *string `json:"resourceArn"`
+	ResourceArn *string `json:"resourceArn" yaml:"resourceArn"`
 	// Designates a trusted caller, an IAM principal, by registering this caller with the Data Catalog.
-	UseServiceLinkedRole interface{} `json:"useServiceLinkedRole"`
+	UseServiceLinkedRole interface{} `json:"useServiceLinkedRole" yaml:"useServiceLinkedRole"`
 	// The IAM role that registered a resource.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 }
 

@@ -543,15 +543,15 @@ type CfnAlias_RoutingStrategyProperty struct {
 	//
 	// - *SIMPLE* - The alias resolves to one specific fleet. Use this type when routing to active fleets.
 	// - *TERMINAL* - The alias does not resolve to a fleet but instead can be used to display a message to the user. A terminal alias throws a `TerminalRoutingStrategyException` with the message that you specified in the `Message` property.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// A unique identifier for a fleet that the alias points to.
 	//
 	// If you specify `SIMPLE` for the `Type` property, you must specify this property.
-	FleetId *string `json:"fleetId"`
+	FleetId *string `json:"fleetId" yaml:"fleetId"`
 	// The message text to be used with a terminal routing strategy.
 	//
 	// If you specify `TERMINAL` for the `Type` property, you must specify this property.
-	Message *string `json:"message"`
+	Message *string `json:"message" yaml:"message"`
 }
 
 // Properties for defining a `CfnAlias`.
@@ -562,11 +562,11 @@ type CfnAliasProps struct {
 	// A descriptive label that is associated with an alias.
 	//
 	// Alias names do not need to be unique.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// A routing configuration that specifies where traffic is directed for this alias, such as to a fleet or to a message.
-	RoutingStrategy interface{} `json:"routingStrategy"`
+	RoutingStrategy interface{} `json:"routingStrategy" yaml:"routingStrategy"`
 	// A human-readable description of the alias.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 }
 
 // A CloudFormation `AWS::GameLift::Build`.
@@ -1109,15 +1109,15 @@ type CfnBuild_S3LocationProperty struct {
 	// An Amazon S3 bucket identifier. This is the name of the S3 bucket.
 	//
 	// > GameLift currently does not support uploading from Amazon S3 buckets with names that contain a dot (.).
-	Bucket *string `json:"bucket"`
+	Bucket *string `json:"bucket" yaml:"bucket"`
 	// The name of the zip file that contains the build files or script files.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// The Amazon Resource Name ( [ARN](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html) ) for an IAM role that allows Amazon Web Services to access the S3 bucket.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// The version of the file, if object versioning is turned on for the bucket.
 	//
 	// Amazon GameLift uses this information when retrieving files from your S3 bucket. To retrieve a specific version of the file, provide an object version. To retrieve the latest version of the file, do not set this parameter.
-	ObjectVersion *string `json:"objectVersion"`
+	ObjectVersion *string `json:"objectVersion" yaml:"objectVersion"`
 }
 
 // Properties for defining a `CfnBuild`.
@@ -1128,21 +1128,21 @@ type CfnBuildProps struct {
 	// A descriptive label that is associated with a build.
 	//
 	// Build names do not need to be unique.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The operating system that the game server binaries are built to run on.
 	//
 	// This value determines the type of fleet resources that you can use for this build. If your game build contains multiple executables, they all must run on the same operating system. If an operating system is not specified when creating a build, Amazon GameLift uses the default value (WINDOWS_2012). This value cannot be changed later.
-	OperatingSystem *string `json:"operatingSystem"`
+	OperatingSystem *string `json:"operatingSystem" yaml:"operatingSystem"`
 	// Information indicating where your game build files are stored.
 	//
 	// Use this parameter only when creating a build with files stored in an Amazon S3 bucket that you own. The storage location must specify an Amazon S3 bucket name and key. The location must also specify a role ARN that you set up to allow Amazon Web Services to access your Amazon S3 bucket. The S3 bucket and your new build must be in the same Region.
 	//
 	// If a `StorageLocation` is specified, the size of your file can be found in your Amazon S3 bucket. Amazon Web Services will report a `SizeOnDisk` of 0.
-	StorageLocation interface{} `json:"storageLocation"`
+	StorageLocation interface{} `json:"storageLocation" yaml:"storageLocation"`
 	// Version information that is associated with this build.
 	//
 	// Version strings do not need to be unique.
-	Version *string `json:"version"`
+	Version *string `json:"version" yaml:"version"`
 }
 
 // A CloudFormation `AWS::GameLift::Fleet`.
@@ -1996,7 +1996,7 @@ func (c *jsiiProxy_CfnFleet) ValidateProperties(_properties interface{}) {
 //
 type CfnFleet_CertificateConfigurationProperty struct {
 	// Indicates whether a TLS/SSL certificate is generated for the fleet.
-	CertificateType *string `json:"certificateType"`
+	CertificateType *string `json:"certificateType" yaml:"certificateType"`
 }
 
 // A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift hosting resource.
@@ -2009,19 +2009,19 @@ type CfnFleet_IpPermissionProperty struct {
 	// A starting value for a range of allowed port numbers.
 	//
 	// For fleets using Linux builds, only port 22, 443, 1026-60000 are valid. For fleets using Windows builds, only port 443, 1026-60000 are valid.
-	FromPort *float64 `json:"fromPort"`
+	FromPort *float64 `json:"fromPort" yaml:"fromPort"`
 	// A range of allowed IP addresses.
 	//
 	// This value must be expressed in CIDR notation. Example: " `000.000.000.000/[subnet mask]` " or optionally the shortened version " `0.0.0.0/[subnet mask]` ".
-	IpRange *string `json:"ipRange"`
+	IpRange *string `json:"ipRange" yaml:"ipRange"`
 	// The network communication protocol used by the fleet.
-	Protocol *string `json:"protocol"`
+	Protocol *string `json:"protocol" yaml:"protocol"`
 	// An ending value for a range of allowed port numbers.
 	//
 	// Port numbers are end-inclusive. This value must be higher than `FromPort` .
 	//
 	// For fleets using Linux builds, only port 22, 443, 1026-60000 are valid. For fleets using Windows builds, only port 443, 1026-60000 are valid.
-	ToPort *float64 `json:"toPort"`
+	ToPort *float64 `json:"toPort" yaml:"toPort"`
 }
 
 // Current resource capacity settings in a specified fleet or location.
@@ -2038,15 +2038,15 @@ type CfnFleet_LocationCapacityProperty struct {
 	// The number of Amazon EC2 instances you want to maintain in the specified fleet location.
 	//
 	// This value must fall between the minimum and maximum size limits.
-	DesiredEc2Instances *float64 `json:"desiredEc2Instances"`
+	DesiredEc2Instances *float64 `json:"desiredEc2Instances" yaml:"desiredEc2Instances"`
 	// The maximum number of instances that are allowed in the specified fleet location.
 	//
 	// If this parameter is not set, the default is 1.
-	MaxSize *float64 `json:"maxSize"`
+	MaxSize *float64 `json:"maxSize" yaml:"maxSize"`
 	// The minimum number of instances that are allowed in the specified fleet location.
 	//
 	// If this parameter is not set, the default is 0.
-	MinSize *float64 `json:"minSize"`
+	MinSize *float64 `json:"minSize" yaml:"minSize"`
 }
 
 // A remote location where a multi-location fleet can deploy EC2 instances for game hosting.
@@ -2059,7 +2059,7 @@ type CfnFleet_LocationCapacityProperty struct {
 //
 type CfnFleet_LocationConfigurationProperty struct {
 	// An AWS Region code, such as `us-west-2` .
-	Location *string `json:"location"`
+	Location *string `json:"location" yaml:"location"`
 	// Current resource capacity settings in a specified fleet or location.
 	//
 	// The location value might refer to a fleet's remote location or its home Region.
@@ -2067,7 +2067,7 @@ type CfnFleet_LocationConfigurationProperty struct {
 	// *Related actions*
 	//
 	// [DescribeFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetCapacity.html) | [DescribeFleetLocationCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html) | [UpdateFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetCapacity.html)
-	LocationCapacity interface{} `json:"locationCapacity"`
+	LocationCapacity interface{} `json:"locationCapacity" yaml:"locationCapacity"`
 }
 
 // A policy that limits the number of game sessions a player can create on the same fleet.
@@ -2080,9 +2080,9 @@ type CfnFleet_LocationConfigurationProperty struct {
 //
 type CfnFleet_ResourceCreationLimitPolicyProperty struct {
 	// The maximum number of game sessions that an individual can create during the policy period.
-	NewGameSessionsPerCreator *float64 `json:"newGameSessionsPerCreator"`
+	NewGameSessionsPerCreator *float64 `json:"newGameSessionsPerCreator" yaml:"newGameSessionsPerCreator"`
 	// The time span used in evaluating the resource creation limit policy.
-	PolicyPeriodInMinutes *float64 `json:"policyPeriodInMinutes"`
+	PolicyPeriodInMinutes *float64 `json:"policyPeriodInMinutes" yaml:"policyPeriodInMinutes"`
 }
 
 // A collection of server process configurations that describe the processes to run on each instance in a fleet.
@@ -2099,13 +2099,13 @@ type CfnFleet_RuntimeConfigurationProperty struct {
 	// The maximum amount of time (in seconds) allowed to launch a new game session and have it report ready to host players.
 	//
 	// During this time, the game session is in status `ACTIVATING` . If the game session does not become active before the timeout, it is ended and the game session status is changed to `TERMINATED` .
-	GameSessionActivationTimeoutSeconds *float64 `json:"gameSessionActivationTimeoutSeconds"`
+	GameSessionActivationTimeoutSeconds *float64 `json:"gameSessionActivationTimeoutSeconds" yaml:"gameSessionActivationTimeoutSeconds"`
 	// The number of game sessions in status `ACTIVATING` to allow on an instance.
 	//
 	// This setting limits the instance resources that can be used for new game activations at any one time.
-	MaxConcurrentGameSessionActivations *float64 `json:"maxConcurrentGameSessionActivations"`
+	MaxConcurrentGameSessionActivations *float64 `json:"maxConcurrentGameSessionActivations" yaml:"maxConcurrentGameSessionActivations"`
 	// A collection of server process configurations that identify what server processes to run on each instance in a fleet.
-	ServerProcesses interface{} `json:"serverProcesses"`
+	ServerProcesses interface{} `json:"serverProcesses" yaml:"serverProcesses"`
 }
 
 // A set of instructions for launching server processes on each instance in a fleet.
@@ -2116,16 +2116,16 @@ type CfnFleet_RuntimeConfigurationProperty struct {
 //
 type CfnFleet_ServerProcessProperty struct {
 	// The number of server processes using this configuration that run concurrently on each instance.
-	ConcurrentExecutions *float64 `json:"concurrentExecutions"`
+	ConcurrentExecutions *float64 `json:"concurrentExecutions" yaml:"concurrentExecutions"`
 	// The location of a game build executable or the Realtime script file that contains the `Init()` function.
 	//
 	// Game builds and Realtime scripts are installed on instances at the root:
 	//
 	// - Windows (custom game builds only): `C:\game` . Example: " `C:\game\MyGame\server.exe` "
 	// - Linux: `/local/game` . Examples: " `/local/game/MyGame/server.exe` " or " `/local/game/MyRealtimeScript.js` "
-	LaunchPath *string `json:"launchPath"`
+	LaunchPath *string `json:"launchPath" yaml:"launchPath"`
 	// An optional list of parameters to pass to the server executable or Realtime script on launch.
-	Parameters *string `json:"parameters"`
+	Parameters *string `json:"parameters" yaml:"parameters"`
 }
 
 // Properties for defining a `CfnFleet`.
@@ -2136,79 +2136,79 @@ type CfnFleetProps struct {
 	// A unique identifier for a build to be deployed on the new fleet.
 	//
 	// If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a `READY` status. This fleet setting cannot be changed once the fleet is created.
-	BuildId *string `json:"buildId"`
+	BuildId *string `json:"buildId" yaml:"buildId"`
 	// Indicates whether to generate a TLS/SSL certificate for the new fleet.
 	//
 	// TLS certificates are used for encrypting traffic between game clients and game servers running on GameLift. If this parameter is not set, certificate generation is disabled. This fleet setting cannot be changed once the fleet is created. Learn more at [Securing Client/Server Communication](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-howitworks.html#gamelift-howitworks-security) .
 	//
 	// Note: This feature requires the AWS Certificate Manager service, which is available in the AWS global partition but not in all other partitions. When working in a partition that does not support this feature, a request for a new fleet with certificate generation results fails with a 4xx unsupported region error.
-	CertificateConfiguration interface{} `json:"certificateConfiguration"`
+	CertificateConfiguration interface{} `json:"certificateConfiguration" yaml:"certificateConfiguration"`
 	// A human-readable description of the fleet.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The number of EC2 instances that you want this fleet to host.
 	//
 	// When creating a new fleet, GameLift automatically sets this value to "1" and initiates a single instance. Once the fleet is active, update this value to trigger GameLift to add or remove instances from the fleet.
-	DesiredEc2Instances *float64 `json:"desiredEc2Instances"`
+	DesiredEc2Instances *float64 `json:"desiredEc2Instances" yaml:"desiredEc2Instances"`
 	// A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
-	Ec2InboundPermissions interface{} `json:"ec2InboundPermissions"`
+	Ec2InboundPermissions interface{} `json:"ec2InboundPermissions" yaml:"ec2InboundPermissions"`
 	// The GameLift-supported Amazon EC2 instance type to use for all fleet instances.
 	//
 	// Instance type determines the computing resources that will be used to host your game servers, including CPU, memory, storage, and networking capacity. See [Amazon Elastic Compute Cloud Instance Types](https://docs.aws.amazon.com/ec2/instance-types/) for detailed descriptions of Amazon EC2 instance types.
-	Ec2InstanceType *string `json:"ec2InstanceType"`
+	Ec2InstanceType *string `json:"ec2InstanceType" yaml:"ec2InstanceType"`
 	// Indicates whether to use On-Demand or Spot instances for this fleet.
 	//
 	// By default, this property is set to `ON_DEMAND` . Learn more about when to use [On-Demand versus Spot Instances](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-ec2-instances.html#gamelift-ec2-instances-spot) . This property cannot be changed after the fleet is created.
-	FleetType *string `json:"fleetType"`
+	FleetType *string `json:"fleetType" yaml:"fleetType"`
 	// A unique identifier for an IAM role that manages access to your AWS services.
 	//
 	// With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN by using the [IAM dashboard](https://docs.aws.amazon.com/iam/) in the AWS Management Console . Learn more about using on-box credentials for your game servers at [Access external resources from a game server](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html) . This property cannot be changed after the fleet is created.
-	InstanceRoleArn *string `json:"instanceRoleArn"`
+	InstanceRoleArn *string `json:"instanceRoleArn" yaml:"instanceRoleArn"`
 	// A set of remote locations to deploy additional instances to and manage as part of the fleet.
 	//
 	// This parameter can only be used when creating fleets in AWS Regions that support multiple locations. You can add any GameLift-supported AWS Region as a remote location, in the form of an AWS Region code such as `us-west-2` . To create a fleet with instances in the home Region only, omit this parameter.
-	Locations interface{} `json:"locations"`
+	Locations interface{} `json:"locations" yaml:"locations"`
 	// The maximum value that is allowed for the fleet's instance count.
 	//
 	// When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
-	MaxSize *float64 `json:"maxSize"`
+	MaxSize *float64 `json:"maxSize" yaml:"maxSize"`
 	// The name of an Amazon CloudWatch metric group.
 	//
 	// A metric group aggregates the metrics for all fleets in the group. Specify a string containing the metric group name. You can use an existing name or use a new name to create a new metric group. Currently, this parameter can have only one string.
-	MetricGroups *[]*string `json:"metricGroups"`
+	MetricGroups *[]*string `json:"metricGroups" yaml:"metricGroups"`
 	// The minimum value allowed for the fleet's instance count.
 	//
 	// When creating a new fleet, GameLift automatically sets this value to "0". After the fleet is active, you can change this value.
-	MinSize *float64 `json:"minSize"`
+	MinSize *float64 `json:"minSize" yaml:"minSize"`
 	// A descriptive label that is associated with a fleet.
 	//
 	// Fleet names do not need to be unique.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// A game session protection policy to apply to all game sessions hosted on instances in this fleet.
 	//
 	// When protected, active game sessions cannot be terminated during a scale-down event. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy to affect future game sessions on the fleet. You can also set protection for individual game sessions.
-	NewGameSessionProtectionPolicy *string `json:"newGameSessionProtectionPolicy"`
+	NewGameSessionProtectionPolicy *string `json:"newGameSessionProtectionPolicy" yaml:"newGameSessionProtectionPolicy"`
 	// Used when peering your GameLift fleet with a VPC, the unique identifier for the AWS account that owns the VPC.
 	//
 	// You can find your account ID in the AWS Management Console under account settings.
-	PeerVpcAwsAccountId *string `json:"peerVpcAwsAccountId"`
+	PeerVpcAwsAccountId *string `json:"peerVpcAwsAccountId" yaml:"peerVpcAwsAccountId"`
 	// A unique identifier for a VPC with resources to be accessed by your GameLift fleet.
 	//
 	// The VPC must be in the same Region as your fleet. To look up a VPC ID, use the [VPC Dashboard](https://docs.aws.amazon.com/vpc/) in the AWS Management Console . Learn more about VPC peering in [VPC Peering with GameLift Fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html) .
-	PeerVpcId *string `json:"peerVpcId"`
+	PeerVpcId *string `json:"peerVpcId" yaml:"peerVpcId"`
 	// A policy that limits the number of game sessions that an individual player can create on instances in this fleet within a specified span of time.
-	ResourceCreationLimitPolicy interface{} `json:"resourceCreationLimitPolicy"`
+	ResourceCreationLimitPolicy interface{} `json:"resourceCreationLimitPolicy" yaml:"resourceCreationLimitPolicy"`
 	// Instructions for launching server processes on each instance in the fleet.
 	//
 	// Server processes run either a custom game build executable or a Realtime script. The runtime configuration defines the server executables or launch script file, launch parameters, and the number of processes to run concurrently on each instance. When creating a fleet, the runtime configuration must have at least one server process configuration; otherwise the request fails with an invalid request exception.
 	//
 	// This parameter is required unless the parameters `ServerLaunchPath` and `ServerLaunchParameters` are defined. Runtime configuration has replaced these parameters, but fleets that use them will continue to work.
-	RuntimeConfiguration interface{} `json:"runtimeConfiguration"`
+	RuntimeConfiguration interface{} `json:"runtimeConfiguration" yaml:"runtimeConfiguration"`
 	// A unique identifier for a Realtime script to be deployed on a new Realtime Servers fleet.
 	//
 	// The script must have been successfully uploaded to Amazon GameLift. This fleet setting cannot be changed once the fleet is created.
 	//
 	// Note: It is not currently possible to use the `!Ref` command to reference a script created with a CloudFormation template for the fleet property `ScriptId` . Instead, use `Fn::GetAtt Script.Arn` or `Fn::GetAtt Script.Id` to retrieve either of these properties as input for `ScriptId` . Alternatively, enter a `ScriptId` string manually.
-	ScriptId *string `json:"scriptId"`
+	ScriptId *string `json:"scriptId" yaml:"scriptId"`
 }
 
 // A CloudFormation `AWS::GameLift::GameServerGroup`.
@@ -2935,9 +2935,9 @@ func (c *jsiiProxy_CfnGameServerGroup) ValidateProperties(_properties interface{
 //
 type CfnGameServerGroup_AutoScalingPolicyProperty struct {
 	// `CfnGameServerGroup.AutoScalingPolicyProperty.TargetTrackingConfiguration`.
-	TargetTrackingConfiguration interface{} `json:"targetTrackingConfiguration"`
+	TargetTrackingConfiguration interface{} `json:"targetTrackingConfiguration" yaml:"targetTrackingConfiguration"`
 	// `CfnGameServerGroup.AutoScalingPolicyProperty.EstimatedInstanceWarmup`.
-	EstimatedInstanceWarmup *float64 `json:"estimatedInstanceWarmup"`
+	EstimatedInstanceWarmup *float64 `json:"estimatedInstanceWarmup" yaml:"estimatedInstanceWarmup"`
 }
 
 // *This data type is used with the Amazon GameLift FleetIQ and game server groups.*.
@@ -2948,22 +2948,22 @@ type CfnGameServerGroup_AutoScalingPolicyProperty struct {
 //
 type CfnGameServerGroup_InstanceDefinitionProperty struct {
 	// An Amazon EC2 instance type designation.
-	InstanceType *string `json:"instanceType"`
+	InstanceType *string `json:"instanceType" yaml:"instanceType"`
 	// Instance weighting that indicates how much this instance type contributes to the total capacity of a game server group.
 	//
 	// Instance weights are used by GameLift FleetIQ to calculate the instance type's cost per unit hour and better identify the most cost-effective options. For detailed information on weighting instance capacity, see [Instance Weighting](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html) in the *Amazon Elastic Compute Cloud Auto Scaling User Guide* . Default value is "1".
-	WeightedCapacity *string `json:"weightedCapacity"`
+	WeightedCapacity *string `json:"weightedCapacity" yaml:"weightedCapacity"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnGameServerGroup_LaunchTemplateProperty struct {
 	// `CfnGameServerGroup.LaunchTemplateProperty.LaunchTemplateId`.
-	LaunchTemplateId *string `json:"launchTemplateId"`
+	LaunchTemplateId *string `json:"launchTemplateId" yaml:"launchTemplateId"`
 	// `CfnGameServerGroup.LaunchTemplateProperty.LaunchTemplateName`.
-	LaunchTemplateName *string `json:"launchTemplateName"`
+	LaunchTemplateName *string `json:"launchTemplateName" yaml:"launchTemplateName"`
 	// `CfnGameServerGroup.LaunchTemplateProperty.Version`.
-	Version *string `json:"version"`
+	Version *string `json:"version" yaml:"version"`
 }
 
 // *This data type is used with the Amazon GameLift FleetIQ and game server groups.*.
@@ -2974,7 +2974,7 @@ type CfnGameServerGroup_LaunchTemplateProperty struct {
 //
 type CfnGameServerGroup_TargetTrackingConfigurationProperty struct {
 	// Desired value to use with a game server group target-based scaling policy.
-	TargetValue *float64 `json:"targetValue"`
+	TargetValue *float64 `json:"targetValue" yaml:"targetValue"`
 }
 
 // Properties for defining a `CfnGameServerGroup`.
@@ -2985,15 +2985,15 @@ type CfnGameServerGroupProps struct {
 	// A developer-defined identifier for the game server group.
 	//
 	// The name is unique for each Region in each AWS account.
-	GameServerGroupName *string `json:"gameServerGroupName"`
+	GameServerGroupName *string `json:"gameServerGroupName" yaml:"gameServerGroupName"`
 	// The set of Amazon EC2 instance types that GameLift FleetIQ can use when balancing and automatically scaling instances in the corresponding Auto Scaling group.
-	InstanceDefinitions interface{} `json:"instanceDefinitions"`
+	InstanceDefinitions interface{} `json:"instanceDefinitions" yaml:"instanceDefinitions"`
 	// `AWS::GameLift::GameServerGroup.LaunchTemplate`.
-	LaunchTemplate interface{} `json:"launchTemplate"`
+	LaunchTemplate interface{} `json:"launchTemplate" yaml:"launchTemplate"`
 	// The Amazon Resource Name ( [ARN](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html) ) for an IAM role that allows Amazon Web Services to access your Amazon EC2 Auto Scaling groups.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// `AWS::GameLift::GameServerGroup.AutoScalingPolicy`.
-	AutoScalingPolicy interface{} `json:"autoScalingPolicy"`
+	AutoScalingPolicy interface{} `json:"autoScalingPolicy" yaml:"autoScalingPolicy"`
 	// Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances in the game server group.
 	//
 	// Method options include the following:
@@ -3001,21 +3001,21 @@ type CfnGameServerGroupProps struct {
 	// - `SPOT_ONLY` - Only Spot Instances are used in the game server group. If Spot Instances are unavailable or not viable for game hosting, the game server group provides no hosting capacity until Spot Instances can again be used. Until then, no new instances are started, and the existing nonviable Spot Instances are terminated (after current gameplay ends) and are not replaced.
 	// - `SPOT_PREFERRED` - (default value) Spot Instances are used whenever available in the game server group. If Spot Instances are unavailable, the game server group continues to provide hosting capacity by falling back to On-Demand Instances. Existing nonviable Spot Instances are terminated (after current gameplay ends) and are replaced with new On-Demand Instances.
 	// - `ON_DEMAND_ONLY` - Only On-Demand Instances are used in the game server group. No Spot Instances are used, even when available, while this balancing strategy is in force.
-	BalancingStrategy *string `json:"balancingStrategy"`
+	BalancingStrategy *string `json:"balancingStrategy" yaml:"balancingStrategy"`
 	// `AWS::GameLift::GameServerGroup.DeleteOption`.
-	DeleteOption *string `json:"deleteOption"`
+	DeleteOption *string `json:"deleteOption" yaml:"deleteOption"`
 	// A flag that indicates whether instances in the game server group are protected from early termination.
 	//
 	// Unprotected instances that have active game servers running might be terminated during a scale-down event, causing players to be dropped from the game. Protected instances cannot be terminated while there are active game servers running except in the event of a forced game server group deletion (see ). An exception to this is with Spot Instances, which can be terminated by AWS regardless of protection status.
-	GameServerProtectionPolicy *string `json:"gameServerProtectionPolicy"`
+	GameServerProtectionPolicy *string `json:"gameServerProtectionPolicy" yaml:"gameServerProtectionPolicy"`
 	// `AWS::GameLift::GameServerGroup.MaxSize`.
-	MaxSize *float64 `json:"maxSize"`
+	MaxSize *float64 `json:"maxSize" yaml:"maxSize"`
 	// `AWS::GameLift::GameServerGroup.MinSize`.
-	MinSize *float64 `json:"minSize"`
+	MinSize *float64 `json:"minSize" yaml:"minSize"`
 	// `AWS::GameLift::GameServerGroup.Tags`.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// `AWS::GameLift::GameServerGroup.VpcSubnets`.
-	VpcSubnets *[]*string `json:"vpcSubnets"`
+	VpcSubnets *[]*string `json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 
 // A CloudFormation `AWS::GameLift::GameSessionQueue`.
@@ -3662,7 +3662,7 @@ type CfnGameSessionQueue_DestinationProperty struct {
 	// The Amazon Resource Name (ARN) that is assigned to fleet or fleet alias.
 	//
 	// ARNs, which include a fleet ID or alias ID and a Region name, provide a unique identifier across all Regions.
-	DestinationArn *string `json:"destinationArn"`
+	DestinationArn *string `json:"destinationArn" yaml:"destinationArn"`
 }
 
 // A list of fleet locations where a game session queue can place new game sessions.
@@ -3675,7 +3675,7 @@ type CfnGameSessionQueue_DestinationProperty struct {
 //
 type CfnGameSessionQueue_FilterConfigurationProperty struct {
 	// A list of locations to allow game session placement in, in the form of AWS Region codes such as `us-west-2` .
-	AllowedLocations *[]*string `json:"allowedLocations"`
+	AllowedLocations *[]*string `json:"allowedLocations" yaml:"allowedLocations"`
 }
 
 // The queue setting that determines the highest latency allowed for individual players when placing a game session.
@@ -3688,11 +3688,11 @@ type CfnGameSessionQueue_PlayerLatencyPolicyProperty struct {
 	// The maximum latency value that is allowed for any player, in milliseconds.
 	//
 	// All policies must have a value set for this property.
-	MaximumIndividualPlayerLatencyMilliseconds *float64 `json:"maximumIndividualPlayerLatencyMilliseconds"`
+	MaximumIndividualPlayerLatencyMilliseconds *float64 `json:"maximumIndividualPlayerLatencyMilliseconds" yaml:"maximumIndividualPlayerLatencyMilliseconds"`
 	// The length of time, in seconds, that the policy is enforced while placing a new game session.
 	//
 	// A null value for this property means that the policy is enforced until the queue times out.
-	PolicyDurationSeconds *float64 `json:"policyDurationSeconds"`
+	PolicyDurationSeconds *float64 `json:"policyDurationSeconds" yaml:"policyDurationSeconds"`
 }
 
 // Custom prioritization settings for use by a game session queue when placing new game sessions with available game servers.
@@ -3712,7 +3712,7 @@ type CfnGameSessionQueue_PriorityConfigurationProperty struct {
 	// The prioritization order to use for fleet locations, when the `PriorityOrder` property includes `LOCATION` .
 	//
 	// Locations are identified by AWS Region codes such as `us-west-2` . Each location can only be listed once.
-	LocationOrder *[]*string `json:"locationOrder"`
+	LocationOrder *[]*string `json:"locationOrder" yaml:"locationOrder"`
 	// The recommended sequence to use when prioritizing where to place new game sessions.
 	//
 	// Each type can only be listed once.
@@ -3721,7 +3721,7 @@ type CfnGameSessionQueue_PriorityConfigurationProperty struct {
 	// - `COST` -- FleetIQ prioritizes destinations with the lowest current hosting costs. Cost is evaluated based on the location, instance type, and fleet type (Spot or On-Demand) for each destination in the queue.
 	// - `DESTINATION` -- FleetIQ prioritizes based on the order that destinations are listed in the queue configuration.
 	// - `LOCATION` -- FleetIQ prioritizes based on the provided order of locations, as defined in `LocationOrder` .
-	PriorityOrder *[]*string `json:"priorityOrder"`
+	PriorityOrder *[]*string `json:"priorityOrder" yaml:"priorityOrder"`
 }
 
 // Properties for defining a `CfnGameSessionQueue`.
@@ -3732,33 +3732,33 @@ type CfnGameSessionQueueProps struct {
 	// A descriptive label that is associated with game session queue.
 	//
 	// Queue names must be unique within each Region.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// Information to be added to all events that are related to this game session queue.
-	CustomEventData *string `json:"customEventData"`
+	CustomEventData *string `json:"customEventData" yaml:"customEventData"`
 	// A list of fleets and/or fleet aliases that can be used to fulfill game session placement requests in the queue.
 	//
 	// Destinations are identified by either a fleet ARN or a fleet alias ARN, and are listed in order of placement preference.
-	Destinations interface{} `json:"destinations"`
+	Destinations interface{} `json:"destinations" yaml:"destinations"`
 	// A list of locations where a queue is allowed to place new game sessions.
 	//
 	// Locations are specified in the form of AWS Region codes, such as `us-west-2` . If this parameter is not set, game sessions can be placed in any queue location.
-	FilterConfiguration interface{} `json:"filterConfiguration"`
+	FilterConfiguration interface{} `json:"filterConfiguration" yaml:"filterConfiguration"`
 	// An SNS topic ARN that is set up to receive game session placement notifications.
 	//
 	// See [Setting up notifications for game session placement](https://docs.aws.amazon.com/gamelift/latest/developerguide/queue-notification.html) .
-	NotificationTarget *string `json:"notificationTarget"`
+	NotificationTarget *string `json:"notificationTarget" yaml:"notificationTarget"`
 	// A set of policies that act as a sliding cap on player latency.
 	//
 	// FleetIQ works to deliver low latency for most players in a game session. These policies ensure that no individual player can be placed into a game with unreasonably high latency. Use multiple policies to gradually relax latency requirements a step at a time. Multiple policies are applied based on their maximum allowed latency, starting with the lowest value.
-	PlayerLatencyPolicies interface{} `json:"playerLatencyPolicies"`
+	PlayerLatencyPolicies interface{} `json:"playerLatencyPolicies" yaml:"playerLatencyPolicies"`
 	// Custom settings to use when prioritizing destinations and locations for game session placements.
 	//
 	// This configuration replaces the FleetIQ default prioritization process. Priority types that are not explicitly named will be automatically applied at the end of the prioritization process.
-	PriorityConfiguration interface{} `json:"priorityConfiguration"`
+	PriorityConfiguration interface{} `json:"priorityConfiguration" yaml:"priorityConfiguration"`
 	// The maximum time, in seconds, that a new game session placement request remains in the queue.
 	//
 	// When a request exceeds this time, the game session placement changes to a `TIMED_OUT` status.
-	TimeoutInSeconds *float64 `json:"timeoutInSeconds"`
+	TimeoutInSeconds *float64 `json:"timeoutInSeconds" yaml:"timeoutInSeconds"`
 }
 
 // A CloudFormation `AWS::GameLift::MatchmakingConfiguration`.
@@ -4523,9 +4523,9 @@ func (c *jsiiProxy_CfnMatchmakingConfiguration) ValidateProperties(_properties i
 //
 type CfnMatchmakingConfiguration_GamePropertyProperty struct {
 	// The game property identifier.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// The game property value.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // Properties for defining a `CfnMatchmakingConfiguration`.
@@ -4536,52 +4536,52 @@ type CfnMatchmakingConfigurationProps struct {
 	// A flag that determines whether a match that was created with this configuration must be accepted by the matched players.
 	//
 	// To require acceptance, set to `TRUE` . With this option enabled, matchmaking tickets use the status `REQUIRES_ACCEPTANCE` to indicate when a completed potential match is waiting for player acceptance.
-	AcceptanceRequired interface{} `json:"acceptanceRequired"`
+	AcceptanceRequired interface{} `json:"acceptanceRequired" yaml:"acceptanceRequired"`
 	// A unique identifier for a matchmaking configuration.
 	//
 	// Matchmaking requests use this name to identify which matchmaking configuration to use.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The maximum duration, in seconds, that a matchmaking ticket can remain in process before timing out.
 	//
 	// Requests that fail due to timing out can be resubmitted as needed.
-	RequestTimeoutSeconds *float64 `json:"requestTimeoutSeconds"`
+	RequestTimeoutSeconds *float64 `json:"requestTimeoutSeconds" yaml:"requestTimeoutSeconds"`
 	// A unique identifier for the matchmaking rule set to use with this configuration.
 	//
 	// You can use either the rule set name or ARN value. A matchmaking configuration can only use rule sets that are defined in the same Region.
-	RuleSetName *string `json:"ruleSetName"`
+	RuleSetName *string `json:"ruleSetName" yaml:"ruleSetName"`
 	// The length of time (in seconds) to wait for players to accept a proposed match, if acceptance is required.
-	AcceptanceTimeoutSeconds *float64 `json:"acceptanceTimeoutSeconds"`
+	AcceptanceTimeoutSeconds *float64 `json:"acceptanceTimeoutSeconds" yaml:"acceptanceTimeoutSeconds"`
 	// The number of player slots in a match to keep open for future players.
 	//
 	// For example, if the configuration's rule set specifies a match for a single 12-person team, and the additional player count is set to 2, only 10 players are selected for the match. This parameter is not used if `FlexMatchMode` is set to `STANDALONE` .
-	AdditionalPlayerCount *float64 `json:"additionalPlayerCount"`
+	AdditionalPlayerCount *float64 `json:"additionalPlayerCount" yaml:"additionalPlayerCount"`
 	// The method used to backfill game sessions that are created with this matchmaking configuration.
 	//
 	// Specify `MANUAL` when your game manages backfill requests manually or does not use the match backfill feature. Specify `AUTOMATIC` to have GameLift create a `StartMatchBackfill` request whenever a game session has one or more open slots. Learn more about manual and automatic backfill in [Backfill Existing Games with FlexMatch](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-backfill.html) . Automatic backfill is not available when `FlexMatchMode` is set to `STANDALONE` .
-	BackfillMode *string `json:"backfillMode"`
+	BackfillMode *string `json:"backfillMode" yaml:"backfillMode"`
 	// Information that is attached to all events related to the matchmaking configuration.
-	CustomEventData *string `json:"customEventData"`
+	CustomEventData *string `json:"customEventData" yaml:"customEventData"`
 	// A descriptive label that is associated with matchmaking configuration.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Indicates whether this matchmaking configuration is being used with GameLift managed hosting or as a standalone matchmaking solution.
 	//
 	// - *STANDALONE* - FlexMatch forms matches and returns match information, including players and team assignments, in a [MatchmakingSucceeded](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-events.html#match-events-matchmakingsucceeded) event.
 	// - *WITH_QUEUE* - FlexMatch forms matches and uses the specified GameLift queue to start a game session for the match.
-	FlexMatchMode *string `json:"flexMatchMode"`
+	FlexMatchMode *string `json:"flexMatchMode" yaml:"flexMatchMode"`
 	// A set of custom properties for a game session, formatted as key-value pairs.
 	//
 	// These properties are passed to a game server process with a request to start a new game session. See [Start a Game Session](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession) . This parameter is not used if `FlexMatchMode` is set to `STANDALONE` .
-	GameProperties interface{} `json:"gameProperties"`
+	GameProperties interface{} `json:"gameProperties" yaml:"gameProperties"`
 	// A set of custom game session properties, formatted as a single string value.
 	//
 	// This data is passed to a game server process with a request to start a new game session. See [Start a Game Session](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession) . This parameter is not used if `FlexMatchMode` is set to `STANDALONE` .
-	GameSessionData *string `json:"gameSessionData"`
+	GameSessionData *string `json:"gameSessionData" yaml:"gameSessionData"`
 	// The Amazon Resource Name ( [ARN](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html) ) that is assigned to a GameLift game session queue resource and uniquely identifies it. ARNs are unique across all Regions. Format is `arn:aws:gamelift:<region>::gamesessionqueue/<queue name>` . Queues can be located in any Region. Queues are used to start new GameLift-hosted game sessions for matches that are created with this matchmaking configuration. If `FlexMatchMode` is set to `STANDALONE` , do not set this parameter.
-	GameSessionQueueArns *[]*string `json:"gameSessionQueueArns"`
+	GameSessionQueueArns *[]*string `json:"gameSessionQueueArns" yaml:"gameSessionQueueArns"`
 	// An SNS topic ARN that is set up to receive matchmaking notifications.
 	//
 	// See [Setting up notifications for matchmaking](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-notification.html) for more information.
-	NotificationTarget *string `json:"notificationTarget"`
+	NotificationTarget *string `json:"notificationTarget" yaml:"notificationTarget"`
 }
 
 // A CloudFormation `AWS::GameLift::MatchmakingRuleSet`.
@@ -5106,11 +5106,11 @@ type CfnMatchmakingRuleSetProps struct {
 	// A unique identifier for the matchmaking rule set.
 	//
 	// A matchmaking configuration identifies the rule set it uses by this name value. Note that the rule set name is different from the optional `name` field in the rule set body.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// A collection of matchmaking rules, formatted as a JSON string.
 	//
 	// Comments are not allowed in JSON, but most elements support a description field.
-	RuleSetBody *string `json:"ruleSetBody"`
+	RuleSetBody *string `json:"ruleSetBody" yaml:"ruleSetBody"`
 }
 
 // A CloudFormation `AWS::GameLift::Script`.
@@ -5655,15 +5655,15 @@ type CfnScript_S3LocationProperty struct {
 	// An Amazon S3 bucket identifier. This is the name of the S3 bucket.
 	//
 	// > GameLift currently does not support uploading from Amazon S3 buckets with names that contain a dot (.).
-	Bucket *string `json:"bucket"`
+	Bucket *string `json:"bucket" yaml:"bucket"`
 	// The name of the zip file that contains the build files or script files.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// The Amazon Resource Name ( [ARN](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html) ) for an IAM role that allows Amazon Web Services to access the S3 bucket.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// The version of the file, if object versioning is turned on for the bucket.
 	//
 	// Amazon Web Services uses this information when retrieving files from an S3 bucket that you own. Use this parameter to specify a specific version of the file. If not set, the latest version of the file is retrieved.
-	ObjectVersion *string `json:"objectVersion"`
+	ObjectVersion *string `json:"objectVersion" yaml:"objectVersion"`
 }
 
 // Properties for defining a `CfnScript`.
@@ -5672,14 +5672,14 @@ type CfnScript_S3LocationProperty struct {
 //
 type CfnScriptProps struct {
 	// The location in Amazon S3 where build or script files are stored for access by Amazon GameLift.
-	StorageLocation interface{} `json:"storageLocation"`
+	StorageLocation interface{} `json:"storageLocation" yaml:"storageLocation"`
 	// A descriptive label that is associated with a script.
 	//
 	// Script names do not need to be unique.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The version that is associated with a build or script.
 	//
 	// Version strings do not need to be unique.
-	Version *string `json:"version"`
+	Version *string `json:"version" yaml:"version"`
 }
 

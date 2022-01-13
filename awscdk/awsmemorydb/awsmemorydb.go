@@ -540,13 +540,13 @@ func (c *jsiiProxy_CfnACL) ValidateProperties(_properties interface{}) {
 //
 type CfnACLProps struct {
 	// The name of the Access Control List.
-	AclName *string `json:"aclName"`
+	AclName *string `json:"aclName" yaml:"aclName"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// The list of users that belong to the Access Control List.
-	UserNames *[]*string `json:"userNames"`
+	UserNames *[]*string `json:"userNames" yaml:"userNames"`
 }
 
 // A CloudFormation `AWS::MemoryDB::Cluster`.
@@ -1513,9 +1513,9 @@ func (c *jsiiProxy_CfnCluster) ValidateProperties(_properties interface{}) {
 //
 type CfnCluster_EndpointProperty struct {
 	// The DNS hostname of the node.
-	Address *string `json:"address"`
+	Address *string `json:"address" yaml:"address"`
 	// The port number that the engine is listening on.
-	Port *float64 `json:"port"`
+	Port *float64 `json:"port" yaml:"port"`
 }
 
 // Properties for defining a `CfnCluster`.
@@ -1524,71 +1524,71 @@ type CfnCluster_EndpointProperty struct {
 //
 type CfnClusterProps struct {
 	// The name of the Access Control List to associate with the cluster .
-	AclName *string `json:"aclName"`
+	AclName *string `json:"aclName" yaml:"aclName"`
 	// The name of the cluster .
-	ClusterName *string `json:"clusterName"`
+	ClusterName *string `json:"clusterName" yaml:"clusterName"`
 	// The cluster 's node type.
-	NodeType *string `json:"nodeType"`
+	NodeType *string `json:"nodeType" yaml:"nodeType"`
 	// When set to true, the cluster will automatically receive minor engine version upgrades after launch.
-	AutoMinorVersionUpgrade interface{} `json:"autoMinorVersionUpgrade"`
+	AutoMinorVersionUpgrade interface{} `json:"autoMinorVersionUpgrade" yaml:"autoMinorVersionUpgrade"`
 	// A description of the cluster .
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The Redis engine version used by the cluster .
-	EngineVersion *string `json:"engineVersion"`
+	EngineVersion *string `json:"engineVersion" yaml:"engineVersion"`
 	// The user-supplied name of a final cluster snapshot.
 	//
 	// This is the unique name that identifies the snapshot. MemoryDB creates the snapshot, and then deletes the cluster immediately afterward.
-	FinalSnapshotName *string `json:"finalSnapshotName"`
+	FinalSnapshotName *string `json:"finalSnapshotName" yaml:"finalSnapshotName"`
 	// The ID of the KMS key used to encrypt the cluster .
-	KmsKeyId *string `json:"kmsKeyId"`
+	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
 	// Specifies the weekly time range during which maintenance on the cluster is performed.
 	//
 	// It is specified as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period.
 	//
 	// *Pattern* : `ddd:hh24:mi-ddd:hh24:mi`
-	MaintenanceWindow *string `json:"maintenanceWindow"`
+	MaintenanceWindow *string `json:"maintenanceWindow" yaml:"maintenanceWindow"`
 	// The number of replicas to apply to each shard.
 	//
 	// *Default value* : `1`
 	//
 	// *Maximum value* : `5`
-	NumReplicasPerShard *float64 `json:"numReplicasPerShard"`
+	NumReplicasPerShard *float64 `json:"numReplicasPerShard" yaml:"numReplicasPerShard"`
 	// The number of shards in the cluster .
-	NumShards *float64 `json:"numShards"`
+	NumShards *float64 `json:"numShards" yaml:"numShards"`
 	// The name of the parameter group used by the cluster .
-	ParameterGroupName *string `json:"parameterGroupName"`
+	ParameterGroupName *string `json:"parameterGroupName" yaml:"parameterGroupName"`
 	// The port used by the cluster .
-	Port *float64 `json:"port"`
+	Port *float64 `json:"port" yaml:"port"`
 	// A list of security group names to associate with this cluster .
-	SecurityGroupIds *[]*string `json:"securityGroupIds"`
+	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
 	// A list of Amazon Resource Names (ARN) that uniquely identify the RDB snapshot files stored in Amazon S3.
 	//
 	// The snapshot files are used to populate the new cluster . The Amazon S3 object name in the ARN cannot contain any commas.
-	SnapshotArns *[]*string `json:"snapshotArns"`
+	SnapshotArns *[]*string `json:"snapshotArns" yaml:"snapshotArns"`
 	// The name of a snapshot from which to restore data into the new cluster .
 	//
 	// The snapshot status changes to restoring while the new cluster is being created.
-	SnapshotName *string `json:"snapshotName"`
+	SnapshotName *string `json:"snapshotName" yaml:"snapshotName"`
 	// The number of days for which MemoryDB retains automatic snapshots before deleting them.
 	//
 	// For example, if you set SnapshotRetentionLimit to 5, a snapshot that was taken today is retained for 5 days before being deleted.
-	SnapshotRetentionLimit *float64 `json:"snapshotRetentionLimit"`
+	SnapshotRetentionLimit *float64 `json:"snapshotRetentionLimit" yaml:"snapshotRetentionLimit"`
 	// The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard.
 	//
 	// Example: 05:00-09:00 If you do not specify this parameter, MemoryDB automatically chooses an appropriate time range.
-	SnapshotWindow *string `json:"snapshotWindow"`
+	SnapshotWindow *string `json:"snapshotWindow" yaml:"snapshotWindow"`
 	// When you pass the logical ID of this resource to the intrinsic `Ref` function, Ref returns the ARN of the SNS topic, such as `arn:aws:memorydb:us-east-1:123456789012:mySNSTopic`.
-	SnsTopicArn *string `json:"snsTopicArn"`
+	SnsTopicArn *string `json:"snsTopicArn" yaml:"snsTopicArn"`
 	// The SNS topic must be in Active status to receive notifications.
-	SnsTopicStatus *string `json:"snsTopicStatus"`
+	SnsTopicStatus *string `json:"snsTopicStatus" yaml:"snsTopicStatus"`
 	// The name of the subnet group used by the cluster .
-	SubnetGroupName *string `json:"subnetGroupName"`
+	SubnetGroupName *string `json:"subnetGroupName" yaml:"subnetGroupName"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// A flag to indicate if In-transit encryption is enabled.
-	TlsEnabled interface{} `json:"tlsEnabled"`
+	TlsEnabled interface{} `json:"tlsEnabled" yaml:"tlsEnabled"`
 }
 
 // A CloudFormation `AWS::MemoryDB::ParameterGroup`.
@@ -2151,17 +2151,17 @@ func (c *jsiiProxy_CfnParameterGroup) ValidateProperties(_properties interface{}
 //
 type CfnParameterGroupProps struct {
 	// The name of the parameter group family that this parameter group is compatible with.
-	Family *string `json:"family"`
+	Family *string `json:"family" yaml:"family"`
 	// The name of the parameter group.
-	ParameterGroupName *string `json:"parameterGroupName"`
+	ParameterGroupName *string `json:"parameterGroupName" yaml:"parameterGroupName"`
 	// A description of the parameter group.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Returns the detailed parameter list for the parameter group.
-	Parameters interface{} `json:"parameters"`
+	Parameters interface{} `json:"parameters" yaml:"parameters"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::MemoryDB::SubnetGroup`.
@@ -2704,15 +2704,15 @@ func (c *jsiiProxy_CfnSubnetGroup) ValidateProperties(_properties interface{}) {
 //
 type CfnSubnetGroupProps struct {
 	// The name of the subnet group to be used for the cluster .
-	SubnetGroupName *string `json:"subnetGroupName"`
+	SubnetGroupName *string `json:"subnetGroupName" yaml:"subnetGroupName"`
 	// A list of Amazon VPC subnet IDs for the subnet group.
-	SubnetIds *[]*string `json:"subnetIds"`
+	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
 	// A description of the subnet group.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::MemoryDB::User`.
@@ -3266,14 +3266,14 @@ func (c *jsiiProxy_CfnUser) ValidateProperties(_properties interface{}) {
 //
 type CfnUserProps struct {
 	// Access permissions string used for this user.
-	AccessString *string `json:"accessString"`
+	AccessString *string `json:"accessString" yaml:"accessString"`
 	// Denotes whether the user requires a password to authenticate.
-	AuthenticationMode interface{} `json:"authenticationMode"`
+	AuthenticationMode interface{} `json:"authenticationMode" yaml:"authenticationMode"`
 	// The name of the user.
-	UserName *string `json:"userName"`
+	UserName *string `json:"userName" yaml:"userName"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 

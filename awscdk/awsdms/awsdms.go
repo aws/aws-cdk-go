@@ -529,13 +529,13 @@ type CfnCertificateProps struct {
 	// A customer-assigned name for the certificate.
 	//
 	// Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two consecutive hyphens.
-	CertificateIdentifier *string `json:"certificateIdentifier"`
+	CertificateIdentifier *string `json:"certificateIdentifier" yaml:"certificateIdentifier"`
 	// The contents of a `.pem` file, which contains an X.509 certificate.
-	CertificatePem *string `json:"certificatePem"`
+	CertificatePem *string `json:"certificatePem" yaml:"certificatePem"`
 	// The location of an imported Oracle Wallet certificate for use with SSL.
 	//
 	// Example: `filebase64("${path.root}/rds-ca-2019-root.sso")`
-	CertificateWallet *string `json:"certificateWallet"`
+	CertificateWallet *string `json:"certificateWallet" yaml:"certificateWallet"`
 }
 
 // A CloudFormation `AWS::DMS::Endpoint`.
@@ -1600,9 +1600,9 @@ func (c *jsiiProxy_CfnEndpoint) ValidateProperties(_properties interface{}) {
 //
 type CfnEndpoint_DocDbSettingsProperty struct {
 	// Not currently supported by AWS CloudFormation .
-	SecretsManagerAccessRoleArn *string `json:"secretsManagerAccessRoleArn"`
+	SecretsManagerAccessRoleArn *string `json:"secretsManagerAccessRoleArn" yaml:"secretsManagerAccessRoleArn"`
 	// Not currently supported by AWS CloudFormation .
-	SecretsManagerSecretId *string `json:"secretsManagerSecretId"`
+	SecretsManagerSecretId *string `json:"secretsManagerSecretId" yaml:"secretsManagerSecretId"`
 }
 
 // Provides the Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role used to define an Amazon DynamoDB target endpoint.
@@ -1613,7 +1613,7 @@ type CfnEndpoint_DynamoDbSettingsProperty struct {
 	// The Amazon Resource Name (ARN) used by the service to access the IAM role.
 	//
 	// The role must allow the `iam:PassRole` action.
-	ServiceAccessRoleArn *string `json:"serviceAccessRoleArn"`
+	ServiceAccessRoleArn *string `json:"serviceAccessRoleArn" yaml:"serviceAccessRoleArn"`
 }
 
 // Provides information that defines an OpenSearch endpoint.
@@ -1624,17 +1624,17 @@ type CfnEndpoint_ElasticsearchSettingsProperty struct {
 	// The endpoint for the OpenSearch cluster.
 	//
 	// AWS DMS uses HTTPS if a transport protocol (http/https) is not specified.
-	EndpointUri *string `json:"endpointUri"`
+	EndpointUri *string `json:"endpointUri" yaml:"endpointUri"`
 	// The maximum number of seconds for which DMS retries failed API requests to the OpenSearch cluster.
-	ErrorRetryDuration *float64 `json:"errorRetryDuration"`
+	ErrorRetryDuration *float64 `json:"errorRetryDuration" yaml:"errorRetryDuration"`
 	// The maximum percentage of records that can fail to be written before a full load operation stops.
 	//
 	// To avoid early failure, this counter is only effective after 1000 records are transferred. OpenSearch also has the concept of error monitoring during the last 10 minutes of an Observation Window. If transfer of all records fail in the last 10 minutes, the full load operation stops.
-	FullLoadErrorPercentage *float64 `json:"fullLoadErrorPercentage"`
+	FullLoadErrorPercentage *float64 `json:"fullLoadErrorPercentage" yaml:"fullLoadErrorPercentage"`
 	// The Amazon Resource Name (ARN) used by the service to access the IAM role.
 	//
 	// The role must allow the `iam:PassRole` action.
-	ServiceAccessRoleArn *string `json:"serviceAccessRoleArn"`
+	ServiceAccessRoleArn *string `json:"serviceAccessRoleArn" yaml:"serviceAccessRoleArn"`
 }
 
 // Not currently supported by AWS CloudFormation .
@@ -1643,9 +1643,9 @@ type CfnEndpoint_ElasticsearchSettingsProperty struct {
 //
 type CfnEndpoint_IbmDb2SettingsProperty struct {
 	// Not currently supported by AWS CloudFormation .
-	SecretsManagerAccessRoleArn *string `json:"secretsManagerAccessRoleArn"`
+	SecretsManagerAccessRoleArn *string `json:"secretsManagerAccessRoleArn" yaml:"secretsManagerAccessRoleArn"`
 	// Not currently supported by AWS CloudFormation .
-	SecretsManagerSecretId *string `json:"secretsManagerSecretId"`
+	SecretsManagerSecretId *string `json:"secretsManagerSecretId" yaml:"secretsManagerSecretId"`
 }
 
 // Not currently supported by AWS CloudFormation .
@@ -1654,49 +1654,49 @@ type CfnEndpoint_IbmDb2SettingsProperty struct {
 //
 type CfnEndpoint_KafkaSettingsProperty struct {
 	// Not currently supported by AWS CloudFormation .
-	Broker *string `json:"broker"`
+	Broker *string `json:"broker" yaml:"broker"`
 	// Shows detailed control information for table definition, column definition, and table and column changes in the Kafka message output.
 	//
 	// The default is `false` .
-	IncludeControlDetails interface{} `json:"includeControlDetails"`
+	IncludeControlDetails interface{} `json:"includeControlDetails" yaml:"includeControlDetails"`
 	// Include NULL and empty columns for records migrated to the endpoint.
 	//
 	// The default is `false` .
-	IncludeNullAndEmpty interface{} `json:"includeNullAndEmpty"`
+	IncludeNullAndEmpty interface{} `json:"includeNullAndEmpty" yaml:"includeNullAndEmpty"`
 	// Includes any data definition language (DDL) operations that change the table in the control data, such as `rename-table` , `drop-table` , `add-column` , `drop-column` , and `rename-column` .
 	//
 	// The default is `false` .
-	IncludeTableAlterOperations interface{} `json:"includeTableAlterOperations"`
+	IncludeTableAlterOperations interface{} `json:"includeTableAlterOperations" yaml:"includeTableAlterOperations"`
 	// Provides detailed transaction information from the source database.
 	//
 	// This information includes a commit timestamp, a log position, and values for `transaction_id` , previous `transaction_id` , and `transaction_record_id` (the record offset within a transaction). The default is `false` .
-	IncludeTransactionDetails interface{} `json:"includeTransactionDetails"`
+	IncludeTransactionDetails interface{} `json:"includeTransactionDetails" yaml:"includeTransactionDetails"`
 	// Set this optional parameter to `true` to avoid adding a '0x' prefix to raw data in hexadecimal format.
 	//
 	// For example, by default, AWS DMS adds a '0x' prefix to the LOB column type in hexadecimal format moving from an Oracle source to a Kafka target. Use the `NoHexPrefix` endpoint setting to enable migration of RAW data type columns without adding the '0x' prefix.
-	NoHexPrefix interface{} `json:"noHexPrefix"`
+	NoHexPrefix interface{} `json:"noHexPrefix" yaml:"noHexPrefix"`
 	// Prefixes schema and table names to partition values, when the partition type is `primary-key-type` .
 	//
 	// Doing this increases data distribution among Kafka partitions. For example, suppose that a SysBench schema has thousands of tables and each table has only limited range for a primary key. In this case, the same primary key is sent from thousands of tables to the same partition, which causes throttling. The default is `false` .
-	PartitionIncludeSchemaTable interface{} `json:"partitionIncludeSchemaTable"`
+	PartitionIncludeSchemaTable interface{} `json:"partitionIncludeSchemaTable" yaml:"partitionIncludeSchemaTable"`
 	// The secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
-	SaslPassword *string `json:"saslPassword"`
+	SaslPassword *string `json:"saslPassword" yaml:"saslPassword"`
 	// The secure user name you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
-	SaslUserName *string `json:"saslUserName"`
+	SaslUserName *string `json:"saslUserName" yaml:"saslUserName"`
 	// Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS).
 	//
 	// Options include `ssl-encryption` , `ssl-authentication` , and `sasl-ssl` . `sasl-ssl` requires `SaslUsername` and `SaslPassword` .
-	SecurityProtocol *string `json:"securityProtocol"`
+	SecurityProtocol *string `json:"securityProtocol" yaml:"securityProtocol"`
 	// The Amazon Resource Name (ARN) for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
-	SslCaCertificateArn *string `json:"sslCaCertificateArn"`
+	SslCaCertificateArn *string `json:"sslCaCertificateArn" yaml:"sslCaCertificateArn"`
 	// The Amazon Resource Name (ARN) of the client certificate used to securely connect to a Kafka target endpoint.
-	SslClientCertificateArn *string `json:"sslClientCertificateArn"`
+	SslClientCertificateArn *string `json:"sslClientCertificateArn" yaml:"sslClientCertificateArn"`
 	// The Amazon Resource Name (ARN) for the client private key used to securely connect to a Kafka target endpoint.
-	SslClientKeyArn *string `json:"sslClientKeyArn"`
+	SslClientKeyArn *string `json:"sslClientKeyArn" yaml:"sslClientKeyArn"`
 	// The password for the client private key used to securely connect to a Kafka target endpoint.
-	SslClientKeyPassword *string `json:"sslClientKeyPassword"`
+	SslClientKeyPassword *string `json:"sslClientKeyPassword" yaml:"sslClientKeyPassword"`
 	// Not currently supported by AWS CloudFormation .
-	Topic *string `json:"topic"`
+	Topic *string `json:"topic" yaml:"topic"`
 }
 
 // Not currently supported by AWS CloudFormation ..
@@ -1707,33 +1707,33 @@ type CfnEndpoint_KinesisSettingsProperty struct {
 	// Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output.
 	//
 	// The default is `false` .
-	IncludeControlDetails interface{} `json:"includeControlDetails"`
+	IncludeControlDetails interface{} `json:"includeControlDetails" yaml:"includeControlDetails"`
 	// Include NULL and empty columns for records migrated to the endpoint.
 	//
 	// The default is `false` .
-	IncludeNullAndEmpty interface{} `json:"includeNullAndEmpty"`
+	IncludeNullAndEmpty interface{} `json:"includeNullAndEmpty" yaml:"includeNullAndEmpty"`
 	// Includes any data definition language (DDL) operations that change the table in the control data, such as `rename-table` , `drop-table` , `add-column` , `drop-column` , and `rename-column` .
 	//
 	// The default is `false` .
-	IncludeTableAlterOperations interface{} `json:"includeTableAlterOperations"`
+	IncludeTableAlterOperations interface{} `json:"includeTableAlterOperations" yaml:"includeTableAlterOperations"`
 	// Provides detailed transaction information from the source database.
 	//
 	// This information includes a commit timestamp, a log position, and values for `transaction_id` , previous `transaction_id` , and `transaction_record_id` (the record offset within a transaction). The default is `false` .
-	IncludeTransactionDetails interface{} `json:"includeTransactionDetails"`
+	IncludeTransactionDetails interface{} `json:"includeTransactionDetails" yaml:"includeTransactionDetails"`
 	// Not currently supported by AWS CloudFormation .
-	MessageFormat *string `json:"messageFormat"`
+	MessageFormat *string `json:"messageFormat" yaml:"messageFormat"`
 	// Set this optional parameter to `true` to avoid adding a '0x' prefix to raw data in hexadecimal format.
 	//
 	// For example, by default, AWS DMS adds a '0x' prefix to the LOB column type in hexadecimal format moving from an Oracle source to an Amazon Kinesis target. Use the `NoHexPrefix` endpoint setting to enable migration of RAW data type columns without adding the '0x' prefix.
-	NoHexPrefix interface{} `json:"noHexPrefix"`
+	NoHexPrefix interface{} `json:"noHexPrefix" yaml:"noHexPrefix"`
 	// Prefixes schema and table names to partition values, when the partition type is `primary-key-type` .
 	//
 	// Doing this increases data distribution among Kinesis shards. For example, suppose that a SysBench schema has thousands of tables and each table has only limited range for a primary key. In this case, the same primary key is sent from thousands of tables to the same shard, which causes throttling. The default is `false` .
-	PartitionIncludeSchemaTable interface{} `json:"partitionIncludeSchemaTable"`
+	PartitionIncludeSchemaTable interface{} `json:"partitionIncludeSchemaTable" yaml:"partitionIncludeSchemaTable"`
 	// Not currently supported by AWS CloudFormation .
-	ServiceAccessRoleArn *string `json:"serviceAccessRoleArn"`
+	ServiceAccessRoleArn *string `json:"serviceAccessRoleArn" yaml:"serviceAccessRoleArn"`
 	// Not currently supported by AWS CloudFormation .
-	StreamArn *string `json:"streamArn"`
+	StreamArn *string `json:"streamArn" yaml:"streamArn"`
 }
 
 // Not currently supported by AWS CloudFormation .
@@ -1742,9 +1742,9 @@ type CfnEndpoint_KinesisSettingsProperty struct {
 //
 type CfnEndpoint_MicrosoftSqlServerSettingsProperty struct {
 	// Not currently supported by AWS CloudFormation .
-	SecretsManagerAccessRoleArn *string `json:"secretsManagerAccessRoleArn"`
+	SecretsManagerAccessRoleArn *string `json:"secretsManagerAccessRoleArn" yaml:"secretsManagerAccessRoleArn"`
 	// Not currently supported by AWS CloudFormation .
-	SecretsManagerSecretId *string `json:"secretsManagerSecretId"`
+	SecretsManagerSecretId *string `json:"secretsManagerSecretId" yaml:"secretsManagerSecretId"`
 }
 
 // Not currently supported by AWS CloudFormation .
@@ -1753,31 +1753,31 @@ type CfnEndpoint_MicrosoftSqlServerSettingsProperty struct {
 //
 type CfnEndpoint_MongoDbSettingsProperty struct {
 	// Not currently supported by AWS CloudFormation .
-	AuthMechanism *string `json:"authMechanism"`
+	AuthMechanism *string `json:"authMechanism" yaml:"authMechanism"`
 	// Not currently supported by AWS CloudFormation .
-	AuthSource *string `json:"authSource"`
+	AuthSource *string `json:"authSource" yaml:"authSource"`
 	// Not currently supported by AWS CloudFormation .
-	AuthType *string `json:"authType"`
+	AuthType *string `json:"authType" yaml:"authType"`
 	// Not currently supported by AWS CloudFormation .
-	DatabaseName *string `json:"databaseName"`
+	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
 	// Not currently supported by AWS CloudFormation .
-	DocsToInvestigate *string `json:"docsToInvestigate"`
+	DocsToInvestigate *string `json:"docsToInvestigate" yaml:"docsToInvestigate"`
 	// Not currently supported by AWS CloudFormation .
-	ExtractDocId *string `json:"extractDocId"`
+	ExtractDocId *string `json:"extractDocId" yaml:"extractDocId"`
 	// Not currently supported by AWS CloudFormation .
-	NestingLevel *string `json:"nestingLevel"`
+	NestingLevel *string `json:"nestingLevel" yaml:"nestingLevel"`
 	// Not currently supported by AWS CloudFormation .
-	Password *string `json:"password"`
+	Password *string `json:"password" yaml:"password"`
 	// Not currently supported by AWS CloudFormation .
-	Port *float64 `json:"port"`
+	Port *float64 `json:"port" yaml:"port"`
 	// Not currently supported by AWS CloudFormation .
-	SecretsManagerAccessRoleArn *string `json:"secretsManagerAccessRoleArn"`
+	SecretsManagerAccessRoleArn *string `json:"secretsManagerAccessRoleArn" yaml:"secretsManagerAccessRoleArn"`
 	// Not currently supported by AWS CloudFormation .
-	SecretsManagerSecretId *string `json:"secretsManagerSecretId"`
+	SecretsManagerSecretId *string `json:"secretsManagerSecretId" yaml:"secretsManagerSecretId"`
 	// Not currently supported by AWS CloudFormation .
-	ServerName *string `json:"serverName"`
+	ServerName *string `json:"serverName" yaml:"serverName"`
 	// Not currently supported by AWS CloudFormation .
-	Username *string `json:"username"`
+	Username *string `json:"username" yaml:"username"`
 }
 
 // Not currently supported by AWS CloudFormation .
@@ -1786,9 +1786,9 @@ type CfnEndpoint_MongoDbSettingsProperty struct {
 //
 type CfnEndpoint_MySqlSettingsProperty struct {
 	// Not currently supported by AWS CloudFormation .
-	SecretsManagerAccessRoleArn *string `json:"secretsManagerAccessRoleArn"`
+	SecretsManagerAccessRoleArn *string `json:"secretsManagerAccessRoleArn" yaml:"secretsManagerAccessRoleArn"`
 	// Not currently supported by AWS CloudFormation .
-	SecretsManagerSecretId *string `json:"secretsManagerSecretId"`
+	SecretsManagerSecretId *string `json:"secretsManagerSecretId" yaml:"secretsManagerSecretId"`
 }
 
 // Provides information that defines an Amazon Neptune endpoint.
@@ -1799,25 +1799,25 @@ type CfnEndpoint_NeptuneSettingsProperty struct {
 	// The number of milliseconds for AWS DMS to wait to retry a bulk-load of migrated graph data to the Neptune target database before raising an error.
 	//
 	// The default is 250.
-	ErrorRetryDuration *float64 `json:"errorRetryDuration"`
+	ErrorRetryDuration *float64 `json:"errorRetryDuration" yaml:"errorRetryDuration"`
 	// If you want AWS Identity and Access Management (IAM) authorization enabled for this endpoint, set this parameter to `true` .
 	//
 	// Then attach the appropriate IAM policy document to your service role specified by `ServiceAccessRoleArn` . The default is `false` .
-	IamAuthEnabled interface{} `json:"iamAuthEnabled"`
+	IamAuthEnabled interface{} `json:"iamAuthEnabled" yaml:"iamAuthEnabled"`
 	// The maximum size in kilobytes of migrated graph data stored in a .csv file before AWS DMS bulk-loads the data to the Neptune target database. The default is 1,048,576 KB. If the bulk load is successful, AWS DMS clears the bucket, ready to store the next batch of migrated graph data.
-	MaxFileSize *float64 `json:"maxFileSize"`
+	MaxFileSize *float64 `json:"maxFileSize" yaml:"maxFileSize"`
 	// The number of times for AWS DMS to retry a bulk load of migrated graph data to the Neptune target database before raising an error.
 	//
 	// The default is 5.
-	MaxRetryCount *float64 `json:"maxRetryCount"`
+	MaxRetryCount *float64 `json:"maxRetryCount" yaml:"maxRetryCount"`
 	// A folder path where you want AWS DMS to store migrated graph data in the S3 bucket specified by `S3BucketName`.
-	S3BucketFolder *string `json:"s3BucketFolder"`
+	S3BucketFolder *string `json:"s3BucketFolder" yaml:"s3BucketFolder"`
 	// The name of the Amazon S3 bucket where AWS DMS can temporarily store migrated graph data in .csv files before bulk-loading it to the Neptune target database. AWS DMS maps the SQL source data to graph data before storing it in these .csv files.
-	S3BucketName *string `json:"s3BucketName"`
+	S3BucketName *string `json:"s3BucketName" yaml:"s3BucketName"`
 	// The Amazon Resource Name (ARN) of the service role that you created for the Neptune target endpoint.
 	//
 	// The role must allow the `iam:PassRole` action. For more information, see [Creating an IAM Service Role for Accessing Amazon Neptune as a Target](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Neptune.html#CHAP_Target.Neptune.ServiceRole) in the *AWS Database Migration Service User Guide.*
-	ServiceAccessRoleArn *string `json:"serviceAccessRoleArn"`
+	ServiceAccessRoleArn *string `json:"serviceAccessRoleArn" yaml:"serviceAccessRoleArn"`
 }
 
 // Not currently supported by AWS CloudFormation .
@@ -1826,13 +1826,13 @@ type CfnEndpoint_NeptuneSettingsProperty struct {
 //
 type CfnEndpoint_OracleSettingsProperty struct {
 	// Not currently supported by AWS CloudFormation .
-	SecretsManagerAccessRoleArn *string `json:"secretsManagerAccessRoleArn"`
+	SecretsManagerAccessRoleArn *string `json:"secretsManagerAccessRoleArn" yaml:"secretsManagerAccessRoleArn"`
 	// Not currently supported by AWS CloudFormation .
-	SecretsManagerOracleAsmAccessRoleArn *string `json:"secretsManagerOracleAsmAccessRoleArn"`
+	SecretsManagerOracleAsmAccessRoleArn *string `json:"secretsManagerOracleAsmAccessRoleArn" yaml:"secretsManagerOracleAsmAccessRoleArn"`
 	// Not currently supported by AWS CloudFormation .
-	SecretsManagerOracleAsmSecretId *string `json:"secretsManagerOracleAsmSecretId"`
+	SecretsManagerOracleAsmSecretId *string `json:"secretsManagerOracleAsmSecretId" yaml:"secretsManagerOracleAsmSecretId"`
 	// Not currently supported by AWS CloudFormation .
-	SecretsManagerSecretId *string `json:"secretsManagerSecretId"`
+	SecretsManagerSecretId *string `json:"secretsManagerSecretId" yaml:"secretsManagerSecretId"`
 }
 
 // Not currently supported by AWS CloudFormation .
@@ -1841,9 +1841,9 @@ type CfnEndpoint_OracleSettingsProperty struct {
 //
 type CfnEndpoint_PostgreSqlSettingsProperty struct {
 	// Not currently supported by AWS CloudFormation .
-	SecretsManagerAccessRoleArn *string `json:"secretsManagerAccessRoleArn"`
+	SecretsManagerAccessRoleArn *string `json:"secretsManagerAccessRoleArn" yaml:"secretsManagerAccessRoleArn"`
 	// Not currently supported by AWS CloudFormation .
-	SecretsManagerSecretId *string `json:"secretsManagerSecretId"`
+	SecretsManagerSecretId *string `json:"secretsManagerSecretId" yaml:"secretsManagerSecretId"`
 }
 
 // Provides information that defines a Redis target endpoint.
@@ -1852,25 +1852,25 @@ type CfnEndpoint_PostgreSqlSettingsProperty struct {
 //
 type CfnEndpoint_RedisSettingsProperty struct {
 	// The password provided with the `auth-role` and `auth-token` options of the `AuthType` setting for a Redis target endpoint.
-	AuthPassword *string `json:"authPassword"`
+	AuthPassword *string `json:"authPassword" yaml:"authPassword"`
 	// The type of authentication to perform when connecting to a Redis target.
 	//
 	// Options include `none` , `auth-token` , and `auth-role` . The `auth-token` option requires an `AuthPassword` value to be provided. The `auth-role` option requires `AuthUserName` and `AuthPassword` values to be provided.
-	AuthType *string `json:"authType"`
+	AuthType *string `json:"authType" yaml:"authType"`
 	// The user name provided with the `auth-role` option of the `AuthType` setting for a Redis target endpoint.
-	AuthUserName *string `json:"authUserName"`
+	AuthUserName *string `json:"authUserName" yaml:"authUserName"`
 	// Transmission Control Protocol (TCP) port for the endpoint.
-	Port *float64 `json:"port"`
+	Port *float64 `json:"port" yaml:"port"`
 	// Fully qualified domain name of the endpoint.
-	ServerName *string `json:"serverName"`
+	ServerName *string `json:"serverName" yaml:"serverName"`
 	// The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
-	SslCaCertificateArn *string `json:"sslCaCertificateArn"`
+	SslCaCertificateArn *string `json:"sslCaCertificateArn" yaml:"sslCaCertificateArn"`
 	// The connection to a Redis target endpoint using Transport Layer Security (TLS).
 	//
 	// Valid values include `plaintext` and `ssl-encryption` . The default is `ssl-encryption` . The `ssl-encryption` option makes an encrypted connection. Optionally, you can identify an Amazon Resource Name (ARN) for an SSL certificate authority (CA) using the `SslCaCertificateArn` setting. If an ARN isn't given for a CA, DMS uses the Amazon root CA.
 	//
 	// The `plaintext` option doesn't provide Transport Layer Security (TLS) encryption for traffic between endpoint and database.
-	SslSecurityProtocol *string `json:"sslSecurityProtocol"`
+	SslSecurityProtocol *string `json:"sslSecurityProtocol" yaml:"sslSecurityProtocol"`
 }
 
 // Not currently supported by AWS CloudFormation .
@@ -1879,9 +1879,9 @@ type CfnEndpoint_RedisSettingsProperty struct {
 //
 type CfnEndpoint_RedshiftSettingsProperty struct {
 	// Not currently supported by AWS CloudFormation .
-	SecretsManagerAccessRoleArn *string `json:"secretsManagerAccessRoleArn"`
+	SecretsManagerAccessRoleArn *string `json:"secretsManagerAccessRoleArn" yaml:"secretsManagerAccessRoleArn"`
 	// Not currently supported by AWS CloudFormation .
-	SecretsManagerSecretId *string `json:"secretsManagerSecretId"`
+	SecretsManagerSecretId *string `json:"secretsManagerSecretId" yaml:"secretsManagerSecretId"`
 }
 
 // Not currently supported by AWS CloudFormation .
@@ -1890,19 +1890,19 @@ type CfnEndpoint_RedshiftSettingsProperty struct {
 //
 type CfnEndpoint_S3SettingsProperty struct {
 	// Not currently supported by AWS CloudFormation .
-	BucketFolder *string `json:"bucketFolder"`
+	BucketFolder *string `json:"bucketFolder" yaml:"bucketFolder"`
 	// Not currently supported by AWS CloudFormation .
-	BucketName *string `json:"bucketName"`
+	BucketName *string `json:"bucketName" yaml:"bucketName"`
 	// Not currently supported by AWS CloudFormation .
-	CompressionType *string `json:"compressionType"`
+	CompressionType *string `json:"compressionType" yaml:"compressionType"`
 	// Not currently supported by AWS CloudFormation .
-	CsvDelimiter *string `json:"csvDelimiter"`
+	CsvDelimiter *string `json:"csvDelimiter" yaml:"csvDelimiter"`
 	// Not currently supported by AWS CloudFormation .
-	CsvRowDelimiter *string `json:"csvRowDelimiter"`
+	CsvRowDelimiter *string `json:"csvRowDelimiter" yaml:"csvRowDelimiter"`
 	// Not currently supported by AWS CloudFormation .
-	ExternalTableDefinition *string `json:"externalTableDefinition"`
+	ExternalTableDefinition *string `json:"externalTableDefinition" yaml:"externalTableDefinition"`
 	// Not currently supported by AWS CloudFormation .
-	ServiceAccessRoleArn *string `json:"serviceAccessRoleArn"`
+	ServiceAccessRoleArn *string `json:"serviceAccessRoleArn" yaml:"serviceAccessRoleArn"`
 }
 
 // Not currently supported by AWS CloudFormation .
@@ -1911,9 +1911,9 @@ type CfnEndpoint_S3SettingsProperty struct {
 //
 type CfnEndpoint_SybaseSettingsProperty struct {
 	// Not currently supported by AWS CloudFormation .
-	SecretsManagerAccessRoleArn *string `json:"secretsManagerAccessRoleArn"`
+	SecretsManagerAccessRoleArn *string `json:"secretsManagerAccessRoleArn" yaml:"secretsManagerAccessRoleArn"`
 	// Not currently supported by AWS CloudFormation .
-	SecretsManagerSecretId *string `json:"secretsManagerSecretId"`
+	SecretsManagerSecretId *string `json:"secretsManagerSecretId" yaml:"secretsManagerSecretId"`
 }
 
 // Properties for defining a `CfnEndpoint`.
@@ -1924,99 +1924,99 @@ type CfnEndpointProps struct {
 	// The type of endpoint.
 	//
 	// Valid values are `source` and `target` .
-	EndpointType *string `json:"endpointType"`
+	EndpointType *string `json:"endpointType" yaml:"endpointType"`
 	// The type of engine for the endpoint.
 	//
 	// Valid values, depending on the `EndpointType` value, include `"mysql"` , `"oracle"` , `"postgres"` , `"mariadb"` , `"aurora"` , `"aurora-postgresql"` , `"opensearch"` , `"redshift"` , `"s3"` , `"db2"` , `"azuredb"` , `"sybase"` , `"dynamodb"` , `"mongodb"` , `"kinesis"` , `"kafka"` , `"elasticsearch"` , `"docdb"` , `"sqlserver"` , and `"neptune"` .
-	EngineName *string `json:"engineName"`
+	EngineName *string `json:"engineName" yaml:"engineName"`
 	// The Amazon Resource Name (ARN) for the certificate.
-	CertificateArn *string `json:"certificateArn"`
+	CertificateArn *string `json:"certificateArn" yaml:"certificateArn"`
 	// The name of the endpoint database.
 	//
 	// For a MySQL source or target endpoint, do not specify DatabaseName. To migrate to a specific database, use this setting and `targetDbType` .
-	DatabaseName *string `json:"databaseName"`
+	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
 	// Settings in JSON format for the source DocumentDB endpoint.
 	//
 	// For more information about the available settings, see the configuration properties section in [Using DocumentDB as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.DocumentDB.html) in the *AWS Database Migration Service User Guide.*
-	DocDbSettings interface{} `json:"docDbSettings"`
+	DocDbSettings interface{} `json:"docDbSettings" yaml:"docDbSettings"`
 	// Settings in JSON format for the target Amazon DynamoDB endpoint.
 	//
 	// For information about other available settings, see [Using Object Mapping to Migrate Data to DynamoDB](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.DynamoDB.html#CHAP_Target.DynamoDB.ObjectMapping) in the *AWS Database Migration Service User Guide.*
-	DynamoDbSettings interface{} `json:"dynamoDbSettings"`
+	DynamoDbSettings interface{} `json:"dynamoDbSettings" yaml:"dynamoDbSettings"`
 	// Settings in JSON format for the target OpenSearch endpoint.
 	//
 	// For more information about the available settings, see [Extra Connection Attributes When Using OpenSearch as a Target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html#CHAP_Target.Elasticsearch.Configuration) in the *AWS Database Migration Service User Guide* .
-	ElasticsearchSettings interface{} `json:"elasticsearchSettings"`
+	ElasticsearchSettings interface{} `json:"elasticsearchSettings" yaml:"elasticsearchSettings"`
 	// The database endpoint identifier.
 	//
 	// Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen, or contain two consecutive hyphens.
-	EndpointIdentifier *string `json:"endpointIdentifier"`
+	EndpointIdentifier *string `json:"endpointIdentifier" yaml:"endpointIdentifier"`
 	// Additional attributes associated with the connection.
 	//
 	// Each attribute is specified as a name-value pair associated by an equal sign (=). Multiple attributes are separated by a semicolon (;) with no additional white space. For information on the attributes available for connecting your source or target endpoint, see [Working with AWS DMS Endpoints](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Endpoints.html) in the *AWS Database Migration Service User Guide.*
-	ExtraConnectionAttributes *string `json:"extraConnectionAttributes"`
+	ExtraConnectionAttributes *string `json:"extraConnectionAttributes" yaml:"extraConnectionAttributes"`
 	// Not currently supported by AWS CloudFormation .
-	IbmDb2Settings interface{} `json:"ibmDb2Settings"`
+	IbmDb2Settings interface{} `json:"ibmDb2Settings" yaml:"ibmDb2Settings"`
 	// Settings in JSON format for the target Apache Kafka endpoint.
 	//
 	// For more information about the available settings, see [Using object mapping to migrate data to a Kafka topic](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kafka.html#CHAP_Target.Kafka.ObjectMapping) in the *AWS Database Migration Service User Guide.*
-	KafkaSettings interface{} `json:"kafkaSettings"`
+	KafkaSettings interface{} `json:"kafkaSettings" yaml:"kafkaSettings"`
 	// Settings in JSON format for the target endpoint for Amazon Kinesis Data Streams.
 	//
 	// For more information about the available settings, see [Using Amazon Kinesis Data Streams as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kinesis.html) in the *AWS Database Migration Service User Guide.*
-	KinesisSettings interface{} `json:"kinesisSettings"`
+	KinesisSettings interface{} `json:"kinesisSettings" yaml:"kinesisSettings"`
 	// An AWS KMS key identifier that is used to encrypt the connection parameters for the endpoint.
 	//
 	// If you don't specify a value for the `KmsKeyId` parameter, then AWS DMS uses your default encryption key.
 	//
 	// AWS KMS creates the default encryption key for your AWS account . Your AWS account has a different default encryption key for each AWS Region .
-	KmsKeyId *string `json:"kmsKeyId"`
+	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
 	// Not currently supported by AWS CloudFormation .
-	MicrosoftSqlServerSettings interface{} `json:"microsoftSqlServerSettings"`
+	MicrosoftSqlServerSettings interface{} `json:"microsoftSqlServerSettings" yaml:"microsoftSqlServerSettings"`
 	// Not currently supported by AWS CloudFormation .
-	MongoDbSettings interface{} `json:"mongoDbSettings"`
+	MongoDbSettings interface{} `json:"mongoDbSettings" yaml:"mongoDbSettings"`
 	// Settings in JSON format for the source and target MySQL endpoint.
 	//
 	// For information about other available settings, see [Extra connection attributes when using MySQL as a source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MySQL.html#CHAP_Source.MySQL.ConnectionAttrib) and [Extra connection attributes when using a MySQL-compatible database as a target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.MySQL.html#CHAP_Target.MySQL.ConnectionAttrib) in the *AWS Database Migration Service User Guide.*
-	MySqlSettings interface{} `json:"mySqlSettings"`
+	MySqlSettings interface{} `json:"mySqlSettings" yaml:"mySqlSettings"`
 	// `AWS::DMS::Endpoint.NeptuneSettings`.
-	NeptuneSettings interface{} `json:"neptuneSettings"`
+	NeptuneSettings interface{} `json:"neptuneSettings" yaml:"neptuneSettings"`
 	// Settings in JSON format for the source and target Oracle endpoint.
 	//
 	// For information about other available settings, see [Extra connection attributes when using Oracle as a source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.ConnectionAttrib) and [Extra connection attributes when using Oracle as a target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Oracle.html#CHAP_Target.Oracle.ConnectionAttrib) in the *AWS Database Migration Service User Guide.*
-	OracleSettings interface{} `json:"oracleSettings"`
+	OracleSettings interface{} `json:"oracleSettings" yaml:"oracleSettings"`
 	// The password to be used to log in to the endpoint database.
-	Password *string `json:"password"`
+	Password *string `json:"password" yaml:"password"`
 	// The port used by the endpoint database.
-	Port *float64 `json:"port"`
+	Port *float64 `json:"port" yaml:"port"`
 	// Not currently supported by AWS CloudFormation .
-	PostgreSqlSettings interface{} `json:"postgreSqlSettings"`
+	PostgreSqlSettings interface{} `json:"postgreSqlSettings" yaml:"postgreSqlSettings"`
 	// Settings in JSON format for the target Redis endpoint.
-	RedisSettings interface{} `json:"redisSettings"`
+	RedisSettings interface{} `json:"redisSettings" yaml:"redisSettings"`
 	// Not currently supported by AWS CloudFormation .
-	RedshiftSettings interface{} `json:"redshiftSettings"`
+	RedshiftSettings interface{} `json:"redshiftSettings" yaml:"redshiftSettings"`
 	// A friendly name for the resource identifier at the end of the `EndpointArn` response parameter that is returned in the created `Endpoint` object.
 	//
 	// The value for this parameter can have up to 31 characters. It can contain only ASCII letters, digits, and hyphen ('-'). Also, it can't end with a hyphen or contain two consecutive hyphens, and can only begin with a letter, such as `Example-App-ARN1` . For example, this value might result in the `EndpointArn` value `arn:aws:dms:eu-west-1:012345678901:rep:Example-App-ARN1` . If you don't specify a `ResourceIdentifier` value, AWS DMS generates a default identifier value for the end of `EndpointArn` .
-	ResourceIdentifier *string `json:"resourceIdentifier"`
+	ResourceIdentifier *string `json:"resourceIdentifier" yaml:"resourceIdentifier"`
 	// Settings in JSON format for the target Amazon S3 endpoint.
 	//
 	// For more information about the available settings, see [Extra Connection Attributes When Using Amazon S3 as a Target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring) in the *AWS Database Migration Service User Guide.*
-	S3Settings interface{} `json:"s3Settings"`
+	S3Settings interface{} `json:"s3Settings" yaml:"s3Settings"`
 	// The name of the server where the endpoint database resides.
-	ServerName *string `json:"serverName"`
+	ServerName *string `json:"serverName" yaml:"serverName"`
 	// The Secure Sockets Layer (SSL) mode to use for the SSL connection. The default is `none` .
 	//
 	// > When `engine_name` is set to S3, then the only allowed value is `none` .
-	SslMode *string `json:"sslMode"`
+	SslMode *string `json:"sslMode" yaml:"sslMode"`
 	// Settings in JSON format for the source and target SAP ASE endpoint.
 	//
 	// For information about other available settings, see [Extra connection attributes when using SAP ASE as a source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.SAP.html#CHAP_Source.SAP.ConnectionAttrib) and [Extra connection attributes when using SAP ASE as a target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.SAP.html#CHAP_Target.SAP.ConnectionAttrib) in the *AWS Database Migration Service User Guide.*
-	SybaseSettings interface{} `json:"sybaseSettings"`
+	SybaseSettings interface{} `json:"sybaseSettings" yaml:"sybaseSettings"`
 	// One or more tags to be assigned to the endpoint.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// The user name to be used to log in to the endpoint database.
-	Username *string `json:"username"`
+	Username *string `json:"username" yaml:"username"`
 }
 
 // A CloudFormation `AWS::DMS::EventSubscription`.
@@ -2610,33 +2610,33 @@ type CfnEventSubscriptionProps struct {
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic created for event notification.
 	//
 	// The ARN is created by Amazon SNS when you create a topic and subscribe to it.
-	SnsTopicArn *string `json:"snsTopicArn"`
+	SnsTopicArn *string `json:"snsTopicArn" yaml:"snsTopicArn"`
 	// Indicates whether to activate the subscription.
 	//
 	// If you don't specify this property, AWS CloudFormation activates the subscription.
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 	// A list of event categories for a source type that you want to subscribe to.
 	//
 	// If you don't specify this property, you are notified about all event categories. For more information, see [Working with Events and Notifications](https://docs.aws.amazon.com//dms/latest/userguide/CHAP_Events.html) in the *AWS DMS User Guide* .
-	EventCategories *[]*string `json:"eventCategories"`
+	EventCategories *[]*string `json:"eventCategories" yaml:"eventCategories"`
 	// A list of identifiers for which AWS DMS provides notification events.
 	//
 	// If you don't specify a value, notifications are provided for all sources.
 	//
 	// If you specify multiple values, they must be of the same type. For example, if you specify a database instance ID, then all of the other values must be database instance IDs.
-	SourceIds *[]*string `json:"sourceIds"`
+	SourceIds *[]*string `json:"sourceIds" yaml:"sourceIds"`
 	// The type of AWS DMS resource that generates the events.
 	//
 	// For example, if you want to be notified of events generated by a replication instance, you set this parameter to `replication-instance` . If this value isn't specified, all events are returned.
 	//
 	// Valid values: `replication-instance` | `replication-task`
-	SourceType *string `json:"sourceType"`
+	SourceType *string `json:"sourceType" yaml:"sourceType"`
 	// The name of the AWS DMS event notification subscription.
 	//
 	// This name must be less than 255 characters.
-	SubscriptionName *string `json:"subscriptionName"`
+	SubscriptionName *string `json:"subscriptionName" yaml:"subscriptionName"`
 	// One or more tags to be assigned to the event subscription.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::DMS::ReplicationInstance`.
@@ -3414,39 +3414,39 @@ type CfnReplicationInstanceProps struct {
 	// For example to specify the instance class dms.c4.large, set this parameter to `"dms.c4.large"` .
 	//
 	// For more information on the settings and capacities for the available replication instance classes, see [Selecting the right AWS DMS replication instance for your migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth) .
-	ReplicationInstanceClass *string `json:"replicationInstanceClass"`
+	ReplicationInstanceClass *string `json:"replicationInstanceClass" yaml:"replicationInstanceClass"`
 	// The amount of storage (in gigabytes) to be initially allocated for the replication instance.
-	AllocatedStorage *float64 `json:"allocatedStorage"`
+	AllocatedStorage *float64 `json:"allocatedStorage" yaml:"allocatedStorage"`
 	// Indicates that major version upgrades are allowed.
 	//
 	// Changing this parameter does not result in an outage, and the change is asynchronously applied as soon as possible.
 	//
 	// This parameter must be set to `true` when specifying a value for the `EngineVersion` parameter that is a different major version than the replication instance's current version.
-	AllowMajorVersionUpgrade interface{} `json:"allowMajorVersionUpgrade"`
+	AllowMajorVersionUpgrade interface{} `json:"allowMajorVersionUpgrade" yaml:"allowMajorVersionUpgrade"`
 	// A value that indicates whether minor engine upgrades are applied automatically to the replication instance during the maintenance window.
 	//
 	// This parameter defaults to `true` .
 	//
 	// Default: `true`
-	AutoMinorVersionUpgrade interface{} `json:"autoMinorVersionUpgrade"`
+	AutoMinorVersionUpgrade interface{} `json:"autoMinorVersionUpgrade" yaml:"autoMinorVersionUpgrade"`
 	// The Availability Zone that the replication instance will be created in.
 	//
 	// The default value is a random, system-chosen Availability Zone in the endpoint's AWS Region , for example: `us-east-1d`
-	AvailabilityZone *string `json:"availabilityZone"`
+	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
 	// The engine version number of the replication instance.
 	//
 	// If an engine version number is not specified when a replication instance is created, the default is the latest engine version available.
-	EngineVersion *string `json:"engineVersion"`
+	EngineVersion *string `json:"engineVersion" yaml:"engineVersion"`
 	// An AWS KMS key identifier that is used to encrypt the data on the replication instance.
 	//
 	// If you don't specify a value for the `KmsKeyId` parameter, then AWS DMS uses your default encryption key.
 	//
 	// AWS KMS creates the default encryption key for your AWS account . Your AWS account has a different default encryption key for each AWS Region .
-	KmsKeyId *string `json:"kmsKeyId"`
+	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
 	// Specifies whether the replication instance is a Multi-AZ deployment.
 	//
 	// You can't set the `AvailabilityZone` parameter if the Multi-AZ parameter is set to `true` .
-	MultiAz interface{} `json:"multiAz"`
+	MultiAz interface{} `json:"multiAz" yaml:"multiAz"`
 	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
 	//
 	// Format: `ddd:hh24:mi-ddd:hh24:mi`
@@ -3456,11 +3456,11 @@ type CfnReplicationInstanceProps struct {
 	// Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun
 	//
 	// Constraints: Minimum 30-minute window.
-	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow"`
+	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
 	// Specifies the accessibility options for the replication instance.
 	//
 	// A value of `true` represents an instance with a public IP address. A value of `false` represents an instance with a private IP address. The default value is `true` .
-	PubliclyAccessible interface{} `json:"publiclyAccessible"`
+	PubliclyAccessible interface{} `json:"publiclyAccessible" yaml:"publiclyAccessible"`
 	// The replication instance identifier. This parameter is stored as a lowercase string.
 	//
 	// Constraints:
@@ -3470,19 +3470,19 @@ type CfnReplicationInstanceProps struct {
 	// - Can't end with a hyphen or contain two consecutive hyphens.
 	//
 	// Example: `myrepinstance`
-	ReplicationInstanceIdentifier *string `json:"replicationInstanceIdentifier"`
+	ReplicationInstanceIdentifier *string `json:"replicationInstanceIdentifier" yaml:"replicationInstanceIdentifier"`
 	// A subnet group to associate with the replication instance.
-	ReplicationSubnetGroupIdentifier *string `json:"replicationSubnetGroupIdentifier"`
+	ReplicationSubnetGroupIdentifier *string `json:"replicationSubnetGroupIdentifier" yaml:"replicationSubnetGroupIdentifier"`
 	// A friendly name for the resource identifier at the end of the `EndpointArn` response parameter that is returned in the created `Endpoint` object.
 	//
 	// The value for this parameter can have up to 31 characters. It can contain only ASCII letters, digits, and hyphen ('-'). Also, it can't end with a hyphen or contain two consecutive hyphens, and can only begin with a letter, such as `Example-App-ARN1` . For example, this value might result in the `EndpointArn` value `arn:aws:dms:eu-west-1:012345678901:rep:Example-App-ARN1` . If you don't specify a `ResourceIdentifier` value, AWS DMS generates a default identifier value for the end of `EndpointArn` .
-	ResourceIdentifier *string `json:"resourceIdentifier"`
+	ResourceIdentifier *string `json:"resourceIdentifier" yaml:"resourceIdentifier"`
 	// One or more tags to be assigned to the replication instance.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// Specifies the VPC security group to be used with the replication instance.
 	//
 	// The VPC security group must work with the VPC containing the replication instance.
-	VpcSecurityGroupIds *[]*string `json:"vpcSecurityGroupIds"`
+	VpcSecurityGroupIds *[]*string `json:"vpcSecurityGroupIds" yaml:"vpcSecurityGroupIds"`
 }
 
 // A CloudFormation `AWS::DMS::ReplicationSubnetGroup`.
@@ -4016,15 +4016,15 @@ func (c *jsiiProxy_CfnReplicationSubnetGroup) ValidateProperties(_properties int
 //
 type CfnReplicationSubnetGroupProps struct {
 	// The description for the subnet group.
-	ReplicationSubnetGroupDescription *string `json:"replicationSubnetGroupDescription"`
+	ReplicationSubnetGroupDescription *string `json:"replicationSubnetGroupDescription" yaml:"replicationSubnetGroupDescription"`
 	// One or more subnet IDs to be assigned to the subnet group.
-	SubnetIds *[]*string `json:"subnetIds"`
+	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
 	// The identifier for the replication subnet group.
 	//
 	// If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the identifier.
-	ReplicationSubnetGroupIdentifier *string `json:"replicationSubnetGroupIdentifier"`
+	ReplicationSubnetGroupIdentifier *string `json:"replicationSubnetGroupIdentifier" yaml:"replicationSubnetGroupIdentifier"`
 	// One or more tags to be assigned to the subnet group.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::DMS::ReplicationTask`.
@@ -4738,17 +4738,17 @@ type CfnReplicationTaskProps struct {
 	// The migration type.
 	//
 	// Valid values: `full-load` | `cdc` | `full-load-and-cdc`
-	MigrationType *string `json:"migrationType"`
+	MigrationType *string `json:"migrationType" yaml:"migrationType"`
 	// The Amazon Resource Name (ARN) of a replication instance.
-	ReplicationInstanceArn *string `json:"replicationInstanceArn"`
+	ReplicationInstanceArn *string `json:"replicationInstanceArn" yaml:"replicationInstanceArn"`
 	// An Amazon Resource Name (ARN) that uniquely identifies the source endpoint.
-	SourceEndpointArn *string `json:"sourceEndpointArn"`
+	SourceEndpointArn *string `json:"sourceEndpointArn" yaml:"sourceEndpointArn"`
 	// The table mappings for the task, in JSON format.
 	//
 	// For more information, see [Using Table Mapping to Specify Task Settings](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html) in the *AWS Database Migration Service User Guide.*
-	TableMappings *string `json:"tableMappings"`
+	TableMappings *string `json:"tableMappings" yaml:"tableMappings"`
 	// An Amazon Resource Name (ARN) that uniquely identifies the target endpoint.
-	TargetEndpointArn *string `json:"targetEndpointArn"`
+	TargetEndpointArn *string `json:"targetEndpointArn" yaml:"targetEndpointArn"`
 	// Indicates when you want a change data capture (CDC) operation to start.
 	//
 	// Use either CdcStartPosition or CdcStartTime to specify when you want a CDC operation to start. Specifying both values results in an error.
@@ -4762,9 +4762,9 @@ type CfnReplicationTaskProps struct {
 	// LSN Example: --cdc-start-position “mysql-bin-changelog.000024:373”
 	//
 	// > When you use this task setting with a source PostgreSQL database, a logical replication slot should already be created and associated with the source endpoint. You can verify this by setting the `slotName` extra connection attribute to the name of this logical replication slot. For more information, see [Extra Connection Attributes When Using PostgreSQL as a Source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib) .
-	CdcStartPosition *string `json:"cdcStartPosition"`
+	CdcStartPosition *string `json:"cdcStartPosition" yaml:"cdcStartPosition"`
 	// Indicates the start time for a change data capture (CDC) operation.
-	CdcStartTime *float64 `json:"cdcStartTime"`
+	CdcStartTime *float64 `json:"cdcStartTime" yaml:"cdcStartTime"`
 	// Indicates when you want a change data capture (CDC) operation to stop.
 	//
 	// The value can be either server time or commit time.
@@ -4772,7 +4772,7 @@ type CfnReplicationTaskProps struct {
 	// Server time example: --cdc-stop-position “server_time:2018-02-09T12:12:12”
 	//
 	// Commit time example: --cdc-stop-position “commit_time: 2018-02-09T12:12:12 “
-	CdcStopPosition *string `json:"cdcStopPosition"`
+	CdcStopPosition *string `json:"cdcStopPosition" yaml:"cdcStopPosition"`
 	// An identifier for the replication task.
 	//
 	// Constraints:
@@ -4780,18 +4780,18 @@ type CfnReplicationTaskProps struct {
 	// - Must contain 1-255 alphanumeric characters or hyphens.
 	// - First character must be a letter.
 	// - Cannot end with a hyphen or contain two consecutive hyphens.
-	ReplicationTaskIdentifier *string `json:"replicationTaskIdentifier"`
+	ReplicationTaskIdentifier *string `json:"replicationTaskIdentifier" yaml:"replicationTaskIdentifier"`
 	// Overall settings for the task, in JSON format.
 	//
 	// For more information, see [Specifying Task Settings for AWS Database Migration Service Tasks](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html) in the *AWS Database Migration Service User Guide.*
-	ReplicationTaskSettings *string `json:"replicationTaskSettings"`
+	ReplicationTaskSettings *string `json:"replicationTaskSettings" yaml:"replicationTaskSettings"`
 	// A friendly name for the resource identifier at the end of the `EndpointArn` response parameter that is returned in the created `Endpoint` object.
 	//
 	// The value for this parameter can have up to 31 characters. It can contain only ASCII letters, digits, and hyphen ('-'). Also, it can't end with a hyphen or contain two consecutive hyphens, and can only begin with a letter, such as `Example-App-ARN1` . For example, this value might result in the `EndpointArn` value `arn:aws:dms:eu-west-1:012345678901:rep:Example-App-ARN1` . If you don't specify a `ResourceIdentifier` value, AWS DMS generates a default identifier value for the end of `EndpointArn` .
-	ResourceIdentifier *string `json:"resourceIdentifier"`
+	ResourceIdentifier *string `json:"resourceIdentifier" yaml:"resourceIdentifier"`
 	// One or more tags to be assigned to the replication task.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// `AWS::DMS::ReplicationTask.TaskData`.
-	TaskData *string `json:"taskData"`
+	TaskData *string `json:"taskData" yaml:"taskData"`
 }
 

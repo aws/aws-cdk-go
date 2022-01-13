@@ -802,7 +802,7 @@ func (c *jsiiProxy_CfnAssociation) ValidateProperties(_properties interface{}) {
 //
 type CfnAssociation_InstanceAssociationOutputLocationProperty struct {
 	// `S3OutputLocation` is a property of the [InstanceAssociationOutputLocation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-instanceassociationoutputlocation.html) property that specifies an Amazon S3 bucket where you want to store the results of this request.
-	S3Location interface{} `json:"s3Location"`
+	S3Location interface{} `json:"s3Location" yaml:"s3Location"`
 }
 
 // `S3OutputLocation` is a property of the [AWS::SSM::Association](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html) resource that specifies an Amazon S3 bucket where you want to store the results of this association request.
@@ -811,11 +811,11 @@ type CfnAssociation_InstanceAssociationOutputLocationProperty struct {
 //
 type CfnAssociation_S3OutputLocationProperty struct {
 	// The name of the S3 bucket.
-	OutputS3BucketName *string `json:"outputS3BucketName"`
+	OutputS3BucketName *string `json:"outputS3BucketName" yaml:"outputS3BucketName"`
 	// The S3 bucket subfolder.
-	OutputS3KeyPrefix *string `json:"outputS3KeyPrefix"`
+	OutputS3KeyPrefix *string `json:"outputS3KeyPrefix" yaml:"outputS3KeyPrefix"`
 	// The AWS Region of the S3 bucket.
-	OutputS3Region *string `json:"outputS3Region"`
+	OutputS3Region *string `json:"outputS3Region" yaml:"outputS3Region"`
 }
 
 // `Target` is a property of the [AWS::SSM::Association](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html) resource that specifies the targets for an SSM document in Systems Manager . You can target all instances in an AWS account by specifying the `InstanceIds` key with a value of `*` . To view a JSON and a YAML example that targets all instances, see "Create an association for all managed instances in an AWS account " on the Examples page.
@@ -824,13 +824,13 @@ type CfnAssociation_S3OutputLocationProperty struct {
 //
 type CfnAssociation_TargetProperty struct {
 	// User-defined criteria for sending commands that target managed nodes that meet the criteria.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// User-defined criteria that maps to `Key` .
 	//
 	// For example, if you specified `tag:ServerRole` , you could specify `value:WebServer` to run a command on instances that include EC2 tags of `ServerRole,WebServer` .
 	//
 	// Depending on the type of target, the maximum number of values for a key might be lower than the global maximum of 50.
-	Values *[]*string `json:"values"`
+	Values *[]*string `json:"values" yaml:"values"`
 }
 
 // Properties for defining a `CfnAssociation`.
@@ -847,51 +847,51 @@ type CfnAssociationProps struct {
 	// For example: `arn:aws:ssm:us-east-2:12345678912:document/My-Shared-Document`
 	//
 	// For AWS -predefined documents and SSM documents you created in your account, you only need to specify the document name. For example, AWS -ApplyPatchBaseline or My-Document.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// By default, when you create a new association, the system runs it immediately after it is created and then according to the schedule you specified.
 	//
 	// Specify this option if you don't want an association to run immediately after you create it. This parameter is not supported for rate expressions.
-	ApplyOnlyAtCronInterval interface{} `json:"applyOnlyAtCronInterval"`
+	ApplyOnlyAtCronInterval interface{} `json:"applyOnlyAtCronInterval" yaml:"applyOnlyAtCronInterval"`
 	// Specify a descriptive name for the association.
-	AssociationName *string `json:"associationName"`
+	AssociationName *string `json:"associationName" yaml:"associationName"`
 	// Choose the parameter that will define how your automation will branch out.
 	//
 	// This target is required for associations that use an Automation runbook and target resources by using rate controls. Automation is a capability of AWS Systems Manager .
-	AutomationTargetParameterName *string `json:"automationTargetParameterName"`
+	AutomationTargetParameterName *string `json:"automationTargetParameterName" yaml:"automationTargetParameterName"`
 	// The names or Amazon Resource Names (ARNs) of the Change Calendar type documents your associations are gated under.
 	//
 	// The associations only run when that Change Calendar is open. For more information, see [AWS Systems Manager Change Calendar](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar) .
-	CalendarNames *[]*string `json:"calendarNames"`
+	CalendarNames *[]*string `json:"calendarNames" yaml:"calendarNames"`
 	// The severity level that is assigned to the association.
-	ComplianceSeverity *string `json:"complianceSeverity"`
+	ComplianceSeverity *string `json:"complianceSeverity" yaml:"complianceSeverity"`
 	// The version of the SSM document to associate with the target.
-	DocumentVersion *string `json:"documentVersion"`
+	DocumentVersion *string `json:"documentVersion" yaml:"documentVersion"`
 	// The ID of the instance that the SSM document is associated with.
 	//
 	// You must specify the `InstanceId` or `Targets` property.
 	//
 	// > `InstanceId` has been deprecated. To specify an instance ID for an association, use the `Targets` parameter. If you use the parameter `InstanceId` , you cannot use the parameters `AssociationName` , `DocumentVersion` , `MaxErrors` , `MaxConcurrency` , `OutputLocation` , or `ScheduleExpression` . To use these parameters, you must use the `Targets` parameter.
-	InstanceId *string `json:"instanceId"`
+	InstanceId *string `json:"instanceId" yaml:"instanceId"`
 	// The maximum number of targets allowed to run the association at the same time.
 	//
 	// You can specify a number, for example 10, or a percentage of the target set, for example 10%. The default value is 100%, which means all targets run the association at the same time.
 	//
 	// If a new managed node starts and attempts to run an association while Systems Manager is running `MaxConcurrency` associations, the association is allowed to run. During the next association interval, the new managed node will process its association within the limit specified for `MaxConcurrency` .
-	MaxConcurrency *string `json:"maxConcurrency"`
+	MaxConcurrency *string `json:"maxConcurrency" yaml:"maxConcurrency"`
 	// The number of errors that are allowed before the system stops sending requests to run the association on additional targets.
 	//
 	// You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%. If you specify 3, for example, the system stops sending requests when the fourth error is received. If you specify 0, then the system stops sending requests after the first error is returned. If you run an association on 50 managed nodes and set `MaxError` to 10%, then the system stops sending the request when the sixth error is received.
 	//
 	// Executions that are already running an association when `MaxErrors` is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set `MaxConcurrency` to 1 so that executions proceed one at a time.
-	MaxErrors *string `json:"maxErrors"`
+	MaxErrors *string `json:"maxErrors" yaml:"maxErrors"`
 	// An Amazon Simple Storage Service (Amazon S3) bucket where you want to store the output details of the request.
-	OutputLocation interface{} `json:"outputLocation"`
+	OutputLocation interface{} `json:"outputLocation" yaml:"outputLocation"`
 	// The parameters for the runtime configuration of the document.
-	Parameters interface{} `json:"parameters"`
+	Parameters interface{} `json:"parameters" yaml:"parameters"`
 	// A cron expression that specifies a schedule when the association runs.
 	//
 	// The schedule runs in Coordinated Universal Time (UTC).
-	ScheduleExpression *string `json:"scheduleExpression"`
+	ScheduleExpression *string `json:"scheduleExpression" yaml:"scheduleExpression"`
 	// The mode for generating association compliance.
 	//
 	// You can specify `AUTO` or `MANUAL` . In `AUTO` mode, the system uses the status of the association execution to determine the compliance status. If the association execution runs successfully, then the association is `COMPLIANT` . If the association execution doesn't run successfully, the association is `NON-COMPLIANT` .
@@ -899,15 +899,15 @@ type CfnAssociationProps struct {
 	// In `MANUAL` mode, you must specify the `AssociationId` as a parameter for the PutComplianceItems API action. In this case, compliance data is not managed by State Manager. It is managed by your direct call to the PutComplianceItems API action.
 	//
 	// By default, all associations use `AUTO` mode.
-	SyncCompliance *string `json:"syncCompliance"`
+	SyncCompliance *string `json:"syncCompliance" yaml:"syncCompliance"`
 	// The targets for the association.
 	//
 	// You must specify the `InstanceId` or `Targets` property. You can target all instances in an AWS account by specifying the `InstanceIds` key with a value of `*` . To view a JSON and a YAML example that targets all instances, see "Create an association for all managed instances in an AWS account " on the Examples page.
-	Targets interface{} `json:"targets"`
+	Targets interface{} `json:"targets" yaml:"targets"`
 	// The number of seconds the service should wait for the association status to show "Success" before proceeding with the stack execution.
 	//
 	// If the association status doesn't show "Success" after the specified number of seconds, then stack creation fails.
-	WaitForSuccessTimeoutSeconds *float64 `json:"waitForSuccessTimeoutSeconds"`
+	WaitForSuccessTimeoutSeconds *float64 `json:"waitForSuccessTimeoutSeconds" yaml:"waitForSuccessTimeoutSeconds"`
 }
 
 // A CloudFormation `AWS::SSM::Document`.
@@ -1541,9 +1541,9 @@ func (c *jsiiProxy_CfnDocument) ValidateProperties(_properties interface{}) {
 //
 type CfnDocument_AttachmentsSourceProperty struct {
 	// The key of a key-value pair that identifies the location of an attachment to a document.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// The name of the document attachment file.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The value of a key-value pair that identifies the location of an attachment to a document.
 	//
 	// The format for *Value* depends on the type of key you specify.
@@ -1561,7 +1561,7 @@ type CfnDocument_AttachmentsSourceProperty struct {
 	// However, if the SSM document is shared with you from another account, the full SSM document ARN must be specified instead of the document name only. For example:
 	//
 	// `"Values": [ "arn:aws:ssm:us-east-2:111122223333:document/OtherAccountDocument/3/their-file.py" ]`
-	Values *[]*string `json:"values"`
+	Values *[]*string `json:"values" yaml:"values"`
 }
 
 // An SSM document required by the current document.
@@ -1572,9 +1572,9 @@ type CfnDocument_DocumentRequiresProperty struct {
 	// The name of the required SSM document.
 	//
 	// The name can be an Amazon Resource Name (ARN).
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The document version required by the current document.
-	Version *string `json:"version"`
+	Version *string `json:"version" yaml:"version"`
 }
 
 // Properties for defining a `CfnDocument`.
@@ -1585,19 +1585,19 @@ type CfnDocumentProps struct {
 	// The content for the new SSM document in JSON or YAML.
 	//
 	// > This parameter also supports `String` data types.
-	Content interface{} `json:"content"`
+	Content interface{} `json:"content" yaml:"content"`
 	// A list of key-value pairs that describe attachments to a version of a document.
-	Attachments interface{} `json:"attachments"`
+	Attachments interface{} `json:"attachments" yaml:"attachments"`
 	// Specify the document format for the request.
 	//
 	// The document format can be JSON or YAML. JSON is the default format.
 	//
 	// > `TEXT` is not supported, even though it is listed in the `Allowed values` .
-	DocumentFormat *string `json:"documentFormat"`
+	DocumentFormat *string `json:"documentFormat" yaml:"documentFormat"`
 	// The type of document to create.
 	//
 	// *Allowed Values* : `ApplicationConfigurationSchema` | `Automation` | `Automation.ChangeTemplate` | `Command` | `DeploymentStrategy` | `Package` | `Policy` | `Session`
-	DocumentType *string `json:"documentType"`
+	DocumentType *string `json:"documentType" yaml:"documentType"`
 	// A name for the SSM document.
 	//
 	// > You can't use the following strings as document name prefixes. These are reserved by AWS for use as document name prefixes:
@@ -1605,23 +1605,23 @@ type CfnDocumentProps struct {
 	// > - `aws-`
 	// > - `amazon`
 	// > - `amzn`
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// A list of SSM documents required by a document.
 	//
 	// This parameter is used exclusively by AWS AppConfig . When a user creates an AWS AppConfig configuration in an SSM document, the user must also specify a required document for validation purposes. In this case, an `ApplicationConfiguration` document requires an `ApplicationConfigurationSchema` document for validation purposes. For more information, see [What is AWS AppConfig ?](https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html) in the *AWS AppConfig User Guide* .
-	Requires interface{} `json:"requires"`
+	Requires interface{} `json:"requires" yaml:"requires"`
 	// AWS CloudFormation resource tags to apply to the document.
 	//
 	// Use tags to help you identify and categorize resources.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// Specify a target type to define the kinds of resources the document can run on.
 	//
 	// For example, to run a document on EC2 instances, specify the following value: `/AWS::EC2::Instance` . If you specify a value of '/' the document can run on all types of resources. If you don't specify a value, the document can't run on any resources. For a list of valid resource types, see [AWS resource and property types reference](https://docs.aws.amazon.com//AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html) in the *AWS CloudFormation User Guide* .
-	TargetType *string `json:"targetType"`
+	TargetType *string `json:"targetType" yaml:"targetType"`
 	// An optional field specifying the version of the artifact you are creating with the document.
 	//
 	// For example, "Release 12, Update 6". This value is unique across all versions of a document, and can't be changed.
-	VersionName *string `json:"versionName"`
+	VersionName *string `json:"versionName" yaml:"versionName"`
 }
 
 // A CloudFormation `AWS::SSM::MaintenanceWindow`.
@@ -2297,31 +2297,31 @@ type CfnMaintenanceWindowProps struct {
 	// Enables a maintenance window task to run on managed instances, even if you have not registered those instances as targets.
 	//
 	// If enabled, then you must specify the unregistered instances (by instance ID) when you register a task with the maintenance window.
-	AllowUnassociatedTargets interface{} `json:"allowUnassociatedTargets"`
+	AllowUnassociatedTargets interface{} `json:"allowUnassociatedTargets" yaml:"allowUnassociatedTargets"`
 	// The number of hours before the end of the maintenance window that AWS Systems Manager stops scheduling new tasks for execution.
-	Cutoff *float64 `json:"cutoff"`
+	Cutoff *float64 `json:"cutoff" yaml:"cutoff"`
 	// The duration of the maintenance window in hours.
-	Duration *float64 `json:"duration"`
+	Duration *float64 `json:"duration" yaml:"duration"`
 	// The name of the maintenance window.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The schedule of the maintenance window in the form of a cron or rate expression.
-	Schedule *string `json:"schedule"`
+	Schedule *string `json:"schedule" yaml:"schedule"`
 	// A description of the maintenance window.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled to become inactive.
-	EndDate *string `json:"endDate"`
+	EndDate *string `json:"endDate" yaml:"endDate"`
 	// The number of days to wait to run a maintenance window after the scheduled cron expression date and time.
-	ScheduleOffset *float64 `json:"scheduleOffset"`
+	ScheduleOffset *float64 `json:"scheduleOffset" yaml:"scheduleOffset"`
 	// The time zone that the scheduled maintenance window executions are based on, in Internet Assigned Numbers Authority (IANA) format.
-	ScheduleTimezone *string `json:"scheduleTimezone"`
+	ScheduleTimezone *string `json:"scheduleTimezone" yaml:"scheduleTimezone"`
 	// The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled to become active.
 	//
 	// StartDate allows you to delay activation of the Maintenance Window until the specified future date.
-	StartDate *string `json:"startDate"`
+	StartDate *string `json:"startDate" yaml:"startDate"`
 	// Optional metadata that you assign to a resource in the form of an arbitrary set of tags (key-value pairs).
 	//
 	// Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a maintenance window to identify the type of tasks it will run, the types of targets, and the environment it will run in.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::SSM::MaintenanceWindowTarget`.
@@ -2904,13 +2904,13 @@ func (c *jsiiProxy_CfnMaintenanceWindowTarget) ValidateProperties(_properties in
 //
 type CfnMaintenanceWindowTarget_TargetsProperty struct {
 	// User-defined criteria for sending commands that target managed nodes that meet the criteria.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// User-defined criteria that maps to `Key` .
 	//
 	// For example, if you specified `tag:ServerRole` , you could specify `value:WebServer` to run a command on instances that include EC2 tags of `ServerRole,WebServer` .
 	//
 	// Depending on the type of target, the maximum number of values for a key might be lower than the global maximum of 50.
-	Values *[]*string `json:"values"`
+	Values *[]*string `json:"values" yaml:"values"`
 }
 
 // Properties for defining a `CfnMaintenanceWindowTarget`.
@@ -2919,21 +2919,21 @@ type CfnMaintenanceWindowTarget_TargetsProperty struct {
 //
 type CfnMaintenanceWindowTargetProps struct {
 	// The type of target that is being registered with the maintenance window.
-	ResourceType *string `json:"resourceType"`
+	ResourceType *string `json:"resourceType" yaml:"resourceType"`
 	// The targets to register with the maintenance window.
 	//
 	// In other words, the instances to run commands on when the maintenance window runs.
 	//
 	// You must specify targets by using the `WindowTargetIds` parameter.
-	Targets interface{} `json:"targets"`
+	Targets interface{} `json:"targets" yaml:"targets"`
 	// The ID of the maintenance window to register the target with.
-	WindowId *string `json:"windowId"`
+	WindowId *string `json:"windowId" yaml:"windowId"`
 	// A description for the target.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The name for the maintenance window target.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// A user-provided value that will be included in any Amazon CloudWatch Events events that are raised while running tasks for these targets in this maintenance window.
-	OwnerInformation *string `json:"ownerInformation"`
+	OwnerInformation *string `json:"ownerInformation" yaml:"ownerInformation"`
 }
 
 // A CloudFormation `AWS::SSM::MaintenanceWindowTask`.
@@ -3678,11 +3678,11 @@ func (c *jsiiProxy_CfnMaintenanceWindowTask) ValidateProperties(_properties inte
 //
 type CfnMaintenanceWindowTask_LoggingInfoProperty struct {
 	// The AWS Region where the S3 bucket is located.
-	Region *string `json:"region"`
+	Region *string `json:"region" yaml:"region"`
 	// The name of an S3 bucket where execution logs are stored .
-	S3Bucket *string `json:"s3Bucket"`
+	S3Bucket *string `json:"s3Bucket" yaml:"s3Bucket"`
 	// The Amazon S3 bucket subfolder.
-	S3Prefix *string `json:"s3Prefix"`
+	S3Prefix *string `json:"s3Prefix" yaml:"s3Prefix"`
 }
 
 // The `MaintenanceWindowAutomationParameters` property type specifies the parameters for an `AUTOMATION` task type for a maintenance window task in AWS Systems Manager .
@@ -3695,9 +3695,9 @@ type CfnMaintenanceWindowTask_LoggingInfoProperty struct {
 //
 type CfnMaintenanceWindowTask_MaintenanceWindowAutomationParametersProperty struct {
 	// The version of an Automation runbook to use during task execution.
-	DocumentVersion *string `json:"documentVersion"`
+	DocumentVersion *string `json:"documentVersion" yaml:"documentVersion"`
 	// The parameters for the AUTOMATION task.
-	Parameters interface{} `json:"parameters"`
+	Parameters interface{} `json:"parameters" yaml:"parameters"`
 }
 
 // The `MaintenanceWindowLambdaParameters` property type specifies the parameters for a `LAMBDA` task type for a maintenance window task in AWS Systems Manager .
@@ -3710,17 +3710,17 @@ type CfnMaintenanceWindowTask_MaintenanceWindowLambdaParametersProperty struct {
 	// Client-specific information to pass to the AWS Lambda function that you're invoking.
 	//
 	// You can then use the `context` variable to process the client information in your AWS Lambda function.
-	ClientContext *string `json:"clientContext"`
+	ClientContext *string `json:"clientContext" yaml:"clientContext"`
 	// JSON to provide to your AWS Lambda function as input.
 	//
 	// > Although `Type` is listed as "String" for this property, the payload content must be formatted as a Base64-encoded binary data object.
 	//
 	// *Length Constraint:* 4096
-	Payload *string `json:"payload"`
+	Payload *string `json:"payload" yaml:"payload"`
 	// An AWS Lambda function version or alias name.
 	//
 	// If you specify a function version, the action uses the qualified function Amazon Resource Name (ARN) to invoke a specific Lambda function. If you specify an alias name, the action uses the alias ARN to invoke the Lambda function version that the alias points to.
-	Qualifier *string `json:"qualifier"`
+	Qualifier *string `json:"qualifier" yaml:"qualifier"`
 }
 
 // The `MaintenanceWindowRunCommandParameters` property type specifies the parameters for a `RUN_COMMAND` task type for a maintenance window task in AWS Systems Manager .
@@ -3735,29 +3735,29 @@ type CfnMaintenanceWindowTask_MaintenanceWindowLambdaParametersProperty struct {
 //
 type CfnMaintenanceWindowTask_MaintenanceWindowRunCommandParametersProperty struct {
 	// Information about the command or commands to run.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// The SHA-256 or SHA-1 hash created by the system when the document was created.
 	//
 	// SHA-1 hashes have been deprecated.
-	DocumentHash *string `json:"documentHash"`
+	DocumentHash *string `json:"documentHash" yaml:"documentHash"`
 	// The SHA-256 or SHA-1 hash type.
 	//
 	// SHA-1 hashes are deprecated.
-	DocumentHashType *string `json:"documentHashType"`
+	DocumentHashType *string `json:"documentHashType" yaml:"documentHashType"`
 	// Configurations for sending notifications about command status changes on a per-managed node basis.
-	NotificationConfig interface{} `json:"notificationConfig"`
+	NotificationConfig interface{} `json:"notificationConfig" yaml:"notificationConfig"`
 	// The name of the Amazon Simple Storage Service (Amazon S3) bucket.
-	OutputS3BucketName *string `json:"outputS3BucketName"`
+	OutputS3BucketName *string `json:"outputS3BucketName" yaml:"outputS3BucketName"`
 	// The S3 bucket subfolder.
-	OutputS3KeyPrefix *string `json:"outputS3KeyPrefix"`
+	OutputS3KeyPrefix *string `json:"outputS3KeyPrefix" yaml:"outputS3KeyPrefix"`
 	// The parameters for the `RUN_COMMAND` task execution.
 	//
 	// The supported parameters are the same as those for the `SendCommand` API call. For more information, see [SendCommand](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_SendCommand.html) in the *AWS Systems Manager API Reference* .
-	Parameters interface{} `json:"parameters"`
+	Parameters interface{} `json:"parameters" yaml:"parameters"`
 	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
-	ServiceRoleArn *string `json:"serviceRoleArn"`
+	ServiceRoleArn *string `json:"serviceRoleArn" yaml:"serviceRoleArn"`
 	// If this time is reached and the command hasn't already started running, it doesn't run.
-	TimeoutSeconds *float64 `json:"timeoutSeconds"`
+	TimeoutSeconds *float64 `json:"timeoutSeconds" yaml:"timeoutSeconds"`
 }
 
 // The `MaintenanceWindowStepFunctionsParameters` property type specifies the parameters for the execution of a `STEP_FUNCTIONS` task in a Systems Manager maintenance window.
@@ -3768,9 +3768,9 @@ type CfnMaintenanceWindowTask_MaintenanceWindowRunCommandParametersProperty stru
 //
 type CfnMaintenanceWindowTask_MaintenanceWindowStepFunctionsParametersProperty struct {
 	// The inputs for the `STEP_FUNCTIONS` task.
-	Input *string `json:"input"`
+	Input *string `json:"input" yaml:"input"`
 	// The name of the `STEP_FUNCTIONS` task.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // The `NotificationConfig` property type specifies configurations for sending notifications for a maintenance window task in AWS Systems Manager .
@@ -3783,16 +3783,16 @@ type CfnMaintenanceWindowTask_NotificationConfigProperty struct {
 	// An Amazon Resource Name (ARN) for an Amazon Simple Notification Service (Amazon SNS) topic.
 	//
 	// Run Command pushes notifications about command status changes to this topic.
-	NotificationArn *string `json:"notificationArn"`
+	NotificationArn *string `json:"notificationArn" yaml:"notificationArn"`
 	// The different events that you can receive notifications for.
 	//
 	// These events include the following: `All` (events), `InProgress` , `Success` , `TimedOut` , `Cancelled` , `Failed` . To learn more about these events, see [Configuring Amazon SNS Notifications for AWS Systems Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html) in the *AWS Systems Manager User Guide* .
-	NotificationEvents *[]*string `json:"notificationEvents"`
+	NotificationEvents *[]*string `json:"notificationEvents" yaml:"notificationEvents"`
 	// The notification type.
 	//
 	// - `Command` : Receive notification when the status of a command changes.
 	// - `Invocation` : For commands sent to multiple instances, receive notification on a per-instance basis when the status of a command changes.
-	NotificationType *string `json:"notificationType"`
+	NotificationType *string `json:"notificationType" yaml:"notificationType"`
 }
 
 // The `Target` property type specifies targets (either instances or window target IDs).
@@ -3809,11 +3809,11 @@ type CfnMaintenanceWindowTask_TargetProperty struct {
 	// User-defined criteria for sending commands that target instances that meet the criteria.
 	//
 	// `Key` can be `InstanceIds` or `WindowTargetIds` . For more information about how to target instances within a maintenance window task, see [About 'register-task-with-maintenance-window' Options and Values](https://docs.aws.amazon.com/systems-manager/latest/userguide/register-tasks-options.html) in the *AWS Systems Manager User Guide* .
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// User-defined criteria that maps to `Key` .
 	//
 	// For example, if you specify `InstanceIds` , you can specify `i-1234567890abcdef0,i-9876543210abcdef0` to run a command on two EC2 instances. For more information about how to target instances within a maintenance window task, see [About 'register-task-with-maintenance-window' Options and Values](https://docs.aws.amazon.com/systems-manager/latest/userguide/register-tasks-options.html) in the *AWS Systems Manager User Guide* .
-	Values *[]*string `json:"values"`
+	Values *[]*string `json:"values" yaml:"values"`
 }
 
 // The `TaskInvocationParameters` property type specifies the task execution parameters for a maintenance window task in AWS Systems Manager .
@@ -3824,13 +3824,13 @@ type CfnMaintenanceWindowTask_TargetProperty struct {
 //
 type CfnMaintenanceWindowTask_TaskInvocationParametersProperty struct {
 	// The parameters for an `AUTOMATION` task type.
-	MaintenanceWindowAutomationParameters interface{} `json:"maintenanceWindowAutomationParameters"`
+	MaintenanceWindowAutomationParameters interface{} `json:"maintenanceWindowAutomationParameters" yaml:"maintenanceWindowAutomationParameters"`
 	// The parameters for a `LAMBDA` task type.
-	MaintenanceWindowLambdaParameters interface{} `json:"maintenanceWindowLambdaParameters"`
+	MaintenanceWindowLambdaParameters interface{} `json:"maintenanceWindowLambdaParameters" yaml:"maintenanceWindowLambdaParameters"`
 	// The parameters for a `RUN_COMMAND` task type.
-	MaintenanceWindowRunCommandParameters interface{} `json:"maintenanceWindowRunCommandParameters"`
+	MaintenanceWindowRunCommandParameters interface{} `json:"maintenanceWindowRunCommandParameters" yaml:"maintenanceWindowRunCommandParameters"`
 	// The parameters for a `STEP_FUNCTIONS` task type.
-	MaintenanceWindowStepFunctionsParameters interface{} `json:"maintenanceWindowStepFunctionsParameters"`
+	MaintenanceWindowStepFunctionsParameters interface{} `json:"maintenanceWindowStepFunctionsParameters" yaml:"maintenanceWindowStepFunctionsParameters"`
 }
 
 // Properties for defining a `CfnMaintenanceWindowTask`.
@@ -3841,7 +3841,7 @@ type CfnMaintenanceWindowTaskProps struct {
 	// The priority of the task in the maintenance window.
 	//
 	// The lower the number, the higher the priority. Tasks that have the same priority are scheduled in parallel.
-	Priority *float64 `json:"priority"`
+	Priority *float64 `json:"priority" yaml:"priority"`
 	// The resource that the task uses during execution.
 	//
 	// For `RUN_COMMAND` and `AUTOMATION` task types, `TaskArn` is the SSM document name or Amazon Resource Name (ARN).
@@ -3849,52 +3849,52 @@ type CfnMaintenanceWindowTaskProps struct {
 	// For `LAMBDA` tasks, `TaskArn` is the function name or ARN.
 	//
 	// For `STEP_FUNCTIONS` tasks, `TaskArn` is the state machine ARN.
-	TaskArn *string `json:"taskArn"`
+	TaskArn *string `json:"taskArn" yaml:"taskArn"`
 	// The type of task.
 	//
 	// Valid values: `RUN_COMMAND` , `AUTOMATION` , `LAMBDA` , `STEP_FUNCTIONS` .
-	TaskType *string `json:"taskType"`
+	TaskType *string `json:"taskType" yaml:"taskType"`
 	// The ID of the maintenance window where the task is registered.
-	WindowId *string `json:"windowId"`
+	WindowId *string `json:"windowId" yaml:"windowId"`
 	// The specification for whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached.
-	CutoffBehavior *string `json:"cutoffBehavior"`
+	CutoffBehavior *string `json:"cutoffBehavior" yaml:"cutoffBehavior"`
 	// A description of the task.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Information about an Amazon S3 bucket to write task-level logs to.
 	//
 	// > `LoggingInfo` has been deprecated. To specify an Amazon S3 bucket to contain logs, instead use the `OutputS3BucketName` and `OutputS3KeyPrefix` options in the `TaskInvocationParameters` structure. For information about how Systems Manager handles these options for the supported maintenance window task types, see [AWS Systems Manager MaintenanceWindowTask TaskInvocationParameters](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html) .
-	LoggingInfo interface{} `json:"loggingInfo"`
+	LoggingInfo interface{} `json:"loggingInfo" yaml:"loggingInfo"`
 	// The maximum number of targets this task can be run for, in parallel.
 	//
 	// > Although this element is listed as "Required: No", a value can be omitted only when you are registering or updating a [targetless task](https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html) You must provide a value in all other cases.
 	// >
 	// > For maintenance window tasks without a target specified, you can't supply a value for this option. Instead, the system inserts a placeholder value of `1` . This value doesn't affect the running of your task.
-	MaxConcurrency *string `json:"maxConcurrency"`
+	MaxConcurrency *string `json:"maxConcurrency" yaml:"maxConcurrency"`
 	// The maximum number of errors allowed before this task stops being scheduled.
 	//
 	// > Although this element is listed as "Required: No", a value can be omitted only when you are registering or updating a [targetless task](https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html) You must provide a value in all other cases.
 	// >
 	// > For maintenance window tasks without a target specified, you can't supply a value for this option. Instead, the system inserts a placeholder value of `1` . This value doesn't affect the running of your task.
-	MaxErrors *string `json:"maxErrors"`
+	MaxErrors *string `json:"maxErrors" yaml:"maxErrors"`
 	// The task name.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
-	ServiceRoleArn *string `json:"serviceRoleArn"`
+	ServiceRoleArn *string `json:"serviceRoleArn" yaml:"serviceRoleArn"`
 	// The targets, either instances or window target IDs.
 	//
 	// - Specify instances using `Key=InstanceIds,Values= *instanceid1* , *instanceid2*` .
 	// - Specify window target IDs using `Key=WindowTargetIds,Values= *window-target-id-1* , *window-target-id-2*` .
-	Targets interface{} `json:"targets"`
+	Targets interface{} `json:"targets" yaml:"targets"`
 	// The parameters to pass to the task when it runs.
 	//
 	// Populate only the fields that match the task type. All other fields should be empty.
 	//
 	// > When you update a maintenance window task that has options specified in `TaskInvocationParameters` , you must provide again all the `TaskInvocationParameters` values that you want to retain. The values you do not specify again are removed. For example, suppose that when you registered a Run Command task, you specified `TaskInvocationParameters` values for `Comment` , `NotificationConfig` , and `OutputS3BucketName` . If you update the maintenance window task and specify only a different `OutputS3BucketName` value, the values for `Comment` and `NotificationConfig` are removed.
-	TaskInvocationParameters interface{} `json:"taskInvocationParameters"`
+	TaskInvocationParameters interface{} `json:"taskInvocationParameters" yaml:"taskInvocationParameters"`
 	// The parameters to pass to the task when it runs.
 	//
 	// > `TaskParameters` has been deprecated. To specify parameters to pass to a task when it runs, instead use the `Parameters` option in the `TaskInvocationParameters` structure. For information about how Systems Manager handles these options for the supported maintenance window task types, see [MaintenanceWindowTaskInvocationParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_MaintenanceWindowTaskInvocationParameters.html) .
-	TaskParameters interface{} `json:"taskParameters"`
+	TaskParameters interface{} `json:"taskParameters" yaml:"taskParameters"`
 }
 
 // A CloudFormation `AWS::SSM::Parameter`.
@@ -4558,35 +4558,35 @@ type CfnParameterProps struct {
 	// > AWS CloudFormation doesn't support creating a `SecureString` parameter type.
 	//
 	// *Allowed Values* : String | StringList
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// The parameter value.
 	//
 	// > If type is `StringList` , the system returns a comma-separated string with no spaces between commas in the `Value` field.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 	// A regular expression used to validate the parameter value.
 	//
 	// For example, for String types with values restricted to numbers, you can specify the following: `AllowedPattern=^\d+$`
-	AllowedPattern *string `json:"allowedPattern"`
+	AllowedPattern *string `json:"allowedPattern" yaml:"allowedPattern"`
 	// The data type of the parameter, such as `text` or `aws:ec2:image` .
 	//
 	// The default is `text` .
-	DataType *string `json:"dataType"`
+	DataType *string `json:"dataType" yaml:"dataType"`
 	// Information about the parameter.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The name of the parameter.
 	//
 	// > The maximum length constraint listed below includes capacity for additional system attributes that aren't part of the name. The maximum length for a parameter name, including the full length of the parameter ARN, is 1011 characters. For example, the length of the following parameter name is 65 characters, not 20 characters: `arn:aws:ssm:us-east-2:111222333444:parameter/ExampleParameterName`
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// Information about the policies assigned to a parameter.
 	//
 	// [Assigning parameter policies](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-policies.html) in the *AWS Systems Manager User Guide* .
-	Policies *string `json:"policies"`
+	Policies *string `json:"policies" yaml:"policies"`
 	// Optional metadata that you assign to a resource in the form of an arbitrary set of tags (key-value pairs).
 	//
 	// Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a Systems Manager parameter to identify the type of resource to which it applies, the environment, or the type of configuration data referenced by the parameter.
-	Tags interface{} `json:"tags"`
+	Tags interface{} `json:"tags" yaml:"tags"`
 	// The parameter tier.
-	Tier *string `json:"tier"`
+	Tier *string `json:"tier" yaml:"tier"`
 }
 
 // A CloudFormation `AWS::SSM::PatchBaseline`.
@@ -5302,7 +5302,7 @@ func (c *jsiiProxy_CfnPatchBaseline) ValidateProperties(_properties interface{})
 //
 type CfnPatchBaseline_PatchFilterGroupProperty struct {
 	// The set of patch filters that make up the group.
-	PatchFilters interface{} `json:"patchFilters"`
+	PatchFilters interface{} `json:"patchFilters" yaml:"patchFilters"`
 }
 
 // The `PatchFilter` property type defines a patch filter for an AWS Systems Manager patch baseline.
@@ -5317,11 +5317,11 @@ type CfnPatchBaseline_PatchFilterProperty struct {
 	// The key for the filter.
 	//
 	// For information about valid keys, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) in the *AWS Systems Manager API Reference* .
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// The value for the filter key.
 	//
 	// For information about valid values for each key based on operating system type, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) in the *AWS Systems Manager API Reference* .
-	Values *[]*string `json:"values"`
+	Values *[]*string `json:"values" yaml:"values"`
 }
 
 // `PatchSource` is the property type for the `Sources` resource of the [AWS::SSM::PatchBaseline](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html) resource.
@@ -5342,11 +5342,11 @@ type CfnPatchBaseline_PatchSourceProperty struct {
 	// `enabled=1`
 	//
 	// > For information about other options available for your yum repository configuration, see [dnf.conf(5)](https://docs.aws.amazon.com/https://man7.org/linux/man-pages/man5/dnf.conf.5.html) .
-	Configuration *string `json:"configuration"`
+	Configuration *string `json:"configuration" yaml:"configuration"`
 	// The name specified to identify the patch source.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The specific operating system versions a patch repository applies to, such as "Ubuntu16.04", "AmazonLinux2016.09", "RedhatEnterpriseLinux7.2" or "Suse12.7". For lists of supported product values, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) in the *AWS Systems Manager API Reference* .
-	Products *[]*string `json:"products"`
+	Products *[]*string `json:"products" yaml:"products"`
 }
 
 // The `RuleGroup` property type specifies a set of rules that define the approval rules for an AWS Systems Manager patch baseline.
@@ -5357,7 +5357,7 @@ type CfnPatchBaseline_PatchSourceProperty struct {
 //
 type CfnPatchBaseline_RuleGroupProperty struct {
 	// The rules that make up the rule group.
-	PatchRules interface{} `json:"patchRules"`
+	PatchRules interface{} `json:"patchRules" yaml:"patchRules"`
 }
 
 // The `Rule` property type specifies an approval rule for a Systems Manager patch baseline.
@@ -5374,23 +5374,23 @@ type CfnPatchBaseline_RuleProperty struct {
 	// You must specify a value for `ApproveAfterDays` .
 	//
 	// Exception: Not supported on Debian Server or Ubuntu Server.
-	ApproveAfterDays *float64 `json:"approveAfterDays"`
+	ApproveAfterDays *float64 `json:"approveAfterDays" yaml:"approveAfterDays"`
 	// The cutoff date for auto approval of released patches.
 	//
 	// Any patches released on or before this date are installed automatically. Not supported on Debian Server or Ubuntu Server.
 	//
 	// Enter dates in the format `YYYY-MM-DD` . For example, `2021-12-31` .
-	ApproveUntilDate *string `json:"approveUntilDate"`
+	ApproveUntilDate *string `json:"approveUntilDate" yaml:"approveUntilDate"`
 	// A compliance severity level for all approved patches in a patch baseline.
 	//
 	// Valid compliance severity levels include the following: `UNSPECIFIED` , `CRITICAL` , `HIGH` , `MEDIUM` , `LOW` , and `INFORMATIONAL` .
-	ComplianceLevel *string `json:"complianceLevel"`
+	ComplianceLevel *string `json:"complianceLevel" yaml:"complianceLevel"`
 	// For managed nodes identified by the approval rule filters, enables a patch baseline to apply non-security updates available in the specified repository.
 	//
 	// The default value is `false` . Applies to Linux managed nodes only.
-	EnableNonSecurity interface{} `json:"enableNonSecurity"`
+	EnableNonSecurity interface{} `json:"enableNonSecurity" yaml:"enableNonSecurity"`
 	// The patch filter group that defines the criteria for the rule.
-	PatchFilterGroup interface{} `json:"patchFilterGroup"`
+	PatchFilterGroup interface{} `json:"patchFilterGroup" yaml:"patchFilterGroup"`
 }
 
 // Properties for defining a `CfnPatchBaseline`.
@@ -5399,48 +5399,48 @@ type CfnPatchBaseline_RuleProperty struct {
 //
 type CfnPatchBaselineProps struct {
 	// The name of the patch baseline.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// A set of rules used to include patches in the baseline.
-	ApprovalRules interface{} `json:"approvalRules"`
+	ApprovalRules interface{} `json:"approvalRules" yaml:"approvalRules"`
 	// A list of explicitly approved patches for the baseline.
 	//
 	// For information about accepted formats for lists of approved patches and rejected patches, see [About package name formats for approved and rejected patch lists](https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html) in the *AWS Systems Manager User Guide* .
-	ApprovedPatches *[]*string `json:"approvedPatches"`
+	ApprovedPatches *[]*string `json:"approvedPatches" yaml:"approvedPatches"`
 	// Defines the compliance level for approved patches.
 	//
 	// When an approved patch is reported as missing, this value describes the severity of the compliance violation. The default value is `UNSPECIFIED` .
-	ApprovedPatchesComplianceLevel *string `json:"approvedPatchesComplianceLevel"`
+	ApprovedPatchesComplianceLevel *string `json:"approvedPatchesComplianceLevel" yaml:"approvedPatchesComplianceLevel"`
 	// Indicates whether the list of approved patches includes non-security updates that should be applied to the managed nodes.
 	//
 	// The default value is `false` . Applies to Linux managed nodes only.
-	ApprovedPatchesEnableNonSecurity interface{} `json:"approvedPatchesEnableNonSecurity"`
+	ApprovedPatchesEnableNonSecurity interface{} `json:"approvedPatchesEnableNonSecurity" yaml:"approvedPatchesEnableNonSecurity"`
 	// A description of the patch baseline.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// A set of global filters used to include patches in the baseline.
-	GlobalFilters interface{} `json:"globalFilters"`
+	GlobalFilters interface{} `json:"globalFilters" yaml:"globalFilters"`
 	// Defines the operating system the patch baseline applies to.
 	//
 	// The default value is `WINDOWS` .
-	OperatingSystem *string `json:"operatingSystem"`
+	OperatingSystem *string `json:"operatingSystem" yaml:"operatingSystem"`
 	// The name of the patch group to be registered with the patch baseline.
-	PatchGroups *[]*string `json:"patchGroups"`
+	PatchGroups *[]*string `json:"patchGroups" yaml:"patchGroups"`
 	// A list of explicitly rejected patches for the baseline.
 	//
 	// For information about accepted formats for lists of approved patches and rejected patches, see [About package name formats for approved and rejected patch lists](https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html) in the *AWS Systems Manager User Guide* .
-	RejectedPatches *[]*string `json:"rejectedPatches"`
+	RejectedPatches *[]*string `json:"rejectedPatches" yaml:"rejectedPatches"`
 	// The action for Patch Manager to take on patches included in the `RejectedPackages` list.
 	//
 	// - *`ALLOW_AS_DEPENDENCY`* : A package in the `Rejected` patches list is installed only if it is a dependency of another package. It is considered compliant with the patch baseline, and its status is reported as `InstalledOther` . This is the default action if no option is specified.
 	// - *`BLOCK`* : Packages in the `RejectedPatches` list, and packages that include them as dependencies, aren't installed under any circumstances. If a package was installed before it was added to the Rejected patches list, it is considered non-compliant with the patch baseline, and its status is reported as `InstalledRejected` .
-	RejectedPatchesAction *string `json:"rejectedPatchesAction"`
+	RejectedPatchesAction *string `json:"rejectedPatchesAction" yaml:"rejectedPatchesAction"`
 	// Information about the patches to use to update the managed nodes, including target operating systems and source repositories.
 	//
 	// Applies to Linux managed nodes only.
-	Sources interface{} `json:"sources"`
+	Sources interface{} `json:"sources" yaml:"sources"`
 	// Optional metadata that you assign to a resource.
 	//
 	// Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a patch baseline to identify the severity level of patches it specifies and the operating system family it applies to.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::SSM::ResourceDataSync`.
@@ -6108,9 +6108,9 @@ type CfnResourceDataSync_AwsOrganizationsSourceProperty struct {
 	// If an AWS organization is present, this is either `OrganizationalUnits` or `EntireOrganization` .
 	//
 	// For `OrganizationalUnits` , the data is aggregated from a set of organization units. For `EntireOrganization` , the data is aggregated from the entire AWS organization.
-	OrganizationSourceType *string `json:"organizationSourceType"`
+	OrganizationSourceType *string `json:"organizationSourceType" yaml:"organizationSourceType"`
 	// The AWS Organizations organization units included in the sync.
-	OrganizationalUnits *[]*string `json:"organizationalUnits"`
+	OrganizationalUnits *[]*string `json:"organizationalUnits" yaml:"organizationalUnits"`
 }
 
 // Information about the target S3 bucket for the resource data sync.
@@ -6119,19 +6119,19 @@ type CfnResourceDataSync_AwsOrganizationsSourceProperty struct {
 //
 type CfnResourceDataSync_S3DestinationProperty struct {
 	// The name of the S3 bucket where the aggregated data is stored.
-	BucketName *string `json:"bucketName"`
+	BucketName *string `json:"bucketName" yaml:"bucketName"`
 	// The AWS Region with the S3 bucket targeted by the resource data sync.
-	BucketRegion *string `json:"bucketRegion"`
+	BucketRegion *string `json:"bucketRegion" yaml:"bucketRegion"`
 	// A supported sync format.
 	//
 	// The following format is currently supported: JsonSerDe
-	SyncFormat *string `json:"syncFormat"`
+	SyncFormat *string `json:"syncFormat" yaml:"syncFormat"`
 	// An Amazon S3 prefix for the bucket.
-	BucketPrefix *string `json:"bucketPrefix"`
+	BucketPrefix *string `json:"bucketPrefix" yaml:"bucketPrefix"`
 	// The ARN of an encryption key for a destination in Amazon S3.
 	//
 	// Must belong to the same Region as the destination S3 bucket.
-	KmsKeyArn *string `json:"kmsKeyArn"`
+	KmsKeyArn *string `json:"kmsKeyArn" yaml:"kmsKeyArn"`
 }
 
 // Information about the source of the data included in the resource data sync.
@@ -6140,17 +6140,17 @@ type CfnResourceDataSync_S3DestinationProperty struct {
 //
 type CfnResourceDataSync_SyncSourceProperty struct {
 	// The `SyncSource` AWS Regions included in the resource data sync.
-	SourceRegions *[]*string `json:"sourceRegions"`
+	SourceRegions *[]*string `json:"sourceRegions" yaml:"sourceRegions"`
 	// The type of data source for the resource data sync.
 	//
 	// `SourceType` is either `AwsOrganizations` (if an organization is present in AWS Organizations ) or `SingleAccountMultiRegions` .
-	SourceType *string `json:"sourceType"`
+	SourceType *string `json:"sourceType" yaml:"sourceType"`
 	// Information about the AwsOrganizationsSource resource data sync source.
 	//
 	// A sync source of this type can synchronize data from AWS Organizations .
-	AwsOrganizationsSource interface{} `json:"awsOrganizationsSource"`
+	AwsOrganizationsSource interface{} `json:"awsOrganizationsSource" yaml:"awsOrganizationsSource"`
 	// Whether to automatically synchronize and aggregate data from new AWS Regions when those Regions come online.
-	IncludeFutureRegions interface{} `json:"includeFutureRegions"`
+	IncludeFutureRegions interface{} `json:"includeFutureRegions" yaml:"includeFutureRegions"`
 }
 
 // Properties for defining a `CfnResourceDataSync`.
@@ -6159,29 +6159,29 @@ type CfnResourceDataSync_SyncSourceProperty struct {
 //
 type CfnResourceDataSyncProps struct {
 	// A name for the resource data sync.
-	SyncName *string `json:"syncName"`
+	SyncName *string `json:"syncName" yaml:"syncName"`
 	// The name of the S3 bucket where the aggregated data is stored.
-	BucketName *string `json:"bucketName"`
+	BucketName *string `json:"bucketName" yaml:"bucketName"`
 	// An Amazon S3 prefix for the bucket.
-	BucketPrefix *string `json:"bucketPrefix"`
+	BucketPrefix *string `json:"bucketPrefix" yaml:"bucketPrefix"`
 	// The AWS Region with the S3 bucket targeted by the resource data sync.
-	BucketRegion *string `json:"bucketRegion"`
+	BucketRegion *string `json:"bucketRegion" yaml:"bucketRegion"`
 	// The ARN of an encryption key for a destination in Amazon S3 .
 	//
 	// You can use a KMS key to encrypt inventory data in Amazon S3 . You must specify a key that exist in the same region as the destination Amazon S3 bucket.
-	KmsKeyArn *string `json:"kmsKeyArn"`
+	KmsKeyArn *string `json:"kmsKeyArn" yaml:"kmsKeyArn"`
 	// Configuration information for the target S3 bucket.
-	S3Destination interface{} `json:"s3Destination"`
+	S3Destination interface{} `json:"s3Destination" yaml:"s3Destination"`
 	// A supported sync format.
 	//
 	// The following format is currently supported: JsonSerDe
-	SyncFormat *string `json:"syncFormat"`
+	SyncFormat *string `json:"syncFormat" yaml:"syncFormat"`
 	// Information about the source where the data was synchronized.
-	SyncSource interface{} `json:"syncSource"`
+	SyncSource interface{} `json:"syncSource" yaml:"syncSource"`
 	// The type of resource data sync.
 	//
 	// If `SyncType` is `SyncToDestination` , then the resource data sync synchronizes data to an S3 bucket. If the `SyncType` is `SyncFromSource` then the resource data sync synchronizes data from AWS Organizations or from multiple AWS Regions .
-	SyncType *string `json:"syncType"`
+	SyncType *string `json:"syncType" yaml:"syncType"`
 }
 
 // Common attributes for string parameters.
@@ -6193,7 +6193,7 @@ type CommonStringParameterAttributes struct {
 	//
 	// This value can be a token or a concrete string. If it is a concrete string
 	// and includes "/" it must also be prefixed with a "/" (fully-qualified).
-	ParameterName *string `json:"parameterName"`
+	ParameterName *string `json:"parameterName" yaml:"parameterName"`
 	// Indicates of the parameter name is a simple name (i.e. does not include "/" separators).
 	//
 	// This is only required only if `parameterName` is a token, which means we
@@ -6203,7 +6203,7 @@ type CommonStringParameterAttributes struct {
 	// If `parameterName` is not specified, `simpleName` must be `true` (or
 	// undefined) since the name generated by AWS CloudFormation is always a
 	// simple name.
-	SimpleName *bool `json:"simpleName"`
+	SimpleName *bool `json:"simpleName" yaml:"simpleName"`
 }
 
 // An SSM Parameter reference.
@@ -6348,11 +6348,11 @@ type ParameterOptions struct {
 	//
 	// For example, for String types with values restricted to
 	// numbers, you can specify the following: ``^\d+$``
-	AllowedPattern *string `json:"allowedPattern"`
+	AllowedPattern *string `json:"allowedPattern" yaml:"allowedPattern"`
 	// Information about the parameter that you want to add to the system.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The name of the parameter.
-	ParameterName *string `json:"parameterName"`
+	ParameterName *string `json:"parameterName" yaml:"parameterName"`
 	// Indicates of the parameter name is a simple name (i.e. does not include "/" separators).
 	//
 	// This is only required only if `parameterName` is a token, which means we
@@ -6362,9 +6362,9 @@ type ParameterOptions struct {
 	// If `parameterName` is not specified, `simpleName` must be `true` (or
 	// undefined) since the name generated by AWS CloudFormation is always a
 	// simple name.
-	SimpleName *bool `json:"simpleName"`
+	SimpleName *bool `json:"simpleName" yaml:"simpleName"`
 	// The tier of the string parameter.
-	Tier ParameterTier `json:"tier"`
+	Tier ParameterTier `json:"tier" yaml:"tier"`
 }
 
 // SSM parameter tier.
@@ -6398,7 +6398,7 @@ type SecureStringParameterAttributes struct {
 	//
 	// This value can be a token or a concrete string. If it is a concrete string
 	// and includes "/" it must also be prefixed with a "/" (fully-qualified).
-	ParameterName *string `json:"parameterName"`
+	ParameterName *string `json:"parameterName" yaml:"parameterName"`
 	// Indicates of the parameter name is a simple name (i.e. does not include "/" separators).
 	//
 	// This is only required only if `parameterName` is a token, which means we
@@ -6408,11 +6408,11 @@ type SecureStringParameterAttributes struct {
 	// If `parameterName` is not specified, `simpleName` must be `true` (or
 	// undefined) since the name generated by AWS CloudFormation is always a
 	// simple name.
-	SimpleName *bool `json:"simpleName"`
+	SimpleName *bool `json:"simpleName" yaml:"simpleName"`
 	// The encryption key that is used to encrypt this parameter.
-	EncryptionKey awskms.IKey `json:"encryptionKey"`
+	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
 	// The version number of the value you wish to retrieve.
-	Version *float64 `json:"version"`
+	Version *float64 `json:"version" yaml:"version"`
 }
 
 // Creates a new StringList SSM Parameter.
@@ -6734,11 +6734,11 @@ type StringListParameterProps struct {
 	//
 	// For example, for String types with values restricted to
 	// numbers, you can specify the following: ``^\d+$``
-	AllowedPattern *string `json:"allowedPattern"`
+	AllowedPattern *string `json:"allowedPattern" yaml:"allowedPattern"`
 	// Information about the parameter that you want to add to the system.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The name of the parameter.
-	ParameterName *string `json:"parameterName"`
+	ParameterName *string `json:"parameterName" yaml:"parameterName"`
 	// Indicates of the parameter name is a simple name (i.e. does not include "/" separators).
 	//
 	// This is only required only if `parameterName` is a token, which means we
@@ -6748,13 +6748,13 @@ type StringListParameterProps struct {
 	// If `parameterName` is not specified, `simpleName` must be `true` (or
 	// undefined) since the name generated by AWS CloudFormation is always a
 	// simple name.
-	SimpleName *bool `json:"simpleName"`
+	SimpleName *bool `json:"simpleName" yaml:"simpleName"`
 	// The tier of the string parameter.
-	Tier ParameterTier `json:"tier"`
+	Tier ParameterTier `json:"tier" yaml:"tier"`
 	// The values of the parameter.
 	//
 	// It may not reference another parameter and ``{{}}`` cannot be used in the value.
-	StringListValue *[]*string `json:"stringListValue"`
+	StringListValue *[]*string `json:"stringListValue" yaml:"stringListValue"`
 }
 
 // Creates a new String SSM Parameter.
@@ -7175,7 +7175,7 @@ type StringParameterAttributes struct {
 	//
 	// This value can be a token or a concrete string. If it is a concrete string
 	// and includes "/" it must also be prefixed with a "/" (fully-qualified).
-	ParameterName *string `json:"parameterName"`
+	ParameterName *string `json:"parameterName" yaml:"parameterName"`
 	// Indicates of the parameter name is a simple name (i.e. does not include "/" separators).
 	//
 	// This is only required only if `parameterName` is a token, which means we
@@ -7185,11 +7185,11 @@ type StringParameterAttributes struct {
 	// If `parameterName` is not specified, `simpleName` must be `true` (or
 	// undefined) since the name generated by AWS CloudFormation is always a
 	// simple name.
-	SimpleName *bool `json:"simpleName"`
+	SimpleName *bool `json:"simpleName" yaml:"simpleName"`
 	// The type of the string parameter.
-	Type ParameterType `json:"type"`
+	Type ParameterType `json:"type" yaml:"type"`
 	// The version number of the value you wish to retrieve.
-	Version *float64 `json:"version"`
+	Version *float64 `json:"version" yaml:"version"`
 }
 
 // Properties needed to create a String SSM parameter.
@@ -7201,11 +7201,11 @@ type StringParameterProps struct {
 	//
 	// For example, for String types with values restricted to
 	// numbers, you can specify the following: ``^\d+$``
-	AllowedPattern *string `json:"allowedPattern"`
+	AllowedPattern *string `json:"allowedPattern" yaml:"allowedPattern"`
 	// Information about the parameter that you want to add to the system.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The name of the parameter.
-	ParameterName *string `json:"parameterName"`
+	ParameterName *string `json:"parameterName" yaml:"parameterName"`
 	// Indicates of the parameter name is a simple name (i.e. does not include "/" separators).
 	//
 	// This is only required only if `parameterName` is a token, which means we
@@ -7215,16 +7215,16 @@ type StringParameterProps struct {
 	// If `parameterName` is not specified, `simpleName` must be `true` (or
 	// undefined) since the name generated by AWS CloudFormation is always a
 	// simple name.
-	SimpleName *bool `json:"simpleName"`
+	SimpleName *bool `json:"simpleName" yaml:"simpleName"`
 	// The tier of the string parameter.
-	Tier ParameterTier `json:"tier"`
+	Tier ParameterTier `json:"tier" yaml:"tier"`
 	// The value of the parameter.
 	//
 	// It may not reference another parameter and ``{{}}`` cannot be used in the value.
-	StringValue *string `json:"stringValue"`
+	StringValue *string `json:"stringValue" yaml:"stringValue"`
 	// The data type of the parameter, such as `text` or `aws:ec2:image`.
-	DataType ParameterDataType `json:"dataType"`
+	DataType ParameterDataType `json:"dataType" yaml:"dataType"`
 	// The type of the string parameter.
-	Type ParameterType `json:"type"`
+	Type ParameterType `json:"type" yaml:"type"`
 }
 

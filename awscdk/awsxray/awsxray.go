@@ -558,11 +558,11 @@ func (c *jsiiProxy_CfnGroup) ValidateProperties(_properties interface{}) {
 //
 type CfnGroup_InsightsConfigurationProperty struct {
 	// Set the InsightsEnabled value to true to enable insights or false to disable insights.
-	InsightsEnabled interface{} `json:"insightsEnabled"`
+	InsightsEnabled interface{} `json:"insightsEnabled" yaml:"insightsEnabled"`
 	// Set the NotificationsEnabled value to true to enable insights notifications.
 	//
 	// Notifications can only be enabled on a group with InsightsEnabled set to true.
-	NotificationsEnabled interface{} `json:"notificationsEnabled"`
+	NotificationsEnabled interface{} `json:"notificationsEnabled" yaml:"notificationsEnabled"`
 }
 
 // Properties for defining a `CfnGroup`.
@@ -571,18 +571,18 @@ type CfnGroup_InsightsConfigurationProperty struct {
 //
 type CfnGroupProps struct {
 	// The filter expression defining the parameters to include traces.
-	FilterExpression *string `json:"filterExpression"`
+	FilterExpression *string `json:"filterExpression" yaml:"filterExpression"`
 	// The unique case-sensitive name of the group.
-	GroupName *string `json:"groupName"`
+	GroupName *string `json:"groupName" yaml:"groupName"`
 	// The structure containing configurations related to insights.
 	//
 	// - The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.
 	// - The NotificationsEnabled boolean can be set to true to enable insights notifications through Amazon EventBridge for the group.
-	InsightsConfiguration interface{} `json:"insightsConfiguration"`
+	InsightsConfiguration interface{} `json:"insightsConfiguration" yaml:"insightsConfiguration"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]interface{} `json:"tags"`
+	Tags *[]interface{} `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::XRay::SamplingRule`.
@@ -1164,37 +1164,37 @@ type CfnSamplingRule_SamplingRuleProperty struct {
 	// *Key Length Constraints:* Minimum length of 1. Maximum length of 32.
 	//
 	// *Value Length Constraints:* Minimum length of 1. Maximum length of 32.
-	Attributes interface{} `json:"attributes"`
+	Attributes interface{} `json:"attributes" yaml:"attributes"`
 	// The percentage of matching requests to instrument, after the reservoir is exhausted.
-	FixedRate *float64 `json:"fixedRate"`
+	FixedRate *float64 `json:"fixedRate" yaml:"fixedRate"`
 	// Matches the hostname from a request URL.
-	Host *string `json:"host"`
+	Host *string `json:"host" yaml:"host"`
 	// Matches the HTTP method of a request.
-	HttpMethod *string `json:"httpMethod"`
+	HttpMethod *string `json:"httpMethod" yaml:"httpMethod"`
 	// The priority of the sampling rule.
-	Priority *float64 `json:"priority"`
+	Priority *float64 `json:"priority" yaml:"priority"`
 	// A fixed number of matching requests to instrument per second, prior to applying the fixed rate.
 	//
 	// The reservoir is not used directly by services, but applies to all services using the rule collectively.
-	ReservoirSize *float64 `json:"reservoirSize"`
+	ReservoirSize *float64 `json:"reservoirSize" yaml:"reservoirSize"`
 	// Matches the ARN of the AWS resource on which the service runs.
-	ResourceArn *string `json:"resourceArn"`
+	ResourceArn *string `json:"resourceArn" yaml:"resourceArn"`
 	// The ARN of the sampling rule.
 	//
 	// You must specify either RuleARN or RuleName, but not both.
-	RuleArn *string `json:"ruleArn"`
+	RuleArn *string `json:"ruleArn" yaml:"ruleArn"`
 	// The name of the sampling rule.
 	//
 	// You must specify either RuleARN or RuleName, but not both.
-	RuleName *string `json:"ruleName"`
+	RuleName *string `json:"ruleName" yaml:"ruleName"`
 	// Matches the `name` that the service uses to identify itself in segments.
-	ServiceName *string `json:"serviceName"`
+	ServiceName *string `json:"serviceName" yaml:"serviceName"`
 	// Matches the `origin` that the service uses to identify its type in segments.
-	ServiceType *string `json:"serviceType"`
+	ServiceType *string `json:"serviceType" yaml:"serviceType"`
 	// Matches the path from a request URL.
-	UrlPath *string `json:"urlPath"`
+	UrlPath *string `json:"urlPath" yaml:"urlPath"`
 	// The version of the sampling rule format ( `1` ).
-	Version *float64 `json:"version"`
+	Version *float64 `json:"version" yaml:"version"`
 }
 
 // A [SamplingRule](https://docs.aws.amazon.com//xray/latest/api/API_SamplingRule.html) and its metadata.
@@ -1203,11 +1203,11 @@ type CfnSamplingRule_SamplingRuleProperty struct {
 //
 type CfnSamplingRule_SamplingRuleRecordProperty struct {
 	// When the rule was created, in Unix time seconds.
-	CreatedAt *string `json:"createdAt"`
+	CreatedAt *string `json:"createdAt" yaml:"createdAt"`
 	// When the rule was last modified, in Unix time seconds.
-	ModifiedAt *string `json:"modifiedAt"`
+	ModifiedAt *string `json:"modifiedAt" yaml:"modifiedAt"`
 	// The sampling rule.
-	SamplingRule interface{} `json:"samplingRule"`
+	SamplingRule interface{} `json:"samplingRule" yaml:"samplingRule"`
 }
 
 // A document specifying changes to a sampling rule's configuration.
@@ -1222,35 +1222,35 @@ type CfnSamplingRule_SamplingRuleUpdateProperty struct {
 	// *Key Length Constraints:* Minimum length of 1. Maximum length of 32.
 	//
 	// *Value Length Constraints:* Minimum length of 1. Maximum length of 32.
-	Attributes interface{} `json:"attributes"`
+	Attributes interface{} `json:"attributes" yaml:"attributes"`
 	// The percentage of matching requests to instrument, after the reservoir is exhausted.
-	FixedRate *float64 `json:"fixedRate"`
+	FixedRate *float64 `json:"fixedRate" yaml:"fixedRate"`
 	// Matches the hostname from a request URL.
-	Host *string `json:"host"`
+	Host *string `json:"host" yaml:"host"`
 	// Matches the HTTP method of a request.
-	HttpMethod *string `json:"httpMethod"`
+	HttpMethod *string `json:"httpMethod" yaml:"httpMethod"`
 	// The priority of the sampling rule.
-	Priority *float64 `json:"priority"`
+	Priority *float64 `json:"priority" yaml:"priority"`
 	// A fixed number of matching requests to instrument per second, prior to applying the fixed rate.
 	//
 	// The reservoir is not used directly by services, but applies to all services using the rule collectively.
-	ReservoirSize *float64 `json:"reservoirSize"`
+	ReservoirSize *float64 `json:"reservoirSize" yaml:"reservoirSize"`
 	// Matches the ARN of the AWS resource on which the service runs.
-	ResourceArn *string `json:"resourceArn"`
+	ResourceArn *string `json:"resourceArn" yaml:"resourceArn"`
 	// The ARN of the sampling rule.
 	//
 	// You must specify either RuleARN or RuleName, but not both.
-	RuleArn *string `json:"ruleArn"`
+	RuleArn *string `json:"ruleArn" yaml:"ruleArn"`
 	// The name of the sampling rule.
 	//
 	// You must specify either RuleARN or RuleName, but not both.
-	RuleName *string `json:"ruleName"`
+	RuleName *string `json:"ruleName" yaml:"ruleName"`
 	// Matches the `name` that the service uses to identify itself in segments.
-	ServiceName *string `json:"serviceName"`
+	ServiceName *string `json:"serviceName" yaml:"serviceName"`
 	// Matches the `origin` that the service uses to identify its type in segments.
-	ServiceType *string `json:"serviceType"`
+	ServiceType *string `json:"serviceType" yaml:"serviceType"`
 	// Matches the path from a request URL.
-	UrlPath *string `json:"urlPath"`
+	UrlPath *string `json:"urlPath" yaml:"urlPath"`
 }
 
 // Properties for defining a `CfnSamplingRule`.
@@ -1261,22 +1261,22 @@ type CfnSamplingRuleProps struct {
 	// The name of the sampling rule.
 	//
 	// Specify a rule by either name or ARN, but not both. Used only when deleting a sampling rule. When creating or updating a sampling rule, use the `RuleName` or `RuleARN` properties within `SamplingRule` or `SamplingRuleUpdate` .
-	RuleName *string `json:"ruleName"`
+	RuleName *string `json:"ruleName" yaml:"ruleName"`
 	// The sampling rule to be created.
 	//
 	// Must be provided if creating a new sampling rule. Not valid when updating an existing sampling rule.
-	SamplingRule interface{} `json:"samplingRule"`
+	SamplingRule interface{} `json:"samplingRule" yaml:"samplingRule"`
 	// `AWS::XRay::SamplingRule.SamplingRuleRecord`.
-	SamplingRuleRecord interface{} `json:"samplingRuleRecord"`
+	SamplingRuleRecord interface{} `json:"samplingRuleRecord" yaml:"samplingRuleRecord"`
 	// A document specifying changes to a sampling rule's configuration.
 	//
 	// Must be provided if updating an existing sampling rule. Not valid when creating a new sampling rule.
 	//
 	// > The `Version` of a sampling rule cannot be updated, and is not part of `SamplingRuleUpdate` .
-	SamplingRuleUpdate interface{} `json:"samplingRuleUpdate"`
+	SamplingRuleUpdate interface{} `json:"samplingRuleUpdate" yaml:"samplingRuleUpdate"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]interface{} `json:"tags"`
+	Tags *[]interface{} `json:"tags" yaml:"tags"`
 }
 

@@ -693,19 +693,19 @@ type CfnBot_BotLocaleProperty struct {
 	// The identifier of the language and locale that the bot will be used in.
 	//
 	// The string must match one of the supported locales.
-	LocaleId *string `json:"localeId"`
+	LocaleId *string `json:"localeId" yaml:"localeId"`
 	// Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents. You must configure an AMAZON.FallbackIntent. AMAZON.KendraSearchIntent is only inserted if it is configured for the bot.
-	NluConfidenceThreshold *float64 `json:"nluConfidenceThreshold"`
+	NluConfidenceThreshold *float64 `json:"nluConfidenceThreshold" yaml:"nluConfidenceThreshold"`
 	// A description of the bot locale.
 	//
 	// Use this to help identify the bot locale in lists.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// One or more intents defined for the locale.
-	Intents interface{} `json:"intents"`
+	Intents interface{} `json:"intents" yaml:"intents"`
 	// One or more slot types defined for the locale.
-	SlotTypes interface{} `json:"slotTypes"`
+	SlotTypes interface{} `json:"slotTypes" yaml:"slotTypes"`
 	// Identifies the Amazon Polly voice used for audio interaction with the user.
-	VoiceSettings interface{} `json:"voiceSettings"`
+	VoiceSettings interface{} `json:"voiceSettings" yaml:"voiceSettings"`
 }
 
 // Describes a button to use on a response card used to gather slot values from a user.
@@ -716,11 +716,11 @@ type CfnBot_ButtonProperty struct {
 	// The text that appears on the button.
 	//
 	// Use this to tell the user the value that is returned when they choose this button.
-	Text *string `json:"text"`
+	Text *string `json:"text" yaml:"text"`
 	// The value returned to Amazon Lex when the user chooses this button.
 	//
 	// This must be one of the slot values configured for the slot.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // A custom response string that Amazon Lex sends to your application.
@@ -731,7 +731,7 @@ type CfnBot_ButtonProperty struct {
 //
 type CfnBot_CustomPayloadProperty struct {
 	// The string that is sent to your application.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // Specifies whether an intent uses the dialog code hook during conversations with a user.
@@ -740,7 +740,7 @@ type CfnBot_CustomPayloadProperty struct {
 //
 type CfnBot_DialogCodeHookSettingProperty struct {
 	// Indicates whether an intent uses the dialog code hook during a conversation with a user.
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 }
 
 // Provides information about the external source of the slot type's definition.
@@ -749,7 +749,7 @@ type CfnBot_DialogCodeHookSettingProperty struct {
 //
 type CfnBot_ExternalSourceSettingProperty struct {
 	// Settings required for a slot type based on a grammar that you provide.
-	GrammarSlotTypeSetting interface{} `json:"grammarSlotTypeSetting"`
+	GrammarSlotTypeSetting interface{} `json:"grammarSlotTypeSetting" yaml:"grammarSlotTypeSetting"`
 }
 
 // Determines if a Lambda function should be invoked for a specific intent.
@@ -758,15 +758,15 @@ type CfnBot_ExternalSourceSettingProperty struct {
 //
 type CfnBot_FulfillmentCodeHookSettingProperty struct {
 	// Indicates whether a Lambda function should be invoked for fulfill a specific intent.
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 	// Provides settings for update messages sent to the user for long-running Lambda fulfillment functions.
 	//
 	// Fulfillment updates can be used only with streaming conversations.
-	FulfillmentUpdatesSpecification interface{} `json:"fulfillmentUpdatesSpecification"`
+	FulfillmentUpdatesSpecification interface{} `json:"fulfillmentUpdatesSpecification" yaml:"fulfillmentUpdatesSpecification"`
 	// Provides settings for messages sent to the user for after the Lambda fulfillment function completes.
 	//
 	// Post-fulfillment messages can be sent for both streaming and non-streaming conversations.
-	PostFulfillmentStatusSpecification interface{} `json:"postFulfillmentStatusSpecification"`
+	PostFulfillmentStatusSpecification interface{} `json:"postFulfillmentStatusSpecification" yaml:"postFulfillmentStatusSpecification"`
 }
 
 // Provides settings for a message that is sent to the user when a fulfillment Lambda function starts running.
@@ -777,13 +777,13 @@ type CfnBot_FulfillmentStartResponseSpecificationProperty struct {
 	// The delay between when the Lambda fulfillment function starts running and the start message is played.
 	//
 	// If the Lambda function returns before the delay is over, the start message isn't played.
-	DelayInSeconds *float64 `json:"delayInSeconds"`
+	DelayInSeconds *float64 `json:"delayInSeconds" yaml:"delayInSeconds"`
 	// One to 5 message groups that contain start messages.
 	//
 	// Amazon Lex chooses one of the messages to play to the user.
-	MessageGroups interface{} `json:"messageGroups"`
+	MessageGroups interface{} `json:"messageGroups" yaml:"messageGroups"`
 	// Determines whether the user can interrupt the start message while it is playing.
-	AllowInterrupt interface{} `json:"allowInterrupt"`
+	AllowInterrupt interface{} `json:"allowInterrupt" yaml:"allowInterrupt"`
 }
 
 // Provides information for updating the user on the progress of fulfilling an intent.
@@ -794,13 +794,13 @@ type CfnBot_FulfillmentUpdateResponseSpecificationProperty struct {
 	// The frequency that a message is sent to the user.
 	//
 	// When the period ends, Amazon Lex chooses a message from the message groups and plays it to the user. If the fulfillment Lambda function returns before the first period ends, an update message is not played to the user.
-	FrequencyInSeconds *float64 `json:"frequencyInSeconds"`
+	FrequencyInSeconds *float64 `json:"frequencyInSeconds" yaml:"frequencyInSeconds"`
 	// One to 5 message groups that contain update messages.
 	//
 	// Amazon Lex chooses one of the messages to play to the user.
-	MessageGroups interface{} `json:"messageGroups"`
+	MessageGroups interface{} `json:"messageGroups" yaml:"messageGroups"`
 	// Determines whether the user can interrupt an update message while it is playing.
-	AllowInterrupt interface{} `json:"allowInterrupt"`
+	AllowInterrupt interface{} `json:"allowInterrupt" yaml:"allowInterrupt"`
 }
 
 // Provides information for updating the user on the progress of fulfilling an intent.
@@ -811,13 +811,13 @@ type CfnBot_FulfillmentUpdatesSpecificationProperty struct {
 	// Determines whether fulfillment updates are sent to the user. When this field is true, updates are sent.
 	//
 	// If the active field is set to true, the `startResponse` , `updateResponse` , and `timeoutInSeconds` fields are required.
-	Active interface{} `json:"active"`
+	Active interface{} `json:"active" yaml:"active"`
 	// Provides configuration information for the message sent to users when the fulfillment Lambda functions starts running.
-	StartResponse interface{} `json:"startResponse"`
+	StartResponse interface{} `json:"startResponse" yaml:"startResponse"`
 	// The length of time that the fulfillment Lambda function should run before it times out.
-	TimeoutInSeconds *float64 `json:"timeoutInSeconds"`
+	TimeoutInSeconds *float64 `json:"timeoutInSeconds" yaml:"timeoutInSeconds"`
 	// Provides configuration information for messages sent periodically to the user while the fulfillment Lambda function is running.
-	UpdateResponse interface{} `json:"updateResponse"`
+	UpdateResponse interface{} `json:"updateResponse" yaml:"updateResponse"`
 }
 
 // Settings required for a slot type based on a grammar that you provide.
@@ -826,7 +826,7 @@ type CfnBot_FulfillmentUpdatesSpecificationProperty struct {
 //
 type CfnBot_GrammarSlotTypeSettingProperty struct {
 	// The source of the grammar used to create the slot type.
-	Source interface{} `json:"source"`
+	Source interface{} `json:"source" yaml:"source"`
 }
 
 // Describes the Amazon S3 bucket name and location for the grammar that is the source of the slot type.
@@ -835,11 +835,11 @@ type CfnBot_GrammarSlotTypeSettingProperty struct {
 //
 type CfnBot_GrammarSlotTypeSourceProperty struct {
 	// The name of the S3 bucket that contains the grammar source.
-	S3BucketName *string `json:"s3BucketName"`
+	S3BucketName *string `json:"s3BucketName" yaml:"s3BucketName"`
 	// The path to the grammar in the S3 bucket.
-	S3ObjectKey *string `json:"s3ObjectKey"`
+	S3ObjectKey *string `json:"s3ObjectKey" yaml:"s3ObjectKey"`
 	// The AWS Key Management Service key required to decrypt the contents of the grammar, if any.
-	KmsKeyArn *string `json:"kmsKeyArn"`
+	KmsKeyArn *string `json:"kmsKeyArn" yaml:"kmsKeyArn"`
 }
 
 // A card that is shown to the user by a messaging platform.
@@ -854,19 +854,19 @@ type CfnBot_ImageResponseCardProperty struct {
 	// The title to display on the response card.
 	//
 	// The format of the title is determined by the platform displaying the response card.
-	Title *string `json:"title"`
+	Title *string `json:"title" yaml:"title"`
 	// A list of buttons that should be displayed on the response card.
 	//
 	// The arrangement of the buttons is determined by the platform that displays the buttons.
-	Buttons interface{} `json:"buttons"`
+	Buttons interface{} `json:"buttons" yaml:"buttons"`
 	// The URL of an image to display on the response card.
 	//
 	// The image URL must be publicly available so that the platform displaying the response card has access to the image.
-	ImageUrl *string `json:"imageUrl"`
+	ImageUrl *string `json:"imageUrl" yaml:"imageUrl"`
 	// The subtitle to display on the response card.
 	//
 	// The format of the subtitle is determined by the platform displaying the response card.
-	Subtitle *string `json:"subtitle"`
+	Subtitle *string `json:"subtitle" yaml:"subtitle"`
 }
 
 // The name of a context that must be active for an intent to be selected by Amazon Lex .
@@ -875,7 +875,7 @@ type CfnBot_ImageResponseCardProperty struct {
 //
 type CfnBot_InputContextProperty struct {
 	// The name of the context.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // Provides a statement the Amazon Lex conveys to the user when the intent is successfully fulfilled.
@@ -884,11 +884,11 @@ type CfnBot_InputContextProperty struct {
 //
 type CfnBot_IntentClosingSettingProperty struct {
 	// The response that Amazon Lex sends to the user when the intent is complete.
-	ClosingResponse interface{} `json:"closingResponse"`
+	ClosingResponse interface{} `json:"closingResponse" yaml:"closingResponse"`
 	// Specifies whether an intent's closing response is used.
 	//
 	// When this field is false, the closing response isn't sent to the user and no closing input from the user is used. If the IsActive field isn't specified, the default is true.
-	IsActive interface{} `json:"isActive"`
+	IsActive interface{} `json:"isActive" yaml:"isActive"`
 }
 
 // Provides a prompt for making sure that the user is ready for the intent to be fulfilled.
@@ -897,15 +897,15 @@ type CfnBot_IntentClosingSettingProperty struct {
 //
 type CfnBot_IntentConfirmationSettingProperty struct {
 	// When the user answers "no" to the question defined in PromptSpecification, Amazon Lex responds with this response to acknowledge that the intent was canceled.
-	DeclinationResponse interface{} `json:"declinationResponse"`
+	DeclinationResponse interface{} `json:"declinationResponse" yaml:"declinationResponse"`
 	// Prompts the user to confirm the intent.
 	//
 	// This question should have a yes or no answer.
-	PromptSpecification interface{} `json:"promptSpecification"`
+	PromptSpecification interface{} `json:"promptSpecification" yaml:"promptSpecification"`
 	// Specifies whether the intent's confirmation is sent to the user.
 	//
 	// When this field is false, confirmation and declination responses aren't sent and processing continues as if the responses aren't present. If the active field isn't specified, the default is true.
-	IsActive interface{} `json:"isActive"`
+	IsActive interface{} `json:"isActive" yaml:"isActive"`
 }
 
 // Represents an action that the user wants to perform.
@@ -916,41 +916,41 @@ type CfnBot_IntentProperty struct {
 	// The name of the intent.
 	//
 	// Intent names must be unique within the locale that contains the intent and can't match the name of any built-in intent.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// A description of the intent.
 	//
 	// Use the description to help identify the intent in lists.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Specifies that Amazon Lex invokes the alias Lambda function for each user input.
 	//
 	// You can invoke this Lambda function to personalize user interaction.
-	DialogCodeHook interface{} `json:"dialogCodeHook"`
+	DialogCodeHook interface{} `json:"dialogCodeHook" yaml:"dialogCodeHook"`
 	// Specifies that Amazon Lex invokes the alias Lambda function when the intent is ready for fulfillment.
 	//
 	// You can invoke this function to complete the bot's transaction with the user.
-	FulfillmentCodeHook interface{} `json:"fulfillmentCodeHook"`
+	FulfillmentCodeHook interface{} `json:"fulfillmentCodeHook" yaml:"fulfillmentCodeHook"`
 	// A list of contexts that must be active for this intent to be considered by Amazon Lex .
-	InputContexts interface{} `json:"inputContexts"`
+	InputContexts interface{} `json:"inputContexts" yaml:"inputContexts"`
 	// Sets the response that Amazon Lex sends to the user when the intent is closed.
-	IntentClosingSetting interface{} `json:"intentClosingSetting"`
+	IntentClosingSetting interface{} `json:"intentClosingSetting" yaml:"intentClosingSetting"`
 	// Provides prompts that Amazon Lex sends to the user to confirm the completion of an intent.
 	//
 	// If the user answers "no," the settings contain a statement that is sent to the user to end the intent.
-	IntentConfirmationSetting interface{} `json:"intentConfirmationSetting"`
+	IntentConfirmationSetting interface{} `json:"intentConfirmationSetting" yaml:"intentConfirmationSetting"`
 	// Configuration information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called with Amazon Lex can't determine another intent to invoke.
-	KendraConfiguration interface{} `json:"kendraConfiguration"`
+	KendraConfiguration interface{} `json:"kendraConfiguration" yaml:"kendraConfiguration"`
 	// A list of contexts that the intent activates when it is fulfilled.
-	OutputContexts interface{} `json:"outputContexts"`
+	OutputContexts interface{} `json:"outputContexts" yaml:"outputContexts"`
 	// A unique identifier for the built-in intent to base this intent on.
-	ParentIntentSignature *string `json:"parentIntentSignature"`
+	ParentIntentSignature *string `json:"parentIntentSignature" yaml:"parentIntentSignature"`
 	// A list of utterances that a user might say to signal the intent.
-	SampleUtterances interface{} `json:"sampleUtterances"`
+	SampleUtterances interface{} `json:"sampleUtterances" yaml:"sampleUtterances"`
 	// Indicates the priority for slots.
 	//
 	// Amazon Lex prompts the user for slot values in priority order.
-	SlotPriorities interface{} `json:"slotPriorities"`
+	SlotPriorities interface{} `json:"slotPriorities" yaml:"slotPriorities"`
 	// A list of slots that the intent requires for fulfillment.
-	Slots interface{} `json:"slots"`
+	Slots interface{} `json:"slots" yaml:"slots"`
 }
 
 // Provides configuration information for the AMAZON.KendraSearchIntent intent. When you use this intent, Amazon Lex searches the specified Amazon Kendra index and returns documents from the index that match the user's utterance.
@@ -959,13 +959,13 @@ type CfnBot_IntentProperty struct {
 //
 type CfnBot_KendraConfigurationProperty struct {
 	// The Amazon Resource Name (ARN) of the Amazon Kendra index that you want the AMAZON.KendraSearchIntent intent to search. The index must be in the same account and Region as the Amazon Lex bot.
-	KendraIndex *string `json:"kendraIndex"`
+	KendraIndex *string `json:"kendraIndex" yaml:"kendraIndex"`
 	// A query filter that Amazon Lex sends to Amazon Kendra to filter the response from a query.
 	//
 	// The filter is in the format defined by Amazon Kendra.
-	QueryFilterString *string `json:"queryFilterString"`
+	QueryFilterString *string `json:"queryFilterString" yaml:"queryFilterString"`
 	// Determines whether the AMAZON.KendraSearchIntent intent uses a custom query string to query the Amazon Kendra index.
-	QueryFilterStringEnabled interface{} `json:"queryFilterStringEnabled"`
+	QueryFilterStringEnabled interface{} `json:"queryFilterStringEnabled" yaml:"queryFilterStringEnabled"`
 }
 
 // Provides one or more messages that Amazon Lex should send to the user.
@@ -974,11 +974,11 @@ type CfnBot_KendraConfigurationProperty struct {
 //
 type CfnBot_MessageGroupProperty struct {
 	// The primary message that Amazon Lex should send to the user.
-	Message interface{} `json:"message"`
+	Message interface{} `json:"message" yaml:"message"`
 	// Message variations to send to the user.
 	//
 	// When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
-	Variations interface{} `json:"variations"`
+	Variations interface{} `json:"variations" yaml:"variations"`
 }
 
 // The object that provides message text and it's type.
@@ -987,13 +987,13 @@ type CfnBot_MessageGroupProperty struct {
 //
 type CfnBot_MessageProperty struct {
 	// A message in a custom format defined by the client application.
-	CustomPayload interface{} `json:"customPayload"`
+	CustomPayload interface{} `json:"customPayload" yaml:"customPayload"`
 	// A message that defines a response card that the client application can show to the user.
-	ImageResponseCard interface{} `json:"imageResponseCard"`
+	ImageResponseCard interface{} `json:"imageResponseCard" yaml:"imageResponseCard"`
 	// A message in plain text format.
-	PlainTextMessage interface{} `json:"plainTextMessage"`
+	PlainTextMessage interface{} `json:"plainTextMessage" yaml:"plainTextMessage"`
 	// A message in Speech Synthesis Markup Language (SSML) format.
-	SsmlMessage interface{} `json:"ssmlMessage"`
+	SsmlMessage interface{} `json:"ssmlMessage" yaml:"ssmlMessage"`
 }
 
 // Indicates whether a slot can return multiple values.
@@ -1006,7 +1006,7 @@ type CfnBot_MultipleValuesSettingProperty struct {
 	// When true, the slot may return more than one value in a response. When false, the slot returns only a single value. If AllowMultipleValues is not set, the default value is false.
 	//
 	// Multi-value slots are only available in the en-US locale.
-	AllowMultipleValues interface{} `json:"allowMultipleValues"`
+	AllowMultipleValues interface{} `json:"allowMultipleValues" yaml:"allowMultipleValues"`
 }
 
 // Determines whether Amazon Lex obscures slot values in conversation logs.
@@ -1017,7 +1017,7 @@ type CfnBot_ObfuscationSettingProperty struct {
 	// Value that determines whether Amazon Lex obscures slot values in conversation logs.
 	//
 	// The default is to obscure the values.
-	ObfuscationSettingType *string `json:"obfuscationSettingType"`
+	ObfuscationSettingType *string `json:"obfuscationSettingType" yaml:"obfuscationSettingType"`
 }
 
 // Describes a session context that is activated when an intent is fulfilled.
@@ -1026,15 +1026,15 @@ type CfnBot_ObfuscationSettingProperty struct {
 //
 type CfnBot_OutputContextProperty struct {
 	// The name of the output context.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The amount of time, in seconds, that the output context should remain active.
 	//
 	// The time is figured from the first time the context is sent to the user.
-	TimeToLiveInSeconds *float64 `json:"timeToLiveInSeconds"`
+	TimeToLiveInSeconds *float64 `json:"timeToLiveInSeconds" yaml:"timeToLiveInSeconds"`
 	// The number of conversation turns that the output context should remain active.
 	//
 	// The number of turns is counted from the first time that the context is sent to the user.
-	TurnsToLive *float64 `json:"turnsToLive"`
+	TurnsToLive *float64 `json:"turnsToLive" yaml:"turnsToLive"`
 }
 
 // Defines an ASCII text message to send to the user.
@@ -1043,7 +1043,7 @@ type CfnBot_OutputContextProperty struct {
 //
 type CfnBot_PlainTextMessageProperty struct {
 	// The message to send to the user.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // Provides a setting that determines whether the post-fulfillment response is sent to the user.
@@ -1054,11 +1054,11 @@ type CfnBot_PlainTextMessageProperty struct {
 //
 type CfnBot_PostFulfillmentStatusSpecificationProperty struct {
 	// Specifies a list of message groups that Amazon Lex uses to respond when fulfillment isn't successful.
-	FailureResponse interface{} `json:"failureResponse"`
+	FailureResponse interface{} `json:"failureResponse" yaml:"failureResponse"`
 	// Specifies a list of message groups that Amazon Lex uses to respond when the fulfillment is successful.
-	SuccessResponse interface{} `json:"successResponse"`
+	SuccessResponse interface{} `json:"successResponse" yaml:"successResponse"`
 	// Specifies a list of message groups that Amazon Lex uses to respond when fulfillment isn't completed within the timeout period.
-	TimeoutResponse interface{} `json:"timeoutResponse"`
+	TimeoutResponse interface{} `json:"timeoutResponse" yaml:"timeoutResponse"`
 }
 
 // Specifies a list of message groups that Amazon Lex sends to a user to elicit a response.
@@ -1067,13 +1067,13 @@ type CfnBot_PostFulfillmentStatusSpecificationProperty struct {
 //
 type CfnBot_PromptSpecificationProperty struct {
 	// The maximum number of times the bot tries to elicit a response from the user using this prompt.
-	MaxRetries *float64 `json:"maxRetries"`
+	MaxRetries *float64 `json:"maxRetries" yaml:"maxRetries"`
 	// A collection of responses that Amazon Lex can send to the user.
 	//
 	// Amazon Lex chooses the actual response to send at runtime.
-	MessageGroupsList interface{} `json:"messageGroupsList"`
+	MessageGroupsList interface{} `json:"messageGroupsList" yaml:"messageGroupsList"`
 	// Indicates whether the user can interrupt a speech prompt from the bot.
-	AllowInterrupt interface{} `json:"allowInterrupt"`
+	AllowInterrupt interface{} `json:"allowInterrupt" yaml:"allowInterrupt"`
 }
 
 // Specifies a list of message groups that Amazon Lex uses to respond to user input.
@@ -1084,9 +1084,9 @@ type CfnBot_ResponseSpecificationProperty struct {
 	// A collection of responses that Amazon Lex can send to the user.
 	//
 	// Amazon Lex chooses the actual response to send at runtime.
-	MessageGroupsList interface{} `json:"messageGroupsList"`
+	MessageGroupsList interface{} `json:"messageGroupsList" yaml:"messageGroupsList"`
 	// Indicates whether the user can interrupt a speech response from Amazon Lex .
-	AllowInterrupt interface{} `json:"allowInterrupt"`
+	AllowInterrupt interface{} `json:"allowInterrupt" yaml:"allowInterrupt"`
 }
 
 // Defines an Amazon S3 bucket location.
@@ -1095,11 +1095,11 @@ type CfnBot_ResponseSpecificationProperty struct {
 //
 type CfnBot_S3LocationProperty struct {
 	// The S3 bucket name.
-	S3Bucket *string `json:"s3Bucket"`
+	S3Bucket *string `json:"s3Bucket" yaml:"s3Bucket"`
 	// The path and file name to the object in the S3 bucket.
-	S3ObjectKey *string `json:"s3ObjectKey"`
+	S3ObjectKey *string `json:"s3ObjectKey" yaml:"s3ObjectKey"`
 	// The version of the object in the S3 bucket.
-	S3ObjectVersion *string `json:"s3ObjectVersion"`
+	S3ObjectVersion *string `json:"s3ObjectVersion" yaml:"s3ObjectVersion"`
 }
 
 // Defines a Speech Synthesis Markup Language (SSML) prompt.
@@ -1108,7 +1108,7 @@ type CfnBot_S3LocationProperty struct {
 //
 type CfnBot_SSMLMessageProperty struct {
 	// The SSML text that defines the prompt.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // A sample utterance that invokes and intent or responds to a slot elicitation prompt.
@@ -1117,7 +1117,7 @@ type CfnBot_SSMLMessageProperty struct {
 //
 type CfnBot_SampleUtteranceProperty struct {
 	// The sample utterance that Amazon Lex uses to build its machine-learning model to recognize intents.
-	Utterance *string `json:"utterance"`
+	Utterance *string `json:"utterance" yaml:"utterance"`
 }
 
 // Defines one of the values for a slot type.
@@ -1126,7 +1126,7 @@ type CfnBot_SampleUtteranceProperty struct {
 //
 type CfnBot_SampleValueProperty struct {
 	// The value that can be used for a slot type.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // Specifies the default value to use when a user doesn't provide a value for a slot.
@@ -1135,7 +1135,7 @@ type CfnBot_SampleValueProperty struct {
 //
 type CfnBot_SlotDefaultValueProperty struct {
 	// The default value to use when a user doesn't provide a value for a slot.
-	DefaultValue *string `json:"defaultValue"`
+	DefaultValue *string `json:"defaultValue" yaml:"defaultValue"`
 }
 
 // Defines a list of values that Amazon Lex should use as the default value for a slot.
@@ -1146,7 +1146,7 @@ type CfnBot_SlotDefaultValueSpecificationProperty struct {
 	// A list of default values.
 	//
 	// Amazon Lex chooses the default value to use in the order that they are presented in the list.
-	DefaultValueList interface{} `json:"defaultValueList"`
+	DefaultValueList interface{} `json:"defaultValueList" yaml:"defaultValueList"`
 }
 
 // Sets the priority that Amazon Lex should use when eliciting slots values from a user.
@@ -1155,9 +1155,9 @@ type CfnBot_SlotDefaultValueSpecificationProperty struct {
 //
 type CfnBot_SlotPriorityProperty struct {
 	// The priority that Amazon Lex should apply to the slot.
-	Priority *float64 `json:"priority"`
+	Priority *float64 `json:"priority" yaml:"priority"`
 	// The name of the slot.
-	SlotName *string `json:"slotName"`
+	SlotName *string `json:"slotName" yaml:"slotName"`
 }
 
 // Specifies the definition of a slot.
@@ -1168,11 +1168,11 @@ type CfnBot_SlotPriorityProperty struct {
 //
 type CfnBot_SlotProperty struct {
 	// The name of the slot.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The name of the slot type that this slot is based on.
 	//
 	// The slot type defines the acceptable values for the slot.
-	SlotTypeName *string `json:"slotTypeName"`
+	SlotTypeName *string `json:"slotTypeName" yaml:"slotTypeName"`
 	// Determines the slot resolution strategy that Amazon Lex uses to return slot type values.
 	//
 	// The field can be set to one of the following values:
@@ -1181,15 +1181,15 @@ type CfnBot_SlotProperty struct {
 	// - TopResolution - If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned.
 	//
 	// If you don't specify the valueSelectionStrategy, the default is OriginalValue.
-	ValueElicitationSetting interface{} `json:"valueElicitationSetting"`
+	ValueElicitationSetting interface{} `json:"valueElicitationSetting" yaml:"valueElicitationSetting"`
 	// A description of the slot type.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Determines whether the slot can return multiple values to the application.
-	MultipleValuesSetting interface{} `json:"multipleValuesSetting"`
+	MultipleValuesSetting interface{} `json:"multipleValuesSetting" yaml:"multipleValuesSetting"`
 	// Determines whether the contents of the slot are obfuscated in Amazon CloudWatch Logs logs.
 	//
 	// Use obfuscated slots to protect information such as personally identifiable information (PII) in logs.
-	ObfuscationSetting interface{} `json:"obfuscationSetting"`
+	ObfuscationSetting interface{} `json:"obfuscationSetting" yaml:"obfuscationSetting"`
 }
 
 // Describes a slot type.
@@ -1200,23 +1200,23 @@ type CfnBot_SlotTypeProperty struct {
 	// The name of the slot type.
 	//
 	// A slot type name must be unique withing the account.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// A description of the slot type.
 	//
 	// Use the description to help identify the slot type in lists.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Sets the type of external information used to create the slot type.
-	ExternalSourceSetting interface{} `json:"externalSourceSetting"`
+	ExternalSourceSetting interface{} `json:"externalSourceSetting" yaml:"externalSourceSetting"`
 	// The built-in slot type used as a parent of this slot type.
 	//
 	// When you define a parent slot type, the new slot type has the configuration of the parent lot type.
 	//
 	// Only AMAZON.AlphaNumeric is supported.
-	ParentSlotTypeSignature *string `json:"parentSlotTypeSignature"`
+	ParentSlotTypeSignature *string `json:"parentSlotTypeSignature" yaml:"parentSlotTypeSignature"`
 	// A list of SlotTypeValue objects that defines the values that the slot type can take.
 	//
 	// Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for the slot.
-	SlotTypeValues interface{} `json:"slotTypeValues"`
+	SlotTypeValues interface{} `json:"slotTypeValues" yaml:"slotTypeValues"`
 	// Determines the slot resolution strategy that Amazon Lex uses to return slot type values.
 	//
 	// The field can be set to one of the following values:
@@ -1225,7 +1225,7 @@ type CfnBot_SlotTypeProperty struct {
 	// - TopResolution - If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned.
 	//
 	// If you don't specify the valueSelectionStrategy, the default is OriginalValue.
-	ValueSelectionSetting interface{} `json:"valueSelectionSetting"`
+	ValueSelectionSetting interface{} `json:"valueSelectionSetting" yaml:"valueSelectionSetting"`
 }
 
 // Each slot type can have a set of values.
@@ -1236,9 +1236,9 @@ type CfnBot_SlotTypeProperty struct {
 //
 type CfnBot_SlotTypeValueProperty struct {
 	// The value of the slot type entry.
-	SampleValue interface{} `json:"sampleValue"`
+	SampleValue interface{} `json:"sampleValue" yaml:"sampleValue"`
 	// Additional values related to the slot type entry.
-	Synonyms interface{} `json:"synonyms"`
+	Synonyms interface{} `json:"synonyms" yaml:"synonyms"`
 }
 
 // Settings that you can use for eliciting a slot value.
@@ -1247,19 +1247,19 @@ type CfnBot_SlotTypeValueProperty struct {
 //
 type CfnBot_SlotValueElicitationSettingProperty struct {
 	// Specifies whether the slot is required or optional.
-	SlotConstraint *string `json:"slotConstraint"`
+	SlotConstraint *string `json:"slotConstraint" yaml:"slotConstraint"`
 	// A list of default values for a slot.
 	//
 	// Default values are used when Amazon Lex hasn't determined a value for a slot. You can specify default values from context variables, session attributes, and defined values.
-	DefaultValueSpecification interface{} `json:"defaultValueSpecification"`
+	DefaultValueSpecification interface{} `json:"defaultValueSpecification" yaml:"defaultValueSpecification"`
 	// The prompt that Amazon Lex uses to elicit the slot value from the user.
-	PromptSpecification interface{} `json:"promptSpecification"`
+	PromptSpecification interface{} `json:"promptSpecification" yaml:"promptSpecification"`
 	// If you know a specific pattern that users might respond to an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy.
 	//
 	// This is optional. In most cases Amazon Lex is capable of understanding user utterances.
-	SampleUtterances interface{} `json:"sampleUtterances"`
+	SampleUtterances interface{} `json:"sampleUtterances" yaml:"sampleUtterances"`
 	// Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
-	WaitAndContinueSpecification interface{} `json:"waitAndContinueSpecification"`
+	WaitAndContinueSpecification interface{} `json:"waitAndContinueSpecification" yaml:"waitAndContinueSpecification"`
 }
 
 // Provides a regular expression used to validate the value of a slot.
@@ -1281,7 +1281,7 @@ type CfnBot_SlotValueRegexFilterProperty struct {
 	//
 	// - Infinite repeaters: *, +, or {x,} with no upper bound
 	// - Wild card (.)
-	Pattern *string `json:"pattern"`
+	Pattern *string `json:"pattern" yaml:"pattern"`
 }
 
 // Contains settings used by Amazon Lex to select a slot value.
@@ -1297,9 +1297,9 @@ type CfnBot_SlotValueSelectionSettingProperty struct {
 	// - TopResolution - If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned.
 	//
 	// If you don't specify the valueSelectionStrategy, the default is OriginalValue.
-	ResolutionStrategy *string `json:"resolutionStrategy"`
+	ResolutionStrategy *string `json:"resolutionStrategy" yaml:"resolutionStrategy"`
 	// A regular expression used to validate the value of a slot.
-	RegexFilter interface{} `json:"regexFilter"`
+	RegexFilter interface{} `json:"regexFilter" yaml:"regexFilter"`
 }
 
 // Defines the messages that Amazon Lex sends to a user to remind them that the bot is waiting for a response.
@@ -1310,15 +1310,15 @@ type CfnBot_StillWaitingResponseSpecificationProperty struct {
 	// How often a message should be sent to the user.
 	//
 	// Minimum of 1 second, maximum of 5 minutes.
-	FrequencyInSeconds *float64 `json:"frequencyInSeconds"`
+	FrequencyInSeconds *float64 `json:"frequencyInSeconds" yaml:"frequencyInSeconds"`
 	// A collection of responses that Amazon Lex can send to the user.
 	//
 	// Amazon Lex chooses the actual response to send at runtime.
-	MessageGroupsList interface{} `json:"messageGroupsList"`
+	MessageGroupsList interface{} `json:"messageGroupsList" yaml:"messageGroupsList"`
 	// If Amazon Lex waits longer than this length of time for a response, it will stop sending messages.
-	TimeoutInSeconds *float64 `json:"timeoutInSeconds"`
+	TimeoutInSeconds *float64 `json:"timeoutInSeconds" yaml:"timeoutInSeconds"`
 	// Indicates that the user can interrupt the response by speaking while the message is being played.
-	AllowInterrupt interface{} `json:"allowInterrupt"`
+	AllowInterrupt interface{} `json:"allowInterrupt" yaml:"allowInterrupt"`
 }
 
 // Identifies the Amazon Polly voice used for audio interaction with the user.
@@ -1327,7 +1327,7 @@ type CfnBot_StillWaitingResponseSpecificationProperty struct {
 //
 type CfnBot_VoiceSettingsProperty struct {
 	// The Amazon Polly voice used for voice interaction with the user.
-	VoiceId *string `json:"voiceId"`
+	VoiceId *string `json:"voiceId" yaml:"voiceId"`
 }
 
 // Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
@@ -1336,15 +1336,15 @@ type CfnBot_VoiceSettingsProperty struct {
 //
 type CfnBot_WaitAndContinueSpecificationProperty struct {
 	// The response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
-	ContinueResponse interface{} `json:"continueResponse"`
+	ContinueResponse interface{} `json:"continueResponse" yaml:"continueResponse"`
 	// The response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
-	WaitingResponse interface{} `json:"waitingResponse"`
+	WaitingResponse interface{} `json:"waitingResponse" yaml:"waitingResponse"`
 	// Specifies whether the bot will wait for a user to respond.
 	//
 	// When this field is false, wait and continue responses for a slot aren't used and the bot expects an appropriate response within the configured timeout. If the IsActive field isn't specified, the default is true.
-	IsActive interface{} `json:"isActive"`
+	IsActive interface{} `json:"isActive" yaml:"isActive"`
 	// A response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
-	StillWaitingResponse interface{} `json:"stillWaitingResponse"`
+	StillWaitingResponse interface{} `json:"stillWaitingResponse" yaml:"stillWaitingResponse"`
 }
 
 // A CloudFormation `AWS::Lex::BotAlias`.
@@ -2000,7 +2000,7 @@ func (c *jsiiProxy_CfnBotAlias) ValidateProperties(_properties interface{}) {
 //
 type CfnBotAlias_AudioLogDestinationProperty struct {
 	// The S3 bucket location where audio logs are stored.
-	S3Bucket interface{} `json:"s3Bucket"`
+	S3Bucket interface{} `json:"s3Bucket" yaml:"s3Bucket"`
 }
 
 // Settings for logging audio of conversations between Amazon Lex and a user.
@@ -2011,9 +2011,9 @@ type CfnBotAlias_AudioLogDestinationProperty struct {
 //
 type CfnBotAlias_AudioLogSettingProperty struct {
 	// The location of audio log files collected when conversation logging is enabled for a bot.
-	Destination interface{} `json:"destination"`
+	Destination interface{} `json:"destination" yaml:"destination"`
 	// Determines whether audio logging in enabled for the bot.
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 }
 
 // Specifies settings that are unique to a locale.
@@ -2024,9 +2024,9 @@ type CfnBotAlias_AudioLogSettingProperty struct {
 //
 type CfnBotAlias_BotAliasLocaleSettingsItemProperty struct {
 	// Specifies settings that are unique to a locale.
-	BotAliasLocaleSetting interface{} `json:"botAliasLocaleSetting"`
+	BotAliasLocaleSetting interface{} `json:"botAliasLocaleSetting" yaml:"botAliasLocaleSetting"`
 	// The unique identifier of the locale.
-	LocaleId *string `json:"localeId"`
+	LocaleId *string `json:"localeId" yaml:"localeId"`
 }
 
 // Specifies settings that are unique to a locale.
@@ -2039,9 +2039,9 @@ type CfnBotAlias_BotAliasLocaleSettingsProperty struct {
 	// Determines whether the locale is enabled for the bot.
 	//
 	// If the value is false, the locale isn't available for use.
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 	// Specifies the Lambda function that should be used in the locale.
-	CodeHookSpecification interface{} `json:"codeHookSpecification"`
+	CodeHookSpecification interface{} `json:"codeHookSpecification" yaml:"codeHookSpecification"`
 }
 
 // The Amazon CloudWatch Logs log group where the text and metadata logs are delivered.
@@ -2052,9 +2052,9 @@ type CfnBotAlias_BotAliasLocaleSettingsProperty struct {
 //
 type CfnBotAlias_CloudWatchLogGroupLogDestinationProperty struct {
 	// The Amazon Resource Name (ARN) of the log group where text and metadata logs are delivered.
-	CloudWatchLogGroupArn *string `json:"cloudWatchLogGroupArn"`
+	CloudWatchLogGroupArn *string `json:"cloudWatchLogGroupArn" yaml:"cloudWatchLogGroupArn"`
 	// The prefix of the log stream name within the log group that you specified.
-	LogPrefix *string `json:"logPrefix"`
+	LogPrefix *string `json:"logPrefix" yaml:"logPrefix"`
 }
 
 // Contains information about code hooks that Amazon Lex calls during a conversation.
@@ -2063,7 +2063,7 @@ type CfnBotAlias_CloudWatchLogGroupLogDestinationProperty struct {
 //
 type CfnBotAlias_CodeHookSpecificationProperty struct {
 	// Specifies a Lambda function that verifies requests to a bot or fulfills the user's request to a bot.
-	LambdaCodeHook interface{} `json:"lambdaCodeHook"`
+	LambdaCodeHook interface{} `json:"lambdaCodeHook" yaml:"lambdaCodeHook"`
 }
 
 // Configures conversation logging that saves audio, text, and metadata for the conversations with your users.
@@ -2072,9 +2072,9 @@ type CfnBotAlias_CodeHookSpecificationProperty struct {
 //
 type CfnBotAlias_ConversationLogSettingsProperty struct {
 	// The Amazon S3 settings for logging audio to an S3 bucket.
-	AudioLogSettings interface{} `json:"audioLogSettings"`
+	AudioLogSettings interface{} `json:"audioLogSettings" yaml:"audioLogSettings"`
 	// The Amazon CloudWatch Logs settings for logging text and metadata.
-	TextLogSettings interface{} `json:"textLogSettings"`
+	TextLogSettings interface{} `json:"textLogSettings" yaml:"textLogSettings"`
 }
 
 // Specifies a Lambda function that verifies requests to a bot or fulfills the user's request to a bot.
@@ -2083,9 +2083,9 @@ type CfnBotAlias_ConversationLogSettingsProperty struct {
 //
 type CfnBotAlias_LambdaCodeHookProperty struct {
 	// The version of the request-response that you want Amazon Lex to use to invoke your Lambda function.
-	CodeHookInterfaceVersion *string `json:"codeHookInterfaceVersion"`
+	CodeHookInterfaceVersion *string `json:"codeHookInterfaceVersion" yaml:"codeHookInterfaceVersion"`
 	// The Amazon Resource Name (ARN) of the Lambda function.
-	LambdaArn *string `json:"lambdaArn"`
+	LambdaArn *string `json:"lambdaArn" yaml:"lambdaArn"`
 }
 
 // Specifies an Amazon S3 bucket for logging audio conversations.
@@ -2094,11 +2094,11 @@ type CfnBotAlias_LambdaCodeHookProperty struct {
 //
 type CfnBotAlias_S3BucketLogDestinationProperty struct {
 	// The S3 prefix to assign to audio log files.
-	LogPrefix *string `json:"logPrefix"`
+	LogPrefix *string `json:"logPrefix" yaml:"logPrefix"`
 	// The Amazon Resource Name (ARN) of an Amazon S3 bucket where audio log files are stored.
-	S3BucketArn *string `json:"s3BucketArn"`
+	S3BucketArn *string `json:"s3BucketArn" yaml:"s3BucketArn"`
 	// The Amazon Resource Name (ARN) of an AWS Key Management Service key for encrypting audio log files stored in an S3 bucket.
-	KmsKeyArn *string `json:"kmsKeyArn"`
+	KmsKeyArn *string `json:"kmsKeyArn" yaml:"kmsKeyArn"`
 }
 
 // Defines the Amazon CloudWatch Logs destination log group for conversation text logs.
@@ -2114,9 +2114,9 @@ type CfnBotAlias_TextLogDestinationProperty struct {
 //
 type CfnBotAlias_TextLogSettingProperty struct {
 	// Defines the Amazon CloudWatch Logs destination log group for conversation text logs.
-	Destination interface{} `json:"destination"`
+	Destination interface{} `json:"destination" yaml:"destination"`
 	// Determines whether conversation logs should be stored for an alias.
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 }
 
 // Properties for defining a `CfnBotAlias`.
@@ -2125,29 +2125,29 @@ type CfnBotAlias_TextLogSettingProperty struct {
 //
 type CfnBotAliasProps struct {
 	// The name of the bot alias.
-	BotAliasName *string `json:"botAliasName"`
+	BotAliasName *string `json:"botAliasName" yaml:"botAliasName"`
 	// The unique identifier of the bot.
-	BotId *string `json:"botId"`
+	BotId *string `json:"botId" yaml:"botId"`
 	// Maps configuration information to a specific locale.
 	//
 	// You can use this parameter to specify a specific Lambda function to run different functions in different locales.
-	BotAliasLocaleSettings interface{} `json:"botAliasLocaleSettings"`
+	BotAliasLocaleSettings interface{} `json:"botAliasLocaleSettings" yaml:"botAliasLocaleSettings"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// You can only add tags when you specify an alias.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	BotAliasTags interface{} `json:"botAliasTags"`
+	BotAliasTags interface{} `json:"botAliasTags" yaml:"botAliasTags"`
 	// The version of the bot that the bot alias references.
-	BotVersion *string `json:"botVersion"`
+	BotVersion *string `json:"botVersion" yaml:"botVersion"`
 	// Specifies whether Amazon Lex logs text and audio for conversations with the bot.
 	//
 	// When you enable conversation logs, text logs store text input, transcripts of audio input, and associated metadata in Amazon CloudWatch logs. Audio logs store input in Amazon S3 .
-	ConversationLogSettings interface{} `json:"conversationLogSettings"`
+	ConversationLogSettings interface{} `json:"conversationLogSettings" yaml:"conversationLogSettings"`
 	// The description of the bot alias.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
-	SentimentAnalysisSettings interface{} `json:"sentimentAnalysisSettings"`
+	SentimentAnalysisSettings interface{} `json:"sentimentAnalysisSettings" yaml:"sentimentAnalysisSettings"`
 }
 
 // Properties for defining a `CfnBot`.
@@ -2156,35 +2156,35 @@ type CfnBotAliasProps struct {
 //
 type CfnBotProps struct {
 	// Provides information on additional privacy protections Amazon Lex should use with the bot's data.
-	DataPrivacy interface{} `json:"dataPrivacy"`
+	DataPrivacy interface{} `json:"dataPrivacy" yaml:"dataPrivacy"`
 	// The time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot.
 	//
 	// A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Lex deletes any data provided before the timeout.
 	//
 	// You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
-	IdleSessionTtlInSeconds *float64 `json:"idleSessionTtlInSeconds"`
+	IdleSessionTtlInSeconds *float64 `json:"idleSessionTtlInSeconds" yaml:"idleSessionTtlInSeconds"`
 	// The name of the field to filter the list of bots.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The Amazon Resource Name (ARN) of the IAM role used to build and run the bot.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// Indicates whether Amazon Lex V2 should automatically build the locales for the bot after a change.
-	AutoBuildBotLocales interface{} `json:"autoBuildBotLocales"`
+	AutoBuildBotLocales interface{} `json:"autoBuildBotLocales" yaml:"autoBuildBotLocales"`
 	// The Amazon S3 location of files used to import a bot.
 	//
 	// The files must be in the import format specified in [JSON format for importing and exporting](https://docs.aws.amazon.com/lexv2/latest/dg/import-export-format.html) in the *Amazon Lex developer guide.*
-	BotFileS3Location interface{} `json:"botFileS3Location"`
+	BotFileS3Location interface{} `json:"botFileS3Location" yaml:"botFileS3Location"`
 	// A list of locales for the bot.
-	BotLocales interface{} `json:"botLocales"`
+	BotLocales interface{} `json:"botLocales" yaml:"botLocales"`
 	// A list of tags to add to the bot.
 	//
 	// You can only add tags when you import a bot. You can't use the `UpdateBot` operation to update tags. To update tags, use the `TagResource` operation.
-	BotTags interface{} `json:"botTags"`
+	BotTags interface{} `json:"botTags" yaml:"botTags"`
 	// The description of the version.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// A list of tags to add to the test alias for a bot.
 	//
 	// You can only add tags when you import a bot. You can't use the `UpdateAlias` operation to update tags. To update tags on the test alias, use the `TagResource` operation.
-	TestBotAliasTags interface{} `json:"testBotAliasTags"`
+	TestBotAliasTags interface{} `json:"testBotAliasTags" yaml:"testBotAliasTags"`
 }
 
 // A CloudFormation `AWS::Lex::BotVersion`.
@@ -2718,7 +2718,7 @@ func (c *jsiiProxy_CfnBotVersion) ValidateProperties(_properties interface{}) {
 //
 type CfnBotVersion_BotVersionLocaleDetailsProperty struct {
 	// The version of a bot used for a bot locale.
-	SourceBotVersion *string `json:"sourceBotVersion"`
+	SourceBotVersion *string `json:"sourceBotVersion" yaml:"sourceBotVersion"`
 }
 
 // Specifies the locale that Amazon Lex adds to this version.
@@ -2729,9 +2729,9 @@ type CfnBotVersion_BotVersionLocaleDetailsProperty struct {
 //
 type CfnBotVersion_BotVersionLocaleSpecificationProperty struct {
 	// The version of a bot used for a bot locale.
-	BotVersionLocaleDetails interface{} `json:"botVersionLocaleDetails"`
+	BotVersionLocaleDetails interface{} `json:"botVersionLocaleDetails" yaml:"botVersionLocaleDetails"`
 	// The identifier of the locale to add to the version.
-	LocaleId *string `json:"localeId"`
+	LocaleId *string `json:"localeId" yaml:"localeId"`
 }
 
 // Properties for defining a `CfnBotVersion`.
@@ -2740,13 +2740,13 @@ type CfnBotVersion_BotVersionLocaleSpecificationProperty struct {
 //
 type CfnBotVersionProps struct {
 	// The unique identifier of the bot.
-	BotId *string `json:"botId"`
+	BotId *string `json:"botId" yaml:"botId"`
 	// Specifies the locales that Amazon Lex adds to this version.
 	//
 	// You can choose the Draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
-	BotVersionLocaleSpecification interface{} `json:"botVersionLocaleSpecification"`
+	BotVersionLocaleSpecification interface{} `json:"botVersionLocaleSpecification" yaml:"botVersionLocaleSpecification"`
 	// The description of the version.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 }
 
 // A CloudFormation `AWS::Lex::ResourcePolicy`.
@@ -3280,8 +3280,8 @@ type CfnResourcePolicyProps struct {
 	// A resource policy to add to the resource.
 	//
 	// The policy is a JSON structure that contains one or more statements that define the policy. The policy must follow IAM syntax. If the policy isn't valid, Amazon Lex returns a validation exception.
-	Policy interface{} `json:"policy"`
+	Policy interface{} `json:"policy" yaml:"policy"`
 	// The Amazon Resource Name (ARN) of the bot or bot alias that the resource policy is attached to.
-	ResourceArn *string `json:"resourceArn"`
+	ResourceArn *string `json:"resourceArn" yaml:"resourceArn"`
 }
 

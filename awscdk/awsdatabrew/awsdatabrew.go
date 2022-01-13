@@ -574,168 +574,168 @@ func (c *jsiiProxy_CfnDataset) ValidateProperties(_properties interface{}) {
 //
 type CfnDataset_CsvOptionsProperty struct {
 	// `CfnDataset.CsvOptionsProperty.Delimiter`.
-	Delimiter *string `json:"delimiter"`
+	Delimiter *string `json:"delimiter" yaml:"delimiter"`
 	// `CfnDataset.CsvOptionsProperty.HeaderRow`.
-	HeaderRow interface{} `json:"headerRow"`
+	HeaderRow interface{} `json:"headerRow" yaml:"headerRow"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnDataset_DataCatalogInputDefinitionProperty struct {
 	// `CfnDataset.DataCatalogInputDefinitionProperty.CatalogId`.
-	CatalogId *string `json:"catalogId"`
+	CatalogId *string `json:"catalogId" yaml:"catalogId"`
 	// `CfnDataset.DataCatalogInputDefinitionProperty.DatabaseName`.
-	DatabaseName *string `json:"databaseName"`
+	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
 	// `CfnDataset.DataCatalogInputDefinitionProperty.TableName`.
-	TableName *string `json:"tableName"`
+	TableName *string `json:"tableName" yaml:"tableName"`
 	// `CfnDataset.DataCatalogInputDefinitionProperty.TempDirectory`.
-	TempDirectory interface{} `json:"tempDirectory"`
+	TempDirectory interface{} `json:"tempDirectory" yaml:"tempDirectory"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnDataset_DatabaseInputDefinitionProperty struct {
 	// `CfnDataset.DatabaseInputDefinitionProperty.GlueConnectionName`.
-	GlueConnectionName *string `json:"glueConnectionName"`
+	GlueConnectionName *string `json:"glueConnectionName" yaml:"glueConnectionName"`
 	// `CfnDataset.DatabaseInputDefinitionProperty.DatabaseTableName`.
-	DatabaseTableName *string `json:"databaseTableName"`
+	DatabaseTableName *string `json:"databaseTableName" yaml:"databaseTableName"`
 	// `CfnDataset.DatabaseInputDefinitionProperty.QueryString`.
-	QueryString *string `json:"queryString"`
+	QueryString *string `json:"queryString" yaml:"queryString"`
 	// `CfnDataset.DatabaseInputDefinitionProperty.TempDirectory`.
-	TempDirectory interface{} `json:"tempDirectory"`
+	TempDirectory interface{} `json:"tempDirectory" yaml:"tempDirectory"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnDataset_DatasetParameterProperty struct {
 	// `CfnDataset.DatasetParameterProperty.Name`.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// `CfnDataset.DatasetParameterProperty.Type`.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// `CfnDataset.DatasetParameterProperty.CreateColumn`.
-	CreateColumn interface{} `json:"createColumn"`
+	CreateColumn interface{} `json:"createColumn" yaml:"createColumn"`
 	// `CfnDataset.DatasetParameterProperty.DatetimeOptions`.
-	DatetimeOptions interface{} `json:"datetimeOptions"`
+	DatetimeOptions interface{} `json:"datetimeOptions" yaml:"datetimeOptions"`
 	// `CfnDataset.DatasetParameterProperty.Filter`.
-	Filter interface{} `json:"filter"`
+	Filter interface{} `json:"filter" yaml:"filter"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnDataset_DatetimeOptionsProperty struct {
 	// `CfnDataset.DatetimeOptionsProperty.Format`.
-	Format *string `json:"format"`
+	Format *string `json:"format" yaml:"format"`
 	// `CfnDataset.DatetimeOptionsProperty.LocaleCode`.
-	LocaleCode *string `json:"localeCode"`
+	LocaleCode *string `json:"localeCode" yaml:"localeCode"`
 	// `CfnDataset.DatetimeOptionsProperty.TimezoneOffset`.
-	TimezoneOffset *string `json:"timezoneOffset"`
+	TimezoneOffset *string `json:"timezoneOffset" yaml:"timezoneOffset"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnDataset_ExcelOptionsProperty struct {
 	// `CfnDataset.ExcelOptionsProperty.HeaderRow`.
-	HeaderRow interface{} `json:"headerRow"`
+	HeaderRow interface{} `json:"headerRow" yaml:"headerRow"`
 	// `CfnDataset.ExcelOptionsProperty.SheetIndexes`.
-	SheetIndexes interface{} `json:"sheetIndexes"`
+	SheetIndexes interface{} `json:"sheetIndexes" yaml:"sheetIndexes"`
 	// `CfnDataset.ExcelOptionsProperty.SheetNames`.
-	SheetNames *[]*string `json:"sheetNames"`
+	SheetNames *[]*string `json:"sheetNames" yaml:"sheetNames"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnDataset_FilesLimitProperty struct {
 	// `CfnDataset.FilesLimitProperty.MaxFiles`.
-	MaxFiles *float64 `json:"maxFiles"`
+	MaxFiles *float64 `json:"maxFiles" yaml:"maxFiles"`
 	// `CfnDataset.FilesLimitProperty.Order`.
-	Order *string `json:"order"`
+	Order *string `json:"order" yaml:"order"`
 	// `CfnDataset.FilesLimitProperty.OrderedBy`.
-	OrderedBy *string `json:"orderedBy"`
+	OrderedBy *string `json:"orderedBy" yaml:"orderedBy"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnDataset_FilterExpressionProperty struct {
 	// `CfnDataset.FilterExpressionProperty.Expression`.
-	Expression *string `json:"expression"`
+	Expression *string `json:"expression" yaml:"expression"`
 	// `CfnDataset.FilterExpressionProperty.ValuesMap`.
-	ValuesMap interface{} `json:"valuesMap"`
+	ValuesMap interface{} `json:"valuesMap" yaml:"valuesMap"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnDataset_FilterValueProperty struct {
 	// `CfnDataset.FilterValueProperty.Value`.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 	// `CfnDataset.FilterValueProperty.ValueReference`.
-	ValueReference *string `json:"valueReference"`
+	ValueReference *string `json:"valueReference" yaml:"valueReference"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnDataset_FormatOptionsProperty struct {
 	// `CfnDataset.FormatOptionsProperty.Csv`.
-	Csv interface{} `json:"csv"`
+	Csv interface{} `json:"csv" yaml:"csv"`
 	// `CfnDataset.FormatOptionsProperty.Excel`.
-	Excel interface{} `json:"excel"`
+	Excel interface{} `json:"excel" yaml:"excel"`
 	// `CfnDataset.FormatOptionsProperty.Json`.
-	Json interface{} `json:"json"`
+	Json interface{} `json:"json" yaml:"json"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnDataset_InputProperty struct {
 	// `CfnDataset.InputProperty.DatabaseInputDefinition`.
-	DatabaseInputDefinition interface{} `json:"databaseInputDefinition"`
+	DatabaseInputDefinition interface{} `json:"databaseInputDefinition" yaml:"databaseInputDefinition"`
 	// `CfnDataset.InputProperty.DataCatalogInputDefinition`.
-	DataCatalogInputDefinition interface{} `json:"dataCatalogInputDefinition"`
+	DataCatalogInputDefinition interface{} `json:"dataCatalogInputDefinition" yaml:"dataCatalogInputDefinition"`
 	// `CfnDataset.InputProperty.Metadata`.
-	Metadata interface{} `json:"metadata"`
+	Metadata interface{} `json:"metadata" yaml:"metadata"`
 	// `CfnDataset.InputProperty.S3InputDefinition`.
-	S3InputDefinition interface{} `json:"s3InputDefinition"`
+	S3InputDefinition interface{} `json:"s3InputDefinition" yaml:"s3InputDefinition"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnDataset_JsonOptionsProperty struct {
 	// `CfnDataset.JsonOptionsProperty.MultiLine`.
-	MultiLine interface{} `json:"multiLine"`
+	MultiLine interface{} `json:"multiLine" yaml:"multiLine"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnDataset_MetadataProperty struct {
 	// `CfnDataset.MetadataProperty.SourceArn`.
-	SourceArn *string `json:"sourceArn"`
+	SourceArn *string `json:"sourceArn" yaml:"sourceArn"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnDataset_PathOptionsProperty struct {
 	// `CfnDataset.PathOptionsProperty.FilesLimit`.
-	FilesLimit interface{} `json:"filesLimit"`
+	FilesLimit interface{} `json:"filesLimit" yaml:"filesLimit"`
 	// `CfnDataset.PathOptionsProperty.LastModifiedDateCondition`.
-	LastModifiedDateCondition interface{} `json:"lastModifiedDateCondition"`
+	LastModifiedDateCondition interface{} `json:"lastModifiedDateCondition" yaml:"lastModifiedDateCondition"`
 	// `CfnDataset.PathOptionsProperty.Parameters`.
-	Parameters interface{} `json:"parameters"`
+	Parameters interface{} `json:"parameters" yaml:"parameters"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnDataset_PathParameterProperty struct {
 	// `CfnDataset.PathParameterProperty.DatasetParameter`.
-	DatasetParameter interface{} `json:"datasetParameter"`
+	DatasetParameter interface{} `json:"datasetParameter" yaml:"datasetParameter"`
 	// `CfnDataset.PathParameterProperty.PathParameterName`.
-	PathParameterName *string `json:"pathParameterName"`
+	PathParameterName *string `json:"pathParameterName" yaml:"pathParameterName"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnDataset_S3LocationProperty struct {
 	// `CfnDataset.S3LocationProperty.Bucket`.
-	Bucket *string `json:"bucket"`
+	Bucket *string `json:"bucket" yaml:"bucket"`
 	// `CfnDataset.S3LocationProperty.Key`.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 }
 
 // Properties for defining a `CfnDataset`.
@@ -744,17 +744,17 @@ type CfnDataset_S3LocationProperty struct {
 //
 type CfnDatasetProps struct {
 	// `AWS::DataBrew::Dataset.Input`.
-	Input interface{} `json:"input"`
+	Input interface{} `json:"input" yaml:"input"`
 	// `AWS::DataBrew::Dataset.Name`.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// `AWS::DataBrew::Dataset.Format`.
-	Format *string `json:"format"`
+	Format *string `json:"format" yaml:"format"`
 	// `AWS::DataBrew::Dataset.FormatOptions`.
-	FormatOptions interface{} `json:"formatOptions"`
+	FormatOptions interface{} `json:"formatOptions" yaml:"formatOptions"`
 	// `AWS::DataBrew::Dataset.PathOptions`.
-	PathOptions interface{} `json:"pathOptions"`
+	PathOptions interface{} `json:"pathOptions" yaml:"pathOptions"`
 	// `AWS::DataBrew::Dataset.Tags`.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::DataBrew::Job`.
@@ -1602,120 +1602,120 @@ func (c *jsiiProxy_CfnJob) ValidateProperties(_properties interface{}) {
 //
 type CfnJob_AllowedStatisticsProperty struct {
 	// `CfnJob.AllowedStatisticsProperty.Statistics`.
-	Statistics *[]*string `json:"statistics"`
+	Statistics *[]*string `json:"statistics" yaml:"statistics"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnJob_ColumnSelectorProperty struct {
 	// `CfnJob.ColumnSelectorProperty.Name`.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// `CfnJob.ColumnSelectorProperty.Regex`.
-	Regex *string `json:"regex"`
+	Regex *string `json:"regex" yaml:"regex"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnJob_ColumnStatisticsConfigurationProperty struct {
 	// `CfnJob.ColumnStatisticsConfigurationProperty.Statistics`.
-	Statistics interface{} `json:"statistics"`
+	Statistics interface{} `json:"statistics" yaml:"statistics"`
 	// `CfnJob.ColumnStatisticsConfigurationProperty.Selectors`.
-	Selectors interface{} `json:"selectors"`
+	Selectors interface{} `json:"selectors" yaml:"selectors"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnJob_CsvOutputOptionsProperty struct {
 	// `CfnJob.CsvOutputOptionsProperty.Delimiter`.
-	Delimiter *string `json:"delimiter"`
+	Delimiter *string `json:"delimiter" yaml:"delimiter"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnJob_DataCatalogOutputProperty struct {
 	// `CfnJob.DataCatalogOutputProperty.DatabaseName`.
-	DatabaseName *string `json:"databaseName"`
+	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
 	// `CfnJob.DataCatalogOutputProperty.TableName`.
-	TableName *string `json:"tableName"`
+	TableName *string `json:"tableName" yaml:"tableName"`
 	// `CfnJob.DataCatalogOutputProperty.CatalogId`.
-	CatalogId *string `json:"catalogId"`
+	CatalogId *string `json:"catalogId" yaml:"catalogId"`
 	// `CfnJob.DataCatalogOutputProperty.DatabaseOptions`.
-	DatabaseOptions interface{} `json:"databaseOptions"`
+	DatabaseOptions interface{} `json:"databaseOptions" yaml:"databaseOptions"`
 	// `CfnJob.DataCatalogOutputProperty.Overwrite`.
-	Overwrite interface{} `json:"overwrite"`
+	Overwrite interface{} `json:"overwrite" yaml:"overwrite"`
 	// `CfnJob.DataCatalogOutputProperty.S3Options`.
-	S3Options interface{} `json:"s3Options"`
+	S3Options interface{} `json:"s3Options" yaml:"s3Options"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnJob_DatabaseOutputProperty struct {
 	// `CfnJob.DatabaseOutputProperty.DatabaseOptions`.
-	DatabaseOptions interface{} `json:"databaseOptions"`
+	DatabaseOptions interface{} `json:"databaseOptions" yaml:"databaseOptions"`
 	// `CfnJob.DatabaseOutputProperty.GlueConnectionName`.
-	GlueConnectionName *string `json:"glueConnectionName"`
+	GlueConnectionName *string `json:"glueConnectionName" yaml:"glueConnectionName"`
 	// `CfnJob.DatabaseOutputProperty.DatabaseOutputMode`.
-	DatabaseOutputMode *string `json:"databaseOutputMode"`
+	DatabaseOutputMode *string `json:"databaseOutputMode" yaml:"databaseOutputMode"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnJob_DatabaseTableOutputOptionsProperty struct {
 	// `CfnJob.DatabaseTableOutputOptionsProperty.TableName`.
-	TableName *string `json:"tableName"`
+	TableName *string `json:"tableName" yaml:"tableName"`
 	// `CfnJob.DatabaseTableOutputOptionsProperty.TempDirectory`.
-	TempDirectory interface{} `json:"tempDirectory"`
+	TempDirectory interface{} `json:"tempDirectory" yaml:"tempDirectory"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnJob_EntityDetectorConfigurationProperty struct {
 	// `CfnJob.EntityDetectorConfigurationProperty.EntityTypes`.
-	EntityTypes *[]*string `json:"entityTypes"`
+	EntityTypes *[]*string `json:"entityTypes" yaml:"entityTypes"`
 	// `CfnJob.EntityDetectorConfigurationProperty.AllowedStatistics`.
-	AllowedStatistics interface{} `json:"allowedStatistics"`
+	AllowedStatistics interface{} `json:"allowedStatistics" yaml:"allowedStatistics"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnJob_JobSampleProperty struct {
 	// `CfnJob.JobSampleProperty.Mode`.
-	Mode *string `json:"mode"`
+	Mode *string `json:"mode" yaml:"mode"`
 	// `CfnJob.JobSampleProperty.Size`.
-	Size *float64 `json:"size"`
+	Size *float64 `json:"size" yaml:"size"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnJob_OutputFormatOptionsProperty struct {
 	// `CfnJob.OutputFormatOptionsProperty.Csv`.
-	Csv interface{} `json:"csv"`
+	Csv interface{} `json:"csv" yaml:"csv"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnJob_OutputLocationProperty struct {
 	// `CfnJob.OutputLocationProperty.Bucket`.
-	Bucket *string `json:"bucket"`
+	Bucket *string `json:"bucket" yaml:"bucket"`
 	// `CfnJob.OutputLocationProperty.Key`.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnJob_OutputProperty struct {
 	// `CfnJob.OutputProperty.Location`.
-	Location interface{} `json:"location"`
+	Location interface{} `json:"location" yaml:"location"`
 	// `CfnJob.OutputProperty.CompressionFormat`.
-	CompressionFormat *string `json:"compressionFormat"`
+	CompressionFormat *string `json:"compressionFormat" yaml:"compressionFormat"`
 	// `CfnJob.OutputProperty.Format`.
-	Format *string `json:"format"`
+	Format *string `json:"format" yaml:"format"`
 	// `CfnJob.OutputProperty.FormatOptions`.
-	FormatOptions interface{} `json:"formatOptions"`
+	FormatOptions interface{} `json:"formatOptions" yaml:"formatOptions"`
 	// `CfnJob.OutputProperty.Overwrite`.
-	Overwrite interface{} `json:"overwrite"`
+	Overwrite interface{} `json:"overwrite" yaml:"overwrite"`
 	// `CfnJob.OutputProperty.PartitionColumns`.
-	PartitionColumns *[]*string `json:"partitionColumns"`
+	PartitionColumns *[]*string `json:"partitionColumns" yaml:"partitionColumns"`
 }
 
 // TODO: EXAMPLE
@@ -1727,65 +1727,65 @@ type CfnJob_ParameterMapProperty struct {
 //
 type CfnJob_ProfileConfigurationProperty struct {
 	// `CfnJob.ProfileConfigurationProperty.ColumnStatisticsConfigurations`.
-	ColumnStatisticsConfigurations interface{} `json:"columnStatisticsConfigurations"`
+	ColumnStatisticsConfigurations interface{} `json:"columnStatisticsConfigurations" yaml:"columnStatisticsConfigurations"`
 	// `CfnJob.ProfileConfigurationProperty.DatasetStatisticsConfiguration`.
-	DatasetStatisticsConfiguration interface{} `json:"datasetStatisticsConfiguration"`
+	DatasetStatisticsConfiguration interface{} `json:"datasetStatisticsConfiguration" yaml:"datasetStatisticsConfiguration"`
 	// `CfnJob.ProfileConfigurationProperty.EntityDetectorConfiguration`.
-	EntityDetectorConfiguration interface{} `json:"entityDetectorConfiguration"`
+	EntityDetectorConfiguration interface{} `json:"entityDetectorConfiguration" yaml:"entityDetectorConfiguration"`
 	// `CfnJob.ProfileConfigurationProperty.ProfileColumns`.
-	ProfileColumns interface{} `json:"profileColumns"`
+	ProfileColumns interface{} `json:"profileColumns" yaml:"profileColumns"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnJob_RecipeProperty struct {
 	// `CfnJob.RecipeProperty.Name`.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// `CfnJob.RecipeProperty.Version`.
-	Version *string `json:"version"`
+	Version *string `json:"version" yaml:"version"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnJob_S3LocationProperty struct {
 	// `CfnJob.S3LocationProperty.Bucket`.
-	Bucket *string `json:"bucket"`
+	Bucket *string `json:"bucket" yaml:"bucket"`
 	// `CfnJob.S3LocationProperty.Key`.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnJob_S3TableOutputOptionsProperty struct {
 	// `CfnJob.S3TableOutputOptionsProperty.Location`.
-	Location interface{} `json:"location"`
+	Location interface{} `json:"location" yaml:"location"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnJob_StatisticOverrideProperty struct {
 	// `CfnJob.StatisticOverrideProperty.Parameters`.
-	Parameters interface{} `json:"parameters"`
+	Parameters interface{} `json:"parameters" yaml:"parameters"`
 	// `CfnJob.StatisticOverrideProperty.Statistic`.
-	Statistic *string `json:"statistic"`
+	Statistic *string `json:"statistic" yaml:"statistic"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnJob_StatisticsConfigurationProperty struct {
 	// `CfnJob.StatisticsConfigurationProperty.IncludedStatistics`.
-	IncludedStatistics *[]*string `json:"includedStatistics"`
+	IncludedStatistics *[]*string `json:"includedStatistics" yaml:"includedStatistics"`
 	// `CfnJob.StatisticsConfigurationProperty.Overrides`.
-	Overrides interface{} `json:"overrides"`
+	Overrides interface{} `json:"overrides" yaml:"overrides"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnJob_ValidationConfigurationProperty struct {
 	// `CfnJob.ValidationConfigurationProperty.RulesetArn`.
-	RulesetArn *string `json:"rulesetArn"`
+	RulesetArn *string `json:"rulesetArn" yaml:"rulesetArn"`
 	// `CfnJob.ValidationConfigurationProperty.ValidationMode`.
-	ValidationMode *string `json:"validationMode"`
+	ValidationMode *string `json:"validationMode" yaml:"validationMode"`
 }
 
 // Properties for defining a `CfnJob`.
@@ -1794,45 +1794,45 @@ type CfnJob_ValidationConfigurationProperty struct {
 //
 type CfnJobProps struct {
 	// `AWS::DataBrew::Job.Name`.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// `AWS::DataBrew::Job.RoleArn`.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// `AWS::DataBrew::Job.Type`.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// `AWS::DataBrew::Job.DatabaseOutputs`.
-	DatabaseOutputs interface{} `json:"databaseOutputs"`
+	DatabaseOutputs interface{} `json:"databaseOutputs" yaml:"databaseOutputs"`
 	// `AWS::DataBrew::Job.DataCatalogOutputs`.
-	DataCatalogOutputs interface{} `json:"dataCatalogOutputs"`
+	DataCatalogOutputs interface{} `json:"dataCatalogOutputs" yaml:"dataCatalogOutputs"`
 	// `AWS::DataBrew::Job.DatasetName`.
-	DatasetName *string `json:"datasetName"`
+	DatasetName *string `json:"datasetName" yaml:"datasetName"`
 	// `AWS::DataBrew::Job.EncryptionKeyArn`.
-	EncryptionKeyArn *string `json:"encryptionKeyArn"`
+	EncryptionKeyArn *string `json:"encryptionKeyArn" yaml:"encryptionKeyArn"`
 	// `AWS::DataBrew::Job.EncryptionMode`.
-	EncryptionMode *string `json:"encryptionMode"`
+	EncryptionMode *string `json:"encryptionMode" yaml:"encryptionMode"`
 	// `AWS::DataBrew::Job.JobSample`.
-	JobSample interface{} `json:"jobSample"`
+	JobSample interface{} `json:"jobSample" yaml:"jobSample"`
 	// `AWS::DataBrew::Job.LogSubscription`.
-	LogSubscription *string `json:"logSubscription"`
+	LogSubscription *string `json:"logSubscription" yaml:"logSubscription"`
 	// `AWS::DataBrew::Job.MaxCapacity`.
-	MaxCapacity *float64 `json:"maxCapacity"`
+	MaxCapacity *float64 `json:"maxCapacity" yaml:"maxCapacity"`
 	// `AWS::DataBrew::Job.MaxRetries`.
-	MaxRetries *float64 `json:"maxRetries"`
+	MaxRetries *float64 `json:"maxRetries" yaml:"maxRetries"`
 	// `AWS::DataBrew::Job.OutputLocation`.
-	OutputLocation interface{} `json:"outputLocation"`
+	OutputLocation interface{} `json:"outputLocation" yaml:"outputLocation"`
 	// `AWS::DataBrew::Job.Outputs`.
-	Outputs interface{} `json:"outputs"`
+	Outputs interface{} `json:"outputs" yaml:"outputs"`
 	// `AWS::DataBrew::Job.ProfileConfiguration`.
-	ProfileConfiguration interface{} `json:"profileConfiguration"`
+	ProfileConfiguration interface{} `json:"profileConfiguration" yaml:"profileConfiguration"`
 	// `AWS::DataBrew::Job.ProjectName`.
-	ProjectName *string `json:"projectName"`
+	ProjectName *string `json:"projectName" yaml:"projectName"`
 	// `AWS::DataBrew::Job.Recipe`.
-	Recipe interface{} `json:"recipe"`
+	Recipe interface{} `json:"recipe" yaml:"recipe"`
 	// `AWS::DataBrew::Job.Tags`.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// `AWS::DataBrew::Job.Timeout`.
-	Timeout *float64 `json:"timeout"`
+	Timeout *float64 `json:"timeout" yaml:"timeout"`
 	// `AWS::DataBrew::Job.ValidationConfigurations`.
-	ValidationConfigurations interface{} `json:"validationConfigurations"`
+	ValidationConfigurations interface{} `json:"validationConfigurations" yaml:"validationConfigurations"`
 }
 
 // A CloudFormation `AWS::DataBrew::Project`.
@@ -2400,9 +2400,9 @@ func (c *jsiiProxy_CfnProject) ValidateProperties(_properties interface{}) {
 //
 type CfnProject_SampleProperty struct {
 	// `CfnProject.SampleProperty.Type`.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// `CfnProject.SampleProperty.Size`.
-	Size *float64 `json:"size"`
+	Size *float64 `json:"size" yaml:"size"`
 }
 
 // Properties for defining a `CfnProject`.
@@ -2411,17 +2411,17 @@ type CfnProject_SampleProperty struct {
 //
 type CfnProjectProps struct {
 	// `AWS::DataBrew::Project.DatasetName`.
-	DatasetName *string `json:"datasetName"`
+	DatasetName *string `json:"datasetName" yaml:"datasetName"`
 	// `AWS::DataBrew::Project.Name`.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// `AWS::DataBrew::Project.RecipeName`.
-	RecipeName *string `json:"recipeName"`
+	RecipeName *string `json:"recipeName" yaml:"recipeName"`
 	// `AWS::DataBrew::Project.RoleArn`.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// `AWS::DataBrew::Project.Sample`.
-	Sample interface{} `json:"sample"`
+	Sample interface{} `json:"sample" yaml:"sample"`
 	// `AWS::DataBrew::Project.Tags`.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::DataBrew::Recipe`.
@@ -2949,33 +2949,33 @@ func (c *jsiiProxy_CfnRecipe) ValidateProperties(_properties interface{}) {
 //
 type CfnRecipe_ActionProperty struct {
 	// `CfnRecipe.ActionProperty.Operation`.
-	Operation *string `json:"operation"`
+	Operation *string `json:"operation" yaml:"operation"`
 	// `CfnRecipe.ActionProperty.Parameters`.
-	Parameters interface{} `json:"parameters"`
+	Parameters interface{} `json:"parameters" yaml:"parameters"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnRecipe_ConditionExpressionProperty struct {
 	// `CfnRecipe.ConditionExpressionProperty.Condition`.
-	Condition *string `json:"condition"`
+	Condition *string `json:"condition" yaml:"condition"`
 	// `CfnRecipe.ConditionExpressionProperty.TargetColumn`.
-	TargetColumn *string `json:"targetColumn"`
+	TargetColumn *string `json:"targetColumn" yaml:"targetColumn"`
 	// `CfnRecipe.ConditionExpressionProperty.Value`.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnRecipe_DataCatalogInputDefinitionProperty struct {
 	// `CfnRecipe.DataCatalogInputDefinitionProperty.CatalogId`.
-	CatalogId *string `json:"catalogId"`
+	CatalogId *string `json:"catalogId" yaml:"catalogId"`
 	// `CfnRecipe.DataCatalogInputDefinitionProperty.DatabaseName`.
-	DatabaseName *string `json:"databaseName"`
+	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
 	// `CfnRecipe.DataCatalogInputDefinitionProperty.TableName`.
-	TableName *string `json:"tableName"`
+	TableName *string `json:"tableName" yaml:"tableName"`
 	// `CfnRecipe.DataCatalogInputDefinitionProperty.TempDirectory`.
-	TempDirectory interface{} `json:"tempDirectory"`
+	TempDirectory interface{} `json:"tempDirectory" yaml:"tempDirectory"`
 }
 
 // TODO: EXAMPLE
@@ -2987,234 +2987,234 @@ type CfnRecipe_ParameterMapProperty struct {
 //
 type CfnRecipe_RecipeParametersProperty struct {
 	// `CfnRecipe.RecipeParametersProperty.AggregateFunction`.
-	AggregateFunction *string `json:"aggregateFunction"`
+	AggregateFunction *string `json:"aggregateFunction" yaml:"aggregateFunction"`
 	// `CfnRecipe.RecipeParametersProperty.Base`.
-	Base *string `json:"base"`
+	Base *string `json:"base" yaml:"base"`
 	// `CfnRecipe.RecipeParametersProperty.CaseStatement`.
-	CaseStatement *string `json:"caseStatement"`
+	CaseStatement *string `json:"caseStatement" yaml:"caseStatement"`
 	// `CfnRecipe.RecipeParametersProperty.CategoryMap`.
-	CategoryMap *string `json:"categoryMap"`
+	CategoryMap *string `json:"categoryMap" yaml:"categoryMap"`
 	// `CfnRecipe.RecipeParametersProperty.CharsToRemove`.
-	CharsToRemove *string `json:"charsToRemove"`
+	CharsToRemove *string `json:"charsToRemove" yaml:"charsToRemove"`
 	// `CfnRecipe.RecipeParametersProperty.CollapseConsecutiveWhitespace`.
-	CollapseConsecutiveWhitespace *string `json:"collapseConsecutiveWhitespace"`
+	CollapseConsecutiveWhitespace *string `json:"collapseConsecutiveWhitespace" yaml:"collapseConsecutiveWhitespace"`
 	// `CfnRecipe.RecipeParametersProperty.ColumnDataType`.
-	ColumnDataType *string `json:"columnDataType"`
+	ColumnDataType *string `json:"columnDataType" yaml:"columnDataType"`
 	// `CfnRecipe.RecipeParametersProperty.ColumnRange`.
-	ColumnRange *string `json:"columnRange"`
+	ColumnRange *string `json:"columnRange" yaml:"columnRange"`
 	// `CfnRecipe.RecipeParametersProperty.Count`.
-	Count *string `json:"count"`
+	Count *string `json:"count" yaml:"count"`
 	// `CfnRecipe.RecipeParametersProperty.CustomCharacters`.
-	CustomCharacters *string `json:"customCharacters"`
+	CustomCharacters *string `json:"customCharacters" yaml:"customCharacters"`
 	// `CfnRecipe.RecipeParametersProperty.CustomStopWords`.
-	CustomStopWords *string `json:"customStopWords"`
+	CustomStopWords *string `json:"customStopWords" yaml:"customStopWords"`
 	// `CfnRecipe.RecipeParametersProperty.CustomValue`.
-	CustomValue *string `json:"customValue"`
+	CustomValue *string `json:"customValue" yaml:"customValue"`
 	// `CfnRecipe.RecipeParametersProperty.DatasetsColumns`.
-	DatasetsColumns *string `json:"datasetsColumns"`
+	DatasetsColumns *string `json:"datasetsColumns" yaml:"datasetsColumns"`
 	// `CfnRecipe.RecipeParametersProperty.DateAddValue`.
-	DateAddValue *string `json:"dateAddValue"`
+	DateAddValue *string `json:"dateAddValue" yaml:"dateAddValue"`
 	// `CfnRecipe.RecipeParametersProperty.DateTimeFormat`.
-	DateTimeFormat *string `json:"dateTimeFormat"`
+	DateTimeFormat *string `json:"dateTimeFormat" yaml:"dateTimeFormat"`
 	// `CfnRecipe.RecipeParametersProperty.DateTimeParameters`.
-	DateTimeParameters *string `json:"dateTimeParameters"`
+	DateTimeParameters *string `json:"dateTimeParameters" yaml:"dateTimeParameters"`
 	// `CfnRecipe.RecipeParametersProperty.DeleteOtherRows`.
-	DeleteOtherRows *string `json:"deleteOtherRows"`
+	DeleteOtherRows *string `json:"deleteOtherRows" yaml:"deleteOtherRows"`
 	// `CfnRecipe.RecipeParametersProperty.Delimiter`.
-	Delimiter *string `json:"delimiter"`
+	Delimiter *string `json:"delimiter" yaml:"delimiter"`
 	// `CfnRecipe.RecipeParametersProperty.EndPattern`.
-	EndPattern *string `json:"endPattern"`
+	EndPattern *string `json:"endPattern" yaml:"endPattern"`
 	// `CfnRecipe.RecipeParametersProperty.EndPosition`.
-	EndPosition *string `json:"endPosition"`
+	EndPosition *string `json:"endPosition" yaml:"endPosition"`
 	// `CfnRecipe.RecipeParametersProperty.EndValue`.
-	EndValue *string `json:"endValue"`
+	EndValue *string `json:"endValue" yaml:"endValue"`
 	// `CfnRecipe.RecipeParametersProperty.ExpandContractions`.
-	ExpandContractions *string `json:"expandContractions"`
+	ExpandContractions *string `json:"expandContractions" yaml:"expandContractions"`
 	// `CfnRecipe.RecipeParametersProperty.Exponent`.
-	Exponent *string `json:"exponent"`
+	Exponent *string `json:"exponent" yaml:"exponent"`
 	// `CfnRecipe.RecipeParametersProperty.FalseString`.
-	FalseString *string `json:"falseString"`
+	FalseString *string `json:"falseString" yaml:"falseString"`
 	// `CfnRecipe.RecipeParametersProperty.GroupByAggFunctionOptions`.
-	GroupByAggFunctionOptions *string `json:"groupByAggFunctionOptions"`
+	GroupByAggFunctionOptions *string `json:"groupByAggFunctionOptions" yaml:"groupByAggFunctionOptions"`
 	// `CfnRecipe.RecipeParametersProperty.GroupByColumns`.
-	GroupByColumns *string `json:"groupByColumns"`
+	GroupByColumns *string `json:"groupByColumns" yaml:"groupByColumns"`
 	// `CfnRecipe.RecipeParametersProperty.HiddenColumns`.
-	HiddenColumns *string `json:"hiddenColumns"`
+	HiddenColumns *string `json:"hiddenColumns" yaml:"hiddenColumns"`
 	// `CfnRecipe.RecipeParametersProperty.IgnoreCase`.
-	IgnoreCase *string `json:"ignoreCase"`
+	IgnoreCase *string `json:"ignoreCase" yaml:"ignoreCase"`
 	// `CfnRecipe.RecipeParametersProperty.IncludeInSplit`.
-	IncludeInSplit *string `json:"includeInSplit"`
+	IncludeInSplit *string `json:"includeInSplit" yaml:"includeInSplit"`
 	// `CfnRecipe.RecipeParametersProperty.Input`.
-	Input interface{} `json:"input"`
+	Input interface{} `json:"input" yaml:"input"`
 	// `CfnRecipe.RecipeParametersProperty.Interval`.
-	Interval *string `json:"interval"`
+	Interval *string `json:"interval" yaml:"interval"`
 	// `CfnRecipe.RecipeParametersProperty.IsText`.
-	IsText *string `json:"isText"`
+	IsText *string `json:"isText" yaml:"isText"`
 	// `CfnRecipe.RecipeParametersProperty.JoinKeys`.
-	JoinKeys *string `json:"joinKeys"`
+	JoinKeys *string `json:"joinKeys" yaml:"joinKeys"`
 	// `CfnRecipe.RecipeParametersProperty.JoinType`.
-	JoinType *string `json:"joinType"`
+	JoinType *string `json:"joinType" yaml:"joinType"`
 	// `CfnRecipe.RecipeParametersProperty.LeftColumns`.
-	LeftColumns *string `json:"leftColumns"`
+	LeftColumns *string `json:"leftColumns" yaml:"leftColumns"`
 	// `CfnRecipe.RecipeParametersProperty.Limit`.
-	Limit *string `json:"limit"`
+	Limit *string `json:"limit" yaml:"limit"`
 	// `CfnRecipe.RecipeParametersProperty.LowerBound`.
-	LowerBound *string `json:"lowerBound"`
+	LowerBound *string `json:"lowerBound" yaml:"lowerBound"`
 	// `CfnRecipe.RecipeParametersProperty.MapType`.
-	MapType *string `json:"mapType"`
+	MapType *string `json:"mapType" yaml:"mapType"`
 	// `CfnRecipe.RecipeParametersProperty.ModeType`.
-	ModeType *string `json:"modeType"`
+	ModeType *string `json:"modeType" yaml:"modeType"`
 	// `CfnRecipe.RecipeParametersProperty.MultiLine`.
-	MultiLine interface{} `json:"multiLine"`
+	MultiLine interface{} `json:"multiLine" yaml:"multiLine"`
 	// `CfnRecipe.RecipeParametersProperty.NumRows`.
-	NumRows *string `json:"numRows"`
+	NumRows *string `json:"numRows" yaml:"numRows"`
 	// `CfnRecipe.RecipeParametersProperty.NumRowsAfter`.
-	NumRowsAfter *string `json:"numRowsAfter"`
+	NumRowsAfter *string `json:"numRowsAfter" yaml:"numRowsAfter"`
 	// `CfnRecipe.RecipeParametersProperty.NumRowsBefore`.
-	NumRowsBefore *string `json:"numRowsBefore"`
+	NumRowsBefore *string `json:"numRowsBefore" yaml:"numRowsBefore"`
 	// `CfnRecipe.RecipeParametersProperty.OrderByColumn`.
-	OrderByColumn *string `json:"orderByColumn"`
+	OrderByColumn *string `json:"orderByColumn" yaml:"orderByColumn"`
 	// `CfnRecipe.RecipeParametersProperty.OrderByColumns`.
-	OrderByColumns *string `json:"orderByColumns"`
+	OrderByColumns *string `json:"orderByColumns" yaml:"orderByColumns"`
 	// `CfnRecipe.RecipeParametersProperty.Other`.
-	Other *string `json:"other"`
+	Other *string `json:"other" yaml:"other"`
 	// `CfnRecipe.RecipeParametersProperty.Pattern`.
-	Pattern *string `json:"pattern"`
+	Pattern *string `json:"pattern" yaml:"pattern"`
 	// `CfnRecipe.RecipeParametersProperty.PatternOption1`.
-	PatternOption1 *string `json:"patternOption1"`
+	PatternOption1 *string `json:"patternOption1" yaml:"patternOption1"`
 	// `CfnRecipe.RecipeParametersProperty.PatternOption2`.
-	PatternOption2 *string `json:"patternOption2"`
+	PatternOption2 *string `json:"patternOption2" yaml:"patternOption2"`
 	// `CfnRecipe.RecipeParametersProperty.PatternOptions`.
-	PatternOptions *string `json:"patternOptions"`
+	PatternOptions *string `json:"patternOptions" yaml:"patternOptions"`
 	// `CfnRecipe.RecipeParametersProperty.Period`.
-	Period *string `json:"period"`
+	Period *string `json:"period" yaml:"period"`
 	// `CfnRecipe.RecipeParametersProperty.Position`.
-	Position *string `json:"position"`
+	Position *string `json:"position" yaml:"position"`
 	// `CfnRecipe.RecipeParametersProperty.RemoveAllPunctuation`.
-	RemoveAllPunctuation *string `json:"removeAllPunctuation"`
+	RemoveAllPunctuation *string `json:"removeAllPunctuation" yaml:"removeAllPunctuation"`
 	// `CfnRecipe.RecipeParametersProperty.RemoveAllQuotes`.
-	RemoveAllQuotes *string `json:"removeAllQuotes"`
+	RemoveAllQuotes *string `json:"removeAllQuotes" yaml:"removeAllQuotes"`
 	// `CfnRecipe.RecipeParametersProperty.RemoveAllWhitespace`.
-	RemoveAllWhitespace *string `json:"removeAllWhitespace"`
+	RemoveAllWhitespace *string `json:"removeAllWhitespace" yaml:"removeAllWhitespace"`
 	// `CfnRecipe.RecipeParametersProperty.RemoveCustomCharacters`.
-	RemoveCustomCharacters *string `json:"removeCustomCharacters"`
+	RemoveCustomCharacters *string `json:"removeCustomCharacters" yaml:"removeCustomCharacters"`
 	// `CfnRecipe.RecipeParametersProperty.RemoveCustomValue`.
-	RemoveCustomValue *string `json:"removeCustomValue"`
+	RemoveCustomValue *string `json:"removeCustomValue" yaml:"removeCustomValue"`
 	// `CfnRecipe.RecipeParametersProperty.RemoveLeadingAndTrailingPunctuation`.
-	RemoveLeadingAndTrailingPunctuation *string `json:"removeLeadingAndTrailingPunctuation"`
+	RemoveLeadingAndTrailingPunctuation *string `json:"removeLeadingAndTrailingPunctuation" yaml:"removeLeadingAndTrailingPunctuation"`
 	// `CfnRecipe.RecipeParametersProperty.RemoveLeadingAndTrailingQuotes`.
-	RemoveLeadingAndTrailingQuotes *string `json:"removeLeadingAndTrailingQuotes"`
+	RemoveLeadingAndTrailingQuotes *string `json:"removeLeadingAndTrailingQuotes" yaml:"removeLeadingAndTrailingQuotes"`
 	// `CfnRecipe.RecipeParametersProperty.RemoveLeadingAndTrailingWhitespace`.
-	RemoveLeadingAndTrailingWhitespace *string `json:"removeLeadingAndTrailingWhitespace"`
+	RemoveLeadingAndTrailingWhitespace *string `json:"removeLeadingAndTrailingWhitespace" yaml:"removeLeadingAndTrailingWhitespace"`
 	// `CfnRecipe.RecipeParametersProperty.RemoveLetters`.
-	RemoveLetters *string `json:"removeLetters"`
+	RemoveLetters *string `json:"removeLetters" yaml:"removeLetters"`
 	// `CfnRecipe.RecipeParametersProperty.RemoveNumbers`.
-	RemoveNumbers *string `json:"removeNumbers"`
+	RemoveNumbers *string `json:"removeNumbers" yaml:"removeNumbers"`
 	// `CfnRecipe.RecipeParametersProperty.RemoveSourceColumn`.
-	RemoveSourceColumn *string `json:"removeSourceColumn"`
+	RemoveSourceColumn *string `json:"removeSourceColumn" yaml:"removeSourceColumn"`
 	// `CfnRecipe.RecipeParametersProperty.RemoveSpecialCharacters`.
-	RemoveSpecialCharacters *string `json:"removeSpecialCharacters"`
+	RemoveSpecialCharacters *string `json:"removeSpecialCharacters" yaml:"removeSpecialCharacters"`
 	// `CfnRecipe.RecipeParametersProperty.RightColumns`.
-	RightColumns *string `json:"rightColumns"`
+	RightColumns *string `json:"rightColumns" yaml:"rightColumns"`
 	// `CfnRecipe.RecipeParametersProperty.SampleSize`.
-	SampleSize *string `json:"sampleSize"`
+	SampleSize *string `json:"sampleSize" yaml:"sampleSize"`
 	// `CfnRecipe.RecipeParametersProperty.SampleType`.
-	SampleType *string `json:"sampleType"`
+	SampleType *string `json:"sampleType" yaml:"sampleType"`
 	// `CfnRecipe.RecipeParametersProperty.SecondaryInputs`.
-	SecondaryInputs interface{} `json:"secondaryInputs"`
+	SecondaryInputs interface{} `json:"secondaryInputs" yaml:"secondaryInputs"`
 	// `CfnRecipe.RecipeParametersProperty.SecondInput`.
-	SecondInput *string `json:"secondInput"`
+	SecondInput *string `json:"secondInput" yaml:"secondInput"`
 	// `CfnRecipe.RecipeParametersProperty.SheetIndexes`.
-	SheetIndexes interface{} `json:"sheetIndexes"`
+	SheetIndexes interface{} `json:"sheetIndexes" yaml:"sheetIndexes"`
 	// `CfnRecipe.RecipeParametersProperty.SheetNames`.
-	SheetNames *[]*string `json:"sheetNames"`
+	SheetNames *[]*string `json:"sheetNames" yaml:"sheetNames"`
 	// `CfnRecipe.RecipeParametersProperty.SourceColumn`.
-	SourceColumn *string `json:"sourceColumn"`
+	SourceColumn *string `json:"sourceColumn" yaml:"sourceColumn"`
 	// `CfnRecipe.RecipeParametersProperty.SourceColumn1`.
-	SourceColumn1 *string `json:"sourceColumn1"`
+	SourceColumn1 *string `json:"sourceColumn1" yaml:"sourceColumn1"`
 	// `CfnRecipe.RecipeParametersProperty.SourceColumn2`.
-	SourceColumn2 *string `json:"sourceColumn2"`
+	SourceColumn2 *string `json:"sourceColumn2" yaml:"sourceColumn2"`
 	// `CfnRecipe.RecipeParametersProperty.SourceColumns`.
-	SourceColumns *string `json:"sourceColumns"`
+	SourceColumns *string `json:"sourceColumns" yaml:"sourceColumns"`
 	// `CfnRecipe.RecipeParametersProperty.StartColumnIndex`.
-	StartColumnIndex *string `json:"startColumnIndex"`
+	StartColumnIndex *string `json:"startColumnIndex" yaml:"startColumnIndex"`
 	// `CfnRecipe.RecipeParametersProperty.StartPattern`.
-	StartPattern *string `json:"startPattern"`
+	StartPattern *string `json:"startPattern" yaml:"startPattern"`
 	// `CfnRecipe.RecipeParametersProperty.StartPosition`.
-	StartPosition *string `json:"startPosition"`
+	StartPosition *string `json:"startPosition" yaml:"startPosition"`
 	// `CfnRecipe.RecipeParametersProperty.StartValue`.
-	StartValue *string `json:"startValue"`
+	StartValue *string `json:"startValue" yaml:"startValue"`
 	// `CfnRecipe.RecipeParametersProperty.StemmingMode`.
-	StemmingMode *string `json:"stemmingMode"`
+	StemmingMode *string `json:"stemmingMode" yaml:"stemmingMode"`
 	// `CfnRecipe.RecipeParametersProperty.StepCount`.
-	StepCount *string `json:"stepCount"`
+	StepCount *string `json:"stepCount" yaml:"stepCount"`
 	// `CfnRecipe.RecipeParametersProperty.StepIndex`.
-	StepIndex *string `json:"stepIndex"`
+	StepIndex *string `json:"stepIndex" yaml:"stepIndex"`
 	// `CfnRecipe.RecipeParametersProperty.StopWordsMode`.
-	StopWordsMode *string `json:"stopWordsMode"`
+	StopWordsMode *string `json:"stopWordsMode" yaml:"stopWordsMode"`
 	// `CfnRecipe.RecipeParametersProperty.Strategy`.
-	Strategy *string `json:"strategy"`
+	Strategy *string `json:"strategy" yaml:"strategy"`
 	// `CfnRecipe.RecipeParametersProperty.TargetColumn`.
-	TargetColumn *string `json:"targetColumn"`
+	TargetColumn *string `json:"targetColumn" yaml:"targetColumn"`
 	// `CfnRecipe.RecipeParametersProperty.TargetColumnNames`.
-	TargetColumnNames *string `json:"targetColumnNames"`
+	TargetColumnNames *string `json:"targetColumnNames" yaml:"targetColumnNames"`
 	// `CfnRecipe.RecipeParametersProperty.TargetDateFormat`.
-	TargetDateFormat *string `json:"targetDateFormat"`
+	TargetDateFormat *string `json:"targetDateFormat" yaml:"targetDateFormat"`
 	// `CfnRecipe.RecipeParametersProperty.TargetIndex`.
-	TargetIndex *string `json:"targetIndex"`
+	TargetIndex *string `json:"targetIndex" yaml:"targetIndex"`
 	// `CfnRecipe.RecipeParametersProperty.TimeZone`.
-	TimeZone *string `json:"timeZone"`
+	TimeZone *string `json:"timeZone" yaml:"timeZone"`
 	// `CfnRecipe.RecipeParametersProperty.TokenizerPattern`.
-	TokenizerPattern *string `json:"tokenizerPattern"`
+	TokenizerPattern *string `json:"tokenizerPattern" yaml:"tokenizerPattern"`
 	// `CfnRecipe.RecipeParametersProperty.TrueString`.
-	TrueString *string `json:"trueString"`
+	TrueString *string `json:"trueString" yaml:"trueString"`
 	// `CfnRecipe.RecipeParametersProperty.UdfLang`.
-	UdfLang *string `json:"udfLang"`
+	UdfLang *string `json:"udfLang" yaml:"udfLang"`
 	// `CfnRecipe.RecipeParametersProperty.Units`.
-	Units *string `json:"units"`
+	Units *string `json:"units" yaml:"units"`
 	// `CfnRecipe.RecipeParametersProperty.UnpivotColumn`.
-	UnpivotColumn *string `json:"unpivotColumn"`
+	UnpivotColumn *string `json:"unpivotColumn" yaml:"unpivotColumn"`
 	// `CfnRecipe.RecipeParametersProperty.UpperBound`.
-	UpperBound *string `json:"upperBound"`
+	UpperBound *string `json:"upperBound" yaml:"upperBound"`
 	// `CfnRecipe.RecipeParametersProperty.UseNewDataFrame`.
-	UseNewDataFrame *string `json:"useNewDataFrame"`
+	UseNewDataFrame *string `json:"useNewDataFrame" yaml:"useNewDataFrame"`
 	// `CfnRecipe.RecipeParametersProperty.Value`.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 	// `CfnRecipe.RecipeParametersProperty.Value1`.
-	Value1 *string `json:"value1"`
+	Value1 *string `json:"value1" yaml:"value1"`
 	// `CfnRecipe.RecipeParametersProperty.Value2`.
-	Value2 *string `json:"value2"`
+	Value2 *string `json:"value2" yaml:"value2"`
 	// `CfnRecipe.RecipeParametersProperty.ValueColumn`.
-	ValueColumn *string `json:"valueColumn"`
+	ValueColumn *string `json:"valueColumn" yaml:"valueColumn"`
 	// `CfnRecipe.RecipeParametersProperty.ViewFrame`.
-	ViewFrame *string `json:"viewFrame"`
+	ViewFrame *string `json:"viewFrame" yaml:"viewFrame"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnRecipe_RecipeStepProperty struct {
 	// `CfnRecipe.RecipeStepProperty.Action`.
-	Action interface{} `json:"action"`
+	Action interface{} `json:"action" yaml:"action"`
 	// `CfnRecipe.RecipeStepProperty.ConditionExpressions`.
-	ConditionExpressions interface{} `json:"conditionExpressions"`
+	ConditionExpressions interface{} `json:"conditionExpressions" yaml:"conditionExpressions"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnRecipe_S3LocationProperty struct {
 	// `CfnRecipe.S3LocationProperty.Bucket`.
-	Bucket *string `json:"bucket"`
+	Bucket *string `json:"bucket" yaml:"bucket"`
 	// `CfnRecipe.S3LocationProperty.Key`.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnRecipe_SecondaryInputProperty struct {
 	// `CfnRecipe.SecondaryInputProperty.DataCatalogInputDefinition`.
-	DataCatalogInputDefinition interface{} `json:"dataCatalogInputDefinition"`
+	DataCatalogInputDefinition interface{} `json:"dataCatalogInputDefinition" yaml:"dataCatalogInputDefinition"`
 	// `CfnRecipe.SecondaryInputProperty.S3InputDefinition`.
-	S3InputDefinition interface{} `json:"s3InputDefinition"`
+	S3InputDefinition interface{} `json:"s3InputDefinition" yaml:"s3InputDefinition"`
 }
 
 // Properties for defining a `CfnRecipe`.
@@ -3223,13 +3223,13 @@ type CfnRecipe_SecondaryInputProperty struct {
 //
 type CfnRecipeProps struct {
 	// `AWS::DataBrew::Recipe.Name`.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// `AWS::DataBrew::Recipe.Steps`.
-	Steps interface{} `json:"steps"`
+	Steps interface{} `json:"steps" yaml:"steps"`
 	// `AWS::DataBrew::Recipe.Description`.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// `AWS::DataBrew::Recipe.Tags`.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::DataBrew::Ruleset`.
@@ -3777,46 +3777,46 @@ func (c *jsiiProxy_CfnRuleset) ValidateProperties(_properties interface{}) {
 //
 type CfnRuleset_ColumnSelectorProperty struct {
 	// `CfnRuleset.ColumnSelectorProperty.Name`.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// `CfnRuleset.ColumnSelectorProperty.Regex`.
-	Regex *string `json:"regex"`
+	Regex *string `json:"regex" yaml:"regex"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnRuleset_RuleProperty struct {
 	// `CfnRuleset.RuleProperty.CheckExpression`.
-	CheckExpression *string `json:"checkExpression"`
+	CheckExpression *string `json:"checkExpression" yaml:"checkExpression"`
 	// `CfnRuleset.RuleProperty.Name`.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// `CfnRuleset.RuleProperty.ColumnSelectors`.
-	ColumnSelectors interface{} `json:"columnSelectors"`
+	ColumnSelectors interface{} `json:"columnSelectors" yaml:"columnSelectors"`
 	// `CfnRuleset.RuleProperty.Disabled`.
-	Disabled interface{} `json:"disabled"`
+	Disabled interface{} `json:"disabled" yaml:"disabled"`
 	// `CfnRuleset.RuleProperty.SubstitutionMap`.
-	SubstitutionMap interface{} `json:"substitutionMap"`
+	SubstitutionMap interface{} `json:"substitutionMap" yaml:"substitutionMap"`
 	// `CfnRuleset.RuleProperty.Threshold`.
-	Threshold interface{} `json:"threshold"`
+	Threshold interface{} `json:"threshold" yaml:"threshold"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnRuleset_SubstitutionValueProperty struct {
 	// `CfnRuleset.SubstitutionValueProperty.Value`.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 	// `CfnRuleset.SubstitutionValueProperty.ValueReference`.
-	ValueReference *string `json:"valueReference"`
+	ValueReference *string `json:"valueReference" yaml:"valueReference"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnRuleset_ThresholdProperty struct {
 	// `CfnRuleset.ThresholdProperty.Value`.
-	Value *float64 `json:"value"`
+	Value *float64 `json:"value" yaml:"value"`
 	// `CfnRuleset.ThresholdProperty.Type`.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// `CfnRuleset.ThresholdProperty.Unit`.
-	Unit *string `json:"unit"`
+	Unit *string `json:"unit" yaml:"unit"`
 }
 
 // Properties for defining a `CfnRuleset`.
@@ -3825,15 +3825,15 @@ type CfnRuleset_ThresholdProperty struct {
 //
 type CfnRulesetProps struct {
 	// `AWS::DataBrew::Ruleset.Name`.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// `AWS::DataBrew::Ruleset.Rules`.
-	Rules interface{} `json:"rules"`
+	Rules interface{} `json:"rules" yaml:"rules"`
 	// `AWS::DataBrew::Ruleset.TargetArn`.
-	TargetArn *string `json:"targetArn"`
+	TargetArn *string `json:"targetArn" yaml:"targetArn"`
 	// `AWS::DataBrew::Ruleset.Description`.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// `AWS::DataBrew::Ruleset.Tags`.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::DataBrew::Schedule`.
@@ -4363,12 +4363,12 @@ func (c *jsiiProxy_CfnSchedule) ValidateProperties(_properties interface{}) {
 //
 type CfnScheduleProps struct {
 	// `AWS::DataBrew::Schedule.CronExpression`.
-	CronExpression *string `json:"cronExpression"`
+	CronExpression *string `json:"cronExpression" yaml:"cronExpression"`
 	// `AWS::DataBrew::Schedule.Name`.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// `AWS::DataBrew::Schedule.JobNames`.
-	JobNames *[]*string `json:"jobNames"`
+	JobNames *[]*string `json:"jobNames" yaml:"jobNames"`
 	// `AWS::DataBrew::Schedule.Tags`.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 

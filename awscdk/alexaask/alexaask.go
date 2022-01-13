@@ -523,33 +523,33 @@ func (c *jsiiProxy_CfnSkill) ValidateProperties(_properties interface{}) {
 //
 type CfnSkill_AuthenticationConfigurationProperty struct {
 	// `CfnSkill.AuthenticationConfigurationProperty.ClientId`.
-	ClientId *string `json:"clientId"`
+	ClientId *string `json:"clientId" yaml:"clientId"`
 	// `CfnSkill.AuthenticationConfigurationProperty.ClientSecret`.
-	ClientSecret *string `json:"clientSecret"`
+	ClientSecret *string `json:"clientSecret" yaml:"clientSecret"`
 	// `CfnSkill.AuthenticationConfigurationProperty.RefreshToken`.
-	RefreshToken *string `json:"refreshToken"`
+	RefreshToken *string `json:"refreshToken" yaml:"refreshToken"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnSkill_OverridesProperty struct {
 	// `CfnSkill.OverridesProperty.Manifest`.
-	Manifest interface{} `json:"manifest"`
+	Manifest interface{} `json:"manifest" yaml:"manifest"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnSkill_SkillPackageProperty struct {
 	// `CfnSkill.SkillPackageProperty.S3Bucket`.
-	S3Bucket *string `json:"s3Bucket"`
+	S3Bucket *string `json:"s3Bucket" yaml:"s3Bucket"`
 	// `CfnSkill.SkillPackageProperty.S3Key`.
-	S3Key *string `json:"s3Key"`
+	S3Key *string `json:"s3Key" yaml:"s3Key"`
 	// `CfnSkill.SkillPackageProperty.Overrides`.
-	Overrides interface{} `json:"overrides"`
+	Overrides interface{} `json:"overrides" yaml:"overrides"`
 	// `CfnSkill.SkillPackageProperty.S3BucketRole`.
-	S3BucketRole *string `json:"s3BucketRole"`
+	S3BucketRole *string `json:"s3BucketRole" yaml:"s3BucketRole"`
 	// `CfnSkill.SkillPackageProperty.S3ObjectVersion`.
-	S3ObjectVersion *string `json:"s3ObjectVersion"`
+	S3ObjectVersion *string `json:"s3ObjectVersion" yaml:"s3ObjectVersion"`
 }
 
 // Properties for defining a `CfnSkill`.
@@ -558,10 +558,10 @@ type CfnSkill_SkillPackageProperty struct {
 //
 type CfnSkillProps struct {
 	// `Alexa::ASK::Skill.AuthenticationConfiguration`.
-	AuthenticationConfiguration interface{} `json:"authenticationConfiguration"`
+	AuthenticationConfiguration interface{} `json:"authenticationConfiguration" yaml:"authenticationConfiguration"`
 	// `Alexa::ASK::Skill.SkillPackage`.
-	SkillPackage interface{} `json:"skillPackage"`
+	SkillPackage interface{} `json:"skillPackage" yaml:"skillPackage"`
 	// `Alexa::ASK::Skill.VendorId`.
-	VendorId *string `json:"vendorId"`
+	VendorId *string `json:"vendorId" yaml:"vendorId"`
 }
 

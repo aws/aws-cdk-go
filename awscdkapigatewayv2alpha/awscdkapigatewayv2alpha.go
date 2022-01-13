@@ -23,24 +23,24 @@ import (
 type AddRoutesOptions struct {
 	// The integration to be configured on this route.
 	// Experimental.
-	Integration HttpRouteIntegration `json:"integration"`
+	Integration HttpRouteIntegration `json:"integration" yaml:"integration"`
 	// The path at which all of these routes are configured.
 	// Experimental.
-	Path *string `json:"path"`
+	Path *string `json:"path" yaml:"path"`
 	// The list of OIDC scopes to include in the authorization.
 	//
 	// These scopes will override the default authorization scopes on the gateway.
 	// Set to [] to remove default scopes
 	// Experimental.
-	AuthorizationScopes *[]*string `json:"authorizationScopes"`
+	AuthorizationScopes *[]*string `json:"authorizationScopes" yaml:"authorizationScopes"`
 	// Authorizer to be associated to these routes.
 	//
 	// Use NoneAuthorizer to remove the default authorizer for the api
 	// Experimental.
-	Authorizer IHttpRouteAuthorizer `json:"authorizer"`
+	Authorizer IHttpRouteAuthorizer `json:"authorizer" yaml:"authorizer"`
 	// The HTTP methods to be configured.
 	// Experimental.
-	Methods *[]HttpMethod `json:"methods"`
+	Methods *[]HttpMethod `json:"methods" yaml:"methods"`
 }
 
 // Create a new API mapping for API Gateway API endpoint.
@@ -315,7 +315,7 @@ func (a *jsiiProxy_ApiMapping) ToString() *string {
 type ApiMappingAttributes struct {
 	// The API mapping ID.
 	// Experimental.
-	ApiMappingId *string `json:"apiMappingId"`
+	ApiMappingId *string `json:"apiMappingId" yaml:"apiMappingId"`
 }
 
 // Properties used to create the ApiMapping resource.
@@ -326,18 +326,18 @@ type ApiMappingAttributes struct {
 type ApiMappingProps struct {
 	// The Api to which this mapping is applied.
 	// Experimental.
-	Api IApi `json:"api"`
+	Api IApi `json:"api" yaml:"api"`
 	// custom domain name of the mapping target.
 	// Experimental.
-	DomainName IDomainName `json:"domainName"`
+	DomainName IDomainName `json:"domainName" yaml:"domainName"`
 	// Api mapping key.
 	//
 	// The path where this stage should be mapped to on the domain
 	// Experimental.
-	ApiMappingKey *string `json:"apiMappingKey"`
+	ApiMappingKey *string `json:"apiMappingKey" yaml:"apiMappingKey"`
 	// stage for the ApiMapping resource required for WebSocket API defaults to default stage of an HTTP API.
 	// Experimental.
-	Stage IStage `json:"stage"`
+	Stage IStage `json:"stage" yaml:"stage"`
 }
 
 // Payload format version for lambda authorizers.
@@ -361,7 +361,7 @@ const (
 type BatchHttpRouteOptions struct {
 	// The integration to be configured on this route.
 	// Experimental.
-	Integration HttpRouteIntegration `json:"integration"`
+	Integration HttpRouteIntegration `json:"integration" yaml:"integration"`
 }
 
 // Supported CORS HTTP methods.
@@ -390,22 +390,22 @@ const (
 type CorsPreflightOptions struct {
 	// Specifies whether credentials are included in the CORS request.
 	// Experimental.
-	AllowCredentials *bool `json:"allowCredentials"`
+	AllowCredentials *bool `json:"allowCredentials" yaml:"allowCredentials"`
 	// Represents a collection of allowed headers.
 	// Experimental.
-	AllowHeaders *[]*string `json:"allowHeaders"`
+	AllowHeaders *[]*string `json:"allowHeaders" yaml:"allowHeaders"`
 	// Represents a collection of allowed HTTP methods.
 	// Experimental.
-	AllowMethods *[]CorsHttpMethod `json:"allowMethods"`
+	AllowMethods *[]CorsHttpMethod `json:"allowMethods" yaml:"allowMethods"`
 	// Represents a collection of allowed origins.
 	// Experimental.
-	AllowOrigins *[]*string `json:"allowOrigins"`
+	AllowOrigins *[]*string `json:"allowOrigins" yaml:"allowOrigins"`
 	// Represents a collection of exposed headers.
 	// Experimental.
-	ExposeHeaders *[]*string `json:"exposeHeaders"`
+	ExposeHeaders *[]*string `json:"exposeHeaders" yaml:"exposeHeaders"`
 	// The duration that the browser should cache preflight request results.
 	// Experimental.
-	MaxAge awscdk.Duration `json:"maxAge"`
+	MaxAge awscdk.Duration `json:"maxAge" yaml:"maxAge"`
 }
 
 // Options for DomainMapping.
@@ -416,12 +416,12 @@ type CorsPreflightOptions struct {
 type DomainMappingOptions struct {
 	// The domain name for the mapping.
 	// Experimental.
-	DomainName IDomainName `json:"domainName"`
+	DomainName IDomainName `json:"domainName" yaml:"domainName"`
 	// The API mapping key.
 	//
 	// Leave it undefined for the root path mapping.
 	// Experimental.
-	MappingKey *string `json:"mappingKey"`
+	MappingKey *string `json:"mappingKey" yaml:"mappingKey"`
 }
 
 // Custom domain resource for the API.
@@ -707,13 +707,13 @@ func (d *jsiiProxy_DomainName) ToString() *string {
 type DomainNameAttributes struct {
 	// domain name string.
 	// Experimental.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The domain name associated with the regional endpoint for this custom domain name.
 	// Experimental.
-	RegionalDomainName *string `json:"regionalDomainName"`
+	RegionalDomainName *string `json:"regionalDomainName" yaml:"regionalDomainName"`
 	// The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint.
 	// Experimental.
-	RegionalHostedZoneId *string `json:"regionalHostedZoneId"`
+	RegionalHostedZoneId *string `json:"regionalHostedZoneId" yaml:"regionalHostedZoneId"`
 }
 
 // properties used for creating the DomainName.
@@ -726,29 +726,29 @@ type DomainNameProps struct {
 	//
 	// Certificate can be both ACM issued or imported.
 	// Experimental.
-	Certificate awscertificatemanager.ICertificate `json:"certificate"`
+	Certificate awscertificatemanager.ICertificate `json:"certificate" yaml:"certificate"`
 	// The user-friendly name of the certificate that will be used by the endpoint for this domain name.
 	// Experimental.
-	CertificateName *string `json:"certificateName"`
+	CertificateName *string `json:"certificateName" yaml:"certificateName"`
 	// The type of endpoint for this DomainName.
 	// Experimental.
-	EndpointType EndpointType `json:"endpointType"`
+	EndpointType EndpointType `json:"endpointType" yaml:"endpointType"`
 	// A public certificate issued by ACM to validate that you own a custom domain.
 	//
 	// This parameter is required
 	// only when you configure mutual TLS authentication and you specify an ACM imported or private CA certificate
 	// for `certificate`. The ownership certificate validates that you have permissions to use the domain name.
 	// Experimental.
-	OwnershipCertificate awscertificatemanager.ICertificate `json:"ownershipCertificate"`
+	OwnershipCertificate awscertificatemanager.ICertificate `json:"ownershipCertificate" yaml:"ownershipCertificate"`
 	// The Transport Layer Security (TLS) version + cipher suite for this domain name.
 	// Experimental.
-	SecurityPolicy SecurityPolicy `json:"securityPolicy"`
+	SecurityPolicy SecurityPolicy `json:"securityPolicy" yaml:"securityPolicy"`
 	// The custom domain name.
 	// Experimental.
-	DomainName *string `json:"domainName"`
+	DomainName *string `json:"domainName" yaml:"domainName"`
 	// The mutual TLS authentication configuration for a custom domain name.
 	// Experimental.
-	Mtls *MTLSConfig `json:"mtls"`
+	Mtls *MTLSConfig `json:"mtls" yaml:"mtls"`
 }
 
 // properties for creating a domain name endpoint.
@@ -761,23 +761,23 @@ type EndpointOptions struct {
 	//
 	// Certificate can be both ACM issued or imported.
 	// Experimental.
-	Certificate awscertificatemanager.ICertificate `json:"certificate"`
+	Certificate awscertificatemanager.ICertificate `json:"certificate" yaml:"certificate"`
 	// The user-friendly name of the certificate that will be used by the endpoint for this domain name.
 	// Experimental.
-	CertificateName *string `json:"certificateName"`
+	CertificateName *string `json:"certificateName" yaml:"certificateName"`
 	// The type of endpoint for this DomainName.
 	// Experimental.
-	EndpointType EndpointType `json:"endpointType"`
+	EndpointType EndpointType `json:"endpointType" yaml:"endpointType"`
 	// A public certificate issued by ACM to validate that you own a custom domain.
 	//
 	// This parameter is required
 	// only when you configure mutual TLS authentication and you specify an ACM imported or private CA certificate
 	// for `certificate`. The ownership certificate validates that you have permissions to use the domain name.
 	// Experimental.
-	OwnershipCertificate awscertificatemanager.ICertificate `json:"ownershipCertificate"`
+	OwnershipCertificate awscertificatemanager.ICertificate `json:"ownershipCertificate" yaml:"ownershipCertificate"`
 	// The Transport Layer Security (TLS) version + cipher suite for this domain name.
 	// Experimental.
-	SecurityPolicy SecurityPolicy `json:"securityPolicy"`
+	SecurityPolicy SecurityPolicy `json:"securityPolicy" yaml:"securityPolicy"`
 }
 
 // Endpoint type for a domain name.
@@ -797,7 +797,7 @@ const (
 type GrantInvokeOptions struct {
 	// The HTTP methods to allow.
 	// Experimental.
-	HttpMethods *[]HttpMethod `json:"httpMethods"`
+	HttpMethods *[]HttpMethod `json:"httpMethods" yaml:"httpMethods"`
 }
 
 // Create a new API Gateway HTTP API endpoint.
@@ -1283,10 +1283,10 @@ func (h *jsiiProxy_HttpApi) ToString() *string {
 type HttpApiAttributes struct {
 	// The identifier of the HttpApi.
 	// Experimental.
-	HttpApiId *string `json:"httpApiId"`
+	HttpApiId *string `json:"httpApiId" yaml:"httpApiId"`
 	// The endpoint URL of the HttpApi.
 	// Experimental.
-	ApiEndpoint *string `json:"apiEndpoint"`
+	ApiEndpoint *string `json:"apiEndpoint" yaml:"apiEndpoint"`
 }
 
 // Properties to initialize an instance of `HttpApi`.
@@ -1297,37 +1297,37 @@ type HttpApiAttributes struct {
 type HttpApiProps struct {
 	// Name for the HTTP API resource.
 	// Experimental.
-	ApiName *string `json:"apiName"`
+	ApiName *string `json:"apiName" yaml:"apiName"`
 	// Specifies a CORS configuration for an API.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html
 	//
 	// Experimental.
-	CorsPreflight *CorsPreflightOptions `json:"corsPreflight"`
+	CorsPreflight *CorsPreflightOptions `json:"corsPreflight" yaml:"corsPreflight"`
 	// Whether a default stage and deployment should be automatically created.
 	// Experimental.
-	CreateDefaultStage *bool `json:"createDefaultStage"`
+	CreateDefaultStage *bool `json:"createDefaultStage" yaml:"createDefaultStage"`
 	// Default OIDC scopes attached to all routes in the gateway, unless explicitly configured on the route.
 	// Experimental.
-	DefaultAuthorizationScopes *[]*string `json:"defaultAuthorizationScopes"`
+	DefaultAuthorizationScopes *[]*string `json:"defaultAuthorizationScopes" yaml:"defaultAuthorizationScopes"`
 	// Default Authorizer to applied to all routes in the gateway.
 	// Experimental.
-	DefaultAuthorizer IHttpRouteAuthorizer `json:"defaultAuthorizer"`
+	DefaultAuthorizer IHttpRouteAuthorizer `json:"defaultAuthorizer" yaml:"defaultAuthorizer"`
 	// Configure a custom domain with the API mapping resource to the HTTP API.
 	// Experimental.
-	DefaultDomainMapping *DomainMappingOptions `json:"defaultDomainMapping"`
+	DefaultDomainMapping *DomainMappingOptions `json:"defaultDomainMapping" yaml:"defaultDomainMapping"`
 	// An integration that will be configured on the catch-all route ($default).
 	// Experimental.
-	DefaultIntegration HttpRouteIntegration `json:"defaultIntegration"`
+	DefaultIntegration HttpRouteIntegration `json:"defaultIntegration" yaml:"defaultIntegration"`
 	// The description of the API.
 	// Experimental.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Specifies whether clients can invoke your API using the default endpoint.
 	//
 	// By default, clients can invoke your API with the default
 	// `https://{api_id}.execute-api.{region}.amazonaws.com` endpoint. Enable
 	// this if you would like clients to use your custom domain name.
 	// Experimental.
-	DisableExecuteApiEndpoint *bool `json:"disableExecuteApiEndpoint"`
+	DisableExecuteApiEndpoint *bool `json:"disableExecuteApiEndpoint" yaml:"disableExecuteApiEndpoint"`
 }
 
 // An authorizer for Http Apis.
@@ -1580,7 +1580,7 @@ func (h *jsiiProxy_HttpAuthorizer) ToString() *string {
 type HttpAuthorizerAttributes struct {
 	// Id of the Authorizer.
 	// Experimental.
-	AuthorizerId *string `json:"authorizerId"`
+	AuthorizerId *string `json:"authorizerId" yaml:"authorizerId"`
 	// Type of authorizer.
 	//
 	// Possible values are:
@@ -1588,7 +1588,7 @@ type HttpAuthorizerAttributes struct {
 	// - CUSTOM - Lambda Authorizer
 	// - NONE - No Authorization
 	// Experimental.
-	AuthorizerType *string `json:"authorizerType"`
+	AuthorizerType *string `json:"authorizerType" yaml:"authorizerType"`
 }
 
 // Properties to initialize an instance of `HttpAuthorizer`.
@@ -1599,44 +1599,44 @@ type HttpAuthorizerAttributes struct {
 type HttpAuthorizerProps struct {
 	// HTTP Api to attach the authorizer to.
 	// Experimental.
-	HttpApi IHttpApi `json:"httpApi"`
+	HttpApi IHttpApi `json:"httpApi" yaml:"httpApi"`
 	// The identity source for which authorization is requested.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-identitysource
 	//
 	// Experimental.
-	IdentitySource *[]*string `json:"identitySource"`
+	IdentitySource *[]*string `json:"identitySource" yaml:"identitySource"`
 	// The type of authorizer.
 	// Experimental.
-	Type HttpAuthorizerType `json:"type"`
+	Type HttpAuthorizerType `json:"type" yaml:"type"`
 	// Name of the authorizer.
 	// Experimental.
-	AuthorizerName *string `json:"authorizerName"`
+	AuthorizerName *string `json:"authorizerName" yaml:"authorizerName"`
 	// The authorizer's Uniform Resource Identifier (URI).
 	//
 	// For REQUEST authorizers, this must be a well-formed Lambda function URI.
 	// Experimental.
-	AuthorizerUri *string `json:"authorizerUri"`
+	AuthorizerUri *string `json:"authorizerUri" yaml:"authorizerUri"`
 	// Specifies whether a Lambda authorizer returns a response in a simple format.
 	//
 	// If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy.
 	// Experimental.
-	EnableSimpleResponses *bool `json:"enableSimpleResponses"`
+	EnableSimpleResponses *bool `json:"enableSimpleResponses" yaml:"enableSimpleResponses"`
 	// A list of the intended recipients of the JWT.
 	//
 	// A valid JWT must provide an aud that matches at least one entry in this list.
 	// Experimental.
-	JwtAudience *[]*string `json:"jwtAudience"`
+	JwtAudience *[]*string `json:"jwtAudience" yaml:"jwtAudience"`
 	// The base domain of the identity provider that issues JWT.
 	// Experimental.
-	JwtIssuer *string `json:"jwtIssuer"`
+	JwtIssuer *string `json:"jwtIssuer" yaml:"jwtIssuer"`
 	// Specifies the format of the payload sent to an HTTP API Lambda authorizer.
 	// Experimental.
-	PayloadFormatVersion AuthorizerPayloadVersion `json:"payloadFormatVersion"`
+	PayloadFormatVersion AuthorizerPayloadVersion `json:"payloadFormatVersion" yaml:"payloadFormatVersion"`
 	// How long APIGateway should cache the results.
 	//
 	// Max 1 hour.
 	// Experimental.
-	ResultsCacheTtl awscdk.Duration `json:"resultsCacheTtl"`
+	ResultsCacheTtl awscdk.Duration `json:"resultsCacheTtl" yaml:"resultsCacheTtl"`
 }
 
 // Supported Authorizer types.
@@ -1902,51 +1902,78 @@ func (h *jsiiProxy_HttpIntegration) ToString() *string {
 type HttpIntegrationProps struct {
 	// The HTTP API to which this integration should be bound.
 	// Experimental.
-	HttpApi IHttpApi `json:"httpApi"`
+	HttpApi IHttpApi `json:"httpApi" yaml:"httpApi"`
 	// Integration type.
 	// Experimental.
-	IntegrationType HttpIntegrationType `json:"integrationType"`
-	// Integration URI.
-	//
-	// This will be the function ARN in the case of `HttpIntegrationType.LAMBDA_PROXY`,
-	// or HTTP URL in the case of `HttpIntegrationType.HTTP_PROXY`.
-	// Experimental.
-	IntegrationUri *string `json:"integrationUri"`
+	IntegrationType HttpIntegrationType `json:"integrationType" yaml:"integrationType"`
 	// The ID of the VPC link for a private integration.
 	//
 	// Supported only for HTTP APIs.
 	// Experimental.
-	ConnectionId *string `json:"connectionId"`
+	ConnectionId *string `json:"connectionId" yaml:"connectionId"`
 	// The type of the network connection to the integration endpoint.
 	// Experimental.
-	ConnectionType HttpConnectionType `json:"connectionType"`
+	ConnectionType HttpConnectionType `json:"connectionType" yaml:"connectionType"`
+	// The credentials with which to invoke the integration.
+	// Experimental.
+	Credentials IntegrationCredentials `json:"credentials" yaml:"credentials"`
+	// Integration subtype.
+	//
+	// Used for AWS Service integrations, specifies the target of the integration.
+	// Experimental.
+	IntegrationSubtype HttpIntegrationSubtype `json:"integrationSubtype" yaml:"integrationSubtype"`
+	// Integration URI.
+	//
+	// This will be the function ARN in the case of `HttpIntegrationType.AWS_PROXY`,
+	// or HTTP URL in the case of `HttpIntegrationType.HTTP_PROXY`.
+	// Experimental.
+	IntegrationUri *string `json:"integrationUri" yaml:"integrationUri"`
 	// The HTTP method to use when calling the underlying HTTP proxy.
 	// Experimental.
-	Method HttpMethod `json:"method"`
+	Method HttpMethod `json:"method" yaml:"method"`
 	// Specifies how to transform HTTP requests before sending them to the backend.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html
 	//
 	// Experimental.
-	ParameterMapping ParameterMapping `json:"parameterMapping"`
+	ParameterMapping ParameterMapping `json:"parameterMapping" yaml:"parameterMapping"`
 	// The version of the payload format.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
 	//
 	// Experimental.
-	PayloadFormatVersion PayloadFormatVersion `json:"payloadFormatVersion"`
+	PayloadFormatVersion PayloadFormatVersion `json:"payloadFormatVersion" yaml:"payloadFormatVersion"`
 	// Specifies the TLS configuration for a private integration.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-integration-tlsconfig.html
 	//
 	// Experimental.
-	SecureServerName *string `json:"secureServerName"`
+	SecureServerName *string `json:"secureServerName" yaml:"secureServerName"`
 }
+
+// Supported integration subtypes.
+// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html
+//
+// Experimental.
+type HttpIntegrationSubtype string
+
+const (
+	HttpIntegrationSubtype_EVENTBRIDGE_PUT_EVENTS HttpIntegrationSubtype = "EVENTBRIDGE_PUT_EVENTS"
+	HttpIntegrationSubtype_SQS_SEND_MESSAGE HttpIntegrationSubtype = "SQS_SEND_MESSAGE"
+	HttpIntegrationSubtype_SQS_RECEIVE_MESSAGE HttpIntegrationSubtype = "SQS_RECEIVE_MESSAGE"
+	HttpIntegrationSubtype_SQS_DELETE_MESSAGE HttpIntegrationSubtype = "SQS_DELETE_MESSAGE"
+	HttpIntegrationSubtype_SQS_PURGE_QUEUE HttpIntegrationSubtype = "SQS_PURGE_QUEUE"
+	HttpIntegrationSubtype_APPCONFIG_GET_CONFIGURATION HttpIntegrationSubtype = "APPCONFIG_GET_CONFIGURATION"
+	HttpIntegrationSubtype_KINESIS_PUT_RECORD HttpIntegrationSubtype = "KINESIS_PUT_RECORD"
+	HttpIntegrationSubtype_STEPFUNCTIONS_START_EXECUTION HttpIntegrationSubtype = "STEPFUNCTIONS_START_EXECUTION"
+	HttpIntegrationSubtype_STEPFUNCTIONS_START_SYNC_EXECUTION HttpIntegrationSubtype = "STEPFUNCTIONS_START_SYNC_EXECUTION"
+	HttpIntegrationSubtype_STEPFUNCTIONS_STOP_EXECUTION HttpIntegrationSubtype = "STEPFUNCTIONS_STOP_EXECUTION"
+)
 
 // Supported integration types.
 // Experimental.
 type HttpIntegrationType string
 
 const (
-	HttpIntegrationType_LAMBDA_PROXY HttpIntegrationType = "LAMBDA_PROXY"
 	HttpIntegrationType_HTTP_PROXY HttpIntegrationType = "HTTP_PROXY"
+	HttpIntegrationType_AWS_PROXY HttpIntegrationType = "AWS_PROXY"
 )
 
 // Supported HTTP methods.
@@ -2308,10 +2335,10 @@ func (h *jsiiProxy_HttpRoute) ToString() *string {
 type HttpRouteAuthorizerBindOptions struct {
 	// The route to which the authorizer is being bound.
 	// Experimental.
-	Route IHttpRoute `json:"route"`
+	Route IHttpRoute `json:"route" yaml:"route"`
 	// The scope for any constructs created as part of the bind.
 	// Experimental.
-	Scope constructs.Construct `json:"scope"`
+	Scope constructs.Construct `json:"scope" yaml:"scope"`
 }
 
 // Results of binding an authorizer to an http route.
@@ -2328,13 +2355,13 @@ type HttpRouteAuthorizerConfig struct {
 	// - CUSTOM - Lambda Authorizer
 	// - NONE - No Authorization
 	// Experimental.
-	AuthorizationType *string `json:"authorizationType"`
+	AuthorizationType *string `json:"authorizationType" yaml:"authorizationType"`
 	// The list of OIDC scopes to include in the authorization.
 	// Experimental.
-	AuthorizationScopes *[]*string `json:"authorizationScopes"`
+	AuthorizationScopes *[]*string `json:"authorizationScopes" yaml:"authorizationScopes"`
 	// The authorizer id.
 	// Experimental.
-	AuthorizerId *string `json:"authorizerId"`
+	AuthorizerId *string `json:"authorizerId" yaml:"authorizerId"`
 }
 
 // The interface that various route integration classes will inherit.
@@ -2386,13 +2413,13 @@ func (h *jsiiProxy_HttpRouteIntegration) Bind(options *HttpRouteIntegrationBindO
 type HttpRouteIntegrationBindOptions struct {
 	// The route to which this is being bound.
 	// Experimental.
-	Route IHttpRoute `json:"route"`
+	Route IHttpRoute `json:"route" yaml:"route"`
 	// The current scope in which the bind is occurring.
 	//
 	// If the `HttpRouteIntegration` being bound creates additional constructs,
 	// this will be used as their parent scope.
 	// Experimental.
-	Scope constructs.Construct `json:"scope"`
+	Scope constructs.Construct `json:"scope" yaml:"scope"`
 }
 
 // Config returned back as a result of the bind.
@@ -2405,36 +2432,42 @@ type HttpRouteIntegrationConfig struct {
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
 	//
 	// Experimental.
-	PayloadFormatVersion PayloadFormatVersion `json:"payloadFormatVersion"`
+	PayloadFormatVersion PayloadFormatVersion `json:"payloadFormatVersion" yaml:"payloadFormatVersion"`
 	// Integration type.
 	// Experimental.
-	Type HttpIntegrationType `json:"type"`
-	// Integration URI.
-	// Experimental.
-	Uri *string `json:"uri"`
+	Type HttpIntegrationType `json:"type" yaml:"type"`
 	// The ID of the VPC link for a private integration.
 	//
 	// Supported only for HTTP APIs.
 	// Experimental.
-	ConnectionId *string `json:"connectionId"`
+	ConnectionId *string `json:"connectionId" yaml:"connectionId"`
 	// The type of the network connection to the integration endpoint.
 	// Experimental.
-	ConnectionType HttpConnectionType `json:"connectionType"`
+	ConnectionType HttpConnectionType `json:"connectionType" yaml:"connectionType"`
+	// The credentials with which to invoke the integration.
+	// Experimental.
+	Credentials IntegrationCredentials `json:"credentials" yaml:"credentials"`
 	// The HTTP method that must be used to invoke the underlying proxy.
 	//
 	// Required for `HttpIntegrationType.HTTP_PROXY`
 	// Experimental.
-	Method HttpMethod `json:"method"`
+	Method HttpMethod `json:"method" yaml:"method"`
 	// Specifies how to transform HTTP requests before sending them to the backend.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html
 	//
 	// Experimental.
-	ParameterMapping ParameterMapping `json:"parameterMapping"`
+	ParameterMapping ParameterMapping `json:"parameterMapping" yaml:"parameterMapping"`
 	// Specifies the server name to verified by HTTPS when calling the backend integration.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-integration-tlsconfig.html
 	//
 	// Experimental.
-	SecureServerName *string `json:"secureServerName"`
+	SecureServerName *string `json:"secureServerName" yaml:"secureServerName"`
+	// Integration subtype.
+	// Experimental.
+	Subtype HttpIntegrationSubtype `json:"subtype" yaml:"subtype"`
+	// Integration URI.
+	// Experimental.
+	Uri *string `json:"uri" yaml:"uri"`
 }
 
 // HTTP route in APIGateway is a combination of the HTTP method and the path component.
@@ -2522,23 +2555,23 @@ func HttpRouteKey_DEFAULT() HttpRouteKey {
 type HttpRouteProps struct {
 	// The integration to be configured on this route.
 	// Experimental.
-	Integration HttpRouteIntegration `json:"integration"`
+	Integration HttpRouteIntegration `json:"integration" yaml:"integration"`
 	// the API the route is associated with.
 	// Experimental.
-	HttpApi IHttpApi `json:"httpApi"`
+	HttpApi IHttpApi `json:"httpApi" yaml:"httpApi"`
 	// The key to this route.
 	//
 	// This is a combination of an HTTP method and an HTTP path.
 	// Experimental.
-	RouteKey HttpRouteKey `json:"routeKey"`
+	RouteKey HttpRouteKey `json:"routeKey" yaml:"routeKey"`
 	// The list of OIDC scopes to include in the authorization.
 	//
 	// These scopes will be merged with the scopes from the attached authorizer
 	// Experimental.
-	AuthorizationScopes *[]*string `json:"authorizationScopes"`
+	AuthorizationScopes *[]*string `json:"authorizationScopes" yaml:"authorizationScopes"`
 	// Authorizer for a WebSocket API or an HTTP API.
 	// Experimental.
-	Authorizer IHttpRouteAuthorizer `json:"authorizer"`
+	Authorizer IHttpRouteAuthorizer `json:"authorizer" yaml:"authorizer"`
 }
 
 // Represents a stage where an instance of the API is deployed.
@@ -2951,10 +2984,10 @@ func (h *jsiiProxy_HttpStage) ToString() *string {
 type HttpStageAttributes struct {
 	// The name of the stage.
 	// Experimental.
-	StageName *string `json:"stageName"`
+	StageName *string `json:"stageName" yaml:"stageName"`
 	// The API to which this stage is associated.
 	// Experimental.
-	Api IHttpApi `json:"api"`
+	Api IHttpApi `json:"api" yaml:"api"`
 }
 
 // The options to create a new Stage for an HTTP API.
@@ -2965,15 +2998,15 @@ type HttpStageAttributes struct {
 type HttpStageOptions struct {
 	// Whether updates to an API automatically trigger a new deployment.
 	// Experimental.
-	AutoDeploy *bool `json:"autoDeploy"`
+	AutoDeploy *bool `json:"autoDeploy" yaml:"autoDeploy"`
 	// The options for custom domain and api mapping.
 	// Experimental.
-	DomainMapping *DomainMappingOptions `json:"domainMapping"`
+	DomainMapping *DomainMappingOptions `json:"domainMapping" yaml:"domainMapping"`
 	// The name of the stage.
 	//
 	// See `StageName` class for more details.
 	// Experimental.
-	StageName *string `json:"stageName"`
+	StageName *string `json:"stageName" yaml:"stageName"`
 }
 
 // Properties to initialize an instance of `HttpStage`.
@@ -2984,18 +3017,18 @@ type HttpStageOptions struct {
 type HttpStageProps struct {
 	// Whether updates to an API automatically trigger a new deployment.
 	// Experimental.
-	AutoDeploy *bool `json:"autoDeploy"`
+	AutoDeploy *bool `json:"autoDeploy" yaml:"autoDeploy"`
 	// The options for custom domain and api mapping.
 	// Experimental.
-	DomainMapping *DomainMappingOptions `json:"domainMapping"`
+	DomainMapping *DomainMappingOptions `json:"domainMapping" yaml:"domainMapping"`
 	// The name of the stage.
 	//
 	// See `StageName` class for more details.
 	// Experimental.
-	StageName *string `json:"stageName"`
+	StageName *string `json:"stageName" yaml:"stageName"`
 	// The HTTP API to which this stage is associated.
 	// Experimental.
-	HttpApi IHttpApi `json:"httpApi"`
+	HttpApi IHttpApi `json:"httpApi" yaml:"httpApi"`
 }
 
 // Represents a API Gateway HTTP/WebSocket API.
@@ -3869,6 +3902,76 @@ func (j *jsiiProxy_IWebSocketStage) CallbackUrl() *string {
 	return returns
 }
 
+// Credentials used for AWS Service integrations.
+//
+// TODO: EXAMPLE
+//
+// Experimental.
+type IntegrationCredentials interface {
+	CredentialsArn() *string
+}
+
+// The jsii proxy struct for IntegrationCredentials
+type jsiiProxy_IntegrationCredentials struct {
+	_ byte // padding
+}
+
+func (j *jsiiProxy_IntegrationCredentials) CredentialsArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"credentialsArn",
+		&returns,
+	)
+	return returns
+}
+
+
+// Experimental.
+func NewIntegrationCredentials_Override(i IntegrationCredentials) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/aws-apigatewayv2-alpha.IntegrationCredentials",
+		nil, // no parameters
+		i,
+	)
+}
+
+// Use the specified role for integration requests.
+// Experimental.
+func IntegrationCredentials_FromRole(role awsiam.IRole) IntegrationCredentials {
+	_init_.Initialize()
+
+	var returns IntegrationCredentials
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-apigatewayv2-alpha.IntegrationCredentials",
+		"fromRole",
+		[]interface{}{role},
+		&returns,
+	)
+
+	return returns
+}
+
+// Use the calling user's identity to call the integration.
+// Experimental.
+func IntegrationCredentials_UseCallerIdentity() IntegrationCredentials {
+	_init_.Initialize()
+
+	var returns IntegrationCredentials
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-apigatewayv2-alpha.IntegrationCredentials",
+		"useCallerIdentity",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // The mTLS authentication configuration for a custom domain name.
 //
 // TODO: EXAMPLE
@@ -3877,15 +3980,15 @@ func (j *jsiiProxy_IWebSocketStage) CallbackUrl() *string {
 type MTLSConfig struct {
 	// The bucket that the trust store is hosted in.
 	// Experimental.
-	Bucket awss3.IBucket `json:"bucket"`
+	Bucket awss3.IBucket `json:"bucket" yaml:"bucket"`
 	// The key in S3 to look at for the trust store.
 	// Experimental.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// The version of the S3 object that contains your truststore.
 	//
 	// To specify a version, you must have versioning enabled for the S3 bucket.
 	// Experimental.
-	Version *string `json:"version"`
+	Version *string `json:"version" yaml:"version"`
 }
 
 // Represents a Mapping Value.
@@ -4146,6 +4249,23 @@ func NewParameterMapping_Override(p ParameterMapping) {
 	)
 }
 
+// Creates a mapping from an object.
+// Experimental.
+func ParameterMapping_FromObject(obj *map[string]MappingValue) ParameterMapping {
+	_init_.Initialize()
+
+	var returns ParameterMapping
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-apigatewayv2-alpha.ParameterMapping",
+		"fromObject",
+		[]interface{}{obj},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a mapping to append a header.
 // Experimental.
 func (p *jsiiProxy_ParameterMapping) AppendHeader(name *string, value MappingValue) ParameterMapping {
@@ -4351,7 +4471,7 @@ const (
 type StageAttributes struct {
 	// The name of the stage.
 	// Experimental.
-	StageName *string `json:"stageName"`
+	StageName *string `json:"stageName" yaml:"stageName"`
 }
 
 // Options required to create a new stage.
@@ -4364,10 +4484,10 @@ type StageAttributes struct {
 type StageOptions struct {
 	// Whether updates to an API automatically trigger a new deployment.
 	// Experimental.
-	AutoDeploy *bool `json:"autoDeploy"`
+	AutoDeploy *bool `json:"autoDeploy" yaml:"autoDeploy"`
 	// The options for custom domain and api mapping.
 	// Experimental.
-	DomainMapping *DomainMappingOptions `json:"domainMapping"`
+	DomainMapping *DomainMappingOptions `json:"domainMapping" yaml:"domainMapping"`
 }
 
 // Define a new VPC Link Specifies an API Gateway VPC link for a HTTP API to access resources in an Amazon Virtual Private Cloud (VPC).
@@ -4663,10 +4783,10 @@ func (v *jsiiProxy_VpcLink) ToString() *string {
 type VpcLinkAttributes struct {
 	// The VPC to which this VPC link is associated with.
 	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// The VPC Link id.
 	// Experimental.
-	VpcLinkId *string `json:"vpcLinkId"`
+	VpcLinkId *string `json:"vpcLinkId" yaml:"vpcLinkId"`
 }
 
 // Properties for a VpcLink.
@@ -4677,16 +4797,16 @@ type VpcLinkAttributes struct {
 type VpcLinkProps struct {
 	// The VPC in which the private resources reside.
 	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// A list of security groups for the VPC link.
 	// Experimental.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// A list of subnets for the VPC link.
 	// Experimental.
-	Subnets *awsec2.SubnetSelection `json:"subnets"`
+	Subnets *awsec2.SubnetSelection `json:"subnets" yaml:"subnets"`
 	// The name used to label and identify the VPC link.
 	// Experimental.
-	VpcLinkName *string `json:"vpcLinkName"`
+	VpcLinkName *string `json:"vpcLinkName" yaml:"vpcLinkName"`
 }
 
 // Create a new API Gateway WebSocket API endpoint.
@@ -5069,25 +5189,25 @@ type WebSocketApiProps struct {
 	//
 	// Providing this option will require an API Key be provided to access the API.
 	// Experimental.
-	ApiKeySelectionExpression WebSocketApiKeySelectionExpression `json:"apiKeySelectionExpression"`
+	ApiKeySelectionExpression WebSocketApiKeySelectionExpression `json:"apiKeySelectionExpression" yaml:"apiKeySelectionExpression"`
 	// Name for the WebSocket API resource.
 	// Experimental.
-	ApiName *string `json:"apiName"`
+	ApiName *string `json:"apiName" yaml:"apiName"`
 	// Options to configure a '$connect' route.
 	// Experimental.
-	ConnectRouteOptions *WebSocketRouteOptions `json:"connectRouteOptions"`
+	ConnectRouteOptions *WebSocketRouteOptions `json:"connectRouteOptions" yaml:"connectRouteOptions"`
 	// Options to configure a '$default' route.
 	// Experimental.
-	DefaultRouteOptions *WebSocketRouteOptions `json:"defaultRouteOptions"`
+	DefaultRouteOptions *WebSocketRouteOptions `json:"defaultRouteOptions" yaml:"defaultRouteOptions"`
 	// The description of the API.
 	// Experimental.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Options to configure a '$disconnect' route.
 	// Experimental.
-	DisconnectRouteOptions *WebSocketRouteOptions `json:"disconnectRouteOptions"`
+	DisconnectRouteOptions *WebSocketRouteOptions `json:"disconnectRouteOptions" yaml:"disconnectRouteOptions"`
 	// The route selection expression for the API.
 	// Experimental.
-	RouteSelectionExpression *string `json:"routeSelectionExpression"`
+	RouteSelectionExpression *string `json:"routeSelectionExpression" yaml:"routeSelectionExpression"`
 }
 
 // An authorizer for WebSocket Apis.
@@ -5340,14 +5460,14 @@ func (w *jsiiProxy_WebSocketAuthorizer) ToString() *string {
 type WebSocketAuthorizerAttributes struct {
 	// Id of the Authorizer.
 	// Experimental.
-	AuthorizerId *string `json:"authorizerId"`
+	AuthorizerId *string `json:"authorizerId" yaml:"authorizerId"`
 	// Type of authorizer.
 	//
 	// Possible values are:
 	// - CUSTOM - Lambda Authorizer
 	// - NONE - No Authorization
 	// Experimental.
-	AuthorizerType *string `json:"authorizerType"`
+	AuthorizerType *string `json:"authorizerType" yaml:"authorizerType"`
 }
 
 // Properties to initialize an instance of `WebSocketAuthorizer`.
@@ -5360,21 +5480,21 @@ type WebSocketAuthorizerProps struct {
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-identitysource
 	//
 	// Experimental.
-	IdentitySource *[]*string `json:"identitySource"`
+	IdentitySource *[]*string `json:"identitySource" yaml:"identitySource"`
 	// The type of authorizer.
 	// Experimental.
-	Type WebSocketAuthorizerType `json:"type"`
+	Type WebSocketAuthorizerType `json:"type" yaml:"type"`
 	// WebSocket Api to attach the authorizer to.
 	// Experimental.
-	WebSocketApi IWebSocketApi `json:"webSocketApi"`
+	WebSocketApi IWebSocketApi `json:"webSocketApi" yaml:"webSocketApi"`
 	// Name of the authorizer.
 	// Experimental.
-	AuthorizerName *string `json:"authorizerName"`
+	AuthorizerName *string `json:"authorizerName" yaml:"authorizerName"`
 	// The authorizer's Uniform Resource Identifier (URI).
 	//
 	// For REQUEST authorizers, this must be a well-formed Lambda function URI.
 	// Experimental.
-	AuthorizerUri *string `json:"authorizerUri"`
+	AuthorizerUri *string `json:"authorizerUri" yaml:"authorizerUri"`
 }
 
 // Supported Authorizer types.
@@ -5629,13 +5749,13 @@ func (w *jsiiProxy_WebSocketIntegration) ToString() *string {
 type WebSocketIntegrationProps struct {
 	// Integration type.
 	// Experimental.
-	IntegrationType WebSocketIntegrationType `json:"integrationType"`
+	IntegrationType WebSocketIntegrationType `json:"integrationType" yaml:"integrationType"`
 	// Integration URI.
 	// Experimental.
-	IntegrationUri *string `json:"integrationUri"`
+	IntegrationUri *string `json:"integrationUri" yaml:"integrationUri"`
 	// The WebSocket API to which this integration should be bound.
 	// Experimental.
-	WebSocketApi IWebSocketApi `json:"webSocketApi"`
+	WebSocketApi IWebSocketApi `json:"webSocketApi" yaml:"webSocketApi"`
 }
 
 // WebSocket Integration Types.
@@ -5644,6 +5764,7 @@ type WebSocketIntegrationType string
 
 const (
 	WebSocketIntegrationType_AWS_PROXY WebSocketIntegrationType = "AWS_PROXY"
+	WebSocketIntegrationType_MOCK WebSocketIntegrationType = "MOCK"
 )
 
 // Explicitly configure no authorizers on specific WebSocket API routes.
@@ -5968,10 +6089,10 @@ func (w *jsiiProxy_WebSocketRoute) ToString() *string {
 type WebSocketRouteAuthorizerBindOptions struct {
 	// The route to which the authorizer is being bound.
 	// Experimental.
-	Route IWebSocketRoute `json:"route"`
+	Route IWebSocketRoute `json:"route" yaml:"route"`
 	// The scope for any constructs created as part of the bind.
 	// Experimental.
-	Scope constructs.Construct `json:"scope"`
+	Scope constructs.Construct `json:"scope" yaml:"scope"`
 }
 
 // Results of binding an authorizer to an WebSocket route.
@@ -5986,10 +6107,10 @@ type WebSocketRouteAuthorizerConfig struct {
 	// - CUSTOM - Lambda Authorizer
 	// - NONE - No Authorization
 	// Experimental.
-	AuthorizationType *string `json:"authorizationType"`
+	AuthorizationType *string `json:"authorizationType" yaml:"authorizationType"`
 	// The authorizer id.
 	// Experimental.
-	AuthorizerId *string `json:"authorizerId"`
+	AuthorizerId *string `json:"authorizerId" yaml:"authorizerId"`
 }
 
 // The interface that various route integration classes will inherit.
@@ -6041,13 +6162,13 @@ func (w *jsiiProxy_WebSocketRouteIntegration) Bind(options *WebSocketRouteIntegr
 type WebSocketRouteIntegrationBindOptions struct {
 	// The route to which this is being bound.
 	// Experimental.
-	Route IWebSocketRoute `json:"route"`
+	Route IWebSocketRoute `json:"route" yaml:"route"`
 	// The current scope in which the bind is occurring.
 	//
 	// If the `WebSocketRouteIntegration` being bound creates additional constructs,
 	// this will be used as their parent scope.
 	// Experimental.
-	Scope constructs.Construct `json:"scope"`
+	Scope constructs.Construct `json:"scope" yaml:"scope"`
 }
 
 // Config returned back as a result of the bind.
@@ -6058,10 +6179,10 @@ type WebSocketRouteIntegrationBindOptions struct {
 type WebSocketRouteIntegrationConfig struct {
 	// Integration type.
 	// Experimental.
-	Type WebSocketIntegrationType `json:"type"`
+	Type WebSocketIntegrationType `json:"type" yaml:"type"`
 	// Integration URI.
 	// Experimental.
-	Uri *string `json:"uri"`
+	Uri *string `json:"uri" yaml:"uri"`
 }
 
 // Options used to add route to the API.
@@ -6072,12 +6193,12 @@ type WebSocketRouteIntegrationConfig struct {
 type WebSocketRouteOptions struct {
 	// The integration to be configured on this route.
 	// Experimental.
-	Integration WebSocketRouteIntegration `json:"integration"`
+	Integration WebSocketRouteIntegration `json:"integration" yaml:"integration"`
 	// The authorize to this route.
 	//
 	// You can only set authorizer to a $connect route.
 	// Experimental.
-	Authorizer IWebSocketRouteAuthorizer `json:"authorizer"`
+	Authorizer IWebSocketRouteAuthorizer `json:"authorizer" yaml:"authorizer"`
 }
 
 // Properties to initialize a new Route.
@@ -6088,21 +6209,21 @@ type WebSocketRouteOptions struct {
 type WebSocketRouteProps struct {
 	// The integration to be configured on this route.
 	// Experimental.
-	Integration WebSocketRouteIntegration `json:"integration"`
+	Integration WebSocketRouteIntegration `json:"integration" yaml:"integration"`
 	// The authorize to this route.
 	//
 	// You can only set authorizer to a $connect route.
 	// Experimental.
-	Authorizer IWebSocketRouteAuthorizer `json:"authorizer"`
+	Authorizer IWebSocketRouteAuthorizer `json:"authorizer" yaml:"authorizer"`
 	// The key to this route.
 	// Experimental.
-	RouteKey *string `json:"routeKey"`
+	RouteKey *string `json:"routeKey" yaml:"routeKey"`
 	// The API the route is associated with.
 	// Experimental.
-	WebSocketApi IWebSocketApi `json:"webSocketApi"`
+	WebSocketApi IWebSocketApi `json:"webSocketApi" yaml:"webSocketApi"`
 	// Whether the route requires an API Key to be provided.
 	// Experimental.
-	ApiKeyRequired *bool `json:"apiKeyRequired"`
+	ApiKeyRequired *bool `json:"apiKeyRequired" yaml:"apiKeyRequired"`
 }
 
 // Represents a stage where an instance of the API is deployed.
@@ -6433,10 +6554,10 @@ func (w *jsiiProxy_WebSocketStage) ToString() *string {
 type WebSocketStageAttributes struct {
 	// The name of the stage.
 	// Experimental.
-	StageName *string `json:"stageName"`
+	StageName *string `json:"stageName" yaml:"stageName"`
 	// The API to which this stage is associated.
 	// Experimental.
-	Api IWebSocketApi `json:"api"`
+	Api IWebSocketApi `json:"api" yaml:"api"`
 }
 
 // Properties to initialize an instance of `WebSocketStage`.
@@ -6447,15 +6568,15 @@ type WebSocketStageAttributes struct {
 type WebSocketStageProps struct {
 	// Whether updates to an API automatically trigger a new deployment.
 	// Experimental.
-	AutoDeploy *bool `json:"autoDeploy"`
+	AutoDeploy *bool `json:"autoDeploy" yaml:"autoDeploy"`
 	// The options for custom domain and api mapping.
 	// Experimental.
-	DomainMapping *DomainMappingOptions `json:"domainMapping"`
+	DomainMapping *DomainMappingOptions `json:"domainMapping" yaml:"domainMapping"`
 	// The name of the stage.
 	// Experimental.
-	StageName *string `json:"stageName"`
+	StageName *string `json:"stageName" yaml:"stageName"`
 	// The WebSocket API to which this stage is associated.
 	// Experimental.
-	WebSocketApi IWebSocketApi `json:"webSocketApi"`
+	WebSocketApi IWebSocketApi `json:"webSocketApi" yaml:"webSocketApi"`
 }
 

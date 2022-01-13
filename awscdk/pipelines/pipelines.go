@@ -26,11 +26,11 @@ import (
 //
 type AddStageOpts struct {
 	// Additional steps to run after all of the stacks in the stage.
-	Post *[]Step `json:"post"`
+	Post *[]Step `json:"post" yaml:"post"`
 	// Additional steps to run before any of the stacks in the stage.
-	Pre *[]Step `json:"pre"`
+	Pre *[]Step `json:"pre" yaml:"pre"`
 	// Instructions for stack level steps.
-	StackSteps *[]*StackSteps `json:"stackSteps"`
+	StackSteps *[]*StackSteps `json:"stackSteps" yaml:"stackSteps"`
 }
 
 // Translate FileSets to CodePipeline Artifacts.
@@ -98,29 +98,29 @@ const (
 //
 type CodeBuildOptions struct {
 	// Partial build environment, will be combined with other build environments that apply.
-	BuildEnvironment *awscodebuild.BuildEnvironment `json:"buildEnvironment"`
+	BuildEnvironment *awscodebuild.BuildEnvironment `json:"buildEnvironment" yaml:"buildEnvironment"`
 	// Partial buildspec, will be combined with other buildspecs that apply.
 	//
 	// The BuildSpec must be available inline--it cannot reference a file
 	// on disk.
-	PartialBuildSpec awscodebuild.BuildSpec `json:"partialBuildSpec"`
+	PartialBuildSpec awscodebuild.BuildSpec `json:"partialBuildSpec" yaml:"partialBuildSpec"`
 	// Policy statements to add to role.
-	RolePolicy *[]awsiam.PolicyStatement `json:"rolePolicy"`
+	RolePolicy *[]awsiam.PolicyStatement `json:"rolePolicy" yaml:"rolePolicy"`
 	// Which security group(s) to associate with the project network interfaces.
 	//
 	// Only used if 'vpc' is supplied.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// Which subnets to use.
 	//
 	// Only used if 'vpc' is supplied.
-	SubnetSelection *awsec2.SubnetSelection `json:"subnetSelection"`
+	SubnetSelection *awsec2.SubnetSelection `json:"subnetSelection" yaml:"subnetSelection"`
 	// The number of minutes after which AWS CodeBuild stops the build if it's not complete.
 	//
 	// For valid values, see the timeoutInMinutes field in the AWS
 	// CodeBuild User Guide.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The VPC where to create the CodeBuild network interfaces in.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 }
 
 // Run a script as a CodeBuild Project.
@@ -514,7 +514,7 @@ func (c *jsiiProxy_CodeBuildStep) ToString() *string {
 //
 type CodeBuildStepProps struct {
 	// Commands to run.
-	Commands *[]*string `json:"commands"`
+	Commands *[]*string `json:"commands" yaml:"commands"`
 	// Additional FileSets to put in other directories.
 	//
 	// Specifies a mapping from directory name to FileSets. During the
@@ -534,37 +534,37 @@ type CodeBuildStepProps struct {
 	//    }
 	// });
 	// ```
-	AdditionalInputs *map[string]IFileSetProducer `json:"additionalInputs"`
+	AdditionalInputs *map[string]IFileSetProducer `json:"additionalInputs" yaml:"additionalInputs"`
 	// Environment variables to set.
-	Env *map[string]*string `json:"env"`
+	Env *map[string]*string `json:"env" yaml:"env"`
 	// Set environment variables based on Stack Outputs.
 	//
 	// `ShellStep`s following stack or stage deployments may
 	// access the `CfnOutput`s of those stacks to get access to
 	// --for example--automatically generated resource names or
 	// endpoint URLs.
-	EnvFromCfnOutputs *map[string]awscdk.CfnOutput `json:"envFromCfnOutputs"`
+	EnvFromCfnOutputs *map[string]awscdk.CfnOutput `json:"envFromCfnOutputs" yaml:"envFromCfnOutputs"`
 	// FileSet to run these scripts on.
 	//
 	// The files in the FileSet will be placed in the working directory when
 	// the script is executed. Use `additionalInputs` to download file sets
 	// to other directories as well.
-	Input IFileSetProducer `json:"input"`
+	Input IFileSetProducer `json:"input" yaml:"input"`
 	// Installation commands to run before the regular commands.
 	//
 	// For deployment engines that support it, install commands will be classified
 	// differently in the job history from the regular `commands`.
-	InstallCommands *[]*string `json:"installCommands"`
+	InstallCommands *[]*string `json:"installCommands" yaml:"installCommands"`
 	// The directory that will contain the primary output fileset.
 	//
 	// After running the script, the contents of the given directory
 	// will be treated as the primary output of this Step.
-	PrimaryOutputDirectory *string `json:"primaryOutputDirectory"`
+	PrimaryOutputDirectory *string `json:"primaryOutputDirectory" yaml:"primaryOutputDirectory"`
 	// Changes to environment.
 	//
 	// This environment will be combined with the pipeline's default
 	// environment.
-	BuildEnvironment *awscodebuild.BuildEnvironment `json:"buildEnvironment"`
+	BuildEnvironment *awscodebuild.BuildEnvironment `json:"buildEnvironment" yaml:"buildEnvironment"`
 	// Additional configuration that can only be configured via BuildSpec.
 	//
 	// You should not use this to specify output artifacts; those
@@ -576,32 +576,32 @@ type CodeBuildStepProps struct {
 	//
 	// The BuildSpec must be available inline--it cannot reference a file
 	// on disk.
-	PartialBuildSpec awscodebuild.BuildSpec `json:"partialBuildSpec"`
+	PartialBuildSpec awscodebuild.BuildSpec `json:"partialBuildSpec" yaml:"partialBuildSpec"`
 	// Name for the generated CodeBuild project.
-	ProjectName *string `json:"projectName"`
+	ProjectName *string `json:"projectName" yaml:"projectName"`
 	// Custom execution role to be used for the CodeBuild project.
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 	// Policy statements to add to role used during the synth.
 	//
 	// Can be used to add acces to a CodeArtifact repository etc.
-	RolePolicyStatements *[]awsiam.PolicyStatement `json:"rolePolicyStatements"`
+	RolePolicyStatements *[]awsiam.PolicyStatement `json:"rolePolicyStatements" yaml:"rolePolicyStatements"`
 	// Which security group to associate with the script's project network interfaces.
 	//
 	// If no security group is identified, one will be created automatically.
 	//
 	// Only used if 'vpc' is supplied.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// Which subnets to use.
 	//
 	// Only used if 'vpc' is supplied.
-	SubnetSelection *awsec2.SubnetSelection `json:"subnetSelection"`
+	SubnetSelection *awsec2.SubnetSelection `json:"subnetSelection" yaml:"subnetSelection"`
 	// The number of minutes after which AWS CodeBuild stops the build if it's not complete.
 	//
 	// For valid values, see the timeoutInMinutes field in the AWS
 	// CodeBuild User Guide.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The VPC where to execute the SimpleSynth.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 }
 
 // Configuration options for a CodeCommit source.
@@ -615,13 +615,13 @@ type CodeCommitSourceOptions struct {
 	// then only CodeBuild actions can use the resulting {@link output}.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodeCommit.html
 	//
-	CodeBuildCloneOutput *bool `json:"codeBuildCloneOutput"`
+	CodeBuildCloneOutput *bool `json:"codeBuildCloneOutput" yaml:"codeBuildCloneOutput"`
 	// Role to be used by on commit event rule.
 	//
 	// Used only when trigger value is CodeCommitTrigger.EVENTS.
-	EventRole awsiam.IRole `json:"eventRole"`
+	EventRole awsiam.IRole `json:"eventRole" yaml:"eventRole"`
 	// How should CodePipeline detect source changes for this Action.
-	Trigger awscodepipelineactions.CodeCommitTrigger `json:"trigger"`
+	Trigger awscodepipelineactions.CodeCommitTrigger `json:"trigger" yaml:"trigger"`
 }
 
 // A CDK Pipeline that uses CodePipeline to deploy CDK apps.
@@ -840,9 +840,9 @@ func (c *jsiiProxy_CodePipeline) ToString() *string {
 //
 type CodePipelineActionFactoryResult struct {
 	// How many RunOrders were consumed.
-	RunOrdersConsumed *float64 `json:"runOrdersConsumed"`
+	RunOrdersConsumed *float64 `json:"runOrdersConsumed" yaml:"runOrdersConsumed"`
 	// If a CodeBuild project got created, the project.
-	Project awscodebuild.IProject `json:"project"`
+	Project awscodebuild.IProject `json:"project" yaml:"project"`
 }
 
 // A FileSet created from a CodePipeline artifact.
@@ -950,9 +950,9 @@ type CodePipelineProps struct {
 	//
 	// If you use a `ShellStep` here and you don't configure an output directory,
 	// the output directory will automatically be assumed to be `cdk.out`.
-	Synth IFileSetProducer `json:"synth"`
+	Synth IFileSetProducer `json:"synth" yaml:"synth"`
 	// Additional customizations to apply to the asset publishing CodeBuild projects.
-	AssetPublishingCodeBuildDefaults *CodeBuildOptions `json:"assetPublishingCodeBuildDefaults"`
+	AssetPublishingCodeBuildDefaults *CodeBuildOptions `json:"assetPublishingCodeBuildDefaults" yaml:"assetPublishingCodeBuildDefaults"`
 	// CDK CLI version to use in self-mutation and asset publishing steps.
 	//
 	// If you want to lock the CDK CLI version used in the pipeline, by steps
@@ -970,13 +970,13 @@ type CodePipelineProps struct {
 	// you want to update both framework and CLI version, you should update the
 	// CLI version first, commit, push and deploy, and only then update the
 	// framework version.
-	CliVersion *string `json:"cliVersion"`
+	CliVersion *string `json:"cliVersion" yaml:"cliVersion"`
 	// Customize the CodeBuild projects created for this pipeline.
-	CodeBuildDefaults *CodeBuildOptions `json:"codeBuildDefaults"`
+	CodeBuildDefaults *CodeBuildOptions `json:"codeBuildDefaults" yaml:"codeBuildDefaults"`
 	// An existing Pipeline to be reused and built upon.
 	//
 	// [disable-awslint:ref-via-interface]
-	CodePipeline awscodepipeline.Pipeline `json:"codePipeline"`
+	CodePipeline awscodepipeline.Pipeline `json:"codePipeline" yaml:"codePipeline"`
 	// Create KMS keys for the artifact buckets, allowing cross-account deployments.
 	//
 	// The artifact buckets have to be encrypted to support deploying CDK apps to
@@ -984,11 +984,11 @@ type CodePipelineProps struct {
 	// buckets encrypted, be sure to set this value to `true`.
 	//
 	// Be aware there is a cost associated with maintaining the KMS keys.
-	CrossAccountKeys *bool `json:"crossAccountKeys"`
+	CrossAccountKeys *bool `json:"crossAccountKeys" yaml:"crossAccountKeys"`
 	// A list of credentials used to authenticate to Docker registries.
 	//
 	// Specify any credentials necessary within the pipeline to build, synth, update, or publish assets.
-	DockerCredentials *[]DockerCredential `json:"dockerCredentials"`
+	DockerCredentials *[]DockerCredential `json:"dockerCredentials" yaml:"dockerCredentials"`
 	// Enable Docker for the self-mutate step.
 	//
 	// Set this to true if the pipeline itself uses Docker container assets
@@ -1003,7 +1003,7 @@ type CodePipelineProps struct {
 	// If you are about to turn this on in an already-deployed Pipeline,
 	// set the value to `true` first, commit and allow the pipeline to
 	// self-update, and only then use the Docker asset in the pipeline.
-	DockerEnabledForSelfMutation *bool `json:"dockerEnabledForSelfMutation"`
+	DockerEnabledForSelfMutation *bool `json:"dockerEnabledForSelfMutation" yaml:"dockerEnabledForSelfMutation"`
 	// Enable Docker for the 'synth' step.
 	//
 	// Set this to true if you are using file assets that require
@@ -1020,9 +1020,9 @@ type CodePipelineProps struct {
 	// If you are about to turn this on in an already-deployed Pipeline,
 	// set the value to `true` first, commit and allow the pipeline to
 	// self-update, and only then use the bundled asset.
-	DockerEnabledForSynth *bool `json:"dockerEnabledForSynth"`
+	DockerEnabledForSynth *bool `json:"dockerEnabledForSynth" yaml:"dockerEnabledForSynth"`
 	// The name of the CodePipeline pipeline.
-	PipelineName *string `json:"pipelineName"`
+	PipelineName *string `json:"pipelineName" yaml:"pipelineName"`
 	// Publish assets in multiple CodeBuild projects.
 	//
 	// If set to false, use one Project per type to publish all assets.
@@ -1032,9 +1032,9 @@ type CodePipelineProps struct {
 	// projects.
 	//
 	// Experiment and see what value works best for you.
-	PublishAssetsInParallel *bool `json:"publishAssetsInParallel"`
+	PublishAssetsInParallel *bool `json:"publishAssetsInParallel" yaml:"publishAssetsInParallel"`
 	// Reuse the same cross region support stack for all pipelines in the App.
-	ReuseCrossRegionSupportStacks *bool `json:"reuseCrossRegionSupportStacks"`
+	ReuseCrossRegionSupportStacks *bool `json:"reuseCrossRegionSupportStacks" yaml:"reuseCrossRegionSupportStacks"`
 	// Whether the pipeline will update itself.
 	//
 	// This needs to be set to `true` to allow the pipeline to reconfigure
@@ -1043,11 +1043,11 @@ type CodePipelineProps struct {
 	//
 	// You can temporarily set this to `false` while you are iterating
 	// on the pipeline itself and prefer to deploy changes using `cdk deploy`.
-	SelfMutation *bool `json:"selfMutation"`
+	SelfMutation *bool `json:"selfMutation" yaml:"selfMutation"`
 	// Additional customizations to apply to the self mutation CodeBuild projects.
-	SelfMutationCodeBuildDefaults *CodeBuildOptions `json:"selfMutationCodeBuildDefaults"`
+	SelfMutationCodeBuildDefaults *CodeBuildOptions `json:"selfMutationCodeBuildDefaults" yaml:"selfMutationCodeBuildDefaults"`
 	// Additional customizations to apply to the synthesize CodeBuild projects.
-	SynthCodeBuildDefaults *CodeBuildOptions `json:"synthCodeBuildDefaults"`
+	SynthCodeBuildDefaults *CodeBuildOptions `json:"synthCodeBuildDefaults" yaml:"synthCodeBuildDefaults"`
 }
 
 // Factory for CodePipeline source steps.
@@ -1519,21 +1519,21 @@ type ConnectionSourceOptions struct {
 	//
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/connections-create.html
 	//
-	ConnectionArn *string `json:"connectionArn"`
+	ConnectionArn *string `json:"connectionArn" yaml:"connectionArn"`
 	// Whether the output should be the contents of the repository (which is the default), or a link that allows CodeBuild to clone the repository before building.
 	//
 	// **Note**: if this option is true,
 	// then only CodeBuild actions can use the resulting {@link output}.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html#action-reference-CodestarConnectionSource-config
 	//
-	CodeBuildCloneOutput *bool `json:"codeBuildCloneOutput"`
+	CodeBuildCloneOutput *bool `json:"codeBuildCloneOutput" yaml:"codeBuildCloneOutput"`
 	// Controls automatically starting your pipeline when a new commit is made on the configured repository and branch.
 	//
 	// If unspecified,
 	// the default value is true, and the field does not display by default.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html
 	//
-	TriggerOnPush *bool `json:"triggerOnPush"`
+	TriggerOnPush *bool `json:"triggerOnPush" yaml:"triggerOnPush"`
 }
 
 // Represents credentials used to access a Docker registry.
@@ -1656,9 +1656,9 @@ const (
 //
 type EcrDockerCredentialOptions struct {
 	// An IAM role to assume prior to accessing the secret.
-	AssumeRole awsiam.IRole `json:"assumeRole"`
+	AssumeRole awsiam.IRole `json:"assumeRole" yaml:"assumeRole"`
 	// Defines which stages of the pipeline should be granted access to these credentials.
-	Usages *[]DockerCredentialUsage `json:"usages"`
+	Usages *[]DockerCredentialUsage `json:"usages" yaml:"usages"`
 }
 
 // Options for defining credentials for a Docker Credential.
@@ -1667,13 +1667,13 @@ type EcrDockerCredentialOptions struct {
 //
 type ExternalDockerCredentialOptions struct {
 	// An IAM role to assume prior to accessing the secret.
-	AssumeRole awsiam.IRole `json:"assumeRole"`
+	AssumeRole awsiam.IRole `json:"assumeRole" yaml:"assumeRole"`
 	// The name of the JSON field of the secret which contains the secret/password.
-	SecretPasswordField *string `json:"secretPasswordField"`
+	SecretPasswordField *string `json:"secretPasswordField" yaml:"secretPasswordField"`
 	// The name of the JSON field of the secret which contains the user/login name.
-	SecretUsernameField *string `json:"secretUsernameField"`
+	SecretUsernameField *string `json:"secretUsernameField" yaml:"secretUsernameField"`
 	// Defines which stages of the pipeline should be granted access to these credentials.
-	Usages *[]DockerCredentialUsage `json:"usages"`
+	Usages *[]DockerCredentialUsage `json:"usages" yaml:"usages"`
 }
 
 // A set of files traveling through the deployment pipeline.
@@ -1783,9 +1783,9 @@ func (f *jsiiProxy_FileSet) ToString() *string {
 //
 type FileSetLocation struct {
 	// The (relative) directory where the FileSet is found.
-	Directory *string `json:"directory"`
+	Directory *string `json:"directory" yaml:"directory"`
 	// The FileSet object.
-	FileSet FileSet `json:"fileSet"`
+	FileSet FileSet `json:"fileSet" yaml:"fileSet"`
 }
 
 // Options for GitHub sources.
@@ -1807,7 +1807,7 @@ type GitHubSourceOptions struct {
 	// * **admin:repo_hook** - if you plan to use webhooks (true by default)
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/GitHub-create-personal-token-CLI.html
 	//
-	Authentication awscdk.SecretValue `json:"authentication"`
+	Authentication awscdk.SecretValue `json:"authentication" yaml:"authentication"`
 	// How AWS CodePipeline should be triggered.
 	//
 	// With the default value "WEBHOOK", a webhook is created in GitHub that triggers the action.
@@ -1816,7 +1816,7 @@ type GitHubSourceOptions struct {
 	//
 	// To use `WEBHOOK`, your GitHub Personal Access Token should have
 	// **admin:repo_hook** scope (in addition to the regular **repo** scope).
-	Trigger awscodepipelineactions.GitHubTrigger `json:"trigger"`
+	Trigger awscodepipelineactions.GitHubTrigger `json:"trigger" yaml:"trigger"`
 }
 
 // Factory for explicit CodePipeline Actions.
@@ -2053,7 +2053,7 @@ func (m *jsiiProxy_ManualApprovalStep) ToString() *string {
 //
 type ManualApprovalStepProps struct {
 	// The comment to display with this manual approval.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 }
 
 // Properties for a `PermissionsBroadeningCheck`.
@@ -2064,9 +2064,9 @@ type PermissionsBroadeningCheckProps struct {
 	// The CDK Stage object to check the stacks of.
 	//
 	// This should be the same Stage object you are passing to `addStage()`.
-	Stage awscdk.Stage `json:"stage"`
+	Stage awscdk.Stage `json:"stage" yaml:"stage"`
 	// Topic to send notifications when a human needs to give manual confirmation.
-	NotificationTopic awssns.ITopic `json:"notificationTopic"`
+	NotificationTopic awssns.ITopic `json:"notificationTopic" yaml:"notificationTopic"`
 }
 
 // A generic CDK Pipelines pipeline.
@@ -2258,7 +2258,7 @@ type PipelineBaseProps struct {
 	//
 	// If you use a `ShellStep` here and you don't configure an output directory,
 	// the output directory will automatically be assumed to be `cdk.out`.
-	Synth IFileSetProducer `json:"synth"`
+	Synth IFileSetProducer `json:"synth" yaml:"synth"`
 }
 
 // Options for the `CodePipelineActionFactory.produce()` method.
@@ -2267,29 +2267,29 @@ type PipelineBaseProps struct {
 //
 type ProduceActionOptions struct {
 	// Name the action should get.
-	ActionName *string `json:"actionName"`
+	ActionName *string `json:"actionName" yaml:"actionName"`
 	// Helper object to translate FileSets to CodePipeline Artifacts.
-	Artifacts ArtifactMap `json:"artifacts"`
+	Artifacts ArtifactMap `json:"artifacts" yaml:"artifacts"`
 	// The pipeline the action is being generated for.
-	Pipeline CodePipeline `json:"pipeline"`
+	Pipeline CodePipeline `json:"pipeline" yaml:"pipeline"`
 	// RunOrder the action should get.
-	RunOrder *float64 `json:"runOrder"`
+	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
 	// Scope in which to create constructs.
-	Scope constructs.Construct `json:"scope"`
+	Scope constructs.Construct `json:"scope" yaml:"scope"`
 	// Whether or not this action is inserted before self mutation.
 	//
 	// If it is, the action should take care to reflect some part of
 	// its own definition in the pipeline action definition, to
 	// trigger a restart after self-mutation (if necessary).
-	BeforeSelfMutation *bool `json:"beforeSelfMutation"`
+	BeforeSelfMutation *bool `json:"beforeSelfMutation" yaml:"beforeSelfMutation"`
 	// If this action factory creates a CodeBuild step, default options to inherit.
-	CodeBuildDefaults *CodeBuildOptions `json:"codeBuildDefaults"`
+	CodeBuildDefaults *CodeBuildOptions `json:"codeBuildDefaults" yaml:"codeBuildDefaults"`
 	// An input artifact that CodeBuild projects that don't actually need an input artifact can use.
 	//
 	// CodeBuild Projects MUST have an input artifact in order to be added to the Pipeline. If
 	// the Project doesn't actually care about its input (it can be anything), it can use the
 	// Artifact passed here.
-	FallbackArtifact awscodepipeline.Artifact `json:"fallbackArtifact"`
+	FallbackArtifact awscodepipeline.Artifact `json:"fallbackArtifact" yaml:"fallbackArtifact"`
 }
 
 // Options for S3 sources.
@@ -2298,14 +2298,14 @@ type ProduceActionOptions struct {
 //
 type S3SourceOptions struct {
 	// The action name used for this source in the CodePipeline.
-	ActionName *string `json:"actionName"`
+	ActionName *string `json:"actionName" yaml:"actionName"`
 	// How should CodePipeline detect source changes for this Action.
 	//
 	// Note that if this is S3Trigger.EVENTS, you need to make sure to include the source Bucket in a CloudTrail Trail,
 	// as otherwise the CloudWatch Events will not be emitted.
 	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/log-s3-data-events.html
 	//
-	Trigger awscodepipelineactions.S3Trigger `json:"trigger"`
+	Trigger awscodepipelineactions.S3Trigger `json:"trigger" yaml:"trigger"`
 }
 
 // Run shell script commands in the pipeline.
@@ -2578,7 +2578,7 @@ func (s *jsiiProxy_ShellStep) ToString() *string {
 //
 type ShellStepProps struct {
 	// Commands to run.
-	Commands *[]*string `json:"commands"`
+	Commands *[]*string `json:"commands" yaml:"commands"`
 	// Additional FileSets to put in other directories.
 	//
 	// Specifies a mapping from directory name to FileSets. During the
@@ -2598,32 +2598,32 @@ type ShellStepProps struct {
 	//    }
 	// });
 	// ```
-	AdditionalInputs *map[string]IFileSetProducer `json:"additionalInputs"`
+	AdditionalInputs *map[string]IFileSetProducer `json:"additionalInputs" yaml:"additionalInputs"`
 	// Environment variables to set.
-	Env *map[string]*string `json:"env"`
+	Env *map[string]*string `json:"env" yaml:"env"`
 	// Set environment variables based on Stack Outputs.
 	//
 	// `ShellStep`s following stack or stage deployments may
 	// access the `CfnOutput`s of those stacks to get access to
 	// --for example--automatically generated resource names or
 	// endpoint URLs.
-	EnvFromCfnOutputs *map[string]awscdk.CfnOutput `json:"envFromCfnOutputs"`
+	EnvFromCfnOutputs *map[string]awscdk.CfnOutput `json:"envFromCfnOutputs" yaml:"envFromCfnOutputs"`
 	// FileSet to run these scripts on.
 	//
 	// The files in the FileSet will be placed in the working directory when
 	// the script is executed. Use `additionalInputs` to download file sets
 	// to other directories as well.
-	Input IFileSetProducer `json:"input"`
+	Input IFileSetProducer `json:"input" yaml:"input"`
 	// Installation commands to run before the regular commands.
 	//
 	// For deployment engines that support it, install commands will be classified
 	// differently in the job history from the regular `commands`.
-	InstallCommands *[]*string `json:"installCommands"`
+	InstallCommands *[]*string `json:"installCommands" yaml:"installCommands"`
 	// The directory that will contain the primary output fileset.
 	//
 	// After running the script, the contents of the given directory
 	// will be treated as the primary output of this Step.
-	PrimaryOutputDirectory *string `json:"primaryOutputDirectory"`
+	PrimaryOutputDirectory *string `json:"primaryOutputDirectory" yaml:"primaryOutputDirectory"`
 }
 
 // An asset used by a Stack.
@@ -2632,20 +2632,20 @@ type ShellStepProps struct {
 //
 type StackAsset struct {
 	// Asset identifier.
-	AssetId *string `json:"assetId"`
+	AssetId *string `json:"assetId" yaml:"assetId"`
 	// Absolute asset manifest path.
 	//
 	// This needs to be made relative at a later point in time, but when this
 	// information is parsed we don't know about the root cloud assembly yet.
-	AssetManifestPath *string `json:"assetManifestPath"`
+	AssetManifestPath *string `json:"assetManifestPath" yaml:"assetManifestPath"`
 	// Asset selector to pass to `cdk-assets`.
-	AssetSelector *string `json:"assetSelector"`
+	AssetSelector *string `json:"assetSelector" yaml:"assetSelector"`
 	// Type of asset to publish.
-	AssetType AssetType `json:"assetType"`
+	AssetType AssetType `json:"assetType" yaml:"assetType"`
 	// Does this asset represent the CloudFormation template for the stack.
-	IsTemplate *bool `json:"isTemplate"`
+	IsTemplate *bool `json:"isTemplate" yaml:"isTemplate"`
 	// Role ARN to assume to publish.
-	AssetPublishingRoleArn *string `json:"assetPublishingRoleArn"`
+	AssetPublishingRoleArn *string `json:"assetPublishingRoleArn" yaml:"assetPublishingRoleArn"`
 }
 
 // Deployment of a single Stack.
@@ -2883,27 +2883,27 @@ func (s *jsiiProxy_StackDeployment) AddStackSteps(pre *[]Step, changeSet *[]Step
 //
 type StackDeploymentProps struct {
 	// Template path on disk to cloud assembly (cdk.out).
-	AbsoluteTemplatePath *string `json:"absoluteTemplatePath"`
+	AbsoluteTemplatePath *string `json:"absoluteTemplatePath" yaml:"absoluteTemplatePath"`
 	// Construct path for this stack.
-	ConstructPath *string `json:"constructPath"`
+	ConstructPath *string `json:"constructPath" yaml:"constructPath"`
 	// Artifact ID for this stack.
-	StackArtifactId *string `json:"stackArtifactId"`
+	StackArtifactId *string `json:"stackArtifactId" yaml:"stackArtifactId"`
 	// Name for this stack.
-	StackName *string `json:"stackName"`
+	StackName *string `json:"stackName" yaml:"stackName"`
 	// Account where the stack should be deployed.
-	Account *string `json:"account"`
+	Account *string `json:"account" yaml:"account"`
 	// Assets referenced by this stack.
-	Assets *[]*StackAsset `json:"assets"`
+	Assets *[]*StackAsset `json:"assets" yaml:"assets"`
 	// Role to assume before deploying this stack.
-	AssumeRoleArn *string `json:"assumeRoleArn"`
+	AssumeRoleArn *string `json:"assumeRoleArn" yaml:"assumeRoleArn"`
 	// Execution role to pass to CloudFormation.
-	ExecutionRoleArn *string `json:"executionRoleArn"`
+	ExecutionRoleArn *string `json:"executionRoleArn" yaml:"executionRoleArn"`
 	// Region where the stack should be deployed.
-	Region *string `json:"region"`
+	Region *string `json:"region" yaml:"region"`
 	// Tags to apply to the stack.
-	Tags *map[string]*string `json:"tags"`
+	Tags *map[string]*string `json:"tags" yaml:"tags"`
 	// The S3 URL which points to the template asset location in the publishing bucket.
-	TemplateS3Uri *string `json:"templateS3Uri"`
+	TemplateS3Uri *string `json:"templateS3Uri" yaml:"templateS3Uri"`
 }
 
 // A Reference to a Stack Output.
@@ -2978,13 +2978,13 @@ func (s *jsiiProxy_StackOutputReference) IsProducedBy(stack StackDeployment) *bo
 //
 type StackSteps struct {
 	// The stack you want the steps to run in.
-	Stack awscdk.Stack `json:"stack"`
+	Stack awscdk.Stack `json:"stack" yaml:"stack"`
 	// Steps that execute after stack is prepared but before stack is deployed.
-	ChangeSet *[]Step `json:"changeSet"`
+	ChangeSet *[]Step `json:"changeSet" yaml:"changeSet"`
 	// Steps that execute after stack is deployed.
-	Post *[]Step `json:"post"`
+	Post *[]Step `json:"post" yaml:"post"`
 	// Steps that execute before stack is prepared.
-	Pre *[]Step `json:"pre"`
+	Pre *[]Step `json:"pre" yaml:"pre"`
 }
 
 // Deployment of a single `Stage`.
@@ -3113,13 +3113,13 @@ func (s *jsiiProxy_StageDeployment) AddPre(steps ...Step) {
 //
 type StageDeploymentProps struct {
 	// Additional steps to run after all of the stacks in the stage.
-	Post *[]Step `json:"post"`
+	Post *[]Step `json:"post" yaml:"post"`
 	// Additional steps to run before any of the stacks in the stage.
-	Pre *[]Step `json:"pre"`
+	Pre *[]Step `json:"pre" yaml:"pre"`
 	// Instructions for additional steps that are run at the stack level.
-	StackSteps *[]*StackSteps `json:"stackSteps"`
+	StackSteps *[]*StackSteps `json:"stackSteps" yaml:"stackSteps"`
 	// Stage name to use in the pipeline.
-	StageName *string `json:"stageName"`
+	StageName *string `json:"stageName" yaml:"stageName"`
 }
 
 // A generic Step which can be added to a Pipeline.
@@ -3405,9 +3405,9 @@ func (w *jsiiProxy_Wave) AddStage(stage awscdk.Stage, options *AddStageOpts) Sta
 //
 type WaveOptions struct {
 	// Additional steps to run after all of the stages in the wave.
-	Post *[]Step `json:"post"`
+	Post *[]Step `json:"post" yaml:"post"`
 	// Additional steps to run before any of the stages in the wave.
-	Pre *[]Step `json:"pre"`
+	Pre *[]Step `json:"pre" yaml:"pre"`
 }
 
 // Construction properties for a `Wave`.
@@ -3416,8 +3416,8 @@ type WaveOptions struct {
 //
 type WaveProps struct {
 	// Additional steps to run after all of the stages in the wave.
-	Post *[]Step `json:"post"`
+	Post *[]Step `json:"post" yaml:"post"`
 	// Additional steps to run before any of the stages in the wave.
-	Pre *[]Step `json:"pre"`
+	Pre *[]Step `json:"pre" yaml:"pre"`
 }
 

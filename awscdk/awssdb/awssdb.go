@@ -489,6 +489,6 @@ func (c *jsiiProxy_CfnDomain) ValidateProperties(_properties interface{}) {
 //
 type CfnDomainProps struct {
 	// Information about the SimpleDB domain.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 }
 

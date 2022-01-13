@@ -33,15 +33,15 @@ type BundlingOptions struct {
 	// packaging, uploading to Amazon S3, etc. If you chose to customize the hash, you will
 	// need to make sure it is updated every time the asset changes, or otherwise it is
 	// possible that some deployments will not be invalidated.
-	AssetHash *string `json:"assetHash"`
+	AssetHash *string `json:"assetHash" yaml:"assetHash"`
 	// Use this to insert an arbitrary string at the beginning of generated JavaScript files.
 	//
 	// This is similar to footer which inserts at the end instead of the beginning.
 	//
 	// This is commonly used to insert comments:
-	Banner *string `json:"banner"`
+	Banner *string `json:"banner" yaml:"banner"`
 	// Build arguments to pass when building the bundling image.
-	BuildArgs *map[string]*string `json:"buildArgs"`
+	BuildArgs *map[string]*string `json:"buildArgs" yaml:"buildArgs"`
 	// The charset to use for esbuild's output.
 	//
 	// By default esbuild's output is ASCII-only. Any non-ASCII characters are escaped
@@ -50,15 +50,15 @@ type BundlingOptions struct {
 	// the original characters without using escape sequences, use `Charset.UTF8`.
 	// See: https://esbuild.github.io/api/#charset
 	//
-	Charset Charset `json:"charset"`
+	Charset Charset `json:"charset" yaml:"charset"`
 	// Command hooks.
-	CommandHooks ICommandHooks `json:"commandHooks"`
+	CommandHooks ICommandHooks `json:"commandHooks" yaml:"commandHooks"`
 	// Replace global identifiers with constant expressions.
 	//
 	// For example, `{ 'process.env.DEBUG': 'true' }`.
 	//
 	// Another example, `{ 'process.env.API_KEY': JSON.stringify('xxx-xxxx-xxx') }`.
-	Define *map[string]*string `json:"define"`
+	Define *map[string]*string `json:"define" yaml:"define"`
 	// A custom bundling Docker image.
 	//
 	// This image should have esbuild installed globally. If you plan to use `nodeModules`
@@ -66,27 +66,27 @@ type BundlingOptions struct {
 	//
 	// See https://github.com/aws/aws-cdk/blob/master/packages/%40aws-cdk/aws-lambda-nodejs/lib/Dockerfile
 	// for the default image provided by @aws-cdk/aws-lambda-nodejs.
-	DockerImage awscdk.DockerImage `json:"dockerImage"`
+	DockerImage awscdk.DockerImage `json:"dockerImage" yaml:"dockerImage"`
 	// Environment variables defined when bundling runs.
-	Environment *map[string]*string `json:"environment"`
+	Environment *map[string]*string `json:"environment" yaml:"environment"`
 	// The version of esbuild to use when running in a Docker container.
-	EsbuildVersion *string `json:"esbuildVersion"`
+	EsbuildVersion *string `json:"esbuildVersion" yaml:"esbuildVersion"`
 	// A list of modules that should be considered as externals (already available in the runtime).
-	ExternalModules *[]*string `json:"externalModules"`
+	ExternalModules *[]*string `json:"externalModules" yaml:"externalModules"`
 	// Use this to insert an arbitrary string at the end of generated JavaScript files.
 	//
 	// This is similar to banner which inserts at the beginning instead of the end.
 	//
 	// This is commonly used to insert comments
-	Footer *string `json:"footer"`
+	Footer *string `json:"footer" yaml:"footer"`
 	// Force bundling in a Docker container even if local bundling is possible.
 	//
 	// This is useful if your function relies on node modules
 	// that should be installed (`nodeModules`) in a Lambda compatible
 	// environment.
-	ForceDockerBundling *bool `json:"forceDockerBundling"`
+	ForceDockerBundling *bool `json:"forceDockerBundling" yaml:"forceDockerBundling"`
 	// Output format for the generated JavaScript files.
-	Format OutputFormat `json:"format"`
+	Format OutputFormat `json:"format" yaml:"format"`
 	// Whether to preserve the original `name` values even in minified code.
 	//
 	// In JavaScript the `name` property on functions and classes defaults to a
@@ -99,7 +99,7 @@ type BundlingOptions struct {
 	// frameworks rely on the `name` property for registration and binding purposes.
 	// If this is the case, you can enable this option to preserve the original
 	// `name` values even in minified code.
-	KeepNames *bool `json:"keepNames"`
+	KeepNames *bool `json:"keepNames" yaml:"keepNames"`
 	// Use loaders to change how a given input file is interpreted.
 	//
 	// Configuring a loader for a given file type lets you load that file type with
@@ -108,9 +108,9 @@ type BundlingOptions struct {
 	//
 	// For example, `{ '.png': 'dataurl' }`.
 	//
-	Loader *map[string]*string `json:"loader"`
+	Loader *map[string]*string `json:"loader" yaml:"loader"`
 	// Log level for esbuild.
-	LogLevel LogLevel `json:"logLevel"`
+	LogLevel LogLevel `json:"logLevel" yaml:"logLevel"`
 	// This option tells esbuild to write out a JSON file relative to output directory with metadata about the build.
 	//
 	// The metadata in this JSON file follows this schema (specified using TypeScript syntax):
@@ -134,35 +134,35 @@ type BundlingOptions struct {
 	// of the modules in your bundle and how much space each one takes up.
 	// See: https://esbuild.github.io/api/#metafile
 	//
-	Metafile *bool `json:"metafile"`
+	Metafile *bool `json:"metafile" yaml:"metafile"`
 	// Whether to minify files when bundling.
-	Minify *bool `json:"minify"`
+	Minify *bool `json:"minify" yaml:"minify"`
 	// A list of modules that should be installed instead of bundled.
 	//
 	// Modules are
 	// installed in a Lambda compatible environment only when bundling runs in
 	// Docker.
-	NodeModules *[]*string `json:"nodeModules"`
+	NodeModules *[]*string `json:"nodeModules" yaml:"nodeModules"`
 	// Run compilation using tsc before running file through bundling step.
 	//
 	// This usually is not required unless you are using new experimental features that
 	// are only supported by typescript's `tsc` compiler.
 	// One example of such feature is `emitDecoratorMetadata`.
-	PreCompilation *bool `json:"preCompilation"`
+	PreCompilation *bool `json:"preCompilation" yaml:"preCompilation"`
 	// Whether to include source maps when bundling.
-	SourceMap *bool `json:"sourceMap"`
+	SourceMap *bool `json:"sourceMap" yaml:"sourceMap"`
 	// Source map mode to be used when bundling.
 	// See: https://esbuild.github.io/api/#sourcemap
 	//
-	SourceMapMode SourceMapMode `json:"sourceMapMode"`
+	SourceMapMode SourceMapMode `json:"sourceMapMode" yaml:"sourceMapMode"`
 	// Whether to include original source code in source maps when bundling.
 	// See: https://esbuild.github.io/api/#sources-content
 	//
-	SourcesContent *bool `json:"sourcesContent"`
+	SourcesContent *bool `json:"sourcesContent" yaml:"sourcesContent"`
 	// Target environment for the generated JavaScript code.
 	// See: https://esbuild.github.io/api/#target
 	//
-	Target *string `json:"target"`
+	Target *string `json:"target" yaml:"target"`
 	// Normally the esbuild automatically discovers `tsconfig.json` files and reads their contents during a build.
 	//
 	// However, you can also configure a custom `tsconfig.json` file to use instead.
@@ -172,7 +172,7 @@ type BundlingOptions struct {
 	// This can be useful if you need to do multiple builds of the same code with different settings.
 	//
 	// For example, `{ 'tsconfig': 'path/custom.tsconfig.json' }`.
-	Tsconfig *string `json:"tsconfig"`
+	Tsconfig *string `json:"tsconfig" yaml:"tsconfig"`
 }
 
 // Charset for esbuild's output.
@@ -1004,102 +1004,102 @@ type NodejsFunctionProps struct {
 	//
 	// Minimum: 60 seconds
 	// Maximum: 6 hours
-	MaxEventAge awscdk.Duration `json:"maxEventAge"`
+	MaxEventAge awscdk.Duration `json:"maxEventAge" yaml:"maxEventAge"`
 	// The destination for failed invocations.
-	OnFailure awslambda.IDestination `json:"onFailure"`
+	OnFailure awslambda.IDestination `json:"onFailure" yaml:"onFailure"`
 	// The destination for successful invocations.
-	OnSuccess awslambda.IDestination `json:"onSuccess"`
+	OnSuccess awslambda.IDestination `json:"onSuccess" yaml:"onSuccess"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum: 0
 	// Maximum: 2
-	RetryAttempts *float64 `json:"retryAttempts"`
+	RetryAttempts *float64 `json:"retryAttempts" yaml:"retryAttempts"`
 	// Whether to allow the Lambda to send all network traffic.
 	//
 	// If set to false, you must individually add traffic rules to allow the
 	// Lambda to connect to network targets.
-	AllowAllOutbound *bool `json:"allowAllOutbound"`
+	AllowAllOutbound *bool `json:"allowAllOutbound" yaml:"allowAllOutbound"`
 	// Lambda Functions in a public subnet can NOT access the internet.
 	//
 	// Use this property to acknowledge this limitation and still place the function in a public subnet.
 	// See: https://stackoverflow.com/questions/52992085/why-cant-an-aws-lambda-function-inside-a-public-subnet-in-a-vpc-connect-to-the/52994841#52994841
 	//
-	AllowPublicSubnet *bool `json:"allowPublicSubnet"`
+	AllowPublicSubnet *bool `json:"allowPublicSubnet" yaml:"allowPublicSubnet"`
 	// The system architectures compatible with this lambda function.
-	Architecture awslambda.Architecture `json:"architecture"`
+	Architecture awslambda.Architecture `json:"architecture" yaml:"architecture"`
 	// Code signing config associated with this function.
-	CodeSigningConfig awslambda.ICodeSigningConfig `json:"codeSigningConfig"`
+	CodeSigningConfig awslambda.ICodeSigningConfig `json:"codeSigningConfig" yaml:"codeSigningConfig"`
 	// Options for the `lambda.Version` resource automatically created by the `fn.currentVersion` method.
-	CurrentVersionOptions *awslambda.VersionOptions `json:"currentVersionOptions"`
+	CurrentVersionOptions *awslambda.VersionOptions `json:"currentVersionOptions" yaml:"currentVersionOptions"`
 	// The SQS queue to use if DLQ is enabled.
-	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue"`
+	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// Enabled DLQ.
 	//
 	// If `deadLetterQueue` is undefined,
 	// an SQS queue with default options will be defined for your Function.
-	DeadLetterQueueEnabled *bool `json:"deadLetterQueueEnabled"`
+	DeadLetterQueueEnabled *bool `json:"deadLetterQueueEnabled" yaml:"deadLetterQueueEnabled"`
 	// A description of the function.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Key-value pairs that Lambda caches and makes available for your Lambda functions.
 	//
 	// Use environment variables to apply configuration changes, such
 	// as test and production environment configurations, without changing your
 	// Lambda function source code.
-	Environment *map[string]*string `json:"environment"`
+	Environment *map[string]*string `json:"environment" yaml:"environment"`
 	// The AWS KMS key that's used to encrypt your function's environment variables.
-	EnvironmentEncryption awskms.IKey `json:"environmentEncryption"`
+	EnvironmentEncryption awskms.IKey `json:"environmentEncryption" yaml:"environmentEncryption"`
 	// Event sources for this function.
 	//
 	// You can also add event sources using `addEventSource`.
-	Events *[]awslambda.IEventSource `json:"events"`
+	Events *[]awslambda.IEventSource `json:"events" yaml:"events"`
 	// The filesystem configuration for the lambda function.
-	Filesystem awslambda.FileSystem `json:"filesystem"`
+	Filesystem awslambda.FileSystem `json:"filesystem" yaml:"filesystem"`
 	// A name for the function.
-	FunctionName *string `json:"functionName"`
+	FunctionName *string `json:"functionName" yaml:"functionName"`
 	// Initial policy statements to add to the created Lambda Role.
 	//
 	// You can call `addToRolePolicy` to the created lambda to add statements post creation.
-	InitialPolicy *[]awsiam.PolicyStatement `json:"initialPolicy"`
+	InitialPolicy *[]awsiam.PolicyStatement `json:"initialPolicy" yaml:"initialPolicy"`
 	// Specify the version of CloudWatch Lambda insights to use for monitoring.
 	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Lambda-Insights-Getting-Started-docker.html
 	//
-	InsightsVersion awslambda.LambdaInsightsVersion `json:"insightsVersion"`
+	InsightsVersion awslambda.LambdaInsightsVersion `json:"insightsVersion" yaml:"insightsVersion"`
 	// A list of layers to add to the function's execution environment.
 	//
 	// You can configure your Lambda function to pull in
 	// additional code during initialization in the form of layers. Layers are packages of libraries or other dependencies
 	// that can be used by multiple functions.
-	Layers *[]awslambda.ILayerVersion `json:"layers"`
+	Layers *[]awslambda.ILayerVersion `json:"layers" yaml:"layers"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// When updating
 	// this property, unsetting it doesn't remove the log retention policy. To
 	// remove the retention policy, set the value to `INFINITE`.
-	LogRetention awslogs.RetentionDays `json:"logRetention"`
+	LogRetention awslogs.RetentionDays `json:"logRetention" yaml:"logRetention"`
 	// When log retention is specified, a custom resource attempts to create the CloudWatch log group.
 	//
 	// These options control the retry policy when interacting with CloudWatch APIs.
-	LogRetentionRetryOptions *awslambda.LogRetentionRetryOptions `json:"logRetentionRetryOptions"`
+	LogRetentionRetryOptions *awslambda.LogRetentionRetryOptions `json:"logRetentionRetryOptions" yaml:"logRetentionRetryOptions"`
 	// The IAM role for the Lambda function associated with the custom resource that sets the retention policy.
-	LogRetentionRole awsiam.IRole `json:"logRetentionRole"`
+	LogRetentionRole awsiam.IRole `json:"logRetentionRole" yaml:"logRetentionRole"`
 	// The amount of memory, in MB, that is allocated to your Lambda function.
 	//
 	// Lambda uses this value to proportionally allocate the amount of CPU
 	// power. For more information, see Resource Model in the AWS Lambda
 	// Developer Guide.
-	MemorySize *float64 `json:"memorySize"`
+	MemorySize *float64 `json:"memorySize" yaml:"memorySize"`
 	// Enable profiling.
 	// See: https://docs.aws.amazon.com/codeguru/latest/profiler-ug/setting-up-lambda.html
 	//
-	Profiling *bool `json:"profiling"`
+	Profiling *bool `json:"profiling" yaml:"profiling"`
 	// Profiling Group.
 	// See: https://docs.aws.amazon.com/codeguru/latest/profiler-ug/setting-up-lambda.html
 	//
-	ProfilingGroup awscodeguruprofiler.IProfilingGroup `json:"profilingGroup"`
+	ProfilingGroup awscodeguruprofiler.IProfilingGroup `json:"profilingGroup" yaml:"profilingGroup"`
 	// The maximum of concurrent executions you want to reserve for the function.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html
 	//
-	ReservedConcurrentExecutions *float64 `json:"reservedConcurrentExecutions"`
+	ReservedConcurrentExecutions *float64 `json:"reservedConcurrentExecutions" yaml:"reservedConcurrentExecutions"`
 	// Lambda execution role.
 	//
 	// This is the role that will be assumed by the function upon execution.
@@ -1111,36 +1111,36 @@ type NodejsFunctionProps struct {
 	//
 	// The relevant managed policies are "service-role/AWSLambdaBasicExecutionRole" and
 	// "service-role/AWSLambdaVPCAccessExecutionRole".
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 	// The list of security groups to associate with the Lambda's network interfaces.
 	//
 	// Only used if 'vpc' is supplied.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// The function execution time (in seconds) after which Lambda terminates the function.
 	//
 	// Because the execution time affects cost, set this value
 	// based on the function's expected execution time.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// Enable AWS X-Ray Tracing for Lambda Function.
-	Tracing awslambda.Tracing `json:"tracing"`
+	Tracing awslambda.Tracing `json:"tracing" yaml:"tracing"`
 	// VPC network to place Lambda network interfaces.
 	//
 	// Specify this if the Lambda function needs to access resources in a VPC.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// Where to place the network interfaces within the VPC.
 	//
 	// Only used if 'vpc' is supplied. Note: internet access for Lambdas
 	// requires a NAT gateway, so picking Public subnets is not allowed.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 	// Whether to automatically reuse TCP connections when working with the AWS SDK for JavaScript.
 	//
 	// This sets the `AWS_NODEJS_CONNECTION_REUSE_ENABLED` environment variable
 	// to `1`.
 	// See: https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/node-reusing-connections.html
 	//
-	AwsSdkConnectionReuse *bool `json:"awsSdkConnectionReuse"`
+	AwsSdkConnectionReuse *bool `json:"awsSdkConnectionReuse" yaml:"awsSdkConnectionReuse"`
 	// Bundling options.
-	Bundling *BundlingOptions `json:"bundling"`
+	Bundling *BundlingOptions `json:"bundling" yaml:"bundling"`
 	// The path to the dependencies lock file (`yarn.lock` or `package-lock.json`).
 	//
 	// This will be used as the source for the volume mounted in the Docker
@@ -1148,18 +1148,18 @@ type NodejsFunctionProps struct {
 	//
 	// Modules specified in `nodeModules` will be installed using the right
 	// installer (`npm` or `yarn`) along with this lock file.
-	DepsLockFilePath *string `json:"depsLockFilePath"`
+	DepsLockFilePath *string `json:"depsLockFilePath" yaml:"depsLockFilePath"`
 	// Path to the entry file (JavaScript or TypeScript).
-	Entry *string `json:"entry"`
+	Entry *string `json:"entry" yaml:"entry"`
 	// The name of the exported handler in the entry file.
-	Handler *string `json:"handler"`
+	Handler *string `json:"handler" yaml:"handler"`
 	// The path to the directory containing project config files (`package.json` or `tsconfig.json`).
-	ProjectRoot *string `json:"projectRoot"`
+	ProjectRoot *string `json:"projectRoot" yaml:"projectRoot"`
 	// The runtime environment.
 	//
 	// Only runtimes of the Node.js family are
 	// supported.
-	Runtime awslambda.Runtime `json:"runtime"`
+	Runtime awslambda.Runtime `json:"runtime" yaml:"runtime"`
 }
 
 // Output format for the generated JavaScript files.

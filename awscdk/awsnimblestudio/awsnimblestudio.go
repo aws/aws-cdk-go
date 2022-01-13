@@ -629,15 +629,15 @@ func (c *jsiiProxy_CfnLaunchProfile) ValidateProperties(_properties interface{})
 //
 type CfnLaunchProfile_StreamConfigurationProperty struct {
 	// Enable or disable the use of the system clipboard to copy and paste between the streaming session and streaming client.
-	ClipboardMode *string `json:"clipboardMode"`
+	ClipboardMode *string `json:"clipboardMode" yaml:"clipboardMode"`
 	// The EC2 instance types that users can select from when launching a streaming session with this launch profile.
-	Ec2InstanceTypes *[]*string `json:"ec2InstanceTypes"`
+	Ec2InstanceTypes *[]*string `json:"ec2InstanceTypes" yaml:"ec2InstanceTypes"`
 	// The streaming images that users can select from when launching a streaming session with this launch profile.
-	StreamingImageIds *[]*string `json:"streamingImageIds"`
+	StreamingImageIds *[]*string `json:"streamingImageIds" yaml:"streamingImageIds"`
 	// The length of time, in minutes, that a streaming session can be active before it is stopped or terminated.
 	//
 	// After this point, Nimble Studio automatically terminates or stops the session. The default length of time is 690 minutes, and the maximum length of time is 30 days.
-	MaxSessionLengthInMinutes *float64 `json:"maxSessionLengthInMinutes"`
+	MaxSessionLengthInMinutes *float64 `json:"maxSessionLengthInMinutes" yaml:"maxSessionLengthInMinutes"`
 }
 
 // Properties for defining a `CfnLaunchProfile`.
@@ -646,27 +646,27 @@ type CfnLaunchProfile_StreamConfigurationProperty struct {
 //
 type CfnLaunchProfileProps struct {
 	// Unique identifiers for a collection of EC2 subnets.
-	Ec2SubnetIds *[]*string `json:"ec2SubnetIds"`
+	Ec2SubnetIds *[]*string `json:"ec2SubnetIds" yaml:"ec2SubnetIds"`
 	// The version number of the protocol that is used by the launch profile.
 	//
 	// The only valid version is "2021-03-31".
-	LaunchProfileProtocolVersions *[]*string `json:"launchProfileProtocolVersions"`
+	LaunchProfileProtocolVersions *[]*string `json:"launchProfileProtocolVersions" yaml:"launchProfileProtocolVersions"`
 	// A friendly name for the launch profile.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// A configuration for a streaming session.
-	StreamConfiguration interface{} `json:"streamConfiguration"`
+	StreamConfiguration interface{} `json:"streamConfiguration" yaml:"streamConfiguration"`
 	// Unique identifiers for a collection of studio components that can be used with this launch profile.
-	StudioComponentIds *[]*string `json:"studioComponentIds"`
+	StudioComponentIds *[]*string `json:"studioComponentIds" yaml:"studioComponentIds"`
 	// The unique identifier for a studio resource.
 	//
 	// In Nimble Studio , all other resources are contained in a studio resource.
-	StudioId *string `json:"studioId"`
+	StudioId *string `json:"studioId" yaml:"studioId"`
 	// A human-readable description of the launch profile.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *map[string]*string `json:"tags"`
+	Tags *map[string]*string `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::NimbleStudio::StreamingImage`.
@@ -1262,19 +1262,19 @@ func (c *jsiiProxy_CfnStreamingImage) ValidateProperties(_properties interface{}
 //
 type CfnStreamingImageProps struct {
 	// The ID of an EC2 machine image with which to create the streaming image.
-	Ec2ImageId *string `json:"ec2ImageId"`
+	Ec2ImageId *string `json:"ec2ImageId" yaml:"ec2ImageId"`
 	// A friendly name for a streaming image resource.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The unique identifier for a studio resource.
 	//
 	// In Nimble Studio , all other resources are contained in a studio resource.
-	StudioId *string `json:"studioId"`
+	StudioId *string `json:"studioId" yaml:"studioId"`
 	// A human-readable description of the streaming image.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *map[string]*string `json:"tags"`
+	Tags *map[string]*string `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::NimbleStudio::Studio`.
@@ -1894,9 +1894,9 @@ func (c *jsiiProxy_CfnStudio) ValidateProperties(_properties interface{}) {
 //
 type CfnStudio_StudioEncryptionConfigurationProperty struct {
 	// The type of KMS key that is used to encrypt studio data.
-	KeyType *string `json:"keyType"`
+	KeyType *string `json:"keyType" yaml:"keyType"`
 	// The ARN for a KMS key that is used to encrypt studio data.
-	KeyArn *string `json:"keyArn"`
+	KeyArn *string `json:"keyArn" yaml:"keyArn"`
 }
 
 // A CloudFormation `AWS::NimbleStudio::StudioComponent`.
@@ -2563,9 +2563,9 @@ func (c *jsiiProxy_CfnStudioComponent) ValidateProperties(_properties interface{
 //
 type CfnStudioComponent_ActiveDirectoryComputerAttributeProperty struct {
 	// The name for the LDAP attribute.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The value for the LDAP attribute.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // The configuration for a Microsoft Active Directory (Microsoft AD) studio resource.
@@ -2574,11 +2574,11 @@ type CfnStudioComponent_ActiveDirectoryComputerAttributeProperty struct {
 //
 type CfnStudioComponent_ActiveDirectoryConfigurationProperty struct {
 	// A collection of custom attributes for an Active Directory computer.
-	ComputerAttributes interface{} `json:"computerAttributes"`
+	ComputerAttributes interface{} `json:"computerAttributes" yaml:"computerAttributes"`
 	// The directory ID of the Directory Service for Microsoft Active Directory to access using this studio component.
-	DirectoryId *string `json:"directoryId"`
+	DirectoryId *string `json:"directoryId" yaml:"directoryId"`
 	// The distinguished name (DN) and organizational unit (OU) of an Active Directory computer.
-	OrganizationalUnitDistinguishedName *string `json:"organizationalUnitDistinguishedName"`
+	OrganizationalUnitDistinguishedName *string `json:"organizationalUnitDistinguishedName" yaml:"organizationalUnitDistinguishedName"`
 }
 
 // The configuration for a render farm that is associated with a studio resource.
@@ -2587,9 +2587,9 @@ type CfnStudioComponent_ActiveDirectoryConfigurationProperty struct {
 //
 type CfnStudioComponent_ComputeFarmConfigurationProperty struct {
 	// The name of an Active Directory user that is used on ComputeFarm worker instances.
-	ActiveDirectoryUser *string `json:"activeDirectoryUser"`
+	ActiveDirectoryUser *string `json:"activeDirectoryUser" yaml:"activeDirectoryUser"`
 	// The endpoint of the ComputeFarm that is accessed by the studio component resource.
-	Endpoint *string `json:"endpoint"`
+	Endpoint *string `json:"endpoint" yaml:"endpoint"`
 }
 
 // The configuration for a license service that is associated with a studio resource.
@@ -2598,7 +2598,7 @@ type CfnStudioComponent_ComputeFarmConfigurationProperty struct {
 //
 type CfnStudioComponent_LicenseServiceConfigurationProperty struct {
 	// The endpoint of the license service that is accessed by the studio component resource.
-	Endpoint *string `json:"endpoint"`
+	Endpoint *string `json:"endpoint" yaml:"endpoint"`
 }
 
 // A parameter for a studio component script, in the form of a key:value pair.
@@ -2607,9 +2607,9 @@ type CfnStudioComponent_LicenseServiceConfigurationProperty struct {
 //
 type CfnStudioComponent_ScriptParameterKeyValueProperty struct {
 	// A script parameter key.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// A script parameter value.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // The configuration for a shared file storage system that is associated with a studio resource.
@@ -2618,15 +2618,15 @@ type CfnStudioComponent_ScriptParameterKeyValueProperty struct {
 //
 type CfnStudioComponent_SharedFileSystemConfigurationProperty struct {
 	// The endpoint of the shared file system that is accessed by the studio component resource.
-	Endpoint *string `json:"endpoint"`
+	Endpoint *string `json:"endpoint" yaml:"endpoint"`
 	// The unique identifier for a file system.
-	FileSystemId *string `json:"fileSystemId"`
+	FileSystemId *string `json:"fileSystemId" yaml:"fileSystemId"`
 	// The mount location for a shared file system on a Linux virtual workstation.
-	LinuxMountPoint *string `json:"linuxMountPoint"`
+	LinuxMountPoint *string `json:"linuxMountPoint" yaml:"linuxMountPoint"`
 	// The name of the file share.
-	ShareName *string `json:"shareName"`
+	ShareName *string `json:"shareName" yaml:"shareName"`
 	// The mount location for a shared file system on a Windows virtual workstation.
-	WindowsMountDrive *string `json:"windowsMountDrive"`
+	WindowsMountDrive *string `json:"windowsMountDrive" yaml:"windowsMountDrive"`
 }
 
 // The configuration of the studio component, based on component type.
@@ -2635,13 +2635,13 @@ type CfnStudioComponent_SharedFileSystemConfigurationProperty struct {
 //
 type CfnStudioComponent_StudioComponentConfigurationProperty struct {
 	// The configuration for a Microsoft Active Directory (Microsoft AD) studio resource.
-	ActiveDirectoryConfiguration interface{} `json:"activeDirectoryConfiguration"`
+	ActiveDirectoryConfiguration interface{} `json:"activeDirectoryConfiguration" yaml:"activeDirectoryConfiguration"`
 	// The configuration for a render farm that is associated with a studio resource.
-	ComputeFarmConfiguration interface{} `json:"computeFarmConfiguration"`
+	ComputeFarmConfiguration interface{} `json:"computeFarmConfiguration" yaml:"computeFarmConfiguration"`
 	// The configuration for a license service that is associated with a studio resource.
-	LicenseServiceConfiguration interface{} `json:"licenseServiceConfiguration"`
+	LicenseServiceConfiguration interface{} `json:"licenseServiceConfiguration" yaml:"licenseServiceConfiguration"`
 	// The configuration for a shared file storage system that is associated with a studio resource.
-	SharedFileSystemConfiguration interface{} `json:"sharedFileSystemConfiguration"`
+	SharedFileSystemConfiguration interface{} `json:"sharedFileSystemConfiguration" yaml:"sharedFileSystemConfiguration"`
 }
 
 // Initialization scripts for studio components.
@@ -2652,13 +2652,13 @@ type CfnStudioComponent_StudioComponentInitializationScriptProperty struct {
 	// The version number of the protocol that is used by the launch profile.
 	//
 	// The only valid version is "2021-03-31".
-	LaunchProfileProtocolVersion *string `json:"launchProfileProtocolVersion"`
+	LaunchProfileProtocolVersion *string `json:"launchProfileProtocolVersion" yaml:"launchProfileProtocolVersion"`
 	// The platform of the initialization script, either WINDOWS or LINUX.
-	Platform *string `json:"platform"`
+	Platform *string `json:"platform" yaml:"platform"`
 	// The method to use when running the initialization script.
-	RunContext *string `json:"runContext"`
+	RunContext *string `json:"runContext" yaml:"runContext"`
 	// The initialization script.
-	Script *string `json:"script"`
+	Script *string `json:"script" yaml:"script"`
 }
 
 // Properties for defining a `CfnStudioComponent`.
@@ -2667,29 +2667,29 @@ type CfnStudioComponent_StudioComponentInitializationScriptProperty struct {
 //
 type CfnStudioComponentProps struct {
 	// A friendly name for the studio component resource.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The unique identifier for a studio resource.
 	//
 	// In Nimble Studio , all other resources are contained in a studio resource.
-	StudioId *string `json:"studioId"`
+	StudioId *string `json:"studioId" yaml:"studioId"`
 	// The type of the studio component.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// The configuration of the studio component, based on component type.
-	Configuration interface{} `json:"configuration"`
+	Configuration interface{} `json:"configuration" yaml:"configuration"`
 	// A human-readable description for the studio component resource.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The EC2 security groups that control access to the studio component.
-	Ec2SecurityGroupIds *[]*string `json:"ec2SecurityGroupIds"`
+	Ec2SecurityGroupIds *[]*string `json:"ec2SecurityGroupIds" yaml:"ec2SecurityGroupIds"`
 	// Initialization scripts for studio components.
-	InitializationScripts interface{} `json:"initializationScripts"`
+	InitializationScripts interface{} `json:"initializationScripts" yaml:"initializationScripts"`
 	// Parameters for the studio component scripts.
-	ScriptParameters interface{} `json:"scriptParameters"`
+	ScriptParameters interface{} `json:"scriptParameters" yaml:"scriptParameters"`
 	// The specific subtype of a studio component.
-	Subtype *string `json:"subtype"`
+	Subtype *string `json:"subtype" yaml:"subtype"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *map[string]*string `json:"tags"`
+	Tags *map[string]*string `json:"tags" yaml:"tags"`
 }
 
 // Properties for defining a `CfnStudio`.
@@ -2698,18 +2698,18 @@ type CfnStudioComponentProps struct {
 //
 type CfnStudioProps struct {
 	// The IAM role that studio admins assume when logging in to the Nimble Studio portal.
-	AdminRoleArn *string `json:"adminRoleArn"`
+	AdminRoleArn *string `json:"adminRoleArn" yaml:"adminRoleArn"`
 	// A friendly name for the studio.
-	DisplayName *string `json:"displayName"`
+	DisplayName *string `json:"displayName" yaml:"displayName"`
 	// The name of the studio, as included in the URL when accessing it in the Nimble Studio portal.
-	StudioName *string `json:"studioName"`
+	StudioName *string `json:"studioName" yaml:"studioName"`
 	// The IAM role that studio users assume when logging in to the Nimble Studio portal.
-	UserRoleArn *string `json:"userRoleArn"`
+	UserRoleArn *string `json:"userRoleArn" yaml:"userRoleArn"`
 	// Configuration of the encryption method that is used for the studio.
-	StudioEncryptionConfiguration interface{} `json:"studioEncryptionConfiguration"`
+	StudioEncryptionConfiguration interface{} `json:"studioEncryptionConfiguration" yaml:"studioEncryptionConfiguration"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *map[string]*string `json:"tags"`
+	Tags *map[string]*string `json:"tags" yaml:"tags"`
 }
 

@@ -540,9 +540,9 @@ func (c *jsiiProxy_CfnDevice) ValidateProperties(_properties interface{}) {
 //
 type CfnDeviceProps struct {
 	// The ID of the device, such as `G030PX0312744DWM` .
-	DeviceId *string `json:"deviceId"`
+	DeviceId *string `json:"deviceId" yaml:"deviceId"`
 	// A Boolean value indicating whether the device is enabled ( `true` ) or not ( `false` ).
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 }
 
 // A CloudFormation `AWS::IoT1Click::Placement`.
@@ -1105,13 +1105,13 @@ func (c *jsiiProxy_CfnPlacement) ValidateProperties(_properties interface{}) {
 //
 type CfnPlacementProps struct {
 	// The name of the project containing the placement.
-	ProjectName *string `json:"projectName"`
+	ProjectName *string `json:"projectName" yaml:"projectName"`
 	// The devices to associate with the placement, as defined by a mapping of zero or more key-value pairs wherein the key is a template name and the value is a device ID.
-	AssociatedDevices interface{} `json:"associatedDevices"`
+	AssociatedDevices interface{} `json:"associatedDevices" yaml:"associatedDevices"`
 	// The user-defined attributes associated with the placement.
-	Attributes interface{} `json:"attributes"`
+	Attributes interface{} `json:"attributes" yaml:"attributes"`
 	// The name of the placement.
-	PlacementName *string `json:"placementName"`
+	PlacementName *string `json:"placementName" yaml:"placementName"`
 }
 
 // A CloudFormation `AWS::IoT1Click::Project`.
@@ -1656,9 +1656,9 @@ func (c *jsiiProxy_CfnProject) ValidateProperties(_properties interface{}) {
 //
 type CfnProject_DeviceTemplateProperty struct {
 	// An optional AWS Lambda function to invoke instead of the default AWS Lambda function provided by the placement template.
-	CallbackOverrides interface{} `json:"callbackOverrides"`
+	CallbackOverrides interface{} `json:"callbackOverrides" yaml:"callbackOverrides"`
 	// The device type, which currently must be `"button"` .
-	DeviceType *string `json:"deviceType"`
+	DeviceType *string `json:"deviceType" yaml:"deviceType"`
 }
 
 // In AWS CloudFormation , use the `PlacementTemplate` property type to define the template for an AWS IoT 1-Click project.
@@ -1669,9 +1669,9 @@ type CfnProject_DeviceTemplateProperty struct {
 //
 type CfnProject_PlacementTemplateProperty struct {
 	// The default attributes (key-value pairs) to be applied to all placements using this template.
-	DefaultAttributes interface{} `json:"defaultAttributes"`
+	DefaultAttributes interface{} `json:"defaultAttributes" yaml:"defaultAttributes"`
 	// An object specifying the [DeviceTemplate](https://docs.aws.amazon.com/iot-1-click/latest/projects-apireference/API_DeviceTemplate.html) for all placements using this ( [PlacementTemplate](https://docs.aws.amazon.com/iot-1-click/latest/projects-apireference/API_PlacementTemplate.html) ) template.
-	DeviceTemplates interface{} `json:"deviceTemplates"`
+	DeviceTemplates interface{} `json:"deviceTemplates" yaml:"deviceTemplates"`
 }
 
 // Properties for defining a `CfnProject`.
@@ -1680,10 +1680,10 @@ type CfnProject_PlacementTemplateProperty struct {
 //
 type CfnProjectProps struct {
 	// An object describing the project's placement specifications.
-	PlacementTemplate interface{} `json:"placementTemplate"`
+	PlacementTemplate interface{} `json:"placementTemplate" yaml:"placementTemplate"`
 	// The description of the project.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The name of the project from which to obtain information.
-	ProjectName *string `json:"projectName"`
+	ProjectName *string `json:"projectName" yaml:"projectName"`
 }
 

@@ -567,17 +567,17 @@ func (c *jsiiProxy_CfnProfilePermission) ValidateProperties(_properties interfac
 //
 type CfnProfilePermissionProps struct {
 	// The AWS Signer action permitted as part of cross-account permissions.
-	Action *string `json:"action"`
+	Action *string `json:"action" yaml:"action"`
 	// The AWS principal receiving cross-account permissions.
 	//
 	// This may be an IAM role or another AWS account ID.
-	Principal *string `json:"principal"`
+	Principal *string `json:"principal" yaml:"principal"`
 	// The human-readable name of the signing profile.
-	ProfileName *string `json:"profileName"`
+	ProfileName *string `json:"profileName" yaml:"profileName"`
 	// A unique identifier for the cross-account permission statement.
-	StatementId *string `json:"statementId"`
+	StatementId *string `json:"statementId" yaml:"statementId"`
 	// The version of the signing profile.
-	ProfileVersion *string `json:"profileVersion"`
+	ProfileVersion *string `json:"profileVersion" yaml:"profileVersion"`
 }
 
 // A CloudFormation `AWS::Signer::SigningProfile`.
@@ -1133,9 +1133,9 @@ func (c *jsiiProxy_CfnSigningProfile) ValidateProperties(_properties interface{}
 //
 type CfnSigningProfile_SignatureValidityPeriodProperty struct {
 	// The time unit for signature validity: DAYS | MONTHS | YEARS.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// The numerical value of the time unit for signature validity.
-	Value *float64 `json:"value"`
+	Value *float64 `json:"value" yaml:"value"`
 }
 
 // Properties for defining a `CfnSigningProfile`.
@@ -1144,13 +1144,13 @@ type CfnSigningProfile_SignatureValidityPeriodProperty struct {
 //
 type CfnSigningProfileProps struct {
 	// The ID of a platform that is available for use by a signing profile.
-	PlatformId *string `json:"platformId"`
+	PlatformId *string `json:"platformId" yaml:"platformId"`
 	// The validity period override for any signature generated using this signing profile.
 	//
 	// If unspecified, the default is 135 months.
-	SignatureValidityPeriod interface{} `json:"signatureValidityPeriod"`
+	SignatureValidityPeriod interface{} `json:"signatureValidityPeriod" yaml:"signatureValidityPeriod"`
 	// A list of tags associated with the signing profile.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A Signer Profile.
@@ -1552,9 +1552,9 @@ func (s *jsiiProxy_SigningProfile) ToString() *string {
 //
 type SigningProfileAttributes struct {
 	// The name of signing profile.
-	SigningProfileName *string `json:"signingProfileName"`
+	SigningProfileName *string `json:"signingProfileName" yaml:"signingProfileName"`
 	// The version of signing profile.
-	SigningProfileVersion *string `json:"signingProfileVersion"`
+	SigningProfileVersion *string `json:"signingProfileVersion" yaml:"signingProfileVersion"`
 }
 
 // Construction properties for a Signing Profile object.
@@ -1565,10 +1565,10 @@ type SigningProfileProps struct {
 	// The Signing Platform available for signing profile.
 	// See: https://docs.aws.amazon.com/signer/latest/developerguide/gs-platform.html
 	//
-	Platform Platform `json:"platform"`
+	Platform Platform `json:"platform" yaml:"platform"`
 	// The validity period for signatures generated using this signing profile.
-	SignatureValidity awscdk.Duration `json:"signatureValidity"`
+	SignatureValidity awscdk.Duration `json:"signatureValidity" yaml:"signatureValidity"`
 	// Physical name of this Signing Profile.
-	SigningProfileName *string `json:"signingProfileName"`
+	SigningProfileName *string `json:"signingProfileName" yaml:"signingProfileName"`
 }
 

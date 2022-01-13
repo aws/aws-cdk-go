@@ -641,13 +641,13 @@ type CfnFirewallDomainListProps struct {
 	// The fully qualified URL or URI of the file stored in Amazon Simple Storage Service (Amazon S3) that contains the list of domains to import.
 	//
 	// The file must be in an S3 bucket that's in the same Region as your DNS Firewall. The file must be a text file and must contain a single domain per line.
-	DomainFileUrl *string `json:"domainFileUrl"`
+	DomainFileUrl *string `json:"domainFileUrl" yaml:"domainFileUrl"`
 	// A list of the domain lists that you have defined.
-	Domains *[]*string `json:"domains"`
+	Domains *[]*string `json:"domains" yaml:"domains"`
 	// The name of the domain list.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// A list of the tag keys and values that you want to associate with the domain list.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Route53Resolver::FirewallRuleGroup`.
@@ -1278,31 +1278,31 @@ type CfnFirewallRuleGroup_FirewallRuleProperty struct {
 	// - `BlockOverrideDnsType`
 	// - `BlockOverrideDomain`
 	// - `BlockOverrideTtl`
-	Action *string `json:"action"`
+	Action *string `json:"action" yaml:"action"`
 	// The ID of the domain list that's used in the rule.
-	FirewallDomainListId *string `json:"firewallDomainListId"`
+	FirewallDomainListId *string `json:"firewallDomainListId" yaml:"firewallDomainListId"`
 	// The priority of the rule in the rule group.
 	//
 	// This value must be unique within the rule group. DNS Firewall processes the rules in a rule group by order of priority, starting from the lowest setting.
-	Priority *float64 `json:"priority"`
+	Priority *float64 `json:"priority" yaml:"priority"`
 	// The DNS record's type.
 	//
 	// This determines the format of the record value that you provided in `BlockOverrideDomain` . Used for the rule action `BLOCK` with a `BlockResponse` setting of `OVERRIDE` .
-	BlockOverrideDnsType *string `json:"blockOverrideDnsType"`
+	BlockOverrideDnsType *string `json:"blockOverrideDnsType" yaml:"blockOverrideDnsType"`
 	// The custom DNS record to send back in response to the query.
 	//
 	// Used for the rule action `BLOCK` with a `BlockResponse` setting of `OVERRIDE` .
-	BlockOverrideDomain *string `json:"blockOverrideDomain"`
+	BlockOverrideDomain *string `json:"blockOverrideDomain" yaml:"blockOverrideDomain"`
 	// The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record.
 	//
 	// Used for the rule action `BLOCK` with a `BlockResponse` setting of `OVERRIDE` .
-	BlockOverrideTtl *float64 `json:"blockOverrideTtl"`
+	BlockOverrideTtl *float64 `json:"blockOverrideTtl" yaml:"blockOverrideTtl"`
 	// The way that you want DNS Firewall to block the request. Used for the rule action setting `BLOCK` .
 	//
 	// - `NODATA` - Respond indicating that the query was successful, but no response is available for it.
 	// - `NXDOMAIN` - Respond indicating that the domain name that's in the query doesn't exist.
 	// - `OVERRIDE` - Provide a custom override in the response. This option requires custom handling details in the rule's `BlockOverride*` settings.
-	BlockResponse *string `json:"blockResponse"`
+	BlockResponse *string `json:"blockResponse" yaml:"blockResponse"`
 }
 
 // A CloudFormation `AWS::Route53Resolver::FirewallRuleGroupAssociation`.
@@ -1962,7 +1962,7 @@ func (c *jsiiProxy_CfnFirewallRuleGroupAssociation) ValidateProperties(_properti
 //
 type CfnFirewallRuleGroupAssociationProps struct {
 	// The unique identifier of the firewall rule group.
-	FirewallRuleGroupId *string `json:"firewallRuleGroupId"`
+	FirewallRuleGroupId *string `json:"firewallRuleGroupId" yaml:"firewallRuleGroupId"`
 	// The setting that determines the processing order of the rule group among the rule groups that are associated with a single VPC.
 	//
 	// DNS Firewall filters VPC traffic starting from rule group with the lowest numeric priority setting.
@@ -1970,15 +1970,15 @@ type CfnFirewallRuleGroupAssociationProps struct {
 	// You must specify a unique priority for each rule group that you associate with a single VPC. To make it easier to insert rule groups later, leave space between the numbers, for example, use 101, 200, and so on. You can change the priority setting for a rule group association after you create it.
 	//
 	// The allowed values for `Priority` are between 100 and 9900.
-	Priority *float64 `json:"priority"`
+	Priority *float64 `json:"priority" yaml:"priority"`
 	// The unique identifier of the VPC that is associated with the rule group.
-	VpcId *string `json:"vpcId"`
+	VpcId *string `json:"vpcId" yaml:"vpcId"`
 	// If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections.
-	MutationProtection *string `json:"mutationProtection"`
+	MutationProtection *string `json:"mutationProtection" yaml:"mutationProtection"`
 	// The name of the association.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// A list of the tag keys and values that you want to associate with the rule group.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // Properties for defining a `CfnFirewallRuleGroup`.
@@ -1987,11 +1987,11 @@ type CfnFirewallRuleGroupAssociationProps struct {
 //
 type CfnFirewallRuleGroupProps struct {
 	// A list of the rules that you have defined.
-	FirewallRules interface{} `json:"firewallRules"`
+	FirewallRules interface{} `json:"firewallRules" yaml:"firewallRules"`
 	// The name of the rule group.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// A list of the tag keys and values that you want to associate with the rule group.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Route53Resolver::ResolverConfig`.
@@ -2527,9 +2527,9 @@ type CfnResolverConfigProps struct {
 	// Represents the desired status of `AutodefinedReverse` .
 	//
 	// The only supported value on creation is `DISABLE` . Deletion of this resource will return `AutodefinedReverse` to its default value of `ENABLED` .
-	AutodefinedReverseFlag *string `json:"autodefinedReverseFlag"`
+	AutodefinedReverseFlag *string `json:"autodefinedReverseFlag" yaml:"autodefinedReverseFlag"`
 	// The ID of the Amazon Virtual Private Cloud VPC that you're configuring Resolver for.
-	ResourceId *string `json:"resourceId"`
+	ResourceId *string `json:"resourceId" yaml:"resourceId"`
 }
 
 // A CloudFormation `AWS::Route53Resolver::ResolverDNSSECConfig`.
@@ -3043,7 +3043,7 @@ func (c *jsiiProxy_CfnResolverDNSSECConfig) ValidateProperties(_properties inter
 //
 type CfnResolverDNSSECConfigProps struct {
 	// The ID of the virtual private cloud (VPC) that you're configuring the DNSSEC validation status for.
-	ResourceId *string `json:"resourceId"`
+	ResourceId *string `json:"resourceId" yaml:"resourceId"`
 }
 
 // A CloudFormation `AWS::Route53Resolver::ResolverEndpoint`.
@@ -3664,9 +3664,9 @@ func (c *jsiiProxy_CfnResolverEndpoint) ValidateProperties(_properties interface
 //
 type CfnResolverEndpoint_IpAddressRequestProperty struct {
 	// The ID of the subnet that contains the IP address.
-	SubnetId *string `json:"subnetId"`
+	SubnetId *string `json:"subnetId" yaml:"subnetId"`
 	// The IP address that you want to use for DNS queries.
-	Ip *string `json:"ip"`
+	Ip *string `json:"ip" yaml:"ip"`
 }
 
 // Properties for defining a `CfnResolverEndpoint`.
@@ -3678,19 +3678,19 @@ type CfnResolverEndpointProps struct {
 	//
 	// - `INBOUND` : allows DNS queries to your VPC from your network
 	// - `OUTBOUND` : allows DNS queries from your VPC to your network
-	Direction *string `json:"direction"`
+	Direction *string `json:"direction" yaml:"direction"`
 	// The subnets and IP addresses in your VPC that DNS queries originate from (for outbound endpoints) or that you forward DNS queries to (for inbound endpoints).
 	//
 	// The subnet ID uniquely identifies a VPC.
-	IpAddresses interface{} `json:"ipAddresses"`
+	IpAddresses interface{} `json:"ipAddresses" yaml:"ipAddresses"`
 	// The ID of one or more security groups that control access to this VPC.
 	//
 	// The security group must include one or more inbound rules (for inbound endpoints) or outbound rules (for outbound endpoints). Inbound and outbound rules must allow TCP and UDP access. For inbound access, open port 53. For outbound access, open the port that you're using for DNS queries on your network.
-	SecurityGroupIds *[]*string `json:"securityGroupIds"`
+	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
 	// A friendly name that lets you easily find a configuration in the Resolver dashboard in the Route 53 console.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// Route 53 Resolver doesn't support updating tags through CloudFormation.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Route53Resolver::ResolverQueryLoggingConfig`.
@@ -4826,9 +4826,9 @@ func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) ValidateProperties(
 //
 type CfnResolverQueryLoggingConfigAssociationProps struct {
 	// The ID of the query logging configuration that a VPC is associated with.
-	ResolverQueryLogConfigId *string `json:"resolverQueryLogConfigId"`
+	ResolverQueryLogConfigId *string `json:"resolverQueryLogConfigId" yaml:"resolverQueryLogConfigId"`
 	// The ID of the Amazon VPC that is associated with the query logging configuration.
-	ResourceId *string `json:"resourceId"`
+	ResourceId *string `json:"resourceId" yaml:"resourceId"`
 }
 
 // Properties for defining a `CfnResolverQueryLoggingConfig`.
@@ -4837,9 +4837,9 @@ type CfnResolverQueryLoggingConfigAssociationProps struct {
 //
 type CfnResolverQueryLoggingConfigProps struct {
 	// The ARN of the resource that you want Resolver to send query logs: an Amazon S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream.
-	DestinationArn *string `json:"destinationArn"`
+	DestinationArn *string `json:"destinationArn" yaml:"destinationArn"`
 	// The name of the query logging configuration.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // A CloudFormation `AWS::Route53Resolver::ResolverRule`.
@@ -5479,9 +5479,9 @@ type CfnResolverRule_TargetAddressProperty struct {
 	// One IP address that you want to forward DNS queries to.
 	//
 	// You can specify only IPv4 addresses.
-	Ip *string `json:"ip"`
+	Ip *string `json:"ip" yaml:"ip"`
 	// The port at `Ip` that you want to forward DNS queries to.
-	Port *string `json:"port"`
+	Port *string `json:"port" yaml:"port"`
 }
 
 // A CloudFormation `AWS::Route53Resolver::ResolverRuleAssociation`.
@@ -6046,11 +6046,11 @@ func (c *jsiiProxy_CfnResolverRuleAssociation) ValidateProperties(_properties in
 //
 type CfnResolverRuleAssociationProps struct {
 	// The ID of the Resolver rule that you associated with the VPC that is specified by `VPCId` .
-	ResolverRuleId *string `json:"resolverRuleId"`
+	ResolverRuleId *string `json:"resolverRuleId" yaml:"resolverRuleId"`
 	// The ID of the VPC that you associated the Resolver rule with.
-	VpcId *string `json:"vpcId"`
+	VpcId *string `json:"vpcId" yaml:"vpcId"`
 	// The name of an association between a Resolver rule and a VPC.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // Properties for defining a `CfnResolverRule`.
@@ -6061,7 +6061,7 @@ type CfnResolverRuleProps struct {
 	// DNS queries for this domain name are forwarded to the IP addresses that are specified in `TargetIps` .
 	//
 	// If a query matches multiple Resolver rules (example.com and www.example.com), the query is routed using the Resolver rule that contains the most specific domain name (www.example.com).
-	DomainName *string `json:"domainName"`
+	DomainName *string `json:"domainName" yaml:"domainName"`
 	// When you want to forward DNS queries for specified domain name to resolvers on your network, specify `FORWARD` .
 	//
 	// When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for a subdomain of that domain, specify `SYSTEM` .
@@ -6069,16 +6069,16 @@ type CfnResolverRuleProps struct {
 	// For example, to forward DNS queries for example.com to resolvers on your network, you create a rule and specify `FORWARD` for `RuleType` . To then have Resolver process queries for apex.example.com, you create a rule and specify `SYSTEM` for `RuleType` .
 	//
 	// Currently, only Resolver can create rules that have a value of `RECURSIVE` for `RuleType` .
-	RuleType *string `json:"ruleType"`
+	RuleType *string `json:"ruleType" yaml:"ruleType"`
 	// The name for the Resolver rule, which you specified when you created the Resolver rule.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The ID of the endpoint that the rule is associated with.
-	ResolverEndpointId *string `json:"resolverEndpointId"`
+	ResolverEndpointId *string `json:"resolverEndpointId" yaml:"resolverEndpointId"`
 	// Route 53 Resolver doesn't support updating tags through CloudFormation.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// An array that contains the IP addresses and ports that an outbound endpoint forwards DNS queries to.
 	//
 	// Typically, these are the IP addresses of DNS resolvers on your network. Specify IPv4 addresses. IPv6 is not supported.
-	TargetIps interface{} `json:"targetIps"`
+	TargetIps interface{} `json:"targetIps" yaml:"targetIps"`
 }
 

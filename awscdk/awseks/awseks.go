@@ -127,20 +127,20 @@ func (a *jsiiProxy_AlbController) ToString() *string {
 //
 type AlbControllerOptions struct {
 	// Version of the controller.
-	Version AlbControllerVersion `json:"version"`
+	Version AlbControllerVersion `json:"version" yaml:"version"`
 	// The IAM policy to apply to the service account.
 	//
 	// If you're using one of the built-in versions, this is not required since
 	// CDK ships with the appropriate policies for those versions.
 	//
 	// However, if you are using a custom version, this is required (and validated).
-	Policy interface{} `json:"policy"`
+	Policy interface{} `json:"policy" yaml:"policy"`
 	// The repository to pull the controller image from.
 	//
 	// Note that the default repository works for most regions, but not all.
 	// If the repository is not applicable to your region, use a custom repository
 	// according to the information here: https://github.com/kubernetes-sigs/aws-load-balancer-controller/releases.
-	Repository *string `json:"repository"`
+	Repository *string `json:"repository" yaml:"repository"`
 }
 
 // Properties for `AlbController`.
@@ -149,22 +149,22 @@ type AlbControllerOptions struct {
 //
 type AlbControllerProps struct {
 	// Version of the controller.
-	Version AlbControllerVersion `json:"version"`
+	Version AlbControllerVersion `json:"version" yaml:"version"`
 	// The IAM policy to apply to the service account.
 	//
 	// If you're using one of the built-in versions, this is not required since
 	// CDK ships with the appropriate policies for those versions.
 	//
 	// However, if you are using a custom version, this is required (and validated).
-	Policy interface{} `json:"policy"`
+	Policy interface{} `json:"policy" yaml:"policy"`
 	// The repository to pull the controller image from.
 	//
 	// Note that the default repository works for most regions, but not all.
 	// If the repository is not applicable to your region, use a custom repository
 	// according to the information here: https://github.com/kubernetes-sigs/aws-load-balancer-controller/releases.
-	Repository *string `json:"repository"`
+	Repository *string `json:"repository" yaml:"repository"`
 	// [disable-awslint:ref-via-interface] Cluster to install the controller onto.
-	Cluster Cluster `json:"cluster"`
+	Cluster Cluster `json:"cluster" yaml:"cluster"`
 }
 
 // Controller version.
@@ -382,13 +382,13 @@ const (
 //
 type AutoScalingGroupCapacityOptions struct {
 	// Whether the instances can initiate connections to anywhere by default.
-	AllowAllOutbound *bool `json:"allowAllOutbound"`
+	AllowAllOutbound *bool `json:"allowAllOutbound" yaml:"allowAllOutbound"`
 	// Whether instances in the Auto Scaling Group should have public IP addresses associated with them.
-	AssociatePublicIpAddress *bool `json:"associatePublicIpAddress"`
+	AssociatePublicIpAddress *bool `json:"associatePublicIpAddress" yaml:"associatePublicIpAddress"`
 	// The name of the Auto Scaling group.
 	//
 	// This name must be unique per Region per account.
-	AutoScalingGroupName *string `json:"autoScalingGroupName"`
+	AutoScalingGroupName *string `json:"autoScalingGroupName" yaml:"autoScalingGroupName"`
 	// Specifies how block devices are exposed to the instance. You can specify virtual devices and EBS volumes.
 	//
 	// Each instance that is launched has an associated root device volume,
@@ -397,23 +397,23 @@ type AutoScalingGroupCapacityOptions struct {
 	// instance store volumes to attach to an instance when it is launched.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html
 	//
-	BlockDevices *[]*awsautoscaling.BlockDevice `json:"blockDevices"`
+	BlockDevices *[]*awsautoscaling.BlockDevice `json:"blockDevices" yaml:"blockDevices"`
 	// Default scaling cooldown for this AutoScalingGroup.
-	Cooldown awscdk.Duration `json:"cooldown"`
+	Cooldown awscdk.Duration `json:"cooldown" yaml:"cooldown"`
 	// Initial amount of instances in the fleet.
 	//
 	// If this is set to a number, every deployment will reset the amount of
 	// instances to this number. It is recommended to leave this value blank.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-desiredcapacity
 	//
-	DesiredCapacity *float64 `json:"desiredCapacity"`
+	DesiredCapacity *float64 `json:"desiredCapacity" yaml:"desiredCapacity"`
 	// Enable monitoring for group metrics, these metrics describe the group rather than any of its instances.
 	//
 	// To report all group metrics use `GroupMetrics.all()`
 	// Group metrics are reported in a granularity of 1 minute at no additional charge.
-	GroupMetrics *[]awsautoscaling.GroupMetrics `json:"groupMetrics"`
+	GroupMetrics *[]awsautoscaling.GroupMetrics `json:"groupMetrics" yaml:"groupMetrics"`
 	// Configuration for health checks.
-	HealthCheck awsautoscaling.HealthCheck `json:"healthCheck"`
+	HealthCheck awsautoscaling.HealthCheck `json:"healthCheck" yaml:"healthCheck"`
 	// If the ASG has scheduled actions, don't reset unchanged group sizes.
 	//
 	// Only used if the ASG has scheduled actions (which may scale your ASG up
@@ -421,18 +421,18 @@ type AutoScalingGroupCapacityOptions struct {
 	// will only be reset if it has been changed in the CDK app. If false, the
 	// sizes will always be changed back to what they were in the CDK app
 	// on deployment.
-	IgnoreUnmodifiedSizeProperties *bool `json:"ignoreUnmodifiedSizeProperties"`
+	IgnoreUnmodifiedSizeProperties *bool `json:"ignoreUnmodifiedSizeProperties" yaml:"ignoreUnmodifiedSizeProperties"`
 	// Controls whether instances in this group are launched with detailed or basic monitoring.
 	//
 	// When detailed monitoring is enabled, Amazon CloudWatch generates metrics every minute and your account
 	// is charged a fee. When you disable detailed monitoring, CloudWatch generates metrics every 5 minutes.
 	// See: https://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-monitoring.html#enable-as-instance-metrics
 	//
-	InstanceMonitoring awsautoscaling.Monitoring `json:"instanceMonitoring"`
+	InstanceMonitoring awsautoscaling.Monitoring `json:"instanceMonitoring" yaml:"instanceMonitoring"`
 	// Name of SSH keypair to grant access to instances.
-	KeyName *string `json:"keyName"`
+	KeyName *string `json:"keyName" yaml:"keyName"`
 	// Maximum number of instances in the fleet.
-	MaxCapacity *float64 `json:"maxCapacity"`
+	MaxCapacity *float64 `json:"maxCapacity" yaml:"maxCapacity"`
 	// The maximum amount of time that an instance can be in service.
 	//
 	// The maximum duration applies
@@ -443,9 +443,9 @@ type AutoScalingGroupCapacityOptions struct {
 	// leave this property undefined.
 	// See: https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html
 	//
-	MaxInstanceLifetime awscdk.Duration `json:"maxInstanceLifetime"`
+	MaxInstanceLifetime awscdk.Duration `json:"maxInstanceLifetime" yaml:"maxInstanceLifetime"`
 	// Minimum number of instances in the fleet.
-	MinCapacity *float64 `json:"minCapacity"`
+	MinCapacity *float64 `json:"minCapacity" yaml:"minCapacity"`
 	// Whether newly-launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in.
 	//
 	// By default, Auto Scaling can terminate an instance at any time after launch
@@ -456,11 +456,11 @@ type AutoScalingGroupCapacityOptions struct {
 	//
 	// This flag must be enabled if the Auto Scaling Group will be associated with
 	// an ECS Capacity Provider with managed termination protection.
-	NewInstancesProtectedFromScaleIn *bool `json:"newInstancesProtectedFromScaleIn"`
+	NewInstancesProtectedFromScaleIn *bool `json:"newInstancesProtectedFromScaleIn" yaml:"newInstancesProtectedFromScaleIn"`
 	// Configure autoscaling group to send notifications about fleet changes to an SNS topic(s).
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-notificationconfigurations
 	//
-	Notifications *[]*awsautoscaling.NotificationConfiguration `json:"notifications"`
+	Notifications *[]*awsautoscaling.NotificationConfiguration `json:"notifications" yaml:"notifications"`
 	// Configure waiting for signals during deployment.
 	//
 	// Use this to pause the CloudFormation deployment to wait for the instances
@@ -478,18 +478,18 @@ type AutoScalingGroupCapacityOptions struct {
 	// command in the Auto Scaling rolling updates sample template:
 	//
 	// https://github.com/awslabs/aws-cloudformation-templates/blob/master/aws/services/AutoScaling/AutoScalingRollingUpdates.yaml
-	Signals awsautoscaling.Signals `json:"signals"`
+	Signals awsautoscaling.Signals `json:"signals" yaml:"signals"`
 	// The maximum hourly price (in USD) to be paid for any Spot Instance launched to fulfill the request.
 	//
 	// Spot Instances are
 	// launched when the price you specify exceeds the current Spot market price.
-	SpotPrice *string `json:"spotPrice"`
+	SpotPrice *string `json:"spotPrice" yaml:"spotPrice"`
 	// A policy or a list of policies that are used to select the instances to terminate.
 	//
 	// The policies are executed in the order that you list them.
 	// See: https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html
 	//
-	TerminationPolicies *[]awsautoscaling.TerminationPolicy `json:"terminationPolicies"`
+	TerminationPolicies *[]awsautoscaling.TerminationPolicy `json:"terminationPolicies" yaml:"terminationPolicies"`
 	// What to do when an AutoScalingGroup's instance configuration is changed.
 	//
 	// This is applied when any of the settings on the ASG are changed that
@@ -497,28 +497,28 @@ type AutoScalingGroupCapacityOptions struct {
 	// scripts, etc.). It indicates how the existing instances should be
 	// replaced with new instances matching the new config. By default, nothing
 	// is done and only new instances are launched with the new config.
-	UpdatePolicy awsautoscaling.UpdatePolicy `json:"updatePolicy"`
+	UpdatePolicy awsautoscaling.UpdatePolicy `json:"updatePolicy" yaml:"updatePolicy"`
 	// Where to place instances within the VPC.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 	// Instance type of the instances to start.
-	InstanceType awsec2.InstanceType `json:"instanceType"`
+	InstanceType awsec2.InstanceType `json:"instanceType" yaml:"instanceType"`
 	// Configures the EC2 user-data script for instances in this autoscaling group to bootstrap the node (invoke `/etc/eks/bootstrap.sh`) and associate it with the EKS cluster.
 	//
 	// If you wish to provide a custom user data script, set this to `false` and
 	// manually invoke `autoscalingGroup.addUserData()`.
-	BootstrapEnabled *bool `json:"bootstrapEnabled"`
+	BootstrapEnabled *bool `json:"bootstrapEnabled" yaml:"bootstrapEnabled"`
 	// EKS node bootstrapping options.
-	BootstrapOptions *BootstrapOptions `json:"bootstrapOptions"`
+	BootstrapOptions *BootstrapOptions `json:"bootstrapOptions" yaml:"bootstrapOptions"`
 	// Machine image type.
-	MachineImageType MachineImageType `json:"machineImageType"`
+	MachineImageType MachineImageType `json:"machineImageType" yaml:"machineImageType"`
 	// Will automatically update the aws-auth ConfigMap to map the IAM instance role to RBAC.
 	//
 	// This cannot be explicitly set to `true` if the cluster has kubectl disabled.
-	MapRole *bool `json:"mapRole"`
+	MapRole *bool `json:"mapRole" yaml:"mapRole"`
 	// Installs the AWS spot instance interrupt handler on the cluster if it's not already added.
 	//
 	// Only relevant if `spotPrice` is used.
-	SpotInterruptHandler *bool `json:"spotInterruptHandler"`
+	SpotInterruptHandler *bool `json:"spotInterruptHandler" yaml:"spotInterruptHandler"`
 }
 
 // Options for adding an AutoScalingGroup as capacity.
@@ -530,19 +530,19 @@ type AutoScalingGroupOptions struct {
 	//
 	// If you wish to provide a custom user data script, set this to `false` and
 	// manually invoke `autoscalingGroup.addUserData()`.
-	BootstrapEnabled *bool `json:"bootstrapEnabled"`
+	BootstrapEnabled *bool `json:"bootstrapEnabled" yaml:"bootstrapEnabled"`
 	// Allows options for node bootstrapping through EC2 user data.
-	BootstrapOptions *BootstrapOptions `json:"bootstrapOptions"`
+	BootstrapOptions *BootstrapOptions `json:"bootstrapOptions" yaml:"bootstrapOptions"`
 	// Allow options to specify different machine image type.
-	MachineImageType MachineImageType `json:"machineImageType"`
+	MachineImageType MachineImageType `json:"machineImageType" yaml:"machineImageType"`
 	// Will automatically update the aws-auth ConfigMap to map the IAM instance role to RBAC.
 	//
 	// This cannot be explicitly set to `true` if the cluster has kubectl disabled.
-	MapRole *bool `json:"mapRole"`
+	MapRole *bool `json:"mapRole" yaml:"mapRole"`
 	// Installs the AWS spot instance interrupt handler on the cluster if it's not already added.
 	//
 	// Only relevant if `spotPrice` is configured on the auto-scaling group.
-	SpotInterruptHandler *bool `json:"spotInterruptHandler"`
+	SpotInterruptHandler *bool `json:"spotInterruptHandler" yaml:"spotInterruptHandler"`
 }
 
 // Manages mapping between IAM users and roles to Kubernetes RBAC configuration.
@@ -678,9 +678,9 @@ type AwsAuthMapping struct {
 	// A list of groups within Kubernetes to which the role is mapped.
 	// See: https://kubernetes.io/docs/reference/access-authn-authz/rbac/#default-roles-and-role-bindings
 	//
-	Groups *[]*string `json:"groups"`
+	Groups *[]*string `json:"groups" yaml:"groups"`
 	// The user name within Kubernetes to map to the IAM role.
-	Username *string `json:"username"`
+	Username *string `json:"username" yaml:"username"`
 }
 
 // Configuration props for the AwsAuth construct.
@@ -691,7 +691,7 @@ type AwsAuthProps struct {
 	// The EKS cluster to apply this configuration to.
 	//
 	// [disable-awslint:ref-via-interface]
-	Cluster Cluster `json:"cluster"`
+	Cluster Cluster `json:"cluster" yaml:"cluster"`
 }
 
 // EKS node bootstrapping options.
@@ -702,21 +702,21 @@ type BootstrapOptions struct {
 	// Additional command line arguments to pass to the `/etc/eks/bootstrap.sh` command.
 	// See: https://github.com/awslabs/amazon-eks-ami/blob/master/files/bootstrap.sh
 	//
-	AdditionalArgs *string `json:"additionalArgs"`
+	AdditionalArgs *string `json:"additionalArgs" yaml:"additionalArgs"`
 	// Number of retry attempts for AWS API call (DescribeCluster).
-	AwsApiRetryAttempts *float64 `json:"awsApiRetryAttempts"`
+	AwsApiRetryAttempts *float64 `json:"awsApiRetryAttempts" yaml:"awsApiRetryAttempts"`
 	// Overrides the IP address to use for DNS queries within the cluster.
-	DnsClusterIp *string `json:"dnsClusterIp"`
+	DnsClusterIp *string `json:"dnsClusterIp" yaml:"dnsClusterIp"`
 	// The contents of the `/etc/docker/daemon.json` file. Useful if you want a custom config differing from the default one in the EKS AMI.
-	DockerConfigJson *string `json:"dockerConfigJson"`
+	DockerConfigJson *string `json:"dockerConfigJson" yaml:"dockerConfigJson"`
 	// Restores the docker default bridge network.
-	EnableDockerBridge *bool `json:"enableDockerBridge"`
+	EnableDockerBridge *bool `json:"enableDockerBridge" yaml:"enableDockerBridge"`
 	// Extra arguments to add to the kubelet. Useful for adding labels or taints.
 	//
 	// For example, `--node-labels foo=bar,goo=far`.
-	KubeletExtraArgs *string `json:"kubeletExtraArgs"`
+	KubeletExtraArgs *string `json:"kubeletExtraArgs" yaml:"kubeletExtraArgs"`
 	// Sets `--max-pods` for the kubelet based on the capacity of the EC2 instance.
-	UseMaxPods *bool `json:"useMaxPods"`
+	UseMaxPods *bool `json:"useMaxPods" yaml:"useMaxPods"`
 }
 
 // Capacity type of the managed node group.
@@ -1312,23 +1312,23 @@ func (c *jsiiProxy_CfnAddon) ValidateProperties(_properties interface{}) {
 //
 type CfnAddonProps struct {
 	// The name of the add-on.
-	AddonName *string `json:"addonName"`
+	AddonName *string `json:"addonName" yaml:"addonName"`
 	// The name of the cluster.
-	ClusterName *string `json:"clusterName"`
+	ClusterName *string `json:"clusterName" yaml:"clusterName"`
 	// The version of the add-on.
-	AddonVersion *string `json:"addonVersion"`
+	AddonVersion *string `json:"addonVersion" yaml:"addonVersion"`
 	// How to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on.
-	ResolveConflicts *string `json:"resolveConflicts"`
+	ResolveConflicts *string `json:"resolveConflicts" yaml:"resolveConflicts"`
 	// The Amazon Resource Name (ARN) of an existing IAM role to bind to the add-on's service account.
 	//
 	// The role must be assigned the IAM permissions required by the add-on. If you don't specify an existing IAM role, then the add-on uses the permissions assigned to the node IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html) in the *Amazon EKS User Guide* .
 	//
 	// > To specify an existing IAM role, you must have an IAM OpenID Connect (OIDC) provider created for your cluster. For more information, see [Enabling IAM roles for service accounts on your cluster](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html) in the *Amazon EKS User Guide* .
-	ServiceAccountRoleArn *string `json:"serviceAccountRoleArn"`
+	ServiceAccountRoleArn *string `json:"serviceAccountRoleArn" yaml:"serviceAccountRoleArn"`
 	// The metadata that you apply to the add-on to assist with categorization and organization.
 	//
 	// Each tag consists of a key and an optional value, both of which you define. Add-on tags do not propagate to any other resources associated with the cluster.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::EKS::Cluster`.
@@ -2029,7 +2029,7 @@ type CfnCluster_ClusterLoggingProperty struct {
 	// The enabled control plane logs for your cluster. All log types are disabled if the array is empty.
 	//
 	// > When updating a resource, you must include this `EnabledTypes` property if the previous CloudFormation template of the resource had it.
-	EnabledTypes interface{} `json:"enabledTypes"`
+	EnabledTypes interface{} `json:"enabledTypes" yaml:"enabledTypes"`
 }
 
 // The encryption configuration for the cluster.
@@ -2038,11 +2038,11 @@ type CfnCluster_ClusterLoggingProperty struct {
 //
 type CfnCluster_EncryptionConfigProperty struct {
 	// The encryption provider for the cluster.
-	Provider interface{} `json:"provider"`
+	Provider interface{} `json:"provider" yaml:"provider"`
 	// Specifies the resources to be encrypted.
 	//
 	// The only supported value is "secrets".
-	Resources *[]*string `json:"resources"`
+	Resources *[]*string `json:"resources" yaml:"resources"`
 }
 
 // The Kubernetes network configuration for the cluster.
@@ -2055,7 +2055,7 @@ type CfnCluster_KubernetesNetworkConfigProperty struct {
 	// If you don't specify a value, `ipv4` is used by default. You can only specify an IP family when you create a cluster and can't change this value once the cluster is created. If you specify `ipv6` , the VPC and subnets that you specify for cluster creation must have both IPv4 and IPv6 CIDR blocks assigned to them.
 	//
 	// You can only specify `ipv6` for 1.21 and later clusters that use version 1.10.1 or later of the Amazon VPC CNI add-on. If you specify `ipv6` , then ensure that your VPC meets the requirements listed in the considerations listed in [Assigning IPv6 addresses to Pods and Services](https://docs.aws.amazon.com/eks/latest/userguide/cni-ipv6.html) in the Amazon EKS User Guide. Kubernetes assigns Services IPv6 addresses from the unique local address range (fc00::/7). You can't specify a custom IPv6 CIDR block. Pod addresses are assigned from the subnet's IPv6 CIDR.
-	IpFamily *string `json:"ipFamily"`
+	IpFamily *string `json:"ipFamily" yaml:"ipFamily"`
 	// Don't specify a value if you select `ipv6` for *ipFamily* .
 	//
 	// The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. The block must meet the following requirements:
@@ -2065,9 +2065,9 @@ type CfnCluster_KubernetesNetworkConfigProperty struct {
 	// - Between /24 and /12.
 	//
 	// > You can only specify a custom CIDR block when you create a cluster and can't change this value once the cluster is created.
-	ServiceIpv4Cidr *string `json:"serviceIpv4Cidr"`
+	ServiceIpv4Cidr *string `json:"serviceIpv4Cidr" yaml:"serviceIpv4Cidr"`
 	// The CIDR block that Kubernetes Pod and Service IP addresses are assigned from if you created a 1.21 or later cluster with version 1.10.1 or later of the Amazon VPC CNI add-on and specified `ipv6` for *ipFamily* when you created the cluster. Kubernetes assigns Service addresses from the unique local address range ( `fc00::/7` ) because you can't specify a custom IPv6 CIDR block when you create the cluster.
-	ServiceIpv6Cidr *string `json:"serviceIpv6Cidr"`
+	ServiceIpv6Cidr *string `json:"serviceIpv6Cidr" yaml:"serviceIpv6Cidr"`
 }
 
 // Enable or disable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs.
@@ -2080,7 +2080,7 @@ type CfnCluster_KubernetesNetworkConfigProperty struct {
 //
 type CfnCluster_LoggingProperty struct {
 	// The cluster control plane logging configuration for your cluster.
-	ClusterLogging interface{} `json:"clusterLogging"`
+	ClusterLogging interface{} `json:"clusterLogging" yaml:"clusterLogging"`
 }
 
 // The enabled logging type.
@@ -2091,7 +2091,7 @@ type CfnCluster_LoggingProperty struct {
 //
 type CfnCluster_LoggingTypeConfigProperty struct {
 	// The name of the log type.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 }
 
 // An object representing the VPC configuration to use for an Amazon EKS cluster.
@@ -2108,19 +2108,19 @@ type CfnCluster_ResourcesVpcConfigProperty struct {
 	// Specify subnets for your Amazon EKS nodes.
 	//
 	// Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your nodes and the Kubernetes control plane.
-	SubnetIds *[]*string `json:"subnetIds"`
+	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
 	// Set this value to `true` to enable private access for your cluster's Kubernetes API server endpoint.
 	//
 	// If you enable private access, Kubernetes API requests from within your cluster's VPC use the private VPC endpoint. The default value for this parameter is `false` , which disables private access for your Kubernetes API server. If you disable private access and you have nodes or AWS Fargate pods in the cluster, then ensure that `publicAccessCidrs` includes the necessary CIDR blocks for communication with the nodes or Fargate pods. For more information, see [Amazon EKS cluster endpoint access control](https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html) in the **Amazon EKS User Guide** .
-	EndpointPrivateAccess interface{} `json:"endpointPrivateAccess"`
+	EndpointPrivateAccess interface{} `json:"endpointPrivateAccess" yaml:"endpointPrivateAccess"`
 	// Set this value to `false` to disable public access to your cluster's Kubernetes API server endpoint.
 	//
 	// If you disable public access, your cluster's Kubernetes API server can only receive requests from within the cluster VPC. The default value for this parameter is `true` , which enables public access for your Kubernetes API server. For more information, see [Amazon EKS cluster endpoint access control](https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html) in the **Amazon EKS User Guide** .
-	EndpointPublicAccess interface{} `json:"endpointPublicAccess"`
+	EndpointPublicAccess interface{} `json:"endpointPublicAccess" yaml:"endpointPublicAccess"`
 	// The CIDR blocks that are allowed access to your cluster's public Kubernetes API server endpoint.
 	//
 	// Communication to the endpoint from addresses outside of the CIDR blocks that you specify is denied. The default value is `0.0.0.0/0` . If you've disabled private endpoint access and you have nodes or AWS Fargate pods in the cluster, then ensure that you specify the necessary CIDR blocks. For more information, see [Amazon EKS cluster endpoint access control](https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html) in the **Amazon EKS User Guide** .
-	PublicAccessCidrs *[]*string `json:"publicAccessCidrs"`
+	PublicAccessCidrs *[]*string `json:"publicAccessCidrs" yaml:"publicAccessCidrs"`
 	// Specify one or more security groups for the cross-account elastic network interfaces that Amazon EKS creates to use that allow communication between your nodes and the Kubernetes control plane.
 	//
 	// If you don't specify any security groups, then familiarize yourself with the difference between Amazon EKS defaults for clusters deployed with Kubernetes:
@@ -2129,7 +2129,7 @@ type CfnCluster_ResourcesVpcConfigProperty struct {
 	// - 1.14 Amazon EKS platform version `eks.3` and later
 	//
 	// For more information, see [Amazon EKS security group considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the **Amazon EKS User Guide** .
-	SecurityGroupIds *[]*string `json:"securityGroupIds"`
+	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
 }
 
 // Properties for defining a `CfnCluster`.
@@ -2142,29 +2142,29 @@ type CfnClusterProps struct {
 	// Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the *Amazon EKS User Guide* . You must specify at least two subnets. You can specify up to five security groups, but we recommend that you use a dedicated security group for your cluster control plane.
 	//
 	// > Updates require replacement of the `SecurityGroupIds` and `SubnetIds` sub-properties.
-	ResourcesVpcConfig interface{} `json:"resourcesVpcConfig"`
+	ResourcesVpcConfig interface{} `json:"resourcesVpcConfig" yaml:"resourcesVpcConfig"`
 	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
 	//
 	// For more information, see [Amazon EKS Service IAM Role](https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html) in the **Amazon EKS User Guide** .
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// The encryption configuration for the cluster.
-	EncryptionConfig interface{} `json:"encryptionConfig"`
+	EncryptionConfig interface{} `json:"encryptionConfig" yaml:"encryptionConfig"`
 	// The Kubernetes network configuration for the cluster.
-	KubernetesNetworkConfig interface{} `json:"kubernetesNetworkConfig"`
+	KubernetesNetworkConfig interface{} `json:"kubernetesNetworkConfig" yaml:"kubernetesNetworkConfig"`
 	// The logging configuration for your cluster.
-	Logging interface{} `json:"logging"`
+	Logging interface{} `json:"logging" yaml:"logging"`
 	// The unique name to give to your cluster.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The metadata that you apply to the cluster to assist with categorization and organization.
 	//
 	// Each tag consists of a key and an optional value, both of which you define. Cluster tags don't propagate to any other resources associated with the cluster.
 	//
 	// > You must have the `eks:TagResource` and `eks:UntagResource` permissions in your IAM user or IAM role used to manage the CloudFormation stack. If you don't have these permissions, there might be unexpected behavior with stack-level tags propagating to the resource during resource creation and update.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// The desired Kubernetes version for your cluster.
 	//
 	// If you don't specify a value here, the latest version available in Amazon EKS is used.
-	Version *string `json:"version"`
+	Version *string `json:"version" yaml:"version"`
 }
 
 // A CloudFormation `AWS::EKS::FargateProfile`.
@@ -2757,9 +2757,9 @@ func (c *jsiiProxy_CfnFargateProfile) ValidateProperties(_properties interface{}
 //
 type CfnFargateProfile_LabelProperty struct {
 	// Enter a key.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// Enter a value.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // An object representing an AWS Fargate profile selector.
@@ -2768,11 +2768,11 @@ type CfnFargateProfile_LabelProperty struct {
 //
 type CfnFargateProfile_SelectorProperty struct {
 	// The Kubernetes namespace that the selector should match.
-	Namespace *string `json:"namespace"`
+	Namespace *string `json:"namespace" yaml:"namespace"`
 	// The Kubernetes labels that the selector should match.
 	//
 	// A pod must contain all of the labels that are specified in the selector for it to be considered a match.
-	Labels interface{} `json:"labels"`
+	Labels interface{} `json:"labels" yaml:"labels"`
 }
 
 // Properties for defining a `CfnFargateProfile`.
@@ -2781,25 +2781,25 @@ type CfnFargateProfile_SelectorProperty struct {
 //
 type CfnFargateProfileProps struct {
 	// The name of the Amazon EKS cluster to apply the Fargate profile to.
-	ClusterName *string `json:"clusterName"`
+	ClusterName *string `json:"clusterName" yaml:"clusterName"`
 	// The Amazon Resource Name (ARN) of the pod execution role to use for pods that match the selectors in the Fargate profile.
 	//
 	// The pod execution role allows Fargate infrastructure to register with your cluster as a node, and it provides read access to Amazon ECR image repositories. For more information, see [Pod Execution Role](https://docs.aws.amazon.com/eks/latest/userguide/pod-execution-role.html) in the *Amazon EKS User Guide* .
-	PodExecutionRoleArn *string `json:"podExecutionRoleArn"`
+	PodExecutionRoleArn *string `json:"podExecutionRoleArn" yaml:"podExecutionRoleArn"`
 	// The selectors to match for pods to use this Fargate profile.
 	//
 	// Each selector must have an associated namespace. Optionally, you can also specify labels for a namespace. You may specify up to five selectors in a Fargate profile.
-	Selectors interface{} `json:"selectors"`
+	Selectors interface{} `json:"selectors" yaml:"selectors"`
 	// The name of the Fargate profile.
-	FargateProfileName *string `json:"fargateProfileName"`
+	FargateProfileName *string `json:"fargateProfileName" yaml:"fargateProfileName"`
 	// The IDs of subnets to launch your pods into.
 	//
 	// At this time, pods running on Fargate are not assigned public IP addresses, so only private subnets (with no direct route to an Internet Gateway) are accepted for this parameter.
-	Subnets *[]*string `json:"subnets"`
+	Subnets *[]*string `json:"subnets" yaml:"subnets"`
 	// The metadata to apply to the Fargate profile to assist with categorization and organization.
 	//
 	// Each tag consists of a key and an optional value. You define both. Fargate profile tags do not propagate to any other resources associated with the Fargate profile, such as the pods that are scheduled with it.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::EKS::Nodegroup`.
@@ -3650,13 +3650,13 @@ func (c *jsiiProxy_CfnNodegroup) ValidateProperties(_properties interface{}) {
 //
 type CfnNodegroup_LaunchTemplateSpecificationProperty struct {
 	// The ID of the launch template.
-	Id *string `json:"id"`
+	Id *string `json:"id" yaml:"id"`
 	// The name of the launch template.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The version of the launch template to use.
 	//
 	// If no version is specified, then the template's default version is used.
-	Version *string `json:"version"`
+	Version *string `json:"version" yaml:"version"`
 }
 
 // An object representing the remote access configuration for the managed node group.
@@ -3667,11 +3667,11 @@ type CfnNodegroup_RemoteAccessProperty struct {
 	// The Amazon EC2 SSH key that provides access for SSH communication with the nodes in the managed node group.
 	//
 	// For more information, see [Amazon EC2 key pairs and Linux instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html) in the *Amazon Elastic Compute Cloud User Guide for Linux Instances* .
-	Ec2SshKey *string `json:"ec2SshKey"`
+	Ec2SshKey *string `json:"ec2SshKey" yaml:"ec2SshKey"`
 	// The security groups that are allowed SSH access (port 22) to the nodes.
 	//
 	// If you specify an Amazon EC2 SSH key but do not specify a source security group when you create a managed node group, then port 22 on the nodes is opened to the internet (0.0.0.0/0). For more information, see [Security Groups for Your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon Virtual Private Cloud User Guide* .
-	SourceSecurityGroups *[]*string `json:"sourceSecurityGroups"`
+	SourceSecurityGroups *[]*string `json:"sourceSecurityGroups" yaml:"sourceSecurityGroups"`
 }
 
 // An object representing the scaling configuration details for the Auto Scaling group that is associated with your node group.
@@ -3688,13 +3688,13 @@ type CfnNodegroup_ScalingConfigProperty struct {
 	// Whenever this parameter changes, the number of worker nodes in the node group is updated to the specified size. If this parameter is given a value that is smaller than the current number of running worker nodes, the necessary number of worker nodes are terminated to match the given value. When using CloudFormation, no action occurs if you remove this parameter from your CFN template.
 	//
 	// This parameter can be different from minSize in some cases, such as when starting with extra hosts for testing. This parameter can also be different when you want to start with an estimated number of needed hosts, but let Cluster Autoscaler reduce the number if there are too many. When Cluster Autoscaler is used, the desiredSize parameter is altered by Cluster Autoscaler (but can be out-of-date for short periods of time). Cluster Autoscaler doesn't scale a managed node group lower than minSize or higher than maxSize.
-	DesiredSize *float64 `json:"desiredSize"`
+	DesiredSize *float64 `json:"desiredSize" yaml:"desiredSize"`
 	// The maximum number of nodes that the managed node group can scale out to.
 	//
 	// For information about the maximum number that you can specify, see [Amazon EKS service quotas](https://docs.aws.amazon.com/eks/latest/userguide/service-quotas.html) in the *Amazon EKS User Guide* .
-	MaxSize *float64 `json:"maxSize"`
+	MaxSize *float64 `json:"maxSize" yaml:"maxSize"`
 	// The minimum number of nodes that the managed node group can scale in to.
-	MinSize *float64 `json:"minSize"`
+	MinSize *float64 `json:"minSize" yaml:"minSize"`
 }
 
 // A property that allows a node to repel a set of pods.
@@ -3703,11 +3703,11 @@ type CfnNodegroup_ScalingConfigProperty struct {
 //
 type CfnNodegroup_TaintProperty struct {
 	// The effect of the taint.
-	Effect *string `json:"effect"`
+	Effect *string `json:"effect" yaml:"effect"`
 	// The key of the taint.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// The value of the taint.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // The update configuration for the node group.
@@ -3718,11 +3718,11 @@ type CfnNodegroup_UpdateConfigProperty struct {
 	// The maximum number of nodes unavailable at once during a version update.
 	//
 	// Nodes will be updated in parallel. This value or `maxUnavailablePercentage` is required to have a value.The maximum number is 100.
-	MaxUnavailable *float64 `json:"maxUnavailable"`
+	MaxUnavailable *float64 `json:"maxUnavailable" yaml:"maxUnavailable"`
 	// The maximum percentage of nodes unavailable during a version update.
 	//
 	// This percentage of nodes will be updated in parallel, up to 100 nodes at once. This value or `maxUnavailable` is required to have a value.
-	MaxUnavailablePercentage *float64 `json:"maxUnavailablePercentage"`
+	MaxUnavailablePercentage *float64 `json:"maxUnavailablePercentage" yaml:"maxUnavailablePercentage"`
 }
 
 // Properties for defining a `CfnNodegroup`.
@@ -3731,65 +3731,65 @@ type CfnNodegroup_UpdateConfigProperty struct {
 //
 type CfnNodegroupProps struct {
 	// The name of the cluster to create the node group in.
-	ClusterName *string `json:"clusterName"`
+	ClusterName *string `json:"clusterName" yaml:"clusterName"`
 	// The Amazon Resource Name (ARN) of the IAM role to associate with your node group.
 	//
 	// The Amazon EKS worker node `kubelet` daemon makes calls to AWS APIs on your behalf. Nodes receive permissions for these API calls through an IAM instance profile and associated policies. Before you can launch nodes and register them into a cluster, you must create an IAM role for those nodes to use when they are launched. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/worker_node_IAM_role.html) in the **Amazon EKS User Guide** . If you specify `launchTemplate` , then don't specify [`IamInstanceProfile`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IamInstanceProfile.html) in your launch template, or the node group deployment will fail. For more information about using launch templates with Amazon EKS, see [Launch template support](https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html) in the *Amazon EKS User Guide* .
-	NodeRole *string `json:"nodeRole"`
+	NodeRole *string `json:"nodeRole" yaml:"nodeRole"`
 	// The subnets to use for the Auto Scaling group that is created for your node group.
 	//
 	// If you specify `launchTemplate` , then don't specify [`SubnetId`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html) in your launch template, or the node group deployment will fail. For more information about using launch templates with Amazon EKS, see [Launch template support](https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html) in the *Amazon EKS User Guide* .
-	Subnets *[]*string `json:"subnets"`
+	Subnets *[]*string `json:"subnets" yaml:"subnets"`
 	// The AMI type for your node group.
 	//
 	// GPU instance types should use the `AL2_x86_64_GPU` AMI type. Non-GPU instances should use the `AL2_x86_64` AMI type. Arm instances should use the `AL2_ARM_64` AMI type. All types use the Amazon EKS optimized Amazon Linux 2 AMI. If you specify `launchTemplate` , and your launch template uses a custom AMI, then don't specify `amiType` , or the node group deployment will fail. For more information about using launch templates with Amazon EKS, see [Launch template support](https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html) in the *Amazon EKS User Guide* .
-	AmiType *string `json:"amiType"`
+	AmiType *string `json:"amiType" yaml:"amiType"`
 	// The capacity type of your managed node group.
-	CapacityType *string `json:"capacityType"`
+	CapacityType *string `json:"capacityType" yaml:"capacityType"`
 	// The root device disk size (in GiB) for your node group instances.
 	//
 	// The default disk size is 20 GiB. If you specify `launchTemplate` , then don't specify `diskSize` , or the node group deployment will fail. For more information about using launch templates with Amazon EKS, see [Launch template support](https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html) in the *Amazon EKS User Guide* .
-	DiskSize *float64 `json:"diskSize"`
+	DiskSize *float64 `json:"diskSize" yaml:"diskSize"`
 	// Force the update if the existing node group's pods are unable to be drained due to a pod disruption budget issue.
 	//
 	// If an update fails because pods could not be drained, you can force the update after it fails to terminate the old node whether or not any pods are running on the node.
-	ForceUpdateEnabled interface{} `json:"forceUpdateEnabled"`
+	ForceUpdateEnabled interface{} `json:"forceUpdateEnabled" yaml:"forceUpdateEnabled"`
 	// Specify the instance types for a node group.
 	//
 	// If you specify a GPU instance type, be sure to specify `AL2_x86_64_GPU` with the `amiType` parameter. If you specify `launchTemplate` , then you can specify zero or one instance type in your launch template *or* you can specify 0-20 instance types for `instanceTypes` . If however, you specify an instance type in your launch template *and* specify any `instanceTypes` , the node group deployment will fail. If you don't specify an instance type in a launch template or for `instanceTypes` , then `t3.medium` is used, by default. If you specify `Spot` for `capacityType` , then we recommend specifying multiple values for `instanceTypes` . For more information, see [Managed node group capacity types](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html#managed-node-group-capacity-types) and [Launch template support](https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html) in the *Amazon EKS User Guide* .
-	InstanceTypes *[]*string `json:"instanceTypes"`
+	InstanceTypes *[]*string `json:"instanceTypes" yaml:"instanceTypes"`
 	// The Kubernetes labels to be applied to the nodes in the node group when they are created.
-	Labels interface{} `json:"labels"`
+	Labels interface{} `json:"labels" yaml:"labels"`
 	// An object representing a node group's launch template specification.
 	//
 	// If specified, then do not specify `instanceTypes` , `diskSize` , or `remoteAccess` and make sure that the launch template meets the requirements in `launchTemplateSpecification` .
-	LaunchTemplate interface{} `json:"launchTemplate"`
+	LaunchTemplate interface{} `json:"launchTemplate" yaml:"launchTemplate"`
 	// The unique name to give your node group.
-	NodegroupName *string `json:"nodegroupName"`
+	NodegroupName *string `json:"nodegroupName" yaml:"nodegroupName"`
 	// The AMI version of the Amazon EKS optimized AMI to use with your node group (for example, `1.14.7- *YYYYMMDD*` ). By default, the latest available AMI version for the node group's current Kubernetes version is used. For more information, see [Amazon EKS optimized Linux AMI Versions](https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html) in the *Amazon EKS User Guide* .
 	//
 	// > Changing this value triggers an update of the node group if one is available. However, only the latest available AMI release version is valid as an input. You cannot roll back to a previous AMI release version.
-	ReleaseVersion *string `json:"releaseVersion"`
+	ReleaseVersion *string `json:"releaseVersion" yaml:"releaseVersion"`
 	// The remote access (SSH) configuration to use with your node group.
 	//
 	// If you specify `launchTemplate` , then don't specify `remoteAccess` , or the node group deployment will fail. For more information about using launch templates with Amazon EKS, see [Launch template support](https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html) in the *Amazon EKS User Guide* .
-	RemoteAccess interface{} `json:"remoteAccess"`
+	RemoteAccess interface{} `json:"remoteAccess" yaml:"remoteAccess"`
 	// The scaling configuration details for the Auto Scaling group that is created for your node group.
-	ScalingConfig interface{} `json:"scalingConfig"`
+	ScalingConfig interface{} `json:"scalingConfig" yaml:"scalingConfig"`
 	// The metadata to apply to the node group to assist with categorization and organization.
 	//
 	// Each tag consists of a key and an optional value. You define both. Node group tags do not propagate to any other resources associated with the node group, such as the Amazon EC2 instances or subnets.
-	Tags interface{} `json:"tags"`
+	Tags interface{} `json:"tags" yaml:"tags"`
 	// The Kubernetes taints to be applied to the nodes in the node group when they are created.
 	//
 	// Effect is one of `No_Schedule` , `Prefer_No_Schedule` , or `No_Execute` . Kubernetes taints can be used together with tolerations to control how workloads are scheduled to your nodes.
-	Taints interface{} `json:"taints"`
+	Taints interface{} `json:"taints" yaml:"taints"`
 	// The node group update configuration.
-	UpdateConfig interface{} `json:"updateConfig"`
+	UpdateConfig interface{} `json:"updateConfig" yaml:"updateConfig"`
 	// The Kubernetes version to use for your managed nodes.
 	//
 	// By default, the Kubernetes version of the cluster is used, and this is the only accepted specified value. If you specify `launchTemplate` , and your launch template uses a custom AMI, then don't specify `version` , or the node group deployment will fail. For more information about using launch templates with Amazon EKS, see [Launch template support](https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html) in the *Amazon EKS User Guide* .
-	Version *string `json:"version"`
+	Version *string `json:"version" yaml:"version"`
 }
 
 // A Cluster represents a managed Kubernetes Service (EKS).
@@ -4523,28 +4523,28 @@ func (c *jsiiProxy_Cluster) ToString() *string {
 //
 type ClusterAttributes struct {
 	// The physical name of the Cluster.
-	ClusterName *string `json:"clusterName"`
+	ClusterName *string `json:"clusterName" yaml:"clusterName"`
 	// The certificate-authority-data for your cluster.
-	ClusterCertificateAuthorityData *string `json:"clusterCertificateAuthorityData"`
+	ClusterCertificateAuthorityData *string `json:"clusterCertificateAuthorityData" yaml:"clusterCertificateAuthorityData"`
 	// Amazon Resource Name (ARN) or alias of the customer master key (CMK).
-	ClusterEncryptionConfigKeyArn *string `json:"clusterEncryptionConfigKeyArn"`
+	ClusterEncryptionConfigKeyArn *string `json:"clusterEncryptionConfigKeyArn" yaml:"clusterEncryptionConfigKeyArn"`
 	// The API Server endpoint URL.
-	ClusterEndpoint *string `json:"clusterEndpoint"`
+	ClusterEndpoint *string `json:"clusterEndpoint" yaml:"clusterEndpoint"`
 	// A security group id to associate with the Cluster Handler's Lambdas.
 	//
 	// The Cluster Handler's Lambdas are responsible for calling AWS's EKS API.
-	ClusterHandlerSecurityGroupId *string `json:"clusterHandlerSecurityGroupId"`
+	ClusterHandlerSecurityGroupId *string `json:"clusterHandlerSecurityGroupId" yaml:"clusterHandlerSecurityGroupId"`
 	// The cluster security group that was created by Amazon EKS for the cluster.
-	ClusterSecurityGroupId *string `json:"clusterSecurityGroupId"`
+	ClusterSecurityGroupId *string `json:"clusterSecurityGroupId" yaml:"clusterSecurityGroupId"`
 	// Environment variables to use when running `kubectl` against this cluster.
-	KubectlEnvironment *map[string]*string `json:"kubectlEnvironment"`
+	KubectlEnvironment *map[string]*string `json:"kubectlEnvironment" yaml:"kubectlEnvironment"`
 	// An IAM role that can perform kubectl operations against this cluster.
 	//
 	// The role should be mapped to the `system:masters` Kubernetes RBAC role.
 	//
 	// This role is directly passed to the lambda handler that sends Kube Ctl commands
 	// to the cluster.
-	KubectlLambdaRole awsiam.IRole `json:"kubectlLambdaRole"`
+	KubectlLambdaRole awsiam.IRole `json:"kubectlLambdaRole" yaml:"kubectlLambdaRole"`
 	// An AWS Lambda Layer which includes `kubectl`, Helm and the AWS CLI.
 	//
 	// This layer
@@ -4555,23 +4555,23 @@ type ClusterAttributes struct {
 	//     helm/helm
 	//     kubectl/kubectl
 	//     awscli/aws
-	KubectlLayer awslambda.ILayerVersion `json:"kubectlLayer"`
+	KubectlLayer awslambda.ILayerVersion `json:"kubectlLayer" yaml:"kubectlLayer"`
 	// Amount of memory to allocate to the provider's lambda function.
-	KubectlMemory awscdk.Size `json:"kubectlMemory"`
+	KubectlMemory awscdk.Size `json:"kubectlMemory" yaml:"kubectlMemory"`
 	// Subnets to host the `kubectl` compute resources.
 	//
 	// If not specified, the k8s
 	// endpoint is expected to be accessible publicly.
-	KubectlPrivateSubnetIds *[]*string `json:"kubectlPrivateSubnetIds"`
+	KubectlPrivateSubnetIds *[]*string `json:"kubectlPrivateSubnetIds" yaml:"kubectlPrivateSubnetIds"`
 	// KubectlProvider for issuing kubectl commands.
-	KubectlProvider IKubectlProvider `json:"kubectlProvider"`
+	KubectlProvider IKubectlProvider `json:"kubectlProvider" yaml:"kubectlProvider"`
 	// An IAM role with cluster administrator and "system:masters" permissions.
-	KubectlRoleArn *string `json:"kubectlRoleArn"`
+	KubectlRoleArn *string `json:"kubectlRoleArn" yaml:"kubectlRoleArn"`
 	// A security group to use for `kubectl` execution.
 	//
 	// If not specified, the k8s
 	// endpoint is expected to be accessible publicly.
-	KubectlSecurityGroupId *string `json:"kubectlSecurityGroupId"`
+	KubectlSecurityGroupId *string `json:"kubectlSecurityGroupId" yaml:"kubectlSecurityGroupId"`
 	// An AWS Lambda Layer which includes the NPM dependency `proxy-agent`.
 	//
 	// This layer
@@ -4580,22 +4580,22 @@ type ClusterAttributes struct {
 	// The handler expects the layer to include the following node_modules:
 	//
 	//     proxy-agent
-	OnEventLayer awslambda.ILayerVersion `json:"onEventLayer"`
+	OnEventLayer awslambda.ILayerVersion `json:"onEventLayer" yaml:"onEventLayer"`
 	// An Open ID Connect provider for this cluster that can be used to configure service accounts.
 	//
 	// You can either import an existing provider using `iam.OpenIdConnectProvider.fromProviderArn`,
 	// or create a new provider using `new eks.OpenIdConnectProvider`
-	OpenIdConnectProvider awsiam.IOpenIdConnectProvider `json:"openIdConnectProvider"`
+	OpenIdConnectProvider awsiam.IOpenIdConnectProvider `json:"openIdConnectProvider" yaml:"openIdConnectProvider"`
 	// Indicates whether Kubernetes resources added through `addManifest()` can be automatically pruned.
 	//
 	// When this is enabled (default), prune labels will be
 	// allocated and injected to each resource. These labels will then be used
 	// when issuing the `kubectl apply` operation with the `--prune` switch.
-	Prune *bool `json:"prune"`
+	Prune *bool `json:"prune" yaml:"prune"`
 	// Additional security groups associated with this cluster.
-	SecurityGroupIds *[]*string `json:"securityGroupIds"`
+	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
 	// The VPC in which this Cluster was created.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 }
 
 // Options for EKS clusters.
@@ -4604,22 +4604,22 @@ type ClusterAttributes struct {
 //
 type ClusterOptions struct {
 	// The Kubernetes version to run in the cluster.
-	Version KubernetesVersion `json:"version"`
+	Version KubernetesVersion `json:"version" yaml:"version"`
 	// Name for the cluster.
-	ClusterName *string `json:"clusterName"`
+	ClusterName *string `json:"clusterName" yaml:"clusterName"`
 	// Determines whether a CloudFormation output with the name of the cluster will be synthesized.
-	OutputClusterName *bool `json:"outputClusterName"`
+	OutputClusterName *bool `json:"outputClusterName" yaml:"outputClusterName"`
 	// Determines whether a CloudFormation output with the `aws eks update-kubeconfig` command will be synthesized.
 	//
 	// This command will include
 	// the cluster name and, if applicable, the ARN of the masters IAM role.
-	OutputConfigCommand *bool `json:"outputConfigCommand"`
+	OutputConfigCommand *bool `json:"outputConfigCommand" yaml:"outputConfigCommand"`
 	// Role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 	// Security Group to use for Control Plane ENIs.
-	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
+	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup" yaml:"securityGroup"`
 	// The VPC in which to create the Cluster.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// Where to place EKS Control Plane ENIs.
 	//
 	// If you want to create public load balancers, this must include public subnets.
@@ -4627,29 +4627,29 @@ type ClusterOptions struct {
 	// For example, to only select private subnets, supply the following:
 	//
 	// `vpcSubnets: [{ subnetType: ec2.SubnetType.PRIVATE }]`
-	VpcSubnets *[]*awsec2.SubnetSelection `json:"vpcSubnets"`
+	VpcSubnets *[]*awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 	// Install the AWS Load Balancer Controller onto the cluster.
 	// See: https://kubernetes-sigs.github.io/aws-load-balancer-controller
 	//
-	AlbController *AlbControllerOptions `json:"albController"`
+	AlbController *AlbControllerOptions `json:"albController" yaml:"albController"`
 	// Custom environment variables when interacting with the EKS endpoint to manage the cluster lifecycle.
-	ClusterHandlerEnvironment *map[string]*string `json:"clusterHandlerEnvironment"`
+	ClusterHandlerEnvironment *map[string]*string `json:"clusterHandlerEnvironment" yaml:"clusterHandlerEnvironment"`
 	// A security group to associate with the Cluster Handler's Lambdas.
 	//
 	// The Cluster Handler's Lambdas are responsible for calling AWS's EKS API.
 	//
 	// Requires `placeClusterHandlerInVpc` to be set to true.
-	ClusterHandlerSecurityGroup awsec2.ISecurityGroup `json:"clusterHandlerSecurityGroup"`
+	ClusterHandlerSecurityGroup awsec2.ISecurityGroup `json:"clusterHandlerSecurityGroup" yaml:"clusterHandlerSecurityGroup"`
 	// Controls the "eks.amazonaws.com/compute-type" annotation in the CoreDNS configuration on your cluster to determine which compute type to use for CoreDNS.
-	CoreDnsComputeType CoreDnsComputeType `json:"coreDnsComputeType"`
+	CoreDnsComputeType CoreDnsComputeType `json:"coreDnsComputeType" yaml:"coreDnsComputeType"`
 	// Configure access to the Kubernetes API server endpoint..
 	// See: https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html
 	//
-	EndpointAccess EndpointAccess `json:"endpointAccess"`
+	EndpointAccess EndpointAccess `json:"endpointAccess" yaml:"endpointAccess"`
 	// Environment variables for the kubectl execution.
 	//
 	// Only relevant for kubectl enabled clusters.
-	KubectlEnvironment *map[string]*string `json:"kubectlEnvironment"`
+	KubectlEnvironment *map[string]*string `json:"kubectlEnvironment" yaml:"kubectlEnvironment"`
 	// An AWS Lambda Layer which includes `kubectl`, Helm and the AWS CLI.
 	//
 	// By default, the provider will use the layer included in the
@@ -4669,13 +4669,13 @@ type ClusterOptions struct {
 	// ```
 	// See: https://github.com/aws-samples/aws-lambda-layer-kubectl
 	//
-	KubectlLayer awslambda.ILayerVersion `json:"kubectlLayer"`
+	KubectlLayer awslambda.ILayerVersion `json:"kubectlLayer" yaml:"kubectlLayer"`
 	// Amount of memory to allocate to the provider's lambda function.
-	KubectlMemory awscdk.Size `json:"kubectlMemory"`
+	KubectlMemory awscdk.Size `json:"kubectlMemory" yaml:"kubectlMemory"`
 	// An IAM role that will be added to the `system:masters` Kubernetes RBAC group.
 	// See: https://kubernetes.io/docs/reference/access-authn-authz/rbac/#default-roles-and-role-bindings
 	//
-	MastersRole awsiam.IRole `json:"mastersRole"`
+	MastersRole awsiam.IRole `json:"mastersRole" yaml:"mastersRole"`
 	// An AWS Lambda Layer which includes the NPM dependency `proxy-agent`.
 	//
 	// This layer
@@ -4693,23 +4693,23 @@ type ClusterOptions struct {
 	//    compatibleRuntimes: [lambda.Runtime.NODEJS_12_X],
 	// });
 	// ```
-	OnEventLayer awslambda.ILayerVersion `json:"onEventLayer"`
+	OnEventLayer awslambda.ILayerVersion `json:"onEventLayer" yaml:"onEventLayer"`
 	// Determines whether a CloudFormation output with the ARN of the "masters" IAM role will be synthesized (if `mastersRole` is specified).
-	OutputMastersRoleArn *bool `json:"outputMastersRoleArn"`
+	OutputMastersRoleArn *bool `json:"outputMastersRoleArn" yaml:"outputMastersRoleArn"`
 	// If set to true, the cluster handler functions will be placed in the private subnets of the cluster vpc, subject to the `vpcSubnets` selection strategy.
-	PlaceClusterHandlerInVpc *bool `json:"placeClusterHandlerInVpc"`
+	PlaceClusterHandlerInVpc *bool `json:"placeClusterHandlerInVpc" yaml:"placeClusterHandlerInVpc"`
 	// Indicates whether Kubernetes resources added through `addManifest()` can be automatically pruned.
 	//
 	// When this is enabled (default), prune labels will be
 	// allocated and injected to each resource. These labels will then be used
 	// when issuing the `kubectl apply` operation with the `--prune` switch.
-	Prune *bool `json:"prune"`
+	Prune *bool `json:"prune" yaml:"prune"`
 	// KMS secret for envelope encryption for Kubernetes secrets.
-	SecretsEncryptionKey awskms.IKey `json:"secretsEncryptionKey"`
+	SecretsEncryptionKey awskms.IKey `json:"secretsEncryptionKey" yaml:"secretsEncryptionKey"`
 	// The CIDR block to assign Kubernetes service IP addresses from.
 	// See: https://docs.aws.amazon.com/eks/latest/APIReference/API_KubernetesNetworkConfigRequest.html#AmazonEKS-Type-KubernetesNetworkConfigRequest-serviceIpv4Cidr
 	//
-	ServiceIpv4Cidr *string `json:"serviceIpv4Cidr"`
+	ServiceIpv4Cidr *string `json:"serviceIpv4Cidr" yaml:"serviceIpv4Cidr"`
 }
 
 // Common configuration props for EKS clusters.
@@ -4718,22 +4718,22 @@ type ClusterOptions struct {
 //
 type ClusterProps struct {
 	// The Kubernetes version to run in the cluster.
-	Version KubernetesVersion `json:"version"`
+	Version KubernetesVersion `json:"version" yaml:"version"`
 	// Name for the cluster.
-	ClusterName *string `json:"clusterName"`
+	ClusterName *string `json:"clusterName" yaml:"clusterName"`
 	// Determines whether a CloudFormation output with the name of the cluster will be synthesized.
-	OutputClusterName *bool `json:"outputClusterName"`
+	OutputClusterName *bool `json:"outputClusterName" yaml:"outputClusterName"`
 	// Determines whether a CloudFormation output with the `aws eks update-kubeconfig` command will be synthesized.
 	//
 	// This command will include
 	// the cluster name and, if applicable, the ARN of the masters IAM role.
-	OutputConfigCommand *bool `json:"outputConfigCommand"`
+	OutputConfigCommand *bool `json:"outputConfigCommand" yaml:"outputConfigCommand"`
 	// Role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 	// Security Group to use for Control Plane ENIs.
-	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
+	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup" yaml:"securityGroup"`
 	// The VPC in which to create the Cluster.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// Where to place EKS Control Plane ENIs.
 	//
 	// If you want to create public load balancers, this must include public subnets.
@@ -4741,29 +4741,29 @@ type ClusterProps struct {
 	// For example, to only select private subnets, supply the following:
 	//
 	// `vpcSubnets: [{ subnetType: ec2.SubnetType.PRIVATE }]`
-	VpcSubnets *[]*awsec2.SubnetSelection `json:"vpcSubnets"`
+	VpcSubnets *[]*awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 	// Install the AWS Load Balancer Controller onto the cluster.
 	// See: https://kubernetes-sigs.github.io/aws-load-balancer-controller
 	//
-	AlbController *AlbControllerOptions `json:"albController"`
+	AlbController *AlbControllerOptions `json:"albController" yaml:"albController"`
 	// Custom environment variables when interacting with the EKS endpoint to manage the cluster lifecycle.
-	ClusterHandlerEnvironment *map[string]*string `json:"clusterHandlerEnvironment"`
+	ClusterHandlerEnvironment *map[string]*string `json:"clusterHandlerEnvironment" yaml:"clusterHandlerEnvironment"`
 	// A security group to associate with the Cluster Handler's Lambdas.
 	//
 	// The Cluster Handler's Lambdas are responsible for calling AWS's EKS API.
 	//
 	// Requires `placeClusterHandlerInVpc` to be set to true.
-	ClusterHandlerSecurityGroup awsec2.ISecurityGroup `json:"clusterHandlerSecurityGroup"`
+	ClusterHandlerSecurityGroup awsec2.ISecurityGroup `json:"clusterHandlerSecurityGroup" yaml:"clusterHandlerSecurityGroup"`
 	// Controls the "eks.amazonaws.com/compute-type" annotation in the CoreDNS configuration on your cluster to determine which compute type to use for CoreDNS.
-	CoreDnsComputeType CoreDnsComputeType `json:"coreDnsComputeType"`
+	CoreDnsComputeType CoreDnsComputeType `json:"coreDnsComputeType" yaml:"coreDnsComputeType"`
 	// Configure access to the Kubernetes API server endpoint..
 	// See: https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html
 	//
-	EndpointAccess EndpointAccess `json:"endpointAccess"`
+	EndpointAccess EndpointAccess `json:"endpointAccess" yaml:"endpointAccess"`
 	// Environment variables for the kubectl execution.
 	//
 	// Only relevant for kubectl enabled clusters.
-	KubectlEnvironment *map[string]*string `json:"kubectlEnvironment"`
+	KubectlEnvironment *map[string]*string `json:"kubectlEnvironment" yaml:"kubectlEnvironment"`
 	// An AWS Lambda Layer which includes `kubectl`, Helm and the AWS CLI.
 	//
 	// By default, the provider will use the layer included in the
@@ -4783,13 +4783,13 @@ type ClusterProps struct {
 	// ```
 	// See: https://github.com/aws-samples/aws-lambda-layer-kubectl
 	//
-	KubectlLayer awslambda.ILayerVersion `json:"kubectlLayer"`
+	KubectlLayer awslambda.ILayerVersion `json:"kubectlLayer" yaml:"kubectlLayer"`
 	// Amount of memory to allocate to the provider's lambda function.
-	KubectlMemory awscdk.Size `json:"kubectlMemory"`
+	KubectlMemory awscdk.Size `json:"kubectlMemory" yaml:"kubectlMemory"`
 	// An IAM role that will be added to the `system:masters` Kubernetes RBAC group.
 	// See: https://kubernetes.io/docs/reference/access-authn-authz/rbac/#default-roles-and-role-bindings
 	//
-	MastersRole awsiam.IRole `json:"mastersRole"`
+	MastersRole awsiam.IRole `json:"mastersRole" yaml:"mastersRole"`
 	// An AWS Lambda Layer which includes the NPM dependency `proxy-agent`.
 	//
 	// This layer
@@ -4807,23 +4807,23 @@ type ClusterProps struct {
 	//    compatibleRuntimes: [lambda.Runtime.NODEJS_12_X],
 	// });
 	// ```
-	OnEventLayer awslambda.ILayerVersion `json:"onEventLayer"`
+	OnEventLayer awslambda.ILayerVersion `json:"onEventLayer" yaml:"onEventLayer"`
 	// Determines whether a CloudFormation output with the ARN of the "masters" IAM role will be synthesized (if `mastersRole` is specified).
-	OutputMastersRoleArn *bool `json:"outputMastersRoleArn"`
+	OutputMastersRoleArn *bool `json:"outputMastersRoleArn" yaml:"outputMastersRoleArn"`
 	// If set to true, the cluster handler functions will be placed in the private subnets of the cluster vpc, subject to the `vpcSubnets` selection strategy.
-	PlaceClusterHandlerInVpc *bool `json:"placeClusterHandlerInVpc"`
+	PlaceClusterHandlerInVpc *bool `json:"placeClusterHandlerInVpc" yaml:"placeClusterHandlerInVpc"`
 	// Indicates whether Kubernetes resources added through `addManifest()` can be automatically pruned.
 	//
 	// When this is enabled (default), prune labels will be
 	// allocated and injected to each resource. These labels will then be used
 	// when issuing the `kubectl apply` operation with the `--prune` switch.
-	Prune *bool `json:"prune"`
+	Prune *bool `json:"prune" yaml:"prune"`
 	// KMS secret for envelope encryption for Kubernetes secrets.
-	SecretsEncryptionKey awskms.IKey `json:"secretsEncryptionKey"`
+	SecretsEncryptionKey awskms.IKey `json:"secretsEncryptionKey" yaml:"secretsEncryptionKey"`
 	// The CIDR block to assign Kubernetes service IP addresses from.
 	// See: https://docs.aws.amazon.com/eks/latest/APIReference/API_KubernetesNetworkConfigRequest.html#AmazonEKS-Type-KubernetesNetworkConfigRequest-serviceIpv4Cidr
 	//
-	ServiceIpv4Cidr *string `json:"serviceIpv4Cidr"`
+	ServiceIpv4Cidr *string `json:"serviceIpv4Cidr" yaml:"serviceIpv4Cidr"`
 	// Number of instances to allocate as an initial capacity for this cluster.
 	//
 	// Instance type can be configured through `defaultCapacityInstanceType`,
@@ -4831,18 +4831,18 @@ type ClusterProps struct {
 	//
 	// Use `cluster.addAutoScalingGroupCapacity` to add additional customized capacity. Set this
 	// to `0` is you wish to avoid the initial capacity allocation.
-	DefaultCapacity *float64 `json:"defaultCapacity"`
+	DefaultCapacity *float64 `json:"defaultCapacity" yaml:"defaultCapacity"`
 	// The instance type to use for the default capacity.
 	//
 	// This will only be taken
 	// into account if `defaultCapacity` is > 0.
-	DefaultCapacityInstance awsec2.InstanceType `json:"defaultCapacityInstance"`
+	DefaultCapacityInstance awsec2.InstanceType `json:"defaultCapacityInstance" yaml:"defaultCapacityInstance"`
 	// The default capacity type for the cluster.
-	DefaultCapacityType DefaultCapacityType `json:"defaultCapacityType"`
+	DefaultCapacityType DefaultCapacityType `json:"defaultCapacityType" yaml:"defaultCapacityType"`
 	// The IAM role to pass to the Kubectl Lambda Handler.
-	KubectlLambdaRole awsiam.IRole `json:"kubectlLambdaRole"`
+	KubectlLambdaRole awsiam.IRole `json:"kubectlLambdaRole" yaml:"kubectlLambdaRole"`
 	// The tags assigned to the EKS cluster.
-	Tags *map[string]*string `json:"tags"`
+	Tags *map[string]*string `json:"tags" yaml:"tags"`
 }
 
 // Options for configuring an EKS cluster.
@@ -4851,22 +4851,22 @@ type ClusterProps struct {
 //
 type CommonClusterOptions struct {
 	// The Kubernetes version to run in the cluster.
-	Version KubernetesVersion `json:"version"`
+	Version KubernetesVersion `json:"version" yaml:"version"`
 	// Name for the cluster.
-	ClusterName *string `json:"clusterName"`
+	ClusterName *string `json:"clusterName" yaml:"clusterName"`
 	// Determines whether a CloudFormation output with the name of the cluster will be synthesized.
-	OutputClusterName *bool `json:"outputClusterName"`
+	OutputClusterName *bool `json:"outputClusterName" yaml:"outputClusterName"`
 	// Determines whether a CloudFormation output with the `aws eks update-kubeconfig` command will be synthesized.
 	//
 	// This command will include
 	// the cluster name and, if applicable, the ARN of the masters IAM role.
-	OutputConfigCommand *bool `json:"outputConfigCommand"`
+	OutputConfigCommand *bool `json:"outputConfigCommand" yaml:"outputConfigCommand"`
 	// Role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 	// Security Group to use for Control Plane ENIs.
-	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
+	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup" yaml:"securityGroup"`
 	// The VPC in which to create the Cluster.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// Where to place EKS Control Plane ENIs.
 	//
 	// If you want to create public load balancers, this must include public subnets.
@@ -4874,7 +4874,7 @@ type CommonClusterOptions struct {
 	// For example, to only select private subnets, supply the following:
 	//
 	// `vpcSubnets: [{ subnetType: ec2.SubnetType.PRIVATE }]`
-	VpcSubnets *[]*awsec2.SubnetSelection `json:"vpcSubnets"`
+	VpcSubnets *[]*awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 
 // The type of compute resources to use for CoreDNS.
@@ -4964,11 +4964,11 @@ func (e *jsiiProxy_EksOptimizedImage) GetImage(scope constructs.Construct) *awse
 //
 type EksOptimizedImageProps struct {
 	// What cpu architecture to retrieve the image for (arm64 or x86_64).
-	CpuArch CpuArch `json:"cpuArch"`
+	CpuArch CpuArch `json:"cpuArch" yaml:"cpuArch"`
 	// The Kubernetes version to use.
-	KubernetesVersion *string `json:"kubernetesVersion"`
+	KubernetesVersion *string `json:"kubernetesVersion" yaml:"kubernetesVersion"`
 	// What instance type to retrieve the image for (standard or GPU-optimized).
-	NodeType NodeType `json:"nodeType"`
+	NodeType NodeType `json:"nodeType" yaml:"nodeType"`
 }
 
 // Endpoint access characteristics.
@@ -5777,22 +5777,22 @@ func (f *jsiiProxy_FargateCluster) ToString() *string {
 //
 type FargateClusterProps struct {
 	// The Kubernetes version to run in the cluster.
-	Version KubernetesVersion `json:"version"`
+	Version KubernetesVersion `json:"version" yaml:"version"`
 	// Name for the cluster.
-	ClusterName *string `json:"clusterName"`
+	ClusterName *string `json:"clusterName" yaml:"clusterName"`
 	// Determines whether a CloudFormation output with the name of the cluster will be synthesized.
-	OutputClusterName *bool `json:"outputClusterName"`
+	OutputClusterName *bool `json:"outputClusterName" yaml:"outputClusterName"`
 	// Determines whether a CloudFormation output with the `aws eks update-kubeconfig` command will be synthesized.
 	//
 	// This command will include
 	// the cluster name and, if applicable, the ARN of the masters IAM role.
-	OutputConfigCommand *bool `json:"outputConfigCommand"`
+	OutputConfigCommand *bool `json:"outputConfigCommand" yaml:"outputConfigCommand"`
 	// Role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 	// Security Group to use for Control Plane ENIs.
-	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
+	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup" yaml:"securityGroup"`
 	// The VPC in which to create the Cluster.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// Where to place EKS Control Plane ENIs.
 	//
 	// If you want to create public load balancers, this must include public subnets.
@@ -5800,29 +5800,29 @@ type FargateClusterProps struct {
 	// For example, to only select private subnets, supply the following:
 	//
 	// `vpcSubnets: [{ subnetType: ec2.SubnetType.PRIVATE }]`
-	VpcSubnets *[]*awsec2.SubnetSelection `json:"vpcSubnets"`
+	VpcSubnets *[]*awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 	// Install the AWS Load Balancer Controller onto the cluster.
 	// See: https://kubernetes-sigs.github.io/aws-load-balancer-controller
 	//
-	AlbController *AlbControllerOptions `json:"albController"`
+	AlbController *AlbControllerOptions `json:"albController" yaml:"albController"`
 	// Custom environment variables when interacting with the EKS endpoint to manage the cluster lifecycle.
-	ClusterHandlerEnvironment *map[string]*string `json:"clusterHandlerEnvironment"`
+	ClusterHandlerEnvironment *map[string]*string `json:"clusterHandlerEnvironment" yaml:"clusterHandlerEnvironment"`
 	// A security group to associate with the Cluster Handler's Lambdas.
 	//
 	// The Cluster Handler's Lambdas are responsible for calling AWS's EKS API.
 	//
 	// Requires `placeClusterHandlerInVpc` to be set to true.
-	ClusterHandlerSecurityGroup awsec2.ISecurityGroup `json:"clusterHandlerSecurityGroup"`
+	ClusterHandlerSecurityGroup awsec2.ISecurityGroup `json:"clusterHandlerSecurityGroup" yaml:"clusterHandlerSecurityGroup"`
 	// Controls the "eks.amazonaws.com/compute-type" annotation in the CoreDNS configuration on your cluster to determine which compute type to use for CoreDNS.
-	CoreDnsComputeType CoreDnsComputeType `json:"coreDnsComputeType"`
+	CoreDnsComputeType CoreDnsComputeType `json:"coreDnsComputeType" yaml:"coreDnsComputeType"`
 	// Configure access to the Kubernetes API server endpoint..
 	// See: https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html
 	//
-	EndpointAccess EndpointAccess `json:"endpointAccess"`
+	EndpointAccess EndpointAccess `json:"endpointAccess" yaml:"endpointAccess"`
 	// Environment variables for the kubectl execution.
 	//
 	// Only relevant for kubectl enabled clusters.
-	KubectlEnvironment *map[string]*string `json:"kubectlEnvironment"`
+	KubectlEnvironment *map[string]*string `json:"kubectlEnvironment" yaml:"kubectlEnvironment"`
 	// An AWS Lambda Layer which includes `kubectl`, Helm and the AWS CLI.
 	//
 	// By default, the provider will use the layer included in the
@@ -5842,13 +5842,13 @@ type FargateClusterProps struct {
 	// ```
 	// See: https://github.com/aws-samples/aws-lambda-layer-kubectl
 	//
-	KubectlLayer awslambda.ILayerVersion `json:"kubectlLayer"`
+	KubectlLayer awslambda.ILayerVersion `json:"kubectlLayer" yaml:"kubectlLayer"`
 	// Amount of memory to allocate to the provider's lambda function.
-	KubectlMemory awscdk.Size `json:"kubectlMemory"`
+	KubectlMemory awscdk.Size `json:"kubectlMemory" yaml:"kubectlMemory"`
 	// An IAM role that will be added to the `system:masters` Kubernetes RBAC group.
 	// See: https://kubernetes.io/docs/reference/access-authn-authz/rbac/#default-roles-and-role-bindings
 	//
-	MastersRole awsiam.IRole `json:"mastersRole"`
+	MastersRole awsiam.IRole `json:"mastersRole" yaml:"mastersRole"`
 	// An AWS Lambda Layer which includes the NPM dependency `proxy-agent`.
 	//
 	// This layer
@@ -5866,25 +5866,25 @@ type FargateClusterProps struct {
 	//    compatibleRuntimes: [lambda.Runtime.NODEJS_12_X],
 	// });
 	// ```
-	OnEventLayer awslambda.ILayerVersion `json:"onEventLayer"`
+	OnEventLayer awslambda.ILayerVersion `json:"onEventLayer" yaml:"onEventLayer"`
 	// Determines whether a CloudFormation output with the ARN of the "masters" IAM role will be synthesized (if `mastersRole` is specified).
-	OutputMastersRoleArn *bool `json:"outputMastersRoleArn"`
+	OutputMastersRoleArn *bool `json:"outputMastersRoleArn" yaml:"outputMastersRoleArn"`
 	// If set to true, the cluster handler functions will be placed in the private subnets of the cluster vpc, subject to the `vpcSubnets` selection strategy.
-	PlaceClusterHandlerInVpc *bool `json:"placeClusterHandlerInVpc"`
+	PlaceClusterHandlerInVpc *bool `json:"placeClusterHandlerInVpc" yaml:"placeClusterHandlerInVpc"`
 	// Indicates whether Kubernetes resources added through `addManifest()` can be automatically pruned.
 	//
 	// When this is enabled (default), prune labels will be
 	// allocated and injected to each resource. These labels will then be used
 	// when issuing the `kubectl apply` operation with the `--prune` switch.
-	Prune *bool `json:"prune"`
+	Prune *bool `json:"prune" yaml:"prune"`
 	// KMS secret for envelope encryption for Kubernetes secrets.
-	SecretsEncryptionKey awskms.IKey `json:"secretsEncryptionKey"`
+	SecretsEncryptionKey awskms.IKey `json:"secretsEncryptionKey" yaml:"secretsEncryptionKey"`
 	// The CIDR block to assign Kubernetes service IP addresses from.
 	// See: https://docs.aws.amazon.com/eks/latest/APIReference/API_KubernetesNetworkConfigRequest.html#AmazonEKS-Type-KubernetesNetworkConfigRequest-serviceIpv4Cidr
 	//
-	ServiceIpv4Cidr *string `json:"serviceIpv4Cidr"`
+	ServiceIpv4Cidr *string `json:"serviceIpv4Cidr" yaml:"serviceIpv4Cidr"`
 	// Fargate Profile to create along with the cluster.
-	DefaultProfile *FargateProfileOptions `json:"defaultProfile"`
+	DefaultProfile *FargateProfileOptions `json:"defaultProfile" yaml:"defaultProfile"`
 }
 
 // Fargate profiles allows an administrator to declare which pods run on Fargate.
@@ -6045,9 +6045,9 @@ type FargateProfileOptions struct {
 	// for a namespace.
 	//
 	// At least one selector is required and you may specify up to five selectors.
-	Selectors *[]*Selector `json:"selectors"`
+	Selectors *[]*Selector `json:"selectors" yaml:"selectors"`
 	// The name of the Fargate profile.
-	FargateProfileName *string `json:"fargateProfileName"`
+	FargateProfileName *string `json:"fargateProfileName" yaml:"fargateProfileName"`
 	// The pod execution role to use for pods that match the selectors in the Fargate profile.
 	//
 	// The pod execution role allows Fargate infrastructure to
@@ -6055,7 +6055,7 @@ type FargateProfileOptions struct {
 	// ECR image repositories.
 	// See: https://docs.aws.amazon.com/eks/latest/userguide/pod-execution-role.html
 	//
-	PodExecutionRole awsiam.IRole `json:"podExecutionRole"`
+	PodExecutionRole awsiam.IRole `json:"podExecutionRole" yaml:"podExecutionRole"`
 	// Select which subnets to launch your pods into.
 	//
 	// At this time, pods running
@@ -6063,12 +6063,12 @@ type FargateProfileOptions struct {
 	// (with no direct route to an Internet Gateway) are allowed.
 	//
 	// You must specify the VPC to customize the subnet selection
-	SubnetSelection *awsec2.SubnetSelection `json:"subnetSelection"`
+	SubnetSelection *awsec2.SubnetSelection `json:"subnetSelection" yaml:"subnetSelection"`
 	// The VPC from which to select subnets to launch your pods into.
 	//
 	// By default, all private subnets are selected. You can customize this using
 	// `subnetSelection`.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 }
 
 // Configuration props for EKS Fargate Profiles.
@@ -6083,9 +6083,9 @@ type FargateProfileProps struct {
 	// for a namespace.
 	//
 	// At least one selector is required and you may specify up to five selectors.
-	Selectors *[]*Selector `json:"selectors"`
+	Selectors *[]*Selector `json:"selectors" yaml:"selectors"`
 	// The name of the Fargate profile.
-	FargateProfileName *string `json:"fargateProfileName"`
+	FargateProfileName *string `json:"fargateProfileName" yaml:"fargateProfileName"`
 	// The pod execution role to use for pods that match the selectors in the Fargate profile.
 	//
 	// The pod execution role allows Fargate infrastructure to
@@ -6093,7 +6093,7 @@ type FargateProfileProps struct {
 	// ECR image repositories.
 	// See: https://docs.aws.amazon.com/eks/latest/userguide/pod-execution-role.html
 	//
-	PodExecutionRole awsiam.IRole `json:"podExecutionRole"`
+	PodExecutionRole awsiam.IRole `json:"podExecutionRole" yaml:"podExecutionRole"`
 	// Select which subnets to launch your pods into.
 	//
 	// At this time, pods running
@@ -6101,16 +6101,16 @@ type FargateProfileProps struct {
 	// (with no direct route to an Internet Gateway) are allowed.
 	//
 	// You must specify the VPC to customize the subnet selection
-	SubnetSelection *awsec2.SubnetSelection `json:"subnetSelection"`
+	SubnetSelection *awsec2.SubnetSelection `json:"subnetSelection" yaml:"subnetSelection"`
 	// The VPC from which to select subnets to launch your pods into.
 	//
 	// By default, all private subnets are selected. You can customize this using
 	// `subnetSelection`.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// The EKS cluster to apply the Fargate profile to.
 	//
 	// [disable-awslint:ref-via-interface]
-	Cluster Cluster `json:"cluster"`
+	Cluster Cluster `json:"cluster" yaml:"cluster"`
 }
 
 // Represents a helm chart within the Kubernetes system.
@@ -6217,31 +6217,31 @@ type HelmChartOptions struct {
 	// The name of the chart.
 	//
 	// Either this or `chartAsset` must be specified.
-	Chart *string `json:"chart"`
+	Chart *string `json:"chart" yaml:"chart"`
 	// The chart in the form of an asset.
 	//
 	// Either this or `chart` must be specified.
-	ChartAsset awss3assets.Asset `json:"chartAsset"`
+	ChartAsset awss3assets.Asset `json:"chartAsset" yaml:"chartAsset"`
 	// create namespace if not exist.
-	CreateNamespace *bool `json:"createNamespace"`
+	CreateNamespace *bool `json:"createNamespace" yaml:"createNamespace"`
 	// The Kubernetes namespace scope of the requests.
-	Namespace *string `json:"namespace"`
+	Namespace *string `json:"namespace" yaml:"namespace"`
 	// The name of the release.
-	Release *string `json:"release"`
+	Release *string `json:"release" yaml:"release"`
 	// The repository which contains the chart.
 	//
 	// For example: https://kubernetes-charts.storage.googleapis.com/
-	Repository *string `json:"repository"`
+	Repository *string `json:"repository" yaml:"repository"`
 	// Amount of time to wait for any individual Kubernetes operation.
 	//
 	// Maximum 15 minutes.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The values to be used by the chart.
-	Values *map[string]interface{} `json:"values"`
+	Values *map[string]interface{} `json:"values" yaml:"values"`
 	// The chart version to install.
-	Version *string `json:"version"`
+	Version *string `json:"version" yaml:"version"`
 	// Whether or not Helm should wait until all Pods, PVCs, Services, and minimum number of Pods of a Deployment, StatefulSet, or ReplicaSet are in a ready state before marking the release as successful.
-	Wait *bool `json:"wait"`
+	Wait *bool `json:"wait" yaml:"wait"`
 }
 
 // Helm Chart properties.
@@ -6252,35 +6252,35 @@ type HelmChartProps struct {
 	// The name of the chart.
 	//
 	// Either this or `chartAsset` must be specified.
-	Chart *string `json:"chart"`
+	Chart *string `json:"chart" yaml:"chart"`
 	// The chart in the form of an asset.
 	//
 	// Either this or `chart` must be specified.
-	ChartAsset awss3assets.Asset `json:"chartAsset"`
+	ChartAsset awss3assets.Asset `json:"chartAsset" yaml:"chartAsset"`
 	// create namespace if not exist.
-	CreateNamespace *bool `json:"createNamespace"`
+	CreateNamespace *bool `json:"createNamespace" yaml:"createNamespace"`
 	// The Kubernetes namespace scope of the requests.
-	Namespace *string `json:"namespace"`
+	Namespace *string `json:"namespace" yaml:"namespace"`
 	// The name of the release.
-	Release *string `json:"release"`
+	Release *string `json:"release" yaml:"release"`
 	// The repository which contains the chart.
 	//
 	// For example: https://kubernetes-charts.storage.googleapis.com/
-	Repository *string `json:"repository"`
+	Repository *string `json:"repository" yaml:"repository"`
 	// Amount of time to wait for any individual Kubernetes operation.
 	//
 	// Maximum 15 minutes.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The values to be used by the chart.
-	Values *map[string]interface{} `json:"values"`
+	Values *map[string]interface{} `json:"values" yaml:"values"`
 	// The chart version to install.
-	Version *string `json:"version"`
+	Version *string `json:"version" yaml:"version"`
 	// Whether or not Helm should wait until all Pods, PVCs, Services, and minimum number of Pods of a Deployment, StatefulSet, or ReplicaSet are in a ready state before marking the release as successful.
-	Wait *bool `json:"wait"`
+	Wait *bool `json:"wait" yaml:"wait"`
 	// The EKS cluster to apply this configuration to.
 	//
 	// [disable-awslint:ref-via-interface]
-	Cluster ICluster `json:"cluster"`
+	Cluster ICluster `json:"cluster" yaml:"cluster"`
 }
 
 // An EKS cluster.
@@ -6782,9 +6782,9 @@ func (j *jsiiProxy_INodegroup) NodegroupName() *string {
 //
 type IngressLoadBalancerAddressOptions struct {
 	// The namespace the service belongs to.
-	Namespace *string `json:"namespace"`
+	Namespace *string `json:"namespace" yaml:"namespace"`
 	// Timeout for waiting on the load balancer address.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 }
 
 // Implementation of Kubectl Lambda.
@@ -7513,13 +7513,13 @@ func (k *jsiiProxy_KubectlProvider) ToString() *string {
 //
 type KubectlProviderAttributes struct {
 	// The kubectl provider lambda arn.
-	FunctionArn *string `json:"functionArn"`
+	FunctionArn *string `json:"functionArn" yaml:"functionArn"`
 	// The IAM execution role of the handler.
 	//
 	// This role must be able to assume kubectlRoleArn
-	HandlerRole awsiam.IRole `json:"handlerRole"`
+	HandlerRole awsiam.IRole `json:"handlerRole" yaml:"handlerRole"`
 	// The IAM role to assume in order to perform kubectl operations against this cluster.
-	KubectlRoleArn *string `json:"kubectlRoleArn"`
+	KubectlRoleArn *string `json:"kubectlRoleArn" yaml:"kubectlRoleArn"`
 }
 
 // Properties for a KubectlProvider.
@@ -7528,7 +7528,7 @@ type KubectlProviderAttributes struct {
 //
 type KubectlProviderProps struct {
 	// The cluster to control.
-	Cluster ICluster `json:"cluster"`
+	Cluster ICluster `json:"cluster" yaml:"cluster"`
 }
 
 // Represents a manifest within the Kubernetes system.
@@ -7636,11 +7636,11 @@ func (k *jsiiProxy_KubernetesManifest) ToString() *string {
 //
 type KubernetesManifestOptions struct {
 	// Automatically detect `Ingress` resources in the manifest and annotate them so they are picked up by an ALB Ingress Controller.
-	IngressAlb *bool `json:"ingressAlb"`
+	IngressAlb *bool `json:"ingressAlb" yaml:"ingressAlb"`
 	// Specify the ALB scheme that should be applied to `Ingress` resources.
 	//
 	// Only applicable if `ingressAlb` is set to `true`.
-	IngressAlbScheme AlbScheme `json:"ingressAlbScheme"`
+	IngressAlbScheme AlbScheme `json:"ingressAlbScheme" yaml:"ingressAlbScheme"`
 	// When a resource is removed from a Kubernetes manifest, it no longer appears in the manifest, and there is no way to know that this resource needs to be deleted.
 	//
 	// To address this, `kubectl apply` has a `--prune` option which will
@@ -7658,9 +7658,9 @@ type KubernetesManifestOptions struct {
 	// empty.
 	// See: https://kubernetes.io/docs/tasks/manage-kubernetes-objects/declarative-config/#alternative-kubectl-apply-f-directory-prune-l-your-label
 	//
-	Prune *bool `json:"prune"`
+	Prune *bool `json:"prune" yaml:"prune"`
 	// A flag to signify if the manifest validation should be skipped.
-	SkipValidation *bool `json:"skipValidation"`
+	SkipValidation *bool `json:"skipValidation" yaml:"skipValidation"`
 }
 
 // Properties for KubernetesManifest.
@@ -7669,11 +7669,11 @@ type KubernetesManifestOptions struct {
 //
 type KubernetesManifestProps struct {
 	// Automatically detect `Ingress` resources in the manifest and annotate them so they are picked up by an ALB Ingress Controller.
-	IngressAlb *bool `json:"ingressAlb"`
+	IngressAlb *bool `json:"ingressAlb" yaml:"ingressAlb"`
 	// Specify the ALB scheme that should be applied to `Ingress` resources.
 	//
 	// Only applicable if `ingressAlb` is set to `true`.
-	IngressAlbScheme AlbScheme `json:"ingressAlbScheme"`
+	IngressAlbScheme AlbScheme `json:"ingressAlbScheme" yaml:"ingressAlbScheme"`
 	// When a resource is removed from a Kubernetes manifest, it no longer appears in the manifest, and there is no way to know that this resource needs to be deleted.
 	//
 	// To address this, `kubectl apply` has a `--prune` option which will
@@ -7691,13 +7691,13 @@ type KubernetesManifestProps struct {
 	// empty.
 	// See: https://kubernetes.io/docs/tasks/manage-kubernetes-objects/declarative-config/#alternative-kubectl-apply-f-directory-prune-l-your-label
 	//
-	Prune *bool `json:"prune"`
+	Prune *bool `json:"prune" yaml:"prune"`
 	// A flag to signify if the manifest validation should be skipped.
-	SkipValidation *bool `json:"skipValidation"`
+	SkipValidation *bool `json:"skipValidation" yaml:"skipValidation"`
 	// The EKS cluster to apply this manifest to.
 	//
 	// [disable-awslint:ref-via-interface]
-	Cluster ICluster `json:"cluster"`
+	Cluster ICluster `json:"cluster" yaml:"cluster"`
 	// The manifest to apply.
 	//
 	// Consists of any number of child resources.
@@ -7708,13 +7708,13 @@ type KubernetesManifestProps struct {
 	//
 	// TODO: EXAMPLE
 	//
-	Manifest *[]*map[string]interface{} `json:"manifest"`
+	Manifest *[]*map[string]interface{} `json:"manifest" yaml:"manifest"`
 	// Overwrite any existing resources.
 	//
 	// If this is set, we will use `kubectl apply` instead of `kubectl create`
 	// when the resource is created. Otherwise, if there is already a resource
 	// in the cluster with the same name, the operation will fail.
-	Overwrite *bool `json:"overwrite"`
+	Overwrite *bool `json:"overwrite" yaml:"overwrite"`
 }
 
 // Represents a value of a specific object deployed in the cluster.
@@ -7832,21 +7832,21 @@ type KubernetesObjectValueProps struct {
 	// The EKS cluster to fetch attributes from.
 	//
 	// [disable-awslint:ref-via-interface]
-	Cluster ICluster `json:"cluster"`
+	Cluster ICluster `json:"cluster" yaml:"cluster"`
 	// JSONPath to the specific value.
 	// See: https://kubernetes.io/docs/reference/kubectl/jsonpath/
 	//
-	JsonPath *string `json:"jsonPath"`
+	JsonPath *string `json:"jsonPath" yaml:"jsonPath"`
 	// The name of the object to query.
-	ObjectName *string `json:"objectName"`
+	ObjectName *string `json:"objectName" yaml:"objectName"`
 	// The object type to query.
 	//
 	// (e.g 'service', 'pod'...)
-	ObjectType *string `json:"objectType"`
+	ObjectType *string `json:"objectType" yaml:"objectType"`
 	// The namespace the object belongs to.
-	ObjectNamespace *string `json:"objectNamespace"`
+	ObjectNamespace *string `json:"objectNamespace" yaml:"objectNamespace"`
 	// Timeout for waiting on a value.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 }
 
 // A CloudFormation resource which applies/restores a JSON patch into a Kubernetes resource.
@@ -7940,21 +7940,21 @@ func (k *jsiiProxy_KubernetesPatch) ToString() *string {
 //
 type KubernetesPatchProps struct {
 	// The JSON object to pass to `kubectl patch` when the resource is created/updated.
-	ApplyPatch *map[string]interface{} `json:"applyPatch"`
+	ApplyPatch *map[string]interface{} `json:"applyPatch" yaml:"applyPatch"`
 	// The cluster to apply the patch to.
 	//
 	// [disable-awslint:ref-via-interface]
-	Cluster ICluster `json:"cluster"`
+	Cluster ICluster `json:"cluster" yaml:"cluster"`
 	// The full name of the resource to patch (e.g. `deployment/coredns`).
-	ResourceName *string `json:"resourceName"`
+	ResourceName *string `json:"resourceName" yaml:"resourceName"`
 	// The JSON object to pass to `kubectl patch` when the resource is removed.
-	RestorePatch *map[string]interface{} `json:"restorePatch"`
+	RestorePatch *map[string]interface{} `json:"restorePatch" yaml:"restorePatch"`
 	// The patch type to pass to `kubectl patch`.
 	//
 	// The default type used by `kubectl patch` is "strategic".
-	PatchType PatchType `json:"patchType"`
+	PatchType PatchType `json:"patchType" yaml:"patchType"`
 	// The kubernetes API namespace.
-	ResourceNamespace *string `json:"resourceNamespace"`
+	ResourceNamespace *string `json:"resourceNamespace" yaml:"resourceNamespace"`
 }
 
 // Kubernetes cluster version.
@@ -8091,9 +8091,9 @@ func KubernetesVersion_V1_21() KubernetesVersion {
 //
 type LaunchTemplateSpec struct {
 	// The Launch template ID.
-	Id *string `json:"id"`
+	Id *string `json:"id" yaml:"id"`
 	// The launch template version to be used (optional).
-	Version *string `json:"version"`
+	Version *string `json:"version" yaml:"version"`
 }
 
 // The machine image type.
@@ -8408,72 +8408,72 @@ type NodegroupOptions struct {
 	//
 	// If you explicitly specify the launchTemplate with custom AMI, do not specify this property, or
 	// the node group deployment will fail. In other cases, you will need to specify correct amiType for the nodegroup.
-	AmiType NodegroupAmiType `json:"amiType"`
+	AmiType NodegroupAmiType `json:"amiType" yaml:"amiType"`
 	// The capacity type of the nodegroup.
-	CapacityType CapacityType `json:"capacityType"`
+	CapacityType CapacityType `json:"capacityType" yaml:"capacityType"`
 	// The current number of worker nodes that the managed node group should maintain.
 	//
 	// If not specified,
 	// the nodewgroup will initially create `minSize` instances.
-	DesiredSize *float64 `json:"desiredSize"`
+	DesiredSize *float64 `json:"desiredSize" yaml:"desiredSize"`
 	// The root device disk size (in GiB) for your node group instances.
-	DiskSize *float64 `json:"diskSize"`
+	DiskSize *float64 `json:"diskSize" yaml:"diskSize"`
 	// Force the update if the existing node group's pods are unable to be drained due to a pod disruption budget issue.
 	//
 	// If an update fails because pods could not be drained, you can force the update after it fails to terminate the old
 	// node whether or not any pods are
 	// running on the node.
-	ForceUpdate *bool `json:"forceUpdate"`
+	ForceUpdate *bool `json:"forceUpdate" yaml:"forceUpdate"`
 	// The instance types to use for your node group.
 	// See: - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-instancetypes
 	//
-	InstanceTypes *[]awsec2.InstanceType `json:"instanceTypes"`
+	InstanceTypes *[]awsec2.InstanceType `json:"instanceTypes" yaml:"instanceTypes"`
 	// The Kubernetes labels to be applied to the nodes in the node group when they are created.
-	Labels *map[string]*string `json:"labels"`
+	Labels *map[string]*string `json:"labels" yaml:"labels"`
 	// Launch template specification used for the nodegroup.
 	// See: - https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html
 	//
-	LaunchTemplateSpec *LaunchTemplateSpec `json:"launchTemplateSpec"`
+	LaunchTemplateSpec *LaunchTemplateSpec `json:"launchTemplateSpec" yaml:"launchTemplateSpec"`
 	// The maximum number of worker nodes that the managed node group can scale out to.
 	//
 	// Managed node groups can support up to 100 nodes by default.
-	MaxSize *float64 `json:"maxSize"`
+	MaxSize *float64 `json:"maxSize" yaml:"maxSize"`
 	// The minimum number of worker nodes that the managed node group can scale in to.
 	//
 	// This number must be greater than or equal to zero.
-	MinSize *float64 `json:"minSize"`
+	MinSize *float64 `json:"minSize" yaml:"minSize"`
 	// Name of the Nodegroup.
-	NodegroupName *string `json:"nodegroupName"`
+	NodegroupName *string `json:"nodegroupName" yaml:"nodegroupName"`
 	// The IAM role to associate with your node group.
 	//
 	// The Amazon EKS worker node kubelet daemon
 	// makes calls to AWS APIs on your behalf. Worker nodes receive permissions for these API calls through
 	// an IAM instance profile and associated policies. Before you can launch worker nodes and register them
 	// into a cluster, you must create an IAM role for those worker nodes to use when they are launched.
-	NodeRole awsiam.IRole `json:"nodeRole"`
+	NodeRole awsiam.IRole `json:"nodeRole" yaml:"nodeRole"`
 	// The AMI version of the Amazon EKS-optimized AMI to use with your node group (for example, `1.14.7-YYYYMMDD`).
-	ReleaseVersion *string `json:"releaseVersion"`
+	ReleaseVersion *string `json:"releaseVersion" yaml:"releaseVersion"`
 	// The remote access (SSH) configuration to use with your node group.
 	//
 	// Disabled by default, however, if you
 	// specify an Amazon EC2 SSH key but do not specify a source security group when you create a managed node group,
 	// then port 22 on the worker nodes is opened to the internet (0.0.0.0/0)
-	RemoteAccess *NodegroupRemoteAccess `json:"remoteAccess"`
+	RemoteAccess *NodegroupRemoteAccess `json:"remoteAccess" yaml:"remoteAccess"`
 	// The subnets to use for the Auto Scaling group that is created for your node group.
 	//
 	// By specifying the
 	// SubnetSelection, the selected subnets will automatically apply required tags i.e.
 	// `kubernetes.io/cluster/CLUSTER_NAME` with a value of `shared`, where `CLUSTER_NAME` is replaced with
 	// the name of your cluster.
-	Subnets *awsec2.SubnetSelection `json:"subnets"`
+	Subnets *awsec2.SubnetSelection `json:"subnets" yaml:"subnets"`
 	// The metadata to apply to the node group to assist with categorization and organization.
 	//
 	// Each tag consists of
 	// a key and an optional value, both of which you define. Node group tags do not propagate to any other resources
 	// associated with the node group, such as the Amazon EC2 instances or subnets.
-	Tags *map[string]*string `json:"tags"`
+	Tags *map[string]*string `json:"tags" yaml:"tags"`
 	// The Kubernetes taints to be applied to the nodes in the node group when they are created.
-	Taints *[]*TaintSpec `json:"taints"`
+	Taints *[]*TaintSpec `json:"taints" yaml:"taints"`
 }
 
 // NodeGroup properties interface.
@@ -8485,74 +8485,74 @@ type NodegroupProps struct {
 	//
 	// If you explicitly specify the launchTemplate with custom AMI, do not specify this property, or
 	// the node group deployment will fail. In other cases, you will need to specify correct amiType for the nodegroup.
-	AmiType NodegroupAmiType `json:"amiType"`
+	AmiType NodegroupAmiType `json:"amiType" yaml:"amiType"`
 	// The capacity type of the nodegroup.
-	CapacityType CapacityType `json:"capacityType"`
+	CapacityType CapacityType `json:"capacityType" yaml:"capacityType"`
 	// The current number of worker nodes that the managed node group should maintain.
 	//
 	// If not specified,
 	// the nodewgroup will initially create `minSize` instances.
-	DesiredSize *float64 `json:"desiredSize"`
+	DesiredSize *float64 `json:"desiredSize" yaml:"desiredSize"`
 	// The root device disk size (in GiB) for your node group instances.
-	DiskSize *float64 `json:"diskSize"`
+	DiskSize *float64 `json:"diskSize" yaml:"diskSize"`
 	// Force the update if the existing node group's pods are unable to be drained due to a pod disruption budget issue.
 	//
 	// If an update fails because pods could not be drained, you can force the update after it fails to terminate the old
 	// node whether or not any pods are
 	// running on the node.
-	ForceUpdate *bool `json:"forceUpdate"`
+	ForceUpdate *bool `json:"forceUpdate" yaml:"forceUpdate"`
 	// The instance types to use for your node group.
 	// See: - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-instancetypes
 	//
-	InstanceTypes *[]awsec2.InstanceType `json:"instanceTypes"`
+	InstanceTypes *[]awsec2.InstanceType `json:"instanceTypes" yaml:"instanceTypes"`
 	// The Kubernetes labels to be applied to the nodes in the node group when they are created.
-	Labels *map[string]*string `json:"labels"`
+	Labels *map[string]*string `json:"labels" yaml:"labels"`
 	// Launch template specification used for the nodegroup.
 	// See: - https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html
 	//
-	LaunchTemplateSpec *LaunchTemplateSpec `json:"launchTemplateSpec"`
+	LaunchTemplateSpec *LaunchTemplateSpec `json:"launchTemplateSpec" yaml:"launchTemplateSpec"`
 	// The maximum number of worker nodes that the managed node group can scale out to.
 	//
 	// Managed node groups can support up to 100 nodes by default.
-	MaxSize *float64 `json:"maxSize"`
+	MaxSize *float64 `json:"maxSize" yaml:"maxSize"`
 	// The minimum number of worker nodes that the managed node group can scale in to.
 	//
 	// This number must be greater than or equal to zero.
-	MinSize *float64 `json:"minSize"`
+	MinSize *float64 `json:"minSize" yaml:"minSize"`
 	// Name of the Nodegroup.
-	NodegroupName *string `json:"nodegroupName"`
+	NodegroupName *string `json:"nodegroupName" yaml:"nodegroupName"`
 	// The IAM role to associate with your node group.
 	//
 	// The Amazon EKS worker node kubelet daemon
 	// makes calls to AWS APIs on your behalf. Worker nodes receive permissions for these API calls through
 	// an IAM instance profile and associated policies. Before you can launch worker nodes and register them
 	// into a cluster, you must create an IAM role for those worker nodes to use when they are launched.
-	NodeRole awsiam.IRole `json:"nodeRole"`
+	NodeRole awsiam.IRole `json:"nodeRole" yaml:"nodeRole"`
 	// The AMI version of the Amazon EKS-optimized AMI to use with your node group (for example, `1.14.7-YYYYMMDD`).
-	ReleaseVersion *string `json:"releaseVersion"`
+	ReleaseVersion *string `json:"releaseVersion" yaml:"releaseVersion"`
 	// The remote access (SSH) configuration to use with your node group.
 	//
 	// Disabled by default, however, if you
 	// specify an Amazon EC2 SSH key but do not specify a source security group when you create a managed node group,
 	// then port 22 on the worker nodes is opened to the internet (0.0.0.0/0)
-	RemoteAccess *NodegroupRemoteAccess `json:"remoteAccess"`
+	RemoteAccess *NodegroupRemoteAccess `json:"remoteAccess" yaml:"remoteAccess"`
 	// The subnets to use for the Auto Scaling group that is created for your node group.
 	//
 	// By specifying the
 	// SubnetSelection, the selected subnets will automatically apply required tags i.e.
 	// `kubernetes.io/cluster/CLUSTER_NAME` with a value of `shared`, where `CLUSTER_NAME` is replaced with
 	// the name of your cluster.
-	Subnets *awsec2.SubnetSelection `json:"subnets"`
+	Subnets *awsec2.SubnetSelection `json:"subnets" yaml:"subnets"`
 	// The metadata to apply to the node group to assist with categorization and organization.
 	//
 	// Each tag consists of
 	// a key and an optional value, both of which you define. Node group tags do not propagate to any other resources
 	// associated with the node group, such as the Amazon EC2 instances or subnets.
-	Tags *map[string]*string `json:"tags"`
+	Tags *map[string]*string `json:"tags" yaml:"tags"`
 	// The Kubernetes taints to be applied to the nodes in the node group when they are created.
-	Taints *[]*TaintSpec `json:"taints"`
+	Taints *[]*TaintSpec `json:"taints" yaml:"taints"`
 	// Cluster resource.
-	Cluster ICluster `json:"cluster"`
+	Cluster ICluster `json:"cluster" yaml:"cluster"`
 }
 
 // The remote access (SSH) configuration to use with your node group.
@@ -8563,13 +8563,13 @@ type NodegroupProps struct {
 //
 type NodegroupRemoteAccess struct {
 	// The Amazon EC2 SSH key that provides access for SSH communication with the worker nodes in the managed node group.
-	SshKeyName *string `json:"sshKeyName"`
+	SshKeyName *string `json:"sshKeyName" yaml:"sshKeyName"`
 	// The security groups that are allowed SSH access (port 22) to the worker nodes.
 	//
 	// If you specify an Amazon EC2 SSH
 	// key but do not specify a source security group when you create a managed node group, then port 22 on the worker
 	// nodes is opened to the internet (0.0.0.0/0).
-	SourceSecurityGroups *[]awsec2.ISecurityGroup `json:"sourceSecurityGroups"`
+	SourceSecurityGroups *[]awsec2.ISecurityGroup `json:"sourceSecurityGroups" yaml:"sourceSecurityGroups"`
 }
 
 // IAM OIDC identity providers are entities in IAM that describe an external identity provider (IdP) service that supports the OpenID Connect (OIDC) standard, such as Google or Salesforce.
@@ -8839,7 +8839,7 @@ type OpenIdConnectProviderProps struct {
 	//
 	// You can find your OIDC Issuer URL by:
 	// aws eks describe-cluster --name %cluster_name% --query "cluster.identity.oidc.issuer" --output text
-	Url *string `json:"url"`
+	Url *string `json:"url" yaml:"url"`
 }
 
 // Values for `kubectl patch` --type argument.
@@ -8861,13 +8861,13 @@ type Selector struct {
 	// You must specify a namespace for a selector. The selector only matches pods
 	// that are created in this namespace, but you can create multiple selectors
 	// to target multiple namespaces.
-	Namespace *string `json:"namespace"`
+	Namespace *string `json:"namespace" yaml:"namespace"`
 	// The Kubernetes labels that the selector should match.
 	//
 	// A pod must contain
 	// all of the labels that are specified in the selector for it to be
 	// considered a match.
-	Labels *map[string]*string `json:"labels"`
+	Labels *map[string]*string `json:"labels" yaml:"labels"`
 }
 
 // Service Account.
@@ -9042,9 +9042,9 @@ func (s *jsiiProxy_ServiceAccount) ToString() *string {
 //
 type ServiceAccountOptions struct {
 	// The name of the service account.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The namespace of the service account.
-	Namespace *string `json:"namespace"`
+	Namespace *string `json:"namespace" yaml:"namespace"`
 }
 
 // Properties for defining service accounts.
@@ -9053,11 +9053,11 @@ type ServiceAccountOptions struct {
 //
 type ServiceAccountProps struct {
 	// The name of the service account.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The namespace of the service account.
-	Namespace *string `json:"namespace"`
+	Namespace *string `json:"namespace" yaml:"namespace"`
 	// The cluster to apply the patch to.
-	Cluster ICluster `json:"cluster"`
+	Cluster ICluster `json:"cluster" yaml:"cluster"`
 }
 
 // Options for fetching a ServiceLoadBalancerAddress.
@@ -9066,9 +9066,9 @@ type ServiceAccountProps struct {
 //
 type ServiceLoadBalancerAddressOptions struct {
 	// The namespace the service belongs to.
-	Namespace *string `json:"namespace"`
+	Namespace *string `json:"namespace" yaml:"namespace"`
 	// Timeout for waiting on the load balancer address.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 }
 
 // Effect types of kubernetes node taint.
@@ -9089,10 +9089,10 @@ const (
 //
 type TaintSpec struct {
 	// Effect type.
-	Effect TaintEffect `json:"effect"`
+	Effect TaintEffect `json:"effect" yaml:"effect"`
 	// Taint key.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// Taint value.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 

@@ -25,21 +25,21 @@ import (
 //
 type ApplicationListenerProps struct {
 	// Name of the listener.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// Certificate Manager certificate to associate with the load balancer.
 	//
 	// Setting this option will set the load balancer protocol to HTTPS.
-	Certificate awscertificatemanager.ICertificate `json:"certificate"`
+	Certificate awscertificatemanager.ICertificate `json:"certificate" yaml:"certificate"`
 	// The port on which the listener listens for requests.
-	Port *float64 `json:"port"`
+	Port *float64 `json:"port" yaml:"port"`
 	// The protocol for connections from clients to the load balancer.
 	//
 	// The load balancer port is determined from the protocol (port 80 for
 	// HTTP, port 443 for HTTPS).  A domain name and zone must be also be
 	// specified if using HTTPS.
-	Protocol awselasticloadbalancingv2.ApplicationProtocol `json:"protocol"`
+	Protocol awselasticloadbalancingv2.ApplicationProtocol `json:"protocol" yaml:"protocol"`
 	// The security policy that defines which ciphers and protocols are supported by the ALB Listener.
-	SslPolicy awselasticloadbalancingv2.SslPolicy `json:"sslPolicy"`
+	SslPolicy awselasticloadbalancingv2.SslPolicy `json:"sslPolicy" yaml:"sslPolicy"`
 }
 
 // An EC2 service running on an ECS cluster fronted by an application load balancer.
@@ -273,92 +273,92 @@ type ApplicationLoadBalancedEc2ServiceProps struct {
 	// Certificate Manager certificate to associate with the load balancer.
 	//
 	// Setting this option will set the load balancer protocol to HTTPS.
-	Certificate awscertificatemanager.ICertificate `json:"certificate"`
+	Certificate awscertificatemanager.ICertificate `json:"certificate" yaml:"certificate"`
 	// Whether to enable the deployment circuit breaker.
 	//
 	// If this property is defined, circuit breaker will be implicitly
 	// enabled.
-	CircuitBreaker *awsecs.DeploymentCircuitBreaker `json:"circuitBreaker"`
+	CircuitBreaker *awsecs.DeploymentCircuitBreaker `json:"circuitBreaker" yaml:"circuitBreaker"`
 	// The options for configuring an Amazon ECS service to use service discovery.
-	CloudMapOptions *awsecs.CloudMapOptions `json:"cloudMapOptions"`
+	CloudMapOptions *awsecs.CloudMapOptions `json:"cloudMapOptions" yaml:"cloudMapOptions"`
 	// The name of the cluster that hosts the service.
 	//
 	// If a cluster is specified, the vpc construct should be omitted. Alternatively, you can omit both cluster and vpc.
-	Cluster awsecs.ICluster `json:"cluster"`
+	Cluster awsecs.ICluster `json:"cluster" yaml:"cluster"`
 	// Specifies which deployment controller to use for the service.
 	//
 	// For more information, see
 	// [Amazon ECS Deployment Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
-	DeploymentController *awsecs.DeploymentController `json:"deploymentController"`
+	DeploymentController *awsecs.DeploymentController `json:"deploymentController" yaml:"deploymentController"`
 	// The desired number of instantiations of the task definition to keep running on the service.
 	//
 	// The minimum value is 1
-	DesiredCount *float64 `json:"desiredCount"`
+	DesiredCount *float64 `json:"desiredCount" yaml:"desiredCount"`
 	// The domain name for the service, e.g. "api.example.com.".
-	DomainName *string `json:"domainName"`
+	DomainName *string `json:"domainName" yaml:"domainName"`
 	// The Route53 hosted zone for the domain, e.g. "example.com.".
-	DomainZone awsroute53.IHostedZone `json:"domainZone"`
+	DomainZone awsroute53.IHostedZone `json:"domainZone" yaml:"domainZone"`
 	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 	//
 	// For more information, see
 	// [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html)
-	EnableECSManagedTags *bool `json:"enableECSManagedTags"`
+	EnableECSManagedTags *bool `json:"enableECSManagedTags" yaml:"enableECSManagedTags"`
 	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks after a task has first started.
-	HealthCheckGracePeriod awscdk.Duration `json:"healthCheckGracePeriod"`
+	HealthCheckGracePeriod awscdk.Duration `json:"healthCheckGracePeriod" yaml:"healthCheckGracePeriod"`
 	// Listener port of the application load balancer that will serve traffic to the service.
-	ListenerPort *float64 `json:"listenerPort"`
+	ListenerPort *float64 `json:"listenerPort" yaml:"listenerPort"`
 	// The application load balancer that will serve traffic to the service.
 	//
 	// The VPC attribute of a load balancer must be specified for it to be used
 	// to create a new service with this pattern.
 	//
 	// [disable-awslint:ref-via-interface]
-	LoadBalancer awselasticloadbalancingv2.IApplicationLoadBalancer `json:"loadBalancer"`
+	LoadBalancer awselasticloadbalancingv2.IApplicationLoadBalancer `json:"loadBalancer" yaml:"loadBalancer"`
 	// Name of the load balancer.
-	LoadBalancerName *string `json:"loadBalancerName"`
+	LoadBalancerName *string `json:"loadBalancerName" yaml:"loadBalancerName"`
 	// The maximum number of tasks, specified as a percentage of the Amazon ECS service's DesiredCount value, that can run in a service during a deployment.
-	MaxHealthyPercent *float64 `json:"maxHealthyPercent"`
+	MaxHealthyPercent *float64 `json:"maxHealthyPercent" yaml:"maxHealthyPercent"`
 	// The minimum number of tasks, specified as a percentage of the Amazon ECS service's DesiredCount value, that must continue to run and remain healthy during a deployment.
-	MinHealthyPercent *float64 `json:"minHealthyPercent"`
+	MinHealthyPercent *float64 `json:"minHealthyPercent" yaml:"minHealthyPercent"`
 	// Determines whether or not the Security Group for the Load Balancer's Listener will be open to all traffic by default.
-	OpenListener *bool `json:"openListener"`
+	OpenListener *bool `json:"openListener" yaml:"openListener"`
 	// Specifies whether to propagate the tags from the task definition or the service to the tasks in the service.
 	//
 	// Tags can only be propagated to the tasks within the service during service creation.
-	PropagateTags awsecs.PropagatedTagSource `json:"propagateTags"`
+	PropagateTags awsecs.PropagatedTagSource `json:"propagateTags" yaml:"propagateTags"`
 	// The protocol for connections from clients to the load balancer.
 	//
 	// The load balancer port is determined from the protocol (port 80 for
 	// HTTP, port 443 for HTTPS).  A domain name and zone must be also be
 	// specified if using HTTPS.
-	Protocol awselasticloadbalancingv2.ApplicationProtocol `json:"protocol"`
+	Protocol awselasticloadbalancingv2.ApplicationProtocol `json:"protocol" yaml:"protocol"`
 	// The protocol version to use.
-	ProtocolVersion awselasticloadbalancingv2.ApplicationProtocolVersion `json:"protocolVersion"`
+	ProtocolVersion awselasticloadbalancingv2.ApplicationProtocolVersion `json:"protocolVersion" yaml:"protocolVersion"`
 	// Determines whether the Load Balancer will be internet-facing.
-	PublicLoadBalancer *bool `json:"publicLoadBalancer"`
+	PublicLoadBalancer *bool `json:"publicLoadBalancer" yaml:"publicLoadBalancer"`
 	// Specifies whether the Route53 record should be a CNAME, an A record using the Alias feature or no record at all.
 	//
 	// This is useful if you need to work with DNS systems that do not support alias records.
-	RecordType ApplicationLoadBalancedServiceRecordType `json:"recordType"`
+	RecordType ApplicationLoadBalancedServiceRecordType `json:"recordType" yaml:"recordType"`
 	// Specifies whether the load balancer should redirect traffic on port 80 to port 443 to support HTTP->HTTPS redirects This is only valid if the protocol of the ALB is HTTPS.
-	RedirectHTTP *bool `json:"redirectHTTP"`
+	RedirectHTTP *bool `json:"redirectHTTP" yaml:"redirectHTTP"`
 	// The name of the service.
-	ServiceName *string `json:"serviceName"`
+	ServiceName *string `json:"serviceName" yaml:"serviceName"`
 	// The security policy that defines which ciphers and protocols are supported by the ALB Listener.
-	SslPolicy awselasticloadbalancingv2.SslPolicy `json:"sslPolicy"`
+	SslPolicy awselasticloadbalancingv2.SslPolicy `json:"sslPolicy" yaml:"sslPolicy"`
 	// The protocol for connections from the load balancer to the ECS tasks.
 	//
 	// The default target port is determined from the protocol (port 80 for
 	// HTTP, port 443 for HTTPS).
-	TargetProtocol awselasticloadbalancingv2.ApplicationProtocol `json:"targetProtocol"`
+	TargetProtocol awselasticloadbalancingv2.ApplicationProtocol `json:"targetProtocol" yaml:"targetProtocol"`
 	// The properties required to create a new task definition.
 	//
 	// TaskDefinition or TaskImageOptions must be specified, but not both.
-	TaskImageOptions *ApplicationLoadBalancedTaskImageOptions `json:"taskImageOptions"`
+	TaskImageOptions *ApplicationLoadBalancedTaskImageOptions `json:"taskImageOptions" yaml:"taskImageOptions"`
 	// The VPC where the container instances will be launched or the elastic network interfaces (ENIs) will be deployed.
 	//
 	// If a vpc is specified, the cluster construct should be omitted. Alternatively, you can omit both vpc and cluster.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// The number of cpu units used by the task.
 	//
 	// Valid values, which determines your range of valid values for the memory parameter:
@@ -374,14 +374,14 @@ type ApplicationLoadBalancedEc2ServiceProps struct {
 	// 4096 (4 vCPU) - Available memory values: Between 8GB and 30GB in 1GB increments
 	//
 	// This default is set in the underlying FargateTaskDefinition construct.
-	Cpu *float64 `json:"cpu"`
+	Cpu *float64 `json:"cpu" yaml:"cpu"`
 	// The hard limit (in MiB) of memory to present to the container.
 	//
 	// If your container attempts to exceed the allocated memory, the container
 	// is terminated.
 	//
 	// At least one of memoryLimitMiB and memoryReservationMiB is required.
-	MemoryLimitMiB *float64 `json:"memoryLimitMiB"`
+	MemoryLimitMiB *float64 `json:"memoryLimitMiB" yaml:"memoryLimitMiB"`
 	// The soft limit (in MiB) of memory to reserve for the container.
 	//
 	// When system memory is under contention, Docker attempts to keep the
@@ -390,11 +390,11 @@ type ApplicationLoadBalancedEc2ServiceProps struct {
 	// the available memory on the container instance—whichever comes first.
 	//
 	// At least one of memoryLimitMiB and memoryReservationMiB is required.
-	MemoryReservationMiB *float64 `json:"memoryReservationMiB"`
+	MemoryReservationMiB *float64 `json:"memoryReservationMiB" yaml:"memoryReservationMiB"`
 	// The task definition to use for tasks in the service. TaskDefinition or TaskImageOptions must be specified, but not both..
 	//
 	// [disable-awslint:ref-via-interface]
-	TaskDefinition awsecs.Ec2TaskDefinition `json:"taskDefinition"`
+	TaskDefinition awsecs.Ec2TaskDefinition `json:"taskDefinition" yaml:"taskDefinition"`
 }
 
 // A Fargate service running on an ECS cluster fronted by an application load balancer.
@@ -639,94 +639,94 @@ type ApplicationLoadBalancedFargateServiceProps struct {
 	// Certificate Manager certificate to associate with the load balancer.
 	//
 	// Setting this option will set the load balancer protocol to HTTPS.
-	Certificate awscertificatemanager.ICertificate `json:"certificate"`
+	Certificate awscertificatemanager.ICertificate `json:"certificate" yaml:"certificate"`
 	// Whether to enable the deployment circuit breaker.
 	//
 	// If this property is defined, circuit breaker will be implicitly
 	// enabled.
-	CircuitBreaker *awsecs.DeploymentCircuitBreaker `json:"circuitBreaker"`
+	CircuitBreaker *awsecs.DeploymentCircuitBreaker `json:"circuitBreaker" yaml:"circuitBreaker"`
 	// The options for configuring an Amazon ECS service to use service discovery.
-	CloudMapOptions *awsecs.CloudMapOptions `json:"cloudMapOptions"`
+	CloudMapOptions *awsecs.CloudMapOptions `json:"cloudMapOptions" yaml:"cloudMapOptions"`
 	// The name of the cluster that hosts the service.
 	//
 	// If a cluster is specified, the vpc construct should be omitted. Alternatively, you can omit both cluster and vpc.
-	Cluster awsecs.ICluster `json:"cluster"`
+	Cluster awsecs.ICluster `json:"cluster" yaml:"cluster"`
 	// Specifies which deployment controller to use for the service.
 	//
 	// For more information, see
 	// [Amazon ECS Deployment Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
-	DeploymentController *awsecs.DeploymentController `json:"deploymentController"`
+	DeploymentController *awsecs.DeploymentController `json:"deploymentController" yaml:"deploymentController"`
 	// The desired number of instantiations of the task definition to keep running on the service.
 	//
 	// The minimum value is 1
-	DesiredCount *float64 `json:"desiredCount"`
+	DesiredCount *float64 `json:"desiredCount" yaml:"desiredCount"`
 	// The domain name for the service, e.g. "api.example.com.".
-	DomainName *string `json:"domainName"`
+	DomainName *string `json:"domainName" yaml:"domainName"`
 	// The Route53 hosted zone for the domain, e.g. "example.com.".
-	DomainZone awsroute53.IHostedZone `json:"domainZone"`
+	DomainZone awsroute53.IHostedZone `json:"domainZone" yaml:"domainZone"`
 	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 	//
 	// For more information, see
 	// [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html)
-	EnableECSManagedTags *bool `json:"enableECSManagedTags"`
+	EnableECSManagedTags *bool `json:"enableECSManagedTags" yaml:"enableECSManagedTags"`
 	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks after a task has first started.
-	HealthCheckGracePeriod awscdk.Duration `json:"healthCheckGracePeriod"`
+	HealthCheckGracePeriod awscdk.Duration `json:"healthCheckGracePeriod" yaml:"healthCheckGracePeriod"`
 	// Listener port of the application load balancer that will serve traffic to the service.
-	ListenerPort *float64 `json:"listenerPort"`
+	ListenerPort *float64 `json:"listenerPort" yaml:"listenerPort"`
 	// The application load balancer that will serve traffic to the service.
 	//
 	// The VPC attribute of a load balancer must be specified for it to be used
 	// to create a new service with this pattern.
 	//
 	// [disable-awslint:ref-via-interface]
-	LoadBalancer awselasticloadbalancingv2.IApplicationLoadBalancer `json:"loadBalancer"`
+	LoadBalancer awselasticloadbalancingv2.IApplicationLoadBalancer `json:"loadBalancer" yaml:"loadBalancer"`
 	// Name of the load balancer.
-	LoadBalancerName *string `json:"loadBalancerName"`
+	LoadBalancerName *string `json:"loadBalancerName" yaml:"loadBalancerName"`
 	// The maximum number of tasks, specified as a percentage of the Amazon ECS service's DesiredCount value, that can run in a service during a deployment.
-	MaxHealthyPercent *float64 `json:"maxHealthyPercent"`
+	MaxHealthyPercent *float64 `json:"maxHealthyPercent" yaml:"maxHealthyPercent"`
 	// The minimum number of tasks, specified as a percentage of the Amazon ECS service's DesiredCount value, that must continue to run and remain healthy during a deployment.
-	MinHealthyPercent *float64 `json:"minHealthyPercent"`
+	MinHealthyPercent *float64 `json:"minHealthyPercent" yaml:"minHealthyPercent"`
 	// Determines whether or not the Security Group for the Load Balancer's Listener will be open to all traffic by default.
-	OpenListener *bool `json:"openListener"`
+	OpenListener *bool `json:"openListener" yaml:"openListener"`
 	// Specifies whether to propagate the tags from the task definition or the service to the tasks in the service.
 	//
 	// Tags can only be propagated to the tasks within the service during service creation.
-	PropagateTags awsecs.PropagatedTagSource `json:"propagateTags"`
+	PropagateTags awsecs.PropagatedTagSource `json:"propagateTags" yaml:"propagateTags"`
 	// The protocol for connections from clients to the load balancer.
 	//
 	// The load balancer port is determined from the protocol (port 80 for
 	// HTTP, port 443 for HTTPS).  A domain name and zone must be also be
 	// specified if using HTTPS.
-	Protocol awselasticloadbalancingv2.ApplicationProtocol `json:"protocol"`
+	Protocol awselasticloadbalancingv2.ApplicationProtocol `json:"protocol" yaml:"protocol"`
 	// The protocol version to use.
-	ProtocolVersion awselasticloadbalancingv2.ApplicationProtocolVersion `json:"protocolVersion"`
+	ProtocolVersion awselasticloadbalancingv2.ApplicationProtocolVersion `json:"protocolVersion" yaml:"protocolVersion"`
 	// Determines whether the Load Balancer will be internet-facing.
-	PublicLoadBalancer *bool `json:"publicLoadBalancer"`
+	PublicLoadBalancer *bool `json:"publicLoadBalancer" yaml:"publicLoadBalancer"`
 	// Specifies whether the Route53 record should be a CNAME, an A record using the Alias feature or no record at all.
 	//
 	// This is useful if you need to work with DNS systems that do not support alias records.
-	RecordType ApplicationLoadBalancedServiceRecordType `json:"recordType"`
+	RecordType ApplicationLoadBalancedServiceRecordType `json:"recordType" yaml:"recordType"`
 	// Specifies whether the load balancer should redirect traffic on port 80 to port 443 to support HTTP->HTTPS redirects This is only valid if the protocol of the ALB is HTTPS.
-	RedirectHTTP *bool `json:"redirectHTTP"`
+	RedirectHTTP *bool `json:"redirectHTTP" yaml:"redirectHTTP"`
 	// The name of the service.
-	ServiceName *string `json:"serviceName"`
+	ServiceName *string `json:"serviceName" yaml:"serviceName"`
 	// The security policy that defines which ciphers and protocols are supported by the ALB Listener.
-	SslPolicy awselasticloadbalancingv2.SslPolicy `json:"sslPolicy"`
+	SslPolicy awselasticloadbalancingv2.SslPolicy `json:"sslPolicy" yaml:"sslPolicy"`
 	// The protocol for connections from the load balancer to the ECS tasks.
 	//
 	// The default target port is determined from the protocol (port 80 for
 	// HTTP, port 443 for HTTPS).
-	TargetProtocol awselasticloadbalancingv2.ApplicationProtocol `json:"targetProtocol"`
+	TargetProtocol awselasticloadbalancingv2.ApplicationProtocol `json:"targetProtocol" yaml:"targetProtocol"`
 	// The properties required to create a new task definition.
 	//
 	// TaskDefinition or TaskImageOptions must be specified, but not both.
-	TaskImageOptions *ApplicationLoadBalancedTaskImageOptions `json:"taskImageOptions"`
+	TaskImageOptions *ApplicationLoadBalancedTaskImageOptions `json:"taskImageOptions" yaml:"taskImageOptions"`
 	// The VPC where the container instances will be launched or the elastic network interfaces (ENIs) will be deployed.
 	//
 	// If a vpc is specified, the cluster construct should be omitted. Alternatively, you can omit both vpc and cluster.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// Determines whether the service will be assigned a public IP address.
-	AssignPublicIp *bool `json:"assignPublicIp"`
+	AssignPublicIp *bool `json:"assignPublicIp" yaml:"assignPublicIp"`
 	// The number of cpu units used by the task.
 	//
 	// Valid values, which determines your range of valid values for the memory parameter:
@@ -742,7 +742,7 @@ type ApplicationLoadBalancedFargateServiceProps struct {
 	// 4096 (4 vCPU) - Available memory values: Between 8GB and 30GB in 1GB increments
 	//
 	// This default is set in the underlying FargateTaskDefinition construct.
-	Cpu *float64 `json:"cpu"`
+	Cpu *float64 `json:"cpu" yaml:"cpu"`
 	// The amount (in MiB) of memory used by the task.
 	//
 	// This field is required and you must use one of the following values, which determines your range of valid values
@@ -759,23 +759,23 @@ type ApplicationLoadBalancedFargateServiceProps struct {
 	// Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) - Available cpu values: 4096 (4 vCPU)
 	//
 	// This default is set in the underlying FargateTaskDefinition construct.
-	MemoryLimitMiB *float64 `json:"memoryLimitMiB"`
+	MemoryLimitMiB *float64 `json:"memoryLimitMiB" yaml:"memoryLimitMiB"`
 	// The platform version on which to run your service.
 	//
 	// If one is not specified, the LATEST platform version is used by default. For more information, see
 	// [AWS Fargate Platform Versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html)
 	// in the Amazon Elastic Container Service Developer Guide.
-	PlatformVersion awsecs.FargatePlatformVersion `json:"platformVersion"`
+	PlatformVersion awsecs.FargatePlatformVersion `json:"platformVersion" yaml:"platformVersion"`
 	// The security groups to associate with the service.
 	//
 	// If you do not specify a security group, a new security group is created.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// The task definition to use for tasks in the service. TaskDefinition or TaskImageOptions must be specified, but not both.
 	//
 	// [disable-awslint:ref-via-interface]
-	TaskDefinition awsecs.FargateTaskDefinition `json:"taskDefinition"`
+	TaskDefinition awsecs.FargateTaskDefinition `json:"taskDefinition" yaml:"taskDefinition"`
 	// The subnets to associate with the service.
-	TaskSubnets *awsec2.SubnetSelection `json:"taskSubnets"`
+	TaskSubnets *awsec2.SubnetSelection `json:"taskSubnets" yaml:"taskSubnets"`
 }
 
 // The base class for ApplicationLoadBalancedEc2Service and ApplicationLoadBalancedFargateService services.
@@ -969,92 +969,92 @@ type ApplicationLoadBalancedServiceBaseProps struct {
 	// Certificate Manager certificate to associate with the load balancer.
 	//
 	// Setting this option will set the load balancer protocol to HTTPS.
-	Certificate awscertificatemanager.ICertificate `json:"certificate"`
+	Certificate awscertificatemanager.ICertificate `json:"certificate" yaml:"certificate"`
 	// Whether to enable the deployment circuit breaker.
 	//
 	// If this property is defined, circuit breaker will be implicitly
 	// enabled.
-	CircuitBreaker *awsecs.DeploymentCircuitBreaker `json:"circuitBreaker"`
+	CircuitBreaker *awsecs.DeploymentCircuitBreaker `json:"circuitBreaker" yaml:"circuitBreaker"`
 	// The options for configuring an Amazon ECS service to use service discovery.
-	CloudMapOptions *awsecs.CloudMapOptions `json:"cloudMapOptions"`
+	CloudMapOptions *awsecs.CloudMapOptions `json:"cloudMapOptions" yaml:"cloudMapOptions"`
 	// The name of the cluster that hosts the service.
 	//
 	// If a cluster is specified, the vpc construct should be omitted. Alternatively, you can omit both cluster and vpc.
-	Cluster awsecs.ICluster `json:"cluster"`
+	Cluster awsecs.ICluster `json:"cluster" yaml:"cluster"`
 	// Specifies which deployment controller to use for the service.
 	//
 	// For more information, see
 	// [Amazon ECS Deployment Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
-	DeploymentController *awsecs.DeploymentController `json:"deploymentController"`
+	DeploymentController *awsecs.DeploymentController `json:"deploymentController" yaml:"deploymentController"`
 	// The desired number of instantiations of the task definition to keep running on the service.
 	//
 	// The minimum value is 1
-	DesiredCount *float64 `json:"desiredCount"`
+	DesiredCount *float64 `json:"desiredCount" yaml:"desiredCount"`
 	// The domain name for the service, e.g. "api.example.com.".
-	DomainName *string `json:"domainName"`
+	DomainName *string `json:"domainName" yaml:"domainName"`
 	// The Route53 hosted zone for the domain, e.g. "example.com.".
-	DomainZone awsroute53.IHostedZone `json:"domainZone"`
+	DomainZone awsroute53.IHostedZone `json:"domainZone" yaml:"domainZone"`
 	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 	//
 	// For more information, see
 	// [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html)
-	EnableECSManagedTags *bool `json:"enableECSManagedTags"`
+	EnableECSManagedTags *bool `json:"enableECSManagedTags" yaml:"enableECSManagedTags"`
 	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks after a task has first started.
-	HealthCheckGracePeriod awscdk.Duration `json:"healthCheckGracePeriod"`
+	HealthCheckGracePeriod awscdk.Duration `json:"healthCheckGracePeriod" yaml:"healthCheckGracePeriod"`
 	// Listener port of the application load balancer that will serve traffic to the service.
-	ListenerPort *float64 `json:"listenerPort"`
+	ListenerPort *float64 `json:"listenerPort" yaml:"listenerPort"`
 	// The application load balancer that will serve traffic to the service.
 	//
 	// The VPC attribute of a load balancer must be specified for it to be used
 	// to create a new service with this pattern.
 	//
 	// [disable-awslint:ref-via-interface]
-	LoadBalancer awselasticloadbalancingv2.IApplicationLoadBalancer `json:"loadBalancer"`
+	LoadBalancer awselasticloadbalancingv2.IApplicationLoadBalancer `json:"loadBalancer" yaml:"loadBalancer"`
 	// Name of the load balancer.
-	LoadBalancerName *string `json:"loadBalancerName"`
+	LoadBalancerName *string `json:"loadBalancerName" yaml:"loadBalancerName"`
 	// The maximum number of tasks, specified as a percentage of the Amazon ECS service's DesiredCount value, that can run in a service during a deployment.
-	MaxHealthyPercent *float64 `json:"maxHealthyPercent"`
+	MaxHealthyPercent *float64 `json:"maxHealthyPercent" yaml:"maxHealthyPercent"`
 	// The minimum number of tasks, specified as a percentage of the Amazon ECS service's DesiredCount value, that must continue to run and remain healthy during a deployment.
-	MinHealthyPercent *float64 `json:"minHealthyPercent"`
+	MinHealthyPercent *float64 `json:"minHealthyPercent" yaml:"minHealthyPercent"`
 	// Determines whether or not the Security Group for the Load Balancer's Listener will be open to all traffic by default.
-	OpenListener *bool `json:"openListener"`
+	OpenListener *bool `json:"openListener" yaml:"openListener"`
 	// Specifies whether to propagate the tags from the task definition or the service to the tasks in the service.
 	//
 	// Tags can only be propagated to the tasks within the service during service creation.
-	PropagateTags awsecs.PropagatedTagSource `json:"propagateTags"`
+	PropagateTags awsecs.PropagatedTagSource `json:"propagateTags" yaml:"propagateTags"`
 	// The protocol for connections from clients to the load balancer.
 	//
 	// The load balancer port is determined from the protocol (port 80 for
 	// HTTP, port 443 for HTTPS).  A domain name and zone must be also be
 	// specified if using HTTPS.
-	Protocol awselasticloadbalancingv2.ApplicationProtocol `json:"protocol"`
+	Protocol awselasticloadbalancingv2.ApplicationProtocol `json:"protocol" yaml:"protocol"`
 	// The protocol version to use.
-	ProtocolVersion awselasticloadbalancingv2.ApplicationProtocolVersion `json:"protocolVersion"`
+	ProtocolVersion awselasticloadbalancingv2.ApplicationProtocolVersion `json:"protocolVersion" yaml:"protocolVersion"`
 	// Determines whether the Load Balancer will be internet-facing.
-	PublicLoadBalancer *bool `json:"publicLoadBalancer"`
+	PublicLoadBalancer *bool `json:"publicLoadBalancer" yaml:"publicLoadBalancer"`
 	// Specifies whether the Route53 record should be a CNAME, an A record using the Alias feature or no record at all.
 	//
 	// This is useful if you need to work with DNS systems that do not support alias records.
-	RecordType ApplicationLoadBalancedServiceRecordType `json:"recordType"`
+	RecordType ApplicationLoadBalancedServiceRecordType `json:"recordType" yaml:"recordType"`
 	// Specifies whether the load balancer should redirect traffic on port 80 to port 443 to support HTTP->HTTPS redirects This is only valid if the protocol of the ALB is HTTPS.
-	RedirectHTTP *bool `json:"redirectHTTP"`
+	RedirectHTTP *bool `json:"redirectHTTP" yaml:"redirectHTTP"`
 	// The name of the service.
-	ServiceName *string `json:"serviceName"`
+	ServiceName *string `json:"serviceName" yaml:"serviceName"`
 	// The security policy that defines which ciphers and protocols are supported by the ALB Listener.
-	SslPolicy awselasticloadbalancingv2.SslPolicy `json:"sslPolicy"`
+	SslPolicy awselasticloadbalancingv2.SslPolicy `json:"sslPolicy" yaml:"sslPolicy"`
 	// The protocol for connections from the load balancer to the ECS tasks.
 	//
 	// The default target port is determined from the protocol (port 80 for
 	// HTTP, port 443 for HTTPS).
-	TargetProtocol awselasticloadbalancingv2.ApplicationProtocol `json:"targetProtocol"`
+	TargetProtocol awselasticloadbalancingv2.ApplicationProtocol `json:"targetProtocol" yaml:"targetProtocol"`
 	// The properties required to create a new task definition.
 	//
 	// TaskDefinition or TaskImageOptions must be specified, but not both.
-	TaskImageOptions *ApplicationLoadBalancedTaskImageOptions `json:"taskImageOptions"`
+	TaskImageOptions *ApplicationLoadBalancedTaskImageOptions `json:"taskImageOptions" yaml:"taskImageOptions"`
 	// The VPC where the container instances will be launched or the elastic network interfaces (ENIs) will be deployed.
 	//
 	// If a vpc is specified, the cluster construct should be omitted. Alternatively, you can omit both vpc and cluster.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 }
 
 // Describes the type of DNS record the service should create.
@@ -1072,9 +1072,9 @@ type ApplicationLoadBalancedTaskImageOptions struct {
 	// The image used to start a container.
 	//
 	// Image or taskDefinition must be specified, not both.
-	Image awsecs.ContainerImage `json:"image"`
+	Image awsecs.ContainerImage `json:"image" yaml:"image"`
 	// The container name value to be specified in the task definition.
-	ContainerName *string `json:"containerName"`
+	ContainerName *string `json:"containerName" yaml:"containerName"`
 	// The port number on the container that is bound to the user-specified or automatically assigned host port.
 	//
 	// If you are using containers in a task with the awsvpc or host network mode, exposed ports should be specified using containerPort.
@@ -1085,25 +1085,25 @@ type ApplicationLoadBalancedTaskImageOptions struct {
 	//
 	// For more information, see
 	// [hostPort](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PortMapping.html#ECS-Type-PortMapping-hostPort).
-	ContainerPort *float64 `json:"containerPort"`
+	ContainerPort *float64 `json:"containerPort" yaml:"containerPort"`
 	// A key/value map of labels to add to the container.
-	DockerLabels *map[string]*string `json:"dockerLabels"`
+	DockerLabels *map[string]*string `json:"dockerLabels" yaml:"dockerLabels"`
 	// Flag to indicate whether to enable logging.
-	EnableLogging *bool `json:"enableLogging"`
+	EnableLogging *bool `json:"enableLogging" yaml:"enableLogging"`
 	// The environment variables to pass to the container.
-	Environment *map[string]*string `json:"environment"`
+	Environment *map[string]*string `json:"environment" yaml:"environment"`
 	// The name of the task execution IAM role that grants the Amazon ECS container agent permission to call AWS APIs on your behalf.
-	ExecutionRole awsiam.IRole `json:"executionRole"`
+	ExecutionRole awsiam.IRole `json:"executionRole" yaml:"executionRole"`
 	// The name of a family that this task definition is registered to.
 	//
 	// A family groups multiple versions of a task definition.
-	Family *string `json:"family"`
+	Family *string `json:"family" yaml:"family"`
 	// The log driver to use.
-	LogDriver awsecs.LogDriver `json:"logDriver"`
+	LogDriver awsecs.LogDriver `json:"logDriver" yaml:"logDriver"`
 	// The secret to expose to the container as an environment variable.
-	Secrets *map[string]awsecs.Secret `json:"secrets"`
+	Secrets *map[string]awsecs.Secret `json:"secrets" yaml:"secrets"`
 	// The name of the task IAM role that grants containers in the task permission to call AWS APIs on your behalf.
-	TaskRole awsiam.IRole `json:"taskRole"`
+	TaskRole awsiam.IRole `json:"taskRole" yaml:"taskRole"`
 }
 
 // Options for configuring a new container.
@@ -1114,9 +1114,9 @@ type ApplicationLoadBalancedTaskImageProps struct {
 	// The image used to start a container.
 	//
 	// Image or taskDefinition must be specified, not both.
-	Image awsecs.ContainerImage `json:"image"`
+	Image awsecs.ContainerImage `json:"image" yaml:"image"`
 	// The container name value to be specified in the task definition.
-	ContainerName *string `json:"containerName"`
+	ContainerName *string `json:"containerName" yaml:"containerName"`
 	// A list of port numbers on the container that is bound to the user-specified or automatically assigned host port.
 	//
 	// If you are using containers in a task with the awsvpc or host network mode, exposed ports should be specified using containerPort.
@@ -1127,25 +1127,25 @@ type ApplicationLoadBalancedTaskImageProps struct {
 	//
 	// For more information, see
 	// [hostPort](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PortMapping.html#ECS-Type-PortMapping-hostPort).
-	ContainerPorts *[]*float64 `json:"containerPorts"`
+	ContainerPorts *[]*float64 `json:"containerPorts" yaml:"containerPorts"`
 	// A key/value map of labels to add to the container.
-	DockerLabels *map[string]*string `json:"dockerLabels"`
+	DockerLabels *map[string]*string `json:"dockerLabels" yaml:"dockerLabels"`
 	// Flag to indicate whether to enable logging.
-	EnableLogging *bool `json:"enableLogging"`
+	EnableLogging *bool `json:"enableLogging" yaml:"enableLogging"`
 	// The environment variables to pass to the container.
-	Environment *map[string]*string `json:"environment"`
+	Environment *map[string]*string `json:"environment" yaml:"environment"`
 	// The name of the task execution IAM role that grants the Amazon ECS container agent permission to call AWS APIs on your behalf.
-	ExecutionRole awsiam.IRole `json:"executionRole"`
+	ExecutionRole awsiam.IRole `json:"executionRole" yaml:"executionRole"`
 	// The name of a family that this task definition is registered to.
 	//
 	// A family groups multiple versions of a task definition.
-	Family *string `json:"family"`
+	Family *string `json:"family" yaml:"family"`
 	// The log driver to use.
-	LogDriver awsecs.LogDriver `json:"logDriver"`
+	LogDriver awsecs.LogDriver `json:"logDriver" yaml:"logDriver"`
 	// The secrets to expose to the container as an environment variable.
-	Secrets *map[string]awsecs.Secret `json:"secrets"`
+	Secrets *map[string]awsecs.Secret `json:"secrets" yaml:"secrets"`
 	// The name of the task IAM role that grants containers in the task permission to call AWS APIs on your behalf.
-	TaskRole awsiam.IRole `json:"taskRole"`
+	TaskRole awsiam.IRole `json:"taskRole" yaml:"taskRole"`
 }
 
 // Properties to define an application load balancer.
@@ -1154,15 +1154,15 @@ type ApplicationLoadBalancedTaskImageProps struct {
 //
 type ApplicationLoadBalancerProps struct {
 	// Listeners (at least one listener) attached to this load balancer.
-	Listeners *[]*ApplicationListenerProps `json:"listeners"`
+	Listeners *[]*ApplicationListenerProps `json:"listeners" yaml:"listeners"`
 	// Name of the load balancer.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The domain name for the service, e.g. "api.example.com.".
-	DomainName *string `json:"domainName"`
+	DomainName *string `json:"domainName" yaml:"domainName"`
 	// The Route53 hosted zone for the domain, e.g. "example.com.".
-	DomainZone awsroute53.IHostedZone `json:"domainZone"`
+	DomainZone awsroute53.IHostedZone `json:"domainZone" yaml:"domainZone"`
 	// Determines whether the Load Balancer will be internet-facing.
-	PublicLoadBalancer *bool `json:"publicLoadBalancer"`
+	PublicLoadBalancer *bool `json:"publicLoadBalancer" yaml:"publicLoadBalancer"`
 }
 
 // An EC2 service running on an ECS cluster fronted by an application load balancer.
@@ -1459,49 +1459,49 @@ func (a *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) ToString() *string
 //
 type ApplicationMultipleTargetGroupsEc2ServiceProps struct {
 	// The options for configuring an Amazon ECS service to use service discovery.
-	CloudMapOptions *awsecs.CloudMapOptions `json:"cloudMapOptions"`
+	CloudMapOptions *awsecs.CloudMapOptions `json:"cloudMapOptions" yaml:"cloudMapOptions"`
 	// The name of the cluster that hosts the service.
 	//
 	// If a cluster is specified, the vpc construct should be omitted. Alternatively, you can omit both cluster and vpc.
-	Cluster awsecs.ICluster `json:"cluster"`
+	Cluster awsecs.ICluster `json:"cluster" yaml:"cluster"`
 	// The desired number of instantiations of the task definition to keep running on the service.
-	DesiredCount *float64 `json:"desiredCount"`
+	DesiredCount *float64 `json:"desiredCount" yaml:"desiredCount"`
 	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 	//
 	// For more information, see
 	// [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html)
-	EnableECSManagedTags *bool `json:"enableECSManagedTags"`
+	EnableECSManagedTags *bool `json:"enableECSManagedTags" yaml:"enableECSManagedTags"`
 	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks after a task has first started.
-	HealthCheckGracePeriod awscdk.Duration `json:"healthCheckGracePeriod"`
+	HealthCheckGracePeriod awscdk.Duration `json:"healthCheckGracePeriod" yaml:"healthCheckGracePeriod"`
 	// The application load balancer that will serve traffic to the service.
-	LoadBalancers *[]*ApplicationLoadBalancerProps `json:"loadBalancers"`
+	LoadBalancers *[]*ApplicationLoadBalancerProps `json:"loadBalancers" yaml:"loadBalancers"`
 	// Specifies whether to propagate the tags from the task definition or the service to the tasks in the service.
 	//
 	// Tags can only be propagated to the tasks within the service during service creation.
-	PropagateTags awsecs.PropagatedTagSource `json:"propagateTags"`
+	PropagateTags awsecs.PropagatedTagSource `json:"propagateTags" yaml:"propagateTags"`
 	// The name of the service.
-	ServiceName *string `json:"serviceName"`
+	ServiceName *string `json:"serviceName" yaml:"serviceName"`
 	// Properties to specify ALB target groups.
-	TargetGroups *[]*ApplicationTargetProps `json:"targetGroups"`
+	TargetGroups *[]*ApplicationTargetProps `json:"targetGroups" yaml:"targetGroups"`
 	// The properties required to create a new task definition.
 	//
 	// Only one of TaskDefinition or TaskImageOptions must be specified.
-	TaskImageOptions *ApplicationLoadBalancedTaskImageProps `json:"taskImageOptions"`
+	TaskImageOptions *ApplicationLoadBalancedTaskImageProps `json:"taskImageOptions" yaml:"taskImageOptions"`
 	// The VPC where the container instances will be launched or the elastic network interfaces (ENIs) will be deployed.
 	//
 	// If a vpc is specified, the cluster construct should be omitted. Alternatively, you can omit both vpc and cluster.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// The minimum number of CPU units to reserve for the container.
 	//
 	// Valid values, which determines your range of valid values for the memory parameter:
-	Cpu *float64 `json:"cpu"`
+	Cpu *float64 `json:"cpu" yaml:"cpu"`
 	// The amount (in MiB) of memory to present to the container.
 	//
 	// If your container attempts to exceed the allocated memory, the container
 	// is terminated.
 	//
 	// At least one of memoryLimitMiB and memoryReservationMiB is required.
-	MemoryLimitMiB *float64 `json:"memoryLimitMiB"`
+	MemoryLimitMiB *float64 `json:"memoryLimitMiB" yaml:"memoryLimitMiB"`
 	// The soft limit (in MiB) of memory to reserve for the container.
 	//
 	// When system memory is under heavy contention, Docker attempts to keep the
@@ -1513,11 +1513,11 @@ type ApplicationMultipleTargetGroupsEc2ServiceProps struct {
 	// At least one of memoryLimitMiB and memoryReservationMiB is required.
 	//
 	// Note that this setting will be ignored if TaskImagesOptions is specified
-	MemoryReservationMiB *float64 `json:"memoryReservationMiB"`
+	MemoryReservationMiB *float64 `json:"memoryReservationMiB" yaml:"memoryReservationMiB"`
 	// The task definition to use for tasks in the service. Only one of TaskDefinition or TaskImageOptions must be specified.
 	//
 	// [disable-awslint:ref-via-interface]
-	TaskDefinition awsecs.Ec2TaskDefinition `json:"taskDefinition"`
+	TaskDefinition awsecs.Ec2TaskDefinition `json:"taskDefinition" yaml:"taskDefinition"`
 }
 
 // A Fargate service running on an ECS cluster fronted by an application load balancer.
@@ -1825,40 +1825,40 @@ func (a *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) ToString() *st
 //
 type ApplicationMultipleTargetGroupsFargateServiceProps struct {
 	// The options for configuring an Amazon ECS service to use service discovery.
-	CloudMapOptions *awsecs.CloudMapOptions `json:"cloudMapOptions"`
+	CloudMapOptions *awsecs.CloudMapOptions `json:"cloudMapOptions" yaml:"cloudMapOptions"`
 	// The name of the cluster that hosts the service.
 	//
 	// If a cluster is specified, the vpc construct should be omitted. Alternatively, you can omit both cluster and vpc.
-	Cluster awsecs.ICluster `json:"cluster"`
+	Cluster awsecs.ICluster `json:"cluster" yaml:"cluster"`
 	// The desired number of instantiations of the task definition to keep running on the service.
-	DesiredCount *float64 `json:"desiredCount"`
+	DesiredCount *float64 `json:"desiredCount" yaml:"desiredCount"`
 	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 	//
 	// For more information, see
 	// [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html)
-	EnableECSManagedTags *bool `json:"enableECSManagedTags"`
+	EnableECSManagedTags *bool `json:"enableECSManagedTags" yaml:"enableECSManagedTags"`
 	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks after a task has first started.
-	HealthCheckGracePeriod awscdk.Duration `json:"healthCheckGracePeriod"`
+	HealthCheckGracePeriod awscdk.Duration `json:"healthCheckGracePeriod" yaml:"healthCheckGracePeriod"`
 	// The application load balancer that will serve traffic to the service.
-	LoadBalancers *[]*ApplicationLoadBalancerProps `json:"loadBalancers"`
+	LoadBalancers *[]*ApplicationLoadBalancerProps `json:"loadBalancers" yaml:"loadBalancers"`
 	// Specifies whether to propagate the tags from the task definition or the service to the tasks in the service.
 	//
 	// Tags can only be propagated to the tasks within the service during service creation.
-	PropagateTags awsecs.PropagatedTagSource `json:"propagateTags"`
+	PropagateTags awsecs.PropagatedTagSource `json:"propagateTags" yaml:"propagateTags"`
 	// The name of the service.
-	ServiceName *string `json:"serviceName"`
+	ServiceName *string `json:"serviceName" yaml:"serviceName"`
 	// Properties to specify ALB target groups.
-	TargetGroups *[]*ApplicationTargetProps `json:"targetGroups"`
+	TargetGroups *[]*ApplicationTargetProps `json:"targetGroups" yaml:"targetGroups"`
 	// The properties required to create a new task definition.
 	//
 	// Only one of TaskDefinition or TaskImageOptions must be specified.
-	TaskImageOptions *ApplicationLoadBalancedTaskImageProps `json:"taskImageOptions"`
+	TaskImageOptions *ApplicationLoadBalancedTaskImageProps `json:"taskImageOptions" yaml:"taskImageOptions"`
 	// The VPC where the container instances will be launched or the elastic network interfaces (ENIs) will be deployed.
 	//
 	// If a vpc is specified, the cluster construct should be omitted. Alternatively, you can omit both vpc and cluster.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// Determines whether the service will be assigned a public IP address.
-	AssignPublicIp *bool `json:"assignPublicIp"`
+	AssignPublicIp *bool `json:"assignPublicIp" yaml:"assignPublicIp"`
 	// The number of cpu units used by the task.
 	//
 	// Valid values, which determines your range of valid values for the memory parameter:
@@ -1874,7 +1874,7 @@ type ApplicationMultipleTargetGroupsFargateServiceProps struct {
 	// 4096 (4 vCPU) - Available memory values: Between 8GB and 30GB in 1GB increments
 	//
 	// This default is set in the underlying FargateTaskDefinition construct.
-	Cpu *float64 `json:"cpu"`
+	Cpu *float64 `json:"cpu" yaml:"cpu"`
 	// The amount (in MiB) of memory used by the task.
 	//
 	// This field is required and you must use one of the following values, which determines your range of valid values
@@ -1891,17 +1891,17 @@ type ApplicationMultipleTargetGroupsFargateServiceProps struct {
 	// Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) - Available cpu values: 4096 (4 vCPU)
 	//
 	// This default is set in the underlying FargateTaskDefinition construct.
-	MemoryLimitMiB *float64 `json:"memoryLimitMiB"`
+	MemoryLimitMiB *float64 `json:"memoryLimitMiB" yaml:"memoryLimitMiB"`
 	// The platform version on which to run your service.
 	//
 	// If one is not specified, the LATEST platform version is used by default. For more information, see
 	// [AWS Fargate Platform Versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html)
 	// in the Amazon Elastic Container Service Developer Guide.
-	PlatformVersion awsecs.FargatePlatformVersion `json:"platformVersion"`
+	PlatformVersion awsecs.FargatePlatformVersion `json:"platformVersion" yaml:"platformVersion"`
 	// The task definition to use for tasks in the service. Only one of TaskDefinition or TaskImageOptions must be specified.
 	//
 	// [disable-awslint:ref-via-interface]
-	TaskDefinition awsecs.FargateTaskDefinition `json:"taskDefinition"`
+	TaskDefinition awsecs.FargateTaskDefinition `json:"taskDefinition" yaml:"taskDefinition"`
 }
 
 // The base class for ApplicationMultipleTargetGroupsEc2Service and ApplicationMultipleTargetGroupsFargateService classes.
@@ -2147,38 +2147,38 @@ func (a *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) ToString() *strin
 //
 type ApplicationMultipleTargetGroupsServiceBaseProps struct {
 	// The options for configuring an Amazon ECS service to use service discovery.
-	CloudMapOptions *awsecs.CloudMapOptions `json:"cloudMapOptions"`
+	CloudMapOptions *awsecs.CloudMapOptions `json:"cloudMapOptions" yaml:"cloudMapOptions"`
 	// The name of the cluster that hosts the service.
 	//
 	// If a cluster is specified, the vpc construct should be omitted. Alternatively, you can omit both cluster and vpc.
-	Cluster awsecs.ICluster `json:"cluster"`
+	Cluster awsecs.ICluster `json:"cluster" yaml:"cluster"`
 	// The desired number of instantiations of the task definition to keep running on the service.
-	DesiredCount *float64 `json:"desiredCount"`
+	DesiredCount *float64 `json:"desiredCount" yaml:"desiredCount"`
 	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 	//
 	// For more information, see
 	// [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html)
-	EnableECSManagedTags *bool `json:"enableECSManagedTags"`
+	EnableECSManagedTags *bool `json:"enableECSManagedTags" yaml:"enableECSManagedTags"`
 	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks after a task has first started.
-	HealthCheckGracePeriod awscdk.Duration `json:"healthCheckGracePeriod"`
+	HealthCheckGracePeriod awscdk.Duration `json:"healthCheckGracePeriod" yaml:"healthCheckGracePeriod"`
 	// The application load balancer that will serve traffic to the service.
-	LoadBalancers *[]*ApplicationLoadBalancerProps `json:"loadBalancers"`
+	LoadBalancers *[]*ApplicationLoadBalancerProps `json:"loadBalancers" yaml:"loadBalancers"`
 	// Specifies whether to propagate the tags from the task definition or the service to the tasks in the service.
 	//
 	// Tags can only be propagated to the tasks within the service during service creation.
-	PropagateTags awsecs.PropagatedTagSource `json:"propagateTags"`
+	PropagateTags awsecs.PropagatedTagSource `json:"propagateTags" yaml:"propagateTags"`
 	// The name of the service.
-	ServiceName *string `json:"serviceName"`
+	ServiceName *string `json:"serviceName" yaml:"serviceName"`
 	// Properties to specify ALB target groups.
-	TargetGroups *[]*ApplicationTargetProps `json:"targetGroups"`
+	TargetGroups *[]*ApplicationTargetProps `json:"targetGroups" yaml:"targetGroups"`
 	// The properties required to create a new task definition.
 	//
 	// Only one of TaskDefinition or TaskImageOptions must be specified.
-	TaskImageOptions *ApplicationLoadBalancedTaskImageProps `json:"taskImageOptions"`
+	TaskImageOptions *ApplicationLoadBalancedTaskImageProps `json:"taskImageOptions" yaml:"taskImageOptions"`
 	// The VPC where the container instances will be launched or the elastic network interfaces (ENIs) will be deployed.
 	//
 	// If a vpc is specified, the cluster construct should be omitted. Alternatively, you can omit both vpc and cluster.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 }
 
 // Properties to define an application target group.
@@ -2189,7 +2189,7 @@ type ApplicationTargetProps struct {
 	// The port number of the container.
 	//
 	// Only applicable when using application/network load balancers.
-	ContainerPort *float64 `json:"containerPort"`
+	ContainerPort *float64 `json:"containerPort" yaml:"containerPort"`
 	// Rule applies if the requested host matches the indicated host.
 	//
 	// May contain up to three '*' wildcards.
@@ -2197,9 +2197,9 @@ type ApplicationTargetProps struct {
 	// Requires that priority is set.
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#host-conditions
 	//
-	HostHeader *string `json:"hostHeader"`
+	HostHeader *string `json:"hostHeader" yaml:"hostHeader"`
 	// Name of the listener the target group attached to.
-	Listener *string `json:"listener"`
+	Listener *string `json:"listener" yaml:"listener"`
 	// Rule applies if the requested path matches the given path pattern.
 	//
 	// May contain up to three '*' wildcards.
@@ -2207,7 +2207,7 @@ type ApplicationTargetProps struct {
 	// Requires that priority is set.
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
 	//
-	PathPattern *string `json:"pathPattern"`
+	PathPattern *string `json:"pathPattern" yaml:"pathPattern"`
 	// Priority of this target group.
 	//
 	// The rule with the lowest priority will be used for every request.
@@ -2215,11 +2215,11 @@ type ApplicationTargetProps struct {
 	// defaults, and must not have conditions.
 	//
 	// Priorities must be unique.
-	Priority *float64 `json:"priority"`
+	Priority *float64 `json:"priority" yaml:"priority"`
 	// The protocol used for the port mapping.
 	//
 	// Only applicable when using application load balancers.
-	Protocol awsecs.Protocol `json:"protocol"`
+	Protocol awsecs.Protocol `json:"protocol" yaml:"protocol"`
 }
 
 // Properties to define an network listener.
@@ -2228,9 +2228,9 @@ type ApplicationTargetProps struct {
 //
 type NetworkListenerProps struct {
 	// Name of the listener.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The port on which the listener listens for requests.
-	Port *float64 `json:"port"`
+	Port *float64 `json:"port" yaml:"port"`
 }
 
 // An EC2 service running on an ECS cluster fronted by a network load balancer.
@@ -2443,66 +2443,66 @@ type NetworkLoadBalancedEc2ServiceProps struct {
 	//
 	// If this property is defined, circuit breaker will be implicitly
 	// enabled.
-	CircuitBreaker *awsecs.DeploymentCircuitBreaker `json:"circuitBreaker"`
+	CircuitBreaker *awsecs.DeploymentCircuitBreaker `json:"circuitBreaker" yaml:"circuitBreaker"`
 	// The options for configuring an Amazon ECS service to use service discovery.
-	CloudMapOptions *awsecs.CloudMapOptions `json:"cloudMapOptions"`
+	CloudMapOptions *awsecs.CloudMapOptions `json:"cloudMapOptions" yaml:"cloudMapOptions"`
 	// The name of the cluster that hosts the service.
 	//
 	// If a cluster is specified, the vpc construct should be omitted. Alternatively, you can omit both cluster and vpc.
-	Cluster awsecs.ICluster `json:"cluster"`
+	Cluster awsecs.ICluster `json:"cluster" yaml:"cluster"`
 	// Specifies which deployment controller to use for the service.
 	//
 	// For more information, see
 	// [Amazon ECS Deployment Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
-	DeploymentController *awsecs.DeploymentController `json:"deploymentController"`
+	DeploymentController *awsecs.DeploymentController `json:"deploymentController" yaml:"deploymentController"`
 	// The desired number of instantiations of the task definition to keep running on the service.
 	//
 	// The minimum value is 1
-	DesiredCount *float64 `json:"desiredCount"`
+	DesiredCount *float64 `json:"desiredCount" yaml:"desiredCount"`
 	// The domain name for the service, e.g. "api.example.com.".
-	DomainName *string `json:"domainName"`
+	DomainName *string `json:"domainName" yaml:"domainName"`
 	// The Route53 hosted zone for the domain, e.g. "example.com.".
-	DomainZone awsroute53.IHostedZone `json:"domainZone"`
+	DomainZone awsroute53.IHostedZone `json:"domainZone" yaml:"domainZone"`
 	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 	//
 	// For more information, see
 	// [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html)
-	EnableECSManagedTags *bool `json:"enableECSManagedTags"`
+	EnableECSManagedTags *bool `json:"enableECSManagedTags" yaml:"enableECSManagedTags"`
 	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks after a task has first started.
-	HealthCheckGracePeriod awscdk.Duration `json:"healthCheckGracePeriod"`
+	HealthCheckGracePeriod awscdk.Duration `json:"healthCheckGracePeriod" yaml:"healthCheckGracePeriod"`
 	// Listener port of the network load balancer that will serve traffic to the service.
-	ListenerPort *float64 `json:"listenerPort"`
+	ListenerPort *float64 `json:"listenerPort" yaml:"listenerPort"`
 	// The network load balancer that will serve traffic to the service.
 	//
 	// If the load balancer has been imported, the vpc attribute must be specified
 	// in the call to fromNetworkLoadBalancerAttributes().
 	//
 	// [disable-awslint:ref-via-interface]
-	LoadBalancer awselasticloadbalancingv2.INetworkLoadBalancer `json:"loadBalancer"`
+	LoadBalancer awselasticloadbalancingv2.INetworkLoadBalancer `json:"loadBalancer" yaml:"loadBalancer"`
 	// The maximum number of tasks, specified as a percentage of the Amazon ECS service's DesiredCount value, that can run in a service during a deployment.
-	MaxHealthyPercent *float64 `json:"maxHealthyPercent"`
+	MaxHealthyPercent *float64 `json:"maxHealthyPercent" yaml:"maxHealthyPercent"`
 	// The minimum number of tasks, specified as a percentage of the Amazon ECS service's DesiredCount value, that must continue to run and remain healthy during a deployment.
-	MinHealthyPercent *float64 `json:"minHealthyPercent"`
+	MinHealthyPercent *float64 `json:"minHealthyPercent" yaml:"minHealthyPercent"`
 	// Specifies whether to propagate the tags from the task definition or the service to the tasks in the service.
 	//
 	// Tags can only be propagated to the tasks within the service during service creation.
-	PropagateTags awsecs.PropagatedTagSource `json:"propagateTags"`
+	PropagateTags awsecs.PropagatedTagSource `json:"propagateTags" yaml:"propagateTags"`
 	// Determines whether the Load Balancer will be internet-facing.
-	PublicLoadBalancer *bool `json:"publicLoadBalancer"`
+	PublicLoadBalancer *bool `json:"publicLoadBalancer" yaml:"publicLoadBalancer"`
 	// Specifies whether the Route53 record should be a CNAME, an A record using the Alias feature or no record at all.
 	//
 	// This is useful if you need to work with DNS systems that do not support alias records.
-	RecordType NetworkLoadBalancedServiceRecordType `json:"recordType"`
+	RecordType NetworkLoadBalancedServiceRecordType `json:"recordType" yaml:"recordType"`
 	// The name of the service.
-	ServiceName *string `json:"serviceName"`
+	ServiceName *string `json:"serviceName" yaml:"serviceName"`
 	// The properties required to create a new task definition.
 	//
 	// One of taskImageOptions or taskDefinition must be specified.
-	TaskImageOptions *NetworkLoadBalancedTaskImageOptions `json:"taskImageOptions"`
+	TaskImageOptions *NetworkLoadBalancedTaskImageOptions `json:"taskImageOptions" yaml:"taskImageOptions"`
 	// The VPC where the container instances will be launched or the elastic network interfaces (ENIs) will be deployed.
 	//
 	// If a vpc is specified, the cluster construct should be omitted. Alternatively, you can omit both vpc and cluster.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// The number of cpu units used by the task.
 	//
 	// Valid values, which determines your range of valid values for the memory parameter:
@@ -2518,14 +2518,14 @@ type NetworkLoadBalancedEc2ServiceProps struct {
 	// 4096 (4 vCPU) - Available memory values: Between 8GB and 30GB in 1GB increments
 	//
 	// This default is set in the underlying FargateTaskDefinition construct.
-	Cpu *float64 `json:"cpu"`
+	Cpu *float64 `json:"cpu" yaml:"cpu"`
 	// The hard limit (in MiB) of memory to present to the container.
 	//
 	// If your container attempts to exceed the allocated memory, the container
 	// is terminated.
 	//
 	// At least one of memoryLimitMiB and memoryReservationMiB is required.
-	MemoryLimitMiB *float64 `json:"memoryLimitMiB"`
+	MemoryLimitMiB *float64 `json:"memoryLimitMiB" yaml:"memoryLimitMiB"`
 	// The soft limit (in MiB) of memory to reserve for the container.
 	//
 	// When system memory is under contention, Docker attempts to keep the
@@ -2534,11 +2534,11 @@ type NetworkLoadBalancedEc2ServiceProps struct {
 	// the available memory on the container instance—whichever comes first.
 	//
 	// At least one of memoryLimitMiB and memoryReservationMiB is required.
-	MemoryReservationMiB *float64 `json:"memoryReservationMiB"`
+	MemoryReservationMiB *float64 `json:"memoryReservationMiB" yaml:"memoryReservationMiB"`
 	// The task definition to use for tasks in the service. TaskDefinition or TaskImageOptions must be specified, but not both..
 	//
 	// [disable-awslint:ref-via-interface]
-	TaskDefinition awsecs.Ec2TaskDefinition `json:"taskDefinition"`
+	TaskDefinition awsecs.Ec2TaskDefinition `json:"taskDefinition" yaml:"taskDefinition"`
 }
 
 // A Fargate service running on an ECS cluster fronted by a network load balancer.
@@ -2762,68 +2762,68 @@ type NetworkLoadBalancedFargateServiceProps struct {
 	//
 	// If this property is defined, circuit breaker will be implicitly
 	// enabled.
-	CircuitBreaker *awsecs.DeploymentCircuitBreaker `json:"circuitBreaker"`
+	CircuitBreaker *awsecs.DeploymentCircuitBreaker `json:"circuitBreaker" yaml:"circuitBreaker"`
 	// The options for configuring an Amazon ECS service to use service discovery.
-	CloudMapOptions *awsecs.CloudMapOptions `json:"cloudMapOptions"`
+	CloudMapOptions *awsecs.CloudMapOptions `json:"cloudMapOptions" yaml:"cloudMapOptions"`
 	// The name of the cluster that hosts the service.
 	//
 	// If a cluster is specified, the vpc construct should be omitted. Alternatively, you can omit both cluster and vpc.
-	Cluster awsecs.ICluster `json:"cluster"`
+	Cluster awsecs.ICluster `json:"cluster" yaml:"cluster"`
 	// Specifies which deployment controller to use for the service.
 	//
 	// For more information, see
 	// [Amazon ECS Deployment Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
-	DeploymentController *awsecs.DeploymentController `json:"deploymentController"`
+	DeploymentController *awsecs.DeploymentController `json:"deploymentController" yaml:"deploymentController"`
 	// The desired number of instantiations of the task definition to keep running on the service.
 	//
 	// The minimum value is 1
-	DesiredCount *float64 `json:"desiredCount"`
+	DesiredCount *float64 `json:"desiredCount" yaml:"desiredCount"`
 	// The domain name for the service, e.g. "api.example.com.".
-	DomainName *string `json:"domainName"`
+	DomainName *string `json:"domainName" yaml:"domainName"`
 	// The Route53 hosted zone for the domain, e.g. "example.com.".
-	DomainZone awsroute53.IHostedZone `json:"domainZone"`
+	DomainZone awsroute53.IHostedZone `json:"domainZone" yaml:"domainZone"`
 	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 	//
 	// For more information, see
 	// [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html)
-	EnableECSManagedTags *bool `json:"enableECSManagedTags"`
+	EnableECSManagedTags *bool `json:"enableECSManagedTags" yaml:"enableECSManagedTags"`
 	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks after a task has first started.
-	HealthCheckGracePeriod awscdk.Duration `json:"healthCheckGracePeriod"`
+	HealthCheckGracePeriod awscdk.Duration `json:"healthCheckGracePeriod" yaml:"healthCheckGracePeriod"`
 	// Listener port of the network load balancer that will serve traffic to the service.
-	ListenerPort *float64 `json:"listenerPort"`
+	ListenerPort *float64 `json:"listenerPort" yaml:"listenerPort"`
 	// The network load balancer that will serve traffic to the service.
 	//
 	// If the load balancer has been imported, the vpc attribute must be specified
 	// in the call to fromNetworkLoadBalancerAttributes().
 	//
 	// [disable-awslint:ref-via-interface]
-	LoadBalancer awselasticloadbalancingv2.INetworkLoadBalancer `json:"loadBalancer"`
+	LoadBalancer awselasticloadbalancingv2.INetworkLoadBalancer `json:"loadBalancer" yaml:"loadBalancer"`
 	// The maximum number of tasks, specified as a percentage of the Amazon ECS service's DesiredCount value, that can run in a service during a deployment.
-	MaxHealthyPercent *float64 `json:"maxHealthyPercent"`
+	MaxHealthyPercent *float64 `json:"maxHealthyPercent" yaml:"maxHealthyPercent"`
 	// The minimum number of tasks, specified as a percentage of the Amazon ECS service's DesiredCount value, that must continue to run and remain healthy during a deployment.
-	MinHealthyPercent *float64 `json:"minHealthyPercent"`
+	MinHealthyPercent *float64 `json:"minHealthyPercent" yaml:"minHealthyPercent"`
 	// Specifies whether to propagate the tags from the task definition or the service to the tasks in the service.
 	//
 	// Tags can only be propagated to the tasks within the service during service creation.
-	PropagateTags awsecs.PropagatedTagSource `json:"propagateTags"`
+	PropagateTags awsecs.PropagatedTagSource `json:"propagateTags" yaml:"propagateTags"`
 	// Determines whether the Load Balancer will be internet-facing.
-	PublicLoadBalancer *bool `json:"publicLoadBalancer"`
+	PublicLoadBalancer *bool `json:"publicLoadBalancer" yaml:"publicLoadBalancer"`
 	// Specifies whether the Route53 record should be a CNAME, an A record using the Alias feature or no record at all.
 	//
 	// This is useful if you need to work with DNS systems that do not support alias records.
-	RecordType NetworkLoadBalancedServiceRecordType `json:"recordType"`
+	RecordType NetworkLoadBalancedServiceRecordType `json:"recordType" yaml:"recordType"`
 	// The name of the service.
-	ServiceName *string `json:"serviceName"`
+	ServiceName *string `json:"serviceName" yaml:"serviceName"`
 	// The properties required to create a new task definition.
 	//
 	// One of taskImageOptions or taskDefinition must be specified.
-	TaskImageOptions *NetworkLoadBalancedTaskImageOptions `json:"taskImageOptions"`
+	TaskImageOptions *NetworkLoadBalancedTaskImageOptions `json:"taskImageOptions" yaml:"taskImageOptions"`
 	// The VPC where the container instances will be launched or the elastic network interfaces (ENIs) will be deployed.
 	//
 	// If a vpc is specified, the cluster construct should be omitted. Alternatively, you can omit both vpc and cluster.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// Determines whether the service will be assigned a public IP address.
-	AssignPublicIp *bool `json:"assignPublicIp"`
+	AssignPublicIp *bool `json:"assignPublicIp" yaml:"assignPublicIp"`
 	// The number of cpu units used by the task.
 	//
 	// Valid values, which determines your range of valid values for the memory parameter:
@@ -2839,7 +2839,7 @@ type NetworkLoadBalancedFargateServiceProps struct {
 	// 4096 (4 vCPU) - Available memory values: Between 8GB and 30GB in 1GB increments
 	//
 	// This default is set in the underlying FargateTaskDefinition construct.
-	Cpu *float64 `json:"cpu"`
+	Cpu *float64 `json:"cpu" yaml:"cpu"`
 	// The amount (in MiB) of memory used by the task.
 	//
 	// This field is required and you must use one of the following values, which determines your range of valid values
@@ -2856,19 +2856,19 @@ type NetworkLoadBalancedFargateServiceProps struct {
 	// Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) - Available cpu values: 4096 (4 vCPU)
 	//
 	// This default is set in the underlying FargateTaskDefinition construct.
-	MemoryLimitMiB *float64 `json:"memoryLimitMiB"`
+	MemoryLimitMiB *float64 `json:"memoryLimitMiB" yaml:"memoryLimitMiB"`
 	// The platform version on which to run your service.
 	//
 	// If one is not specified, the LATEST platform version is used by default. For more information, see
 	// [AWS Fargate Platform Versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html)
 	// in the Amazon Elastic Container Service Developer Guide.
-	PlatformVersion awsecs.FargatePlatformVersion `json:"platformVersion"`
+	PlatformVersion awsecs.FargatePlatformVersion `json:"platformVersion" yaml:"platformVersion"`
 	// The task definition to use for tasks in the service. TaskDefinition or TaskImageOptions must be specified, but not both.
 	//
 	// [disable-awslint:ref-via-interface]
-	TaskDefinition awsecs.FargateTaskDefinition `json:"taskDefinition"`
+	TaskDefinition awsecs.FargateTaskDefinition `json:"taskDefinition" yaml:"taskDefinition"`
 	// The subnets to associate with the service.
-	TaskSubnets *awsec2.SubnetSelection `json:"taskSubnets"`
+	TaskSubnets *awsec2.SubnetSelection `json:"taskSubnets" yaml:"taskSubnets"`
 }
 
 // The base class for NetworkLoadBalancedEc2Service and NetworkLoadBalancedFargateService services.
@@ -3041,66 +3041,66 @@ type NetworkLoadBalancedServiceBaseProps struct {
 	//
 	// If this property is defined, circuit breaker will be implicitly
 	// enabled.
-	CircuitBreaker *awsecs.DeploymentCircuitBreaker `json:"circuitBreaker"`
+	CircuitBreaker *awsecs.DeploymentCircuitBreaker `json:"circuitBreaker" yaml:"circuitBreaker"`
 	// The options for configuring an Amazon ECS service to use service discovery.
-	CloudMapOptions *awsecs.CloudMapOptions `json:"cloudMapOptions"`
+	CloudMapOptions *awsecs.CloudMapOptions `json:"cloudMapOptions" yaml:"cloudMapOptions"`
 	// The name of the cluster that hosts the service.
 	//
 	// If a cluster is specified, the vpc construct should be omitted. Alternatively, you can omit both cluster and vpc.
-	Cluster awsecs.ICluster `json:"cluster"`
+	Cluster awsecs.ICluster `json:"cluster" yaml:"cluster"`
 	// Specifies which deployment controller to use for the service.
 	//
 	// For more information, see
 	// [Amazon ECS Deployment Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
-	DeploymentController *awsecs.DeploymentController `json:"deploymentController"`
+	DeploymentController *awsecs.DeploymentController `json:"deploymentController" yaml:"deploymentController"`
 	// The desired number of instantiations of the task definition to keep running on the service.
 	//
 	// The minimum value is 1
-	DesiredCount *float64 `json:"desiredCount"`
+	DesiredCount *float64 `json:"desiredCount" yaml:"desiredCount"`
 	// The domain name for the service, e.g. "api.example.com.".
-	DomainName *string `json:"domainName"`
+	DomainName *string `json:"domainName" yaml:"domainName"`
 	// The Route53 hosted zone for the domain, e.g. "example.com.".
-	DomainZone awsroute53.IHostedZone `json:"domainZone"`
+	DomainZone awsroute53.IHostedZone `json:"domainZone" yaml:"domainZone"`
 	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 	//
 	// For more information, see
 	// [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html)
-	EnableECSManagedTags *bool `json:"enableECSManagedTags"`
+	EnableECSManagedTags *bool `json:"enableECSManagedTags" yaml:"enableECSManagedTags"`
 	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks after a task has first started.
-	HealthCheckGracePeriod awscdk.Duration `json:"healthCheckGracePeriod"`
+	HealthCheckGracePeriod awscdk.Duration `json:"healthCheckGracePeriod" yaml:"healthCheckGracePeriod"`
 	// Listener port of the network load balancer that will serve traffic to the service.
-	ListenerPort *float64 `json:"listenerPort"`
+	ListenerPort *float64 `json:"listenerPort" yaml:"listenerPort"`
 	// The network load balancer that will serve traffic to the service.
 	//
 	// If the load balancer has been imported, the vpc attribute must be specified
 	// in the call to fromNetworkLoadBalancerAttributes().
 	//
 	// [disable-awslint:ref-via-interface]
-	LoadBalancer awselasticloadbalancingv2.INetworkLoadBalancer `json:"loadBalancer"`
+	LoadBalancer awselasticloadbalancingv2.INetworkLoadBalancer `json:"loadBalancer" yaml:"loadBalancer"`
 	// The maximum number of tasks, specified as a percentage of the Amazon ECS service's DesiredCount value, that can run in a service during a deployment.
-	MaxHealthyPercent *float64 `json:"maxHealthyPercent"`
+	MaxHealthyPercent *float64 `json:"maxHealthyPercent" yaml:"maxHealthyPercent"`
 	// The minimum number of tasks, specified as a percentage of the Amazon ECS service's DesiredCount value, that must continue to run and remain healthy during a deployment.
-	MinHealthyPercent *float64 `json:"minHealthyPercent"`
+	MinHealthyPercent *float64 `json:"minHealthyPercent" yaml:"minHealthyPercent"`
 	// Specifies whether to propagate the tags from the task definition or the service to the tasks in the service.
 	//
 	// Tags can only be propagated to the tasks within the service during service creation.
-	PropagateTags awsecs.PropagatedTagSource `json:"propagateTags"`
+	PropagateTags awsecs.PropagatedTagSource `json:"propagateTags" yaml:"propagateTags"`
 	// Determines whether the Load Balancer will be internet-facing.
-	PublicLoadBalancer *bool `json:"publicLoadBalancer"`
+	PublicLoadBalancer *bool `json:"publicLoadBalancer" yaml:"publicLoadBalancer"`
 	// Specifies whether the Route53 record should be a CNAME, an A record using the Alias feature or no record at all.
 	//
 	// This is useful if you need to work with DNS systems that do not support alias records.
-	RecordType NetworkLoadBalancedServiceRecordType `json:"recordType"`
+	RecordType NetworkLoadBalancedServiceRecordType `json:"recordType" yaml:"recordType"`
 	// The name of the service.
-	ServiceName *string `json:"serviceName"`
+	ServiceName *string `json:"serviceName" yaml:"serviceName"`
 	// The properties required to create a new task definition.
 	//
 	// One of taskImageOptions or taskDefinition must be specified.
-	TaskImageOptions *NetworkLoadBalancedTaskImageOptions `json:"taskImageOptions"`
+	TaskImageOptions *NetworkLoadBalancedTaskImageOptions `json:"taskImageOptions" yaml:"taskImageOptions"`
 	// The VPC where the container instances will be launched or the elastic network interfaces (ENIs) will be deployed.
 	//
 	// If a vpc is specified, the cluster construct should be omitted. Alternatively, you can omit both vpc and cluster.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 }
 
 // Describes the type of DNS record the service should create.
@@ -3118,9 +3118,9 @@ type NetworkLoadBalancedTaskImageOptions struct {
 	// The image used to start a container.
 	//
 	// Image or taskDefinition must be specified, but not both.
-	Image awsecs.ContainerImage `json:"image"`
+	Image awsecs.ContainerImage `json:"image" yaml:"image"`
 	// The container name value to be specified in the task definition.
-	ContainerName *string `json:"containerName"`
+	ContainerName *string `json:"containerName" yaml:"containerName"`
 	// The port number on the container that is bound to the user-specified or automatically assigned host port.
 	//
 	// If you are using containers in a task with the awsvpc or host network mode, exposed ports should be specified using containerPort.
@@ -3131,25 +3131,25 @@ type NetworkLoadBalancedTaskImageOptions struct {
 	//
 	// For more information, see
 	// [hostPort](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PortMapping.html#ECS-Type-PortMapping-hostPort).
-	ContainerPort *float64 `json:"containerPort"`
+	ContainerPort *float64 `json:"containerPort" yaml:"containerPort"`
 	// A key/value map of labels to add to the container.
-	DockerLabels *map[string]*string `json:"dockerLabels"`
+	DockerLabels *map[string]*string `json:"dockerLabels" yaml:"dockerLabels"`
 	// Flag to indicate whether to enable logging.
-	EnableLogging *bool `json:"enableLogging"`
+	EnableLogging *bool `json:"enableLogging" yaml:"enableLogging"`
 	// The environment variables to pass to the container.
-	Environment *map[string]*string `json:"environment"`
+	Environment *map[string]*string `json:"environment" yaml:"environment"`
 	// The name of the task execution IAM role that grants the Amazon ECS container agent permission to call AWS APIs on your behalf.
-	ExecutionRole awsiam.IRole `json:"executionRole"`
+	ExecutionRole awsiam.IRole `json:"executionRole" yaml:"executionRole"`
 	// The name of a family that this task definition is registered to.
 	//
 	// A family groups multiple versions of a task definition.
-	Family *string `json:"family"`
+	Family *string `json:"family" yaml:"family"`
 	// The log driver to use.
-	LogDriver awsecs.LogDriver `json:"logDriver"`
+	LogDriver awsecs.LogDriver `json:"logDriver" yaml:"logDriver"`
 	// The secret to expose to the container as an environment variable.
-	Secrets *map[string]awsecs.Secret `json:"secrets"`
+	Secrets *map[string]awsecs.Secret `json:"secrets" yaml:"secrets"`
 	// The name of the task IAM role that grants containers in the task permission to call AWS APIs on your behalf.
-	TaskRole awsiam.IRole `json:"taskRole"`
+	TaskRole awsiam.IRole `json:"taskRole" yaml:"taskRole"`
 }
 
 // Options for configuring a new container.
@@ -3160,9 +3160,9 @@ type NetworkLoadBalancedTaskImageProps struct {
 	// The image used to start a container.
 	//
 	// Image or taskDefinition must be specified, but not both.
-	Image awsecs.ContainerImage `json:"image"`
+	Image awsecs.ContainerImage `json:"image" yaml:"image"`
 	// The container name value to be specified in the task definition.
-	ContainerName *string `json:"containerName"`
+	ContainerName *string `json:"containerName" yaml:"containerName"`
 	// A list of port numbers on the container that is bound to the user-specified or automatically assigned host port.
 	//
 	// If you are using containers in a task with the awsvpc or host network mode, exposed ports should be specified using containerPort.
@@ -3173,25 +3173,25 @@ type NetworkLoadBalancedTaskImageProps struct {
 	//
 	// For more information, see
 	// [hostPort](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PortMapping.html#ECS-Type-PortMapping-hostPort).
-	ContainerPorts *[]*float64 `json:"containerPorts"`
+	ContainerPorts *[]*float64 `json:"containerPorts" yaml:"containerPorts"`
 	// A key/value map of labels to add to the container.
-	DockerLabels *map[string]*string `json:"dockerLabels"`
+	DockerLabels *map[string]*string `json:"dockerLabels" yaml:"dockerLabels"`
 	// Flag to indicate whether to enable logging.
-	EnableLogging *bool `json:"enableLogging"`
+	EnableLogging *bool `json:"enableLogging" yaml:"enableLogging"`
 	// The environment variables to pass to the container.
-	Environment *map[string]*string `json:"environment"`
+	Environment *map[string]*string `json:"environment" yaml:"environment"`
 	// The name of the task execution IAM role that grants the Amazon ECS container agent permission to call AWS APIs on your behalf.
-	ExecutionRole awsiam.IRole `json:"executionRole"`
+	ExecutionRole awsiam.IRole `json:"executionRole" yaml:"executionRole"`
 	// The name of a family that this task definition is registered to.
 	//
 	// A family groups multiple versions of a task definition.
-	Family *string `json:"family"`
+	Family *string `json:"family" yaml:"family"`
 	// The log driver to use.
-	LogDriver awsecs.LogDriver `json:"logDriver"`
+	LogDriver awsecs.LogDriver `json:"logDriver" yaml:"logDriver"`
 	// The secrets to expose to the container as an environment variable.
-	Secrets *map[string]awsecs.Secret `json:"secrets"`
+	Secrets *map[string]awsecs.Secret `json:"secrets" yaml:"secrets"`
 	// The name of the task IAM role that grants containers in the task permission to call AWS APIs on your behalf.
-	TaskRole awsiam.IRole `json:"taskRole"`
+	TaskRole awsiam.IRole `json:"taskRole" yaml:"taskRole"`
 }
 
 // Properties to define an network load balancer.
@@ -3200,15 +3200,15 @@ type NetworkLoadBalancedTaskImageProps struct {
 //
 type NetworkLoadBalancerProps struct {
 	// Listeners (at least one listener) attached to this load balancer.
-	Listeners *[]*NetworkListenerProps `json:"listeners"`
+	Listeners *[]*NetworkListenerProps `json:"listeners" yaml:"listeners"`
 	// Name of the load balancer.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The domain name for the service, e.g. "api.example.com.".
-	DomainName *string `json:"domainName"`
+	DomainName *string `json:"domainName" yaml:"domainName"`
 	// The Route53 hosted zone for the domain, e.g. "example.com.".
-	DomainZone awsroute53.IHostedZone `json:"domainZone"`
+	DomainZone awsroute53.IHostedZone `json:"domainZone" yaml:"domainZone"`
 	// Determines whether the Load Balancer will be internet-facing.
-	PublicLoadBalancer *bool `json:"publicLoadBalancer"`
+	PublicLoadBalancer *bool `json:"publicLoadBalancer" yaml:"publicLoadBalancer"`
 }
 
 // An EC2 service running on an ECS cluster fronted by a network load balancer.
@@ -3505,51 +3505,51 @@ func (n *jsiiProxy_NetworkMultipleTargetGroupsEc2Service) ToString() *string {
 //
 type NetworkMultipleTargetGroupsEc2ServiceProps struct {
 	// The options for configuring an Amazon ECS service to use service discovery.
-	CloudMapOptions *awsecs.CloudMapOptions `json:"cloudMapOptions"`
+	CloudMapOptions *awsecs.CloudMapOptions `json:"cloudMapOptions" yaml:"cloudMapOptions"`
 	// The name of the cluster that hosts the service.
 	//
 	// If a cluster is specified, the vpc construct should be omitted. Alternatively, you can omit both cluster and vpc.
-	Cluster awsecs.ICluster `json:"cluster"`
+	Cluster awsecs.ICluster `json:"cluster" yaml:"cluster"`
 	// The desired number of instantiations of the task definition to keep running on the service.
 	//
 	// The minimum value is 1
-	DesiredCount *float64 `json:"desiredCount"`
+	DesiredCount *float64 `json:"desiredCount" yaml:"desiredCount"`
 	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 	//
 	// For more information, see
 	// [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html)
-	EnableECSManagedTags *bool `json:"enableECSManagedTags"`
+	EnableECSManagedTags *bool `json:"enableECSManagedTags" yaml:"enableECSManagedTags"`
 	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks after a task has first started.
-	HealthCheckGracePeriod awscdk.Duration `json:"healthCheckGracePeriod"`
+	HealthCheckGracePeriod awscdk.Duration `json:"healthCheckGracePeriod" yaml:"healthCheckGracePeriod"`
 	// The network load balancer that will serve traffic to the service.
-	LoadBalancers *[]*NetworkLoadBalancerProps `json:"loadBalancers"`
+	LoadBalancers *[]*NetworkLoadBalancerProps `json:"loadBalancers" yaml:"loadBalancers"`
 	// Specifies whether to propagate the tags from the task definition or the service to the tasks in the service.
 	//
 	// Tags can only be propagated to the tasks within the service during service creation.
-	PropagateTags awsecs.PropagatedTagSource `json:"propagateTags"`
+	PropagateTags awsecs.PropagatedTagSource `json:"propagateTags" yaml:"propagateTags"`
 	// Name of the service.
-	ServiceName *string `json:"serviceName"`
+	ServiceName *string `json:"serviceName" yaml:"serviceName"`
 	// Properties to specify NLB target groups.
-	TargetGroups *[]*NetworkTargetProps `json:"targetGroups"`
+	TargetGroups *[]*NetworkTargetProps `json:"targetGroups" yaml:"targetGroups"`
 	// The properties required to create a new task definition.
 	//
 	// Only one of TaskDefinition or TaskImageOptions must be specified.
-	TaskImageOptions *NetworkLoadBalancedTaskImageProps `json:"taskImageOptions"`
+	TaskImageOptions *NetworkLoadBalancedTaskImageProps `json:"taskImageOptions" yaml:"taskImageOptions"`
 	// The VPC where the container instances will be launched or the elastic network interfaces (ENIs) will be deployed.
 	//
 	// If a vpc is specified, the cluster construct should be omitted. Alternatively, you can omit both vpc and cluster.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// The minimum number of CPU units to reserve for the container.
 	//
 	// Valid values, which determines your range of valid values for the memory parameter:
-	Cpu *float64 `json:"cpu"`
+	Cpu *float64 `json:"cpu" yaml:"cpu"`
 	// The amount (in MiB) of memory to present to the container.
 	//
 	// If your container attempts to exceed the allocated memory, the container
 	// is terminated.
 	//
 	// At least one of memoryLimitMiB and memoryReservationMiB is required.
-	MemoryLimitMiB *float64 `json:"memoryLimitMiB"`
+	MemoryLimitMiB *float64 `json:"memoryLimitMiB" yaml:"memoryLimitMiB"`
 	// The soft limit (in MiB) of memory to reserve for the container.
 	//
 	// When system memory is under heavy contention, Docker attempts to keep the
@@ -3561,11 +3561,11 @@ type NetworkMultipleTargetGroupsEc2ServiceProps struct {
 	// At least one of memoryLimitMiB and memoryReservationMiB is required.
 	//
 	// Note that this setting will be ignored if TaskImagesOptions is specified.
-	MemoryReservationMiB *float64 `json:"memoryReservationMiB"`
+	MemoryReservationMiB *float64 `json:"memoryReservationMiB" yaml:"memoryReservationMiB"`
 	// The task definition to use for tasks in the service. Only one of TaskDefinition or TaskImageOptions must be specified.
 	//
 	// [disable-awslint:ref-via-interface]
-	TaskDefinition awsecs.Ec2TaskDefinition `json:"taskDefinition"`
+	TaskDefinition awsecs.Ec2TaskDefinition `json:"taskDefinition" yaml:"taskDefinition"`
 }
 
 // A Fargate service running on an ECS cluster fronted by a network load balancer.
@@ -3873,42 +3873,42 @@ func (n *jsiiProxy_NetworkMultipleTargetGroupsFargateService) ToString() *string
 //
 type NetworkMultipleTargetGroupsFargateServiceProps struct {
 	// The options for configuring an Amazon ECS service to use service discovery.
-	CloudMapOptions *awsecs.CloudMapOptions `json:"cloudMapOptions"`
+	CloudMapOptions *awsecs.CloudMapOptions `json:"cloudMapOptions" yaml:"cloudMapOptions"`
 	// The name of the cluster that hosts the service.
 	//
 	// If a cluster is specified, the vpc construct should be omitted. Alternatively, you can omit both cluster and vpc.
-	Cluster awsecs.ICluster `json:"cluster"`
+	Cluster awsecs.ICluster `json:"cluster" yaml:"cluster"`
 	// The desired number of instantiations of the task definition to keep running on the service.
 	//
 	// The minimum value is 1
-	DesiredCount *float64 `json:"desiredCount"`
+	DesiredCount *float64 `json:"desiredCount" yaml:"desiredCount"`
 	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 	//
 	// For more information, see
 	// [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html)
-	EnableECSManagedTags *bool `json:"enableECSManagedTags"`
+	EnableECSManagedTags *bool `json:"enableECSManagedTags" yaml:"enableECSManagedTags"`
 	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks after a task has first started.
-	HealthCheckGracePeriod awscdk.Duration `json:"healthCheckGracePeriod"`
+	HealthCheckGracePeriod awscdk.Duration `json:"healthCheckGracePeriod" yaml:"healthCheckGracePeriod"`
 	// The network load balancer that will serve traffic to the service.
-	LoadBalancers *[]*NetworkLoadBalancerProps `json:"loadBalancers"`
+	LoadBalancers *[]*NetworkLoadBalancerProps `json:"loadBalancers" yaml:"loadBalancers"`
 	// Specifies whether to propagate the tags from the task definition or the service to the tasks in the service.
 	//
 	// Tags can only be propagated to the tasks within the service during service creation.
-	PropagateTags awsecs.PropagatedTagSource `json:"propagateTags"`
+	PropagateTags awsecs.PropagatedTagSource `json:"propagateTags" yaml:"propagateTags"`
 	// Name of the service.
-	ServiceName *string `json:"serviceName"`
+	ServiceName *string `json:"serviceName" yaml:"serviceName"`
 	// Properties to specify NLB target groups.
-	TargetGroups *[]*NetworkTargetProps `json:"targetGroups"`
+	TargetGroups *[]*NetworkTargetProps `json:"targetGroups" yaml:"targetGroups"`
 	// The properties required to create a new task definition.
 	//
 	// Only one of TaskDefinition or TaskImageOptions must be specified.
-	TaskImageOptions *NetworkLoadBalancedTaskImageProps `json:"taskImageOptions"`
+	TaskImageOptions *NetworkLoadBalancedTaskImageProps `json:"taskImageOptions" yaml:"taskImageOptions"`
 	// The VPC where the container instances will be launched or the elastic network interfaces (ENIs) will be deployed.
 	//
 	// If a vpc is specified, the cluster construct should be omitted. Alternatively, you can omit both vpc and cluster.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// Determines whether the service will be assigned a public IP address.
-	AssignPublicIp *bool `json:"assignPublicIp"`
+	AssignPublicIp *bool `json:"assignPublicIp" yaml:"assignPublicIp"`
 	// The number of cpu units used by the task.
 	//
 	// Valid values, which determines your range of valid values for the memory parameter:
@@ -3924,7 +3924,7 @@ type NetworkMultipleTargetGroupsFargateServiceProps struct {
 	// 4096 (4 vCPU) - Available memory values: Between 8GB and 30GB in 1GB increments
 	//
 	// This default is set in the underlying FargateTaskDefinition construct.
-	Cpu *float64 `json:"cpu"`
+	Cpu *float64 `json:"cpu" yaml:"cpu"`
 	// The amount (in MiB) of memory used by the task.
 	//
 	// This field is required and you must use one of the following values, which determines your range of valid values
@@ -3941,17 +3941,17 @@ type NetworkMultipleTargetGroupsFargateServiceProps struct {
 	// Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) - Available cpu values: 4096 (4 vCPU)
 	//
 	// This default is set in the underlying FargateTaskDefinition construct.
-	MemoryLimitMiB *float64 `json:"memoryLimitMiB"`
+	MemoryLimitMiB *float64 `json:"memoryLimitMiB" yaml:"memoryLimitMiB"`
 	// The platform version on which to run your service.
 	//
 	// If one is not specified, the LATEST platform version is used by default. For more information, see
 	// [AWS Fargate Platform Versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html)
 	// in the Amazon Elastic Container Service Developer Guide.
-	PlatformVersion awsecs.FargatePlatformVersion `json:"platformVersion"`
+	PlatformVersion awsecs.FargatePlatformVersion `json:"platformVersion" yaml:"platformVersion"`
 	// The task definition to use for tasks in the service. Only one of TaskDefinition or TaskImageOptions must be specified.
 	//
 	// [disable-awslint:ref-via-interface]
-	TaskDefinition awsecs.FargateTaskDefinition `json:"taskDefinition"`
+	TaskDefinition awsecs.FargateTaskDefinition `json:"taskDefinition" yaml:"taskDefinition"`
 }
 
 // The base class for NetworkMultipleTargetGroupsEc2Service and NetworkMultipleTargetGroupsFargateService classes.
@@ -4197,40 +4197,40 @@ func (n *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) ToString() *string {
 //
 type NetworkMultipleTargetGroupsServiceBaseProps struct {
 	// The options for configuring an Amazon ECS service to use service discovery.
-	CloudMapOptions *awsecs.CloudMapOptions `json:"cloudMapOptions"`
+	CloudMapOptions *awsecs.CloudMapOptions `json:"cloudMapOptions" yaml:"cloudMapOptions"`
 	// The name of the cluster that hosts the service.
 	//
 	// If a cluster is specified, the vpc construct should be omitted. Alternatively, you can omit both cluster and vpc.
-	Cluster awsecs.ICluster `json:"cluster"`
+	Cluster awsecs.ICluster `json:"cluster" yaml:"cluster"`
 	// The desired number of instantiations of the task definition to keep running on the service.
 	//
 	// The minimum value is 1
-	DesiredCount *float64 `json:"desiredCount"`
+	DesiredCount *float64 `json:"desiredCount" yaml:"desiredCount"`
 	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 	//
 	// For more information, see
 	// [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html)
-	EnableECSManagedTags *bool `json:"enableECSManagedTags"`
+	EnableECSManagedTags *bool `json:"enableECSManagedTags" yaml:"enableECSManagedTags"`
 	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks after a task has first started.
-	HealthCheckGracePeriod awscdk.Duration `json:"healthCheckGracePeriod"`
+	HealthCheckGracePeriod awscdk.Duration `json:"healthCheckGracePeriod" yaml:"healthCheckGracePeriod"`
 	// The network load balancer that will serve traffic to the service.
-	LoadBalancers *[]*NetworkLoadBalancerProps `json:"loadBalancers"`
+	LoadBalancers *[]*NetworkLoadBalancerProps `json:"loadBalancers" yaml:"loadBalancers"`
 	// Specifies whether to propagate the tags from the task definition or the service to the tasks in the service.
 	//
 	// Tags can only be propagated to the tasks within the service during service creation.
-	PropagateTags awsecs.PropagatedTagSource `json:"propagateTags"`
+	PropagateTags awsecs.PropagatedTagSource `json:"propagateTags" yaml:"propagateTags"`
 	// Name of the service.
-	ServiceName *string `json:"serviceName"`
+	ServiceName *string `json:"serviceName" yaml:"serviceName"`
 	// Properties to specify NLB target groups.
-	TargetGroups *[]*NetworkTargetProps `json:"targetGroups"`
+	TargetGroups *[]*NetworkTargetProps `json:"targetGroups" yaml:"targetGroups"`
 	// The properties required to create a new task definition.
 	//
 	// Only one of TaskDefinition or TaskImageOptions must be specified.
-	TaskImageOptions *NetworkLoadBalancedTaskImageProps `json:"taskImageOptions"`
+	TaskImageOptions *NetworkLoadBalancedTaskImageProps `json:"taskImageOptions" yaml:"taskImageOptions"`
 	// The VPC where the container instances will be launched or the elastic network interfaces (ENIs) will be deployed.
 	//
 	// If a vpc is specified, the cluster construct should be omitted. Alternatively, you can omit both vpc and cluster.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 }
 
 // Properties to define a network load balancer target group.
@@ -4241,9 +4241,9 @@ type NetworkTargetProps struct {
 	// The port number of the container.
 	//
 	// Only applicable when using application/network load balancers.
-	ContainerPort *float64 `json:"containerPort"`
+	ContainerPort *float64 `json:"containerPort" yaml:"containerPort"`
 	// Name of the listener the target group attached to.
-	Listener *string `json:"listener"`
+	Listener *string `json:"listener" yaml:"listener"`
 }
 
 // Class to create a queue processing EC2 service.
@@ -4493,88 +4493,88 @@ func (q *jsiiProxy_QueueProcessingEc2Service) ToString() *string {
 //
 type QueueProcessingEc2ServiceProps struct {
 	// The image used to start a container.
-	Image awsecs.ContainerImage `json:"image"`
+	Image awsecs.ContainerImage `json:"image" yaml:"image"`
 	// A list of Capacity Provider strategies used to place a service.
-	CapacityProviderStrategies *[]*awsecs.CapacityProviderStrategy `json:"capacityProviderStrategies"`
+	CapacityProviderStrategies *[]*awsecs.CapacityProviderStrategy `json:"capacityProviderStrategies" yaml:"capacityProviderStrategies"`
 	// Whether to enable the deployment circuit breaker.
 	//
 	// If this property is defined, circuit breaker will be implicitly
 	// enabled.
-	CircuitBreaker *awsecs.DeploymentCircuitBreaker `json:"circuitBreaker"`
+	CircuitBreaker *awsecs.DeploymentCircuitBreaker `json:"circuitBreaker" yaml:"circuitBreaker"`
 	// The name of the cluster that hosts the service.
 	//
 	// If a cluster is specified, the vpc construct should be omitted. Alternatively, you can omit both cluster and vpc.
-	Cluster awsecs.ICluster `json:"cluster"`
+	Cluster awsecs.ICluster `json:"cluster" yaml:"cluster"`
 	// The command that is passed to the container.
 	//
 	// If you provide a shell command as a single string, you have to quote command-line arguments.
-	Command *[]*string `json:"command"`
+	Command *[]*string `json:"command" yaml:"command"`
 	// Specifies which deployment controller to use for the service.
 	//
 	// For more information, see
 	// [Amazon ECS Deployment Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
-	DeploymentController *awsecs.DeploymentController `json:"deploymentController"`
+	DeploymentController *awsecs.DeploymentController `json:"deploymentController" yaml:"deploymentController"`
 	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 	//
 	// For more information, see
 	// [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html)
-	EnableECSManagedTags *bool `json:"enableECSManagedTags"`
+	EnableECSManagedTags *bool `json:"enableECSManagedTags" yaml:"enableECSManagedTags"`
 	// Flag to indicate whether to enable logging.
-	EnableLogging *bool `json:"enableLogging"`
+	EnableLogging *bool `json:"enableLogging" yaml:"enableLogging"`
 	// The environment variables to pass to the container.
 	//
 	// The variable `QUEUE_NAME` with value `queue.queueName` will
 	// always be passed.
-	Environment *map[string]*string `json:"environment"`
+	Environment *map[string]*string `json:"environment" yaml:"environment"`
 	// The name of a family that the task definition is registered to.
 	//
 	// A family groups multiple versions of a task definition.
-	Family *string `json:"family"`
+	Family *string `json:"family" yaml:"family"`
 	// The log driver to use.
-	LogDriver awsecs.LogDriver `json:"logDriver"`
+	LogDriver awsecs.LogDriver `json:"logDriver" yaml:"logDriver"`
 	// The maximum number of tasks, specified as a percentage of the Amazon ECS service's DesiredCount value, that can run in a service during a deployment.
-	MaxHealthyPercent *float64 `json:"maxHealthyPercent"`
+	MaxHealthyPercent *float64 `json:"maxHealthyPercent" yaml:"maxHealthyPercent"`
 	// The maximum number of times that a message can be received by consumers.
 	//
 	// When this value is exceeded for a message the message will be automatically sent to the Dead Letter Queue.
-	MaxReceiveCount *float64 `json:"maxReceiveCount"`
+	MaxReceiveCount *float64 `json:"maxReceiveCount" yaml:"maxReceiveCount"`
 	// Maximum capacity to scale to.
-	MaxScalingCapacity *float64 `json:"maxScalingCapacity"`
+	MaxScalingCapacity *float64 `json:"maxScalingCapacity" yaml:"maxScalingCapacity"`
 	// The minimum number of tasks, specified as a percentage of the Amazon ECS service's DesiredCount value, that must continue to run and remain healthy during a deployment.
-	MinHealthyPercent *float64 `json:"minHealthyPercent"`
+	MinHealthyPercent *float64 `json:"minHealthyPercent" yaml:"minHealthyPercent"`
 	// Minimum capacity to scale to.
-	MinScalingCapacity *float64 `json:"minScalingCapacity"`
+	MinScalingCapacity *float64 `json:"minScalingCapacity" yaml:"minScalingCapacity"`
 	// Specifies whether to propagate the tags from the task definition or the service to the tasks in the service.
 	//
 	// Tags can only be propagated to the tasks within the service during service creation.
-	PropagateTags awsecs.PropagatedTagSource `json:"propagateTags"`
+	PropagateTags awsecs.PropagatedTagSource `json:"propagateTags" yaml:"propagateTags"`
 	// A queue for which to process items from.
 	//
 	// If specified and this is a FIFO queue, the queue name must end in the string '.fifo'. See
 	// [CreateQueue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_CreateQueue.html)
-	Queue awssqs.IQueue `json:"queue"`
+	Queue awssqs.IQueue `json:"queue" yaml:"queue"`
 	// The number of seconds that Dead Letter Queue retains a message.
-	RetentionPeriod awscdk.Duration `json:"retentionPeriod"`
+	RetentionPeriod awscdk.Duration `json:"retentionPeriod" yaml:"retentionPeriod"`
 	// The intervals for scaling based on the SQS queue's ApproximateNumberOfMessagesVisible metric.
 	//
 	// Maps a range of metric values to a particular scaling behavior. See
 	// [Simple and Step Scaling Policies for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html)
-	ScalingSteps *[]*awsapplicationautoscaling.ScalingInterval `json:"scalingSteps"`
+	ScalingSteps *[]*awsapplicationautoscaling.ScalingInterval `json:"scalingSteps" yaml:"scalingSteps"`
 	// The secret to expose to the container as an environment variable.
-	Secrets *map[string]awsecs.Secret `json:"secrets"`
+	Secrets *map[string]awsecs.Secret `json:"secrets" yaml:"secrets"`
 	// The name of the service.
-	ServiceName *string `json:"serviceName"`
+	ServiceName *string `json:"serviceName" yaml:"serviceName"`
 	// Timeout of processing a single message.
 	//
 	// After dequeuing, the processor has this much time to handle the message and delete it from the queue
 	// before it becomes visible again for dequeueing by another processor. Values must be between 0 and (12 hours).
-	VisibilityTimeout awscdk.Duration `json:"visibilityTimeout"`
+	VisibilityTimeout awscdk.Duration `json:"visibilityTimeout" yaml:"visibilityTimeout"`
 	// The VPC where the container instances will be launched or the elastic network interfaces (ENIs) will be deployed.
 	//
 	// If a vpc is specified, the cluster construct should be omitted. Alternatively, you can omit both vpc and cluster.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// Optional name for the container added.
-	ContainerName *string `json:"containerName"`
+	ContainerName *string `json:"containerName" yaml:"containerName"`
 	// The number of cpu units used by the task.
 	//
 	// Valid values, which determines your range of valid values for the memory parameter:
@@ -4590,18 +4590,18 @@ type QueueProcessingEc2ServiceProps struct {
 	// 4096 (4 vCPU) - Available memory values: Between 8GB and 30GB in 1GB increments
 	//
 	// This default is set in the underlying FargateTaskDefinition construct.
-	Cpu *float64 `json:"cpu"`
+	Cpu *float64 `json:"cpu" yaml:"cpu"`
 	// Gpu count for container in task definition.
 	//
 	// Set this if you want to use gpu based instances.
-	GpuCount *float64 `json:"gpuCount"`
+	GpuCount *float64 `json:"gpuCount" yaml:"gpuCount"`
 	// The hard limit (in MiB) of memory to present to the container.
 	//
 	// If your container attempts to exceed the allocated memory, the container
 	// is terminated.
 	//
 	// At least one of memoryLimitMiB and memoryReservationMiB is required for non-Fargate services.
-	MemoryLimitMiB *float64 `json:"memoryLimitMiB"`
+	MemoryLimitMiB *float64 `json:"memoryLimitMiB" yaml:"memoryLimitMiB"`
 	// The soft limit (in MiB) of memory to reserve for the container.
 	//
 	// When system memory is under contention, Docker attempts to keep the
@@ -4610,7 +4610,7 @@ type QueueProcessingEc2ServiceProps struct {
 	// the available memory on the container instance—whichever comes first.
 	//
 	// At least one of memoryLimitMiB and memoryReservationMiB is required for non-Fargate services.
-	MemoryReservationMiB *float64 `json:"memoryReservationMiB"`
+	MemoryReservationMiB *float64 `json:"memoryReservationMiB" yaml:"memoryReservationMiB"`
 }
 
 // Class to create a queue processing Fargate service.
@@ -4860,92 +4860,92 @@ func (q *jsiiProxy_QueueProcessingFargateService) ToString() *string {
 //
 type QueueProcessingFargateServiceProps struct {
 	// The image used to start a container.
-	Image awsecs.ContainerImage `json:"image"`
+	Image awsecs.ContainerImage `json:"image" yaml:"image"`
 	// A list of Capacity Provider strategies used to place a service.
-	CapacityProviderStrategies *[]*awsecs.CapacityProviderStrategy `json:"capacityProviderStrategies"`
+	CapacityProviderStrategies *[]*awsecs.CapacityProviderStrategy `json:"capacityProviderStrategies" yaml:"capacityProviderStrategies"`
 	// Whether to enable the deployment circuit breaker.
 	//
 	// If this property is defined, circuit breaker will be implicitly
 	// enabled.
-	CircuitBreaker *awsecs.DeploymentCircuitBreaker `json:"circuitBreaker"`
+	CircuitBreaker *awsecs.DeploymentCircuitBreaker `json:"circuitBreaker" yaml:"circuitBreaker"`
 	// The name of the cluster that hosts the service.
 	//
 	// If a cluster is specified, the vpc construct should be omitted. Alternatively, you can omit both cluster and vpc.
-	Cluster awsecs.ICluster `json:"cluster"`
+	Cluster awsecs.ICluster `json:"cluster" yaml:"cluster"`
 	// The command that is passed to the container.
 	//
 	// If you provide a shell command as a single string, you have to quote command-line arguments.
-	Command *[]*string `json:"command"`
+	Command *[]*string `json:"command" yaml:"command"`
 	// Specifies which deployment controller to use for the service.
 	//
 	// For more information, see
 	// [Amazon ECS Deployment Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
-	DeploymentController *awsecs.DeploymentController `json:"deploymentController"`
+	DeploymentController *awsecs.DeploymentController `json:"deploymentController" yaml:"deploymentController"`
 	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 	//
 	// For more information, see
 	// [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html)
-	EnableECSManagedTags *bool `json:"enableECSManagedTags"`
+	EnableECSManagedTags *bool `json:"enableECSManagedTags" yaml:"enableECSManagedTags"`
 	// Flag to indicate whether to enable logging.
-	EnableLogging *bool `json:"enableLogging"`
+	EnableLogging *bool `json:"enableLogging" yaml:"enableLogging"`
 	// The environment variables to pass to the container.
 	//
 	// The variable `QUEUE_NAME` with value `queue.queueName` will
 	// always be passed.
-	Environment *map[string]*string `json:"environment"`
+	Environment *map[string]*string `json:"environment" yaml:"environment"`
 	// The name of a family that the task definition is registered to.
 	//
 	// A family groups multiple versions of a task definition.
-	Family *string `json:"family"`
+	Family *string `json:"family" yaml:"family"`
 	// The log driver to use.
-	LogDriver awsecs.LogDriver `json:"logDriver"`
+	LogDriver awsecs.LogDriver `json:"logDriver" yaml:"logDriver"`
 	// The maximum number of tasks, specified as a percentage of the Amazon ECS service's DesiredCount value, that can run in a service during a deployment.
-	MaxHealthyPercent *float64 `json:"maxHealthyPercent"`
+	MaxHealthyPercent *float64 `json:"maxHealthyPercent" yaml:"maxHealthyPercent"`
 	// The maximum number of times that a message can be received by consumers.
 	//
 	// When this value is exceeded for a message the message will be automatically sent to the Dead Letter Queue.
-	MaxReceiveCount *float64 `json:"maxReceiveCount"`
+	MaxReceiveCount *float64 `json:"maxReceiveCount" yaml:"maxReceiveCount"`
 	// Maximum capacity to scale to.
-	MaxScalingCapacity *float64 `json:"maxScalingCapacity"`
+	MaxScalingCapacity *float64 `json:"maxScalingCapacity" yaml:"maxScalingCapacity"`
 	// The minimum number of tasks, specified as a percentage of the Amazon ECS service's DesiredCount value, that must continue to run and remain healthy during a deployment.
-	MinHealthyPercent *float64 `json:"minHealthyPercent"`
+	MinHealthyPercent *float64 `json:"minHealthyPercent" yaml:"minHealthyPercent"`
 	// Minimum capacity to scale to.
-	MinScalingCapacity *float64 `json:"minScalingCapacity"`
+	MinScalingCapacity *float64 `json:"minScalingCapacity" yaml:"minScalingCapacity"`
 	// Specifies whether to propagate the tags from the task definition or the service to the tasks in the service.
 	//
 	// Tags can only be propagated to the tasks within the service during service creation.
-	PropagateTags awsecs.PropagatedTagSource `json:"propagateTags"`
+	PropagateTags awsecs.PropagatedTagSource `json:"propagateTags" yaml:"propagateTags"`
 	// A queue for which to process items from.
 	//
 	// If specified and this is a FIFO queue, the queue name must end in the string '.fifo'. See
 	// [CreateQueue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_CreateQueue.html)
-	Queue awssqs.IQueue `json:"queue"`
+	Queue awssqs.IQueue `json:"queue" yaml:"queue"`
 	// The number of seconds that Dead Letter Queue retains a message.
-	RetentionPeriod awscdk.Duration `json:"retentionPeriod"`
+	RetentionPeriod awscdk.Duration `json:"retentionPeriod" yaml:"retentionPeriod"`
 	// The intervals for scaling based on the SQS queue's ApproximateNumberOfMessagesVisible metric.
 	//
 	// Maps a range of metric values to a particular scaling behavior. See
 	// [Simple and Step Scaling Policies for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html)
-	ScalingSteps *[]*awsapplicationautoscaling.ScalingInterval `json:"scalingSteps"`
+	ScalingSteps *[]*awsapplicationautoscaling.ScalingInterval `json:"scalingSteps" yaml:"scalingSteps"`
 	// The secret to expose to the container as an environment variable.
-	Secrets *map[string]awsecs.Secret `json:"secrets"`
+	Secrets *map[string]awsecs.Secret `json:"secrets" yaml:"secrets"`
 	// The name of the service.
-	ServiceName *string `json:"serviceName"`
+	ServiceName *string `json:"serviceName" yaml:"serviceName"`
 	// Timeout of processing a single message.
 	//
 	// After dequeuing, the processor has this much time to handle the message and delete it from the queue
 	// before it becomes visible again for dequeueing by another processor. Values must be between 0 and (12 hours).
-	VisibilityTimeout awscdk.Duration `json:"visibilityTimeout"`
+	VisibilityTimeout awscdk.Duration `json:"visibilityTimeout" yaml:"visibilityTimeout"`
 	// The VPC where the container instances will be launched or the elastic network interfaces (ENIs) will be deployed.
 	//
 	// If a vpc is specified, the cluster construct should be omitted. Alternatively, you can omit both vpc and cluster.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// Specifies whether the task's elastic network interface receives a public IP address.
 	//
 	// If true, each task will receive a public IP address.
-	AssignPublicIp *bool `json:"assignPublicIp"`
+	AssignPublicIp *bool `json:"assignPublicIp" yaml:"assignPublicIp"`
 	// Optional name for the container added.
-	ContainerName *string `json:"containerName"`
+	ContainerName *string `json:"containerName" yaml:"containerName"`
 	// The number of cpu units used by the task.
 	//
 	// Valid values, which determines your range of valid values for the memory parameter:
@@ -4961,7 +4961,7 @@ type QueueProcessingFargateServiceProps struct {
 	// 4096 (4 vCPU) - Available memory values: Between 8GB and 30GB in 1GB increments
 	//
 	// This default is set in the underlying FargateTaskDefinition construct.
-	Cpu *float64 `json:"cpu"`
+	Cpu *float64 `json:"cpu" yaml:"cpu"`
 	// The amount (in MiB) of memory used by the task.
 	//
 	// This field is required and you must use one of the following values, which determines your range of valid values
@@ -4978,19 +4978,19 @@ type QueueProcessingFargateServiceProps struct {
 	// Between 8GB and 30GB in 1GB increments - Available cpu values: 4096 (4 vCPU)
 	//
 	// This default is set in the underlying FargateTaskDefinition construct.
-	MemoryLimitMiB *float64 `json:"memoryLimitMiB"`
+	MemoryLimitMiB *float64 `json:"memoryLimitMiB" yaml:"memoryLimitMiB"`
 	// The platform version on which to run your service.
 	//
 	// If one is not specified, the LATEST platform version is used by default. For more information, see
 	// [AWS Fargate Platform Versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html)
 	// in the Amazon Elastic Container Service Developer Guide.
-	PlatformVersion awsecs.FargatePlatformVersion `json:"platformVersion"`
+	PlatformVersion awsecs.FargatePlatformVersion `json:"platformVersion" yaml:"platformVersion"`
 	// The security groups to associate with the service.
 	//
 	// If you do not specify a security group, a new security group is created.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// The subnets to associate with the service.
-	TaskSubnets *awsec2.SubnetSelection `json:"taskSubnets"`
+	TaskSubnets *awsec2.SubnetSelection `json:"taskSubnets" yaml:"taskSubnets"`
 }
 
 // The base class for QueueProcessingEc2Service and QueueProcessingFargateService services.
@@ -5200,86 +5200,86 @@ func (q *jsiiProxy_QueueProcessingServiceBase) ToString() *string {
 //
 type QueueProcessingServiceBaseProps struct {
 	// The image used to start a container.
-	Image awsecs.ContainerImage `json:"image"`
+	Image awsecs.ContainerImage `json:"image" yaml:"image"`
 	// A list of Capacity Provider strategies used to place a service.
-	CapacityProviderStrategies *[]*awsecs.CapacityProviderStrategy `json:"capacityProviderStrategies"`
+	CapacityProviderStrategies *[]*awsecs.CapacityProviderStrategy `json:"capacityProviderStrategies" yaml:"capacityProviderStrategies"`
 	// Whether to enable the deployment circuit breaker.
 	//
 	// If this property is defined, circuit breaker will be implicitly
 	// enabled.
-	CircuitBreaker *awsecs.DeploymentCircuitBreaker `json:"circuitBreaker"`
+	CircuitBreaker *awsecs.DeploymentCircuitBreaker `json:"circuitBreaker" yaml:"circuitBreaker"`
 	// The name of the cluster that hosts the service.
 	//
 	// If a cluster is specified, the vpc construct should be omitted. Alternatively, you can omit both cluster and vpc.
-	Cluster awsecs.ICluster `json:"cluster"`
+	Cluster awsecs.ICluster `json:"cluster" yaml:"cluster"`
 	// The command that is passed to the container.
 	//
 	// If you provide a shell command as a single string, you have to quote command-line arguments.
-	Command *[]*string `json:"command"`
+	Command *[]*string `json:"command" yaml:"command"`
 	// Specifies which deployment controller to use for the service.
 	//
 	// For more information, see
 	// [Amazon ECS Deployment Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
-	DeploymentController *awsecs.DeploymentController `json:"deploymentController"`
+	DeploymentController *awsecs.DeploymentController `json:"deploymentController" yaml:"deploymentController"`
 	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 	//
 	// For more information, see
 	// [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html)
-	EnableECSManagedTags *bool `json:"enableECSManagedTags"`
+	EnableECSManagedTags *bool `json:"enableECSManagedTags" yaml:"enableECSManagedTags"`
 	// Flag to indicate whether to enable logging.
-	EnableLogging *bool `json:"enableLogging"`
+	EnableLogging *bool `json:"enableLogging" yaml:"enableLogging"`
 	// The environment variables to pass to the container.
 	//
 	// The variable `QUEUE_NAME` with value `queue.queueName` will
 	// always be passed.
-	Environment *map[string]*string `json:"environment"`
+	Environment *map[string]*string `json:"environment" yaml:"environment"`
 	// The name of a family that the task definition is registered to.
 	//
 	// A family groups multiple versions of a task definition.
-	Family *string `json:"family"`
+	Family *string `json:"family" yaml:"family"`
 	// The log driver to use.
-	LogDriver awsecs.LogDriver `json:"logDriver"`
+	LogDriver awsecs.LogDriver `json:"logDriver" yaml:"logDriver"`
 	// The maximum number of tasks, specified as a percentage of the Amazon ECS service's DesiredCount value, that can run in a service during a deployment.
-	MaxHealthyPercent *float64 `json:"maxHealthyPercent"`
+	MaxHealthyPercent *float64 `json:"maxHealthyPercent" yaml:"maxHealthyPercent"`
 	// The maximum number of times that a message can be received by consumers.
 	//
 	// When this value is exceeded for a message the message will be automatically sent to the Dead Letter Queue.
-	MaxReceiveCount *float64 `json:"maxReceiveCount"`
+	MaxReceiveCount *float64 `json:"maxReceiveCount" yaml:"maxReceiveCount"`
 	// Maximum capacity to scale to.
-	MaxScalingCapacity *float64 `json:"maxScalingCapacity"`
+	MaxScalingCapacity *float64 `json:"maxScalingCapacity" yaml:"maxScalingCapacity"`
 	// The minimum number of tasks, specified as a percentage of the Amazon ECS service's DesiredCount value, that must continue to run and remain healthy during a deployment.
-	MinHealthyPercent *float64 `json:"minHealthyPercent"`
+	MinHealthyPercent *float64 `json:"minHealthyPercent" yaml:"minHealthyPercent"`
 	// Minimum capacity to scale to.
-	MinScalingCapacity *float64 `json:"minScalingCapacity"`
+	MinScalingCapacity *float64 `json:"minScalingCapacity" yaml:"minScalingCapacity"`
 	// Specifies whether to propagate the tags from the task definition or the service to the tasks in the service.
 	//
 	// Tags can only be propagated to the tasks within the service during service creation.
-	PropagateTags awsecs.PropagatedTagSource `json:"propagateTags"`
+	PropagateTags awsecs.PropagatedTagSource `json:"propagateTags" yaml:"propagateTags"`
 	// A queue for which to process items from.
 	//
 	// If specified and this is a FIFO queue, the queue name must end in the string '.fifo'. See
 	// [CreateQueue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_CreateQueue.html)
-	Queue awssqs.IQueue `json:"queue"`
+	Queue awssqs.IQueue `json:"queue" yaml:"queue"`
 	// The number of seconds that Dead Letter Queue retains a message.
-	RetentionPeriod awscdk.Duration `json:"retentionPeriod"`
+	RetentionPeriod awscdk.Duration `json:"retentionPeriod" yaml:"retentionPeriod"`
 	// The intervals for scaling based on the SQS queue's ApproximateNumberOfMessagesVisible metric.
 	//
 	// Maps a range of metric values to a particular scaling behavior. See
 	// [Simple and Step Scaling Policies for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html)
-	ScalingSteps *[]*awsapplicationautoscaling.ScalingInterval `json:"scalingSteps"`
+	ScalingSteps *[]*awsapplicationautoscaling.ScalingInterval `json:"scalingSteps" yaml:"scalingSteps"`
 	// The secret to expose to the container as an environment variable.
-	Secrets *map[string]awsecs.Secret `json:"secrets"`
+	Secrets *map[string]awsecs.Secret `json:"secrets" yaml:"secrets"`
 	// The name of the service.
-	ServiceName *string `json:"serviceName"`
+	ServiceName *string `json:"serviceName" yaml:"serviceName"`
 	// Timeout of processing a single message.
 	//
 	// After dequeuing, the processor has this much time to handle the message and delete it from the queue
 	// before it becomes visible again for dequeueing by another processor. Values must be between 0 and (12 hours).
-	VisibilityTimeout awscdk.Duration `json:"visibilityTimeout"`
+	VisibilityTimeout awscdk.Duration `json:"visibilityTimeout" yaml:"visibilityTimeout"`
 	// The VPC where the container instances will be launched or the elastic network interfaces (ENIs) will be deployed.
 	//
 	// If a vpc is specified, the cluster construct should be omitted. Alternatively, you can omit both vpc and cluster.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 }
 
 // A scheduled EC2 task that will be initiated off of CloudWatch Events.
@@ -5496,7 +5496,7 @@ type ScheduledEc2TaskDefinitionOptions struct {
 	// The task definition to use for tasks in the service. One of image or taskDefinition must be specified.
 	//
 	// [disable-awslint:ref-via-interface]
-	TaskDefinition awsecs.Ec2TaskDefinition `json:"taskDefinition"`
+	TaskDefinition awsecs.Ec2TaskDefinition `json:"taskDefinition" yaml:"taskDefinition"`
 }
 
 // The properties for the ScheduledEc2Task using an image.
@@ -5507,26 +5507,26 @@ type ScheduledEc2TaskImageOptions struct {
 	// The image used to start a container.
 	//
 	// Image or taskDefinition must be specified, but not both.
-	Image awsecs.ContainerImage `json:"image"`
+	Image awsecs.ContainerImage `json:"image" yaml:"image"`
 	// The command that is passed to the container.
 	//
 	// If you provide a shell command as a single string, you have to quote command-line arguments.
-	Command *[]*string `json:"command"`
+	Command *[]*string `json:"command" yaml:"command"`
 	// The environment variables to pass to the container.
-	Environment *map[string]*string `json:"environment"`
+	Environment *map[string]*string `json:"environment" yaml:"environment"`
 	// The log driver to use.
-	LogDriver awsecs.LogDriver `json:"logDriver"`
+	LogDriver awsecs.LogDriver `json:"logDriver" yaml:"logDriver"`
 	// The secret to expose to the container as an environment variable.
-	Secrets *map[string]awsecs.Secret `json:"secrets"`
+	Secrets *map[string]awsecs.Secret `json:"secrets" yaml:"secrets"`
 	// The minimum number of CPU units to reserve for the container.
-	Cpu *float64 `json:"cpu"`
+	Cpu *float64 `json:"cpu" yaml:"cpu"`
 	// The hard limit (in MiB) of memory to present to the container.
 	//
 	// If your container attempts to exceed the allocated memory, the container
 	// is terminated.
 	//
 	// At least one of memoryLimitMiB and memoryReservationMiB is required for non-Fargate services.
-	MemoryLimitMiB *float64 `json:"memoryLimitMiB"`
+	MemoryLimitMiB *float64 `json:"memoryLimitMiB" yaml:"memoryLimitMiB"`
 	// The soft limit (in MiB) of memory to reserve for the container.
 	//
 	// When system memory is under contention, Docker attempts to keep the
@@ -5535,7 +5535,7 @@ type ScheduledEc2TaskImageOptions struct {
 	// the available memory on the container instance—whichever comes first.
 	//
 	// At least one of memoryLimitMiB and memoryReservationMiB is required for non-Fargate services.
-	MemoryReservationMiB *float64 `json:"memoryReservationMiB"`
+	MemoryReservationMiB *float64 `json:"memoryReservationMiB" yaml:"memoryReservationMiB"`
 }
 
 // The properties for the ScheduledEc2Task task.
@@ -5548,35 +5548,35 @@ type ScheduledEc2TaskProps struct {
 	// For more information, see
 	// [Schedule Expression Syntax for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html)
 	// in the Amazon CloudWatch User Guide.
-	Schedule awsapplicationautoscaling.Schedule `json:"schedule"`
+	Schedule awsapplicationautoscaling.Schedule `json:"schedule" yaml:"schedule"`
 	// The name of the cluster that hosts the service.
 	//
 	// If a cluster is specified, the vpc construct should be omitted. Alternatively, you can omit both cluster and vpc.
-	Cluster awsecs.ICluster `json:"cluster"`
+	Cluster awsecs.ICluster `json:"cluster" yaml:"cluster"`
 	// The desired number of instantiations of the task definition to keep running on the service.
-	DesiredTaskCount *float64 `json:"desiredTaskCount"`
+	DesiredTaskCount *float64 `json:"desiredTaskCount" yaml:"desiredTaskCount"`
 	// Indicates whether the rule is enabled.
-	Enabled *bool `json:"enabled"`
+	Enabled *bool `json:"enabled" yaml:"enabled"`
 	// A name for the rule.
-	RuleName *string `json:"ruleName"`
+	RuleName *string `json:"ruleName" yaml:"ruleName"`
 	// Existing security groups to use for your service.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// In what subnets to place the task's ENIs.
 	//
 	// (Only applicable in case the TaskDefinition is configured for AwsVpc networking)
-	SubnetSelection *awsec2.SubnetSelection `json:"subnetSelection"`
+	SubnetSelection *awsec2.SubnetSelection `json:"subnetSelection" yaml:"subnetSelection"`
 	// The VPC where the container instances will be launched or the elastic network interfaces (ENIs) will be deployed.
 	//
 	// If a vpc is specified, the cluster construct should be omitted. Alternatively, you can omit both vpc and cluster.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// The properties to define if using an existing TaskDefinition in this construct.
 	//
 	// ScheduledEc2TaskDefinitionOptions or ScheduledEc2TaskImageOptions must be defined, but not both.
-	ScheduledEc2TaskDefinitionOptions *ScheduledEc2TaskDefinitionOptions `json:"scheduledEc2TaskDefinitionOptions"`
+	ScheduledEc2TaskDefinitionOptions *ScheduledEc2TaskDefinitionOptions `json:"scheduledEc2TaskDefinitionOptions" yaml:"scheduledEc2TaskDefinitionOptions"`
 	// The properties to define if the construct is to create a TaskDefinition.
 	//
 	// ScheduledEc2TaskDefinitionOptions or ScheduledEc2TaskImageOptions must be defined, but not both.
-	ScheduledEc2TaskImageOptions *ScheduledEc2TaskImageOptions `json:"scheduledEc2TaskImageOptions"`
+	ScheduledEc2TaskImageOptions *ScheduledEc2TaskImageOptions `json:"scheduledEc2TaskImageOptions" yaml:"scheduledEc2TaskImageOptions"`
 }
 
 // A scheduled Fargate task that will be initiated off of CloudWatch Events.
@@ -5793,7 +5793,7 @@ type ScheduledFargateTaskDefinitionOptions struct {
 	// The task definition to use for tasks in the service. Image or taskDefinition must be specified, but not both.
 	//
 	// [disable-awslint:ref-via-interface]
-	TaskDefinition awsecs.FargateTaskDefinition `json:"taskDefinition"`
+	TaskDefinition awsecs.FargateTaskDefinition `json:"taskDefinition" yaml:"taskDefinition"`
 }
 
 // The properties for the ScheduledFargateTask using an image.
@@ -5804,17 +5804,17 @@ type ScheduledFargateTaskImageOptions struct {
 	// The image used to start a container.
 	//
 	// Image or taskDefinition must be specified, but not both.
-	Image awsecs.ContainerImage `json:"image"`
+	Image awsecs.ContainerImage `json:"image" yaml:"image"`
 	// The command that is passed to the container.
 	//
 	// If you provide a shell command as a single string, you have to quote command-line arguments.
-	Command *[]*string `json:"command"`
+	Command *[]*string `json:"command" yaml:"command"`
 	// The environment variables to pass to the container.
-	Environment *map[string]*string `json:"environment"`
+	Environment *map[string]*string `json:"environment" yaml:"environment"`
 	// The log driver to use.
-	LogDriver awsecs.LogDriver `json:"logDriver"`
+	LogDriver awsecs.LogDriver `json:"logDriver" yaml:"logDriver"`
 	// The secret to expose to the container as an environment variable.
-	Secrets *map[string]awsecs.Secret `json:"secrets"`
+	Secrets *map[string]awsecs.Secret `json:"secrets" yaml:"secrets"`
 	// The number of cpu units used by the task.
 	//
 	// Valid values, which determines your range of valid values for the memory parameter:
@@ -5830,12 +5830,12 @@ type ScheduledFargateTaskImageOptions struct {
 	// 4096 (4 vCPU) - Available memory values: Between 8GB and 30GB in 1GB increments
 	//
 	// This default is set in the underlying FargateTaskDefinition construct.
-	Cpu *float64 `json:"cpu"`
+	Cpu *float64 `json:"cpu" yaml:"cpu"`
 	// The hard limit (in MiB) of memory to present to the container.
 	//
 	// If your container attempts to exceed the allocated memory, the container
 	// is terminated.
-	MemoryLimitMiB *float64 `json:"memoryLimitMiB"`
+	MemoryLimitMiB *float64 `json:"memoryLimitMiB" yaml:"memoryLimitMiB"`
 }
 
 // The properties for the ScheduledFargateTask task.
@@ -5848,41 +5848,41 @@ type ScheduledFargateTaskProps struct {
 	// For more information, see
 	// [Schedule Expression Syntax for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html)
 	// in the Amazon CloudWatch User Guide.
-	Schedule awsapplicationautoscaling.Schedule `json:"schedule"`
+	Schedule awsapplicationautoscaling.Schedule `json:"schedule" yaml:"schedule"`
 	// The name of the cluster that hosts the service.
 	//
 	// If a cluster is specified, the vpc construct should be omitted. Alternatively, you can omit both cluster and vpc.
-	Cluster awsecs.ICluster `json:"cluster"`
+	Cluster awsecs.ICluster `json:"cluster" yaml:"cluster"`
 	// The desired number of instantiations of the task definition to keep running on the service.
-	DesiredTaskCount *float64 `json:"desiredTaskCount"`
+	DesiredTaskCount *float64 `json:"desiredTaskCount" yaml:"desiredTaskCount"`
 	// Indicates whether the rule is enabled.
-	Enabled *bool `json:"enabled"`
+	Enabled *bool `json:"enabled" yaml:"enabled"`
 	// A name for the rule.
-	RuleName *string `json:"ruleName"`
+	RuleName *string `json:"ruleName" yaml:"ruleName"`
 	// Existing security groups to use for your service.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// In what subnets to place the task's ENIs.
 	//
 	// (Only applicable in case the TaskDefinition is configured for AwsVpc networking)
-	SubnetSelection *awsec2.SubnetSelection `json:"subnetSelection"`
+	SubnetSelection *awsec2.SubnetSelection `json:"subnetSelection" yaml:"subnetSelection"`
 	// The VPC where the container instances will be launched or the elastic network interfaces (ENIs) will be deployed.
 	//
 	// If a vpc is specified, the cluster construct should be omitted. Alternatively, you can omit both vpc and cluster.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// The platform version on which to run your service.
 	//
 	// If one is not specified, the LATEST platform version is used by default. For more information, see
 	// [AWS Fargate Platform Versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html)
 	// in the Amazon Elastic Container Service Developer Guide.
-	PlatformVersion awsecs.FargatePlatformVersion `json:"platformVersion"`
+	PlatformVersion awsecs.FargatePlatformVersion `json:"platformVersion" yaml:"platformVersion"`
 	// The properties to define if using an existing TaskDefinition in this construct.
 	//
 	// ScheduledFargateTaskDefinitionOptions or ScheduledFargateTaskImageOptions must be defined, but not both.
-	ScheduledFargateTaskDefinitionOptions *ScheduledFargateTaskDefinitionOptions `json:"scheduledFargateTaskDefinitionOptions"`
+	ScheduledFargateTaskDefinitionOptions *ScheduledFargateTaskDefinitionOptions `json:"scheduledFargateTaskDefinitionOptions" yaml:"scheduledFargateTaskDefinitionOptions"`
 	// The properties to define if the construct is to create a TaskDefinition.
 	//
 	// ScheduledFargateTaskDefinitionOptions or ScheduledFargateTaskImageOptions must be defined, but not both.
-	ScheduledFargateTaskImageOptions *ScheduledFargateTaskImageOptions `json:"scheduledFargateTaskImageOptions"`
+	ScheduledFargateTaskImageOptions *ScheduledFargateTaskImageOptions `json:"scheduledFargateTaskImageOptions" yaml:"scheduledFargateTaskImageOptions"`
 }
 
 // The base class for ScheduledEc2Task and ScheduledFargateTask tasks.
@@ -6061,27 +6061,27 @@ type ScheduledTaskBaseProps struct {
 	// For more information, see
 	// [Schedule Expression Syntax for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html)
 	// in the Amazon CloudWatch User Guide.
-	Schedule awsapplicationautoscaling.Schedule `json:"schedule"`
+	Schedule awsapplicationautoscaling.Schedule `json:"schedule" yaml:"schedule"`
 	// The name of the cluster that hosts the service.
 	//
 	// If a cluster is specified, the vpc construct should be omitted. Alternatively, you can omit both cluster and vpc.
-	Cluster awsecs.ICluster `json:"cluster"`
+	Cluster awsecs.ICluster `json:"cluster" yaml:"cluster"`
 	// The desired number of instantiations of the task definition to keep running on the service.
-	DesiredTaskCount *float64 `json:"desiredTaskCount"`
+	DesiredTaskCount *float64 `json:"desiredTaskCount" yaml:"desiredTaskCount"`
 	// Indicates whether the rule is enabled.
-	Enabled *bool `json:"enabled"`
+	Enabled *bool `json:"enabled" yaml:"enabled"`
 	// A name for the rule.
-	RuleName *string `json:"ruleName"`
+	RuleName *string `json:"ruleName" yaml:"ruleName"`
 	// Existing security groups to use for your service.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// In what subnets to place the task's ENIs.
 	//
 	// (Only applicable in case the TaskDefinition is configured for AwsVpc networking)
-	SubnetSelection *awsec2.SubnetSelection `json:"subnetSelection"`
+	SubnetSelection *awsec2.SubnetSelection `json:"subnetSelection" yaml:"subnetSelection"`
 	// The VPC where the container instances will be launched or the elastic network interfaces (ENIs) will be deployed.
 	//
 	// If a vpc is specified, the cluster construct should be omitted. Alternatively, you can omit both vpc and cluster.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 }
 
 // TODO: EXAMPLE
@@ -6090,16 +6090,16 @@ type ScheduledTaskImageProps struct {
 	// The image used to start a container.
 	//
 	// Image or taskDefinition must be specified, but not both.
-	Image awsecs.ContainerImage `json:"image"`
+	Image awsecs.ContainerImage `json:"image" yaml:"image"`
 	// The command that is passed to the container.
 	//
 	// If you provide a shell command as a single string, you have to quote command-line arguments.
-	Command *[]*string `json:"command"`
+	Command *[]*string `json:"command" yaml:"command"`
 	// The environment variables to pass to the container.
-	Environment *map[string]*string `json:"environment"`
+	Environment *map[string]*string `json:"environment" yaml:"environment"`
 	// The log driver to use.
-	LogDriver awsecs.LogDriver `json:"logDriver"`
+	LogDriver awsecs.LogDriver `json:"logDriver" yaml:"logDriver"`
 	// The secret to expose to the container as an environment variable.
-	Secrets *map[string]awsecs.Secret `json:"secrets"`
+	Secrets *map[string]awsecs.Secret `json:"secrets" yaml:"secrets"`
 }
 

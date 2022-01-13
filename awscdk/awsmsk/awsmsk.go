@@ -680,11 +680,11 @@ func (c *jsiiProxy_CfnCluster) ValidateProperties(_properties interface{}) {
 //
 type CfnCluster_BrokerLogsProperty struct {
 	// Details of the CloudWatch Logs destination for broker logs.
-	CloudWatchLogs interface{} `json:"cloudWatchLogs"`
+	CloudWatchLogs interface{} `json:"cloudWatchLogs" yaml:"cloudWatchLogs"`
 	// Details of the Kinesis Data Firehose delivery stream that is the destination for broker logs.
-	Firehose interface{} `json:"firehose"`
+	Firehose interface{} `json:"firehose" yaml:"firehose"`
 	// Details of the Amazon S3 destination for broker logs.
-	S3 interface{} `json:"s3"`
+	S3 interface{} `json:"s3" yaml:"s3"`
 }
 
 // The setup to be used for brokers in the cluster.
@@ -699,21 +699,21 @@ type CfnCluster_BrokerNodeGroupInfoProperty struct {
 	// Specify exactly two subnets if you are using the US West (N. California) Region. For other Regions where Amazon MSK is available, you can specify either two or three subnets. The subnets that you specify must be in distinct Availability Zones. When you create a cluster, Amazon MSK distributes the broker nodes evenly across the subnets that you specify.
 	//
 	// Client subnets can't be in Availability Zone us-east-1e.
-	ClientSubnets *[]*string `json:"clientSubnets"`
+	ClientSubnets *[]*string `json:"clientSubnets" yaml:"clientSubnets"`
 	// The type of Amazon EC2 instances to use for brokers.
 	//
 	// The following instance types are allowed: kafka.m5.large, kafka.m5.xlarge, kafka.m5.2xlarge, kafka.m5.4xlarge, kafka.m5.8xlarge, kafka.m5.12xlarge, kafka.m5.16xlarge, and kafka.m5.24xlarge.
-	InstanceType *string `json:"instanceType"`
+	InstanceType *string `json:"instanceType" yaml:"instanceType"`
 	// This parameter is currently not in use.
-	BrokerAzDistribution *string `json:"brokerAzDistribution"`
+	BrokerAzDistribution *string `json:"brokerAzDistribution" yaml:"brokerAzDistribution"`
 	// Information about the cluster's connectivity setting.
-	ConnectivityInfo interface{} `json:"connectivityInfo"`
+	ConnectivityInfo interface{} `json:"connectivityInfo" yaml:"connectivityInfo"`
 	// The security groups to associate with the elastic network interfaces in order to specify who can connect to and communicate with the Amazon MSK cluster.
 	//
 	// If you don't specify a security group, Amazon MSK uses the default security group associated with the VPC. If you specify security groups that were shared with you, you must ensure that you have permissions to them. Specifically, you need the `ec2:DescribeSecurityGroups` permission.
-	SecurityGroups *[]*string `json:"securityGroups"`
+	SecurityGroups *[]*string `json:"securityGroups" yaml:"securityGroups"`
 	// Contains information about storage volumes attached to MSK broker nodes.
-	StorageInfo interface{} `json:"storageInfo"`
+	StorageInfo interface{} `json:"storageInfo" yaml:"storageInfo"`
 }
 
 // Includes information related to client authentication.
@@ -722,11 +722,11 @@ type CfnCluster_BrokerNodeGroupInfoProperty struct {
 //
 type CfnCluster_ClientAuthenticationProperty struct {
 	// Details for ClientAuthentication using SASL.
-	Sasl interface{} `json:"sasl"`
+	Sasl interface{} `json:"sasl" yaml:"sasl"`
 	// Details for client authentication using TLS.
-	Tls interface{} `json:"tls"`
+	Tls interface{} `json:"tls" yaml:"tls"`
 	// Details for ClientAuthentication using no authentication.
-	Unauthenticated interface{} `json:"unauthenticated"`
+	Unauthenticated interface{} `json:"unauthenticated" yaml:"unauthenticated"`
 }
 
 // Details of the CloudWatch Logs destination for broker logs.
@@ -735,9 +735,9 @@ type CfnCluster_ClientAuthenticationProperty struct {
 //
 type CfnCluster_CloudWatchLogsProperty struct {
 	// Specifies whether broker logs get sent to the specified CloudWatch Logs destination.
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 	// The CloudWatch log group that is the destination for broker logs.
-	LogGroup *string `json:"logGroup"`
+	LogGroup *string `json:"logGroup" yaml:"logGroup"`
 }
 
 // Specifies the Amazon MSK configuration to use for the brokers.
@@ -748,9 +748,9 @@ type CfnCluster_ConfigurationInfoProperty struct {
 	// The Amazon Resource Name (ARN) of the MSK configuration to use.
 	//
 	// For example, `arn:aws:kafka:us-east-1:123456789012:configuration/example-configuration-name/abcdabcd-1234-abcd-1234-abcd123e8e8e-1` .
-	Arn *string `json:"arn"`
+	Arn *string `json:"arn" yaml:"arn"`
 	// The revision of the Amazon MSK configuration to use.
-	Revision *float64 `json:"revision"`
+	Revision *float64 `json:"revision" yaml:"revision"`
 }
 
 // Specifies whether the cluster's brokers are publicly accessible.
@@ -763,7 +763,7 @@ type CfnCluster_ConnectivityInfoProperty struct {
 	// Specifies whether the cluster's brokers are accessible from the internet.
 	//
 	// Public access is off by default.
-	PublicAccess interface{} `json:"publicAccess"`
+	PublicAccess interface{} `json:"publicAccess" yaml:"publicAccess"`
 }
 
 // Contains information about the EBS storage volumes attached to brokers.
@@ -772,7 +772,7 @@ type CfnCluster_ConnectivityInfoProperty struct {
 //
 type CfnCluster_EBSStorageInfoProperty struct {
 	// The size in GiB of the EBS volume for the data drive on each broker node.
-	VolumeSize *float64 `json:"volumeSize"`
+	VolumeSize *float64 `json:"volumeSize" yaml:"volumeSize"`
 }
 
 // The data volume encryption details.
@@ -783,7 +783,7 @@ type CfnCluster_EncryptionAtRestProperty struct {
 	// The ARN of the Amazon KMS key for encrypting data at rest.
 	//
 	// If you don't specify a KMS key, MSK creates one for you and uses it on your behalf.
-	DataVolumeKmsKeyId *string `json:"dataVolumeKmsKeyId"`
+	DataVolumeKmsKeyId *string `json:"dataVolumeKmsKeyId" yaml:"dataVolumeKmsKeyId"`
 }
 
 // The settings for encrypting data in transit.
@@ -798,11 +798,11 @@ type CfnCluster_EncryptionInTransitProperty struct {
 	// - `PLAINTEXT` means that client-broker communication is enabled in plaintext only.
 	//
 	// The default value is `TLS` .
-	ClientBroker *string `json:"clientBroker"`
+	ClientBroker *string `json:"clientBroker" yaml:"clientBroker"`
 	// When set to true, it indicates that data communication among the broker nodes of the cluster is encrypted.
 	//
 	// When set to false, the communication happens in plaintext. The default value is true.
-	InCluster interface{} `json:"inCluster"`
+	InCluster interface{} `json:"inCluster" yaml:"inCluster"`
 }
 
 // Includes encryption-related information, such as the Amazon KMS key used for encrypting data at rest and whether you want MSK to encrypt your data in transit.
@@ -811,9 +811,9 @@ type CfnCluster_EncryptionInTransitProperty struct {
 //
 type CfnCluster_EncryptionInfoProperty struct {
 	// The data-volume encryption details.
-	EncryptionAtRest interface{} `json:"encryptionAtRest"`
+	EncryptionAtRest interface{} `json:"encryptionAtRest" yaml:"encryptionAtRest"`
 	// The details for encryption in transit.
-	EncryptionInTransit interface{} `json:"encryptionInTransit"`
+	EncryptionInTransit interface{} `json:"encryptionInTransit" yaml:"encryptionInTransit"`
 }
 
 // Details of the Kinesis Data Firehose delivery stream that is the destination for broker logs.
@@ -822,9 +822,9 @@ type CfnCluster_EncryptionInfoProperty struct {
 //
 type CfnCluster_FirehoseProperty struct {
 	// Specifies whether broker logs get sent to the specified Kinesis Data Firehose delivery stream.
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 	// The Kinesis Data Firehose delivery stream that is the destination for broker logs.
-	DeliveryStream *string `json:"deliveryStream"`
+	DeliveryStream *string `json:"deliveryStream" yaml:"deliveryStream"`
 }
 
 // Details for IAM access control.
@@ -833,7 +833,7 @@ type CfnCluster_FirehoseProperty struct {
 //
 type CfnCluster_IamProperty struct {
 	// Whether IAM access control is enabled.
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 }
 
 // Indicates whether you want to enable or disable the JMX Exporter.
@@ -842,7 +842,7 @@ type CfnCluster_IamProperty struct {
 //
 type CfnCluster_JmxExporterProperty struct {
 	// Indicates whether you want to enable or disable the JMX Exporter.
-	EnabledInBroker interface{} `json:"enabledInBroker"`
+	EnabledInBroker interface{} `json:"enabledInBroker" yaml:"enabledInBroker"`
 }
 
 // You can configure your MSK cluster to send broker logs to different destination types.
@@ -855,7 +855,7 @@ type CfnCluster_LoggingInfoProperty struct {
 	// You can configure your MSK cluster to send broker logs to different destination types.
 	//
 	// This configuration specifies the details of these destinations.
-	BrokerLogs interface{} `json:"brokerLogs"`
+	BrokerLogs interface{} `json:"brokerLogs" yaml:"brokerLogs"`
 }
 
 // Indicates whether you want to enable or disable the Node Exporter.
@@ -864,7 +864,7 @@ type CfnCluster_LoggingInfoProperty struct {
 //
 type CfnCluster_NodeExporterProperty struct {
 	// Indicates whether you want to enable or disable the Node Exporter.
-	EnabledInBroker interface{} `json:"enabledInBroker"`
+	EnabledInBroker interface{} `json:"enabledInBroker" yaml:"enabledInBroker"`
 }
 
 // JMX and Node monitoring for the MSK cluster.
@@ -873,7 +873,7 @@ type CfnCluster_NodeExporterProperty struct {
 //
 type CfnCluster_OpenMonitoringProperty struct {
 	// Prometheus exporter settings.
-	Prometheus interface{} `json:"prometheus"`
+	Prometheus interface{} `json:"prometheus" yaml:"prometheus"`
 }
 
 // Prometheus settings for open monitoring.
@@ -882,9 +882,9 @@ type CfnCluster_OpenMonitoringProperty struct {
 //
 type CfnCluster_PrometheusProperty struct {
 	// Indicates whether you want to enable or disable the JMX Exporter.
-	JmxExporter interface{} `json:"jmxExporter"`
+	JmxExporter interface{} `json:"jmxExporter" yaml:"jmxExporter"`
 	// Indicates whether you want to enable or disable the Node Exporter.
-	NodeExporter interface{} `json:"nodeExporter"`
+	NodeExporter interface{} `json:"nodeExporter" yaml:"nodeExporter"`
 }
 
 // Specifies whether the cluster's brokers are accessible from the internet.
@@ -897,7 +897,7 @@ type CfnCluster_PublicAccessProperty struct {
 	// Set to DISABLED to turn off public access or to SERVICE_PROVIDED_EIPS to turn it on.
 	//
 	// Public access if off by default.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 }
 
 // The details of the Amazon S3 destination for broker logs.
@@ -906,11 +906,11 @@ type CfnCluster_PublicAccessProperty struct {
 //
 type CfnCluster_S3Property struct {
 	// Specifies whether broker logs get sent to the specified Amazon S3 destination.
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 	// The name of the S3 bucket that is the destination for broker logs.
-	Bucket *string `json:"bucket"`
+	Bucket *string `json:"bucket" yaml:"bucket"`
 	// The S3 prefix that is the destination for broker logs.
-	Prefix *string `json:"prefix"`
+	Prefix *string `json:"prefix" yaml:"prefix"`
 }
 
 // Details for client authentication using SASL.
@@ -921,9 +921,9 @@ type CfnCluster_S3Property struct {
 //
 type CfnCluster_SaslProperty struct {
 	// Details for IAM access control.
-	Iam interface{} `json:"iam"`
+	Iam interface{} `json:"iam" yaml:"iam"`
 	// Details for SASL/SCRAM client authentication.
-	Scram interface{} `json:"scram"`
+	Scram interface{} `json:"scram" yaml:"scram"`
 }
 
 // Details for SASL/SCRAM client authentication.
@@ -932,7 +932,7 @@ type CfnCluster_SaslProperty struct {
 //
 type CfnCluster_ScramProperty struct {
 	// SASL/SCRAM authentication is enabled or not.
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 }
 
 // Contains information about storage volumes attached to MSK broker nodes.
@@ -941,7 +941,7 @@ type CfnCluster_ScramProperty struct {
 //
 type CfnCluster_StorageInfoProperty struct {
 	// EBS volume information.
-	EbsStorageInfo interface{} `json:"ebsStorageInfo"`
+	EbsStorageInfo interface{} `json:"ebsStorageInfo" yaml:"ebsStorageInfo"`
 }
 
 // Details for client authentication using TLS.
@@ -950,9 +950,9 @@ type CfnCluster_StorageInfoProperty struct {
 //
 type CfnCluster_TlsProperty struct {
 	// List of ACM Certificate Authority ARNs.
-	CertificateAuthorityArnList *[]*string `json:"certificateAuthorityArnList"`
+	CertificateAuthorityArnList *[]*string `json:"certificateAuthorityArnList" yaml:"certificateAuthorityArnList"`
 	// TLS authentication is enabled or not.
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 }
 
 // Details for allowing no client authentication.
@@ -961,7 +961,7 @@ type CfnCluster_TlsProperty struct {
 //
 type CfnCluster_UnauthenticatedProperty struct {
 	// Unauthenticated is enabled or not.
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 }
 
 // Properties for defining a `CfnCluster`.
@@ -970,36 +970,36 @@ type CfnCluster_UnauthenticatedProperty struct {
 //
 type CfnClusterProps struct {
 	// The setup to be used for brokers in the cluster.
-	BrokerNodeGroupInfo interface{} `json:"brokerNodeGroupInfo"`
+	BrokerNodeGroupInfo interface{} `json:"brokerNodeGroupInfo" yaml:"brokerNodeGroupInfo"`
 	// The name of the cluster.
-	ClusterName *string `json:"clusterName"`
+	ClusterName *string `json:"clusterName" yaml:"clusterName"`
 	// The version of Apache Kafka.
 	//
 	// You can use Amazon MSK to create clusters that use Apache Kafka versions 1.1.1 and 2.2.1.
-	KafkaVersion *string `json:"kafkaVersion"`
+	KafkaVersion *string `json:"kafkaVersion" yaml:"kafkaVersion"`
 	// The number of broker nodes you want in the Amazon MSK cluster.
 	//
 	// You can submit an update to increase the number of broker nodes in a cluster.
-	NumberOfBrokerNodes *float64 `json:"numberOfBrokerNodes"`
+	NumberOfBrokerNodes *float64 `json:"numberOfBrokerNodes" yaml:"numberOfBrokerNodes"`
 	// Includes information related to client authentication.
-	ClientAuthentication interface{} `json:"clientAuthentication"`
+	ClientAuthentication interface{} `json:"clientAuthentication" yaml:"clientAuthentication"`
 	// The Amazon MSK configuration to use for the cluster.
-	ConfigurationInfo interface{} `json:"configurationInfo"`
+	ConfigurationInfo interface{} `json:"configurationInfo" yaml:"configurationInfo"`
 	// Includes all encryption-related information.
-	EncryptionInfo interface{} `json:"encryptionInfo"`
+	EncryptionInfo interface{} `json:"encryptionInfo" yaml:"encryptionInfo"`
 	// Specifies the level of monitoring for the MSK cluster.
 	//
 	// The possible values are `DEFAULT` , `PER_BROKER` , and `PER_TOPIC_PER_BROKER` .
-	EnhancedMonitoring *string `json:"enhancedMonitoring"`
+	EnhancedMonitoring *string `json:"enhancedMonitoring" yaml:"enhancedMonitoring"`
 	// You can configure your MSK cluster to send broker logs to different destination types.
 	//
 	// This is a container for the configuration details related to broker logs.
-	LoggingInfo interface{} `json:"loggingInfo"`
+	LoggingInfo interface{} `json:"loggingInfo" yaml:"loggingInfo"`
 	// The settings for open monitoring.
-	OpenMonitoring interface{} `json:"openMonitoring"`
+	OpenMonitoring interface{} `json:"openMonitoring" yaml:"openMonitoring"`
 	// A map of key:value pairs to apply to this resource.
 	//
 	// Both key and value are of type String.
-	Tags interface{} `json:"tags"`
+	Tags interface{} `json:"tags" yaml:"tags"`
 }
 

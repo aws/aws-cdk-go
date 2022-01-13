@@ -143,10 +143,10 @@ type DomainsConfig struct {
 	// The file must be a text file and must contain
 	// a single domain per line. The content type of the S3 object must be `plain/text`.
 	// Experimental.
-	DomainFileUrl *string `json:"domainFileUrl"`
+	DomainFileUrl *string `json:"domainFileUrl" yaml:"domainFileUrl"`
 	// A list of domains.
 	// Experimental.
-	Domains *[]*string `json:"domains"`
+	Domains *[]*string `json:"domains" yaml:"domains"`
 }
 
 // A Firewall Domain List.
@@ -487,10 +487,10 @@ func (f *jsiiProxy_FirewallDomainList) ToString() *string {
 type FirewallDomainListProps struct {
 	// A list of domains.
 	// Experimental.
-	Domains FirewallDomains `json:"domains"`
+	Domains FirewallDomains `json:"domains" yaml:"domains"`
 	// A name for the domain list.
 	// Experimental.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // A list of domains.
@@ -618,16 +618,16 @@ func (f *jsiiProxy_FirewallDomains) Bind(scope constructs.Construct) *DomainsCon
 type FirewallRule struct {
 	// The action for this rule.
 	// Experimental.
-	Action FirewallRuleAction `json:"action"`
+	Action FirewallRuleAction `json:"action" yaml:"action"`
 	// The domain list for this rule.
 	// Experimental.
-	FirewallDomainList IFirewallDomainList `json:"firewallDomainList"`
+	FirewallDomainList IFirewallDomainList `json:"firewallDomainList" yaml:"firewallDomainList"`
 	// The priority of the rule in the rule group.
 	//
 	// This value must be unique within
 	// the rule group.
 	// Experimental.
-	Priority *float64 `json:"priority"`
+	Priority *float64 `json:"priority" yaml:"priority"`
 }
 
 // A Firewall Rule.
@@ -1414,16 +1414,16 @@ type FirewallRuleGroupAssociationOptions struct {
 	//
 	// This value must be greater than 100 and less than 9,000
 	// Experimental.
-	Priority *float64 `json:"priority"`
+	Priority *float64 `json:"priority" yaml:"priority"`
 	// The VPC that to associate with the rule group.
 	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections.
 	// Experimental.
-	MutationProtection *bool `json:"mutationProtection"`
+	MutationProtection *bool `json:"mutationProtection" yaml:"mutationProtection"`
 	// The name of the association.
 	// Experimental.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // Properties for a Firewall Rule Group Association.
@@ -1439,19 +1439,19 @@ type FirewallRuleGroupAssociationProps struct {
 	//
 	// This value must be greater than 100 and less than 9,000
 	// Experimental.
-	Priority *float64 `json:"priority"`
+	Priority *float64 `json:"priority" yaml:"priority"`
 	// The VPC that to associate with the rule group.
 	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections.
 	// Experimental.
-	MutationProtection *bool `json:"mutationProtection"`
+	MutationProtection *bool `json:"mutationProtection" yaml:"mutationProtection"`
 	// The name of the association.
 	// Experimental.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The firewall rule group which must be associated.
 	// Experimental.
-	FirewallRuleGroup IFirewallRuleGroup `json:"firewallRuleGroup"`
+	FirewallRuleGroup IFirewallRuleGroup `json:"firewallRuleGroup" yaml:"firewallRuleGroup"`
 }
 
 // Properties for a Firewall Rule Group.
@@ -1462,10 +1462,10 @@ type FirewallRuleGroupAssociationProps struct {
 type FirewallRuleGroupProps struct {
 	// The name of the rule group.
 	// Experimental.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// A list of rules for this group.
 	// Experimental.
-	Rules *[]*FirewallRule `json:"rules"`
+	Rules *[]*FirewallRule `json:"rules" yaml:"rules"`
 }
 
 // A Firewall Domain List.

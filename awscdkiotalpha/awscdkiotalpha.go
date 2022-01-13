@@ -19,7 +19,7 @@ import (
 type ActionConfig struct {
 	// The configuration for this action.
 	// Experimental.
-	Configuration *awsiot.CfnTopicRule_ActionProperty `json:"configuration"`
+	Configuration *awsiot.CfnTopicRule_ActionProperty `json:"configuration" yaml:"configuration"`
 }
 
 // An abstract action for TopicRule.
@@ -193,10 +193,10 @@ func (i *jsiiProxy_IotSql) Bind(scope constructs.Construct) *IotSqlConfig {
 type IotSqlConfig struct {
 	// The version of the SQL rules engine to use when evaluating the rule.
 	// Experimental.
-	AwsIotSqlVersion *string `json:"awsIotSqlVersion"`
+	AwsIotSqlVersion *string `json:"awsIotSqlVersion" yaml:"awsIotSqlVersion"`
 	// The SQL statement used to query the topic.
 	// Experimental.
-	Sql *string `json:"sql"`
+	Sql *string `json:"sql" yaml:"sql"`
 }
 
 // Defines an AWS IoT Rule in this stack.
@@ -473,21 +473,21 @@ type TopicRuleProps struct {
 	// See: https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html
 	//
 	// Experimental.
-	Sql IotSql `json:"sql"`
+	Sql IotSql `json:"sql" yaml:"sql"`
 	// The actions associated with the topic rule.
 	// Experimental.
-	Actions *[]IAction `json:"actions"`
+	Actions *[]IAction `json:"actions" yaml:"actions"`
 	// A textual description of the topic rule.
 	// Experimental.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Specifies whether the rule is enabled.
 	// Experimental.
-	Enabled *bool `json:"enabled"`
+	Enabled *bool `json:"enabled" yaml:"enabled"`
 	// The action AWS IoT performs when it is unable to perform a rule's action.
 	// Experimental.
-	ErrorAction IAction `json:"errorAction"`
+	ErrorAction IAction `json:"errorAction" yaml:"errorAction"`
 	// The name of the topic rule.
 	// Experimental.
-	TopicRuleName *string `json:"topicRuleName"`
+	TopicRuleName *string `json:"topicRuleName" yaml:"topicRuleName"`
 }
 

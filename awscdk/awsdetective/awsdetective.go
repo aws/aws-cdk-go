@@ -489,7 +489,7 @@ func (c *jsiiProxy_CfnGraph) ValidateProperties(_properties interface{}) {
 //
 type CfnGraphProps struct {
 	// The tag values to assign to the new behavior graph.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Detective::MemberInvitation`.
@@ -1050,18 +1050,18 @@ func (c *jsiiProxy_CfnMemberInvitation) ValidateProperties(_properties interface
 //
 type CfnMemberInvitationProps struct {
 	// The ARN of the behavior graph to invite the account to contribute data to.
-	GraphArn *string `json:"graphArn"`
+	GraphArn *string `json:"graphArn" yaml:"graphArn"`
 	// The root user email address of the invited account.
 	//
 	// If the email address provided is not the root user email address for the provided account, the invitation creation fails.
-	MemberEmailAddress *string `json:"memberEmailAddress"`
+	MemberEmailAddress *string `json:"memberEmailAddress" yaml:"memberEmailAddress"`
 	// The AWS account identifier of the invited account.
-	MemberId *string `json:"memberId"`
+	MemberId *string `json:"memberId" yaml:"memberId"`
 	// Whether to send an invitation email to the member account.
 	//
 	// If set to true, the member account does not receive an invitation email.
-	DisableEmailNotification interface{} `json:"disableEmailNotification"`
+	DisableEmailNotification interface{} `json:"disableEmailNotification" yaml:"disableEmailNotification"`
 	// Customized text to include in the invitation email message.
-	Message *string `json:"message"`
+	Message *string `json:"message" yaml:"message"`
 }
 

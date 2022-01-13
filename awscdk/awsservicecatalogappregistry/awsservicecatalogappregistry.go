@@ -542,11 +542,11 @@ type CfnApplicationProps struct {
 	// The name of the application.
 	//
 	// The name must be unique in the region in which you are creating the application.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The description of the application.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Key-value pairs you can use to associate with the application.
-	Tags *map[string]*string `json:"tags"`
+	Tags *map[string]*string `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::ServiceCatalogAppRegistry::AttributeGroup`.
@@ -1625,9 +1625,9 @@ func (c *jsiiProxy_CfnAttributeGroupAssociation) ValidateProperties(_properties 
 //
 type CfnAttributeGroupAssociationProps struct {
 	// The name or ID of the application.
-	Application *string `json:"application"`
+	Application *string `json:"application" yaml:"application"`
 	// The name or ID of the attribute group that holds the attributes to describe the application.
-	AttributeGroup *string `json:"attributeGroup"`
+	AttributeGroup *string `json:"attributeGroup" yaml:"attributeGroup"`
 }
 
 // Properties for defining a `CfnAttributeGroup`.
@@ -1636,13 +1636,13 @@ type CfnAttributeGroupAssociationProps struct {
 //
 type CfnAttributeGroupProps struct {
 	// A JSON string in the form of nested key-value pairs that represent the attributes in the group and describes an application and its components.
-	Attributes interface{} `json:"attributes"`
+	Attributes interface{} `json:"attributes" yaml:"attributes"`
 	// The name of the attribute group.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The description of the attribute group that the user provides.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Key-value pairs you can use to associate with the attribute group.
-	Tags *map[string]*string `json:"tags"`
+	Tags *map[string]*string `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::ServiceCatalogAppRegistry::ResourceAssociation`.
@@ -2196,12 +2196,12 @@ func (c *jsiiProxy_CfnResourceAssociation) ValidateProperties(_properties interf
 //
 type CfnResourceAssociationProps struct {
 	// The name or ID of the application.
-	Application *string `json:"application"`
+	Application *string `json:"application" yaml:"application"`
 	// The name or ID of the resource of which the application will be associated.
-	Resource *string `json:"resource"`
+	Resource *string `json:"resource" yaml:"resource"`
 	// The type of resource of which the application will be associated.
 	//
 	// Possible values: CFN_STACK.
-	ResourceType *string `json:"resourceType"`
+	ResourceType *string `json:"resourceType" yaml:"resourceType"`
 }
 

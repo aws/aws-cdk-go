@@ -549,9 +549,9 @@ func (c *jsiiProxy_CfnAnalyzer) ValidateProperties(_properties interface{}) {
 //
 type CfnAnalyzer_ArchiveRuleProperty struct {
 	// The criteria for the rule.
-	Filter interface{} `json:"filter"`
+	Filter interface{} `json:"filter" yaml:"filter"`
 	// The name of the archive rule.
-	RuleName *string `json:"ruleName"`
+	RuleName *string `json:"ruleName" yaml:"ruleName"`
 }
 
 // The criteria that defines the rule.
@@ -560,15 +560,15 @@ type CfnAnalyzer_ArchiveRuleProperty struct {
 //
 type CfnAnalyzer_FilterProperty struct {
 	// The property used to define the criteria in the filter for the rule.
-	Property *string `json:"property"`
+	Property *string `json:"property" yaml:"property"`
 	// A "contains" condition to match for the rule.
-	Contains *[]*string `json:"contains"`
+	Contains *[]*string `json:"contains" yaml:"contains"`
 	// An "equals" condition to match for the rule.
-	Eq *[]*string `json:"eq"`
+	Eq *[]*string `json:"eq" yaml:"eq"`
 	// An "exists" condition to match for the rule.
-	Exists interface{} `json:"exists"`
+	Exists interface{} `json:"exists" yaml:"exists"`
 	// A "not equal" condition to match for the rule.
-	Neq *[]*string `json:"neq"`
+	Neq *[]*string `json:"neq" yaml:"neq"`
 }
 
 // Properties for defining a `CfnAnalyzer`.
@@ -579,12 +579,12 @@ type CfnAnalyzerProps struct {
 	// The type represents the zone of trust for the analyzer.
 	//
 	// *Allowed Values* : ACCOUNT | ORGANIZATION
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// The name of the analyzer.
-	AnalyzerName *string `json:"analyzerName"`
+	AnalyzerName *string `json:"analyzerName" yaml:"analyzerName"`
 	// Specifies the archive rules to add for the analyzer.
-	ArchiveRules interface{} `json:"archiveRules"`
+	ArchiveRules interface{} `json:"archiveRules" yaml:"archiveRules"`
 	// The tags to apply to the analyzer.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 

@@ -289,9 +289,9 @@ type InputProps struct {
 	// Each such message contains a JSON payload. The attribute (and its paired value)
 	// specified here are available for use in the condition expressions used by detectors.
 	// Experimental.
-	AttributeJsonPaths *[]*string `json:"attributeJsonPaths"`
+	AttributeJsonPaths *[]*string `json:"attributeJsonPaths" yaml:"attributeJsonPaths"`
 	// The name of the input.
 	// Experimental.
-	InputName *string `json:"inputName"`
+	InputName *string `json:"inputName" yaml:"inputName"`
 }
 

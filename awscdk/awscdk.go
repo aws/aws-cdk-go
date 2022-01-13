@@ -344,19 +344,19 @@ func (a *jsiiProxy_App) ToString() *string {
 //
 type AppProps struct {
 	// Include runtime versioning information in the Stacks of this app.
-	AnalyticsReporting *bool `json:"analyticsReporting"`
+	AnalyticsReporting *bool `json:"analyticsReporting" yaml:"analyticsReporting"`
 	// Automatically call `synth()` before the program exits.
 	//
 	// If you set this, you don't have to call `synth()` explicitly. Note that
 	// this feature is only available for certain programming languages, and
 	// calling `synth()` is still recommended.
-	AutoSynth *bool `json:"autoSynth"`
+	AutoSynth *bool `json:"autoSynth" yaml:"autoSynth"`
 	// Additional context values for the application.
 	//
 	// Context set by the CLI or the `context` key in `cdk.json` has precedence.
 	//
 	// Context can be read from any construct using `node.getContext(key)`.
-	Context *map[string]interface{} `json:"context"`
+	Context *map[string]interface{} `json:"context" yaml:"context"`
 	// The output directory into which to emit synthesized artifacts.
 	//
 	// You should never need to set this value. By default, the value you pass to
@@ -364,11 +364,11 @@ type AppProps struct {
 	// directory the CLI will fail to pick up the generated Cloud Assembly.
 	//
 	// This property is intended for internal and testing use.
-	Outdir *string `json:"outdir"`
+	Outdir *string `json:"outdir" yaml:"outdir"`
 	// Include construct creation stack trace in the `aws:cdk:trace` metadata key of all constructs.
-	StackTraces *bool `json:"stackTraces"`
+	StackTraces *bool `json:"stackTraces" yaml:"stackTraces"`
 	// Include construct tree metadata as part of the Cloud Assembly.
-	TreeMetadata *bool `json:"treeMetadata"`
+	TreeMetadata *bool `json:"treeMetadata" yaml:"treeMetadata"`
 }
 
 type Arn interface {
@@ -462,30 +462,30 @@ func Arn_Split(arn *string, arnFormat ArnFormat) *ArnComponents {
 //
 type ArnComponents struct {
 	// Resource type (e.g. "table", "autoScalingGroup", "certificate"). For some resource types, e.g. S3 buckets, this field defines the bucket name.
-	Resource *string `json:"resource"`
+	Resource *string `json:"resource" yaml:"resource"`
 	// The service namespace that identifies the AWS product (for example, 's3', 'iam', 'codepipline').
-	Service *string `json:"service"`
+	Service *string `json:"service" yaml:"service"`
 	// The ID of the AWS account that owns the resource, without the hyphens.
 	//
 	// For example, 123456789012. Note that the ARNs for some resources don't
 	// require an account number, so this component might be omitted.
-	Account *string `json:"account"`
+	Account *string `json:"account" yaml:"account"`
 	// The specific ARN format to use for this ARN value.
-	ArnFormat ArnFormat `json:"arnFormat"`
+	ArnFormat ArnFormat `json:"arnFormat" yaml:"arnFormat"`
 	// The partition that the resource is in.
 	//
 	// For standard AWS regions, the
 	// partition is aws. If you have resources in other partitions, the
 	// partition is aws-partitionname. For example, the partition for resources
 	// in the China (Beijing) region is aws-cn.
-	Partition *string `json:"partition"`
+	Partition *string `json:"partition" yaml:"partition"`
 	// The region the resource resides in.
 	//
 	// Note that the ARNs for some resources
 	// do not require a region, so this component might be omitted.
-	Region *string `json:"region"`
+	Region *string `json:"region" yaml:"region"`
 	// Resource name or path within the resource (i.e. S3 bucket object key) or a wildcard such as ``"*"``. This is service-dependent.
-	ResourceName *string `json:"resourceName"`
+	ResourceName *string `json:"resourceName" yaml:"resourceName"`
 }
 
 // An enum representing the various ARN formats that different services use.
@@ -578,19 +578,19 @@ type AssetOptions struct {
 	// packaging, uploading to Amazon S3, etc. If you chose to customize the hash, you will
 	// need to make sure it is updated every time the asset changes, or otherwise it is
 	// possible that some deployments will not be invalidated.
-	AssetHash *string `json:"assetHash"`
+	AssetHash *string `json:"assetHash" yaml:"assetHash"`
 	// Specifies the type of hash to calculate for this asset.
 	//
 	// If `assetHash` is configured, this option must be `undefined` or
 	// `AssetHashType.CUSTOM`.
-	AssetHashType AssetHashType `json:"assetHashType"`
+	AssetHashType AssetHashType `json:"assetHashType" yaml:"assetHashType"`
 	// Bundle the asset by executing a command in a Docker container or a custom bundling provider.
 	//
 	// The asset path will be mounted at `/asset-input`. The Docker
 	// container is responsible for putting content at `/asset-output`.
 	// The content at `/asset-output` will be zipped and used as the
 	// final asset.
-	Bundling *BundlingOptions `json:"bundling"`
+	Bundling *BundlingOptions `json:"bundling" yaml:"bundling"`
 }
 
 // Stages a file or directory from a location on the file system into a staging directory.
@@ -818,13 +818,13 @@ func (a *jsiiProxy_AssetStaging) ToString() *string {
 //
 type AssetStagingProps struct {
 	// Glob patterns to exclude from the copy.
-	Exclude *[]*string `json:"exclude"`
+	Exclude *[]*string `json:"exclude" yaml:"exclude"`
 	// A strategy for how to handle symlinks.
-	Follow SymlinkFollowMode `json:"follow"`
+	Follow SymlinkFollowMode `json:"follow" yaml:"follow"`
 	// The ignore behavior to use for exclude patterns.
-	IgnoreMode IgnoreMode `json:"ignoreMode"`
+	IgnoreMode IgnoreMode `json:"ignoreMode" yaml:"ignoreMode"`
 	// Extra information to encode into the fingerprint (e.g. build instructions and other inputs).
-	ExtraHash *string `json:"extraHash"`
+	ExtraHash *string `json:"extraHash" yaml:"extraHash"`
 	// Specify a custom hash for this asset.
 	//
 	// If `assetHashType` is set it must
@@ -837,21 +837,21 @@ type AssetStagingProps struct {
 	// packaging, uploading to Amazon S3, etc. If you chose to customize the hash, you will
 	// need to make sure it is updated every time the asset changes, or otherwise it is
 	// possible that some deployments will not be invalidated.
-	AssetHash *string `json:"assetHash"`
+	AssetHash *string `json:"assetHash" yaml:"assetHash"`
 	// Specifies the type of hash to calculate for this asset.
 	//
 	// If `assetHash` is configured, this option must be `undefined` or
 	// `AssetHashType.CUSTOM`.
-	AssetHashType AssetHashType `json:"assetHashType"`
+	AssetHashType AssetHashType `json:"assetHashType" yaml:"assetHashType"`
 	// Bundle the asset by executing a command in a Docker container or a custom bundling provider.
 	//
 	// The asset path will be mounted at `/asset-input`. The Docker
 	// container is responsible for putting content at `/asset-output`.
 	// The content at `/asset-output` will be zipped and used as the
 	// final asset.
-	Bundling *BundlingOptions `json:"bundling"`
+	Bundling *BundlingOptions `json:"bundling" yaml:"bundling"`
 	// The source file or directory to copy from.
-	SourcePath *string `json:"sourcePath"`
+	SourcePath *string `json:"sourcePath" yaml:"sourcePath"`
 }
 
 // Accessor for pseudo parameters.
@@ -1247,9 +1247,9 @@ func (b *jsiiProxy_BootstraplessSynthesizer) SynthesizeStackTemplate(stack Stack
 //
 type BootstraplessSynthesizerProps struct {
 	// The CFN execution Role ARN to use.
-	CloudFormationExecutionRoleArn *string `json:"cloudFormationExecutionRoleArn"`
+	CloudFormationExecutionRoleArn *string `json:"cloudFormationExecutionRoleArn" yaml:"cloudFormationExecutionRoleArn"`
 	// The deploy Role ARN to use.
-	DeployRoleArn *string `json:"deployRoleArn"`
+	DeployRoleArn *string `json:"deployRoleArn" yaml:"deployRoleArn"`
 }
 
 // Bundling options.
@@ -1258,41 +1258,41 @@ type BootstraplessSynthesizerProps struct {
 //
 type BundlingOptions struct {
 	// The Docker image where the command will run.
-	Image DockerImage `json:"image"`
+	Image DockerImage `json:"image" yaml:"image"`
 	// The command to run in the Docker container.
 	//
 	// Example value: `['npm', 'install']`
 	// See: https://docs.docker.com/engine/reference/run/
 	//
-	Command *[]*string `json:"command"`
+	Command *[]*string `json:"command" yaml:"command"`
 	// The entrypoint to run in the Docker container.
 	//
 	// Example value: `['/bin/sh', '-c']`
 	// See: https://docs.docker.com/engine/reference/builder/#entrypoint
 	//
-	Entrypoint *[]*string `json:"entrypoint"`
+	Entrypoint *[]*string `json:"entrypoint" yaml:"entrypoint"`
 	// The environment variables to pass to the Docker container.
-	Environment *map[string]*string `json:"environment"`
+	Environment *map[string]*string `json:"environment" yaml:"environment"`
 	// Local bundling provider.
 	//
 	// The provider implements a method `tryBundle()` which should return `true`
 	// if local bundling was performed. If `false` is returned, docker bundling
 	// will be done.
-	Local ILocalBundling `json:"local"`
+	Local ILocalBundling `json:"local" yaml:"local"`
 	// The type of output that this bundling operation is producing.
-	OutputType BundlingOutput `json:"outputType"`
+	OutputType BundlingOutput `json:"outputType" yaml:"outputType"`
 	// [Security configuration](https://docs.docker.com/engine/reference/run/#security-configuration) when running the docker container.
-	SecurityOpt *string `json:"securityOpt"`
+	SecurityOpt *string `json:"securityOpt" yaml:"securityOpt"`
 	// The user to use when running the Docker container.
 	//
 	// user | user:group | uid | uid:gid | user:gid | uid:group
 	// See: https://docs.docker.com/engine/reference/run/#user
 	//
-	User *string `json:"user"`
+	User *string `json:"user" yaml:"user"`
 	// Additional Docker volumes to mount.
-	Volumes *[]*DockerVolume `json:"volumes"`
+	Volumes *[]*DockerVolume `json:"volumes" yaml:"volumes"`
 	// Working directory inside the Docker container.
-	WorkingDirectory *string `json:"workingDirectory"`
+	WorkingDirectory *string `json:"workingDirectory" yaml:"workingDirectory"`
 }
 
 // The type of output that a bundling operation is producing.
@@ -1324,7 +1324,7 @@ const (
 // TODO: EXAMPLE
 //
 type CfnAutoScalingReplacingUpdate struct {
-	WillReplace *bool `json:"willReplace"`
+	WillReplace *bool `json:"willReplace" yaml:"willReplace"`
 }
 
 // To specify how AWS CloudFormation handles rolling updates for an Auto Scaling group, use the AutoScalingRollingUpdate policy.
@@ -1336,9 +1336,9 @@ type CfnAutoScalingReplacingUpdate struct {
 //
 type CfnAutoScalingRollingUpdate struct {
 	// Specifies the maximum number of instances that AWS CloudFormation updates.
-	MaxBatchSize *float64 `json:"maxBatchSize"`
+	MaxBatchSize *float64 `json:"maxBatchSize" yaml:"maxBatchSize"`
 	// Specifies the minimum number of instances that must be in service within the Auto Scaling group while AWS CloudFormation updates old instances.
-	MinInstancesInService *float64 `json:"minInstancesInService"`
+	MinInstancesInService *float64 `json:"minInstancesInService" yaml:"minInstancesInService"`
 	// Specifies the percentage of instances in an Auto Scaling rolling update that must signal success for an update to succeed.
 	//
 	// You can specify a value from 0 to 100. AWS CloudFormation rounds to the nearest tenth of a percent. For example, if you
@@ -1348,7 +1348,7 @@ type CfnAutoScalingRollingUpdate struct {
 	// that the instance wasn't updated.
 	//
 	// If you specify this property, you must also enable the WaitOnResourceSignals and PauseTime properties.
-	MinSuccessfulInstancesPercent *float64 `json:"minSuccessfulInstancesPercent"`
+	MinSuccessfulInstancesPercent *float64 `json:"minSuccessfulInstancesPercent" yaml:"minSuccessfulInstancesPercent"`
 	// The amount of time that AWS CloudFormation pauses after making a change to a batch of instances to give those instances time to start software applications.
 	//
 	// For example, you might need to specify PauseTime when scaling up the number of
@@ -1362,14 +1362,14 @@ type CfnAutoScalingRollingUpdate struct {
 	//
 	// Specify PauseTime in the ISO8601 duration format (in the format PT#H#M#S, where each # is the number of hours, minutes,
 	// and seconds, respectively). The maximum PauseTime is one hour (PT1H).
-	PauseTime *string `json:"pauseTime"`
+	PauseTime *string `json:"pauseTime" yaml:"pauseTime"`
 	// Specifies the Auto Scaling processes to suspend during a stack update.
 	//
 	// Suspending processes prevents Auto Scaling from
 	// interfering with a stack update. For example, you can suspend alarming so that Auto Scaling doesn't execute scaling
 	// policies associated with an alarm. For valid values, see the ScalingProcesses.member.N parameter for the SuspendProcesses
 	// action in the Auto Scaling API Reference.
-	SuspendProcesses *[]*string `json:"suspendProcesses"`
+	SuspendProcesses *[]*string `json:"suspendProcesses" yaml:"suspendProcesses"`
 	// Specifies whether the Auto Scaling group waits on signals from new instances during an update.
 	//
 	// Use this property to
@@ -1381,7 +1381,7 @@ type CfnAutoScalingRollingUpdate struct {
 	// To have instances wait for an Elastic Load Balancing health check before they signal success, add a health-check
 	// verification by using the cfn-init helper script. For an example, see the verify_instance_health command in the Auto Scaling
 	// rolling updates sample template.
-	WaitOnResourceSignals *bool `json:"waitOnResourceSignals"`
+	WaitOnResourceSignals *bool `json:"waitOnResourceSignals" yaml:"waitOnResourceSignals"`
 }
 
 // With scheduled actions, the group size properties of an Auto Scaling group can change at any time.
@@ -1398,7 +1398,7 @@ type CfnAutoScalingRollingUpdate struct {
 // TODO: EXAMPLE
 //
 type CfnAutoScalingScheduledAction struct {
-	IgnoreUnmodifiedGroupSizeProperties *bool `json:"ignoreUnmodifiedGroupSizeProperties"`
+	IgnoreUnmodifiedGroupSizeProperties *bool `json:"ignoreUnmodifiedGroupSizeProperties" yaml:"ignoreUnmodifiedGroupSizeProperties"`
 }
 
 // Capabilities that affect whether CloudFormation is allowed to change IAM resources.
@@ -1419,7 +1419,7 @@ const (
 //
 type CfnCodeDeployBlueGreenAdditionalOptions struct {
 	// Specifies time to wait, in minutes, before terminating the blue resources.
-	TerminationWaitTimeInMinutes *float64 `json:"terminationWaitTimeInMinutes"`
+	TerminationWaitTimeInMinutes *float64 `json:"terminationWaitTimeInMinutes" yaml:"terminationWaitTimeInMinutes"`
 }
 
 // The application actually being deployed.
@@ -1430,9 +1430,9 @@ type CfnCodeDeployBlueGreenAdditionalOptions struct {
 //
 type CfnCodeDeployBlueGreenApplication struct {
 	// The detailed attributes of the deployed target.
-	EcsAttributes *CfnCodeDeployBlueGreenEcsAttributes `json:"ecsAttributes"`
+	EcsAttributes *CfnCodeDeployBlueGreenEcsAttributes `json:"ecsAttributes" yaml:"ecsAttributes"`
 	// The target that is being deployed.
-	Target *CfnCodeDeployBlueGreenApplicationTarget `json:"target"`
+	Target *CfnCodeDeployBlueGreenApplicationTarget `json:"target" yaml:"target"`
 }
 
 // Type of the {@link CfnCodeDeployBlueGreenApplication.target} property.
@@ -1441,11 +1441,11 @@ type CfnCodeDeployBlueGreenApplication struct {
 //
 type CfnCodeDeployBlueGreenApplicationTarget struct {
 	// The logical id of the target resource.
-	LogicalId *string `json:"logicalId"`
+	LogicalId *string `json:"logicalId" yaml:"logicalId"`
 	// The resource type of the target being deployed.
 	//
 	// Right now, the only allowed value is 'AWS::ECS::Service'.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 }
 
 // The attributes of the ECS Service being deployed.
@@ -1456,11 +1456,11 @@ type CfnCodeDeployBlueGreenApplicationTarget struct {
 //
 type CfnCodeDeployBlueGreenEcsAttributes struct {
 	// The logical IDs of the blue and green, respectively, AWS::ECS::TaskDefinition task definitions.
-	TaskDefinitions *[]*string `json:"taskDefinitions"`
+	TaskDefinitions *[]*string `json:"taskDefinitions" yaml:"taskDefinitions"`
 	// The logical IDs of the blue and green, respectively, AWS::ECS::TaskSet task sets.
-	TaskSets *[]*string `json:"taskSets"`
+	TaskSets *[]*string `json:"taskSets" yaml:"taskSets"`
 	// The traffic routing configuration.
-	TrafficRouting *CfnTrafficRouting `json:"trafficRouting"`
+	TrafficRouting *CfnTrafficRouting `json:"trafficRouting" yaml:"trafficRouting"`
 }
 
 // A CloudFormation Hook for CodeDeploy blue-green ECS deployments.
@@ -1745,20 +1745,20 @@ func (c *jsiiProxy_CfnCodeDeployBlueGreenHook) ToString() *string {
 //
 type CfnCodeDeployBlueGreenHookProps struct {
 	// Properties of the Amazon ECS applications being deployed.
-	Applications *[]*CfnCodeDeployBlueGreenApplication `json:"applications"`
+	Applications *[]*CfnCodeDeployBlueGreenApplication `json:"applications" yaml:"applications"`
 	// The IAM Role for CloudFormation to use to perform blue-green deployments.
-	ServiceRole *string `json:"serviceRole"`
+	ServiceRole *string `json:"serviceRole" yaml:"serviceRole"`
 	// Additional options for the blue/green deployment.
-	AdditionalOptions *CfnCodeDeployBlueGreenAdditionalOptions `json:"additionalOptions"`
+	AdditionalOptions *CfnCodeDeployBlueGreenAdditionalOptions `json:"additionalOptions" yaml:"additionalOptions"`
 	// Use lifecycle event hooks to specify a Lambda function that CodeDeploy can call to validate a deployment.
 	//
 	// You can use the same function or a different one for deployment lifecycle events.
 	// Following completion of the validation tests,
 	// the Lambda {@link CfnCodeDeployBlueGreenLifecycleEventHooks.afterAllowTraffic}
 	// function calls back CodeDeploy and delivers a result of 'Succeeded' or 'Failed'.
-	LifecycleEventHooks *CfnCodeDeployBlueGreenLifecycleEventHooks `json:"lifecycleEventHooks"`
+	LifecycleEventHooks *CfnCodeDeployBlueGreenLifecycleEventHooks `json:"lifecycleEventHooks" yaml:"lifecycleEventHooks"`
 	// Traffic routing configuration settings.
-	TrafficRoutingConfig *CfnTrafficRoutingConfig `json:"trafficRoutingConfig"`
+	TrafficRoutingConfig *CfnTrafficRoutingConfig `json:"trafficRoutingConfig" yaml:"trafficRoutingConfig"`
 }
 
 // Lifecycle events for blue-green deployments.
@@ -1769,15 +1769,15 @@ type CfnCodeDeployBlueGreenHookProps struct {
 //
 type CfnCodeDeployBlueGreenLifecycleEventHooks struct {
 	// Function to use to run tasks after the test listener serves traffic to the replacement task set.
-	AfterAllowTestTraffic *string `json:"afterAllowTestTraffic"`
+	AfterAllowTestTraffic *string `json:"afterAllowTestTraffic" yaml:"afterAllowTestTraffic"`
 	// Function to use to run tasks after the second target group serves traffic to the replacement task set.
-	AfterAllowTraffic *string `json:"afterAllowTraffic"`
+	AfterAllowTraffic *string `json:"afterAllowTraffic" yaml:"afterAllowTraffic"`
 	// Function to use to run tasks after the replacement task set is created and one of the target groups is associated with it.
-	AfterInstall *string `json:"afterInstall"`
+	AfterInstall *string `json:"afterInstall" yaml:"afterInstall"`
 	// Function to use to run tasks after the second target group is associated with the replacement task set, but before traffic is shifted to the replacement task set.
-	BeforeAllowTraffic *string `json:"beforeAllowTraffic"`
+	BeforeAllowTraffic *string `json:"beforeAllowTraffic" yaml:"beforeAllowTraffic"`
 	// Function to use to run tasks before the replacement task set is created.
-	BeforeInstall *string `json:"beforeInstall"`
+	BeforeInstall *string `json:"beforeInstall" yaml:"beforeInstall"`
 }
 
 // To perform an AWS CodeDeploy deployment when the version changes on an AWS::Lambda::Alias resource, use the CodeDeployLambdaAliasUpdate update policy.
@@ -1786,15 +1786,15 @@ type CfnCodeDeployBlueGreenLifecycleEventHooks struct {
 //
 type CfnCodeDeployLambdaAliasUpdate struct {
 	// The name of the AWS CodeDeploy application.
-	ApplicationName *string `json:"applicationName"`
+	ApplicationName *string `json:"applicationName" yaml:"applicationName"`
 	// The name of the AWS CodeDeploy deployment group.
 	//
 	// This is where the traffic-shifting policy is set.
-	DeploymentGroupName *string `json:"deploymentGroupName"`
+	DeploymentGroupName *string `json:"deploymentGroupName" yaml:"deploymentGroupName"`
 	// The name of the Lambda function to run after traffic routing completes.
-	AfterAllowTrafficHook *string `json:"afterAllowTrafficHook"`
+	AfterAllowTrafficHook *string `json:"afterAllowTrafficHook" yaml:"afterAllowTrafficHook"`
 	// The name of the Lambda function to run before traffic routing starts.
-	BeforeAllowTrafficHook *string `json:"beforeAllowTrafficHook"`
+	BeforeAllowTrafficHook *string `json:"beforeAllowTrafficHook" yaml:"beforeAllowTrafficHook"`
 }
 
 // Represents a CloudFormation condition, for resources which must be conditionally created and the determination must be made at deploy time.
@@ -1995,7 +1995,7 @@ func (c *jsiiProxy_CfnCondition) ToString() *string {
 //
 type CfnConditionProps struct {
 	// The expression that the condition will evaluate.
-	Expression ICfnConditionExpression `json:"expression"`
+	Expression ICfnConditionExpression `json:"expression" yaml:"expression"`
 }
 
 // Associate the CreationPolicy attribute with a resource to prevent its status from reaching create complete until AWS CloudFormation receives a specified number of success signals or the timeout period is exceeded.
@@ -2018,9 +2018,9 @@ type CfnConditionProps struct {
 //
 type CfnCreationPolicy struct {
 	// For an Auto Scaling group replacement update, specifies how many instances must signal success for the update to succeed.
-	AutoScalingCreationPolicy *CfnResourceAutoScalingCreationPolicy `json:"autoScalingCreationPolicy"`
+	AutoScalingCreationPolicy *CfnResourceAutoScalingCreationPolicy `json:"autoScalingCreationPolicy" yaml:"autoScalingCreationPolicy"`
 	// When AWS CloudFormation creates the associated resource, configures the number of required success signals and the length of time that AWS CloudFormation waits for those signals.
-	ResourceSignal *CfnResourceSignal `json:"resourceSignal"`
+	ResourceSignal *CfnResourceSignal `json:"resourceSignal" yaml:"resourceSignal"`
 }
 
 // A CloudFormation `AWS::CloudFormation::CustomResource`.
@@ -2511,7 +2511,7 @@ type CfnCustomResourceProps struct {
 	// The service token that was given to the template developer by the service provider to access the service, such as an Amazon SNS topic ARN or Lambda function ARN. The service token must be from the same Region in which you are creating the stack.
 	//
 	// Updates are not supported.
-	ServiceToken *string `json:"serviceToken"`
+	ServiceToken *string `json:"serviceToken" yaml:"serviceToken"`
 }
 
 // With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted.
@@ -2653,9 +2653,9 @@ func (c *jsiiProxy_CfnDynamicReference) ToString() *string {
 //
 type CfnDynamicReferenceProps struct {
 	// The reference key of the dynamic reference.
-	ReferenceKey *string `json:"referenceKey"`
+	ReferenceKey *string `json:"referenceKey" yaml:"referenceKey"`
 	// The service to retrieve the dynamic reference from.
-	Service CfnDynamicReferenceService `json:"service"`
+	Service CfnDynamicReferenceService `json:"service" yaml:"service"`
 }
 
 // The service to retrieve the dynamic reference from.
@@ -2983,9 +2983,9 @@ func (c *jsiiProxy_CfnHook) ToString() *string {
 //
 type CfnHookProps struct {
 	// The type of the hook (for example, "AWS::CodeDeploy::BlueGreen").
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// The properties of the hook.
-	Properties *map[string]interface{} `json:"properties"`
+	Properties *map[string]interface{} `json:"properties" yaml:"properties"`
 }
 
 // Captures a synthesis-time JSON object a CloudFormation reference which resolves during deployment to the resolved values of the JSON object.
@@ -3142,7 +3142,7 @@ type CfnJsonProps struct {
 	//
 	// Can be any JavaScript object, including tokens and
 	// references in keys or values.
-	Value interface{} `json:"value"`
+	Value interface{} `json:"value" yaml:"value"`
 }
 
 // A CloudFormation `AWS::CloudFormation::Macro`.
@@ -3703,17 +3703,17 @@ func (c *jsiiProxy_CfnMacro) ValidateProperties(_properties interface{}) {
 //
 type CfnMacroProps struct {
 	// The Amazon Resource Name (ARN) of the underlying AWS Lambda function that you want AWS CloudFormation to invoke when the macro is run.
-	FunctionName *string `json:"functionName"`
+	FunctionName *string `json:"functionName" yaml:"functionName"`
 	// The name of the macro.
 	//
 	// The name of the macro must be unique across all macros in the account.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// A description of the macro.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The Amazon CloudWatch log group to which AWS CloudFormation sends error logging information when invoking the macro's underlying AWS Lambda function.
-	LogGroupName *string `json:"logGroupName"`
+	LogGroupName *string `json:"logGroupName" yaml:"logGroupName"`
 	// The ARN of the role AWS CloudFormation should assume when sending log entries to CloudWatch logs.
-	LogRoleArn *string `json:"logRoleArn"`
+	LogRoleArn *string `json:"logRoleArn" yaml:"logRoleArn"`
 }
 
 // Represents a CloudFormation mapping.
@@ -3902,7 +3902,7 @@ func (c *jsiiProxy_CfnMapping) ToString() *string {
 // TODO: EXAMPLE
 //
 type CfnMappingProps struct {
-	Lazy *bool `json:"lazy"`
+	Lazy *bool `json:"lazy" yaml:"lazy"`
 	// Mapping of key to a set of corresponding set of named values.
 	//
 	// The key identifies a map of name-value pairs and must be unique within the mapping.
@@ -3910,7 +3910,7 @@ type CfnMappingProps struct {
 	// For example, if you want to set values based on a region, you can create a mapping
 	// that uses the region name as a key and contains the values you want to specify for
 	// each specific region.
-	Mapping *map[string]*map[string]interface{} `json:"mapping"`
+	Mapping *map[string]*map[string]interface{} `json:"mapping" yaml:"mapping"`
 }
 
 // A CloudFormation `AWS::CloudFormation::ModuleDefaultVersion`.
@@ -4437,15 +4437,15 @@ type CfnModuleDefaultVersionProps struct {
 	// The Amazon Resource Name (ARN) of the module version to set as the default version.
 	//
 	// Conditional: You must specify either `Arn` , or `ModuleName` and `VersionId` .
-	Arn *string `json:"arn"`
+	Arn *string `json:"arn" yaml:"arn"`
 	// The name of the module.
 	//
 	// Conditional: You must specify either `Arn` , or `ModuleName` and `VersionId` .
-	ModuleName *string `json:"moduleName"`
+	ModuleName *string `json:"moduleName" yaml:"moduleName"`
 	// The ID for the specific version of the module.
 	//
 	// Conditional: You must specify either `Arn` , or `ModuleName` and `VersionId` .
-	VersionId *string `json:"versionId"`
+	VersionId *string `json:"versionId" yaml:"versionId"`
 }
 
 // A CloudFormation `AWS::CloudFormation::ModuleVersion`.
@@ -5038,11 +5038,11 @@ func (c *jsiiProxy_CfnModuleVersion) ValidateProperties(_properties interface{})
 //
 type CfnModuleVersionProps struct {
 	// The name of the module being registered.
-	ModuleName *string `json:"moduleName"`
+	ModuleName *string `json:"moduleName" yaml:"moduleName"`
 	// A URL to the S3 bucket containing the package that contains the template fragment and schema files for the module version to register.
 	//
 	// > The user registering the module version must be able to access the module package in the S3 bucket. That is, the user needs to have [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html) permissions for the package. For more information, see [Actions, Resources, and Condition Keys for Amazon S3](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazons3.html) in the *AWS Identity and Access Management User Guide* .
-	ModulePackage *string `json:"modulePackage"`
+	ModulePackage *string `json:"modulePackage" yaml:"modulePackage"`
 }
 
 // TODO: EXAMPLE
@@ -5290,20 +5290,20 @@ type CfnOutputProps struct {
 	//
 	// The value of an output can include literals, parameter references, pseudo-parameters,
 	// a mapping value, or intrinsic functions.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 	// A condition to associate with this output value.
 	//
 	// If the condition evaluates
 	// to `false`, this output value will not be included in the stack.
-	Condition CfnCondition `json:"condition"`
+	Condition CfnCondition `json:"condition" yaml:"condition"`
 	// A String type that describes the output value.
 	//
 	// The description can be a maximum of 4 K in length.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The name used to export the value of this output across stacks.
 	//
 	// To import the value from another stack, use `Fn.importValue(exportName)`.
-	ExportName *string `json:"exportName"`
+	ExportName *string `json:"exportName" yaml:"exportName"`
 }
 
 // A CloudFormation parameter.
@@ -5747,36 +5747,36 @@ func (c *jsiiProxy_CfnParameter) ToString() *string {
 //
 type CfnParameterProps struct {
 	// A regular expression that represents the patterns to allow for String types.
-	AllowedPattern *string `json:"allowedPattern"`
+	AllowedPattern *string `json:"allowedPattern" yaml:"allowedPattern"`
 	// An array containing the list of values allowed for the parameter.
-	AllowedValues *[]*string `json:"allowedValues"`
+	AllowedValues *[]*string `json:"allowedValues" yaml:"allowedValues"`
 	// A string that explains a constraint when the constraint is violated.
 	//
 	// For example, without a constraint description, a parameter that has an allowed
 	// pattern of [A-Za-z0-9]+ displays the following error message when the user specifies
 	// an invalid value:
-	ConstraintDescription *string `json:"constraintDescription"`
+	ConstraintDescription *string `json:"constraintDescription" yaml:"constraintDescription"`
 	// A value of the appropriate type for the template to use if no value is specified when a stack is created.
 	//
 	// If you define constraints for the parameter, you must specify
 	// a value that adheres to those constraints.
-	Default interface{} `json:"default"`
+	Default interface{} `json:"default" yaml:"default"`
 	// A string of up to 4000 characters that describes the parameter.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// An integer value that determines the largest number of characters you want to allow for String types.
-	MaxLength *float64 `json:"maxLength"`
+	MaxLength *float64 `json:"maxLength" yaml:"maxLength"`
 	// A numeric value that determines the largest numeric value you want to allow for Number types.
-	MaxValue *float64 `json:"maxValue"`
+	MaxValue *float64 `json:"maxValue" yaml:"maxValue"`
 	// An integer value that determines the smallest number of characters you want to allow for String types.
-	MinLength *float64 `json:"minLength"`
+	MinLength *float64 `json:"minLength" yaml:"minLength"`
 	// A numeric value that determines the smallest numeric value you want to allow for Number types.
-	MinValue *float64 `json:"minValue"`
+	MinValue *float64 `json:"minValue" yaml:"minValue"`
 	// Whether to mask the parameter value when anyone makes a call that describes the stack.
 	//
 	// If you set the value to ``true``, the parameter value is masked with asterisks (``*****``).
-	NoEcho *bool `json:"noEcho"`
+	NoEcho *bool `json:"noEcho" yaml:"noEcho"`
 	// The data type for the parameter (DataType).
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 }
 
 // A CloudFormation `AWS::CloudFormation::PublicTypeVersion`.
@@ -6385,7 +6385,7 @@ type CfnPublicTypeVersionProps struct {
 	// The Amazon Resource Number (ARN) of the extension.
 	//
 	// Conditional: You must specify `Arn` , or `TypeName` and `Type` .
-	Arn *string `json:"arn"`
+	Arn *string `json:"arn" yaml:"arn"`
 	// The S3 bucket to which CloudFormation delivers the contract test execution logs.
 	//
 	// CloudFormation delivers the logs by the time contract testing has completed and the extension has been assigned a test type status of `PASSED` or `FAILED` .
@@ -6396,7 +6396,7 @@ type CfnPublicTypeVersionProps struct {
 	// - PutObject
 	//
 	// For more information, see [Actions, Resources, and Condition Keys for Amazon S3](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html) in the *AWS Identity and Access Management User Guide* .
-	LogDeliveryBucket *string `json:"logDeliveryBucket"`
+	LogDeliveryBucket *string `json:"logDeliveryBucket" yaml:"logDeliveryBucket"`
 	// The version number to assign to this version of the extension.
 	//
 	// Use the following format, and adhere to semantic versioning when assigning a version number to your extension:
@@ -6408,15 +6408,15 @@ type CfnPublicTypeVersionProps struct {
 	// If you do not specify a version number, CloudFormation increments the version number by one minor version release.
 	//
 	// You cannot specify a version number the first time you publish a type. AWS CloudFormation automatically sets the first version number to be `1.0.0` .
-	PublicVersionNumber *string `json:"publicVersionNumber"`
+	PublicVersionNumber *string `json:"publicVersionNumber" yaml:"publicVersionNumber"`
 	// The type of the extension to test.
 	//
 	// Conditional: You must specify `Arn` , or `TypeName` and `Type` .
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// The name of the extension to test.
 	//
 	// Conditional: You must specify `Arn` , or `TypeName` and `Type` .
-	TypeName *string `json:"typeName"`
+	TypeName *string `json:"typeName" yaml:"typeName"`
 }
 
 // A CloudFormation `AWS::CloudFormation::Publisher`.
@@ -6965,11 +6965,11 @@ type CfnPublisherProps struct {
 	// Whether you accept the [Terms and Conditions](https://docs.aws.amazon.com/https://cloudformation-registry-documents.s3.amazonaws.com/Terms_and_Conditions_for_AWS_CloudFormation_Registry_Publishers.pdf) for publishing extensions in the CloudFormation registry. You must accept the terms and conditions in order to register to publish public extensions to the CloudFormation registry.
 	//
 	// The default is `false` .
-	AcceptTermsAndConditions interface{} `json:"acceptTermsAndConditions"`
+	AcceptTermsAndConditions interface{} `json:"acceptTermsAndConditions" yaml:"acceptTermsAndConditions"`
 	// If you are using a Bitbucket or GitHub account for identity verification, the Amazon Resource Name (ARN) for your connection to that account.
 	//
 	// For more information, see [Registering your account to publish CloudFormation extensions](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html#publish-extension-prereqs) in the *CloudFormation CLI User Guide* .
-	ConnectionArn *string `json:"connectionArn"`
+	ConnectionArn *string `json:"connectionArn" yaml:"connectionArn"`
 }
 
 // Base class for referenceable CloudFormation constructs which are not Resources.
@@ -7561,7 +7561,7 @@ type CfnResourceAutoScalingCreationPolicy struct {
 	// For example, if you update five instances with a minimum successful percentage of 50, three instances must signal success.
 	// If an instance doesn't send a signal within the time specified by the Timeout property, AWS CloudFormation assumes that the
 	// instance wasn't created.
-	MinSuccessfulInstancesPercent *float64 `json:"minSuccessfulInstancesPercent"`
+	MinSuccessfulInstancesPercent *float64 `json:"minSuccessfulInstancesPercent" yaml:"minSuccessfulInstancesPercent"`
 }
 
 // A CloudFormation `AWS::CloudFormation::ResourceDefaultVersion`.
@@ -8095,26 +8095,26 @@ type CfnResourceDefaultVersionProps struct {
 	// The name of the resource.
 	//
 	// Conditional: You must specify either `TypeVersionArn` , or `TypeName` and `VersionId` .
-	TypeName *string `json:"typeName"`
+	TypeName *string `json:"typeName" yaml:"typeName"`
 	// The Amazon Resource Name (ARN) of the resource version.
 	//
 	// Conditional: You must specify either `TypeVersionArn` , or `TypeName` and `VersionId` .
-	TypeVersionArn *string `json:"typeVersionArn"`
+	TypeVersionArn *string `json:"typeVersionArn" yaml:"typeVersionArn"`
 	// The ID of a specific version of the resource.
 	//
 	// The version ID is the value at the end of the Amazon Resource Name (ARN) assigned to the resource version when it's registered.
 	//
 	// Conditional: You must specify either `TypeVersionArn` , or `TypeName` and `VersionId` .
-	VersionId *string `json:"versionId"`
+	VersionId *string `json:"versionId" yaml:"versionId"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnResourceProps struct {
 	// CloudFormation resource type (e.g. `AWS::S3::Bucket`).
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// Resource properties.
-	Properties *map[string]interface{} `json:"properties"`
+	Properties *map[string]interface{} `json:"properties" yaml:"properties"`
 }
 
 // When AWS CloudFormation creates the associated resource, configures the number of required success signals and the length of time that AWS CloudFormation waits for those signals.
@@ -8126,12 +8126,12 @@ type CfnResourceSignal struct {
 	//
 	// If the resource receives a failure signal or doesn't receive the specified number of signals before the timeout period
 	// expires, the resource creation fails and AWS CloudFormation rolls the stack back.
-	Count *float64 `json:"count"`
+	Count *float64 `json:"count" yaml:"count"`
 	// The length of time that AWS CloudFormation waits for the number of signals that was specified in the Count property.
 	//
 	// The timeout period starts after AWS CloudFormation starts creating the resource, and the timeout expires no sooner
 	// than the time you specify but can occur shortly thereafter. The maximum time that you can specify is 12 hours.
-	Timeout *string `json:"timeout"`
+	Timeout *string `json:"timeout" yaml:"timeout"`
 }
 
 // A CloudFormation `AWS::CloudFormation::ResourceVersion`.
@@ -8746,9 +8746,9 @@ func (c *jsiiProxy_CfnResourceVersion) ValidateProperties(_properties interface{
 //
 type CfnResourceVersion_LoggingConfigProperty struct {
 	// The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
-	LogGroupName *string `json:"logGroupName"`
+	LogGroupName *string `json:"logGroupName" yaml:"logGroupName"`
 	// The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
-	LogRoleArn *string `json:"logRoleArn"`
+	LogRoleArn *string `json:"logRoleArn" yaml:"logRoleArn"`
 }
 
 // Properties for defining a `CfnResourceVersion`.
@@ -8761,7 +8761,7 @@ type CfnResourceVersionProps struct {
 	// For information on generating a schema handler package for the resource you want to register, see [submit](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-cli-submit.html) in the *CloudFormation CLI User Guide* .
 	//
 	// > The user registering the resource must be able to access the package in the S3 bucket. That is, the user needs to have [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html) permissions for the schema handler package. For more information, see [Actions, Resources, and Condition Keys for Amazon S3](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazons3.html) in the *AWS Identity and Access Management User Guide* .
-	SchemaHandlerPackage *string `json:"schemaHandlerPackage"`
+	SchemaHandlerPackage *string `json:"schemaHandlerPackage" yaml:"schemaHandlerPackage"`
 	// The name of the resource being registered.
 	//
 	// We recommend that resource names adhere to the following pattern: *company_or_organization* :: *service* :: *type* .
@@ -8774,13 +8774,13 @@ type CfnResourceVersionProps struct {
 	// > - `AWS`
 	// > - `Custom`
 	// > - `Dev`
-	TypeName *string `json:"typeName"`
+	TypeName *string `json:"typeName" yaml:"typeName"`
 	// The Amazon Resource Name (ARN) of the IAM role for CloudFormation to assume when invoking the resource.
 	//
 	// If your resource calls AWS APIs in any of its handlers, you must create an *[IAM execution role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html)* that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the resource type handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the resource type handler, thereby supplying your resource type with the appropriate credentials.
-	ExecutionRoleArn *string `json:"executionRoleArn"`
+	ExecutionRoleArn *string `json:"executionRoleArn" yaml:"executionRoleArn"`
 	// Logging configuration information for a resource.
-	LoggingConfig interface{} `json:"loggingConfig"`
+	LoggingConfig interface{} `json:"loggingConfig" yaml:"loggingConfig"`
 }
 
 // The Rules that define template constraints in an AWS Service Catalog portfolio describe when end users can use the template and which values they can specify for parameters that are declared in the AWS CloudFormation template used to create the product they are attempting to use.
@@ -8969,9 +8969,9 @@ func (c *jsiiProxy_CfnRule) ToString() *string {
 //
 type CfnRuleAssertion struct {
 	// The assertion.
-	Assert ICfnConditionExpression `json:"assert"`
+	Assert ICfnConditionExpression `json:"assert" yaml:"assert"`
 	// The assertion description.
-	AssertDescription *string `json:"assertDescription"`
+	AssertDescription *string `json:"assertDescription" yaml:"assertDescription"`
 }
 
 // A rule can include a RuleCondition property and must include an Assertions property.
@@ -8999,11 +8999,11 @@ type CfnRuleAssertion struct {
 //
 type CfnRuleProps struct {
 	// Assertions which define the rule.
-	Assertions *[]*CfnRuleAssertion `json:"assertions"`
+	Assertions *[]*CfnRuleAssertion `json:"assertions" yaml:"assertions"`
 	// If the rule condition evaluates to false, the rule doesn't take effect.
 	//
 	// If the function in the rule condition evaluates to true, expressions in each assert are evaluated and applied.
-	RuleCondition ICfnConditionExpression `json:"ruleCondition"`
+	RuleCondition ICfnConditionExpression `json:"ruleCondition" yaml:"ruleCondition"`
 }
 
 // A CloudFormation `AWS::CloudFormation::Stack`.
@@ -9567,11 +9567,11 @@ type CfnStackProps struct {
 	// The URL must point to a template (max size: 460,800 bytes) that's located in an Amazon S3 bucket. For more information, see [Template anatomy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html) .
 	//
 	// Whether an update causes interruptions depends on the resources that are being updated. An update never causes a nested stack to be replaced.
-	TemplateUrl *string `json:"templateUrl"`
+	TemplateUrl *string `json:"templateUrl" yaml:"templateUrl"`
 	// The Simple Notification Service (SNS) topic ARNs to publish stack related events.
 	//
 	// You can find your SNS topic ARNs using the SNS console or your Command Line Interface (CLI).
-	NotificationArns *[]*string `json:"notificationArns"`
+	NotificationArns *[]*string `json:"notificationArns" yaml:"notificationArns"`
 	// The set value pairs that represent the parameters passed to CloudFormation when this nested stack is created.
 	//
 	// Each parameter has a name corresponding to a parameter defined in the embedded template and a value representing the value that you want to set for the parameter.
@@ -9581,17 +9581,17 @@ type CfnStackProps struct {
 	// Conditional. Required if the nested stack requires input parameters.
 	//
 	// Whether an update causes interruptions depends on the resources that are being updated. An update never causes a nested stack to be replaced.
-	Parameters interface{} `json:"parameters"`
+	Parameters interface{} `json:"parameters" yaml:"parameters"`
 	// Key-value pairs to associate with this stack.
 	//
 	// AWS CloudFormation also propagates these tags to the resources created in the stack. A maximum number of 50 tags can be specified.
-	Tags *[]*CfnTag `json:"tags"`
+	Tags *[]*CfnTag `json:"tags" yaml:"tags"`
 	// The length of time, in minutes, that CloudFormation waits for the nested stack to reach the `CREATE_COMPLETE` state.
 	//
 	// The default is no timeout. When CloudFormation detects that the nested stack has reached the `CREATE_COMPLETE` state, it marks the nested stack resource as `CREATE_COMPLETE` in the parent stack and resumes creating the parent stack. If the timeout period expires before the nested stack reaches `CREATE_COMPLETE` , CloudFormation marks the nested stack as failed and rolls back both the nested stack and parent stack.
 	//
 	// Updates are not supported.
-	TimeoutInMinutes *float64 `json:"timeoutInMinutes"`
+	TimeoutInMinutes *float64 `json:"timeoutInMinutes" yaml:"timeoutInMinutes"`
 }
 
 // A CloudFormation `AWS::CloudFormation::StackSet`.
@@ -10356,11 +10356,11 @@ type CfnStackSet_AutoDeploymentProperty struct {
 	// If set to `true` , StackSets automatically deploys additional stack instances to AWS Organizations accounts that are added to a target organization or organizational unit (OU) in the specified Regions.
 	//
 	// If an account is removed from a target organization or OU, StackSets deletes stack instances from the account in the specified Regions.
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 	// If set to `true` , stack resources are retained when an account is removed from a target organization or OU.
 	//
 	// If set to `false` , stack resources are deleted. Specify only if `Enabled` is set to `True` .
-	RetainStacksOnAccountRemoval interface{} `json:"retainStacksOnAccountRemoval"`
+	RetainStacksOnAccountRemoval interface{} `json:"retainStacksOnAccountRemoval" yaml:"retainStacksOnAccountRemoval"`
 }
 
 // The AWS OrganizationalUnitIds or Accounts for which to create stack instances in the specified Regions.
@@ -10371,11 +10371,11 @@ type CfnStackSet_DeploymentTargetsProperty struct {
 	// The names of one or more AWS accounts for which you want to deploy stack set updates.
 	//
 	// *Pattern* : `^[0-9]{12}$`
-	Accounts *[]*string `json:"accounts"`
+	Accounts *[]*string `json:"accounts" yaml:"accounts"`
 	// The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
 	//
 	// *Pattern* : `^(ou-[a-z0-9]{4,32}-[a-z0-9]{8,32}|r-[a-z0-9]{4,32})$`
-	OrganizationalUnitIds *[]*string `json:"organizationalUnitIds"`
+	OrganizationalUnitIds *[]*string `json:"organizationalUnitIds" yaml:"organizationalUnitIds"`
 }
 
 // The user-specified preferences for how AWS CloudFormation performs a stack set operation.
@@ -10390,7 +10390,7 @@ type CfnStackSet_OperationPreferencesProperty struct {
 	// If the operation is stopped in a Region, AWS CloudFormation doesn't attempt the operation in any subsequent Regions.
 	//
 	// Conditional: You must specify either `FailureToleranceCount` or `FailureTolerancePercentage` (but not both).
-	FailureToleranceCount *float64 `json:"failureToleranceCount"`
+	FailureToleranceCount *float64 `json:"failureToleranceCount" yaml:"failureToleranceCount"`
 	// The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
 	//
 	// If the operation is stopped in a Region, AWS CloudFormation doesn't attempt the operation in any subsequent Regions.
@@ -10398,7 +10398,7 @@ type CfnStackSet_OperationPreferencesProperty struct {
 	// When calculating the number of accounts based on the specified percentage, AWS CloudFormation rounds *down* to the next whole number.
 	//
 	// Conditional: You must specify either `FailureToleranceCount` or `FailureTolerancePercentage` , but not both.
-	FailureTolerancePercentage *float64 `json:"failureTolerancePercentage"`
+	FailureTolerancePercentage *float64 `json:"failureTolerancePercentage" yaml:"failureTolerancePercentage"`
 	// The maximum number of accounts in which to perform this operation at one time.
 	//
 	// This is dependent on the value of `FailureToleranceCount` . `MaxConcurrentCount` is at most one more than the `FailureToleranceCount` .
@@ -10406,7 +10406,7 @@ type CfnStackSet_OperationPreferencesProperty struct {
 	// Note that this setting lets you specify the *maximum* for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.
 	//
 	// Conditional: You must specify either `MaxConcurrentCount` or `MaxConcurrentPercentage` , but not both.
-	MaxConcurrentCount *float64 `json:"maxConcurrentCount"`
+	MaxConcurrentCount *float64 `json:"maxConcurrentCount" yaml:"maxConcurrentCount"`
 	// The maximum percentage of accounts in which to perform this operation at one time.
 	//
 	// When calculating the number of accounts based on the specified percentage, AWS CloudFormation rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, CloudFormation sets the number as one instead.
@@ -10414,13 +10414,13 @@ type CfnStackSet_OperationPreferencesProperty struct {
 	// Note that this setting lets you specify the *maximum* for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.
 	//
 	// Conditional: You must specify either `MaxConcurrentCount` or `MaxConcurrentPercentage` , but not both.
-	MaxConcurrentPercentage *float64 `json:"maxConcurrentPercentage"`
+	MaxConcurrentPercentage *float64 `json:"maxConcurrentPercentage" yaml:"maxConcurrentPercentage"`
 	// The concurrency type of deploying StackSets operations in regions, could be in parallel or one region at a time.
 	//
 	// *Allowed values* : `SEQUENTIAL` | `PARALLEL`
-	RegionConcurrencyType *string `json:"regionConcurrencyType"`
+	RegionConcurrencyType *string `json:"regionConcurrencyType" yaml:"regionConcurrencyType"`
 	// The order of the Regions where you want to perform the stack operation.
-	RegionOrder *[]*string `json:"regionOrder"`
+	RegionOrder *[]*string `json:"regionOrder" yaml:"regionOrder"`
 }
 
 // The Parameter data type.
@@ -10431,9 +10431,9 @@ type CfnStackSet_ParameterProperty struct {
 	// The key associated with the parameter.
 	//
 	// If you don't specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
-	ParameterKey *string `json:"parameterKey"`
+	ParameterKey *string `json:"parameterKey" yaml:"parameterKey"`
 	// The input value associated with the parameter.
-	ParameterValue *string `json:"parameterValue"`
+	ParameterValue *string `json:"parameterValue" yaml:"parameterValue"`
 }
 
 // Stack instances in some specific accounts and Regions.
@@ -10442,11 +10442,11 @@ type CfnStackSet_ParameterProperty struct {
 //
 type CfnStackSet_StackInstancesProperty struct {
 	// The AWS `OrganizationalUnitIds` or `Accounts` for which to create stack instances in the specified Regions.
-	DeploymentTargets interface{} `json:"deploymentTargets"`
+	DeploymentTargets interface{} `json:"deploymentTargets" yaml:"deploymentTargets"`
 	// The names of one or more Regions where you want to create stack instances using the specified AWS accounts .
-	Regions *[]*string `json:"regions"`
+	Regions *[]*string `json:"regions" yaml:"regions"`
 	// A list of stack set parameters whose values you want to override in the selected stack instances.
-	ParameterOverrides interface{} `json:"parameterOverrides"`
+	ParameterOverrides interface{} `json:"parameterOverrides" yaml:"parameterOverrides"`
 }
 
 // Properties for defining a `CfnStackSet`.
@@ -10462,7 +10462,7 @@ type CfnStackSetProps struct {
 	// *Allowed Values* : `SERVICE_MANAGED` | `SELF_MANAGED`
 	//
 	// > The `PermissionModel` property is required.
-	PermissionModel *string `json:"permissionModel"`
+	PermissionModel *string `json:"permissionModel" yaml:"permissionModel"`
 	// The name to associate with the stack set.
 	//
 	// The name must be unique in the Region where you create your stack set.
@@ -10472,7 +10472,7 @@ type CfnStackSetProps struct {
 	// *Pattern* : `^[a-zA-Z][a-zA-Z0-9-]{0,127}$`
 	//
 	// > The `StackSetName` property is required.
-	StackSetName *string `json:"stackSetName"`
+	StackSetName *string `json:"stackSetName" yaml:"stackSetName"`
 	// The Amazon Resource Number (ARN) of the IAM role to use to create this stack set.
 	//
 	// Specify an IAM role only if you are using customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account.
@@ -10482,9 +10482,9 @@ type CfnStackSetProps struct {
 	// *Minimum* : `20`
 	//
 	// *Maximum* : `2048`
-	AdministrationRoleArn *string `json:"administrationRoleArn"`
+	AdministrationRoleArn *string `json:"administrationRoleArn" yaml:"administrationRoleArn"`
 	// [ `Service-managed` permissions] Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to a target organization or organizational unit (OU).
-	AutoDeployment interface{} `json:"autoDeployment"`
+	AutoDeployment interface{} `json:"autoDeployment" yaml:"autoDeployment"`
 	// [Service-managed permissions] Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account.
 	//
 	// By default, `SELF` is specified. Use `SELF` for stack sets with self-managed permissions.
@@ -10497,17 +10497,17 @@ type CfnStackSetProps struct {
 	// Stack sets with service-managed permissions are created in the management account, including stack sets that are created by delegated administrators.
 	//
 	// *Valid Values* : `SELF` | `DELEGATED_ADMIN`
-	CallAs *string `json:"callAs"`
+	CallAs *string `json:"callAs" yaml:"callAs"`
 	// The capabilities that are allowed in the stack set.
 	//
 	// Some stack set templates might include resources that can affect permissions in your AWS account —for example, by creating new AWS Identity and Access Management ( IAM ) users. For more information, see [Acknowledging IAM Resources in AWS CloudFormation Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities) .
-	Capabilities *[]*string `json:"capabilities"`
+	Capabilities *[]*string `json:"capabilities" yaml:"capabilities"`
 	// A description of the stack set.
 	//
 	// *Minimum* : `1`
 	//
 	// *Maximum* : `1024`
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The name of the IAM execution role to use to create the stack set.
 	//
 	// If you don't specify an execution role, AWS CloudFormation uses the `AWSCloudFormationStackSetExecutionRole` role for the stack set operation.
@@ -10517,7 +10517,7 @@ type CfnStackSetProps struct {
 	// *Maximum* : `64`
 	//
 	// *Pattern* : `[a-zA-Z_0-9+=,.@-]+`
-	ExecutionRoleName *string `json:"executionRoleName"`
+	ExecutionRoleName *string `json:"executionRoleName" yaml:"executionRoleName"`
 	// Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
 	//
 	// When active, StackSets performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, StackSets starts queued operations in request order.
@@ -10527,17 +10527,17 @@ type CfnStackSetProps struct {
 	// > You can't modify your stack set's execution configuration while there are running or queued operations for that stack set.
 	//
 	// When inactive (default), StackSets performs one operation at a time in request order.
-	ManagedExecution interface{} `json:"managedExecution"`
+	ManagedExecution interface{} `json:"managedExecution" yaml:"managedExecution"`
 	// The user-specified preferences for how AWS CloudFormation performs a stack set operation.
-	OperationPreferences interface{} `json:"operationPreferences"`
+	OperationPreferences interface{} `json:"operationPreferences" yaml:"operationPreferences"`
 	// The input parameters for the stack set template.
-	Parameters interface{} `json:"parameters"`
+	Parameters interface{} `json:"parameters" yaml:"parameters"`
 	// A group of stack instances with parameters in some specific accounts and Regions.
-	StackInstancesGroup interface{} `json:"stackInstancesGroup"`
+	StackInstancesGroup interface{} `json:"stackInstancesGroup" yaml:"stackInstancesGroup"`
 	// The key-value pairs to associate with this stack set and the stacks created from it.
 	//
 	// AWS CloudFormation also propagates these tags to supported resources that are created in the stacks. A maximum number of 50 tags can be specified.
-	Tags *[]*CfnTag `json:"tags"`
+	Tags *[]*CfnTag `json:"tags" yaml:"tags"`
 	// The structure that contains the template body, with a minimum length of 1 byte and a maximum length of 51,200 bytes.
 	//
 	// You must include either `TemplateURL` or `TemplateBody` in a StackSet, but you can't use both. Dynamic references in the `TemplateBody` may not work correctly in all cases. It's recommended to pass templates containing dynamic references through `TemplateUrl` instead.
@@ -10545,7 +10545,7 @@ type CfnStackSetProps struct {
 	// *Minimum* : `1`
 	//
 	// *Maximum* : `51200`
-	TemplateBody *string `json:"templateBody"`
+	TemplateBody *string `json:"templateBody" yaml:"templateBody"`
 	// Location of file containing the template body.
 	//
 	// The URL must point to a template (max size: 460,800 bytes) that's located in an Amazon S3 bucket.
@@ -10555,14 +10555,14 @@ type CfnStackSetProps struct {
 	// *Minimum* : `1`
 	//
 	// *Maximum* : `1024`
-	TemplateUrl *string `json:"templateUrl"`
+	TemplateUrl *string `json:"templateUrl" yaml:"templateUrl"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnTag struct {
-	Key *string `json:"key"`
-	Value *string `json:"value"`
+	Key *string `json:"key" yaml:"key"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // A traffic route, representing where the traffic is being directed to.
@@ -10571,11 +10571,11 @@ type CfnTag struct {
 //
 type CfnTrafficRoute struct {
 	// The logical id of the target resource.
-	LogicalId *string `json:"logicalId"`
+	LogicalId *string `json:"logicalId" yaml:"logicalId"`
 	// The resource type of the route.
 	//
 	// Today, the only allowed value is 'AWS::ElasticLoadBalancingV2::Listener'.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 }
 
 // Type of the {@link CfnCodeDeployBlueGreenEcsAttributes.trafficRouting} property.
@@ -10584,11 +10584,11 @@ type CfnTrafficRoute struct {
 //
 type CfnTrafficRouting struct {
 	// The listener to be used by your load balancer to direct traffic to your target groups.
-	ProdTrafficRoute *CfnTrafficRoute `json:"prodTrafficRoute"`
+	ProdTrafficRoute *CfnTrafficRoute `json:"prodTrafficRoute" yaml:"prodTrafficRoute"`
 	// The logical IDs of the blue and green, respectively, AWS::ElasticLoadBalancingV2::TargetGroup target groups.
-	TargetGroups *[]*string `json:"targetGroups"`
+	TargetGroups *[]*string `json:"targetGroups" yaml:"targetGroups"`
 	// The listener to be used by your load balancer to direct traffic to your target groups.
-	TestTrafficRoute *CfnTrafficRoute `json:"testTrafficRoute"`
+	TestTrafficRoute *CfnTrafficRoute `json:"testTrafficRoute" yaml:"testTrafficRoute"`
 }
 
 // Traffic routing configuration settings.
@@ -10599,11 +10599,11 @@ type CfnTrafficRouting struct {
 //
 type CfnTrafficRoutingConfig struct {
 	// The type of traffic shifting used by the blue-green deployment configuration.
-	Type CfnTrafficRoutingType `json:"type"`
+	Type CfnTrafficRoutingType `json:"type" yaml:"type"`
 	// The configuration for traffic routing when {@link type} is {@link CfnTrafficRoutingType.TIME_BASED_CANARY}.
-	TimeBasedCanary *CfnTrafficRoutingTimeBasedCanary `json:"timeBasedCanary"`
+	TimeBasedCanary *CfnTrafficRoutingTimeBasedCanary `json:"timeBasedCanary" yaml:"timeBasedCanary"`
 	// The configuration for traffic routing when {@link type} is {@link CfnTrafficRoutingType.TIME_BASED_LINEAR}.
-	TimeBasedLinear *CfnTrafficRoutingTimeBasedLinear `json:"timeBasedLinear"`
+	TimeBasedLinear *CfnTrafficRoutingTimeBasedLinear `json:"timeBasedLinear" yaml:"timeBasedLinear"`
 }
 
 // The traffic routing configuration if {@link CfnTrafficRoutingConfig.type} is {@link CfnTrafficRoutingType.TIME_BASED_CANARY}.
@@ -10612,11 +10612,11 @@ type CfnTrafficRoutingConfig struct {
 //
 type CfnTrafficRoutingTimeBasedCanary struct {
 	// The number of minutes between the first and second traffic shifts of a time-based canary deployment.
-	BakeTimeMins *float64 `json:"bakeTimeMins"`
+	BakeTimeMins *float64 `json:"bakeTimeMins" yaml:"bakeTimeMins"`
 	// The percentage of traffic to shift in the first increment of a time-based canary deployment.
 	//
 	// The step percentage must be 14% or greater.
-	StepPercentage *float64 `json:"stepPercentage"`
+	StepPercentage *float64 `json:"stepPercentage" yaml:"stepPercentage"`
 }
 
 // The traffic routing configuration if {@link CfnTrafficRoutingConfig.type} is {@link CfnTrafficRoutingType.TIME_BASED_LINEAR}.
@@ -10625,11 +10625,11 @@ type CfnTrafficRoutingTimeBasedCanary struct {
 //
 type CfnTrafficRoutingTimeBasedLinear struct {
 	// The number of minutes between the first and second traffic shifts of a time-based linear deployment.
-	BakeTimeMins *float64 `json:"bakeTimeMins"`
+	BakeTimeMins *float64 `json:"bakeTimeMins" yaml:"bakeTimeMins"`
 	// The percentage of traffic that is shifted at the start of each increment of a time-based linear deployment.
 	//
 	// The step percentage must be 14% or greater.
-	StepPercentage *float64 `json:"stepPercentage"`
+	StepPercentage *float64 `json:"stepPercentage" yaml:"stepPercentage"`
 }
 
 // The possible types of traffic shifting for the blue-green deployment configuration.
@@ -11314,9 +11314,9 @@ func (c *jsiiProxy_CfnTypeActivation) ValidateProperties(_properties interface{}
 //
 type CfnTypeActivation_LoggingConfigProperty struct {
 	// The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the extension's handlers.
-	LogGroupName *string `json:"logGroupName"`
+	LogGroupName *string `json:"logGroupName" yaml:"logGroupName"`
 	// The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
-	LogRoleArn *string `json:"logRoleArn"`
+	LogRoleArn *string `json:"logRoleArn" yaml:"logRoleArn"`
 }
 
 // Properties for defining a `CfnTypeActivation`.
@@ -11329,46 +11329,46 @@ type CfnTypeActivationProps struct {
 	// Major versions released by the publisher must be manually updated.
 	//
 	// The default is `true` .
-	AutoUpdate interface{} `json:"autoUpdate"`
+	AutoUpdate interface{} `json:"autoUpdate" yaml:"autoUpdate"`
 	// The name of the IAM execution role to use to activate the extension.
-	ExecutionRoleArn *string `json:"executionRoleArn"`
+	ExecutionRoleArn *string `json:"executionRoleArn" yaml:"executionRoleArn"`
 	// Specifies logging configuration information for an extension.
-	LoggingConfig interface{} `json:"loggingConfig"`
+	LoggingConfig interface{} `json:"loggingConfig" yaml:"loggingConfig"`
 	// The major version of this extension you want to activate, if multiple major versions are available.
 	//
 	// The default is the latest major version. CloudFormation uses the latest available *minor* version of the major version selected.
 	//
 	// You can specify `MajorVersion` or `VersionBump` , but not both.
-	MajorVersion *string `json:"majorVersion"`
+	MajorVersion *string `json:"majorVersion" yaml:"majorVersion"`
 	// The Amazon Resource Number (ARN) of the public extension.
 	//
 	// Conditional: You must specify `PublicTypeArn` , or `TypeName` , `Type` , and `PublisherId` .
-	PublicTypeArn *string `json:"publicTypeArn"`
+	PublicTypeArn *string `json:"publicTypeArn" yaml:"publicTypeArn"`
 	// The ID of the extension publisher.
 	//
 	// Conditional: You must specify `PublicTypeArn` , or `TypeName` , `Type` , and `PublisherId` .
-	PublisherId *string `json:"publisherId"`
+	PublisherId *string `json:"publisherId" yaml:"publisherId"`
 	// The extension type.
 	//
 	// Conditional: You must specify `PublicTypeArn` , or `TypeName` , `Type` , and `PublisherId` .
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// The name of the extension.
 	//
 	// Conditional: You must specify `PublicTypeArn` , or `TypeName` , `Type` , and `PublisherId` .
-	TypeName *string `json:"typeName"`
+	TypeName *string `json:"typeName" yaml:"typeName"`
 	// An alias to assign to the public extension, in this account and region.
 	//
 	// If you specify an alias for the extension, CloudFormation treats the alias as the extension type name within this account and region. You must use the alias to refer to the extension in your templates, API calls, and CloudFormation console.
 	//
 	// An extension alias must be unique within a given account and region. You can activate the same public resource multiple times in the same account and region, using different type name aliases.
-	TypeNameAlias *string `json:"typeNameAlias"`
+	TypeNameAlias *string `json:"typeNameAlias" yaml:"typeNameAlias"`
 	// Manually updates a previously-activated type to a new major or minor version, if available.
 	//
 	// You can also use this parameter to update the value of `AutoUpdate` .
 	//
 	// - `MAJOR` : CloudFormation updates the extension to the newest major version, if one is available.
 	// - `MINOR` : CloudFormation updates the extension to the newest minor version, if one is available.
-	VersionBump *string `json:"versionBump"`
+	VersionBump *string `json:"versionBump" yaml:"versionBump"`
 }
 
 // Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to the AWS::AutoScaling::AutoScalingGroup resource.
@@ -11384,20 +11384,20 @@ type CfnUpdatePolicy struct {
 	// During replacement,
 	// AWS CloudFormation retains the old group until it finishes creating the new one. If the update fails, AWS CloudFormation
 	// can roll back to the old Auto Scaling group and delete the new Auto Scaling group.
-	AutoScalingReplacingUpdate *CfnAutoScalingReplacingUpdate `json:"autoScalingReplacingUpdate"`
+	AutoScalingReplacingUpdate *CfnAutoScalingReplacingUpdate `json:"autoScalingReplacingUpdate" yaml:"autoScalingReplacingUpdate"`
 	// To specify how AWS CloudFormation handles rolling updates for an Auto Scaling group, use the AutoScalingRollingUpdate policy.
 	//
 	// Rolling updates enable you to specify whether AWS CloudFormation updates instances that are in an Auto Scaling
 	// group in batches or all at once.
-	AutoScalingRollingUpdate *CfnAutoScalingRollingUpdate `json:"autoScalingRollingUpdate"`
+	AutoScalingRollingUpdate *CfnAutoScalingRollingUpdate `json:"autoScalingRollingUpdate" yaml:"autoScalingRollingUpdate"`
 	// To specify how AWS CloudFormation handles updates for the MinSize, MaxSize, and DesiredCapacity properties when the AWS::AutoScaling::AutoScalingGroup resource has an associated scheduled action, use the AutoScalingScheduledAction policy.
-	AutoScalingScheduledAction *CfnAutoScalingScheduledAction `json:"autoScalingScheduledAction"`
+	AutoScalingScheduledAction *CfnAutoScalingScheduledAction `json:"autoScalingScheduledAction" yaml:"autoScalingScheduledAction"`
 	// To perform an AWS CodeDeploy deployment when the version changes on an AWS::Lambda::Alias resource, use the CodeDeployLambdaAliasUpdate update policy.
-	CodeDeployLambdaAliasUpdate *CfnCodeDeployLambdaAliasUpdate `json:"codeDeployLambdaAliasUpdate"`
+	CodeDeployLambdaAliasUpdate *CfnCodeDeployLambdaAliasUpdate `json:"codeDeployLambdaAliasUpdate" yaml:"codeDeployLambdaAliasUpdate"`
 	// To upgrade an Amazon ES domain to a new version of Elasticsearch rather than replacing the entire AWS::Elasticsearch::Domain resource, use the EnableVersionUpgrade update policy.
-	EnableVersionUpgrade *bool `json:"enableVersionUpgrade"`
+	EnableVersionUpgrade *bool `json:"enableVersionUpgrade" yaml:"enableVersionUpgrade"`
 	// To modify a replication group's shards by adding or removing shards, rather than replacing the entire AWS::ElastiCache::ReplicationGroup resource, use the UseOnlineResharding update policy.
-	UseOnlineResharding *bool `json:"useOnlineResharding"`
+	UseOnlineResharding *bool `json:"useOnlineResharding" yaml:"useOnlineResharding"`
 }
 
 // A CloudFormation `AWS::CloudFormation::WaitCondition`.
@@ -12400,7 +12400,7 @@ type CfnWaitConditionProps struct {
 	// When the wait condition receives the requisite number of success signals, CloudFormation resumes the creation of the stack. If the wait condition does not receive the specified number of success signals before the Timeout period expires, CloudFormation assumes that the wait condition has failed and rolls the stack back.
 	//
 	// Updates are not supported.
-	Count *float64 `json:"count"`
+	Count *float64 `json:"count" yaml:"count"`
 	// A reference to the wait condition handle used to signal this wait condition.
 	//
 	// Use the `Ref` intrinsic function to specify an [AWS::CloudFormation::WaitConditionHandle](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitconditionhandle.html) resource.
@@ -12408,13 +12408,13 @@ type CfnWaitConditionProps struct {
 	// Anytime you add a WaitCondition resource during a stack update, you must associate the wait condition with a new WaitConditionHandle resource. Don't reuse an old wait condition handle that has already been defined in the template. If you reuse a wait condition handle, the wait condition might evaluate old signals from a previous create or update stack command.
 	//
 	// Updates are not supported.
-	Handle *string `json:"handle"`
+	Handle *string `json:"handle" yaml:"handle"`
 	// The length of time (in seconds) to wait for the number of signals that the `Count` property specifies.
 	//
 	// `Timeout` is a minimum-bound property, meaning the timeout occurs no sooner than the time you specify, but can occur shortly thereafter. The maximum time that can be specified for this property is 12 hours (43200 seconds).
 	//
 	// Updates aren't supported.
-	Timeout *string `json:"timeout"`
+	Timeout *string `json:"timeout" yaml:"timeout"`
 }
 
 // Base class for the model side of context providers.
@@ -12469,11 +12469,11 @@ func ContextProvider_GetValue(scope constructs.Construct, options *GetContextVal
 //
 type CopyOptions struct {
 	// Glob patterns to exclude from the copy.
-	Exclude *[]*string `json:"exclude"`
+	Exclude *[]*string `json:"exclude" yaml:"exclude"`
 	// A strategy for how to handle symlinks.
-	Follow SymlinkFollowMode `json:"follow"`
+	Follow SymlinkFollowMode `json:"follow" yaml:"follow"`
 	// The ignore behavior to use for exclude patterns.
-	IgnoreMode IgnoreMode `json:"ignoreMode"`
+	IgnoreMode IgnoreMode `json:"ignoreMode" yaml:"ignoreMode"`
 }
 
 // Instantiation of a custom resource, whose implementation is provided a Provider.
@@ -12795,13 +12795,13 @@ type CustomResourceProps struct {
 	//    serviceToken: myTopic.topicArn,
 	// });
 	// ```
-	ServiceToken *string `json:"serviceToken"`
+	ServiceToken *string `json:"serviceToken" yaml:"serviceToken"`
 	// Convert all property keys to pascal case.
-	PascalCaseProperties *bool `json:"pascalCaseProperties"`
+	PascalCaseProperties *bool `json:"pascalCaseProperties" yaml:"pascalCaseProperties"`
 	// Properties to pass to the Lambda.
-	Properties *map[string]interface{} `json:"properties"`
+	Properties *map[string]interface{} `json:"properties" yaml:"properties"`
 	// The policy to apply when this resource is removed from the application.
-	RemovalPolicy RemovalPolicy `json:"removalPolicy"`
+	RemovalPolicy RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 	// For custom resources, you can specify AWS::CloudFormation::CustomResource (the default) as the resource type, or you can specify your own resource type name.
 	//
 	// For example, you can use "Custom::MyCustomResourceTypeName".
@@ -12818,7 +12818,7 @@ type CustomResourceProps struct {
 	// (instead of using AWS::CloudFormation::CustomResource).
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cfn-customresource.html#aws-cfn-resource-type-name
 	//
-	ResourceType *string `json:"resourceType"`
+	ResourceType *string `json:"resourceType" yaml:"resourceType"`
 }
 
 // An AWS-Lambda backed custom resource provider, for CDK Construct Library constructs.
@@ -12992,18 +12992,18 @@ type CustomResourceProviderProps struct {
 	//
 	// The code will be
 	// bundled into a zip asset and wired to the provider's AWS Lambda function.
-	CodeDirectory *string `json:"codeDirectory"`
+	CodeDirectory *string `json:"codeDirectory" yaml:"codeDirectory"`
 	// The AWS Lambda runtime and version to use for the provider.
-	Runtime CustomResourceProviderRuntime `json:"runtime"`
+	Runtime CustomResourceProviderRuntime `json:"runtime" yaml:"runtime"`
 	// A description of the function.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Key-value pairs that are passed to Lambda as Environment.
-	Environment *map[string]*string `json:"environment"`
+	Environment *map[string]*string `json:"environment" yaml:"environment"`
 	// The amount of memory that your function has access to.
 	//
 	// Increasing the
 	// function's memory also increases its CPU allocation.
-	MemorySize Size `json:"memorySize"`
+	MemorySize Size `json:"memorySize" yaml:"memorySize"`
 	// A set of IAM policy statements to include in the inline policy of the provider's lambda function.
 	//
 	// **Please note**: these are direct IAM JSON policy blobs, *not* `iam.PolicyStatement`
@@ -13011,9 +13011,9 @@ type CustomResourceProviderProps struct {
 	//
 	// TODO: EXAMPLE
 	//
-	PolicyStatements *[]interface{} `json:"policyStatements"`
+	PolicyStatements *[]interface{} `json:"policyStatements" yaml:"policyStatements"`
 	// AWS Lambda timeout for the provider.
-	Timeout Duration `json:"timeout"`
+	Timeout Duration `json:"timeout" yaml:"timeout"`
 }
 
 // The lambda runtime to use for the resource provider.
@@ -13326,9 +13326,9 @@ type DefaultStackSynthesizerProps struct {
 	// Bootstrap stack version SSM parameter.
 	//
 	// The placeholder `${Qualifier}` will be replaced with the value of qualifier.
-	BootstrapStackVersionSsmParameter *string `json:"bootstrapStackVersionSsmParameter"`
+	BootstrapStackVersionSsmParameter *string `json:"bootstrapStackVersionSsmParameter" yaml:"bootstrapStackVersionSsmParameter"`
 	// bucketPrefix to use while storing S3 Assets.
-	BucketPrefix *string `json:"bucketPrefix"`
+	BucketPrefix *string `json:"bucketPrefix" yaml:"bucketPrefix"`
 	// The role CloudFormation will assume when deploying the Stack.
 	//
 	// You must supply this if you have given a non-standard name to the execution role.
@@ -13336,7 +13336,7 @@ type DefaultStackSynthesizerProps struct {
 	// The placeholders `${Qualifier}`, `${AWS::AccountId}` and `${AWS::Region}` will
 	// be replaced with the values of qualifier and the stack's account and region,
 	// respectively.
-	CloudFormationExecutionRole *string `json:"cloudFormationExecutionRole"`
+	CloudFormationExecutionRole *string `json:"cloudFormationExecutionRole" yaml:"cloudFormationExecutionRole"`
 	// The role to assume to initiate a deployment in this environment.
 	//
 	// You must supply this if you have given a non-standard name to the publishing role.
@@ -13344,16 +13344,16 @@ type DefaultStackSynthesizerProps struct {
 	// The placeholders `${Qualifier}`, `${AWS::AccountId}` and `${AWS::Region}` will
 	// be replaced with the values of qualifier and the stack's account and region,
 	// respectively.
-	DeployRoleArn *string `json:"deployRoleArn"`
+	DeployRoleArn *string `json:"deployRoleArn" yaml:"deployRoleArn"`
 	// External ID to use when assuming role for cloudformation deployments.
-	DeployRoleExternalId *string `json:"deployRoleExternalId"`
+	DeployRoleExternalId *string `json:"deployRoleExternalId" yaml:"deployRoleExternalId"`
 	// A prefix to use while tagging and uploading Docker images to ECR.
 	//
 	// This does not add any separators - the source hash will be appended to
 	// this string directly.
-	DockerTagPrefix *string `json:"dockerTagPrefix"`
+	DockerTagPrefix *string `json:"dockerTagPrefix" yaml:"dockerTagPrefix"`
 	// External ID to use when assuming role for file asset publishing.
-	FileAssetPublishingExternalId *string `json:"fileAssetPublishingExternalId"`
+	FileAssetPublishingExternalId *string `json:"fileAssetPublishingExternalId" yaml:"fileAssetPublishingExternalId"`
 	// The role to use to publish file assets to the S3 bucket in this environment.
 	//
 	// You must supply this if you have given a non-standard name to the publishing role.
@@ -13361,7 +13361,7 @@ type DefaultStackSynthesizerProps struct {
 	// The placeholders `${Qualifier}`, `${AWS::AccountId}` and `${AWS::Region}` will
 	// be replaced with the values of qualifier and the stack's account and region,
 	// respectively.
-	FileAssetPublishingRoleArn *string `json:"fileAssetPublishingRoleArn"`
+	FileAssetPublishingRoleArn *string `json:"fileAssetPublishingRoleArn" yaml:"fileAssetPublishingRoleArn"`
 	// Name of the S3 bucket to hold file assets.
 	//
 	// You must supply this if you have given a non-standard name to the staging bucket.
@@ -13369,14 +13369,14 @@ type DefaultStackSynthesizerProps struct {
 	// The placeholders `${Qualifier}`, `${AWS::AccountId}` and `${AWS::Region}` will
 	// be replaced with the values of qualifier and the stack's account and region,
 	// respectively.
-	FileAssetsBucketName *string `json:"fileAssetsBucketName"`
+	FileAssetsBucketName *string `json:"fileAssetsBucketName" yaml:"fileAssetsBucketName"`
 	// Whether to add a Rule to the stack template verifying the bootstrap stack version.
 	//
 	// This generally should be left set to `true`, unless you explicitly
 	// want to be able to deploy to an unbootstrapped environment.
-	GenerateBootstrapVersionRule *bool `json:"generateBootstrapVersionRule"`
+	GenerateBootstrapVersionRule *bool `json:"generateBootstrapVersionRule" yaml:"generateBootstrapVersionRule"`
 	// External ID to use when assuming role for image asset publishing.
-	ImageAssetPublishingExternalId *string `json:"imageAssetPublishingExternalId"`
+	ImageAssetPublishingExternalId *string `json:"imageAssetPublishingExternalId" yaml:"imageAssetPublishingExternalId"`
 	// The role to use to publish image assets to the ECR repository in this environment.
 	//
 	// You must supply this if you have given a non-standard name to the publishing role.
@@ -13384,7 +13384,7 @@ type DefaultStackSynthesizerProps struct {
 	// The placeholders `${Qualifier}`, `${AWS::AccountId}` and `${AWS::Region}` will
 	// be replaced with the values of qualifier and the stack's account and region,
 	// respectively.
-	ImageAssetPublishingRoleArn *string `json:"imageAssetPublishingRoleArn"`
+	ImageAssetPublishingRoleArn *string `json:"imageAssetPublishingRoleArn" yaml:"imageAssetPublishingRoleArn"`
 	// Name of the ECR repository to hold Docker Image assets.
 	//
 	// You must supply this if you have given a non-standard name to the ECR repository.
@@ -13392,23 +13392,23 @@ type DefaultStackSynthesizerProps struct {
 	// The placeholders `${Qualifier}`, `${AWS::AccountId}` and `${AWS::Region}` will
 	// be replaced with the values of qualifier and the stack's account and region,
 	// respectively.
-	ImageAssetsRepositoryName *string `json:"imageAssetsRepositoryName"`
+	ImageAssetsRepositoryName *string `json:"imageAssetsRepositoryName" yaml:"imageAssetsRepositoryName"`
 	// The role to use to look up values from the target AWS account during synthesis.
-	LookupRoleArn *string `json:"lookupRoleArn"`
+	LookupRoleArn *string `json:"lookupRoleArn" yaml:"lookupRoleArn"`
 	// External ID to use when assuming lookup role.
-	LookupRoleExternalId *string `json:"lookupRoleExternalId"`
+	LookupRoleExternalId *string `json:"lookupRoleExternalId" yaml:"lookupRoleExternalId"`
 	// Qualifier to disambiguate multiple environments in the same account.
 	//
 	// You can use this and leave the other naming properties empty if you have deployed
 	// the bootstrap environment with standard names but only differnet qualifiers.
-	Qualifier *string `json:"qualifier"`
+	Qualifier *string `json:"qualifier" yaml:"qualifier"`
 	// Use the bootstrapped lookup role for (read-only) stack operations.
 	//
 	// Use the lookup role when performing a `cdk diff`. If set to `false`, the
 	// `deploy role` credentials will be used to perform a `cdk diff`.
 	//
 	// Requires bootstrap stack version 8.
-	UseLookupRoleForStackOperations *bool `json:"useLookupRoleForStackOperations"`
+	UseLookupRoleForStackOperations *bool `json:"useLookupRoleForStackOperations" yaml:"useLookupRoleForStackOperations"`
 }
 
 // Default resolver implementation.
@@ -13502,13 +13502,13 @@ func (d *jsiiProxy_DefaultTokenResolver) ResolveToken(t IResolvable, context IRe
 //
 type DockerBuildOptions struct {
 	// Build args.
-	BuildArgs *map[string]*string `json:"buildArgs"`
+	BuildArgs *map[string]*string `json:"buildArgs" yaml:"buildArgs"`
 	// Name of the Dockerfile, must relative to the docker build path.
-	File *string `json:"file"`
+	File *string `json:"file" yaml:"file"`
 	// Set platform if server is multi-platform capable. _Requires Docker Engine API v1.38+_.
 	//
 	// Example value: `linux/amd64`
-	Platform *string `json:"platform"`
+	Platform *string `json:"platform" yaml:"platform"`
 }
 
 // Ignores file paths based on the [`.dockerignore specification`](https://docs.docker.com/engine/reference/builder/#dockerignore-file).
@@ -13782,9 +13782,9 @@ func (d *jsiiProxy_DockerImage) ToJSON() *string {
 //
 type DockerImageAssetLocation struct {
 	// The URI of the image in Amazon ECR.
-	ImageUri *string `json:"imageUri"`
+	ImageUri *string `json:"imageUri" yaml:"imageUri"`
 	// The name of the ECR repository.
-	RepositoryName *string `json:"repositoryName"`
+	RepositoryName *string `json:"repositoryName" yaml:"repositoryName"`
 }
 
 // TODO: EXAMPLE
@@ -13798,9 +13798,9 @@ type DockerImageAssetSource struct {
 	//
 	// NOTE: this means that if you wish to update your docker image, you
 	// must make a modification to the source (e.g. add some metadata to your Dockerfile).
-	SourceHash *string `json:"sourceHash"`
+	SourceHash *string `json:"sourceHash" yaml:"sourceHash"`
 	// The directory where the Dockerfile is stored, must be relative to the cloud assembly root.
-	DirectoryName *string `json:"directoryName"`
+	DirectoryName *string `json:"directoryName" yaml:"directoryName"`
 	// Build args to pass to the `docker build` command.
 	//
 	// Since Docker build arguments are resolved before deployment, keys and
@@ -13808,19 +13808,19 @@ type DockerImageAssetSource struct {
 	// `queue.queueUrl`).
 	//
 	// Only allowed when `directoryName` is specified.
-	DockerBuildArgs *map[string]*string `json:"dockerBuildArgs"`
+	DockerBuildArgs *map[string]*string `json:"dockerBuildArgs" yaml:"dockerBuildArgs"`
 	// Docker target to build to.
 	//
 	// Only allowed when `directoryName` is specified.
-	DockerBuildTarget *string `json:"dockerBuildTarget"`
+	DockerBuildTarget *string `json:"dockerBuildTarget" yaml:"dockerBuildTarget"`
 	// Path to the Dockerfile (relative to the directory).
 	//
 	// Only allowed when `directoryName` is specified.
-	DockerFile *string `json:"dockerFile"`
+	DockerFile *string `json:"dockerFile" yaml:"dockerFile"`
 	// An external command that will produce the packaged asset.
 	//
 	// The command should produce the name of a local Docker image on `stdout`.
-	Executable *[]*string `json:"executable"`
+	Executable *[]*string `json:"executable" yaml:"executable"`
 }
 
 // Docker run options.
@@ -13829,19 +13829,19 @@ type DockerImageAssetSource struct {
 //
 type DockerRunOptions struct {
 	// The command to run in the container.
-	Command *[]*string `json:"command"`
+	Command *[]*string `json:"command" yaml:"command"`
 	// The entrypoint to run in the container.
-	Entrypoint *[]*string `json:"entrypoint"`
+	Entrypoint *[]*string `json:"entrypoint" yaml:"entrypoint"`
 	// The environment variables to pass to the container.
-	Environment *map[string]*string `json:"environment"`
+	Environment *map[string]*string `json:"environment" yaml:"environment"`
 	// [Security configuration](https://docs.docker.com/engine/reference/run/#security-configuration) when running the docker container.
-	SecurityOpt *string `json:"securityOpt"`
+	SecurityOpt *string `json:"securityOpt" yaml:"securityOpt"`
 	// The user to use when running the container.
-	User *string `json:"user"`
+	User *string `json:"user" yaml:"user"`
 	// Docker volumes to mount.
-	Volumes *[]*DockerVolume `json:"volumes"`
+	Volumes *[]*DockerVolume `json:"volumes" yaml:"volumes"`
 	// Working directory inside the container.
-	WorkingDirectory *string `json:"workingDirectory"`
+	WorkingDirectory *string `json:"workingDirectory" yaml:"workingDirectory"`
 }
 
 // A Docker volume.
@@ -13850,15 +13850,15 @@ type DockerRunOptions struct {
 //
 type DockerVolume struct {
 	// The path where the file or directory is mounted in the container.
-	ContainerPath *string `json:"containerPath"`
+	ContainerPath *string `json:"containerPath" yaml:"containerPath"`
 	// The path to the file or directory on the host machine.
-	HostPath *string `json:"hostPath"`
+	HostPath *string `json:"hostPath" yaml:"hostPath"`
 	// Mount consistency.
 	//
 	// Only applicable for macOS
 	// See: https://docs.docker.com/storage/bind-mounts/#configure-mount-consistency-for-macos
 	//
-	Consistency DockerVolumeConsistency `json:"consistency"`
+	Consistency DockerVolumeConsistency `json:"consistency" yaml:"consistency"`
 }
 
 // Supported Docker volume consistency types.
@@ -14217,7 +14217,7 @@ func (d *jsiiProxy_Duration) UnitLabel() *string {
 //
 type EncodingOptions struct {
 	// A hint for the Token's purpose when stringifying it.
-	DisplayHint *string `json:"displayHint"`
+	DisplayHint *string `json:"displayHint" yaml:"displayHint"`
 }
 
 // The deployment environment for a stack.
@@ -14233,7 +14233,7 @@ type Environment struct {
 	// Note that certain features, such as cross-stack references and
 	// environmental context providers require concerete region information and
 	// will cause this stack to emit synthesis errors.
-	Account *string `json:"account"`
+	Account *string `json:"account" yaml:"account"`
 	// The AWS region for this environment.
 	//
 	// This can be either a concrete value such as `eu-west-2` or `Aws.region`
@@ -14242,7 +14242,7 @@ type Environment struct {
 	// Note that certain features, such as cross-stack references and
 	// environmental context providers require concerete region information and
 	// will cause this stack to emit synthesis errors.
-	Region *string `json:"region"`
+	Region *string `json:"region" yaml:"region"`
 }
 
 // Represents a date of expiration.
@@ -14386,7 +14386,7 @@ func (e *jsiiProxy_Expiration) ToEpoch() *float64 {
 //
 type ExportValueOptions struct {
 	// The name of the export to create.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // Features that are implemented behind a flag in order to preserve backwards compatibility for existing apps.
@@ -14450,17 +14450,17 @@ func (f *jsiiProxy_FeatureFlags) IsEnabled(featureFlag *string) *bool {
 //
 type FileAssetLocation struct {
 	// The name of the Amazon S3 bucket.
-	BucketName *string `json:"bucketName"`
+	BucketName *string `json:"bucketName" yaml:"bucketName"`
 	// The HTTP URL of this asset on Amazon S3.
 	//
 	// Example value: `https://s3-us-east-1.amazonaws.com/mybucket/myobject`
-	HttpUrl *string `json:"httpUrl"`
+	HttpUrl *string `json:"httpUrl" yaml:"httpUrl"`
 	// The Amazon S3 object key.
-	ObjectKey *string `json:"objectKey"`
+	ObjectKey *string `json:"objectKey" yaml:"objectKey"`
 	// The S3 URL of this asset on Amazon S3.
 	//
 	// Example value: `s3://mybucket/myobject`
-	S3ObjectUrl *string `json:"s3ObjectUrl"`
+	S3ObjectUrl *string `json:"s3ObjectUrl" yaml:"s3ObjectUrl"`
 }
 
 // Packaging modes for file assets.
@@ -14481,18 +14481,18 @@ type FileAssetSource struct {
 	// This hash is used to uniquely identify this
 	// asset throughout the system. If this value doesn't change, the asset will
 	// not be rebuilt or republished.
-	SourceHash *string `json:"sourceHash"`
+	SourceHash *string `json:"sourceHash" yaml:"sourceHash"`
 	// An external command that will produce the packaged asset.
 	//
 	// The command should produce the location of a ZIP file on `stdout`.
-	Executable *[]*string `json:"executable"`
+	Executable *[]*string `json:"executable" yaml:"executable"`
 	// The path, relative to the root of the cloud assembly, in which this asset source resides.
 	//
 	// This can be a path to a file or a directory, depending on the
 	// packaging type.
-	FileName *string `json:"fileName"`
+	FileName *string `json:"fileName" yaml:"fileName"`
 	// Which type of packaging to perform.
-	Packaging FileAssetPackaging `json:"packaging"`
+	Packaging FileAssetPackaging `json:"packaging" yaml:"packaging"`
 }
 
 // Options applied when copying directories into the staging location.
@@ -14501,11 +14501,11 @@ type FileAssetSource struct {
 //
 type FileCopyOptions struct {
 	// Glob patterns to exclude from the copy.
-	Exclude *[]*string `json:"exclude"`
+	Exclude *[]*string `json:"exclude" yaml:"exclude"`
 	// A strategy for how to handle symlinks.
-	FollowSymlinks SymlinkFollowMode `json:"followSymlinks"`
+	FollowSymlinks SymlinkFollowMode `json:"followSymlinks" yaml:"followSymlinks"`
 	// The ignore behavior to use for exclude patterns.
-	IgnoreMode IgnoreMode `json:"ignoreMode"`
+	IgnoreMode IgnoreMode `json:"ignoreMode" yaml:"ignoreMode"`
 }
 
 // Options related to calculating source hash.
@@ -14514,13 +14514,13 @@ type FileCopyOptions struct {
 //
 type FileFingerprintOptions struct {
 	// Glob patterns to exclude from the copy.
-	Exclude *[]*string `json:"exclude"`
+	Exclude *[]*string `json:"exclude" yaml:"exclude"`
 	// A strategy for how to handle symlinks.
-	FollowSymlinks SymlinkFollowMode `json:"followSymlinks"`
+	FollowSymlinks SymlinkFollowMode `json:"followSymlinks" yaml:"followSymlinks"`
 	// The ignore behavior to use for exclude patterns.
-	IgnoreMode IgnoreMode `json:"ignoreMode"`
+	IgnoreMode IgnoreMode `json:"ignoreMode" yaml:"ignoreMode"`
 	// Extra information to encode into the fingerprint (e.g. build instructions and other inputs).
-	ExtraHash *string `json:"extraHash"`
+	ExtraHash *string `json:"extraHash" yaml:"extraHash"`
 }
 
 // File system utilities.
@@ -14640,13 +14640,13 @@ func FileSystem_Tmpdir() *string {
 //
 type FingerprintOptions struct {
 	// Glob patterns to exclude from the copy.
-	Exclude *[]*string `json:"exclude"`
+	Exclude *[]*string `json:"exclude" yaml:"exclude"`
 	// A strategy for how to handle symlinks.
-	Follow SymlinkFollowMode `json:"follow"`
+	Follow SymlinkFollowMode `json:"follow" yaml:"follow"`
 	// The ignore behavior to use for exclude patterns.
-	IgnoreMode IgnoreMode `json:"ignoreMode"`
+	IgnoreMode IgnoreMode `json:"ignoreMode" yaml:"ignoreMode"`
 	// Extra information to encode into the fingerprint (e.g. build instructions and other inputs).
-	ExtraHash *string `json:"extraHash"`
+	ExtraHash *string `json:"extraHash" yaml:"extraHash"`
 }
 
 // CloudFormation intrinsic functions.
@@ -15207,36 +15207,36 @@ func Fn_ValueOfAll(parameterType *string, attribute *string) *[]*string {
 //
 type GetContextKeyOptions struct {
 	// The context provider to query.
-	Provider *string `json:"provider"`
+	Provider *string `json:"provider" yaml:"provider"`
 	// Provider-specific properties.
-	Props *map[string]interface{} `json:"props"`
+	Props *map[string]interface{} `json:"props" yaml:"props"`
 }
 
 // TODO: EXAMPLE
 //
 type GetContextKeyResult struct {
-	Key *string `json:"key"`
-	Props *map[string]interface{} `json:"props"`
+	Key *string `json:"key" yaml:"key"`
+	Props *map[string]interface{} `json:"props" yaml:"props"`
 }
 
 // TODO: EXAMPLE
 //
 type GetContextValueOptions struct {
 	// The context provider to query.
-	Provider *string `json:"provider"`
+	Provider *string `json:"provider" yaml:"provider"`
 	// Provider-specific properties.
-	Props *map[string]interface{} `json:"props"`
+	Props *map[string]interface{} `json:"props" yaml:"props"`
 	// The value to return if the context value was not found and a missing context is reported.
 	//
 	// This should be a dummy value that should preferably
 	// fail during deployment since it represents an invalid state.
-	DummyValue interface{} `json:"dummyValue"`
+	DummyValue interface{} `json:"dummyValue" yaml:"dummyValue"`
 }
 
 // TODO: EXAMPLE
 //
 type GetContextValueResult struct {
-	Value interface{} `json:"value"`
+	Value interface{} `json:"value" yaml:"value"`
 }
 
 // Ignores file paths based on the [`.gitignore specification`](https://git-scm.com/docs/gitignore).
@@ -16922,7 +16922,7 @@ func (i *jsiiProxy_Intrinsic) ToString() *string {
 //
 type IntrinsicProps struct {
 	// Capture the stack trace of where this token is created.
-	StackTrace *bool `json:"stackTrace"`
+	StackTrace *bool `json:"stackTrace" yaml:"stackTrace"`
 }
 
 // Lazily produce a value.
@@ -17140,9 +17140,9 @@ func Lazy_UncachedString(producer IStringProducer, options *LazyStringValueOptio
 //
 type LazyAnyValueOptions struct {
 	// Use the given name as a display hint.
-	DisplayHint *string `json:"displayHint"`
+	DisplayHint *string `json:"displayHint" yaml:"displayHint"`
 	// If the produced value is an array and it is empty, return 'undefined' instead.
-	OmitEmptyArray *bool `json:"omitEmptyArray"`
+	OmitEmptyArray *bool `json:"omitEmptyArray" yaml:"omitEmptyArray"`
 }
 
 // Options for creating a lazy list token.
@@ -17151,9 +17151,9 @@ type LazyAnyValueOptions struct {
 //
 type LazyListValueOptions struct {
 	// Use the given name as a display hint.
-	DisplayHint *string `json:"displayHint"`
+	DisplayHint *string `json:"displayHint" yaml:"displayHint"`
 	// If the produced list is empty, return 'undefined' instead.
-	OmitEmpty *bool `json:"omitEmpty"`
+	OmitEmpty *bool `json:"omitEmpty" yaml:"omitEmpty"`
 }
 
 // Options for creating a lazy string token.
@@ -17162,7 +17162,7 @@ type LazyListValueOptions struct {
 //
 type LazyStringValueOptions struct {
 	// Use the given name as a display hint.
-	DisplayHint *string `json:"displayHint"`
+	DisplayHint *string `json:"displayHint" yaml:"displayHint"`
 }
 
 // Use the original deployment environment.
@@ -18015,7 +18015,7 @@ func (n *jsiiProxy_NestedStack) ToString() *string {
 //
 type NestedStackProps struct {
 	// The Simple Notification Service (SNS) topics to publish stack related events.
-	NotificationArns *[]*string `json:"notificationArns"`
+	NotificationArns *[]*string `json:"notificationArns" yaml:"notificationArns"`
 	// The set value pairs that represent the parameters passed to CloudFormation when this nested stack is created.
 	//
 	// Each parameter has a name corresponding
@@ -18024,13 +18024,13 @@ type NestedStackProps struct {
 	//
 	// The nested stack construct will automatically synthesize parameters in order
 	// to bind references from the parent stack(s) into the nested stack.
-	Parameters *map[string]*string `json:"parameters"`
+	Parameters *map[string]*string `json:"parameters" yaml:"parameters"`
 	// Policy to apply when the nested stack is removed.
 	//
 	// The default is `Destroy`, because all Removal Policies of resources inside the
 	// Nested Stack should already have been set correctly. You normally should
 	// not need to set this value.
-	RemovalPolicy RemovalPolicy `json:"removalPolicy"`
+	RemovalPolicy RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 	// The length of time that CloudFormation waits for the nested stack to reach the CREATE_COMPLETE state.
 	//
 	// When CloudFormation detects that the nested stack has reached the
@@ -18039,7 +18039,7 @@ type NestedStackProps struct {
 	// If the timeout period expires before the nested stack reaches
 	// CREATE_COMPLETE, CloudFormation marks the nested stack as failed and rolls
 	// back both the nested stack and parent stack.
-	Timeout Duration `json:"timeout"`
+	Timeout Duration `json:"timeout" yaml:"timeout"`
 }
 
 // Deployment environment for a nested stack.
@@ -18358,9 +18358,9 @@ const (
 //
 type RemovalPolicyOptions struct {
 	// Apply the same deletion policy to the resource's "UpdateReplacePolicy".
-	ApplyToUpdateReplacePolicy *bool `json:"applyToUpdateReplacePolicy"`
+	ApplyToUpdateReplacePolicy *bool `json:"applyToUpdateReplacePolicy" yaml:"applyToUpdateReplacePolicy"`
 	// The default policy to apply in case the removal policy is not defined.
-	Default RemovalPolicy `json:"default"`
+	Default RemovalPolicy `json:"default" yaml:"default"`
 }
 
 // The RemoveTag Aspect will handle removing tags from this node and children.
@@ -18448,7 +18448,7 @@ func (r *jsiiProxy_RemoveTag) Visit(construct constructs.IConstruct) {
 //
 type ResolveChangeContextOptions struct {
 	// Change the 'allowIntrinsicKeys' option.
-	AllowIntrinsicKeys *bool `json:"allowIntrinsicKeys"`
+	AllowIntrinsicKeys *bool `json:"allowIntrinsicKeys" yaml:"allowIntrinsicKeys"`
 }
 
 // Options to the resolve() operation.
@@ -18462,13 +18462,13 @@ type ResolveChangeContextOptions struct {
 //
 type ResolveOptions struct {
 	// The resolver to apply to any resolvable tokens found.
-	Resolver ITokenResolver `json:"resolver"`
+	Resolver ITokenResolver `json:"resolver" yaml:"resolver"`
 	// The scope from which resolution is performed.
-	Scope constructs.IConstruct `json:"scope"`
+	Scope constructs.IConstruct `json:"scope" yaml:"scope"`
 	// Whether the resolution is being executed during the prepare phase or not.
-	Preparing *bool `json:"preparing"`
+	Preparing *bool `json:"preparing" yaml:"preparing"`
 	// Whether to remove undefined elements from arrays and objects when resolving.
-	RemoveEmpty *bool `json:"removeEmpty"`
+	RemoveEmpty *bool `json:"removeEmpty" yaml:"removeEmpty"`
 }
 
 // A construct which represents an AWS resource.
@@ -18672,14 +18672,14 @@ type ResourceEnvironment struct {
 	// (for example, when the account is CloudFormation's AWS::AccountId intrinsic),
 	// make sure to use Token.compareStrings()
 	// instead of just comparing the values for equality.
-	Account *string `json:"account"`
+	Account *string `json:"account" yaml:"account"`
 	// The AWS region that this resource belongs to.
 	//
 	// Since this can be a Token
 	// (for example, when the region is CloudFormation's AWS::Region intrinsic),
 	// make sure to use Token.compareStrings()
 	// instead of just comparing the values for equality.
-	Region *string `json:"region"`
+	Region *string `json:"region" yaml:"region"`
 }
 
 // Construction properties for {@link Resource}.
@@ -18688,14 +18688,14 @@ type ResourceEnvironment struct {
 //
 type ResourceProps struct {
 	// The AWS account ID this resource belongs to.
-	Account *string `json:"account"`
+	Account *string `json:"account" yaml:"account"`
 	// ARN to deduce region and account from.
 	//
 	// The ARN is parsed and the account and region are taken from the ARN.
 	// This should be used for imported resources.
 	//
 	// Cannot be supplied together with either `account` or `region`.
-	EnvironmentFromArn *string `json:"environmentFromArn"`
+	EnvironmentFromArn *string `json:"environmentFromArn" yaml:"environmentFromArn"`
 	// The value passed in by users to the physical name prop of the resource.
 	//
 	// - `undefined` implies that a physical name will be allocated by
@@ -18703,9 +18703,9 @@ type ResourceProps struct {
 	// - a concrete value implies a specific physical name
 	// - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
 	//    by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
-	PhysicalName *string `json:"physicalName"`
+	PhysicalName *string `json:"physicalName" yaml:"physicalName"`
 	// The AWS region this resource belongs to.
-	Region *string `json:"region"`
+	Region *string `json:"region" yaml:"region"`
 }
 
 // Options for the 'reverse()' operation.
@@ -18716,7 +18716,7 @@ type ReverseOptions struct {
 	// Fail if the given string is a concatenation.
 	//
 	// If `false`, just return `undefined`.
-	FailConcat *bool `json:"failConcat"`
+	FailConcat *bool `json:"failConcat" yaml:"failConcat"`
 }
 
 // Accessor for scoped pseudo parameters.
@@ -19061,15 +19061,15 @@ type SecretsManagerSecretOptions struct {
 	//
 	// This can only be used if the secret
 	// stores a JSON object.
-	JsonField *string `json:"jsonField"`
+	JsonField *string `json:"jsonField" yaml:"jsonField"`
 	// Specifies the unique identifier of the version of the secret you want to use.
 	//
 	// Can specify at most one of `versionId` and `versionStage`.
-	VersionId *string `json:"versionId"`
+	VersionId *string `json:"versionId" yaml:"versionId"`
 	// Specifies the secret version that you want to retrieve by the staging label attached to the version.
 	//
 	// Can specify at most one of `versionId` and `versionStage`.
-	VersionStage *string `json:"versionStage"`
+	VersionStage *string `json:"versionStage" yaml:"versionStage"`
 }
 
 // Represents the amount of digital storage.
@@ -19280,7 +19280,7 @@ func (s *jsiiProxy_Size) ToTebibytes(opts *SizeConversionOptions) *float64 {
 //
 type SizeConversionOptions struct {
 	// How conversions should behave when it encounters a non-integer result.
-	Rounding SizeRoundingBehavior `json:"rounding"`
+	Rounding SizeRoundingBehavior `json:"rounding" yaml:"rounding"`
 }
 
 // Rounding behaviour when converting between units of `Size`.
@@ -19930,9 +19930,9 @@ func (s *jsiiProxy_Stack) ToString() *string {
 //
 type StackProps struct {
 	// Include runtime versioning information in this Stack.
-	AnalyticsReporting *bool `json:"analyticsReporting"`
+	AnalyticsReporting *bool `json:"analyticsReporting" yaml:"analyticsReporting"`
 	// A description of the stack.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The AWS environment (account/region) where this stack will be deployed.
 	//
 	// Set the `region`/`account` fields of `env` to either a concrete value to
@@ -19956,15 +19956,15 @@ type StackProps struct {
 	//
 	// TODO: EXAMPLE
 	//
-	Env *Environment `json:"env"`
+	Env *Environment `json:"env" yaml:"env"`
 	// Name to deploy the stack with.
-	StackName *string `json:"stackName"`
+	StackName *string `json:"stackName" yaml:"stackName"`
 	// Synthesis method to use while deploying this stack.
-	Synthesizer IStackSynthesizer `json:"synthesizer"`
+	Synthesizer IStackSynthesizer `json:"synthesizer" yaml:"synthesizer"`
 	// Stack tags that will be applied to all the taggable resources and the stack itself.
-	Tags *map[string]*string `json:"tags"`
+	Tags *map[string]*string `json:"tags" yaml:"tags"`
 	// Whether to enable termination protection for this stack.
-	TerminationProtection *bool `json:"terminationProtection"`
+	TerminationProtection *bool `json:"terminationProtection" yaml:"terminationProtection"`
 }
 
 // Base class for implementing an IStackSynthesizer.
@@ -20313,13 +20313,13 @@ type StageProps struct {
 	//
 	// TODO: EXAMPLE
 	//
-	Env *Environment `json:"env"`
+	Env *Environment `json:"env" yaml:"env"`
 	// The output directory into which to emit synthesized artifacts.
 	//
 	// Can only be specified if this stage is the root stage (the app). If this is
 	// specified and this stage is nested within another stage, an error will be
 	// thrown.
-	Outdir *string `json:"outdir"`
+	Outdir *string `json:"outdir" yaml:"outdir"`
 }
 
 // Options for assembly synthesis.
@@ -20331,11 +20331,11 @@ type StageSynthesisOptions struct {
 	//
 	// This is used by tests to allow for incremental verification of the output.
 	// Do not use in production.
-	Force *bool `json:"force"`
+	Force *bool `json:"force" yaml:"force"`
 	// Should we skip construct validation.
-	SkipValidation *bool `json:"skipValidation"`
+	SkipValidation *bool `json:"skipValidation" yaml:"skipValidation"`
 	// Whether the stack should be validated after synthesis to check for error metadata.
-	ValidateOnSynthesis *bool `json:"validateOnSynthesis"`
+	ValidateOnSynthesis *bool `json:"validateOnSynthesis" yaml:"validateOnSynthesis"`
 }
 
 // Converts all fragments to strings and concats those.
@@ -20411,11 +20411,11 @@ const (
 //
 type SynthesizeStackArtifactOptions struct {
 	// Identifiers of additional dependencies.
-	AdditionalDependencies *[]*string `json:"additionalDependencies"`
+	AdditionalDependencies *[]*string `json:"additionalDependencies" yaml:"additionalDependencies"`
 	// The role that needs to be assumed to deploy the stack.
-	AssumeRoleArn *string `json:"assumeRoleArn"`
+	AssumeRoleArn *string `json:"assumeRoleArn" yaml:"assumeRoleArn"`
 	// The externalID to use with the assumeRoleArn.
-	AssumeRoleExternalId *string `json:"assumeRoleExternalId"`
+	AssumeRoleExternalId *string `json:"assumeRoleExternalId" yaml:"assumeRoleExternalId"`
 	// SSM parameter where the bootstrap stack version number can be found.
 	//
 	// Only used if `requiresBootstrapStackVersion` is set.
@@ -20425,17 +20425,17 @@ type SynthesizeStackArtifactOptions struct {
 	//    outputs.
 	// - If this value is set, the bootstrap stack can have any name because
 	//    we won't need to look it up.
-	BootstrapStackVersionSsmParameter *string `json:"bootstrapStackVersionSsmParameter"`
+	BootstrapStackVersionSsmParameter *string `json:"bootstrapStackVersionSsmParameter" yaml:"bootstrapStackVersionSsmParameter"`
 	// The role that is passed to CloudFormation to execute the change set.
-	CloudFormationExecutionRoleArn *string `json:"cloudFormationExecutionRoleArn"`
+	CloudFormationExecutionRoleArn *string `json:"cloudFormationExecutionRoleArn" yaml:"cloudFormationExecutionRoleArn"`
 	// The role to use to look up values from the target AWS account.
-	LookupRole *cloudassemblyschema.BootstrapRole `json:"lookupRole"`
+	LookupRole *cloudassemblyschema.BootstrapRole `json:"lookupRole" yaml:"lookupRole"`
 	// Values for CloudFormation stack parameters that should be passed when the stack is deployed.
-	Parameters *map[string]*string `json:"parameters"`
+	Parameters *map[string]*string `json:"parameters" yaml:"parameters"`
 	// Version of bootstrap stack required to deploy this stack.
-	RequiresBootstrapStackVersion *float64 `json:"requiresBootstrapStackVersion"`
+	RequiresBootstrapStackVersion *float64 `json:"requiresBootstrapStackVersion" yaml:"requiresBootstrapStackVersion"`
 	// If the stack template has already been included in the asset manifest, its asset URL.
-	StackTemplateAssetObjectUrl *string `json:"stackTemplateAssetObjectUrl"`
+	StackTemplateAssetObjectUrl *string `json:"stackTemplateAssetObjectUrl" yaml:"stackTemplateAssetObjectUrl"`
 }
 
 // The Tag Aspect will handle adding a tag to this node and cascading tags to children.
@@ -20704,7 +20704,7 @@ type TagManagerOptions struct {
 	// The name of the property in CloudFormation for these tags.
 	//
 	// Normally this is `tags`, but Cognito UserPool uses UserPoolTags
-	TagPropertyName *string `json:"tagPropertyName"`
+	TagPropertyName *string `json:"tagPropertyName" yaml:"tagPropertyName"`
 }
 
 // Properties for a tag.
@@ -20713,18 +20713,18 @@ type TagManagerOptions struct {
 //
 type TagProps struct {
 	// Whether the tag should be applied to instances in an AutoScalingGroup.
-	ApplyToLaunchedInstances *bool `json:"applyToLaunchedInstances"`
+	ApplyToLaunchedInstances *bool `json:"applyToLaunchedInstances" yaml:"applyToLaunchedInstances"`
 	// An array of Resource Types that will not receive this tag.
 	//
 	// An empty array will allow this tag to be applied to all resources. A
 	// non-empty array will apply this tag only if the Resource type is not in
 	// this array.
-	ExcludeResourceTypes *[]*string `json:"excludeResourceTypes"`
+	ExcludeResourceTypes *[]*string `json:"excludeResourceTypes" yaml:"excludeResourceTypes"`
 	// An array of Resource Types that will receive this tag.
 	//
 	// An empty array will match any Resource. A non-empty array will apply this
 	// tag only to Resource types that are included in this array.
-	IncludeResourceTypes *[]*string `json:"includeResourceTypes"`
+	IncludeResourceTypes *[]*string `json:"includeResourceTypes" yaml:"includeResourceTypes"`
 	// Priority of the tag operation.
 	//
 	// Higher or equal priority tags will take precedence.
@@ -20732,7 +20732,7 @@ type TagProps struct {
 	// Setting priority will enable the user to control tags when they need to not
 	// follow the default precedence pattern of last applied and closest to the
 	// construct in the tree.
-	Priority *float64 `json:"priority"`
+	Priority *float64 `json:"priority" yaml:"priority"`
 }
 
 type TagType string
@@ -20799,7 +20799,7 @@ func (t *jsiiProxy_Tags) Remove(key *string, props *TagProps) {
 //
 type TimeConversionOptions struct {
 	// If `true`, conversions into a larger time unit (e.g. `Seconds` to `Minutes`) will fail if the result is not an integer.
-	Integral *bool `json:"integral"`
+	Integral *bool `json:"integral" yaml:"integral"`
 }
 
 // Represents a special or lazily-evaluated value.

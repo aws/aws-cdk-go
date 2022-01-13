@@ -948,11 +948,11 @@ func (c *jsiiProxy_CfnDBCluster) ValidateProperties(_properties interface{}) {
 //
 type CfnDBCluster_DBClusterRoleProperty struct {
 	// The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// The name of the feature associated with the Amazon Identity and Access Management (IAM) role.
 	//
 	// For the list of supported feature names, see [DescribeDBEngineVersions](https://docs.aws.amazon.com/neptune/latest/userguide/api-other-apis.html#DescribeDBEngineVersions) .
-	FeatureName *string `json:"featureName"`
+	FeatureName *string `json:"featureName" yaml:"featureName"`
 }
 
 // A CloudFormation `AWS::Neptune::DBClusterParameterGroup`.
@@ -1506,19 +1506,19 @@ func (c *jsiiProxy_CfnDBClusterParameterGroup) ValidateProperties(_properties in
 //
 type CfnDBClusterParameterGroupProps struct {
 	// Provides the customer-specified description for this DB cluster parameter group.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Must be `neptune1` .
-	Family *string `json:"family"`
+	Family *string `json:"family" yaml:"family"`
 	// The parameters to set for this DB cluster parameter group.
 	//
 	// The parameters are expressed as a JSON object consisting of key-value pairs.
 	//
 	// If you update the parameters, some interruption may occur depending on which parameters you update.
-	Parameters interface{} `json:"parameters"`
+	Parameters interface{} `json:"parameters" yaml:"parameters"`
 	// Provides the name of the DB cluster parameter group.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The tags that you want to attach to this parameter group.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // Properties for defining a `CfnDBCluster`.
@@ -1529,83 +1529,83 @@ type CfnDBClusterProps struct {
 	// Provides a list of the Amazon Identity and Access Management (IAM) roles that are associated with the DB cluster.
 	//
 	// IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other Amazon services on your behalf.
-	AssociatedRoles interface{} `json:"associatedRoles"`
+	AssociatedRoles interface{} `json:"associatedRoles" yaml:"associatedRoles"`
 	// Provides the list of EC2 Availability Zones that instances in the DB cluster can be created in.
-	AvailabilityZones *[]*string `json:"availabilityZones"`
+	AvailabilityZones *[]*string `json:"availabilityZones" yaml:"availabilityZones"`
 	// Specifies the number of days for which automatic DB snapshots are retained.
 	//
 	// An update may require some interruption. See [ModifyDBInstance](https://docs.aws.amazon.com/neptune/latest/userguide/api-instances.html#ModifyDBInstance) in the Amazon Neptune User Guide for more information.
-	BackupRetentionPeriod *float64 `json:"backupRetentionPeriod"`
+	BackupRetentionPeriod *float64 `json:"backupRetentionPeriod" yaml:"backupRetentionPeriod"`
 	// Contains a user-supplied DB cluster identifier.
 	//
 	// This identifier is the unique key that identifies a DB cluster.
-	DbClusterIdentifier *string `json:"dbClusterIdentifier"`
+	DbClusterIdentifier *string `json:"dbClusterIdentifier" yaml:"dbClusterIdentifier"`
 	// Provides the name of the DB cluster parameter group.
 	//
 	// An update may require some interruption. See [ModifyDBInstance](https://docs.aws.amazon.com/neptune/latest/userguide/api-instances.html#ModifyDBInstance) in the Amazon Neptune User Guide for more information.
-	DbClusterParameterGroupName *string `json:"dbClusterParameterGroupName"`
+	DbClusterParameterGroupName *string `json:"dbClusterParameterGroupName" yaml:"dbClusterParameterGroupName"`
 	// Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
-	DbSubnetGroupName *string `json:"dbSubnetGroupName"`
+	DbSubnetGroupName *string `json:"dbSubnetGroupName" yaml:"dbSubnetGroupName"`
 	// Indicates whether or not the DB cluster has deletion protection enabled.
 	//
 	// The database can't be deleted when deletion protection is enabled.
-	DeletionProtection interface{} `json:"deletionProtection"`
+	DeletionProtection interface{} `json:"deletionProtection" yaml:"deletionProtection"`
 	// Specifies a list of log types that are enabled for export to CloudWatch Logs.
-	EnableCloudwatchLogsExports *[]*string `json:"enableCloudwatchLogsExports"`
+	EnableCloudwatchLogsExports *[]*string `json:"enableCloudwatchLogsExports" yaml:"enableCloudwatchLogsExports"`
 	// Indicates the database engine version.
-	EngineVersion *string `json:"engineVersion"`
+	EngineVersion *string `json:"engineVersion" yaml:"engineVersion"`
 	// True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
-	IamAuthEnabled interface{} `json:"iamAuthEnabled"`
+	IamAuthEnabled interface{} `json:"iamAuthEnabled" yaml:"iamAuthEnabled"`
 	// If `StorageEncrypted` is true, the Amazon KMS key identifier for the encrypted DB cluster.
-	KmsKeyId *string `json:"kmsKeyId"`
+	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
 	// Specifies the port that the database engine is listening on.
-	Port *float64 `json:"port"`
+	Port *float64 `json:"port" yaml:"port"`
 	// Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the `BackupRetentionPeriod` .
 	//
 	// An update may require some interruption.
-	PreferredBackupWindow *string `json:"preferredBackupWindow"`
+	PreferredBackupWindow *string `json:"preferredBackupWindow" yaml:"preferredBackupWindow"`
 	// Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow"`
+	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
 	// Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
 	//
 	// If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
 	//
 	// If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
-	RestoreToTime *string `json:"restoreToTime"`
+	RestoreToTime *string `json:"restoreToTime" yaml:"restoreToTime"`
 	// Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
 	//
 	// If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
 	//
 	// If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
-	RestoreType *string `json:"restoreType"`
+	RestoreType *string `json:"restoreType" yaml:"restoreType"`
 	// Specifies the identifier for a DB cluster snapshot. Must match the identifier of an existing snapshot.
 	//
 	// After you restore a DB cluster using a `SnapshotIdentifier` , you must specify the same `SnapshotIdentifier` for any future updates to the DB cluster. When you specify this property for an update, the DB cluster is not restored from the snapshot again, and the data in the database is not changed.
 	//
 	// However, if you don't specify the `SnapshotIdentifier` , an empty DB cluster is created, and the original DB cluster is deleted. If you specify a property that is different from the previous snapshot restore property, the DB cluster is restored from the snapshot specified by the `SnapshotIdentifier` , and the original DB cluster is deleted.
-	SnapshotIdentifier *string `json:"snapshotIdentifier"`
+	SnapshotIdentifier *string `json:"snapshotIdentifier" yaml:"snapshotIdentifier"`
 	// Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
 	//
 	// If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
 	//
 	// If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
-	SourceDbClusterIdentifier *string `json:"sourceDbClusterIdentifier"`
+	SourceDbClusterIdentifier *string `json:"sourceDbClusterIdentifier" yaml:"sourceDbClusterIdentifier"`
 	// Indicates whether the DB cluster is encrypted.
 	//
 	// If you specify the `DBClusterIdentifier` , `DBSnapshotIdentifier` , or `SourceDBInstanceIdentifier` property, don't specify this property. The value is inherited from the cluster, snapshot, or source DB instance. If you specify the `KmsKeyId` property, you must enable encryption.
 	//
 	// If you specify the `KmsKeyId` , you must enable encryption by setting `StorageEncrypted` to true.
-	StorageEncrypted interface{} `json:"storageEncrypted"`
+	StorageEncrypted interface{} `json:"storageEncrypted" yaml:"storageEncrypted"`
 	// The tags assigned to this cluster.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
 	//
 	// If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
 	//
 	// If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
-	UseLatestRestorableTime interface{} `json:"useLatestRestorableTime"`
+	UseLatestRestorableTime interface{} `json:"useLatestRestorableTime" yaml:"useLatestRestorableTime"`
 	// Provides a list of VPC security groups that the DB cluster belongs to.
-	VpcSecurityGroupIds *[]*string `json:"vpcSecurityGroupIds"`
+	VpcSecurityGroupIds *[]*string `json:"vpcSecurityGroupIds" yaml:"vpcSecurityGroupIds"`
 }
 
 // A CloudFormation `AWS::Neptune::DBInstance`.
@@ -2321,41 +2321,41 @@ type CfnDBInstanceProps struct {
 	// Contains the name of the compute and memory capacity class of the DB instance.
 	//
 	// If you update this property, some interruptions may occur.
-	DbInstanceClass *string `json:"dbInstanceClass"`
+	DbInstanceClass *string `json:"dbInstanceClass" yaml:"dbInstanceClass"`
 	// Indicates that major version upgrades are allowed.
 	//
 	// Changing this parameter doesn't result in an outage and the change is asynchronously applied as soon as possible. This parameter must be set to true when specifying a value for the EngineVersion parameter that is a different major version than the DB instance's current version.
-	AllowMajorVersionUpgrade interface{} `json:"allowMajorVersionUpgrade"`
+	AllowMajorVersionUpgrade interface{} `json:"allowMajorVersionUpgrade" yaml:"allowMajorVersionUpgrade"`
 	// Indicates that minor version patches are applied automatically.
 	//
 	// When updating this property, some interruptions may occur.
-	AutoMinorVersionUpgrade interface{} `json:"autoMinorVersionUpgrade"`
+	AutoMinorVersionUpgrade interface{} `json:"autoMinorVersionUpgrade" yaml:"autoMinorVersionUpgrade"`
 	// Specifies the name of the Availability Zone the DB instance is located in.
-	AvailabilityZone *string `json:"availabilityZone"`
+	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
 	// If the DB instance is a member of a DB cluster, contains the name of the DB cluster that the DB instance is a member of.
-	DbClusterIdentifier *string `json:"dbClusterIdentifier"`
+	DbClusterIdentifier *string `json:"dbClusterIdentifier" yaml:"dbClusterIdentifier"`
 	// Contains a user-supplied database identifier.
 	//
 	// This identifier is the unique key that identifies a DB instance.
-	DbInstanceIdentifier *string `json:"dbInstanceIdentifier"`
+	DbInstanceIdentifier *string `json:"dbInstanceIdentifier" yaml:"dbInstanceIdentifier"`
 	// The name of an existing DB parameter group or a reference to an AWS::Neptune::DBParameterGroup resource created in the template.
 	//
 	// If any of the data members of the referenced parameter group are changed during an update, the DB instance might need to be restarted, which causes some interruption. If the parameter group contains static parameters, whether they were changed or not, an update triggers a reboot.
-	DbParameterGroupName *string `json:"dbParameterGroupName"`
+	DbParameterGroupName *string `json:"dbParameterGroupName" yaml:"dbParameterGroupName"`
 	// This parameter is not supported.
 	//
 	// `AWS::Neptune::DBInstance` does not support restoring from snapshots.
 	//
 	// `AWS::Neptune::DBCluster` does support restoring from snapshots.
-	DbSnapshotIdentifier *string `json:"dbSnapshotIdentifier"`
+	DbSnapshotIdentifier *string `json:"dbSnapshotIdentifier" yaml:"dbSnapshotIdentifier"`
 	// A DB subnet group to associate with the DB instance.
 	//
 	// If you update this value, the new subnet group must be a subnet group in a new virtual private cloud (VPC).
-	DbSubnetGroupName *string `json:"dbSubnetGroupName"`
+	DbSubnetGroupName *string `json:"dbSubnetGroupName" yaml:"dbSubnetGroupName"`
 	// Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow"`
+	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
 	// An arbitrary set of tags (key-value pairs) for this DB instance.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Neptune::DBParameterGroup`.
@@ -2913,19 +2913,19 @@ func (c *jsiiProxy_CfnDBParameterGroup) ValidateProperties(_properties interface
 //
 type CfnDBParameterGroupProps struct {
 	// Provides the customer-specified description for this DB parameter group.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Must be `neptune1` .
-	Family *string `json:"family"`
+	Family *string `json:"family" yaml:"family"`
 	// The parameters to set for this DB parameter group.
 	//
 	// The parameters are expressed as a JSON object consisting of key-value pairs.
 	//
 	// Changes to dynamic parameters are applied immediately. During an update, if you have static parameters (whether they were changed or not), it triggers AWS CloudFormation to reboot the associated DB instance without failover.
-	Parameters interface{} `json:"parameters"`
+	Parameters interface{} `json:"parameters" yaml:"parameters"`
 	// Provides the name of the DB parameter group.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The tags that you want to attach to this parameter group.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Neptune::DBSubnetGroup`.
@@ -3457,12 +3457,12 @@ func (c *jsiiProxy_CfnDBSubnetGroup) ValidateProperties(_properties interface{})
 //
 type CfnDBSubnetGroupProps struct {
 	// Provides the description of the DB subnet group.
-	DbSubnetGroupDescription *string `json:"dbSubnetGroupDescription"`
+	DbSubnetGroupDescription *string `json:"dbSubnetGroupDescription" yaml:"dbSubnetGroupDescription"`
 	// The Amazon EC2 subnet IDs for the DB subnet group.
-	SubnetIds *[]*string `json:"subnetIds"`
+	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
 	// The name of the DB subnet group.
-	DbSubnetGroupName *string `json:"dbSubnetGroupName"`
+	DbSubnetGroupName *string `json:"dbSubnetGroupName" yaml:"dbSubnetGroupName"`
 	// The tags that you want to attach to the DB subnet group.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 

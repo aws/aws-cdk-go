@@ -29,13 +29,13 @@ type AddFieldOptions struct {
 	// This option must be configured for Object, Interface,
 	// Input and Union Types.
 	// Experimental.
-	Field IField `json:"field"`
+	Field IField `json:"field" yaml:"field"`
 	// The name of the field.
 	//
 	// This option must be configured for Object, Interface,
 	// Input and Enum Types.
 	// Experimental.
-	FieldName *string `json:"fieldName"`
+	FieldName *string `json:"fieldName" yaml:"fieldName"`
 }
 
 // Configuration for API Key authorization in AppSync.
@@ -46,16 +46,16 @@ type AddFieldOptions struct {
 type ApiKeyConfig struct {
 	// Description of API key.
 	// Experimental.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The time from creation time after which the API key expires.
 	//
 	// It must be a minimum of 1 day and a maximum of 365 days from date of creation.
 	// Rounded down to the nearest hour.
 	// Experimental.
-	Expires awscdk.Expiration `json:"expires"`
+	Expires awscdk.Expiration `json:"expires" yaml:"expires"`
 	// Unique name of the API Key.
 	// Experimental.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // AppSync Functions are local functions that perform certain operations onto a backend data source.
@@ -344,7 +344,7 @@ func (a *jsiiProxy_AppsyncFunction) ToString() *string {
 type AppsyncFunctionAttributes struct {
 	// the ARN of the AppSync function.
 	// Experimental.
-	FunctionArn *string `json:"functionArn"`
+	FunctionArn *string `json:"functionArn" yaml:"functionArn"`
 }
 
 // the CDK properties for AppSync Functions.
@@ -355,22 +355,22 @@ type AppsyncFunctionAttributes struct {
 type AppsyncFunctionProps struct {
 	// the name of the AppSync Function.
 	// Experimental.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// the description for this AppSync Function.
 	// Experimental.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// the request mapping template for the AppSync Function.
 	// Experimental.
-	RequestMappingTemplate MappingTemplate `json:"requestMappingTemplate"`
+	RequestMappingTemplate MappingTemplate `json:"requestMappingTemplate" yaml:"requestMappingTemplate"`
 	// the response mapping template for the AppSync Function.
 	// Experimental.
-	ResponseMappingTemplate MappingTemplate `json:"responseMappingTemplate"`
+	ResponseMappingTemplate MappingTemplate `json:"responseMappingTemplate" yaml:"responseMappingTemplate"`
 	// the GraphQL Api linked to this AppSync Function.
 	// Experimental.
-	Api IGraphqlApi `json:"api"`
+	Api IGraphqlApi `json:"api" yaml:"api"`
 	// the data source linked to this AppSync Function.
 	// Experimental.
-	DataSource BaseDataSource `json:"dataSource"`
+	DataSource BaseDataSource `json:"dataSource" yaml:"dataSource"`
 }
 
 // Utility class representing the assigment of a value to an attribute.
@@ -594,10 +594,10 @@ func (a *jsiiProxy_AttributeValuesStep) Is(val *string) AttributeValues {
 type AuthorizationConfig struct {
 	// Additional authorization modes.
 	// Experimental.
-	AdditionalAuthorizationModes *[]*AuthorizationMode `json:"additionalAuthorizationModes"`
+	AdditionalAuthorizationModes *[]*AuthorizationMode `json:"additionalAuthorizationModes" yaml:"additionalAuthorizationModes"`
 	// Optional authorization configuration.
 	// Experimental.
-	DefaultAuthorization *AuthorizationMode `json:"defaultAuthorization"`
+	DefaultAuthorization *AuthorizationMode `json:"defaultAuthorization" yaml:"defaultAuthorization"`
 }
 
 // Interface to specify default or additional authorization(s).
@@ -610,19 +610,19 @@ type AuthorizationMode struct {
 	// See: https://docs.aws.amazon.com/appsync/latest/devguide/security.html
 	//
 	// Experimental.
-	AuthorizationType AuthorizationType `json:"authorizationType"`
+	AuthorizationType AuthorizationType `json:"authorizationType" yaml:"authorizationType"`
 	// If authorizationType is `AuthorizationType.API_KEY`, this option can be configured.
 	// Experimental.
-	ApiKeyConfig *ApiKeyConfig `json:"apiKeyConfig"`
+	ApiKeyConfig *ApiKeyConfig `json:"apiKeyConfig" yaml:"apiKeyConfig"`
 	// If authorizationType is `AuthorizationType.LAMBDA`, this option is required.
 	// Experimental.
-	LambdaAuthorizerConfig *LambdaAuthorizerConfig `json:"lambdaAuthorizerConfig"`
+	LambdaAuthorizerConfig *LambdaAuthorizerConfig `json:"lambdaAuthorizerConfig" yaml:"lambdaAuthorizerConfig"`
 	// If authorizationType is `AuthorizationType.OIDC`, this option is required.
 	// Experimental.
-	OpenIdConnectConfig *OpenIdConnectConfig `json:"openIdConnectConfig"`
+	OpenIdConnectConfig *OpenIdConnectConfig `json:"openIdConnectConfig" yaml:"openIdConnectConfig"`
 	// If authorizationType is `AuthorizationType.USER_POOL`, this option is required.
 	// Experimental.
-	UserPoolConfig *UserPoolConfig `json:"userPoolConfig"`
+	UserPoolConfig *UserPoolConfig `json:"userPoolConfig" yaml:"userPoolConfig"`
 }
 
 // enum with all possible values for AppSync authorization type.
@@ -648,10 +648,10 @@ const (
 type AwsIamConfig struct {
 	// The signing region for AWS IAM authorization.
 	// Experimental.
-	SigningRegion *string `json:"signingRegion"`
+	SigningRegion *string `json:"signingRegion" yaml:"signingRegion"`
 	// The signing service name for AWS IAM authorization.
 	// Experimental.
-	SigningServiceName *string `json:"signingServiceName"`
+	SigningServiceName *string `json:"signingServiceName" yaml:"signingServiceName"`
 }
 
 // Abstract AppSync datasource implementation.
@@ -840,16 +840,16 @@ func (b *jsiiProxy_BackedDataSource) ToString() *string {
 type BackedDataSourceProps struct {
 	// The API to attach this data source to.
 	// Experimental.
-	Api IGraphqlApi `json:"api"`
+	Api IGraphqlApi `json:"api" yaml:"api"`
 	// the description of the data source.
 	// Experimental.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The name of the data source.
 	// Experimental.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The IAM service role to be assumed by AppSync to interact with the data source.
 	// Experimental.
-	ServiceRole awsiam.IRole `json:"serviceRole"`
+	ServiceRole awsiam.IRole `json:"serviceRole" yaml:"serviceRole"`
 }
 
 // the base properties for AppSync Functions.
@@ -860,16 +860,16 @@ type BackedDataSourceProps struct {
 type BaseAppsyncFunctionProps struct {
 	// the name of the AppSync Function.
 	// Experimental.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// the description for this AppSync Function.
 	// Experimental.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// the request mapping template for the AppSync Function.
 	// Experimental.
-	RequestMappingTemplate MappingTemplate `json:"requestMappingTemplate"`
+	RequestMappingTemplate MappingTemplate `json:"requestMappingTemplate" yaml:"requestMappingTemplate"`
 	// the response mapping template for the AppSync Function.
 	// Experimental.
-	ResponseMappingTemplate MappingTemplate `json:"responseMappingTemplate"`
+	ResponseMappingTemplate MappingTemplate `json:"responseMappingTemplate" yaml:"responseMappingTemplate"`
 }
 
 // Abstract AppSync datasource implementation.
@@ -1048,13 +1048,13 @@ func (b *jsiiProxy_BaseDataSource) ToString() *string {
 type BaseDataSourceProps struct {
 	// The API to attach this data source to.
 	// Experimental.
-	Api IGraphqlApi `json:"api"`
+	Api IGraphqlApi `json:"api" yaml:"api"`
 	// the description of the data source.
 	// Experimental.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The name of the data source.
 	// Experimental.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // Basic properties for an AppSync resolver.
@@ -1065,22 +1065,22 @@ type BaseDataSourceProps struct {
 type BaseResolverProps struct {
 	// name of the GraphQL field in the given type this resolver is attached to.
 	// Experimental.
-	FieldName *string `json:"fieldName"`
+	FieldName *string `json:"fieldName" yaml:"fieldName"`
 	// name of the GraphQL type this resolver is attached to.
 	// Experimental.
-	TypeName *string `json:"typeName"`
+	TypeName *string `json:"typeName" yaml:"typeName"`
 	// The caching configuration for this resolver.
 	// Experimental.
-	CachingConfig *CachingConfig `json:"cachingConfig"`
+	CachingConfig *CachingConfig `json:"cachingConfig" yaml:"cachingConfig"`
 	// configuration of the pipeline resolver.
 	// Experimental.
-	PipelineConfig *[]IAppsyncFunction `json:"pipelineConfig"`
+	PipelineConfig *[]IAppsyncFunction `json:"pipelineConfig" yaml:"pipelineConfig"`
 	// The request mapping template for this resolver.
 	// Experimental.
-	RequestMappingTemplate MappingTemplate `json:"requestMappingTemplate"`
+	RequestMappingTemplate MappingTemplate `json:"requestMappingTemplate" yaml:"requestMappingTemplate"`
 	// The response mapping template for this resolver.
 	// Experimental.
-	ResponseMappingTemplate MappingTemplate `json:"responseMappingTemplate"`
+	ResponseMappingTemplate MappingTemplate `json:"responseMappingTemplate" yaml:"responseMappingTemplate"`
 }
 
 // Base options for GraphQL Types.
@@ -1091,13 +1091,13 @@ type BaseResolverProps struct {
 type BaseTypeOptions struct {
 	// property determining if this attribute is a list i.e. if true, attribute would be [Type].
 	// Experimental.
-	IsList *bool `json:"isList"`
+	IsList *bool `json:"isList" yaml:"isList"`
 	// property determining if this attribute is non-nullable i.e. if true, attribute would be Type!
 	// Experimental.
-	IsRequired *bool `json:"isRequired"`
+	IsRequired *bool `json:"isRequired" yaml:"isRequired"`
 	// property determining if this attribute is a non-nullable list i.e. if true, attribute would be [ Type ]! or if isRequired true, attribe would be [ Type! ]!
 	// Experimental.
-	IsRequiredList *bool `json:"isRequiredList"`
+	IsRequiredList *bool `json:"isRequiredList" yaml:"isRequiredList"`
 }
 
 // CachingConfig for AppSync resolvers.
@@ -1110,12 +1110,12 @@ type CachingConfig struct {
 	//
 	// Valid values are between 1 and 3600 seconds.
 	// Experimental.
-	Ttl awscdk.Duration `json:"ttl"`
+	Ttl awscdk.Duration `json:"ttl" yaml:"ttl"`
 	// The caching keys for a resolver that has caching enabled.
 	//
 	// Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
 	// Experimental.
-	CachingKeys *[]*string `json:"cachingKeys"`
+	CachingKeys *[]*string `json:"cachingKeys" yaml:"cachingKeys"`
 }
 
 // Optional configuration for data sources.
@@ -1126,10 +1126,10 @@ type CachingConfig struct {
 type DataSourceOptions struct {
 	// The description of the data source.
 	// Experimental.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The name of the data source, overrides the id given by cdk.
 	// Experimental.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // Directives for types.
@@ -1520,25 +1520,25 @@ func (d *jsiiProxy_DynamoDbDataSource) ToString() *string {
 type DynamoDbDataSourceProps struct {
 	// The API to attach this data source to.
 	// Experimental.
-	Api IGraphqlApi `json:"api"`
+	Api IGraphqlApi `json:"api" yaml:"api"`
 	// the description of the data source.
 	// Experimental.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The name of the data source.
 	// Experimental.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The IAM service role to be assumed by AppSync to interact with the data source.
 	// Experimental.
-	ServiceRole awsiam.IRole `json:"serviceRole"`
+	ServiceRole awsiam.IRole `json:"serviceRole" yaml:"serviceRole"`
 	// The DynamoDB table backing this data source.
 	// Experimental.
-	Table awsdynamodb.ITable `json:"table"`
+	Table awsdynamodb.ITable `json:"table" yaml:"table"`
 	// Specify whether this DS is read only or has read and write permissions to the DynamoDB table.
 	// Experimental.
-	ReadOnlyAccess *bool `json:"readOnlyAccess"`
+	ReadOnlyAccess *bool `json:"readOnlyAccess" yaml:"readOnlyAccess"`
 	// use credentials of caller to access DynamoDB.
 	// Experimental.
-	UseCallerCredentials *bool `json:"useCallerCredentials"`
+	UseCallerCredentials *bool `json:"useCallerCredentials" yaml:"useCallerCredentials"`
 }
 
 // An Appsync datasource backed by Elasticsearch.
@@ -1741,19 +1741,19 @@ func (e *jsiiProxy_ElasticsearchDataSource) ToString() *string {
 type ElasticsearchDataSourceProps struct {
 	// The API to attach this data source to.
 	// Experimental.
-	Api IGraphqlApi `json:"api"`
+	Api IGraphqlApi `json:"api" yaml:"api"`
 	// the description of the data source.
 	// Experimental.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The name of the data source.
 	// Experimental.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The IAM service role to be assumed by AppSync to interact with the data source.
 	// Experimental.
-	ServiceRole awsiam.IRole `json:"serviceRole"`
+	ServiceRole awsiam.IRole `json:"serviceRole" yaml:"serviceRole"`
 	// The elasticsearch domain containing the endpoint for the data source.
 	// Experimental.
-	Domain awselasticsearch.IDomain `json:"domain"`
+	Domain awselasticsearch.IDomain `json:"domain" yaml:"domain"`
 }
 
 // Enum Types are abstract types that includes a set of fields that represent the strings this type can create.
@@ -1893,7 +1893,7 @@ func (e *jsiiProxy_EnumType) ToString() *string {
 type EnumTypeOptions struct {
 	// the attributes of this type.
 	// Experimental.
-	Definition *[]*string `json:"definition"`
+	Definition *[]*string `json:"definition" yaml:"definition"`
 }
 
 // props used by implementations of BaseDataSource to provide configuration.
@@ -1906,22 +1906,22 @@ type EnumTypeOptions struct {
 type ExtendedDataSourceProps struct {
 	// the type of the AppSync datasource.
 	// Experimental.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// configuration for DynamoDB Datasource.
 	// Experimental.
-	DynamoDbConfig interface{} `json:"dynamoDbConfig"`
+	DynamoDbConfig interface{} `json:"dynamoDbConfig" yaml:"dynamoDbConfig"`
 	// configuration for Elasticsearch Datasource.
 	// Experimental.
-	ElasticsearchConfig interface{} `json:"elasticsearchConfig"`
+	ElasticsearchConfig interface{} `json:"elasticsearchConfig" yaml:"elasticsearchConfig"`
 	// configuration for HTTP Datasource.
 	// Experimental.
-	HttpConfig interface{} `json:"httpConfig"`
+	HttpConfig interface{} `json:"httpConfig" yaml:"httpConfig"`
 	// configuration for Lambda Datasource.
 	// Experimental.
-	LambdaConfig interface{} `json:"lambdaConfig"`
+	LambdaConfig interface{} `json:"lambdaConfig" yaml:"lambdaConfig"`
 	// configuration for RDS Datasource.
 	// Experimental.
-	RelationalDatabaseConfig interface{} `json:"relationalDatabaseConfig"`
+	RelationalDatabaseConfig interface{} `json:"relationalDatabaseConfig" yaml:"relationalDatabaseConfig"`
 }
 
 // Additional property for an AppSync resolver for data source reference.
@@ -1932,25 +1932,25 @@ type ExtendedDataSourceProps struct {
 type ExtendedResolverProps struct {
 	// name of the GraphQL field in the given type this resolver is attached to.
 	// Experimental.
-	FieldName *string `json:"fieldName"`
+	FieldName *string `json:"fieldName" yaml:"fieldName"`
 	// name of the GraphQL type this resolver is attached to.
 	// Experimental.
-	TypeName *string `json:"typeName"`
+	TypeName *string `json:"typeName" yaml:"typeName"`
 	// The caching configuration for this resolver.
 	// Experimental.
-	CachingConfig *CachingConfig `json:"cachingConfig"`
+	CachingConfig *CachingConfig `json:"cachingConfig" yaml:"cachingConfig"`
 	// configuration of the pipeline resolver.
 	// Experimental.
-	PipelineConfig *[]IAppsyncFunction `json:"pipelineConfig"`
+	PipelineConfig *[]IAppsyncFunction `json:"pipelineConfig" yaml:"pipelineConfig"`
 	// The request mapping template for this resolver.
 	// Experimental.
-	RequestMappingTemplate MappingTemplate `json:"requestMappingTemplate"`
+	RequestMappingTemplate MappingTemplate `json:"requestMappingTemplate" yaml:"requestMappingTemplate"`
 	// The response mapping template for this resolver.
 	// Experimental.
-	ResponseMappingTemplate MappingTemplate `json:"responseMappingTemplate"`
+	ResponseMappingTemplate MappingTemplate `json:"responseMappingTemplate" yaml:"responseMappingTemplate"`
 	// The data source this resolver is using.
 	// Experimental.
-	DataSource BaseDataSource `json:"dataSource"`
+	DataSource BaseDataSource `json:"dataSource" yaml:"dataSource"`
 }
 
 // Fields build upon Graphql Types and provide typing and arguments.
@@ -2397,17 +2397,17 @@ const (
 type FieldOptions struct {
 	// The return type for this field.
 	// Experimental.
-	ReturnType GraphqlType `json:"returnType"`
+	ReturnType GraphqlType `json:"returnType" yaml:"returnType"`
 	// The arguments for this field.
 	//
 	// i.e. type Example (first: String second: String) {}
 	// - where 'first' and 'second' are key values for args
 	// and 'String' is the GraphqlType
 	// Experimental.
-	Args *map[string]GraphqlType `json:"args"`
+	Args *map[string]GraphqlType `json:"args" yaml:"args"`
 	// the directives for this field.
 	// Experimental.
-	Directives *[]Directive `json:"directives"`
+	Directives *[]Directive `json:"directives" yaml:"directives"`
 }
 
 // An AppSync GraphQL API.
@@ -3029,10 +3029,10 @@ func (g *jsiiProxy_GraphqlApi) ToString() *string {
 type GraphqlApiAttributes struct {
 	// an unique AWS AppSync GraphQL API identifier i.e. 'lxz775lwdrgcndgz3nurvac7oa'.
 	// Experimental.
-	GraphqlApiId *string `json:"graphqlApiId"`
+	GraphqlApiId *string `json:"graphqlApiId" yaml:"graphqlApiId"`
 	// the arn for the GraphQL Api.
 	// Experimental.
-	GraphqlApiArn *string `json:"graphqlApiArn"`
+	GraphqlApiArn *string `json:"graphqlApiArn" yaml:"graphqlApiArn"`
 }
 
 // Base Class for GraphQL API.
@@ -3392,21 +3392,21 @@ func (g *jsiiProxy_GraphqlApiBase) ToString() *string {
 type GraphqlApiProps struct {
 	// the name of the GraphQL API.
 	// Experimental.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// Optional authorization configuration.
 	// Experimental.
-	AuthorizationConfig *AuthorizationConfig `json:"authorizationConfig"`
+	AuthorizationConfig *AuthorizationConfig `json:"authorizationConfig" yaml:"authorizationConfig"`
 	// Logging configuration for this api.
 	// Experimental.
-	LogConfig *LogConfig `json:"logConfig"`
+	LogConfig *LogConfig `json:"logConfig" yaml:"logConfig"`
 	// GraphQL schema definition. Specify how you want to define your schema.
 	//
 	// Schema.fromFile(filePath: string) allows schema definition through schema.graphql file
 	// Experimental.
-	Schema Schema `json:"schema"`
+	Schema Schema `json:"schema" yaml:"schema"`
 	// A flag indicating whether or not X-Ray tracing is enabled for the GraphQL API.
 	// Experimental.
-	XrayEnabled *bool `json:"xrayEnabled"`
+	XrayEnabled *bool `json:"xrayEnabled" yaml:"xrayEnabled"`
 }
 
 // The GraphQL Types in AppSync's GraphQL.
@@ -3838,16 +3838,16 @@ func (g *jsiiProxy_GraphqlType) ToString() *string {
 type GraphqlTypeOptions struct {
 	// property determining if this attribute is a list i.e. if true, attribute would be [Type].
 	// Experimental.
-	IsList *bool `json:"isList"`
+	IsList *bool `json:"isList" yaml:"isList"`
 	// property determining if this attribute is non-nullable i.e. if true, attribute would be Type!
 	// Experimental.
-	IsRequired *bool `json:"isRequired"`
+	IsRequired *bool `json:"isRequired" yaml:"isRequired"`
 	// property determining if this attribute is a non-nullable list i.e. if true, attribute would be [ Type ]! or if isRequired true, attribe would be [ Type! ]!
 	// Experimental.
-	IsRequiredList *bool `json:"isRequiredList"`
+	IsRequiredList *bool `json:"isRequiredList" yaml:"isRequiredList"`
 	// the intermediate type linked to this attribute.
 	// Experimental.
-	IntermediateType IIntermediateType `json:"intermediateType"`
+	IntermediateType IIntermediateType `json:"intermediateType" yaml:"intermediateType"`
 }
 
 // An AppSync datasource backed by a http endpoint.
@@ -4050,13 +4050,13 @@ func (h *jsiiProxy_HttpDataSource) ToString() *string {
 type HttpDataSourceOptions struct {
 	// The description of the data source.
 	// Experimental.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The name of the data source, overrides the id given by cdk.
 	// Experimental.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The authorization config in case the HTTP endpoint requires authorization.
 	// Experimental.
-	AuthorizationConfig *AwsIamConfig `json:"authorizationConfig"`
+	AuthorizationConfig *AwsIamConfig `json:"authorizationConfig" yaml:"authorizationConfig"`
 }
 
 // Properties for an AppSync http datasource.
@@ -4067,19 +4067,19 @@ type HttpDataSourceOptions struct {
 type HttpDataSourceProps struct {
 	// The API to attach this data source to.
 	// Experimental.
-	Api IGraphqlApi `json:"api"`
+	Api IGraphqlApi `json:"api" yaml:"api"`
 	// the description of the data source.
 	// Experimental.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The name of the data source.
 	// Experimental.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The http endpoint.
 	// Experimental.
-	Endpoint *string `json:"endpoint"`
+	Endpoint *string `json:"endpoint" yaml:"endpoint"`
 	// The authorization config in case the HTTP endpoint requires authorization.
 	// Experimental.
-	AuthorizationConfig *AwsIamConfig `json:"authorizationConfig"`
+	AuthorizationConfig *AwsIamConfig `json:"authorizationConfig" yaml:"authorizationConfig"`
 }
 
 // Interface for AppSync Functions.
@@ -4932,10 +4932,10 @@ func (i *jsiiProxy_InterfaceType) ToString() *string {
 type IntermediateTypeOptions struct {
 	// the attributes of this type.
 	// Experimental.
-	Definition *map[string]IField `json:"definition"`
+	Definition *map[string]IField `json:"definition" yaml:"definition"`
 	// the directives for this object type.
 	// Experimental.
-	Directives *[]Directive `json:"directives"`
+	Directives *[]Directive `json:"directives" yaml:"directives"`
 }
 
 // Factory class for DynamoDB key conditions.
@@ -5122,15 +5122,15 @@ type LambdaAuthorizerConfig struct {
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-lambdaauthorizerconfig.html
 	//
 	// Experimental.
-	Handler awslambda.IFunction `json:"handler"`
+	Handler awslambda.IFunction `json:"handler" yaml:"handler"`
 	// How long the results are cached.
 	//
 	// Disable caching by setting this to 0.
 	// Experimental.
-	ResultsCacheTtl awscdk.Duration `json:"resultsCacheTtl"`
+	ResultsCacheTtl awscdk.Duration `json:"resultsCacheTtl" yaml:"resultsCacheTtl"`
 	// A regular expression for validation of tokens before the Lambda function is called.
 	// Experimental.
-	ValidationRegex *string `json:"validationRegex"`
+	ValidationRegex *string `json:"validationRegex" yaml:"validationRegex"`
 }
 
 // An AppSync datasource backed by a Lambda function.
@@ -5333,19 +5333,19 @@ func (l *jsiiProxy_LambdaDataSource) ToString() *string {
 type LambdaDataSourceProps struct {
 	// The API to attach this data source to.
 	// Experimental.
-	Api IGraphqlApi `json:"api"`
+	Api IGraphqlApi `json:"api" yaml:"api"`
 	// the description of the data source.
 	// Experimental.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The name of the data source.
 	// Experimental.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The IAM service role to be assumed by AppSync to interact with the data source.
 	// Experimental.
-	ServiceRole awsiam.IRole `json:"serviceRole"`
+	ServiceRole awsiam.IRole `json:"serviceRole" yaml:"serviceRole"`
 	// The Lambda function to call to interact with this data source.
 	// Experimental.
-	LambdaFunction awslambda.IFunction `json:"lambdaFunction"`
+	LambdaFunction awslambda.IFunction `json:"lambdaFunction" yaml:"lambdaFunction"`
 }
 
 // Logging configuration for AppSync.
@@ -5356,13 +5356,13 @@ type LambdaDataSourceProps struct {
 type LogConfig struct {
 	// exclude verbose content.
 	// Experimental.
-	ExcludeVerboseContent interface{} `json:"excludeVerboseContent"`
+	ExcludeVerboseContent interface{} `json:"excludeVerboseContent" yaml:"excludeVerboseContent"`
 	// log level for fields.
 	// Experimental.
-	FieldLogLevel FieldLogLevel `json:"fieldLogLevel"`
+	FieldLogLevel FieldLogLevel `json:"fieldLogLevel" yaml:"fieldLogLevel"`
 	// The role for CloudWatch Logs.
 	// Experimental.
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 }
 
 // MappingTemplates for AppSync resolvers.
@@ -5781,13 +5781,13 @@ func (n *jsiiProxy_NoneDataSource) ToString() *string {
 type NoneDataSourceProps struct {
 	// The API to attach this data source to.
 	// Experimental.
-	Api IGraphqlApi `json:"api"`
+	Api IGraphqlApi `json:"api" yaml:"api"`
 	// the description of the data source.
 	// Experimental.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The name of the data source.
 	// Experimental.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // Object Types are types declared by you.
@@ -5986,13 +5986,13 @@ func (o *jsiiProxy_ObjectType) ToString() *string {
 type ObjectTypeOptions struct {
 	// the attributes of this type.
 	// Experimental.
-	Definition *map[string]IField `json:"definition"`
+	Definition *map[string]IField `json:"definition" yaml:"definition"`
 	// the directives for this object type.
 	// Experimental.
-	Directives *[]Directive `json:"directives"`
+	Directives *[]Directive `json:"directives" yaml:"directives"`
 	// The Interface Types this Object Type implements.
 	// Experimental.
-	InterfaceTypes *[]InterfaceType `json:"interfaceTypes"`
+	InterfaceTypes *[]InterfaceType `json:"interfaceTypes" yaml:"interfaceTypes"`
 }
 
 // Configuration for OpenID Connect authorization in AppSync.
@@ -6005,7 +6005,7 @@ type OpenIdConnectConfig struct {
 	//
 	// The issuer returned by discovery must exactly match the value of `iss` in the OIDC token.
 	// Experimental.
-	OidcProvider *string `json:"oidcProvider"`
+	OidcProvider *string `json:"oidcProvider" yaml:"oidcProvider"`
 	// The client identifier of the Relying party at the OpenID identity provider.
 	//
 	// A regular expression can be specified so AppSync can validate against multiple client identifiers at a time.
@@ -6013,17 +6013,17 @@ type OpenIdConnectConfig struct {
 	// TODO: EXAMPLE
 	//
 	// Experimental.
-	ClientId *string `json:"clientId"`
+	ClientId *string `json:"clientId" yaml:"clientId"`
 	// The number of milliseconds an OIDC token is valid after being authenticated by OIDC provider.
 	//
 	// `auth_time` claim in OIDC token is required for this validation to work.
 	// Experimental.
-	TokenExpiryFromAuth *float64 `json:"tokenExpiryFromAuth"`
+	TokenExpiryFromAuth *float64 `json:"tokenExpiryFromAuth" yaml:"tokenExpiryFromAuth"`
 	// The number of milliseconds an OIDC token is valid after being issued to a user.
 	//
 	// This validation uses `iat` claim of OIDC token.
 	// Experimental.
-	TokenExpiryFromIssue *float64 `json:"tokenExpiryFromIssue"`
+	TokenExpiryFromIssue *float64 `json:"tokenExpiryFromIssue" yaml:"tokenExpiryFromIssue"`
 }
 
 // Specifies the assignment to the partition key.
@@ -6488,25 +6488,25 @@ func (r *jsiiProxy_RdsDataSource) ToString() *string {
 type RdsDataSourceProps struct {
 	// The API to attach this data source to.
 	// Experimental.
-	Api IGraphqlApi `json:"api"`
+	Api IGraphqlApi `json:"api" yaml:"api"`
 	// the description of the data source.
 	// Experimental.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The name of the data source.
 	// Experimental.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The IAM service role to be assumed by AppSync to interact with the data source.
 	// Experimental.
-	ServiceRole awsiam.IRole `json:"serviceRole"`
+	ServiceRole awsiam.IRole `json:"serviceRole" yaml:"serviceRole"`
 	// The secret containing the credentials for the database.
 	// Experimental.
-	SecretStore awssecretsmanager.ISecret `json:"secretStore"`
+	SecretStore awssecretsmanager.ISecret `json:"secretStore" yaml:"secretStore"`
 	// The serverless cluster to call to interact with this data source.
 	// Experimental.
-	ServerlessCluster awsrds.IServerlessCluster `json:"serverlessCluster"`
+	ServerlessCluster awsrds.IServerlessCluster `json:"serverlessCluster" yaml:"serverlessCluster"`
 	// The name of the database to use within the cluster.
 	// Experimental.
-	DatabaseName *string `json:"databaseName"`
+	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
 }
 
 // Resolvable Fields build upon Graphql Types and provide fields that can resolve into operations on a data source.
@@ -6943,29 +6943,29 @@ func (r *jsiiProxy_ResolvableField) ToString() *string {
 type ResolvableFieldOptions struct {
 	// The return type for this field.
 	// Experimental.
-	ReturnType GraphqlType `json:"returnType"`
+	ReturnType GraphqlType `json:"returnType" yaml:"returnType"`
 	// The arguments for this field.
 	//
 	// i.e. type Example (first: String second: String) {}
 	// - where 'first' and 'second' are key values for args
 	// and 'String' is the GraphqlType
 	// Experimental.
-	Args *map[string]GraphqlType `json:"args"`
+	Args *map[string]GraphqlType `json:"args" yaml:"args"`
 	// the directives for this field.
 	// Experimental.
-	Directives *[]Directive `json:"directives"`
+	Directives *[]Directive `json:"directives" yaml:"directives"`
 	// The data source creating linked to this resolvable field.
 	// Experimental.
-	DataSource BaseDataSource `json:"dataSource"`
+	DataSource BaseDataSource `json:"dataSource" yaml:"dataSource"`
 	// configuration of the pipeline resolver.
 	// Experimental.
-	PipelineConfig *[]IAppsyncFunction `json:"pipelineConfig"`
+	PipelineConfig *[]IAppsyncFunction `json:"pipelineConfig" yaml:"pipelineConfig"`
 	// The request mapping template for this resolver.
 	// Experimental.
-	RequestMappingTemplate MappingTemplate `json:"requestMappingTemplate"`
+	RequestMappingTemplate MappingTemplate `json:"requestMappingTemplate" yaml:"requestMappingTemplate"`
 	// The response mapping template for this resolver.
 	// Experimental.
-	ResponseMappingTemplate MappingTemplate `json:"responseMappingTemplate"`
+	ResponseMappingTemplate MappingTemplate `json:"responseMappingTemplate" yaml:"responseMappingTemplate"`
 }
 
 // An AppSync resolver.
@@ -7074,28 +7074,28 @@ func (r *jsiiProxy_Resolver) ToString() *string {
 type ResolverProps struct {
 	// name of the GraphQL field in the given type this resolver is attached to.
 	// Experimental.
-	FieldName *string `json:"fieldName"`
+	FieldName *string `json:"fieldName" yaml:"fieldName"`
 	// name of the GraphQL type this resolver is attached to.
 	// Experimental.
-	TypeName *string `json:"typeName"`
+	TypeName *string `json:"typeName" yaml:"typeName"`
 	// The caching configuration for this resolver.
 	// Experimental.
-	CachingConfig *CachingConfig `json:"cachingConfig"`
+	CachingConfig *CachingConfig `json:"cachingConfig" yaml:"cachingConfig"`
 	// configuration of the pipeline resolver.
 	// Experimental.
-	PipelineConfig *[]IAppsyncFunction `json:"pipelineConfig"`
+	PipelineConfig *[]IAppsyncFunction `json:"pipelineConfig" yaml:"pipelineConfig"`
 	// The request mapping template for this resolver.
 	// Experimental.
-	RequestMappingTemplate MappingTemplate `json:"requestMappingTemplate"`
+	RequestMappingTemplate MappingTemplate `json:"requestMappingTemplate" yaml:"requestMappingTemplate"`
 	// The response mapping template for this resolver.
 	// Experimental.
-	ResponseMappingTemplate MappingTemplate `json:"responseMappingTemplate"`
+	ResponseMappingTemplate MappingTemplate `json:"responseMappingTemplate" yaml:"responseMappingTemplate"`
 	// The data source this resolver is using.
 	// Experimental.
-	DataSource BaseDataSource `json:"dataSource"`
+	DataSource BaseDataSource `json:"dataSource" yaml:"dataSource"`
 	// The API this resolver is attached to.
 	// Experimental.
-	Api IGraphqlApi `json:"api"`
+	Api IGraphqlApi `json:"api" yaml:"api"`
 }
 
 // The Schema for a GraphQL Api.
@@ -7301,7 +7301,7 @@ type SchemaOptions struct {
 	// configured, then the schema will be generated from an
 	// existing file from disk.
 	// Experimental.
-	FilePath *string `json:"filePath"`
+	FilePath *string `json:"filePath" yaml:"filePath"`
 }
 
 // Utility class to allow assigning a value or an auto-generated id to a sort key.
@@ -7536,7 +7536,7 @@ func (u *jsiiProxy_UnionType) ToString() *string {
 type UnionTypeOptions struct {
 	// the object types for this union type.
 	// Experimental.
-	Definition *[]IIntermediateType `json:"definition"`
+	Definition *[]IIntermediateType `json:"definition" yaml:"definition"`
 }
 
 // Configuration for Cognito user-pools in AppSync.
@@ -7547,13 +7547,13 @@ type UnionTypeOptions struct {
 type UserPoolConfig struct {
 	// The Cognito user pool to use as identity source.
 	// Experimental.
-	UserPool awscognito.IUserPool `json:"userPool"`
+	UserPool awscognito.IUserPool `json:"userPool" yaml:"userPool"`
 	// the optional app id regex.
 	// Experimental.
-	AppIdClientRegex *string `json:"appIdClientRegex"`
+	AppIdClientRegex *string `json:"appIdClientRegex" yaml:"appIdClientRegex"`
 	// Default auth action.
 	// Experimental.
-	DefaultAction UserPoolDefaultAction `json:"defaultAction"`
+	DefaultAction UserPoolDefaultAction `json:"defaultAction" yaml:"defaultAction"`
 }
 
 // enum with all possible values for Cognito user-pool default actions.

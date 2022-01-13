@@ -157,19 +157,19 @@ type BlockPublicAccessOptions struct {
 	// Whether to block public ACLs.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-options
 	//
-	BlockPublicAcls *bool `json:"blockPublicAcls"`
+	BlockPublicAcls *bool `json:"blockPublicAcls" yaml:"blockPublicAcls"`
 	// Whether to block public policy.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-options
 	//
-	BlockPublicPolicy *bool `json:"blockPublicPolicy"`
+	BlockPublicPolicy *bool `json:"blockPublicPolicy" yaml:"blockPublicPolicy"`
 	// Whether to ignore public ACLs.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-options
 	//
-	IgnorePublicAcls *bool `json:"ignorePublicAcls"`
+	IgnorePublicAcls *bool `json:"ignorePublicAcls" yaml:"ignorePublicAcls"`
 	// Whether to restrict public access.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-options
 	//
-	RestrictPublicBuckets *bool `json:"restrictPublicBuckets"`
+	RestrictPublicBuckets *bool `json:"restrictPublicBuckets" yaml:"restrictPublicBuckets"`
 }
 
 // An S3 bucket with associated policy objects.
@@ -1088,37 +1088,37 @@ const (
 //
 type BucketAttributes struct {
 	// The account this existing bucket belongs to.
-	Account *string `json:"account"`
+	Account *string `json:"account" yaml:"account"`
 	// The ARN of the bucket.
 	//
 	// At least one of bucketArn or bucketName must be
 	// defined in order to initialize a bucket ref.
-	BucketArn *string `json:"bucketArn"`
+	BucketArn *string `json:"bucketArn" yaml:"bucketArn"`
 	// The domain name of the bucket.
-	BucketDomainName *string `json:"bucketDomainName"`
+	BucketDomainName *string `json:"bucketDomainName" yaml:"bucketDomainName"`
 	// The IPv6 DNS name of the specified bucket.
-	BucketDualStackDomainName *string `json:"bucketDualStackDomainName"`
+	BucketDualStackDomainName *string `json:"bucketDualStackDomainName" yaml:"bucketDualStackDomainName"`
 	// The name of the bucket.
 	//
 	// If the underlying value of ARN is a string, the
 	// name will be parsed from the ARN. Otherwise, the name is optional, but
 	// some features that require the bucket name such as auto-creating a bucket
 	// policy, won't work.
-	BucketName *string `json:"bucketName"`
+	BucketName *string `json:"bucketName" yaml:"bucketName"`
 	// The regional domain name of the specified bucket.
-	BucketRegionalDomainName *string `json:"bucketRegionalDomainName"`
+	BucketRegionalDomainName *string `json:"bucketRegionalDomainName" yaml:"bucketRegionalDomainName"`
 	// The format of the website URL of the bucket.
 	//
 	// This should be true for
 	// regions launched since 2014.
-	BucketWebsiteNewUrlFormat *bool `json:"bucketWebsiteNewUrlFormat"`
+	BucketWebsiteNewUrlFormat *bool `json:"bucketWebsiteNewUrlFormat" yaml:"bucketWebsiteNewUrlFormat"`
 	// The website URL of the bucket (if static web hosting is enabled).
-	BucketWebsiteUrl *string `json:"bucketWebsiteUrl"`
-	EncryptionKey awskms.IKey `json:"encryptionKey"`
+	BucketWebsiteUrl *string `json:"bucketWebsiteUrl" yaml:"bucketWebsiteUrl"`
+	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
 	// If this bucket has been configured for static website hosting.
-	IsWebsite *bool `json:"isWebsite"`
+	IsWebsite *bool `json:"isWebsite" yaml:"isWebsite"`
 	// The region this existing bucket is in.
-	Region *string `json:"region"`
+	Region *string `json:"region" yaml:"region"`
 }
 
 // Represents an S3 Bucket.
@@ -1925,13 +1925,13 @@ const (
 //
 type BucketMetrics struct {
 	// The ID used to identify the metrics configuration.
-	Id *string `json:"id"`
+	Id *string `json:"id" yaml:"id"`
 	// The prefix that an object must have to be included in the metrics results.
-	Prefix *string `json:"prefix"`
+	Prefix *string `json:"prefix" yaml:"prefix"`
 	// Specifies a list of tag filters to use as a metrics configuration filter.
 	//
 	// The metrics configuration includes only objects that meet the filter's criteria.
-	TagFilters *map[string]interface{} `json:"tagFilters"`
+	TagFilters *map[string]interface{} `json:"tagFilters" yaml:"tagFilters"`
 }
 
 // Represents the properties of a notification destination.
@@ -1940,11 +1940,11 @@ type BucketMetrics struct {
 //
 type BucketNotificationDestinationConfig struct {
 	// The ARN of the destination (i.e. Lambda, SNS, SQS).
-	Arn *string `json:"arn"`
+	Arn *string `json:"arn" yaml:"arn"`
 	// The notification type.
-	Type BucketNotificationDestinationType `json:"type"`
+	Type BucketNotificationDestinationType `json:"type" yaml:"type"`
 	// Any additional dependencies that should be resolved before the bucket notification can be configured (for example, the SNS Topic Policy resource).
-	Dependencies *[]constructs.IDependable `json:"dependencies"`
+	Dependencies *[]constructs.IDependable `json:"dependencies" yaml:"dependencies"`
 }
 
 // Supported types of notification destinations.
@@ -2177,16 +2177,16 @@ func (b *jsiiProxy_BucketPolicy) ToString() *string {
 //
 type BucketPolicyProps struct {
 	// The Amazon S3 bucket that the policy applies to.
-	Bucket IBucket `json:"bucket"`
+	Bucket IBucket `json:"bucket" yaml:"bucket"`
 	// Policy to apply when the policy is removed from this stack.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 }
 
 // TODO: EXAMPLE
 //
 type BucketProps struct {
 	// Specifies a canned ACL that grants predefined permissions to the bucket.
-	AccessControl BucketAccessControl `json:"accessControl"`
+	AccessControl BucketAccessControl `json:"accessControl" yaml:"accessControl"`
 	// Whether all objects should be automatically deleted when the bucket is removed from the stack or when the stack is deleted.
 	//
 	// Requires the `removalPolicy` to be set to `RemovalPolicy.DESTROY`.
@@ -2195,84 +2195,84 @@ type BucketProps struct {
 	// switching this to `false` in a CDK version *before* `1.126.0` will lead to
 	// all objects in the bucket being deleted. Be sure to update your bucket resources
 	// by deploying with CDK version `1.126.0` or later **before** switching this value to `false`.
-	AutoDeleteObjects *bool `json:"autoDeleteObjects"`
+	AutoDeleteObjects *bool `json:"autoDeleteObjects" yaml:"autoDeleteObjects"`
 	// The block public access configuration of this bucket.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html
 	//
-	BlockPublicAccess BlockPublicAccess `json:"blockPublicAccess"`
+	BlockPublicAccess BlockPublicAccess `json:"blockPublicAccess" yaml:"blockPublicAccess"`
 	// Specifies whether Amazon S3 should use an S3 Bucket Key with server-side encryption using KMS (SSE-KMS) for new objects in the bucket.
 	//
 	// Only relevant, when Encryption is set to {@link BucketEncryption.KMS}
-	BucketKeyEnabled *bool `json:"bucketKeyEnabled"`
+	BucketKeyEnabled *bool `json:"bucketKeyEnabled" yaml:"bucketKeyEnabled"`
 	// Physical name of this bucket.
-	BucketName *string `json:"bucketName"`
+	BucketName *string `json:"bucketName" yaml:"bucketName"`
 	// The CORS configuration of this bucket.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors.html
 	//
-	Cors *[]*CorsRule `json:"cors"`
+	Cors *[]*CorsRule `json:"cors" yaml:"cors"`
 	// The kind of server-side encryption to apply to this bucket.
 	//
 	// If you choose KMS, you can specify a KMS key via `encryptionKey`. If
 	// encryption key is not specified, a key will automatically be created.
-	Encryption BucketEncryption `json:"encryption"`
+	Encryption BucketEncryption `json:"encryption" yaml:"encryption"`
 	// External KMS key to use for bucket encryption.
 	//
 	// The 'encryption' property must be either not specified or set to "Kms".
 	// An error will be emitted if encryption is set to "Unencrypted" or
 	// "Managed".
-	EncryptionKey awskms.IKey `json:"encryptionKey"`
+	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
 	// Enforces SSL for requests.
 	//
 	// S3.5 of the AWS Foundational Security Best Practices Regarding S3.
 	// See: https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-ssl-requests-only.html
 	//
-	EnforceSSL *bool `json:"enforceSSL"`
+	EnforceSSL *bool `json:"enforceSSL" yaml:"enforceSSL"`
 	// Whether this bucket should send notifications to Amazon EventBridge or not.
-	EventBridgeEnabled *bool `json:"eventBridgeEnabled"`
+	EventBridgeEnabled *bool `json:"eventBridgeEnabled" yaml:"eventBridgeEnabled"`
 	// Inteligent Tiering Configurations.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/userguide/intelligent-tiering.html
 	//
-	IntelligentTieringConfigurations *[]*IntelligentTieringConfiguration `json:"intelligentTieringConfigurations"`
+	IntelligentTieringConfigurations *[]*IntelligentTieringConfiguration `json:"intelligentTieringConfigurations" yaml:"intelligentTieringConfigurations"`
 	// The inventory configuration of the bucket.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html
 	//
-	Inventories *[]*Inventory `json:"inventories"`
+	Inventories *[]*Inventory `json:"inventories" yaml:"inventories"`
 	// Rules that define how Amazon S3 manages objects during their lifetime.
-	LifecycleRules *[]*LifecycleRule `json:"lifecycleRules"`
+	LifecycleRules *[]*LifecycleRule `json:"lifecycleRules" yaml:"lifecycleRules"`
 	// The metrics configuration of this bucket.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metricsconfiguration.html
 	//
-	Metrics *[]*BucketMetrics `json:"metrics"`
+	Metrics *[]*BucketMetrics `json:"metrics" yaml:"metrics"`
 	// The objectOwnership of the bucket.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html
 	//
-	ObjectOwnership ObjectOwnership `json:"objectOwnership"`
+	ObjectOwnership ObjectOwnership `json:"objectOwnership" yaml:"objectOwnership"`
 	// Grants public read access to all objects in the bucket.
 	//
 	// Similar to calling `bucket.grantPublicAccess()`
-	PublicReadAccess *bool `json:"publicReadAccess"`
+	PublicReadAccess *bool `json:"publicReadAccess" yaml:"publicReadAccess"`
 	// Policy to apply when the bucket is removed from this stack.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 	// Destination bucket for the server access logs.
-	ServerAccessLogsBucket IBucket `json:"serverAccessLogsBucket"`
+	ServerAccessLogsBucket IBucket `json:"serverAccessLogsBucket" yaml:"serverAccessLogsBucket"`
 	// Optional log file prefix to use for the bucket's access logs.
 	//
 	// If defined without "serverAccessLogsBucket", enables access logs to current bucket with this prefix.
-	ServerAccessLogsPrefix *string `json:"serverAccessLogsPrefix"`
+	ServerAccessLogsPrefix *string `json:"serverAccessLogsPrefix" yaml:"serverAccessLogsPrefix"`
 	// Whether this bucket should have transfer acceleration turned on or not.
-	TransferAcceleration *bool `json:"transferAcceleration"`
+	TransferAcceleration *bool `json:"transferAcceleration" yaml:"transferAcceleration"`
 	// Whether this bucket should have versioning turned on or not.
-	Versioned *bool `json:"versioned"`
+	Versioned *bool `json:"versioned" yaml:"versioned"`
 	// The name of the error document (e.g. "404.html") for the website. `websiteIndexDocument` must also be set if this is set.
-	WebsiteErrorDocument *string `json:"websiteErrorDocument"`
+	WebsiteErrorDocument *string `json:"websiteErrorDocument" yaml:"websiteErrorDocument"`
 	// The name of the index document (e.g. "index.html") for the website. Enables static website hosting for this bucket.
-	WebsiteIndexDocument *string `json:"websiteIndexDocument"`
+	WebsiteIndexDocument *string `json:"websiteIndexDocument" yaml:"websiteIndexDocument"`
 	// Specifies the redirect behavior of all requests to a website endpoint of a bucket.
 	//
 	// If you specify this property, you can't specify "websiteIndexDocument", "websiteErrorDocument" nor , "websiteRoutingRules".
-	WebsiteRedirect *RedirectTarget `json:"websiteRedirect"`
+	WebsiteRedirect *RedirectTarget `json:"websiteRedirect" yaml:"websiteRedirect"`
 	// Rules that define when a redirect is applied and the redirect behavior.
-	WebsiteRoutingRules *[]*RoutingRule `json:"websiteRoutingRules"`
+	WebsiteRoutingRules *[]*RoutingRule `json:"websiteRoutingRules" yaml:"websiteRoutingRules"`
 }
 
 // A CloudFormation `AWS::S3::AccessPoint`.
@@ -2907,25 +2907,25 @@ type CfnAccessPoint_PublicAccessBlockConfigurationProperty struct {
 	// - PUT Bucket calls fail if the request includes a public ACL.
 	//
 	// Enabling this setting doesn't affect existing policies or ACLs.
-	BlockPublicAcls interface{} `json:"blockPublicAcls"`
+	BlockPublicAcls interface{} `json:"blockPublicAcls" yaml:"blockPublicAcls"`
 	// Specifies whether Amazon S3 should block public bucket policies for this bucket.
 	//
 	// Setting this element to `TRUE` causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access.
 	//
 	// Enabling this setting doesn't affect existing bucket policies.
-	BlockPublicPolicy interface{} `json:"blockPublicPolicy"`
+	BlockPublicPolicy interface{} `json:"blockPublicPolicy" yaml:"blockPublicPolicy"`
 	// Specifies whether Amazon S3 should ignore public ACLs for this bucket and objects in this bucket.
 	//
 	// Setting this element to `TRUE` causes Amazon S3 to ignore all public ACLs on this bucket and objects in this bucket.
 	//
 	// Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
-	IgnorePublicAcls interface{} `json:"ignorePublicAcls"`
+	IgnorePublicAcls interface{} `json:"ignorePublicAcls" yaml:"ignorePublicAcls"`
 	// Specifies whether Amazon S3 should restrict public bucket policies for this bucket.
 	//
 	// Setting this element to `TRUE` restricts access to this bucket to only AWS service principals and authorized users within this account if the bucket has a public policy.
 	//
 	// Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
-	RestrictPublicBuckets interface{} `json:"restrictPublicBuckets"`
+	RestrictPublicBuckets interface{} `json:"restrictPublicBuckets" yaml:"restrictPublicBuckets"`
 }
 
 // The Virtual Private Cloud (VPC) configuration for this access point.
@@ -2934,7 +2934,7 @@ type CfnAccessPoint_PublicAccessBlockConfigurationProperty struct {
 //
 type CfnAccessPoint_VpcConfigurationProperty struct {
 	// If this field is specified, the access point will only allow connections from the specified VPC ID.
-	VpcId *string `json:"vpcId"`
+	VpcId *string `json:"vpcId" yaml:"vpcId"`
 }
 
 // Properties for defining a `CfnAccessPoint`.
@@ -2943,21 +2943,21 @@ type CfnAccessPoint_VpcConfigurationProperty struct {
 //
 type CfnAccessPointProps struct {
 	// The name of the bucket associated with this access point.
-	Bucket *string `json:"bucket"`
+	Bucket *string `json:"bucket" yaml:"bucket"`
 	// The name of this access point.
 	//
 	// If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the access point name.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The access point policy associated with this access point.
-	Policy interface{} `json:"policy"`
+	Policy interface{} `json:"policy" yaml:"policy"`
 	// The container element for a bucket's policy status.
-	PolicyStatus interface{} `json:"policyStatus"`
+	PolicyStatus interface{} `json:"policyStatus" yaml:"policyStatus"`
 	// The PublicAccessBlock configuration that you want to apply to this Amazon S3 bucket.
 	//
 	// You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see [The Meaning of "Public"](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status) in the *Amazon S3 User Guide* .
-	PublicAccessBlockConfiguration interface{} `json:"publicAccessBlockConfiguration"`
+	PublicAccessBlockConfiguration interface{} `json:"publicAccessBlockConfiguration" yaml:"publicAccessBlockConfiguration"`
 	// The Virtual Private Cloud (VPC) configuration for this access point, if one exists.
-	VpcConfiguration interface{} `json:"vpcConfiguration"`
+	VpcConfiguration interface{} `json:"vpcConfiguration" yaml:"vpcConfiguration"`
 }
 
 // A CloudFormation `AWS::S3::Bucket`.
@@ -3870,7 +3870,7 @@ func (c *jsiiProxy_CfnBucket) ValidateProperties(_properties interface{}) {
 //
 type CfnBucket_AbortIncompleteMultipartUploadProperty struct {
 	// Specifies the number of days after which Amazon S3 stops an incomplete multipart upload.
-	DaysAfterInitiation *float64 `json:"daysAfterInitiation"`
+	DaysAfterInitiation *float64 `json:"daysAfterInitiation" yaml:"daysAfterInitiation"`
 }
 
 // Configures the transfer acceleration state for an Amazon S3 bucket.
@@ -3881,7 +3881,7 @@ type CfnBucket_AbortIncompleteMultipartUploadProperty struct {
 //
 type CfnBucket_AccelerateConfigurationProperty struct {
 	// Specifies the transfer acceleration status of the bucket.
-	AccelerationStatus *string `json:"accelerationStatus"`
+	AccelerationStatus *string `json:"accelerationStatus" yaml:"accelerationStatus"`
 }
 
 // Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS account that owns the destination bucket.
@@ -3894,7 +3894,7 @@ type CfnBucket_AccessControlTranslationProperty struct {
 	// Specifies the replica ownership.
 	//
 	// For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) in the *Amazon S3 API Reference* .
-	Owner *string `json:"owner"`
+	Owner *string `json:"owner" yaml:"owner"`
 }
 
 // Specifies the configuration and any analyses for the analytics filter of an Amazon S3 bucket.
@@ -3903,15 +3903,15 @@ type CfnBucket_AccessControlTranslationProperty struct {
 //
 type CfnBucket_AnalyticsConfigurationProperty struct {
 	// The ID that identifies the analytics configuration.
-	Id *string `json:"id"`
+	Id *string `json:"id" yaml:"id"`
 	// Contains data related to access patterns to be collected and made available to analyze the tradeoffs between different storage classes.
-	StorageClassAnalysis interface{} `json:"storageClassAnalysis"`
+	StorageClassAnalysis interface{} `json:"storageClassAnalysis" yaml:"storageClassAnalysis"`
 	// The prefix that an object must have to be included in the analytics results.
-	Prefix *string `json:"prefix"`
+	Prefix *string `json:"prefix" yaml:"prefix"`
 	// The tags to use when evaluating an analytics filter.
 	//
 	// The analytics only includes objects that meet the filter's criteria. If no filter is specified, all of the contents of the bucket are included in the analysis.
-	TagFilters interface{} `json:"tagFilters"`
+	TagFilters interface{} `json:"tagFilters" yaml:"tagFilters"`
 }
 
 // Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed keys (SSE-S3) or AWS KMS-managed keys (SSE-KMS) bucket.
@@ -3922,7 +3922,7 @@ type CfnBucket_AnalyticsConfigurationProperty struct {
 //
 type CfnBucket_BucketEncryptionProperty struct {
 	// Specifies the default server-side-encryption configuration.
-	ServerSideEncryptionConfiguration interface{} `json:"serverSideEncryptionConfiguration"`
+	ServerSideEncryptionConfiguration interface{} `json:"serverSideEncryptionConfiguration" yaml:"serverSideEncryptionConfiguration"`
 }
 
 // Describes the cross-origin access configuration for objects in an Amazon S3 bucket.
@@ -3935,7 +3935,7 @@ type CfnBucket_CorsConfigurationProperty struct {
 	// A set of origins and methods (cross-origin access that you want to allow).
 	//
 	// You can add up to 100 rules to the configuration.
-	CorsRules interface{} `json:"corsRules"`
+	CorsRules interface{} `json:"corsRules" yaml:"corsRules"`
 }
 
 // Specifies a cross-origin access rule for an Amazon S3 bucket.
@@ -3946,21 +3946,21 @@ type CfnBucket_CorsRuleProperty struct {
 	// An HTTP method that you allow the origin to run.
 	//
 	// *Allowed values* : `GET` | `PUT` | `HEAD` | `POST` | `DELETE`
-	AllowedMethods *[]*string `json:"allowedMethods"`
+	AllowedMethods *[]*string `json:"allowedMethods" yaml:"allowedMethods"`
 	// One or more origins you want customers to be able to access the bucket from.
-	AllowedOrigins *[]*string `json:"allowedOrigins"`
+	AllowedOrigins *[]*string `json:"allowedOrigins" yaml:"allowedOrigins"`
 	// Headers that are specified in the `Access-Control-Request-Headers` header.
 	//
 	// These headers are allowed in a preflight OPTIONS request. In response to any preflight OPTIONS request, Amazon S3 returns any requested headers that are allowed.
-	AllowedHeaders *[]*string `json:"allowedHeaders"`
+	AllowedHeaders *[]*string `json:"allowedHeaders" yaml:"allowedHeaders"`
 	// One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript `XMLHttpRequest` object).
-	ExposedHeaders *[]*string `json:"exposedHeaders"`
+	ExposedHeaders *[]*string `json:"exposedHeaders" yaml:"exposedHeaders"`
 	// A unique identifier for this rule.
 	//
 	// The value must be no more than 255 characters.
-	Id *string `json:"id"`
+	Id *string `json:"id" yaml:"id"`
 	// The time in seconds that your browser is to cache the preflight response for the specified resource.
-	MaxAge *float64 `json:"maxAge"`
+	MaxAge *float64 `json:"maxAge" yaml:"maxAge"`
 }
 
 // Specifies how data related to the storage class analysis for an Amazon S3 bucket should be exported.
@@ -3969,11 +3969,11 @@ type CfnBucket_CorsRuleProperty struct {
 //
 type CfnBucket_DataExportProperty struct {
 	// The place to store the data for an analysis.
-	Destination interface{} `json:"destination"`
+	Destination interface{} `json:"destination" yaml:"destination"`
 	// The version of the output schema to use when exporting data.
 	//
 	// Must be `V_1` .
-	OutputSchemaVersion *string `json:"outputSchemaVersion"`
+	OutputSchemaVersion *string `json:"outputSchemaVersion" yaml:"outputSchemaVersion"`
 }
 
 // The container element for specifying the default Object Lock retention settings for new objects placed in the specified bucket.
@@ -3987,15 +3987,15 @@ type CfnBucket_DefaultRetentionProperty struct {
 	// The number of days that you want to specify for the default retention period.
 	//
 	// If Object Lock is turned on, you must specify `Mode` and specify either `Days` or `Years` .
-	Days *float64 `json:"days"`
+	Days *float64 `json:"days" yaml:"days"`
 	// The default Object Lock retention mode you want to apply to new objects placed in the specified bucket.
 	//
 	// If Object Lock is turned on, you must specify `Mode` and specify either `Days` or `Years` .
-	Mode *string `json:"mode"`
+	Mode *string `json:"mode" yaml:"mode"`
 	// The number of years that you want to specify for the default retention period.
 	//
 	// If Object Lock is turned on, you must specify `Mode` and specify either `Days` or `Years` .
-	Years *float64 `json:"years"`
+	Years *float64 `json:"years" yaml:"years"`
 }
 
 // Specifies whether Amazon S3 replicates delete markers.
@@ -4012,7 +4012,7 @@ type CfnBucket_DeleteMarkerReplicationProperty struct {
 	// Indicates whether to replicate delete markers.
 	//
 	// Disabled by default.
-	Status *string `json:"status"`
+	Status *string `json:"status" yaml:"status"`
 }
 
 // Specifies information about where to publish analysis or configuration results for an Amazon S3 bucket.
@@ -4021,21 +4021,21 @@ type CfnBucket_DeleteMarkerReplicationProperty struct {
 //
 type CfnBucket_DestinationProperty struct {
 	// The Amazon Resource Name (ARN) of the bucket to which data is exported.
-	BucketArn *string `json:"bucketArn"`
+	BucketArn *string `json:"bucketArn" yaml:"bucketArn"`
 	// Specifies the file format used when exporting data to Amazon S3.
 	//
 	// *Allowed values* : `CSV` | `ORC` | `Parquet`
-	Format *string `json:"format"`
+	Format *string `json:"format" yaml:"format"`
 	// The account ID that owns the destination S3 bucket.
 	//
 	// If no account ID is provided, the owner is not validated before exporting data.
 	//
 	// > Although this value is optional, we strongly recommend that you set it to help prevent problems if the destination bucket ownership changes.
-	BucketAccountId *string `json:"bucketAccountId"`
+	BucketAccountId *string `json:"bucketAccountId" yaml:"bucketAccountId"`
 	// The prefix to use when exporting data.
 	//
 	// The prefix is prepended to all results.
-	Prefix *string `json:"prefix"`
+	Prefix *string `json:"prefix" yaml:"prefix"`
 }
 
 // Specifies encryption-related information for an Amazon S3 bucket that is a destination for replicated objects.
@@ -4046,7 +4046,7 @@ type CfnBucket_EncryptionConfigurationProperty struct {
 	// Specifies the ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket.
 	//
 	// Amazon S3 uses this key to encrypt replica objects. Amazon S3 only supports symmetric, customer managed KMS keys. For more information, see [Using symmetric and asymmetric keys](https://docs.aws.amazon.com//kms/latest/developerguide/symmetric-asymmetric.html) in the *AWS Key Management Service Developer Guide* .
-	ReplicaKmsKeyId *string `json:"replicaKmsKeyId"`
+	ReplicaKmsKeyId *string `json:"replicaKmsKeyId" yaml:"replicaKmsKeyId"`
 }
 
 // Amazon S3 can send events to Amazon EventBridge whenever certain events happen in your bucket, see [Using EventBridge](https://docs.aws.amazon.com/AmazonS3/latest/userguide/EventBridge.html) in the *Amazon S3 User Guide* .
@@ -4057,7 +4057,7 @@ type CfnBucket_EncryptionConfigurationProperty struct {
 //
 type CfnBucket_EventBridgeConfigurationProperty struct {
 	// Enables delivery of events to Amazon EventBridge.
-	EventBridgeEnabled interface{} `json:"eventBridgeEnabled"`
+	EventBridgeEnabled interface{} `json:"eventBridgeEnabled" yaml:"eventBridgeEnabled"`
 }
 
 // Specifies the Amazon S3 object key name to filter on and whether to filter on the suffix or prefix of the key name.
@@ -4068,9 +4068,9 @@ type CfnBucket_FilterRuleProperty struct {
 	// The object key name prefix or suffix identifying one or more objects to which the filtering rule applies.
 	//
 	// The maximum length is 1,024 characters. Overlapping prefixes and suffixes are not supported. For more information, see [Configuring Event Notifications](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html) in the *Amazon S3 User Guide* .
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The value that the filter searches for in object key names.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // Specifies the S3 Intelligent-Tiering configuration for an Amazon S3 bucket.
@@ -4081,19 +4081,19 @@ type CfnBucket_FilterRuleProperty struct {
 //
 type CfnBucket_IntelligentTieringConfigurationProperty struct {
 	// The ID used to identify the S3 Intelligent-Tiering configuration.
-	Id *string `json:"id"`
+	Id *string `json:"id" yaml:"id"`
 	// Specifies the status of the configuration.
-	Status *string `json:"status"`
+	Status *string `json:"status" yaml:"status"`
 	// Specifies a list of S3 Intelligent-Tiering storage class tiers in the configuration.
 	//
 	// At least one tier must be defined in the list. At most, you can specify two tiers in the list, one for each available AccessTier: `ARCHIVE_ACCESS` and `DEEP_ARCHIVE_ACCESS` .
 	//
 	// > You only need Intelligent Tiering Configuration enabled on a bucket if you want to automatically move objects stored in the Intelligent-Tiering storage class to Archive Access or Deep Archive Access tiers.
-	Tierings interface{} `json:"tierings"`
+	Tierings interface{} `json:"tierings" yaml:"tierings"`
 	// An object key name prefix that identifies the subset of objects to which the rule applies.
-	Prefix *string `json:"prefix"`
+	Prefix *string `json:"prefix" yaml:"prefix"`
 	// A container for a key-value pair.
-	TagFilters interface{} `json:"tagFilters"`
+	TagFilters interface{} `json:"tagFilters" yaml:"tagFilters"`
 }
 
 // Specifies the inventory configuration for an Amazon S3 bucket.
@@ -4104,27 +4104,27 @@ type CfnBucket_IntelligentTieringConfigurationProperty struct {
 //
 type CfnBucket_InventoryConfigurationProperty struct {
 	// Contains information about where to publish the inventory results.
-	Destination interface{} `json:"destination"`
+	Destination interface{} `json:"destination" yaml:"destination"`
 	// Specifies whether the inventory is enabled or disabled.
 	//
 	// If set to `True` , an inventory list is generated. If set to `False` , no inventory list is generated.
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 	// The ID used to identify the inventory configuration.
-	Id *string `json:"id"`
+	Id *string `json:"id" yaml:"id"`
 	// Object versions to include in the inventory list.
 	//
 	// If set to `All` , the list includes all the object versions, which adds the version-related fields `VersionId` , `IsLatest` , and `DeleteMarker` to the list. If set to `Current` , the list does not contain these version-related fields.
-	IncludedObjectVersions *string `json:"includedObjectVersions"`
+	IncludedObjectVersions *string `json:"includedObjectVersions" yaml:"includedObjectVersions"`
 	// Specifies the schedule for generating inventory results.
 	//
 	// *Allowed values* : `Daily` | `Weekly`
-	ScheduleFrequency *string `json:"scheduleFrequency"`
+	ScheduleFrequency *string `json:"scheduleFrequency" yaml:"scheduleFrequency"`
 	// Contains the optional fields that are included in the inventory results.
 	//
 	// *Valid values* : `Size | LastModifiedDate | StorageClass | ETag | IsMultipartUploaded | ReplicationStatus | EncryptionStatus | ObjectLockRetainUntilDate | ObjectLockMode | ObjectLockLegalHoldStatus | IntelligentTieringAccessTier | BucketKeyStatus`
-	OptionalFields *[]*string `json:"optionalFields"`
+	OptionalFields *[]*string `json:"optionalFields" yaml:"optionalFields"`
 	// Specifies the inventory filter prefix.
-	Prefix *string `json:"prefix"`
+	Prefix *string `json:"prefix" yaml:"prefix"`
 }
 
 // Describes the AWS Lambda functions to invoke and the events for which to invoke them.
@@ -4135,13 +4135,13 @@ type CfnBucket_LambdaConfigurationProperty struct {
 	// The Amazon S3 bucket event for which to invoke the AWS Lambda function.
 	//
 	// For more information, see [Supported Event Types](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html) in the *Amazon S3 User Guide* .
-	Event *string `json:"event"`
+	Event *string `json:"event" yaml:"event"`
 	// The Amazon Resource Name (ARN) of the AWS Lambda function that Amazon S3 invokes when the specified event type occurs.
-	Function *string `json:"function"`
+	Function *string `json:"function" yaml:"function"`
 	// The filtering rules that determine which objects invoke the AWS Lambda function.
 	//
 	// For example, you can create a filter so that only image files with a `.jpg` extension invoke the function when they are added to the Amazon S3 bucket.
-	Filter interface{} `json:"filter"`
+	Filter interface{} `json:"filter" yaml:"filter"`
 }
 
 // Specifies the lifecycle configuration for objects in an Amazon S3 bucket.
@@ -4152,7 +4152,7 @@ type CfnBucket_LambdaConfigurationProperty struct {
 //
 type CfnBucket_LifecycleConfigurationProperty struct {
 	// A lifecycle rule for individual objects in an Amazon S3 bucket.
-	Rules interface{} `json:"rules"`
+	Rules interface{} `json:"rules" yaml:"rules"`
 }
 
 // Describes where logs are stored and the prefix that Amazon S3 assigns to all log object keys for a bucket.
@@ -4167,11 +4167,11 @@ type CfnBucket_LoggingConfigurationProperty struct {
 	// The name of the bucket where Amazon S3 should store server access log files.
 	//
 	// You can store log files in any bucket that you own. By default, logs are stored in the bucket where the `LoggingConfiguration` property is defined.
-	DestinationBucketName *string `json:"destinationBucketName"`
+	DestinationBucketName *string `json:"destinationBucketName" yaml:"destinationBucketName"`
 	// A prefix for all log object keys.
 	//
 	// If you store log files from multiple Amazon S3 buckets in a single bucket, you can use a prefix to distinguish which log files came from which bucket.
-	LogFilePrefix *string `json:"logFilePrefix"`
+	LogFilePrefix *string `json:"logFilePrefix" yaml:"logFilePrefix"`
 }
 
 // Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket.
@@ -4184,17 +4184,17 @@ type CfnBucket_MetricsConfigurationProperty struct {
 	// The ID used to identify the metrics configuration.
 	//
 	// This can be any value you choose that helps you identify your metrics configuration.
-	Id *string `json:"id"`
+	Id *string `json:"id" yaml:"id"`
 	// The access point that was used while performing operations on the object.
 	//
 	// The metrics configuration only includes objects that meet the filter's criteria.
-	AccessPointArn *string `json:"accessPointArn"`
+	AccessPointArn *string `json:"accessPointArn" yaml:"accessPointArn"`
 	// The prefix that an object must have to be included in the metrics results.
-	Prefix *string `json:"prefix"`
+	Prefix *string `json:"prefix" yaml:"prefix"`
 	// Specifies a list of tag filters to use as a metrics configuration filter.
 	//
 	// The metrics configuration includes only objects that meet the filter's criteria.
-	TagFilters interface{} `json:"tagFilters"`
+	TagFilters interface{} `json:"tagFilters" yaml:"tagFilters"`
 }
 
 // A container specifying replication metrics-related settings enabling replication metrics and events.
@@ -4203,9 +4203,9 @@ type CfnBucket_MetricsConfigurationProperty struct {
 //
 type CfnBucket_MetricsProperty struct {
 	// Specifies whether the replication metrics are enabled.
-	Status *string `json:"status"`
+	Status *string `json:"status" yaml:"status"`
 	// A container specifying the time threshold for emitting the `s3:Replication:OperationMissedThreshold` event.
-	EventThreshold interface{} `json:"eventThreshold"`
+	EventThreshold interface{} `json:"eventThreshold" yaml:"eventThreshold"`
 }
 
 // Specifies when noncurrent object versions expire.
@@ -4218,11 +4218,11 @@ type CfnBucket_NoncurrentVersionExpirationProperty struct {
 	// Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action.
 	//
 	// For information about the noncurrent days calculations, see [How Amazon S3 Calculates When an Object Became Noncurrent](https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations) in the *Amazon S3 User Guide* .
-	NoncurrentDays *float64 `json:"noncurrentDays"`
+	NoncurrentDays *float64 `json:"noncurrentDays" yaml:"noncurrentDays"`
 	// Specifies how many noncurrent versions Amazon S3 will retain.
 	//
 	// If there are this many more recent noncurrent versions, Amazon S3 will take the associated action. For more information about noncurrent versions, see [Lifecycle configuration elements](https://docs.aws.amazon.com/AmazonS3/latest/userguide/intro-lifecycle-rules.html) in the *Amazon S3 User Guide* .
-	NewerNoncurrentVersions *float64 `json:"newerNoncurrentVersions"`
+	NewerNoncurrentVersions *float64 `json:"newerNoncurrentVersions" yaml:"newerNoncurrentVersions"`
 }
 
 // Container for the transition rule that describes when noncurrent objects transition to the `STANDARD_IA` , `ONEZONE_IA` , `INTELLIGENT_TIERING` , `GLACIER_IR` , `GLACIER` , or `DEEP_ARCHIVE` storage class.
@@ -4233,15 +4233,15 @@ type CfnBucket_NoncurrentVersionExpirationProperty struct {
 //
 type CfnBucket_NoncurrentVersionTransitionProperty struct {
 	// The class of storage used to store the object.
-	StorageClass *string `json:"storageClass"`
+	StorageClass *string `json:"storageClass" yaml:"storageClass"`
 	// Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action.
 	//
 	// For information about the noncurrent days calculations, see [How Amazon S3 Calculates How Long an Object Has Been Noncurrent](https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations) in the *Amazon S3 User Guide* .
-	TransitionInDays *float64 `json:"transitionInDays"`
+	TransitionInDays *float64 `json:"transitionInDays" yaml:"transitionInDays"`
 	// Specifies how many noncurrent versions Amazon S3 will retain.
 	//
 	// If there are this many more recent noncurrent versions, Amazon S3 will take the associated action. For more information about noncurrent versions, see [Lifecycle configuration elements](https://docs.aws.amazon.com/AmazonS3/latest/userguide/intro-lifecycle-rules.html) in the *Amazon S3 User Guide* .
-	NewerNoncurrentVersions *float64 `json:"newerNoncurrentVersions"`
+	NewerNoncurrentVersions *float64 `json:"newerNoncurrentVersions" yaml:"newerNoncurrentVersions"`
 }
 
 // Describes the notification configuration for an Amazon S3 bucket.
@@ -4258,13 +4258,13 @@ type CfnBucket_NoncurrentVersionTransitionProperty struct {
 //
 type CfnBucket_NotificationConfigurationProperty struct {
 	// Enables delivery of events to Amazon EventBridge.
-	EventBridgeConfiguration interface{} `json:"eventBridgeConfiguration"`
+	EventBridgeConfiguration interface{} `json:"eventBridgeConfiguration" yaml:"eventBridgeConfiguration"`
 	// Describes the AWS Lambda functions to invoke and the events for which to invoke them.
-	LambdaConfigurations interface{} `json:"lambdaConfigurations"`
+	LambdaConfigurations interface{} `json:"lambdaConfigurations" yaml:"lambdaConfigurations"`
 	// The Amazon Simple Queue Service queues to publish messages to and the events for which to publish messages.
-	QueueConfigurations interface{} `json:"queueConfigurations"`
+	QueueConfigurations interface{} `json:"queueConfigurations" yaml:"queueConfigurations"`
 	// The topic to which notifications are sent and the events for which notifications are generated.
-	TopicConfigurations interface{} `json:"topicConfigurations"`
+	TopicConfigurations interface{} `json:"topicConfigurations" yaml:"topicConfigurations"`
 }
 
 // Specifies object key name filtering rules.
@@ -4275,7 +4275,7 @@ type CfnBucket_NotificationConfigurationProperty struct {
 //
 type CfnBucket_NotificationFilterProperty struct {
 	// A container for object key name prefix and suffix filtering rules.
-	S3Key interface{} `json:"s3Key"`
+	S3Key interface{} `json:"s3Key" yaml:"s3Key"`
 }
 
 // Places an Object Lock configuration on the specified bucket.
@@ -4288,11 +4288,11 @@ type CfnBucket_ObjectLockConfigurationProperty struct {
 	// Indicates whether this bucket has an Object Lock configuration enabled.
 	//
 	// Enable `ObjectLockEnabled` when you apply `ObjectLockConfiguration` to a bucket.
-	ObjectLockEnabled *string `json:"objectLockEnabled"`
+	ObjectLockEnabled *string `json:"objectLockEnabled" yaml:"objectLockEnabled"`
 	// Specifies the Object Lock rule for the specified object.
 	//
 	// Enable the this rule when you apply `ObjectLockConfiguration` to a bucket. If Object Lock is turned on, bucket settings require both `Mode` and a period of either `Days` or `Years` . You cannot specify `Days` and `Years` at the same time. For more information, see [ObjectLockRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-objectlockrule.html) and [DefaultRetention](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-defaultretention.html) .
-	Rule interface{} `json:"rule"`
+	Rule interface{} `json:"rule" yaml:"rule"`
 }
 
 // Specifies the Object Lock rule for the specified object.
@@ -4305,7 +4305,7 @@ type CfnBucket_ObjectLockRuleProperty struct {
 	// The default Object Lock retention mode and period that you want to apply to new objects placed in the specified bucket.
 	//
 	// If Object Lock is turned on, bucket settings require both `Mode` and a period of either `Days` or `Years` . You cannot specify `Days` and `Years` at the same time. For more information about allowable values for mode and period, see [DefaultRetention](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-defaultretention.html) .
-	DefaultRetention interface{} `json:"defaultRetention"`
+	DefaultRetention interface{} `json:"defaultRetention" yaml:"defaultRetention"`
 }
 
 // Specifies the container element for Object Ownership rules.
@@ -4316,7 +4316,7 @@ type CfnBucket_ObjectLockRuleProperty struct {
 //
 type CfnBucket_OwnershipControlsProperty struct {
 	// Specifies the container element for Object Ownership rules.
-	Rules interface{} `json:"rules"`
+	Rules interface{} `json:"rules" yaml:"rules"`
 }
 
 // Specifies an Object Ownership rule.
@@ -4329,7 +4329,7 @@ type CfnBucket_OwnershipControlsRuleProperty struct {
 	// Specifies an Object Ownership rule.
 	//
 	// *Allowed values* : `BucketOwnerEnforced` | `ObjectWriter` | `BucketOwnerPreferred`
-	ObjectOwnership *string `json:"objectOwnership"`
+	ObjectOwnership *string `json:"objectOwnership" yaml:"objectOwnership"`
 }
 
 // The PublicAccessBlock configuration that you want to apply to this Amazon S3 bucket.
@@ -4348,25 +4348,25 @@ type CfnBucket_PublicAccessBlockConfigurationProperty struct {
 	// - PUT Bucket calls fail if the request includes a public ACL.
 	//
 	// Enabling this setting doesn't affect existing policies or ACLs.
-	BlockPublicAcls interface{} `json:"blockPublicAcls"`
+	BlockPublicAcls interface{} `json:"blockPublicAcls" yaml:"blockPublicAcls"`
 	// Specifies whether Amazon S3 should block public bucket policies for this bucket.
 	//
 	// Setting this element to `TRUE` causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access.
 	//
 	// Enabling this setting doesn't affect existing bucket policies.
-	BlockPublicPolicy interface{} `json:"blockPublicPolicy"`
+	BlockPublicPolicy interface{} `json:"blockPublicPolicy" yaml:"blockPublicPolicy"`
 	// Specifies whether Amazon S3 should ignore public ACLs for this bucket and objects in this bucket.
 	//
 	// Setting this element to `TRUE` causes Amazon S3 to ignore all public ACLs on this bucket and objects in this bucket.
 	//
 	// Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
-	IgnorePublicAcls interface{} `json:"ignorePublicAcls"`
+	IgnorePublicAcls interface{} `json:"ignorePublicAcls" yaml:"ignorePublicAcls"`
 	// Specifies whether Amazon S3 should restrict public bucket policies for this bucket.
 	//
 	// Setting this element to `TRUE` restricts access to this bucket to only AWS service principals and authorized users within this account if the bucket has a public policy.
 	//
 	// Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
-	RestrictPublicBuckets interface{} `json:"restrictPublicBuckets"`
+	RestrictPublicBuckets interface{} `json:"restrictPublicBuckets" yaml:"restrictPublicBuckets"`
 }
 
 // Specifies the configuration for publishing messages to an Amazon Simple Queue Service (Amazon SQS) queue when Amazon S3 detects specified events.
@@ -4377,15 +4377,15 @@ type CfnBucket_QueueConfigurationProperty struct {
 	// The Amazon S3 bucket event about which you want to publish messages to Amazon SQS.
 	//
 	// For more information, see [Supported Event Types](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html) in the *Amazon S3 User Guide* .
-	Event *string `json:"event"`
+	Event *string `json:"event" yaml:"event"`
 	// The Amazon Resource Name (ARN) of the Amazon SQS queue to which Amazon S3 publishes a message when it detects events of the specified type.
 	//
 	// FIFO queues are not allowed when enabling an SQS queue as the event notification destination.
-	Queue *string `json:"queue"`
+	Queue *string `json:"queue" yaml:"queue"`
 	// The filtering rules that determine which objects trigger notifications.
 	//
 	// For example, you can create a filter so that Amazon S3 sends notifications only when image files with a `.jpg` extension are added to the bucket.
-	Filter interface{} `json:"filter"`
+	Filter interface{} `json:"filter" yaml:"filter"`
 }
 
 // Specifies the redirect behavior of all requests to a website endpoint of an Amazon S3 bucket.
@@ -4394,11 +4394,11 @@ type CfnBucket_QueueConfigurationProperty struct {
 //
 type CfnBucket_RedirectAllRequestsToProperty struct {
 	// Name of the host where requests are redirected.
-	HostName *string `json:"hostName"`
+	HostName *string `json:"hostName" yaml:"hostName"`
 	// Protocol to use when redirecting requests.
 	//
 	// The default is the protocol that is used in the original request.
-	Protocol *string `json:"protocol"`
+	Protocol *string `json:"protocol" yaml:"protocol"`
 }
 
 // Specifies how requests are redirected.
@@ -4409,27 +4409,27 @@ type CfnBucket_RedirectAllRequestsToProperty struct {
 //
 type CfnBucket_RedirectRuleProperty struct {
 	// The host name to use in the redirect request.
-	HostName *string `json:"hostName"`
+	HostName *string `json:"hostName" yaml:"hostName"`
 	// The HTTP redirect code to use on the response.
 	//
 	// Not required if one of the siblings is present.
-	HttpRedirectCode *string `json:"httpRedirectCode"`
+	HttpRedirectCode *string `json:"httpRedirectCode" yaml:"httpRedirectCode"`
 	// Protocol to use when redirecting requests.
 	//
 	// The default is the protocol that is used in the original request.
-	Protocol *string `json:"protocol"`
+	Protocol *string `json:"protocol" yaml:"protocol"`
 	// The object key prefix to use in the redirect request.
 	//
 	// For example, to redirect requests for all pages with prefix `docs/` (objects in the `docs/` folder) to `documents/` , you can set a condition block with `KeyPrefixEquals` set to `docs/` and in the Redirect set `ReplaceKeyPrefixWith` to `/documents` . Not required if one of the siblings is present. Can be present only if `ReplaceKeyWith` is not provided.
 	//
 	// > Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints) .
-	ReplaceKeyPrefixWith *string `json:"replaceKeyPrefixWith"`
+	ReplaceKeyPrefixWith *string `json:"replaceKeyPrefixWith" yaml:"replaceKeyPrefixWith"`
 	// The specific object key to use in the redirect request.
 	//
 	// For example, redirect request to `error.html` . Not required if one of the siblings is present. Can be present only if `ReplaceKeyPrefixWith` is not provided.
 	//
 	// > Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints) .
-	ReplaceKeyWith *string `json:"replaceKeyWith"`
+	ReplaceKeyWith *string `json:"replaceKeyWith" yaml:"replaceKeyWith"`
 }
 
 // A filter that you can specify for selection for modifications on replicas.
@@ -4440,7 +4440,7 @@ type CfnBucket_ReplicaModificationsProperty struct {
 	// Specifies whether Amazon S3 replicates modifications on replicas.
 	//
 	// *Allowed values* : `Enabled` | `Disabled`
-	Status *string `json:"status"`
+	Status *string `json:"status" yaml:"status"`
 }
 
 // A container for replication rules.
@@ -4453,11 +4453,11 @@ type CfnBucket_ReplicationConfigurationProperty struct {
 	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that Amazon S3 assumes when replicating objects.
 	//
 	// For more information, see [How to Set Up Replication](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-how-setup.html) in the *Amazon S3 User Guide* .
-	Role *string `json:"role"`
+	Role *string `json:"role" yaml:"role"`
 	// A container for one or more replication rules.
 	//
 	// A replication configuration must have at least one rule and can contain a maximum of 1,000 rules.
-	Rules interface{} `json:"rules"`
+	Rules interface{} `json:"rules" yaml:"rules"`
 }
 
 // A container for information about the replication destination and its configurations including enabling the S3 Replication Time Control (S3 RTC).
@@ -4466,31 +4466,31 @@ type CfnBucket_ReplicationConfigurationProperty struct {
 //
 type CfnBucket_ReplicationDestinationProperty struct {
 	// The Amazon Resource Name (ARN) of the bucket where you want Amazon S3 to store the results.
-	Bucket *string `json:"bucket"`
+	Bucket *string `json:"bucket" yaml:"bucket"`
 	// Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS account that owns the destination bucket.
 	//
 	// If this is not specified in the replication configuration, the replicas are owned by same AWS account that owns the source object.
-	AccessControlTranslation interface{} `json:"accessControlTranslation"`
+	AccessControlTranslation interface{} `json:"accessControlTranslation" yaml:"accessControlTranslation"`
 	// Destination bucket owner account ID.
 	//
 	// In a cross-account scenario, if you direct Amazon S3 to change replica ownership to the AWS account that owns the destination bucket by specifying the `AccessControlTranslation` property, this is the account ID of the destination bucket owner. For more information, see [Cross-Region Replication Additional Configuration: Change Replica Owner](https://docs.aws.amazon.com/AmazonS3/latest/dev/crr-change-owner.html) in the *Amazon S3 User Guide* .
 	//
 	// If you specify the `AccessControlTranslation` property, the `Account` property is required.
-	Account *string `json:"account"`
+	Account *string `json:"account" yaml:"account"`
 	// Specifies encryption-related information.
-	EncryptionConfiguration interface{} `json:"encryptionConfiguration"`
+	EncryptionConfiguration interface{} `json:"encryptionConfiguration" yaml:"encryptionConfiguration"`
 	// A container specifying replication metrics-related settings enabling replication metrics and events.
-	Metrics interface{} `json:"metrics"`
+	Metrics interface{} `json:"metrics" yaml:"metrics"`
 	// A container specifying S3 Replication Time Control (S3 RTC), including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated.
 	//
 	// Must be specified together with a `Metrics` block.
-	ReplicationTime interface{} `json:"replicationTime"`
+	ReplicationTime interface{} `json:"replicationTime" yaml:"replicationTime"`
 	// The storage class to use when replicating objects, such as S3 Standard or reduced redundancy.
 	//
 	// By default, Amazon S3 uses the storage class of the source object to create the object replica.
 	//
 	// For valid values, see the `StorageClass` element of the [PUT Bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) action in the *Amazon S3 API Reference* .
-	StorageClass *string `json:"storageClass"`
+	StorageClass *string `json:"storageClass" yaml:"storageClass"`
 }
 
 // A container for specifying rule filters.
@@ -4506,9 +4506,9 @@ type CfnBucket_ReplicationDestinationProperty struct {
 //
 type CfnBucket_ReplicationRuleAndOperatorProperty struct {
 	// An object key name prefix that identifies the subset of objects to which the rule applies.
-	Prefix *string `json:"prefix"`
+	Prefix *string `json:"prefix" yaml:"prefix"`
 	// An array of tags containing key and value pairs.
-	TagFilters interface{} `json:"tagFilters"`
+	TagFilters interface{} `json:"tagFilters" yaml:"tagFilters"`
 }
 
 // A filter that identifies the subset of objects to which the replication rule applies.
@@ -4524,15 +4524,15 @@ type CfnBucket_ReplicationRuleFilterProperty struct {
 	//
 	// - If you specify both a `Prefix` and a `TagFilter` , wrap these filters in an `And` tag.
 	// - If you specify a filter based on multiple tags, wrap the `TagFilter` elements in an `And` tag.
-	And interface{} `json:"and"`
+	And interface{} `json:"and" yaml:"and"`
 	// An object key name prefix that identifies the subset of objects to which the rule applies.
 	//
 	// > Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints) .
-	Prefix *string `json:"prefix"`
+	Prefix *string `json:"prefix" yaml:"prefix"`
 	// A container for specifying a tag key and value.
 	//
 	// The rule applies only to objects that have the tag in their tag set.
-	TagFilter interface{} `json:"tagFilter"`
+	TagFilter interface{} `json:"tagFilter" yaml:"tagFilter"`
 }
 
 // Specifies which Amazon S3 objects to replicate and where to store the replicas.
@@ -4541,9 +4541,9 @@ type CfnBucket_ReplicationRuleFilterProperty struct {
 //
 type CfnBucket_ReplicationRuleProperty struct {
 	// A container for information about the replication destination and its configurations including enabling the S3 Replication Time Control (S3 RTC).
-	Destination interface{} `json:"destination"`
+	Destination interface{} `json:"destination" yaml:"destination"`
 	// Specifies whether the rule is enabled.
-	Status *string `json:"status"`
+	Status *string `json:"status" yaml:"status"`
 	// Specifies whether Amazon S3 replicates delete markers.
 	//
 	// If you specify a `Filter` in your replication configuration, you must also include a `DeleteMarkerReplication` element. If your `Filter` includes a `Tag` element, the `DeleteMarkerReplication` `Status` must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config) .
@@ -4551,31 +4551,31 @@ type CfnBucket_ReplicationRuleProperty struct {
 	// For more information about delete marker replication, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-marker-replication.html) .
 	//
 	// > If you are using an earlier version of the replication configuration, Amazon S3 handles replication of delete markers differently. For more information, see [Backward Compatibility](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations) .
-	DeleteMarkerReplication interface{} `json:"deleteMarkerReplication"`
+	DeleteMarkerReplication interface{} `json:"deleteMarkerReplication" yaml:"deleteMarkerReplication"`
 	// A filter that identifies the subset of objects to which the replication rule applies.
 	//
 	// A `Filter` must specify exactly one `Prefix` , `TagFilter` , or an `And` child element. The use of the filter field indicates this is a V2 replication configuration. V1 does not have this field.
-	Filter interface{} `json:"filter"`
+	Filter interface{} `json:"filter" yaml:"filter"`
 	// A unique identifier for the rule.
 	//
 	// The maximum value is 255 characters. If you don't specify a value, AWS CloudFormation generates a random ID. When using a V2 replication configuration this property is capitalized as "ID".
-	Id *string `json:"id"`
+	Id *string `json:"id" yaml:"id"`
 	// An object key name prefix that identifies the object or objects to which the rule applies.
 	//
 	// The maximum prefix length is 1,024 characters. To include all objects in a bucket, specify an empty string.
 	//
 	// > Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints) .
-	Prefix *string `json:"prefix"`
+	Prefix *string `json:"prefix" yaml:"prefix"`
 	// The priority indicates which rule has precedence whenever two or more replication rules conflict.
 	//
 	// Amazon S3 will attempt to replicate objects according to all replication rules. However, if there are two or more rules with the same destination bucket, then objects will be replicated according to the rule with the highest priority. The higher the number, the higher the priority.
 	//
 	// For more information, see [Replication](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html) in the *Amazon S3 User Guide* .
-	Priority *float64 `json:"priority"`
+	Priority *float64 `json:"priority" yaml:"priority"`
 	// A container that describes additional filters for identifying the source objects that you want to replicate.
 	//
 	// You can choose to enable or disable the replication of these objects.
-	SourceSelectionCriteria interface{} `json:"sourceSelectionCriteria"`
+	SourceSelectionCriteria interface{} `json:"sourceSelectionCriteria" yaml:"sourceSelectionCriteria"`
 }
 
 // A container specifying S3 Replication Time Control (S3 RTC) related information, including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated.
@@ -4586,9 +4586,9 @@ type CfnBucket_ReplicationRuleProperty struct {
 //
 type CfnBucket_ReplicationTimeProperty struct {
 	// Specifies whether the replication time is enabled.
-	Status *string `json:"status"`
+	Status *string `json:"status" yaml:"status"`
 	// A container specifying the time by which replication should be complete for all objects and operations on objects.
-	Time interface{} `json:"time"`
+	Time interface{} `json:"time" yaml:"time"`
 }
 
 // A container specifying the time value for S3 Replication Time Control (S3 RTC) and replication metrics `EventThreshold` .
@@ -4599,7 +4599,7 @@ type CfnBucket_ReplicationTimeValueProperty struct {
 	// Contains an integer specifying time in minutes.
 	//
 	// Valid value: 15
-	Minutes *float64 `json:"minutes"`
+	Minutes *float64 `json:"minutes" yaml:"minutes"`
 }
 
 // A container for describing a condition that must be met for the specified redirect to apply.
@@ -4614,13 +4614,13 @@ type CfnBucket_RoutingRuleConditionProperty struct {
 	// In the event of an error, if the error code equals this value, then the specified redirect is applied.
 	//
 	// Required when parent element `Condition` is specified and sibling `KeyPrefixEquals` is not specified. If both are specified, then both must be true for the redirect to be applied.
-	HttpErrorCodeReturnedEquals *string `json:"httpErrorCodeReturnedEquals"`
+	HttpErrorCodeReturnedEquals *string `json:"httpErrorCodeReturnedEquals" yaml:"httpErrorCodeReturnedEquals"`
 	// The object key name prefix when the redirect is applied.
 	//
 	// For example, to redirect requests for `ExamplePage.html` , the key prefix will be `ExamplePage.html` . To redirect request for all pages with the prefix `docs/` , the key prefix will be `/docs` , which identifies all objects in the docs/ folder.
 	//
 	// Required when the parent element `Condition` is specified and sibling `HttpErrorCodeReturnedEquals` is not specified. If both conditions are specified, both must be true for the redirect to be applied.
-	KeyPrefixEquals *string `json:"keyPrefixEquals"`
+	KeyPrefixEquals *string `json:"keyPrefixEquals" yaml:"keyPrefixEquals"`
 }
 
 // Specifies the redirect behavior and when a redirect is applied.
@@ -4633,11 +4633,11 @@ type CfnBucket_RoutingRuleProperty struct {
 	// Container for redirect information.
 	//
 	// You can redirect requests to another host, to another page, or with another protocol. In the event of an error, you can specify a different error code to return.
-	RedirectRule interface{} `json:"redirectRule"`
+	RedirectRule interface{} `json:"redirectRule" yaml:"redirectRule"`
 	// A container for describing a condition that must be met for the specified redirect to apply.
 	//
 	// For example, 1. If request is for pages in the `/docs` folder, redirect to the `/documents` folder. 2. If request results in HTTP error 4xx, redirect request to another host where you might process the error.
-	RoutingRuleCondition interface{} `json:"routingRuleCondition"`
+	RoutingRuleCondition interface{} `json:"routingRuleCondition" yaml:"routingRuleCondition"`
 }
 
 // Specifies lifecycle rules for an Amazon S3 bucket.
@@ -4650,73 +4650,73 @@ type CfnBucket_RuleProperty struct {
 	// If `Enabled` , the rule is currently being applied.
 	//
 	// If `Disabled` , the rule is not currently being applied.
-	Status *string `json:"status"`
+	Status *string `json:"status" yaml:"status"`
 	// Specifies a lifecycle rule that stops incomplete multipart uploads to an Amazon S3 bucket.
 	//
 	// You must specify at least one of the following properties: `AbortIncompleteMultipartUpload` , `ExpirationDate` , `ExpirationInDays` , `NoncurrentVersionExpirationInDays` , `NoncurrentVersionTransition` , `NoncurrentVersionTransitions` , `Transition` , or `Transitions` .
-	AbortIncompleteMultipartUpload interface{} `json:"abortIncompleteMultipartUpload"`
+	AbortIncompleteMultipartUpload interface{} `json:"abortIncompleteMultipartUpload" yaml:"abortIncompleteMultipartUpload"`
 	// Indicates when objects are deleted from Amazon S3 and Amazon S3 Glacier.
 	//
 	// The date value must be in ISO 8601 format. The time is always midnight UTC. If you specify an expiration and transition time, you must use the same time unit for both properties (either in days or by date). The expiration time must also be later than the transition time.
 	//
 	// You must specify at least one of the following properties: `AbortIncompleteMultipartUpload` , `ExpirationDate` , `ExpirationInDays` , `NoncurrentVersionExpirationInDays` , `NoncurrentVersionTransition` , `NoncurrentVersionTransitions` , `Transition` , or `Transitions` .
-	ExpirationDate interface{} `json:"expirationDate"`
+	ExpirationDate interface{} `json:"expirationDate" yaml:"expirationDate"`
 	// Indicates the number of days after creation when objects are deleted from Amazon S3 and Amazon S3 Glacier.
 	//
 	// If you specify an expiration and transition time, you must use the same time unit for both properties (either in days or by date). The expiration time must also be later than the transition time.
 	//
 	// You must specify at least one of the following properties: `AbortIncompleteMultipartUpload` , `ExpirationDate` , `ExpirationInDays` , `NoncurrentVersionExpirationInDays` , `NoncurrentVersionTransition` , `NoncurrentVersionTransitions` , `Transition` , or `Transitions` .
-	ExpirationInDays *float64 `json:"expirationInDays"`
+	ExpirationInDays *float64 `json:"expirationInDays" yaml:"expirationInDays"`
 	// Indicates whether Amazon S3 will remove a delete marker without any noncurrent versions.
 	//
 	// If set to true, the delete marker will be removed if there are no noncurrent versions. This cannot be specified with `ExpirationInDays` , `ExpirationDate` , or `TagFilters` .
-	ExpiredObjectDeleteMarker interface{} `json:"expiredObjectDeleteMarker"`
+	ExpiredObjectDeleteMarker interface{} `json:"expiredObjectDeleteMarker" yaml:"expiredObjectDeleteMarker"`
 	// Unique identifier for the rule.
 	//
 	// The value can't be longer than 255 characters.
-	Id *string `json:"id"`
+	Id *string `json:"id" yaml:"id"`
 	// Specifies when noncurrent object versions expire.
 	//
 	// Upon expiration, Amazon S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that Amazon S3 delete noncurrent object versions at a specific period in the object's lifetime.
-	NoncurrentVersionExpiration interface{} `json:"noncurrentVersionExpiration"`
+	NoncurrentVersionExpiration interface{} `json:"noncurrentVersionExpiration" yaml:"noncurrentVersionExpiration"`
 	// (Deprecated.) For buckets with versioning enabled (or suspended), specifies the time, in days, between when a new version of the object is uploaded to the bucket and when old versions of the object expire. When object versions expire, Amazon S3 permanently deletes them. If you specify a transition and expiration time, the expiration time must be later than the transition time.
 	//
 	// You must specify at least one of the following properties: `AbortIncompleteMultipartUpload` , `ExpirationDate` , `ExpirationInDays` , `NoncurrentVersionExpirationInDays` , `NoncurrentVersionTransition` , `NoncurrentVersionTransitions` , `Transition` , or `Transitions` .
-	NoncurrentVersionExpirationInDays *float64 `json:"noncurrentVersionExpirationInDays"`
+	NoncurrentVersionExpirationInDays *float64 `json:"noncurrentVersionExpirationInDays" yaml:"noncurrentVersionExpirationInDays"`
 	// (Deprecated.) For buckets with versioning enabled (or suspended), specifies when non-current objects transition to a specified storage class. If you specify a transition and expiration time, the expiration time must be later than the transition time. If you specify this property, don't specify the `NoncurrentVersionTransitions` property.
 	//
 	// You must specify at least one of the following properties: `AbortIncompleteMultipartUpload` , `ExpirationDate` , `ExpirationInDays` , `NoncurrentVersionExpirationInDays` , `NoncurrentVersionTransition` , `NoncurrentVersionTransitions` , `Transition` , or `Transitions` .
-	NoncurrentVersionTransition interface{} `json:"noncurrentVersionTransition"`
+	NoncurrentVersionTransition interface{} `json:"noncurrentVersionTransition" yaml:"noncurrentVersionTransition"`
 	// For buckets with versioning enabled (or suspended), one or more transition rules that specify when non-current objects transition to a specified storage class.
 	//
 	// If you specify a transition and expiration time, the expiration time must be later than the transition time. If you specify this property, don't specify the `NoncurrentVersionTransition` property.
 	//
 	// You must specify at least one of the following properties: `AbortIncompleteMultipartUpload` , `ExpirationDate` , `ExpirationInDays` , `NoncurrentVersionExpirationInDays` , `NoncurrentVersionTransition` , `NoncurrentVersionTransitions` , `Transition` , or `Transitions` .
-	NoncurrentVersionTransitions interface{} `json:"noncurrentVersionTransitions"`
+	NoncurrentVersionTransitions interface{} `json:"noncurrentVersionTransitions" yaml:"noncurrentVersionTransitions"`
 	// Specifies the minimum object size in bytes for this rule to apply to.
 	//
 	// For more information about size based rules, see [Lifecycle configuration using size-based rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-configuration-examples.html#lc-size-rules) in the *Amazon S3 User Guide* .
-	ObjectSizeGreaterThan *float64 `json:"objectSizeGreaterThan"`
+	ObjectSizeGreaterThan *float64 `json:"objectSizeGreaterThan" yaml:"objectSizeGreaterThan"`
 	// Specifies the maximum object size in bytes for this rule to apply to.
 	//
 	// For more information about sized based rules, see [Lifecycle configuration using size-based rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-configuration-examples.html#lc-size-rules) in the *Amazon S3 User Guide* .
-	ObjectSizeLessThan *float64 `json:"objectSizeLessThan"`
+	ObjectSizeLessThan *float64 `json:"objectSizeLessThan" yaml:"objectSizeLessThan"`
 	// Object key prefix that identifies one or more objects to which this rule applies.
 	//
 	// > Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints) .
-	Prefix *string `json:"prefix"`
+	Prefix *string `json:"prefix" yaml:"prefix"`
 	// Tags to use to identify a subset of objects to which the lifecycle rule applies.
-	TagFilters interface{} `json:"tagFilters"`
+	TagFilters interface{} `json:"tagFilters" yaml:"tagFilters"`
 	// (Deprecated.) Specifies when an object transitions to a specified storage class. If you specify an expiration and transition time, you must use the same time unit for both properties (either in days or by date). The expiration time must also be later than the transition time. If you specify this property, don't specify the `Transitions` property.
 	//
 	// You must specify at least one of the following properties: `AbortIncompleteMultipartUpload` , `ExpirationDate` , `ExpirationInDays` , `NoncurrentVersionExpirationInDays` , `NoncurrentVersionTransition` , `NoncurrentVersionTransitions` , `Transition` , or `Transitions` .
-	Transition interface{} `json:"transition"`
+	Transition interface{} `json:"transition" yaml:"transition"`
 	// One or more transition rules that specify when an object transitions to a specified storage class.
 	//
 	// If you specify an expiration and transition time, you must use the same time unit for both properties (either in days or by date). The expiration time must also be later than the transition time. If you specify this property, don't specify the `Transition` property.
 	//
 	// You must specify at least one of the following properties: `AbortIncompleteMultipartUpload` , `ExpirationDate` , `ExpirationInDays` , `NoncurrentVersionExpirationInDays` , `NoncurrentVersionTransition` , `NoncurrentVersionTransitions` , `Transition` , or `Transitions` .
-	Transitions interface{} `json:"transitions"`
+	Transitions interface{} `json:"transitions" yaml:"transitions"`
 }
 
 // A container for object key name prefix and suffix filtering rules.
@@ -4727,7 +4727,7 @@ type CfnBucket_RuleProperty struct {
 //
 type CfnBucket_S3KeyFilterProperty struct {
 	// A list of containers for the key-value pair that defines the criteria for the filter rule.
-	Rules interface{} `json:"rules"`
+	Rules interface{} `json:"rules" yaml:"rules"`
 }
 
 // Describes the default server-side encryption to apply to new objects in the bucket.
@@ -4738,7 +4738,7 @@ type CfnBucket_S3KeyFilterProperty struct {
 //
 type CfnBucket_ServerSideEncryptionByDefaultProperty struct {
 	// Server-side encryption algorithm to use for the default encryption.
-	SseAlgorithm *string `json:"sseAlgorithm"`
+	SseAlgorithm *string `json:"sseAlgorithm" yaml:"sseAlgorithm"`
 	// KMS key ID to use for the default encryption. This parameter is allowed if SSEAlgorithm is aws:kms.
 	//
 	// You can specify the key ID or the Amazon Resource Name (ARN) of the CMK. However, if you are using encryption with cross-account operations, you must use a fully qualified CMK ARN. For more information, see [Using encryption for cross-account operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html#bucket-encryption-update-bucket-policy) .
@@ -4749,7 +4749,7 @@ type CfnBucket_ServerSideEncryptionByDefaultProperty struct {
 	// - Key ARN: `arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
 	//
 	// > Amazon S3 only supports symmetric KMS keys and not asymmetric KMS keys. For more information, see [Using Symmetric and Asymmetric Keys](https://docs.aws.amazon.com//kms/latest/developerguide/symmetric-asymmetric.html) in the *AWS Key Management Service Developer Guide* .
-	KmsMasterKeyId *string `json:"kmsMasterKeyId"`
+	KmsMasterKeyId *string `json:"kmsMasterKeyId" yaml:"kmsMasterKeyId"`
 }
 
 // Specifies the default server-side encryption configuration.
@@ -4762,11 +4762,11 @@ type CfnBucket_ServerSideEncryptionRuleProperty struct {
 	// Existing objects are not affected. Setting the `BucketKeyEnabled` element to `true` causes Amazon S3 to use an S3 Bucket Key. By default, S3 Bucket Key is not enabled.
 	//
 	// For more information, see [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) in the *Amazon S3 User Guide* .
-	BucketKeyEnabled interface{} `json:"bucketKeyEnabled"`
+	BucketKeyEnabled interface{} `json:"bucketKeyEnabled" yaml:"bucketKeyEnabled"`
 	// Specifies the default server-side encryption to apply to new objects in the bucket.
 	//
 	// If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.
-	ServerSideEncryptionByDefault interface{} `json:"serverSideEncryptionByDefault"`
+	ServerSideEncryptionByDefault interface{} `json:"serverSideEncryptionByDefault" yaml:"serverSideEncryptionByDefault"`
 }
 
 // A container that describes additional filters for identifying the source objects that you want to replicate.
@@ -4777,9 +4777,9 @@ type CfnBucket_ServerSideEncryptionRuleProperty struct {
 //
 type CfnBucket_SourceSelectionCriteriaProperty struct {
 	// A filter that you can specify for selection for modifications on replicas.
-	ReplicaModifications interface{} `json:"replicaModifications"`
+	ReplicaModifications interface{} `json:"replicaModifications" yaml:"replicaModifications"`
 	// A container for filter information for the selection of Amazon S3 objects encrypted with AWS KMS.
-	SseKmsEncryptedObjects interface{} `json:"sseKmsEncryptedObjects"`
+	SseKmsEncryptedObjects interface{} `json:"sseKmsEncryptedObjects" yaml:"sseKmsEncryptedObjects"`
 }
 
 // A container for filter information for the selection of S3 objects encrypted with AWS KMS.
@@ -4788,7 +4788,7 @@ type CfnBucket_SourceSelectionCriteriaProperty struct {
 //
 type CfnBucket_SseKmsEncryptedObjectsProperty struct {
 	// Specifies whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
-	Status *string `json:"status"`
+	Status *string `json:"status" yaml:"status"`
 }
 
 // Specifies data related to access patterns to be collected and made available to analyze the tradeoffs between different storage classes for an Amazon S3 bucket.
@@ -4797,7 +4797,7 @@ type CfnBucket_SseKmsEncryptedObjectsProperty struct {
 //
 type CfnBucket_StorageClassAnalysisProperty struct {
 	// Specifies how data related to the storage class analysis for an Amazon S3 bucket should be exported.
-	DataExport interface{} `json:"dataExport"`
+	DataExport interface{} `json:"dataExport" yaml:"dataExport"`
 }
 
 // Specifies tags to use to identify a subset of objects for an Amazon S3 bucket.
@@ -4806,9 +4806,9 @@ type CfnBucket_StorageClassAnalysisProperty struct {
 //
 type CfnBucket_TagFilterProperty struct {
 	// The tag key.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// The tag value.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // The S3 Intelligent-Tiering storage class is designed to optimize storage costs by automatically moving data to the most cost-effective storage access tier, without additional operational overhead.
@@ -4819,11 +4819,11 @@ type CfnBucket_TieringProperty struct {
 	// S3 Intelligent-Tiering access tier.
 	//
 	// See [Storage class for automatically optimizing frequently and infrequently accessed objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html#sc-dynamic-data-access) for a list of access tiers in the S3 Intelligent-Tiering storage class.
-	AccessTier *string `json:"accessTier"`
+	AccessTier *string `json:"accessTier" yaml:"accessTier"`
 	// The number of consecutive days of no access after which an object will be eligible to be transitioned to the corresponding tier.
 	//
 	// The minimum number of days specified for Archive Access tier must be at least 90 days and Deep Archive Access tier must be at least 180 days. The maximum can be up to 2 years (730 days).
-	Days *float64 `json:"days"`
+	Days *float64 `json:"days" yaml:"days"`
 }
 
 // A container for specifying the configuration for publication of messages to an Amazon Simple Notification Service (Amazon SNS) topic when Amazon S3 detects specified events.
@@ -4834,13 +4834,13 @@ type CfnBucket_TopicConfigurationProperty struct {
 	// The Amazon S3 bucket event about which to send notifications.
 	//
 	// For more information, see [Supported Event Types](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html) in the *Amazon S3 User Guide* .
-	Event *string `json:"event"`
+	Event *string `json:"event" yaml:"event"`
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic to which Amazon S3 publishes a message when it detects events of the specified type.
-	Topic *string `json:"topic"`
+	Topic *string `json:"topic" yaml:"topic"`
 	// The filtering rules that determine for which objects to send notifications.
 	//
 	// For example, you can create a filter so that Amazon S3 sends notifications only when image files with a `.jpg` extension are added to the bucket.
-	Filter interface{} `json:"filter"`
+	Filter interface{} `json:"filter" yaml:"filter"`
 }
 
 // Specifies when an object transitions to a specified storage class.
@@ -4851,15 +4851,15 @@ type CfnBucket_TopicConfigurationProperty struct {
 //
 type CfnBucket_TransitionProperty struct {
 	// The storage class to which you want the object to transition.
-	StorageClass *string `json:"storageClass"`
+	StorageClass *string `json:"storageClass" yaml:"storageClass"`
 	// Indicates when objects are transitioned to the specified storage class.
 	//
 	// The date value must be in ISO 8601 format. The time is always midnight UTC.
-	TransitionDate interface{} `json:"transitionDate"`
+	TransitionDate interface{} `json:"transitionDate" yaml:"transitionDate"`
 	// Indicates the number of days after creation when objects are transitioned to the specified storage class.
 	//
 	// The value must be a positive integer.
-	TransitionInDays *float64 `json:"transitionInDays"`
+	TransitionInDays *float64 `json:"transitionInDays" yaml:"transitionInDays"`
 }
 
 // Describes the versioning state of an Amazon S3 bucket.
@@ -4870,7 +4870,7 @@ type CfnBucket_TransitionProperty struct {
 //
 type CfnBucket_VersioningConfigurationProperty struct {
 	// The versioning state of the bucket.
-	Status *string `json:"status"`
+	Status *string `json:"status" yaml:"status"`
 }
 
 // Specifies website configuration parameters for an Amazon S3 bucket.
@@ -4879,15 +4879,15 @@ type CfnBucket_VersioningConfigurationProperty struct {
 //
 type CfnBucket_WebsiteConfigurationProperty struct {
 	// The name of the error document for the website.
-	ErrorDocument *string `json:"errorDocument"`
+	ErrorDocument *string `json:"errorDocument" yaml:"errorDocument"`
 	// The name of the index document for the website.
-	IndexDocument *string `json:"indexDocument"`
+	IndexDocument *string `json:"indexDocument" yaml:"indexDocument"`
 	// The redirect behavior for every request to this bucket's website endpoint.
 	//
 	// > If you specify this property, you can't specify any other property.
-	RedirectAllRequestsTo interface{} `json:"redirectAllRequestsTo"`
+	RedirectAllRequestsTo interface{} `json:"redirectAllRequestsTo" yaml:"redirectAllRequestsTo"`
 	// Rules that define when a redirect is applied and the redirect behavior.
-	RoutingRules interface{} `json:"routingRules"`
+	RoutingRules interface{} `json:"routingRules" yaml:"routingRules"`
 }
 
 // A CloudFormation `AWS::S3::BucketPolicy`.
@@ -5399,11 +5399,11 @@ func (c *jsiiProxy_CfnBucketPolicy) ValidateProperties(_properties interface{}) 
 //
 type CfnBucketPolicyProps struct {
 	// The name of the Amazon S3 bucket to which the policy applies.
-	Bucket *string `json:"bucket"`
+	Bucket *string `json:"bucket" yaml:"bucket"`
 	// A policy document containing permissions to add to the specified bucket.
 	//
 	// In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM. For more information, see the AWS::IAM::Policy [PolicyDocument](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html#cfn-iam-policy-policydocument) resource description in this guide and [Access Policy Language Overview](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html) in the *Amazon S3 User Guide* .
-	PolicyDocument interface{} `json:"policyDocument"`
+	PolicyDocument interface{} `json:"policyDocument" yaml:"policyDocument"`
 }
 
 // Properties for defining a `CfnBucket`.
@@ -5414,47 +5414,47 @@ type CfnBucketProps struct {
 	// Configures the transfer acceleration state for an Amazon S3 bucket.
 	//
 	// For more information, see [Amazon S3 Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html) in the *Amazon S3 User Guide* .
-	AccelerateConfiguration interface{} `json:"accelerateConfiguration"`
+	AccelerateConfiguration interface{} `json:"accelerateConfiguration" yaml:"accelerateConfiguration"`
 	// A canned access control list (ACL) that grants predefined permissions to the bucket.
 	//
 	// For more information about canned ACLs, see [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) in the *Amazon S3 User Guide* .
 	//
 	// Be aware that the syntax for this property differs from the information provided in the *Amazon S3 User Guide* . The AccessControl property is case-sensitive and must be one of the following values: Private, PublicRead, PublicReadWrite, AuthenticatedRead, LogDeliveryWrite, BucketOwnerRead, BucketOwnerFullControl, or AwsExecRead.
-	AccessControl *string `json:"accessControl"`
+	AccessControl *string `json:"accessControl" yaml:"accessControl"`
 	// Specifies the configuration and any analyses for the analytics filter of an Amazon S3 bucket.
-	AnalyticsConfigurations interface{} `json:"analyticsConfigurations"`
+	AnalyticsConfigurations interface{} `json:"analyticsConfigurations" yaml:"analyticsConfigurations"`
 	// Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed keys (SSE-S3) or AWS KMS-managed keys (SSE-KMS) bucket.
 	//
 	// For information about the Amazon S3 default encryption feature, see [Amazon S3 Default Encryption for S3 Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) in the *Amazon S3 User Guide* .
-	BucketEncryption interface{} `json:"bucketEncryption"`
+	BucketEncryption interface{} `json:"bucketEncryption" yaml:"bucketEncryption"`
 	// A name for the bucket.
 	//
 	// If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name. The bucket name must contain only lowercase letters, numbers, periods (.), and dashes (-) and must follow [Amazon S3 bucket restrictions and limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html) . For more information, see [Rules for naming Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules) in the *Amazon S3 User Guide* .
 	//
 	// > If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
-	BucketName *string `json:"bucketName"`
+	BucketName *string `json:"bucketName" yaml:"bucketName"`
 	// Describes the cross-origin access configuration for objects in an Amazon S3 bucket.
 	//
 	// For more information, see [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) in the *Amazon S3 User Guide* .
-	CorsConfiguration interface{} `json:"corsConfiguration"`
+	CorsConfiguration interface{} `json:"corsConfiguration" yaml:"corsConfiguration"`
 	// Defines how Amazon S3 handles Intelligent-Tiering storage.
-	IntelligentTieringConfigurations interface{} `json:"intelligentTieringConfigurations"`
+	IntelligentTieringConfigurations interface{} `json:"intelligentTieringConfigurations" yaml:"intelligentTieringConfigurations"`
 	// Specifies the inventory configuration for an Amazon S3 bucket.
 	//
 	// For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference* .
-	InventoryConfigurations interface{} `json:"inventoryConfigurations"`
+	InventoryConfigurations interface{} `json:"inventoryConfigurations" yaml:"inventoryConfigurations"`
 	// Specifies the lifecycle configuration for objects in an Amazon S3 bucket.
 	//
 	// For more information, see [Object Lifecycle Management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) in the *Amazon S3 User Guide* .
-	LifecycleConfiguration interface{} `json:"lifecycleConfiguration"`
+	LifecycleConfiguration interface{} `json:"lifecycleConfiguration" yaml:"lifecycleConfiguration"`
 	// Settings that define where logs are stored.
-	LoggingConfiguration interface{} `json:"loggingConfiguration"`
+	LoggingConfiguration interface{} `json:"loggingConfiguration" yaml:"loggingConfiguration"`
 	// Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket.
 	//
 	// If you're updating an existing metrics configuration, note that this is a full replacement of the existing metrics configuration. If you don't include the elements you want to keep, they are erased. For more information, see [PutBucketMetricsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html) .
-	MetricsConfigurations interface{} `json:"metricsConfigurations"`
+	MetricsConfigurations interface{} `json:"metricsConfigurations" yaml:"metricsConfigurations"`
 	// Configuration that defines how Amazon S3 handles bucket notifications.
-	NotificationConfiguration interface{} `json:"notificationConfiguration"`
+	NotificationConfiguration interface{} `json:"notificationConfiguration" yaml:"notificationConfiguration"`
 	// Places an Object Lock configuration on the specified bucket.
 	//
 	// The rule specified in the Object Lock configuration will be applied by default to every new object placed in the specified bucket. For more information, see [Locking Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) .
@@ -5462,31 +5462,31 @@ type CfnBucketProps struct {
 	// > - The `DefaultRetention` settings require both a mode and a period.
 	// > - The `DefaultRetention` period can be either `Days` or `Years` but you must select one. You cannot specify `Days` and `Years` at the same time.
 	// > - You can only enable Object Lock for new buckets. If you want to turn on Object Lock for an existing bucket, contact AWS Support.
-	ObjectLockConfiguration interface{} `json:"objectLockConfiguration"`
+	ObjectLockConfiguration interface{} `json:"objectLockConfiguration" yaml:"objectLockConfiguration"`
 	// Indicates whether this bucket has an Object Lock configuration enabled.
 	//
 	// Enable `ObjectLockEnabled` when you apply `ObjectLockConfiguration` to a bucket.
-	ObjectLockEnabled interface{} `json:"objectLockEnabled"`
+	ObjectLockEnabled interface{} `json:"objectLockEnabled" yaml:"objectLockEnabled"`
 	// Configuration that defines how Amazon S3 handles Object Ownership rules.
-	OwnershipControls interface{} `json:"ownershipControls"`
+	OwnershipControls interface{} `json:"ownershipControls" yaml:"ownershipControls"`
 	// Configuration that defines how Amazon S3 handles public access.
-	PublicAccessBlockConfiguration interface{} `json:"publicAccessBlockConfiguration"`
+	PublicAccessBlockConfiguration interface{} `json:"publicAccessBlockConfiguration" yaml:"publicAccessBlockConfiguration"`
 	// Configuration for replicating objects in an S3 bucket.
 	//
 	// To enable replication, you must also enable versioning by using the `VersioningConfiguration` property.
 	//
 	// Amazon S3 can store replicated objects in a single destination bucket or multiple destination buckets. The destination bucket or buckets must already exist.
-	ReplicationConfiguration interface{} `json:"replicationConfiguration"`
+	ReplicationConfiguration interface{} `json:"replicationConfiguration" yaml:"replicationConfiguration"`
 	// An arbitrary set of tags (key-value pairs) for this S3 bucket.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// Enables multiple versions of all objects in this bucket.
 	//
 	// You might enable versioning to prevent objects from being deleted or overwritten by mistake or to archive objects so that you can retrieve previous versions of them.
-	VersioningConfiguration interface{} `json:"versioningConfiguration"`
+	VersioningConfiguration interface{} `json:"versioningConfiguration" yaml:"versioningConfiguration"`
 	// Information used to configure the bucket as a static website.
 	//
 	// For more information, see [Hosting Websites on Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html) .
-	WebsiteConfiguration interface{} `json:"websiteConfiguration"`
+	WebsiteConfiguration interface{} `json:"websiteConfiguration" yaml:"websiteConfiguration"`
 }
 
 // A CloudFormation `AWS::S3::MultiRegionAccessPoint`.
@@ -6039,25 +6039,25 @@ type CfnMultiRegionAccessPoint_PublicAccessBlockConfigurationProperty struct {
 	// - PUT Bucket calls fail if the request includes a public ACL.
 	//
 	// Enabling this setting doesn't affect existing policies or ACLs.
-	BlockPublicAcls interface{} `json:"blockPublicAcls"`
+	BlockPublicAcls interface{} `json:"blockPublicAcls" yaml:"blockPublicAcls"`
 	// Specifies whether Amazon S3 should block public bucket policies for this bucket.
 	//
 	// Setting this element to `TRUE` causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access.
 	//
 	// Enabling this setting doesn't affect existing bucket policies.
-	BlockPublicPolicy interface{} `json:"blockPublicPolicy"`
+	BlockPublicPolicy interface{} `json:"blockPublicPolicy" yaml:"blockPublicPolicy"`
 	// Specifies whether Amazon S3 should ignore public ACLs for this bucket and objects in this bucket.
 	//
 	// Setting this element to `TRUE` causes Amazon S3 to ignore all public ACLs on this bucket and objects in this bucket.
 	//
 	// Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
-	IgnorePublicAcls interface{} `json:"ignorePublicAcls"`
+	IgnorePublicAcls interface{} `json:"ignorePublicAcls" yaml:"ignorePublicAcls"`
 	// Specifies whether Amazon S3 should restrict public bucket policies for this bucket.
 	//
 	// Setting this element to `TRUE` restricts access to this bucket to only AWS service principals and authorized users within this account if the bucket has a public policy.
 	//
 	// Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
-	RestrictPublicBuckets interface{} `json:"restrictPublicBuckets"`
+	RestrictPublicBuckets interface{} `json:"restrictPublicBuckets" yaml:"restrictPublicBuckets"`
 }
 
 // A bucket associated with a specific Region when creating Multi-Region Access Points.
@@ -6066,7 +6066,7 @@ type CfnMultiRegionAccessPoint_PublicAccessBlockConfigurationProperty struct {
 //
 type CfnMultiRegionAccessPoint_RegionProperty struct {
 	// The name of the associated bucket for the Region.
-	Bucket *string `json:"bucket"`
+	Bucket *string `json:"bucket" yaml:"bucket"`
 }
 
 // A CloudFormation `AWS::S3::MultiRegionAccessPointPolicy`.
@@ -6569,9 +6569,9 @@ func (c *jsiiProxy_CfnMultiRegionAccessPointPolicy) ValidateProperties(_properti
 //
 type CfnMultiRegionAccessPointPolicyProps struct {
 	// The name of the Multi-Region Access Point.
-	MrapName *string `json:"mrapName"`
+	MrapName *string `json:"mrapName" yaml:"mrapName"`
 	// The access policy associated with the Multi-Region Access Point.
-	Policy interface{} `json:"policy"`
+	Policy interface{} `json:"policy" yaml:"policy"`
 }
 
 // Properties for defining a `CfnMultiRegionAccessPoint`.
@@ -6580,13 +6580,13 @@ type CfnMultiRegionAccessPointPolicyProps struct {
 //
 type CfnMultiRegionAccessPointProps struct {
 	// A collection of the Regions and buckets associated with the Multi-Region Access Point.
-	Regions interface{} `json:"regions"`
+	Regions interface{} `json:"regions" yaml:"regions"`
 	// The name of the Multi-Region Access Point.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The PublicAccessBlock configuration that you want to apply to this Multi-Region Access Point.
 	//
 	// You can enable the configuration options in any combination. For more information about when Amazon S3 considers an object public, see [The Meaning of "Public"](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status) in the *Amazon S3 User Guide* .
-	PublicAccessBlockConfiguration interface{} `json:"publicAccessBlockConfiguration"`
+	PublicAccessBlockConfiguration interface{} `json:"publicAccessBlockConfiguration" yaml:"publicAccessBlockConfiguration"`
 }
 
 // A CloudFormation `AWS::S3::StorageLens`.
@@ -7089,9 +7089,9 @@ func (c *jsiiProxy_CfnStorageLens) ValidateProperties(_properties interface{}) {
 //
 type CfnStorageLens_AccountLevelProperty struct {
 	// This property contains the details of the account-level bucket-level configurations for Amazon S3 Storage Lens.
-	BucketLevel interface{} `json:"bucketLevel"`
+	BucketLevel interface{} `json:"bucketLevel" yaml:"bucketLevel"`
 	// This property contains the details of the account-level activity metrics for Amazon S3 Storage Lens.
-	ActivityMetrics interface{} `json:"activityMetrics"`
+	ActivityMetrics interface{} `json:"activityMetrics" yaml:"activityMetrics"`
 }
 
 // This resource contains the details of the activity metrics for Amazon S3 Storage Lens.
@@ -7100,7 +7100,7 @@ type CfnStorageLens_AccountLevelProperty struct {
 //
 type CfnStorageLens_ActivityMetricsProperty struct {
 	// A property that indicates whether the activity metrics is enabled.
-	IsEnabled interface{} `json:"isEnabled"`
+	IsEnabled interface{} `json:"isEnabled" yaml:"isEnabled"`
 }
 
 // This resource contains the details of the AWS Organization for Amazon S3 Storage Lens.
@@ -7109,7 +7109,7 @@ type CfnStorageLens_ActivityMetricsProperty struct {
 //
 type CfnStorageLens_AwsOrgProperty struct {
 	// This resource contains the ARN of the AWS Organization.
-	Arn *string `json:"arn"`
+	Arn *string `json:"arn" yaml:"arn"`
 }
 
 // A property for the bucket-level storage metrics for Amazon S3 Storage Lens.
@@ -7118,9 +7118,9 @@ type CfnStorageLens_AwsOrgProperty struct {
 //
 type CfnStorageLens_BucketLevelProperty struct {
 	// A property for the bucket-level activity metrics for Amazon S3 Storage Lens.
-	ActivityMetrics interface{} `json:"activityMetrics"`
+	ActivityMetrics interface{} `json:"activityMetrics" yaml:"activityMetrics"`
 	// A property for the bucket-level prefix-level storage metrics for S3 Storage Lens.
-	PrefixLevel interface{} `json:"prefixLevel"`
+	PrefixLevel interface{} `json:"prefixLevel" yaml:"prefixLevel"`
 }
 
 // This resource contains the details of the buckets and Regions for the Amazon S3 Storage Lens configuration.
@@ -7131,9 +7131,9 @@ type CfnStorageLens_BucketsAndRegionsProperty struct {
 	// This property contains the details of the buckets for the Amazon S3 Storage Lens configuration.
 	//
 	// This should be the bucket Amazon Resource Name(ARN). For valid values, see [Buckets ARN format here](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_Include.html#API_control_Include_Contents) in the *Amazon S3 API Reference* .
-	Buckets *[]*string `json:"buckets"`
+	Buckets *[]*string `json:"buckets" yaml:"buckets"`
 	// This property contains the details of the Regions for the S3 Storage Lens configuration.
-	Regions *[]*string `json:"regions"`
+	Regions *[]*string `json:"regions" yaml:"regions"`
 }
 
 // This resource enables the Amazon CloudWatch publishing option for S3 Storage Lens metrics.
@@ -7144,7 +7144,7 @@ type CfnStorageLens_BucketsAndRegionsProperty struct {
 //
 type CfnStorageLens_CloudWatchMetricsProperty struct {
 	// This property identifies whether the CloudWatch publishing option for S3 Storage Lens is enabled.
-	IsEnabled interface{} `json:"isEnabled"`
+	IsEnabled interface{} `json:"isEnabled" yaml:"isEnabled"`
 }
 
 // This resource contains the details of the Amazon S3 Storage Lens metrics export.
@@ -7153,9 +7153,9 @@ type CfnStorageLens_CloudWatchMetricsProperty struct {
 //
 type CfnStorageLens_DataExportProperty struct {
 	// This property enables the Amazon CloudWatch publishing option for S3 Storage Lens metrics.
-	CloudWatchMetrics interface{} `json:"cloudWatchMetrics"`
+	CloudWatchMetrics interface{} `json:"cloudWatchMetrics" yaml:"cloudWatchMetrics"`
 	// This property contains the details of the bucket where the S3 Storage Lens metrics export will be placed.
-	S3BucketDestination interface{} `json:"s3BucketDestination"`
+	S3BucketDestination interface{} `json:"s3BucketDestination" yaml:"s3BucketDestination"`
 }
 
 // This resource contains the type of server-side encryption used for Amazon S3 Storage Lens.
@@ -7173,7 +7173,7 @@ type CfnStorageLens_EncryptionProperty struct {
 //
 type CfnStorageLens_PrefixLevelProperty struct {
 	// A property for the prefix-level storage metrics for Amazon S3 Storage Lens.
-	StorageMetrics interface{} `json:"storageMetrics"`
+	StorageMetrics interface{} `json:"storageMetrics" yaml:"storageMetrics"`
 }
 
 // This resource contains the details of the prefix-level storage metrics for Amazon S3 Storage Lens.
@@ -7182,9 +7182,9 @@ type CfnStorageLens_PrefixLevelProperty struct {
 //
 type CfnStorageLens_PrefixLevelStorageMetricsProperty struct {
 	// This property identifies whether the details of the prefix-level storage metrics for S3 Storage Lens are enabled.
-	IsEnabled interface{} `json:"isEnabled"`
+	IsEnabled interface{} `json:"isEnabled" yaml:"isEnabled"`
 	// This property identifies whether the details of the prefix-level storage metrics for S3 Storage Lens are enabled.
-	SelectionCriteria interface{} `json:"selectionCriteria"`
+	SelectionCriteria interface{} `json:"selectionCriteria" yaml:"selectionCriteria"`
 }
 
 // This resource contains the details of the bucket where the Amazon S3 Storage Lens metrics export will be placed.
@@ -7193,17 +7193,17 @@ type CfnStorageLens_PrefixLevelStorageMetricsProperty struct {
 //
 type CfnStorageLens_S3BucketDestinationProperty struct {
 	// This property contains the details of the AWS account ID of the S3 Storage Lens export bucket destination.
-	AccountId *string `json:"accountId"`
+	AccountId *string `json:"accountId" yaml:"accountId"`
 	// This property contains the details of the ARN of the bucket destination of the S3 Storage Lens export.
-	Arn *string `json:"arn"`
+	Arn *string `json:"arn" yaml:"arn"`
 	// This property contains the details of the format of the S3 Storage Lens export bucket destination.
-	Format *string `json:"format"`
+	Format *string `json:"format" yaml:"format"`
 	// This property contains the details of the output schema version of the S3 Storage Lens export bucket destination.
-	OutputSchemaVersion *string `json:"outputSchemaVersion"`
+	OutputSchemaVersion *string `json:"outputSchemaVersion" yaml:"outputSchemaVersion"`
 	// This property contains the details of the encryption of the bucket destination of the Amazon S3 Storage Lens metrics export.
-	Encryption interface{} `json:"encryption"`
+	Encryption interface{} `json:"encryption" yaml:"encryption"`
 	// This property contains the details of the prefix of the bucket destination of the S3 Storage Lens export .
-	Prefix *string `json:"prefix"`
+	Prefix *string `json:"prefix" yaml:"prefix"`
 }
 
 // This resource contains the details of the Amazon S3 Storage Lens selection criteria.
@@ -7212,11 +7212,11 @@ type CfnStorageLens_S3BucketDestinationProperty struct {
 //
 type CfnStorageLens_SelectionCriteriaProperty struct {
 	// This property contains the details of the S3 Storage Lens delimiter being used.
-	Delimiter *string `json:"delimiter"`
+	Delimiter *string `json:"delimiter" yaml:"delimiter"`
 	// This property contains the details of the max depth that S3 Storage Lens will collect metrics up to.
-	MaxDepth *float64 `json:"maxDepth"`
+	MaxDepth *float64 `json:"maxDepth" yaml:"maxDepth"`
 	// This property contains the details of the minimum storage bytes percentage threshold that S3 Storage Lens will collect metrics up to.
-	MinStorageBytesPercentage *float64 `json:"minStorageBytesPercentage"`
+	MinStorageBytesPercentage *float64 `json:"minStorageBytesPercentage" yaml:"minStorageBytesPercentage"`
 }
 
 // This is the property of the Amazon S3 Storage Lens configuration.
@@ -7225,23 +7225,23 @@ type CfnStorageLens_SelectionCriteriaProperty struct {
 //
 type CfnStorageLens_StorageLensConfigurationProperty struct {
 	// This property contains the details of the account-level metrics for Amazon S3 Storage Lens configuration.
-	AccountLevel interface{} `json:"accountLevel"`
+	AccountLevel interface{} `json:"accountLevel" yaml:"accountLevel"`
 	// This property contains the details of the ID of the S3 Storage Lens configuration.
-	Id *string `json:"id"`
+	Id *string `json:"id" yaml:"id"`
 	// This property contains the details of whether the Amazon S3 Storage Lens configuration is enabled.
-	IsEnabled interface{} `json:"isEnabled"`
+	IsEnabled interface{} `json:"isEnabled" yaml:"isEnabled"`
 	// This property contains the details of the AWS Organization for the S3 Storage Lens configuration.
-	AwsOrg interface{} `json:"awsOrg"`
+	AwsOrg interface{} `json:"awsOrg" yaml:"awsOrg"`
 	// This property contains the details of this S3 Storage Lens configuration's metrics export.
-	DataExport interface{} `json:"dataExport"`
+	DataExport interface{} `json:"dataExport" yaml:"dataExport"`
 	// This property contains the details of the bucket and or Regions excluded for Amazon S3 Storage Lens configuration.
-	Exclude interface{} `json:"exclude"`
+	Exclude interface{} `json:"exclude" yaml:"exclude"`
 	// This property contains the details of the bucket and or Regions included for Amazon S3 Storage Lens configuration.
-	Include interface{} `json:"include"`
+	Include interface{} `json:"include" yaml:"include"`
 	// This property contains the details of the ARN of the S3 Storage Lens configuration.
 	//
 	// This property is read-only.
-	StorageLensArn *string `json:"storageLensArn"`
+	StorageLensArn *string `json:"storageLensArn" yaml:"storageLensArn"`
 }
 
 // Properties for defining a `CfnStorageLens`.
@@ -7250,9 +7250,9 @@ type CfnStorageLens_StorageLensConfigurationProperty struct {
 //
 type CfnStorageLensProps struct {
 	// This resource contains the details Amazon S3 Storage Lens configuration.
-	StorageLensConfiguration interface{} `json:"storageLensConfiguration"`
+	StorageLensConfiguration interface{} `json:"storageLensConfiguration" yaml:"storageLensConfiguration"`
 	// A set of tags (key–value pairs) to associate with the Storage Lens configuration.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // Specifies a cross-origin access rule for an Amazon S3 bucket.
@@ -7261,17 +7261,17 @@ type CfnStorageLensProps struct {
 //
 type CorsRule struct {
 	// An HTTP method that you allow the origin to execute.
-	AllowedMethods *[]HttpMethods `json:"allowedMethods"`
+	AllowedMethods *[]HttpMethods `json:"allowedMethods" yaml:"allowedMethods"`
 	// One or more origins you want customers to be able to access the bucket from.
-	AllowedOrigins *[]*string `json:"allowedOrigins"`
+	AllowedOrigins *[]*string `json:"allowedOrigins" yaml:"allowedOrigins"`
 	// Headers that are specified in the Access-Control-Request-Headers header.
-	AllowedHeaders *[]*string `json:"allowedHeaders"`
+	AllowedHeaders *[]*string `json:"allowedHeaders" yaml:"allowedHeaders"`
 	// One or more headers in the response that you want customers to be able to access from their applications.
-	ExposedHeaders *[]*string `json:"exposedHeaders"`
+	ExposedHeaders *[]*string `json:"exposedHeaders" yaml:"exposedHeaders"`
 	// A unique identifier for this rule.
-	Id *string `json:"id"`
+	Id *string `json:"id" yaml:"id"`
 	// The time in seconds that your browser is to cache the preflight response for the specified resource.
-	MaxAge *float64 `json:"maxAge"`
+	MaxAge *float64 `json:"maxAge" yaml:"maxAge"`
 }
 
 // Notification event types.
@@ -7908,15 +7908,15 @@ func (i *jsiiProxy_IBucketNotificationDestination) Bind(scope constructs.Constru
 //
 type IntelligentTieringConfiguration struct {
 	// Configuration name.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// When enabled, Intelligent-Tiering will automatically move objects that haven’t been accessed for a minimum of 90 days to the Archive Access tier.
-	ArchiveAccessTierTime awscdk.Duration `json:"archiveAccessTierTime"`
+	ArchiveAccessTierTime awscdk.Duration `json:"archiveAccessTierTime" yaml:"archiveAccessTierTime"`
 	// When enabled, Intelligent-Tiering will automatically move objects that haven’t been accessed for a minimum of 180 days to the Deep Archive Access tier.
-	DeepArchiveAccessTierTime awscdk.Duration `json:"deepArchiveAccessTierTime"`
+	DeepArchiveAccessTierTime awscdk.Duration `json:"deepArchiveAccessTierTime" yaml:"deepArchiveAccessTierTime"`
 	// Add a filter to limit the scope of this configuration to a single prefix.
-	Prefix *string `json:"prefix"`
+	Prefix *string `json:"prefix" yaml:"prefix"`
 	// You can limit the scope of this rule to the key value pairs added below.
-	Tags *[]*Tag `json:"tags"`
+	Tags *[]*Tag `json:"tags" yaml:"tags"`
 }
 
 // Specifies the inventory configuration of an S3 Bucket.
@@ -7927,21 +7927,21 @@ type IntelligentTieringConfiguration struct {
 //
 type Inventory struct {
 	// The destination of the inventory.
-	Destination *InventoryDestination `json:"destination"`
+	Destination *InventoryDestination `json:"destination" yaml:"destination"`
 	// Whether the inventory is enabled or disabled.
-	Enabled *bool `json:"enabled"`
+	Enabled *bool `json:"enabled" yaml:"enabled"`
 	// The format of the inventory.
-	Format InventoryFormat `json:"format"`
+	Format InventoryFormat `json:"format" yaml:"format"`
 	// Frequency at which the inventory should be generated.
-	Frequency InventoryFrequency `json:"frequency"`
+	Frequency InventoryFrequency `json:"frequency" yaml:"frequency"`
 	// If the inventory should contain all the object versions or only the current one.
-	IncludeObjectVersions InventoryObjectVersion `json:"includeObjectVersions"`
+	IncludeObjectVersions InventoryObjectVersion `json:"includeObjectVersions" yaml:"includeObjectVersions"`
 	// The inventory configuration ID.
-	InventoryId *string `json:"inventoryId"`
+	InventoryId *string `json:"inventoryId" yaml:"inventoryId"`
 	// The inventory will only include objects that meet the prefix filter criteria.
-	ObjectsPrefix *string `json:"objectsPrefix"`
+	ObjectsPrefix *string `json:"objectsPrefix" yaml:"objectsPrefix"`
 	// A list of optional fields to be included in the inventory result.
-	OptionalFields *[]*string `json:"optionalFields"`
+	OptionalFields *[]*string `json:"optionalFields" yaml:"optionalFields"`
 }
 
 // The destination of the inventory.
@@ -7950,14 +7950,14 @@ type Inventory struct {
 //
 type InventoryDestination struct {
 	// Bucket where all inventories will be saved in.
-	Bucket IBucket `json:"bucket"`
+	Bucket IBucket `json:"bucket" yaml:"bucket"`
 	// The account ID that owns the destination S3 bucket.
 	//
 	// If no account ID is provided, the owner is not validated before exporting data.
 	// It's recommended to set an account ID to prevent problems if the destination bucket ownership changes.
-	BucketOwner *string `json:"bucketOwner"`
+	BucketOwner *string `json:"bucketOwner" yaml:"bucketOwner"`
 	// The prefix to be used when saving the inventory.
-	Prefix *string `json:"prefix"`
+	Prefix *string `json:"prefix" yaml:"prefix"`
 }
 
 // All supported inventory list formats.
@@ -8002,15 +8002,15 @@ type LifecycleRule struct {
 	// rule that aborts incomplete multipart uploads to an Amazon S3 bucket.
 	// When Amazon S3 aborts a multipart upload, it deletes all parts
 	// associated with the multipart upload.
-	AbortIncompleteMultipartUploadAfter awscdk.Duration `json:"abortIncompleteMultipartUploadAfter"`
+	AbortIncompleteMultipartUploadAfter awscdk.Duration `json:"abortIncompleteMultipartUploadAfter" yaml:"abortIncompleteMultipartUploadAfter"`
 	// Whether this rule is enabled.
-	Enabled *bool `json:"enabled"`
+	Enabled *bool `json:"enabled" yaml:"enabled"`
 	// Indicates the number of days after creation when objects are deleted from Amazon S3 and Amazon Glacier.
 	//
 	// If you specify an expiration and transition time, you must use the same
 	// time unit for both properties (either in days or by date). The
 	// expiration time must also be later than the transition time.
-	Expiration awscdk.Duration `json:"expiration"`
+	Expiration awscdk.Duration `json:"expiration" yaml:"expiration"`
 	// Indicates when objects are deleted from Amazon S3 and Amazon Glacier.
 	//
 	// The date value must be in ISO 8601 format. The time is always midnight UTC.
@@ -8018,15 +8018,15 @@ type LifecycleRule struct {
 	// If you specify an expiration and transition time, you must use the same
 	// time unit for both properties (either in days or by date). The
 	// expiration time must also be later than the transition time.
-	ExpirationDate *time.Time `json:"expirationDate"`
+	ExpirationDate *time.Time `json:"expirationDate" yaml:"expirationDate"`
 	// Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions.
 	//
 	// If set to true, the delete marker will be expired.
-	ExpiredObjectDeleteMarker *bool `json:"expiredObjectDeleteMarker"`
+	ExpiredObjectDeleteMarker *bool `json:"expiredObjectDeleteMarker" yaml:"expiredObjectDeleteMarker"`
 	// A unique identifier for this rule.
 	//
 	// The value cannot be more than 255 characters.
-	Id *string `json:"id"`
+	Id *string `json:"id" yaml:"id"`
 	// Time between when a new version of the object is uploaded to the bucket and when old versions of the object expire.
 	//
 	// For buckets with versioning enabled (or suspended), specifies the time,
@@ -8035,24 +8035,24 @@ type LifecycleRule struct {
 	// expire, Amazon S3 permanently deletes them. If you specify a transition
 	// and expiration time, the expiration time must be later than the
 	// transition time.
-	NoncurrentVersionExpiration awscdk.Duration `json:"noncurrentVersionExpiration"`
+	NoncurrentVersionExpiration awscdk.Duration `json:"noncurrentVersionExpiration" yaml:"noncurrentVersionExpiration"`
 	// One or more transition rules that specify when non-current objects transition to a specified storage class.
 	//
 	// Only for for buckets with versioning enabled (or suspended).
 	//
 	// If you specify a transition and expiration time, the expiration time
 	// must be later than the transition time.
-	NoncurrentVersionTransitions *[]*NoncurrentVersionTransition `json:"noncurrentVersionTransitions"`
+	NoncurrentVersionTransitions *[]*NoncurrentVersionTransition `json:"noncurrentVersionTransitions" yaml:"noncurrentVersionTransitions"`
 	// Object key prefix that identifies one or more objects to which this rule applies.
-	Prefix *string `json:"prefix"`
+	Prefix *string `json:"prefix" yaml:"prefix"`
 	// The TagFilter property type specifies tags to use to identify a subset of objects for an Amazon S3 bucket.
-	TagFilters *map[string]interface{} `json:"tagFilters"`
+	TagFilters *map[string]interface{} `json:"tagFilters" yaml:"tagFilters"`
 	// One or more transition rules that specify when an object transitions to a specified storage class.
 	//
 	// If you specify an expiration and transition time, you must use the same
 	// time unit for both properties (either in days or by date). The
 	// expiration time must also be later than the transition time.
-	Transitions *[]*Transition `json:"transitions"`
+	Transitions *[]*Transition `json:"transitions" yaml:"transitions"`
 }
 
 // An interface that represents the location of a specific object in an S3 Bucket.
@@ -8061,11 +8061,11 @@ type LifecycleRule struct {
 //
 type Location struct {
 	// The name of the S3 Bucket the object is in.
-	BucketName *string `json:"bucketName"`
+	BucketName *string `json:"bucketName" yaml:"bucketName"`
 	// The path inside the Bucket where the object is located at.
-	ObjectKey *string `json:"objectKey"`
+	ObjectKey *string `json:"objectKey" yaml:"objectKey"`
 	// The S3 object version.
-	ObjectVersion *string `json:"objectVersion"`
+	ObjectVersion *string `json:"objectVersion" yaml:"objectVersion"`
 }
 
 // Describes when noncurrent versions transition to a specified storage class.
@@ -8074,18 +8074,22 @@ type Location struct {
 //
 type NoncurrentVersionTransition struct {
 	// The storage class to which you want the object to transition.
-	StorageClass StorageClass `json:"storageClass"`
+	StorageClass StorageClass `json:"storageClass" yaml:"storageClass"`
 	// Indicates the number of days after creation when objects are transitioned to the specified storage class.
-	TransitionAfter awscdk.Duration `json:"transitionAfter"`
+	TransitionAfter awscdk.Duration `json:"transitionAfter" yaml:"transitionAfter"`
+	// Indicates the number of noncurrent version objects to be retained.
+	//
+	// Can be up to 100 noncurrent versions retained.
+	NoncurrentVersionsToRetain *float64 `json:"noncurrentVersionsToRetain" yaml:"noncurrentVersionsToRetain"`
 }
 
 // TODO: EXAMPLE
 //
 type NotificationKeyFilter struct {
 	// S3 keys must have the specified prefix.
-	Prefix *string `json:"prefix"`
+	Prefix *string `json:"prefix" yaml:"prefix"`
 	// S3 keys must have the specified suffix.
-	Suffix *string `json:"suffix"`
+	Suffix *string `json:"suffix" yaml:"suffix"`
 }
 
 // The ObjectOwnership of the bucket.
@@ -8108,7 +8112,7 @@ const (
 //
 type OnCloudTrailBucketEventOptions struct {
 	// A description of the rule's purpose.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Additional restrictions for the event to route to the specified target.
 	//
 	// The method that generates the rule probably imposes some type of event
@@ -8116,13 +8120,13 @@ type OnCloudTrailBucketEventOptions struct {
 	// on top of that filtering.
 	// See: https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html
 	//
-	EventPattern *awsevents.EventPattern `json:"eventPattern"`
+	EventPattern *awsevents.EventPattern `json:"eventPattern" yaml:"eventPattern"`
 	// A name for the rule.
-	RuleName *string `json:"ruleName"`
+	RuleName *string `json:"ruleName" yaml:"ruleName"`
 	// The target to register for the event.
-	Target awsevents.IRuleTarget `json:"target"`
+	Target awsevents.IRuleTarget `json:"target" yaml:"target"`
 	// Only watch changes to these object paths.
-	Paths *[]*string `json:"paths"`
+	Paths *[]*string `json:"paths" yaml:"paths"`
 }
 
 // All http request methods.
@@ -8142,9 +8146,9 @@ const (
 //
 type RedirectTarget struct {
 	// Name of the host where requests are redirected.
-	HostName *string `json:"hostName"`
+	HostName *string `json:"hostName" yaml:"hostName"`
 	// Protocol to use when redirecting requests.
-	Protocol RedirectProtocol `json:"protocol"`
+	Protocol RedirectProtocol `json:"protocol" yaml:"protocol"`
 }
 
 // TODO: EXAMPLE
@@ -8220,15 +8224,15 @@ func ReplaceKey_With(keyReplacement *string) ReplaceKey {
 //
 type RoutingRule struct {
 	// Specifies a condition that must be met for the specified redirect to apply.
-	Condition *RoutingRuleCondition `json:"condition"`
+	Condition *RoutingRuleCondition `json:"condition" yaml:"condition"`
 	// The host name to use in the redirect request.
-	HostName *string `json:"hostName"`
+	HostName *string `json:"hostName" yaml:"hostName"`
 	// The HTTP redirect code to use on the response.
-	HttpRedirectCode *string `json:"httpRedirectCode"`
+	HttpRedirectCode *string `json:"httpRedirectCode" yaml:"httpRedirectCode"`
 	// Protocol to use when redirecting requests.
-	Protocol RedirectProtocol `json:"protocol"`
+	Protocol RedirectProtocol `json:"protocol" yaml:"protocol"`
 	// Specifies the object key prefix to use in the redirect request.
-	ReplaceKey ReplaceKey `json:"replaceKey"`
+	ReplaceKey ReplaceKey `json:"replaceKey" yaml:"replaceKey"`
 }
 
 // TODO: EXAMPLE
@@ -8239,11 +8243,11 @@ type RoutingRuleCondition struct {
 	// In the event of an error, if the error code equals this value, then the specified redirect is applied.
 	//
 	// If both condition properties are specified, both must be true for the redirect to be applied.
-	HttpErrorCodeReturnedEquals *string `json:"httpErrorCodeReturnedEquals"`
+	HttpErrorCodeReturnedEquals *string `json:"httpErrorCodeReturnedEquals" yaml:"httpErrorCodeReturnedEquals"`
 	// The object key name prefix when the redirect is applied.
 	//
 	// If both condition properties are specified, both must be true for the redirect to be applied.
-	KeyPrefixEquals *string `json:"keyPrefixEquals"`
+	KeyPrefixEquals *string `json:"keyPrefixEquals" yaml:"keyPrefixEquals"`
 }
 
 // Storage class to move an object to.
@@ -8380,9 +8384,9 @@ func (s *jsiiProxy_StorageClass) ToString() *string {
 //
 type Tag struct {
 	// key to e tagged.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// additional value.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // Options for creating a Transfer Acceleration URL.
@@ -8391,7 +8395,7 @@ type Tag struct {
 //
 type TransferAccelerationUrlOptions struct {
 	// Dual-stack support to connect to the bucket over IPv6.
-	DualStack *bool `json:"dualStack"`
+	DualStack *bool `json:"dualStack" yaml:"dualStack"`
 }
 
 // Describes when an object transitions to a specified storage class.
@@ -8400,13 +8404,13 @@ type TransferAccelerationUrlOptions struct {
 //
 type Transition struct {
 	// The storage class to which you want the object to transition.
-	StorageClass StorageClass `json:"storageClass"`
+	StorageClass StorageClass `json:"storageClass" yaml:"storageClass"`
 	// Indicates the number of days after creation when objects are transitioned to the specified storage class.
-	TransitionAfter awscdk.Duration `json:"transitionAfter"`
+	TransitionAfter awscdk.Duration `json:"transitionAfter" yaml:"transitionAfter"`
 	// Indicates when objects are transitioned to the specified storage class.
 	//
 	// The date value must be in ISO 8601 format. The time is always midnight UTC.
-	TransitionDate *time.Time `json:"transitionDate"`
+	TransitionDate *time.Time `json:"transitionDate" yaml:"transitionDate"`
 }
 
 // Options for creating Virtual-Hosted style URL.
@@ -8415,6 +8419,6 @@ type Transition struct {
 //
 type VirtualHostedStyleUrlOptions struct {
 	// Specifies the URL includes the region.
-	Regional *bool `json:"regional"`
+	Regional *bool `json:"regional" yaml:"regional"`
 }
 

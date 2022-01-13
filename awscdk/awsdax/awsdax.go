@@ -771,7 +771,7 @@ func (c *jsiiProxy_CfnCluster) ValidateProperties(_properties interface{}) {
 //
 type CfnCluster_SSESpecificationProperty struct {
 	// Indicates whether server-side encryption is enabled (true) or disabled (false) on the cluster.
-	SseEnabled interface{} `json:"sseEnabled"`
+	SseEnabled interface{} `json:"sseEnabled" yaml:"sseEnabled"`
 }
 
 // Properties for defining a `CfnCluster`.
@@ -782,56 +782,56 @@ type CfnClusterProps struct {
 	// A valid Amazon Resource Name (ARN) that identifies an IAM role.
 	//
 	// At runtime, DAX will assume this role and use the role's permissions to access DynamoDB on your behalf.
-	IamRoleArn *string `json:"iamRoleArn"`
+	IamRoleArn *string `json:"iamRoleArn" yaml:"iamRoleArn"`
 	// The node type for the nodes in the cluster.
 	//
 	// (All nodes in a DAX cluster are of the same type.)
-	NodeType *string `json:"nodeType"`
+	NodeType *string `json:"nodeType" yaml:"nodeType"`
 	// The number of nodes in the DAX cluster.
 	//
 	// A replication factor of 1 will create a single-node cluster, without any read replicas. For additional fault tolerance, you can create a multiple node cluster with one or more read replicas. To do this, set `ReplicationFactor` to a number between 3 (one primary and two read replicas) and 10 (one primary and nine read replicas). `If the AvailabilityZones` parameter is provided, its length must equal the `ReplicationFactor` .
 	//
 	// > AWS recommends that you have at least two read replicas per cluster.
-	ReplicationFactor *float64 `json:"replicationFactor"`
+	ReplicationFactor *float64 `json:"replicationFactor" yaml:"replicationFactor"`
 	// The Availability Zones (AZs) in which the cluster nodes will reside after the cluster has been created or updated.
 	//
 	// If provided, the length of this list must equal the `ReplicationFactor` parameter. If you omit this parameter, DAX will spread the nodes across Availability Zones for the highest availability.
-	AvailabilityZones *[]*string `json:"availabilityZones"`
+	AvailabilityZones *[]*string `json:"availabilityZones" yaml:"availabilityZones"`
 	// The encryption type of the cluster's endpoint. Available values are:.
 	//
 	// - `NONE` - The cluster's endpoint will be unencrypted.
 	// - `TLS` - The cluster's endpoint will be encrypted with Transport Layer Security, and will provide an x509 certificate for authentication.
 	//
 	// The default value is `NONE` .
-	ClusterEndpointEncryptionType *string `json:"clusterEndpointEncryptionType"`
+	ClusterEndpointEncryptionType *string `json:"clusterEndpointEncryptionType" yaml:"clusterEndpointEncryptionType"`
 	// The name of the DAX cluster.
-	ClusterName *string `json:"clusterName"`
+	ClusterName *string `json:"clusterName" yaml:"clusterName"`
 	// The description of the cluster.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications will be sent.
 	//
 	// > The Amazon SNS topic owner must be same as the DAX cluster owner.
-	NotificationTopicArn *string `json:"notificationTopicArn"`
+	NotificationTopicArn *string `json:"notificationTopicArn" yaml:"notificationTopicArn"`
 	// The parameter group to be associated with the DAX cluster.
-	ParameterGroupName *string `json:"parameterGroupName"`
+	ParameterGroupName *string `json:"parameterGroupName" yaml:"parameterGroupName"`
 	// A range of time when maintenance of DAX cluster software will be performed.
 	//
 	// For example: `sun:01:00-sun:09:00` . Cluster maintenance normally takes less than 30 minutes, and is performed automatically within the maintenance window.
-	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow"`
+	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
 	// A list of security group IDs to be assigned to each node in the DAX cluster.
 	//
 	// (Each of the security group ID is system-generated.)
 	//
 	// If this parameter is not specified, DAX assigns the default VPC security group to each node.
-	SecurityGroupIds *[]*string `json:"securityGroupIds"`
+	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
 	// Represents the settings used to enable server-side encryption on the cluster.
-	SseSpecification interface{} `json:"sseSpecification"`
+	SseSpecification interface{} `json:"sseSpecification" yaml:"sseSpecification"`
 	// The name of the subnet group to be used for the replication group.
 	//
 	// > DAX clusters can only run in an Amazon VPC environment. All of the subnets that you specify in a subnet group must exist in the same VPC.
-	SubnetGroupName *string `json:"subnetGroupName"`
+	SubnetGroupName *string `json:"subnetGroupName" yaml:"subnetGroupName"`
 	// A set of tags to associate with the DAX cluster.
-	Tags interface{} `json:"tags"`
+	Tags interface{} `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::DAX::ParameterGroup`.
@@ -1352,15 +1352,15 @@ func (c *jsiiProxy_CfnParameterGroup) ValidateProperties(_properties interface{}
 //
 type CfnParameterGroupProps struct {
 	// A description of the parameter group.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The name of the parameter group.
-	ParameterGroupName *string `json:"parameterGroupName"`
+	ParameterGroupName *string `json:"parameterGroupName" yaml:"parameterGroupName"`
 	// An array of name-value pairs for the parameters in the group.
 	//
 	// Each element in the array represents a single parameter.
 	//
 	// > `record-ttl-millis` and `query-ttl-millis` are the only supported parameter names. For more details, see [Configuring TTL Settings](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.cluster-management.html#DAX.cluster-management.custom-settings.ttl) .
-	ParameterNameValues interface{} `json:"parameterNameValues"`
+	ParameterNameValues interface{} `json:"parameterNameValues" yaml:"parameterNameValues"`
 }
 
 // A CloudFormation `AWS::DAX::SubnetGroup`.
@@ -1881,10 +1881,10 @@ func (c *jsiiProxy_CfnSubnetGroup) ValidateProperties(_properties interface{}) {
 //
 type CfnSubnetGroupProps struct {
 	// A list of VPC subnet IDs for the subnet group.
-	SubnetIds *[]*string `json:"subnetIds"`
+	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
 	// The description of the subnet group.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The name of the subnet group.
-	SubnetGroupName *string `json:"subnetGroupName"`
+	SubnetGroupName *string `json:"subnetGroupName" yaml:"subnetGroupName"`
 }
 

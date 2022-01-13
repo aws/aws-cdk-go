@@ -919,13 +919,13 @@ type CfnCluster_ApplicationProperty struct {
 	// This option is for advanced users only.
 	//
 	// This is meta information about clusters and applications that are used for testing and troubleshooting.
-	AdditionalInfo interface{} `json:"additionalInfo"`
+	AdditionalInfo interface{} `json:"additionalInfo" yaml:"additionalInfo"`
 	// Arguments for Amazon EMR to pass to the application.
-	Args *[]*string `json:"args"`
+	Args *[]*string `json:"args" yaml:"args"`
 	// The name of the application.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The version of the application.
-	Version *string `json:"version"`
+	Version *string `json:"version" yaml:"version"`
 }
 
 // `AutoScalingPolicy` is a subproperty of `InstanceGroupConfig` .
@@ -938,9 +938,9 @@ type CfnCluster_AutoScalingPolicyProperty struct {
 	// The upper and lower EC2 instance limits for an automatic scaling policy.
 	//
 	// Automatic scaling activity will not cause an instance group to grow above or below these limits.
-	Constraints interface{} `json:"constraints"`
+	Constraints interface{} `json:"constraints" yaml:"constraints"`
 	// The scale-in and scale-out rules that comprise the automatic scaling policy.
-	Rules interface{} `json:"rules"`
+	Rules interface{} `json:"rules" yaml:"rules"`
 }
 
 // `BootstrapActionConfig` is a property of `AWS::EMR::Cluster` that can be used to run bootstrap actions on EMR clusters.
@@ -951,9 +951,9 @@ type CfnCluster_AutoScalingPolicyProperty struct {
 //
 type CfnCluster_BootstrapActionConfigProperty struct {
 	// The name of the bootstrap action.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The script run by the bootstrap action.
-	ScriptBootstrapAction interface{} `json:"scriptBootstrapAction"`
+	ScriptBootstrapAction interface{} `json:"scriptBootstrapAction" yaml:"scriptBootstrapAction"`
 }
 
 // `CloudWatchAlarmDefinition` is a subproperty of the `ScalingTrigger` property, which determines when to trigger an automatic scaling activity.
@@ -964,33 +964,33 @@ type CfnCluster_BootstrapActionConfigProperty struct {
 //
 type CfnCluster_CloudWatchAlarmDefinitionProperty struct {
 	// Determines how the metric specified by `MetricName` is compared to the value specified by `Threshold` .
-	ComparisonOperator *string `json:"comparisonOperator"`
+	ComparisonOperator *string `json:"comparisonOperator" yaml:"comparisonOperator"`
 	// The name of the CloudWatch metric that is watched to determine an alarm condition.
-	MetricName *string `json:"metricName"`
+	MetricName *string `json:"metricName" yaml:"metricName"`
 	// The period, in seconds, over which the statistic is applied.
 	//
 	// EMR CloudWatch metrics are emitted every five minutes (300 seconds), so if an EMR CloudWatch metric is specified, specify `300` .
-	Period *float64 `json:"period"`
+	Period *float64 `json:"period" yaml:"period"`
 	// The value against which the specified statistic is compared.
-	Threshold *float64 `json:"threshold"`
+	Threshold *float64 `json:"threshold" yaml:"threshold"`
 	// A CloudWatch metric dimension.
-	Dimensions interface{} `json:"dimensions"`
+	Dimensions interface{} `json:"dimensions" yaml:"dimensions"`
 	// The number of periods, in five-minute increments, during which the alarm condition must exist before the alarm triggers automatic scaling activity.
 	//
 	// The default value is `1` .
-	EvaluationPeriods *float64 `json:"evaluationPeriods"`
+	EvaluationPeriods *float64 `json:"evaluationPeriods" yaml:"evaluationPeriods"`
 	// The namespace for the CloudWatch metric.
 	//
 	// The default is `AWS/ElasticMapReduce` .
-	Namespace *string `json:"namespace"`
+	Namespace *string `json:"namespace" yaml:"namespace"`
 	// The statistic to apply to the metric associated with the alarm.
 	//
 	// The default is `AVERAGE` .
-	Statistic *string `json:"statistic"`
+	Statistic *string `json:"statistic" yaml:"statistic"`
 	// The unit of measure associated with the CloudWatch metric being watched.
 	//
 	// The value specified for `Unit` must correspond to the units specified in the CloudWatch metric.
-	Unit *string `json:"unit"`
+	Unit *string `json:"unit" yaml:"unit"`
 }
 
 // The EC2 unit limits for a managed scaling policy.
@@ -1003,21 +1003,21 @@ type CfnCluster_ComputeLimitsProperty struct {
 	// The upper boundary of EC2 units.
 	//
 	// It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
-	MaximumCapacityUnits *float64 `json:"maximumCapacityUnits"`
+	MaximumCapacityUnits *float64 `json:"maximumCapacityUnits" yaml:"maximumCapacityUnits"`
 	// The lower boundary of EC2 units.
 	//
 	// It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
-	MinimumCapacityUnits *float64 `json:"minimumCapacityUnits"`
+	MinimumCapacityUnits *float64 `json:"minimumCapacityUnits" yaml:"minimumCapacityUnits"`
 	// The unit type used for specifying a managed scaling policy.
-	UnitType *string `json:"unitType"`
+	UnitType *string `json:"unitType" yaml:"unitType"`
 	// The upper boundary of EC2 units for core node type in a cluster.
 	//
 	// It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. The core units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between core and task nodes.
-	MaximumCoreCapacityUnits *float64 `json:"maximumCoreCapacityUnits"`
+	MaximumCoreCapacityUnits *float64 `json:"maximumCoreCapacityUnits" yaml:"maximumCoreCapacityUnits"`
 	// The upper boundary of On-Demand EC2 units.
 	//
 	// It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. The On-Demand units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between On-Demand and Spot Instances.
-	MaximumOnDemandCapacityUnits *float64 `json:"maximumOnDemandCapacityUnits"`
+	MaximumOnDemandCapacityUnits *float64 `json:"maximumOnDemandCapacityUnits" yaml:"maximumOnDemandCapacityUnits"`
 }
 
 // > Used only with Amazon EMR release 4.0 and later.
@@ -1028,11 +1028,11 @@ type CfnCluster_ComputeLimitsProperty struct {
 //
 type CfnCluster_ConfigurationProperty struct {
 	// The classification within a configuration.
-	Classification *string `json:"classification"`
+	Classification *string `json:"classification" yaml:"classification"`
 	// A list of additional configurations to apply within a configuration object.
-	ConfigurationProperties interface{} `json:"configurationProperties"`
+	ConfigurationProperties interface{} `json:"configurationProperties" yaml:"configurationProperties"`
 	// A list of additional configurations to apply within a configuration object.
-	Configurations interface{} `json:"configurations"`
+	Configurations interface{} `json:"configurations" yaml:"configurations"`
 }
 
 // `EbsBlockDeviceConfig` is a subproperty of the `EbsConfiguration` property type.
@@ -1043,9 +1043,9 @@ type CfnCluster_ConfigurationProperty struct {
 //
 type CfnCluster_EbsBlockDeviceConfigProperty struct {
 	// EBS volume specifications such as volume type, IOPS, and size (GiB) that will be requested for the EBS volume attached to an EC2 instance in the cluster.
-	VolumeSpecification interface{} `json:"volumeSpecification"`
+	VolumeSpecification interface{} `json:"volumeSpecification" yaml:"volumeSpecification"`
 	// Number of EBS volumes with a specific volume configuration that will be associated with every instance in the instance group.
-	VolumesPerInstance *float64 `json:"volumesPerInstance"`
+	VolumesPerInstance *float64 `json:"volumesPerInstance" yaml:"volumesPerInstance"`
 }
 
 // `EbsConfiguration` is a subproperty of `InstanceFleetConfig` or `InstanceGroupConfig` .
@@ -1056,9 +1056,9 @@ type CfnCluster_EbsBlockDeviceConfigProperty struct {
 //
 type CfnCluster_EbsConfigurationProperty struct {
 	// An array of Amazon EBS volume specifications attached to a cluster instance.
-	EbsBlockDeviceConfigs interface{} `json:"ebsBlockDeviceConfigs"`
+	EbsBlockDeviceConfigs interface{} `json:"ebsBlockDeviceConfigs" yaml:"ebsBlockDeviceConfigs"`
 	// Indicates whether an Amazon EBS volume is EBS-optimized.
-	EbsOptimized interface{} `json:"ebsOptimized"`
+	EbsOptimized interface{} `json:"ebsOptimized" yaml:"ebsOptimized"`
 }
 
 // The `HadoopJarStepConfig` property type specifies a job flow step consisting of a JAR file whose main function will be executed.
@@ -1069,17 +1069,17 @@ type CfnCluster_EbsConfigurationProperty struct {
 //
 type CfnCluster_HadoopJarStepConfigProperty struct {
 	// A path to a JAR file run during the step.
-	Jar *string `json:"jar"`
+	Jar *string `json:"jar" yaml:"jar"`
 	// A list of command line arguments passed to the JAR file's main function when executed.
-	Args *[]*string `json:"args"`
+	Args *[]*string `json:"args" yaml:"args"`
 	// The name of the main class in the specified Java file.
 	//
 	// If not specified, the JAR file should specify a Main-Class in its manifest file.
-	MainClass *string `json:"mainClass"`
+	MainClass *string `json:"mainClass" yaml:"mainClass"`
 	// A list of Java properties that are set when the step runs.
 	//
 	// You can use these properties to pass key-value pairs to your main function.
-	StepProperties interface{} `json:"stepProperties"`
+	StepProperties interface{} `json:"stepProperties" yaml:"stepProperties"`
 }
 
 // Use `InstanceFleetConfig` to define instance fleets for an EMR cluster.
@@ -1092,23 +1092,23 @@ type CfnCluster_HadoopJarStepConfigProperty struct {
 //
 type CfnCluster_InstanceFleetConfigProperty struct {
 	// The instance type configurations that define the EC2 instances in the instance fleet.
-	InstanceTypeConfigs interface{} `json:"instanceTypeConfigs"`
+	InstanceTypeConfigs interface{} `json:"instanceTypeConfigs" yaml:"instanceTypeConfigs"`
 	// The launch specification for the instance fleet.
-	LaunchSpecifications interface{} `json:"launchSpecifications"`
+	LaunchSpecifications interface{} `json:"launchSpecifications" yaml:"launchSpecifications"`
 	// The friendly name of the instance fleet.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
 	//
 	// When the instance fleet launches, Amazon EMR tries to provision On-Demand instances as specified by `InstanceTypeConfig` . Each instance configuration has a specified `WeightedCapacity` . When an On-Demand instance is provisioned, the `WeightedCapacity` units count toward the target capacity. Amazon EMR provisions instances until the target capacity is totally fulfilled, even if this results in an overage. For example, if there are 2 units remaining to fulfill capacity, and Amazon EMR can only provision an instance with a `WeightedCapacity` of 5 units, the instance is provisioned, and the target capacity is exceeded by 3 units.
 	//
 	// > If not specified or set to 0, only Spot instances are provisioned for the instance fleet using `TargetSpotCapacity` . At least one of `TargetSpotCapacity` and `TargetOnDemandCapacity` should be greater than 0. For a master instance fleet, only one of `TargetSpotCapacity` and `TargetOnDemandCapacity` can be specified, and its value must be 1.
-	TargetOnDemandCapacity *float64 `json:"targetOnDemandCapacity"`
+	TargetOnDemandCapacity *float64 `json:"targetOnDemandCapacity" yaml:"targetOnDemandCapacity"`
 	// The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
 	//
 	// When the instance fleet launches, Amazon EMR tries to provision Spot instances as specified by `InstanceTypeConfig` . Each instance configuration has a specified `WeightedCapacity` . When a Spot instance is provisioned, the `WeightedCapacity` units count toward the target capacity. Amazon EMR provisions instances until the target capacity is totally fulfilled, even if this results in an overage. For example, if there are 2 units remaining to fulfill capacity, and Amazon EMR can only provision an instance with a `WeightedCapacity` of 5 units, the instance is provisioned, and the target capacity is exceeded by 3 units.
 	//
 	// > If not specified or set to 0, only On-Demand instances are provisioned for the instance fleet. At least one of `TargetSpotCapacity` and `TargetOnDemandCapacity` should be greater than 0. For a master instance fleet, only one of `TargetSpotCapacity` and `TargetOnDemandCapacity` can be specified, and its value must be 1.
-	TargetSpotCapacity *float64 `json:"targetSpotCapacity"`
+	TargetSpotCapacity *float64 `json:"targetSpotCapacity" yaml:"targetSpotCapacity"`
 }
 
 // `InstanceFleetProvisioningSpecification` is a subproperty of `InstanceFleetConfig` .
@@ -1123,9 +1123,9 @@ type CfnCluster_InstanceFleetProvisioningSpecificationsProperty struct {
 	// The launch specification for On-Demand Instances in the instance fleet, which determines the allocation strategy.
 	//
 	// > The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions. On-Demand Instances allocation strategy is available in Amazon EMR version 5.12.1 and later.
-	OnDemandSpecification interface{} `json:"onDemandSpecification"`
+	OnDemandSpecification interface{} `json:"onDemandSpecification" yaml:"onDemandSpecification"`
 	// The launch specification for Spot Instances in the fleet, which determines the defined duration, provisioning timeout behavior, and allocation strategy.
-	SpotSpecification interface{} `json:"spotSpecification"`
+	SpotSpecification interface{} `json:"spotSpecification" yaml:"spotSpecification"`
 }
 
 // Use `InstanceGroupConfig` to define instance groups for an EMR cluster.
@@ -1136,27 +1136,27 @@ type CfnCluster_InstanceFleetProvisioningSpecificationsProperty struct {
 //
 type CfnCluster_InstanceGroupConfigProperty struct {
 	// Target number of instances for the instance group.
-	InstanceCount *float64 `json:"instanceCount"`
+	InstanceCount *float64 `json:"instanceCount" yaml:"instanceCount"`
 	// The EC2 instance type for all instances in the instance group.
-	InstanceType *string `json:"instanceType"`
+	InstanceType *string `json:"instanceType" yaml:"instanceType"`
 	// `AutoScalingPolicy` is a subproperty of the [InstanceGroupConfig](https://docs.aws.amazon.com//AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-jobflowinstancesconfig-instancegroupconfig.html) property type that specifies the constraints and rules of an automatic scaling policy in Amazon EMR . The automatic scaling policy defines how an instance group dynamically adds and terminates EC2 instances in response to the value of a CloudWatch metric. Only core and task instance groups can use automatic scaling policies. For more information, see [Using Automatic Scaling in Amazon EMR](https://docs.aws.amazon.com//emr/latest/ManagementGuide/emr-automatic-scaling.html) .
-	AutoScalingPolicy interface{} `json:"autoScalingPolicy"`
+	AutoScalingPolicy interface{} `json:"autoScalingPolicy" yaml:"autoScalingPolicy"`
 	// If specified, indicates that the instance group uses Spot Instances.
 	//
 	// This is the maximum price you are willing to pay for Spot Instances. Specify `OnDemandPrice` to set the amount equal to the On-Demand price, or specify an amount in USD.
-	BidPrice *string `json:"bidPrice"`
+	BidPrice *string `json:"bidPrice" yaml:"bidPrice"`
 	// > Amazon EMR releases 4.x or later.
 	//
 	// The list of configurations supplied for an EMR cluster instance group. You can specify a separate configuration for each instance group (master, core, and task).
-	Configurations interface{} `json:"configurations"`
+	Configurations interface{} `json:"configurations" yaml:"configurations"`
 	// The custom AMI ID to use for the provisioned instance group.
-	CustomAmiId *string `json:"customAmiId"`
+	CustomAmiId *string `json:"customAmiId" yaml:"customAmiId"`
 	// EBS configurations that will be attached to each EC2 instance in the instance group.
-	EbsConfiguration interface{} `json:"ebsConfiguration"`
+	EbsConfiguration interface{} `json:"ebsConfiguration" yaml:"ebsConfiguration"`
 	// Market type of the EC2 instances used to create a cluster node.
-	Market *string `json:"market"`
+	Market *string `json:"market" yaml:"market"`
 	// Friendly name given to the instance group.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // > The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions.
@@ -1167,25 +1167,25 @@ type CfnCluster_InstanceGroupConfigProperty struct {
 //
 type CfnCluster_InstanceTypeConfigProperty struct {
 	// An EC2 instance type, such as `m3.xlarge` .
-	InstanceType *string `json:"instanceType"`
+	InstanceType *string `json:"instanceType" yaml:"instanceType"`
 	// The bid price for each EC2 Spot Instance type as defined by `InstanceType` .
 	//
 	// Expressed in USD. If neither `BidPrice` nor `BidPriceAsPercentageOfOnDemandPrice` is provided, `BidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
-	BidPrice *string `json:"bidPrice"`
+	BidPrice *string `json:"bidPrice" yaml:"bidPrice"`
 	// The bid price, as a percentage of On-Demand price, for each EC2 Spot Instance as defined by `InstanceType` .
 	//
 	// Expressed as a number (for example, 20 specifies 20%). If neither `BidPrice` nor `BidPriceAsPercentageOfOnDemandPrice` is provided, `BidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
-	BidPriceAsPercentageOfOnDemandPrice *float64 `json:"bidPriceAsPercentageOfOnDemandPrice"`
+	BidPriceAsPercentageOfOnDemandPrice *float64 `json:"bidPriceAsPercentageOfOnDemandPrice" yaml:"bidPriceAsPercentageOfOnDemandPrice"`
 	// A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster.
-	Configurations interface{} `json:"configurations"`
+	Configurations interface{} `json:"configurations" yaml:"configurations"`
 	// The custom AMI ID to use for the instance type.
-	CustomAmiId *string `json:"customAmiId"`
+	CustomAmiId *string `json:"customAmiId" yaml:"customAmiId"`
 	// The configuration of Amazon Elastic Block Store (Amazon EBS) attached to each instance as defined by `InstanceType` .
-	EbsConfiguration interface{} `json:"ebsConfiguration"`
+	EbsConfiguration interface{} `json:"ebsConfiguration" yaml:"ebsConfiguration"`
 	// The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `InstanceFleetConfig` .
 	//
 	// This value is 1 for a master instance fleet, and must be 1 or greater for core and task instance fleets. Defaults to 1 if not specified.
-	WeightedCapacity *float64 `json:"weightedCapacity"`
+	WeightedCapacity *float64 `json:"weightedCapacity" yaml:"weightedCapacity"`
 }
 
 // `JobFlowInstancesConfig` is a property of the `AWS::EMR::Cluster` resource.
@@ -1198,49 +1198,49 @@ type CfnCluster_InstanceTypeConfigProperty struct {
 //
 type CfnCluster_JobFlowInstancesConfigProperty struct {
 	// A list of additional Amazon EC2 security group IDs for the master node.
-	AdditionalMasterSecurityGroups *[]*string `json:"additionalMasterSecurityGroups"`
+	AdditionalMasterSecurityGroups *[]*string `json:"additionalMasterSecurityGroups" yaml:"additionalMasterSecurityGroups"`
 	// A list of additional Amazon EC2 security group IDs for the core and task nodes.
-	AdditionalSlaveSecurityGroups *[]*string `json:"additionalSlaveSecurityGroups"`
+	AdditionalSlaveSecurityGroups *[]*string `json:"additionalSlaveSecurityGroups" yaml:"additionalSlaveSecurityGroups"`
 	// Describes the EC2 instances and instance configurations for the core instance fleet when using clusters with the instance fleet configuration.
-	CoreInstanceFleet interface{} `json:"coreInstanceFleet"`
+	CoreInstanceFleet interface{} `json:"coreInstanceFleet" yaml:"coreInstanceFleet"`
 	// Describes the EC2 instances and instance configurations for core instance groups when using clusters with the uniform instance group configuration.
-	CoreInstanceGroup interface{} `json:"coreInstanceGroup"`
+	CoreInstanceGroup interface{} `json:"coreInstanceGroup" yaml:"coreInstanceGroup"`
 	// The name of the EC2 key pair that can be used to connect to the master node using SSH as the user called "hadoop.".
-	Ec2KeyName *string `json:"ec2KeyName"`
+	Ec2KeyName *string `json:"ec2KeyName" yaml:"ec2KeyName"`
 	// Applies to clusters that use the uniform instance group configuration.
 	//
 	// To launch the cluster in Amazon Virtual Private Cloud (Amazon VPC), set this parameter to the identifier of the Amazon VPC subnet where you want the cluster to launch. If you do not specify this value and your account supports EC2-Classic, the cluster launches in EC2-Classic.
-	Ec2SubnetId *string `json:"ec2SubnetId"`
+	Ec2SubnetId *string `json:"ec2SubnetId" yaml:"ec2SubnetId"`
 	// Applies to clusters that use the instance fleet configuration.
 	//
 	// When multiple EC2 subnet IDs are specified, Amazon EMR evaluates them and launches instances in the optimal subnet.
 	//
 	// > The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions.
-	Ec2SubnetIds *[]*string `json:"ec2SubnetIds"`
+	Ec2SubnetIds *[]*string `json:"ec2SubnetIds" yaml:"ec2SubnetIds"`
 	// The identifier of the Amazon EC2 security group for the master node.
 	//
 	// If you specify `EmrManagedMasterSecurityGroup` , you must also specify `EmrManagedSlaveSecurityGroup` .
-	EmrManagedMasterSecurityGroup *string `json:"emrManagedMasterSecurityGroup"`
+	EmrManagedMasterSecurityGroup *string `json:"emrManagedMasterSecurityGroup" yaml:"emrManagedMasterSecurityGroup"`
 	// The identifier of the Amazon EC2 security group for the core and task nodes.
 	//
 	// If you specify `EmrManagedSlaveSecurityGroup` , you must also specify `EmrManagedMasterSecurityGroup` .
-	EmrManagedSlaveSecurityGroup *string `json:"emrManagedSlaveSecurityGroup"`
+	EmrManagedSlaveSecurityGroup *string `json:"emrManagedSlaveSecurityGroup" yaml:"emrManagedSlaveSecurityGroup"`
 	// Applies only to Amazon EMR release versions earlier than 4.0. The Hadoop version for the cluster. Valid inputs are "0.18" (no longer maintained), "0.20" (no longer maintained), "0.20.205" (no longer maintained), "1.0.3", "2.2.0", or "2.4.0". If you do not set this value, the default of 0.18 is used, unless the `AmiVersion` parameter is set in the RunJobFlow call, in which case the default version of Hadoop for that AMI version is used.
-	HadoopVersion *string `json:"hadoopVersion"`
+	HadoopVersion *string `json:"hadoopVersion" yaml:"hadoopVersion"`
 	// Specifies whether the cluster should remain available after completing all steps.
 	//
 	// Defaults to `true` . For more information about configuring cluster termination, see [Control Cluster Termination](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-termination.html) in the *EMR Management Guide* .
-	KeepJobFlowAliveWhenNoSteps interface{} `json:"keepJobFlowAliveWhenNoSteps"`
+	KeepJobFlowAliveWhenNoSteps interface{} `json:"keepJobFlowAliveWhenNoSteps" yaml:"keepJobFlowAliveWhenNoSteps"`
 	// Describes the EC2 instances and instance configurations for the master instance fleet when using clusters with the instance fleet configuration.
-	MasterInstanceFleet interface{} `json:"masterInstanceFleet"`
+	MasterInstanceFleet interface{} `json:"masterInstanceFleet" yaml:"masterInstanceFleet"`
 	// Describes the EC2 instances and instance configurations for the master instance group when using clusters with the uniform instance group configuration.
-	MasterInstanceGroup interface{} `json:"masterInstanceGroup"`
+	MasterInstanceGroup interface{} `json:"masterInstanceGroup" yaml:"masterInstanceGroup"`
 	// The Availability Zone in which the cluster runs.
-	Placement interface{} `json:"placement"`
+	Placement interface{} `json:"placement" yaml:"placement"`
 	// The identifier of the Amazon EC2 security group for the Amazon EMR service to access clusters in VPC private subnets.
-	ServiceAccessSecurityGroup *string `json:"serviceAccessSecurityGroup"`
+	ServiceAccessSecurityGroup *string `json:"serviceAccessSecurityGroup" yaml:"serviceAccessSecurityGroup"`
 	// Specifies whether to lock the cluster to prevent the Amazon EC2 instances from being terminated by API call, user intervention, or in the event of a job-flow error.
-	TerminationProtected interface{} `json:"terminationProtected"`
+	TerminationProtected interface{} `json:"terminationProtected" yaml:"terminationProtected"`
 }
 
 // `KerberosAttributes` is a property of the `AWS::EMR::Cluster` resource.
@@ -1251,21 +1251,21 @@ type CfnCluster_JobFlowInstancesConfigProperty struct {
 //
 type CfnCluster_KerberosAttributesProperty struct {
 	// The password used within the cluster for the kadmin service on the cluster-dedicated KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster.
-	KdcAdminPassword *string `json:"kdcAdminPassword"`
+	KdcAdminPassword *string `json:"kdcAdminPassword" yaml:"kdcAdminPassword"`
 	// The name of the Kerberos realm to which all nodes in a cluster belong.
 	//
 	// For example, `EC2.INTERNAL` .
-	Realm *string `json:"realm"`
+	Realm *string `json:"realm" yaml:"realm"`
 	// The Active Directory password for `ADDomainJoinUser` .
-	AdDomainJoinPassword *string `json:"adDomainJoinPassword"`
+	AdDomainJoinPassword *string `json:"adDomainJoinPassword" yaml:"adDomainJoinPassword"`
 	// Required only when establishing a cross-realm trust with an Active Directory domain.
 	//
 	// A user with sufficient privileges to join resources to the domain.
-	AdDomainJoinUser *string `json:"adDomainJoinUser"`
+	AdDomainJoinUser *string `json:"adDomainJoinUser" yaml:"adDomainJoinUser"`
 	// Required only when establishing a cross-realm trust with a KDC in a different realm.
 	//
 	// The cross-realm principal password, which must be identical across realms.
-	CrossRealmTrustPrincipalPassword *string `json:"crossRealmTrustPrincipalPassword"`
+	CrossRealmTrustPrincipalPassword *string `json:"crossRealmTrustPrincipalPassword" yaml:"crossRealmTrustPrincipalPassword"`
 }
 
 // `KeyValue` is a subproperty of the `HadoopJarStepConfig` property type.
@@ -1276,9 +1276,9 @@ type CfnCluster_KerberosAttributesProperty struct {
 //
 type CfnCluster_KeyValueProperty struct {
 	// The unique identifier of a key-value pair.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// The value part of the identified key.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // Managed scaling policy for an Amazon EMR cluster.
@@ -1291,7 +1291,7 @@ type CfnCluster_ManagedScalingPolicyProperty struct {
 	// The EC2 unit limits for a managed scaling policy.
 	//
 	// The managed scaling activity of a cluster is not allowed to go above or below these limits. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
-	ComputeLimits interface{} `json:"computeLimits"`
+	ComputeLimits interface{} `json:"computeLimits" yaml:"computeLimits"`
 }
 
 // `MetricDimension` is a subproperty of the `CloudWatchAlarmDefinition` property type.
@@ -1302,9 +1302,9 @@ type CfnCluster_ManagedScalingPolicyProperty struct {
 //
 type CfnCluster_MetricDimensionProperty struct {
 	// The dimension name.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// The dimension value.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // The launch specification for On-Demand Instances in the instance fleet, which determines the allocation strategy.
@@ -1317,7 +1317,7 @@ type CfnCluster_OnDemandProvisioningSpecificationProperty struct {
 	// Specifies the strategy to use in launching On-Demand instance fleets.
 	//
 	// Currently, the only option is `lowest-price` (the default), which launches the lowest price first.
-	AllocationStrategy *string `json:"allocationStrategy"`
+	AllocationStrategy *string `json:"allocationStrategy" yaml:"allocationStrategy"`
 }
 
 // `PlacementType` is a property of the `AWS::EMR::Cluster` resource.
@@ -1330,7 +1330,7 @@ type CfnCluster_PlacementTypeProperty struct {
 	// The Amazon EC2 Availability Zone for the cluster.
 	//
 	// `AvailabilityZone` is used for uniform instance groups, while `AvailabilityZones` (plural) is used for instance fleets.
-	AvailabilityZone *string `json:"availabilityZone"`
+	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
 }
 
 // `ScalingAction` is a subproperty of the `ScalingRule` property type.
@@ -1341,11 +1341,11 @@ type CfnCluster_PlacementTypeProperty struct {
 //
 type CfnCluster_ScalingActionProperty struct {
 	// The type of adjustment the automatic scaling activity makes when triggered, and the periodicity of the adjustment.
-	SimpleScalingPolicyConfiguration interface{} `json:"simpleScalingPolicyConfiguration"`
+	SimpleScalingPolicyConfiguration interface{} `json:"simpleScalingPolicyConfiguration" yaml:"simpleScalingPolicyConfiguration"`
 	// Not available for instance groups.
 	//
 	// Instance groups use the market type specified for the group.
-	Market *string `json:"market"`
+	Market *string `json:"market" yaml:"market"`
 }
 
 // `ScalingConstraints` is a subproperty of the `AutoScalingPolicy` property type.
@@ -1358,11 +1358,11 @@ type CfnCluster_ScalingConstraintsProperty struct {
 	// The upper boundary of EC2 instances in an instance group beyond which scaling activities are not allowed to grow.
 	//
 	// Scale-out activities will not add instances beyond this boundary.
-	MaxCapacity *float64 `json:"maxCapacity"`
+	MaxCapacity *float64 `json:"maxCapacity" yaml:"maxCapacity"`
 	// The lower boundary of EC2 instances in an instance group below which scaling activities are not allowed to shrink.
 	//
 	// Scale-in activities will not terminate instances below this boundary.
-	MinCapacity *float64 `json:"minCapacity"`
+	MinCapacity *float64 `json:"minCapacity" yaml:"minCapacity"`
 }
 
 // `ScalingRule` is a subproperty of the `AutoScalingPolicy` property type.
@@ -1373,15 +1373,15 @@ type CfnCluster_ScalingConstraintsProperty struct {
 //
 type CfnCluster_ScalingRuleProperty struct {
 	// The conditions that trigger an automatic scaling activity.
-	Action interface{} `json:"action"`
+	Action interface{} `json:"action" yaml:"action"`
 	// The name used to identify an automatic scaling rule.
 	//
 	// Rule names must be unique within a scaling policy.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The CloudWatch alarm definition that determines when automatic scaling activity is triggered.
-	Trigger interface{} `json:"trigger"`
+	Trigger interface{} `json:"trigger" yaml:"trigger"`
 	// A friendly, more verbose description of the automatic scaling rule.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 }
 
 // `ScalingTrigger` is a subproperty of the `ScalingRule` property type.
@@ -1394,7 +1394,7 @@ type CfnCluster_ScalingTriggerProperty struct {
 	// The definition of a CloudWatch metric alarm.
 	//
 	// When the defined alarm conditions are met along with other trigger parameters, scaling activity begins.
-	CloudWatchAlarmDefinition interface{} `json:"cloudWatchAlarmDefinition"`
+	CloudWatchAlarmDefinition interface{} `json:"cloudWatchAlarmDefinition" yaml:"cloudWatchAlarmDefinition"`
 }
 
 // `ScriptBootstrapActionConfig` is a subproperty of the `BootstrapActionConfig` property type.
@@ -1405,9 +1405,9 @@ type CfnCluster_ScalingTriggerProperty struct {
 //
 type CfnCluster_ScriptBootstrapActionConfigProperty struct {
 	// Location in Amazon S3 of the script to run during a bootstrap action.
-	Path *string `json:"path"`
+	Path *string `json:"path" yaml:"path"`
 	// A list of command line arguments to pass to the bootstrap action script.
-	Args *[]*string `json:"args"`
+	Args *[]*string `json:"args" yaml:"args"`
 }
 
 // `SimpleScalingPolicyConfiguration` is a subproperty of the `ScalingAction` property type.
@@ -1420,15 +1420,15 @@ type CfnCluster_SimpleScalingPolicyConfigurationProperty struct {
 	// The amount by which to scale in or scale out, based on the specified `AdjustmentType` .
 	//
 	// A positive value adds to the instance group's EC2 instance count while a negative number removes instances. If `AdjustmentType` is set to `EXACT_CAPACITY` , the number should only be a positive integer. If `AdjustmentType` is set to `PERCENT_CHANGE_IN_CAPACITY` , the value should express the percentage as an integer. For example, -20 indicates a decrease in 20% increments of cluster capacity.
-	ScalingAdjustment *float64 `json:"scalingAdjustment"`
+	ScalingAdjustment *float64 `json:"scalingAdjustment" yaml:"scalingAdjustment"`
 	// The way in which EC2 instances are added (if `ScalingAdjustment` is a positive number) or terminated (if `ScalingAdjustment` is a negative number) each time the scaling activity is triggered.
 	//
 	// `CHANGE_IN_CAPACITY` is the default. `CHANGE_IN_CAPACITY` indicates that the EC2 instance count increments or decrements by `ScalingAdjustment` , which should be expressed as an integer. `PERCENT_CHANGE_IN_CAPACITY` indicates the instance count increments or decrements by the percentage specified by `ScalingAdjustment` , which should be expressed as an integer. For example, 20 indicates an increase in 20% increments of cluster capacity. `EXACT_CAPACITY` indicates the scaling activity results in an instance group with the number of EC2 instances specified by `ScalingAdjustment` , which should be expressed as a positive integer.
-	AdjustmentType *string `json:"adjustmentType"`
+	AdjustmentType *string `json:"adjustmentType" yaml:"adjustmentType"`
 	// The amount of time, in seconds, after a scaling activity completes before any further trigger-related scaling activities can start.
 	//
 	// The default value is 0.
-	CoolDown *float64 `json:"coolDown"`
+	CoolDown *float64 `json:"coolDown" yaml:"coolDown"`
 }
 
 // `SpotProvisioningSpecification` is a subproperty of the `InstanceFleetProvisioningSpecifications` property type.
@@ -1443,21 +1443,21 @@ type CfnCluster_SpotProvisioningSpecificationProperty struct {
 	// The action to take when `TargetSpotCapacity` has not been fulfilled when the `TimeoutDurationMinutes` has expired;
 	//
 	// that is, when all Spot Instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND` . SWITCH_TO_ON_DEMAND specifies that if no Spot Instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
-	TimeoutAction *string `json:"timeoutAction"`
+	TimeoutAction *string `json:"timeoutAction" yaml:"timeoutAction"`
 	// The spot provisioning timeout period in minutes.
 	//
 	// If Spot Instances are not provisioned within this time period, the `TimeOutAction` is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
-	TimeoutDurationMinutes *float64 `json:"timeoutDurationMinutes"`
+	TimeoutDurationMinutes *float64 `json:"timeoutDurationMinutes" yaml:"timeoutDurationMinutes"`
 	// Specifies the strategy to use in launching Spot Instance fleets.
 	//
 	// Currently, the only option is capacity-optimized (the default), which launches instances from Spot Instance pools with optimal capacity for the number of instances that are launching.
-	AllocationStrategy *string `json:"allocationStrategy"`
+	AllocationStrategy *string `json:"allocationStrategy" yaml:"allocationStrategy"`
 	// The defined duration for Spot Instances (also known as Spot blocks) in minutes.
 	//
 	// When specified, the Spot Instance does not terminate before the defined duration expires, and defined duration pricing for Spot Instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot Instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot Instance for termination and provides a Spot Instance termination notice, which gives the instance a two-minute warning before it terminates.
 	//
 	// > Spot Instances with a defined duration (also known as Spot blocks) are no longer available to new customers from July 1, 2021. For customers who have previously used the feature, we will continue to support Spot Instances with a defined duration until December 31, 2022.
-	BlockDurationMinutes *float64 `json:"blockDurationMinutes"`
+	BlockDurationMinutes *float64 `json:"blockDurationMinutes" yaml:"blockDurationMinutes"`
 }
 
 // `StepConfig` is a property of the `AWS::EMR::Cluster` resource.
@@ -1468,13 +1468,13 @@ type CfnCluster_SpotProvisioningSpecificationProperty struct {
 //
 type CfnCluster_StepConfigProperty struct {
 	// The JAR file used for the step.
-	HadoopJarStep interface{} `json:"hadoopJarStep"`
+	HadoopJarStep interface{} `json:"hadoopJarStep" yaml:"hadoopJarStep"`
 	// The name of the step.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The action to take when the cluster step fails.
 	//
 	// Possible values are `CANCEL_AND_WAIT` and `CONTINUE` .
-	ActionOnFailure *string `json:"actionOnFailure"`
+	ActionOnFailure *string `json:"actionOnFailure" yaml:"actionOnFailure"`
 }
 
 // `VolumeSpecification` is a subproperty of the `EbsBlockDeviceConfig` property type.
@@ -1487,15 +1487,15 @@ type CfnCluster_VolumeSpecificationProperty struct {
 	// The volume size, in gibibytes (GiB).
 	//
 	// This can be a number from 1 - 1024. If the volume type is EBS-optimized, the minimum value is 10.
-	SizeInGb *float64 `json:"sizeInGb"`
+	SizeInGb *float64 `json:"sizeInGb" yaml:"sizeInGb"`
 	// The volume type.
 	//
 	// Volume types supported are gp2, io1, standard sc1, st1 and gp3. For gp3, customer will be able to configure IOPs but not throughput. Throughput will default to 125 MiB/s.
-	VolumeType *string `json:"volumeType"`
+	VolumeType *string `json:"volumeType" yaml:"volumeType"`
 	// The number of I/O operations per second (IOPS) that the volume supports.
 	//
 	// IOPS parameters are supported for volumes: io1 and gp3. Among them, IOPS parameters are required for volumes io1 but optional for volumes gp3 which default to 3000 IOPS. IOPS parameters are not supported for volumes: gp2, standard, st1 and sc1.
-	Iops *float64 `json:"iops"`
+	Iops *float64 `json:"iops" yaml:"iops"`
 }
 
 // Properties for defining a `CfnCluster`.
@@ -1504,71 +1504,71 @@ type CfnCluster_VolumeSpecificationProperty struct {
 //
 type CfnClusterProps struct {
 	// A specification of the number and type of Amazon EC2 instances.
-	Instances interface{} `json:"instances"`
+	Instances interface{} `json:"instances" yaml:"instances"`
 	// Also called instance profile and EC2 role.
 	//
 	// An IAM role for an EMR cluster. The EC2 instances of the cluster assume this role. The default role is `EMR_EC2_DefaultRole` . In order to use the default role, you must have already created it using the CLI or console.
-	JobFlowRole *string `json:"jobFlowRole"`
+	JobFlowRole *string `json:"jobFlowRole" yaml:"jobFlowRole"`
 	// The name of the cluster.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The IAM role that Amazon EMR assumes in order to access AWS resources on your behalf.
-	ServiceRole *string `json:"serviceRole"`
+	ServiceRole *string `json:"serviceRole" yaml:"serviceRole"`
 	// A JSON string for selecting additional features.
-	AdditionalInfo interface{} `json:"additionalInfo"`
+	AdditionalInfo interface{} `json:"additionalInfo" yaml:"additionalInfo"`
 	// The applications to install on this cluster, for example, Spark, Flink, Oozie, Zeppelin, and so on.
-	Applications interface{} `json:"applications"`
+	Applications interface{} `json:"applications" yaml:"applications"`
 	// An IAM role for automatic scaling policies.
 	//
 	// The default role is `EMR_AutoScaling_DefaultRole` . The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
-	AutoScalingRole *string `json:"autoScalingRole"`
+	AutoScalingRole *string `json:"autoScalingRole" yaml:"autoScalingRole"`
 	// A list of bootstrap actions to run before Hadoop starts on the cluster nodes.
-	BootstrapActions interface{} `json:"bootstrapActions"`
+	BootstrapActions interface{} `json:"bootstrapActions" yaml:"bootstrapActions"`
 	// Applies only to Amazon EMR releases 4.x and later. The list of Configurations supplied to the EMR cluster.
-	Configurations interface{} `json:"configurations"`
+	Configurations interface{} `json:"configurations" yaml:"configurations"`
 	// Available only in Amazon EMR version 5.7.0 and later. The ID of a custom Amazon EBS-backed Linux AMI if the cluster uses a custom AMI.
-	CustomAmiId *string `json:"customAmiId"`
+	CustomAmiId *string `json:"customAmiId" yaml:"customAmiId"`
 	// The size, in GiB, of the Amazon EBS root device volume of the Linux AMI that is used for each EC2 instance.
 	//
 	// Available in Amazon EMR version 4.x and later.
-	EbsRootVolumeSize *float64 `json:"ebsRootVolumeSize"`
+	EbsRootVolumeSize *float64 `json:"ebsRootVolumeSize" yaml:"ebsRootVolumeSize"`
 	// Attributes for Kerberos configuration when Kerberos authentication is enabled using a security configuration.
 	//
 	// For more information see [Use Kerberos Authentication](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html) in the *Amazon EMR Management Guide* .
-	KerberosAttributes interface{} `json:"kerberosAttributes"`
+	KerberosAttributes interface{} `json:"kerberosAttributes" yaml:"kerberosAttributes"`
 	// The AWS KMS key used for encrypting log files.
 	//
 	// This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
-	LogEncryptionKmsKeyId *string `json:"logEncryptionKmsKeyId"`
+	LogEncryptionKmsKeyId *string `json:"logEncryptionKmsKeyId" yaml:"logEncryptionKmsKeyId"`
 	// The path to the Amazon S3 location where logs for this cluster are stored.
-	LogUri *string `json:"logUri"`
+	LogUri *string `json:"logUri" yaml:"logUri"`
 	// Creates or updates a managed scaling policy for an Amazon EMR cluster.
 	//
 	// The managed scaling policy defines the limits for resources, such as EC2 instances that can be added or terminated from a cluster. The policy only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
-	ManagedScalingPolicy interface{} `json:"managedScalingPolicy"`
+	ManagedScalingPolicy interface{} `json:"managedScalingPolicy" yaml:"managedScalingPolicy"`
 	// The Amazon EMR release label, which determines the version of open-source application packages installed on the cluster.
 	//
 	// Release labels are in the form `emr-x.x.x` , where x.x.x is an Amazon EMR release version such as `emr-5.14.0` . For more information about Amazon EMR release versions and included application versions and features, see [](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/) . The release label applies only to Amazon EMR releases version 4.0 and later. Earlier versions use `AmiVersion` .
-	ReleaseLabel *string `json:"releaseLabel"`
+	ReleaseLabel *string `json:"releaseLabel" yaml:"releaseLabel"`
 	// The way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an instance group is resized.
 	//
 	// `TERMINATE_AT_INSTANCE_HOUR` indicates that Amazon EMR terminates nodes at the instance-hour boundary, regardless of when the request to terminate the instance was submitted. This option is only available with Amazon EMR 5.1.0 and later and is the default for clusters created using that version. `TERMINATE_AT_TASK_COMPLETION` indicates that Amazon EMR adds nodes to a deny list and drains tasks from nodes before terminating the Amazon EC2 instances, regardless of the instance-hour boundary. With either behavior, Amazon EMR removes the least active nodes first and blocks instance termination if it could lead to HDFS corruption. `TERMINATE_AT_TASK_COMPLETION` is available only in Amazon EMR version 4.1.0 and later, and is the default for versions of Amazon EMR earlier than 5.1.0.
-	ScaleDownBehavior *string `json:"scaleDownBehavior"`
+	ScaleDownBehavior *string `json:"scaleDownBehavior" yaml:"scaleDownBehavior"`
 	// The name of the security configuration applied to the cluster.
-	SecurityConfiguration *string `json:"securityConfiguration"`
+	SecurityConfiguration *string `json:"securityConfiguration" yaml:"securityConfiguration"`
 	// Specifies the number of steps that can be executed concurrently.
 	//
 	// The default value is `1` . The maximum value is `256` .
-	StepConcurrencyLevel *float64 `json:"stepConcurrencyLevel"`
+	StepConcurrencyLevel *float64 `json:"stepConcurrencyLevel" yaml:"stepConcurrencyLevel"`
 	// A list of steps to run.
-	Steps interface{} `json:"steps"`
+	Steps interface{} `json:"steps" yaml:"steps"`
 	// A list of tags associated with a cluster.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// Indicates whether the cluster is visible to all IAM users of the AWS account associated with the cluster.
 	//
 	// If this value is set to `true` , all IAM users of that AWS account can view and manage the cluster if they have the proper policy permissions set. If this value is `false` , only the IAM user that created the cluster can view and manage it. This value can be changed using the SetVisibleToAllUsers action.
 	//
 	// > When you create clusters directly through the EMR console or API, this value is set to `true` by default. However, for `AWS::EMR::Cluster` resources in CloudFormation, the default is `false` .
-	VisibleToAllUsers interface{} `json:"visibleToAllUsers"`
+	VisibleToAllUsers interface{} `json:"visibleToAllUsers" yaml:"visibleToAllUsers"`
 }
 
 // A CloudFormation `AWS::EMR::InstanceFleetConfig`.
@@ -2173,13 +2173,13 @@ func (c *jsiiProxy_CfnInstanceFleetConfig) ValidateProperties(_properties interf
 //
 type CfnInstanceFleetConfig_ConfigurationProperty struct {
 	// The classification within a configuration.
-	Classification *string `json:"classification"`
+	Classification *string `json:"classification" yaml:"classification"`
 	// Within a configuration classification, a set of properties that represent the settings that you want to change in the configuration file.
 	//
 	// Duplicates not allowed.
-	ConfigurationProperties interface{} `json:"configurationProperties"`
+	ConfigurationProperties interface{} `json:"configurationProperties" yaml:"configurationProperties"`
 	// A list of additional configurations to apply within a configuration object.
-	Configurations interface{} `json:"configurations"`
+	Configurations interface{} `json:"configurations" yaml:"configurations"`
 }
 
 // `EbsBlockDeviceConfig` is a subproperty of the `EbsConfiguration` property type.
@@ -2190,9 +2190,9 @@ type CfnInstanceFleetConfig_ConfigurationProperty struct {
 //
 type CfnInstanceFleetConfig_EbsBlockDeviceConfigProperty struct {
 	// EBS volume specifications such as volume type, IOPS, and size (GiB) that will be requested for the EBS volume attached to an EC2 instance in the cluster.
-	VolumeSpecification interface{} `json:"volumeSpecification"`
+	VolumeSpecification interface{} `json:"volumeSpecification" yaml:"volumeSpecification"`
 	// Number of EBS volumes with a specific volume configuration that will be associated with every instance in the instance group.
-	VolumesPerInstance *float64 `json:"volumesPerInstance"`
+	VolumesPerInstance *float64 `json:"volumesPerInstance" yaml:"volumesPerInstance"`
 }
 
 // `EbsConfiguration` determines the EBS volumes to attach to EMR cluster instances.
@@ -2201,9 +2201,9 @@ type CfnInstanceFleetConfig_EbsBlockDeviceConfigProperty struct {
 //
 type CfnInstanceFleetConfig_EbsConfigurationProperty struct {
 	// An array of Amazon EBS volume specifications attached to a cluster instance.
-	EbsBlockDeviceConfigs interface{} `json:"ebsBlockDeviceConfigs"`
+	EbsBlockDeviceConfigs interface{} `json:"ebsBlockDeviceConfigs" yaml:"ebsBlockDeviceConfigs"`
 	// Indicates whether an Amazon EBS volume is EBS-optimized.
-	EbsOptimized interface{} `json:"ebsOptimized"`
+	EbsOptimized interface{} `json:"ebsOptimized" yaml:"ebsOptimized"`
 }
 
 // > The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions.
@@ -2216,9 +2216,9 @@ type CfnInstanceFleetConfig_InstanceFleetProvisioningSpecificationsProperty stru
 	// The launch specification for On-Demand Instances in the instance fleet, which determines the allocation strategy.
 	//
 	// > The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions. On-Demand Instances allocation strategy is available in Amazon EMR version 5.12.1 and later.
-	OnDemandSpecification interface{} `json:"onDemandSpecification"`
+	OnDemandSpecification interface{} `json:"onDemandSpecification" yaml:"onDemandSpecification"`
 	// The launch specification for Spot Instances in the fleet, which determines the defined duration, provisioning timeout behavior, and allocation strategy.
-	SpotSpecification interface{} `json:"spotSpecification"`
+	SpotSpecification interface{} `json:"spotSpecification" yaml:"spotSpecification"`
 }
 
 // `InstanceType` config is a subproperty of `InstanceFleetConfig` .
@@ -2231,27 +2231,27 @@ type CfnInstanceFleetConfig_InstanceFleetProvisioningSpecificationsProperty stru
 //
 type CfnInstanceFleetConfig_InstanceTypeConfigProperty struct {
 	// An EC2 instance type, such as `m3.xlarge` .
-	InstanceType *string `json:"instanceType"`
+	InstanceType *string `json:"instanceType" yaml:"instanceType"`
 	// The bid price for each EC2 Spot Instance type as defined by `InstanceType` .
 	//
 	// Expressed in USD. If neither `BidPrice` nor `BidPriceAsPercentageOfOnDemandPrice` is provided, `BidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
-	BidPrice *string `json:"bidPrice"`
+	BidPrice *string `json:"bidPrice" yaml:"bidPrice"`
 	// The bid price, as a percentage of On-Demand price, for each EC2 Spot Instance as defined by `InstanceType` .
 	//
 	// Expressed as a number (for example, 20 specifies 20%). If neither `BidPrice` nor `BidPriceAsPercentageOfOnDemandPrice` is provided, `BidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
-	BidPriceAsPercentageOfOnDemandPrice *float64 `json:"bidPriceAsPercentageOfOnDemandPrice"`
+	BidPriceAsPercentageOfOnDemandPrice *float64 `json:"bidPriceAsPercentageOfOnDemandPrice" yaml:"bidPriceAsPercentageOfOnDemandPrice"`
 	// > Amazon EMR releases 4.x or later.
 	//
 	// An optional configuration specification to be used when provisioning cluster instances, which can include configurations for applications and software bundled with Amazon EMR. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file. For more information, see [Configuring Applications](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) .
-	Configurations interface{} `json:"configurations"`
+	Configurations interface{} `json:"configurations" yaml:"configurations"`
 	// The custom AMI ID to use for the instance type.
-	CustomAmiId *string `json:"customAmiId"`
+	CustomAmiId *string `json:"customAmiId" yaml:"customAmiId"`
 	// The configuration of Amazon Elastic Block Store (Amazon EBS) attached to each instance as defined by `InstanceType` .
-	EbsConfiguration interface{} `json:"ebsConfiguration"`
+	EbsConfiguration interface{} `json:"ebsConfiguration" yaml:"ebsConfiguration"`
 	// The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `InstanceFleetConfig` .
 	//
 	// This value is 1 for a master instance fleet, and must be 1 or greater for core and task instance fleets. Defaults to 1 if not specified.
-	WeightedCapacity *float64 `json:"weightedCapacity"`
+	WeightedCapacity *float64 `json:"weightedCapacity" yaml:"weightedCapacity"`
 }
 
 // The launch specification for On-Demand Instances in the instance fleet, which determines the allocation strategy.
@@ -2264,7 +2264,7 @@ type CfnInstanceFleetConfig_OnDemandProvisioningSpecificationProperty struct {
 	// Specifies the strategy to use in launching On-Demand instance fleets.
 	//
 	// Currently, the only option is `lowest-price` (the default), which launches the lowest price first.
-	AllocationStrategy *string `json:"allocationStrategy"`
+	AllocationStrategy *string `json:"allocationStrategy" yaml:"allocationStrategy"`
 }
 
 // `SpotProvisioningSpecification` is a subproperty of the `InstanceFleetProvisioningSpecifications` property type.
@@ -2279,21 +2279,21 @@ type CfnInstanceFleetConfig_SpotProvisioningSpecificationProperty struct {
 	// The action to take when `TargetSpotCapacity` has not been fulfilled when the `TimeoutDurationMinutes` has expired;
 	//
 	// that is, when all Spot Instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND` . SWITCH_TO_ON_DEMAND specifies that if no Spot Instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
-	TimeoutAction *string `json:"timeoutAction"`
+	TimeoutAction *string `json:"timeoutAction" yaml:"timeoutAction"`
 	// The spot provisioning timeout period in minutes.
 	//
 	// If Spot Instances are not provisioned within this time period, the `TimeOutAction` is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
-	TimeoutDurationMinutes *float64 `json:"timeoutDurationMinutes"`
+	TimeoutDurationMinutes *float64 `json:"timeoutDurationMinutes" yaml:"timeoutDurationMinutes"`
 	// Specifies the strategy to use in launching Spot Instance fleets.
 	//
 	// Currently, the only option is capacity-optimized (the default), which launches instances from Spot Instance pools with optimal capacity for the number of instances that are launching.
-	AllocationStrategy *string `json:"allocationStrategy"`
+	AllocationStrategy *string `json:"allocationStrategy" yaml:"allocationStrategy"`
 	// The defined duration for Spot Instances (also known as Spot blocks) in minutes.
 	//
 	// When specified, the Spot Instance does not terminate before the defined duration expires, and defined duration pricing for Spot Instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot Instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot Instance for termination and provides a Spot Instance termination notice, which gives the instance a two-minute warning before it terminates.
 	//
 	// > Spot Instances with a defined duration (also known as Spot blocks) are no longer available to new customers from July 1, 2021. For customers who have previously used the feature, we will continue to support Spot Instances with a defined duration until December 31, 2022.
-	BlockDurationMinutes *float64 `json:"blockDurationMinutes"`
+	BlockDurationMinutes *float64 `json:"blockDurationMinutes" yaml:"blockDurationMinutes"`
 }
 
 // `VolumeSpecification` is a subproperty of the `EbsBlockDeviceConfig` property type.
@@ -2306,15 +2306,15 @@ type CfnInstanceFleetConfig_VolumeSpecificationProperty struct {
 	// The volume size, in gibibytes (GiB).
 	//
 	// This can be a number from 1 - 1024. If the volume type is EBS-optimized, the minimum value is 10.
-	SizeInGb *float64 `json:"sizeInGb"`
+	SizeInGb *float64 `json:"sizeInGb" yaml:"sizeInGb"`
 	// The volume type.
 	//
 	// Volume types supported are gp2, io1, standard sc1, st1 and gp3. For gp3, customer will be able to configure IOPs but not throughput. Throughput will default to 125 MiB/s.
-	VolumeType *string `json:"volumeType"`
+	VolumeType *string `json:"volumeType" yaml:"volumeType"`
 	// The number of I/O operations per second (IOPS) that the volume supports.
 	//
 	// IOPS parameters are supported for volumes: io1 and gp3. Among them, IOPS parameters are required for volumes io1 but optional for volumes gp3 which default to 3000 IOPS. IOPS parameters are not supported for volumes: gp2, standard, st1 and sc1.
-	Iops *float64 `json:"iops"`
+	Iops *float64 `json:"iops" yaml:"iops"`
 }
 
 // Properties for defining a `CfnInstanceFleetConfig`.
@@ -2323,31 +2323,31 @@ type CfnInstanceFleetConfig_VolumeSpecificationProperty struct {
 //
 type CfnInstanceFleetConfigProps struct {
 	// The unique identifier of the EMR cluster.
-	ClusterId *string `json:"clusterId"`
+	ClusterId *string `json:"clusterId" yaml:"clusterId"`
 	// The node type that the instance fleet hosts.
 	//
 	// *Allowed Values* : TASK
-	InstanceFleetType *string `json:"instanceFleetType"`
+	InstanceFleetType *string `json:"instanceFleetType" yaml:"instanceFleetType"`
 	// `InstanceTypeConfigs` determine the EC2 instances that Amazon EMR attempts to provision to fulfill On-Demand and Spot target capacities.
 	//
 	// > The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions.
-	InstanceTypeConfigs interface{} `json:"instanceTypeConfigs"`
+	InstanceTypeConfigs interface{} `json:"instanceTypeConfigs" yaml:"instanceTypeConfigs"`
 	// The launch specification for the instance fleet.
-	LaunchSpecifications interface{} `json:"launchSpecifications"`
+	LaunchSpecifications interface{} `json:"launchSpecifications" yaml:"launchSpecifications"`
 	// The friendly name of the instance fleet.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
 	//
 	// When the instance fleet launches, Amazon EMR tries to provision On-Demand instances as specified by `InstanceTypeConfig` . Each instance configuration has a specified `WeightedCapacity` . When an On-Demand instance is provisioned, the `WeightedCapacity` units count toward the target capacity. Amazon EMR provisions instances until the target capacity is totally fulfilled, even if this results in an overage. For example, if there are 2 units remaining to fulfill capacity, and Amazon EMR can only provision an instance with a `WeightedCapacity` of 5 units, the instance is provisioned, and the target capacity is exceeded by 3 units.
 	//
 	// > If not specified or set to 0, only Spot instances are provisioned for the instance fleet using `TargetSpotCapacity` . At least one of `TargetSpotCapacity` and `TargetOnDemandCapacity` should be greater than 0. For a master instance fleet, only one of `TargetSpotCapacity` and `TargetOnDemandCapacity` can be specified, and its value must be 1.
-	TargetOnDemandCapacity *float64 `json:"targetOnDemandCapacity"`
+	TargetOnDemandCapacity *float64 `json:"targetOnDemandCapacity" yaml:"targetOnDemandCapacity"`
 	// The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
 	//
 	// When the instance fleet launches, Amazon EMR tries to provision Spot instances as specified by `InstanceTypeConfig` . Each instance configuration has a specified `WeightedCapacity` . When a Spot instance is provisioned, the `WeightedCapacity` units count toward the target capacity. Amazon EMR provisions instances until the target capacity is totally fulfilled, even if this results in an overage. For example, if there are 2 units remaining to fulfill capacity, and Amazon EMR can only provision an instance with a `WeightedCapacity` of 5 units, the instance is provisioned, and the target capacity is exceeded by 3 units.
 	//
 	// > If not specified or set to 0, only On-Demand instances are provisioned for the instance fleet. At least one of `TargetSpotCapacity` and `TargetOnDemandCapacity` should be greater than 0. For a master instance fleet, only one of `TargetSpotCapacity` and `TargetOnDemandCapacity` can be specified, and its value must be 1.
-	TargetSpotCapacity *float64 `json:"targetSpotCapacity"`
+	TargetSpotCapacity *float64 `json:"targetSpotCapacity" yaml:"targetSpotCapacity"`
 }
 
 // A CloudFormation `AWS::EMR::InstanceGroupConfig`.
@@ -3034,9 +3034,9 @@ type CfnInstanceGroupConfig_AutoScalingPolicyProperty struct {
 	// The upper and lower EC2 instance limits for an automatic scaling policy.
 	//
 	// Automatic scaling activity will not cause an instance group to grow above or below these limits.
-	Constraints interface{} `json:"constraints"`
+	Constraints interface{} `json:"constraints" yaml:"constraints"`
 	// The scale-in and scale-out rules that comprise the automatic scaling policy.
-	Rules interface{} `json:"rules"`
+	Rules interface{} `json:"rules" yaml:"rules"`
 }
 
 // `CloudWatchAlarmDefinition` is a subproperty of the `ScalingTrigger` property, which determines when to trigger an automatic scaling activity.
@@ -3047,33 +3047,33 @@ type CfnInstanceGroupConfig_AutoScalingPolicyProperty struct {
 //
 type CfnInstanceGroupConfig_CloudWatchAlarmDefinitionProperty struct {
 	// Determines how the metric specified by `MetricName` is compared to the value specified by `Threshold` .
-	ComparisonOperator *string `json:"comparisonOperator"`
+	ComparisonOperator *string `json:"comparisonOperator" yaml:"comparisonOperator"`
 	// The name of the CloudWatch metric that is watched to determine an alarm condition.
-	MetricName *string `json:"metricName"`
+	MetricName *string `json:"metricName" yaml:"metricName"`
 	// The period, in seconds, over which the statistic is applied.
 	//
 	// EMR CloudWatch metrics are emitted every five minutes (300 seconds), so if an EMR CloudWatch metric is specified, specify `300` .
-	Period *float64 `json:"period"`
+	Period *float64 `json:"period" yaml:"period"`
 	// The value against which the specified statistic is compared.
-	Threshold *float64 `json:"threshold"`
+	Threshold *float64 `json:"threshold" yaml:"threshold"`
 	// A CloudWatch metric dimension.
-	Dimensions interface{} `json:"dimensions"`
+	Dimensions interface{} `json:"dimensions" yaml:"dimensions"`
 	// The number of periods, in five-minute increments, during which the alarm condition must exist before the alarm triggers automatic scaling activity.
 	//
 	// The default value is `1` .
-	EvaluationPeriods *float64 `json:"evaluationPeriods"`
+	EvaluationPeriods *float64 `json:"evaluationPeriods" yaml:"evaluationPeriods"`
 	// The namespace for the CloudWatch metric.
 	//
 	// The default is `AWS/ElasticMapReduce` .
-	Namespace *string `json:"namespace"`
+	Namespace *string `json:"namespace" yaml:"namespace"`
 	// The statistic to apply to the metric associated with the alarm.
 	//
 	// The default is `AVERAGE` .
-	Statistic *string `json:"statistic"`
+	Statistic *string `json:"statistic" yaml:"statistic"`
 	// The unit of measure associated with the CloudWatch metric being watched.
 	//
 	// The value specified for `Unit` must correspond to the units specified in the CloudWatch metric.
-	Unit *string `json:"unit"`
+	Unit *string `json:"unit" yaml:"unit"`
 }
 
 // `Configurations` is a property of the `AWS::EMR::Cluster` resource that specifies the configuration of applications on an Amazon EMR cluster.
@@ -3086,13 +3086,13 @@ type CfnInstanceGroupConfig_CloudWatchAlarmDefinitionProperty struct {
 //
 type CfnInstanceGroupConfig_ConfigurationProperty struct {
 	// The classification within a configuration.
-	Classification *string `json:"classification"`
+	Classification *string `json:"classification" yaml:"classification"`
 	// Within a configuration classification, a set of properties that represent the settings that you want to change in the configuration file.
 	//
 	// Duplicates not allowed.
-	ConfigurationProperties interface{} `json:"configurationProperties"`
+	ConfigurationProperties interface{} `json:"configurationProperties" yaml:"configurationProperties"`
 	// A list of additional configurations to apply within a configuration object.
-	Configurations interface{} `json:"configurations"`
+	Configurations interface{} `json:"configurations" yaml:"configurations"`
 }
 
 // Configuration of requested EBS block device associated with the instance group with count of volumes that will be associated to every instance.
@@ -3101,9 +3101,9 @@ type CfnInstanceGroupConfig_ConfigurationProperty struct {
 //
 type CfnInstanceGroupConfig_EbsBlockDeviceConfigProperty struct {
 	// EBS volume specifications such as volume type, IOPS, and size (GiB) that will be requested for the EBS volume attached to an EC2 instance in the cluster.
-	VolumeSpecification interface{} `json:"volumeSpecification"`
+	VolumeSpecification interface{} `json:"volumeSpecification" yaml:"volumeSpecification"`
 	// Number of EBS volumes with a specific volume configuration that will be associated with every instance in the instance group.
-	VolumesPerInstance *float64 `json:"volumesPerInstance"`
+	VolumesPerInstance *float64 `json:"volumesPerInstance" yaml:"volumesPerInstance"`
 }
 
 // The Amazon EBS configuration of a cluster instance.
@@ -3112,9 +3112,9 @@ type CfnInstanceGroupConfig_EbsBlockDeviceConfigProperty struct {
 //
 type CfnInstanceGroupConfig_EbsConfigurationProperty struct {
 	// An array of Amazon EBS volume specifications attached to a cluster instance.
-	EbsBlockDeviceConfigs interface{} `json:"ebsBlockDeviceConfigs"`
+	EbsBlockDeviceConfigs interface{} `json:"ebsBlockDeviceConfigs" yaml:"ebsBlockDeviceConfigs"`
 	// Indicates whether an Amazon EBS volume is EBS-optimized.
-	EbsOptimized interface{} `json:"ebsOptimized"`
+	EbsOptimized interface{} `json:"ebsOptimized" yaml:"ebsOptimized"`
 }
 
 // `MetricDimension` is a subproperty of the `CloudWatchAlarmDefinition` property type.
@@ -3125,9 +3125,9 @@ type CfnInstanceGroupConfig_EbsConfigurationProperty struct {
 //
 type CfnInstanceGroupConfig_MetricDimensionProperty struct {
 	// The dimension name.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// The dimension value.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // `ScalingAction` is a subproperty of the `ScalingRule` property type.
@@ -3138,11 +3138,11 @@ type CfnInstanceGroupConfig_MetricDimensionProperty struct {
 //
 type CfnInstanceGroupConfig_ScalingActionProperty struct {
 	// The type of adjustment the automatic scaling activity makes when triggered, and the periodicity of the adjustment.
-	SimpleScalingPolicyConfiguration interface{} `json:"simpleScalingPolicyConfiguration"`
+	SimpleScalingPolicyConfiguration interface{} `json:"simpleScalingPolicyConfiguration" yaml:"simpleScalingPolicyConfiguration"`
 	// Not available for instance groups.
 	//
 	// Instance groups use the market type specified for the group.
-	Market *string `json:"market"`
+	Market *string `json:"market" yaml:"market"`
 }
 
 // `ScalingConstraints` is a subproperty of the `AutoScalingPolicy` property type.
@@ -3155,11 +3155,11 @@ type CfnInstanceGroupConfig_ScalingConstraintsProperty struct {
 	// The upper boundary of EC2 instances in an instance group beyond which scaling activities are not allowed to grow.
 	//
 	// Scale-out activities will not add instances beyond this boundary.
-	MaxCapacity *float64 `json:"maxCapacity"`
+	MaxCapacity *float64 `json:"maxCapacity" yaml:"maxCapacity"`
 	// The lower boundary of EC2 instances in an instance group below which scaling activities are not allowed to shrink.
 	//
 	// Scale-in activities will not terminate instances below this boundary.
-	MinCapacity *float64 `json:"minCapacity"`
+	MinCapacity *float64 `json:"minCapacity" yaml:"minCapacity"`
 }
 
 // `ScalingRule` is a subproperty of the `AutoScalingPolicy` property type.
@@ -3170,15 +3170,15 @@ type CfnInstanceGroupConfig_ScalingConstraintsProperty struct {
 //
 type CfnInstanceGroupConfig_ScalingRuleProperty struct {
 	// The conditions that trigger an automatic scaling activity.
-	Action interface{} `json:"action"`
+	Action interface{} `json:"action" yaml:"action"`
 	// The name used to identify an automatic scaling rule.
 	//
 	// Rule names must be unique within a scaling policy.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The CloudWatch alarm definition that determines when automatic scaling activity is triggered.
-	Trigger interface{} `json:"trigger"`
+	Trigger interface{} `json:"trigger" yaml:"trigger"`
 	// A friendly, more verbose description of the automatic scaling rule.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 }
 
 // `ScalingTrigger` is a subproperty of the `ScalingRule` property type.
@@ -3191,7 +3191,7 @@ type CfnInstanceGroupConfig_ScalingTriggerProperty struct {
 	// The definition of a CloudWatch metric alarm.
 	//
 	// When the defined alarm conditions are met along with other trigger parameters, scaling activity begins.
-	CloudWatchAlarmDefinition interface{} `json:"cloudWatchAlarmDefinition"`
+	CloudWatchAlarmDefinition interface{} `json:"cloudWatchAlarmDefinition" yaml:"cloudWatchAlarmDefinition"`
 }
 
 // `SimpleScalingPolicyConfiguration` is a subproperty of the `ScalingAction` property type.
@@ -3204,15 +3204,15 @@ type CfnInstanceGroupConfig_SimpleScalingPolicyConfigurationProperty struct {
 	// The amount by which to scale in or scale out, based on the specified `AdjustmentType` .
 	//
 	// A positive value adds to the instance group's EC2 instance count while a negative number removes instances. If `AdjustmentType` is set to `EXACT_CAPACITY` , the number should only be a positive integer. If `AdjustmentType` is set to `PERCENT_CHANGE_IN_CAPACITY` , the value should express the percentage as an integer. For example, -20 indicates a decrease in 20% increments of cluster capacity.
-	ScalingAdjustment *float64 `json:"scalingAdjustment"`
+	ScalingAdjustment *float64 `json:"scalingAdjustment" yaml:"scalingAdjustment"`
 	// The way in which EC2 instances are added (if `ScalingAdjustment` is a positive number) or terminated (if `ScalingAdjustment` is a negative number) each time the scaling activity is triggered.
 	//
 	// `CHANGE_IN_CAPACITY` is the default. `CHANGE_IN_CAPACITY` indicates that the EC2 instance count increments or decrements by `ScalingAdjustment` , which should be expressed as an integer. `PERCENT_CHANGE_IN_CAPACITY` indicates the instance count increments or decrements by the percentage specified by `ScalingAdjustment` , which should be expressed as an integer. For example, 20 indicates an increase in 20% increments of cluster capacity. `EXACT_CAPACITY` indicates the scaling activity results in an instance group with the number of EC2 instances specified by `ScalingAdjustment` , which should be expressed as a positive integer.
-	AdjustmentType *string `json:"adjustmentType"`
+	AdjustmentType *string `json:"adjustmentType" yaml:"adjustmentType"`
 	// The amount of time, in seconds, after a scaling activity completes before any further trigger-related scaling activities can start.
 	//
 	// The default value is 0.
-	CoolDown *float64 `json:"coolDown"`
+	CoolDown *float64 `json:"coolDown" yaml:"coolDown"`
 }
 
 // `VolumeSpecification` is a subproperty of the `EbsBlockDeviceConfig` property type.
@@ -3225,15 +3225,15 @@ type CfnInstanceGroupConfig_VolumeSpecificationProperty struct {
 	// The volume size, in gibibytes (GiB).
 	//
 	// This can be a number from 1 - 1024. If the volume type is EBS-optimized, the minimum value is 10.
-	SizeInGb *float64 `json:"sizeInGb"`
+	SizeInGb *float64 `json:"sizeInGb" yaml:"sizeInGb"`
 	// The volume type.
 	//
 	// Volume types supported are gp2, io1, standard sc1, st1 and gp3. For gp3, customer will be able to configure IOPs but not throughput. Throughput will default to 125 MiB/s.
-	VolumeType *string `json:"volumeType"`
+	VolumeType *string `json:"volumeType" yaml:"volumeType"`
 	// The number of I/O operations per second (IOPS) that the volume supports.
 	//
 	// IOPS parameters are supported for volumes: io1 and gp3. Among them, IOPS parameters are required for volumes io1 but optional for volumes gp3 which default to 3000 IOPS. IOPS parameters are not supported for volumes: gp2, standard, st1 and sc1.
-	Iops *float64 `json:"iops"`
+	Iops *float64 `json:"iops" yaml:"iops"`
 }
 
 // Properties for defining a `CfnInstanceGroupConfig`.
@@ -3242,35 +3242,35 @@ type CfnInstanceGroupConfig_VolumeSpecificationProperty struct {
 //
 type CfnInstanceGroupConfigProps struct {
 	// Target number of instances for the instance group.
-	InstanceCount *float64 `json:"instanceCount"`
+	InstanceCount *float64 `json:"instanceCount" yaml:"instanceCount"`
 	// The role of the instance group in the cluster.
 	//
 	// *Allowed Values* : TASK
-	InstanceRole *string `json:"instanceRole"`
+	InstanceRole *string `json:"instanceRole" yaml:"instanceRole"`
 	// The EC2 instance type for all instances in the instance group.
-	InstanceType *string `json:"instanceType"`
+	InstanceType *string `json:"instanceType" yaml:"instanceType"`
 	// The ID of an Amazon EMR cluster that you want to associate this instance group with.
-	JobFlowId *string `json:"jobFlowId"`
+	JobFlowId *string `json:"jobFlowId" yaml:"jobFlowId"`
 	// `AutoScalingPolicy` is a subproperty of `InstanceGroupConfig` .
 	//
 	// `AutoScalingPolicy` defines how an instance group dynamically adds and terminates EC2 instances in response to the value of a CloudWatch metric. For more information, see [Using Automatic Scaling in Amazon EMR](https://docs.aws.amazon.com//emr/latest/ManagementGuide/emr-automatic-scaling.html) in the *Amazon EMR Management Guide* .
-	AutoScalingPolicy interface{} `json:"autoScalingPolicy"`
+	AutoScalingPolicy interface{} `json:"autoScalingPolicy" yaml:"autoScalingPolicy"`
 	// If specified, indicates that the instance group uses Spot Instances.
 	//
 	// This is the maximum price you are willing to pay for Spot Instances. Specify `OnDemandPrice` to set the amount equal to the On-Demand price, or specify an amount in USD.
-	BidPrice *string `json:"bidPrice"`
+	BidPrice *string `json:"bidPrice" yaml:"bidPrice"`
 	// > Amazon EMR releases 4.x or later.
 	//
 	// The list of configurations supplied for an EMR cluster instance group. You can specify a separate configuration for each instance group (master, core, and task).
-	Configurations interface{} `json:"configurations"`
+	Configurations interface{} `json:"configurations" yaml:"configurations"`
 	// The custom AMI ID to use for the provisioned instance group.
-	CustomAmiId *string `json:"customAmiId"`
+	CustomAmiId *string `json:"customAmiId" yaml:"customAmiId"`
 	// `EbsConfiguration` determines the EBS volumes to attach to EMR cluster instances.
-	EbsConfiguration interface{} `json:"ebsConfiguration"`
+	EbsConfiguration interface{} `json:"ebsConfiguration" yaml:"ebsConfiguration"`
 	// Market type of the EC2 instances used to create a cluster node.
-	Market *string `json:"market"`
+	Market *string `json:"market" yaml:"market"`
 	// Friendly name given to the instance group.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // A CloudFormation `AWS::EMR::SecurityConfiguration`.
@@ -3771,9 +3771,9 @@ func (c *jsiiProxy_CfnSecurityConfiguration) ValidateProperties(_properties inte
 //
 type CfnSecurityConfigurationProps struct {
 	// The security configuration details in JSON format.
-	SecurityConfiguration interface{} `json:"securityConfiguration"`
+	SecurityConfiguration interface{} `json:"securityConfiguration" yaml:"securityConfiguration"`
 	// The name of the security configuration.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // A CloudFormation `AWS::EMR::Step`.
@@ -4316,17 +4316,17 @@ func (c *jsiiProxy_CfnStep) ValidateProperties(_properties interface{}) {
 //
 type CfnStep_HadoopJarStepConfigProperty struct {
 	// A path to a JAR file run during the step.
-	Jar *string `json:"jar"`
+	Jar *string `json:"jar" yaml:"jar"`
 	// A list of command line arguments passed to the JAR file's main function when executed.
-	Args *[]*string `json:"args"`
+	Args *[]*string `json:"args" yaml:"args"`
 	// The name of the main class in the specified Java file.
 	//
 	// If not specified, the JAR file should specify a Main-Class in its manifest file.
-	MainClass *string `json:"mainClass"`
+	MainClass *string `json:"mainClass" yaml:"mainClass"`
 	// A list of Java properties that are set when the step runs.
 	//
 	// You can use these properties to pass key value pairs to your main function.
-	StepProperties interface{} `json:"stepProperties"`
+	StepProperties interface{} `json:"stepProperties" yaml:"stepProperties"`
 }
 
 // `KeyValue` is a subproperty of the `HadoopJarStepConfig` property type.
@@ -4337,9 +4337,9 @@ type CfnStep_HadoopJarStepConfigProperty struct {
 //
 type CfnStep_KeyValueProperty struct {
 	// The unique identifier of a key-value pair.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// The value part of the identified key.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // Properties for defining a `CfnStep`.
@@ -4350,15 +4350,15 @@ type CfnStepProps struct {
 	// This specifies what action to take when the cluster step fails.
 	//
 	// Possible values are `CANCEL_AND_WAIT` and `CONTINUE` .
-	ActionOnFailure *string `json:"actionOnFailure"`
+	ActionOnFailure *string `json:"actionOnFailure" yaml:"actionOnFailure"`
 	// The `HadoopJarStepConfig` property type specifies a job flow step consisting of a JAR file whose main function will be executed.
 	//
 	// The main function submits a job for the cluster to execute as a step on the master node, and then waits for the job to finish or fail before executing subsequent steps.
-	HadoopJarStep interface{} `json:"hadoopJarStep"`
+	HadoopJarStep interface{} `json:"hadoopJarStep" yaml:"hadoopJarStep"`
 	// A string that uniquely identifies the cluster (job flow).
-	JobFlowId *string `json:"jobFlowId"`
+	JobFlowId *string `json:"jobFlowId" yaml:"jobFlowId"`
 	// The name of the cluster step.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // A CloudFormation `AWS::EMR::Studio`.
@@ -5103,45 +5103,45 @@ func (c *jsiiProxy_CfnStudio) ValidateProperties(_properties interface{}) {
 //
 type CfnStudioProps struct {
 	// Specifies whether the Studio authenticates users using AWS SSO or IAM.
-	AuthMode *string `json:"authMode"`
+	AuthMode *string `json:"authMode" yaml:"authMode"`
 	// The Amazon S3 location to back up EMR Studio Workspaces and notebook files.
-	DefaultS3Location *string `json:"defaultS3Location"`
+	DefaultS3Location *string `json:"defaultS3Location" yaml:"defaultS3Location"`
 	// The ID of the Amazon EMR Studio Engine security group.
 	//
 	// The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `VpcId` .
-	EngineSecurityGroupId *string `json:"engineSecurityGroupId"`
+	EngineSecurityGroupId *string `json:"engineSecurityGroupId" yaml:"engineSecurityGroupId"`
 	// A descriptive name for the Amazon EMR Studio.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The Amazon Resource Name (ARN) of the IAM role that will be assumed by the Amazon EMR Studio.
 	//
 	// The service role provides a way for Amazon EMR Studio to interoperate with other AWS services.
-	ServiceRole *string `json:"serviceRole"`
+	ServiceRole *string `json:"serviceRole" yaml:"serviceRole"`
 	// A list of subnet IDs to associate with the Amazon EMR Studio.
 	//
 	// A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `VpcId` . Studio users can create a Workspace in any of the specified subnets.
-	SubnetIds *[]*string `json:"subnetIds"`
+	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
 	// The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
-	VpcId *string `json:"vpcId"`
+	VpcId *string `json:"vpcId" yaml:"vpcId"`
 	// The ID of the Workspace security group associated with the Amazon EMR Studio.
 	//
 	// The Workspace security group allows outbound network traffic to resources in the Engine security group and to the internet.
-	WorkspaceSecurityGroupId *string `json:"workspaceSecurityGroupId"`
+	WorkspaceSecurityGroupId *string `json:"workspaceSecurityGroupId" yaml:"workspaceSecurityGroupId"`
 	// A detailed description of the Amazon EMR Studio.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Your identity provider's authentication endpoint.
 	//
 	// Amazon EMR Studio redirects federated users to this endpoint for authentication when logging in to a Studio with the Studio URL.
-	IdpAuthUrl *string `json:"idpAuthUrl"`
+	IdpAuthUrl *string `json:"idpAuthUrl" yaml:"idpAuthUrl"`
 	// The name of your identity provider's `RelayState` parameter.
-	IdpRelayStateParameterName *string `json:"idpRelayStateParameterName"`
+	IdpRelayStateParameterName *string `json:"idpRelayStateParameterName" yaml:"idpRelayStateParameterName"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// The Amazon Resource Name (ARN) of the IAM user role that will be assumed by users and groups logged in to a Studio.
 	//
 	// The permissions attached to this IAM role can be scoped down for each user or group using session policies. You only need to specify `UserRole` when you set `AuthMode` to `SSO` .
-	UserRole *string `json:"userRole"`
+	UserRole *string `json:"userRole" yaml:"userRole"`
 }
 
 // A CloudFormation `AWS::EMR::StudioSessionMapping`.
@@ -5684,14 +5684,14 @@ type CfnStudioSessionMappingProps struct {
 	// The name of the user or group.
 	//
 	// For more information, see [UserName](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName) and [DisplayName](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName) in the *AWS SSO Identity Store API Reference* .
-	IdentityName *string `json:"identityName"`
+	IdentityName *string `json:"identityName" yaml:"identityName"`
 	// Specifies whether the identity to map to the Amazon EMR Studio is a user or a group.
-	IdentityType *string `json:"identityType"`
+	IdentityType *string `json:"identityType" yaml:"identityType"`
 	// The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group.
 	//
 	// Session policies refine Studio user permissions without the need to use multiple IAM user roles. For more information, see [Create an EMR Studio user role with session policies](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio-user-role.html) in the *Amazon EMR Management Guide* .
-	SessionPolicyArn *string `json:"sessionPolicyArn"`
+	SessionPolicyArn *string `json:"sessionPolicyArn" yaml:"sessionPolicyArn"`
 	// The ID of the Amazon EMR Studio to which the user or group will be mapped.
-	StudioId *string `json:"studioId"`
+	StudioId *string `json:"studioId" yaml:"studioId"`
 }
 

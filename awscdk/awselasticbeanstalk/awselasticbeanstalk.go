@@ -535,9 +535,9 @@ type CfnApplication_ApplicationResourceLifecycleConfigProperty struct {
 	// The ARN of an IAM service role that Elastic Beanstalk has permission to assume.
 	//
 	// The `ServiceRole` property is required the first time that you provide a `ResourceLifecycleConfig` for the application. After you provide it once, Elastic Beanstalk persists the Service Role with the application, and you don't need to specify it again. You can, however, specify it in subsequent updates to change the Service Role to another value.
-	ServiceRole *string `json:"serviceRole"`
+	ServiceRole *string `json:"serviceRole" yaml:"serviceRole"`
 	// Defines lifecycle settings for application versions.
-	VersionLifecycleConfig interface{} `json:"versionLifecycleConfig"`
+	VersionLifecycleConfig interface{} `json:"versionLifecycleConfig" yaml:"versionLifecycleConfig"`
 }
 
 // Use the `ApplicationVersionLifecycleConfig` property type to specify application version lifecycle settings for an AWS Elastic Beanstalk application when defining an AWS::ElasticBeanstalk::Application resource in an AWS CloudFormation template.
@@ -552,9 +552,9 @@ type CfnApplication_ApplicationResourceLifecycleConfigProperty struct {
 //
 type CfnApplication_ApplicationVersionLifecycleConfigProperty struct {
 	// Specify a max age rule to restrict the length of time that application versions are retained for an application.
-	MaxAgeRule interface{} `json:"maxAgeRule"`
+	MaxAgeRule interface{} `json:"maxAgeRule" yaml:"maxAgeRule"`
 	// Specify a max count rule to restrict the number of application versions that are retained for an application.
-	MaxCountRule interface{} `json:"maxCountRule"`
+	MaxCountRule interface{} `json:"maxCountRule" yaml:"maxCountRule"`
 }
 
 // Use the `MaxAgeRule` property type to specify a max age rule to restrict the length of time that application versions are retained for an AWS Elastic Beanstalk application when defining an AWS::ElasticBeanstalk::Application resource in an AWS CloudFormation template.
@@ -567,11 +567,11 @@ type CfnApplication_ApplicationVersionLifecycleConfigProperty struct {
 //
 type CfnApplication_MaxAgeRuleProperty struct {
 	// Set to `true` to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
-	DeleteSourceFromS3 interface{} `json:"deleteSourceFromS3"`
+	DeleteSourceFromS3 interface{} `json:"deleteSourceFromS3" yaml:"deleteSourceFromS3"`
 	// Specify `true` to apply the rule, or `false` to disable it.
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 	// Specify the number of days to retain an application versions.
-	MaxAgeInDays *float64 `json:"maxAgeInDays"`
+	MaxAgeInDays *float64 `json:"maxAgeInDays" yaml:"maxAgeInDays"`
 }
 
 // Use the `MaxAgeRule` property type to specify a max count rule to restrict the number of application versions that are retained for an AWS Elastic Beanstalk application when defining an AWS::ElasticBeanstalk::Application resource in an AWS CloudFormation template.
@@ -584,11 +584,11 @@ type CfnApplication_MaxAgeRuleProperty struct {
 //
 type CfnApplication_MaxCountRuleProperty struct {
 	// Set to `true` to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
-	DeleteSourceFromS3 interface{} `json:"deleteSourceFromS3"`
+	DeleteSourceFromS3 interface{} `json:"deleteSourceFromS3" yaml:"deleteSourceFromS3"`
 	// Specify `true` to apply the rule, or `false` to disable it.
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 	// Specify the maximum number of application versions to retain.
-	MaxCount *float64 `json:"maxCount"`
+	MaxCount *float64 `json:"maxCount" yaml:"maxCount"`
 }
 
 // Properties for defining a `CfnApplication`.
@@ -601,11 +601,11 @@ type CfnApplicationProps struct {
 	// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
 	//
 	// > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
-	ApplicationName *string `json:"applicationName"`
+	ApplicationName *string `json:"applicationName" yaml:"applicationName"`
 	// Your description of the application.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Specifies an application resource lifecycle configuration to prevent your application from accumulating too many versions.
-	ResourceLifecycleConfig interface{} `json:"resourceLifecycleConfig"`
+	ResourceLifecycleConfig interface{} `json:"resourceLifecycleConfig" yaml:"resourceLifecycleConfig"`
 }
 
 // A CloudFormation `AWS::ElasticBeanstalk::ApplicationVersion`.
@@ -1132,9 +1132,9 @@ func (c *jsiiProxy_CfnApplicationVersion) ValidateProperties(_properties interfa
 //
 type CfnApplicationVersion_SourceBundleProperty struct {
 	// The Amazon S3 bucket where the data is located.
-	S3Bucket *string `json:"s3Bucket"`
+	S3Bucket *string `json:"s3Bucket" yaml:"s3Bucket"`
 	// The Amazon S3 key where the data is located.
-	S3Key *string `json:"s3Key"`
+	S3Key *string `json:"s3Key" yaml:"s3Key"`
 }
 
 // Properties for defining a `CfnApplicationVersion`.
@@ -1143,13 +1143,13 @@ type CfnApplicationVersion_SourceBundleProperty struct {
 //
 type CfnApplicationVersionProps struct {
 	// The name of the Elastic Beanstalk application that is associated with this application version.
-	ApplicationName *string `json:"applicationName"`
+	ApplicationName *string `json:"applicationName" yaml:"applicationName"`
 	// The Amazon S3 bucket and key that identify the location of the source bundle for this version.
 	//
 	// > The Amazon S3 bucket must be in the same region as the environment.
-	SourceBundle interface{} `json:"sourceBundle"`
+	SourceBundle interface{} `json:"sourceBundle" yaml:"sourceBundle"`
 	// A description of this application version.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 }
 
 // A CloudFormation `AWS::ElasticBeanstalk::ConfigurationTemplate`.
@@ -1760,15 +1760,15 @@ func (c *jsiiProxy_CfnConfigurationTemplate) ValidateProperties(_properties inte
 //
 type CfnConfigurationTemplate_ConfigurationOptionSettingProperty struct {
 	// A unique namespace that identifies the option's associated AWS resource.
-	Namespace *string `json:"namespace"`
+	Namespace *string `json:"namespace" yaml:"namespace"`
 	// The name of the configuration option.
-	OptionName *string `json:"optionName"`
+	OptionName *string `json:"optionName" yaml:"optionName"`
 	// A unique resource name for the option setting.
 	//
 	// Use it for a time–based scaling configuration option.
-	ResourceName *string `json:"resourceName"`
+	ResourceName *string `json:"resourceName" yaml:"resourceName"`
 	// The current value for the configuration option.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // Use the `SourceConfiguration` property type to specify another AWS Elastic Beanstalk configuration template as the base to creating a new AWS::ElasticBeanstalk::ConfigurationTemplate resource in an AWS CloudFormation template.
@@ -1779,9 +1779,9 @@ type CfnConfigurationTemplate_ConfigurationOptionSettingProperty struct {
 //
 type CfnConfigurationTemplate_SourceConfigurationProperty struct {
 	// The name of the application associated with the configuration.
-	ApplicationName *string `json:"applicationName"`
+	ApplicationName *string `json:"applicationName" yaml:"applicationName"`
 	// The name of the configuration template.
-	TemplateName *string `json:"templateName"`
+	TemplateName *string `json:"templateName" yaml:"templateName"`
 }
 
 // Properties for defining a `CfnConfigurationTemplate`.
@@ -1790,23 +1790,23 @@ type CfnConfigurationTemplate_SourceConfigurationProperty struct {
 //
 type CfnConfigurationTemplateProps struct {
 	// The name of the Elastic Beanstalk application to associate with this configuration template.
-	ApplicationName *string `json:"applicationName"`
+	ApplicationName *string `json:"applicationName" yaml:"applicationName"`
 	// An optional description for this configuration.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The ID of an environment whose settings you want to use to create the configuration template.
 	//
 	// You must specify `EnvironmentId` if you don't specify `PlatformArn` , `SolutionStackName` , or `SourceConfiguration` .
-	EnvironmentId *string `json:"environmentId"`
+	EnvironmentId *string `json:"environmentId" yaml:"environmentId"`
 	// Option values for the Elastic Beanstalk configuration, such as the instance type.
 	//
 	// If specified, these values override the values obtained from the solution stack or the source configuration template. For a complete list of Elastic Beanstalk configuration options, see [Option Values](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html) in the *AWS Elastic Beanstalk Developer Guide* .
-	OptionSettings interface{} `json:"optionSettings"`
+	OptionSettings interface{} `json:"optionSettings" yaml:"optionSettings"`
 	// The Amazon Resource Name (ARN) of the custom platform.
 	//
 	// For more information, see [Custom Platforms](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/custom-platforms.html) in the *AWS Elastic Beanstalk Developer Guide* .
 	//
 	// > If you specify `PlatformArn` , then don't specify `SolutionStackName` .
-	PlatformArn *string `json:"platformArn"`
+	PlatformArn *string `json:"platformArn" yaml:"platformArn"`
 	// The name of an Elastic Beanstalk solution stack (platform version) that this configuration uses.
 	//
 	// For example, `64bit Amazon Linux 2013.09 running Tomcat 7 Java 7` . A solution stack specifies the operating system, runtime, and application server for a configuration template. It also determines the set of configuration options as well as the possible and default values. For more information, see [Supported Platforms](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html) in the *AWS Elastic Beanstalk Developer Guide* .
@@ -1814,7 +1814,7 @@ type CfnConfigurationTemplateProps struct {
 	// You must specify `SolutionStackName` if you don't specify `PlatformArn` , `EnvironmentId` , or `SourceConfiguration` .
 	//
 	// Use the [`ListAvailableSolutionStacks`](https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_ListAvailableSolutionStacks.html) API to obtain a list of available solution stacks.
-	SolutionStackName *string `json:"solutionStackName"`
+	SolutionStackName *string `json:"solutionStackName" yaml:"solutionStackName"`
 	// An Elastic Beanstalk configuration template to base this one on.
 	//
 	// If specified, Elastic Beanstalk uses the configuration values from the specified configuration template to create a new configuration.
@@ -1824,7 +1824,7 @@ type CfnConfigurationTemplateProps struct {
 	// You must specify `SourceConfiguration` if you don't specify `PlatformArn` , `EnvironmentId` , or `SolutionStackName` .
 	//
 	// Constraint: If both solution stack name and source configuration are specified, the solution stack of the source configuration template must match the specified solution stack name.
-	SourceConfiguration interface{} `json:"sourceConfiguration"`
+	SourceConfiguration interface{} `json:"sourceConfiguration" yaml:"sourceConfiguration"`
 }
 
 // A CloudFormation `AWS::ElasticBeanstalk::Environment`.
@@ -2535,15 +2535,15 @@ func (c *jsiiProxy_CfnEnvironment) ValidateProperties(_properties interface{}) {
 //
 type CfnEnvironment_OptionSettingProperty struct {
 	// A unique namespace that identifies the option's associated AWS resource.
-	Namespace *string `json:"namespace"`
+	Namespace *string `json:"namespace" yaml:"namespace"`
 	// The name of the configuration option.
-	OptionName *string `json:"optionName"`
+	OptionName *string `json:"optionName" yaml:"optionName"`
 	// A unique resource name for the option setting.
 	//
 	// Use it for a time–based scaling configuration option.
-	ResourceName *string `json:"resourceName"`
+	ResourceName *string `json:"resourceName" yaml:"resourceName"`
 	// The current value for the configuration option.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // Use the `Tier` property type to specify the environment tier for an AWS Elastic Beanstalk environment when defining an AWS::ElasticBeanstalk::Environment resource in an AWS CloudFormation template.
@@ -2559,20 +2559,20 @@ type CfnEnvironment_TierProperty struct {
 	//
 	// - For *Web server tier* – `WebServer`
 	// - For *Worker tier* – `Worker`
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The type of this environment tier.
 	//
 	// Valid values:
 	//
 	// - For *Web server tier* – `Standard`
 	// - For *Worker tier* – `SQS/HTTP`
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// The version of this environment tier.
 	//
 	// When you don't set a value to it, Elastic Beanstalk uses the latest compatible worker tier version.
 	//
 	// > This member is deprecated. Any specific version that you set may become out of date. We recommend leaving it unspecified.
-	Version *string `json:"version"`
+	Version *string `json:"version" yaml:"version"`
 }
 
 // Properties for defining a `CfnEnvironment`.
@@ -2581,13 +2581,13 @@ type CfnEnvironment_TierProperty struct {
 //
 type CfnEnvironmentProps struct {
 	// The name of the application that is associated with this environment.
-	ApplicationName *string `json:"applicationName"`
+	ApplicationName *string `json:"applicationName" yaml:"applicationName"`
 	// If specified, the environment attempts to use this value as the prefix for the CNAME in your Elastic Beanstalk environment URL.
 	//
 	// If not specified, the CNAME is generated automatically by appending a random alphanumeric string to the environment name.
-	CnamePrefix *string `json:"cnamePrefix"`
+	CnamePrefix *string `json:"cnamePrefix" yaml:"cnamePrefix"`
 	// Your description for this environment.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// A unique name for the environment.
 	//
 	// Constraint: Must be from 4 to 40 characters in length. The name can contain only letters, numbers, and hyphens. It can't start or end with a hyphen. This name must be unique within a region in your account.
@@ -2597,40 +2597,40 @@ type CfnEnvironmentProps struct {
 	// If you don't specify an environment name, AWS CloudFormation generates a unique physical ID and uses that ID for the environment name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
 	//
 	// > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
-	EnvironmentName *string `json:"environmentName"`
+	EnvironmentName *string `json:"environmentName" yaml:"environmentName"`
 	// > The operations role feature of AWS Elastic Beanstalk is in beta release and is subject to change.
 	//
 	// The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's operations role. If specified, Elastic Beanstalk uses the operations role for permissions to downstream services during this call and during subsequent calls acting on this environment. To specify an operations role, you must have the `iam:PassRole` permission for the role.
-	OperationsRole *string `json:"operationsRole"`
+	OperationsRole *string `json:"operationsRole" yaml:"operationsRole"`
 	// Key-value pairs defining configuration options for this environment, such as the instance type.
 	//
 	// These options override the values that are defined in the solution stack or the [configuration template](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-beanstalk-configurationtemplate.html) . If you remove any options during a stack update, the removed options retain their current values.
-	OptionSettings interface{} `json:"optionSettings"`
+	OptionSettings interface{} `json:"optionSettings" yaml:"optionSettings"`
 	// The Amazon Resource Name (ARN) of the custom platform to use with the environment.
 	//
 	// For more information, see [Custom Platforms](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/custom-platforms.html) in the *AWS Elastic Beanstalk Developer Guide* .
 	//
 	// > If you specify `PlatformArn` , don't specify `SolutionStackName` .
-	PlatformArn *string `json:"platformArn"`
+	PlatformArn *string `json:"platformArn" yaml:"platformArn"`
 	// The name of an Elastic Beanstalk solution stack (platform version) to use with the environment.
 	//
 	// If specified, Elastic Beanstalk sets the configuration values to the default values associated with the specified solution stack. For a list of current solution stacks, see [Elastic Beanstalk Supported Platforms](https://docs.aws.amazon.com/elasticbeanstalk/latest/platforms/platforms-supported.html) in the *AWS Elastic Beanstalk Platforms* guide.
 	//
 	// > If you specify `SolutionStackName` , don't specify `PlatformArn` or `TemplateName` .
-	SolutionStackName *string `json:"solutionStackName"`
+	SolutionStackName *string `json:"solutionStackName" yaml:"solutionStackName"`
 	// Specifies the tags applied to resources in the environment.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// The name of the Elastic Beanstalk configuration template to use with the environment.
 	//
 	// > If you specify `TemplateName` , then don't specify `SolutionStackName` .
-	TemplateName *string `json:"templateName"`
+	TemplateName *string `json:"templateName" yaml:"templateName"`
 	// Specifies the tier to use in creating this environment.
 	//
 	// The environment tier that you choose determines whether Elastic Beanstalk provisions resources to support a web application that handles HTTP(S) requests or a web application that handles background-processing tasks.
-	Tier interface{} `json:"tier"`
+	Tier interface{} `json:"tier" yaml:"tier"`
 	// The name of the application version to deploy.
 	//
 	// Default: If not specified, Elastic Beanstalk attempts to deploy the sample application.
-	VersionLabel *string `json:"versionLabel"`
+	VersionLabel *string `json:"versionLabel" yaml:"versionLabel"`
 }
 

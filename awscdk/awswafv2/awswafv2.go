@@ -615,27 +615,27 @@ type CfnIPSetProps struct {
 	// - To configure AWS WAF to allow, block, or count requests that originated from IP addresses 1111:0000:0000:0000:0000:0000:0000:0000 to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify `1111:0000:0000:0000:0000:0000:0000:0000/64` .
 	//
 	// For more information about CIDR notation, see the Wikipedia entry [Classless Inter-Domain Routing](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
-	Addresses *[]*string `json:"addresses"`
+	Addresses *[]*string `json:"addresses" yaml:"addresses"`
 	// Specify IPV4 or IPV6.
-	IpAddressVersion *string `json:"ipAddressVersion"`
+	IpAddressVersion *string `json:"ipAddressVersion" yaml:"ipAddressVersion"`
 	// Specifies whether this is for an Amazon CloudFront distribution or for a regional application.
 	//
 	// A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, or an AWS AppSync GraphQL API. Valid Values are `CLOUDFRONT` and `REGIONAL` .
 	//
 	// > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
-	Scope *string `json:"scope"`
+	Scope *string `json:"scope" yaml:"scope"`
 	// A description of the IP set that helps with identification.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The descriptive name of the IP set.
 	//
 	// You cannot change the name of an `IPSet` after you create it.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// Key:value pairs associated with an AWS resource.
 	//
 	// The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
 	//
 	// > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::WAFv2::LoggingConfiguration`.
@@ -1199,15 +1199,15 @@ func (c *jsiiProxy_CfnLoggingConfiguration) ValidateProperties(_properties inter
 //
 type CfnLoggingConfiguration_FieldToMatchProperty struct {
 	// Redact the JSON body from the logs.
-	JsonBody interface{} `json:"jsonBody"`
+	JsonBody interface{} `json:"jsonBody" yaml:"jsonBody"`
 	// Redact the method from the logs.
-	Method interface{} `json:"method"`
+	Method interface{} `json:"method" yaml:"method"`
 	// Redact the query string from the logs.
-	QueryString interface{} `json:"queryString"`
+	QueryString interface{} `json:"queryString" yaml:"queryString"`
 	// Redact the header from the logs.
-	SingleHeader interface{} `json:"singleHeader"`
+	SingleHeader interface{} `json:"singleHeader" yaml:"singleHeader"`
 	// Redact the URI path from the logs.
-	UriPath interface{} `json:"uriPath"`
+	UriPath interface{} `json:"uriPath" yaml:"uriPath"`
 }
 
 // Properties for defining a `CfnLoggingConfiguration`.
@@ -1216,19 +1216,19 @@ type CfnLoggingConfiguration_FieldToMatchProperty struct {
 //
 type CfnLoggingConfigurationProps struct {
 	// The Amazon Resource Names (ARNs) of the logging destinations that you want to associate with the web ACL.
-	LogDestinationConfigs *[]*string `json:"logDestinationConfigs"`
+	LogDestinationConfigs *[]*string `json:"logDestinationConfigs" yaml:"logDestinationConfigs"`
 	// The Amazon Resource Name (ARN) of the web ACL that you want to associate with `LogDestinationConfigs` .
-	ResourceArn *string `json:"resourceArn"`
+	ResourceArn *string `json:"resourceArn" yaml:"resourceArn"`
 	// Filtering that specifies which web requests are kept in the logs and which are dropped.
 	//
 	// You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
-	LoggingFilter interface{} `json:"loggingFilter"`
+	LoggingFilter interface{} `json:"loggingFilter" yaml:"loggingFilter"`
 	// The parts of the request that you want to keep out of the logs.
 	//
 	// For example, if you redact the `SingleHeader` field, the `HEADER` field in the firehose will be `xxx` .
 	//
 	// > You can specify only the following fields for redaction: `UriPath` , `QueryString` , `SingleHeader` , `Method` , and `JsonBody` .
-	RedactedFields interface{} `json:"redactedFields"`
+	RedactedFields interface{} `json:"redactedFields" yaml:"redactedFields"`
 }
 
 // A CloudFormation `AWS::WAFv2::RegexPatternSet`.
@@ -1806,25 +1806,25 @@ func (c *jsiiProxy_CfnRegexPatternSet) ValidateProperties(_properties interface{
 //
 type CfnRegexPatternSetProps struct {
 	// The regular expression patterns in the set.
-	RegularExpressionList *[]*string `json:"regularExpressionList"`
+	RegularExpressionList *[]*string `json:"regularExpressionList" yaml:"regularExpressionList"`
 	// Specifies whether this is for an Amazon CloudFront distribution or for a regional application.
 	//
 	// A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, or an AWS AppSync GraphQL API. Valid Values are `CLOUDFRONT` and `REGIONAL` .
 	//
 	// > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
-	Scope *string `json:"scope"`
+	Scope *string `json:"scope" yaml:"scope"`
 	// A description of the set that helps with identification.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The descriptive name of the set.
 	//
 	// You cannot change the name after you create the set.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// Key:value pairs associated with an AWS resource.
 	//
 	// The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
 	//
 	// > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::WAFv2::RuleGroup`.
@@ -2499,7 +2499,7 @@ type CfnRuleGroup_AndStatementProperty struct {
 	// The statements to combine with AND logic.
 	//
 	// You can use any statements that can be nested.
-	Statements interface{} `json:"statements"`
+	Statements interface{} `json:"statements" yaml:"statements"`
 }
 
 // A rule statement that defines a string match search for AWS WAF to apply to web requests.
@@ -2510,7 +2510,7 @@ type CfnRuleGroup_AndStatementProperty struct {
 //
 type CfnRuleGroup_ByteMatchStatementProperty struct {
 	// The part of a web request that you want AWS WAF to inspect.
-	FieldToMatch interface{} `json:"fieldToMatch"`
+	FieldToMatch interface{} `json:"fieldToMatch" yaml:"fieldToMatch"`
 	// The area within the portion of a web request that you want AWS WAF to search for `SearchString` .
 	//
 	// Valid values include the following:
@@ -2537,11 +2537,11 @@ type CfnRuleGroup_ByteMatchStatementProperty struct {
 	// *ENDS_WITH*
 	//
 	// The value of `SearchString` must appear at the end of the specified part of the web request.
-	PositionalConstraint *string `json:"positionalConstraint"`
+	PositionalConstraint *string `json:"positionalConstraint" yaml:"positionalConstraint"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
 	//
 	// If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
-	TextTransformations interface{} `json:"textTransformations"`
+	TextTransformations interface{} `json:"textTransformations" yaml:"textTransformations"`
 	// A string value that you want AWS WAF to search for.
 	//
 	// AWS WAF searches only in the part of web requests that you designate for inspection in `FieldToMatch` . The maximum length of the value is 50 bytes. For alphabetic characters A-Z and a-z, the value is case sensitive.
@@ -2551,13 +2551,13 @@ type CfnRuleGroup_ByteMatchStatementProperty struct {
 	// For example, suppose the value of `Type` is `HEADER` and the value of `Data` is `User-Agent` . If you want to search the `User-Agent` header for the value `BadBot` , you provide the string `BadBot` in the value of `SearchString` .
 	//
 	// You must specify either `SearchString` or `SearchStringBase64` in a `ByteMatchStatement` .
-	SearchString *string `json:"searchString"`
+	SearchString *string `json:"searchString" yaml:"searchString"`
 	// String to search for in a web request component, base64-encoded.
 	//
 	// If you don't want to encode the string, specify the unencoded value in `SearchString` instead.
 	//
 	// You must specify either `SearchString` or `SearchStringBase64` in a `ByteMatchStatement` .
-	SearchStringBase64 *string `json:"searchStringBase64"`
+	SearchStringBase64 *string `json:"searchStringBase64" yaml:"searchStringBase64"`
 }
 
 // Specifies how AWS WAF should handle `CAPTCHA` evaluations.
@@ -2568,7 +2568,7 @@ type CfnRuleGroup_ByteMatchStatementProperty struct {
 //
 type CfnRuleGroup_CaptchaConfigProperty struct {
 	// Determines how long a `CAPTCHA` token remains valid after the client successfully solves a `CAPTCHA` puzzle.
-	ImmunityTimeProperty interface{} `json:"immunityTimeProperty"`
+	ImmunityTimeProperty interface{} `json:"immunityTimeProperty" yaml:"immunityTimeProperty"`
 }
 
 // The response body to use in a custom response to a web request.
@@ -2583,9 +2583,9 @@ type CfnRuleGroup_CustomResponseBodyProperty struct {
 	// You can use JSON escape strings in JSON content. To do this, you must specify JSON content in the `ContentType` setting.
 	//
 	// For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
-	Content *string `json:"content"`
+	Content *string `json:"content" yaml:"content"`
 	// The type of content in the payload that you are defining in the `Content` string.
-	ContentType *string `json:"contentType"`
+	ContentType *string `json:"contentType" yaml:"contentType"`
 }
 
 // The part of a web request that you want AWS WAF to inspect.
@@ -2596,39 +2596,39 @@ type CfnRuleGroup_CustomResponseBodyProperty struct {
 //
 type CfnRuleGroup_FieldToMatchProperty struct {
 	// Inspect all query arguments.
-	AllQueryArguments interface{} `json:"allQueryArguments"`
+	AllQueryArguments interface{} `json:"allQueryArguments" yaml:"allQueryArguments"`
 	// Inspect the request body, which immediately follows the request headers.
 	//
 	// This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
 	//
 	// Note that only the first 8 KB (8192 bytes) of the request body are forwarded to AWS WAF for inspection by the underlying host service. If you don't need to inspect more than 8 KB, you can guarantee that you don't allow additional bytes in by combining a statement that inspects the body of the web request, such as the `ByteMatchStatement` or `RegexPatternSetReferenceStatement` , with a `SizeConstraintStatement` that enforces an 8 KB size limit on the body of the request. AWS WAF doesn't support inspecting the entire contents of web requests whose bodies exceed the 8 KB limit.
-	Body interface{} `json:"body"`
+	Body interface{} `json:"body" yaml:"body"`
 	// Inspect the request body as JSON.
 	//
 	// The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
 	//
 	// Note that only the first 8 KB (8192 bytes) of the request body are forwarded to AWS WAF for inspection by the underlying host service. If you don't need to inspect more than 8 KB, you can guarantee that you don't allow additional bytes in by combining a statement that inspects the body of the web request, such as the `ByteMatchStatement` or `RegexPatternSetReferenceStatement` , with a `SizeConstraintStatement` that enforces an 8 KB size limit on the body of the request. AWS WAF doesn't support inspecting the entire contents of web requests whose bodies exceed the 8 KB limit.
-	JsonBody interface{} `json:"jsonBody"`
+	JsonBody interface{} `json:"jsonBody" yaml:"jsonBody"`
 	// Inspect the HTTP method.
 	//
 	// The method indicates the type of operation that the request is asking the origin to perform.
-	Method interface{} `json:"method"`
+	Method interface{} `json:"method" yaml:"method"`
 	// Inspect the query string.
 	//
 	// This is the part of a URL that appears after a `?` character, if any.
-	QueryString interface{} `json:"queryString"`
+	QueryString interface{} `json:"queryString" yaml:"queryString"`
 	// Inspect a single header.
 	//
 	// Provide the name of the header to inspect, for example, `User-Agent` or `Referer` . This setting isn't case sensitive.
-	SingleHeader interface{} `json:"singleHeader"`
+	SingleHeader interface{} `json:"singleHeader" yaml:"singleHeader"`
 	// Inspect a single query argument.
 	//
 	// Provide the name of the query argument to inspect, such as *UserName* or *SalesRegion* . The name can be up to 30 characters long and isn't case sensitive.
-	SingleQueryArgument interface{} `json:"singleQueryArgument"`
+	SingleQueryArgument interface{} `json:"singleQueryArgument" yaml:"singleQueryArgument"`
 	// Inspect the request URI path.
 	//
 	// This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg` .
-	UriPath interface{} `json:"uriPath"`
+	UriPath interface{} `json:"uriPath" yaml:"uriPath"`
 }
 
 // The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin.
@@ -2652,13 +2652,13 @@ type CfnRuleGroup_ForwardedIPConfigurationProperty struct {
 	//
 	// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
 	// - `NO_MATCH` - Treat the web request as not matching the rule statement.
-	FallbackBehavior *string `json:"fallbackBehavior"`
+	FallbackBehavior *string `json:"fallbackBehavior" yaml:"fallbackBehavior"`
 	// The name of the HTTP header to use for the IP address.
 	//
 	// For example, to use the X-Forwarded-For (XFF) header, set this to `X-Forwarded-For` .
 	//
 	// > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-	HeaderName *string `json:"headerName"`
+	HeaderName *string `json:"headerName" yaml:"headerName"`
 }
 
 // A rule statement used to identify web requests based on country of origin.
@@ -2667,13 +2667,13 @@ type CfnRuleGroup_ForwardedIPConfigurationProperty struct {
 //
 type CfnRuleGroup_GeoMatchStatementProperty struct {
 	// An array of two-character country codes, for example, `[ "US", "CN" ]` , from the alpha-2 country ISO codes of the ISO 3166 international standard.
-	CountryCodes *[]*string `json:"countryCodes"`
+	CountryCodes *[]*string `json:"countryCodes" yaml:"countryCodes"`
 	// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin.
 	//
 	// Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
 	//
 	// > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-	ForwardedIpConfig interface{} `json:"forwardedIpConfig"`
+	ForwardedIpConfig interface{} `json:"forwardedIpConfig" yaml:"forwardedIpConfig"`
 }
 
 // The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin.
@@ -2695,13 +2695,13 @@ type CfnRuleGroup_IPSetForwardedIPConfigurationProperty struct {
 	//
 	// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
 	// - `NO_MATCH` - Treat the web request as not matching the rule statement.
-	FallbackBehavior *string `json:"fallbackBehavior"`
+	FallbackBehavior *string `json:"fallbackBehavior" yaml:"fallbackBehavior"`
 	// The name of the HTTP header to use for the IP address.
 	//
 	// For example, to use the X-Forwarded-For (XFF) header, set this to `X-Forwarded-For` .
 	//
 	// > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-	HeaderName *string `json:"headerName"`
+	HeaderName *string `json:"headerName" yaml:"headerName"`
 	// The position in the header to search for the IP address.
 	//
 	// The header can contain IP addresses of the original client and also of proxies. For example, the header value could be `10.1.1.1, 127.0.0.0, 10.10.10.10` where the first IP address identifies the original client and the rest identify proxies that the request went through.
@@ -2711,7 +2711,7 @@ type CfnRuleGroup_IPSetForwardedIPConfigurationProperty struct {
 	// - FIRST - Inspect the first IP address in the list of IP addresses in the header. This is usually the client's original IP.
 	// - LAST - Inspect the last IP address in the list of IP addresses in the header.
 	// - ANY - Inspect all IP addresses in the header for a match. If the header contains more than 10 IP addresses, AWS WAF inspects the last 10.
-	Position *string `json:"position"`
+	Position *string `json:"position" yaml:"position"`
 }
 
 // A rule statement used to detect web requests coming from particular IP addresses or address ranges.
@@ -2724,13 +2724,13 @@ type CfnRuleGroup_IPSetForwardedIPConfigurationProperty struct {
 //
 type CfnRuleGroup_IPSetReferenceStatementProperty struct {
 	// The Amazon Resource Name (ARN) of the `IPSet` that this statement references.
-	Arn *string `json:"arn"`
+	Arn *string `json:"arn" yaml:"arn"`
 	// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin.
 	//
 	// Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
 	//
 	// > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-	IpSetForwardedIpConfig interface{} `json:"ipSetForwardedIpConfig"`
+	IpSetForwardedIpConfig interface{} `json:"ipSetForwardedIpConfig" yaml:"ipSetForwardedIpConfig"`
 }
 
 // Determines how long a `CAPTCHA` token remains valid after the client successfully solves a `CAPTCHA` puzzle.
@@ -2741,7 +2741,7 @@ type CfnRuleGroup_ImmunityTimePropertyProperty struct {
 	// The amount of time, in seconds, that a `CAPTCHA` token is valid.
 	//
 	// The default setting is 300.
-	ImmunityTime *float64 `json:"immunityTime"`
+	ImmunityTime *float64 `json:"immunityTime" yaml:"immunityTime"`
 }
 
 // The body of a web request, inspected as JSON.
@@ -2756,11 +2756,11 @@ type CfnRuleGroup_JsonBodyProperty struct {
 	// The patterns to look for in the JSON body.
 	//
 	// AWS WAF inspects the results of these pattern matches against the rule inspection criteria.
-	MatchPattern interface{} `json:"matchPattern"`
+	MatchPattern interface{} `json:"matchPattern" yaml:"matchPattern"`
 	// The parts of the JSON to match against using the `MatchPattern` .
 	//
 	// If you specify `All` , AWS WAF matches against keys and values.
-	MatchScope *string `json:"matchScope"`
+	MatchScope *string `json:"matchScope" yaml:"matchScope"`
 	// What AWS WAF should do if it fails to completely parse the JSON body. The options are the following:.
 	//
 	// - `EVALUATE_AS_STRING` - Inspect the body as plain text. AWS WAF applies the text transformations and inspection criteria that you defined for the JSON inspection to the body text string.
@@ -2776,7 +2776,7 @@ type CfnRuleGroup_JsonBodyProperty struct {
 	// - Missing comma: `{"key1":"value1""key2":"value2"}`
 	// - Missing colon: `{"key1":"value1","key2""value2"}`
 	// - Extra colons: `{"key1"::"value1","key2""value2"}`
-	InvalidFallbackBehavior *string `json:"invalidFallbackBehavior"`
+	InvalidFallbackBehavior *string `json:"invalidFallbackBehavior" yaml:"invalidFallbackBehavior"`
 }
 
 // The patterns to look for in the JSON body.
@@ -2789,7 +2789,7 @@ type CfnRuleGroup_JsonMatchPatternProperty struct {
 	// Match all of the elements. See also `MatchScope` in `JsonBody` .
 	//
 	// You must specify either this setting or the `IncludedPaths` setting, but not both.
-	All interface{} `json:"all"`
+	All interface{} `json:"all" yaml:"all"`
 	// Match only the specified include paths. See also `MatchScope` in `JsonBody` .
 	//
 	// Provide the include paths using JSON Pointer syntax. For example, `"IncludedPaths": ["/dogs/0/name", "/dogs/1/name"]` . For information about this syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
@@ -2797,7 +2797,7 @@ type CfnRuleGroup_JsonMatchPatternProperty struct {
 	// You must specify either this setting or the `All` setting, but not both.
 	//
 	// > Don't use this option to include all paths. Instead, use the `All` setting.
-	IncludedPaths *[]*string `json:"includedPaths"`
+	IncludedPaths *[]*string `json:"includedPaths" yaml:"includedPaths"`
 }
 
 // A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL.
@@ -2813,9 +2813,9 @@ type CfnRuleGroup_LabelMatchStatementProperty struct {
 	// - If the `Scope` indicates `NAMESPACE` , then this specification can include any number of contiguous namespace strings, and can include the entire label namespace prefix from the rule group or web ACL where the label originates.
 	//
 	// Labels are case sensitive and components of a label must be separated by colon, for example `NS1:NS2:name` .
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// Specify whether you want to match using the label name or just the namespace.
-	Scope *string `json:"scope"`
+	Scope *string `json:"scope" yaml:"scope"`
 }
 
 // A single label container.
@@ -2826,7 +2826,7 @@ type CfnRuleGroup_LabelMatchStatementProperty struct {
 //
 type CfnRuleGroup_LabelProperty struct {
 	// The label string.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // List of labels used by one or more of the rules of a `RuleGroup` .
@@ -2840,7 +2840,7 @@ type CfnRuleGroup_LabelProperty struct {
 //
 type CfnRuleGroup_LabelSummaryProperty struct {
 	// An individual label specification.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // A logical rule statement used to negate the results of another rule statement.
@@ -2853,7 +2853,7 @@ type CfnRuleGroup_NotStatementProperty struct {
 	// The statement to negate.
 	//
 	// You can use any statement that can be nested.
-	Statement interface{} `json:"statement"`
+	Statement interface{} `json:"statement" yaml:"statement"`
 }
 
 // A logical rule statement used to combine other rule statements with OR logic.
@@ -2866,7 +2866,7 @@ type CfnRuleGroup_OrStatementProperty struct {
 	// The statements to combine with OR logic.
 	//
 	// You can use any statements that can be nested.
-	Statements interface{} `json:"statements"`
+	Statements interface{} `json:"statements" yaml:"statements"`
 }
 
 // A rate-based rule tracks the rate of requests for each originating IP address, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any 5-minute time span.
@@ -2891,11 +2891,11 @@ type CfnRuleGroup_RateBasedStatementProperty struct {
 	//
 	// - IP - Aggregate the request counts on the IP address from the web request origin.
 	// - FORWARDED_IP - Aggregate the request counts on the first IP address in an HTTP header. If you use this, configure the `ForwardedIPConfig` , to specify the header to use.
-	AggregateKeyType *string `json:"aggregateKeyType"`
+	AggregateKeyType *string `json:"aggregateKeyType" yaml:"aggregateKeyType"`
 	// The limit on requests per 5-minute period for a single originating IP address.
 	//
 	// If the statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
-	Limit *float64 `json:"limit"`
+	Limit *float64 `json:"limit" yaml:"limit"`
 	// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin.
 	//
 	// Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
@@ -2903,11 +2903,11 @@ type CfnRuleGroup_RateBasedStatementProperty struct {
 	// > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
 	//
 	// This is required if `AggregateKeyType` is set to `FORWARDED_IP` .
-	ForwardedIpConfig interface{} `json:"forwardedIpConfig"`
+	ForwardedIpConfig interface{} `json:"forwardedIpConfig" yaml:"forwardedIpConfig"`
 	// An optional nested statement that narrows the scope of the rate-based statement to matching web requests.
 	//
 	// This can be any nestable statement, and you can nest statements at any level below this scope-down statement.
-	ScopeDownStatement interface{} `json:"scopeDownStatement"`
+	ScopeDownStatement interface{} `json:"scopeDownStatement" yaml:"scopeDownStatement"`
 }
 
 // A rule statement used to search web request components for a match against a single regular expression.
@@ -2918,13 +2918,13 @@ type CfnRuleGroup_RegexMatchStatementProperty struct {
 	// The part of a web request that you want AWS WAF to inspect.
 	//
 	// For more information, see `FieldToMatch` .
-	FieldToMatch interface{} `json:"fieldToMatch"`
+	FieldToMatch interface{} `json:"fieldToMatch" yaml:"fieldToMatch"`
 	// The string representing the regular expression.
-	RegexString *string `json:"regexString"`
+	RegexString *string `json:"regexString" yaml:"regexString"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
 	//
 	// If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
-	TextTransformations interface{} `json:"textTransformations"`
+	TextTransformations interface{} `json:"textTransformations" yaml:"textTransformations"`
 }
 
 // A rule statement used to search web request components for matches with regular expressions.
@@ -2937,13 +2937,13 @@ type CfnRuleGroup_RegexMatchStatementProperty struct {
 //
 type CfnRuleGroup_RegexPatternSetReferenceStatementProperty struct {
 	// The Amazon Resource Name (ARN) of the regular expression pattern set that this statement references.
-	Arn *string `json:"arn"`
+	Arn *string `json:"arn" yaml:"arn"`
 	// The part of a web request that you want AWS WAF to inspect.
-	FieldToMatch interface{} `json:"fieldToMatch"`
+	FieldToMatch interface{} `json:"fieldToMatch" yaml:"fieldToMatch"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
 	//
 	// If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
-	TextTransformations interface{} `json:"textTransformations"`
+	TextTransformations interface{} `json:"textTransformations" yaml:"textTransformations"`
 }
 
 // The action that AWS WAF should take on a web request when it matches a rule's statement.
@@ -2954,9 +2954,9 @@ type CfnRuleGroup_RegexPatternSetReferenceStatementProperty struct {
 //
 type CfnRuleGroup_RuleActionProperty struct {
 	// Instructs AWS WAF to allow the web request.
-	Allow interface{} `json:"allow"`
+	Allow interface{} `json:"allow" yaml:"allow"`
 	// Instructs AWS WAF to block the web request.
-	Block interface{} `json:"block"`
+	Block interface{} `json:"block" yaml:"block"`
 	// Specifies that AWS WAF should run a `CAPTCHA` check against the request:.
 	//
 	// - If the request includes a valid, unexpired `CAPTCHA` token, AWS WAF allows the web request inspection to proceed to the next rule, similar to a `CountAction` .
@@ -2973,9 +2973,9 @@ type CfnRuleGroup_RuleActionProperty struct {
 	// This action option is available for rules. It isn't available for web ACL default actions.
 	//
 	// This is used in the context of other settings, for example to specify values for `RuleAction` and web ACL `DefaultAction` .
-	Captcha interface{} `json:"captcha"`
+	Captcha interface{} `json:"captcha" yaml:"captcha"`
 	// Instructs AWS WAF to count the web request and allow it.
-	Count interface{} `json:"count"`
+	Count interface{} `json:"count" yaml:"count"`
 }
 
 // A single rule, which you can use to identify web requests that you want to allow, block, or count.
@@ -2988,23 +2988,23 @@ type CfnRuleGroup_RuleProperty struct {
 	// The descriptive name of the rule.
 	//
 	// You can't change the name of a `Rule` after you create it.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// If you define more than one `Rule` in a `WebACL` , AWS WAF evaluates each request against the `Rules` in order based on the value of `Priority` .
 	//
 	// AWS WAF processes rules with lower priority first. The priorities don't need to be consecutive, but they must all be different.
-	Priority *float64 `json:"priority"`
+	Priority *float64 `json:"priority" yaml:"priority"`
 	// The AWS WAF processing statement for the rule, for example ByteMatchStatement or SizeConstraintStatement.
-	Statement interface{} `json:"statement"`
+	Statement interface{} `json:"statement" yaml:"statement"`
 	// Defines and enables Amazon CloudWatch metrics and web request sample collection.
-	VisibilityConfig interface{} `json:"visibilityConfig"`
+	VisibilityConfig interface{} `json:"visibilityConfig" yaml:"visibilityConfig"`
 	// The action that AWS WAF should take on a web request when it matches the rule's statement.
 	//
 	// Settings at the web ACL level can override the rule action setting.
-	Action interface{} `json:"action"`
+	Action interface{} `json:"action" yaml:"action"`
 	// Specifies how AWS WAF should handle `CAPTCHA` evaluations.
 	//
 	// If you don't specify this, AWS WAF uses the `CAPTCHA` configuration that's defined for the web ACL.
-	CaptchaConfig interface{} `json:"captchaConfig"`
+	CaptchaConfig interface{} `json:"captchaConfig" yaml:"captchaConfig"`
 	// Labels to apply to web requests that match the rule match statement.
 	//
 	// AWS WAF applies fully qualified labels to matching web requests. A fully qualified label is the concatenation of a label namespace and a rule label. The rule's rule group or web ACL defines the label namespace.
@@ -3019,7 +3019,7 @@ type CfnRuleGroup_RuleProperty struct {
 	// - Don't use the following reserved words in your label specification: `aws` , `waf` , `managed` , `rulegroup` , `webacl` , `regexpatternset` , or `ipset` .
 	//
 	// For example, `myLabelName` or `nameSpace1:nameSpace2:myLabelName` .
-	RuleLabels interface{} `json:"ruleLabels"`
+	RuleLabels interface{} `json:"ruleLabels" yaml:"ruleLabels"`
 }
 
 // A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<).
@@ -3034,15 +3034,15 @@ type CfnRuleGroup_RuleProperty struct {
 //
 type CfnRuleGroup_SizeConstraintStatementProperty struct {
 	// The operator to use to compare the request part to the size setting.
-	ComparisonOperator *string `json:"comparisonOperator"`
+	ComparisonOperator *string `json:"comparisonOperator" yaml:"comparisonOperator"`
 	// The part of a web request that you want AWS WAF to inspect.
-	FieldToMatch interface{} `json:"fieldToMatch"`
+	FieldToMatch interface{} `json:"fieldToMatch" yaml:"fieldToMatch"`
 	// The size, in byte, to compare to the request part, after any transformations.
-	Size *float64 `json:"size"`
+	Size *float64 `json:"size" yaml:"size"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
 	//
 	// If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
-	TextTransformations interface{} `json:"textTransformations"`
+	TextTransformations interface{} `json:"textTransformations" yaml:"textTransformations"`
 }
 
 // Attackers sometimes insert malicious SQL code into web requests in an effort to extract data from your database.
@@ -3053,11 +3053,11 @@ type CfnRuleGroup_SizeConstraintStatementProperty struct {
 //
 type CfnRuleGroup_SqliMatchStatementProperty struct {
 	// The part of a web request that you want AWS WAF to inspect.
-	FieldToMatch interface{} `json:"fieldToMatch"`
+	FieldToMatch interface{} `json:"fieldToMatch" yaml:"fieldToMatch"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
 	//
 	// If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
-	TextTransformations interface{} `json:"textTransformations"`
+	TextTransformations interface{} `json:"textTransformations" yaml:"textTransformations"`
 }
 
 // The processing guidance for a `Rule` , used by AWS WAF to determine whether a web request matches the rule.
@@ -3068,31 +3068,31 @@ type CfnRuleGroup_StatementProperty struct {
 	// A logical rule statement used to combine other rule statements with AND logic.
 	//
 	// You provide more than one `Statement` within the `AndStatement` .
-	AndStatement interface{} `json:"andStatement"`
+	AndStatement interface{} `json:"andStatement" yaml:"andStatement"`
 	// A rule statement that defines a string match search for AWS WAF to apply to web requests.
 	//
 	// The byte match statement provides the bytes to search for, the location in requests that you want AWS WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the AWS WAF console and the developer guide, this is refered to as a string match statement.
-	ByteMatchStatement interface{} `json:"byteMatchStatement"`
+	ByteMatchStatement interface{} `json:"byteMatchStatement" yaml:"byteMatchStatement"`
 	// A rule statement used to identify web requests based on country of origin.
-	GeoMatchStatement interface{} `json:"geoMatchStatement"`
+	GeoMatchStatement interface{} `json:"geoMatchStatement" yaml:"geoMatchStatement"`
 	// A rule statement used to detect web requests coming from particular IP addresses or address ranges.
 	//
 	// To use this, create an `IPSet` that specifies the addresses you want to detect, then use the ARN of that set in this statement.
 	//
 	// Each IP set rule statement references an IP set. You create and maintain the set independent of your rules. This allows you to use the single set in multiple rules. When you update the referenced set, AWS WAF automatically updates all rules that reference it.
-	IpSetReferenceStatement interface{} `json:"ipSetReferenceStatement"`
+	IpSetReferenceStatement interface{} `json:"ipSetReferenceStatement" yaml:"ipSetReferenceStatement"`
 	// A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL.
 	//
 	// The label match statement provides the label or namespace string to search for. The label string can represent a part or all of the fully qualified label name that had been added to the web request. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label. If you do not provide the fully qualified name in your label match string, AWS WAF performs the search for labels that were added in the same context as the label match statement.
-	LabelMatchStatement interface{} `json:"labelMatchStatement"`
+	LabelMatchStatement interface{} `json:"labelMatchStatement" yaml:"labelMatchStatement"`
 	// A logical rule statement used to negate the results of another rule statement.
 	//
 	// You provide one `Statement` within the `NotStatement` .
-	NotStatement interface{} `json:"notStatement"`
+	NotStatement interface{} `json:"notStatement" yaml:"notStatement"`
 	// A logical rule statement used to combine other rule statements with OR logic.
 	//
 	// You provide more than one `Statement` within the `OrStatement` .
-	OrStatement interface{} `json:"orStatement"`
+	OrStatement interface{} `json:"orStatement" yaml:"orStatement"`
 	// A rate-based rule tracks the rate of requests for each originating IP address, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any 5-minute time span.
 	//
 	// You can use this to put a temporary block on requests from an IP address that is sending excessive requests.
@@ -3107,15 +3107,15 @@ type CfnRuleGroup_StatementProperty struct {
 	// In this rate-based rule, you also define a rate limit. For this example, the rate limit is 1,000. Requests that meet both of the conditions in the statements are counted. If the count exceeds 1,000 requests per five minutes, the rule action triggers. Requests that do not meet both conditions are not counted towards the rate limit and are not affected by this rule.
 	//
 	// You cannot nest a `RateBasedStatement` , for example for use inside a `NotStatement` or `OrStatement` . It can only be referenced as a top-level statement within a rule.
-	RateBasedStatement interface{} `json:"rateBasedStatement"`
+	RateBasedStatement interface{} `json:"rateBasedStatement" yaml:"rateBasedStatement"`
 	// A rule statement used to search web request components for a match against a single regular expression.
-	RegexMatchStatement interface{} `json:"regexMatchStatement"`
+	RegexMatchStatement interface{} `json:"regexMatchStatement" yaml:"regexMatchStatement"`
 	// A rule statement used to search web request components for matches with regular expressions.
 	//
 	// To use this, create a `RegexPatternSet` that specifies the expressions that you want to detect, then use the ARN of that set in this statement. A web request matches the pattern set rule statement if the request component matches any of the patterns in the set.
 	//
 	// Each regex pattern set rule statement references a regex pattern set. You create and maintain the set independent of your rules. This allows you to use the single set in multiple rules. When you update the referenced set, AWS WAF automatically updates all rules that reference it.
-	RegexPatternSetReferenceStatement interface{} `json:"regexPatternSetReferenceStatement"`
+	RegexPatternSetReferenceStatement interface{} `json:"regexPatternSetReferenceStatement" yaml:"regexPatternSetReferenceStatement"`
 	// A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<).
 	//
 	// For example, you can use a size constraint statement to look for query strings that are longer than 100 bytes.
@@ -3123,15 +3123,15 @@ type CfnRuleGroup_StatementProperty struct {
 	// If you configure AWS WAF to inspect the request body, AWS WAF inspects only the first 8192 bytes (8 KB). If the request body for your web requests never exceeds 8192 bytes, you can create a size constraint condition and block requests that have a request body greater than 8192 bytes.
 	//
 	// If you choose URI for the value of Part of the request to filter on, the slash (/) in the URI counts as one character. For example, the URI `/logo.jpg` is nine characters long.
-	SizeConstraintStatement interface{} `json:"sizeConstraintStatement"`
+	SizeConstraintStatement interface{} `json:"sizeConstraintStatement" yaml:"sizeConstraintStatement"`
 	// Attackers sometimes insert malicious SQL code into web requests in an effort to extract data from your database.
 	//
 	// To allow or block web requests that appear to contain malicious SQL code, create one or more SQL injection match conditions. An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. Later in the process, when you create a web ACL, you specify whether to allow or block requests that appear to contain malicious SQL code.
-	SqliMatchStatement interface{} `json:"sqliMatchStatement"`
+	SqliMatchStatement interface{} `json:"sqliMatchStatement" yaml:"sqliMatchStatement"`
 	// A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests.
 	//
 	// XSS attacks are those where the attacker uses vulnerabilities in a benign website as a vehicle to inject malicious client-site scripts into other legitimate web browsers. The XSS match statement provides the location in requests that you want AWS WAF to search and text transformations to use on the search area before AWS WAF searches for character sequences that are likely to be malicious strings.
-	XssMatchStatement interface{} `json:"xssMatchStatement"`
+	XssMatchStatement interface{} `json:"xssMatchStatement" yaml:"xssMatchStatement"`
 }
 
 // Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
@@ -3142,7 +3142,7 @@ type CfnRuleGroup_TextTransformationProperty struct {
 	// Sets the relative processing order for multiple transformations that are defined for a rule statement.
 	//
 	// AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content. The priorities don't need to be consecutive, but they must all be different.
-	Priority *float64 `json:"priority"`
+	Priority *float64 `json:"priority" yaml:"priority"`
 	// You can specify the following transformation types:.
 	//
 	// *BASE64_DECODE* - Decode a `Base64` -encoded string.
@@ -3208,7 +3208,7 @@ type CfnRuleGroup_TextTransformationProperty struct {
 	// *URL_DECODE_UNI* - Like `URL_DECODE` , but with support for Microsoft-specific `%u` encoding. If the code is in the full-width ASCII code range of `FF01-FF5E` , the higher byte is used to detect and adjust the lower byte. Otherwise, only the lower byte is used and the higher byte is zeroed.
 	//
 	// *UTF8_TO_UNICODE* - Convert all UTF-8 character sequences to Unicode. This helps input normalization, and minimizing false-positives and false-negatives for non-English languages.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 }
 
 // Defines and enables Amazon CloudWatch metrics and web request sample collection.
@@ -3219,15 +3219,15 @@ type CfnRuleGroup_VisibilityConfigProperty struct {
 	// A boolean indicating whether the associated resource sends metrics to Amazon CloudWatch .
 	//
 	// For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics) .
-	CloudWatchMetricsEnabled interface{} `json:"cloudWatchMetricsEnabled"`
+	CloudWatchMetricsEnabled interface{} `json:"cloudWatchMetricsEnabled" yaml:"cloudWatchMetricsEnabled"`
 	// The descriptive name of the Amazon CloudWatch metric.
 	//
 	// The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF , for example "All" and "Default_Action." You can't change a `MetricName` after you create a `VisibilityConfig` .
-	MetricName *string `json:"metricName"`
+	MetricName *string `json:"metricName" yaml:"metricName"`
 	// A boolean indicating whether AWS WAF should store a sampling of the web requests that match the rules.
 	//
 	// You can view the sampled requests through the AWS WAF console.
-	SampledRequestsEnabled interface{} `json:"sampledRequestsEnabled"`
+	SampledRequestsEnabled interface{} `json:"sampledRequestsEnabled" yaml:"sampledRequestsEnabled"`
 }
 
 // A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests.
@@ -3238,11 +3238,11 @@ type CfnRuleGroup_VisibilityConfigProperty struct {
 //
 type CfnRuleGroup_XssMatchStatementProperty struct {
 	// The part of a web request that you want AWS WAF to inspect.
-	FieldToMatch interface{} `json:"fieldToMatch"`
+	FieldToMatch interface{} `json:"fieldToMatch" yaml:"fieldToMatch"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
 	//
 	// If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
-	TextTransformations interface{} `json:"textTransformations"`
+	TextTransformations interface{} `json:"textTransformations" yaml:"textTransformations"`
 }
 
 // Properties for defining a `CfnRuleGroup`.
@@ -3255,15 +3255,15 @@ type CfnRuleGroupProps struct {
 	// When you create your own rule group, you define this, and you cannot change it after creation. When you add or modify the rules in a rule group, AWS WAF enforces this limit.
 	//
 	// AWS WAF uses WCUs to calculate and control the operating resources that are used to run your rules, rule groups, and web ACLs. AWS WAF calculates capacity differently for each rule type, to reflect the relative cost of each rule. Simple rules that cost little to run use fewer WCUs than more complex rules that use more processing power. Rule group capacity is fixed at creation, which helps users plan their web ACL WCU usage when they use a rule group. The WCU limit for web ACLs is 1,500.
-	Capacity *float64 `json:"capacity"`
+	Capacity *float64 `json:"capacity" yaml:"capacity"`
 	// Specifies whether this is for an Amazon CloudFront distribution or for a regional application.
 	//
 	// A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, or an AWS AppSync GraphQL API. Valid Values are `CLOUDFRONT` and `REGIONAL` .
 	//
 	// > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
-	Scope *string `json:"scope"`
+	Scope *string `json:"scope" yaml:"scope"`
 	// Defines and enables Amazon CloudWatch metrics and web request sample collection.
-	VisibilityConfig interface{} `json:"visibilityConfig"`
+	VisibilityConfig interface{} `json:"visibilityConfig" yaml:"visibilityConfig"`
 	// A map of custom response keys and content bodies.
 	//
 	// When you create a rule with a block action, you can send a custom response to the web request. You define these for the rule group, and then use them in the rules that you define in the rule group.
@@ -3271,23 +3271,23 @@ type CfnRuleGroupProps struct {
 	// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
 	//
 	// For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
-	CustomResponseBodies interface{} `json:"customResponseBodies"`
+	CustomResponseBodies interface{} `json:"customResponseBodies" yaml:"customResponseBodies"`
 	// A description of the rule group that helps with identification.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The descriptive name of the rule group.
 	//
 	// You cannot change the name of a rule group after you create it.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The rule statements used to identify the web requests that you want to allow, block, or count.
 	//
 	// Each rule includes one top-level statement that AWS WAF uses to identify matching web requests, and parameters that govern how AWS WAF handles them.
-	Rules interface{} `json:"rules"`
+	Rules interface{} `json:"rules" yaml:"rules"`
 	// Key:value pairs associated with an AWS resource.
 	//
 	// The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
 	//
 	// > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::WAFv2::WebACL`.
@@ -3969,7 +3969,7 @@ type CfnWebACL_AllowActionProperty struct {
 	// Defines custom handling for the web request.
 	//
 	// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
-	CustomRequestHandling interface{} `json:"customRequestHandling"`
+	CustomRequestHandling interface{} `json:"customRequestHandling" yaml:"customRequestHandling"`
 }
 
 // A logical rule statement used to combine other rule statements with AND logic.
@@ -3982,7 +3982,7 @@ type CfnWebACL_AndStatementProperty struct {
 	// The statements to combine with AND logic.
 	//
 	// You can use any statements that can be nested.
-	Statements interface{} `json:"statements"`
+	Statements interface{} `json:"statements" yaml:"statements"`
 }
 
 // Specifies that AWS WAF should block requests.
@@ -3995,7 +3995,7 @@ type CfnWebACL_BlockActionProperty struct {
 	// Defines a custom response for the web request.
 	//
 	// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
-	CustomResponse interface{} `json:"customResponse"`
+	CustomResponse interface{} `json:"customResponse" yaml:"customResponse"`
 }
 
 // A rule statement that defines a string match search for AWS WAF to apply to web requests.
@@ -4006,7 +4006,7 @@ type CfnWebACL_BlockActionProperty struct {
 //
 type CfnWebACL_ByteMatchStatementProperty struct {
 	// The part of a web request that you want AWS WAF to inspect.
-	FieldToMatch interface{} `json:"fieldToMatch"`
+	FieldToMatch interface{} `json:"fieldToMatch" yaml:"fieldToMatch"`
 	// The area within the portion of a web request that you want AWS WAF to search for `SearchString` .
 	//
 	// Valid values include the following:
@@ -4033,11 +4033,11 @@ type CfnWebACL_ByteMatchStatementProperty struct {
 	// *ENDS_WITH*
 	//
 	// The value of `SearchString` must appear at the end of the specified part of the web request.
-	PositionalConstraint *string `json:"positionalConstraint"`
+	PositionalConstraint *string `json:"positionalConstraint" yaml:"positionalConstraint"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
 	//
 	// If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
-	TextTransformations interface{} `json:"textTransformations"`
+	TextTransformations interface{} `json:"textTransformations" yaml:"textTransformations"`
 	// A string value that you want AWS WAF to search for.
 	//
 	// AWS WAF searches only in the part of web requests that you designate for inspection in `FieldToMatch` . The maximum length of the value is 50 bytes. For alphabetic characters A-Z and a-z, the value is case sensitive.
@@ -4047,13 +4047,13 @@ type CfnWebACL_ByteMatchStatementProperty struct {
 	// For example, suppose the value of `Type` is `HEADER` and the value of `Data` is `User-Agent` . If you want to search the `User-Agent` header for the value `BadBot` , you provide the string `BadBot` in the value of `SearchString` .
 	//
 	// You must specify either `SearchString` or `SearchStringBase64` in a `ByteMatchStatement` .
-	SearchString *string `json:"searchString"`
+	SearchString *string `json:"searchString" yaml:"searchString"`
 	// String to search for in a web request component, base64-encoded.
 	//
 	// If you don't want to encode the string, specify the unencoded value in `SearchString` instead.
 	//
 	// You must specify either `SearchString` or `SearchStringBase64` in a `ByteMatchStatement` .
-	SearchStringBase64 *string `json:"searchStringBase64"`
+	SearchStringBase64 *string `json:"searchStringBase64" yaml:"searchStringBase64"`
 }
 
 // Specifies that AWS WAF should run a `CAPTCHA` check against the request:.
@@ -4079,7 +4079,7 @@ type CfnWebACL_CaptchaActionProperty struct {
 	// Defines custom handling for the web request.
 	//
 	// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
-	CustomRequestHandling interface{} `json:"customRequestHandling"`
+	CustomRequestHandling interface{} `json:"customRequestHandling" yaml:"customRequestHandling"`
 }
 
 // Specifies how AWS WAF should handle `CAPTCHA` evaluations.
@@ -4090,7 +4090,7 @@ type CfnWebACL_CaptchaActionProperty struct {
 //
 type CfnWebACL_CaptchaConfigProperty struct {
 	// Determines how long a `CAPTCHA` token remains valid after the client successfully solves a `CAPTCHA` puzzle.
-	ImmunityTimeProperty interface{} `json:"immunityTimeProperty"`
+	ImmunityTimeProperty interface{} `json:"immunityTimeProperty" yaml:"immunityTimeProperty"`
 }
 
 // Specifies that AWS WAF should count requests.
@@ -4103,7 +4103,7 @@ type CfnWebACL_CountActionProperty struct {
 	// Defines custom handling for the web request.
 	//
 	// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
-	CustomRequestHandling interface{} `json:"customRequestHandling"`
+	CustomRequestHandling interface{} `json:"customRequestHandling" yaml:"customRequestHandling"`
 }
 
 // A custom header for custom request and response handling.
@@ -4116,9 +4116,9 @@ type CfnWebACL_CustomHTTPHeaderProperty struct {
 	// The name of the custom header.
 	//
 	// For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-` , to avoid confusion with the headers that are already in the request. For example, for the header name `sample` , AWS WAF inserts the header `x-amzn-waf-sample` .
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The value of the custom header.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // Custom request handling behavior that inserts custom headers into a web request.
@@ -4133,7 +4133,7 @@ type CfnWebACL_CustomRequestHandlingProperty struct {
 	// The HTTP headers to insert into the request. Duplicate header names are not allowed.
 	//
 	// For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
-	InsertHeaders interface{} `json:"insertHeaders"`
+	InsertHeaders interface{} `json:"insertHeaders" yaml:"insertHeaders"`
 }
 
 // The response body to use in a custom response to a web request.
@@ -4148,9 +4148,9 @@ type CfnWebACL_CustomResponseBodyProperty struct {
 	// You can use JSON escape strings in JSON content. To do this, you must specify JSON content in the `ContentType` setting.
 	//
 	// For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
-	Content *string `json:"content"`
+	Content *string `json:"content" yaml:"content"`
 	// The type of content in the payload that you are defining in the `Content` string.
-	ContentType *string `json:"contentType"`
+	ContentType *string `json:"contentType" yaml:"contentType"`
 }
 
 // A custom response to send to the client.
@@ -4165,15 +4165,15 @@ type CfnWebACL_CustomResponseProperty struct {
 	// The HTTP status code to return to the client.
 	//
 	// For a list of status codes that you can use in your custom reqponses, see [Supported status codes for custom response](https://docs.aws.amazon.com/waf/latest/developerguide/customizing-the-response-status-codes.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
-	ResponseCode *float64 `json:"responseCode"`
+	ResponseCode *float64 `json:"responseCode" yaml:"responseCode"`
 	// References the response body that you want AWS WAF to return to the web request client.
 	//
 	// You can define a custom response for a rule action or a default web ACL action that is set to block. To do this, you first define the response body key and value in the `CustomResponseBodies` setting for the `WebACL` or `RuleGroup` where you want to use it. Then, in the rule action or web ACL default action `BlockAction` setting, you reference the response body using this key.
-	CustomResponseBodyKey *string `json:"customResponseBodyKey"`
+	CustomResponseBodyKey *string `json:"customResponseBodyKey" yaml:"customResponseBodyKey"`
 	// The HTTP headers to use in the response. Duplicate header names are not allowed.
 	//
 	// For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
-	ResponseHeaders interface{} `json:"responseHeaders"`
+	ResponseHeaders interface{} `json:"responseHeaders" yaml:"responseHeaders"`
 }
 
 // In a `WebACL` , this is the action that you want AWS WAF to perform when a web request doesn't match any of the rules in the `WebACL` .
@@ -4184,9 +4184,9 @@ type CfnWebACL_CustomResponseProperty struct {
 //
 type CfnWebACL_DefaultActionProperty struct {
 	// Specifies that AWS WAF should allow requests by default.
-	Allow interface{} `json:"allow"`
+	Allow interface{} `json:"allow" yaml:"allow"`
 	// Specifies that AWS WAF should block requests by default.
-	Block interface{} `json:"block"`
+	Block interface{} `json:"block" yaml:"block"`
 }
 
 // Specifies a single rule to exclude from the rule group.
@@ -4197,7 +4197,7 @@ type CfnWebACL_DefaultActionProperty struct {
 //
 type CfnWebACL_ExcludedRuleProperty struct {
 	// The name of the rule to exclude.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // The part of a web request that you want AWS WAF to inspect.
@@ -4208,39 +4208,39 @@ type CfnWebACL_ExcludedRuleProperty struct {
 //
 type CfnWebACL_FieldToMatchProperty struct {
 	// Inspect all query arguments.
-	AllQueryArguments interface{} `json:"allQueryArguments"`
+	AllQueryArguments interface{} `json:"allQueryArguments" yaml:"allQueryArguments"`
 	// Inspect the request body, which immediately follows the request headers.
 	//
 	// This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
 	//
 	// Note that only the first 8 KB (8192 bytes) of the request body are forwarded to AWS WAF for inspection by the underlying host service. If you don't need to inspect more than 8 KB, you can guarantee that you don't allow additional bytes in by combining a statement that inspects the body of the web request, such as the `ByteMatchStatement` or `RegexPatternSetReferenceStatement` , with a `SizeConstraintStatement` that enforces an 8 KB size limit on the body of the request. AWS WAF doesn't support inspecting the entire contents of web requests whose bodies exceed the 8 KB limit.
-	Body interface{} `json:"body"`
+	Body interface{} `json:"body" yaml:"body"`
 	// Inspect the request body as JSON.
 	//
 	// The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
 	//
 	// Note that only the first 8 KB (8192 bytes) of the request body are forwarded to AWS WAF for inspection by the underlying host service. If you don't need to inspect more than 8 KB, you can guarantee that you don't allow additional bytes in by combining a statement that inspects the body of the web request, such as the `ByteMatchStatement` or `RegexPatternSetReferenceStatement` , with a `SizeConstraintStatement` that enforces an 8 KB size limit on the body of the request. AWS WAF doesn't support inspecting the entire contents of web requests whose bodies exceed the 8 KB limit.
-	JsonBody interface{} `json:"jsonBody"`
+	JsonBody interface{} `json:"jsonBody" yaml:"jsonBody"`
 	// Inspect the HTTP method.
 	//
 	// The method indicates the type of operation that the request is asking the origin to perform.
-	Method interface{} `json:"method"`
+	Method interface{} `json:"method" yaml:"method"`
 	// Inspect the query string.
 	//
 	// This is the part of a URL that appears after a `?` character, if any.
-	QueryString interface{} `json:"queryString"`
+	QueryString interface{} `json:"queryString" yaml:"queryString"`
 	// Inspect a single header.
 	//
 	// Provide the name of the header to inspect, for example, `User-Agent` or `Referer` . This setting isn't case sensitive.
-	SingleHeader interface{} `json:"singleHeader"`
+	SingleHeader interface{} `json:"singleHeader" yaml:"singleHeader"`
 	// Inspect a single query argument.
 	//
 	// Provide the name of the query argument to inspect, such as *UserName* or *SalesRegion* . The name can be up to 30 characters long and isn't case sensitive.
-	SingleQueryArgument interface{} `json:"singleQueryArgument"`
+	SingleQueryArgument interface{} `json:"singleQueryArgument" yaml:"singleQueryArgument"`
 	// Inspect the request URI path.
 	//
 	// This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg` .
-	UriPath interface{} `json:"uriPath"`
+	UriPath interface{} `json:"uriPath" yaml:"uriPath"`
 }
 
 // The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin.
@@ -4264,13 +4264,13 @@ type CfnWebACL_ForwardedIPConfigurationProperty struct {
 	//
 	// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
 	// - `NO_MATCH` - Treat the web request as not matching the rule statement.
-	FallbackBehavior *string `json:"fallbackBehavior"`
+	FallbackBehavior *string `json:"fallbackBehavior" yaml:"fallbackBehavior"`
 	// The name of the HTTP header to use for the IP address.
 	//
 	// For example, to use the X-Forwarded-For (XFF) header, set this to `X-Forwarded-For` .
 	//
 	// > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-	HeaderName *string `json:"headerName"`
+	HeaderName *string `json:"headerName" yaml:"headerName"`
 }
 
 // A rule statement used to identify web requests based on country of origin.
@@ -4279,13 +4279,13 @@ type CfnWebACL_ForwardedIPConfigurationProperty struct {
 //
 type CfnWebACL_GeoMatchStatementProperty struct {
 	// An array of two-character country codes, for example, `[ "US", "CN" ]` , from the alpha-2 country ISO codes of the ISO 3166 international standard.
-	CountryCodes *[]*string `json:"countryCodes"`
+	CountryCodes *[]*string `json:"countryCodes" yaml:"countryCodes"`
 	// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin.
 	//
 	// Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
 	//
 	// > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-	ForwardedIpConfig interface{} `json:"forwardedIpConfig"`
+	ForwardedIpConfig interface{} `json:"forwardedIpConfig" yaml:"forwardedIpConfig"`
 }
 
 // The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin.
@@ -4307,13 +4307,13 @@ type CfnWebACL_IPSetForwardedIPConfigurationProperty struct {
 	//
 	// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
 	// - `NO_MATCH` - Treat the web request as not matching the rule statement.
-	FallbackBehavior *string `json:"fallbackBehavior"`
+	FallbackBehavior *string `json:"fallbackBehavior" yaml:"fallbackBehavior"`
 	// The name of the HTTP header to use for the IP address.
 	//
 	// For example, to use the X-Forwarded-For (XFF) header, set this to `X-Forwarded-For` .
 	//
 	// > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-	HeaderName *string `json:"headerName"`
+	HeaderName *string `json:"headerName" yaml:"headerName"`
 	// The position in the header to search for the IP address.
 	//
 	// The header can contain IP addresses of the original client and also of proxies. For example, the header value could be `10.1.1.1, 127.0.0.0, 10.10.10.10` where the first IP address identifies the original client and the rest identify proxies that the request went through.
@@ -4323,7 +4323,7 @@ type CfnWebACL_IPSetForwardedIPConfigurationProperty struct {
 	// - FIRST - Inspect the first IP address in the list of IP addresses in the header. This is usually the client's original IP.
 	// - LAST - Inspect the last IP address in the list of IP addresses in the header.
 	// - ANY - Inspect all IP addresses in the header for a match. If the header contains more than 10 IP addresses, AWS WAF inspects the last 10.
-	Position *string `json:"position"`
+	Position *string `json:"position" yaml:"position"`
 }
 
 // A rule statement used to detect web requests coming from particular IP addresses or address ranges.
@@ -4336,13 +4336,13 @@ type CfnWebACL_IPSetForwardedIPConfigurationProperty struct {
 //
 type CfnWebACL_IPSetReferenceStatementProperty struct {
 	// The Amazon Resource Name (ARN) of the IP set that this statement references.
-	Arn *string `json:"arn"`
+	Arn *string `json:"arn" yaml:"arn"`
 	// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin.
 	//
 	// Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
 	//
 	// > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-	IpSetForwardedIpConfig interface{} `json:"ipSetForwardedIpConfig"`
+	IpSetForwardedIpConfig interface{} `json:"ipSetForwardedIpConfig" yaml:"ipSetForwardedIpConfig"`
 }
 
 // Determines how long a `CAPTCHA` token remains valid after the client successfully solves a `CAPTCHA` puzzle.
@@ -4353,7 +4353,7 @@ type CfnWebACL_ImmunityTimePropertyProperty struct {
 	// The amount of time, in seconds, that a `CAPTCHA` token is valid.
 	//
 	// The default setting is 300.
-	ImmunityTime *float64 `json:"immunityTime"`
+	ImmunityTime *float64 `json:"immunityTime" yaml:"immunityTime"`
 }
 
 // The body of a web request, inspected as JSON.
@@ -4368,13 +4368,13 @@ type CfnWebACL_JsonBodyProperty struct {
 	// The patterns to look for in the JSON body.
 	//
 	// AWS WAF inspects the results of these pattern matches against the rule inspection criteria.
-	MatchPattern interface{} `json:"matchPattern"`
+	MatchPattern interface{} `json:"matchPattern" yaml:"matchPattern"`
 	// The parts of the JSON to match against using the `MatchPattern` .
 	//
 	// If you specify `All` , AWS WAF matches against keys and values.
 	//
 	// Valid Values: `ALL` | `KEY` | `VALUE`
-	MatchScope *string `json:"matchScope"`
+	MatchScope *string `json:"matchScope" yaml:"matchScope"`
 	// What AWS WAF should do if it fails to completely parse the JSON body. The options are the following:.
 	//
 	// - `EVALUATE_AS_STRING` - Inspect the body as plain text. AWS WAF applies the text transformations and inspection criteria that you defined for the JSON inspection to the body text string.
@@ -4390,7 +4390,7 @@ type CfnWebACL_JsonBodyProperty struct {
 	// - Missing comma: `{"key1":"value1""key2":"value2"}`
 	// - Missing colon: `{"key1":"value1","key2""value2"}`
 	// - Extra colons: `{"key1"::"value1","key2""value2"}`
-	InvalidFallbackBehavior *string `json:"invalidFallbackBehavior"`
+	InvalidFallbackBehavior *string `json:"invalidFallbackBehavior" yaml:"invalidFallbackBehavior"`
 }
 
 // The patterns to look for in the JSON body.
@@ -4403,7 +4403,7 @@ type CfnWebACL_JsonMatchPatternProperty struct {
 	// Match all of the elements. See also `MatchScope` in `JsonBody` .
 	//
 	// You must specify either this setting or the `IncludedPaths` setting, but not both.
-	All interface{} `json:"all"`
+	All interface{} `json:"all" yaml:"all"`
 	// Match only the specified include paths. See also `MatchScope` in `JsonBody` .
 	//
 	// Provide the include paths using JSON Pointer syntax. For example, `"IncludedPaths": ["/dogs/0/name", "/dogs/1/name"]` . For information about this syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
@@ -4411,7 +4411,7 @@ type CfnWebACL_JsonMatchPatternProperty struct {
 	// You must specify either this setting or the `All` setting, but not both.
 	//
 	// > Don't use this option to include all paths. Instead, use the `All` setting.
-	IncludedPaths *[]*string `json:"includedPaths"`
+	IncludedPaths *[]*string `json:"includedPaths" yaml:"includedPaths"`
 }
 
 // A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL.
@@ -4427,9 +4427,9 @@ type CfnWebACL_LabelMatchStatementProperty struct {
 	// - If the `Scope` indicates `NAMESPACE` , then this specification can include any number of contiguous namespace strings, and can include the entire label namespace prefix from the rule group or web ACL where the label originates.
 	//
 	// Labels are case sensitive and components of a label must be separated by colon, for example `NS1:NS2:name` .
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// Specify whether you want to match using the label name or just the namespace.
-	Scope *string `json:"scope"`
+	Scope *string `json:"scope" yaml:"scope"`
 }
 
 // A single label container.
@@ -4440,7 +4440,7 @@ type CfnWebACL_LabelMatchStatementProperty struct {
 //
 type CfnWebACL_LabelProperty struct {
 	// The label string.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // A rule statement used to run the rules that are defined in a managed rule group.
@@ -4455,23 +4455,23 @@ type CfnWebACL_ManagedRuleGroupStatementProperty struct {
 	// The name of the managed rule group.
 	//
 	// You use this, along with the vendor name, to identify the rule group.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The name of the managed rule group vendor.
 	//
 	// You use this, along with the rule group name, to identify the rule group.
-	VendorName *string `json:"vendorName"`
+	VendorName *string `json:"vendorName" yaml:"vendorName"`
 	// The rules whose actions are set to `COUNT` by the web ACL, regardless of the action that is configured in the rule.
 	//
 	// This effectively excludes the rule from acting on web requests.
-	ExcludedRules interface{} `json:"excludedRules"`
+	ExcludedRules interface{} `json:"excludedRules" yaml:"excludedRules"`
 	// Statement nested inside a managed rule group statement to narrow the scope of the requests that AWS WAF evaluates using the rule group.
 	//
 	// Requests that match the scope-down statement are evaluated using the rule group. Requests that don't match the scope-down statement are not a match for the managed rule group statement, without any further evaluation.
-	ScopeDownStatement interface{} `json:"scopeDownStatement"`
+	ScopeDownStatement interface{} `json:"scopeDownStatement" yaml:"scopeDownStatement"`
 	// The version of the managed rule group to use.
 	//
 	// If you specify this, the version setting is fixed until you change it. If you don't specify this, AWS WAF uses the vendor's default version, and then keeps the version at the vendor's default when the vendor updates the managed rule group settings.
-	Version *string `json:"version"`
+	Version *string `json:"version" yaml:"version"`
 }
 
 // A logical rule statement used to negate the results of another rule statement.
@@ -4484,7 +4484,7 @@ type CfnWebACL_NotStatementProperty struct {
 	// The statement to negate.
 	//
 	// You can use any statement that can be nested.
-	Statement interface{} `json:"statement"`
+	Statement interface{} `json:"statement" yaml:"statement"`
 }
 
 // A logical rule statement used to combine other rule statements with OR logic.
@@ -4497,7 +4497,7 @@ type CfnWebACL_OrStatementProperty struct {
 	// The statements to combine with OR logic.
 	//
 	// You can use any statements that can be nested.
-	Statements interface{} `json:"statements"`
+	Statements interface{} `json:"statements" yaml:"statements"`
 }
 
 // The action to use to override the `Action` settings on the rules in the web ACL.
@@ -4508,9 +4508,9 @@ type CfnWebACL_OrStatementProperty struct {
 //
 type CfnWebACL_OverrideActionProperty struct {
 	// Override the rule action settings to count.
-	Count interface{} `json:"count"`
+	Count interface{} `json:"count" yaml:"count"`
 	// Don't override the rule action settings.
-	None interface{} `json:"none"`
+	None interface{} `json:"none" yaml:"none"`
 }
 
 // A rate-based rule tracks the rate of requests for each originating IP address, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any 5-minute time span.
@@ -4535,11 +4535,11 @@ type CfnWebACL_RateBasedStatementProperty struct {
 	//
 	// - IP - Aggregate the request counts on the IP address from the web request origin.
 	// - FORWARDED_IP - Aggregate the request counts on the first IP address in an HTTP header. If you use this, configure the `ForwardedIPConfig` , to specify the header to use.
-	AggregateKeyType *string `json:"aggregateKeyType"`
+	AggregateKeyType *string `json:"aggregateKeyType" yaml:"aggregateKeyType"`
 	// The limit on requests per 5-minute period for a single originating IP address.
 	//
 	// If the statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
-	Limit *float64 `json:"limit"`
+	Limit *float64 `json:"limit" yaml:"limit"`
 	// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin.
 	//
 	// Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
@@ -4547,11 +4547,11 @@ type CfnWebACL_RateBasedStatementProperty struct {
 	// > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
 	//
 	// This is required if `AggregateKeyType` is set to `FORWARDED_IP` .
-	ForwardedIpConfig interface{} `json:"forwardedIpConfig"`
+	ForwardedIpConfig interface{} `json:"forwardedIpConfig" yaml:"forwardedIpConfig"`
 	// An optional nested statement that narrows the scope of the rate-based statement to matching web requests.
 	//
 	// This can be any nestable statement, and you can nest statements at any level below this scope-down statement.
-	ScopeDownStatement interface{} `json:"scopeDownStatement"`
+	ScopeDownStatement interface{} `json:"scopeDownStatement" yaml:"scopeDownStatement"`
 }
 
 // A rule statement used to search web request components for a match against a single regular expression.
@@ -4562,13 +4562,13 @@ type CfnWebACL_RegexMatchStatementProperty struct {
 	// The part of a web request that you want AWS WAF to inspect.
 	//
 	// For more information, see `FieldToMatch` .
-	FieldToMatch interface{} `json:"fieldToMatch"`
+	FieldToMatch interface{} `json:"fieldToMatch" yaml:"fieldToMatch"`
 	// The string representing the regular expression.
-	RegexString *string `json:"regexString"`
+	RegexString *string `json:"regexString" yaml:"regexString"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
 	//
 	// If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
-	TextTransformations interface{} `json:"textTransformations"`
+	TextTransformations interface{} `json:"textTransformations" yaml:"textTransformations"`
 }
 
 // A rule statement used to search web request components for matches with regular expressions.
@@ -4581,13 +4581,13 @@ type CfnWebACL_RegexMatchStatementProperty struct {
 //
 type CfnWebACL_RegexPatternSetReferenceStatementProperty struct {
 	// The Amazon Resource Name (ARN) of the regular expression pattern set that this statement references.
-	Arn *string `json:"arn"`
+	Arn *string `json:"arn" yaml:"arn"`
 	// The part of a web request that you want AWS WAF to inspect.
-	FieldToMatch interface{} `json:"fieldToMatch"`
+	FieldToMatch interface{} `json:"fieldToMatch" yaml:"fieldToMatch"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
 	//
 	// If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
-	TextTransformations interface{} `json:"textTransformations"`
+	TextTransformations interface{} `json:"textTransformations" yaml:"textTransformations"`
 }
 
 // The action that AWS WAF should take on a web request when it matches a rule's statement.
@@ -4598,9 +4598,9 @@ type CfnWebACL_RegexPatternSetReferenceStatementProperty struct {
 //
 type CfnWebACL_RuleActionProperty struct {
 	// Instructs AWS WAF to allow the web request.
-	Allow interface{} `json:"allow"`
+	Allow interface{} `json:"allow" yaml:"allow"`
 	// Instructs AWS WAF to block the web request.
-	Block interface{} `json:"block"`
+	Block interface{} `json:"block" yaml:"block"`
 	// Specifies that AWS WAF should run a `CAPTCHA` check against the request:.
 	//
 	// - If the request includes a valid, unexpired `CAPTCHA` token, AWS WAF allows the web request inspection to proceed to the next rule, similar to a `CountAction` .
@@ -4617,9 +4617,9 @@ type CfnWebACL_RuleActionProperty struct {
 	// This action option is available for rules. It isn't available for web ACL default actions.
 	//
 	// This is used in the context of other settings, for example to specify values for `RuleAction` and web ACL `DefaultAction` .
-	Captcha interface{} `json:"captcha"`
+	Captcha interface{} `json:"captcha" yaml:"captcha"`
 	// Instructs AWS WAF to count the web request and allow it.
-	Count interface{} `json:"count"`
+	Count interface{} `json:"count" yaml:"count"`
 }
 
 // A rule statement used to run the rules that are defined in a `RuleGroup` .
@@ -4632,9 +4632,9 @@ type CfnWebACL_RuleActionProperty struct {
 //
 type CfnWebACL_RuleGroupReferenceStatementProperty struct {
 	// The Amazon Resource Name (ARN) of the entity.
-	Arn *string `json:"arn"`
+	Arn *string `json:"arn" yaml:"arn"`
 	// The names of rules that are in the referenced rule group, but that you want AWS WAF to exclude from processing for this rule statement.
-	ExcludedRules interface{} `json:"excludedRules"`
+	ExcludedRules interface{} `json:"excludedRules" yaml:"excludedRules"`
 }
 
 // A single rule, which you can use to identify web requests that you want to allow, block, or count.
@@ -4647,15 +4647,15 @@ type CfnWebACL_RuleProperty struct {
 	// The descriptive name of the rule.
 	//
 	// You can't change the name of a `Rule` after you create it.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// If you define more than one `Rule` in a `WebACL` , AWS WAF evaluates each request against the `Rules` in order based on the value of `Priority` .
 	//
 	// AWS WAF processes rules with lower priority first. The priorities don't need to be consecutive, but they must all be different.
-	Priority *float64 `json:"priority"`
+	Priority *float64 `json:"priority" yaml:"priority"`
 	// The AWS WAF processing statement for the rule, for example ByteMatchStatement or SizeConstraintStatement.
-	Statement interface{} `json:"statement"`
+	Statement interface{} `json:"statement" yaml:"statement"`
 	// Defines and enables Amazon CloudWatch metrics and web request sample collection.
-	VisibilityConfig interface{} `json:"visibilityConfig"`
+	VisibilityConfig interface{} `json:"visibilityConfig" yaml:"visibilityConfig"`
 	// The action that AWS WAF should take on a web request when it matches the rule's statement.
 	//
 	// Settings at the web ACL level can override the rule action setting.
@@ -4666,11 +4666,11 @@ type CfnWebACL_RuleProperty struct {
 	//
 	// - If the rule statement doesn't reference a rule group, you must set this rule action setting and you must not set the rule's override action setting.
 	// - If the rule statement references a rule group, you must not set this action setting, because the actions are already set on the rules inside the rule group. You must set the rule's override action setting to indicate specifically whether to override the actions that are set on the rules in the rule group.
-	Action interface{} `json:"action"`
+	Action interface{} `json:"action" yaml:"action"`
 	// Specifies how AWS WAF should handle `CAPTCHA` evaluations.
 	//
 	// If you don't specify this, AWS WAF uses the `CAPTCHA` configuration that's defined for the web ACL.
-	CaptchaConfig interface{} `json:"captchaConfig"`
+	CaptchaConfig interface{} `json:"captchaConfig" yaml:"captchaConfig"`
 	// The override action to apply to the rules in a rule group, instead of the individual rule action settings.
 	//
 	// This is used only for rules whose statements reference a rule group. Rule statements that reference a rule group are `RuleGroupReferenceStatement` and `ManagedRuleGroupStatement` .
@@ -4681,7 +4681,7 @@ type CfnWebACL_RuleProperty struct {
 	//
 	// - If the rule statement references a rule group, you must set this override action setting and you must not set the rule's action setting.
 	// - If the rule statement doesn't reference a rule group, you must set the rule action setting and you must not set the rule's override action setting.
-	OverrideAction interface{} `json:"overrideAction"`
+	OverrideAction interface{} `json:"overrideAction" yaml:"overrideAction"`
 	// Labels to apply to web requests that match the rule match statement.
 	//
 	// AWS WAF applies fully qualified labels to matching web requests. A fully qualified label is the concatenation of a label namespace and a rule label. The rule's rule group or web ACL defines the label namespace.
@@ -4696,7 +4696,7 @@ type CfnWebACL_RuleProperty struct {
 	// - Don't use the following reserved words in your label specification: `aws` , `waf` , `managed` , `rulegroup` , `webacl` , `regexpatternset` , or `ipset` .
 	//
 	// For example, `myLabelName` or `nameSpace1:nameSpace2:myLabelName` .
-	RuleLabels interface{} `json:"ruleLabels"`
+	RuleLabels interface{} `json:"ruleLabels" yaml:"ruleLabels"`
 }
 
 // A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<).
@@ -4711,15 +4711,15 @@ type CfnWebACL_RuleProperty struct {
 //
 type CfnWebACL_SizeConstraintStatementProperty struct {
 	// The operator to use to compare the request part to the size setting.
-	ComparisonOperator *string `json:"comparisonOperator"`
+	ComparisonOperator *string `json:"comparisonOperator" yaml:"comparisonOperator"`
 	// The part of a web request that you want AWS WAF to inspect.
-	FieldToMatch interface{} `json:"fieldToMatch"`
+	FieldToMatch interface{} `json:"fieldToMatch" yaml:"fieldToMatch"`
 	// The size, in byte, to compare to the request part, after any transformations.
-	Size *float64 `json:"size"`
+	Size *float64 `json:"size" yaml:"size"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
 	//
 	// If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
-	TextTransformations interface{} `json:"textTransformations"`
+	TextTransformations interface{} `json:"textTransformations" yaml:"textTransformations"`
 }
 
 // Attackers sometimes insert malicious SQL code into web requests in an effort to extract data from your database.
@@ -4730,11 +4730,11 @@ type CfnWebACL_SizeConstraintStatementProperty struct {
 //
 type CfnWebACL_SqliMatchStatementProperty struct {
 	// The part of a web request that you want AWS WAF to inspect.
-	FieldToMatch interface{} `json:"fieldToMatch"`
+	FieldToMatch interface{} `json:"fieldToMatch" yaml:"fieldToMatch"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
 	//
 	// If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
-	TextTransformations interface{} `json:"textTransformations"`
+	TextTransformations interface{} `json:"textTransformations" yaml:"textTransformations"`
 }
 
 // The processing guidance for a `Rule` , used by AWS WAF to determine whether a web request matches the rule.
@@ -4745,37 +4745,37 @@ type CfnWebACL_StatementProperty struct {
 	// A logical rule statement used to combine other rule statements with AND logic.
 	//
 	// You provide more than one `Statement` within the `AndStatement` .
-	AndStatement interface{} `json:"andStatement"`
+	AndStatement interface{} `json:"andStatement" yaml:"andStatement"`
 	// A rule statement that defines a string match search for AWS WAF to apply to web requests.
 	//
 	// The byte match statement provides the bytes to search for, the location in requests that you want AWS WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the AWS WAF console and the developer guide, this is refered to as a string match statement.
-	ByteMatchStatement interface{} `json:"byteMatchStatement"`
+	ByteMatchStatement interface{} `json:"byteMatchStatement" yaml:"byteMatchStatement"`
 	// A rule statement used to identify web requests based on country of origin.
-	GeoMatchStatement interface{} `json:"geoMatchStatement"`
+	GeoMatchStatement interface{} `json:"geoMatchStatement" yaml:"geoMatchStatement"`
 	// A rule statement used to detect web requests coming from particular IP addresses or address ranges.
 	//
 	// To use this, create an `IPSet` that specifies the addresses you want to detect, then use the ARN of that set in this statement.
 	//
 	// Each IP set rule statement references an IP set. You create and maintain the set independent of your rules. This allows you to use the single set in multiple rules. When you update the referenced set, AWS WAF automatically updates all rules that reference it.
-	IpSetReferenceStatement interface{} `json:"ipSetReferenceStatement"`
+	IpSetReferenceStatement interface{} `json:"ipSetReferenceStatement" yaml:"ipSetReferenceStatement"`
 	// A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL.
 	//
 	// The label match statement provides the label or namespace string to search for. The label string can represent a part or all of the fully qualified label name that had been added to the web request. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label. If you do not provide the fully qualified name in your label match string, AWS WAF performs the search for labels that were added in the same context as the label match statement.
-	LabelMatchStatement interface{} `json:"labelMatchStatement"`
+	LabelMatchStatement interface{} `json:"labelMatchStatement" yaml:"labelMatchStatement"`
 	// A rule statement used to run the rules that are defined in a managed rule group.
 	//
 	// To use this, provide the vendor name and the name of the rule group in this statement.
 	//
 	// You can't nest a `ManagedRuleGroupStatement` , for example for use inside a `NotStatement` or `OrStatement` . It can only be referenced as a top-level statement within a rule.
-	ManagedRuleGroupStatement interface{} `json:"managedRuleGroupStatement"`
+	ManagedRuleGroupStatement interface{} `json:"managedRuleGroupStatement" yaml:"managedRuleGroupStatement"`
 	// A logical rule statement used to negate the results of another rule statement.
 	//
 	// You provide one `Statement` within the `NotStatement` .
-	NotStatement interface{} `json:"notStatement"`
+	NotStatement interface{} `json:"notStatement" yaml:"notStatement"`
 	// A logical rule statement used to combine other rule statements with OR logic.
 	//
 	// You provide more than one `Statement` within the `OrStatement` .
-	OrStatement interface{} `json:"orStatement"`
+	OrStatement interface{} `json:"orStatement" yaml:"orStatement"`
 	// A rate-based rule tracks the rate of requests for each originating IP address, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any 5-minute time span.
 	//
 	// You can use this to put a temporary block on requests from an IP address that is sending excessive requests.
@@ -4790,21 +4790,21 @@ type CfnWebACL_StatementProperty struct {
 	// In this rate-based rule, you also define a rate limit. For this example, the rate limit is 1,000. Requests that meet both of the conditions in the statements are counted. If the count exceeds 1,000 requests per five minutes, the rule action triggers. Requests that do not meet both conditions are not counted towards the rate limit and are not affected by this rule.
 	//
 	// You cannot nest a `RateBasedStatement` , for example for use inside a `NotStatement` or `OrStatement` . It can only be referenced as a top-level statement within a rule.
-	RateBasedStatement interface{} `json:"rateBasedStatement"`
+	RateBasedStatement interface{} `json:"rateBasedStatement" yaml:"rateBasedStatement"`
 	// A rule statement used to search web request components for a match against a single regular expression.
-	RegexMatchStatement interface{} `json:"regexMatchStatement"`
+	RegexMatchStatement interface{} `json:"regexMatchStatement" yaml:"regexMatchStatement"`
 	// A rule statement used to search web request components for matches with regular expressions.
 	//
 	// To use this, create a `RegexPatternSet` that specifies the expressions that you want to detect, then use the ARN of that set in this statement. A web request matches the pattern set rule statement if the request component matches any of the patterns in the set.
 	//
 	// Each regex pattern set rule statement references a regex pattern set. You create and maintain the set independent of your rules. This allows you to use the single set in multiple rules. When you update the referenced set, AWS WAF automatically updates all rules that reference it.
-	RegexPatternSetReferenceStatement interface{} `json:"regexPatternSetReferenceStatement"`
+	RegexPatternSetReferenceStatement interface{} `json:"regexPatternSetReferenceStatement" yaml:"regexPatternSetReferenceStatement"`
 	// A rule statement used to run the rules that are defined in a `RuleGroup` .
 	//
 	// To use this, create a rule group with your rules, then provide the ARN of the rule group in this statement.
 	//
 	// You cannot nest a `RuleGroupReferenceStatement` , for example for use inside a `NotStatement` or `OrStatement` . It can only be referenced as a top-level statement within a rule.
-	RuleGroupReferenceStatement interface{} `json:"ruleGroupReferenceStatement"`
+	RuleGroupReferenceStatement interface{} `json:"ruleGroupReferenceStatement" yaml:"ruleGroupReferenceStatement"`
 	// A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<).
 	//
 	// For example, you can use a size constraint statement to look for query strings that are longer than 100 bytes.
@@ -4812,15 +4812,15 @@ type CfnWebACL_StatementProperty struct {
 	// If you configure AWS WAF to inspect the request body, AWS WAF inspects only the first 8192 bytes (8 KB). If the request body for your web requests never exceeds 8192 bytes, you can create a size constraint condition and block requests that have a request body greater than 8192 bytes.
 	//
 	// If you choose URI for the value of Part of the request to filter on, the slash (/) in the URI counts as one character. For example, the URI `/logo.jpg` is nine characters long.
-	SizeConstraintStatement interface{} `json:"sizeConstraintStatement"`
+	SizeConstraintStatement interface{} `json:"sizeConstraintStatement" yaml:"sizeConstraintStatement"`
 	// Attackers sometimes insert malicious SQL code into web requests in an effort to extract data from your database.
 	//
 	// To allow or block web requests that appear to contain malicious SQL code, create one or more SQL injection match conditions. An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. Later in the process, when you create a web ACL, you specify whether to allow or block requests that appear to contain malicious SQL code.
-	SqliMatchStatement interface{} `json:"sqliMatchStatement"`
+	SqliMatchStatement interface{} `json:"sqliMatchStatement" yaml:"sqliMatchStatement"`
 	// A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests.
 	//
 	// XSS attacks are those where the attacker uses vulnerabilities in a benign website as a vehicle to inject malicious client-site scripts into other legitimate web browsers. The XSS match statement provides the location in requests that you want AWS WAF to search and text transformations to use on the search area before AWS WAF searches for character sequences that are likely to be malicious strings.
-	XssMatchStatement interface{} `json:"xssMatchStatement"`
+	XssMatchStatement interface{} `json:"xssMatchStatement" yaml:"xssMatchStatement"`
 }
 
 // Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
@@ -4831,7 +4831,7 @@ type CfnWebACL_TextTransformationProperty struct {
 	// Sets the relative processing order for multiple transformations that are defined for a rule statement.
 	//
 	// AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content. The priorities don't need to be consecutive, but they must all be different.
-	Priority *float64 `json:"priority"`
+	Priority *float64 `json:"priority" yaml:"priority"`
 	// You can specify the following transformation types:.
 	//
 	// *BASE64_DECODE* - Decode a `Base64` -encoded string.
@@ -4897,7 +4897,7 @@ type CfnWebACL_TextTransformationProperty struct {
 	// *URL_DECODE_UNI* - Like `URL_DECODE` , but with support for Microsoft-specific `%u` encoding. If the code is in the full-width ASCII code range of `FF01-FF5E` , the higher byte is used to detect and adjust the lower byte. Otherwise, only the lower byte is used and the higher byte is zeroed.
 	//
 	// *UTF8_TO_UNICODE* - Convert all UTF-8 character sequences to Unicode. This helps input normalization, and minimizing false-positives and false-negatives for non-English languages.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 }
 
 // Defines and enables Amazon CloudWatch metrics and web request sample collection.
@@ -4908,15 +4908,15 @@ type CfnWebACL_VisibilityConfigProperty struct {
 	// A boolean indicating whether the associated resource sends metrics to Amazon CloudWatch .
 	//
 	// For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics) .
-	CloudWatchMetricsEnabled interface{} `json:"cloudWatchMetricsEnabled"`
+	CloudWatchMetricsEnabled interface{} `json:"cloudWatchMetricsEnabled" yaml:"cloudWatchMetricsEnabled"`
 	// The descriptive name of the Amazon CloudWatch metric.
 	//
 	// The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF , for example "All" and "Default_Action." You can't change a `MetricName` after you create a `VisibilityConfig` .
-	MetricName *string `json:"metricName"`
+	MetricName *string `json:"metricName" yaml:"metricName"`
 	// A boolean indicating whether AWS WAF should store a sampling of the web requests that match the rules.
 	//
 	// You can view the sampled requests through the AWS WAF console.
-	SampledRequestsEnabled interface{} `json:"sampledRequestsEnabled"`
+	SampledRequestsEnabled interface{} `json:"sampledRequestsEnabled" yaml:"sampledRequestsEnabled"`
 }
 
 // A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests.
@@ -4927,11 +4927,11 @@ type CfnWebACL_VisibilityConfigProperty struct {
 //
 type CfnWebACL_XssMatchStatementProperty struct {
 	// The part of a web request that you want AWS WAF to inspect.
-	FieldToMatch interface{} `json:"fieldToMatch"`
+	FieldToMatch interface{} `json:"fieldToMatch" yaml:"fieldToMatch"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
 	//
 	// If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
-	TextTransformations interface{} `json:"textTransformations"`
+	TextTransformations interface{} `json:"textTransformations" yaml:"textTransformations"`
 }
 
 // A CloudFormation `AWS::WAFv2::WebACLAssociation`.
@@ -5444,9 +5444,9 @@ type CfnWebACLAssociationProps struct {
 	// - For an AWS AppSync GraphQL API: `arn:aws:appsync: *region* : *account-id* :apis/ *GraphQLApiId*`
 	//
 	// For Amazon CloudFront , define the association in your CloudFront distribution configuration. To associate a web ACL, provide the Amazon Resource Name (ARN) of the `WebACL` to your CloudFront distribution configuration. To disassociate a web ACL, provide an empty ARN. For information, see [AWS::CloudFront::Distribution](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html) .
-	ResourceArn *string `json:"resourceArn"`
+	ResourceArn *string `json:"resourceArn" yaml:"resourceArn"`
 	// The Amazon Resource Name (ARN) of the web ACL that you want to associate with the resource.
-	WebAclArn *string `json:"webAclArn"`
+	WebAclArn *string `json:"webAclArn" yaml:"webAclArn"`
 }
 
 // Properties for defining a `CfnWebACL`.
@@ -5455,7 +5455,7 @@ type CfnWebACLAssociationProps struct {
 //
 type CfnWebACLProps struct {
 	// The action to perform if none of the `Rules` contained in the `WebACL` match.
-	DefaultAction interface{} `json:"defaultAction"`
+	DefaultAction interface{} `json:"defaultAction" yaml:"defaultAction"`
 	// Specifies whether this is for an Amazon CloudFront distribution or for a regional application.
 	//
 	// A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, or an AWS AppSync GraphQL API. Valid Values are `CLOUDFRONT` and `REGIONAL` .
@@ -5463,13 +5463,13 @@ type CfnWebACLProps struct {
 	// > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
 	//
 	// For information about how to define the association of the web ACL with your resource, see `WebACLAssociation` .
-	Scope *string `json:"scope"`
+	Scope *string `json:"scope" yaml:"scope"`
 	// Defines and enables Amazon CloudWatch metrics and web request sample collection.
-	VisibilityConfig interface{} `json:"visibilityConfig"`
+	VisibilityConfig interface{} `json:"visibilityConfig" yaml:"visibilityConfig"`
 	// Specifies how AWS WAF should handle `CAPTCHA` evaluations for rules that don't have their own `CaptchaConfig` settings.
 	//
 	// If you don't specify this, AWS WAF uses its default settings for `CaptchaConfig` .
-	CaptchaConfig interface{} `json:"captchaConfig"`
+	CaptchaConfig interface{} `json:"captchaConfig" yaml:"captchaConfig"`
 	// A map of custom response keys and content bodies.
 	//
 	// When you create a rule with a block action, you can send a custom response to the web request. You define these for the web ACL, and then use them in the rules and default actions that you define in the web ACL.
@@ -5477,22 +5477,22 @@ type CfnWebACLProps struct {
 	// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
 	//
 	// For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
-	CustomResponseBodies interface{} `json:"customResponseBodies"`
+	CustomResponseBodies interface{} `json:"customResponseBodies" yaml:"customResponseBodies"`
 	// A description of the web ACL that helps with identification.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The descriptive name of the web ACL.
 	//
 	// You cannot change the name of a web ACL after you create it.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The rule statements used to identify the web requests that you want to allow, block, or count.
 	//
 	// Each rule includes one top-level statement that AWS WAF uses to identify matching web requests, and parameters that govern how AWS WAF handles them.
-	Rules interface{} `json:"rules"`
+	Rules interface{} `json:"rules" yaml:"rules"`
 	// Key:value pairs associated with an AWS resource.
 	//
 	// The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
 	//
 	// > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 

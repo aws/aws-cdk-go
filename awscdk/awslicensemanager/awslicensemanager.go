@@ -611,17 +611,17 @@ func (c *jsiiProxy_CfnGrant) ValidateProperties(_properties interface{}) {
 //
 type CfnGrantProps struct {
 	// Allowed operations for the grant.
-	AllowedOperations *[]*string `json:"allowedOperations"`
+	AllowedOperations *[]*string `json:"allowedOperations" yaml:"allowedOperations"`
 	// Grant name.
-	GrantName *string `json:"grantName"`
+	GrantName *string `json:"grantName" yaml:"grantName"`
 	// Home Region of the grant.
-	HomeRegion *string `json:"homeRegion"`
+	HomeRegion *string `json:"homeRegion" yaml:"homeRegion"`
 	// License ARN.
-	LicenseArn *string `json:"licenseArn"`
+	LicenseArn *string `json:"licenseArn" yaml:"licenseArn"`
 	// The grant principals.
-	Principals *[]*string `json:"principals"`
+	Principals *[]*string `json:"principals" yaml:"principals"`
 	// Granted license status.
-	Status *string `json:"status"`
+	Status *string `json:"status" yaml:"status"`
 }
 
 // A CloudFormation `AWS::LicenseManager::License`.
@@ -1326,9 +1326,9 @@ func (c *jsiiProxy_CfnLicense) ValidateProperties(_properties interface{}) {
 //
 type CfnLicense_BorrowConfigurationProperty struct {
 	// Indicates whether early check-ins are allowed.
-	AllowEarlyCheckIn interface{} `json:"allowEarlyCheckIn"`
+	AllowEarlyCheckIn interface{} `json:"allowEarlyCheckIn" yaml:"allowEarlyCheckIn"`
 	// Maximum time for the borrow configuration, in minutes.
-	MaxTimeToLiveInMinutes *float64 `json:"maxTimeToLiveInMinutes"`
+	MaxTimeToLiveInMinutes *float64 `json:"maxTimeToLiveInMinutes" yaml:"maxTimeToLiveInMinutes"`
 }
 
 // Details about a consumption configuration.
@@ -1337,11 +1337,11 @@ type CfnLicense_BorrowConfigurationProperty struct {
 //
 type CfnLicense_ConsumptionConfigurationProperty struct {
 	// Details about a borrow configuration.
-	BorrowConfiguration interface{} `json:"borrowConfiguration"`
+	BorrowConfiguration interface{} `json:"borrowConfiguration" yaml:"borrowConfiguration"`
 	// Details about a provisional configuration.
-	ProvisionalConfiguration interface{} `json:"provisionalConfiguration"`
+	ProvisionalConfiguration interface{} `json:"provisionalConfiguration" yaml:"provisionalConfiguration"`
 	// Renewal frequency.
-	RenewType *string `json:"renewType"`
+	RenewType *string `json:"renewType" yaml:"renewType"`
 }
 
 // Describes a resource entitled for use with a license.
@@ -1350,21 +1350,21 @@ type CfnLicense_ConsumptionConfigurationProperty struct {
 //
 type CfnLicense_EntitlementProperty struct {
 	// Entitlement name.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// Entitlement unit.
-	Unit *string `json:"unit"`
+	Unit *string `json:"unit" yaml:"unit"`
 	// Indicates whether check-ins are allowed.
-	AllowCheckIn interface{} `json:"allowCheckIn"`
+	AllowCheckIn interface{} `json:"allowCheckIn" yaml:"allowCheckIn"`
 	// Maximum entitlement count.
 	//
 	// Use if the unit is not None.
-	MaxCount *float64 `json:"maxCount"`
+	MaxCount *float64 `json:"maxCount" yaml:"maxCount"`
 	// Indicates whether overages are allowed.
-	Overage interface{} `json:"overage"`
+	Overage interface{} `json:"overage" yaml:"overage"`
 	// Entitlement resource.
 	//
 	// Use only if the unit is None.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // Details associated with the issuer of a license.
@@ -1373,11 +1373,11 @@ type CfnLicense_EntitlementProperty struct {
 //
 type CfnLicense_IssuerDataProperty struct {
 	// Issuer name.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// Asymmetric KMS key from AWS Key Management Service .
 	//
 	// The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
-	SignKey *string `json:"signKey"`
+	SignKey *string `json:"signKey" yaml:"signKey"`
 }
 
 // Describes key/value pairs.
@@ -1386,9 +1386,9 @@ type CfnLicense_IssuerDataProperty struct {
 //
 type CfnLicense_MetadataProperty struct {
 	// The key name.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The value.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // Details about a provisional configuration.
@@ -1397,7 +1397,7 @@ type CfnLicense_MetadataProperty struct {
 //
 type CfnLicense_ProvisionalConfigurationProperty struct {
 	// Maximum time for the provisional configuration, in minutes.
-	MaxTimeToLiveInMinutes *float64 `json:"maxTimeToLiveInMinutes"`
+	MaxTimeToLiveInMinutes *float64 `json:"maxTimeToLiveInMinutes" yaml:"maxTimeToLiveInMinutes"`
 }
 
 // Date and time range during which the license is valid, in ISO8601-UTC format.
@@ -1406,9 +1406,9 @@ type CfnLicense_ProvisionalConfigurationProperty struct {
 //
 type CfnLicense_ValidityDateFormatProperty struct {
 	// Start of the time range.
-	Begin *string `json:"begin"`
+	Begin *string `json:"begin" yaml:"begin"`
 	// End of the time range.
-	End *string `json:"end"`
+	End *string `json:"end" yaml:"end"`
 }
 
 // Properties for defining a `CfnLicense`.
@@ -1417,26 +1417,26 @@ type CfnLicense_ValidityDateFormatProperty struct {
 //
 type CfnLicenseProps struct {
 	// Configuration for consumption of the license.
-	ConsumptionConfiguration interface{} `json:"consumptionConfiguration"`
+	ConsumptionConfiguration interface{} `json:"consumptionConfiguration" yaml:"consumptionConfiguration"`
 	// License entitlements.
-	Entitlements interface{} `json:"entitlements"`
+	Entitlements interface{} `json:"entitlements" yaml:"entitlements"`
 	// Home Region of the license.
-	HomeRegion *string `json:"homeRegion"`
+	HomeRegion *string `json:"homeRegion" yaml:"homeRegion"`
 	// License issuer.
-	Issuer interface{} `json:"issuer"`
+	Issuer interface{} `json:"issuer" yaml:"issuer"`
 	// License name.
-	LicenseName *string `json:"licenseName"`
+	LicenseName *string `json:"licenseName" yaml:"licenseName"`
 	// Product name.
-	ProductName *string `json:"productName"`
+	ProductName *string `json:"productName" yaml:"productName"`
 	// Date and time range during which the license is valid, in ISO8601-UTC format.
-	Validity interface{} `json:"validity"`
+	Validity interface{} `json:"validity" yaml:"validity"`
 	// License beneficiary.
-	Beneficiary *string `json:"beneficiary"`
+	Beneficiary *string `json:"beneficiary" yaml:"beneficiary"`
 	// License metadata.
-	LicenseMetadata interface{} `json:"licenseMetadata"`
+	LicenseMetadata interface{} `json:"licenseMetadata" yaml:"licenseMetadata"`
 	// Product SKU.
-	ProductSku *string `json:"productSku"`
+	ProductSku *string `json:"productSku" yaml:"productSku"`
 	// License status.
-	Status *string `json:"status"`
+	Status *string `json:"status" yaml:"status"`
 }
 

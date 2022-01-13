@@ -497,7 +497,7 @@ type CfnCustomResourceProps struct {
 	// The service token that was given to the template developer by the service provider to access the service, such as an Amazon SNS topic ARN or Lambda function ARN. The service token must be from the same Region in which you are creating the stack.
 	//
 	// Updates are not supported.
-	ServiceToken *string `json:"serviceToken"`
+	ServiceToken *string `json:"serviceToken" yaml:"serviceToken"`
 }
 
 // A CloudFormation `AWS::CloudFormation::Macro`.
@@ -1058,17 +1058,17 @@ func (c *jsiiProxy_CfnMacro) ValidateProperties(_properties interface{}) {
 //
 type CfnMacroProps struct {
 	// The Amazon Resource Name (ARN) of the underlying AWS Lambda function that you want AWS CloudFormation to invoke when the macro is run.
-	FunctionName *string `json:"functionName"`
+	FunctionName *string `json:"functionName" yaml:"functionName"`
 	// The name of the macro.
 	//
 	// The name of the macro must be unique across all macros in the account.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// A description of the macro.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The Amazon CloudWatch log group to which AWS CloudFormation sends error logging information when invoking the macro's underlying AWS Lambda function.
-	LogGroupName *string `json:"logGroupName"`
+	LogGroupName *string `json:"logGroupName" yaml:"logGroupName"`
 	// The ARN of the role AWS CloudFormation should assume when sending log entries to CloudWatch logs.
-	LogRoleArn *string `json:"logRoleArn"`
+	LogRoleArn *string `json:"logRoleArn" yaml:"logRoleArn"`
 }
 
 // A CloudFormation `AWS::CloudFormation::ModuleDefaultVersion`.
@@ -1595,15 +1595,15 @@ type CfnModuleDefaultVersionProps struct {
 	// The Amazon Resource Name (ARN) of the module version to set as the default version.
 	//
 	// Conditional: You must specify either `Arn` , or `ModuleName` and `VersionId` .
-	Arn *string `json:"arn"`
+	Arn *string `json:"arn" yaml:"arn"`
 	// The name of the module.
 	//
 	// Conditional: You must specify either `Arn` , or `ModuleName` and `VersionId` .
-	ModuleName *string `json:"moduleName"`
+	ModuleName *string `json:"moduleName" yaml:"moduleName"`
 	// The ID for the specific version of the module.
 	//
 	// Conditional: You must specify either `Arn` , or `ModuleName` and `VersionId` .
-	VersionId *string `json:"versionId"`
+	VersionId *string `json:"versionId" yaml:"versionId"`
 }
 
 // A CloudFormation `AWS::CloudFormation::ModuleVersion`.
@@ -2196,11 +2196,11 @@ func (c *jsiiProxy_CfnModuleVersion) ValidateProperties(_properties interface{})
 //
 type CfnModuleVersionProps struct {
 	// The name of the module being registered.
-	ModuleName *string `json:"moduleName"`
+	ModuleName *string `json:"moduleName" yaml:"moduleName"`
 	// A URL to the S3 bucket containing the package that contains the template fragment and schema files for the module version to register.
 	//
 	// > The user registering the module version must be able to access the module package in the S3 bucket. That is, the user needs to have [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html) permissions for the package. For more information, see [Actions, Resources, and Condition Keys for Amazon S3](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazons3.html) in the *AWS Identity and Access Management User Guide* .
-	ModulePackage *string `json:"modulePackage"`
+	ModulePackage *string `json:"modulePackage" yaml:"modulePackage"`
 }
 
 // A CloudFormation `AWS::CloudFormation::PublicTypeVersion`.
@@ -2809,7 +2809,7 @@ type CfnPublicTypeVersionProps struct {
 	// The Amazon Resource Number (ARN) of the extension.
 	//
 	// Conditional: You must specify `Arn` , or `TypeName` and `Type` .
-	Arn *string `json:"arn"`
+	Arn *string `json:"arn" yaml:"arn"`
 	// The S3 bucket to which CloudFormation delivers the contract test execution logs.
 	//
 	// CloudFormation delivers the logs by the time contract testing has completed and the extension has been assigned a test type status of `PASSED` or `FAILED` .
@@ -2820,7 +2820,7 @@ type CfnPublicTypeVersionProps struct {
 	// - PutObject
 	//
 	// For more information, see [Actions, Resources, and Condition Keys for Amazon S3](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html) in the *AWS Identity and Access Management User Guide* .
-	LogDeliveryBucket *string `json:"logDeliveryBucket"`
+	LogDeliveryBucket *string `json:"logDeliveryBucket" yaml:"logDeliveryBucket"`
 	// The version number to assign to this version of the extension.
 	//
 	// Use the following format, and adhere to semantic versioning when assigning a version number to your extension:
@@ -2832,15 +2832,15 @@ type CfnPublicTypeVersionProps struct {
 	// If you do not specify a version number, CloudFormation increments the version number by one minor version release.
 	//
 	// You cannot specify a version number the first time you publish a type. AWS CloudFormation automatically sets the first version number to be `1.0.0` .
-	PublicVersionNumber *string `json:"publicVersionNumber"`
+	PublicVersionNumber *string `json:"publicVersionNumber" yaml:"publicVersionNumber"`
 	// The type of the extension to test.
 	//
 	// Conditional: You must specify `Arn` , or `TypeName` and `Type` .
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// The name of the extension to test.
 	//
 	// Conditional: You must specify `Arn` , or `TypeName` and `Type` .
-	TypeName *string `json:"typeName"`
+	TypeName *string `json:"typeName" yaml:"typeName"`
 }
 
 // A CloudFormation `AWS::CloudFormation::Publisher`.
@@ -3389,11 +3389,11 @@ type CfnPublisherProps struct {
 	// Whether you accept the [Terms and Conditions](https://docs.aws.amazon.com/https://cloudformation-registry-documents.s3.amazonaws.com/Terms_and_Conditions_for_AWS_CloudFormation_Registry_Publishers.pdf) for publishing extensions in the CloudFormation registry. You must accept the terms and conditions in order to register to publish public extensions to the CloudFormation registry.
 	//
 	// The default is `false` .
-	AcceptTermsAndConditions interface{} `json:"acceptTermsAndConditions"`
+	AcceptTermsAndConditions interface{} `json:"acceptTermsAndConditions" yaml:"acceptTermsAndConditions"`
 	// If you are using a Bitbucket or GitHub account for identity verification, the Amazon Resource Name (ARN) for your connection to that account.
 	//
 	// For more information, see [Registering your account to publish CloudFormation extensions](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html#publish-extension-prereqs) in the *CloudFormation CLI User Guide* .
-	ConnectionArn *string `json:"connectionArn"`
+	ConnectionArn *string `json:"connectionArn" yaml:"connectionArn"`
 }
 
 // A CloudFormation `AWS::CloudFormation::ResourceDefaultVersion`.
@@ -3927,17 +3927,17 @@ type CfnResourceDefaultVersionProps struct {
 	// The name of the resource.
 	//
 	// Conditional: You must specify either `TypeVersionArn` , or `TypeName` and `VersionId` .
-	TypeName *string `json:"typeName"`
+	TypeName *string `json:"typeName" yaml:"typeName"`
 	// The Amazon Resource Name (ARN) of the resource version.
 	//
 	// Conditional: You must specify either `TypeVersionArn` , or `TypeName` and `VersionId` .
-	TypeVersionArn *string `json:"typeVersionArn"`
+	TypeVersionArn *string `json:"typeVersionArn" yaml:"typeVersionArn"`
 	// The ID of a specific version of the resource.
 	//
 	// The version ID is the value at the end of the Amazon Resource Name (ARN) assigned to the resource version when it's registered.
 	//
 	// Conditional: You must specify either `TypeVersionArn` , or `TypeName` and `VersionId` .
-	VersionId *string `json:"versionId"`
+	VersionId *string `json:"versionId" yaml:"versionId"`
 }
 
 // A CloudFormation `AWS::CloudFormation::ResourceVersion`.
@@ -4552,9 +4552,9 @@ func (c *jsiiProxy_CfnResourceVersion) ValidateProperties(_properties interface{
 //
 type CfnResourceVersion_LoggingConfigProperty struct {
 	// The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
-	LogGroupName *string `json:"logGroupName"`
+	LogGroupName *string `json:"logGroupName" yaml:"logGroupName"`
 	// The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
-	LogRoleArn *string `json:"logRoleArn"`
+	LogRoleArn *string `json:"logRoleArn" yaml:"logRoleArn"`
 }
 
 // Properties for defining a `CfnResourceVersion`.
@@ -4567,7 +4567,7 @@ type CfnResourceVersionProps struct {
 	// For information on generating a schema handler package for the resource you want to register, see [submit](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-cli-submit.html) in the *CloudFormation CLI User Guide* .
 	//
 	// > The user registering the resource must be able to access the package in the S3 bucket. That is, the user needs to have [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html) permissions for the schema handler package. For more information, see [Actions, Resources, and Condition Keys for Amazon S3](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazons3.html) in the *AWS Identity and Access Management User Guide* .
-	SchemaHandlerPackage *string `json:"schemaHandlerPackage"`
+	SchemaHandlerPackage *string `json:"schemaHandlerPackage" yaml:"schemaHandlerPackage"`
 	// The name of the resource being registered.
 	//
 	// We recommend that resource names adhere to the following pattern: *company_or_organization* :: *service* :: *type* .
@@ -4580,13 +4580,13 @@ type CfnResourceVersionProps struct {
 	// > - `AWS`
 	// > - `Custom`
 	// > - `Dev`
-	TypeName *string `json:"typeName"`
+	TypeName *string `json:"typeName" yaml:"typeName"`
 	// The Amazon Resource Name (ARN) of the IAM role for CloudFormation to assume when invoking the resource.
 	//
 	// If your resource calls AWS APIs in any of its handlers, you must create an *[IAM execution role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html)* that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the resource type handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the resource type handler, thereby supplying your resource type with the appropriate credentials.
-	ExecutionRoleArn *string `json:"executionRoleArn"`
+	ExecutionRoleArn *string `json:"executionRoleArn" yaml:"executionRoleArn"`
 	// Logging configuration information for a resource.
-	LoggingConfig interface{} `json:"loggingConfig"`
+	LoggingConfig interface{} `json:"loggingConfig" yaml:"loggingConfig"`
 }
 
 // A CloudFormation `AWS::CloudFormation::Stack`.
@@ -5150,11 +5150,11 @@ type CfnStackProps struct {
 	// The URL must point to a template (max size: 460,800 bytes) that's located in an Amazon S3 bucket. For more information, see [Template anatomy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html) .
 	//
 	// Whether an update causes interruptions depends on the resources that are being updated. An update never causes a nested stack to be replaced.
-	TemplateUrl *string `json:"templateUrl"`
+	TemplateUrl *string `json:"templateUrl" yaml:"templateUrl"`
 	// The Simple Notification Service (SNS) topic ARNs to publish stack related events.
 	//
 	// You can find your SNS topic ARNs using the SNS console or your Command Line Interface (CLI).
-	NotificationArns *[]*string `json:"notificationArns"`
+	NotificationArns *[]*string `json:"notificationArns" yaml:"notificationArns"`
 	// The set value pairs that represent the parameters passed to CloudFormation when this nested stack is created.
 	//
 	// Each parameter has a name corresponding to a parameter defined in the embedded template and a value representing the value that you want to set for the parameter.
@@ -5164,17 +5164,17 @@ type CfnStackProps struct {
 	// Conditional. Required if the nested stack requires input parameters.
 	//
 	// Whether an update causes interruptions depends on the resources that are being updated. An update never causes a nested stack to be replaced.
-	Parameters interface{} `json:"parameters"`
+	Parameters interface{} `json:"parameters" yaml:"parameters"`
 	// Key-value pairs to associate with this stack.
 	//
 	// AWS CloudFormation also propagates these tags to the resources created in the stack. A maximum number of 50 tags can be specified.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// The length of time, in minutes, that CloudFormation waits for the nested stack to reach the `CREATE_COMPLETE` state.
 	//
 	// The default is no timeout. When CloudFormation detects that the nested stack has reached the `CREATE_COMPLETE` state, it marks the nested stack resource as `CREATE_COMPLETE` in the parent stack and resumes creating the parent stack. If the timeout period expires before the nested stack reaches `CREATE_COMPLETE` , CloudFormation marks the nested stack as failed and rolls back both the nested stack and parent stack.
 	//
 	// Updates are not supported.
-	TimeoutInMinutes *float64 `json:"timeoutInMinutes"`
+	TimeoutInMinutes *float64 `json:"timeoutInMinutes" yaml:"timeoutInMinutes"`
 }
 
 // A CloudFormation `AWS::CloudFormation::StackSet`.
@@ -5939,11 +5939,11 @@ type CfnStackSet_AutoDeploymentProperty struct {
 	// If set to `true` , StackSets automatically deploys additional stack instances to AWS Organizations accounts that are added to a target organization or organizational unit (OU) in the specified Regions.
 	//
 	// If an account is removed from a target organization or OU, StackSets deletes stack instances from the account in the specified Regions.
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 	// If set to `true` , stack resources are retained when an account is removed from a target organization or OU.
 	//
 	// If set to `false` , stack resources are deleted. Specify only if `Enabled` is set to `True` .
-	RetainStacksOnAccountRemoval interface{} `json:"retainStacksOnAccountRemoval"`
+	RetainStacksOnAccountRemoval interface{} `json:"retainStacksOnAccountRemoval" yaml:"retainStacksOnAccountRemoval"`
 }
 
 // The AWS OrganizationalUnitIds or Accounts for which to create stack instances in the specified Regions.
@@ -5954,11 +5954,11 @@ type CfnStackSet_DeploymentTargetsProperty struct {
 	// The names of one or more AWS accounts for which you want to deploy stack set updates.
 	//
 	// *Pattern* : `^[0-9]{12}$`
-	Accounts *[]*string `json:"accounts"`
+	Accounts *[]*string `json:"accounts" yaml:"accounts"`
 	// The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
 	//
 	// *Pattern* : `^(ou-[a-z0-9]{4,32}-[a-z0-9]{8,32}|r-[a-z0-9]{4,32})$`
-	OrganizationalUnitIds *[]*string `json:"organizationalUnitIds"`
+	OrganizationalUnitIds *[]*string `json:"organizationalUnitIds" yaml:"organizationalUnitIds"`
 }
 
 // The user-specified preferences for how AWS CloudFormation performs a stack set operation.
@@ -5973,7 +5973,7 @@ type CfnStackSet_OperationPreferencesProperty struct {
 	// If the operation is stopped in a Region, AWS CloudFormation doesn't attempt the operation in any subsequent Regions.
 	//
 	// Conditional: You must specify either `FailureToleranceCount` or `FailureTolerancePercentage` (but not both).
-	FailureToleranceCount *float64 `json:"failureToleranceCount"`
+	FailureToleranceCount *float64 `json:"failureToleranceCount" yaml:"failureToleranceCount"`
 	// The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
 	//
 	// If the operation is stopped in a Region, AWS CloudFormation doesn't attempt the operation in any subsequent Regions.
@@ -5981,7 +5981,7 @@ type CfnStackSet_OperationPreferencesProperty struct {
 	// When calculating the number of accounts based on the specified percentage, AWS CloudFormation rounds *down* to the next whole number.
 	//
 	// Conditional: You must specify either `FailureToleranceCount` or `FailureTolerancePercentage` , but not both.
-	FailureTolerancePercentage *float64 `json:"failureTolerancePercentage"`
+	FailureTolerancePercentage *float64 `json:"failureTolerancePercentage" yaml:"failureTolerancePercentage"`
 	// The maximum number of accounts in which to perform this operation at one time.
 	//
 	// This is dependent on the value of `FailureToleranceCount` . `MaxConcurrentCount` is at most one more than the `FailureToleranceCount` .
@@ -5989,7 +5989,7 @@ type CfnStackSet_OperationPreferencesProperty struct {
 	// Note that this setting lets you specify the *maximum* for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.
 	//
 	// Conditional: You must specify either `MaxConcurrentCount` or `MaxConcurrentPercentage` , but not both.
-	MaxConcurrentCount *float64 `json:"maxConcurrentCount"`
+	MaxConcurrentCount *float64 `json:"maxConcurrentCount" yaml:"maxConcurrentCount"`
 	// The maximum percentage of accounts in which to perform this operation at one time.
 	//
 	// When calculating the number of accounts based on the specified percentage, AWS CloudFormation rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, CloudFormation sets the number as one instead.
@@ -5997,13 +5997,13 @@ type CfnStackSet_OperationPreferencesProperty struct {
 	// Note that this setting lets you specify the *maximum* for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.
 	//
 	// Conditional: You must specify either `MaxConcurrentCount` or `MaxConcurrentPercentage` , but not both.
-	MaxConcurrentPercentage *float64 `json:"maxConcurrentPercentage"`
+	MaxConcurrentPercentage *float64 `json:"maxConcurrentPercentage" yaml:"maxConcurrentPercentage"`
 	// The concurrency type of deploying StackSets operations in regions, could be in parallel or one region at a time.
 	//
 	// *Allowed values* : `SEQUENTIAL` | `PARALLEL`
-	RegionConcurrencyType *string `json:"regionConcurrencyType"`
+	RegionConcurrencyType *string `json:"regionConcurrencyType" yaml:"regionConcurrencyType"`
 	// The order of the Regions where you want to perform the stack operation.
-	RegionOrder *[]*string `json:"regionOrder"`
+	RegionOrder *[]*string `json:"regionOrder" yaml:"regionOrder"`
 }
 
 // The Parameter data type.
@@ -6014,9 +6014,9 @@ type CfnStackSet_ParameterProperty struct {
 	// The key associated with the parameter.
 	//
 	// If you don't specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
-	ParameterKey *string `json:"parameterKey"`
+	ParameterKey *string `json:"parameterKey" yaml:"parameterKey"`
 	// The input value associated with the parameter.
-	ParameterValue *string `json:"parameterValue"`
+	ParameterValue *string `json:"parameterValue" yaml:"parameterValue"`
 }
 
 // Stack instances in some specific accounts and Regions.
@@ -6025,11 +6025,11 @@ type CfnStackSet_ParameterProperty struct {
 //
 type CfnStackSet_StackInstancesProperty struct {
 	// The AWS `OrganizationalUnitIds` or `Accounts` for which to create stack instances in the specified Regions.
-	DeploymentTargets interface{} `json:"deploymentTargets"`
+	DeploymentTargets interface{} `json:"deploymentTargets" yaml:"deploymentTargets"`
 	// The names of one or more Regions where you want to create stack instances using the specified AWS accounts .
-	Regions *[]*string `json:"regions"`
+	Regions *[]*string `json:"regions" yaml:"regions"`
 	// A list of stack set parameters whose values you want to override in the selected stack instances.
-	ParameterOverrides interface{} `json:"parameterOverrides"`
+	ParameterOverrides interface{} `json:"parameterOverrides" yaml:"parameterOverrides"`
 }
 
 // Properties for defining a `CfnStackSet`.
@@ -6045,7 +6045,7 @@ type CfnStackSetProps struct {
 	// *Allowed Values* : `SERVICE_MANAGED` | `SELF_MANAGED`
 	//
 	// > The `PermissionModel` property is required.
-	PermissionModel *string `json:"permissionModel"`
+	PermissionModel *string `json:"permissionModel" yaml:"permissionModel"`
 	// The name to associate with the stack set.
 	//
 	// The name must be unique in the Region where you create your stack set.
@@ -6055,7 +6055,7 @@ type CfnStackSetProps struct {
 	// *Pattern* : `^[a-zA-Z][a-zA-Z0-9-]{0,127}$`
 	//
 	// > The `StackSetName` property is required.
-	StackSetName *string `json:"stackSetName"`
+	StackSetName *string `json:"stackSetName" yaml:"stackSetName"`
 	// The Amazon Resource Number (ARN) of the IAM role to use to create this stack set.
 	//
 	// Specify an IAM role only if you are using customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account.
@@ -6065,9 +6065,9 @@ type CfnStackSetProps struct {
 	// *Minimum* : `20`
 	//
 	// *Maximum* : `2048`
-	AdministrationRoleArn *string `json:"administrationRoleArn"`
+	AdministrationRoleArn *string `json:"administrationRoleArn" yaml:"administrationRoleArn"`
 	// [ `Service-managed` permissions] Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to a target organization or organizational unit (OU).
-	AutoDeployment interface{} `json:"autoDeployment"`
+	AutoDeployment interface{} `json:"autoDeployment" yaml:"autoDeployment"`
 	// [Service-managed permissions] Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account.
 	//
 	// By default, `SELF` is specified. Use `SELF` for stack sets with self-managed permissions.
@@ -6080,17 +6080,17 @@ type CfnStackSetProps struct {
 	// Stack sets with service-managed permissions are created in the management account, including stack sets that are created by delegated administrators.
 	//
 	// *Valid Values* : `SELF` | `DELEGATED_ADMIN`
-	CallAs *string `json:"callAs"`
+	CallAs *string `json:"callAs" yaml:"callAs"`
 	// The capabilities that are allowed in the stack set.
 	//
 	// Some stack set templates might include resources that can affect permissions in your AWS account —for example, by creating new AWS Identity and Access Management ( IAM ) users. For more information, see [Acknowledging IAM Resources in AWS CloudFormation Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities) .
-	Capabilities *[]*string `json:"capabilities"`
+	Capabilities *[]*string `json:"capabilities" yaml:"capabilities"`
 	// A description of the stack set.
 	//
 	// *Minimum* : `1`
 	//
 	// *Maximum* : `1024`
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The name of the IAM execution role to use to create the stack set.
 	//
 	// If you don't specify an execution role, AWS CloudFormation uses the `AWSCloudFormationStackSetExecutionRole` role for the stack set operation.
@@ -6100,7 +6100,7 @@ type CfnStackSetProps struct {
 	// *Maximum* : `64`
 	//
 	// *Pattern* : `[a-zA-Z_0-9+=,.@-]+`
-	ExecutionRoleName *string `json:"executionRoleName"`
+	ExecutionRoleName *string `json:"executionRoleName" yaml:"executionRoleName"`
 	// Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
 	//
 	// When active, StackSets performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, StackSets starts queued operations in request order.
@@ -6110,17 +6110,17 @@ type CfnStackSetProps struct {
 	// > You can't modify your stack set's execution configuration while there are running or queued operations for that stack set.
 	//
 	// When inactive (default), StackSets performs one operation at a time in request order.
-	ManagedExecution interface{} `json:"managedExecution"`
+	ManagedExecution interface{} `json:"managedExecution" yaml:"managedExecution"`
 	// The user-specified preferences for how AWS CloudFormation performs a stack set operation.
-	OperationPreferences interface{} `json:"operationPreferences"`
+	OperationPreferences interface{} `json:"operationPreferences" yaml:"operationPreferences"`
 	// The input parameters for the stack set template.
-	Parameters interface{} `json:"parameters"`
+	Parameters interface{} `json:"parameters" yaml:"parameters"`
 	// A group of stack instances with parameters in some specific accounts and Regions.
-	StackInstancesGroup interface{} `json:"stackInstancesGroup"`
+	StackInstancesGroup interface{} `json:"stackInstancesGroup" yaml:"stackInstancesGroup"`
 	// The key-value pairs to associate with this stack set and the stacks created from it.
 	//
 	// AWS CloudFormation also propagates these tags to supported resources that are created in the stacks. A maximum number of 50 tags can be specified.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// The structure that contains the template body, with a minimum length of 1 byte and a maximum length of 51,200 bytes.
 	//
 	// You must include either `TemplateURL` or `TemplateBody` in a StackSet, but you can't use both. Dynamic references in the `TemplateBody` may not work correctly in all cases. It's recommended to pass templates containing dynamic references through `TemplateUrl` instead.
@@ -6128,7 +6128,7 @@ type CfnStackSetProps struct {
 	// *Minimum* : `1`
 	//
 	// *Maximum* : `51200`
-	TemplateBody *string `json:"templateBody"`
+	TemplateBody *string `json:"templateBody" yaml:"templateBody"`
 	// Location of file containing the template body.
 	//
 	// The URL must point to a template (max size: 460,800 bytes) that's located in an Amazon S3 bucket.
@@ -6138,7 +6138,7 @@ type CfnStackSetProps struct {
 	// *Minimum* : `1`
 	//
 	// *Maximum* : `1024`
-	TemplateUrl *string `json:"templateUrl"`
+	TemplateUrl *string `json:"templateUrl" yaml:"templateUrl"`
 }
 
 // A CloudFormation `AWS::CloudFormation::TypeActivation`.
@@ -6812,9 +6812,9 @@ func (c *jsiiProxy_CfnTypeActivation) ValidateProperties(_properties interface{}
 //
 type CfnTypeActivation_LoggingConfigProperty struct {
 	// The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the extension's handlers.
-	LogGroupName *string `json:"logGroupName"`
+	LogGroupName *string `json:"logGroupName" yaml:"logGroupName"`
 	// The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
-	LogRoleArn *string `json:"logRoleArn"`
+	LogRoleArn *string `json:"logRoleArn" yaml:"logRoleArn"`
 }
 
 // Properties for defining a `CfnTypeActivation`.
@@ -6827,46 +6827,46 @@ type CfnTypeActivationProps struct {
 	// Major versions released by the publisher must be manually updated.
 	//
 	// The default is `true` .
-	AutoUpdate interface{} `json:"autoUpdate"`
+	AutoUpdate interface{} `json:"autoUpdate" yaml:"autoUpdate"`
 	// The name of the IAM execution role to use to activate the extension.
-	ExecutionRoleArn *string `json:"executionRoleArn"`
+	ExecutionRoleArn *string `json:"executionRoleArn" yaml:"executionRoleArn"`
 	// Specifies logging configuration information for an extension.
-	LoggingConfig interface{} `json:"loggingConfig"`
+	LoggingConfig interface{} `json:"loggingConfig" yaml:"loggingConfig"`
 	// The major version of this extension you want to activate, if multiple major versions are available.
 	//
 	// The default is the latest major version. CloudFormation uses the latest available *minor* version of the major version selected.
 	//
 	// You can specify `MajorVersion` or `VersionBump` , but not both.
-	MajorVersion *string `json:"majorVersion"`
+	MajorVersion *string `json:"majorVersion" yaml:"majorVersion"`
 	// The Amazon Resource Number (ARN) of the public extension.
 	//
 	// Conditional: You must specify `PublicTypeArn` , or `TypeName` , `Type` , and `PublisherId` .
-	PublicTypeArn *string `json:"publicTypeArn"`
+	PublicTypeArn *string `json:"publicTypeArn" yaml:"publicTypeArn"`
 	// The ID of the extension publisher.
 	//
 	// Conditional: You must specify `PublicTypeArn` , or `TypeName` , `Type` , and `PublisherId` .
-	PublisherId *string `json:"publisherId"`
+	PublisherId *string `json:"publisherId" yaml:"publisherId"`
 	// The extension type.
 	//
 	// Conditional: You must specify `PublicTypeArn` , or `TypeName` , `Type` , and `PublisherId` .
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// The name of the extension.
 	//
 	// Conditional: You must specify `PublicTypeArn` , or `TypeName` , `Type` , and `PublisherId` .
-	TypeName *string `json:"typeName"`
+	TypeName *string `json:"typeName" yaml:"typeName"`
 	// An alias to assign to the public extension, in this account and region.
 	//
 	// If you specify an alias for the extension, CloudFormation treats the alias as the extension type name within this account and region. You must use the alias to refer to the extension in your templates, API calls, and CloudFormation console.
 	//
 	// An extension alias must be unique within a given account and region. You can activate the same public resource multiple times in the same account and region, using different type name aliases.
-	TypeNameAlias *string `json:"typeNameAlias"`
+	TypeNameAlias *string `json:"typeNameAlias" yaml:"typeNameAlias"`
 	// Manually updates a previously-activated type to a new major or minor version, if available.
 	//
 	// You can also use this parameter to update the value of `AutoUpdate` .
 	//
 	// - `MAJOR` : CloudFormation updates the extension to the newest major version, if one is available.
 	// - `MINOR` : CloudFormation updates the extension to the newest minor version, if one is available.
-	VersionBump *string `json:"versionBump"`
+	VersionBump *string `json:"versionBump" yaml:"versionBump"`
 }
 
 // A CloudFormation `AWS::CloudFormation::WaitCondition`.
@@ -7869,7 +7869,7 @@ type CfnWaitConditionProps struct {
 	// When the wait condition receives the requisite number of success signals, CloudFormation resumes the creation of the stack. If the wait condition does not receive the specified number of success signals before the Timeout period expires, CloudFormation assumes that the wait condition has failed and rolls the stack back.
 	//
 	// Updates are not supported.
-	Count *float64 `json:"count"`
+	Count *float64 `json:"count" yaml:"count"`
 	// A reference to the wait condition handle used to signal this wait condition.
 	//
 	// Use the `Ref` intrinsic function to specify an [AWS::CloudFormation::WaitConditionHandle](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitconditionhandle.html) resource.
@@ -7877,12 +7877,12 @@ type CfnWaitConditionProps struct {
 	// Anytime you add a WaitCondition resource during a stack update, you must associate the wait condition with a new WaitConditionHandle resource. Don't reuse an old wait condition handle that has already been defined in the template. If you reuse a wait condition handle, the wait condition might evaluate old signals from a previous create or update stack command.
 	//
 	// Updates are not supported.
-	Handle *string `json:"handle"`
+	Handle *string `json:"handle" yaml:"handle"`
 	// The length of time (in seconds) to wait for the number of signals that the `Count` property specifies.
 	//
 	// `Timeout` is a minimum-bound property, meaning the timeout occurs no sooner than the time you specify, but can occur shortly thereafter. The maximum time that can be specified for this property is 12 hours (43200 seconds).
 	//
 	// Updates aren't supported.
-	Timeout *string `json:"timeout"`
+	Timeout *string `json:"timeout" yaml:"timeout"`
 }
 

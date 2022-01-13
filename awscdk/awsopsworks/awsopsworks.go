@@ -709,11 +709,11 @@ func (c *jsiiProxy_CfnApp) ValidateProperties(_properties interface{}) {
 //
 type CfnApp_DataSourceProperty struct {
 	// The data source's ARN.
-	Arn *string `json:"arn"`
+	Arn *string `json:"arn" yaml:"arn"`
 	// The database name.
-	DatabaseName *string `json:"databaseName"`
+	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
 	// The data source's type, `AutoSelectOpsworksMysqlInstance` , `OpsworksMysqlInstance` , `RdsDbInstance` , or `None` .
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 }
 
 // Represents an app's environment variable.
@@ -724,13 +724,13 @@ type CfnApp_EnvironmentVariableProperty struct {
 	// (Required) The environment variable's name, which can consist of up to 64 characters and must be specified.
 	//
 	// The name can contain upper- and lowercase letters, numbers, and underscores (_), but it must start with a letter or underscore.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// (Optional) The environment variable's value, which can be left empty.
 	//
 	// If you specify a value, it can contain up to 256 characters, which must all be printable.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 	// (Optional) Whether the variable's value is returned by the [DescribeApps](https://docs.aws.amazon.com/goto/WebAPI/opsworks-2013-02-18/DescribeApps) action. To hide an environment variable's value, set `Secure` to `true` . `DescribeApps` returns `*****FILTERED*****` instead of the actual value. The default value for `Secure` is `false` .
-	Secure interface{} `json:"secure"`
+	Secure interface{} `json:"secure" yaml:"secure"`
 }
 
 // Contains the information required to retrieve an app or cookbook from a repository.
@@ -748,26 +748,26 @@ type CfnApp_SourceProperty struct {
 	// For more information on how to safely handle IAM credentials, see [](https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html) .
 	//
 	// In responses, AWS OpsWorks Stacks returns `*****FILTERED*****` instead of the actual value.
-	Password *string `json:"password"`
+	Password *string `json:"password" yaml:"password"`
 	// The application's version.
 	//
 	// AWS OpsWorks Stacks enables you to easily deploy new versions of an application. One of the simplest approaches is to have branches or revisions in your repository that represent different versions that can potentially be deployed.
-	Revision *string `json:"revision"`
+	Revision *string `json:"revision" yaml:"revision"`
 	// In requests, the repository's SSH key.
 	//
 	// In responses, AWS OpsWorks Stacks returns `*****FILTERED*****` instead of the actual value.
-	SshKey *string `json:"sshKey"`
+	SshKey *string `json:"sshKey" yaml:"sshKey"`
 	// The repository type.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// The source URL.
 	//
 	// The following is an example of an Amazon S3 source URL: `https://s3.amazonaws.com/opsworks-demo-bucket/opsworks_cookbook_demo.tar.gz` .
-	Url *string `json:"url"`
+	Url *string `json:"url" yaml:"url"`
 	// This parameter depends on the repository type.
 	//
 	// - For Amazon S3 bundles, set `Username` to the appropriate IAM access key ID.
 	// - For HTTP bundles, Git repositories, and Subversion repositories, set `Username` to the user name.
-	Username *string `json:"username"`
+	Username *string `json:"username" yaml:"username"`
 }
 
 // Describes an app's SSL configuration.
@@ -776,15 +776,15 @@ type CfnApp_SourceProperty struct {
 //
 type CfnApp_SslConfigurationProperty struct {
 	// The contents of the certificate's domain.crt file.
-	Certificate *string `json:"certificate"`
+	Certificate *string `json:"certificate" yaml:"certificate"`
 	// Optional.
 	//
 	// Can be used to specify an intermediate certificate authority key or client authentication.
-	Chain *string `json:"chain"`
+	Chain *string `json:"chain" yaml:"chain"`
 	// The private key;
 	//
 	// the contents of the certificate's domain.kex file.
-	PrivateKey *string `json:"privateKey"`
+	PrivateKey *string `json:"privateKey" yaml:"privateKey"`
 }
 
 // Properties for defining a `CfnApp`.
@@ -793,27 +793,27 @@ type CfnApp_SslConfigurationProperty struct {
 //
 type CfnAppProps struct {
 	// The app name.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The stack ID.
-	StackId *string `json:"stackId"`
+	StackId *string `json:"stackId" yaml:"stackId"`
 	// The app type.
 	//
 	// Each supported type is associated with a particular layer. For example, PHP applications are associated with a PHP layer. AWS OpsWorks Stacks deploys an application to those instances that are members of the corresponding layer. If your app isn't one of the standard types, or you prefer to implement your own Deploy recipes, specify `other` .
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// A `Source` object that specifies the app repository.
-	AppSource interface{} `json:"appSource"`
+	AppSource interface{} `json:"appSource" yaml:"appSource"`
 	// One or more user-defined key/value pairs to be added to the stack attributes.
-	Attributes interface{} `json:"attributes"`
+	Attributes interface{} `json:"attributes" yaml:"attributes"`
 	// The app's data source.
-	DataSources interface{} `json:"dataSources"`
+	DataSources interface{} `json:"dataSources" yaml:"dataSources"`
 	// A description of the app.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The app virtual host settings, with multiple domains separated by commas.
 	//
 	// For example: `'www.example.com, example.com'`
-	Domains *[]*string `json:"domains"`
+	Domains *[]*string `json:"domains" yaml:"domains"`
 	// Whether to enable SSL for the app.
-	EnableSsl interface{} `json:"enableSsl"`
+	EnableSsl interface{} `json:"enableSsl" yaml:"enableSsl"`
 	// An array of `EnvironmentVariable` objects that specify environment variables to be associated with the app.
 	//
 	// After you deploy the app, these variables are defined on the associated app server instance. For more information, see [Environment Variables](https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment) .
@@ -821,11 +821,11 @@ type CfnAppProps struct {
 	// There is no specific limit on the number of environment variables. However, the size of the associated data structure - which includes the variables' names, values, and protected flag values - cannot exceed 20 KB. This limit should accommodate most if not all use cases. Exceeding it will cause an exception with the message, "Environment: is too large (maximum is 20KB)."
 	//
 	// > If you have specified one or more environment variables, you cannot modify the stack's Chef version.
-	Environment interface{} `json:"environment"`
+	Environment interface{} `json:"environment" yaml:"environment"`
 	// The app's short name.
-	Shortname *string `json:"shortname"`
+	Shortname *string `json:"shortname" yaml:"shortname"`
 	// An `SslConfiguration` object with the SSL configuration.
-	SslConfiguration interface{} `json:"sslConfiguration"`
+	SslConfiguration interface{} `json:"sslConfiguration" yaml:"sslConfiguration"`
 }
 
 // A CloudFormation `AWS::OpsWorks::ElasticLoadBalancerAttachment`.
@@ -1326,9 +1326,9 @@ func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) ValidateProperties(_propert
 //
 type CfnElasticLoadBalancerAttachmentProps struct {
 	// The Elastic Load Balancing instance name.
-	ElasticLoadBalancerName *string `json:"elasticLoadBalancerName"`
+	ElasticLoadBalancerName *string `json:"elasticLoadBalancerName" yaml:"elasticLoadBalancerName"`
 	// The AWS OpsWorks layer ID to which the Elastic Load Balancing load balancer is attached.
-	LayerId *string `json:"layerId"`
+	LayerId *string `json:"layerId" yaml:"layerId"`
 }
 
 // A CloudFormation `AWS::OpsWorks::Instance`.
@@ -2270,17 +2270,17 @@ type CfnInstance_BlockDeviceMappingProperty struct {
 	// The device name that is exposed to the instance, such as `/dev/sdh` .
 	//
 	// For the root device, you can use the explicit device name or you can set this parameter to `ROOT_DEVICE` and AWS OpsWorks Stacks will provide the correct device name.
-	DeviceName *string `json:"deviceName"`
+	DeviceName *string `json:"deviceName" yaml:"deviceName"`
 	// An `EBSBlockDevice` that defines how to configure an Amazon EBS volume when the instance is launched.
 	//
 	// You can specify either the `VirtualName` or `Ebs` , but not both.
-	Ebs interface{} `json:"ebs"`
+	Ebs interface{} `json:"ebs" yaml:"ebs"`
 	// Suppresses the specified device included in the AMI's block device mapping.
-	NoDevice *string `json:"noDevice"`
+	NoDevice *string `json:"noDevice" yaml:"noDevice"`
 	// The virtual device name.
 	//
 	// For more information, see [BlockDeviceMapping](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_BlockDeviceMapping.html) . You can specify either the `VirtualName` or `Ebs` , but not both.
-	VirtualName *string `json:"virtualName"`
+	VirtualName *string `json:"virtualName" yaml:"virtualName"`
 }
 
 // Describes an Amazon EBS volume.
@@ -2291,23 +2291,23 @@ type CfnInstance_BlockDeviceMappingProperty struct {
 //
 type CfnInstance_EbsBlockDeviceProperty struct {
 	// Whether the volume is deleted on instance termination.
-	DeleteOnTermination interface{} `json:"deleteOnTermination"`
+	DeleteOnTermination interface{} `json:"deleteOnTermination" yaml:"deleteOnTermination"`
 	// The number of I/O operations per second (IOPS) that the volume supports.
 	//
 	// For more information, see [EbsBlockDevice](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html) .
-	Iops *float64 `json:"iops"`
+	Iops *float64 `json:"iops" yaml:"iops"`
 	// The snapshot ID.
-	SnapshotId *string `json:"snapshotId"`
+	SnapshotId *string `json:"snapshotId" yaml:"snapshotId"`
 	// The volume size, in GiB.
 	//
 	// For more information, see [EbsBlockDevice](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html) .
-	VolumeSize *float64 `json:"volumeSize"`
+	VolumeSize *float64 `json:"volumeSize" yaml:"volumeSize"`
 	// The volume type.
 	//
 	// `gp2` for General Purpose (SSD) volumes, `io1` for Provisioned IOPS (SSD) volumes, `st1` for Throughput Optimized hard disk drives (HDD), `sc1` for Cold HDD,and `standard` for Magnetic volumes.
 	//
 	// If you specify the `io1` volume type, you must also specify a value for the `Iops` attribute. The maximum ratio of provisioned IOPS to requested volume size (in GiB) is 50:1. AWS uses the default volume size (in GiB) specified in the AMI attributes to set IOPS to 50 x (volume size).
-	VolumeType *string `json:"volumeType"`
+	VolumeType *string `json:"volumeType" yaml:"volumeType"`
 }
 
 // Describes an instance's time-based auto scaling configuration.
@@ -2316,19 +2316,19 @@ type CfnInstance_EbsBlockDeviceProperty struct {
 //
 type CfnInstance_TimeBasedAutoScalingProperty struct {
 	// The schedule for Friday.
-	Friday interface{} `json:"friday"`
+	Friday interface{} `json:"friday" yaml:"friday"`
 	// The schedule for Monday.
-	Monday interface{} `json:"monday"`
+	Monday interface{} `json:"monday" yaml:"monday"`
 	// The schedule for Saturday.
-	Saturday interface{} `json:"saturday"`
+	Saturday interface{} `json:"saturday" yaml:"saturday"`
 	// The schedule for Sunday.
-	Sunday interface{} `json:"sunday"`
+	Sunday interface{} `json:"sunday" yaml:"sunday"`
 	// The schedule for Thursday.
-	Thursday interface{} `json:"thursday"`
+	Thursday interface{} `json:"thursday" yaml:"thursday"`
 	// The schedule for Tuesday.
-	Tuesday interface{} `json:"tuesday"`
+	Tuesday interface{} `json:"tuesday" yaml:"tuesday"`
 	// The schedule for Wednesday.
-	Wednesday interface{} `json:"wednesday"`
+	Wednesday interface{} `json:"wednesday" yaml:"wednesday"`
 }
 
 // Properties for defining a `CfnInstance`.
@@ -2337,53 +2337,53 @@ type CfnInstance_TimeBasedAutoScalingProperty struct {
 //
 type CfnInstanceProps struct {
 	// The instance type, such as `t2.micro` . For a list of supported instance types, open the stack in the console, choose *Instances* , and choose *+ Instance* . The *Size* list contains the currently supported types. For more information, see [Instance Families and Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) . The parameter values that you use to specify the various types are in the *API Name* column of the *Available Instance Types* table.
-	InstanceType *string `json:"instanceType"`
+	InstanceType *string `json:"instanceType" yaml:"instanceType"`
 	// An array that contains the instance's layer IDs.
-	LayerIds *[]*string `json:"layerIds"`
+	LayerIds *[]*string `json:"layerIds" yaml:"layerIds"`
 	// The stack ID.
-	StackId *string `json:"stackId"`
+	StackId *string `json:"stackId" yaml:"stackId"`
 	// The default AWS OpsWorks Stacks agent version. You have the following options:.
 	//
 	// - `INHERIT` - Use the stack's default agent version setting.
 	// - *version_number* - Use the specified agent version. This value overrides the stack's default setting. To update the agent version, edit the instance configuration and specify a new version. AWS OpsWorks Stacks installs that version on the instance.
 	//
 	// The default setting is `INHERIT` . To specify an agent version, you must use the complete version number, not the abbreviated number shown on the console. For a list of available agent version numbers, call [DescribeAgentVersions](https://docs.aws.amazon.com/goto/WebAPI/opsworks-2013-02-18/DescribeAgentVersions) . AgentVersion cannot be set to Chef 12.2.
-	AgentVersion *string `json:"agentVersion"`
+	AgentVersion *string `json:"agentVersion" yaml:"agentVersion"`
 	// A custom AMI ID to be used to create the instance.
 	//
 	// The AMI should be based on one of the supported operating systems. For more information, see [Using Custom AMIs](https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html) .
 	//
 	// > If you specify a custom AMI, you must set `Os` to `Custom` .
-	AmiId *string `json:"amiId"`
+	AmiId *string `json:"amiId" yaml:"amiId"`
 	// The instance architecture.
 	//
 	// The default option is `x86_64` . Instance types do not necessarily support both architectures. For a list of the architectures that are supported by the different instance types, see [Instance Families and Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) .
-	Architecture *string `json:"architecture"`
+	Architecture *string `json:"architecture" yaml:"architecture"`
 	// For load-based or time-based instances, the type.
 	//
 	// Windows stacks can use only time-based instances.
-	AutoScalingType *string `json:"autoScalingType"`
+	AutoScalingType *string `json:"autoScalingType" yaml:"autoScalingType"`
 	// The Availability Zone of the AWS OpsWorks instance, such as `us-east-2a` .
-	AvailabilityZone *string `json:"availabilityZone"`
+	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
 	// An array of `BlockDeviceMapping` objects that specify the instance's block devices.
 	//
 	// For more information, see [Block Device Mapping](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html) . Note that block device mappings are not supported for custom AMIs.
-	BlockDeviceMappings interface{} `json:"blockDeviceMappings"`
+	BlockDeviceMappings interface{} `json:"blockDeviceMappings" yaml:"blockDeviceMappings"`
 	// Whether to create an Amazon EBS-optimized instance.
-	EbsOptimized interface{} `json:"ebsOptimized"`
+	EbsOptimized interface{} `json:"ebsOptimized" yaml:"ebsOptimized"`
 	// A list of Elastic IP addresses to associate with the instance.
-	ElasticIps *[]*string `json:"elasticIps"`
+	ElasticIps *[]*string `json:"elasticIps" yaml:"elasticIps"`
 	// The instance host name. The following are character limits for instance host names.
 	//
 	// - Linux-based instances: 63 characters
 	// - Windows-based instances: 15 characters
-	Hostname *string `json:"hostname"`
+	Hostname *string `json:"hostname" yaml:"hostname"`
 	// Whether to install operating system and package updates when the instance boots.
 	//
 	// The default value is `true` . To control when updates are installed, set this value to `false` . You must then update your instances manually by using [CreateDeployment](https://docs.aws.amazon.com/goto/WebAPI/opsworks-2013-02-18/CreateDeployment) to run the `update_dependencies` stack command or by manually running `yum` (Amazon Linux) or `apt-get` (Ubuntu) on the instances.
 	//
 	// > We strongly recommend using the default value of `true` to ensure that your instances have the latest security updates.
-	InstallUpdatesOnBoot interface{} `json:"installUpdatesOnBoot"`
+	InstallUpdatesOnBoot interface{} `json:"installUpdatesOnBoot" yaml:"installUpdatesOnBoot"`
 	// The instance's operating system, which must be set to one of the following.
 	//
 	// - A supported Linux operating system: An Amazon Linux version, such as `Amazon Linux 2` , `Amazon Linux 2018.03` , `Amazon Linux 2017.09` , `Amazon Linux 2017.03` , `Amazon Linux 2016.09` , `Amazon Linux 2016.03` , `Amazon Linux 2015.09` , or `Amazon Linux 2015.03` .
@@ -2396,29 +2396,29 @@ type CfnInstanceProps struct {
 	// Not all operating systems are supported with all versions of Chef. For more information about the supported operating systems, see [AWS OpsWorks Stacks Operating Systems](https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html) .
 	//
 	// The default option is the current Amazon Linux version. If you set this parameter to `Custom` , you must use the [CreateInstance](https://docs.aws.amazon.com/goto/WebAPI/opsworks-2013-02-18/CreateInstance) action's AmiId parameter to specify the custom AMI that you want to use. Block device mappings are not supported if the value is `Custom` . For more information about how to use custom AMIs with AWS OpsWorks Stacks, see [Using Custom AMIs](https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html) .
-	Os *string `json:"os"`
+	Os *string `json:"os" yaml:"os"`
 	// The instance root device type.
 	//
 	// For more information, see [Storage for the Root Device](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device) .
-	RootDeviceType *string `json:"rootDeviceType"`
+	RootDeviceType *string `json:"rootDeviceType" yaml:"rootDeviceType"`
 	// The instance's Amazon EC2 key-pair name.
-	SshKeyName *string `json:"sshKeyName"`
+	SshKeyName *string `json:"sshKeyName" yaml:"sshKeyName"`
 	// The ID of the instance's subnet.
 	//
 	// If the stack is running in a VPC, you can use this parameter to override the stack's default subnet ID value and direct AWS OpsWorks Stacks to launch the instance in a different subnet.
-	SubnetId *string `json:"subnetId"`
+	SubnetId *string `json:"subnetId" yaml:"subnetId"`
 	// The instance's tenancy option.
 	//
 	// The default option is no tenancy, or if the instance is running in a VPC, inherit tenancy settings from the VPC. The following are valid values for this parameter: `dedicated` , `default` , or `host` . Because there are costs associated with changes in tenancy options, we recommend that you research tenancy options before choosing them for your instances. For more information about dedicated hosts, see [Dedicated Hosts Overview](https://docs.aws.amazon.com/ec2/dedicated-hosts/) and [Amazon EC2 Dedicated Hosts](https://docs.aws.amazon.com/ec2/dedicated-hosts/) . For more information about dedicated instances, see [Dedicated Instances](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/dedicated-instance.html) and [Amazon EC2 Dedicated Instances](https://docs.aws.amazon.com/ec2/purchasing-options/dedicated-instances/) .
-	Tenancy *string `json:"tenancy"`
+	Tenancy *string `json:"tenancy" yaml:"tenancy"`
 	// The time-based scaling configuration for the instance.
-	TimeBasedAutoScaling interface{} `json:"timeBasedAutoScaling"`
+	TimeBasedAutoScaling interface{} `json:"timeBasedAutoScaling" yaml:"timeBasedAutoScaling"`
 	// The instance's virtualization type, `paravirtual` or `hvm` .
-	VirtualizationType *string `json:"virtualizationType"`
+	VirtualizationType *string `json:"virtualizationType" yaml:"virtualizationType"`
 	// A list of AWS OpsWorks volume IDs to associate with the instance.
 	//
 	// For more information, see [`AWS::OpsWorks::Volume`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-volume.html) .
-	Volumes *[]*string `json:"volumes"`
+	Volumes *[]*string `json:"volumes" yaml:"volumes"`
 }
 
 // A CloudFormation `AWS::OpsWorks::Layer`.
@@ -3256,23 +3256,23 @@ type CfnLayer_AutoScalingThresholdsProperty struct {
 	// The CPU utilization threshold, as a percent of the available CPU.
 	//
 	// A value of -1 disables the threshold.
-	CpuThreshold *float64 `json:"cpuThreshold"`
+	CpuThreshold *float64 `json:"cpuThreshold" yaml:"cpuThreshold"`
 	// The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events.
 	//
 	// For example, AWS OpsWorks Stacks adds new instances following an upscaling event but the instances won't start reducing the load until they have been booted and configured. There is no point in raising additional scaling events during that operation, which typically takes several minutes. `IgnoreMetricsTime` allows you to direct AWS OpsWorks Stacks to suppress scaling events long enough to get the new instances online.
-	IgnoreMetricsTime *float64 `json:"ignoreMetricsTime"`
+	IgnoreMetricsTime *float64 `json:"ignoreMetricsTime" yaml:"ignoreMetricsTime"`
 	// The number of instances to add or remove when the load exceeds a threshold.
-	InstanceCount *float64 `json:"instanceCount"`
+	InstanceCount *float64 `json:"instanceCount" yaml:"instanceCount"`
 	// The load threshold.
 	//
 	// A value of -1 disables the threshold. For more information about how load is computed, see [Load (computing)](https://docs.aws.amazon.com/http://en.wikipedia.org/wiki/Load_%28computing%29) .
-	LoadThreshold *float64 `json:"loadThreshold"`
+	LoadThreshold *float64 `json:"loadThreshold" yaml:"loadThreshold"`
 	// The memory utilization threshold, as a percent of the available memory.
 	//
 	// A value of -1 disables the threshold.
-	MemoryThreshold *float64 `json:"memoryThreshold"`
+	MemoryThreshold *float64 `json:"memoryThreshold" yaml:"memoryThreshold"`
 	// The amount of time, in minutes, that the load must exceed a threshold before more instances are added or removed.
-	ThresholdsWaitTime *float64 `json:"thresholdsWaitTime"`
+	ThresholdsWaitTime *float64 `json:"thresholdsWaitTime" yaml:"thresholdsWaitTime"`
 }
 
 // Specifies the lifecycle event configuration.
@@ -3281,7 +3281,7 @@ type CfnLayer_AutoScalingThresholdsProperty struct {
 //
 type CfnLayer_LifecycleEventConfigurationProperty struct {
 	// The Shutdown event configuration.
-	ShutdownEventConfiguration interface{} `json:"shutdownEventConfiguration"`
+	ShutdownEventConfiguration interface{} `json:"shutdownEventConfiguration" yaml:"shutdownEventConfiguration"`
 }
 
 // Describes a layer's load-based auto scaling configuration.
@@ -3290,11 +3290,11 @@ type CfnLayer_LifecycleEventConfigurationProperty struct {
 //
 type CfnLayer_LoadBasedAutoScalingProperty struct {
 	// An `AutoScalingThresholds` object that describes the downscaling configuration, which defines how and when AWS OpsWorks Stacks reduces the number of instances.
-	DownScaling interface{} `json:"downScaling"`
+	DownScaling interface{} `json:"downScaling" yaml:"downScaling"`
 	// Whether load-based auto scaling is enabled for the layer.
-	Enable interface{} `json:"enable"`
+	Enable interface{} `json:"enable" yaml:"enable"`
 	// An `AutoScalingThresholds` object that describes the upscaling configuration, which defines how and when AWS OpsWorks Stacks increases the number of instances.
-	UpScaling interface{} `json:"upScaling"`
+	UpScaling interface{} `json:"upScaling" yaml:"upScaling"`
 }
 
 // AWS OpsWorks Stacks supports five lifecycle events: *setup* , *configuration* , *deploy* , *undeploy* , and *shutdown* .
@@ -3307,15 +3307,15 @@ type CfnLayer_LoadBasedAutoScalingProperty struct {
 //
 type CfnLayer_RecipesProperty struct {
 	// An array of custom recipe names to be run following a `configure` event.
-	Configure *[]*string `json:"configure"`
+	Configure *[]*string `json:"configure" yaml:"configure"`
 	// An array of custom recipe names to be run following a `deploy` event.
-	Deploy *[]*string `json:"deploy"`
+	Deploy *[]*string `json:"deploy" yaml:"deploy"`
 	// An array of custom recipe names to be run following a `setup` event.
-	Setup *[]*string `json:"setup"`
+	Setup *[]*string `json:"setup" yaml:"setup"`
 	// An array of custom recipe names to be run following a `shutdown` event.
-	Shutdown *[]*string `json:"shutdown"`
+	Shutdown *[]*string `json:"shutdown" yaml:"shutdown"`
 	// An array of custom recipe names to be run following a `undeploy` event.
-	Undeploy *[]*string `json:"undeploy"`
+	Undeploy *[]*string `json:"undeploy" yaml:"undeploy"`
 }
 
 // The Shutdown event configuration.
@@ -3326,9 +3326,9 @@ type CfnLayer_ShutdownEventConfigurationProperty struct {
 	// Whether to enable Elastic Load Balancing connection draining.
 	//
 	// For more information, see [Connection Draining](https://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#conn-drain)
-	DelayUntilElbConnectionsDrained interface{} `json:"delayUntilElbConnectionsDrained"`
+	DelayUntilElbConnectionsDrained interface{} `json:"delayUntilElbConnectionsDrained" yaml:"delayUntilElbConnectionsDrained"`
 	// The time, in seconds, that AWS OpsWorks Stacks waits after triggering a Shutdown event before shutting down an instance.
-	ExecutionTimeout *float64 `json:"executionTimeout"`
+	ExecutionTimeout *float64 `json:"executionTimeout" yaml:"executionTimeout"`
 }
 
 // Describes an Amazon EBS volume configuration.
@@ -3339,23 +3339,23 @@ type CfnLayer_VolumeConfigurationProperty struct {
 	// Specifies whether an Amazon EBS volume is encrypted.
 	//
 	// For more information, see [Amazon EBS Encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) .
-	Encrypted interface{} `json:"encrypted"`
+	Encrypted interface{} `json:"encrypted" yaml:"encrypted"`
 	// The number of I/O operations per second (IOPS) to provision for the volume.
 	//
 	// For PIOPS volumes, the IOPS per disk.
 	//
 	// If you specify `io1` for the volume type, you must specify this property.
-	Iops *float64 `json:"iops"`
+	Iops *float64 `json:"iops" yaml:"iops"`
 	// The volume mount point.
 	//
 	// For example "/dev/sdh".
-	MountPoint *string `json:"mountPoint"`
+	MountPoint *string `json:"mountPoint" yaml:"mountPoint"`
 	// The number of disks in the volume.
-	NumberOfDisks *float64 `json:"numberOfDisks"`
+	NumberOfDisks *float64 `json:"numberOfDisks" yaml:"numberOfDisks"`
 	// The volume [RAID level](https://docs.aws.amazon.com/http://en.wikipedia.org/wiki/Standard_RAID_levels) .
-	RaidLevel *float64 `json:"raidLevel"`
+	RaidLevel *float64 `json:"raidLevel" yaml:"raidLevel"`
 	// The volume size.
-	Size *float64 `json:"size"`
+	Size *float64 `json:"size" yaml:"size"`
 	// The volume type. For more information, see [Amazon EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) .
 	//
 	// - `standard` - Magnetic. Magnetic volumes must have a minimum size of 1 GiB and a maximum size of 1024 GiB.
@@ -3363,7 +3363,7 @@ type CfnLayer_VolumeConfigurationProperty struct {
 	// - `gp2` - General Purpose (SSD). General purpose volumes must have a minimum size of 1 GiB and a maximum size of 16384 GiB.
 	// - `st1` - Throughput Optimized hard disk drive (HDD). Throughput optimized HDD volumes must have a minimum size of 500 GiB and a maximum size of 16384 GiB.
 	// - `sc1` - Cold HDD. Cold HDD volumes must have a minimum size of 500 GiB and a maximum size of 16384 GiB.
-	VolumeType *string `json:"volumeType"`
+	VolumeType *string `json:"volumeType" yaml:"volumeType"`
 }
 
 // Properties for defining a `CfnLayer`.
@@ -3372,65 +3372,65 @@ type CfnLayer_VolumeConfigurationProperty struct {
 //
 type CfnLayerProps struct {
 	// Whether to automatically assign an [Elastic IP address](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html) to the layer's instances. For more information, see [How to Edit a Layer](https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html) .
-	AutoAssignElasticIps interface{} `json:"autoAssignElasticIps"`
+	AutoAssignElasticIps interface{} `json:"autoAssignElasticIps" yaml:"autoAssignElasticIps"`
 	// For stacks that are running in a VPC, whether to automatically assign a public IP address to the layer's instances.
 	//
 	// For more information, see [How to Edit a Layer](https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html) .
-	AutoAssignPublicIps interface{} `json:"autoAssignPublicIps"`
+	AutoAssignPublicIps interface{} `json:"autoAssignPublicIps" yaml:"autoAssignPublicIps"`
 	// Whether to disable auto healing for the layer.
-	EnableAutoHealing interface{} `json:"enableAutoHealing"`
+	EnableAutoHealing interface{} `json:"enableAutoHealing" yaml:"enableAutoHealing"`
 	// The layer name, which is used by the console.
 	//
 	// Layer names can be a maximum of 32 characters.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// For custom layers only, use this parameter to specify the layer's short name, which is used internally by AWS OpsWorks Stacks and by Chef recipes.
 	//
 	// The short name is also used as the name for the directory where your app files are installed. It can have a maximum of 32 characters, which are limited to the alphanumeric characters, '-', '_', and '.'.
 	//
 	// Built-in layer short names are defined by AWS OpsWorks Stacks. For more information, see the [Layer Reference](https://docs.aws.amazon.com/opsworks/latest/userguide/layers.html) .
-	Shortname *string `json:"shortname"`
+	Shortname *string `json:"shortname" yaml:"shortname"`
 	// The layer stack ID.
-	StackId *string `json:"stackId"`
+	StackId *string `json:"stackId" yaml:"stackId"`
 	// The layer type.
 	//
 	// A stack cannot have more than one built-in layer of the same type. It can have any number of custom layers. Built-in layers are not available in Chef 12 stacks.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// One or more user-defined key-value pairs to be added to the stack attributes.
 	//
 	// To create a cluster layer, set the `EcsClusterArn` attribute to the cluster's ARN.
-	Attributes interface{} `json:"attributes"`
+	Attributes interface{} `json:"attributes" yaml:"attributes"`
 	// The ARN of an IAM profile to be used for the layer's EC2 instances.
 	//
 	// For more information about IAM ARNs, see [Using Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) .
-	CustomInstanceProfileArn *string `json:"customInstanceProfileArn"`
+	CustomInstanceProfileArn *string `json:"customInstanceProfileArn" yaml:"customInstanceProfileArn"`
 	// A JSON-formatted string containing custom stack configuration and deployment attributes to be installed on the layer's instances.
 	//
 	// For more information, see [Using Custom JSON](https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html) . This feature is supported as of version 1.7.42 of the AWS CLI .
-	CustomJson interface{} `json:"customJson"`
+	CustomJson interface{} `json:"customJson" yaml:"customJson"`
 	// A `LayerCustomRecipes` object that specifies the layer custom recipes.
-	CustomRecipes interface{} `json:"customRecipes"`
+	CustomRecipes interface{} `json:"customRecipes" yaml:"customRecipes"`
 	// An array containing the layer custom security group IDs.
-	CustomSecurityGroupIds *[]*string `json:"customSecurityGroupIds"`
+	CustomSecurityGroupIds *[]*string `json:"customSecurityGroupIds" yaml:"customSecurityGroupIds"`
 	// Whether to install operating system and package updates when the instance boots.
 	//
 	// The default value is `true` . To control when updates are installed, set this value to `false` . You must then update your instances manually by using [CreateDeployment](https://docs.aws.amazon.com/goto/WebAPI/opsworks-2013-02-18/CreateDeployment) to run the `update_dependencies` stack command or by manually running `yum` (Amazon Linux) or `apt-get` (Ubuntu) on the instances.
 	//
 	// > To ensure that your instances have the latest security updates, we strongly recommend using the default value of `true` .
-	InstallUpdatesOnBoot interface{} `json:"installUpdatesOnBoot"`
+	InstallUpdatesOnBoot interface{} `json:"installUpdatesOnBoot" yaml:"installUpdatesOnBoot"`
 	// A `LifeCycleEventConfiguration` object that you can use to configure the Shutdown event to specify an execution timeout and enable or disable Elastic Load Balancer connection draining.
-	LifecycleEventConfiguration interface{} `json:"lifecycleEventConfiguration"`
+	LifecycleEventConfiguration interface{} `json:"lifecycleEventConfiguration" yaml:"lifecycleEventConfiguration"`
 	// The load-based scaling configuration for the AWS OpsWorks layer.
-	LoadBasedAutoScaling interface{} `json:"loadBasedAutoScaling"`
+	LoadBasedAutoScaling interface{} `json:"loadBasedAutoScaling" yaml:"loadBasedAutoScaling"`
 	// An array of `Package` objects that describes the layer packages.
-	Packages *[]*string `json:"packages"`
+	Packages *[]*string `json:"packages" yaml:"packages"`
 	// Specifies one or more sets of tags (key–value pairs) to associate with this AWS OpsWorks layer.
 	//
 	// Use tags to manage your resources.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// Whether to use Amazon EBS-optimized instances.
-	UseEbsOptimizedInstances interface{} `json:"useEbsOptimizedInstances"`
+	UseEbsOptimizedInstances interface{} `json:"useEbsOptimizedInstances" yaml:"useEbsOptimizedInstances"`
 	// A `VolumeConfigurations` object that describes the layer's Amazon EBS volumes.
-	VolumeConfigurations interface{} `json:"volumeConfigurations"`
+	VolumeConfigurations interface{} `json:"volumeConfigurations" yaml:"volumeConfigurations"`
 }
 
 // A CloudFormation `AWS::OpsWorks::Stack`.
@@ -4384,9 +4384,9 @@ func (c *jsiiProxy_CfnStack) ValidateProperties(_properties interface{}) {
 //
 type CfnStack_ChefConfigurationProperty struct {
 	// The Berkshelf version.
-	BerkshelfVersion *string `json:"berkshelfVersion"`
+	BerkshelfVersion *string `json:"berkshelfVersion" yaml:"berkshelfVersion"`
 	// Whether to enable Berkshelf.
-	ManageBerkshelf interface{} `json:"manageBerkshelf"`
+	ManageBerkshelf interface{} `json:"manageBerkshelf" yaml:"manageBerkshelf"`
 }
 
 // Describes an Elastic IP address.
@@ -4395,9 +4395,9 @@ type CfnStack_ChefConfigurationProperty struct {
 //
 type CfnStack_ElasticIpProperty struct {
 	// The IP address.
-	Ip *string `json:"ip"`
+	Ip *string `json:"ip" yaml:"ip"`
 	// The name, which can be a maximum of 32 characters.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // Describes an Amazon RDS instance.
@@ -4406,11 +4406,11 @@ type CfnStack_ElasticIpProperty struct {
 //
 type CfnStack_RdsDbInstanceProperty struct {
 	// AWS OpsWorks Stacks returns `*****FILTERED*****` instead of the actual value.
-	DbPassword *string `json:"dbPassword"`
+	DbPassword *string `json:"dbPassword" yaml:"dbPassword"`
 	// The master user name.
-	DbUser *string `json:"dbUser"`
+	DbUser *string `json:"dbUser" yaml:"dbUser"`
 	// The instance's ARN.
-	RdsDbInstanceArn *string `json:"rdsDbInstanceArn"`
+	RdsDbInstanceArn *string `json:"rdsDbInstanceArn" yaml:"rdsDbInstanceArn"`
 }
 
 // Contains the information required to retrieve an app or cookbook from a repository.
@@ -4428,28 +4428,28 @@ type CfnStack_SourceProperty struct {
 	// For more information on how to safely handle IAM credentials, see [](https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html) .
 	//
 	// In responses, AWS OpsWorks Stacks returns `*****FILTERED*****` instead of the actual value.
-	Password *string `json:"password"`
+	Password *string `json:"password" yaml:"password"`
 	// The application's version.
 	//
 	// AWS OpsWorks Stacks enables you to easily deploy new versions of an application. One of the simplest approaches is to have branches or revisions in your repository that represent different versions that can potentially be deployed.
-	Revision *string `json:"revision"`
+	Revision *string `json:"revision" yaml:"revision"`
 	// The repository's SSH key.
 	//
 	// For more information, see [Using Git Repository SSH Keys](https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-deploykeys.html) in the *AWS OpsWorks User Guide* . To pass in an SSH key as a parameter, see the following example:
 	//
 	// `"Parameters" : { "GitSSHKey" : { "Description" : "Change SSH key newlines to commas.", "Type" : "CommaDelimitedList", "NoEcho" : "true" }, ... "CustomCookbooksSource": { "Revision" : { "Ref": "GitRevision"}, "SshKey" : { "Fn::Join" : [ "\n", { "Ref": "GitSSHKey"} ] }, "Type": "git", "Url": { "Ref": "GitURL"} } ...`
-	SshKey *string `json:"sshKey"`
+	SshKey *string `json:"sshKey" yaml:"sshKey"`
 	// The repository type.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// The source URL.
 	//
 	// The following is an example of an Amazon S3 source URL: `https://s3.amazonaws.com/opsworks-demo-bucket/opsworks_cookbook_demo.tar.gz` .
-	Url *string `json:"url"`
+	Url *string `json:"url" yaml:"url"`
 	// This parameter depends on the repository type.
 	//
 	// - For Amazon S3 bundles, set `Username` to the appropriate IAM access key ID.
 	// - For HTTP bundles, Git repositories, and Subversion repositories, set `Username` to the user name.
-	Username *string `json:"username"`
+	Username *string `json:"username" yaml:"username"`
 }
 
 // Describes the configuration manager.
@@ -4460,11 +4460,11 @@ type CfnStack_StackConfigurationManagerProperty struct {
 	// The name.
 	//
 	// This parameter must be set to `Chef` .
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The Chef version.
 	//
 	// This parameter must be set to 12, 11.10, or 11.4 for Linux stacks, and to 12.2 for Windows stacks. The default value for Linux stacks is 12.
-	Version *string `json:"version"`
+	Version *string `json:"version" yaml:"version"`
 }
 
 // Properties for defining a `CfnStack`.
@@ -4475,15 +4475,15 @@ type CfnStackProps struct {
 	// The Amazon Resource Name (ARN) of an IAM profile that is the default profile for all of the stack's EC2 instances.
 	//
 	// For more information about IAM ARNs, see [Using Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) .
-	DefaultInstanceProfileArn *string `json:"defaultInstanceProfileArn"`
+	DefaultInstanceProfileArn *string `json:"defaultInstanceProfileArn" yaml:"defaultInstanceProfileArn"`
 	// The stack name.
 	//
 	// Stack names can be a maximum of 64 characters.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The stack's IAM role, which allows AWS OpsWorks Stacks to work with AWS resources on your behalf.
 	//
 	// You must set this parameter to the Amazon Resource Name (ARN) for an existing IAM role. For more information about IAM ARNs, see [Using Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) .
-	ServiceRoleArn *string `json:"serviceRoleArn"`
+	ServiceRoleArn *string `json:"serviceRoleArn" yaml:"serviceRoleArn"`
 	// The default AWS OpsWorks Stacks agent version. You have the following options:.
 	//
 	// - Auto-update - Set this parameter to `LATEST` . AWS OpsWorks Stacks automatically installs new agent versions on the stack's instances as soon as they are available.
@@ -4492,23 +4492,23 @@ type CfnStackProps struct {
 	// The default setting is the most recent release of the agent. To specify an agent version, you must use the complete version number, not the abbreviated number shown on the console. For a list of available agent version numbers, call [DescribeAgentVersions](https://docs.aws.amazon.com/goto/WebAPI/opsworks-2013-02-18/DescribeAgentVersions) . AgentVersion cannot be set to Chef 12.2.
 	//
 	// > You can also specify an agent version when you create or update an instance, which overrides the stack's default setting.
-	AgentVersion *string `json:"agentVersion"`
+	AgentVersion *string `json:"agentVersion" yaml:"agentVersion"`
 	// One or more user-defined key-value pairs to be added to the stack attributes.
-	Attributes interface{} `json:"attributes"`
+	Attributes interface{} `json:"attributes" yaml:"attributes"`
 	// A `ChefConfiguration` object that specifies whether to enable Berkshelf and the Berkshelf version on Chef 11.10 stacks. For more information, see [Create a New Stack](https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html) .
-	ChefConfiguration interface{} `json:"chefConfiguration"`
+	ChefConfiguration interface{} `json:"chefConfiguration" yaml:"chefConfiguration"`
 	// If you're cloning an AWS OpsWorks stack, a list of AWS OpsWorks application stack IDs from the source stack to include in the cloned stack.
-	CloneAppIds *[]*string `json:"cloneAppIds"`
+	CloneAppIds *[]*string `json:"cloneAppIds" yaml:"cloneAppIds"`
 	// If you're cloning an AWS OpsWorks stack, indicates whether to clone the source stack's permissions.
-	ClonePermissions interface{} `json:"clonePermissions"`
+	ClonePermissions interface{} `json:"clonePermissions" yaml:"clonePermissions"`
 	// The configuration manager.
 	//
 	// When you create a stack we recommend that you use the configuration manager to specify the Chef version: 12, 11.10, or 11.4 for Linux stacks, or 12.2 for Windows stacks. The default value for Linux stacks is currently 12.
-	ConfigurationManager interface{} `json:"configurationManager"`
+	ConfigurationManager interface{} `json:"configurationManager" yaml:"configurationManager"`
 	// Contains the information required to retrieve an app or cookbook from a repository.
 	//
 	// For more information, see [Adding Apps](https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html) or [Cookbooks and Recipes](https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook.html) .
-	CustomCookbooksSource interface{} `json:"customCookbooksSource"`
+	CustomCookbooksSource interface{} `json:"customCookbooksSource" yaml:"customCookbooksSource"`
 	// A string that contains user-defined, custom JSON.
 	//
 	// It can be used to override the corresponding default stack configuration attribute values or to pass data to recipes. The string should be in the following format:
@@ -4516,11 +4516,11 @@ type CfnStackProps struct {
 	// `"{\"key1\": \"value1\", \"key2\": \"value2\",...}"`
 	//
 	// For more information about custom JSON, see [Use Custom JSON to Modify the Stack Configuration Attributes](https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html) .
-	CustomJson interface{} `json:"customJson"`
+	CustomJson interface{} `json:"customJson" yaml:"customJson"`
 	// The stack's default Availability Zone, which must be in the specified region.
 	//
 	// For more information, see [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html) . If you also specify a value for `DefaultSubnetId` , the subnet must be in the same zone. For more information, see the `VpcId` parameter description.
-	DefaultAvailabilityZone *string `json:"defaultAvailabilityZone"`
+	DefaultAvailabilityZone *string `json:"defaultAvailabilityZone" yaml:"defaultAvailabilityZone"`
 	// The stack's default operating system, which is installed on every instance unless you specify a different operating system when you create the instance.
 	//
 	// You can specify one of the following.
@@ -4533,27 +4533,27 @@ type CfnStackProps struct {
 	// - A custom AMI: `Custom` . You specify the custom AMI you want to use when you create instances. For more information, see [Using Custom AMIs](https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html) .
 	//
 	// The default option is the current Amazon Linux version. Not all operating systems are supported with all versions of Chef. For more information about supported operating systems, see [AWS OpsWorks Stacks Operating Systems](https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html) .
-	DefaultOs *string `json:"defaultOs"`
+	DefaultOs *string `json:"defaultOs" yaml:"defaultOs"`
 	// The default root device type.
 	//
 	// This value is the default for all instances in the stack, but you can override it when you create an instance. The default option is `instance-store` . For more information, see [Storage for the Root Device](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device) .
-	DefaultRootDeviceType *string `json:"defaultRootDeviceType"`
+	DefaultRootDeviceType *string `json:"defaultRootDeviceType" yaml:"defaultRootDeviceType"`
 	// A default Amazon EC2 key pair name.
 	//
 	// The default value is none. If you specify a key pair name, AWS OpsWorks installs the public key on the instance and you can use the private key with an SSH client to log in to the instance. For more information, see [Using SSH to Communicate with an Instance](https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-ssh.html) and [Managing SSH Access](https://docs.aws.amazon.com/opsworks/latest/userguide/security-ssh-access.html) . You can override this setting by specifying a different key pair, or no key pair, when you [create an instance](https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-add.html) .
-	DefaultSshKeyName *string `json:"defaultSshKeyName"`
+	DefaultSshKeyName *string `json:"defaultSshKeyName" yaml:"defaultSshKeyName"`
 	// The stack's default subnet ID.
 	//
 	// All instances are launched into this subnet unless you specify another subnet ID when you create the instance. This parameter is required if you specify a value for the `VpcId` parameter. If you also specify a value for `DefaultAvailabilityZone` , the subnet must be in that zone.
-	DefaultSubnetId *string `json:"defaultSubnetId"`
+	DefaultSubnetId *string `json:"defaultSubnetId" yaml:"defaultSubnetId"`
 	// The Amazon Resource Name (ARN) of the Amazon Elastic Container Service ( Amazon ECS ) cluster to register with the AWS OpsWorks stack.
 	//
 	// > If you specify a cluster that's registered with another AWS OpsWorks stack, AWS CloudFormation deregisters the existing association before registering the cluster.
-	EcsClusterArn *string `json:"ecsClusterArn"`
+	EcsClusterArn *string `json:"ecsClusterArn" yaml:"ecsClusterArn"`
 	// A list of Elastic IP addresses to register with the AWS OpsWorks stack.
 	//
 	// > If you specify an IP address that's registered with another AWS OpsWorks stack, AWS CloudFormation deregisters the existing association before registering the IP address.
-	ElasticIps interface{} `json:"elasticIps"`
+	ElasticIps interface{} `json:"elasticIps" yaml:"elasticIps"`
 	// The stack's host name theme, with spaces replaced by underscores.
 	//
 	// The theme is used to generate host names for the stack's instances. By default, `HostnameTheme` is set to `Layer_Dependent` , which creates host names by appending integers to the layer's short name. The other themes are:
@@ -4571,13 +4571,13 @@ type CfnStackProps struct {
 	// - `Wild_Cats`
 	//
 	// To obtain a generated host name, call `GetHostNameSuggestion` , which returns a host name based on the current theme.
-	HostnameTheme *string `json:"hostnameTheme"`
+	HostnameTheme *string `json:"hostnameTheme" yaml:"hostnameTheme"`
 	// The Amazon Relational Database Service ( Amazon RDS ) database instance to register with the AWS OpsWorks stack.
 	//
 	// > If you specify a database instance that's registered with another AWS OpsWorks stack, AWS CloudFormation deregisters the existing association before registering the database instance.
-	RdsDbInstances interface{} `json:"rdsDbInstances"`
+	RdsDbInstances interface{} `json:"rdsDbInstances" yaml:"rdsDbInstances"`
 	// If you're cloning an AWS OpsWorks stack, the stack ID of the source AWS OpsWorks stack to clone.
-	SourceStackId *string `json:"sourceStackId"`
+	SourceStackId *string `json:"sourceStackId" yaml:"sourceStackId"`
 	// A map that contains tag keys and tag values that are attached to a stack or layer.
 	//
 	// - The key cannot be empty.
@@ -4585,9 +4585,9 @@ type CfnStackProps struct {
 	// - The value can be a maximum 255 characters, and contain only Unicode letters, numbers, or separators, or the following special characters: `+ - = . _ : /`
 	// - Leading and trailing white spaces are trimmed from both the key and value.
 	// - A maximum of 40 tags is allowed for any resource.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// Whether the stack uses custom cookbooks.
-	UseCustomCookbooks interface{} `json:"useCustomCookbooks"`
+	UseCustomCookbooks interface{} `json:"useCustomCookbooks" yaml:"useCustomCookbooks"`
 	// Whether to associate the AWS OpsWorks Stacks built-in security groups with the stack's layers.
 	//
 	// AWS OpsWorks Stacks provides a standard set of built-in security groups, one for each layer, which are associated with layers by default. With `UseOpsworksSecurityGroups` you can instead provide your own custom security groups. `UseOpsworksSecurityGroups` has the following settings:
@@ -4596,7 +4596,7 @@ type CfnStackProps struct {
 	// - False - AWS OpsWorks Stacks does not associate built-in security groups with layers. You must create appropriate EC2 security groups and associate a security group with each layer that you create. However, you can still manually associate a built-in security group with a layer on creation; custom security groups are required only for those layers that need custom settings.
 	//
 	// For more information, see [Create a New Stack](https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html) .
-	UseOpsworksSecurityGroups interface{} `json:"useOpsworksSecurityGroups"`
+	UseOpsworksSecurityGroups interface{} `json:"useOpsworksSecurityGroups" yaml:"useOpsworksSecurityGroups"`
 	// The ID of the VPC that the stack is to be launched into.
 	//
 	// The VPC must be in the stack's region. All instances are launched into this VPC. You cannot change the ID later.
@@ -4612,7 +4612,7 @@ type CfnStackProps struct {
 	// - You must specify a value for `DefaultSubnetId` .
 	//
 	// For more information about how to use AWS OpsWorks Stacks with a VPC, see [Running a Stack in a VPC](https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-vpc.html) . For more information about default VPC and EC2-Classic, see [Supported Platforms](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html) .
-	VpcId *string `json:"vpcId"`
+	VpcId *string `json:"vpcId" yaml:"vpcId"`
 }
 
 // A CloudFormation `AWS::OpsWorks::UserProfile`.
@@ -5164,15 +5164,15 @@ func (c *jsiiProxy_CfnUserProfile) ValidateProperties(_properties interface{}) {
 //
 type CfnUserProfileProps struct {
 	// The user's IAM ARN.
-	IamUserArn *string `json:"iamUserArn"`
+	IamUserArn *string `json:"iamUserArn" yaml:"iamUserArn"`
 	// Whether users can specify their own SSH public key through the My Settings page.
 	//
 	// For more information, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html) .
-	AllowSelfManagement interface{} `json:"allowSelfManagement"`
+	AllowSelfManagement interface{} `json:"allowSelfManagement" yaml:"allowSelfManagement"`
 	// The user's SSH public key.
-	SshPublicKey *string `json:"sshPublicKey"`
+	SshPublicKey *string `json:"sshPublicKey" yaml:"sshPublicKey"`
 	// The user's SSH user name.
-	SshUsername *string `json:"sshUsername"`
+	SshUsername *string `json:"sshUsername" yaml:"sshUsername"`
 }
 
 // A CloudFormation `AWS::OpsWorks::Volume`.
@@ -5713,16 +5713,16 @@ func (c *jsiiProxy_CfnVolume) ValidateProperties(_properties interface{}) {
 //
 type CfnVolumeProps struct {
 	// The Amazon EC2 volume ID.
-	Ec2VolumeId *string `json:"ec2VolumeId"`
+	Ec2VolumeId *string `json:"ec2VolumeId" yaml:"ec2VolumeId"`
 	// The stack ID.
-	StackId *string `json:"stackId"`
+	StackId *string `json:"stackId" yaml:"stackId"`
 	// The volume mount point.
 	//
 	// For example, "/mnt/disk1".
-	MountPoint *string `json:"mountPoint"`
+	MountPoint *string `json:"mountPoint" yaml:"mountPoint"`
 	// The volume name.
 	//
 	// Volume names are a maximum of 128 characters.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 

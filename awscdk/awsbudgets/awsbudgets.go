@@ -513,19 +513,19 @@ func (c *jsiiProxy_CfnBudget) ValidateProperties(_properties interface{}) {
 //
 type CfnBudget_BudgetDataProperty struct {
 	// Whether this budget tracks costs, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage.
-	BudgetType *string `json:"budgetType"`
+	BudgetType *string `json:"budgetType" yaml:"budgetType"`
 	// The length of time until a budget resets the actual and forecasted spend.
 	//
 	// `DAILY` is available only for `RI_UTILIZATION` and `RI_COVERAGE` budgets.
-	TimeUnit *string `json:"timeUnit"`
+	TimeUnit *string `json:"timeUnit" yaml:"timeUnit"`
 	// The total amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage that you want to track with your budget.
 	//
 	// `BudgetLimit` is required for cost or usage budgets, but optional for RI or Savings Plans utilization or coverage budgets. RI and Savings Plans utilization or coverage budgets default to `100` , which is the only valid value for RI or Savings Plans utilization or coverage budgets. You can't use `BudgetLimit` with `PlannedBudgetLimits` for `CreateBudget` and `UpdateBudget` actions.
-	BudgetLimit interface{} `json:"budgetLimit"`
+	BudgetLimit interface{} `json:"budgetLimit" yaml:"budgetLimit"`
 	// The name of a budget.
 	//
 	// The value must be unique within an account. `BudgetName` can't include `:` and `\` characters. If you don't include value for `BudgetName` in the template, Billing and Cost Management assigns your budget a randomly generated name.
-	BudgetName *string `json:"budgetName"`
+	BudgetName *string `json:"budgetName" yaml:"budgetName"`
 	// The cost filters, such as `Region` , `Service` , `member account` , `Tag` , or `Cost Category` , that are applied to a budget.
 	//
 	// AWS Budgets supports the following services as a `Service` filter for RI budgets:
@@ -535,11 +535,11 @@ type CfnBudget_BudgetDataProperty struct {
 	// - Amazon Relational Database Service
 	// - Amazon ElastiCache
 	// - Amazon OpenSearch Service
-	CostFilters interface{} `json:"costFilters"`
+	CostFilters interface{} `json:"costFilters" yaml:"costFilters"`
 	// The types of costs that are included in this `COST` budget.
 	//
 	// `USAGE` , `RI_UTILIZATION` , `RI_COVERAGE` , `SAVINGS_PLANS_UTILIZATION` , and `SAVINGS_PLANS_COVERAGE` budgets do not have `CostTypes` .
-	CostTypes interface{} `json:"costTypes"`
+	CostTypes interface{} `json:"costTypes" yaml:"costTypes"`
 	// A map containing multiple `BudgetLimit` , including current or future limits.
 	//
 	// `PlannedBudgetLimits` is available for cost or usage budget and supports monthly and quarterly `TimeUnit` .
@@ -555,7 +555,7 @@ type CfnBudget_BudgetDataProperty struct {
 	// After all of the `BudgetLimit` values in `PlannedBudgetLimits` are used, the budget continues to use the last limit as the `BudgetLimit` . At that point, the planned budget provides the same experience as a fixed budget.
 	//
 	// `DescribeBudget` and `DescribeBudgets` response along with `PlannedBudgetLimits` will also contain `BudgetLimit` representing the current month or quarter limit present in `PlannedBudgetLimits` . This only applies to budgets created with `PlannedBudgetLimits` . Budgets created without `PlannedBudgetLimits` will only contain `BudgetLimit` , and no `PlannedBudgetLimits` .
-	PlannedBudgetLimits interface{} `json:"plannedBudgetLimits"`
+	PlannedBudgetLimits interface{} `json:"plannedBudgetLimits" yaml:"plannedBudgetLimits"`
 	// The period of time that is covered by a budget.
 	//
 	// The period has a start date and an end date. The start date must come before the end date. There are no restrictions on the end date.
@@ -565,7 +565,7 @@ type CfnBudget_BudgetDataProperty struct {
 	// You can change your start date with the `UpdateBudget` operation.
 	//
 	// After the end date, AWS deletes the budget and all associated notifications and subscribers.
-	TimePeriod interface{} `json:"timePeriod"`
+	TimePeriod interface{} `json:"timePeriod" yaml:"timePeriod"`
 }
 
 // The types of cost that are included in a `COST` budget, such as tax and subscriptions.
@@ -578,47 +578,47 @@ type CfnBudget_CostTypesProperty struct {
 	// Specifies whether a budget includes credits.
 	//
 	// The default value is `true` .
-	IncludeCredit interface{} `json:"includeCredit"`
+	IncludeCredit interface{} `json:"includeCredit" yaml:"includeCredit"`
 	// Specifies whether a budget includes discounts.
 	//
 	// The default value is `true` .
-	IncludeDiscount interface{} `json:"includeDiscount"`
+	IncludeDiscount interface{} `json:"includeDiscount" yaml:"includeDiscount"`
 	// Specifies whether a budget includes non-RI subscription costs.
 	//
 	// The default value is `true` .
-	IncludeOtherSubscription interface{} `json:"includeOtherSubscription"`
+	IncludeOtherSubscription interface{} `json:"includeOtherSubscription" yaml:"includeOtherSubscription"`
 	// Specifies whether a budget includes recurring fees such as monthly RI fees.
 	//
 	// The default value is `true` .
-	IncludeRecurring interface{} `json:"includeRecurring"`
+	IncludeRecurring interface{} `json:"includeRecurring" yaml:"includeRecurring"`
 	// Specifies whether a budget includes refunds.
 	//
 	// The default value is `true` .
-	IncludeRefund interface{} `json:"includeRefund"`
+	IncludeRefund interface{} `json:"includeRefund" yaml:"includeRefund"`
 	// Specifies whether a budget includes subscriptions.
 	//
 	// The default value is `true` .
-	IncludeSubscription interface{} `json:"includeSubscription"`
+	IncludeSubscription interface{} `json:"includeSubscription" yaml:"includeSubscription"`
 	// Specifies whether a budget includes support subscription fees.
 	//
 	// The default value is `true` .
-	IncludeSupport interface{} `json:"includeSupport"`
+	IncludeSupport interface{} `json:"includeSupport" yaml:"includeSupport"`
 	// Specifies whether a budget includes taxes.
 	//
 	// The default value is `true` .
-	IncludeTax interface{} `json:"includeTax"`
+	IncludeTax interface{} `json:"includeTax" yaml:"includeTax"`
 	// Specifies whether a budget includes upfront RI costs.
 	//
 	// The default value is `true` .
-	IncludeUpfront interface{} `json:"includeUpfront"`
+	IncludeUpfront interface{} `json:"includeUpfront" yaml:"includeUpfront"`
 	// Specifies whether a budget uses the amortized rate.
 	//
 	// The default value is `false` .
-	UseAmortized interface{} `json:"useAmortized"`
+	UseAmortized interface{} `json:"useAmortized" yaml:"useAmortized"`
 	// Specifies whether a budget uses a blended rate.
 	//
 	// The default value is `false` .
-	UseBlended interface{} `json:"useBlended"`
+	UseBlended interface{} `json:"useBlended" yaml:"useBlended"`
 }
 
 // A notification that is associated with a budget. A budget can have up to ten notifications.
@@ -636,17 +636,17 @@ type CfnBudget_CostTypesProperty struct {
 //
 type CfnBudget_NotificationProperty struct {
 	// The comparison that is used for this notification.
-	ComparisonOperator *string `json:"comparisonOperator"`
+	ComparisonOperator *string `json:"comparisonOperator" yaml:"comparisonOperator"`
 	// Whether the notification is for how much you have spent ( `ACTUAL` ) or for how much you're forecasted to spend ( `FORECASTED` ).
-	NotificationType *string `json:"notificationType"`
+	NotificationType *string `json:"notificationType" yaml:"notificationType"`
 	// The threshold that is associated with a notification.
 	//
 	// Thresholds are always a percentage, and many customers find value being alerted between 50% - 200% of the budgeted amount. The maximum limit for your threshold is 1,000,000% above the budgeted amount.
-	Threshold *float64 `json:"threshold"`
+	Threshold *float64 `json:"threshold" yaml:"threshold"`
 	// The type of threshold for a notification.
 	//
 	// For `ABSOLUTE_VALUE` thresholds, AWS notifies you when you go over or are forecasted to go over your total cost threshold. For `PERCENTAGE` thresholds, AWS notifies you when you go over or are forecasted to go over a certain percentage of your forecasted spend. For example, if you have a budget for 200 dollars and you have a `PERCENTAGE` threshold of 80%, AWS notifies you when you go over 160 dollars.
-	ThresholdType *string `json:"thresholdType"`
+	ThresholdType *string `json:"thresholdType" yaml:"thresholdType"`
 }
 
 // A notification with subscribers.
@@ -657,9 +657,9 @@ type CfnBudget_NotificationProperty struct {
 //
 type CfnBudget_NotificationWithSubscribersProperty struct {
 	// The notification that is associated with a budget.
-	Notification interface{} `json:"notification"`
+	Notification interface{} `json:"notification" yaml:"notification"`
 	// A list of subscribers who are subscribed to this notification.
-	Subscribers interface{} `json:"subscribers"`
+	Subscribers interface{} `json:"subscribers" yaml:"subscribers"`
 }
 
 // The amount of cost or usage that is measured for a budget.
@@ -673,9 +673,9 @@ type CfnBudget_NotificationWithSubscribersProperty struct {
 //
 type CfnBudget_SpendProperty struct {
 	// The cost or usage amount that is associated with a budget forecast, actual spend, or budget threshold.
-	Amount *float64 `json:"amount"`
+	Amount *float64 `json:"amount" yaml:"amount"`
 	// The unit of measurement that is used for the budget forecast, actual spend, or budget threshold, such as USD or GB.
-	Unit *string `json:"unit"`
+	Unit *string `json:"unit" yaml:"unit"`
 }
 
 // The `Subscriber` property type specifies who to notify for a Billing and Cost Management budget notification.
@@ -693,9 +693,9 @@ type CfnBudget_SubscriberProperty struct {
 	// The address that AWS sends budget notifications to, either an SNS topic or an email.
 	//
 	// When you create a subscriber, the value of `Address` can't contain line breaks.
-	Address *string `json:"address"`
+	Address *string `json:"address" yaml:"address"`
 	// The type of notification that AWS sends to a subscriber.
-	SubscriptionType *string `json:"subscriptionType"`
+	SubscriptionType *string `json:"subscriptionType" yaml:"subscriptionType"`
 }
 
 // The period of time that is covered by a budget.
@@ -710,7 +710,7 @@ type CfnBudget_TimePeriodProperty struct {
 	// If you didn't specify an end date, AWS set your end date to `06/15/87 00:00 UTC` . The defaults are the same for the AWS Billing and Cost Management console and the API.
 	//
 	// After the end date, AWS deletes the budget and all associated notifications and subscribers. You can change your end date with the `UpdateBudget` operation.
-	End *string `json:"end"`
+	End *string `json:"end" yaml:"end"`
 	// The start date for a budget.
 	//
 	// If you created your budget and didn't specify a start date, the start date defaults to the start of the chosen time period (MONTHLY, QUARTERLY, or ANNUALLY). For example, if you create your budget on January 24, 2019, choose `MONTHLY` , and don't set a start date, the start date defaults to `01/01/19 00:00 UTC` . The defaults are the same for the AWS Billing and Cost Management console and the API.
@@ -721,7 +721,7 @@ type CfnBudget_TimePeriodProperty struct {
 	//
 	// - If `BudgetType` is `COST` or `USAGE` : Valid values are `MONTHLY` , `QUARTERLY` , and `ANNUALLY` .
 	// - If `BudgetType` is `RI_UTILIZATION` or `RI_COVERAGE` : Valid values are `DAILY` , `MONTHLY` , `QUARTERLY` , and `ANNUALLY` .
-	Start *string `json:"start"`
+	Start *string `json:"start" yaml:"start"`
 }
 
 // Properties for defining a `CfnBudget`.
@@ -730,11 +730,11 @@ type CfnBudget_TimePeriodProperty struct {
 //
 type CfnBudgetProps struct {
 	// The budget object that you want to create.
-	Budget interface{} `json:"budget"`
+	Budget interface{} `json:"budget" yaml:"budget"`
 	// A notification that you want to associate with a budget.
 	//
 	// A budget can have up to five notifications, and each notification can have one SNS subscriber and up to 10 email subscribers. If you include notifications and subscribers in your `CreateBudget` call, AWS creates the notifications and subscribers for you.
-	NotificationsWithSubscribers interface{} `json:"notificationsWithSubscribers"`
+	NotificationsWithSubscribers interface{} `json:"notificationsWithSubscribers" yaml:"notificationsWithSubscribers"`
 }
 
 // A CloudFormation `AWS::Budgets::BudgetsAction`.
@@ -1366,9 +1366,9 @@ func (c *jsiiProxy_CfnBudgetsAction) ValidateProperties(_properties interface{})
 //
 type CfnBudgetsAction_ActionThresholdProperty struct {
 	// The type of threshold for a notification.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// The threshold of a notification.
-	Value *float64 `json:"value"`
+	Value *float64 `json:"value" yaml:"value"`
 }
 
 // The definition is where you specify all of the type-specific parameters.
@@ -1377,11 +1377,11 @@ type CfnBudgetsAction_ActionThresholdProperty struct {
 //
 type CfnBudgetsAction_DefinitionProperty struct {
 	// The AWS Identity and Access Management ( IAM ) action definition details.
-	IamActionDefinition interface{} `json:"iamActionDefinition"`
+	IamActionDefinition interface{} `json:"iamActionDefinition" yaml:"iamActionDefinition"`
 	// The service control policies (SCP) action definition details.
-	ScpActionDefinition interface{} `json:"scpActionDefinition"`
+	ScpActionDefinition interface{} `json:"scpActionDefinition" yaml:"scpActionDefinition"`
 	// The Amazon EC2 Systems Manager ( SSM ) action definition details.
-	SsmActionDefinition interface{} `json:"ssmActionDefinition"`
+	SsmActionDefinition interface{} `json:"ssmActionDefinition" yaml:"ssmActionDefinition"`
 }
 
 // The AWS Identity and Access Management ( IAM ) action definition details.
@@ -1390,19 +1390,19 @@ type CfnBudgetsAction_DefinitionProperty struct {
 //
 type CfnBudgetsAction_IamActionDefinitionProperty struct {
 	// The Amazon Resource Name (ARN) of the policy to be attached.
-	PolicyArn *string `json:"policyArn"`
+	PolicyArn *string `json:"policyArn" yaml:"policyArn"`
 	// A list of groups to be attached.
 	//
 	// There must be at least one group.
-	Groups *[]*string `json:"groups"`
+	Groups *[]*string `json:"groups" yaml:"groups"`
 	// A list of roles to be attached.
 	//
 	// There must be at least one role.
-	Roles *[]*string `json:"roles"`
+	Roles *[]*string `json:"roles" yaml:"roles"`
 	// A list of users to be attached.
 	//
 	// There must be at least one user.
-	Users *[]*string `json:"users"`
+	Users *[]*string `json:"users" yaml:"users"`
 }
 
 // The service control policies (SCP) action definition details.
@@ -1411,9 +1411,9 @@ type CfnBudgetsAction_IamActionDefinitionProperty struct {
 //
 type CfnBudgetsAction_ScpActionDefinitionProperty struct {
 	// The policy ID attached.
-	PolicyId *string `json:"policyId"`
+	PolicyId *string `json:"policyId" yaml:"policyId"`
 	// A list of target IDs.
-	TargetIds *[]*string `json:"targetIds"`
+	TargetIds *[]*string `json:"targetIds" yaml:"targetIds"`
 }
 
 // The Amazon EC2 Systems Manager ( SSM ) action definition details.
@@ -1422,11 +1422,11 @@ type CfnBudgetsAction_ScpActionDefinitionProperty struct {
 //
 type CfnBudgetsAction_SsmActionDefinitionProperty struct {
 	// The EC2 and RDS instance IDs.
-	InstanceIds *[]*string `json:"instanceIds"`
+	InstanceIds *[]*string `json:"instanceIds" yaml:"instanceIds"`
 	// The Region to run the ( SSM ) document.
-	Region *string `json:"region"`
+	Region *string `json:"region" yaml:"region"`
 	// The action subType.
-	Subtype *string `json:"subtype"`
+	Subtype *string `json:"subtype" yaml:"subtype"`
 }
 
 // The subscriber to a budget notification.
@@ -1444,9 +1444,9 @@ type CfnBudgetsAction_SubscriberProperty struct {
 	// The address that AWS sends budget notifications to, either an SNS topic or an email.
 	//
 	// When you create a subscriber, the value of `Address` can't contain line breaks.
-	Address *string `json:"address"`
+	Address *string `json:"address" yaml:"address"`
 	// The type of notification that AWS sends to a subscriber.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 }
 
 // Properties for defining a `CfnBudgetsAction`.
@@ -1455,26 +1455,26 @@ type CfnBudgetsAction_SubscriberProperty struct {
 //
 type CfnBudgetsActionProps struct {
 	// The trigger threshold of the action.
-	ActionThreshold interface{} `json:"actionThreshold"`
+	ActionThreshold interface{} `json:"actionThreshold" yaml:"actionThreshold"`
 	// The type of action.
 	//
 	// This defines the type of tasks that can be carried out by this action. This field also determines the format for definition.
-	ActionType *string `json:"actionType"`
+	ActionType *string `json:"actionType" yaml:"actionType"`
 	// A string that represents the budget name.
 	//
 	// ":" and "\" characters aren't allowed.
-	BudgetName *string `json:"budgetName"`
+	BudgetName *string `json:"budgetName" yaml:"budgetName"`
 	// Specifies all of the type-specific parameters.
-	Definition interface{} `json:"definition"`
+	Definition interface{} `json:"definition" yaml:"definition"`
 	// The role passed for action execution and reversion.
 	//
 	// Roles and actions must be in the same account.
-	ExecutionRoleArn *string `json:"executionRoleArn"`
+	ExecutionRoleArn *string `json:"executionRoleArn" yaml:"executionRoleArn"`
 	// The type of a notification.
-	NotificationType *string `json:"notificationType"`
+	NotificationType *string `json:"notificationType" yaml:"notificationType"`
 	// A list of subscribers.
-	Subscribers interface{} `json:"subscribers"`
+	Subscribers interface{} `json:"subscribers" yaml:"subscribers"`
 	// This specifies if the action needs manual or automatic approval.
-	ApprovalModel *string `json:"approvalModel"`
+	ApprovalModel *string `json:"approvalModel" yaml:"approvalModel"`
 }
 

@@ -559,8 +559,8 @@ type CfnSuiteDefinitionProps struct {
 	// This is a required element.
 	//
 	// *Type:* String
-	SuiteDefinitionConfiguration interface{} `json:"suiteDefinitionConfiguration"`
+	SuiteDefinitionConfiguration interface{} `json:"suiteDefinitionConfiguration" yaml:"suiteDefinitionConfiguration"`
 	// Metadata that can be used to manage the the Suite Definition.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 

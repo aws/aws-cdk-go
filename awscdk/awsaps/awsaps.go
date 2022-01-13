@@ -549,15 +549,15 @@ func (c *jsiiProxy_CfnRuleGroupsNamespace) ValidateProperties(_properties interf
 //
 type CfnRuleGroupsNamespaceProps struct {
 	// The rules definition file for this namespace.
-	Data *string `json:"data"`
+	Data *string `json:"data" yaml:"data"`
 	// The name of the rule groups namespace.
 	//
 	// This property is required.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The ARN of the workspace that contains this rule groups namespace.
-	Workspace *string `json:"workspace"`
+	Workspace *string `json:"workspace" yaml:"workspace"`
 	// A list of key and value pairs for the workspace resources.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::APS::Workspace`.
@@ -1104,14 +1104,14 @@ type CfnWorkspaceProps struct {
 	// The alert manager definition for the workspace, as a string.
 	//
 	// For more information, see [Alert manager and templating](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html) .
-	AlertManagerDefinition *string `json:"alertManagerDefinition"`
+	AlertManagerDefinition *string `json:"alertManagerDefinition" yaml:"alertManagerDefinition"`
 	// An alias that you assign to this workspace to help you identify it.
 	//
 	// It does not need to be unique.
 	//
 	// The alias can be as many as 100 characters and can include any type of characters. Amazon Managed Service for Prometheus automatically strips any blank spaces from the beginning and end of the alias that you specify.
-	Alias *string `json:"alias"`
+	Alias *string `json:"alias" yaml:"alias"`
 	// A list of tag keys and values to associate with the workspace.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 

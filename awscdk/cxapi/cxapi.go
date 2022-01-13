@@ -188,13 +188,13 @@ func (a *jsiiProxy_AssetManifestArtifact) FindMetadataByType(type_ *string) *[]*
 //
 type AwsCloudFormationStackProperties struct {
 	// A file relative to the assembly root which contains the CloudFormation template for this stack.
-	TemplateFile *string `json:"templateFile"`
+	TemplateFile *string `json:"templateFile" yaml:"templateFile"`
 	// Values for CloudFormation stack parameters that should be passed when the stack is deployed.
-	Parameters *map[string]*string `json:"parameters"`
+	Parameters *map[string]*string `json:"parameters" yaml:"parameters"`
 	// The name to use for the CloudFormation stack.
-	StackName *string `json:"stackName"`
+	StackName *string `json:"stackName" yaml:"stackName"`
 	// Whether to enable termination protection for this stack.
-	TerminationProtection *bool `json:"terminationProtection"`
+	TerminationProtection *bool `json:"terminationProtection" yaml:"terminationProtection"`
 }
 
 // Represents an artifact within a cloud assembly.
@@ -677,9 +677,9 @@ func (c *jsiiProxy_CloudAssemblyBuilder) CreateNestedAssembly(artifactId *string
 //
 type CloudAssemblyBuilderProps struct {
 	// Use the given asset output directory.
-	AssetOutdir *string `json:"assetOutdir"`
+	AssetOutdir *string `json:"assetOutdir" yaml:"assetOutdir"`
 	// If this builder is for a nested assembly, the parent assembly builder.
-	ParentBuilder CloudAssemblyBuilder `json:"parentBuilder"`
+	ParentBuilder CloudAssemblyBuilder `json:"parentBuilder" yaml:"parentBuilder"`
 }
 
 // TODO: EXAMPLE
@@ -1032,11 +1032,11 @@ func (c *jsiiProxy_CloudFormationStackArtifact) FindMetadataByType(type_ *string
 //
 type EndpointServiceAvailabilityZonesContextQuery struct {
 	// Query account.
-	Account *string `json:"account"`
+	Account *string `json:"account" yaml:"account"`
 	// Query region.
-	Region *string `json:"region"`
+	Region *string `json:"region" yaml:"region"`
 	// Query service name.
-	ServiceName *string `json:"serviceName"`
+	ServiceName *string `json:"serviceName" yaml:"serviceName"`
 }
 
 // Models an AWS execution environment, for use within the CDK toolkit.
@@ -1045,11 +1045,11 @@ type EndpointServiceAvailabilityZonesContextQuery struct {
 //
 type Environment struct {
 	// The AWS account this environment deploys into.
-	Account *string `json:"account"`
+	Account *string `json:"account" yaml:"account"`
 	// The arbitrary name of this environment (user-set, or at least user-meaningful).
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The AWS region name where this environment deploys into.
-	Region *string `json:"region"`
+	Region *string `json:"region" yaml:"region"`
 }
 
 // Return the appropriate values for the environment placeholders.
@@ -1058,11 +1058,11 @@ type Environment struct {
 //
 type EnvironmentPlaceholderValues struct {
 	// Return the account.
-	AccountId *string `json:"accountId"`
+	AccountId *string `json:"accountId" yaml:"accountId"`
 	// Return the partition.
-	Partition *string `json:"partition"`
+	Partition *string `json:"partition" yaml:"partition"`
 	// Return the region.
-	Region *string `json:"region"`
+	Region *string `json:"region" yaml:"region"`
 }
 
 // Placeholders which can be used manifests.
@@ -1313,7 +1313,7 @@ func (i *jsiiProxy_IEnvironmentPlaceholderProvider) Region() *string {
 //
 type KeyContextResponse struct {
 	// Id of the key.
-	KeyId *string `json:"keyId"`
+	KeyId *string `json:"keyId" yaml:"keyId"`
 }
 
 // Properties of a discovered load balancer.
@@ -1322,17 +1322,17 @@ type KeyContextResponse struct {
 //
 type LoadBalancerContextResponse struct {
 	// Type of IP address.
-	IpAddressType LoadBalancerIpAddressType `json:"ipAddressType"`
+	IpAddressType LoadBalancerIpAddressType `json:"ipAddressType" yaml:"ipAddressType"`
 	// The ARN of the load balancer.
-	LoadBalancerArn *string `json:"loadBalancerArn"`
+	LoadBalancerArn *string `json:"loadBalancerArn" yaml:"loadBalancerArn"`
 	// The hosted zone ID of the load balancer's name.
-	LoadBalancerCanonicalHostedZoneId *string `json:"loadBalancerCanonicalHostedZoneId"`
+	LoadBalancerCanonicalHostedZoneId *string `json:"loadBalancerCanonicalHostedZoneId" yaml:"loadBalancerCanonicalHostedZoneId"`
 	// Load balancer's DNS name.
-	LoadBalancerDnsName *string `json:"loadBalancerDnsName"`
+	LoadBalancerDnsName *string `json:"loadBalancerDnsName" yaml:"loadBalancerDnsName"`
 	// Load balancer's security groups.
-	SecurityGroupIds *[]*string `json:"securityGroupIds"`
+	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
 	// Load balancer's VPC.
-	VpcId *string `json:"vpcId"`
+	VpcId *string `json:"vpcId" yaml:"vpcId"`
 }
 
 // Load balancer ip address type.
@@ -1349,24 +1349,24 @@ const (
 //
 type LoadBalancerListenerContextResponse struct {
 	// The ARN of the listener.
-	ListenerArn *string `json:"listenerArn"`
+	ListenerArn *string `json:"listenerArn" yaml:"listenerArn"`
 	// The port the listener is listening on.
-	ListenerPort *float64 `json:"listenerPort"`
+	ListenerPort *float64 `json:"listenerPort" yaml:"listenerPort"`
 	// The security groups of the load balancer.
-	SecurityGroupIds *[]*string `json:"securityGroupIds"`
+	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
 }
 
 // TODO: EXAMPLE
 //
 type MetadataEntryResult struct {
 	// The type of the metadata entry.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// The data.
-	Data interface{} `json:"data"`
+	Data interface{} `json:"data" yaml:"data"`
 	// A stack trace for when the entry was created.
-	Trace *[]*string `json:"trace"`
+	Trace *[]*string `json:"trace" yaml:"trace"`
 	// The path in which this entry was defined.
-	Path *string `json:"path"`
+	Path *string `json:"path" yaml:"path"`
 }
 
 // Asset manifest is a description of a set of assets which need to be built and published.
@@ -1560,17 +1560,17 @@ type SecurityGroupContextResponse struct {
 	// This will be true
 	// when the security group has all-protocol egress permissions to access both
 	// `0.0.0.0/0` and `::/0`.
-	AllowAllOutbound *bool `json:"allowAllOutbound"`
+	AllowAllOutbound *bool `json:"allowAllOutbound" yaml:"allowAllOutbound"`
 	// The security group's id.
-	SecurityGroupId *string `json:"securityGroupId"`
+	SecurityGroupId *string `json:"securityGroupId" yaml:"securityGroupId"`
 }
 
 // TODO: EXAMPLE
 //
 type SynthesisMessage struct {
-	Entry *cloudassemblyschema.MetadataEntry `json:"entry"`
-	Id *string `json:"id"`
-	Level SynthesisMessageLevel `json:"level"`
+	Entry *cloudassemblyschema.MetadataEntry `json:"entry" yaml:"entry"`
+	Id *string `json:"id" yaml:"id"`
+	Level SynthesisMessageLevel `json:"level" yaml:"level"`
 }
 
 type SynthesisMessageLevel string
@@ -1733,56 +1733,56 @@ func (t *jsiiProxy_TreeCloudArtifact) FindMetadataByType(type_ *string) *[]*Meta
 //
 type VpcContextResponse struct {
 	// AZs.
-	AvailabilityZones *[]*string `json:"availabilityZones"`
+	AvailabilityZones *[]*string `json:"availabilityZones" yaml:"availabilityZones"`
 	// VPC id.
-	VpcId *string `json:"vpcId"`
+	VpcId *string `json:"vpcId" yaml:"vpcId"`
 	// IDs of all isolated subnets.
 	//
 	// Element count: #(availabilityZones) · #(isolatedGroups)
-	IsolatedSubnetIds *[]*string `json:"isolatedSubnetIds"`
+	IsolatedSubnetIds *[]*string `json:"isolatedSubnetIds" yaml:"isolatedSubnetIds"`
 	// Name of isolated subnet groups.
 	//
 	// Element count: #(isolatedGroups)
-	IsolatedSubnetNames *[]*string `json:"isolatedSubnetNames"`
+	IsolatedSubnetNames *[]*string `json:"isolatedSubnetNames" yaml:"isolatedSubnetNames"`
 	// Route Table IDs of isolated subnet groups.
 	//
 	// Element count: #(availabilityZones) · #(isolatedGroups)
-	IsolatedSubnetRouteTableIds *[]*string `json:"isolatedSubnetRouteTableIds"`
+	IsolatedSubnetRouteTableIds *[]*string `json:"isolatedSubnetRouteTableIds" yaml:"isolatedSubnetRouteTableIds"`
 	// IDs of all private subnets.
 	//
 	// Element count: #(availabilityZones) · #(privateGroups)
-	PrivateSubnetIds *[]*string `json:"privateSubnetIds"`
+	PrivateSubnetIds *[]*string `json:"privateSubnetIds" yaml:"privateSubnetIds"`
 	// Name of private subnet groups.
 	//
 	// Element count: #(privateGroups)
-	PrivateSubnetNames *[]*string `json:"privateSubnetNames"`
+	PrivateSubnetNames *[]*string `json:"privateSubnetNames" yaml:"privateSubnetNames"`
 	// Route Table IDs of private subnet groups.
 	//
 	// Element count: #(availabilityZones) · #(privateGroups)
-	PrivateSubnetRouteTableIds *[]*string `json:"privateSubnetRouteTableIds"`
+	PrivateSubnetRouteTableIds *[]*string `json:"privateSubnetRouteTableIds" yaml:"privateSubnetRouteTableIds"`
 	// IDs of all public subnets.
 	//
 	// Element count: #(availabilityZones) · #(publicGroups)
-	PublicSubnetIds *[]*string `json:"publicSubnetIds"`
+	PublicSubnetIds *[]*string `json:"publicSubnetIds" yaml:"publicSubnetIds"`
 	// Name of public subnet groups.
 	//
 	// Element count: #(publicGroups)
-	PublicSubnetNames *[]*string `json:"publicSubnetNames"`
+	PublicSubnetNames *[]*string `json:"publicSubnetNames" yaml:"publicSubnetNames"`
 	// Route Table IDs of public subnet groups.
 	//
 	// Element count: #(availabilityZones) · #(publicGroups)
-	PublicSubnetRouteTableIds *[]*string `json:"publicSubnetRouteTableIds"`
+	PublicSubnetRouteTableIds *[]*string `json:"publicSubnetRouteTableIds" yaml:"publicSubnetRouteTableIds"`
 	// The subnet groups discovered for the given VPC.
 	//
 	// Unlike the above properties, this will include asymmetric subnets,
 	// if the VPC has any.
 	// This property will only be populated if {@link VpcContextQuery.returnAsymmetricSubnets}
 	// is true.
-	SubnetGroups *[]*VpcSubnetGroup `json:"subnetGroups"`
+	SubnetGroups *[]*VpcSubnetGroup `json:"subnetGroups" yaml:"subnetGroups"`
 	// VPC cidr.
-	VpcCidrBlock *string `json:"vpcCidrBlock"`
+	VpcCidrBlock *string `json:"vpcCidrBlock" yaml:"vpcCidrBlock"`
 	// The VPN gateway ID.
-	VpnGatewayId *string `json:"vpnGatewayId"`
+	VpnGatewayId *string `json:"vpnGatewayId" yaml:"vpnGatewayId"`
 }
 
 // A subnet representation that the VPC provider uses.
@@ -1791,13 +1791,13 @@ type VpcContextResponse struct {
 //
 type VpcSubnet struct {
 	// The code of the availability zone this subnet is in (for example, 'us-west-2a').
-	AvailabilityZone *string `json:"availabilityZone"`
+	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
 	// The identifier of the route table for this subnet.
-	RouteTableId *string `json:"routeTableId"`
+	RouteTableId *string `json:"routeTableId" yaml:"routeTableId"`
 	// The identifier of the subnet.
-	SubnetId *string `json:"subnetId"`
+	SubnetId *string `json:"subnetId" yaml:"subnetId"`
 	// CIDR range of the subnet.
-	Cidr *string `json:"cidr"`
+	Cidr *string `json:"cidr" yaml:"cidr"`
 }
 
 // A group of subnets returned by the VPC provider.
@@ -1808,14 +1808,14 @@ type VpcSubnet struct {
 //
 type VpcSubnetGroup struct {
 	// The name of the subnet group, determined by looking at the tags of of the subnets that belong to it.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The subnets that are part of this group.
 	//
 	// There is no condition that the subnets have to be symmetric
 	// in the group.
-	Subnets *[]*VpcSubnet `json:"subnets"`
+	Subnets *[]*VpcSubnet `json:"subnets" yaml:"subnets"`
 	// The type of the subnet group.
-	Type VpcSubnetGroupType `json:"type"`
+	Type VpcSubnetGroupType `json:"type" yaml:"type"`
 }
 
 // The type of subnet group.

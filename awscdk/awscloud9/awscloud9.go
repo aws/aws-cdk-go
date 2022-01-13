@@ -682,11 +682,11 @@ type CfnEnvironmentEC2_RepositoryProperty struct {
 	// The path within the development environment's default file system location to clone the AWS CodeCommit repository into.
 	//
 	// For example, `/REPOSITORY_NAME` would clone the repository into the `/home/USER_NAME/environment/REPOSITORY_NAME` directory in the environment.
-	PathComponent *string `json:"pathComponent"`
+	PathComponent *string `json:"pathComponent" yaml:"pathComponent"`
 	// The clone URL of the AWS CodeCommit repository to be cloned.
 	//
 	// For example, for an AWS CodeCommit repository this might be `https://git-codecommit.us-east-2.amazonaws.com/v1/repos/REPOSITORY_NAME` .
-	RepositoryUrl *string `json:"repositoryUrl"`
+	RepositoryUrl *string `json:"repositoryUrl" yaml:"repositoryUrl"`
 }
 
 // Properties for defining a `CfnEnvironmentEC2`.
@@ -695,15 +695,15 @@ type CfnEnvironmentEC2_RepositoryProperty struct {
 //
 type CfnEnvironmentEC2Props struct {
 	// The type of instance to connect to the environment (for example, `t2.micro` ).
-	InstanceType *string `json:"instanceType"`
+	InstanceType *string `json:"instanceType" yaml:"instanceType"`
 	// The number of minutes until the running instance is shut down after the environment was last used.
-	AutomaticStopTimeMinutes *float64 `json:"automaticStopTimeMinutes"`
+	AutomaticStopTimeMinutes *float64 `json:"automaticStopTimeMinutes" yaml:"automaticStopTimeMinutes"`
 	// The connection type used for connecting to an Amazon EC2 environment.
 	//
 	// Valid values are `CONNECT_SSH` (default) and `CONNECT_SSM` (connected through AWS Systems Manager ).
-	ConnectionType *string `json:"connectionType"`
+	ConnectionType *string `json:"connectionType" yaml:"connectionType"`
 	// The description of the environment to create.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance.
 	//
 	// To choose an AMI for the instance, you must specify a valid AMI alias or a valid AWS Systems Manager path.
@@ -721,18 +721,18 @@ type CfnEnvironmentEC2Props struct {
 	// - *Amazon Linux (default): `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`*
 	// - Amazon Linux 2: `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
 	// - Ubuntu 18.04: `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
-	ImageId *string `json:"imageId"`
+	ImageId *string `json:"imageId" yaml:"imageId"`
 	// The name of the environment.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The Amazon Resource Name (ARN) of the environment owner.
 	//
 	// This ARN can be the ARN of any AWS Identity and Access Management principal. If this value is not specified, the ARN defaults to this environment's creator.
-	OwnerArn *string `json:"ownerArn"`
+	OwnerArn *string `json:"ownerArn" yaml:"ownerArn"`
 	// Any AWS CodeCommit source code repositories to be cloned into the development environment.
-	Repositories interface{} `json:"repositories"`
+	Repositories interface{} `json:"repositories" yaml:"repositories"`
 	// The ID of the subnet in Amazon Virtual Private Cloud (Amazon VPC) that AWS Cloud9 will use to communicate with the Amazon Elastic Compute Cloud (Amazon EC2) instance.
-	SubnetId *string `json:"subnetId"`
+	SubnetId *string `json:"subnetId" yaml:"subnetId"`
 	// An array of key-value pairs that will be associated with the new AWS Cloud9 development environment.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 

@@ -496,6 +496,6 @@ func (c *jsiiProxy_CfnProject) ValidateProperties(_properties interface{}) {
 //
 type CfnProjectProps struct {
 	// `AWS::LookoutVision::Project.ProjectName`.
-	ProjectName *string `json:"projectName"`
+	ProjectName *string `json:"projectName" yaml:"projectName"`
 }
 

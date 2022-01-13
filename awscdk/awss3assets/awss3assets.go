@@ -239,29 +239,29 @@ type AssetOptions struct {
 	// packaging, uploading to Amazon S3, etc. If you chose to customize the hash, you will
 	// need to make sure it is updated every time the asset changes, or otherwise it is
 	// possible that some deployments will not be invalidated.
-	AssetHash *string `json:"assetHash"`
+	AssetHash *string `json:"assetHash" yaml:"assetHash"`
 	// Specifies the type of hash to calculate for this asset.
 	//
 	// If `assetHash` is configured, this option must be `undefined` or
 	// `AssetHashType.CUSTOM`.
-	AssetHashType awscdk.AssetHashType `json:"assetHashType"`
+	AssetHashType awscdk.AssetHashType `json:"assetHashType" yaml:"assetHashType"`
 	// Bundle the asset by executing a command in a Docker container or a custom bundling provider.
 	//
 	// The asset path will be mounted at `/asset-input`. The Docker
 	// container is responsible for putting content at `/asset-output`.
 	// The content at `/asset-output` will be zipped and used as the
 	// final asset.
-	Bundling *awscdk.BundlingOptions `json:"bundling"`
+	Bundling *awscdk.BundlingOptions `json:"bundling" yaml:"bundling"`
 	// Glob patterns to exclude from the copy.
-	Exclude *[]*string `json:"exclude"`
+	Exclude *[]*string `json:"exclude" yaml:"exclude"`
 	// A strategy for how to handle symlinks.
-	FollowSymlinks awscdk.SymlinkFollowMode `json:"followSymlinks"`
+	FollowSymlinks awscdk.SymlinkFollowMode `json:"followSymlinks" yaml:"followSymlinks"`
 	// The ignore behavior to use for exclude patterns.
-	IgnoreMode awscdk.IgnoreMode `json:"ignoreMode"`
+	IgnoreMode awscdk.IgnoreMode `json:"ignoreMode" yaml:"ignoreMode"`
 	// A list of principals that should be able to read this asset from S3.
 	//
 	// You can use `asset.grantRead(principal)` to grant read permissions later.
-	Readers *[]awsiam.IGrantable `json:"readers"`
+	Readers *[]awsiam.IGrantable `json:"readers" yaml:"readers"`
 }
 
 // TODO: EXAMPLE
@@ -279,34 +279,34 @@ type AssetProps struct {
 	// packaging, uploading to Amazon S3, etc. If you chose to customize the hash, you will
 	// need to make sure it is updated every time the asset changes, or otherwise it is
 	// possible that some deployments will not be invalidated.
-	AssetHash *string `json:"assetHash"`
+	AssetHash *string `json:"assetHash" yaml:"assetHash"`
 	// Specifies the type of hash to calculate for this asset.
 	//
 	// If `assetHash` is configured, this option must be `undefined` or
 	// `AssetHashType.CUSTOM`.
-	AssetHashType awscdk.AssetHashType `json:"assetHashType"`
+	AssetHashType awscdk.AssetHashType `json:"assetHashType" yaml:"assetHashType"`
 	// Bundle the asset by executing a command in a Docker container or a custom bundling provider.
 	//
 	// The asset path will be mounted at `/asset-input`. The Docker
 	// container is responsible for putting content at `/asset-output`.
 	// The content at `/asset-output` will be zipped and used as the
 	// final asset.
-	Bundling *awscdk.BundlingOptions `json:"bundling"`
+	Bundling *awscdk.BundlingOptions `json:"bundling" yaml:"bundling"`
 	// Glob patterns to exclude from the copy.
-	Exclude *[]*string `json:"exclude"`
+	Exclude *[]*string `json:"exclude" yaml:"exclude"`
 	// A strategy for how to handle symlinks.
-	FollowSymlinks awscdk.SymlinkFollowMode `json:"followSymlinks"`
+	FollowSymlinks awscdk.SymlinkFollowMode `json:"followSymlinks" yaml:"followSymlinks"`
 	// The ignore behavior to use for exclude patterns.
-	IgnoreMode awscdk.IgnoreMode `json:"ignoreMode"`
+	IgnoreMode awscdk.IgnoreMode `json:"ignoreMode" yaml:"ignoreMode"`
 	// A list of principals that should be able to read this asset from S3.
 	//
 	// You can use `asset.grantRead(principal)` to grant read permissions later.
-	Readers *[]awsiam.IGrantable `json:"readers"`
+	Readers *[]awsiam.IGrantable `json:"readers" yaml:"readers"`
 	// The disk location of the asset.
 	//
 	// The path should refer to one of the following:
 	// - A regular file or a .zip file, in which case the file will be uploaded as-is to S3.
 	// - A directory, in which case it will be archived into a .zip file and uploaded to S3.
-	Path *string `json:"path"`
+	Path *string `json:"path" yaml:"path"`
 }
 

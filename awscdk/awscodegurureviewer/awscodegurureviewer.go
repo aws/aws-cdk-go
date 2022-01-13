@@ -596,36 +596,36 @@ func (c *jsiiProxy_CfnRepositoryAssociation) ValidateProperties(_properties inte
 //
 type CfnRepositoryAssociationProps struct {
 	// The name of the repository.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The type of repository that contains the source code to be reviewed. The valid values are:.
 	//
 	// - `CodeCommit`
 	// - `Bitbucket`
 	// - `GitHubEnterpriseServer`
 	// - `S3Bucket`
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// The name of the bucket.
 	//
 	// This is required for your S3Bucket repositoryThe name must start with the prefix, `codeguru-reviewer-*` .
-	BucketName *string `json:"bucketName"`
+	BucketName *string `json:"bucketName" yaml:"bucketName"`
 	// The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
 	//
 	// Its format is `arn:aws:codestar-connections:region-id:aws-account_id:connection/connection-id` . For more information, see [Connection](https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_Connection.html) in the *AWS CodeStar Connections API Reference* .
 	//
 	// `ConnectionArn` must be specified for Bitbucket and GitHub Enterprise Server repositories. It has no effect if it is specified for an AWS CodeCommit repository.
-	ConnectionArn *string `json:"connectionArn"`
+	ConnectionArn *string `json:"connectionArn" yaml:"connectionArn"`
 	// The owner of the repository.
 	//
 	// For a GitHub Enterprise Server or Bitbucket repository, this is the username for the account that owns the repository.
 	//
 	// `Owner` must be specified for Bitbucket and GitHub Enterprise Server repositories. It has no effect if it is specified for an AWS CodeCommit repository.
-	Owner *string `json:"owner"`
+	Owner *string `json:"owner" yaml:"owner"`
 	// An array of key-value pairs used to tag an associated repository.
 	//
 	// A tag is a custom attribute label with two parts:
 	//
 	// - A *tag key* (for example, `CostCenter` , `Environment` , `Project` , or `Secret` ). Tag keys are case sensitive.
 	// - An optional field known as a *tag value* (for example, `111122223333` , `Production` , or a team name). Omitting the tag value is the same as using an empty string. Like tag keys, tag values are case sensitive.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 

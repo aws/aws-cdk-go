@@ -547,7 +547,7 @@ func (c *jsiiProxy_CfnAccountAuditConfiguration) ValidateProperties(_properties 
 //
 type CfnAccountAuditConfiguration_AuditCheckConfigurationProperty struct {
 	// True if this audit check is enabled for this account.
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 }
 
 // The types of audit checks that can be performed.
@@ -558,41 +558,41 @@ type CfnAccountAuditConfiguration_AuditCheckConfigurationsProperty struct {
 	// Checks the permissiveness of an authenticated Amazon Cognito identity pool role.
 	//
 	// For this check, AWS IoT Device Defender audits all Amazon Cognito identity pools that have been used to connect to the AWS IoT message broker during the 31 days before the audit is performed.
-	AuthenticatedCognitoRoleOverlyPermissiveCheck interface{} `json:"authenticatedCognitoRoleOverlyPermissiveCheck"`
+	AuthenticatedCognitoRoleOverlyPermissiveCheck interface{} `json:"authenticatedCognitoRoleOverlyPermissiveCheck" yaml:"authenticatedCognitoRoleOverlyPermissiveCheck"`
 	// Checks if a CA certificate is expiring.
 	//
 	// This check applies to CA certificates expiring within 30 days or that have expired.
-	CaCertificateExpiringCheck interface{} `json:"caCertificateExpiringCheck"`
+	CaCertificateExpiringCheck interface{} `json:"caCertificateExpiringCheck" yaml:"caCertificateExpiringCheck"`
 	// Checks the quality of the CA certificate key.
 	//
 	// The quality checks if the key is in a valid format, not expired, and if the key meets a minimum required size. This check applies to CA certificates that are `ACTIVE` or `PENDING_TRANSFER` .
-	CaCertificateKeyQualityCheck interface{} `json:"caCertificateKeyQualityCheck"`
+	CaCertificateKeyQualityCheck interface{} `json:"caCertificateKeyQualityCheck" yaml:"caCertificateKeyQualityCheck"`
 	// Checks if multiple devices connect using the same client ID.
-	ConflictingClientIdsCheck interface{} `json:"conflictingClientIdsCheck"`
+	ConflictingClientIdsCheck interface{} `json:"conflictingClientIdsCheck" yaml:"conflictingClientIdsCheck"`
 	// Checks if a device certificate is expiring.
 	//
 	// This check applies to device certificates expiring within 30 days or that have expired.
-	DeviceCertificateExpiringCheck interface{} `json:"deviceCertificateExpiringCheck"`
+	DeviceCertificateExpiringCheck interface{} `json:"deviceCertificateExpiringCheck" yaml:"deviceCertificateExpiringCheck"`
 	// Checks the quality of the device certificate key.
 	//
 	// The quality checks if the key is in a valid format, not expired, signed by a registered certificate authority, and if the key meets a minimum required size.
-	DeviceCertificateKeyQualityCheck interface{} `json:"deviceCertificateKeyQualityCheck"`
+	DeviceCertificateKeyQualityCheck interface{} `json:"deviceCertificateKeyQualityCheck" yaml:"deviceCertificateKeyQualityCheck"`
 	// Checks if multiple concurrent connections use the same X.509 certificate to authenticate with AWS IoT .
-	DeviceCertificateSharedCheck interface{} `json:"deviceCertificateSharedCheck"`
+	DeviceCertificateSharedCheck interface{} `json:"deviceCertificateSharedCheck" yaml:"deviceCertificateSharedCheck"`
 	// Checks the permissiveness of a policy attached to an authenticated Amazon Cognito identity pool role.
-	IotPolicyOverlyPermissiveCheck interface{} `json:"iotPolicyOverlyPermissiveCheck"`
+	IotPolicyOverlyPermissiveCheck interface{} `json:"iotPolicyOverlyPermissiveCheck" yaml:"iotPolicyOverlyPermissiveCheck"`
 	// Checks if a role alias has access to services that haven't been used for the AWS IoT device in the last year.
-	IotRoleAliasAllowsAccessToUnusedServicesCheck interface{} `json:"iotRoleAliasAllowsAccessToUnusedServicesCheck"`
+	IotRoleAliasAllowsAccessToUnusedServicesCheck interface{} `json:"iotRoleAliasAllowsAccessToUnusedServicesCheck" yaml:"iotRoleAliasAllowsAccessToUnusedServicesCheck"`
 	// Checks if the temporary credentials provided by AWS IoT role aliases are overly permissive.
-	IotRoleAliasOverlyPermissiveCheck interface{} `json:"iotRoleAliasOverlyPermissiveCheck"`
+	IotRoleAliasOverlyPermissiveCheck interface{} `json:"iotRoleAliasOverlyPermissiveCheck" yaml:"iotRoleAliasOverlyPermissiveCheck"`
 	// Checks if AWS IoT logs are disabled.
-	LoggingDisabledCheck interface{} `json:"loggingDisabledCheck"`
+	LoggingDisabledCheck interface{} `json:"loggingDisabledCheck" yaml:"loggingDisabledCheck"`
 	// Checks if a revoked CA certificate is still active.
-	RevokedCaCertificateStillActiveCheck interface{} `json:"revokedCaCertificateStillActiveCheck"`
+	RevokedCaCertificateStillActiveCheck interface{} `json:"revokedCaCertificateStillActiveCheck" yaml:"revokedCaCertificateStillActiveCheck"`
 	// Checks if a revoked device certificate is still active.
-	RevokedDeviceCertificateStillActiveCheck interface{} `json:"revokedDeviceCertificateStillActiveCheck"`
+	RevokedDeviceCertificateStillActiveCheck interface{} `json:"revokedDeviceCertificateStillActiveCheck" yaml:"revokedDeviceCertificateStillActiveCheck"`
 	// Checks if policy attached to an unauthenticated Amazon Cognito identity pool role is too permissive.
-	UnauthenticatedCognitoRoleOverlyPermissiveCheck interface{} `json:"unauthenticatedCognitoRoleOverlyPermissiveCheck"`
+	UnauthenticatedCognitoRoleOverlyPermissiveCheck interface{} `json:"unauthenticatedCognitoRoleOverlyPermissiveCheck" yaml:"unauthenticatedCognitoRoleOverlyPermissiveCheck"`
 }
 
 // The configuration of the audit notification target.
@@ -601,7 +601,7 @@ type CfnAccountAuditConfiguration_AuditCheckConfigurationsProperty struct {
 //
 type CfnAccountAuditConfiguration_AuditNotificationTargetConfigurationsProperty struct {
 	// The `Sns` notification target.
-	Sns interface{} `json:"sns"`
+	Sns interface{} `json:"sns" yaml:"sns"`
 }
 
 // Information about the targets to which audit notifications are sent.
@@ -610,11 +610,11 @@ type CfnAccountAuditConfiguration_AuditNotificationTargetConfigurationsProperty 
 //
 type CfnAccountAuditConfiguration_AuditNotificationTargetProperty struct {
 	// True if notifications to the target are enabled.
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 	// The ARN of the role that grants permission to send notifications to the target.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// The ARN of the target (SNS topic) to which audit notifications are sent.
-	TargetArn *string `json:"targetArn"`
+	TargetArn *string `json:"targetArn" yaml:"targetArn"`
 }
 
 // Properties for defining a `CfnAccountAuditConfiguration`.
@@ -625,7 +625,7 @@ type CfnAccountAuditConfigurationProps struct {
 	// The ID of the account.
 	//
 	// You can use the expression `!Sub "${AWS::AccountId}"` to use your account ID.
-	AccountId *string `json:"accountId"`
+	AccountId *string `json:"accountId" yaml:"accountId"`
 	// Specifies which audit checks are enabled and disabled for this account.
 	//
 	// Some data collection might start immediately when certain checks are enabled. When a check is disabled, any data collected so far in relation to the check is deleted. To disable a check, set the value of the `Enabled:` key to `false` .
@@ -635,11 +635,11 @@ type CfnAccountAuditConfigurationProps struct {
 	// You can't disable a check if it's used by any scheduled audit. You must delete the check from the scheduled audit or delete the scheduled audit itself to disable the check.
 	//
 	// For more information on avialbe auidt checks see [AWS::IoT::AccountAuditConfiguration AuditCheckConfigurations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html)
-	AuditCheckConfigurations interface{} `json:"auditCheckConfigurations"`
+	AuditCheckConfigurations interface{} `json:"auditCheckConfigurations" yaml:"auditCheckConfigurations"`
 	// The Amazon Resource Name (ARN) of the role that grants permission to AWS IoT to access information about your devices, policies, certificates, and other items as required when performing an audit.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// Information about the targets to which audit notifications are sent.
-	AuditNotificationTargetConfigurations interface{} `json:"auditNotificationTargetConfigurations"`
+	AuditNotificationTargetConfigurations interface{} `json:"auditNotificationTargetConfigurations" yaml:"auditNotificationTargetConfigurations"`
 }
 
 // A CloudFormation `AWS::IoT::Authorizer`.
@@ -1242,15 +1242,15 @@ func (c *jsiiProxy_CfnAuthorizer) ValidateProperties(_properties interface{}) {
 //
 type CfnAuthorizerProps struct {
 	// The authorizer's Lambda function ARN.
-	AuthorizerFunctionArn *string `json:"authorizerFunctionArn"`
+	AuthorizerFunctionArn *string `json:"authorizerFunctionArn" yaml:"authorizerFunctionArn"`
 	// The authorizer name.
-	AuthorizerName *string `json:"authorizerName"`
+	AuthorizerName *string `json:"authorizerName" yaml:"authorizerName"`
 	// Specifies whether AWS IoT validates the token signature in an authorization request.
-	SigningDisabled interface{} `json:"signingDisabled"`
+	SigningDisabled interface{} `json:"signingDisabled" yaml:"signingDisabled"`
 	// The status of the authorizer.
 	//
 	// Valid values: `ACTIVE` | `INACTIVE`
-	Status *string `json:"status"`
+	Status *string `json:"status" yaml:"status"`
 	// Metadata which can be used to manage the custom authorizer.
 	//
 	// > For URI Request parameters use format: ...key1=value1&key2=value2...
@@ -1258,11 +1258,11 @@ type CfnAuthorizerProps struct {
 	// > For the CLI command-line parameter use format: &&tags "key1=value1&key2=value2..."
 	// >
 	// > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// The key used to extract the token from the HTTP headers.
-	TokenKeyName *string `json:"tokenKeyName"`
+	TokenKeyName *string `json:"tokenKeyName" yaml:"tokenKeyName"`
 	// The public keys used to validate the token signature returned by your custom authentication service.
-	TokenSigningPublicKeys interface{} `json:"tokenSigningPublicKeys"`
+	TokenSigningPublicKeys interface{} `json:"tokenSigningPublicKeys" yaml:"tokenSigningPublicKeys"`
 }
 
 // A CloudFormation `AWS::IoT::Certificate`.
@@ -1849,19 +1849,19 @@ type CfnCertificateProps struct {
 	// Valid values are ACTIVE, INACTIVE, REVOKED, PENDING_TRANSFER, and PENDING_ACTIVATION.
 	//
 	// The status value REGISTER_INACTIVE is deprecated and should not be used.
-	Status *string `json:"status"`
+	Status *string `json:"status" yaml:"status"`
 	// The CA certificate used to sign the device certificate being registered, not available when CertificateMode is SNI_ONLY.
-	CaCertificatePem *string `json:"caCertificatePem"`
+	CaCertificatePem *string `json:"caCertificatePem" yaml:"caCertificatePem"`
 	// Specifies which mode of certificate registration to use with this resource.
 	//
 	// Valid options are DEFAULT with CaCertificatePem and CertificatePem, SNI_ONLY with CertificatePem, and Default with CertificateSigningRequest.
-	CertificateMode *string `json:"certificateMode"`
+	CertificateMode *string `json:"certificateMode" yaml:"certificateMode"`
 	// The certificate data in PEM format.
 	//
 	// Requires SNI_ONLY for the certificate mode or the accompanying CACertificatePem for registration.
-	CertificatePem *string `json:"certificatePem"`
+	CertificatePem *string `json:"certificatePem" yaml:"certificatePem"`
 	// The certificate signing request (CSR).
-	CertificateSigningRequest *string `json:"certificateSigningRequest"`
+	CertificateSigningRequest *string `json:"certificateSigningRequest" yaml:"certificateSigningRequest"`
 }
 
 // A CloudFormation `AWS::IoT::CustomMetric`.
@@ -2406,17 +2406,17 @@ type CfnCustomMetricProps struct {
 	// The type of the custom metric.
 	//
 	// Types include `string-list` , `ip-address-list` , `number-list` , and `number` .
-	MetricType *string `json:"metricType"`
+	MetricType *string `json:"metricType" yaml:"metricType"`
 	// Field that represents a friendly name in the console for the custom metric;
 	//
 	// it doesn't have to be unique. Don't use this name as the metric identifier in the device metric report. Can be updated.
-	DisplayName *string `json:"displayName"`
+	DisplayName *string `json:"displayName" yaml:"displayName"`
 	// The name of the custom metric.
 	//
 	// This will be used in the metric report submitted from the device/thing. It shouldn't begin with `aws:` . Cannot be updated once it's defined.
-	MetricName *string `json:"metricName"`
+	MetricName *string `json:"metricName" yaml:"metricName"`
 	// Metadata that can be used to manage the custom metric.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::IoT::Dimension`.
@@ -2961,15 +2961,15 @@ type CfnDimensionProps struct {
 	// Specifies the value or list of values for the dimension.
 	//
 	// For `TOPIC_FILTER` dimensions, this is a pattern used to match the MQTT topic (for example, "admin/#").
-	StringValues *[]*string `json:"stringValues"`
+	StringValues *[]*string `json:"stringValues" yaml:"stringValues"`
 	// Specifies the type of dimension.
 	//
 	// Supported types: `TOPIC_FILTER.`
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// A unique identifier for the dimension.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// Metadata that can be used to manage the dimension.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::IoT::DomainConfiguration`.
@@ -3614,9 +3614,9 @@ func (c *jsiiProxy_CfnDomainConfiguration) ValidateProperties(_properties interf
 //
 type CfnDomainConfiguration_AuthorizerConfigProperty struct {
 	// A Boolean that specifies whether the domain configuration's authorization service can be overridden.
-	AllowAuthorizerOverride interface{} `json:"allowAuthorizerOverride"`
+	AllowAuthorizerOverride interface{} `json:"allowAuthorizerOverride" yaml:"allowAuthorizerOverride"`
 	// The name of the authorization service for a domain configuration.
-	DefaultAuthorizerName *string `json:"defaultAuthorizerName"`
+	DefaultAuthorizerName *string `json:"defaultAuthorizerName" yaml:"defaultAuthorizerName"`
 }
 
 // An object that contains information about a server certificate.
@@ -3625,11 +3625,11 @@ type CfnDomainConfiguration_AuthorizerConfigProperty struct {
 //
 type CfnDomainConfiguration_ServerCertificateSummaryProperty struct {
 	// The ARN of the server certificate.
-	ServerCertificateArn *string `json:"serverCertificateArn"`
+	ServerCertificateArn *string `json:"serverCertificateArn" yaml:"serverCertificateArn"`
 	// The status of the server certificate.
-	ServerCertificateStatus *string `json:"serverCertificateStatus"`
+	ServerCertificateStatus *string `json:"serverCertificateStatus" yaml:"serverCertificateStatus"`
 	// Details that explain the status of the server certificate.
-	ServerCertificateStatusDetail *string `json:"serverCertificateStatusDetail"`
+	ServerCertificateStatusDetail *string `json:"serverCertificateStatusDetail" yaml:"serverCertificateStatusDetail"`
 }
 
 // Properties for defining a `CfnDomainConfiguration`.
@@ -3638,25 +3638,25 @@ type CfnDomainConfiguration_ServerCertificateSummaryProperty struct {
 //
 type CfnDomainConfigurationProps struct {
 	// An object that specifies the authorization service for a domain.
-	AuthorizerConfig interface{} `json:"authorizerConfig"`
+	AuthorizerConfig interface{} `json:"authorizerConfig" yaml:"authorizerConfig"`
 	// The name of the domain configuration.
 	//
 	// This value must be unique to a region.
-	DomainConfigurationName *string `json:"domainConfigurationName"`
+	DomainConfigurationName *string `json:"domainConfigurationName" yaml:"domainConfigurationName"`
 	// The status to which the domain configuration should be updated.
 	//
 	// Valid values: `ENABLED` | `DISABLED`
-	DomainConfigurationStatus *string `json:"domainConfigurationStatus"`
+	DomainConfigurationStatus *string `json:"domainConfigurationStatus" yaml:"domainConfigurationStatus"`
 	// The name of the domain.
-	DomainName *string `json:"domainName"`
+	DomainName *string `json:"domainName" yaml:"domainName"`
 	// The ARNs of the certificates that AWS IoT passes to the device during the TLS handshake.
 	//
 	// Currently you can specify only one certificate ARN. This value is not required for AWS -managed domains.
-	ServerCertificateArns *[]*string `json:"serverCertificateArns"`
+	ServerCertificateArns *[]*string `json:"serverCertificateArns" yaml:"serverCertificateArns"`
 	// The type of service delivered by the endpoint.
 	//
 	// > AWS IoT Core currently supports only the `DATA` service type.
-	ServiceType *string `json:"serviceType"`
+	ServiceType *string `json:"serviceType" yaml:"serviceType"`
 	// Metadata which can be used to manage the domain configuration.
 	//
 	// > For URI Request parameters use format: ...key1=value1&key2=value2...
@@ -3664,11 +3664,11 @@ type CfnDomainConfigurationProps struct {
 	// > For the CLI command-line parameter use format: &&tags "key1=value1&key2=value2..."
 	// >
 	// > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// The certificate used to validate the server certificate and prove domain name ownership.
 	//
 	// This certificate must be signed by a public certificate authority. This value is not required for AWS -managed domains.
-	ValidationCertificateArn *string `json:"validationCertificateArn"`
+	ValidationCertificateArn *string `json:"validationCertificateArn" yaml:"validationCertificateArn"`
 }
 
 // A CloudFormation `AWS::IoT::FleetMetric`.
@@ -4364,9 +4364,9 @@ func (c *jsiiProxy_CfnFleetMetric) ValidateProperties(_properties interface{}) {
 //
 type CfnFleetMetric_AggregationTypeProperty struct {
 	// The name of the aggregation type.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// A list of the values of aggregation types.
-	Values *[]*string `json:"values"`
+	Values *[]*string `json:"values" yaml:"values"`
 }
 
 // Properties for defining a `CfnFleetMetric`.
@@ -4375,29 +4375,29 @@ type CfnFleetMetric_AggregationTypeProperty struct {
 //
 type CfnFleetMetricProps struct {
 	// The name of the fleet metric to create.
-	MetricName *string `json:"metricName"`
+	MetricName *string `json:"metricName" yaml:"metricName"`
 	// The field to aggregate.
-	AggregationField *string `json:"aggregationField"`
+	AggregationField *string `json:"aggregationField" yaml:"aggregationField"`
 	// The type of the aggregation query.
-	AggregationType interface{} `json:"aggregationType"`
+	AggregationType interface{} `json:"aggregationType" yaml:"aggregationType"`
 	// The fleet metric description.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The name of the index to search.
-	IndexName *string `json:"indexName"`
+	IndexName *string `json:"indexName" yaml:"indexName"`
 	// The time in seconds between fleet metric emissions.
 	//
 	// Range [60(1 min), 86400(1 day)] and must be multiple of 60.
-	Period *float64 `json:"period"`
+	Period *float64 `json:"period" yaml:"period"`
 	// The search query string.
-	QueryString *string `json:"queryString"`
+	QueryString *string `json:"queryString" yaml:"queryString"`
 	// The query version.
-	QueryVersion *string `json:"queryVersion"`
+	QueryVersion *string `json:"queryVersion" yaml:"queryVersion"`
 	// Metadata which can be used to manage the fleet metric.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// Used to support unit transformation such as milliseconds to seconds.
 	//
 	// Must be a unit supported by CW metric. Default to null.
-	Unit *string `json:"unit"`
+	Unit *string `json:"unit" yaml:"unit"`
 }
 
 // A CloudFormation `AWS::IoT::JobTemplate`.
@@ -5060,17 +5060,17 @@ func (c *jsiiProxy_CfnJobTemplate) ValidateProperties(_properties interface{}) {
 //
 type CfnJobTemplateProps struct {
 	// A description of the job template.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// A unique identifier for the job template.
 	//
 	// We recommend using a UUID. Alpha-numeric characters, "-", and "_" are valid for use here.
-	JobTemplateId *string `json:"jobTemplateId"`
+	JobTemplateId *string `json:"jobTemplateId" yaml:"jobTemplateId"`
 	// The criteria that determine when and how a job abort takes place.
-	AbortConfig interface{} `json:"abortConfig"`
+	AbortConfig interface{} `json:"abortConfig" yaml:"abortConfig"`
 	// The job document.
 	//
 	// Required if you don't specify a value for `documentSource` .
-	Document *string `json:"document"`
+	Document *string `json:"document" yaml:"document"`
 	// An S3 link to the job document to use in the template.
 	//
 	// Required if you don't specify a value for `document` .
@@ -5082,19 +5082,19 @@ type CfnJobTemplateProps struct {
 	// > `${aws:iot:s3-presigned-url:https://s3.amazonaws.com/ *bucket* / *key* }`
 	// >
 	// > where *bucket* is your bucket name and *key* is the object in the bucket to which you are linking.
-	DocumentSource *string `json:"documentSource"`
+	DocumentSource *string `json:"documentSource" yaml:"documentSource"`
 	// The ARN of the job to use as the basis for the job template.
-	JobArn *string `json:"jobArn"`
+	JobArn *string `json:"jobArn" yaml:"jobArn"`
 	// Allows you to create a staged rollout of a job.
-	JobExecutionsRolloutConfig interface{} `json:"jobExecutionsRolloutConfig"`
+	JobExecutionsRolloutConfig interface{} `json:"jobExecutionsRolloutConfig" yaml:"jobExecutionsRolloutConfig"`
 	// Configuration for pre-signed S3 URLs.
-	PresignedUrlConfig interface{} `json:"presignedUrlConfig"`
+	PresignedUrlConfig interface{} `json:"presignedUrlConfig" yaml:"presignedUrlConfig"`
 	// Metadata that can be used to manage the job template.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// Specifies the amount of time each device has to finish its execution of the job.
 	//
 	// A timer is started when the job execution status is set to `IN_PROGRESS` . If the job execution status is not set to another terminal state before the timer expires, it will be automatically set to `TIMED_OUT` .
-	TimeoutConfig interface{} `json:"timeoutConfig"`
+	TimeoutConfig interface{} `json:"timeoutConfig" yaml:"timeoutConfig"`
 }
 
 // A CloudFormation `AWS::IoT::Logging`.
@@ -5613,11 +5613,11 @@ func (c *jsiiProxy_CfnLogging) ValidateProperties(_properties interface{}) {
 //
 type CfnLoggingProps struct {
 	// `AWS::IoT::Logging.AccountId`.
-	AccountId *string `json:"accountId"`
+	AccountId *string `json:"accountId" yaml:"accountId"`
 	// `AWS::IoT::Logging.DefaultLogLevel`.
-	DefaultLogLevel *string `json:"defaultLogLevel"`
+	DefaultLogLevel *string `json:"defaultLogLevel" yaml:"defaultLogLevel"`
 	// `AWS::IoT::Logging.RoleArn`.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 }
 
 // A CloudFormation `AWS::IoT::MitigationAction`.
@@ -6171,25 +6171,25 @@ func (c *jsiiProxy_CfnMitigationAction) ValidateProperties(_properties interface
 //
 type CfnMitigationAction_ActionParamsProperty struct {
 	// Specifies the group to which you want to add the devices.
-	AddThingsToThingGroupParams interface{} `json:"addThingsToThingGroupParams"`
+	AddThingsToThingGroupParams interface{} `json:"addThingsToThingGroupParams" yaml:"addThingsToThingGroupParams"`
 	// Specifies the logging level and the role with permissions for logging.
 	//
 	// You cannot specify a logging level of `DISABLED` .
-	EnableIoTLoggingParams interface{} `json:"enableIoTLoggingParams"`
+	EnableIoTLoggingParams interface{} `json:"enableIoTLoggingParams" yaml:"enableIoTLoggingParams"`
 	// Specifies the topic to which the finding should be published.
-	PublishFindingToSnsParams interface{} `json:"publishFindingToSnsParams"`
+	PublishFindingToSnsParams interface{} `json:"publishFindingToSnsParams" yaml:"publishFindingToSnsParams"`
 	// Replaces the policy version with a default or blank policy.
 	//
 	// You specify the template name. Only a value of `BLANK_POLICY` is currently supported.
-	ReplaceDefaultPolicyVersionParams interface{} `json:"replaceDefaultPolicyVersionParams"`
+	ReplaceDefaultPolicyVersionParams interface{} `json:"replaceDefaultPolicyVersionParams" yaml:"replaceDefaultPolicyVersionParams"`
 	// Specifies the new state for the CA certificate.
 	//
 	// Only a value of `DEACTIVATE` is currently supported.
-	UpdateCaCertificateParams interface{} `json:"updateCaCertificateParams"`
+	UpdateCaCertificateParams interface{} `json:"updateCaCertificateParams" yaml:"updateCaCertificateParams"`
 	// Specifies the new state for a device certificate.
 	//
 	// Only a value of `DEACTIVATE` is currently supported.
-	UpdateDeviceCertificateParams interface{} `json:"updateDeviceCertificateParams"`
+	UpdateDeviceCertificateParams interface{} `json:"updateDeviceCertificateParams" yaml:"updateDeviceCertificateParams"`
 }
 
 // Parameters used when defining a mitigation action that move a set of things to a thing group.
@@ -6200,9 +6200,9 @@ type CfnMitigationAction_AddThingsToThingGroupParamsProperty struct {
 	// The list of groups to which you want to add the things that triggered the mitigation action.
 	//
 	// You can add a thing to a maximum of 10 groups, but you can't add a thing to more than one group in the same hierarchy.
-	ThingGroupNames *[]*string `json:"thingGroupNames"`
+	ThingGroupNames *[]*string `json:"thingGroupNames" yaml:"thingGroupNames"`
 	// Specifies if this mitigation action can move the things that triggered the mitigation action even if they are part of one or more dynamic thing groups.
-	OverrideDynamicGroups interface{} `json:"overrideDynamicGroups"`
+	OverrideDynamicGroups interface{} `json:"overrideDynamicGroups" yaml:"overrideDynamicGroups"`
 }
 
 // Parameters used when defining a mitigation action that enable AWS IoT Core logging.
@@ -6211,9 +6211,9 @@ type CfnMitigationAction_AddThingsToThingGroupParamsProperty struct {
 //
 type CfnMitigationAction_EnableIoTLoggingParamsProperty struct {
 	// Specifies the type of information to be logged.
-	LogLevel *string `json:"logLevel"`
+	LogLevel *string `json:"logLevel" yaml:"logLevel"`
 	// The Amazon Resource Name (ARN) of the IAM role used for logging.
-	RoleArnForLogging *string `json:"roleArnForLogging"`
+	RoleArnForLogging *string `json:"roleArnForLogging" yaml:"roleArnForLogging"`
 }
 
 // Parameters to define a mitigation action that publishes findings to Amazon SNS.
@@ -6224,7 +6224,7 @@ type CfnMitigationAction_EnableIoTLoggingParamsProperty struct {
 //
 type CfnMitigationAction_PublishFindingToSnsParamsProperty struct {
 	// The ARN of the topic to which you want to publish the findings.
-	TopicArn *string `json:"topicArn"`
+	TopicArn *string `json:"topicArn" yaml:"topicArn"`
 }
 
 // Parameters to define a mitigation action that adds a blank policy to restrict permissions.
@@ -6235,7 +6235,7 @@ type CfnMitigationAction_ReplaceDefaultPolicyVersionParamsProperty struct {
 	// The name of the template to be applied.
 	//
 	// The only supported value is `BLANK_POLICY` .
-	TemplateName *string `json:"templateName"`
+	TemplateName *string `json:"templateName" yaml:"templateName"`
 }
 
 // Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
@@ -6246,7 +6246,7 @@ type CfnMitigationAction_UpdateCACertificateParamsProperty struct {
 	// The action that you want to apply to the CA certificate.
 	//
 	// The only supported value is `DEACTIVATE` .
-	Action *string `json:"action"`
+	Action *string `json:"action" yaml:"action"`
 }
 
 // Parameters to define a mitigation action that changes the state of the device certificate to inactive.
@@ -6257,7 +6257,7 @@ type CfnMitigationAction_UpdateDeviceCertificateParamsProperty struct {
 	// The action that you want to apply to the device certificate.
 	//
 	// The only supported value is `DEACTIVATE` .
-	Action *string `json:"action"`
+	Action *string `json:"action" yaml:"action"`
 }
 
 // Properties for defining a `CfnMitigationAction`.
@@ -6268,13 +6268,13 @@ type CfnMitigationActionProps struct {
 	// The set of parameters for this mitigation action.
 	//
 	// The parameters vary, depending on the kind of action you apply.
-	ActionParams interface{} `json:"actionParams"`
+	ActionParams interface{} `json:"actionParams" yaml:"actionParams"`
 	// The IAM role ARN used to apply this mitigation action.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// The friendly name of the mitigation action.
-	ActionName *string `json:"actionName"`
+	ActionName *string `json:"actionName" yaml:"actionName"`
 	// Metadata that can be used to manage the mitigation action.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::IoT::Policy`.
@@ -7280,9 +7280,9 @@ func (c *jsiiProxy_CfnPolicyPrincipalAttachment) ValidateProperties(_properties 
 //
 type CfnPolicyPrincipalAttachmentProps struct {
 	// The name of the AWS IoT policy.
-	PolicyName *string `json:"policyName"`
+	PolicyName *string `json:"policyName" yaml:"policyName"`
 	// The principal, which can be a certificate ARN (as returned from the `CreateCertificate` operation) or an Amazon Cognito ID.
-	Principal *string `json:"principal"`
+	Principal *string `json:"principal" yaml:"principal"`
 }
 
 // Properties for defining a `CfnPolicy`.
@@ -7291,9 +7291,9 @@ type CfnPolicyPrincipalAttachmentProps struct {
 //
 type CfnPolicyProps struct {
 	// The JSON document that describes the policy.
-	PolicyDocument interface{} `json:"policyDocument"`
+	PolicyDocument interface{} `json:"policyDocument" yaml:"policyDocument"`
 	// The policy name.
-	PolicyName *string `json:"policyName"`
+	PolicyName *string `json:"policyName" yaml:"policyName"`
 }
 
 // A CloudFormation `AWS::IoT::ProvisioningTemplate`.
@@ -7900,9 +7900,9 @@ type CfnProvisioningTemplate_ProvisioningHookProperty struct {
 	// The payload that was sent to the target function.
 	//
 	// The valid payload is `"2020-04-01"` .
-	PayloadVersion *string `json:"payloadVersion"`
+	PayloadVersion *string `json:"payloadVersion" yaml:"payloadVersion"`
 	// The ARN of the target function.
-	TargetArn *string `json:"targetArn"`
+	TargetArn *string `json:"targetArn" yaml:"targetArn"`
 }
 
 // Properties for defining a `CfnProvisioningTemplate`.
@@ -7913,19 +7913,19 @@ type CfnProvisioningTemplateProps struct {
 	// The role ARN for the role associated with the fleet provisioning template.
 	//
 	// This IoT role grants permission to provision a device.
-	ProvisioningRoleArn *string `json:"provisioningRoleArn"`
+	ProvisioningRoleArn *string `json:"provisioningRoleArn" yaml:"provisioningRoleArn"`
 	// The JSON formatted contents of the fleet provisioning template version.
-	TemplateBody *string `json:"templateBody"`
+	TemplateBody *string `json:"templateBody" yaml:"templateBody"`
 	// The description of the fleet provisioning template.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// True to enable the fleet provisioning template, otherwise false.
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 	// Creates a pre-provisioning hook template.
-	PreProvisioningHook interface{} `json:"preProvisioningHook"`
+	PreProvisioningHook interface{} `json:"preProvisioningHook" yaml:"preProvisioningHook"`
 	// Metadata that can be used to manage the fleet provisioning template.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// The name of the fleet provisioning template.
-	TemplateName *string `json:"templateName"`
+	TemplateName *string `json:"templateName" yaml:"templateName"`
 }
 
 // A CloudFormation `AWS::IoT::ResourceSpecificLogging`.
@@ -8455,11 +8455,11 @@ func (c *jsiiProxy_CfnResourceSpecificLogging) ValidateProperties(_properties in
 //
 type CfnResourceSpecificLoggingProps struct {
 	// `AWS::IoT::ResourceSpecificLogging.LogLevel`.
-	LogLevel *string `json:"logLevel"`
+	LogLevel *string `json:"logLevel" yaml:"logLevel"`
 	// `AWS::IoT::ResourceSpecificLogging.TargetName`.
-	TargetName *string `json:"targetName"`
+	TargetName *string `json:"targetName" yaml:"targetName"`
 	// `AWS::IoT::ResourceSpecificLogging.TargetType`.
-	TargetType *string `json:"targetType"`
+	TargetType *string `json:"targetType" yaml:"targetType"`
 }
 
 // A CloudFormation `AWS::IoT::ScheduledAudit`.
@@ -9042,7 +9042,7 @@ func (c *jsiiProxy_CfnScheduledAudit) ValidateProperties(_properties interface{}
 //
 type CfnScheduledAuditProps struct {
 	// How often the scheduled audit occurs.
-	Frequency *string `json:"frequency"`
+	Frequency *string `json:"frequency" yaml:"frequency"`
 	// Which checks are performed during the scheduled audit.
 	//
 	// Checks must be enabled for your account. (Use `DescribeAccountAuditConfiguration` to see the list of all checks, including those that are enabled or use `UpdateAccountAuditConfiguration` to select which checks are enabled.)
@@ -9063,17 +9063,17 @@ type CfnScheduledAuditProps struct {
 	// - `REVOKED_CA_CERTIFICATE_STILL_ACTIVE_CHECK`
 	// - `REVOKED_DEVICE_CERTIFICATE_STILL_ACTIVE_CHECK`
 	// - `UNAUTHENTICATED_COGNITO_ROLE_OVERLY_PERMISSIVE_CHECK`
-	TargetCheckNames *[]*string `json:"targetCheckNames"`
+	TargetCheckNames *[]*string `json:"targetCheckNames" yaml:"targetCheckNames"`
 	// The day of the month on which the scheduled audit is run (if the `frequency` is "MONTHLY").
 	//
 	// If days 29-31 are specified, and the month does not have that many days, the audit takes place on the "LAST" day of the month.
-	DayOfMonth *string `json:"dayOfMonth"`
+	DayOfMonth *string `json:"dayOfMonth" yaml:"dayOfMonth"`
 	// The day of the week on which the scheduled audit is run (if the `frequency` is "WEEKLY" or "BIWEEKLY").
-	DayOfWeek *string `json:"dayOfWeek"`
+	DayOfWeek *string `json:"dayOfWeek" yaml:"dayOfWeek"`
 	// The name of the scheduled audit.
-	ScheduledAuditName *string `json:"scheduledAuditName"`
+	ScheduledAuditName *string `json:"scheduledAuditName" yaml:"scheduledAuditName"`
 	// Metadata that can be used to manage the scheduled audit.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::IoT::SecurityProfile`.
@@ -9676,9 +9676,9 @@ func (c *jsiiProxy_CfnSecurityProfile) ValidateProperties(_properties interface{
 //
 type CfnSecurityProfile_AlertTargetProperty struct {
 	// The Amazon Resource Name (ARN) of the notification target to which alerts are sent.
-	AlertTargetArn *string `json:"alertTargetArn"`
+	AlertTargetArn *string `json:"alertTargetArn" yaml:"alertTargetArn"`
 	// The ARN of the role that grants permission to send alerts to the notification target.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 }
 
 // The criteria by which the behavior is determined to be normal.
@@ -9694,25 +9694,25 @@ type CfnSecurityProfile_BehaviorCriteriaProperty struct {
 	// - `number-list` : `in-set` and `not-in-set`
 	// - `ip-address-list` : `in-cidr-set` and `not-in-cidr-set`
 	// - `number` : `less-than` , `less-than-equals` , `greater-than` , and `greater-than-equals`
-	ComparisonOperator *string `json:"comparisonOperator"`
+	ComparisonOperator *string `json:"comparisonOperator" yaml:"comparisonOperator"`
 	// If a device is in violation of the behavior for the specified number of consecutive datapoints, an alarm occurs.
 	//
 	// If not specified, the default is 1.
-	ConsecutiveDatapointsToAlarm *float64 `json:"consecutiveDatapointsToAlarm"`
+	ConsecutiveDatapointsToAlarm *float64 `json:"consecutiveDatapointsToAlarm" yaml:"consecutiveDatapointsToAlarm"`
 	// If an alarm has occurred and the offending device is no longer in violation of the behavior for the specified number of consecutive datapoints, the alarm is cleared.
 	//
 	// If not specified, the default is 1.
-	ConsecutiveDatapointsToClear *float64 `json:"consecutiveDatapointsToClear"`
+	ConsecutiveDatapointsToClear *float64 `json:"consecutiveDatapointsToClear" yaml:"consecutiveDatapointsToClear"`
 	// Use this to specify the time duration over which the behavior is evaluated, for those criteria that have a time dimension (for example, `NUM_MESSAGES_SENT` ).
 	//
 	// For a `statisticalThreshhold` metric comparison, measurements from all devices are accumulated over this time duration before being used to calculate percentiles, and later, measurements from an individual device are also accumulated over this time duration before being given a percentile rank. Cannot be used with list-based metric datatypes.
-	DurationSeconds *float64 `json:"durationSeconds"`
+	DurationSeconds *float64 `json:"durationSeconds" yaml:"durationSeconds"`
 	// The confidence level of the detection model.
-	MlDetectionConfig interface{} `json:"mlDetectionConfig"`
+	MlDetectionConfig interface{} `json:"mlDetectionConfig" yaml:"mlDetectionConfig"`
 	// A statistical ranking (percentile)that indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
-	StatisticalThreshold interface{} `json:"statisticalThreshold"`
+	StatisticalThreshold interface{} `json:"statisticalThreshold" yaml:"statisticalThreshold"`
 	// The value to be compared with the `metric` .
-	Value interface{} `json:"value"`
+	Value interface{} `json:"value" yaml:"value"`
 }
 
 // A Device Defender security profile behavior.
@@ -9721,17 +9721,17 @@ type CfnSecurityProfile_BehaviorCriteriaProperty struct {
 //
 type CfnSecurityProfile_BehaviorProperty struct {
 	// The name you've given to the behavior.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The criteria that determine if a device is behaving normally in regard to the `metric` .
-	Criteria interface{} `json:"criteria"`
+	Criteria interface{} `json:"criteria" yaml:"criteria"`
 	// What is measured by the behavior.
-	Metric *string `json:"metric"`
+	Metric *string `json:"metric" yaml:"metric"`
 	// The dimension of the metric.
-	MetricDimension interface{} `json:"metricDimension"`
+	MetricDimension interface{} `json:"metricDimension" yaml:"metricDimension"`
 	// The alert status.
 	//
 	// If you set the value to `true` , alerts will be suppressed.
-	SuppressAlerts interface{} `json:"suppressAlerts"`
+	SuppressAlerts interface{} `json:"suppressAlerts" yaml:"suppressAlerts"`
 }
 
 // The `MachineLearningDetectionConfig` property type controls confidence of the machine learning model.
@@ -9744,7 +9744,7 @@ type CfnSecurityProfile_MachineLearningDetectionConfigProperty struct {
 	// There are three levels of confidence, `"high"` , `"medium"` , and `"low"` .
 	//
 	// The higher the confidence level, the lower the sensitivity, and the lower the alarm frequency will be.
-	ConfidenceLevel *string `json:"confidenceLevel"`
+	ConfidenceLevel *string `json:"confidenceLevel" yaml:"confidenceLevel"`
 }
 
 // The dimension of the metric.
@@ -9753,11 +9753,11 @@ type CfnSecurityProfile_MachineLearningDetectionConfigProperty struct {
 //
 type CfnSecurityProfile_MetricDimensionProperty struct {
 	// The name of the dimension.
-	DimensionName *string `json:"dimensionName"`
+	DimensionName *string `json:"dimensionName" yaml:"dimensionName"`
 	// Operators are constructs that perform logical operations.
 	//
 	// Valid values are `IN` and `NOT_IN` .
-	Operator *string `json:"operator"`
+	Operator *string `json:"operator" yaml:"operator"`
 }
 
 // The metric you want to retain.
@@ -9768,9 +9768,9 @@ type CfnSecurityProfile_MetricDimensionProperty struct {
 //
 type CfnSecurityProfile_MetricToRetainProperty struct {
 	// A standard of measurement.
-	Metric *string `json:"metric"`
+	Metric *string `json:"metric" yaml:"metric"`
 	// The dimension of the metric.
-	MetricDimension interface{} `json:"metricDimension"`
+	MetricDimension interface{} `json:"metricDimension" yaml:"metricDimension"`
 }
 
 // The value to be compared with the `metric` .
@@ -9779,17 +9779,17 @@ type CfnSecurityProfile_MetricToRetainProperty struct {
 //
 type CfnSecurityProfile_MetricValueProperty struct {
 	// If the `comparisonOperator` calls for a set of CIDRs, use this to specify that set to be compared with the `metric` .
-	Cidrs *[]*string `json:"cidrs"`
+	Cidrs *[]*string `json:"cidrs" yaml:"cidrs"`
 	// If the `comparisonOperator` calls for a numeric value, use this to specify that numeric value to be compared with the `metric` .
-	Count *string `json:"count"`
+	Count *string `json:"count" yaml:"count"`
 	// `CfnSecurityProfile.MetricValueProperty.Number`.
-	Number *float64 `json:"number"`
+	Number *float64 `json:"number" yaml:"number"`
 	// `CfnSecurityProfile.MetricValueProperty.Numbers`.
-	Numbers interface{} `json:"numbers"`
+	Numbers interface{} `json:"numbers" yaml:"numbers"`
 	// If the `comparisonOperator` calls for a set of ports, use this to specify that set to be compared with the `metric` .
-	Ports interface{} `json:"ports"`
+	Ports interface{} `json:"ports" yaml:"ports"`
 	// `CfnSecurityProfile.MetricValueProperty.Strings`.
-	Strings *[]*string `json:"strings"`
+	Strings *[]*string `json:"strings" yaml:"strings"`
 }
 
 // A statistical ranking (percentile) that indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
@@ -9800,7 +9800,7 @@ type CfnSecurityProfile_StatisticalThresholdProperty struct {
 	// The percentile that resolves to a threshold value by which compliance with a behavior is determined.
 	//
 	// Metrics are collected over the specified period ( `durationSeconds` ) from all reporting devices in your account and statistical ranks are calculated. Then, the measurements from a device are collected over the same period. If the accumulated measurements from the device fall above or below ( `comparisonOperator` ) the value associated with the percentile specified, then the device is considered to be in compliance with the behavior, otherwise a violation occurs.
-	Statistic *string `json:"statistic"`
+	Statistic *string `json:"statistic" yaml:"statistic"`
 }
 
 // Properties for defining a `CfnSecurityProfile`.
@@ -9811,21 +9811,21 @@ type CfnSecurityProfileProps struct {
 	// A list of metrics whose data is retained (stored).
 	//
 	// By default, data is retained for any metric used in the profile's `behaviors` , but it's also retained for any metric specified here. Can be used with custom metrics; can't be used with dimensions.
-	AdditionalMetricsToRetainV2 interface{} `json:"additionalMetricsToRetainV2"`
+	AdditionalMetricsToRetainV2 interface{} `json:"additionalMetricsToRetainV2" yaml:"additionalMetricsToRetainV2"`
 	// Specifies the destinations to which alerts are sent.
 	//
 	// (Alerts are always sent to the console.) Alerts are generated when a device (thing) violates a behavior.
-	AlertTargets interface{} `json:"alertTargets"`
+	AlertTargets interface{} `json:"alertTargets" yaml:"alertTargets"`
 	// Specifies the behaviors that, when violated by a device (thing), cause an alert.
-	Behaviors interface{} `json:"behaviors"`
+	Behaviors interface{} `json:"behaviors" yaml:"behaviors"`
 	// A description of the security profile.
-	SecurityProfileDescription *string `json:"securityProfileDescription"`
+	SecurityProfileDescription *string `json:"securityProfileDescription" yaml:"securityProfileDescription"`
 	// The name you gave to the security profile.
-	SecurityProfileName *string `json:"securityProfileName"`
+	SecurityProfileName *string `json:"securityProfileName" yaml:"securityProfileName"`
 	// Metadata that can be used to manage the security profile.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// The ARN of the target (thing group) to which the security profile is attached.
-	TargetArns *[]*string `json:"targetArns"`
+	TargetArns *[]*string `json:"targetArns" yaml:"targetArns"`
 }
 
 // A CloudFormation `AWS::IoT::Thing`.
@@ -10332,7 +10332,7 @@ type CfnThing_AttributePayloadProperty struct {
 	// A JSON string containing up to three key-value pair in JSON format. For example:.
 	//
 	// `{\"attributes\":{\"string1\":\"string2\"}}`
-	Attributes interface{} `json:"attributes"`
+	Attributes interface{} `json:"attributes" yaml:"attributes"`
 }
 
 // A CloudFormation `AWS::IoT::ThingPrincipalAttachment`.
@@ -10835,9 +10835,9 @@ func (c *jsiiProxy_CfnThingPrincipalAttachment) ValidateProperties(_properties i
 //
 type CfnThingPrincipalAttachmentProps struct {
 	// The principal, which can be a certificate ARN (as returned from the `CreateCertificate` operation) or an Amazon Cognito ID.
-	Principal *string `json:"principal"`
+	Principal *string `json:"principal" yaml:"principal"`
 	// The name of the AWS IoT thing.
-	ThingName *string `json:"thingName"`
+	ThingName *string `json:"thingName" yaml:"thingName"`
 }
 
 // Properties for defining a `CfnThing`.
@@ -10848,11 +10848,11 @@ type CfnThingProps struct {
 	// A string that contains up to three key value pairs.
 	//
 	// Maximum length of 800. Duplicates not allowed.
-	AttributePayload interface{} `json:"attributePayload"`
+	AttributePayload interface{} `json:"attributePayload" yaml:"attributePayload"`
 	// The name of the thing to update.
 	//
 	// You can't change a thing's name. To change a thing's name, you must create a new thing, give it the new name, and then delete the old thing.
-	ThingName *string `json:"thingName"`
+	ThingName *string `json:"thingName" yaml:"thingName"`
 }
 
 // A CloudFormation `AWS::IoT::TopicRule`.
@@ -11375,51 +11375,51 @@ func (c *jsiiProxy_CfnTopicRule) ValidateProperties(_properties interface{}) {
 //
 type CfnTopicRule_ActionProperty struct {
 	// Change the state of a CloudWatch alarm.
-	CloudwatchAlarm interface{} `json:"cloudwatchAlarm"`
+	CloudwatchAlarm interface{} `json:"cloudwatchAlarm" yaml:"cloudwatchAlarm"`
 	// `CfnTopicRule.ActionProperty.CloudwatchLogs`.
-	CloudwatchLogs interface{} `json:"cloudwatchLogs"`
+	CloudwatchLogs interface{} `json:"cloudwatchLogs" yaml:"cloudwatchLogs"`
 	// Capture a CloudWatch metric.
-	CloudwatchMetric interface{} `json:"cloudwatchMetric"`
+	CloudwatchMetric interface{} `json:"cloudwatchMetric" yaml:"cloudwatchMetric"`
 	// Write to a DynamoDB table.
-	DynamoDb interface{} `json:"dynamoDb"`
+	DynamoDb interface{} `json:"dynamoDb" yaml:"dynamoDb"`
 	// Write to a DynamoDB table.
 	//
 	// This is a new version of the DynamoDB action. It allows you to write each attribute in an MQTT message payload into a separate DynamoDB column.
-	DynamoDBv2 interface{} `json:"dynamoDBv2"`
+	DynamoDBv2 interface{} `json:"dynamoDBv2" yaml:"dynamoDBv2"`
 	// Write data to an Amazon OpenSearch Service domain.
 	//
 	// > The `Elasticsearch` action can only be used by existing rule actions. To create a new rule action or to update an existing rule action, use the `OpenSearch` rule action instead. For more information, see [OpenSearchAction](https://docs.aws.amazon.com//iot/latest/apireference/API_OpenSearchAction.html) .
-	Elasticsearch interface{} `json:"elasticsearch"`
+	Elasticsearch interface{} `json:"elasticsearch" yaml:"elasticsearch"`
 	// Write to an Amazon Kinesis Firehose stream.
-	Firehose interface{} `json:"firehose"`
+	Firehose interface{} `json:"firehose" yaml:"firehose"`
 	// Send data to an HTTPS endpoint.
-	Http interface{} `json:"http"`
+	Http interface{} `json:"http" yaml:"http"`
 	// Sends message data to an AWS IoT Analytics channel.
-	IotAnalytics interface{} `json:"iotAnalytics"`
+	IotAnalytics interface{} `json:"iotAnalytics" yaml:"iotAnalytics"`
 	// Sends an input to an AWS IoT Events detector.
-	IotEvents interface{} `json:"iotEvents"`
+	IotEvents interface{} `json:"iotEvents" yaml:"iotEvents"`
 	// Sends data from the MQTT message that triggered the rule to AWS IoT SiteWise asset properties.
-	IotSiteWise interface{} `json:"iotSiteWise"`
+	IotSiteWise interface{} `json:"iotSiteWise" yaml:"iotSiteWise"`
 	// Send messages to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) or self-managed Apache Kafka cluster.
-	Kafka interface{} `json:"kafka"`
+	Kafka interface{} `json:"kafka" yaml:"kafka"`
 	// Write data to an Amazon Kinesis stream.
-	Kinesis interface{} `json:"kinesis"`
+	Kinesis interface{} `json:"kinesis" yaml:"kinesis"`
 	// Invoke a Lambda function.
-	Lambda interface{} `json:"lambda"`
+	Lambda interface{} `json:"lambda" yaml:"lambda"`
 	// Write data to an Amazon OpenSearch Service domain.
-	OpenSearch interface{} `json:"openSearch"`
+	OpenSearch interface{} `json:"openSearch" yaml:"openSearch"`
 	// Publish to another MQTT topic.
-	Republish interface{} `json:"republish"`
+	Republish interface{} `json:"republish" yaml:"republish"`
 	// Write to an Amazon S3 bucket.
-	S3 interface{} `json:"s3"`
+	S3 interface{} `json:"s3" yaml:"s3"`
 	// Publish to an Amazon SNS topic.
-	Sns interface{} `json:"sns"`
+	Sns interface{} `json:"sns" yaml:"sns"`
 	// Publish to an Amazon SQS queue.
-	Sqs interface{} `json:"sqs"`
+	Sqs interface{} `json:"sqs" yaml:"sqs"`
 	// Starts execution of a Step Functions state machine.
-	StepFunctions interface{} `json:"stepFunctions"`
+	StepFunctions interface{} `json:"stepFunctions" yaml:"stepFunctions"`
 	// Writes attributes from an MQTT message.
-	Timestream interface{} `json:"timestream"`
+	Timestream interface{} `json:"timestream" yaml:"timestream"`
 }
 
 // An asset property timestamp entry containing the following information.
@@ -11430,11 +11430,11 @@ type CfnTopicRule_AssetPropertyTimestampProperty struct {
 	// A string that contains the time in seconds since epoch.
 	//
 	// Accepts substitution templates.
-	TimeInSeconds *string `json:"timeInSeconds"`
+	TimeInSeconds *string `json:"timeInSeconds" yaml:"timeInSeconds"`
 	// Optional.
 	//
 	// A string that contains the nanosecond time offset. Accepts substitution templates.
-	OffsetInNanos *string `json:"offsetInNanos"`
+	OffsetInNanos *string `json:"offsetInNanos" yaml:"offsetInNanos"`
 }
 
 // An asset property value entry containing the following information.
@@ -11443,13 +11443,13 @@ type CfnTopicRule_AssetPropertyTimestampProperty struct {
 //
 type CfnTopicRule_AssetPropertyValueProperty struct {
 	// The asset property value timestamp.
-	Timestamp interface{} `json:"timestamp"`
+	Timestamp interface{} `json:"timestamp" yaml:"timestamp"`
 	// The value of the asset property.
-	Value interface{} `json:"value"`
+	Value interface{} `json:"value" yaml:"value"`
 	// Optional.
 	//
 	// A string that describes the quality of the value. Accepts substitution templates. Must be `GOOD` , `BAD` , or `UNCERTAIN` .
-	Quality *string `json:"quality"`
+	Quality *string `json:"quality" yaml:"quality"`
 }
 
 // Contains an asset property value (of a single type).
@@ -11460,19 +11460,19 @@ type CfnTopicRule_AssetPropertyVariantProperty struct {
 	// Optional.
 	//
 	// A string that contains the boolean value ( `true` or `false` ) of the value entry. Accepts substitution templates.
-	BooleanValue *string `json:"booleanValue"`
+	BooleanValue *string `json:"booleanValue" yaml:"booleanValue"`
 	// Optional.
 	//
 	// A string that contains the double value of the value entry. Accepts substitution templates.
-	DoubleValue *string `json:"doubleValue"`
+	DoubleValue *string `json:"doubleValue" yaml:"doubleValue"`
 	// Optional.
 	//
 	// A string that contains the integer value of the value entry. Accepts substitution templates.
-	IntegerValue *string `json:"integerValue"`
+	IntegerValue *string `json:"integerValue" yaml:"integerValue"`
 	// Optional.
 	//
 	// The string value of the value entry. Accepts substitution templates.
-	StringValue *string `json:"stringValue"`
+	StringValue *string `json:"stringValue" yaml:"stringValue"`
 }
 
 // Describes an action that updates a CloudWatch alarm.
@@ -11481,15 +11481,15 @@ type CfnTopicRule_AssetPropertyVariantProperty struct {
 //
 type CfnTopicRule_CloudwatchAlarmActionProperty struct {
 	// The CloudWatch alarm name.
-	AlarmName *string `json:"alarmName"`
+	AlarmName *string `json:"alarmName" yaml:"alarmName"`
 	// The IAM role that allows access to the CloudWatch alarm.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// The reason for the alarm change.
-	StateReason *string `json:"stateReason"`
+	StateReason *string `json:"stateReason" yaml:"stateReason"`
 	// The value of the alarm state.
 	//
 	// Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
-	StateValue *string `json:"stateValue"`
+	StateValue *string `json:"stateValue" yaml:"stateValue"`
 }
 
 // Describes an action that updates a CloudWatch log.
@@ -11498,9 +11498,9 @@ type CfnTopicRule_CloudwatchAlarmActionProperty struct {
 //
 type CfnTopicRule_CloudwatchLogsActionProperty struct {
 	// The CloudWatch log name.
-	LogGroupName *string `json:"logGroupName"`
+	LogGroupName *string `json:"logGroupName" yaml:"logGroupName"`
 	// The IAM role that allows access to the CloudWatch log.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 }
 
 // Describes an action that captures a CloudWatch metric.
@@ -11509,17 +11509,17 @@ type CfnTopicRule_CloudwatchLogsActionProperty struct {
 //
 type CfnTopicRule_CloudwatchMetricActionProperty struct {
 	// The CloudWatch metric name.
-	MetricName *string `json:"metricName"`
+	MetricName *string `json:"metricName" yaml:"metricName"`
 	// The CloudWatch metric namespace name.
-	MetricNamespace *string `json:"metricNamespace"`
+	MetricNamespace *string `json:"metricNamespace" yaml:"metricNamespace"`
 	// The [metric unit](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit) supported by CloudWatch.
-	MetricUnit *string `json:"metricUnit"`
+	MetricUnit *string `json:"metricUnit" yaml:"metricUnit"`
 	// The CloudWatch metric value.
-	MetricValue *string `json:"metricValue"`
+	MetricValue *string `json:"metricValue" yaml:"metricValue"`
 	// The IAM role that allows access to the CloudWatch metric.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// An optional [Unix timestamp](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp) .
-	MetricTimestamp *string `json:"metricTimestamp"`
+	MetricTimestamp *string `json:"metricTimestamp" yaml:"metricTimestamp"`
 }
 
 // Describes an action to write to a DynamoDB table.
@@ -11542,29 +11542,29 @@ type CfnTopicRule_CloudwatchMetricActionProperty struct {
 //
 type CfnTopicRule_DynamoDBActionProperty struct {
 	// The hash key name.
-	HashKeyField *string `json:"hashKeyField"`
+	HashKeyField *string `json:"hashKeyField" yaml:"hashKeyField"`
 	// The hash key value.
-	HashKeyValue *string `json:"hashKeyValue"`
+	HashKeyValue *string `json:"hashKeyValue" yaml:"hashKeyValue"`
 	// The ARN of the IAM role that grants access to the DynamoDB table.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// The name of the DynamoDB table.
-	TableName *string `json:"tableName"`
+	TableName *string `json:"tableName" yaml:"tableName"`
 	// The hash key type.
 	//
 	// Valid values are "STRING" or "NUMBER"
-	HashKeyType *string `json:"hashKeyType"`
+	HashKeyType *string `json:"hashKeyType" yaml:"hashKeyType"`
 	// The action payload.
 	//
 	// This name can be customized.
-	PayloadField *string `json:"payloadField"`
+	PayloadField *string `json:"payloadField" yaml:"payloadField"`
 	// The range key name.
-	RangeKeyField *string `json:"rangeKeyField"`
+	RangeKeyField *string `json:"rangeKeyField" yaml:"rangeKeyField"`
 	// The range key type.
 	//
 	// Valid values are "STRING" or "NUMBER"
-	RangeKeyType *string `json:"rangeKeyType"`
+	RangeKeyType *string `json:"rangeKeyType" yaml:"rangeKeyType"`
 	// The range key value.
-	RangeKeyValue *string `json:"rangeKeyValue"`
+	RangeKeyValue *string `json:"rangeKeyValue" yaml:"rangeKeyValue"`
 }
 
 // Describes an action to write to a DynamoDB table.
@@ -11579,9 +11579,9 @@ type CfnTopicRule_DynamoDBv2ActionProperty struct {
 	// `{ "dynamoDBv2": { "roleArn": "aws:iam:12341251:my-role" "putItem": { "tableName": "my-table" } } }`
 	//
 	// Each attribute in the message payload will be written to a separate column in the DynamoDB database.
-	PutItem interface{} `json:"putItem"`
+	PutItem interface{} `json:"putItem" yaml:"putItem"`
 	// The ARN of the IAM role that grants access to the DynamoDB table.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 }
 
 // Describes an action that writes data to an Amazon OpenSearch Service domain.
@@ -11592,15 +11592,15 @@ type CfnTopicRule_DynamoDBv2ActionProperty struct {
 //
 type CfnTopicRule_ElasticsearchActionProperty struct {
 	// The endpoint of your OpenSearch domain.
-	Endpoint *string `json:"endpoint"`
+	Endpoint *string `json:"endpoint" yaml:"endpoint"`
 	// The unique identifier for the document you are storing.
-	Id *string `json:"id"`
+	Id *string `json:"id" yaml:"id"`
 	// The index where you want to store your data.
-	Index *string `json:"index"`
+	Index *string `json:"index" yaml:"index"`
 	// The IAM role ARN that has access to OpenSearch.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// The type of document you are storing.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 }
 
 // Describes an action that writes data to an Amazon Kinesis Firehose stream.
@@ -11609,15 +11609,15 @@ type CfnTopicRule_ElasticsearchActionProperty struct {
 //
 type CfnTopicRule_FirehoseActionProperty struct {
 	// The delivery stream name.
-	DeliveryStreamName *string `json:"deliveryStreamName"`
+	DeliveryStreamName *string `json:"deliveryStreamName" yaml:"deliveryStreamName"`
 	// The IAM role that grants access to the Amazon Kinesis Firehose stream.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// `CfnTopicRule.FirehoseActionProperty.BatchMode`.
-	BatchMode interface{} `json:"batchMode"`
+	BatchMode interface{} `json:"batchMode" yaml:"batchMode"`
 	// A character separator that will be used to separate records written to the Firehose stream.
 	//
 	// Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
-	Separator *string `json:"separator"`
+	Separator *string `json:"separator" yaml:"separator"`
 }
 
 // The HTTP action header.
@@ -11626,11 +11626,11 @@ type CfnTopicRule_FirehoseActionProperty struct {
 //
 type CfnTopicRule_HttpActionHeaderProperty struct {
 	// The HTTP header key.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// The HTTP header value.
 	//
 	// Substitution templates are supported.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // Send data to an HTTPS endpoint.
@@ -11641,15 +11641,15 @@ type CfnTopicRule_HttpActionProperty struct {
 	// The endpoint URL.
 	//
 	// If substitution templates are used in the URL, you must also specify a `confirmationUrl` . If this is a new destination, a new `TopicRuleDestination` is created if possible.
-	Url *string `json:"url"`
+	Url *string `json:"url" yaml:"url"`
 	// The authentication method to use when sending data to an HTTPS endpoint.
-	Auth interface{} `json:"auth"`
+	Auth interface{} `json:"auth" yaml:"auth"`
 	// The URL to which AWS IoT sends a confirmation message.
 	//
 	// The value of the confirmation URL must be a prefix of the endpoint URL. If you do not specify a confirmation URL AWS IoT uses the endpoint URL as the confirmation URL. If you use substitution templates in the confirmationUrl, you must create and enable topic rule destinations that match each possible value of the substitution template before traffic is allowed to your endpoint URL.
-	ConfirmationUrl *string `json:"confirmationUrl"`
+	ConfirmationUrl *string `json:"confirmationUrl" yaml:"confirmationUrl"`
 	// The HTTP headers to send with the message data.
-	Headers interface{} `json:"headers"`
+	Headers interface{} `json:"headers" yaml:"headers"`
 }
 
 // The authorization method used to send messages.
@@ -11660,7 +11660,7 @@ type CfnTopicRule_HttpAuthorizationProperty struct {
 	// Use Sig V4 authorization.
 	//
 	// For more information, see [Signature Version 4 Signing Process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) .
-	Sigv4 interface{} `json:"sigv4"`
+	Sigv4 interface{} `json:"sigv4" yaml:"sigv4"`
 }
 
 // Sends message data to an AWS IoT Analytics channel.
@@ -11669,11 +11669,11 @@ type CfnTopicRule_HttpAuthorizationProperty struct {
 //
 type CfnTopicRule_IotAnalyticsActionProperty struct {
 	// The name of the IoT Analytics channel to which message data will be sent.
-	ChannelName *string `json:"channelName"`
+	ChannelName *string `json:"channelName" yaml:"channelName"`
 	// The ARN of the role which has a policy that grants IoT Analytics permission to send message data via IoT Analytics (iotanalytics:BatchPutMessage).
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// `CfnTopicRule.IotAnalyticsActionProperty.BatchMode`.
-	BatchMode interface{} `json:"batchMode"`
+	BatchMode interface{} `json:"batchMode" yaml:"batchMode"`
 }
 
 // Sends an input to an AWS IoT Events detector.
@@ -11682,19 +11682,19 @@ type CfnTopicRule_IotAnalyticsActionProperty struct {
 //
 type CfnTopicRule_IotEventsActionProperty struct {
 	// The name of the AWS IoT Events input.
-	InputName *string `json:"inputName"`
+	InputName *string `json:"inputName" yaml:"inputName"`
 	// The ARN of the role that grants AWS IoT permission to send an input to an AWS IoT Events detector.
 	//
 	// ("Action":"iotevents:BatchPutMessage").
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// `CfnTopicRule.IotEventsActionProperty.BatchMode`.
-	BatchMode interface{} `json:"batchMode"`
+	BatchMode interface{} `json:"batchMode" yaml:"batchMode"`
 	// The ID of the message. The default `messageId` is a new UUID value.
 	//
 	// When `batchMode` is `true` , you can't specify a `messageId` --a new UUID value will be assigned.
 	//
 	// Assign a value to this property to ensure that only one input (message) with a given `messageId` will be processed by an AWS IoT Events detector.
-	MessageId *string `json:"messageId"`
+	MessageId *string `json:"messageId" yaml:"messageId"`
 }
 
 // Describes an action to send data from an MQTT message that triggered the rule to AWS IoT SiteWise asset properties.
@@ -11703,11 +11703,11 @@ type CfnTopicRule_IotEventsActionProperty struct {
 //
 type CfnTopicRule_IotSiteWiseActionProperty struct {
 	// A list of asset property value entries.
-	PutAssetPropertyValueEntries interface{} `json:"putAssetPropertyValueEntries"`
+	PutAssetPropertyValueEntries interface{} `json:"putAssetPropertyValueEntries" yaml:"putAssetPropertyValueEntries"`
 	// The ARN of the role that grants AWS IoT permission to send an asset property value to AWS IoT SiteWise.
 	//
 	// ( `"Action": "iotsitewise:BatchPutAssetPropertyValue"` ). The trust policy can restrict access to specific asset hierarchy paths.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 }
 
 // Send messages to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) or self-managed Apache Kafka cluster.
@@ -11716,15 +11716,15 @@ type CfnTopicRule_IotSiteWiseActionProperty struct {
 //
 type CfnTopicRule_KafkaActionProperty struct {
 	// Properties of the Apache Kafka producer client.
-	ClientProperties interface{} `json:"clientProperties"`
+	ClientProperties interface{} `json:"clientProperties" yaml:"clientProperties"`
 	// The ARN of Kafka action's VPC `TopicRuleDestination` .
-	DestinationArn *string `json:"destinationArn"`
+	DestinationArn *string `json:"destinationArn" yaml:"destinationArn"`
 	// The Kafka topic for messages to be sent to the Kafka broker.
-	Topic *string `json:"topic"`
+	Topic *string `json:"topic" yaml:"topic"`
 	// The Kafka message key.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// The Kafka message partition.
-	Partition *string `json:"partition"`
+	Partition *string `json:"partition" yaml:"partition"`
 }
 
 // Describes an action to write data to an Amazon Kinesis stream.
@@ -11733,11 +11733,11 @@ type CfnTopicRule_KafkaActionProperty struct {
 //
 type CfnTopicRule_KinesisActionProperty struct {
 	// The ARN of the IAM role that grants access to the Amazon Kinesis stream.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// The name of the Amazon Kinesis stream.
-	StreamName *string `json:"streamName"`
+	StreamName *string `json:"streamName" yaml:"streamName"`
 	// The partition key.
-	PartitionKey *string `json:"partitionKey"`
+	PartitionKey *string `json:"partitionKey" yaml:"partitionKey"`
 }
 
 // Describes an action to invoke a Lambda function.
@@ -11746,7 +11746,7 @@ type CfnTopicRule_KinesisActionProperty struct {
 //
 type CfnTopicRule_LambdaActionProperty struct {
 	// The ARN of the Lambda function.
-	FunctionArn *string `json:"functionArn"`
+	FunctionArn *string `json:"functionArn" yaml:"functionArn"`
 }
 
 // Describes an action that writes data to an Amazon OpenSearch Service domain.
@@ -11755,15 +11755,15 @@ type CfnTopicRule_LambdaActionProperty struct {
 //
 type CfnTopicRule_OpenSearchActionProperty struct {
 	// The endpoint of your OpenSearch domain.
-	Endpoint *string `json:"endpoint"`
+	Endpoint *string `json:"endpoint" yaml:"endpoint"`
 	// The unique identifier for the document you are storing.
-	Id *string `json:"id"`
+	Id *string `json:"id" yaml:"id"`
 	// The OpenSearch index where you want to store your data.
-	Index *string `json:"index"`
+	Index *string `json:"index" yaml:"index"`
 	// The IAM role ARN that has access to OpenSearch.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// The type of document you are storing.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 }
 
 // An asset property value entry containing the following information.
@@ -11772,23 +11772,23 @@ type CfnTopicRule_OpenSearchActionProperty struct {
 //
 type CfnTopicRule_PutAssetPropertyValueEntryProperty struct {
 	// A list of property values to insert that each contain timestamp, quality, and value (TQV) information.
-	PropertyValues interface{} `json:"propertyValues"`
+	PropertyValues interface{} `json:"propertyValues" yaml:"propertyValues"`
 	// The ID of the AWS IoT SiteWise asset.
 	//
 	// You must specify either a `propertyAlias` or both an `aliasId` and a `propertyId` . Accepts substitution templates.
-	AssetId *string `json:"assetId"`
+	AssetId *string `json:"assetId" yaml:"assetId"`
 	// Optional.
 	//
 	// A unique identifier for this entry that you can define to better track which message caused an error in case of failure. Accepts substitution templates. Defaults to a new UUID.
-	EntryId *string `json:"entryId"`
+	EntryId *string `json:"entryId" yaml:"entryId"`
 	// The name of the property alias associated with your asset property.
 	//
 	// You must specify either a `propertyAlias` or both an `aliasId` and a `propertyId` . Accepts substitution templates.
-	PropertyAlias *string `json:"propertyAlias"`
+	PropertyAlias *string `json:"propertyAlias" yaml:"propertyAlias"`
 	// The ID of the asset's property.
 	//
 	// You must specify either a `propertyAlias` or both an `aliasId` and a `propertyId` . Accepts substitution templates.
-	PropertyId *string `json:"propertyId"`
+	PropertyId *string `json:"propertyId" yaml:"propertyId"`
 }
 
 // The input for the DynamoActionVS action that specifies the DynamoDB table to which the message data will be written.
@@ -11797,7 +11797,7 @@ type CfnTopicRule_PutAssetPropertyValueEntryProperty struct {
 //
 type CfnTopicRule_PutItemInputProperty struct {
 	// The table where the message data will be written.
-	TableName *string `json:"tableName"`
+	TableName *string `json:"tableName" yaml:"tableName"`
 }
 
 // Describes an action to republish to another topic.
@@ -11806,13 +11806,13 @@ type CfnTopicRule_PutItemInputProperty struct {
 //
 type CfnTopicRule_RepublishActionProperty struct {
 	// The ARN of the IAM role that grants access.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// The name of the MQTT topic.
-	Topic *string `json:"topic"`
+	Topic *string `json:"topic" yaml:"topic"`
 	// The Quality of Service (QoS) level to use when republishing messages.
 	//
 	// The default value is 0.
-	Qos *float64 `json:"qos"`
+	Qos *float64 `json:"qos" yaml:"qos"`
 }
 
 // Describes an action to write data to an Amazon S3 bucket.
@@ -11821,17 +11821,17 @@ type CfnTopicRule_RepublishActionProperty struct {
 //
 type CfnTopicRule_S3ActionProperty struct {
 	// The Amazon S3 bucket.
-	BucketName *string `json:"bucketName"`
+	BucketName *string `json:"bucketName" yaml:"bucketName"`
 	// The object key.
 	//
 	// For more information, see [Actions, resources, and condition keys for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/list_amazons3.html) .
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// The ARN of the IAM role that grants access.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// The Amazon S3 canned ACL that controls access to the object identified by the object key.
 	//
 	// For more information, see [S3 canned ACLs](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) .
-	CannedAcl *string `json:"cannedAcl"`
+	CannedAcl *string `json:"cannedAcl" yaml:"cannedAcl"`
 }
 
 // For more information, see [Signature Version 4 signing process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) .
@@ -11840,11 +11840,11 @@ type CfnTopicRule_S3ActionProperty struct {
 //
 type CfnTopicRule_SigV4AuthorizationProperty struct {
 	// The ARN of the signing role.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// The service name to use while signing with Sig V4.
-	ServiceName *string `json:"serviceName"`
+	ServiceName *string `json:"serviceName" yaml:"serviceName"`
 	// The signing region.
-	SigningRegion *string `json:"signingRegion"`
+	SigningRegion *string `json:"signingRegion" yaml:"signingRegion"`
 }
 
 // Describes an action to publish to an Amazon SNS topic.
@@ -11853,13 +11853,13 @@ type CfnTopicRule_SigV4AuthorizationProperty struct {
 //
 type CfnTopicRule_SnsActionProperty struct {
 	// The ARN of the IAM role that grants access.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// The ARN of the SNS topic.
-	TargetArn *string `json:"targetArn"`
+	TargetArn *string `json:"targetArn" yaml:"targetArn"`
 	// (Optional) The message format of the message to publish.
 	//
 	// Accepted values are "JSON" and "RAW". The default value of the attribute is "RAW". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. For more information, see [Amazon SNS Message and JSON Formats](https://docs.aws.amazon.com/sns/latest/dg/json-formats.html) in the *Amazon Simple Notification Service Developer Guide* .
-	MessageFormat *string `json:"messageFormat"`
+	MessageFormat *string `json:"messageFormat" yaml:"messageFormat"`
 }
 
 // Describes an action to publish data to an Amazon SQS queue.
@@ -11868,11 +11868,11 @@ type CfnTopicRule_SnsActionProperty struct {
 //
 type CfnTopicRule_SqsActionProperty struct {
 	// The URL of the Amazon SQS queue.
-	QueueUrl *string `json:"queueUrl"`
+	QueueUrl *string `json:"queueUrl" yaml:"queueUrl"`
 	// The ARN of the IAM role that grants access.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// Specifies whether to use Base64 encoding.
-	UseBase64 interface{} `json:"useBase64"`
+	UseBase64 interface{} `json:"useBase64" yaml:"useBase64"`
 }
 
 // Starts execution of a Step Functions state machine.
@@ -11881,13 +11881,13 @@ type CfnTopicRule_SqsActionProperty struct {
 //
 type CfnTopicRule_StepFunctionsActionProperty struct {
 	// The ARN of the role that grants IoT permission to start execution of a state machine ("Action":"states:StartExecution").
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// The name of the Step Functions state machine whose execution will be started.
-	StateMachineName *string `json:"stateMachineName"`
+	StateMachineName *string `json:"stateMachineName" yaml:"stateMachineName"`
 	// (Optional) A name will be given to the state machine execution consisting of this prefix followed by a UUID.
 	//
 	// Step Functions automatically creates a unique name for each state machine execution if one is not provided.
-	ExecutionNamePrefix *string `json:"executionNamePrefix"`
+	ExecutionNamePrefix *string `json:"executionNamePrefix" yaml:"executionNamePrefix"`
 }
 
 // Describes an action that writes records into an Amazon Timestream table.
@@ -11896,19 +11896,19 @@ type CfnTopicRule_StepFunctionsActionProperty struct {
 //
 type CfnTopicRule_TimestreamActionProperty struct {
 	// The name of an Amazon Timestream database that has the table to write records into.
-	DatabaseName *string `json:"databaseName"`
+	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
 	// Metadata attributes of the time series that are written in each measure record.
-	Dimensions interface{} `json:"dimensions"`
+	Dimensions interface{} `json:"dimensions" yaml:"dimensions"`
 	// The Amazon Resource Name (ARN) of the role that grants AWS IoT permission to write to the Timestream database table.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// The table where the message data will be written.
-	TableName *string `json:"tableName"`
+	TableName *string `json:"tableName" yaml:"tableName"`
 	// `CfnTopicRule.TimestreamActionProperty.BatchMode`.
-	BatchMode interface{} `json:"batchMode"`
+	BatchMode interface{} `json:"batchMode" yaml:"batchMode"`
 	// The value to use for the entry's timestamp.
 	//
 	// If blank, the time that the entry was processed is used.
-	Timestamp interface{} `json:"timestamp"`
+	Timestamp interface{} `json:"timestamp" yaml:"timestamp"`
 }
 
 // Metadata attributes of the time series that are written in each measure record.
@@ -11919,9 +11919,9 @@ type CfnTopicRule_TimestreamDimensionProperty struct {
 	// The metadata dimension name.
 	//
 	// This is the name of the column in the Amazon Timestream database table record.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The value to write in this column of the database record.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // The value to use for the entry's timestamp.
@@ -11932,9 +11932,9 @@ type CfnTopicRule_TimestreamDimensionProperty struct {
 //
 type CfnTopicRule_TimestreamTimestampProperty struct {
 	// The precision of the timestamp value that results from the expression described in `value` .
-	Unit *string `json:"unit"`
+	Unit *string `json:"unit" yaml:"unit"`
 	// An expression that returns a long epoch time value.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // Describes a rule.
@@ -11943,21 +11943,21 @@ type CfnTopicRule_TimestreamTimestampProperty struct {
 //
 type CfnTopicRule_TopicRulePayloadProperty struct {
 	// The actions associated with the rule.
-	Actions interface{} `json:"actions"`
+	Actions interface{} `json:"actions" yaml:"actions"`
 	// The SQL statement used to query the topic.
 	//
 	// For more information, see [AWS IoT SQL Reference](https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html) in the *AWS IoT Developer Guide* .
-	Sql *string `json:"sql"`
+	Sql *string `json:"sql" yaml:"sql"`
 	// The version of the SQL rules engine to use when evaluating the rule.
 	//
 	// The default value is 2015-10-08.
-	AwsIotSqlVersion *string `json:"awsIotSqlVersion"`
+	AwsIotSqlVersion *string `json:"awsIotSqlVersion" yaml:"awsIotSqlVersion"`
 	// The description of the rule.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The action to take when an error occurs.
-	ErrorAction interface{} `json:"errorAction"`
+	ErrorAction interface{} `json:"errorAction" yaml:"errorAction"`
 	// Specifies whether the rule is disabled.
-	RuleDisabled interface{} `json:"ruleDisabled"`
+	RuleDisabled interface{} `json:"ruleDisabled" yaml:"ruleDisabled"`
 }
 
 // A CloudFormation `AWS::IoT::TopicRuleDestination`.
@@ -12500,7 +12500,7 @@ func (c *jsiiProxy_CfnTopicRuleDestination) ValidateProperties(_properties inter
 //
 type CfnTopicRuleDestination_HttpUrlDestinationSummaryProperty struct {
 	// The URL used to confirm the HTTP topic rule destination URL.
-	ConfirmationUrl *string `json:"confirmationUrl"`
+	ConfirmationUrl *string `json:"confirmationUrl" yaml:"confirmationUrl"`
 }
 
 // The properties of a virtual private cloud (VPC) destination.
@@ -12509,13 +12509,13 @@ type CfnTopicRuleDestination_HttpUrlDestinationSummaryProperty struct {
 //
 type CfnTopicRuleDestination_VpcDestinationPropertiesProperty struct {
 	// The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// The security groups of the VPC destination.
-	SecurityGroups *[]*string `json:"securityGroups"`
+	SecurityGroups *[]*string `json:"securityGroups" yaml:"securityGroups"`
 	// The subnet IDs of the VPC destination.
-	SubnetIds *[]*string `json:"subnetIds"`
+	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
 	// The ID of the VPC.
-	VpcId *string `json:"vpcId"`
+	VpcId *string `json:"vpcId" yaml:"vpcId"`
 }
 
 // Properties for defining a `CfnTopicRuleDestination`.
@@ -12524,16 +12524,16 @@ type CfnTopicRuleDestination_VpcDestinationPropertiesProperty struct {
 //
 type CfnTopicRuleDestinationProps struct {
 	// Properties of the HTTP URL.
-	HttpUrlProperties interface{} `json:"httpUrlProperties"`
+	HttpUrlProperties interface{} `json:"httpUrlProperties" yaml:"httpUrlProperties"`
 	// - **IN_PROGRESS** - A topic rule destination was created but has not been confirmed.
 	//
 	// You can set status to `IN_PROGRESS` by calling `UpdateTopicRuleDestination` . Calling `UpdateTopicRuleDestination` causes a new confirmation challenge to be sent to your confirmation endpoint.
 	// - **ENABLED** - Confirmation was completed, and traffic to this destination is allowed. You can set status to `DISABLED` by calling `UpdateTopicRuleDestination` .
 	// - **DISABLED** - Confirmation was completed, and traffic to this destination is not allowed. You can set status to `ENABLED` by calling `UpdateTopicRuleDestination` .
 	// - **ERROR** - Confirmation could not be completed; for example, if the confirmation timed out. You can call `GetTopicRuleDestination` for details about the error. You can set status to `IN_PROGRESS` by calling `UpdateTopicRuleDestination` . Calling `UpdateTopicRuleDestination` causes a new confirmation challenge to be sent to your confirmation endpoint.
-	Status *string `json:"status"`
+	Status *string `json:"status" yaml:"status"`
 	// Properties of the virtual private cloud (VPC) connection.
-	VpcProperties interface{} `json:"vpcProperties"`
+	VpcProperties interface{} `json:"vpcProperties" yaml:"vpcProperties"`
 }
 
 // Properties for defining a `CfnTopicRule`.
@@ -12542,9 +12542,9 @@ type CfnTopicRuleDestinationProps struct {
 //
 type CfnTopicRuleProps struct {
 	// The rule payload.
-	TopicRulePayload interface{} `json:"topicRulePayload"`
+	TopicRulePayload interface{} `json:"topicRulePayload" yaml:"topicRulePayload"`
 	// The name of the rule.
-	RuleName *string `json:"ruleName"`
+	RuleName *string `json:"ruleName" yaml:"ruleName"`
 	// Metadata which can be used to manage the topic rule.
 	//
 	// > For URI Request parameters use format: ...key1=value1&key2=value2...
@@ -12552,6 +12552,6 @@ type CfnTopicRuleProps struct {
 	// > For the CLI command-line parameter use format: --tags "key1=value1&key2=value2..."
 	// >
 	// > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 

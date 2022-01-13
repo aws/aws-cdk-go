@@ -223,24 +223,24 @@ type AuthenticateCognitoActionProps struct {
 	//
 	// Multiple actions form a linked chain; the chain must always terminate in a
 	// (weighted)forward, fixedResponse or redirect action.
-	Next awselasticloadbalancingv2.ListenerAction `json:"next"`
+	Next awselasticloadbalancingv2.ListenerAction `json:"next" yaml:"next"`
 	// The Amazon Cognito user pool.
-	UserPool awscognito.IUserPool `json:"userPool"`
+	UserPool awscognito.IUserPool `json:"userPool" yaml:"userPool"`
 	// The Amazon Cognito user pool client.
-	UserPoolClient awscognito.IUserPoolClient `json:"userPoolClient"`
+	UserPoolClient awscognito.IUserPoolClient `json:"userPoolClient" yaml:"userPoolClient"`
 	// The domain prefix or fully-qualified domain name of the Amazon Cognito user pool.
-	UserPoolDomain awscognito.IUserPoolDomain `json:"userPoolDomain"`
+	UserPoolDomain awscognito.IUserPoolDomain `json:"userPoolDomain" yaml:"userPoolDomain"`
 	// The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
-	AuthenticationRequestExtraParams *map[string]*string `json:"authenticationRequestExtraParams"`
+	AuthenticationRequestExtraParams *map[string]*string `json:"authenticationRequestExtraParams" yaml:"authenticationRequestExtraParams"`
 	// The behavior if the user is not authenticated.
-	OnUnauthenticatedRequest awselasticloadbalancingv2.UnauthenticatedAction `json:"onUnauthenticatedRequest"`
+	OnUnauthenticatedRequest awselasticloadbalancingv2.UnauthenticatedAction `json:"onUnauthenticatedRequest" yaml:"onUnauthenticatedRequest"`
 	// The set of user claims to be requested from the IdP.
 	//
 	// To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
-	Scope *string `json:"scope"`
+	Scope *string `json:"scope" yaml:"scope"`
 	// The name of the cookie used to maintain session information.
-	SessionCookieName *string `json:"sessionCookieName"`
+	SessionCookieName *string `json:"sessionCookieName" yaml:"sessionCookieName"`
 	// The maximum duration of the authentication session.
-	SessionTimeout awscdk.Duration `json:"sessionTimeout"`
+	SessionTimeout awscdk.Duration `json:"sessionTimeout" yaml:"sessionTimeout"`
 }
 

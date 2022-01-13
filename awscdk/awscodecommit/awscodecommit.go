@@ -608,11 +608,11 @@ type CfnRepository_CodeProperty struct {
 	// Information about the Amazon S3 bucket that contains a ZIP file of code to be committed to the repository.
 	//
 	// Changes to this property are ignored after initial resource creation.
-	S3 interface{} `json:"s3"`
+	S3 interface{} `json:"s3" yaml:"s3"`
 	// Optional.
 	//
 	// Specifies a branch name to be used as the default branch when importing code into a repository on initial creation. If this property is not set, the name *main* will be used for the default branch for the repository. Changes to this property are ignored after initial resource creation. We recommend using this parameter to set the name to *main* to align with the default behavior of CodeCommit unless another name is needed.
-	BranchName *string `json:"branchName"`
+	BranchName *string `json:"branchName" yaml:"branchName"`
 }
 
 // Information about a trigger for a repository.
@@ -623,21 +623,21 @@ type CfnRepository_CodeProperty struct {
 //
 type CfnRepository_RepositoryTriggerProperty struct {
 	// The ARN of the resource that is the target for a trigger (for example, the ARN of a topic in Amazon SNS).
-	DestinationArn *string `json:"destinationArn"`
+	DestinationArn *string `json:"destinationArn" yaml:"destinationArn"`
 	// The repository events that cause the trigger to run actions in another service, such as sending a notification through Amazon SNS.
 	//
 	// > The valid value "all" cannot be used with any other values.
-	Events *[]*string `json:"events"`
+	Events *[]*string `json:"events" yaml:"events"`
 	// The name of the trigger.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The branches to be included in the trigger configuration.
 	//
 	// If you specify an empty array, the trigger applies to all branches.
 	//
 	// > Although no content is required in the array, you must include the array itself.
-	Branches *[]*string `json:"branches"`
+	Branches *[]*string `json:"branches" yaml:"branches"`
 	// Any custom data associated with the trigger to be included in the information sent to the target of the trigger.
-	CustomData *string `json:"customData"`
+	CustomData *string `json:"customData" yaml:"customData"`
 }
 
 // Information about the Amazon S3 bucket that contains the code that will be committed to the new repository.
@@ -650,15 +650,15 @@ type CfnRepository_S3Property struct {
 	// The name of the Amazon S3 bucket that contains the ZIP file with the content that will be committed to the new repository.
 	//
 	// This can be specified using the name of the bucket in the AWS account . Changes to this property are ignored after initial resource creation.
-	Bucket *string `json:"bucket"`
+	Bucket *string `json:"bucket" yaml:"bucket"`
 	// The key to use for accessing the Amazon S3 bucket.
 	//
 	// Changes to this property are ignored after initial resource creation. For more information, see [Creating object key names](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html) and [Uploading objects](https://docs.aws.amazon.com/AmazonS3/latest/userguide/upload-objects.html) in the Amazon S3 User Guide.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// The object version of the ZIP file, if versioning is enabled for the Amazon S3 bucket.
 	//
 	// Changes to this property are ignored after initial resource creation.
-	ObjectVersion *string `json:"objectVersion"`
+	ObjectVersion *string `json:"objectVersion" yaml:"objectVersion"`
 }
 
 // Properties for defining a `CfnRepository`.
@@ -669,21 +669,21 @@ type CfnRepositoryProps struct {
 	// The name of the new repository to be created.
 	//
 	// > The repository name must be unique across the calling AWS account . Repository names are limited to 100 alphanumeric, dash, and underscore characters, and cannot include certain characters. For more information about the limits on repository names, see [Quotas](https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html) in the *AWS CodeCommit User Guide* . The suffix .git is prohibited.
-	RepositoryName *string `json:"repositoryName"`
+	RepositoryName *string `json:"repositoryName" yaml:"repositoryName"`
 	// Information about code to be committed to a repository after it is created in an AWS CloudFormation stack.
 	//
 	// Information about code is only used in resource creation. Updates to a stack will not reflect changes made to code properties after initial resource creation.
 	//
 	// > You can only use this property to add code when creating a repository with a AWS CloudFormation template at creation time. This property cannot be used for updating code to an existing repository.
-	Code interface{} `json:"code"`
+	Code interface{} `json:"code" yaml:"code"`
 	// A comment or description about the new repository.
 	//
 	// > The description field for a repository accepts all HTML characters and all valid Unicode characters. Applications that do not HTML-encode the description and display it in a webpage can expose users to potentially malicious code. Make sure that you HTML-encode the description field in any application that uses this API to display the repository description on a webpage.
-	RepositoryDescription *string `json:"repositoryDescription"`
+	RepositoryDescription *string `json:"repositoryDescription" yaml:"repositoryDescription"`
 	// One or more tag key-value pairs to use when tagging this repository.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// The JSON block of configuration information for each trigger.
-	Triggers interface{} `json:"triggers"`
+	Triggers interface{} `json:"triggers" yaml:"triggers"`
 }
 
 // Represents the contents to initialize the repository with.
@@ -777,7 +777,7 @@ func (c *jsiiProxy_Code) Bind(scope constructs.Construct) *CodeConfig {
 //
 type CodeConfig struct {
 	// represents the underlying code structure.
-	Code *CfnRepository_CodeProperty `json:"code"`
+	Code *CfnRepository_CodeProperty `json:"code" yaml:"code"`
 }
 
 type IRepository interface {
@@ -1243,7 +1243,7 @@ func (j *jsiiProxy_IRepository) Stack() awscdk.Stack {
 //
 type OnCommitOptions struct {
 	// A description of the rule's purpose.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Additional restrictions for the event to route to the specified target.
 	//
 	// The method that generates the rule probably imposes some type of event
@@ -1251,13 +1251,13 @@ type OnCommitOptions struct {
 	// on top of that filtering.
 	// See: https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html
 	//
-	EventPattern *awsevents.EventPattern `json:"eventPattern"`
+	EventPattern *awsevents.EventPattern `json:"eventPattern" yaml:"eventPattern"`
 	// A name for the rule.
-	RuleName *string `json:"ruleName"`
+	RuleName *string `json:"ruleName" yaml:"ruleName"`
 	// The target to register for the event.
-	Target awsevents.IRuleTarget `json:"target"`
+	Target awsevents.IRuleTarget `json:"target" yaml:"target"`
 	// The branch to monitor.
-	Branches *[]*string `json:"branches"`
+	Branches *[]*string `json:"branches" yaml:"branches"`
 }
 
 // Fields of CloudWatch Events that change references.
@@ -2048,21 +2048,21 @@ type RepositoryNotifyOnOptions struct {
 	//
 	// BASIC will include only the contents of the event as it would appear in AWS CloudWatch.
 	// FULL will include any supplemental information provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created.
-	DetailType awscodestarnotifications.DetailType `json:"detailType"`
+	DetailType awscodestarnotifications.DetailType `json:"detailType" yaml:"detailType"`
 	// The status of the notification rule.
 	//
 	// If the enabled is set to DISABLED, notifications aren't sent for the notification rule.
-	Enabled *bool `json:"enabled"`
+	Enabled *bool `json:"enabled" yaml:"enabled"`
 	// The name for the notification rule.
 	//
 	// Notification rule names must be unique in your AWS account.
-	NotificationRuleName *string `json:"notificationRuleName"`
+	NotificationRuleName *string `json:"notificationRuleName" yaml:"notificationRuleName"`
 	// A list of event types associated with this notification rule for CodeCommit repositories.
 	//
 	// For a complete list of event types and IDs, see Notification concepts in the Developer Tools Console User Guide.
 	// See: https://docs.aws.amazon.com/dtconsole/latest/userguide/concepts.html#concepts-api
 	//
-	Events *[]RepositoryNotificationEvents `json:"events"`
+	Events *[]RepositoryNotificationEvents `json:"events" yaml:"events"`
 }
 
 // TODO: EXAMPLE
@@ -2071,14 +2071,14 @@ type RepositoryProps struct {
 	// Name of the repository.
 	//
 	// This property is required for all CodeCommit repositories.
-	RepositoryName *string `json:"repositoryName"`
+	RepositoryName *string `json:"repositoryName" yaml:"repositoryName"`
 	// The contents with which to initialize the repository after it has been created.
-	Code Code `json:"code"`
+	Code Code `json:"code" yaml:"code"`
 	// A description of the repository.
 	//
 	// Use the description to identify the
 	// purpose of the repository.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 }
 
 // Creates for a repository trigger to an SNS topic or Lambda function.
@@ -2090,12 +2090,12 @@ type RepositoryTriggerOptions struct {
 	//
 	// If you don't specify at
 	// least one branch, the trigger applies to all branches.
-	Branches *[]*string `json:"branches"`
+	Branches *[]*string `json:"branches" yaml:"branches"`
 	// When an event is triggered, additional information that AWS CodeCommit includes when it sends information to the target.
-	CustomData *string `json:"customData"`
+	CustomData *string `json:"customData" yaml:"customData"`
 	// The repository events for which AWS CodeCommit sends information to the target, which you specified in the DestinationArn property.If you don't specify events, the trigger runs for all repository events.
-	Events *[]RepositoryEventTrigger `json:"events"`
+	Events *[]RepositoryEventTrigger `json:"events" yaml:"events"`
 	// A name for the trigger.Triggers on a repository must have unique names.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 

@@ -582,13 +582,13 @@ func (c *jsiiProxy_CfnDomain) ValidateProperties(_properties interface{}) {
 //
 type CfnDomainProps struct {
 	// A string that specifies the name of the requested domain.
-	DomainName *string `json:"domainName"`
+	DomainName *string `json:"domainName" yaml:"domainName"`
 	// The key used to encrypt the domain.
-	EncryptionKey *string `json:"encryptionKey"`
+	EncryptionKey *string `json:"encryptionKey" yaml:"encryptionKey"`
 	// The document that defines the resource policy that is set on a domain.
-	PermissionsPolicyDocument interface{} `json:"permissionsPolicyDocument"`
+	PermissionsPolicyDocument interface{} `json:"permissionsPolicyDocument" yaml:"permissionsPolicyDocument"`
 	// A list of tags to be applied to the domain.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::CodeArtifact::Repository`.
@@ -1244,24 +1244,24 @@ func (c *jsiiProxy_CfnRepository) ValidateProperties(_properties interface{}) {
 //
 type CfnRepositoryProps struct {
 	// The name of the domain that contains the repository.
-	DomainName *string `json:"domainName"`
+	DomainName *string `json:"domainName" yaml:"domainName"`
 	// The name of an upstream repository.
-	RepositoryName *string `json:"repositoryName"`
+	RepositoryName *string `json:"repositoryName" yaml:"repositoryName"`
 	// A text description of the repository.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The 12-digit account number of the AWS account that owns the domain that contains the repository.
 	//
 	// It does not include dashes or spaces.
-	DomainOwner *string `json:"domainOwner"`
+	DomainOwner *string `json:"domainOwner" yaml:"domainOwner"`
 	// An array of external connections associated with the repository.
-	ExternalConnections *[]*string `json:"externalConnections"`
+	ExternalConnections *[]*string `json:"externalConnections" yaml:"externalConnections"`
 	// The document that defines the resource policy that is set on a repository.
-	PermissionsPolicyDocument interface{} `json:"permissionsPolicyDocument"`
+	PermissionsPolicyDocument interface{} `json:"permissionsPolicyDocument" yaml:"permissionsPolicyDocument"`
 	// A list of tags to be applied to the repository.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// A list of upstream repositories to associate with the repository.
 	//
 	// The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. For more information, see [Working with upstream repositories](https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html) .
-	Upstreams *[]*string `json:"upstreams"`
+	Upstreams *[]*string `json:"upstreams" yaml:"upstreams"`
 }
 

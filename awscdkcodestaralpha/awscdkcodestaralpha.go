@@ -255,43 +255,43 @@ func (g *jsiiProxy_GitHubRepository) ToString() *string {
 type GitHubRepositoryProps struct {
 	// The GitHub user's personal access token for the GitHub repository.
 	// Experimental.
-	AccessToken awscdk.SecretValue `json:"accessToken"`
+	AccessToken awscdk.SecretValue `json:"accessToken" yaml:"accessToken"`
 	// The name of the Amazon S3 bucket that contains the ZIP file with the content to be committed to the new repository.
 	// Experimental.
-	ContentsBucket awss3.IBucket `json:"contentsBucket"`
+	ContentsBucket awss3.IBucket `json:"contentsBucket" yaml:"contentsBucket"`
 	// The S3 object key or file name for the ZIP file.
 	// Experimental.
-	ContentsKey *string `json:"contentsKey"`
+	ContentsKey *string `json:"contentsKey" yaml:"contentsKey"`
 	// The GitHub user name for the owner of the GitHub repository to be created.
 	//
 	// If this
 	// repository should be owned by a GitHub organization, provide its name
 	// Experimental.
-	Owner *string `json:"owner"`
+	Owner *string `json:"owner" yaml:"owner"`
 	// The name of the repository you want to create in GitHub with AWS CloudFormation stack creation.
 	// Experimental.
-	RepositoryName *string `json:"repositoryName"`
+	RepositoryName *string `json:"repositoryName" yaml:"repositoryName"`
 	// The object version of the ZIP file, if versioning is enabled for the Amazon S3 bucket.
 	// Experimental.
-	ContentsS3Version *string `json:"contentsS3Version"`
+	ContentsS3Version *string `json:"contentsS3Version" yaml:"contentsS3Version"`
 	// A comment or description about the new repository.
 	//
 	// This description is displayed in GitHub after the repository
 	// is created.
 	// Experimental.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Indicates whether to enable issues for the GitHub repository.
 	//
 	// You can use GitHub issues to track information
 	// and bugs for your repository.
 	// Experimental.
-	EnableIssues *bool `json:"enableIssues"`
+	EnableIssues *bool `json:"enableIssues" yaml:"enableIssues"`
 	// Indicates whether the GitHub repository is a private repository.
 	//
 	// If so, you choose who can see and commit to
 	// this repository.
 	// Experimental.
-	Visibility RepositoryVisibility `json:"visibility"`
+	Visibility RepositoryVisibility `json:"visibility" yaml:"visibility"`
 }
 
 // GitHubRepository resource interface.

@@ -599,11 +599,11 @@ type CfnGroup_ConfigurationItemProperty struct {
 	// A collection of parameters for this configuration item.
 	//
 	// For the list of parameters that you can use with each configuration item `Type` , see [Supported resource types and parameters](https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html#about-slg-types) in the *AWS Resource Groups User Guide* .
-	Parameters interface{} `json:"parameters"`
+	Parameters interface{} `json:"parameters" yaml:"parameters"`
 	// Specifies the type of configuration item.
 	//
 	// Each item must have a unique value for type. For the list of the types that you can specify for a configuration item, see [Supported resource types and parameters](https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html#about-slg-types) in the *AWS Resource Groups User Guide* .
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 }
 
 // One parameter for a group configuration item.
@@ -616,11 +616,11 @@ type CfnGroup_ConfigurationParameterProperty struct {
 	// The name of the group configuration parameter.
 	//
 	// For the list of parameters that you can use with each configuration item type, see [Supported resource types and parameters](https://docs.aws.amazon.com//ARG/latest/APIReference/about-slg.html#about-slg-types) in the *AWS Resource Groups User Guide* .
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The value or values to be used for the specified parameter.
 	//
 	// For the list of values you can use with each parameter, see [Supported resource types and parameters](https://docs.aws.amazon.com//ARG/latest/APIReference/about-slg.html#about-slg-types) .
-	Values *[]*string `json:"values"`
+	Values *[]*string `json:"values" yaml:"values"`
 }
 
 // Specifies details within a `ResourceQuery` structure that determines the membership of the resource group.
@@ -633,19 +633,19 @@ type CfnGroup_QueryProperty struct {
 	// Specifies limits to the types of resources that can be included in the resource group.
 	//
 	// For example, if `ResourceTypeFilters` is `["AWS::EC2::Instance", "AWS::DynamoDB::Table"]` , only EC2 instances or DynamoDB tables can be members of this resource group. The default value is `["AWS::AllSupported"]` .
-	ResourceTypeFilters *[]*string `json:"resourceTypeFilters"`
+	ResourceTypeFilters *[]*string `json:"resourceTypeFilters" yaml:"resourceTypeFilters"`
 	// Specifies the ARN of a CloudFormation stack.
 	//
 	// All supported resources of the CloudFormation stack are members of the resource group. If you don't specify an ARN, this parameter defaults to the current stack that you are defining, which means that all the resources of the current stack are grouped.
 	//
 	// You can specify a value for `StackIdentifier` only when the `ResourceQuery.Type` property is `CLOUDFORMATION_STACK_1_0.`
-	StackIdentifier *string `json:"stackIdentifier"`
+	StackIdentifier *string `json:"stackIdentifier" yaml:"stackIdentifier"`
 	// A list of key-value pair objects that limit which resources can be members of the resource group.
 	//
 	// This property is required when the `ResourceQuery.Type` property is `TAG_FILTERS_1_0` .
 	//
 	// A resource must have a tag that matches every filter that is provided in the `TagFilters` list.
-	TagFilters interface{} `json:"tagFilters"`
+	TagFilters interface{} `json:"tagFilters" yaml:"tagFilters"`
 }
 
 // The query used to dynamically define the members of a group.
@@ -663,12 +663,12 @@ type CfnGroup_ResourceQueryProperty struct {
 	//
 	// - When the `Type` is `TAG_FILTERS_1_0` , you must specify a `Query` structure that contains a `TagFilters` list of tags. Resources with tags that match those in the `TagFilter` list become members of the resource group.
 	// - When the `Type` is `CLOUDFORMATION_STACK_1_0` then this field is required only when you must specify a CloudFormation stack other than the one you are defining. To do this, the `Query` structure must contain the `StackIdentifier` property. If you don't specify either a `Query` structure or a `StackIdentifier` within that `Query` , then it defaults to the CloudFormation stack that you're currently constructing.
-	Query interface{} `json:"query"`
+	Query interface{} `json:"query" yaml:"query"`
 	// Specifies the type of resource query that determines this group's membership. There are two valid query types:.
 	//
 	// - `TAG_FILTERS_1_0` indicates that the group is a tag-based group. To complete the group membership, you must include the `TagFilters` property to specify the tag filters to use in the query.
 	// - `CLOUDFORMATION_STACK_1_0` , the default, indicates that the group is a CloudFormation stack-based group. Group membership is based on the CloudFormation stack. You must specify the `StackIdentifier` property in the query to define which stack to associate the group with, or leave it empty to default to the stack where the group is defined.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 }
 
 // Specifies a single tag key and optional values that you can use to specify membership in a tag-based group.
@@ -690,11 +690,11 @@ type CfnGroup_TagFilterProperty struct {
 	// Only resources in the account that are tagged with a specified tag key are members of the tag-based resource group.
 	//
 	// This field is required when the `ResourceQuery` structure's `Type` property is `TAG_FILTERS_1_0` . You must specify at least one tag key.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// A list of tag values that can be included in the tag-based resource group.
 	//
 	// This is optional. If you don't specify a value or values for a key, then an AWS resource with any value for that key is a member.
-	Values *[]*string `json:"values"`
+	Values *[]*string `json:"values" yaml:"values"`
 }
 
 // Properties for defining a `CfnGroup`.
@@ -705,28 +705,28 @@ type CfnGroupProps struct {
 	// The name of a resource group.
 	//
 	// The name must be unique within the AWS Region in which you create the resource. To create multiple resource groups based on the same CloudFormation stack, you must generate unique names for each.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The service configuration currently associated with the resource group and in effect for the members of the resource group.
 	//
 	// A `Configuration` consists of one or more `ConfigurationItem` entries. For information about service configurations for resource groups and how to construct them, see [Service configurations for resource groups](https://docs.aws.amazon.com//ARG/latest/APIReference/about-slg.html) in the *AWS Resource Groups User Guide* .
 	//
 	// > You can include either a `Configuration` or a `ResourceQuery` , but not both.
-	Configuration interface{} `json:"configuration"`
+	Configuration interface{} `json:"configuration" yaml:"configuration"`
 	// The description of the resource group.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The resource query structure that is used to dynamically determine which AWS resources are members of the associated resource group.
 	//
 	// For more information about queries and how to construct them, see [Build queries and groups in AWS Resource Groups](https://docs.aws.amazon.com//ARG/latest/userguide/gettingstarted-query.html) in the *AWS Resource Groups User Guide*
 	//
 	// > - You can include either a `ResourceQuery` or a `Configuration` , but not both.
 	// > - You can specify the group's membership either by using a `ResourceQuery` or by using a list of `Resources` , but not both.
-	ResourceQuery interface{} `json:"resourceQuery"`
+	ResourceQuery interface{} `json:"resourceQuery" yaml:"resourceQuery"`
 	// A list of the Amazon Resource Names (ARNs) of AWS resources that you want to add to the specified group.
 	//
 	// > - You can specify the group membership either by using a list of `Resources` or by using a `ResourceQuery` , but not both.
 	// > - You can include a `Resources` property only if you also specify a `Configuration` property.
-	Resources *[]*string `json:"resources"`
+	Resources *[]*string `json:"resources" yaml:"resources"`
 	// The tag key and value pairs that are attached to the resource group.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 

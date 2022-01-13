@@ -20,9 +20,9 @@ import (
 //
 type BetweenCondition struct {
 	// The start value.
-	Start *float64 `json:"start"`
+	Start *float64 `json:"start" yaml:"start"`
 	// The stop value.
-	Stop *float64 `json:"stop"`
+	Stop *float64 `json:"stop" yaml:"stop"`
 }
 
 // A CloudFormation `AWS::SNS::Subscription`.
@@ -665,31 +665,31 @@ type CfnSubscriptionProps struct {
 	// The subscription's protocol.
 	//
 	// For more information, see the `Protocol` parameter of the `[Subscribe](https://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html)` action in the *Amazon SNS API Reference* .
-	Protocol *string `json:"protocol"`
+	Protocol *string `json:"protocol" yaml:"protocol"`
 	// The ARN of the topic to subscribe to.
-	TopicArn *string `json:"topicArn"`
+	TopicArn *string `json:"topicArn" yaml:"topicArn"`
 	// The delivery policy JSON assigned to the subscription.
 	//
 	// Enables the subscriber to define the message delivery retry strategy in the case of an HTTP/S endpoint subscribed to the topic. For more information, see `[GetSubscriptionAttributes](https://docs.aws.amazon.com/sns/latest/api/API_GetSubscriptionAttributes.html)` in the *Amazon SNS API Reference* and [Message delivery retries](https://docs.aws.amazon.com/sns/latest/dg/sns-message-delivery-retries.html) in the *Amazon SNS Developer Guide* .
-	DeliveryPolicy interface{} `json:"deliveryPolicy"`
+	DeliveryPolicy interface{} `json:"deliveryPolicy" yaml:"deliveryPolicy"`
 	// The subscription's endpoint.
 	//
 	// The endpoint value depends on the protocol that you specify. For more information, see the `Endpoint` parameter of the `[Subscribe](https://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html)` action in the *Amazon SNS API Reference* .
-	Endpoint *string `json:"endpoint"`
+	Endpoint *string `json:"endpoint" yaml:"endpoint"`
 	// The filter policy JSON assigned to the subscription.
 	//
 	// Enables the subscriber to filter out unwanted messages. For more information, see `[GetSubscriptionAttributes](https://docs.aws.amazon.com/sns/latest/api/API_GetSubscriptionAttributes.html)` in the *Amazon SNS API Reference* and [Message filtering](https://docs.aws.amazon.com/sns/latest/dg/sns-message-filtering.html) in the *Amazon SNS Developer Guide* .
-	FilterPolicy interface{} `json:"filterPolicy"`
+	FilterPolicy interface{} `json:"filterPolicy" yaml:"filterPolicy"`
 	// When set to `true` , enables raw message delivery.
 	//
 	// Raw messages don't contain any JSON formatting and can be sent to Amazon SQS and HTTP/S endpoints. For more information, see `[GetSubscriptionAttributes](https://docs.aws.amazon.com/sns/latest/api/API_GetSubscriptionAttributes.html)` in the *Amazon SNS API Reference* .
-	RawMessageDelivery interface{} `json:"rawMessageDelivery"`
+	RawMessageDelivery interface{} `json:"rawMessageDelivery" yaml:"rawMessageDelivery"`
 	// When specified, sends undeliverable messages to the specified Amazon SQS dead-letter queue.
 	//
 	// Messages that can't be delivered due to client errors (for example, when the subscribed endpoint is unreachable) or server errors (for example, when the service that powers the subscribed endpoint becomes unavailable) are held in the dead-letter queue for further analysis or reprocessing.
 	//
 	// For more information about the redrive policy and dead-letter queues, see [Amazon SQS dead-letter queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html) in the *Amazon SQS Developer Guide* .
-	RedrivePolicy interface{} `json:"redrivePolicy"`
+	RedrivePolicy interface{} `json:"redrivePolicy" yaml:"redrivePolicy"`
 	// For cross-region subscriptions, the region in which the topic resides.
 	//
 	// If no region is specified, AWS CloudFormation uses the region of the caller as the default.
@@ -698,7 +698,7 @@ type CfnSubscriptionProps struct {
 	//
 	// - Updating the `Region` from `NULL` to the caller region.
 	// - Updating the `Region` from the caller region to `NULL` .
-	Region *string `json:"region"`
+	Region *string `json:"region" yaml:"region"`
 	// This property applies only to Amazon Kinesis Data Firehose delivery stream subscriptions.
 	//
 	// Specify the ARN of the IAM role that has the following:
@@ -707,7 +707,7 @@ type CfnSubscriptionProps struct {
 	// - Amazon SNS listed as a trusted entity
 	//
 	// Specifying a valid ARN for this attribute is required for Kinesis Data Firehose delivery stream subscriptions. For more information, see [Fanout to Amazon Kinesis Data Firehose delivery streams](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html) in the *Amazon SNS Developer Guide.*
-	SubscriptionRoleArn *string `json:"subscriptionRoleArn"`
+	SubscriptionRoleArn *string `json:"subscriptionRoleArn" yaml:"subscriptionRoleArn"`
 }
 
 // A CloudFormation `AWS::SNS::Topic`.
@@ -1316,11 +1316,11 @@ type CfnTopic_SubscriptionProperty struct {
 	// The endpoint that receives notifications from the Amazon SNS topic.
 	//
 	// The endpoint value depends on the protocol that you specify. For more information, see the `Endpoint` parameter of the `[Subscribe](https://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html)` action in the *Amazon SNS API Reference* .
-	Endpoint *string `json:"endpoint"`
+	Endpoint *string `json:"endpoint" yaml:"endpoint"`
 	// The subscription's protocol.
 	//
 	// For more information, see the `Protocol` parameter of the `[Subscribe](https://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html)` action in the *Amazon SNS API Reference* .
-	Protocol *string `json:"protocol"`
+	Protocol *string `json:"protocol" yaml:"protocol"`
 }
 
 // A CloudFormation `AWS::SNS::TopicPolicy`.
@@ -1821,11 +1821,11 @@ func (c *jsiiProxy_CfnTopicPolicy) ValidateProperties(_properties interface{}) {
 //
 type CfnTopicPolicyProps struct {
 	// A policy document that contains permissions to add to the specified SNS topics.
-	PolicyDocument interface{} `json:"policyDocument"`
+	PolicyDocument interface{} `json:"policyDocument" yaml:"policyDocument"`
 	// The Amazon Resource Names (ARN) of the topics to which you want to add the policy.
 	//
 	// You can use the `[Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)` function to specify an `[AWS::SNS::Topic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html)` resource.
-	Topics *[]*string `json:"topics"`
+	Topics *[]*string `json:"topics" yaml:"topics"`
 }
 
 // Properties for defining a `CfnTopic`.
@@ -1839,23 +1839,23 @@ type CfnTopicProps struct {
 	// - When you set `ContentBasedDeduplication` to `true` , Amazon SNS uses a SHA-256 hash to generate the `MessageDeduplicationId` using the body of the message (but not the attributes of the message).
 	//
 	// (Optional) To override the generated value, you can specify a value for the the `MessageDeduplicationId` parameter for the `Publish` action.
-	ContentBasedDeduplication interface{} `json:"contentBasedDeduplication"`
+	ContentBasedDeduplication interface{} `json:"contentBasedDeduplication" yaml:"contentBasedDeduplication"`
 	// The display name to use for an Amazon SNS topic with SMS subscriptions.
-	DisplayName *string `json:"displayName"`
+	DisplayName *string `json:"displayName" yaml:"displayName"`
 	// Set to true to create a FIFO topic.
-	FifoTopic interface{} `json:"fifoTopic"`
+	FifoTopic interface{} `json:"fifoTopic" yaml:"fifoTopic"`
 	// The ID of an AWS managed customer master key (CMK) for Amazon SNS or a custom CMK.
 	//
 	// For more information, see [Key terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms) . For more examples, see `[KeyId](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters)` in the *AWS Key Management Service API Reference* .
 	//
 	// This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html) .
-	KmsMasterKeyId *string `json:"kmsMasterKeyId"`
+	KmsMasterKeyId *string `json:"kmsMasterKeyId" yaml:"kmsMasterKeyId"`
 	// The Amazon SNS subscriptions (endpoints) for this topic.
-	Subscription interface{} `json:"subscription"`
+	Subscription interface{} `json:"subscription" yaml:"subscription"`
 	// The list of tags to add to a new topic.
 	//
 	// > To be able to tag a topic on creation, you must have the `sns:CreateTopic` and `sns:TagResource` permissions.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// The name of the topic you want to create.
 	//
 	// Topic names must include only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. FIFO topic names must end with `.fifo` .
@@ -1863,7 +1863,7 @@ type CfnTopicProps struct {
 	// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the topic name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
 	//
 	// > If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
-	TopicName *string `json:"topicName"`
+	TopicName *string `json:"topicName" yaml:"topicName"`
 }
 
 // Represents an SNS topic.
@@ -2195,19 +2195,19 @@ func (i *jsiiProxy_ITopicSubscription) Bind(topic ITopic) *TopicSubscriptionConf
 //
 type NumericConditions struct {
 	// Match one or more values.
-	Allowlist *[]*float64 `json:"allowlist"`
+	Allowlist *[]*float64 `json:"allowlist" yaml:"allowlist"`
 	// Match values that are between the specified values.
-	Between *BetweenCondition `json:"between"`
+	Between *BetweenCondition `json:"between" yaml:"between"`
 	// Match values that are strictly between the specified values.
-	BetweenStrict *BetweenCondition `json:"betweenStrict"`
+	BetweenStrict *BetweenCondition `json:"betweenStrict" yaml:"betweenStrict"`
 	// Match values that are greater than the specified value.
-	GreaterThan *float64 `json:"greaterThan"`
+	GreaterThan *float64 `json:"greaterThan" yaml:"greaterThan"`
 	// Match values that are greater than or equal to the specified value.
-	GreaterThanOrEqualTo *float64 `json:"greaterThanOrEqualTo"`
+	GreaterThanOrEqualTo *float64 `json:"greaterThanOrEqualTo" yaml:"greaterThanOrEqualTo"`
 	// Match values that are less than the specified value.
-	LessThan *float64 `json:"lessThan"`
+	LessThan *float64 `json:"lessThan" yaml:"lessThan"`
 	// Match values that are less than or equal to the specified value.
-	LessThanOrEqualTo *float64 `json:"lessThanOrEqualTo"`
+	LessThanOrEqualTo *float64 `json:"lessThanOrEqualTo" yaml:"lessThanOrEqualTo"`
 }
 
 // Conditions that can be applied to string attributes.
@@ -2216,11 +2216,11 @@ type NumericConditions struct {
 //
 type StringConditions struct {
 	// Match one or more values.
-	Allowlist *[]*string `json:"allowlist"`
+	Allowlist *[]*string `json:"allowlist" yaml:"allowlist"`
 	// Match any value that doesn't include any of the specified values.
-	Denylist *[]*string `json:"denylist"`
+	Denylist *[]*string `json:"denylist" yaml:"denylist"`
 	// Matches values that begins with the specified prefixes.
-	MatchPrefixes *[]*string `json:"matchPrefixes"`
+	MatchPrefixes *[]*string `json:"matchPrefixes" yaml:"matchPrefixes"`
 }
 
 // A new subscription.
@@ -2544,27 +2544,27 @@ type SubscriptionOptions struct {
 	// The subscription endpoint.
 	//
 	// The meaning of this value depends on the value for 'protocol'.
-	Endpoint *string `json:"endpoint"`
+	Endpoint *string `json:"endpoint" yaml:"endpoint"`
 	// What type of subscription to add.
-	Protocol SubscriptionProtocol `json:"protocol"`
+	Protocol SubscriptionProtocol `json:"protocol" yaml:"protocol"`
 	// Queue to be used as dead letter queue.
 	//
 	// If not passed no dead letter queue is enabled.
-	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue"`
+	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// The filter policy.
-	FilterPolicy *map[string]SubscriptionFilter `json:"filterPolicy"`
+	FilterPolicy *map[string]SubscriptionFilter `json:"filterPolicy" yaml:"filterPolicy"`
 	// true if raw message delivery is enabled for the subscription.
 	//
 	// Raw messages are free of JSON formatting and can be
 	// sent to HTTP/S and Amazon SQS endpoints. For more information, see GetSubscriptionAttributes in the Amazon Simple
 	// Notification Service API Reference.
-	RawMessageDelivery *bool `json:"rawMessageDelivery"`
+	RawMessageDelivery *bool `json:"rawMessageDelivery" yaml:"rawMessageDelivery"`
 	// The region where the topic resides, in the case of cross-region subscriptions.
-	Region *string `json:"region"`
+	Region *string `json:"region" yaml:"region"`
 	// Arn of role allowing access to firehose delivery stream.
 	//
 	// Required for a firehose subscription protocol.
-	SubscriptionRoleArn *string `json:"subscriptionRoleArn"`
+	SubscriptionRoleArn *string `json:"subscriptionRoleArn" yaml:"subscriptionRoleArn"`
 }
 
 // Properties for creating a new subscription.
@@ -2575,29 +2575,29 @@ type SubscriptionProps struct {
 	// The subscription endpoint.
 	//
 	// The meaning of this value depends on the value for 'protocol'.
-	Endpoint *string `json:"endpoint"`
+	Endpoint *string `json:"endpoint" yaml:"endpoint"`
 	// What type of subscription to add.
-	Protocol SubscriptionProtocol `json:"protocol"`
+	Protocol SubscriptionProtocol `json:"protocol" yaml:"protocol"`
 	// Queue to be used as dead letter queue.
 	//
 	// If not passed no dead letter queue is enabled.
-	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue"`
+	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// The filter policy.
-	FilterPolicy *map[string]SubscriptionFilter `json:"filterPolicy"`
+	FilterPolicy *map[string]SubscriptionFilter `json:"filterPolicy" yaml:"filterPolicy"`
 	// true if raw message delivery is enabled for the subscription.
 	//
 	// Raw messages are free of JSON formatting and can be
 	// sent to HTTP/S and Amazon SQS endpoints. For more information, see GetSubscriptionAttributes in the Amazon Simple
 	// Notification Service API Reference.
-	RawMessageDelivery *bool `json:"rawMessageDelivery"`
+	RawMessageDelivery *bool `json:"rawMessageDelivery" yaml:"rawMessageDelivery"`
 	// The region where the topic resides, in the case of cross-region subscriptions.
-	Region *string `json:"region"`
+	Region *string `json:"region" yaml:"region"`
 	// Arn of role allowing access to firehose delivery stream.
 	//
 	// Required for a firehose subscription protocol.
-	SubscriptionRoleArn *string `json:"subscriptionRoleArn"`
+	SubscriptionRoleArn *string `json:"subscriptionRoleArn" yaml:"subscriptionRoleArn"`
 	// The topic to subscribe to.
-	Topic ITopic `json:"topic"`
+	Topic ITopic `json:"topic" yaml:"topic"`
 }
 
 // The type of subscription, controlling the type of the endpoint parameter.
@@ -3776,9 +3776,9 @@ func (t *jsiiProxy_TopicPolicy) ToString() *string {
 //
 type TopicPolicyProps struct {
 	// The set of topics this policy applies to.
-	Topics *[]ITopic `json:"topics"`
+	Topics *[]ITopic `json:"topics" yaml:"topics"`
 	// IAM policy document to apply to topic(s).
-	PolicyDocument awsiam.PolicyDocument `json:"policyDocument"`
+	PolicyDocument awsiam.PolicyDocument `json:"policyDocument" yaml:"policyDocument"`
 }
 
 // Properties for a new SNS topic.
@@ -3787,19 +3787,19 @@ type TopicPolicyProps struct {
 //
 type TopicProps struct {
 	// Enables content-based deduplication for FIFO topics.
-	ContentBasedDeduplication *bool `json:"contentBasedDeduplication"`
+	ContentBasedDeduplication *bool `json:"contentBasedDeduplication" yaml:"contentBasedDeduplication"`
 	// A developer-defined string that can be used to identify this SNS topic.
-	DisplayName *string `json:"displayName"`
+	DisplayName *string `json:"displayName" yaml:"displayName"`
 	// Set to true to create a FIFO topic.
-	Fifo *bool `json:"fifo"`
+	Fifo *bool `json:"fifo" yaml:"fifo"`
 	// A KMS Key, either managed by this CDK app, or imported.
-	MasterKey awskms.IKey `json:"masterKey"`
+	MasterKey awskms.IKey `json:"masterKey" yaml:"masterKey"`
 	// A name for the topic.
 	//
 	// If you don't specify a name, AWS CloudFormation generates a unique
 	// physical ID and uses that ID for the topic name. For more information,
 	// see Name Type.
-	TopicName *string `json:"topicName"`
+	TopicName *string `json:"topicName" yaml:"topicName"`
 }
 
 // Subscription configuration.
@@ -3810,33 +3810,33 @@ type TopicSubscriptionConfig struct {
 	// The subscription endpoint.
 	//
 	// The meaning of this value depends on the value for 'protocol'.
-	Endpoint *string `json:"endpoint"`
+	Endpoint *string `json:"endpoint" yaml:"endpoint"`
 	// What type of subscription to add.
-	Protocol SubscriptionProtocol `json:"protocol"`
+	Protocol SubscriptionProtocol `json:"protocol" yaml:"protocol"`
 	// Queue to be used as dead letter queue.
 	//
 	// If not passed no dead letter queue is enabled.
-	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue"`
+	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// The filter policy.
-	FilterPolicy *map[string]SubscriptionFilter `json:"filterPolicy"`
+	FilterPolicy *map[string]SubscriptionFilter `json:"filterPolicy" yaml:"filterPolicy"`
 	// true if raw message delivery is enabled for the subscription.
 	//
 	// Raw messages are free of JSON formatting and can be
 	// sent to HTTP/S and Amazon SQS endpoints. For more information, see GetSubscriptionAttributes in the Amazon Simple
 	// Notification Service API Reference.
-	RawMessageDelivery *bool `json:"rawMessageDelivery"`
+	RawMessageDelivery *bool `json:"rawMessageDelivery" yaml:"rawMessageDelivery"`
 	// The region where the topic resides, in the case of cross-region subscriptions.
-	Region *string `json:"region"`
+	Region *string `json:"region" yaml:"region"`
 	// Arn of role allowing access to firehose delivery stream.
 	//
 	// Required for a firehose subscription protocol.
-	SubscriptionRoleArn *string `json:"subscriptionRoleArn"`
+	SubscriptionRoleArn *string `json:"subscriptionRoleArn" yaml:"subscriptionRoleArn"`
 	// The id of the SNS subscription resource created under `scope`.
 	//
 	// In most
 	// cases, it is recommended to use the `uniqueId` of the topic you are
 	// subscribing to.
-	SubscriberId *string `json:"subscriberId"`
+	SubscriberId *string `json:"subscriberId" yaml:"subscriberId"`
 	// The scope in which to create the SNS subscription resource.
 	//
 	// Normally you'd
@@ -3845,6 +3845,6 @@ type TopicSubscriptionConfig struct {
 	// queue policy). Otherwise, it will cause a cyclic reference.
 	//
 	// If this is undefined, the subscription will be created on the topic's stack.
-	SubscriberScope constructs.Construct `json:"subscriberScope"`
+	SubscriberScope constructs.Construct `json:"subscriberScope" yaml:"subscriberScope"`
 }
 

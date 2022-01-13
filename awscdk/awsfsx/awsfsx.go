@@ -758,14 +758,14 @@ type CfnFileSystem_AuditLogConfigurationProperty struct {
 	// - `FAILURE_ONLY` - only failed attempts to access files or folders are logged.
 	// - `SUCCESS_AND_FAILURE` - both successful attempts and failed attempts to access files or folders are logged.
 	// - `DISABLED` - access auditing of files and folders is turned off.
-	FileAccessAuditLogLevel *string `json:"fileAccessAuditLogLevel"`
+	FileAccessAuditLogLevel *string `json:"fileAccessAuditLogLevel" yaml:"fileAccessAuditLogLevel"`
 	// Sets which attempt type is logged by Amazon FSx for file share accesses.
 	//
 	// - `SUCCESS_ONLY` - only successful attempts to access file shares are logged.
 	// - `FAILURE_ONLY` - only failed attempts to access file shares are logged.
 	// - `SUCCESS_AND_FAILURE` - both successful attempts and failed attempts to access file shares are logged.
 	// - `DISABLED` - access auditing of file shares is turned off.
-	FileShareAccessAuditLogLevel *string `json:"fileShareAccessAuditLogLevel"`
+	FileShareAccessAuditLogLevel *string `json:"fileShareAccessAuditLogLevel" yaml:"fileShareAccessAuditLogLevel"`
 	// The Amazon Resource Name (ARN) for the destination of the audit logs.
 	//
 	// The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN.
@@ -773,7 +773,7 @@ type CfnFileSystem_AuditLogConfigurationProperty struct {
 	// The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix.
 	//
 	// The destination ARN (either CloudWatch Logs log group or Kinesis Data Firehose delivery stream) must be in the same AWS partition, AWS Region , and AWS account as your Amazon FSx file system.
-	AuditLogDestination *string `json:"auditLogDestination"`
+	AuditLogDestination *string `json:"auditLogDestination" yaml:"auditLogDestination"`
 }
 
 // Specifies who can mount the file system and the options that can be used while mounting the file system.
@@ -784,14 +784,14 @@ type CfnFileSystem_ClientConfigurationsProperty struct {
 	// A value that specifies who can mount the file system.
 	//
 	// You can provide a wildcard character ( `*` ), an IP address ( `0.0.0.0` ), or a CIDR address ( `192.0.2.0/24` . By default, Amazon FSx uses the wildcard character when specifying the client.
-	Clients *string `json:"clients"`
+	Clients *string `json:"clients" yaml:"clients"`
 	// The options to use when mounting the file system.
 	//
 	// For a list of options that you can use with Network File System (NFS), see the [exports(5) - Linux man page](https://docs.aws.amazon.com/https://linux.die.net/man/5/exports) . When choosing your options, consider the following:
 	//
 	// - `crossmount` is used by default. If you don't specify `crossmount` when changing the client configuration, you won't be able to see or access snapshots in your file system's snapshot directory.
 	// - `sync` is used by default. If you instead specify `async` , the system acknowledges writes before writing to disk. If the system crashes before the writes are finished, you lose the unwritten data.
-	Options *[]*string `json:"options"`
+	Options *[]*string `json:"options" yaml:"options"`
 }
 
 // The SSD IOPS (input/output operations per second) configuration for an Amazon FSx for NetApp ONTAP or Amazon FSx for OpenZFS file system.
@@ -802,9 +802,9 @@ type CfnFileSystem_ClientConfigurationsProperty struct {
 //
 type CfnFileSystem_DiskIopsConfigurationProperty struct {
 	// The total number of SSD IOPS provisioned for the file system.
-	Iops *float64 `json:"iops"`
+	Iops *float64 `json:"iops" yaml:"iops"`
 	// Specifies whether the number of IOPS for the file system is using the system default ( `AUTOMATIC` ) or was provisioned by the customer ( `USER_PROVISIONED` ).
-	Mode *string `json:"mode"`
+	Mode *string `json:"mode" yaml:"mode"`
 }
 
 // The configuration for the Amazon FSx for Lustre file system.
@@ -824,26 +824,26 @@ type CfnFileSystem_LustreConfigurationProperty struct {
 	// For more information, see [Automatically import updates from your S3 bucket](https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html) .
 	//
 	// > This parameter is not supported for file systems with the `Persistent_2` deployment type. Instead, use `CreateDataRepositoryAssociation` to create a data repository association to link your Lustre file system to a data repository.
-	AutoImportPolicy *string `json:"autoImportPolicy"`
+	AutoImportPolicy *string `json:"autoImportPolicy" yaml:"autoImportPolicy"`
 	// The number of days to retain automatic backups.
 	//
 	// Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. The default is 0. Only valid for use with `PERSISTENT_1` deployment types. For more information, see [Working with backups](https://docs.aws.amazon.com/fsx/latest/LustreGuide/using-backups-fsx.html) in the *Amazon FSx for Lustre User Guide* . (Default = 0)
-	AutomaticBackupRetentionDays *float64 `json:"automaticBackupRetentionDays"`
+	AutomaticBackupRetentionDays *float64 `json:"automaticBackupRetentionDays" yaml:"automaticBackupRetentionDays"`
 	// A Boolean flag indicating whether tags for the file system should be copied to backups.
 	//
 	// This value defaults to false. If it's set to true, all tags for the file system are copied to all automatic and user-initiated backups where the user doesn't specify tags. If this value is true, and you specify one or more tags, only the specified tags are copied to backups. If you specify one or more tags when creating a user-initiated backup, no tags are copied from the file system, regardless of this value. Only valid for use with `PERSISTENT_1` deployment types.
-	CopyTagsToBackups interface{} `json:"copyTagsToBackups"`
+	CopyTagsToBackups interface{} `json:"copyTagsToBackups" yaml:"copyTagsToBackups"`
 	// A recurring daily time, in the format `HH:MM` .
 	//
 	// `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. For example, `05:00` specifies 5 AM daily. Only valid for use with `PERSISTENT_1` deployment types.
-	DailyAutomaticBackupStartTime *string `json:"dailyAutomaticBackupStartTime"`
+	DailyAutomaticBackupStartTime *string `json:"dailyAutomaticBackupStartTime" yaml:"dailyAutomaticBackupStartTime"`
 	// Sets the data compression configuration for the file system. `DataCompressionType` can have the following values:.
 	//
 	// - `NONE` - (Default) Data compression is turned off when the file system is created.
 	// - `LZ4` - Data compression is turned on with the LZ4 algorithm.
 	//
 	// For more information, see [Lustre data compression](https://docs.aws.amazon.com/fsx/latest/LustreGuide/data-compression.html) in the *Amazon FSx for Lustre User Guide* .
-	DataCompressionType *string `json:"dataCompressionType"`
+	DataCompressionType *string `json:"dataCompressionType" yaml:"dataCompressionType"`
 	// (Optional) Choose `SCRATCH_1` and `SCRATCH_2` deployment types when you need temporary storage and shorter-term processing of data.
 	//
 	// The `SCRATCH_2` deployment type provides in-transit encryption of data and higher burst throughput capacity than `SCRATCH_1` .
@@ -857,13 +857,13 @@ type CfnFileSystem_LustreConfigurationProperty struct {
 	// Encryption of data in transit is automatically turned on when you access `SCRATCH_2` , `PERSISTENT_1` and `PERSISTENT_2` file systems from Amazon EC2 instances that [support automatic encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-                 protection.html) in the AWS Regions where they are available. For more information about encryption in transit for FSx for Lustre file systems, see [Encrypting data in transit](https://docs.aws.amazon.com/fsx/latest/LustreGuide/encryption-in-transit-fsxl.html) in the *Amazon FSx for Lustre User Guide* .
 	//
 	// (Default = `SCRATCH_1` )
-	DeploymentType *string `json:"deploymentType"`
+	DeploymentType *string `json:"deploymentType" yaml:"deploymentType"`
 	// The type of drive cache used by `PERSISTENT_1` file systems that are provisioned with HDD storage devices.
 	//
 	// This parameter is required when storage type is HDD. Set this property to `READ` to improve the performance for frequently accessed files by caching up to 20% of the total storage capacity of the file system.
 	//
 	// This parameter is required when `StorageType` is set to `HDD` .
-	DriveCacheType *string `json:"driveCacheType"`
+	DriveCacheType *string `json:"driveCacheType" yaml:"driveCacheType"`
 	// (Optional) Available with `Scratch` and `Persistent_1` deployment types.
 	//
 	// Specifies the path in the Amazon S3 bucket where the root of your Amazon FSx file system is exported. The path must use the same Amazon S3 bucket as specified in ImportPath. You can provide an optional prefix to which new and changed data is to be exported from your Amazon FSx for Lustre file system. If an `ExportPath` value is not provided, Amazon FSx sets a default export path, `s3://import-bucket/FSxLustre[creation-timestamp]` . The timestamp is in UTC format, for example `s3://import-bucket/FSxLustre20181105T222312Z` .
@@ -871,7 +871,7 @@ type CfnFileSystem_LustreConfigurationProperty struct {
 	// The Amazon S3 export bucket must be the same as the import bucket specified by `ImportPath` . If you specify only a bucket name, such as `s3://import-bucket` , you get a 1:1 mapping of file system objects to S3 bucket objects. This mapping means that the input data in S3 is overwritten on export. If you provide a custom prefix in the export path, such as `s3://import-bucket/[custom-optional-prefix]` , Amazon FSx exports the contents of your file system to that export prefix in the Amazon S3 bucket.
 	//
 	// > This parameter is not supported for file systems with the `Persistent_2` deployment type. Instead, use `CreateDataRepositoryAssociation` to create a data repository association to link your Lustre file system to a data repository.
-	ExportPath *string `json:"exportPath"`
+	ExportPath *string `json:"exportPath" yaml:"exportPath"`
 	// (Optional) For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk.
 	//
 	// The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system.
@@ -879,13 +879,13 @@ type CfnFileSystem_LustreConfigurationProperty struct {
 	// The default chunk size is 1,024 MiB (1 GiB) and can go as high as 512,000 MiB (500 GiB). Amazon S3 objects have a maximum size of 5 TB.
 	//
 	// This parameter is not supported for file systems with the `Persistent_2` deployment type. Instead, use `CreateDataRepositoryAssociation` to create a data repository association to link your Lustre file system to a data repository.
-	ImportedFileChunkSize *float64 `json:"importedFileChunkSize"`
+	ImportedFileChunkSize *float64 `json:"importedFileChunkSize" yaml:"importedFileChunkSize"`
 	// (Optional) The path to the Amazon S3 bucket (including the optional prefix) that you're using as the data repository for your Amazon FSx for Lustre file system.
 	//
 	// The root of your FSx for Lustre file system will be mapped to the root of the Amazon S3 bucket you select. An example is `s3://import-bucket/optional-prefix` . If you specify a prefix after the Amazon S3 bucket name, only object keys with that prefix are loaded into the file system.
 	//
 	// This parameter is not supported for file systems with the `Persistent_2` deployment type. Instead, use `CreateDataRepositoryAssociation` to create a data repository association to link your Lustre file system to a data repository.
-	ImportPath *string `json:"importPath"`
+	ImportPath *string `json:"importPath" yaml:"importPath"`
 	// Required with `PERSISTENT_1` and `PERSISTENT_2` deployment types, provisions the amount of read and write throughput for each 1 tebibyte (TiB) of file system storage capacity, in MB/s/TiB.
 	//
 	// File system throughput capacity is calculated by multiplying ﬁle system storage capacity (TiB) by the `PerUnitStorageThroughput` (MB/s/TiB). For a 2.4-TiB ﬁle system, provisioning 50 MB/s/TiB of `PerUnitStorageThroughput` yields 120 MB/s of ﬁle system throughput. You pay for the amount of throughput that you provision.
@@ -895,9 +895,9 @@ type CfnFileSystem_LustreConfigurationProperty struct {
 	// - For `PERSISTENT_1` SSD storage: 50, 100, 200 MB/s/TiB.
 	// - For `PERSISTENT_1` HDD storage: 12, 40 MB/s/TiB.
 	// - For `PERSISTENT_2` SSD storage: 125, 250, 500, 1000 MB/s/TiB.
-	PerUnitStorageThroughput *float64 `json:"perUnitStorageThroughput"`
+	PerUnitStorageThroughput *float64 `json:"perUnitStorageThroughput" yaml:"perUnitStorageThroughput"`
 	// (Optional) The preferred start time to perform weekly maintenance, formatted d:HH:MM in the UTC time zone, where d is the weekday number, from 1 through 7, beginning with Monday and ending with Sunday.
-	WeeklyMaintenanceStartTime *string `json:"weeklyMaintenanceStartTime"`
+	WeeklyMaintenanceStartTime *string `json:"weeklyMaintenanceStartTime" yaml:"weeklyMaintenanceStartTime"`
 }
 
 // The configuration object for mounting a file system.
@@ -906,7 +906,7 @@ type CfnFileSystem_LustreConfigurationProperty struct {
 //
 type CfnFileSystem_NfsExportsProperty struct {
 	// A list of configuration objects that contain the client and options for mounting the OpenZFS file system.
-	ClientConfigurations interface{} `json:"clientConfigurations"`
+	ClientConfigurations interface{} `json:"clientConfigurations" yaml:"clientConfigurations"`
 }
 
 // The configuration for this FSx for ONTAP file system.
@@ -917,35 +917,35 @@ type CfnFileSystem_OntapConfigurationProperty struct {
 	// Specifies the FSx for ONTAP file system deployment type to use in creating the file system.
 	//
 	// `MULTI_AZ_1` is the supported ONTAP deployment type.
-	DeploymentType *string `json:"deploymentType"`
+	DeploymentType *string `json:"deploymentType" yaml:"deploymentType"`
 	// The number of days to retain automatic backups.
 	//
 	// Setting this property to `0` disables automatic backups. You can retain automatic backups for a maximum of 90 days. The default is `0` .
-	AutomaticBackupRetentionDays *float64 `json:"automaticBackupRetentionDays"`
+	AutomaticBackupRetentionDays *float64 `json:"automaticBackupRetentionDays" yaml:"automaticBackupRetentionDays"`
 	// A recurring daily time, in the format `HH:MM` .
 	//
 	// `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. For example, `05:00` specifies 5 AM daily.
-	DailyAutomaticBackupStartTime *string `json:"dailyAutomaticBackupStartTime"`
+	DailyAutomaticBackupStartTime *string `json:"dailyAutomaticBackupStartTime" yaml:"dailyAutomaticBackupStartTime"`
 	// The SSD IOPS configuration for the FSx for ONTAP file system.
-	DiskIopsConfiguration interface{} `json:"diskIopsConfiguration"`
+	DiskIopsConfiguration interface{} `json:"diskIopsConfiguration" yaml:"diskIopsConfiguration"`
 	// Specifies the IP address range in which the endpoints to access your file system will be created.
 	//
 	// By default, Amazon FSx selects an unused IP address range for you from the 198.19.* range.
-	EndpointIpAddressRange *string `json:"endpointIpAddressRange"`
+	EndpointIpAddressRange *string `json:"endpointIpAddressRange" yaml:"endpointIpAddressRange"`
 	// The ONTAP administrative password for the `fsxadmin` user with which you administer your file system using the NetApp ONTAP CLI and REST API.
-	FsxAdminPassword *string `json:"fsxAdminPassword"`
+	FsxAdminPassword *string `json:"fsxAdminPassword" yaml:"fsxAdminPassword"`
 	// Required when `DeploymentType` is set to `MULTI_AZ_1` .
 	//
 	// This specifies the subnet in which you want the preferred file server to be located.
-	PreferredSubnetId *string `json:"preferredSubnetId"`
+	PreferredSubnetId *string `json:"preferredSubnetId" yaml:"preferredSubnetId"`
 	// Specifies the virtual private cloud (VPC) route tables in which your file system's endpoints will be created.
 	//
 	// You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
-	RouteTableIds *[]*string `json:"routeTableIds"`
+	RouteTableIds *[]*string `json:"routeTableIds" yaml:"routeTableIds"`
 	// Sets the throughput capacity for the file system that you're creating.
 	//
 	// Valid values are 128, 256, 512, 1024, and 2048 MBps.
-	ThroughputCapacity *float64 `json:"throughputCapacity"`
+	ThroughputCapacity *float64 `json:"throughputCapacity" yaml:"throughputCapacity"`
 	// A recurring weekly time, in the format `D:HH:MM` .
 	//
 	// `D` is the day of the week, for which 1 represents Monday and 7 represents Sunday. For further details, see [the ISO-8601 spec as described on Wikipedia](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/ISO_week_date) .
@@ -953,7 +953,7 @@ type CfnFileSystem_OntapConfigurationProperty struct {
 	// `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour.
 	//
 	// For example, `1:05:00` specifies maintenance at 5 AM Monday.
-	WeeklyMaintenanceStartTime *string `json:"weeklyMaintenanceStartTime"`
+	WeeklyMaintenanceStartTime *string `json:"weeklyMaintenanceStartTime" yaml:"weeklyMaintenanceStartTime"`
 }
 
 // The OpenZFS configuration for the file system that's being created.
@@ -964,35 +964,35 @@ type CfnFileSystem_OpenZFSConfigurationProperty struct {
 	// Specifies the file system deployment type.
 	//
 	// Amazon FSx for OpenZFS supports `SINGLE_AZ_1` . `SINGLE_AZ_1` is a file system configured for a single Availability Zone (AZ) of redundancy.
-	DeploymentType *string `json:"deploymentType"`
+	DeploymentType *string `json:"deploymentType" yaml:"deploymentType"`
 	// The number of days to retain automatic backups.
 	//
 	// Setting this property to `0` disables automatic backups. You can retain automatic backups for a maximum of 90 days. The default is `0` .
-	AutomaticBackupRetentionDays *float64 `json:"automaticBackupRetentionDays"`
+	AutomaticBackupRetentionDays *float64 `json:"automaticBackupRetentionDays" yaml:"automaticBackupRetentionDays"`
 	// A Boolean value indicating whether tags for the file system should be copied to backups.
 	//
 	// This value defaults to `false` . If it's set to `true` , all tags for the file system are copied to all automatic and user-initiated backups where the user doesn't specify tags. If this value is `true` , and you specify one or more tags, only the specified tags are copied to backups. If you specify one or more tags when creating a user-initiated backup, no tags are copied from the file system, regardless of this value.
-	CopyTagsToBackups interface{} `json:"copyTagsToBackups"`
+	CopyTagsToBackups interface{} `json:"copyTagsToBackups" yaml:"copyTagsToBackups"`
 	// A Boolean value indicating whether tags for the volume should be copied to snapshots.
 	//
 	// This value defaults to `false` . If it's set to `true` , all tags for the volume are copied to snapshots where the user doesn't specify tags. If this value is `true` , and you specify one or more tags, only the specified tags are copied to snapshots. If you specify one or more tags when creating the snapshot, no tags are copied from the volume, regardless of this value.
-	CopyTagsToVolumes interface{} `json:"copyTagsToVolumes"`
+	CopyTagsToVolumes interface{} `json:"copyTagsToVolumes" yaml:"copyTagsToVolumes"`
 	// A recurring daily time, in the format `HH:MM` .
 	//
 	// `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. For example, `05:00` specifies 5 AM daily.
-	DailyAutomaticBackupStartTime *string `json:"dailyAutomaticBackupStartTime"`
+	DailyAutomaticBackupStartTime *string `json:"dailyAutomaticBackupStartTime" yaml:"dailyAutomaticBackupStartTime"`
 	// The SSD IOPS (input/output operations per second) configuration for an Amazon FSx for NetApp ONTAP or Amazon FSx for OpenZFS file system.
 	//
 	// The default is 3 IOPS per GB of storage capacity, but you can provision additional IOPS per GB of storage. The configuration consists of the total number of provisioned SSD IOPS and how the amount was provisioned (by the customer or by the system).
-	DiskIopsConfiguration interface{} `json:"diskIopsConfiguration"`
+	DiskIopsConfiguration interface{} `json:"diskIopsConfiguration" yaml:"diskIopsConfiguration"`
 	// The configuration Amazon FSx uses when creating the root value of the Amazon FSx for OpenZFS file system.
 	//
 	// All volumes are children of the root volume.
-	RootVolumeConfiguration interface{} `json:"rootVolumeConfiguration"`
+	RootVolumeConfiguration interface{} `json:"rootVolumeConfiguration" yaml:"rootVolumeConfiguration"`
 	// Specifies the throughput of an Amazon FSx for OpenZFS file system, measured in megabytes per second (MB/s).
 	//
 	// Valid values are 64, 128, 256, 512, 1024, 2048, 3072, or 4096 MB/s. You pay for additional throughput capacity that you provision.
-	ThroughputCapacity *float64 `json:"throughputCapacity"`
+	ThroughputCapacity *float64 `json:"throughputCapacity" yaml:"throughputCapacity"`
 	// A recurring weekly time, in the format `D:HH:MM` .
 	//
 	// `D` is the day of the week, for which 1 represents Monday and 7 represents Sunday. For further details, see [the ISO-8601 spec as described on Wikipedia](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/ISO_week_date) .
@@ -1000,7 +1000,7 @@ type CfnFileSystem_OpenZFSConfigurationProperty struct {
 	// `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour.
 	//
 	// For example, `1:05:00` specifies maintenance at 5 AM Monday.
-	WeeklyMaintenanceStartTime *string `json:"weeklyMaintenanceStartTime"`
+	WeeklyMaintenanceStartTime *string `json:"weeklyMaintenanceStartTime" yaml:"weeklyMaintenanceStartTime"`
 }
 
 // The configuration of an Amazon FSx for OpenZFS root volume.
@@ -1011,22 +1011,22 @@ type CfnFileSystem_RootVolumeConfigurationProperty struct {
 	// A Boolean value indicating whether tags for the volume should be copied to snapshots.
 	//
 	// This value defaults to `false` . If it's set to `true` , all tags for the volume are copied to snapshots where the user doesn't specify tags. If this value is `true` and you specify one or more tags, only the specified tags are copied to snapshots. If you specify one or more tags when creating the snapshot, no tags are copied from the volume, regardless of this value.
-	CopyTagsToSnapshots interface{} `json:"copyTagsToSnapshots"`
+	CopyTagsToSnapshots interface{} `json:"copyTagsToSnapshots" yaml:"copyTagsToSnapshots"`
 	// Specifies the method used to compress the data on the volume.
 	//
 	// Unless the compression type is specified, volumes inherit the `DataCompressionType` value of their parent volume.
 	//
 	// - `NONE` - Doesn't compress the data on the volume.
 	// - `ZSTD` - Compresses the data in the volume using the ZStandard (ZSTD) compression algorithm. This algorithm reduces the amount of space used on your volume and has very little impact on compute resources.
-	DataCompressionType *string `json:"dataCompressionType"`
+	DataCompressionType *string `json:"dataCompressionType" yaml:"dataCompressionType"`
 	// The configuration object for mounting a file system.
-	NfsExports interface{} `json:"nfsExports"`
+	NfsExports interface{} `json:"nfsExports" yaml:"nfsExports"`
 	// A Boolean value indicating whether the volume is read-only.
 	//
 	// Setting this value to `true` can be useful after you have completed changes to a volume and no longer want changes to occur.
-	ReadOnly interface{} `json:"readOnly"`
+	ReadOnly interface{} `json:"readOnly" yaml:"readOnly"`
 	// An object specifying how much storage users or groups can use on the volume.
-	UserAndGroupQuotas interface{} `json:"userAndGroupQuotas"`
+	UserAndGroupQuotas interface{} `json:"userAndGroupQuotas" yaml:"userAndGroupQuotas"`
 }
 
 // The configuration that Amazon FSx uses to join a FSx for Windows File Server file system or an ONTAP storage virtual machine (SVM) to a self-managed (including on-premises) Microsoft Active Directory (AD) directory.
@@ -1037,19 +1037,19 @@ type CfnFileSystem_RootVolumeConfigurationProperty struct {
 //
 type CfnFileSystem_SelfManagedActiveDirectoryConfigurationProperty struct {
 	// A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
-	DnsIps *[]*string `json:"dnsIps"`
+	DnsIps *[]*string `json:"dnsIps" yaml:"dnsIps"`
 	// The fully qualified domain name of the self-managed AD directory, such as `corp.example.com` .
-	DomainName *string `json:"domainName"`
+	DomainName *string `json:"domainName" yaml:"domainName"`
 	// (Optional) The name of the domain group whose members are granted administrative privileges for the file system.
 	//
 	// Administrative privileges include taking ownership of files and folders, setting audit controls (audit ACLs) on files and folders, and administering the file system remotely by using the FSx Remote PowerShell. The group that you specify must already exist in your domain. If you don't provide one, your AD domain's Domain Admins group is used.
-	FileSystemAdministratorsGroup *string `json:"fileSystemAdministratorsGroup"`
+	FileSystemAdministratorsGroup *string `json:"fileSystemAdministratorsGroup" yaml:"fileSystemAdministratorsGroup"`
 	// (Optional) The fully qualified distinguished name of the organizational unit within your self-managed AD directory.
 	//
 	// Amazon FSx only accepts OU as the direct parent of the file system. An example is `OU=FSx,DC=yourdomain,DC=corp,DC=com` . To learn more, see [RFC 2253](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc2253) . If none is provided, the FSx file system is created in the default location of your self-managed AD directory.
 	//
 	// > Only Organizational Unit (OU) objects can be the direct parent of the file system that you're creating.
-	OrganizationalUnitDistinguishedName *string `json:"organizationalUnitDistinguishedName"`
+	OrganizationalUnitDistinguishedName *string `json:"organizationalUnitDistinguishedName" yaml:"organizationalUnitDistinguishedName"`
 	// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
 	//
 	// We strongly suggest that you follow best practices and *do not* embed passwords in your CFN templates.
@@ -1057,11 +1057,11 @@ type CfnFileSystem_SelfManagedActiveDirectoryConfigurationProperty struct {
 	// The recommended approach is to use AWS Secrets Manager to store your passwords. You can retrieve them for use in your templates using the `secretsmanager` dynamic reference. There are additional costs associated with using AWS Secrets Manager . To learn more, see [Secrets Manager secrets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) in the *AWS CloudFormation User Guide* .
 	//
 	// Alternatively, you can use the `NoEcho` property to obfuscate the password parameter value. For more information, see [Do Not Embed Credentials in Your Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/best-practices.html#creds) in the *AWS CloudFormation User Guide* .
-	Password *string `json:"password"`
+	Password *string `json:"password" yaml:"password"`
 	// The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
 	//
 	// This account must have the permission to join computers to the domain in the organizational unit provided in `OrganizationalUnitDistinguishedName` , or in the default location of your AD domain.
-	UserName *string `json:"userName"`
+	UserName *string `json:"userName" yaml:"userName"`
 }
 
 // The configuration for how much storage a user or group can use on the volume.
@@ -1070,11 +1070,11 @@ type CfnFileSystem_SelfManagedActiveDirectoryConfigurationProperty struct {
 //
 type CfnFileSystem_UserAndGroupQuotasProperty struct {
 	// The ID of the user or group.
-	Id *float64 `json:"id"`
+	Id *float64 `json:"id" yaml:"id"`
 	// The amount of storage that the user or group can use in gibibytes (GiB).
-	StorageCapacityQuotaGiB *float64 `json:"storageCapacityQuotaGiB"`
+	StorageCapacityQuotaGiB *float64 `json:"storageCapacityQuotaGiB" yaml:"storageCapacityQuotaGiB"`
 	// A value that specifies whether the quota applies to a user or group.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 }
 
 // The Microsoft Windows configuration for the file system that's being created.
@@ -1083,9 +1083,9 @@ type CfnFileSystem_UserAndGroupQuotasProperty struct {
 //
 type CfnFileSystem_WindowsConfigurationProperty struct {
 	// Sets the throughput capacity of an Amazon FSx file system, measured in megabytes per second (MB/s), in 2 to the *n* th increments, between 2^3 (8) and 2^11 (2048).
-	ThroughputCapacity *float64 `json:"throughputCapacity"`
+	ThroughputCapacity *float64 `json:"throughputCapacity" yaml:"throughputCapacity"`
 	// The ID for an existing AWS Managed Microsoft Active Directory (AD) instance that the file system should join when it's created.
-	ActiveDirectoryId *string `json:"activeDirectoryId"`
+	ActiveDirectoryId *string `json:"activeDirectoryId" yaml:"activeDirectoryId"`
 	// An array of one or more DNS alias names that you want to associate with the Amazon FSx file system.
 	//
 	// Aliases allow you to use existing DNS names to access the data in your Amazon FSx file system. You can associate up to 50 aliases with a file system at any time.
@@ -1100,19 +1100,19 @@ type CfnFileSystem_WindowsConfigurationProperty struct {
 	// - Can start with a numeric.
 	//
 	// For DNS alias names, Amazon FSx stores alphabetical characters as lowercase letters (a-z), regardless of how you specify them: as uppercase letters, lowercase letters, or the corresponding letters in escape codes.
-	Aliases *[]*string `json:"aliases"`
+	Aliases *[]*string `json:"aliases" yaml:"aliases"`
 	// `CfnFileSystem.WindowsConfigurationProperty.AuditLogConfiguration`.
-	AuditLogConfiguration interface{} `json:"auditLogConfiguration"`
+	AuditLogConfiguration interface{} `json:"auditLogConfiguration" yaml:"auditLogConfiguration"`
 	// The number of days to retain automatic backups.
 	//
 	// The default is to retain backups for 7 days. Setting this value to 0 disables the creation of automatic backups. The maximum retention period for backups is 90 days.
-	AutomaticBackupRetentionDays *float64 `json:"automaticBackupRetentionDays"`
+	AutomaticBackupRetentionDays *float64 `json:"automaticBackupRetentionDays" yaml:"automaticBackupRetentionDays"`
 	// A Boolean flag indicating whether tags for the file system should be copied to backups.
 	//
 	// This value defaults to false. If it's set to true, all tags for the file system are copied to all automatic and user-initiated backups where the user doesn't specify tags. If this value is true, and you specify one or more tags, only the specified tags are copied to backups. If you specify one or more tags when creating a user-initiated backup, no tags are copied from the file system, regardless of this value.
-	CopyTagsToBackups interface{} `json:"copyTagsToBackups"`
+	CopyTagsToBackups interface{} `json:"copyTagsToBackups" yaml:"copyTagsToBackups"`
 	// The preferred time to take daily automatic backups, formatted HH:MM in the UTC time zone.
-	DailyAutomaticBackupStartTime *string `json:"dailyAutomaticBackupStartTime"`
+	DailyAutomaticBackupStartTime *string `json:"dailyAutomaticBackupStartTime" yaml:"dailyAutomaticBackupStartTime"`
 	// Specifies the file system deployment type, valid values are the following:.
 	//
 	// - `MULTI_AZ_1` - Deploys a high availability file system that is configured for Multi-AZ redundancy to tolerate temporary Availability Zone (AZ) unavailability. You can only deploy a Multi-AZ file system in AWS Regions that have a minimum of three Availability Zones. Also supports HDD storage type
@@ -1120,17 +1120,17 @@ type CfnFileSystem_WindowsConfigurationProperty struct {
 	// - `SINGLE_AZ_2` - The latest generation Single AZ file system. Specifies a file system that is configured for single AZ redundancy and supports HDD storage type.
 	//
 	// For more information, see [Availability and Durability: Single-AZ and Multi-AZ File Systems](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/high-availability-multiAZ.html) .
-	DeploymentType *string `json:"deploymentType"`
+	DeploymentType *string `json:"deploymentType" yaml:"deploymentType"`
 	// Required when `DeploymentType` is set to `MULTI_AZ_1` .
 	//
 	// This specifies the subnet in which you want the preferred file server to be located. For in- AWS applications, we recommend that you launch your clients in the same Availability Zone (AZ) as your preferred file server to reduce cross-AZ data transfer costs and minimize latency.
-	PreferredSubnetId *string `json:"preferredSubnetId"`
+	PreferredSubnetId *string `json:"preferredSubnetId" yaml:"preferredSubnetId"`
 	// The configuration that Amazon FSx uses to join a FSx for Windows File Server file system or an ONTAP storage virtual machine (SVM) to a self-managed (including on-premises) Microsoft Active Directory (AD) directory.
 	//
 	// For more information, see [Using Amazon FSx with your self-managed Microsoft Active Directory](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/self-managed-AD.html) or [Managing SVMs](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-svms.html) .
-	SelfManagedActiveDirectoryConfiguration interface{} `json:"selfManagedActiveDirectoryConfiguration"`
+	SelfManagedActiveDirectoryConfiguration interface{} `json:"selfManagedActiveDirectoryConfiguration" yaml:"selfManagedActiveDirectoryConfiguration"`
 	// The preferred start time to perform weekly maintenance, formatted d:HH:MM in the UTC time zone, where d is the weekday number, from 1 through 7, beginning with Monday and ending with Sunday.
-	WeeklyMaintenanceStartTime *string `json:"weeklyMaintenanceStartTime"`
+	WeeklyMaintenanceStartTime *string `json:"weeklyMaintenanceStartTime" yaml:"weeklyMaintenanceStartTime"`
 }
 
 // Properties for defining a `CfnFileSystem`.
@@ -1139,17 +1139,17 @@ type CfnFileSystem_WindowsConfigurationProperty struct {
 //
 type CfnFileSystemProps struct {
 	// The type of Amazon FSx file system, which can be `LUSTRE` , `WINDOWS` , `ONTAP` , or `OPENZFS` .
-	FileSystemType *string `json:"fileSystemType"`
+	FileSystemType *string `json:"fileSystemType" yaml:"fileSystemType"`
 	// Specifies the IDs of the subnets that the file system will be accessible from.
 	//
 	// For Windows and ONTAP `MULTI_AZ_1` deployment types,provide exactly two subnet IDs, one for the preferred file server and one for the standby file server. You specify one of these subnets as the preferred subnet using the `WindowsConfiguration > PreferredSubnetID` or `OntapConfiguration > PreferredSubnetID` properties. For more information about Multi-AZ file system configuration, see [Availability and durability: Single-AZ and Multi-AZ file systems](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/high-availability-multiAZ.html) in the *Amazon FSx for Windows User Guide* and [Availability and durability](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/high-availability-multiAZ.html) in the *Amazon FSx for ONTAP User Guide* .
 	//
 	// For Windows `SINGLE_AZ_1` and `SINGLE_AZ_2` and all Lustre deployment types, provide exactly one subnet ID. The file server is launched in that subnet's Availability Zone.
-	SubnetIds *[]*string `json:"subnetIds"`
+	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
 	// The ID of the source backup.
 	//
 	// Specifies the backup that you are copying.
-	BackupId *string `json:"backupId"`
+	BackupId *string `json:"backupId" yaml:"backupId"`
 	// (Optional) For FSx for Lustre file systems, sets the Lustre version for the file system that you're creating.
 	//
 	// Valid values are `2.10` and `2.12` :
@@ -1160,11 +1160,11 @@ type CfnFileSystemProps struct {
 	// Default value = `2.10` , except when `DeploymentType` is set to `PERSISTENT_2` , then the default is `2.12` .
 	//
 	// > If you set `FileSystemTypeVersion` to `2.10` for a `PERSISTENT_2` Lustre deployment type, the `CreateFileSystem` operation fails.
-	FileSystemTypeVersion *string `json:"fileSystemTypeVersion"`
+	FileSystemTypeVersion *string `json:"fileSystemTypeVersion" yaml:"fileSystemTypeVersion"`
 	// The ID of the AWS Key Management Service ( AWS KMS ) key used to encrypt the file system's data for Amazon FSx for Windows File Server file systems, Amazon FSx for NetApp ONTAP file systems, and `PERSISTENT` Amazon FSx for Lustre file systems at rest.
 	//
 	// If this ID isn't specified, the Amazon FSx-managed key for your account is used. The scratch Amazon FSx for Lustre file systems are always encrypted at rest using the Amazon FSx-managed key for your account. For more information, see [Encrypt](https://docs.aws.amazon.com//kms/latest/APIReference/API_Encrypt.html) in the *AWS Key Management Service API Reference* .
-	KmsKeyId *string `json:"kmsKeyId"`
+	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
 	// The Lustre configuration for the file system being created.
 	//
 	// > The following parameters are not supported for file systems with the `Persistent_2` deployment type. Instead, use `CreateDataRepositoryAssociation` to create a data repository association to link your Lustre file system to a data repository.
@@ -1173,36 +1173,36 @@ type CfnFileSystemProps struct {
 	// > - `ExportPath`
 	// > - `ImportedChunkSize`
 	// > - `ImportPath`
-	LustreConfiguration interface{} `json:"lustreConfiguration"`
+	LustreConfiguration interface{} `json:"lustreConfiguration" yaml:"lustreConfiguration"`
 	// The ONTAP configuration properties of the FSx for ONTAP file system that you are creating.
-	OntapConfiguration interface{} `json:"ontapConfiguration"`
+	OntapConfiguration interface{} `json:"ontapConfiguration" yaml:"ontapConfiguration"`
 	// The OpenZFS configuration properties for the file system that you are creating.
-	OpenZfsConfiguration interface{} `json:"openZfsConfiguration"`
+	OpenZfsConfiguration interface{} `json:"openZfsConfiguration" yaml:"openZfsConfiguration"`
 	// A list of IDs specifying the security groups to apply to all network interfaces created for file system access.
 	//
 	// This list isn't returned in later requests to describe the file system.
-	SecurityGroupIds *[]*string `json:"securityGroupIds"`
+	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
 	// Sets the storage capacity of the file system that you're creating.
 	//
 	// `StorageCapacity` is required if you are creating a new file system. Do not include `StorageCapacity` if you are creating a file system from a backup.
 	//
 	// For Lustre file systems:
-	StorageCapacity *float64 `json:"storageCapacity"`
+	StorageCapacity *float64 `json:"storageCapacity" yaml:"storageCapacity"`
 	// Sets the storage type for the file system that you're creating. Valid values are `SSD` and `HDD` .
 	//
 	// - Set to `SSD` to use solid state drive storage. SSD is supported on all Windows, Lustre, ONTAP, and OpenZFS deployment types.
 	// - Set to `HDD` to use hard disk drive storage. HDD is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types, and on `PERSISTENT` Lustre file system deployment types.
 	//
 	// Default value is `SSD` . For more information, see [Storage type options](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/optimize-fsx-costs.html#storage-type-options) in the *FSx for Windows File Server User Guide* and [Multiple storage options](https://docs.aws.amazon.com/fsx/latest/LustreGuide/what-is.html#storage-options) in the *FSx for Lustre User Guide* .
-	StorageType *string `json:"storageType"`
+	StorageType *string `json:"storageType" yaml:"storageType"`
 	// The tags to associate with the file system.
 	//
 	// For more information, see [Tagging your Amazon EC2 resources](https://docs.aws.amazon.com//AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon EC2 User Guide* .
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// The configuration object for the Microsoft Windows file system you are creating.
 	//
 	// This value is required if `FileSystemType` is set to `WINDOWS` .
-	WindowsConfiguration interface{} `json:"windowsConfiguration"`
+	WindowsConfiguration interface{} `json:"windowsConfiguration" yaml:"windowsConfiguration"`
 }
 
 // Properties that describe an existing FSx file system.
@@ -1211,11 +1211,11 @@ type CfnFileSystemProps struct {
 //
 type FileSystemAttributes struct {
 	// The DNS name assigned to this file system.
-	DnsName *string `json:"dnsName"`
+	DnsName *string `json:"dnsName" yaml:"dnsName"`
 	// The ID of the file system, assigned by Amazon FSx.
-	FileSystemId *string `json:"fileSystemId"`
+	FileSystemId *string `json:"fileSystemId" yaml:"fileSystemId"`
 	// The security group of the file system.
-	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
+	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup" yaml:"securityGroup"`
 }
 
 // A new or imported FSx file system.
@@ -1451,19 +1451,19 @@ type FileSystemProps struct {
 	// For Windows file systems, valid values are 32 GiB to 65,536 GiB.
 	// For SCRATCH_1 deployment types, valid values are 1,200, 2,400, 3,600, then continuing in increments of 3,600 GiB.
 	// For SCRATCH_2 and PERSISTENT_1 types, valid values are 1,200, 2,400, then continuing in increments of 2,400 GiB.
-	StorageCapacityGiB *float64 `json:"storageCapacityGiB"`
+	StorageCapacityGiB *float64 `json:"storageCapacityGiB" yaml:"storageCapacityGiB"`
 	// The VPC to launch the file system in.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// The ID of the backup.
 	//
 	// Specifies the backup to use if you're creating a file system from an existing backup.
-	BackupId *string `json:"backupId"`
+	BackupId *string `json:"backupId" yaml:"backupId"`
 	// The KMS key used for encryption to protect your data at rest.
-	KmsKey awskms.IKey `json:"kmsKey"`
+	KmsKey awskms.IKey `json:"kmsKey" yaml:"kmsKey"`
 	// Policy to apply when the file system is removed from the stack.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 	// Security Group to assign to this file system.
-	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
+	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup" yaml:"securityGroup"`
 }
 
 // Interface to implement FSx File Systems.
@@ -1496,7 +1496,7 @@ func (j *jsiiProxy_IFileSystem) FileSystemId() *string {
 //
 type LustreConfiguration struct {
 	// The type of backing file system deployment used by FSx.
-	DeploymentType LustreDeploymentType `json:"deploymentType"`
+	DeploymentType LustreDeploymentType `json:"deploymentType" yaml:"deploymentType"`
 	// The path in Amazon S3 where the root of your Amazon FSx file system is exported.
 	//
 	// The path must use the same
@@ -1505,26 +1505,26 @@ type LustreConfiguration struct {
 	// overwritten on export. If you provide a custom prefix in the export path, such as
 	// s3://import-bucket/[custom-optional-prefix], Amazon FSx exports the contents of your file system to that export
 	// prefix in the Amazon S3 bucket.
-	ExportPath *string `json:"exportPath"`
+	ExportPath *string `json:"exportPath" yaml:"exportPath"`
 	// For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk.
 	//
 	// Allowed values are between 1 and 512,000.
-	ImportedFileChunkSizeMiB *float64 `json:"importedFileChunkSizeMiB"`
+	ImportedFileChunkSizeMiB *float64 `json:"importedFileChunkSizeMiB" yaml:"importedFileChunkSizeMiB"`
 	// The path to the Amazon S3 bucket (including the optional prefix) that you're using as the data repository for your Amazon FSx for Lustre file system.
 	//
 	// Must be of the format "s3://{bucketName}/optional-prefix" and cannot
 	// exceed 900 characters.
-	ImportPath *string `json:"importPath"`
+	ImportPath *string `json:"importPath" yaml:"importPath"`
 	// Required for the PERSISTENT_1 deployment type, describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB.
 	//
 	// Valid values are 50, 100, 200.
-	PerUnitStorageThroughput *float64 `json:"perUnitStorageThroughput"`
+	PerUnitStorageThroughput *float64 `json:"perUnitStorageThroughput" yaml:"perUnitStorageThroughput"`
 	// The preferred day and time to perform weekly maintenance.
 	//
 	// The first digit is the day of the week, starting at 1
 	// for Monday, then the following are hours and minutes in the UTC time zone, 24 hour clock. For example: '2:20:30'
 	// is Tuesdays at 20:30.
-	WeeklyMaintenanceStartTime LustreMaintenanceTime `json:"weeklyMaintenanceStartTime"`
+	WeeklyMaintenanceStartTime LustreMaintenanceTime `json:"weeklyMaintenanceStartTime" yaml:"weeklyMaintenanceStartTime"`
 }
 
 // The different kinds of file system deployments used by Lustre.
@@ -1814,23 +1814,23 @@ type LustreFileSystemProps struct {
 	// For Windows file systems, valid values are 32 GiB to 65,536 GiB.
 	// For SCRATCH_1 deployment types, valid values are 1,200, 2,400, 3,600, then continuing in increments of 3,600 GiB.
 	// For SCRATCH_2 and PERSISTENT_1 types, valid values are 1,200, 2,400, then continuing in increments of 2,400 GiB.
-	StorageCapacityGiB *float64 `json:"storageCapacityGiB"`
+	StorageCapacityGiB *float64 `json:"storageCapacityGiB" yaml:"storageCapacityGiB"`
 	// The VPC to launch the file system in.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// The ID of the backup.
 	//
 	// Specifies the backup to use if you're creating a file system from an existing backup.
-	BackupId *string `json:"backupId"`
+	BackupId *string `json:"backupId" yaml:"backupId"`
 	// The KMS key used for encryption to protect your data at rest.
-	KmsKey awskms.IKey `json:"kmsKey"`
+	KmsKey awskms.IKey `json:"kmsKey" yaml:"kmsKey"`
 	// Policy to apply when the file system is removed from the stack.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 	// Security Group to assign to this file system.
-	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
+	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup" yaml:"securityGroup"`
 	// Additional configuration for FSx specific to Lustre.
-	LustreConfiguration *LustreConfiguration `json:"lustreConfiguration"`
+	LustreConfiguration *LustreConfiguration `json:"lustreConfiguration" yaml:"lustreConfiguration"`
 	// The subnet that the file system will be accessible from.
-	VpcSubnet awsec2.ISubnet `json:"vpcSubnet"`
+	VpcSubnet awsec2.ISubnet `json:"vpcSubnet" yaml:"vpcSubnet"`
 }
 
 // Class for scheduling a weekly manitenance time.
@@ -1890,11 +1890,11 @@ func (l *jsiiProxy_LustreMaintenanceTime) ToTimestamp() *string {
 //
 type LustreMaintenanceTimeProps struct {
 	// The day of the week for maintenance to be performed.
-	Day Weekday `json:"day"`
+	Day Weekday `json:"day" yaml:"day"`
 	// The hour of the day (from 0-24) for maintenance to be performed.
-	Hour *float64 `json:"hour"`
+	Hour *float64 `json:"hour" yaml:"hour"`
 	// The minute of the hour (from 0-59) for maintenance to be performed.
-	Minute *float64 `json:"minute"`
+	Minute *float64 `json:"minute" yaml:"minute"`
 }
 
 // Enum for representing all the days of the week.

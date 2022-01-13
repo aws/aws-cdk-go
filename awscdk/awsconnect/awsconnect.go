@@ -1194,19 +1194,19 @@ func (c *jsiiProxy_CfnContactFlowModule) ValidateProperties(_properties interfac
 //
 type CfnContactFlowModuleProps struct {
 	// The content of the contact flow module.
-	Content *string `json:"content"`
+	Content *string `json:"content" yaml:"content"`
 	// The Amazon Resource Name (ARN) of the Amazon Connect instance.
-	InstanceArn *string `json:"instanceArn"`
+	InstanceArn *string `json:"instanceArn" yaml:"instanceArn"`
 	// The name of the contact flow module.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The description of the contact flow module.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The state of the contact flow module.
-	State *string `json:"state"`
+	State *string `json:"state" yaml:"state"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // Properties for defining a `CfnContactFlow`.
@@ -1215,23 +1215,23 @@ type CfnContactFlowModuleProps struct {
 //
 type CfnContactFlowProps struct {
 	// The content of the contact flow.
-	Content *string `json:"content"`
+	Content *string `json:"content" yaml:"content"`
 	// The Amazon Resource Name (ARN) of the Amazon Connect instance.
-	InstanceArn *string `json:"instanceArn"`
+	InstanceArn *string `json:"instanceArn" yaml:"instanceArn"`
 	// The name of the contact flow.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The description of the contact flow.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The state of the contact flow.
-	State *string `json:"state"`
+	State *string `json:"state" yaml:"state"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// The type of the contact flow.
 	//
 	// For descriptions of the available types, see [Choose a Contact Flow Type](https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types) in the *Amazon Connect Administrator Guide* .
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 }
 
 // A CloudFormation `AWS::Connect::HoursOfOperation`.
@@ -1814,11 +1814,11 @@ func (c *jsiiProxy_CfnHoursOfOperation) ValidateProperties(_properties interface
 //
 type CfnHoursOfOperation_HoursOfOperationConfigProperty struct {
 	// The day that the hours of operation applies to.
-	Day *string `json:"day"`
+	Day *string `json:"day" yaml:"day"`
 	// The end time that your contact center closes.
-	EndTime interface{} `json:"endTime"`
+	EndTime interface{} `json:"endTime" yaml:"endTime"`
 	// The start time that your contact center opens.
-	StartTime interface{} `json:"startTime"`
+	StartTime interface{} `json:"startTime" yaml:"startTime"`
 }
 
 // The start time or end time for an hours of operation.
@@ -1827,9 +1827,9 @@ type CfnHoursOfOperation_HoursOfOperationConfigProperty struct {
 //
 type CfnHoursOfOperation_HoursOfOperationTimeSliceProperty struct {
 	// The hours.
-	Hours *float64 `json:"hours"`
+	Hours *float64 `json:"hours" yaml:"hours"`
 	// The minutes.
-	Minutes *float64 `json:"minutes"`
+	Minutes *float64 `json:"minutes" yaml:"minutes"`
 }
 
 // Properties for defining a `CfnHoursOfOperation`.
@@ -1838,17 +1838,17 @@ type CfnHoursOfOperation_HoursOfOperationTimeSliceProperty struct {
 //
 type CfnHoursOfOperationProps struct {
 	// Configuration information for the hours of operation.
-	Config interface{} `json:"config"`
+	Config interface{} `json:"config" yaml:"config"`
 	// The Amazon Resource Name (ARN) for the instance.
-	InstanceArn *string `json:"instanceArn"`
+	InstanceArn *string `json:"instanceArn" yaml:"instanceArn"`
 	// The name for the hours of operation.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The time zone for the hours of operation.
-	TimeZone *string `json:"timeZone"`
+	TimeZone *string `json:"timeZone" yaml:"timeZone"`
 	// The description for the hours of operation.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The tags used to organize, track, or control access for this resource.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Connect::QuickConnect`.
@@ -2411,7 +2411,7 @@ func (c *jsiiProxy_CfnQuickConnect) ValidateProperties(_properties interface{}) 
 //
 type CfnQuickConnect_PhoneNumberQuickConnectConfigProperty struct {
 	// The phone number in E.164 format.
-	PhoneNumber *string `json:"phoneNumber"`
+	PhoneNumber *string `json:"phoneNumber" yaml:"phoneNumber"`
 }
 
 // Contains information about a queue for a quick connect.
@@ -2422,9 +2422,9 @@ type CfnQuickConnect_PhoneNumberQuickConnectConfigProperty struct {
 //
 type CfnQuickConnect_QueueQuickConnectConfigProperty struct {
 	// The Amazon Resource Name (ARN) of the contact flow.
-	ContactFlowArn *string `json:"contactFlowArn"`
+	ContactFlowArn *string `json:"contactFlowArn" yaml:"contactFlowArn"`
 	// The Amazon Resource Name (ARN) of the queue.
-	QueueArn *string `json:"queueArn"`
+	QueueArn *string `json:"queueArn" yaml:"queueArn"`
 }
 
 // Contains configuration settings for a quick connect.
@@ -2435,19 +2435,19 @@ type CfnQuickConnect_QuickConnectConfigProperty struct {
 	// The type of quick connect.
 	//
 	// In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
-	QuickConnectType *string `json:"quickConnectType"`
+	QuickConnectType *string `json:"quickConnectType" yaml:"quickConnectType"`
 	// The phone configuration.
 	//
 	// This is required only if QuickConnectType is PHONE_NUMBER.
-	PhoneConfig interface{} `json:"phoneConfig"`
+	PhoneConfig interface{} `json:"phoneConfig" yaml:"phoneConfig"`
 	// The queue configuration.
 	//
 	// This is required only if QuickConnectType is QUEUE.
-	QueueConfig interface{} `json:"queueConfig"`
+	QueueConfig interface{} `json:"queueConfig" yaml:"queueConfig"`
 	// The user configuration.
 	//
 	// This is required only if QuickConnectType is USER.
-	UserConfig interface{} `json:"userConfig"`
+	UserConfig interface{} `json:"userConfig" yaml:"userConfig"`
 }
 
 // Contains information about the quick connect configuration settings for a user.
@@ -2458,9 +2458,9 @@ type CfnQuickConnect_QuickConnectConfigProperty struct {
 //
 type CfnQuickConnect_UserQuickConnectConfigProperty struct {
 	// The Amazon Resource Name (ARN) of the contact flow.
-	ContactFlowArn *string `json:"contactFlowArn"`
+	ContactFlowArn *string `json:"contactFlowArn" yaml:"contactFlowArn"`
 	// The Amazon Resource Name (ARN) of the user.
-	UserArn *string `json:"userArn"`
+	UserArn *string `json:"userArn" yaml:"userArn"`
 }
 
 // Properties for defining a `CfnQuickConnect`.
@@ -2469,15 +2469,15 @@ type CfnQuickConnect_UserQuickConnectConfigProperty struct {
 //
 type CfnQuickConnectProps struct {
 	// The Amazon Resource Name (ARN) of the instance.
-	InstanceArn *string `json:"instanceArn"`
+	InstanceArn *string `json:"instanceArn" yaml:"instanceArn"`
 	// The name of the quick connect.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// Contains information about the quick connect.
-	QuickConnectConfig interface{} `json:"quickConnectConfig"`
+	QuickConnectConfig interface{} `json:"quickConnectConfig" yaml:"quickConnectConfig"`
 	// The description of the quick connect.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The tags used to organize, track, or control access for this resource.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Connect::User`.
@@ -3144,15 +3144,15 @@ type CfnUser_UserIdentityInfoProperty struct {
 	// The email address.
 	//
 	// If you are using SAML for identity management and include this parameter, an error is returned.
-	Email *string `json:"email"`
+	Email *string `json:"email" yaml:"email"`
 	// The first name.
 	//
 	// This is required if you are using Amazon Connect or SAML for identity management.
-	FirstName *string `json:"firstName"`
+	FirstName *string `json:"firstName" yaml:"firstName"`
 	// The last name.
 	//
 	// This is required if you are using Amazon Connect or SAML for identity management.
-	LastName *string `json:"lastName"`
+	LastName *string `json:"lastName" yaml:"lastName"`
 }
 
 // Contains information about the phone configuration settings for a user.
@@ -3161,13 +3161,13 @@ type CfnUser_UserIdentityInfoProperty struct {
 //
 type CfnUser_UserPhoneConfigProperty struct {
 	// The phone type.
-	PhoneType *string `json:"phoneType"`
+	PhoneType *string `json:"phoneType" yaml:"phoneType"`
 	// The After Call Work (ACW) timeout setting, in seconds.
-	AfterContactWorkTimeLimit *float64 `json:"afterContactWorkTimeLimit"`
+	AfterContactWorkTimeLimit *float64 `json:"afterContactWorkTimeLimit" yaml:"afterContactWorkTimeLimit"`
 	// The Auto accept setting.
-	AutoAccept interface{} `json:"autoAccept"`
+	AutoAccept interface{} `json:"autoAccept" yaml:"autoAccept"`
 	// The phone number for the user's desk phone.
-	DeskPhoneNumber *string `json:"deskPhoneNumber"`
+	DeskPhoneNumber *string `json:"deskPhoneNumber" yaml:"deskPhoneNumber"`
 }
 
 // A CloudFormation `AWS::Connect::UserHierarchyGroup`.
@@ -3699,11 +3699,11 @@ func (c *jsiiProxy_CfnUserHierarchyGroup) ValidateProperties(_properties interfa
 //
 type CfnUserHierarchyGroupProps struct {
 	// The Amazon Resource Name (ARN) of the user hierarchy group.
-	InstanceArn *string `json:"instanceArn"`
+	InstanceArn *string `json:"instanceArn" yaml:"instanceArn"`
 	// The name of the user hierarchy group.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The Amazon Resource Name (ARN) of the parent group.
-	ParentGroupArn *string `json:"parentGroupArn"`
+	ParentGroupArn *string `json:"parentGroupArn" yaml:"parentGroupArn"`
 }
 
 // Properties for defining a `CfnUser`.
@@ -3712,24 +3712,24 @@ type CfnUserHierarchyGroupProps struct {
 //
 type CfnUserProps struct {
 	// The Amazon Resource Name (ARN) of the instance.
-	InstanceArn *string `json:"instanceArn"`
+	InstanceArn *string `json:"instanceArn" yaml:"instanceArn"`
 	// Information about the phone configuration for the user.
-	PhoneConfig interface{} `json:"phoneConfig"`
+	PhoneConfig interface{} `json:"phoneConfig" yaml:"phoneConfig"`
 	// The Amazon Resource Name (ARN) of the user's routing profile.
-	RoutingProfileArn *string `json:"routingProfileArn"`
+	RoutingProfileArn *string `json:"routingProfileArn" yaml:"routingProfileArn"`
 	// The Amazon Resource Name (ARN) of the user's security profile.
-	SecurityProfileArns *[]*string `json:"securityProfileArns"`
+	SecurityProfileArns *[]*string `json:"securityProfileArns" yaml:"securityProfileArns"`
 	// The user name assigned to the user account.
-	Username *string `json:"username"`
+	Username *string `json:"username" yaml:"username"`
 	// The identifier of the user account in the directory used for identity management.
-	DirectoryUserId *string `json:"directoryUserId"`
+	DirectoryUserId *string `json:"directoryUserId" yaml:"directoryUserId"`
 	// The Amazon Resource Name (ARN) of the user's hierarchy group.
-	HierarchyGroupArn *string `json:"hierarchyGroupArn"`
+	HierarchyGroupArn *string `json:"hierarchyGroupArn" yaml:"hierarchyGroupArn"`
 	// Information about the user identity.
-	IdentityInfo interface{} `json:"identityInfo"`
+	IdentityInfo interface{} `json:"identityInfo" yaml:"identityInfo"`
 	// The user's password.
-	Password *string `json:"password"`
+	Password *string `json:"password" yaml:"password"`
 	// The tags.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 

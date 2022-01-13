@@ -397,22 +397,22 @@ func (a *jsiiProxy_App) ToString() *string {
 type AppProps struct {
 	// The name for the application.
 	// Experimental.
-	AppName *string `json:"appName"`
+	AppName *string `json:"appName" yaml:"appName"`
 	// The auto branch creation configuration.
 	//
 	// Use this to automatically create
 	// branches that match a certain pattern.
 	// Experimental.
-	AutoBranchCreation *AutoBranchCreation `json:"autoBranchCreation"`
+	AutoBranchCreation *AutoBranchCreation `json:"autoBranchCreation" yaml:"autoBranchCreation"`
 	// Automatically disconnect a branch in the Amplify Console when you delete a branch from your Git repository.
 	// Experimental.
-	AutoBranchDeletion *bool `json:"autoBranchDeletion"`
+	AutoBranchDeletion *bool `json:"autoBranchDeletion" yaml:"autoBranchDeletion"`
 	// The Basic Auth configuration.
 	//
 	// Use this to set password protection at an
 	// app level to all your branches.
 	// Experimental.
-	BasicAuth BasicAuth `json:"basicAuth"`
+	BasicAuth BasicAuth `json:"basicAuth" yaml:"basicAuth"`
 	// BuildSpec for the application.
 	//
 	// Alternatively, add a `amplify.yml`
@@ -420,33 +420,33 @@ type AppProps struct {
 	// See: https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html
 	//
 	// Experimental.
-	BuildSpec awscodebuild.BuildSpec `json:"buildSpec"`
+	BuildSpec awscodebuild.BuildSpec `json:"buildSpec" yaml:"buildSpec"`
 	// The custom HTTP response headers for an Amplify app.
 	// See: https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html
 	//
 	// Experimental.
-	CustomResponseHeaders *[]*CustomResponseHeader `json:"customResponseHeaders"`
+	CustomResponseHeaders *[]*CustomResponseHeader `json:"customResponseHeaders" yaml:"customResponseHeaders"`
 	// Custom rewrite/redirect rules for the application.
 	// Experimental.
-	CustomRules *[]CustomRule `json:"customRules"`
+	CustomRules *[]CustomRule `json:"customRules" yaml:"customRules"`
 	// A description for the application.
 	// Experimental.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Environment variables for the application.
 	//
 	// All environment variables that you add are encrypted to prevent rogue
 	// access so you can use them to store secret information.
 	// Experimental.
-	EnvironmentVariables *map[string]*string `json:"environmentVariables"`
+	EnvironmentVariables *map[string]*string `json:"environmentVariables" yaml:"environmentVariables"`
 	// The IAM service role to associate with the application.
 	//
 	// The App
 	// implements IGrantable.
 	// Experimental.
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 	// The source code provider for this application.
 	// Experimental.
-	SourceCodeProvider ISourceCodeProvider `json:"sourceCodeProvider"`
+	SourceCodeProvider ISourceCodeProvider `json:"sourceCodeProvider" yaml:"sourceCodeProvider"`
 }
 
 // Auto branch creation configuration.
@@ -457,34 +457,34 @@ type AppProps struct {
 type AutoBranchCreation struct {
 	// Whether to enable auto building for the auto created branch.
 	// Experimental.
-	AutoBuild *bool `json:"autoBuild"`
+	AutoBuild *bool `json:"autoBuild" yaml:"autoBuild"`
 	// The Basic Auth configuration.
 	//
 	// Use this to set password protection for
 	// the auto created branch.
 	// Experimental.
-	BasicAuth BasicAuth `json:"basicAuth"`
+	BasicAuth BasicAuth `json:"basicAuth" yaml:"basicAuth"`
 	// Build spec for the auto created branch.
 	// Experimental.
-	BuildSpec awscodebuild.BuildSpec `json:"buildSpec"`
+	BuildSpec awscodebuild.BuildSpec `json:"buildSpec" yaml:"buildSpec"`
 	// Environment variables for the auto created branch.
 	//
 	// All environment variables that you add are encrypted to prevent rogue
 	// access so you can use them to store secret information.
 	// Experimental.
-	EnvironmentVariables *map[string]*string `json:"environmentVariables"`
+	EnvironmentVariables *map[string]*string `json:"environmentVariables" yaml:"environmentVariables"`
 	// Automated branch creation glob patterns.
 	// Experimental.
-	Patterns *[]*string `json:"patterns"`
+	Patterns *[]*string `json:"patterns" yaml:"patterns"`
 	// The dedicated backend environment for the pull request previews of the auto created branch.
 	// Experimental.
-	PullRequestEnvironmentName *string `json:"pullRequestEnvironmentName"`
+	PullRequestEnvironmentName *string `json:"pullRequestEnvironmentName" yaml:"pullRequestEnvironmentName"`
 	// Whether to enable pull request preview for the auto created branch.
 	// Experimental.
-	PullRequestPreview *bool `json:"pullRequestPreview"`
+	PullRequestPreview *bool `json:"pullRequestPreview" yaml:"pullRequestPreview"`
 	// Stage for the auto created branch.
 	// Experimental.
-	Stage *string `json:"stage"`
+	Stage *string `json:"stage" yaml:"stage"`
 }
 
 // Basic Auth configuration.
@@ -584,13 +584,13 @@ func (b *jsiiProxy_BasicAuth) Bind(scope constructs.Construct, id *string) *Basi
 type BasicAuthConfig struct {
 	// Whether to enable Basic Auth.
 	// Experimental.
-	EnableBasicAuth *bool `json:"enableBasicAuth"`
+	EnableBasicAuth *bool `json:"enableBasicAuth" yaml:"enableBasicAuth"`
 	// The password.
 	// Experimental.
-	Password *string `json:"password"`
+	Password *string `json:"password" yaml:"password"`
 	// The username.
 	// Experimental.
-	Username *string `json:"username"`
+	Username *string `json:"username" yaml:"username"`
 }
 
 // Properties for a BasicAuth.
@@ -601,13 +601,13 @@ type BasicAuthConfig struct {
 type BasicAuthProps struct {
 	// The username.
 	// Experimental.
-	Username *string `json:"username"`
+	Username *string `json:"username" yaml:"username"`
 	// The encryption key to use to encrypt the password when it's generated in Secrets Manager.
 	// Experimental.
-	EncryptionKey awskms.IKey `json:"encryptionKey"`
+	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
 	// The password.
 	// Experimental.
-	Password awscdk.SecretValue `json:"password"`
+	Password awscdk.SecretValue `json:"password" yaml:"password"`
 }
 
 // An Amplify Console branch.
@@ -893,42 +893,42 @@ type BranchOptions struct {
 	// The Amplify app must not have a sourceCodeProvider configured as this resource uses Amplify's
 	// startDeployment API to initiate and deploy a S3 asset onto the App.
 	// Experimental.
-	Asset awss3assets.Asset `json:"asset"`
+	Asset awss3assets.Asset `json:"asset" yaml:"asset"`
 	// Whether to enable auto building for the branch.
 	// Experimental.
-	AutoBuild *bool `json:"autoBuild"`
+	AutoBuild *bool `json:"autoBuild" yaml:"autoBuild"`
 	// The Basic Auth configuration.
 	//
 	// Use this to set password protection for
 	// the branch
 	// Experimental.
-	BasicAuth BasicAuth `json:"basicAuth"`
+	BasicAuth BasicAuth `json:"basicAuth" yaml:"basicAuth"`
 	// The name of the branch.
 	// Experimental.
-	BranchName *string `json:"branchName"`
+	BranchName *string `json:"branchName" yaml:"branchName"`
 	// BuildSpec for the branch.
 	// See: https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html
 	//
 	// Experimental.
-	BuildSpec awscodebuild.BuildSpec `json:"buildSpec"`
+	BuildSpec awscodebuild.BuildSpec `json:"buildSpec" yaml:"buildSpec"`
 	// A description for the branch.
 	// Experimental.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Environment variables for the branch.
 	//
 	// All environment variables that you add are encrypted to prevent rogue
 	// access so you can use them to store secret information.
 	// Experimental.
-	EnvironmentVariables *map[string]*string `json:"environmentVariables"`
+	EnvironmentVariables *map[string]*string `json:"environmentVariables" yaml:"environmentVariables"`
 	// The dedicated backend environment for the pull request previews.
 	// Experimental.
-	PullRequestEnvironmentName *string `json:"pullRequestEnvironmentName"`
+	PullRequestEnvironmentName *string `json:"pullRequestEnvironmentName" yaml:"pullRequestEnvironmentName"`
 	// Whether to enable pull request preview for the branch.
 	// Experimental.
-	PullRequestPreview *bool `json:"pullRequestPreview"`
+	PullRequestPreview *bool `json:"pullRequestPreview" yaml:"pullRequestPreview"`
 	// Stage for the branch.
 	// Experimental.
-	Stage *string `json:"stage"`
+	Stage *string `json:"stage" yaml:"stage"`
 }
 
 // Properties for a Branch.
@@ -942,45 +942,45 @@ type BranchProps struct {
 	// The Amplify app must not have a sourceCodeProvider configured as this resource uses Amplify's
 	// startDeployment API to initiate and deploy a S3 asset onto the App.
 	// Experimental.
-	Asset awss3assets.Asset `json:"asset"`
+	Asset awss3assets.Asset `json:"asset" yaml:"asset"`
 	// Whether to enable auto building for the branch.
 	// Experimental.
-	AutoBuild *bool `json:"autoBuild"`
+	AutoBuild *bool `json:"autoBuild" yaml:"autoBuild"`
 	// The Basic Auth configuration.
 	//
 	// Use this to set password protection for
 	// the branch
 	// Experimental.
-	BasicAuth BasicAuth `json:"basicAuth"`
+	BasicAuth BasicAuth `json:"basicAuth" yaml:"basicAuth"`
 	// The name of the branch.
 	// Experimental.
-	BranchName *string `json:"branchName"`
+	BranchName *string `json:"branchName" yaml:"branchName"`
 	// BuildSpec for the branch.
 	// See: https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html
 	//
 	// Experimental.
-	BuildSpec awscodebuild.BuildSpec `json:"buildSpec"`
+	BuildSpec awscodebuild.BuildSpec `json:"buildSpec" yaml:"buildSpec"`
 	// A description for the branch.
 	// Experimental.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Environment variables for the branch.
 	//
 	// All environment variables that you add are encrypted to prevent rogue
 	// access so you can use them to store secret information.
 	// Experimental.
-	EnvironmentVariables *map[string]*string `json:"environmentVariables"`
+	EnvironmentVariables *map[string]*string `json:"environmentVariables" yaml:"environmentVariables"`
 	// The dedicated backend environment for the pull request previews.
 	// Experimental.
-	PullRequestEnvironmentName *string `json:"pullRequestEnvironmentName"`
+	PullRequestEnvironmentName *string `json:"pullRequestEnvironmentName" yaml:"pullRequestEnvironmentName"`
 	// Whether to enable pull request preview for the branch.
 	// Experimental.
-	PullRequestPreview *bool `json:"pullRequestPreview"`
+	PullRequestPreview *bool `json:"pullRequestPreview" yaml:"pullRequestPreview"`
 	// Stage for the branch.
 	// Experimental.
-	Stage *string `json:"stage"`
+	Stage *string `json:"stage" yaml:"stage"`
 	// The application within which the branch must be created.
 	// Experimental.
-	App IApp `json:"app"`
+	App IApp `json:"app" yaml:"app"`
 }
 
 // CodeCommit source code provider.
@@ -1047,7 +1047,7 @@ func (c *jsiiProxy_CodeCommitSourceCodeProvider) Bind(app App) *SourceCodeProvid
 type CodeCommitSourceCodeProviderProps struct {
 	// The CodeCommit repository.
 	// Experimental.
-	Repository awscodecommit.IRepository `json:"repository"`
+	Repository awscodecommit.IRepository `json:"repository" yaml:"repository"`
 }
 
 // Custom response header of an Amplify App.
@@ -1058,10 +1058,10 @@ type CodeCommitSourceCodeProviderProps struct {
 type CustomResponseHeader struct {
 	// The map of custom headers to be applied.
 	// Experimental.
-	Headers *map[string]*string `json:"headers"`
+	Headers *map[string]*string `json:"headers" yaml:"headers"`
 	// These custom headers will be applied to all URL file paths that match this pattern.
 	// Experimental.
-	Pattern *string `json:"pattern"`
+	Pattern *string `json:"pattern" yaml:"pattern"`
 }
 
 // Custom rewrite/redirect rule for an Amplify App.
@@ -1171,22 +1171,22 @@ type CustomRuleOptions struct {
 	// See: https://docs.aws.amazon.com/amplify/latest/userguide/redirects.html
 	//
 	// Experimental.
-	Source *string `json:"source"`
+	Source *string `json:"source" yaml:"source"`
 	// The target pattern for a URL rewrite or redirect rule.
 	// See: https://docs.aws.amazon.com/amplify/latest/userguide/redirects.html
 	//
 	// Experimental.
-	Target *string `json:"target"`
+	Target *string `json:"target" yaml:"target"`
 	// The condition for a URL rewrite or redirect rule, e.g. country code.
 	// See: https://docs.aws.amazon.com/amplify/latest/userguide/redirects.html
 	//
 	// Experimental.
-	Condition *string `json:"condition"`
+	Condition *string `json:"condition" yaml:"condition"`
 	// The status code for a URL rewrite or redirect rule.
 	// See: https://docs.aws.amazon.com/amplify/latest/userguide/redirects.html
 	//
 	// Experimental.
-	Status RedirectStatus `json:"status"`
+	Status RedirectStatus `json:"status" yaml:"status"`
 }
 
 // An Amplify Console domain.
@@ -1529,16 +1529,16 @@ func (d *jsiiProxy_Domain) ToString() *string {
 type DomainOptions struct {
 	// Branches which should automatically create subdomains.
 	// Experimental.
-	AutoSubdomainCreationPatterns *[]*string `json:"autoSubdomainCreationPatterns"`
+	AutoSubdomainCreationPatterns *[]*string `json:"autoSubdomainCreationPatterns" yaml:"autoSubdomainCreationPatterns"`
 	// The name of the domain.
 	// Experimental.
-	DomainName *string `json:"domainName"`
+	DomainName *string `json:"domainName" yaml:"domainName"`
 	// Automatically create subdomains for connected branches.
 	// Experimental.
-	EnableAutoSubdomain *bool `json:"enableAutoSubdomain"`
+	EnableAutoSubdomain *bool `json:"enableAutoSubdomain" yaml:"enableAutoSubdomain"`
 	// Subdomains.
 	// Experimental.
-	SubDomains *[]*SubDomain `json:"subDomains"`
+	SubDomains *[]*SubDomain `json:"subDomains" yaml:"subDomains"`
 }
 
 // Properties for a Domain.
@@ -1549,22 +1549,22 @@ type DomainOptions struct {
 type DomainProps struct {
 	// Branches which should automatically create subdomains.
 	// Experimental.
-	AutoSubdomainCreationPatterns *[]*string `json:"autoSubdomainCreationPatterns"`
+	AutoSubdomainCreationPatterns *[]*string `json:"autoSubdomainCreationPatterns" yaml:"autoSubdomainCreationPatterns"`
 	// The name of the domain.
 	// Experimental.
-	DomainName *string `json:"domainName"`
+	DomainName *string `json:"domainName" yaml:"domainName"`
 	// Automatically create subdomains for connected branches.
 	// Experimental.
-	EnableAutoSubdomain *bool `json:"enableAutoSubdomain"`
+	EnableAutoSubdomain *bool `json:"enableAutoSubdomain" yaml:"enableAutoSubdomain"`
 	// Subdomains.
 	// Experimental.
-	SubDomains *[]*SubDomain `json:"subDomains"`
+	SubDomains *[]*SubDomain `json:"subDomains" yaml:"subDomains"`
 	// The application to which the domain must be connected.
 	// Experimental.
-	App IApp `json:"app"`
+	App IApp `json:"app" yaml:"app"`
 	// The IAM role with access to Route53 when using enableAutoSubdomain.
 	// Experimental.
-	AutoSubDomainIamRole awsiam.IRole `json:"autoSubDomainIamRole"`
+	AutoSubDomainIamRole awsiam.IRole `json:"autoSubDomainIamRole" yaml:"autoSubDomainIamRole"`
 }
 
 // GitHub source code provider.
@@ -1631,13 +1631,13 @@ func (g *jsiiProxy_GitHubSourceCodeProvider) Bind(_app App) *SourceCodeProviderC
 type GitHubSourceCodeProviderProps struct {
 	// A personal access token with the `repo` scope.
 	// Experimental.
-	OauthToken awscdk.SecretValue `json:"oauthToken"`
+	OauthToken awscdk.SecretValue `json:"oauthToken" yaml:"oauthToken"`
 	// The user or organization owning the repository.
 	// Experimental.
-	Owner *string `json:"owner"`
+	Owner *string `json:"owner" yaml:"owner"`
 	// The name of the repository.
 	// Experimental.
-	Repository *string `json:"repository"`
+	Repository *string `json:"repository" yaml:"repository"`
 }
 
 // GitLab source code provider.
@@ -1704,13 +1704,13 @@ func (g *jsiiProxy_GitLabSourceCodeProvider) Bind(_app App) *SourceCodeProviderC
 type GitLabSourceCodeProviderProps struct {
 	// A personal access token with the `repo` scope.
 	// Experimental.
-	OauthToken awscdk.SecretValue `json:"oauthToken"`
+	OauthToken awscdk.SecretValue `json:"oauthToken" yaml:"oauthToken"`
 	// The user or organization owning the repository.
 	// Experimental.
-	Owner *string `json:"owner"`
+	Owner *string `json:"owner" yaml:"owner"`
 	// The name of the repository.
 	// Experimental.
-	Repository *string `json:"repository"`
+	Repository *string `json:"repository" yaml:"repository"`
 }
 
 // An Amplify Console application.
@@ -1812,7 +1812,7 @@ type SourceCodeProviderConfig struct {
 	// TODO: EXAMPLE
 	//
 	// Experimental.
-	Repository *string `json:"repository"`
+	Repository *string `json:"repository" yaml:"repository"`
 	// Personal Access token for 3rd party source control system for an Amplify App, used to create webhook and read-only deploy key.
 	//
 	// Token is not stored.
@@ -1820,7 +1820,7 @@ type SourceCodeProviderConfig struct {
 	// Either `accessToken` or `oauthToken` must be specified if `repository`
 	// is sepcified.
 	// Experimental.
-	AccessToken awscdk.SecretValue `json:"accessToken"`
+	AccessToken awscdk.SecretValue `json:"accessToken" yaml:"accessToken"`
 	// OAuth token for 3rd party source control system for an Amplify App, used to create webhook and read-only deploy key.
 	//
 	// OAuth token is not stored.
@@ -1828,7 +1828,7 @@ type SourceCodeProviderConfig struct {
 	// Either `accessToken` or `oauthToken` must be specified if `repository`
 	// is sepcified.
 	// Experimental.
-	OauthToken awscdk.SecretValue `json:"oauthToken"`
+	OauthToken awscdk.SecretValue `json:"oauthToken" yaml:"oauthToken"`
 }
 
 // Sub domain settings.
@@ -1839,11 +1839,11 @@ type SourceCodeProviderConfig struct {
 type SubDomain struct {
 	// The branch.
 	// Experimental.
-	Branch IBranch `json:"branch"`
+	Branch IBranch `json:"branch" yaml:"branch"`
 	// The prefix.
 	//
 	// Use '' to map to the root of the domain
 	// Experimental.
-	Prefix *string `json:"prefix"`
+	Prefix *string `json:"prefix" yaml:"prefix"`
 }
 

@@ -686,7 +686,7 @@ func (c *jsiiProxy_CfnJobTemplate) ValidateProperties(_properties interface{}) {
 //
 type CfnJobTemplate_AccelerationSettingsProperty struct {
 	// Specify the conditions when the service will run your job with accelerated transcoding.
-	Mode *string `json:"mode"`
+	Mode *string `json:"mode" yaml:"mode"`
 }
 
 // Optional.
@@ -699,15 +699,15 @@ type CfnJobTemplate_HopDestinationProperty struct {
 	// Optional.
 	//
 	// When you set up a job to use queue hopping, you can specify a different relative priority for the job in the destination queue. If you don't specify, the relative priority will remain the same as in the previous queue.
-	Priority *float64 `json:"priority"`
+	Priority *float64 `json:"priority" yaml:"priority"`
 	// Optional unless the job is submitted on the default queue.
 	//
 	// When you set up a job to use queue hopping, you can specify a destination queue. This queue cannot be the original queue to which the job is submitted. If the original queue isn't the default queue and you don't specify the destination queue, the job will move to the default queue.
-	Queue *string `json:"queue"`
+	Queue *string `json:"queue" yaml:"queue"`
 	// Required for setting up a job to use queue hopping.
 	//
 	// Minimum wait time in minutes until the job can hop to the destination queue. Valid range is 1 to 1440 minutes, inclusive.
-	WaitMinutes *float64 `json:"waitMinutes"`
+	WaitMinutes *float64 `json:"waitMinutes" yaml:"waitMinutes"`
 }
 
 // Properties for defining a `CfnJobTemplate`.
@@ -720,33 +720,33 @@ type CfnJobTemplateProps struct {
 	// This specification must conform to the AWS Elemental MediaConvert job validation. For information about forming this specification, see the Remarks section later in this topic.
 	//
 	// For more information about MediaConvert job templates, see [Working with AWS Elemental MediaConvert Job Templates](https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-job-templates.html) in the ** .
-	SettingsJson interface{} `json:"settingsJson"`
+	SettingsJson interface{} `json:"settingsJson" yaml:"settingsJson"`
 	// Accelerated transcoding can significantly speed up jobs with long, visually complex content.
 	//
 	// Outputs that use this feature incur pro-tier pricing. For information about feature limitations, For more information, see [Job Limitations for Accelerated Transcoding in AWS Elemental MediaConvert](https://docs.aws.amazon.com/mediaconvert/latest/ug/job-requirements.html) in the *AWS Elemental MediaConvert User Guide* .
-	AccelerationSettings interface{} `json:"accelerationSettings"`
+	AccelerationSettings interface{} `json:"accelerationSettings" yaml:"accelerationSettings"`
 	// Optional.
 	//
 	// A category for the job template you are creating
-	Category *string `json:"category"`
+	Category *string `json:"category" yaml:"category"`
 	// Optional.
 	//
 	// A description of the job template you are creating.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Optional.
 	//
 	// Configuration for a destination queue to which the job can hop once a customer-defined minimum wait time has passed. For more information, see [Setting Up Queue Hopping to Avoid Long Waits](https://docs.aws.amazon.com/mediaconvert/latest/ug/setting-up-queue-hopping-to-avoid-long-waits.html) in the *AWS Elemental MediaConvert User Guide* .
-	HopDestinations interface{} `json:"hopDestinations"`
+	HopDestinations interface{} `json:"hopDestinations" yaml:"hopDestinations"`
 	// The name of the job template you are creating.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// Specify the relative priority for this job.
 	//
 	// In any given queue, the service begins processing the job with the highest value first. When more than one job has the same priority, the service begins processing the job that you submitted first. If you don't specify a priority, the service uses the default value 0. Minimum: -50 Maximum: 50
-	Priority *float64 `json:"priority"`
+	Priority *float64 `json:"priority" yaml:"priority"`
 	// Optional.
 	//
 	// The queue that jobs created from this template are assigned to. Specify the Amazon Resource Name (ARN) of the queue. For example, arn:aws:mediaconvert:us-west-2:505474453218:queues/Default. If you don't specify this, jobs will go to the default queue.
-	Queue *string `json:"queue"`
+	Queue *string `json:"queue" yaml:"queue"`
 	// Specify how often MediaConvert sends STATUS_UPDATE events to Amazon CloudWatch Events.
 	//
 	// Set the interval, in seconds, between status updates. MediaConvert sends an update at this interval from the time the service begins processing your job to the time it completes the transcode or encounters an error.
@@ -782,11 +782,11 @@ type CfnJobTemplateProps struct {
 	// SECONDS_540
 	//
 	// SECONDS_600
-	StatusUpdateInterval *string `json:"statusUpdateInterval"`
+	StatusUpdateInterval *string `json:"statusUpdateInterval" yaml:"statusUpdateInterval"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags interface{} `json:"tags"`
+	Tags interface{} `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::MediaConvert::Preset`.
@@ -1368,17 +1368,17 @@ type CfnPresetProps struct {
 	// This specification must conform to the AWS Elemental MediaConvert job validation. For information about forming this specification, see the Remarks section later in this topic.
 	//
 	// For more information about MediaConvert output presets, see [Working with AWS Elemental MediaConvert Output Presets](https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-presets.html) in the ** .
-	SettingsJson interface{} `json:"settingsJson"`
+	SettingsJson interface{} `json:"settingsJson" yaml:"settingsJson"`
 	// The new category for the preset, if you are changing it.
-	Category *string `json:"category"`
+	Category *string `json:"category" yaml:"category"`
 	// The new description for the preset, if you are changing it.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The name of the preset that you are modifying.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags interface{} `json:"tags"`
+	Tags interface{} `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::MediaConvert::Queue`.
@@ -1954,22 +1954,22 @@ type CfnQueueProps struct {
 	// Optional.
 	//
 	// A description of the queue that you are creating.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The name of the queue that you are creating.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// When you use AWS CloudFormation , you can create only on-demand queues.
 	//
 	// Therefore, always set `PricingPlan` to the value "ON_DEMAND" when declaring an AWS::MediaConvert::Queue in your AWS CloudFormation template.
 	//
 	// To create a reserved queue, use the AWS Elemental MediaConvert console at https://console.aws.amazon.com/mediaconvert to set up a contract. For more information, see [Working with AWS Elemental MediaConvert Queues](https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html) in the ** .
-	PricingPlan *string `json:"pricingPlan"`
+	PricingPlan *string `json:"pricingPlan" yaml:"pricingPlan"`
 	// Initial state of the queue.
 	//
 	// Queues can be either ACTIVE or PAUSED. If you create a paused queue, then jobs that you send to that queue won't begin.
-	Status *string `json:"status"`
+	Status *string `json:"status" yaml:"status"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags interface{} `json:"tags"`
+	Tags interface{} `json:"tags" yaml:"tags"`
 }
 

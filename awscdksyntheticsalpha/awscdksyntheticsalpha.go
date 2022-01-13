@@ -25,12 +25,12 @@ import (
 type ArtifactsBucketLocation struct {
 	// The s3 location that stores the data of each run.
 	// Experimental.
-	Bucket awss3.IBucket `json:"bucket"`
+	Bucket awss3.IBucket `json:"bucket" yaml:"bucket"`
 	// The S3 bucket prefix.
 	//
 	// Specify this if you want a more specific path within the artifacts bucket.
 	// Experimental.
-	Prefix *string `json:"prefix"`
+	Prefix *string `json:"prefix" yaml:"prefix"`
 }
 
 // Canary code from an Asset.
@@ -482,15 +482,15 @@ type CanaryProps struct {
 	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html
 	//
 	// Experimental.
-	Runtime Runtime `json:"runtime"`
+	Runtime Runtime `json:"runtime" yaml:"runtime"`
 	// The type of test that you want your canary to run.
 	//
 	// Use `Test.custom()` to specify the test to run.
 	// Experimental.
-	Test Test `json:"test"`
+	Test Test `json:"test" yaml:"test"`
 	// The s3 location that stores the data of the canary runs.
 	// Experimental.
-	ArtifactsBucketLocation *ArtifactsBucketLocation `json:"artifactsBucketLocation"`
+	ArtifactsBucketLocation *ArtifactsBucketLocation `json:"artifactsBucketLocation" yaml:"artifactsBucketLocation"`
 	// The name of the canary.
 	//
 	// Be sure to give it a descriptive name that distinguishes it from
@@ -501,17 +501,17 @@ type CanaryProps struct {
 	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/servicelens_canaries_security.html
 	//
 	// Experimental.
-	CanaryName *string `json:"canaryName"`
+	CanaryName *string `json:"canaryName" yaml:"canaryName"`
 	// Key-value pairs that the Synthetics caches and makes available for your canary scripts.
 	//
 	// Use environment variables
 	// to apply configuration changes, such as test and production environment configurations, without changing your
 	// Canary script source code.
 	// Experimental.
-	EnvironmentVariables *map[string]*string `json:"environmentVariables"`
+	EnvironmentVariables *map[string]*string `json:"environmentVariables" yaml:"environmentVariables"`
 	// How many days should failed runs be retained.
 	// Experimental.
-	FailureRetentionPeriod awscdk.Duration `json:"failureRetentionPeriod"`
+	FailureRetentionPeriod awscdk.Duration `json:"failureRetentionPeriod" yaml:"failureRetentionPeriod"`
 	// Canary execution role.
 	//
 	// This is the role that will be assumed by the canary upon execution.
@@ -523,25 +523,25 @@ type CanaryProps struct {
 	// See: required permissions: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-executionrolearn
 	//
 	// Experimental.
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 	// Specify the schedule for how often the canary runs.
 	//
 	// For example, if you set `schedule` to `rate(10 minutes)`, then the canary will run every 10 minutes.
 	// You can set the schedule with `Schedule.rate(Duration)` (recommended) or you can specify an expression using `Schedule.expression()`.
 	// Experimental.
-	Schedule Schedule `json:"schedule"`
+	Schedule Schedule `json:"schedule" yaml:"schedule"`
 	// Whether or not the canary should start after creation.
 	// Experimental.
-	StartAfterCreation *bool `json:"startAfterCreation"`
+	StartAfterCreation *bool `json:"startAfterCreation" yaml:"startAfterCreation"`
 	// How many days should successful runs be retained.
 	// Experimental.
-	SuccessRetentionPeriod awscdk.Duration `json:"successRetentionPeriod"`
+	SuccessRetentionPeriod awscdk.Duration `json:"successRetentionPeriod" yaml:"successRetentionPeriod"`
 	// How long the canary will be in a 'RUNNING' state.
 	//
 	// For example, if you set `timeToLive` to be 1 hour and `schedule` to be `rate(10 minutes)`,
 	// your canary will run at 10 minute intervals for an hour, for a total of 6 times.
 	// Experimental.
-	TimeToLive awscdk.Duration `json:"timeToLive"`
+	TimeToLive awscdk.Duration `json:"timeToLive" yaml:"timeToLive"`
 }
 
 // The code the canary should execute.
@@ -660,10 +660,10 @@ func (c *jsiiProxy_Code) Bind(scope constructs.Construct, handler *string, famil
 type CodeConfig struct {
 	// Inline code (mutually exclusive with `s3Location`).
 	// Experimental.
-	InlineCode *string `json:"inlineCode"`
+	InlineCode *string `json:"inlineCode" yaml:"inlineCode"`
 	// The location of the code in S3 (mutually exclusive with `inlineCode`).
 	// Experimental.
-	S3Location *awss3.Location `json:"s3Location"`
+	S3Location *awss3.Location `json:"s3Location" yaml:"s3Location"`
 }
 
 // Options to configure a cron expression.
@@ -679,19 +679,19 @@ type CodeConfig struct {
 type CronOptions struct {
 	// The day of the month to run this rule at.
 	// Experimental.
-	Day *string `json:"day"`
+	Day *string `json:"day" yaml:"day"`
 	// The hour to run this rule at.
 	// Experimental.
-	Hour *string `json:"hour"`
+	Hour *string `json:"hour" yaml:"hour"`
 	// The minute to run this rule at.
 	// Experimental.
-	Minute *string `json:"minute"`
+	Minute *string `json:"minute" yaml:"minute"`
 	// The month to run this rule at.
 	// Experimental.
-	Month *string `json:"month"`
+	Month *string `json:"month" yaml:"month"`
 	// The day of the week to run this rule at.
 	// Experimental.
-	WeekDay *string `json:"weekDay"`
+	WeekDay *string `json:"weekDay" yaml:"weekDay"`
 }
 
 // Properties for specifying a test.
@@ -702,12 +702,12 @@ type CronOptions struct {
 type CustomTestOptions struct {
 	// The code of the canary script.
 	// Experimental.
-	Code Code `json:"code"`
+	Code Code `json:"code" yaml:"code"`
 	// The handler for the code.
 	//
 	// Must end with `.handler`.
 	// Experimental.
-	Handler *string `json:"handler"`
+	Handler *string `json:"handler" yaml:"handler"`
 }
 
 // Canary code from an inline string.

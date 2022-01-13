@@ -25,17 +25,17 @@ type AdjustmentTier struct {
 	// StepScalingPolicy.
 	//
 	// Can be positive or negative.
-	Adjustment *float64 `json:"adjustment"`
+	Adjustment *float64 `json:"adjustment" yaml:"adjustment"`
 	// Lower bound where this scaling tier applies.
 	//
 	// The scaling tier applies if the difference between the metric
 	// value and its alarm threshold is higher than this value.
-	LowerBound *float64 `json:"lowerBound"`
+	LowerBound *float64 `json:"lowerBound" yaml:"lowerBound"`
 	// Upper bound where this scaling tier applies.
 	//
 	// The scaling tier applies if the difference between the metric
 	// value and its alarm threshold is lower than this value.
-	UpperBound *float64 `json:"upperBound"`
+	UpperBound *float64 `json:"upperBound" yaml:"upperBound"`
 }
 
 // How adjustment numbers are interpreted.
@@ -174,17 +174,17 @@ func (b *jsiiProxy_BaseScalableAttribute) ToString() *string {
 //
 type BaseScalableAttributeProps struct {
 	// Maximum capacity to scale to.
-	MaxCapacity *float64 `json:"maxCapacity"`
+	MaxCapacity *float64 `json:"maxCapacity" yaml:"maxCapacity"`
 	// Minimum capacity to scale to.
-	MinCapacity *float64 `json:"minCapacity"`
+	MinCapacity *float64 `json:"minCapacity" yaml:"minCapacity"`
 	// Scalable dimension of the attribute.
-	Dimension *string `json:"dimension"`
+	Dimension *string `json:"dimension" yaml:"dimension"`
 	// Resource ID of the attribute.
-	ResourceId *string `json:"resourceId"`
+	ResourceId *string `json:"resourceId" yaml:"resourceId"`
 	// Role to use for scaling.
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 	// Service namespace of the scalable attribute.
-	ServiceNamespace ServiceNamespace `json:"serviceNamespace"`
+	ServiceNamespace ServiceNamespace `json:"serviceNamespace" yaml:"serviceNamespace"`
 }
 
 // Base interface for target tracking props.
@@ -204,26 +204,26 @@ type BaseTargetTrackingProps struct {
 	// won't remove capacity from the scalable resource. Otherwise, scale in is
 	// enabled and the target tracking policy can remove capacity from the
 	// scalable resource.
-	DisableScaleIn *bool `json:"disableScaleIn"`
+	DisableScaleIn *bool `json:"disableScaleIn" yaml:"disableScaleIn"`
 	// A name for the scaling policy.
-	PolicyName *string `json:"policyName"`
+	PolicyName *string `json:"policyName" yaml:"policyName"`
 	// Period after a scale in activity completes before another scale in activity can start.
-	ScaleInCooldown awscdk.Duration `json:"scaleInCooldown"`
+	ScaleInCooldown awscdk.Duration `json:"scaleInCooldown" yaml:"scaleInCooldown"`
 	// Period after a scale out activity completes before another scale out activity can start.
-	ScaleOutCooldown awscdk.Duration `json:"scaleOutCooldown"`
+	ScaleOutCooldown awscdk.Duration `json:"scaleOutCooldown" yaml:"scaleOutCooldown"`
 }
 
 // TODO: EXAMPLE
 //
 type BasicStepScalingPolicyProps struct {
 	// Metric to scale on.
-	Metric awscloudwatch.IMetric `json:"metric"`
+	Metric awscloudwatch.IMetric `json:"metric" yaml:"metric"`
 	// The intervals for scaling.
 	//
 	// Maps a range of metric values to a particular scaling behavior.
-	ScalingSteps *[]*ScalingInterval `json:"scalingSteps"`
+	ScalingSteps *[]*ScalingInterval `json:"scalingSteps" yaml:"scalingSteps"`
 	// How the adjustment numbers inside 'intervals' are interpreted.
-	AdjustmentType AdjustmentType `json:"adjustmentType"`
+	AdjustmentType AdjustmentType `json:"adjustmentType" yaml:"adjustmentType"`
 	// Grace period after scaling activity.
 	//
 	// Subsequent scale outs during the cooldown period are squashed so that only
@@ -232,14 +232,14 @@ type BasicStepScalingPolicyProps struct {
 	// Subsequent scale ins during the cooldown period are ignored.
 	// See: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_StepScalingPolicyConfiguration.html
 	//
-	Cooldown awscdk.Duration `json:"cooldown"`
+	Cooldown awscdk.Duration `json:"cooldown" yaml:"cooldown"`
 	// The number of data points out of the evaluation periods that must be breaching to trigger a scaling action.
 	//
 	// Creates an "M out of N" alarm, where this property is the M and the value set for
 	// `evaluationPeriods` is the N value.
 	//
 	// Only has meaning if `evaluationPeriods != 1`.
-	DatapointsToAlarm *float64 `json:"datapointsToAlarm"`
+	DatapointsToAlarm *float64 `json:"datapointsToAlarm" yaml:"datapointsToAlarm"`
 	// How many evaluation periods of the metric to wait before triggering a scaling action.
 	//
 	// Raising this value can be used to smooth out the metric, at the expense
@@ -247,16 +247,16 @@ type BasicStepScalingPolicyProps struct {
 	//
 	// If `datapointsToAlarm` is not set, then all data points in the evaluation period
 	// must meet the criteria to trigger a scaling action.
-	EvaluationPeriods *float64 `json:"evaluationPeriods"`
+	EvaluationPeriods *float64 `json:"evaluationPeriods" yaml:"evaluationPeriods"`
 	// Aggregation to apply to all data points over the evaluation periods.
 	//
 	// Only has meaning if `evaluationPeriods != 1`.
-	MetricAggregationType MetricAggregationType `json:"metricAggregationType"`
+	MetricAggregationType MetricAggregationType `json:"metricAggregationType" yaml:"metricAggregationType"`
 	// Minimum absolute number to adjust capacity with as result of percentage scaling.
 	//
 	// Only when using AdjustmentType = PercentChangeInCapacity, this number controls
 	// the minimum absolute effect size.
-	MinAdjustmentMagnitude *float64 `json:"minAdjustmentMagnitude"`
+	MinAdjustmentMagnitude *float64 `json:"minAdjustmentMagnitude" yaml:"minAdjustmentMagnitude"`
 }
 
 // Properties for a Target Tracking policy that include the metric but exclude the target.
@@ -270,35 +270,35 @@ type BasicTargetTrackingScalingPolicyProps struct {
 	// won't remove capacity from the scalable resource. Otherwise, scale in is
 	// enabled and the target tracking policy can remove capacity from the
 	// scalable resource.
-	DisableScaleIn *bool `json:"disableScaleIn"`
+	DisableScaleIn *bool `json:"disableScaleIn" yaml:"disableScaleIn"`
 	// A name for the scaling policy.
-	PolicyName *string `json:"policyName"`
+	PolicyName *string `json:"policyName" yaml:"policyName"`
 	// Period after a scale in activity completes before another scale in activity can start.
-	ScaleInCooldown awscdk.Duration `json:"scaleInCooldown"`
+	ScaleInCooldown awscdk.Duration `json:"scaleInCooldown" yaml:"scaleInCooldown"`
 	// Period after a scale out activity completes before another scale out activity can start.
-	ScaleOutCooldown awscdk.Duration `json:"scaleOutCooldown"`
+	ScaleOutCooldown awscdk.Duration `json:"scaleOutCooldown" yaml:"scaleOutCooldown"`
 	// The target value for the metric.
-	TargetValue *float64 `json:"targetValue"`
+	TargetValue *float64 `json:"targetValue" yaml:"targetValue"`
 	// A custom metric for application autoscaling.
 	//
 	// The metric must track utilization. Scaling out will happen if the metric is higher than
 	// the target value, scaling in will happen in the metric is lower than the target value.
 	//
 	// Exactly one of customMetric or predefinedMetric must be specified.
-	CustomMetric awscloudwatch.IMetric `json:"customMetric"`
+	CustomMetric awscloudwatch.IMetric `json:"customMetric" yaml:"customMetric"`
 	// A predefined metric for application autoscaling.
 	//
 	// The metric must track utilization. Scaling out will happen if the metric is higher than
 	// the target value, scaling in will happen in the metric is lower than the target value.
 	//
 	// Exactly one of customMetric or predefinedMetric must be specified.
-	PredefinedMetric PredefinedMetric `json:"predefinedMetric"`
+	PredefinedMetric PredefinedMetric `json:"predefinedMetric" yaml:"predefinedMetric"`
 	// Identify the resource associated with the metric type.
 	//
 	// Only used for predefined metric ALBRequestCountPerTarget.
 	//
 	// Example value: `app/<load-balancer-name>/<load-balancer-id>/targetgroup/<target-group-name>/<target-group-id>`
-	ResourceLabel *string `json:"resourceLabel"`
+	ResourceLabel *string `json:"resourceLabel" yaml:"resourceLabel"`
 }
 
 // A CloudFormation `AWS::ApplicationAutoScaling::ScalableTarget`.
@@ -923,9 +923,9 @@ func (c *jsiiProxy_CfnScalableTarget) ValidateProperties(_properties interface{}
 //
 type CfnScalableTarget_ScalableTargetActionProperty struct {
 	// The maximum capacity.
-	MaxCapacity *float64 `json:"maxCapacity"`
+	MaxCapacity *float64 `json:"maxCapacity" yaml:"maxCapacity"`
 	// The minimum capacity.
-	MinCapacity *float64 `json:"minCapacity"`
+	MinCapacity *float64 `json:"minCapacity" yaml:"minCapacity"`
 }
 
 // `ScheduledAction` is a property of the [AWS::ApplicationAutoScaling::ScalableTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html) resource that specifies a scheduled action for a scalable target.
@@ -948,21 +948,21 @@ type CfnScalableTarget_ScheduledActionProperty struct {
 	// The cron format consists of six fields separated by white spaces: [Minutes] [Hours] [Day_of_Month] [Month] [Day_of_Week] [Year].
 	//
 	// For rate expressions, *value* is a positive integer and *unit* is `minute` | `minutes` | `hour` | `hours` | `day` | `days` .
-	Schedule *string `json:"schedule"`
+	Schedule *string `json:"schedule" yaml:"schedule"`
 	// The name of the scheduled action.
 	//
 	// This name must be unique among all other scheduled actions on the specified scalable target.
-	ScheduledActionName *string `json:"scheduledActionName"`
+	ScheduledActionName *string `json:"scheduledActionName" yaml:"scheduledActionName"`
 	// The date and time that the action is scheduled to end, in UTC.
-	EndTime interface{} `json:"endTime"`
+	EndTime interface{} `json:"endTime" yaml:"endTime"`
 	// The new minimum and maximum capacity.
 	//
 	// You can set both values or just one. At the scheduled time, if the current capacity is below the minimum capacity, Application Auto Scaling scales out to the minimum capacity. If the current capacity is above the maximum capacity, Application Auto Scaling scales in to the maximum capacity.
-	ScalableTargetAction interface{} `json:"scalableTargetAction"`
+	ScalableTargetAction interface{} `json:"scalableTargetAction" yaml:"scalableTargetAction"`
 	// The date and time that the action is scheduled to begin, in UTC.
-	StartTime interface{} `json:"startTime"`
+	StartTime interface{} `json:"startTime" yaml:"startTime"`
 	// The time zone used when referring to the date and time of a scheduled action, when the scheduled action uses an at or cron expression.
-	Timezone *string `json:"timezone"`
+	Timezone *string `json:"timezone" yaml:"timezone"`
 }
 
 // `SuspendedState` is a property of the [AWS::ApplicationAutoScaling::ScalableTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html) resource that specifies whether the scaling activities for a scalable target are in a suspended state.
@@ -973,15 +973,15 @@ type CfnScalableTarget_SuspendedStateProperty struct {
 	// Whether scale in by a target tracking scaling policy or a step scaling policy is suspended.
 	//
 	// Set the value to `true` if you don't want Application Auto Scaling to remove capacity when a scaling policy is triggered. The default is `false` .
-	DynamicScalingInSuspended interface{} `json:"dynamicScalingInSuspended"`
+	DynamicScalingInSuspended interface{} `json:"dynamicScalingInSuspended" yaml:"dynamicScalingInSuspended"`
 	// Whether scale out by a target tracking scaling policy or a step scaling policy is suspended.
 	//
 	// Set the value to `true` if you don't want Application Auto Scaling to add capacity when a scaling policy is triggered. The default is `false` .
-	DynamicScalingOutSuspended interface{} `json:"dynamicScalingOutSuspended"`
+	DynamicScalingOutSuspended interface{} `json:"dynamicScalingOutSuspended" yaml:"dynamicScalingOutSuspended"`
 	// Whether scheduled scaling is suspended.
 	//
 	// Set the value to `true` if you don't want Application Auto Scaling to add or remove capacity by initiating scheduled actions. The default is `false` .
-	ScheduledScalingSuspended interface{} `json:"scheduledScalingSuspended"`
+	ScheduledScalingSuspended interface{} `json:"scheduledScalingSuspended" yaml:"scheduledScalingSuspended"`
 }
 
 // Properties for defining a `CfnScalableTarget`.
@@ -992,11 +992,11 @@ type CfnScalableTargetProps struct {
 	// The maximum value that you plan to scale out to.
 	//
 	// When a scaling policy is in effect, Application Auto Scaling can scale out (expand) as needed to the maximum capacity limit in response to changing demand.
-	MaxCapacity *float64 `json:"maxCapacity"`
+	MaxCapacity *float64 `json:"maxCapacity" yaml:"maxCapacity"`
 	// The minimum value that you plan to scale in to.
 	//
 	// When a scaling policy is in effect, Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to changing demand.
-	MinCapacity *float64 `json:"minCapacity"`
+	MinCapacity *float64 `json:"minCapacity" yaml:"minCapacity"`
 	// The identifier of the resource associated with the scalable target.
 	//
 	// This string consists of the resource type and unique identifier.
@@ -1017,13 +1017,13 @@ type CfnScalableTargetProps struct {
 	// - Amazon MSK cluster - The resource type and unique identifier are specified using the cluster ARN. Example: `arn:aws:kafka:us-east-1:123456789012:cluster/demo-cluster-1/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5` .
 	// - Amazon ElastiCache replication group - The resource type is `replication-group` and the unique identifier is the replication group name. Example: `replication-group/mycluster` .
 	// - Neptune cluster - The resource type is `cluster` and the unique identifier is the cluster name. Example: `cluster:mycluster` .
-	ResourceId *string `json:"resourceId"`
+	ResourceId *string `json:"resourceId" yaml:"resourceId"`
 	// Specify the Amazon Resource Name (ARN) of an Identity and Access Management (IAM) role that allows Application Auto Scaling to modify the scalable target on your behalf.
 	//
 	// This can be either an IAM service role that Application Auto Scaling can assume to make calls to other AWS resources on your behalf, or a service-linked role for the specified service. For more information, see [How Application Auto Scaling works with IAM](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html) in the *Application Auto Scaling User Guide* .
 	//
 	// To automatically create a service-linked role (recommended), specify the full ARN of the service-linked role in your stack template. To find the exact ARN of the service-linked role for your AWS or custom resource, see the [Service-linked roles](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-service-linked-roles.html) topic in the *Application Auto Scaling User Guide* . Look for the ARN in the table at the bottom of the page.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// The scalable dimension associated with the scalable target.
 	//
 	// This string consists of the service namespace, resource type, and scaling property.
@@ -1048,13 +1048,13 @@ type CfnScalableTargetProps struct {
 	// - `elasticache:replication-group:NodeGroups` - The number of node groups for an Amazon ElastiCache replication group.
 	// - `elasticache:replication-group:Replicas` - The number of replicas per node group for an Amazon ElastiCache replication group.
 	// - `neptune:cluster:ReadReplicaCount` - The count of read replicas in an Amazon Neptune DB cluster.
-	ScalableDimension *string `json:"scalableDimension"`
+	ScalableDimension *string `json:"scalableDimension" yaml:"scalableDimension"`
 	// The namespace of the AWS service that provides the resource, or a `custom-resource` .
-	ServiceNamespace *string `json:"serviceNamespace"`
+	ServiceNamespace *string `json:"serviceNamespace" yaml:"serviceNamespace"`
 	// The scheduled actions for the scalable target. Duplicates aren't allowed.
 	//
 	// For more information about using scheduled scaling, see [Scheduled scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html) in the *Application Auto Scaling User Guide* .
-	ScheduledActions interface{} `json:"scheduledActions"`
+	ScheduledActions interface{} `json:"scheduledActions" yaml:"scheduledActions"`
 	// An embedded object that contains attributes and attribute values that are used to suspend and resume automatic scaling.
 	//
 	// Setting the value of an attribute to `true` suspends the specified scaling activities. Setting it to `false` (default) resumes the specified scaling activities.
@@ -1066,7 +1066,7 @@ type CfnScalableTargetProps struct {
 	// - For `ScheduledScalingSuspended` , while a suspension is in effect, all scaling activities that involve scheduled actions are suspended.
 	//
 	// For more information, see [Suspending and resuming scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-suspend-resume-scaling.html) in the *Application Auto Scaling User Guide* .
-	SuspendedState interface{} `json:"suspendedState"`
+	SuspendedState interface{} `json:"suspendedState" yaml:"suspendedState"`
 }
 
 // A CloudFormation `AWS::ApplicationAutoScaling::ScalingPolicy`.
@@ -1700,17 +1700,17 @@ func (c *jsiiProxy_CfnScalingPolicy) ValidateProperties(_properties interface{})
 //
 type CfnScalingPolicy_CustomizedMetricSpecificationProperty struct {
 	// The name of the metric.
-	MetricName *string `json:"metricName"`
+	MetricName *string `json:"metricName" yaml:"metricName"`
 	// The namespace of the metric.
-	Namespace *string `json:"namespace"`
+	Namespace *string `json:"namespace" yaml:"namespace"`
 	// The statistic of the metric.
-	Statistic *string `json:"statistic"`
+	Statistic *string `json:"statistic" yaml:"statistic"`
 	// The dimensions of the metric.
 	//
 	// Conditional: If you published your metric with dimensions, you must specify the same dimensions in your scaling policy.
-	Dimensions interface{} `json:"dimensions"`
+	Dimensions interface{} `json:"dimensions" yaml:"dimensions"`
 	// The unit of the metric.
-	Unit *string `json:"unit"`
+	Unit *string `json:"unit" yaml:"unit"`
 }
 
 // `MetricDimension` specifies a name/value pair that is part of the identity of a CloudWatch metric for the `Dimensions` property of the [AWS::ApplicationAutoScaling::ScalingPolicy CustomizedMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html) property type. Duplicate dimensions are not allowed.
@@ -1719,9 +1719,9 @@ type CfnScalingPolicy_CustomizedMetricSpecificationProperty struct {
 //
 type CfnScalingPolicy_MetricDimensionProperty struct {
 	// The name of the dimension.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The value of the dimension.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // Contains predefined metric specification information for a target tracking scaling policy for Application Auto Scaling.
@@ -1734,7 +1734,7 @@ type CfnScalingPolicy_PredefinedMetricSpecificationProperty struct {
 	// The metric type.
 	//
 	// The `ALBRequestCountPerTarget` metric type applies only to Spot fleet requests and ECS services.
-	PredefinedMetricType *string `json:"predefinedMetricType"`
+	PredefinedMetricType *string `json:"predefinedMetricType" yaml:"predefinedMetricType"`
 	// Identifies the resource associated with the metric type.
 	//
 	// You can't specify a resource label unless the metric type is `ALBRequestCountPerTarget` and there is a target group attached to the Spot Fleet or ECS service.
@@ -1749,7 +1749,7 @@ type CfnScalingPolicy_PredefinedMetricSpecificationProperty struct {
 	// - targetgroup/<target-group-name>/<target-group-id> is the final portion of the target group ARN.
 	//
 	// To find the ARN for an Application Load Balancer, use the [DescribeLoadBalancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html) API operation. To find the ARN for the target group, use the [DescribeTargetGroups](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html) API operation.
-	ResourceLabel *string `json:"resourceLabel"`
+	ResourceLabel *string `json:"resourceLabel" yaml:"resourceLabel"`
 }
 
 // `StepAdjustment` specifies a step adjustment for the `StepAdjustments` property of the [AWS::ApplicationAutoScaling::ScalingPolicy StepScalingPolicyConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration.html) property type.
@@ -1769,19 +1769,19 @@ type CfnScalingPolicy_StepAdjustmentProperty struct {
 	// The amount by which to scale.
 	//
 	// The adjustment is based on the value that you specified in the `AdjustmentType` property (either an absolute number or a percentage). A positive value adds to the current capacity and a negative number subtracts from the current capacity.
-	ScalingAdjustment *float64 `json:"scalingAdjustment"`
+	ScalingAdjustment *float64 `json:"scalingAdjustment" yaml:"scalingAdjustment"`
 	// The lower bound for the difference between the alarm threshold and the CloudWatch metric.
 	//
 	// If the metric value is above the breach threshold, the lower bound is inclusive (the metric must be greater than or equal to the threshold plus the lower bound). Otherwise, it is exclusive (the metric must be greater than the threshold plus the lower bound). A null value indicates negative infinity.
 	//
 	// You must specify at least one upper or lower bound.
-	MetricIntervalLowerBound *float64 `json:"metricIntervalLowerBound"`
+	MetricIntervalLowerBound *float64 `json:"metricIntervalLowerBound" yaml:"metricIntervalLowerBound"`
 	// The upper bound for the difference between the alarm threshold and the CloudWatch metric.
 	//
 	// If the metric value is above the breach threshold, the upper bound is exclusive (the metric must be less than the threshold plus the upper bound). Otherwise, it is inclusive (the metric must be less than or equal to the threshold plus the upper bound). A null value indicates positive infinity.
 	//
 	// You must specify at least one upper or lower bound.
-	MetricIntervalUpperBound *float64 `json:"metricIntervalUpperBound"`
+	MetricIntervalUpperBound *float64 `json:"metricIntervalUpperBound" yaml:"metricIntervalUpperBound"`
 }
 
 // `StepScalingPolicyConfiguration` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html) resource that specifies a step scaling policy configuration for Application Auto Scaling.
@@ -1792,7 +1792,7 @@ type CfnScalingPolicy_StepAdjustmentProperty struct {
 //
 type CfnScalingPolicy_StepScalingPolicyConfigurationProperty struct {
 	// Specifies whether the `ScalingAdjustment` value in the `StepAdjustment` property is an absolute number or a percentage of the current capacity.
-	AdjustmentType *string `json:"adjustmentType"`
+	AdjustmentType *string `json:"adjustmentType" yaml:"adjustmentType"`
 	// The amount of time, in seconds, to wait for a previous scaling activity to take effect.
 	//
 	// With scale-out policies, the intention is to continuously (but not excessively) scale out. After Application Auto Scaling successfully scales out using a step scaling policy, it starts to calculate the cooldown time. The scaling policy won't increase the desired capacity again unless either a larger scale out is triggered or the cooldown period ends. While the cooldown period is in effect, capacity added by the initiating scale-out activity is calculated as part of the desired capacity for the next scale-out activity. For example, when an alarm triggers a step scaling policy to increase the capacity by 2, the scaling activity completes successfully, and a cooldown period starts. If the alarm triggers again during the cooldown period but at a more aggressive step adjustment of 3, the previous increase of 2 is considered part of the current capacity. Therefore, only 1 is added to the capacity.
@@ -1817,19 +1817,19 @@ type CfnScalingPolicy_StepScalingPolicyConfigurationProperty struct {
 	// - Amazon Keyspaces tables
 	// - Lambda provisioned concurrency
 	// - Amazon MSK broker storage
-	Cooldown *float64 `json:"cooldown"`
+	Cooldown *float64 `json:"cooldown" yaml:"cooldown"`
 	// The aggregation type for the CloudWatch metrics.
 	//
 	// Valid values are `Minimum` , `Maximum` , and `Average` . If the aggregation type is null, the value is treated as `Average` .
-	MetricAggregationType *string `json:"metricAggregationType"`
+	MetricAggregationType *string `json:"metricAggregationType" yaml:"metricAggregationType"`
 	// The minimum value to scale by when the adjustment type is `PercentChangeInCapacity` .
 	//
 	// For example, suppose that you create a step scaling policy to scale out an Amazon ECS service by 25 percent and you specify a `MinAdjustmentMagnitude` of 2. If the service has 4 tasks and the scaling policy is performed, 25 percent of 4 is 1. However, because you specified a `MinAdjustmentMagnitude` of 2, Application Auto Scaling scales out the service by 2 tasks.
-	MinAdjustmentMagnitude *float64 `json:"minAdjustmentMagnitude"`
+	MinAdjustmentMagnitude *float64 `json:"minAdjustmentMagnitude" yaml:"minAdjustmentMagnitude"`
 	// A set of adjustments that enable you to scale based on the size of the alarm breach.
 	//
 	// At least one step adjustment is required if you are adding a new step scaling policy configuration.
-	StepAdjustments interface{} `json:"stepAdjustments"`
+	StepAdjustments interface{} `json:"stepAdjustments" yaml:"stepAdjustments"`
 }
 
 // `TargetTrackingScalingPolicyConfiguration` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html) resource that specifies a target tracking scaling policy configuration for Application Auto Scaling. Use a target tracking scaling policy to adjust the capacity of the specified scalable target in response to actual workloads, so that resource utilization remains at or near the target utilization value.
@@ -1842,19 +1842,19 @@ type CfnScalingPolicy_TargetTrackingScalingPolicyConfigurationProperty struct {
 	// The target value for the metric.
 	//
 	// Although this property accepts numbers of type Double, it won't accept values that are either too small or too large. Values must be in the range of -2^360 to 2^360. The value must be a valid number based on the choice of metric. For example, if the metric is CPU utilization, then the target value is a percent value that represents how much of the CPU can be used before scaling out.
-	TargetValue *float64 `json:"targetValue"`
+	TargetValue *float64 `json:"targetValue" yaml:"targetValue"`
 	// A customized metric.
 	//
 	// You can specify either a predefined metric or a customized metric.
-	CustomizedMetricSpecification interface{} `json:"customizedMetricSpecification"`
+	CustomizedMetricSpecification interface{} `json:"customizedMetricSpecification" yaml:"customizedMetricSpecification"`
 	// Indicates whether scale in by the target tracking scaling policy is disabled.
 	//
 	// If the value is `true` , scale in is disabled and the target tracking scaling policy won't remove capacity from the scalable target. Otherwise, scale in is enabled and the target tracking scaling policy can remove capacity from the scalable target. The default value is `false` .
-	DisableScaleIn interface{} `json:"disableScaleIn"`
+	DisableScaleIn interface{} `json:"disableScaleIn" yaml:"disableScaleIn"`
 	// A predefined metric.
 	//
 	// You can specify either a predefined metric or a customized metric.
-	PredefinedMetricSpecification interface{} `json:"predefinedMetricSpecification"`
+	PredefinedMetricSpecification interface{} `json:"predefinedMetricSpecification" yaml:"predefinedMetricSpecification"`
 	// The amount of time, in seconds, after a scale-in activity completes before another scale-in activity can start.
 	//
 	// With the *scale-in cooldown period* , the intention is to scale in conservatively to protect your application’s availability, so scale-in activities are blocked until the cooldown period has expired. However, if another alarm triggers a scale-out activity during the scale-in cooldown period, Application Auto Scaling scales out the target immediately. In this case, the scale-in cooldown period stops and doesn't complete.
@@ -1877,7 +1877,7 @@ type CfnScalingPolicy_TargetTrackingScalingPolicyConfigurationProperty struct {
 	// - Amazon Keyspaces tables
 	// - Lambda provisioned concurrency
 	// - Amazon MSK broker storage
-	ScaleInCooldown *float64 `json:"scaleInCooldown"`
+	ScaleInCooldown *float64 `json:"scaleInCooldown" yaml:"scaleInCooldown"`
 	// The amount of time, in seconds, to wait for a previous scale-out activity to take effect.
 	//
 	// With the *scale-out cooldown period* , the intention is to continuously (but not excessively) scale out. After Application Auto Scaling successfully scales out using a target tracking scaling policy, it starts to calculate the cooldown time. The scaling policy won't increase the desired capacity again unless either a larger scale out is triggered or the cooldown period ends. While the cooldown period is in effect, the capacity added by the initiating scale-out activity is calculated as part of the desired capacity for the next scale-out activity.
@@ -1900,7 +1900,7 @@ type CfnScalingPolicy_TargetTrackingScalingPolicyConfigurationProperty struct {
 	// - Amazon Keyspaces tables
 	// - Lambda provisioned concurrency
 	// - Amazon MSK broker storage
-	ScaleOutCooldown *float64 `json:"scaleOutCooldown"`
+	ScaleOutCooldown *float64 `json:"scaleOutCooldown" yaml:"scaleOutCooldown"`
 }
 
 // Properties for defining a `CfnScalingPolicy`.
@@ -1909,7 +1909,7 @@ type CfnScalingPolicy_TargetTrackingScalingPolicyConfigurationProperty struct {
 //
 type CfnScalingPolicyProps struct {
 	// The name of the scaling policy.
-	PolicyName *string `json:"policyName"`
+	PolicyName *string `json:"policyName" yaml:"policyName"`
 	// The scaling policy type.
 	//
 	// The following policy types are supported:
@@ -1917,7 +1917,7 @@ type CfnScalingPolicyProps struct {
 	// `TargetTrackingScaling` —Not supported for Amazon EMR
 	//
 	// `StepScaling` —Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune.
-	PolicyType *string `json:"policyType"`
+	PolicyType *string `json:"policyType" yaml:"policyType"`
 	// The identifier of the resource associated with the scaling policy.
 	//
 	// This string consists of the resource type and unique identifier.
@@ -1938,7 +1938,7 @@ type CfnScalingPolicyProps struct {
 	// - Amazon MSK cluster - The resource type and unique identifier are specified using the cluster ARN. Example: `arn:aws:kafka:us-east-1:123456789012:cluster/demo-cluster-1/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5` .
 	// - Amazon ElastiCache replication group - The resource type is `replication-group` and the unique identifier is the replication group name. Example: `replication-group/mycluster` .
 	// - Neptune cluster - The resource type is `cluster` and the unique identifier is the cluster name. Example: `cluster:mycluster` .
-	ResourceId *string `json:"resourceId"`
+	ResourceId *string `json:"resourceId" yaml:"resourceId"`
 	// The scalable dimension. This string consists of the service namespace, resource type, and scaling property.
 	//
 	// - `ecs:service:DesiredCount` - The desired task count of an ECS service.
@@ -1961,19 +1961,19 @@ type CfnScalingPolicyProps struct {
 	// - `elasticache:replication-group:NodeGroups` - The number of node groups for an Amazon ElastiCache replication group.
 	// - `elasticache:replication-group:Replicas` - The number of replicas per node group for an Amazon ElastiCache replication group.
 	// - `neptune:cluster:ReadReplicaCount` - The count of read replicas in an Amazon Neptune DB cluster.
-	ScalableDimension *string `json:"scalableDimension"`
+	ScalableDimension *string `json:"scalableDimension" yaml:"scalableDimension"`
 	// The CloudFormation-generated ID of an Application Auto Scaling scalable target.
 	//
 	// For more information about the ID, see the Return Value section of the `AWS::ApplicationAutoScaling::ScalableTarget` resource.
 	//
 	// > You must specify either the `ScalingTargetId` property, or the `ResourceId` , `ScalableDimension` , and `ServiceNamespace` properties, but not both.
-	ScalingTargetId *string `json:"scalingTargetId"`
+	ScalingTargetId *string `json:"scalingTargetId" yaml:"scalingTargetId"`
 	// The namespace of the AWS service that provides the resource, or a `custom-resource` .
-	ServiceNamespace *string `json:"serviceNamespace"`
+	ServiceNamespace *string `json:"serviceNamespace" yaml:"serviceNamespace"`
 	// A step scaling policy.
-	StepScalingPolicyConfiguration interface{} `json:"stepScalingPolicyConfiguration"`
+	StepScalingPolicyConfiguration interface{} `json:"stepScalingPolicyConfiguration" yaml:"stepScalingPolicyConfiguration"`
 	// A target tracking scaling policy.
-	TargetTrackingScalingPolicyConfiguration interface{} `json:"targetTrackingScalingPolicyConfiguration"`
+	TargetTrackingScalingPolicyConfiguration interface{} `json:"targetTrackingScalingPolicyConfiguration" yaml:"targetTrackingScalingPolicyConfiguration"`
 }
 
 // Options to configure a cron expression.
@@ -1987,17 +1987,17 @@ type CfnScalingPolicyProps struct {
 //
 type CronOptions struct {
 	// The day of the month to run this rule at.
-	Day *string `json:"day"`
+	Day *string `json:"day" yaml:"day"`
 	// The hour to run this rule at.
-	Hour *string `json:"hour"`
+	Hour *string `json:"hour" yaml:"hour"`
 	// The minute to run this rule at.
-	Minute *string `json:"minute"`
+	Minute *string `json:"minute" yaml:"minute"`
 	// The month to run this rule at.
-	Month *string `json:"month"`
+	Month *string `json:"month" yaml:"month"`
 	// The day of the week to run this rule at.
-	WeekDay *string `json:"weekDay"`
+	WeekDay *string `json:"weekDay" yaml:"weekDay"`
 	// The year to run this rule at.
-	Year *string `json:"year"`
+	Year *string `json:"year" yaml:"year"`
 }
 
 // Properties for enabling Application Auto Scaling.
@@ -2006,9 +2006,9 @@ type CronOptions struct {
 //
 type EnableScalingProps struct {
 	// Maximum capacity to scale to.
-	MaxCapacity *float64 `json:"maxCapacity"`
+	MaxCapacity *float64 `json:"maxCapacity" yaml:"maxCapacity"`
 	// Minimum capacity to scale to.
-	MinCapacity *float64 `json:"minCapacity"`
+	MinCapacity *float64 `json:"minCapacity" yaml:"minCapacity"`
 }
 
 type IScalableTarget interface {
@@ -2363,9 +2363,9 @@ func (s *jsiiProxy_ScalableTarget) ToString() *string {
 //
 type ScalableTargetProps struct {
 	// The maximum value that Application Auto Scaling can use to scale a target during a scaling activity.
-	MaxCapacity *float64 `json:"maxCapacity"`
+	MaxCapacity *float64 `json:"maxCapacity" yaml:"maxCapacity"`
 	// The minimum value that Application Auto Scaling can use to scale a target during a scaling activity.
-	MinCapacity *float64 `json:"minCapacity"`
+	MinCapacity *float64 `json:"minCapacity" yaml:"minCapacity"`
 	// The resource identifier to associate with this scalable target.
 	//
 	// This string consists of the resource type and unique identifier.
@@ -2373,7 +2373,7 @@ type ScalableTargetProps struct {
 	// Example value: `service/ecsStack-MyECSCluster-AB12CDE3F4GH/ecsStack-MyECSService-AB12CDE3F4GH`
 	// See: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html
 	//
-	ResourceId *string `json:"resourceId"`
+	ResourceId *string `json:"resourceId" yaml:"resourceId"`
 	// The scalable dimension that's associated with the scalable target.
 	//
 	// Specify the service namespace, resource type, and scaling property.
@@ -2381,16 +2381,16 @@ type ScalableTargetProps struct {
 	// Example value: `ecs:service:DesiredCount`
 	// See: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_ScalingPolicy.html
 	//
-	ScalableDimension *string `json:"scalableDimension"`
+	ScalableDimension *string `json:"scalableDimension" yaml:"scalableDimension"`
 	// The namespace of the AWS service that provides the resource or custom-resource for a resource provided by your own application or service.
 	//
 	// For valid AWS service namespace values, see the RegisterScalableTarget
 	// action in the Application Auto Scaling API Reference.
 	// See: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html
 	//
-	ServiceNamespace ServiceNamespace `json:"serviceNamespace"`
+	ServiceNamespace ServiceNamespace `json:"serviceNamespace" yaml:"serviceNamespace"`
 	// Role that allows Application Auto Scaling to modify your scalable target.
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 }
 
 // A range of metric values in which to apply a certain scaling operation.
@@ -2408,15 +2408,15 @@ type ScalingInterval struct {
 	//    capacity to itself. The number can be in the range [-100..100].
 	// - ExactCapacity: set the capacity to this number. The number must
 	//    be positive.
-	Change *float64 `json:"change"`
+	Change *float64 `json:"change" yaml:"change"`
 	// The lower bound of the interval.
 	//
 	// The scaling adjustment will be applied if the metric is higher than this value.
-	Lower *float64 `json:"lower"`
+	Lower *float64 `json:"lower" yaml:"lower"`
 	// The upper bound of the interval.
 	//
 	// The scaling adjustment will be applied if the metric is lower than this value.
-	Upper *float64 `json:"upper"`
+	Upper *float64 `json:"upper" yaml:"upper"`
 }
 
 // A scheduled scaling action.
@@ -2425,25 +2425,25 @@ type ScalingInterval struct {
 //
 type ScalingSchedule struct {
 	// When to perform this action.
-	Schedule Schedule `json:"schedule"`
+	Schedule Schedule `json:"schedule" yaml:"schedule"`
 	// When this scheduled action expires.
-	EndTime *time.Time `json:"endTime"`
+	EndTime *time.Time `json:"endTime" yaml:"endTime"`
 	// The new maximum capacity.
 	//
 	// During the scheduled time, the current capacity is above the maximum
 	// capacity, Application Auto Scaling scales in to the maximum capacity.
 	//
 	// At least one of maxCapacity and minCapacity must be supplied.
-	MaxCapacity *float64 `json:"maxCapacity"`
+	MaxCapacity *float64 `json:"maxCapacity" yaml:"maxCapacity"`
 	// The new minimum capacity.
 	//
 	// During the scheduled time, if the current capacity is below the minimum
 	// capacity, Application Auto Scaling scales out to the minimum capacity.
 	//
 	// At least one of maxCapacity and minCapacity must be supplied.
-	MinCapacity *float64 `json:"minCapacity"`
+	MinCapacity *float64 `json:"minCapacity" yaml:"minCapacity"`
 	// When this scheduled action becomes active.
-	StartTime *time.Time `json:"startTime"`
+	StartTime *time.Time `json:"startTime" yaml:"startTime"`
 }
 
 // Schedule for scheduled scaling actions.
@@ -2681,9 +2681,9 @@ func (s *jsiiProxy_StepScalingAction) ToString() *string {
 //
 type StepScalingActionProps struct {
 	// The scalable target.
-	ScalingTarget IScalableTarget `json:"scalingTarget"`
+	ScalingTarget IScalableTarget `json:"scalingTarget" yaml:"scalingTarget"`
 	// How the adjustment numbers are interpreted.
-	AdjustmentType AdjustmentType `json:"adjustmentType"`
+	AdjustmentType AdjustmentType `json:"adjustmentType" yaml:"adjustmentType"`
 	// Grace period after scaling activity.
 	//
 	// For scale out policies, multiple scale outs during the cooldown period are
@@ -2693,16 +2693,16 @@ type StepScalingActionProps struct {
 	// ignored.
 	// See: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_StepScalingPolicyConfiguration.html
 	//
-	Cooldown awscdk.Duration `json:"cooldown"`
+	Cooldown awscdk.Duration `json:"cooldown" yaml:"cooldown"`
 	// The aggregation type for the CloudWatch metrics.
-	MetricAggregationType MetricAggregationType `json:"metricAggregationType"`
+	MetricAggregationType MetricAggregationType `json:"metricAggregationType" yaml:"metricAggregationType"`
 	// Minimum absolute number to adjust capacity with as result of percentage scaling.
 	//
 	// Only when using AdjustmentType = PercentChangeInCapacity, this number controls
 	// the minimum absolute effect size.
-	MinAdjustmentMagnitude *float64 `json:"minAdjustmentMagnitude"`
+	MinAdjustmentMagnitude *float64 `json:"minAdjustmentMagnitude" yaml:"minAdjustmentMagnitude"`
 	// A name for the scaling policy.
-	PolicyName *string `json:"policyName"`
+	PolicyName *string `json:"policyName" yaml:"policyName"`
 }
 
 // Define a scaling strategy which scales depending on absolute values of some metric.
@@ -2840,13 +2840,13 @@ func (s *jsiiProxy_StepScalingPolicy) ToString() *string {
 //
 type StepScalingPolicyProps struct {
 	// Metric to scale on.
-	Metric awscloudwatch.IMetric `json:"metric"`
+	Metric awscloudwatch.IMetric `json:"metric" yaml:"metric"`
 	// The intervals for scaling.
 	//
 	// Maps a range of metric values to a particular scaling behavior.
-	ScalingSteps *[]*ScalingInterval `json:"scalingSteps"`
+	ScalingSteps *[]*ScalingInterval `json:"scalingSteps" yaml:"scalingSteps"`
 	// How the adjustment numbers inside 'intervals' are interpreted.
-	AdjustmentType AdjustmentType `json:"adjustmentType"`
+	AdjustmentType AdjustmentType `json:"adjustmentType" yaml:"adjustmentType"`
 	// Grace period after scaling activity.
 	//
 	// Subsequent scale outs during the cooldown period are squashed so that only
@@ -2855,14 +2855,14 @@ type StepScalingPolicyProps struct {
 	// Subsequent scale ins during the cooldown period are ignored.
 	// See: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_StepScalingPolicyConfiguration.html
 	//
-	Cooldown awscdk.Duration `json:"cooldown"`
+	Cooldown awscdk.Duration `json:"cooldown" yaml:"cooldown"`
 	// The number of data points out of the evaluation periods that must be breaching to trigger a scaling action.
 	//
 	// Creates an "M out of N" alarm, where this property is the M and the value set for
 	// `evaluationPeriods` is the N value.
 	//
 	// Only has meaning if `evaluationPeriods != 1`.
-	DatapointsToAlarm *float64 `json:"datapointsToAlarm"`
+	DatapointsToAlarm *float64 `json:"datapointsToAlarm" yaml:"datapointsToAlarm"`
 	// How many evaluation periods of the metric to wait before triggering a scaling action.
 	//
 	// Raising this value can be used to smooth out the metric, at the expense
@@ -2870,18 +2870,18 @@ type StepScalingPolicyProps struct {
 	//
 	// If `datapointsToAlarm` is not set, then all data points in the evaluation period
 	// must meet the criteria to trigger a scaling action.
-	EvaluationPeriods *float64 `json:"evaluationPeriods"`
+	EvaluationPeriods *float64 `json:"evaluationPeriods" yaml:"evaluationPeriods"`
 	// Aggregation to apply to all data points over the evaluation periods.
 	//
 	// Only has meaning if `evaluationPeriods != 1`.
-	MetricAggregationType MetricAggregationType `json:"metricAggregationType"`
+	MetricAggregationType MetricAggregationType `json:"metricAggregationType" yaml:"metricAggregationType"`
 	// Minimum absolute number to adjust capacity with as result of percentage scaling.
 	//
 	// Only when using AdjustmentType = PercentChangeInCapacity, this number controls
 	// the minimum absolute effect size.
-	MinAdjustmentMagnitude *float64 `json:"minAdjustmentMagnitude"`
+	MinAdjustmentMagnitude *float64 `json:"minAdjustmentMagnitude" yaml:"minAdjustmentMagnitude"`
 	// The scaling target.
-	ScalingTarget IScalableTarget `json:"scalingTarget"`
+	ScalingTarget IScalableTarget `json:"scalingTarget" yaml:"scalingTarget"`
 }
 
 // TODO: EXAMPLE
@@ -2989,35 +2989,35 @@ type TargetTrackingScalingPolicyProps struct {
 	// won't remove capacity from the scalable resource. Otherwise, scale in is
 	// enabled and the target tracking policy can remove capacity from the
 	// scalable resource.
-	DisableScaleIn *bool `json:"disableScaleIn"`
+	DisableScaleIn *bool `json:"disableScaleIn" yaml:"disableScaleIn"`
 	// A name for the scaling policy.
-	PolicyName *string `json:"policyName"`
+	PolicyName *string `json:"policyName" yaml:"policyName"`
 	// Period after a scale in activity completes before another scale in activity can start.
-	ScaleInCooldown awscdk.Duration `json:"scaleInCooldown"`
+	ScaleInCooldown awscdk.Duration `json:"scaleInCooldown" yaml:"scaleInCooldown"`
 	// Period after a scale out activity completes before another scale out activity can start.
-	ScaleOutCooldown awscdk.Duration `json:"scaleOutCooldown"`
+	ScaleOutCooldown awscdk.Duration `json:"scaleOutCooldown" yaml:"scaleOutCooldown"`
 	// The target value for the metric.
-	TargetValue *float64 `json:"targetValue"`
+	TargetValue *float64 `json:"targetValue" yaml:"targetValue"`
 	// A custom metric for application autoscaling.
 	//
 	// The metric must track utilization. Scaling out will happen if the metric is higher than
 	// the target value, scaling in will happen in the metric is lower than the target value.
 	//
 	// Exactly one of customMetric or predefinedMetric must be specified.
-	CustomMetric awscloudwatch.IMetric `json:"customMetric"`
+	CustomMetric awscloudwatch.IMetric `json:"customMetric" yaml:"customMetric"`
 	// A predefined metric for application autoscaling.
 	//
 	// The metric must track utilization. Scaling out will happen if the metric is higher than
 	// the target value, scaling in will happen in the metric is lower than the target value.
 	//
 	// Exactly one of customMetric or predefinedMetric must be specified.
-	PredefinedMetric PredefinedMetric `json:"predefinedMetric"`
+	PredefinedMetric PredefinedMetric `json:"predefinedMetric" yaml:"predefinedMetric"`
 	// Identify the resource associated with the metric type.
 	//
 	// Only used for predefined metric ALBRequestCountPerTarget.
 	//
 	// Example value: `app/<load-balancer-name>/<load-balancer-id>/targetgroup/<target-group-name>/<target-group-id>`
-	ResourceLabel *string `json:"resourceLabel"`
-	ScalingTarget IScalableTarget `json:"scalingTarget"`
+	ResourceLabel *string `json:"resourceLabel" yaml:"resourceLabel"`
+	ScalingTarget IScalableTarget `json:"scalingTarget" yaml:"scalingTarget"`
 }
 

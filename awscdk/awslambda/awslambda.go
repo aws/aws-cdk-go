@@ -581,8 +581,8 @@ func (a *jsiiProxy_Alias) ToString() *string {
 // TODO: EXAMPLE
 //
 type AliasAttributes struct {
-	AliasName *string `json:"aliasName"`
-	AliasVersion IVersion `json:"aliasVersion"`
+	AliasName *string `json:"aliasName" yaml:"aliasName"`
+	AliasVersion IVersion `json:"aliasVersion" yaml:"aliasVersion"`
 }
 
 // Options for `lambda.Alias`.
@@ -594,16 +594,16 @@ type AliasOptions struct {
 	//
 	// Minimum: 60 seconds
 	// Maximum: 6 hours
-	MaxEventAge awscdk.Duration `json:"maxEventAge"`
+	MaxEventAge awscdk.Duration `json:"maxEventAge" yaml:"maxEventAge"`
 	// The destination for failed invocations.
-	OnFailure IDestination `json:"onFailure"`
+	OnFailure IDestination `json:"onFailure" yaml:"onFailure"`
 	// The destination for successful invocations.
-	OnSuccess IDestination `json:"onSuccess"`
+	OnSuccess IDestination `json:"onSuccess" yaml:"onSuccess"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum: 0
 	// Maximum: 2
-	RetryAttempts *float64 `json:"retryAttempts"`
+	RetryAttempts *float64 `json:"retryAttempts" yaml:"retryAttempts"`
 	// Additional versions with individual weights this alias points to.
 	//
 	// Individual additional version weights specified here should add up to
@@ -617,11 +617,11 @@ type AliasOptions struct {
 	//
 	// Then 5% of traffic will be routed to function version 2, while
 	// the remaining 95% of traffic will be routed to function version 1.
-	AdditionalVersions *[]*VersionWeight `json:"additionalVersions"`
+	AdditionalVersions *[]*VersionWeight `json:"additionalVersions" yaml:"additionalVersions"`
 	// Description for the alias.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Specifies a provisioned concurrency configuration for a function's alias.
-	ProvisionedConcurrentExecutions *float64 `json:"provisionedConcurrentExecutions"`
+	ProvisionedConcurrentExecutions *float64 `json:"provisionedConcurrentExecutions" yaml:"provisionedConcurrentExecutions"`
 }
 
 // Properties for a new Lambda alias.
@@ -633,16 +633,16 @@ type AliasProps struct {
 	//
 	// Minimum: 60 seconds
 	// Maximum: 6 hours
-	MaxEventAge awscdk.Duration `json:"maxEventAge"`
+	MaxEventAge awscdk.Duration `json:"maxEventAge" yaml:"maxEventAge"`
 	// The destination for failed invocations.
-	OnFailure IDestination `json:"onFailure"`
+	OnFailure IDestination `json:"onFailure" yaml:"onFailure"`
 	// The destination for successful invocations.
-	OnSuccess IDestination `json:"onSuccess"`
+	OnSuccess IDestination `json:"onSuccess" yaml:"onSuccess"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum: 0
 	// Maximum: 2
-	RetryAttempts *float64 `json:"retryAttempts"`
+	RetryAttempts *float64 `json:"retryAttempts" yaml:"retryAttempts"`
 	// Additional versions with individual weights this alias points to.
 	//
 	// Individual additional version weights specified here should add up to
@@ -656,17 +656,17 @@ type AliasProps struct {
 	//
 	// Then 5% of traffic will be routed to function version 2, while
 	// the remaining 95% of traffic will be routed to function version 1.
-	AdditionalVersions *[]*VersionWeight `json:"additionalVersions"`
+	AdditionalVersions *[]*VersionWeight `json:"additionalVersions" yaml:"additionalVersions"`
 	// Description for the alias.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Specifies a provisioned concurrency configuration for a function's alias.
-	ProvisionedConcurrentExecutions *float64 `json:"provisionedConcurrentExecutions"`
+	ProvisionedConcurrentExecutions *float64 `json:"provisionedConcurrentExecutions" yaml:"provisionedConcurrentExecutions"`
 	// Name of this alias.
-	AliasName *string `json:"aliasName"`
+	AliasName *string `json:"aliasName" yaml:"aliasName"`
 	// Function version this alias refers to.
 	//
 	// Use lambda.addVersion() to obtain a new lambda version to refer to.
-	Version IVersion `json:"version"`
+	Version IVersion `json:"version" yaml:"version"`
 }
 
 // Architectures supported by AWS Lambda.
@@ -1153,44 +1153,44 @@ func (a *jsiiProxy_AssetImageCode) BindToResource(resource awscdk.CfnResource, o
 //
 type AssetImageCodeProps struct {
 	// Glob patterns to exclude from the copy.
-	Exclude *[]*string `json:"exclude"`
+	Exclude *[]*string `json:"exclude" yaml:"exclude"`
 	// A strategy for how to handle symlinks.
-	FollowSymlinks awscdk.SymlinkFollowMode `json:"followSymlinks"`
+	FollowSymlinks awscdk.SymlinkFollowMode `json:"followSymlinks" yaml:"followSymlinks"`
 	// The ignore behavior to use for exclude patterns.
-	IgnoreMode awscdk.IgnoreMode `json:"ignoreMode"`
+	IgnoreMode awscdk.IgnoreMode `json:"ignoreMode" yaml:"ignoreMode"`
 	// Extra information to encode into the fingerprint (e.g. build instructions and other inputs).
-	ExtraHash *string `json:"extraHash"`
+	ExtraHash *string `json:"extraHash" yaml:"extraHash"`
 	// Build args to pass to the `docker build` command.
 	//
 	// Since Docker build arguments are resolved before deployment, keys and
 	// values cannot refer to unresolved tokens (such as `lambda.functionArn` or
 	// `queue.queueUrl`).
-	BuildArgs *map[string]*string `json:"buildArgs"`
+	BuildArgs *map[string]*string `json:"buildArgs" yaml:"buildArgs"`
 	// Path to the Dockerfile (relative to the directory).
-	File *string `json:"file"`
+	File *string `json:"file" yaml:"file"`
 	// Options to control which parameters are used to invalidate the asset hash.
-	Invalidation *awsecrassets.DockerImageAssetInvalidationOptions `json:"invalidation"`
+	Invalidation *awsecrassets.DockerImageAssetInvalidationOptions `json:"invalidation" yaml:"invalidation"`
 	// Docker target to build to.
-	Target *string `json:"target"`
+	Target *string `json:"target" yaml:"target"`
 	// Specify or override the CMD on the specified Docker image or Dockerfile.
 	//
 	// This needs to be in the 'exec form', viz., `[ 'executable', 'param1', 'param2' ]`.
 	// See: https://docs.docker.com/engine/reference/builder/#cmd
 	//
-	Cmd *[]*string `json:"cmd"`
+	Cmd *[]*string `json:"cmd" yaml:"cmd"`
 	// Specify or override the ENTRYPOINT on the specified Docker image or Dockerfile.
 	//
 	// An ENTRYPOINT allows you to configure a container that will run as an executable.
 	// This needs to be in the 'exec form', viz., `[ 'executable', 'param1', 'param2' ]`.
 	// See: https://docs.docker.com/engine/reference/builder/#entrypoint
 	//
-	Entrypoint *[]*string `json:"entrypoint"`
+	Entrypoint *[]*string `json:"entrypoint" yaml:"entrypoint"`
 	// Specify or override the WORKDIR on the specified Docker image or Dockerfile.
 	//
 	// A WORKDIR allows you to configure the working directory the container will use.
 	// See: https://docs.docker.com/engine/reference/builder/#workdir
 	//
-	WorkingDirectory *string `json:"workingDirectory"`
+	WorkingDirectory *string `json:"workingDirectory" yaml:"workingDirectory"`
 }
 
 // Properties for enabling Lambda autoscaling.
@@ -1199,9 +1199,9 @@ type AssetImageCodeProps struct {
 //
 type AutoScalingOptions struct {
 	// Maximum capacity to scale to.
-	MaxCapacity *float64 `json:"maxCapacity"`
+	MaxCapacity *float64 `json:"maxCapacity" yaml:"maxCapacity"`
 	// Minimum capacity to scale to.
-	MinCapacity *float64 `json:"minCapacity"`
+	MinCapacity *float64 `json:"minCapacity" yaml:"minCapacity"`
 }
 
 // A CloudFormation `AWS::Lambda::Alias`.
@@ -1784,7 +1784,7 @@ func (c *jsiiProxy_CfnAlias) ValidateProperties(_properties interface{}) {
 //
 type CfnAlias_AliasRoutingConfigurationProperty struct {
 	// The second version, and the percentage of traffic that's routed to it.
-	AdditionalVersionWeights interface{} `json:"additionalVersionWeights"`
+	AdditionalVersionWeights interface{} `json:"additionalVersionWeights" yaml:"additionalVersionWeights"`
 }
 
 // A provisioned concurrency configuration for a function's alias.
@@ -1793,7 +1793,7 @@ type CfnAlias_AliasRoutingConfigurationProperty struct {
 //
 type CfnAlias_ProvisionedConcurrencyConfigurationProperty struct {
 	// The amount of provisioned concurrency to allocate for the alias.
-	ProvisionedConcurrentExecutions *float64 `json:"provisionedConcurrentExecutions"`
+	ProvisionedConcurrentExecutions *float64 `json:"provisionedConcurrentExecutions" yaml:"provisionedConcurrentExecutions"`
 }
 
 // The [traffic-shifting](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) configuration of a Lambda function alias.
@@ -1802,9 +1802,9 @@ type CfnAlias_ProvisionedConcurrencyConfigurationProperty struct {
 //
 type CfnAlias_VersionWeightProperty struct {
 	// The qualifier of the second version.
-	FunctionVersion *string `json:"functionVersion"`
+	FunctionVersion *string `json:"functionVersion" yaml:"functionVersion"`
 	// The percentage of traffic that the alias routes to the second version.
-	FunctionWeight *float64 `json:"functionWeight"`
+	FunctionWeight *float64 `json:"functionWeight" yaml:"functionWeight"`
 }
 
 // Properties for defining a `CfnAlias`.
@@ -1819,17 +1819,17 @@ type CfnAliasProps struct {
 	// - *Partial ARN* - `123456789012:function:MyFunction` .
 	//
 	// The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
-	FunctionName *string `json:"functionName"`
+	FunctionName *string `json:"functionName" yaml:"functionName"`
 	// The function version that the alias invokes.
-	FunctionVersion *string `json:"functionVersion"`
+	FunctionVersion *string `json:"functionVersion" yaml:"functionVersion"`
 	// The name of the alias.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// A description of the alias.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Specifies a [provisioned concurrency](https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html) configuration for a function's alias.
-	ProvisionedConcurrencyConfig interface{} `json:"provisionedConcurrencyConfig"`
+	ProvisionedConcurrencyConfig interface{} `json:"provisionedConcurrencyConfig" yaml:"provisionedConcurrencyConfig"`
 	// The [routing configuration](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) of the alias.
-	RoutingConfig interface{} `json:"routingConfig"`
+	RoutingConfig interface{} `json:"routingConfig" yaml:"routingConfig"`
 }
 
 // A CloudFormation `AWS::Lambda::CodeSigningConfig`.
@@ -2374,7 +2374,7 @@ type CfnCodeSigningConfig_AllowedPublishersProperty struct {
 	// The Amazon Resource Name (ARN) for each of the signing profiles.
 	//
 	// A signing profile defines a trusted user who can sign a code package.
-	SigningProfileVersionArns *[]*string `json:"signingProfileVersionArns"`
+	SigningProfileVersionArns *[]*string `json:"signingProfileVersionArns" yaml:"signingProfileVersionArns"`
 }
 
 // Code signing configuration [policies](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html#config-codesigning-policies) specify the validation failure action for signature mismatch or expiry.
@@ -2387,7 +2387,7 @@ type CfnCodeSigningConfig_CodeSigningPoliciesProperty struct {
 	// If you set the policy to `Enforce` , Lambda blocks the deployment request if signature validation checks fail. If you set the policy to `Warn` , Lambda allows the deployment and creates a CloudWatch log.
 	//
 	// Default value: `Warn`
-	UntrustedArtifactOnDeployment *string `json:"untrustedArtifactOnDeployment"`
+	UntrustedArtifactOnDeployment *string `json:"untrustedArtifactOnDeployment" yaml:"untrustedArtifactOnDeployment"`
 }
 
 // Properties for defining a `CfnCodeSigningConfig`.
@@ -2396,11 +2396,11 @@ type CfnCodeSigningConfig_CodeSigningPoliciesProperty struct {
 //
 type CfnCodeSigningConfigProps struct {
 	// List of allowed publishers.
-	AllowedPublishers interface{} `json:"allowedPublishers"`
+	AllowedPublishers interface{} `json:"allowedPublishers" yaml:"allowedPublishers"`
 	// The code signing policy controls the validation failure action for signature mismatch or expiry.
-	CodeSigningPolicies interface{} `json:"codeSigningPolicies"`
+	CodeSigningPolicies interface{} `json:"codeSigningPolicies" yaml:"codeSigningPolicies"`
 	// Code signing configuration description.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 }
 
 // A CloudFormation `AWS::Lambda::EventInvokeConfig`.
@@ -2963,9 +2963,9 @@ func (c *jsiiProxy_CfnEventInvokeConfig) ValidateProperties(_properties interfac
 //
 type CfnEventInvokeConfig_DestinationConfigProperty struct {
 	// The destination configuration for failed invocations.
-	OnFailure interface{} `json:"onFailure"`
+	OnFailure interface{} `json:"onFailure" yaml:"onFailure"`
 	// The destination configuration for successful invocations.
-	OnSuccess interface{} `json:"onSuccess"`
+	OnSuccess interface{} `json:"onSuccess" yaml:"onSuccess"`
 }
 
 // A destination for events that failed processing.
@@ -2974,7 +2974,7 @@ type CfnEventInvokeConfig_DestinationConfigProperty struct {
 //
 type CfnEventInvokeConfig_OnFailureProperty struct {
 	// The Amazon Resource Name (ARN) of the destination resource.
-	Destination *string `json:"destination"`
+	Destination *string `json:"destination" yaml:"destination"`
 }
 
 // A destination for events that were processed successfully.
@@ -2983,7 +2983,7 @@ type CfnEventInvokeConfig_OnFailureProperty struct {
 //
 type CfnEventInvokeConfig_OnSuccessProperty struct {
 	// The Amazon Resource Name (ARN) of the destination resource.
-	Destination *string `json:"destination"`
+	Destination *string `json:"destination" yaml:"destination"`
 }
 
 // Properties for defining a `CfnEventInvokeConfig`.
@@ -2998,24 +2998,24 @@ type CfnEventInvokeConfigProps struct {
 	// *Maximum* : `64`
 	//
 	// *Pattern* : `([a-zA-Z0-9-_]+)`
-	FunctionName *string `json:"functionName"`
+	FunctionName *string `json:"functionName" yaml:"functionName"`
 	// The identifier of a version or alias.
 	//
 	// - *Version* - A version number.
 	// - *Alias* - An alias name.
 	// - *Latest* - To specify the unpublished version, use `$LATEST` .
-	Qualifier *string `json:"qualifier"`
+	Qualifier *string `json:"qualifier" yaml:"qualifier"`
 	// A destination for events after they have been sent to a function for processing.
 	//
 	// **Destinations** - *Function* - The Amazon Resource Name (ARN) of a Lambda function.
 	// - *Queue* - The ARN of an SQS queue.
 	// - *Topic* - The ARN of an SNS topic.
 	// - *Event Bus* - The ARN of an Amazon EventBridge event bus.
-	DestinationConfig interface{} `json:"destinationConfig"`
+	DestinationConfig interface{} `json:"destinationConfig" yaml:"destinationConfig"`
 	// The maximum age of a request that Lambda sends to a function for processing.
-	MaximumEventAgeInSeconds *float64 `json:"maximumEventAgeInSeconds"`
+	MaximumEventAgeInSeconds *float64 `json:"maximumEventAgeInSeconds" yaml:"maximumEventAgeInSeconds"`
 	// The maximum number of times to retry when the function returns an error.
-	MaximumRetryAttempts *float64 `json:"maximumRetryAttempts"`
+	MaximumRetryAttempts *float64 `json:"maximumRetryAttempts" yaml:"maximumRetryAttempts"`
 }
 
 // A CloudFormation `AWS::Lambda::EventSourceMapping`.
@@ -3876,7 +3876,7 @@ func (c *jsiiProxy_CfnEventSourceMapping) ValidateProperties(_properties interfa
 //
 type CfnEventSourceMapping_DestinationConfigProperty struct {
 	// The destination configuration for failed invocations.
-	OnFailure interface{} `json:"onFailure"`
+	OnFailure interface{} `json:"onFailure" yaml:"onFailure"`
 }
 
 // The list of bootstrap servers for your Kafka brokers in the following format: `"KafkaBootstrapServers": ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]` .
@@ -3885,7 +3885,7 @@ type CfnEventSourceMapping_DestinationConfigProperty struct {
 //
 type CfnEventSourceMapping_EndpointsProperty struct {
 	// The list of bootstrap servers for your Kafka brokers in the following format: `"KafkaBootstrapServers": ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]` .
-	KafkaBootstrapServers *[]*string `json:"kafkaBootstrapServers"`
+	KafkaBootstrapServers *[]*string `json:"kafkaBootstrapServers" yaml:"kafkaBootstrapServers"`
 }
 
 // A destination for events that failed processing.
@@ -3894,7 +3894,7 @@ type CfnEventSourceMapping_EndpointsProperty struct {
 //
 type CfnEventSourceMapping_OnFailureProperty struct {
 	// The Amazon Resource Name (ARN) of the destination resource.
-	Destination *string `json:"destination"`
+	Destination *string `json:"destination" yaml:"destination"`
 }
 
 // The self-managed Apache Kafka cluster for your event source.
@@ -3903,7 +3903,7 @@ type CfnEventSourceMapping_OnFailureProperty struct {
 //
 type CfnEventSourceMapping_SelfManagedEventSourceProperty struct {
 	// The list of bootstrap servers for your Kafka brokers in the following format: `"KafkaBootstrapServers": ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]` .
-	Endpoints interface{} `json:"endpoints"`
+	Endpoints interface{} `json:"endpoints" yaml:"endpoints"`
 }
 
 // An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.
@@ -3922,11 +3922,11 @@ type CfnEventSourceMapping_SourceAccessConfigurationProperty struct {
 	// - `VIRTUAL_HOST` - (Amazon MQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source. This property cannot be specified in an UpdateEventSourceMapping API call.
 	// - `CLIENT_CERTIFICATE_TLS_AUTH` - (Amazon MSK, Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM), private key (PKCS#8 PEM), and private key password (optional) used for mutual TLS authentication of your MSK/Apache Kafka brokers.
 	// - `SERVER_ROOT_CA_CERTIFICATE` - (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption of your Apache Kafka brokers.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// The value for your chosen configuration in `Type` .
 	//
 	// For example: `"URI": "arn:aws:secretsmanager:us-east-1:01234567890:secret:MyBrokerSecretName"` .
-	Uri *string `json:"uri"`
+	Uri *string `json:"uri" yaml:"uri"`
 }
 
 // Properties for defining a `CfnEventSourceMapping`.
@@ -3942,7 +3942,7 @@ type CfnEventSourceMappingProps struct {
 	// - *Partial ARN* - `123456789012:function:MyFunction` .
 	//
 	// The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.
-	FunctionName *string `json:"functionName"`
+	FunctionName *string `json:"functionName" yaml:"functionName"`
 	// The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function.
 	//
 	// Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).
@@ -3953,73 +3953,73 @@ type CfnEventSourceMappingProps struct {
 	// - *Amazon Managed Streaming for Apache Kafka* - Default 100. Max 10,000.
 	// - *Self-Managed Apache Kafka* - Default 100. Max 10,000.
 	// - *Amazon MQ (ActiveMQ and RabbitMQ)* - Default 100. Max 10,000.
-	BatchSize *float64 `json:"batchSize"`
+	BatchSize *float64 `json:"batchSize" yaml:"batchSize"`
 	// (Streams only) If the function returns an error, split the batch in two and retry.
 	//
 	// The default value is false.
-	BisectBatchOnFunctionError interface{} `json:"bisectBatchOnFunctionError"`
+	BisectBatchOnFunctionError interface{} `json:"bisectBatchOnFunctionError" yaml:"bisectBatchOnFunctionError"`
 	// (Streams only) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
-	DestinationConfig interface{} `json:"destinationConfig"`
+	DestinationConfig interface{} `json:"destinationConfig" yaml:"destinationConfig"`
 	// When true, the event source mapping is active. When false, Lambda pauses polling and invocation.
 	//
 	// Default: True
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 	// The Amazon Resource Name (ARN) of the event source.
 	//
 	// - *Amazon Kinesis* - The ARN of the data stream or a stream consumer.
 	// - *Amazon DynamoDB Streams* - The ARN of the stream.
 	// - *Amazon Simple Queue Service* - The ARN of the queue.
 	// - *Amazon Managed Streaming for Apache Kafka* - The ARN of the cluster.
-	EventSourceArn *string `json:"eventSourceArn"`
+	EventSourceArn *string `json:"eventSourceArn" yaml:"eventSourceArn"`
 	// (Streams and Amazon SQS) An object that defines the filter criteria that determine whether Lambda should process an event.
 	//
 	// For more information, see [Lambda event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) .
-	FilterCriteria interface{} `json:"filterCriteria"`
+	FilterCriteria interface{} `json:"filterCriteria" yaml:"filterCriteria"`
 	// (Streams and SQS) A list of current response type enums applied to the event source mapping.
 	//
 	// Valid Values: `ReportBatchItemFailures`
-	FunctionResponseTypes *[]*string `json:"functionResponseTypes"`
+	FunctionResponseTypes *[]*string `json:"functionResponseTypes" yaml:"functionResponseTypes"`
 	// (Streams and Amazon SQS standard queues) The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
 	//
 	// Default: 0
 	//
 	// Related setting: When you set `BatchSize` to a value greater than 10, you must set `MaximumBatchingWindowInSeconds` to at least 1.
-	MaximumBatchingWindowInSeconds *float64 `json:"maximumBatchingWindowInSeconds"`
+	MaximumBatchingWindowInSeconds *float64 `json:"maximumBatchingWindowInSeconds" yaml:"maximumBatchingWindowInSeconds"`
 	// (Streams only) Discard records older than the specified age.
 	//
 	// The default value is -1,
 	// which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.
-	MaximumRecordAgeInSeconds *float64 `json:"maximumRecordAgeInSeconds"`
+	MaximumRecordAgeInSeconds *float64 `json:"maximumRecordAgeInSeconds" yaml:"maximumRecordAgeInSeconds"`
 	// (Streams only) Discard records after the specified number of retries.
 	//
 	// The default value is -1,
 	// which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source.
-	MaximumRetryAttempts *float64 `json:"maximumRetryAttempts"`
+	MaximumRetryAttempts *float64 `json:"maximumRetryAttempts" yaml:"maximumRetryAttempts"`
 	// (Streams only) The number of batches to process concurrently from each shard.
 	//
 	// The default value is 1.
-	ParallelizationFactor *float64 `json:"parallelizationFactor"`
+	ParallelizationFactor *float64 `json:"parallelizationFactor" yaml:"parallelizationFactor"`
 	// (Amazon MQ) The name of the Amazon MQ broker destination queue to consume.
-	Queues *[]*string `json:"queues"`
+	Queues *[]*string `json:"queues" yaml:"queues"`
 	// The self-managed Apache Kafka cluster for your event source.
-	SelfManagedEventSource interface{} `json:"selfManagedEventSource"`
+	SelfManagedEventSource interface{} `json:"selfManagedEventSource" yaml:"selfManagedEventSource"`
 	// An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.
-	SourceAccessConfigurations interface{} `json:"sourceAccessConfigurations"`
+	SourceAccessConfigurations interface{} `json:"sourceAccessConfigurations" yaml:"sourceAccessConfigurations"`
 	// The position in a stream from which to start reading.
 	//
 	// Required for Amazon Kinesis, Amazon DynamoDB, and Amazon MSK Streams sources.
 	//
 	// - *LATEST* - Read only new records.
 	// - *TRIM_HORIZON* - Process all available records.
-	StartingPosition *string `json:"startingPosition"`
+	StartingPosition *string `json:"startingPosition" yaml:"startingPosition"`
 	// With `StartingPosition` set to `AT_TIMESTAMP` , the time from which to start reading, in Unix time seconds.
-	StartingPositionTimestamp *float64 `json:"startingPositionTimestamp"`
+	StartingPositionTimestamp *float64 `json:"startingPositionTimestamp" yaml:"startingPositionTimestamp"`
 	// The name of the Kafka topic.
-	Topics *[]*string `json:"topics"`
+	Topics *[]*string `json:"topics" yaml:"topics"`
 	// (Streams only) The duration in seconds of a processing window.
 	//
 	// The range is between 1 second up to 900 seconds.
-	TumblingWindowInSeconds *float64 `json:"tumblingWindowInSeconds"`
+	TumblingWindowInSeconds *float64 `json:"tumblingWindowInSeconds" yaml:"tumblingWindowInSeconds"`
 }
 
 // A CloudFormation `AWS::Lambda::Function`.
@@ -4914,21 +4914,21 @@ func (c *jsiiProxy_CfnFunction) ValidateProperties(_properties interface{}) {
 //
 type CfnFunction_CodeProperty struct {
 	// URI of a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html) in the Amazon ECR registry.
-	ImageUri *string `json:"imageUri"`
+	ImageUri *string `json:"imageUri" yaml:"imageUri"`
 	// An Amazon S3 bucket in the same AWS Region as your function.
 	//
 	// The bucket can be in a different AWS account.
-	S3Bucket *string `json:"s3Bucket"`
+	S3Bucket *string `json:"s3Bucket" yaml:"s3Bucket"`
 	// The Amazon S3 key of the deployment package.
-	S3Key *string `json:"s3Key"`
+	S3Key *string `json:"s3Key" yaml:"s3Key"`
 	// For versioned objects, the version of the deployment package object to use.
-	S3ObjectVersion *string `json:"s3ObjectVersion"`
+	S3ObjectVersion *string `json:"s3ObjectVersion" yaml:"s3ObjectVersion"`
 	// (Node.js and Python) The source code of your Lambda function. If you include your function source inline with this parameter, AWS CloudFormation places it in a file named `index` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html) . For the `Handler` property, the first part of the handler identifier must be `index` . For example, `index.handler` .
 	//
 	// Your source code can contain up to 4096 characters. For JSON, you must escape quotes and special characters such as newline ( `\n` ) with a backslash.
 	//
 	// If you specify a function that interacts with an AWS CloudFormation custom resource, you don't have to write your own functions to send responses to the custom resource that invoked the function. AWS CloudFormation provides a response module ( [cfn-response](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html) ) that simplifies sending responses. See [Using AWS Lambda with AWS CloudFormation](https://docs.aws.amazon.com/lambda/latest/dg/services-cloudformation.html) for details.
-	ZipFile *string `json:"zipFile"`
+	ZipFile *string `json:"zipFile" yaml:"zipFile"`
 }
 
 // The [dead-letter queue](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq) for failed asynchronous invocations.
@@ -4937,7 +4937,7 @@ type CfnFunction_CodeProperty struct {
 //
 type CfnFunction_DeadLetterConfigProperty struct {
 	// The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.
-	TargetArn *string `json:"targetArn"`
+	TargetArn *string `json:"targetArn" yaml:"targetArn"`
 }
 
 // A function's environment variable settings.
@@ -4950,7 +4950,7 @@ type CfnFunction_EnvironmentProperty struct {
 	// Environment variable key-value pairs.
 	//
 	// For more information, see [Using Lambda environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html) .
-	Variables interface{} `json:"variables"`
+	Variables interface{} `json:"variables" yaml:"variables"`
 }
 
 // Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html) .
@@ -4959,9 +4959,9 @@ type CfnFunction_EnvironmentProperty struct {
 //
 type CfnFunction_FileSystemConfigProperty struct {
 	// The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.
-	Arn *string `json:"arn"`
+	Arn *string `json:"arn" yaml:"arn"`
 	// The path where the function can access the file system, starting with `/mnt/` .
-	LocalMountPath *string `json:"localMountPath"`
+	LocalMountPath *string `json:"localMountPath" yaml:"localMountPath"`
 }
 
 // Configuration values that override the container image Dockerfile settings.
@@ -4972,11 +4972,11 @@ type CfnFunction_FileSystemConfigProperty struct {
 //
 type CfnFunction_ImageConfigProperty struct {
 	// Specifies parameters that you want to pass in with ENTRYPOINT.
-	Command *[]*string `json:"command"`
+	Command *[]*string `json:"command" yaml:"command"`
 	// Specifies the entry point to their application, which is typically the location of the runtime executable.
-	EntryPoint *[]*string `json:"entryPoint"`
+	EntryPoint *[]*string `json:"entryPoint" yaml:"entryPoint"`
 	// Specifies the working directory.
-	WorkingDirectory *string `json:"workingDirectory"`
+	WorkingDirectory *string `json:"workingDirectory" yaml:"workingDirectory"`
 }
 
 // The function's [AWS X-Ray](https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html) tracing configuration. To sample and record incoming requests, set `Mode` to `Active` .
@@ -4985,7 +4985,7 @@ type CfnFunction_ImageConfigProperty struct {
 //
 type CfnFunction_TracingConfigProperty struct {
 	// The tracing mode.
-	Mode *string `json:"mode"`
+	Mode *string `json:"mode" yaml:"mode"`
 }
 
 // The VPC security groups and subnets that are attached to a Lambda function.
@@ -5000,9 +5000,9 @@ type CfnFunction_TracingConfigProperty struct {
 //
 type CfnFunction_VpcConfigProperty struct {
 	// A list of VPC security groups IDs.
-	SecurityGroupIds *[]*string `json:"securityGroupIds"`
+	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
 	// A list of VPC subnet IDs.
-	SubnetIds *[]*string `json:"subnetIds"`
+	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
 }
 
 // Properties for defining a `CfnFunction`.
@@ -5011,72 +5011,72 @@ type CfnFunction_VpcConfigProperty struct {
 //
 type CfnFunctionProps struct {
 	// The code for the function.
-	Code interface{} `json:"code"`
+	Code interface{} `json:"code" yaml:"code"`
 	// The Amazon Resource Name (ARN) of the function's execution role.
-	Role *string `json:"role"`
+	Role *string `json:"role" yaml:"role"`
 	// The instruction set architecture that the function supports.
 	//
 	// Enter a string array with one of the valid values (arm64 or x86_64). The default value is `x86_64` .
-	Architectures *[]*string `json:"architectures"`
+	Architectures *[]*string `json:"architectures" yaml:"architectures"`
 	// To enable code signing for this function, specify the ARN of a code-signing configuration.
 	//
 	// A code-signing configuration
 	// includes a set of signing profiles, which define the trusted publishers for this function.
-	CodeSigningConfigArn *string `json:"codeSigningConfigArn"`
+	CodeSigningConfigArn *string `json:"codeSigningConfigArn" yaml:"codeSigningConfigArn"`
 	// A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing.
 	//
 	// For more information, see [Dead Letter Queues](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq) .
-	DeadLetterConfig interface{} `json:"deadLetterConfig"`
+	DeadLetterConfig interface{} `json:"deadLetterConfig" yaml:"deadLetterConfig"`
 	// A description of the function.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Environment variables that are accessible from function code during execution.
-	Environment interface{} `json:"environment"`
+	Environment interface{} `json:"environment" yaml:"environment"`
 	// Connection settings for an Amazon EFS file system.
 	//
 	// To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an [AWS::EFS::MountTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html) resource, you must also specify a `DependsOn` attribute to ensure that the mount target is created or updated before the function.
 	//
 	// For more information about using the `DependsOn` attribute, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) .
-	FileSystemConfigs interface{} `json:"fileSystemConfigs"`
+	FileSystemConfigs interface{} `json:"fileSystemConfigs" yaml:"fileSystemConfigs"`
 	// The name of the Lambda function, up to 64 characters in length.
 	//
 	// If you don't specify a name, AWS CloudFormation generates one.
 	//
 	// If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
-	FunctionName *string `json:"functionName"`
+	FunctionName *string `json:"functionName" yaml:"functionName"`
 	// The name of the method within your code that Lambda calls to execute your function.
 	//
 	// Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see [Programming Model](https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html) .
-	Handler *string `json:"handler"`
+	Handler *string `json:"handler" yaml:"handler"`
 	// Configuration values that override the container image Dockerfile settings.
 	//
 	// See [Container settings](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms) .
-	ImageConfig interface{} `json:"imageConfig"`
+	ImageConfig interface{} `json:"imageConfig" yaml:"imageConfig"`
 	// The ARN of the AWS Key Management Service ( AWS KMS ) key that's used to encrypt your function's environment variables.
 	//
 	// If it's not provided, AWS Lambda uses a default service key.
-	KmsKeyArn *string `json:"kmsKeyArn"`
+	KmsKeyArn *string `json:"kmsKeyArn" yaml:"kmsKeyArn"`
 	// A list of [function layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html) to add to the function's execution environment. Specify each layer by its ARN, including the version.
-	Layers *[]*string `json:"layers"`
+	Layers *[]*string `json:"layers" yaml:"layers"`
 	// The amount of [memory available to the function](https://docs.aws.amazon.com/lambda/latest/dg/configuration-memory.html) at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB.
-	MemorySize *float64 `json:"memorySize"`
+	MemorySize *float64 `json:"memorySize" yaml:"memorySize"`
 	// The type of deployment package.
 	//
 	// Set to `Image` for container image and set `Zip` for .zip file archive.
-	PackageType *string `json:"packageType"`
+	PackageType *string `json:"packageType" yaml:"packageType"`
 	// The number of simultaneous executions to reserve for the function.
-	ReservedConcurrentExecutions *float64 `json:"reservedConcurrentExecutions"`
+	ReservedConcurrentExecutions *float64 `json:"reservedConcurrentExecutions" yaml:"reservedConcurrentExecutions"`
 	// The identifier of the function's [runtime](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html) . Runtime is required if the deployment package is a .zip file archive.
-	Runtime *string `json:"runtime"`
+	Runtime *string `json:"runtime" yaml:"runtime"`
 	// A list of [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html) to apply to the function.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// The amount of time (in seconds) that Lambda allows a function to run before stopping it.
 	//
 	// The default is 3 seconds. The maximum allowed value is 900 seconds. For additional information, see [Lambda execution environment](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html) .
-	Timeout *float64 `json:"timeout"`
+	Timeout *float64 `json:"timeout" yaml:"timeout"`
 	// Set `Mode` to `Active` to sample and trace a subset of incoming requests with [X-Ray](https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html) .
-	TracingConfig interface{} `json:"tracingConfig"`
+	TracingConfig interface{} `json:"tracingConfig" yaml:"tracingConfig"`
 	// For network connectivity to AWS resources in a [VPC](https://docs.aws.amazon.com/lambda/latest/dg/configuration-network.html) , specify a list of security groups and subnets in the VPC.
-	VpcConfig interface{} `json:"vpcConfig"`
+	VpcConfig interface{} `json:"vpcConfig" yaml:"vpcConfig"`
 }
 
 // A CloudFormation `AWS::Lambda::LayerVersion`.
@@ -5657,11 +5657,11 @@ func (c *jsiiProxy_CfnLayerVersion) ValidateProperties(_properties interface{}) 
 //
 type CfnLayerVersion_ContentProperty struct {
 	// The Amazon S3 bucket of the layer archive.
-	S3Bucket *string `json:"s3Bucket"`
+	S3Bucket *string `json:"s3Bucket" yaml:"s3Bucket"`
 	// The Amazon S3 key of the layer archive.
-	S3Key *string `json:"s3Key"`
+	S3Key *string `json:"s3Key" yaml:"s3Key"`
 	// For versioned objects, the version of the layer archive object to use.
-	S3ObjectVersion *string `json:"s3ObjectVersion"`
+	S3ObjectVersion *string `json:"s3ObjectVersion" yaml:"s3ObjectVersion"`
 }
 
 // A CloudFormation `AWS::Lambda::LayerVersionPermission`.
@@ -6206,15 +6206,15 @@ type CfnLayerVersionPermissionProps struct {
 	// The API action that grants access to the layer.
 	//
 	// For example, `lambda:GetLayerVersion` .
-	Action *string `json:"action"`
+	Action *string `json:"action" yaml:"action"`
 	// The name or Amazon Resource Name (ARN) of the layer.
-	LayerVersionArn *string `json:"layerVersionArn"`
+	LayerVersionArn *string `json:"layerVersionArn" yaml:"layerVersionArn"`
 	// An account ID, or `*` to grant layer usage permission to all accounts in an organization, or all AWS accounts (if `organizationId` is not specified).
 	//
 	// For the last case, make sure that you really do want all AWS accounts to have usage permission to this layer.
-	Principal *string `json:"principal"`
+	Principal *string `json:"principal" yaml:"principal"`
 	// With the principal set to `*` , grant permission to all accounts in the specified organization.
-	OrganizationId *string `json:"organizationId"`
+	OrganizationId *string `json:"organizationId" yaml:"organizationId"`
 }
 
 // Properties for defining a `CfnLayerVersion`.
@@ -6223,21 +6223,21 @@ type CfnLayerVersionPermissionProps struct {
 //
 type CfnLayerVersionProps struct {
 	// The function layer archive.
-	Content interface{} `json:"content"`
+	Content interface{} `json:"content" yaml:"content"`
 	// A list of compatible [instruction set architectures](https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html) .
-	CompatibleArchitectures *[]*string `json:"compatibleArchitectures"`
+	CompatibleArchitectures *[]*string `json:"compatibleArchitectures" yaml:"compatibleArchitectures"`
 	// A list of compatible [function runtimes](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html) . Used for filtering with [ListLayers](https://docs.aws.amazon.com/lambda/latest/dg/API_ListLayers.html) and [ListLayerVersions](https://docs.aws.amazon.com/lambda/latest/dg/API_ListLayerVersions.html) .
-	CompatibleRuntimes *[]*string `json:"compatibleRuntimes"`
+	CompatibleRuntimes *[]*string `json:"compatibleRuntimes" yaml:"compatibleRuntimes"`
 	// The description of the version.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The name or Amazon Resource Name (ARN) of the layer.
-	LayerName *string `json:"layerName"`
+	LayerName *string `json:"layerName" yaml:"layerName"`
 	// The layer's software license. It can be any of the following:.
 	//
 	// - An [SPDX license identifier](https://docs.aws.amazon.com/https://spdx.org/licenses/) . For example, `MIT` .
 	// - The URL of a license hosted on the internet. For example, `https://opensource.org/licenses/MIT` .
 	// - The full text of the license.
-	LicenseInfo *string `json:"licenseInfo"`
+	LicenseInfo *string `json:"licenseInfo" yaml:"licenseInfo"`
 }
 
 // Lambda code defined using 2 CloudFormation parameters.
@@ -6492,11 +6492,11 @@ type CfnParametersCodeProps struct {
 	// The CloudFormation parameter that represents the name of the S3 Bucket where the Lambda code will be located in.
 	//
 	// Must be of type 'String'.
-	BucketNameParam awscdk.CfnParameter `json:"bucketNameParam"`
+	BucketNameParam awscdk.CfnParameter `json:"bucketNameParam" yaml:"bucketNameParam"`
 	// The CloudFormation parameter that represents the path inside the S3 Bucket where the Lambda code will be located at.
 	//
 	// Must be of type 'String'.
-	ObjectKeyParam awscdk.CfnParameter `json:"objectKeyParam"`
+	ObjectKeyParam awscdk.CfnParameter `json:"objectKeyParam" yaml:"objectKeyParam"`
 }
 
 // A CloudFormation `AWS::Lambda::Permission`.
@@ -7083,7 +7083,7 @@ type CfnPermissionProps struct {
 	// The action that the principal can use on the function.
 	//
 	// For example, `lambda:InvokeFunction` or `lambda:GetFunction` .
-	Action *string `json:"action"`
+	Action *string `json:"action" yaml:"action"`
 	// The name of the Lambda function, version, or alias.
 	//
 	// **Name formats** - *Function name* - `my-function` (name-only), `my-function:v1` (with alias).
@@ -7091,23 +7091,23 @@ type CfnPermissionProps struct {
 	// - *Partial ARN* - `123456789012:function:my-function` .
 	//
 	// You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
-	FunctionName *string `json:"functionName"`
+	FunctionName *string `json:"functionName" yaml:"functionName"`
 	// The AWS service or account that invokes the function.
 	//
 	// If you specify a service, use `SourceArn` or `SourceAccount` to limit who can invoke the function through that service.
-	Principal *string `json:"principal"`
+	Principal *string `json:"principal" yaml:"principal"`
 	// For Alexa Smart Home functions, a token that must be supplied by the invoker.
-	EventSourceToken *string `json:"eventSourceToken"`
+	EventSourceToken *string `json:"eventSourceToken" yaml:"eventSourceToken"`
 	// For Amazon S3, the ID of the account that owns the resource.
 	//
 	// Use this together with `SourceArn` to ensure that the resource is owned by the specified account. It is possible for an Amazon S3 bucket to be deleted by its owner and recreated by another account.
-	SourceAccount *string `json:"sourceAccount"`
+	SourceAccount *string `json:"sourceAccount" yaml:"sourceAccount"`
 	// For AWS services, the ARN of the AWS resource that invokes the function.
 	//
 	// For example, an Amazon S3 bucket or Amazon SNS topic.
 	//
 	// Note that Lambda configures the comparison using the `StringLike` operator.
-	SourceArn *string `json:"sourceArn"`
+	SourceArn *string `json:"sourceArn" yaml:"sourceArn"`
 }
 
 // A CloudFormation `AWS::Lambda::Version`.
@@ -7659,7 +7659,7 @@ func (c *jsiiProxy_CfnVersion) ValidateProperties(_properties interface{}) {
 //
 type CfnVersion_ProvisionedConcurrencyConfigurationProperty struct {
 	// The amount of provisioned concurrency to allocate for the version.
-	ProvisionedConcurrentExecutions *float64 `json:"provisionedConcurrentExecutions"`
+	ProvisionedConcurrentExecutions *float64 `json:"provisionedConcurrentExecutions" yaml:"provisionedConcurrentExecutions"`
 }
 
 // Properties for defining a `CfnVersion`.
@@ -7674,19 +7674,19 @@ type CfnVersionProps struct {
 	// - *Partial ARN* - `123456789012:function:MyFunction` .
 	//
 	// The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
-	FunctionName *string `json:"functionName"`
+	FunctionName *string `json:"functionName" yaml:"functionName"`
 	// Only publish a version if the hash value matches the value that's specified.
 	//
 	// Use this option to avoid publishing a version if the function code has changed since you last updated it. Updates are not supported for this property.
-	CodeSha256 *string `json:"codeSha256"`
+	CodeSha256 *string `json:"codeSha256" yaml:"codeSha256"`
 	// A description for the version to override the description in the function configuration.
 	//
 	// Updates are not supported for this property.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Specifies a provisioned concurrency configuration for a function's version.
 	//
 	// Updates are not supported for this property.
-	ProvisionedConcurrencyConfig interface{} `json:"provisionedConcurrencyConfig"`
+	ProvisionedConcurrencyConfig interface{} `json:"provisionedConcurrencyConfig" yaml:"provisionedConcurrencyConfig"`
 }
 
 // Represents the Lambda Handler Code.
@@ -7864,11 +7864,11 @@ func (c *jsiiProxy_Code) BindToResource(_resource awscdk.CfnResource, _options *
 //
 type CodeConfig struct {
 	// Docker image configuration (mutually exclusive with `s3Location` and `inlineCode`).
-	Image *CodeImageConfig `json:"image"`
+	Image *CodeImageConfig `json:"image" yaml:"image"`
 	// Inline code (mutually exclusive with `s3Location` and `image`).
-	InlineCode *string `json:"inlineCode"`
+	InlineCode *string `json:"inlineCode" yaml:"inlineCode"`
 	// The location of the code in S3 (mutually exclusive with `inlineCode` and `image`).
-	S3Location *awss3.Location `json:"s3Location"`
+	S3Location *awss3.Location `json:"s3Location" yaml:"s3Location"`
 }
 
 // Result of the bind when an ECR image is used.
@@ -7877,26 +7877,26 @@ type CodeConfig struct {
 //
 type CodeImageConfig struct {
 	// URI to the Docker image.
-	ImageUri *string `json:"imageUri"`
+	ImageUri *string `json:"imageUri" yaml:"imageUri"`
 	// Specify or override the CMD on the specified Docker image or Dockerfile.
 	//
 	// This needs to be in the 'exec form', viz., `[ 'executable', 'param1', 'param2' ]`.
 	// See: https://docs.docker.com/engine/reference/builder/#cmd
 	//
-	Cmd *[]*string `json:"cmd"`
+	Cmd *[]*string `json:"cmd" yaml:"cmd"`
 	// Specify or override the ENTRYPOINT on the specified Docker image or Dockerfile.
 	//
 	// An ENTRYPOINT allows you to configure a container that will run as an executable.
 	// This needs to be in the 'exec form', viz., `[ 'executable', 'param1', 'param2' ]`.
 	// See: https://docs.docker.com/engine/reference/builder/#entrypoint
 	//
-	Entrypoint *[]*string `json:"entrypoint"`
+	Entrypoint *[]*string `json:"entrypoint" yaml:"entrypoint"`
 	// Specify or override the WORKDIR on the specified Docker image or Dockerfile.
 	//
 	// A WORKDIR allows you to configure the working directory the container will use.
 	// See: https://docs.docker.com/engine/reference/builder/#workdir
 	//
-	WorkingDirectory *string `json:"workingDirectory"`
+	WorkingDirectory *string `json:"workingDirectory" yaml:"workingDirectory"`
 }
 
 // Defines a Code Signing Config.
@@ -8148,16 +8148,16 @@ func (c *jsiiProxy_CodeSigningConfig) ToString() *string {
 //
 type CodeSigningConfigProps struct {
 	// List of signing profiles that defines a trusted user who can sign a code package.
-	SigningProfiles *[]awssigner.ISigningProfile `json:"signingProfiles"`
+	SigningProfiles *[]awssigner.ISigningProfile `json:"signingProfiles" yaml:"signingProfiles"`
 	// Code signing configuration description.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Code signing configuration policy for deployment validation failure.
 	//
 	// If you set the policy to Enforce, Lambda blocks the deployment request
 	// if signature validation checks fail.
 	// If you set the policy to Warn, Lambda allows the deployment and
 	// creates a CloudWatch log.
-	UntrustedArtifactOnDeployment UntrustedArtifactOnDeployment `json:"untrustedArtifactOnDeployment"`
+	UntrustedArtifactOnDeployment UntrustedArtifactOnDeployment `json:"untrustedArtifactOnDeployment" yaml:"untrustedArtifactOnDeployment"`
 }
 
 // A destination configuration.
@@ -8166,7 +8166,7 @@ type CodeSigningConfigProps struct {
 //
 type DestinationConfig struct {
 	// The Amazon Resource Name (ARN) of the destination resource.
-	Destination *string `json:"destination"`
+	Destination *string `json:"destination" yaml:"destination"`
 }
 
 // Options when binding a destination to a function.
@@ -8175,7 +8175,7 @@ type DestinationConfig struct {
 //
 type DestinationOptions struct {
 	// The destination type.
-	Type DestinationType `json:"type"`
+	Type DestinationType `json:"type" yaml:"type"`
 }
 
 // The type of destination.
@@ -8192,7 +8192,7 @@ const (
 //
 type DlqDestinationConfig struct {
 	// The Amazon Resource Name (ARN) of the destination resource.
-	Destination *string `json:"destination"`
+	Destination *string `json:"destination" yaml:"destination"`
 }
 
 // Options when creating an asset from a Docker build.
@@ -8201,17 +8201,17 @@ type DlqDestinationConfig struct {
 //
 type DockerBuildAssetOptions struct {
 	// Build args.
-	BuildArgs *map[string]*string `json:"buildArgs"`
+	BuildArgs *map[string]*string `json:"buildArgs" yaml:"buildArgs"`
 	// Name of the Dockerfile, must relative to the docker build path.
-	File *string `json:"file"`
+	File *string `json:"file" yaml:"file"`
 	// Set platform if server is multi-platform capable. _Requires Docker Engine API v1.38+_.
 	//
 	// Example value: `linux/amd64`
-	Platform *string `json:"platform"`
+	Platform *string `json:"platform" yaml:"platform"`
 	// The path in the Docker image where the asset is located after the build operation.
-	ImagePath *string `json:"imagePath"`
+	ImagePath *string `json:"imagePath" yaml:"imagePath"`
 	// The path on the local filesystem where the asset will be copied using `docker cp`.
-	OutputPath *string `json:"outputPath"`
+	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 }
 
 // Code property for the DockerImageFunction construct.
@@ -8997,102 +8997,102 @@ type DockerImageFunctionProps struct {
 	//
 	// Minimum: 60 seconds
 	// Maximum: 6 hours
-	MaxEventAge awscdk.Duration `json:"maxEventAge"`
+	MaxEventAge awscdk.Duration `json:"maxEventAge" yaml:"maxEventAge"`
 	// The destination for failed invocations.
-	OnFailure IDestination `json:"onFailure"`
+	OnFailure IDestination `json:"onFailure" yaml:"onFailure"`
 	// The destination for successful invocations.
-	OnSuccess IDestination `json:"onSuccess"`
+	OnSuccess IDestination `json:"onSuccess" yaml:"onSuccess"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum: 0
 	// Maximum: 2
-	RetryAttempts *float64 `json:"retryAttempts"`
+	RetryAttempts *float64 `json:"retryAttempts" yaml:"retryAttempts"`
 	// Whether to allow the Lambda to send all network traffic.
 	//
 	// If set to false, you must individually add traffic rules to allow the
 	// Lambda to connect to network targets.
-	AllowAllOutbound *bool `json:"allowAllOutbound"`
+	AllowAllOutbound *bool `json:"allowAllOutbound" yaml:"allowAllOutbound"`
 	// Lambda Functions in a public subnet can NOT access the internet.
 	//
 	// Use this property to acknowledge this limitation and still place the function in a public subnet.
 	// See: https://stackoverflow.com/questions/52992085/why-cant-an-aws-lambda-function-inside-a-public-subnet-in-a-vpc-connect-to-the/52994841#52994841
 	//
-	AllowPublicSubnet *bool `json:"allowPublicSubnet"`
+	AllowPublicSubnet *bool `json:"allowPublicSubnet" yaml:"allowPublicSubnet"`
 	// The system architectures compatible with this lambda function.
-	Architecture Architecture `json:"architecture"`
+	Architecture Architecture `json:"architecture" yaml:"architecture"`
 	// Code signing config associated with this function.
-	CodeSigningConfig ICodeSigningConfig `json:"codeSigningConfig"`
+	CodeSigningConfig ICodeSigningConfig `json:"codeSigningConfig" yaml:"codeSigningConfig"`
 	// Options for the `lambda.Version` resource automatically created by the `fn.currentVersion` method.
-	CurrentVersionOptions *VersionOptions `json:"currentVersionOptions"`
+	CurrentVersionOptions *VersionOptions `json:"currentVersionOptions" yaml:"currentVersionOptions"`
 	// The SQS queue to use if DLQ is enabled.
-	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue"`
+	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// Enabled DLQ.
 	//
 	// If `deadLetterQueue` is undefined,
 	// an SQS queue with default options will be defined for your Function.
-	DeadLetterQueueEnabled *bool `json:"deadLetterQueueEnabled"`
+	DeadLetterQueueEnabled *bool `json:"deadLetterQueueEnabled" yaml:"deadLetterQueueEnabled"`
 	// A description of the function.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Key-value pairs that Lambda caches and makes available for your Lambda functions.
 	//
 	// Use environment variables to apply configuration changes, such
 	// as test and production environment configurations, without changing your
 	// Lambda function source code.
-	Environment *map[string]*string `json:"environment"`
+	Environment *map[string]*string `json:"environment" yaml:"environment"`
 	// The AWS KMS key that's used to encrypt your function's environment variables.
-	EnvironmentEncryption awskms.IKey `json:"environmentEncryption"`
+	EnvironmentEncryption awskms.IKey `json:"environmentEncryption" yaml:"environmentEncryption"`
 	// Event sources for this function.
 	//
 	// You can also add event sources using `addEventSource`.
-	Events *[]IEventSource `json:"events"`
+	Events *[]IEventSource `json:"events" yaml:"events"`
 	// The filesystem configuration for the lambda function.
-	Filesystem FileSystem `json:"filesystem"`
+	Filesystem FileSystem `json:"filesystem" yaml:"filesystem"`
 	// A name for the function.
-	FunctionName *string `json:"functionName"`
+	FunctionName *string `json:"functionName" yaml:"functionName"`
 	// Initial policy statements to add to the created Lambda Role.
 	//
 	// You can call `addToRolePolicy` to the created lambda to add statements post creation.
-	InitialPolicy *[]awsiam.PolicyStatement `json:"initialPolicy"`
+	InitialPolicy *[]awsiam.PolicyStatement `json:"initialPolicy" yaml:"initialPolicy"`
 	// Specify the version of CloudWatch Lambda insights to use for monitoring.
 	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Lambda-Insights-Getting-Started-docker.html
 	//
-	InsightsVersion LambdaInsightsVersion `json:"insightsVersion"`
+	InsightsVersion LambdaInsightsVersion `json:"insightsVersion" yaml:"insightsVersion"`
 	// A list of layers to add to the function's execution environment.
 	//
 	// You can configure your Lambda function to pull in
 	// additional code during initialization in the form of layers. Layers are packages of libraries or other dependencies
 	// that can be used by multiple functions.
-	Layers *[]ILayerVersion `json:"layers"`
+	Layers *[]ILayerVersion `json:"layers" yaml:"layers"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// When updating
 	// this property, unsetting it doesn't remove the log retention policy. To
 	// remove the retention policy, set the value to `INFINITE`.
-	LogRetention awslogs.RetentionDays `json:"logRetention"`
+	LogRetention awslogs.RetentionDays `json:"logRetention" yaml:"logRetention"`
 	// When log retention is specified, a custom resource attempts to create the CloudWatch log group.
 	//
 	// These options control the retry policy when interacting with CloudWatch APIs.
-	LogRetentionRetryOptions *LogRetentionRetryOptions `json:"logRetentionRetryOptions"`
+	LogRetentionRetryOptions *LogRetentionRetryOptions `json:"logRetentionRetryOptions" yaml:"logRetentionRetryOptions"`
 	// The IAM role for the Lambda function associated with the custom resource that sets the retention policy.
-	LogRetentionRole awsiam.IRole `json:"logRetentionRole"`
+	LogRetentionRole awsiam.IRole `json:"logRetentionRole" yaml:"logRetentionRole"`
 	// The amount of memory, in MB, that is allocated to your Lambda function.
 	//
 	// Lambda uses this value to proportionally allocate the amount of CPU
 	// power. For more information, see Resource Model in the AWS Lambda
 	// Developer Guide.
-	MemorySize *float64 `json:"memorySize"`
+	MemorySize *float64 `json:"memorySize" yaml:"memorySize"`
 	// Enable profiling.
 	// See: https://docs.aws.amazon.com/codeguru/latest/profiler-ug/setting-up-lambda.html
 	//
-	Profiling *bool `json:"profiling"`
+	Profiling *bool `json:"profiling" yaml:"profiling"`
 	// Profiling Group.
 	// See: https://docs.aws.amazon.com/codeguru/latest/profiler-ug/setting-up-lambda.html
 	//
-	ProfilingGroup awscodeguruprofiler.IProfilingGroup `json:"profilingGroup"`
+	ProfilingGroup awscodeguruprofiler.IProfilingGroup `json:"profilingGroup" yaml:"profilingGroup"`
 	// The maximum of concurrent executions you want to reserve for the function.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html
 	//
-	ReservedConcurrentExecutions *float64 `json:"reservedConcurrentExecutions"`
+	ReservedConcurrentExecutions *float64 `json:"reservedConcurrentExecutions" yaml:"reservedConcurrentExecutions"`
 	// Lambda execution role.
 	//
 	// This is the role that will be assumed by the function upon execution.
@@ -9104,33 +9104,33 @@ type DockerImageFunctionProps struct {
 	//
 	// The relevant managed policies are "service-role/AWSLambdaBasicExecutionRole" and
 	// "service-role/AWSLambdaVPCAccessExecutionRole".
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 	// The list of security groups to associate with the Lambda's network interfaces.
 	//
 	// Only used if 'vpc' is supplied.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// The function execution time (in seconds) after which Lambda terminates the function.
 	//
 	// Because the execution time affects cost, set this value
 	// based on the function's expected execution time.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// Enable AWS X-Ray Tracing for Lambda Function.
-	Tracing Tracing `json:"tracing"`
+	Tracing Tracing `json:"tracing" yaml:"tracing"`
 	// VPC network to place Lambda network interfaces.
 	//
 	// Specify this if the Lambda function needs to access resources in a VPC.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// Where to place the network interfaces within the VPC.
 	//
 	// Only used if 'vpc' is supplied. Note: internet access for Lambdas
 	// requires a NAT gateway, so picking Public subnets is not allowed.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 	// The source code of your Lambda function.
 	//
 	// You can point to a file in an
 	// Amazon Simple Storage Service (Amazon S3) bucket or specify your source
 	// code as inline text.
-	Code DockerImageCode `json:"code"`
+	Code DockerImageCode `json:"code" yaml:"code"`
 }
 
 // Represents a Docker image in ECR that can be bound as Lambda Code.
@@ -9339,22 +9339,22 @@ type EcrImageCodeProps struct {
 	// This needs to be in the 'exec form', viz., `[ 'executable', 'param1', 'param2' ]`.
 	// See: https://docs.docker.com/engine/reference/builder/#cmd
 	//
-	Cmd *[]*string `json:"cmd"`
+	Cmd *[]*string `json:"cmd" yaml:"cmd"`
 	// Specify or override the ENTRYPOINT on the specified Docker image or Dockerfile.
 	//
 	// An ENTRYPOINT allows you to configure a container that will run as an executable.
 	// This needs to be in the 'exec form', viz., `[ 'executable', 'param1', 'param2' ]`.
 	// See: https://docs.docker.com/engine/reference/builder/#entrypoint
 	//
-	Entrypoint *[]*string `json:"entrypoint"`
+	Entrypoint *[]*string `json:"entrypoint" yaml:"entrypoint"`
 	// The image tag to use when pulling the image from ECR.
-	Tag *string `json:"tag"`
+	Tag *string `json:"tag" yaml:"tag"`
 	// Specify or override the WORKDIR on the specified Docker image or Dockerfile.
 	//
 	// A WORKDIR allows you to configure the working directory the container will use.
 	// See: https://docs.docker.com/engine/reference/builder/#workdir
 	//
-	WorkingDirectory *string `json:"workingDirectory"`
+	WorkingDirectory *string `json:"workingDirectory" yaml:"workingDirectory"`
 }
 
 // Environment variables options.
@@ -9367,7 +9367,7 @@ type EnvironmentOptions struct {
 	// If not set, an error will be thrown.
 	// See: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-requirements-limits.html#lambda-requirements-lambda-function-configuration
 	//
-	RemoveInEdge *bool `json:"removeInEdge"`
+	RemoveInEdge *bool `json:"removeInEdge" yaml:"removeInEdge"`
 }
 
 // Configure options for asynchronous invocation on a version or an alias.
@@ -9587,16 +9587,16 @@ type EventInvokeConfigOptions struct {
 	//
 	// Minimum: 60 seconds
 	// Maximum: 6 hours
-	MaxEventAge awscdk.Duration `json:"maxEventAge"`
+	MaxEventAge awscdk.Duration `json:"maxEventAge" yaml:"maxEventAge"`
 	// The destination for failed invocations.
-	OnFailure IDestination `json:"onFailure"`
+	OnFailure IDestination `json:"onFailure" yaml:"onFailure"`
 	// The destination for successful invocations.
-	OnSuccess IDestination `json:"onSuccess"`
+	OnSuccess IDestination `json:"onSuccess" yaml:"onSuccess"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum: 0
 	// Maximum: 2
-	RetryAttempts *float64 `json:"retryAttempts"`
+	RetryAttempts *float64 `json:"retryAttempts" yaml:"retryAttempts"`
 }
 
 // Properties for an EventInvokeConfig.
@@ -9608,20 +9608,20 @@ type EventInvokeConfigProps struct {
 	//
 	// Minimum: 60 seconds
 	// Maximum: 6 hours
-	MaxEventAge awscdk.Duration `json:"maxEventAge"`
+	MaxEventAge awscdk.Duration `json:"maxEventAge" yaml:"maxEventAge"`
 	// The destination for failed invocations.
-	OnFailure IDestination `json:"onFailure"`
+	OnFailure IDestination `json:"onFailure" yaml:"onFailure"`
 	// The destination for successful invocations.
-	OnSuccess IDestination `json:"onSuccess"`
+	OnSuccess IDestination `json:"onSuccess" yaml:"onSuccess"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum: 0
 	// Maximum: 2
-	RetryAttempts *float64 `json:"retryAttempts"`
+	RetryAttempts *float64 `json:"retryAttempts" yaml:"retryAttempts"`
 	// The Lambda function.
-	Function IFunction `json:"function"`
+	Function IFunction `json:"function" yaml:"function"`
 	// The qualifier.
-	Qualifier *string `json:"qualifier"`
+	Qualifier *string `json:"qualifier" yaml:"qualifier"`
 }
 
 // Defines a Lambda EventSourceMapping resource.
@@ -9874,44 +9874,44 @@ type EventSourceMappingOptions struct {
 	// event with all the retrieved records.
 	//
 	// Valid Range: Minimum value of 1. Maximum value of 10000.
-	BatchSize *float64 `json:"batchSize"`
+	BatchSize *float64 `json:"batchSize" yaml:"batchSize"`
 	// If the function returns an error, split the batch in two and retry.
-	BisectBatchOnError *bool `json:"bisectBatchOnError"`
+	BisectBatchOnError *bool `json:"bisectBatchOnError" yaml:"bisectBatchOnError"`
 	// Set to false to disable the event source upon creation.
-	Enabled *bool `json:"enabled"`
+	Enabled *bool `json:"enabled" yaml:"enabled"`
 	// The Amazon Resource Name (ARN) of the event source.
 	//
 	// Any record added to
 	// this stream can invoke the Lambda function.
-	EventSourceArn *string `json:"eventSourceArn"`
+	EventSourceArn *string `json:"eventSourceArn" yaml:"eventSourceArn"`
 	// A list of host and port pairs that are the addresses of the Kafka brokers in a self managed "bootstrap" Kafka cluster that a Kafka client connects to initially to bootstrap itself.
 	//
 	// They are in the format `abc.example.com:9096`.
-	KafkaBootstrapServers *[]*string `json:"kafkaBootstrapServers"`
+	KafkaBootstrapServers *[]*string `json:"kafkaBootstrapServers" yaml:"kafkaBootstrapServers"`
 	// The name of the Kafka topic.
-	KafkaTopic *string `json:"kafkaTopic"`
+	KafkaTopic *string `json:"kafkaTopic" yaml:"kafkaTopic"`
 	// The maximum amount of time to gather records before invoking the function.
 	//
 	// Maximum of Duration.minutes(5)
-	MaxBatchingWindow awscdk.Duration `json:"maxBatchingWindow"`
+	MaxBatchingWindow awscdk.Duration `json:"maxBatchingWindow" yaml:"maxBatchingWindow"`
 	// The maximum age of a record that Lambda sends to a function for processing.
 	//
 	// Valid Range:
 	// * Minimum value of 60 seconds
 	// * Maximum value of 7 days
-	MaxRecordAge awscdk.Duration `json:"maxRecordAge"`
+	MaxRecordAge awscdk.Duration `json:"maxRecordAge" yaml:"maxRecordAge"`
 	// An Amazon SQS queue or Amazon SNS topic destination for discarded records.
-	OnFailure IEventSourceDlq `json:"onFailure"`
+	OnFailure IEventSourceDlq `json:"onFailure" yaml:"onFailure"`
 	// The number of batches to process from each shard concurrently.
 	//
 	// Valid Range:
 	// * Minimum value of 1
 	// * Maximum value of 10
-	ParallelizationFactor *float64 `json:"parallelizationFactor"`
+	ParallelizationFactor *float64 `json:"parallelizationFactor" yaml:"parallelizationFactor"`
 	// Allow functions to return partially successful responses for a batch of records.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting
 	//
-	ReportBatchItemFailures *bool `json:"reportBatchItemFailures"`
+	ReportBatchItemFailures *bool `json:"reportBatchItemFailures" yaml:"reportBatchItemFailures"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Set to `undefined` if you want lambda to keep retrying infinitely or until
@@ -9920,21 +9920,21 @@ type EventSourceMappingOptions struct {
 	// Valid Range:
 	// * Minimum value of 0
 	// * Maximum value of 10000
-	RetryAttempts *float64 `json:"retryAttempts"`
+	RetryAttempts *float64 `json:"retryAttempts" yaml:"retryAttempts"`
 	// Specific settings like the authentication protocol or the VPC components to secure access to your event source.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-sourceaccessconfiguration.html
 	//
-	SourceAccessConfigurations *[]*SourceAccessConfiguration `json:"sourceAccessConfigurations"`
+	SourceAccessConfigurations *[]*SourceAccessConfiguration `json:"sourceAccessConfigurations" yaml:"sourceAccessConfigurations"`
 	// The position in the DynamoDB, Kinesis or MSK stream where AWS Lambda should start reading.
 	// See: https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType
 	//
-	StartingPosition StartingPosition `json:"startingPosition"`
+	StartingPosition StartingPosition `json:"startingPosition" yaml:"startingPosition"`
 	// The size of the tumbling windows to group records sent to DynamoDB or Kinesis.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-windows
 	//
 	// Valid Range: 0 - 15 minutes
 	//
-	TumblingWindow awscdk.Duration `json:"tumblingWindow"`
+	TumblingWindow awscdk.Duration `json:"tumblingWindow" yaml:"tumblingWindow"`
 }
 
 // Properties for declaring a new event source mapping.
@@ -9948,44 +9948,44 @@ type EventSourceMappingProps struct {
 	// event with all the retrieved records.
 	//
 	// Valid Range: Minimum value of 1. Maximum value of 10000.
-	BatchSize *float64 `json:"batchSize"`
+	BatchSize *float64 `json:"batchSize" yaml:"batchSize"`
 	// If the function returns an error, split the batch in two and retry.
-	BisectBatchOnError *bool `json:"bisectBatchOnError"`
+	BisectBatchOnError *bool `json:"bisectBatchOnError" yaml:"bisectBatchOnError"`
 	// Set to false to disable the event source upon creation.
-	Enabled *bool `json:"enabled"`
+	Enabled *bool `json:"enabled" yaml:"enabled"`
 	// The Amazon Resource Name (ARN) of the event source.
 	//
 	// Any record added to
 	// this stream can invoke the Lambda function.
-	EventSourceArn *string `json:"eventSourceArn"`
+	EventSourceArn *string `json:"eventSourceArn" yaml:"eventSourceArn"`
 	// A list of host and port pairs that are the addresses of the Kafka brokers in a self managed "bootstrap" Kafka cluster that a Kafka client connects to initially to bootstrap itself.
 	//
 	// They are in the format `abc.example.com:9096`.
-	KafkaBootstrapServers *[]*string `json:"kafkaBootstrapServers"`
+	KafkaBootstrapServers *[]*string `json:"kafkaBootstrapServers" yaml:"kafkaBootstrapServers"`
 	// The name of the Kafka topic.
-	KafkaTopic *string `json:"kafkaTopic"`
+	KafkaTopic *string `json:"kafkaTopic" yaml:"kafkaTopic"`
 	// The maximum amount of time to gather records before invoking the function.
 	//
 	// Maximum of Duration.minutes(5)
-	MaxBatchingWindow awscdk.Duration `json:"maxBatchingWindow"`
+	MaxBatchingWindow awscdk.Duration `json:"maxBatchingWindow" yaml:"maxBatchingWindow"`
 	// The maximum age of a record that Lambda sends to a function for processing.
 	//
 	// Valid Range:
 	// * Minimum value of 60 seconds
 	// * Maximum value of 7 days
-	MaxRecordAge awscdk.Duration `json:"maxRecordAge"`
+	MaxRecordAge awscdk.Duration `json:"maxRecordAge" yaml:"maxRecordAge"`
 	// An Amazon SQS queue or Amazon SNS topic destination for discarded records.
-	OnFailure IEventSourceDlq `json:"onFailure"`
+	OnFailure IEventSourceDlq `json:"onFailure" yaml:"onFailure"`
 	// The number of batches to process from each shard concurrently.
 	//
 	// Valid Range:
 	// * Minimum value of 1
 	// * Maximum value of 10
-	ParallelizationFactor *float64 `json:"parallelizationFactor"`
+	ParallelizationFactor *float64 `json:"parallelizationFactor" yaml:"parallelizationFactor"`
 	// Allow functions to return partially successful responses for a batch of records.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting
 	//
-	ReportBatchItemFailures *bool `json:"reportBatchItemFailures"`
+	ReportBatchItemFailures *bool `json:"reportBatchItemFailures" yaml:"reportBatchItemFailures"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Set to `undefined` if you want lambda to keep retrying infinitely or until
@@ -9994,23 +9994,23 @@ type EventSourceMappingProps struct {
 	// Valid Range:
 	// * Minimum value of 0
 	// * Maximum value of 10000
-	RetryAttempts *float64 `json:"retryAttempts"`
+	RetryAttempts *float64 `json:"retryAttempts" yaml:"retryAttempts"`
 	// Specific settings like the authentication protocol or the VPC components to secure access to your event source.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-sourceaccessconfiguration.html
 	//
-	SourceAccessConfigurations *[]*SourceAccessConfiguration `json:"sourceAccessConfigurations"`
+	SourceAccessConfigurations *[]*SourceAccessConfiguration `json:"sourceAccessConfigurations" yaml:"sourceAccessConfigurations"`
 	// The position in the DynamoDB, Kinesis or MSK stream where AWS Lambda should start reading.
 	// See: https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType
 	//
-	StartingPosition StartingPosition `json:"startingPosition"`
+	StartingPosition StartingPosition `json:"startingPosition" yaml:"startingPosition"`
 	// The size of the tumbling windows to group records sent to DynamoDB or Kinesis.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-windows
 	//
 	// Valid Range: 0 - 15 minutes
 	//
-	TumblingWindow awscdk.Duration `json:"tumblingWindow"`
+	TumblingWindow awscdk.Duration `json:"tumblingWindow" yaml:"tumblingWindow"`
 	// The target AWS Lambda function.
-	Target IFunction `json:"target"`
+	Target IFunction `json:"target" yaml:"target"`
 }
 
 // Represents the filesystem for the Lambda function.
@@ -10083,15 +10083,15 @@ func FileSystem_FromEfsAccessPoint(ap awsefs.IAccessPoint, mountPath *string) Fi
 //
 type FileSystemConfig struct {
 	// ARN of the access point.
-	Arn *string `json:"arn"`
+	Arn *string `json:"arn" yaml:"arn"`
 	// mount path in the lambda runtime environment.
-	LocalMountPath *string `json:"localMountPath"`
+	LocalMountPath *string `json:"localMountPath" yaml:"localMountPath"`
 	// connections object used to allow ingress traffic from lambda function.
-	Connections awsec2.Connections `json:"connections"`
+	Connections awsec2.Connections `json:"connections" yaml:"connections"`
 	// array of IDependable that lambda function depends on.
-	Dependency *[]constructs.IDependable `json:"dependency"`
+	Dependency *[]constructs.IDependable `json:"dependency" yaml:"dependency"`
 	// additional IAM policies required for the lambda function.
-	Policies *[]awsiam.PolicyStatement `json:"policies"`
+	Policies *[]awsiam.PolicyStatement `json:"policies" yaml:"policies"`
 }
 
 // Deploys a file from inside the construct library as a function.
@@ -10830,13 +10830,13 @@ type FunctionAttributes struct {
 	// The ARN of the Lambda function.
 	//
 	// Format: arn:<partition>:lambda:<region>:<account-id>:function:<function-name>
-	FunctionArn *string `json:"functionArn"`
+	FunctionArn *string `json:"functionArn" yaml:"functionArn"`
 	// The architecture of this Lambda Function (this is an optional attribute and defaults to X86_64).
-	Architecture Architecture `json:"architecture"`
+	Architecture Architecture `json:"architecture" yaml:"architecture"`
 	// The IAM execution role associated with this function.
 	//
 	// If the role is not specified, any role-related operations will no-op.
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 	// Setting this property informs the CDK that the imported function is in the same environment as the stack.
 	//
 	// This affects certain behaviours such as, whether this function's permission can be modified.
@@ -10845,12 +10845,12 @@ type FunctionAttributes struct {
 	//
 	// Set this to property *ONLY IF* the imported function is in the same account as the stack
 	// it's imported in.
-	SameEnvironment *bool `json:"sameEnvironment"`
+	SameEnvironment *bool `json:"sameEnvironment" yaml:"sameEnvironment"`
 	// The security group of this Lambda, if in a VPC.
 	//
 	// This needs to be given in order to support allowing connections
 	// to this Lambda.
-	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
+	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup" yaml:"securityGroup"`
 }
 
 type FunctionBase interface {
@@ -11324,102 +11324,102 @@ type FunctionOptions struct {
 	//
 	// Minimum: 60 seconds
 	// Maximum: 6 hours
-	MaxEventAge awscdk.Duration `json:"maxEventAge"`
+	MaxEventAge awscdk.Duration `json:"maxEventAge" yaml:"maxEventAge"`
 	// The destination for failed invocations.
-	OnFailure IDestination `json:"onFailure"`
+	OnFailure IDestination `json:"onFailure" yaml:"onFailure"`
 	// The destination for successful invocations.
-	OnSuccess IDestination `json:"onSuccess"`
+	OnSuccess IDestination `json:"onSuccess" yaml:"onSuccess"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum: 0
 	// Maximum: 2
-	RetryAttempts *float64 `json:"retryAttempts"`
+	RetryAttempts *float64 `json:"retryAttempts" yaml:"retryAttempts"`
 	// Whether to allow the Lambda to send all network traffic.
 	//
 	// If set to false, you must individually add traffic rules to allow the
 	// Lambda to connect to network targets.
-	AllowAllOutbound *bool `json:"allowAllOutbound"`
+	AllowAllOutbound *bool `json:"allowAllOutbound" yaml:"allowAllOutbound"`
 	// Lambda Functions in a public subnet can NOT access the internet.
 	//
 	// Use this property to acknowledge this limitation and still place the function in a public subnet.
 	// See: https://stackoverflow.com/questions/52992085/why-cant-an-aws-lambda-function-inside-a-public-subnet-in-a-vpc-connect-to-the/52994841#52994841
 	//
-	AllowPublicSubnet *bool `json:"allowPublicSubnet"`
+	AllowPublicSubnet *bool `json:"allowPublicSubnet" yaml:"allowPublicSubnet"`
 	// The system architectures compatible with this lambda function.
-	Architecture Architecture `json:"architecture"`
+	Architecture Architecture `json:"architecture" yaml:"architecture"`
 	// Code signing config associated with this function.
-	CodeSigningConfig ICodeSigningConfig `json:"codeSigningConfig"`
+	CodeSigningConfig ICodeSigningConfig `json:"codeSigningConfig" yaml:"codeSigningConfig"`
 	// Options for the `lambda.Version` resource automatically created by the `fn.currentVersion` method.
-	CurrentVersionOptions *VersionOptions `json:"currentVersionOptions"`
+	CurrentVersionOptions *VersionOptions `json:"currentVersionOptions" yaml:"currentVersionOptions"`
 	// The SQS queue to use if DLQ is enabled.
-	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue"`
+	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// Enabled DLQ.
 	//
 	// If `deadLetterQueue` is undefined,
 	// an SQS queue with default options will be defined for your Function.
-	DeadLetterQueueEnabled *bool `json:"deadLetterQueueEnabled"`
+	DeadLetterQueueEnabled *bool `json:"deadLetterQueueEnabled" yaml:"deadLetterQueueEnabled"`
 	// A description of the function.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Key-value pairs that Lambda caches and makes available for your Lambda functions.
 	//
 	// Use environment variables to apply configuration changes, such
 	// as test and production environment configurations, without changing your
 	// Lambda function source code.
-	Environment *map[string]*string `json:"environment"`
+	Environment *map[string]*string `json:"environment" yaml:"environment"`
 	// The AWS KMS key that's used to encrypt your function's environment variables.
-	EnvironmentEncryption awskms.IKey `json:"environmentEncryption"`
+	EnvironmentEncryption awskms.IKey `json:"environmentEncryption" yaml:"environmentEncryption"`
 	// Event sources for this function.
 	//
 	// You can also add event sources using `addEventSource`.
-	Events *[]IEventSource `json:"events"`
+	Events *[]IEventSource `json:"events" yaml:"events"`
 	// The filesystem configuration for the lambda function.
-	Filesystem FileSystem `json:"filesystem"`
+	Filesystem FileSystem `json:"filesystem" yaml:"filesystem"`
 	// A name for the function.
-	FunctionName *string `json:"functionName"`
+	FunctionName *string `json:"functionName" yaml:"functionName"`
 	// Initial policy statements to add to the created Lambda Role.
 	//
 	// You can call `addToRolePolicy` to the created lambda to add statements post creation.
-	InitialPolicy *[]awsiam.PolicyStatement `json:"initialPolicy"`
+	InitialPolicy *[]awsiam.PolicyStatement `json:"initialPolicy" yaml:"initialPolicy"`
 	// Specify the version of CloudWatch Lambda insights to use for monitoring.
 	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Lambda-Insights-Getting-Started-docker.html
 	//
-	InsightsVersion LambdaInsightsVersion `json:"insightsVersion"`
+	InsightsVersion LambdaInsightsVersion `json:"insightsVersion" yaml:"insightsVersion"`
 	// A list of layers to add to the function's execution environment.
 	//
 	// You can configure your Lambda function to pull in
 	// additional code during initialization in the form of layers. Layers are packages of libraries or other dependencies
 	// that can be used by multiple functions.
-	Layers *[]ILayerVersion `json:"layers"`
+	Layers *[]ILayerVersion `json:"layers" yaml:"layers"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// When updating
 	// this property, unsetting it doesn't remove the log retention policy. To
 	// remove the retention policy, set the value to `INFINITE`.
-	LogRetention awslogs.RetentionDays `json:"logRetention"`
+	LogRetention awslogs.RetentionDays `json:"logRetention" yaml:"logRetention"`
 	// When log retention is specified, a custom resource attempts to create the CloudWatch log group.
 	//
 	// These options control the retry policy when interacting with CloudWatch APIs.
-	LogRetentionRetryOptions *LogRetentionRetryOptions `json:"logRetentionRetryOptions"`
+	LogRetentionRetryOptions *LogRetentionRetryOptions `json:"logRetentionRetryOptions" yaml:"logRetentionRetryOptions"`
 	// The IAM role for the Lambda function associated with the custom resource that sets the retention policy.
-	LogRetentionRole awsiam.IRole `json:"logRetentionRole"`
+	LogRetentionRole awsiam.IRole `json:"logRetentionRole" yaml:"logRetentionRole"`
 	// The amount of memory, in MB, that is allocated to your Lambda function.
 	//
 	// Lambda uses this value to proportionally allocate the amount of CPU
 	// power. For more information, see Resource Model in the AWS Lambda
 	// Developer Guide.
-	MemorySize *float64 `json:"memorySize"`
+	MemorySize *float64 `json:"memorySize" yaml:"memorySize"`
 	// Enable profiling.
 	// See: https://docs.aws.amazon.com/codeguru/latest/profiler-ug/setting-up-lambda.html
 	//
-	Profiling *bool `json:"profiling"`
+	Profiling *bool `json:"profiling" yaml:"profiling"`
 	// Profiling Group.
 	// See: https://docs.aws.amazon.com/codeguru/latest/profiler-ug/setting-up-lambda.html
 	//
-	ProfilingGroup awscodeguruprofiler.IProfilingGroup `json:"profilingGroup"`
+	ProfilingGroup awscodeguruprofiler.IProfilingGroup `json:"profilingGroup" yaml:"profilingGroup"`
 	// The maximum of concurrent executions you want to reserve for the function.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html
 	//
-	ReservedConcurrentExecutions *float64 `json:"reservedConcurrentExecutions"`
+	ReservedConcurrentExecutions *float64 `json:"reservedConcurrentExecutions" yaml:"reservedConcurrentExecutions"`
 	// Lambda execution role.
 	//
 	// This is the role that will be assumed by the function upon execution.
@@ -11431,27 +11431,27 @@ type FunctionOptions struct {
 	//
 	// The relevant managed policies are "service-role/AWSLambdaBasicExecutionRole" and
 	// "service-role/AWSLambdaVPCAccessExecutionRole".
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 	// The list of security groups to associate with the Lambda's network interfaces.
 	//
 	// Only used if 'vpc' is supplied.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// The function execution time (in seconds) after which Lambda terminates the function.
 	//
 	// Because the execution time affects cost, set this value
 	// based on the function's expected execution time.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// Enable AWS X-Ray Tracing for Lambda Function.
-	Tracing Tracing `json:"tracing"`
+	Tracing Tracing `json:"tracing" yaml:"tracing"`
 	// VPC network to place Lambda network interfaces.
 	//
 	// Specify this if the Lambda function needs to access resources in a VPC.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// Where to place the network interfaces within the VPC.
 	//
 	// Only used if 'vpc' is supplied. Note: internet access for Lambdas
 	// requires a NAT gateway, so picking Public subnets is not allowed.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 
 // TODO: EXAMPLE
@@ -11461,102 +11461,102 @@ type FunctionProps struct {
 	//
 	// Minimum: 60 seconds
 	// Maximum: 6 hours
-	MaxEventAge awscdk.Duration `json:"maxEventAge"`
+	MaxEventAge awscdk.Duration `json:"maxEventAge" yaml:"maxEventAge"`
 	// The destination for failed invocations.
-	OnFailure IDestination `json:"onFailure"`
+	OnFailure IDestination `json:"onFailure" yaml:"onFailure"`
 	// The destination for successful invocations.
-	OnSuccess IDestination `json:"onSuccess"`
+	OnSuccess IDestination `json:"onSuccess" yaml:"onSuccess"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum: 0
 	// Maximum: 2
-	RetryAttempts *float64 `json:"retryAttempts"`
+	RetryAttempts *float64 `json:"retryAttempts" yaml:"retryAttempts"`
 	// Whether to allow the Lambda to send all network traffic.
 	//
 	// If set to false, you must individually add traffic rules to allow the
 	// Lambda to connect to network targets.
-	AllowAllOutbound *bool `json:"allowAllOutbound"`
+	AllowAllOutbound *bool `json:"allowAllOutbound" yaml:"allowAllOutbound"`
 	// Lambda Functions in a public subnet can NOT access the internet.
 	//
 	// Use this property to acknowledge this limitation and still place the function in a public subnet.
 	// See: https://stackoverflow.com/questions/52992085/why-cant-an-aws-lambda-function-inside-a-public-subnet-in-a-vpc-connect-to-the/52994841#52994841
 	//
-	AllowPublicSubnet *bool `json:"allowPublicSubnet"`
+	AllowPublicSubnet *bool `json:"allowPublicSubnet" yaml:"allowPublicSubnet"`
 	// The system architectures compatible with this lambda function.
-	Architecture Architecture `json:"architecture"`
+	Architecture Architecture `json:"architecture" yaml:"architecture"`
 	// Code signing config associated with this function.
-	CodeSigningConfig ICodeSigningConfig `json:"codeSigningConfig"`
+	CodeSigningConfig ICodeSigningConfig `json:"codeSigningConfig" yaml:"codeSigningConfig"`
 	// Options for the `lambda.Version` resource automatically created by the `fn.currentVersion` method.
-	CurrentVersionOptions *VersionOptions `json:"currentVersionOptions"`
+	CurrentVersionOptions *VersionOptions `json:"currentVersionOptions" yaml:"currentVersionOptions"`
 	// The SQS queue to use if DLQ is enabled.
-	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue"`
+	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// Enabled DLQ.
 	//
 	// If `deadLetterQueue` is undefined,
 	// an SQS queue with default options will be defined for your Function.
-	DeadLetterQueueEnabled *bool `json:"deadLetterQueueEnabled"`
+	DeadLetterQueueEnabled *bool `json:"deadLetterQueueEnabled" yaml:"deadLetterQueueEnabled"`
 	// A description of the function.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Key-value pairs that Lambda caches and makes available for your Lambda functions.
 	//
 	// Use environment variables to apply configuration changes, such
 	// as test and production environment configurations, without changing your
 	// Lambda function source code.
-	Environment *map[string]*string `json:"environment"`
+	Environment *map[string]*string `json:"environment" yaml:"environment"`
 	// The AWS KMS key that's used to encrypt your function's environment variables.
-	EnvironmentEncryption awskms.IKey `json:"environmentEncryption"`
+	EnvironmentEncryption awskms.IKey `json:"environmentEncryption" yaml:"environmentEncryption"`
 	// Event sources for this function.
 	//
 	// You can also add event sources using `addEventSource`.
-	Events *[]IEventSource `json:"events"`
+	Events *[]IEventSource `json:"events" yaml:"events"`
 	// The filesystem configuration for the lambda function.
-	Filesystem FileSystem `json:"filesystem"`
+	Filesystem FileSystem `json:"filesystem" yaml:"filesystem"`
 	// A name for the function.
-	FunctionName *string `json:"functionName"`
+	FunctionName *string `json:"functionName" yaml:"functionName"`
 	// Initial policy statements to add to the created Lambda Role.
 	//
 	// You can call `addToRolePolicy` to the created lambda to add statements post creation.
-	InitialPolicy *[]awsiam.PolicyStatement `json:"initialPolicy"`
+	InitialPolicy *[]awsiam.PolicyStatement `json:"initialPolicy" yaml:"initialPolicy"`
 	// Specify the version of CloudWatch Lambda insights to use for monitoring.
 	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Lambda-Insights-Getting-Started-docker.html
 	//
-	InsightsVersion LambdaInsightsVersion `json:"insightsVersion"`
+	InsightsVersion LambdaInsightsVersion `json:"insightsVersion" yaml:"insightsVersion"`
 	// A list of layers to add to the function's execution environment.
 	//
 	// You can configure your Lambda function to pull in
 	// additional code during initialization in the form of layers. Layers are packages of libraries or other dependencies
 	// that can be used by multiple functions.
-	Layers *[]ILayerVersion `json:"layers"`
+	Layers *[]ILayerVersion `json:"layers" yaml:"layers"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// When updating
 	// this property, unsetting it doesn't remove the log retention policy. To
 	// remove the retention policy, set the value to `INFINITE`.
-	LogRetention awslogs.RetentionDays `json:"logRetention"`
+	LogRetention awslogs.RetentionDays `json:"logRetention" yaml:"logRetention"`
 	// When log retention is specified, a custom resource attempts to create the CloudWatch log group.
 	//
 	// These options control the retry policy when interacting with CloudWatch APIs.
-	LogRetentionRetryOptions *LogRetentionRetryOptions `json:"logRetentionRetryOptions"`
+	LogRetentionRetryOptions *LogRetentionRetryOptions `json:"logRetentionRetryOptions" yaml:"logRetentionRetryOptions"`
 	// The IAM role for the Lambda function associated with the custom resource that sets the retention policy.
-	LogRetentionRole awsiam.IRole `json:"logRetentionRole"`
+	LogRetentionRole awsiam.IRole `json:"logRetentionRole" yaml:"logRetentionRole"`
 	// The amount of memory, in MB, that is allocated to your Lambda function.
 	//
 	// Lambda uses this value to proportionally allocate the amount of CPU
 	// power. For more information, see Resource Model in the AWS Lambda
 	// Developer Guide.
-	MemorySize *float64 `json:"memorySize"`
+	MemorySize *float64 `json:"memorySize" yaml:"memorySize"`
 	// Enable profiling.
 	// See: https://docs.aws.amazon.com/codeguru/latest/profiler-ug/setting-up-lambda.html
 	//
-	Profiling *bool `json:"profiling"`
+	Profiling *bool `json:"profiling" yaml:"profiling"`
 	// Profiling Group.
 	// See: https://docs.aws.amazon.com/codeguru/latest/profiler-ug/setting-up-lambda.html
 	//
-	ProfilingGroup awscodeguruprofiler.IProfilingGroup `json:"profilingGroup"`
+	ProfilingGroup awscodeguruprofiler.IProfilingGroup `json:"profilingGroup" yaml:"profilingGroup"`
 	// The maximum of concurrent executions you want to reserve for the function.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html
 	//
-	ReservedConcurrentExecutions *float64 `json:"reservedConcurrentExecutions"`
+	ReservedConcurrentExecutions *float64 `json:"reservedConcurrentExecutions" yaml:"reservedConcurrentExecutions"`
 	// Lambda execution role.
 	//
 	// This is the role that will be assumed by the function upon execution.
@@ -11568,33 +11568,33 @@ type FunctionProps struct {
 	//
 	// The relevant managed policies are "service-role/AWSLambdaBasicExecutionRole" and
 	// "service-role/AWSLambdaVPCAccessExecutionRole".
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 	// The list of security groups to associate with the Lambda's network interfaces.
 	//
 	// Only used if 'vpc' is supplied.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// The function execution time (in seconds) after which Lambda terminates the function.
 	//
 	// Because the execution time affects cost, set this value
 	// based on the function's expected execution time.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// Enable AWS X-Ray Tracing for Lambda Function.
-	Tracing Tracing `json:"tracing"`
+	Tracing Tracing `json:"tracing" yaml:"tracing"`
 	// VPC network to place Lambda network interfaces.
 	//
 	// Specify this if the Lambda function needs to access resources in a VPC.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// Where to place the network interfaces within the VPC.
 	//
 	// Only used if 'vpc' is supplied. Note: internet access for Lambdas
 	// requires a NAT gateway, so picking Public subnets is not allowed.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 	// The source code of your Lambda function.
 	//
 	// You can point to a file in an
 	// Amazon Simple Storage Service (Amazon S3) bucket or specify your source
 	// code as inline text.
-	Code Code `json:"code"`
+	Code Code `json:"code" yaml:"code"`
 	// The name of the method within your code that Lambda calls to execute your function.
 	//
 	// The format includes the file name. It can also include
@@ -11606,14 +11606,14 @@ type FunctionProps struct {
 	// NOTE: If you specify your source code as inline text by specifying the
 	// ZipFile property within the Code property, specify index.function_name as
 	// the handler.
-	Handler *string `json:"handler"`
+	Handler *string `json:"handler" yaml:"handler"`
 	// The runtime environment for the Lambda function that you are uploading.
 	//
 	// For valid values, see the Runtime property in the AWS Lambda Developer
 	// Guide.
 	//
 	// Use `Runtime.FROM_IMAGE` when when defining a function from a Docker image.
-	Runtime Runtime `json:"runtime"`
+	Runtime Runtime `json:"runtime" yaml:"runtime"`
 }
 
 // Lambda function handler.
@@ -12575,11 +12575,11 @@ func LambdaInsightsVersion_VERSION_1_0_98_0() LambdaInsightsVersion {
 //
 type LambdaRuntimeProps struct {
 	// The Docker image name to be used for bundling in this runtime.
-	BundlingDockerImage *string `json:"bundlingDockerImage"`
+	BundlingDockerImage *string `json:"bundlingDockerImage" yaml:"bundlingDockerImage"`
 	// Whether this runtime is integrated with and supported for profiling using Amazon CodeGuru Profiler.
-	SupportsCodeGuruProfiling *bool `json:"supportsCodeGuruProfiling"`
+	SupportsCodeGuruProfiling *bool `json:"supportsCodeGuruProfiling" yaml:"supportsCodeGuruProfiling"`
 	// Whether the ``ZipFile`` (aka inline code) property can be used with this runtime.
-	SupportsInlineCode *bool `json:"supportsInlineCode"`
+	SupportsInlineCode *bool `json:"supportsInlineCode" yaml:"supportsInlineCode"`
 }
 
 // Defines a new Lambda Layer version.
@@ -12866,9 +12866,9 @@ func (l *jsiiProxy_LayerVersion) ToString() *string {
 //
 type LayerVersionAttributes struct {
 	// The ARN of the LayerVersion.
-	LayerVersionArn *string `json:"layerVersionArn"`
+	LayerVersionArn *string `json:"layerVersionArn" yaml:"layerVersionArn"`
 	// The list of compatible runtimes with this Layer.
-	CompatibleRuntimes *[]Runtime `json:"compatibleRuntimes"`
+	CompatibleRuntimes *[]Runtime `json:"compatibleRuntimes" yaml:"compatibleRuntimes"`
 }
 
 // Non runtime options.
@@ -12877,13 +12877,13 @@ type LayerVersionAttributes struct {
 //
 type LayerVersionOptions struct {
 	// The description the this Lambda Layer.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The name of the layer.
-	LayerVersionName *string `json:"layerVersionName"`
+	LayerVersionName *string `json:"layerVersionName" yaml:"layerVersionName"`
 	// The SPDX licence identifier or URL to the license file for this layer.
-	License *string `json:"license"`
+	License *string `json:"license" yaml:"license"`
 	// Whether to retain this version of the layer when a new version is added or when the stack is deleted.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 }
 
 // Identification of an account (or organization) that is allowed to access a Lambda Layer Version.
@@ -12895,32 +12895,32 @@ type LayerVersionPermission struct {
 	//
 	// The wild-card ``'*'`` can be
 	// used to grant access to "any" account (or any account in an organization when ``organizationId`` is specified).
-	AccountId *string `json:"accountId"`
+	AccountId *string `json:"accountId" yaml:"accountId"`
 	// The ID of the AWS Organization to which the grant is restricted.
 	//
 	// Can only be specified if ``accountId`` is ``'*'``
-	OrganizationId *string `json:"organizationId"`
+	OrganizationId *string `json:"organizationId" yaml:"organizationId"`
 }
 
 // TODO: EXAMPLE
 //
 type LayerVersionProps struct {
 	// The description the this Lambda Layer.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The name of the layer.
-	LayerVersionName *string `json:"layerVersionName"`
+	LayerVersionName *string `json:"layerVersionName" yaml:"layerVersionName"`
 	// The SPDX licence identifier or URL to the license file for this layer.
-	License *string `json:"license"`
+	License *string `json:"license" yaml:"license"`
 	// Whether to retain this version of the layer when a new version is added or when the stack is deleted.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 	// The content of this Layer.
 	//
 	// Using `Code.fromInline` is not supported.
-	Code Code `json:"code"`
+	Code Code `json:"code" yaml:"code"`
 	// The system architectures compatible with this layer.
-	CompatibleArchitectures *[]Architecture `json:"compatibleArchitectures"`
+	CompatibleArchitectures *[]Architecture `json:"compatibleArchitectures" yaml:"compatibleArchitectures"`
 	// The runtimes compatible with this Layer.
-	CompatibleRuntimes *[]Runtime `json:"compatibleRuntimes"`
+	CompatibleRuntimes *[]Runtime `json:"compatibleRuntimes" yaml:"compatibleRuntimes"`
 }
 
 // Retry options for all AWS API calls.
@@ -12929,9 +12929,9 @@ type LayerVersionProps struct {
 //
 type LogRetentionRetryOptions struct {
 	// The base duration to use in the exponential backoff for operation retries.
-	Base awscdk.Duration `json:"base"`
+	Base awscdk.Duration `json:"base" yaml:"base"`
 	// The maximum amount of retries.
-	MaxRetries *float64 `json:"maxRetries"`
+	MaxRetries *float64 `json:"maxRetries" yaml:"maxRetries"`
 }
 
 // Represents a permission statement that can be added to a Lambda function's resource policy via the `addPermissions()` method.
@@ -12948,7 +12948,7 @@ type Permission struct {
 	// Lambda by invoking your function.
 	//
 	// The principal can be either an AccountPrincipal or a ServicePrincipal.
-	Principal awsiam.IPrincipal `json:"principal"`
+	Principal awsiam.IPrincipal `json:"principal" yaml:"principal"`
 	// The Lambda actions that you want to allow in this statement.
 	//
 	// For example,
@@ -12956,23 +12956,23 @@ type Permission struct {
 	// a wildcard (``lambda:*``) to grant permission to all Lambda actions. For a
 	// list of actions, see Actions and Condition Context Keys for AWS Lambda in
 	// the IAM User Guide.
-	Action *string `json:"action"`
+	Action *string `json:"action" yaml:"action"`
 	// A unique token that must be supplied by the principal invoking the function.
-	EventSourceToken *string `json:"eventSourceToken"`
+	EventSourceToken *string `json:"eventSourceToken" yaml:"eventSourceToken"`
 	// The scope to which the permission constructs be attached.
 	//
 	// The default is
 	// the Lambda function construct itself, but this would need to be different
 	// in cases such as cross-stack references where the Permissions would need
 	// to sit closer to the consumer of this permission (i.e., the caller).
-	Scope constructs.Construct `json:"scope"`
+	Scope constructs.Construct `json:"scope" yaml:"scope"`
 	// The AWS account ID (without hyphens) of the source owner.
 	//
 	// For example, if
 	// you specify an S3 bucket in the SourceArn property, this value is the
 	// bucket owner's account ID. You can use this property to ensure that all
 	// source principals are owned by a specific account.
-	SourceAccount *string `json:"sourceAccount"`
+	SourceAccount *string `json:"sourceAccount" yaml:"sourceAccount"`
 	// The ARN of a resource that is invoking your function.
 	//
 	// When granting
@@ -12981,7 +12981,7 @@ type Permission struct {
 	// ensures that events generated only from the specified bucket, not just
 	// any bucket from any AWS account that creates a mapping to your function,
 	// can invoke the function.
-	SourceArn *string `json:"sourceArn"`
+	SourceArn *string `json:"sourceArn" yaml:"sourceArn"`
 }
 
 type QualifiedFunctionBase interface {
@@ -13470,7 +13470,7 @@ type ResourceBindOptions struct {
 	// The name of the CloudFormation property to annotate with asset metadata.
 	// See: https://github.com/aws/aws-cdk/issues/1432
 	//
-	ResourceProperty *string `json:"resourceProperty"`
+	ResourceProperty *string `json:"resourceProperty" yaml:"resourceProperty"`
 }
 
 // Lambda function runtime environment.
@@ -14668,102 +14668,102 @@ type SingletonFunctionProps struct {
 	//
 	// Minimum: 60 seconds
 	// Maximum: 6 hours
-	MaxEventAge awscdk.Duration `json:"maxEventAge"`
+	MaxEventAge awscdk.Duration `json:"maxEventAge" yaml:"maxEventAge"`
 	// The destination for failed invocations.
-	OnFailure IDestination `json:"onFailure"`
+	OnFailure IDestination `json:"onFailure" yaml:"onFailure"`
 	// The destination for successful invocations.
-	OnSuccess IDestination `json:"onSuccess"`
+	OnSuccess IDestination `json:"onSuccess" yaml:"onSuccess"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum: 0
 	// Maximum: 2
-	RetryAttempts *float64 `json:"retryAttempts"`
+	RetryAttempts *float64 `json:"retryAttempts" yaml:"retryAttempts"`
 	// Whether to allow the Lambda to send all network traffic.
 	//
 	// If set to false, you must individually add traffic rules to allow the
 	// Lambda to connect to network targets.
-	AllowAllOutbound *bool `json:"allowAllOutbound"`
+	AllowAllOutbound *bool `json:"allowAllOutbound" yaml:"allowAllOutbound"`
 	// Lambda Functions in a public subnet can NOT access the internet.
 	//
 	// Use this property to acknowledge this limitation and still place the function in a public subnet.
 	// See: https://stackoverflow.com/questions/52992085/why-cant-an-aws-lambda-function-inside-a-public-subnet-in-a-vpc-connect-to-the/52994841#52994841
 	//
-	AllowPublicSubnet *bool `json:"allowPublicSubnet"`
+	AllowPublicSubnet *bool `json:"allowPublicSubnet" yaml:"allowPublicSubnet"`
 	// The system architectures compatible with this lambda function.
-	Architecture Architecture `json:"architecture"`
+	Architecture Architecture `json:"architecture" yaml:"architecture"`
 	// Code signing config associated with this function.
-	CodeSigningConfig ICodeSigningConfig `json:"codeSigningConfig"`
+	CodeSigningConfig ICodeSigningConfig `json:"codeSigningConfig" yaml:"codeSigningConfig"`
 	// Options for the `lambda.Version` resource automatically created by the `fn.currentVersion` method.
-	CurrentVersionOptions *VersionOptions `json:"currentVersionOptions"`
+	CurrentVersionOptions *VersionOptions `json:"currentVersionOptions" yaml:"currentVersionOptions"`
 	// The SQS queue to use if DLQ is enabled.
-	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue"`
+	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// Enabled DLQ.
 	//
 	// If `deadLetterQueue` is undefined,
 	// an SQS queue with default options will be defined for your Function.
-	DeadLetterQueueEnabled *bool `json:"deadLetterQueueEnabled"`
+	DeadLetterQueueEnabled *bool `json:"deadLetterQueueEnabled" yaml:"deadLetterQueueEnabled"`
 	// A description of the function.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Key-value pairs that Lambda caches and makes available for your Lambda functions.
 	//
 	// Use environment variables to apply configuration changes, such
 	// as test and production environment configurations, without changing your
 	// Lambda function source code.
-	Environment *map[string]*string `json:"environment"`
+	Environment *map[string]*string `json:"environment" yaml:"environment"`
 	// The AWS KMS key that's used to encrypt your function's environment variables.
-	EnvironmentEncryption awskms.IKey `json:"environmentEncryption"`
+	EnvironmentEncryption awskms.IKey `json:"environmentEncryption" yaml:"environmentEncryption"`
 	// Event sources for this function.
 	//
 	// You can also add event sources using `addEventSource`.
-	Events *[]IEventSource `json:"events"`
+	Events *[]IEventSource `json:"events" yaml:"events"`
 	// The filesystem configuration for the lambda function.
-	Filesystem FileSystem `json:"filesystem"`
+	Filesystem FileSystem `json:"filesystem" yaml:"filesystem"`
 	// A name for the function.
-	FunctionName *string `json:"functionName"`
+	FunctionName *string `json:"functionName" yaml:"functionName"`
 	// Initial policy statements to add to the created Lambda Role.
 	//
 	// You can call `addToRolePolicy` to the created lambda to add statements post creation.
-	InitialPolicy *[]awsiam.PolicyStatement `json:"initialPolicy"`
+	InitialPolicy *[]awsiam.PolicyStatement `json:"initialPolicy" yaml:"initialPolicy"`
 	// Specify the version of CloudWatch Lambda insights to use for monitoring.
 	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Lambda-Insights-Getting-Started-docker.html
 	//
-	InsightsVersion LambdaInsightsVersion `json:"insightsVersion"`
+	InsightsVersion LambdaInsightsVersion `json:"insightsVersion" yaml:"insightsVersion"`
 	// A list of layers to add to the function's execution environment.
 	//
 	// You can configure your Lambda function to pull in
 	// additional code during initialization in the form of layers. Layers are packages of libraries or other dependencies
 	// that can be used by multiple functions.
-	Layers *[]ILayerVersion `json:"layers"`
+	Layers *[]ILayerVersion `json:"layers" yaml:"layers"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// When updating
 	// this property, unsetting it doesn't remove the log retention policy. To
 	// remove the retention policy, set the value to `INFINITE`.
-	LogRetention awslogs.RetentionDays `json:"logRetention"`
+	LogRetention awslogs.RetentionDays `json:"logRetention" yaml:"logRetention"`
 	// When log retention is specified, a custom resource attempts to create the CloudWatch log group.
 	//
 	// These options control the retry policy when interacting with CloudWatch APIs.
-	LogRetentionRetryOptions *LogRetentionRetryOptions `json:"logRetentionRetryOptions"`
+	LogRetentionRetryOptions *LogRetentionRetryOptions `json:"logRetentionRetryOptions" yaml:"logRetentionRetryOptions"`
 	// The IAM role for the Lambda function associated with the custom resource that sets the retention policy.
-	LogRetentionRole awsiam.IRole `json:"logRetentionRole"`
+	LogRetentionRole awsiam.IRole `json:"logRetentionRole" yaml:"logRetentionRole"`
 	// The amount of memory, in MB, that is allocated to your Lambda function.
 	//
 	// Lambda uses this value to proportionally allocate the amount of CPU
 	// power. For more information, see Resource Model in the AWS Lambda
 	// Developer Guide.
-	MemorySize *float64 `json:"memorySize"`
+	MemorySize *float64 `json:"memorySize" yaml:"memorySize"`
 	// Enable profiling.
 	// See: https://docs.aws.amazon.com/codeguru/latest/profiler-ug/setting-up-lambda.html
 	//
-	Profiling *bool `json:"profiling"`
+	Profiling *bool `json:"profiling" yaml:"profiling"`
 	// Profiling Group.
 	// See: https://docs.aws.amazon.com/codeguru/latest/profiler-ug/setting-up-lambda.html
 	//
-	ProfilingGroup awscodeguruprofiler.IProfilingGroup `json:"profilingGroup"`
+	ProfilingGroup awscodeguruprofiler.IProfilingGroup `json:"profilingGroup" yaml:"profilingGroup"`
 	// The maximum of concurrent executions you want to reserve for the function.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html
 	//
-	ReservedConcurrentExecutions *float64 `json:"reservedConcurrentExecutions"`
+	ReservedConcurrentExecutions *float64 `json:"reservedConcurrentExecutions" yaml:"reservedConcurrentExecutions"`
 	// Lambda execution role.
 	//
 	// This is the role that will be assumed by the function upon execution.
@@ -14775,33 +14775,33 @@ type SingletonFunctionProps struct {
 	//
 	// The relevant managed policies are "service-role/AWSLambdaBasicExecutionRole" and
 	// "service-role/AWSLambdaVPCAccessExecutionRole".
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 	// The list of security groups to associate with the Lambda's network interfaces.
 	//
 	// Only used if 'vpc' is supplied.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// The function execution time (in seconds) after which Lambda terminates the function.
 	//
 	// Because the execution time affects cost, set this value
 	// based on the function's expected execution time.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// Enable AWS X-Ray Tracing for Lambda Function.
-	Tracing Tracing `json:"tracing"`
+	Tracing Tracing `json:"tracing" yaml:"tracing"`
 	// VPC network to place Lambda network interfaces.
 	//
 	// Specify this if the Lambda function needs to access resources in a VPC.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// Where to place the network interfaces within the VPC.
 	//
 	// Only used if 'vpc' is supplied. Note: internet access for Lambdas
 	// requires a NAT gateway, so picking Public subnets is not allowed.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 	// The source code of your Lambda function.
 	//
 	// You can point to a file in an
 	// Amazon Simple Storage Service (Amazon S3) bucket or specify your source
 	// code as inline text.
-	Code Code `json:"code"`
+	Code Code `json:"code" yaml:"code"`
 	// The name of the method within your code that Lambda calls to execute your function.
 	//
 	// The format includes the file name. It can also include
@@ -14813,25 +14813,25 @@ type SingletonFunctionProps struct {
 	// NOTE: If you specify your source code as inline text by specifying the
 	// ZipFile property within the Code property, specify index.function_name as
 	// the handler.
-	Handler *string `json:"handler"`
+	Handler *string `json:"handler" yaml:"handler"`
 	// The runtime environment for the Lambda function that you are uploading.
 	//
 	// For valid values, see the Runtime property in the AWS Lambda Developer
 	// Guide.
 	//
 	// Use `Runtime.FROM_IMAGE` when when defining a function from a Docker image.
-	Runtime Runtime `json:"runtime"`
+	Runtime Runtime `json:"runtime" yaml:"runtime"`
 	// A unique identifier to identify this lambda.
 	//
 	// The identifier should be unique across all custom resource providers.
 	// We recommend generating a UUID per provider.
-	Uuid *string `json:"uuid"`
+	Uuid *string `json:"uuid" yaml:"uuid"`
 	// A descriptive name for the purpose of this Lambda.
 	//
 	// If the Lambda does not have a physical name, this string will be
 	// reflected its generated name. The combination of lambdaPurpose
 	// and uuid must be unique.
-	LambdaPurpose *string `json:"lambdaPurpose"`
+	LambdaPurpose *string `json:"lambdaPurpose" yaml:"lambdaPurpose"`
 }
 
 // Specific settings like the authentication protocol or the VPC components to secure access to your event source.
@@ -14842,14 +14842,14 @@ type SourceAccessConfiguration struct {
 	// The type of authentication protocol or the VPC components for your event source.
 	//
 	// For example: "SASL_SCRAM_512_AUTH".
-	Type SourceAccessConfigurationType `json:"type"`
+	Type SourceAccessConfigurationType `json:"type" yaml:"type"`
 	// The value for your chosen configuration in type.
 	//
 	// For example: "URI": "arn:aws:secretsmanager:us-east-1:01234567890:secret:MyBrokerSecretName".
 	// The exact string depends on the type.
 	// See: SourceAccessConfigurationType
 	//
-	Uri *string `json:"uri"`
+	Uri *string `json:"uri" yaml:"uri"`
 }
 
 // The type of authentication protocol or the VPC components for your event source's SourceAccessConfiguration.
@@ -15002,17 +15002,17 @@ type UtilizationScalingOptions struct {
 	// won't remove capacity from the scalable resource. Otherwise, scale in is
 	// enabled and the target tracking policy can remove capacity from the
 	// scalable resource.
-	DisableScaleIn *bool `json:"disableScaleIn"`
+	DisableScaleIn *bool `json:"disableScaleIn" yaml:"disableScaleIn"`
 	// A name for the scaling policy.
-	PolicyName *string `json:"policyName"`
+	PolicyName *string `json:"policyName" yaml:"policyName"`
 	// Period after a scale in activity completes before another scale in activity can start.
-	ScaleInCooldown awscdk.Duration `json:"scaleInCooldown"`
+	ScaleInCooldown awscdk.Duration `json:"scaleInCooldown" yaml:"scaleInCooldown"`
 	// Period after a scale out activity completes before another scale out activity can start.
-	ScaleOutCooldown awscdk.Duration `json:"scaleOutCooldown"`
+	ScaleOutCooldown awscdk.Duration `json:"scaleOutCooldown" yaml:"scaleOutCooldown"`
 	// Utilization target for the attribute.
 	//
 	// For example, .5 indicates that 50 percent of allocated provisioned concurrency is in use.
-	UtilizationTarget *float64 `json:"utilizationTarget"`
+	UtilizationTarget *float64 `json:"utilizationTarget" yaml:"utilizationTarget"`
 }
 
 // A single newly-deployed version of a Lambda function.
@@ -15600,9 +15600,9 @@ func (v *jsiiProxy_Version) ToString() *string {
 //
 type VersionAttributes struct {
 	// The lambda function.
-	Lambda IFunction `json:"lambda"`
+	Lambda IFunction `json:"lambda" yaml:"lambda"`
 	// The version.
-	Version *string `json:"version"`
+	Version *string `json:"version" yaml:"version"`
 }
 
 // Options for `lambda.Version`.
@@ -15614,26 +15614,26 @@ type VersionOptions struct {
 	//
 	// Minimum: 60 seconds
 	// Maximum: 6 hours
-	MaxEventAge awscdk.Duration `json:"maxEventAge"`
+	MaxEventAge awscdk.Duration `json:"maxEventAge" yaml:"maxEventAge"`
 	// The destination for failed invocations.
-	OnFailure IDestination `json:"onFailure"`
+	OnFailure IDestination `json:"onFailure" yaml:"onFailure"`
 	// The destination for successful invocations.
-	OnSuccess IDestination `json:"onSuccess"`
+	OnSuccess IDestination `json:"onSuccess" yaml:"onSuccess"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum: 0
 	// Maximum: 2
-	RetryAttempts *float64 `json:"retryAttempts"`
+	RetryAttempts *float64 `json:"retryAttempts" yaml:"retryAttempts"`
 	// SHA256 of the version of the Lambda source code.
 	//
 	// Specify to validate that you're deploying the right version.
-	CodeSha256 *string `json:"codeSha256"`
+	CodeSha256 *string `json:"codeSha256" yaml:"codeSha256"`
 	// Description of the version.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Specifies a provisioned concurrency configuration for a function's version.
-	ProvisionedConcurrentExecutions *float64 `json:"provisionedConcurrentExecutions"`
+	ProvisionedConcurrentExecutions *float64 `json:"provisionedConcurrentExecutions" yaml:"provisionedConcurrentExecutions"`
 	// Whether to retain old versions of this function when a new version is created.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 }
 
 // Properties for a new Lambda version.
@@ -15645,28 +15645,28 @@ type VersionProps struct {
 	//
 	// Minimum: 60 seconds
 	// Maximum: 6 hours
-	MaxEventAge awscdk.Duration `json:"maxEventAge"`
+	MaxEventAge awscdk.Duration `json:"maxEventAge" yaml:"maxEventAge"`
 	// The destination for failed invocations.
-	OnFailure IDestination `json:"onFailure"`
+	OnFailure IDestination `json:"onFailure" yaml:"onFailure"`
 	// The destination for successful invocations.
-	OnSuccess IDestination `json:"onSuccess"`
+	OnSuccess IDestination `json:"onSuccess" yaml:"onSuccess"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum: 0
 	// Maximum: 2
-	RetryAttempts *float64 `json:"retryAttempts"`
+	RetryAttempts *float64 `json:"retryAttempts" yaml:"retryAttempts"`
 	// SHA256 of the version of the Lambda source code.
 	//
 	// Specify to validate that you're deploying the right version.
-	CodeSha256 *string `json:"codeSha256"`
+	CodeSha256 *string `json:"codeSha256" yaml:"codeSha256"`
 	// Description of the version.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Specifies a provisioned concurrency configuration for a function's version.
-	ProvisionedConcurrentExecutions *float64 `json:"provisionedConcurrentExecutions"`
+	ProvisionedConcurrentExecutions *float64 `json:"provisionedConcurrentExecutions" yaml:"provisionedConcurrentExecutions"`
 	// Whether to retain old versions of this function when a new version is created.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 	// Function to get the value of.
-	Lambda IFunction `json:"lambda"`
+	Lambda IFunction `json:"lambda" yaml:"lambda"`
 }
 
 // A version/weight pair for routing traffic to Lambda functions.
@@ -15675,8 +15675,8 @@ type VersionProps struct {
 //
 type VersionWeight struct {
 	// The version to route traffic to.
-	Version IVersion `json:"version"`
+	Version IVersion `json:"version" yaml:"version"`
 	// How much weight to assign to this version (0..1).
-	Weight *float64 `json:"weight"`
+	Weight *float64 `json:"weight" yaml:"weight"`
 }
 

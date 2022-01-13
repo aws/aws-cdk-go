@@ -287,39 +287,39 @@ func (c *jsiiProxy_CloudFormationProduct) ToString() *string {
 type CloudFormationProductProps struct {
 	// The owner of the product.
 	// Experimental.
-	Owner *string `json:"owner"`
+	Owner *string `json:"owner" yaml:"owner"`
 	// The name of the product.
 	// Experimental.
-	ProductName *string `json:"productName"`
+	ProductName *string `json:"productName" yaml:"productName"`
 	// The configuration of the product version.
 	// Experimental.
-	ProductVersions *[]*CloudFormationProductVersion `json:"productVersions"`
+	ProductVersions *[]*CloudFormationProductVersion `json:"productVersions" yaml:"productVersions"`
 	// The description of the product.
 	// Experimental.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The distributor of the product.
 	// Experimental.
-	Distributor *string `json:"distributor"`
+	Distributor *string `json:"distributor" yaml:"distributor"`
 	// The language code.
 	//
 	// Controls language for logging and errors.
 	// Experimental.
-	MessageLanguage MessageLanguage `json:"messageLanguage"`
+	MessageLanguage MessageLanguage `json:"messageLanguage" yaml:"messageLanguage"`
 	// Whether to give provisioning artifacts a new unique identifier when the product attributes or provisioning artifacts is updated.
 	// Experimental.
-	ReplaceProductVersionIds *bool `json:"replaceProductVersionIds"`
+	ReplaceProductVersionIds *bool `json:"replaceProductVersionIds" yaml:"replaceProductVersionIds"`
 	// The support information about the product.
 	// Experimental.
-	SupportDescription *string `json:"supportDescription"`
+	SupportDescription *string `json:"supportDescription" yaml:"supportDescription"`
 	// The contact email for product support.
 	// Experimental.
-	SupportEmail *string `json:"supportEmail"`
+	SupportEmail *string `json:"supportEmail" yaml:"supportEmail"`
 	// The contact URL for product support.
 	// Experimental.
-	SupportUrl *string `json:"supportUrl"`
+	SupportUrl *string `json:"supportUrl" yaml:"supportUrl"`
 	// TagOptions associated directly to a product.
 	// Experimental.
-	TagOptions TagOptions `json:"tagOptions"`
+	TagOptions TagOptions `json:"tagOptions" yaml:"tagOptions"`
 }
 
 // Properties of product version (also known as a provisioning artifact).
@@ -330,18 +330,18 @@ type CloudFormationProductProps struct {
 type CloudFormationProductVersion struct {
 	// The S3 template that points to the provisioning version template.
 	// Experimental.
-	CloudFormationTemplate CloudFormationTemplate `json:"cloudFormationTemplate"`
+	CloudFormationTemplate CloudFormationTemplate `json:"cloudFormationTemplate" yaml:"cloudFormationTemplate"`
 	// The description of the product version.
 	// Experimental.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The name of the product version.
 	// Experimental.
-	ProductVersionName *string `json:"productVersionName"`
+	ProductVersionName *string `json:"productVersionName" yaml:"productVersionName"`
 	// Whether the specified product template will be validated by CloudFormation.
 	//
 	// If turned off, an invalid template configuration can be stored.
 	// Experimental.
-	ValidateTemplate *bool `json:"validateTemplate"`
+	ValidateTemplate *bool `json:"validateTemplate" yaml:"validateTemplate"`
 }
 
 // Properties for provisoning rule constraint.
@@ -352,15 +352,15 @@ type CloudFormationProductVersion struct {
 type CloudFormationRuleConstraintOptions struct {
 	// The description of the constraint.
 	// Experimental.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The language code.
 	//
 	// Configures the language for error messages from service catalog.
 	// Experimental.
-	MessageLanguage MessageLanguage `json:"messageLanguage"`
+	MessageLanguage MessageLanguage `json:"messageLanguage" yaml:"messageLanguage"`
 	// The rule with condition and assertions to apply to template.
 	// Experimental.
-	Rule *TemplateRule `json:"rule"`
+	Rule *TemplateRule `json:"rule" yaml:"rule"`
 }
 
 // Represents the Product Provisioning Artifact Template.
@@ -462,7 +462,7 @@ func (c *jsiiProxy_CloudFormationTemplate) Bind(scope constructs.Construct) *Clo
 type CloudFormationTemplateConfig struct {
 	// The http url of the template in S3.
 	// Experimental.
-	HttpUrl *string `json:"httpUrl"`
+	HttpUrl *string `json:"httpUrl" yaml:"httpUrl"`
 }
 
 // Properties for governance mechanisms and constraints.
@@ -473,12 +473,12 @@ type CloudFormationTemplateConfig struct {
 type CommonConstraintOptions struct {
 	// The description of the constraint.
 	// Experimental.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The language code.
 	//
 	// Configures the language for error messages from service catalog.
 	// Experimental.
-	MessageLanguage MessageLanguage `json:"messageLanguage"`
+	MessageLanguage MessageLanguage `json:"messageLanguage" yaml:"messageLanguage"`
 }
 
 // A Service Catalog portfolio.
@@ -1186,22 +1186,22 @@ func (p *jsiiProxy_Portfolio) ToString() *string {
 type PortfolioProps struct {
 	// The name of the portfolio.
 	// Experimental.
-	DisplayName *string `json:"displayName"`
+	DisplayName *string `json:"displayName" yaml:"displayName"`
 	// The provider name.
 	// Experimental.
-	ProviderName *string `json:"providerName"`
+	ProviderName *string `json:"providerName" yaml:"providerName"`
 	// Description for portfolio.
 	// Experimental.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The message language.
 	//
 	// Controls language for
 	// status logging and errors.
 	// Experimental.
-	MessageLanguage MessageLanguage `json:"messageLanguage"`
+	MessageLanguage MessageLanguage `json:"messageLanguage" yaml:"messageLanguage"`
 	// TagOptions associated directly to a portfolio.
 	// Experimental.
-	TagOptions TagOptions `json:"tagOptions"`
+	TagOptions TagOptions `json:"tagOptions" yaml:"tagOptions"`
 }
 
 // Options for portfolio share.
@@ -1214,10 +1214,10 @@ type PortfolioShareOptions struct {
 	//
 	// Controls status and error message language for share.
 	// Experimental.
-	MessageLanguage MessageLanguage `json:"messageLanguage"`
+	MessageLanguage MessageLanguage `json:"messageLanguage" yaml:"messageLanguage"`
 	// Whether to share tagOptions as a part of the portfolio share.
 	// Experimental.
-	ShareTagOptions *bool `json:"shareTagOptions"`
+	ShareTagOptions *bool `json:"shareTagOptions" yaml:"shareTagOptions"`
 }
 
 // Abstract class for Service Catalog Product.
@@ -2131,27 +2131,27 @@ func (p *jsiiProxy_ProductStack) ToString() *string {
 type StackSetsConstraintOptions struct {
 	// The description of the constraint.
 	// Experimental.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The language code.
 	//
 	// Configures the language for error messages from service catalog.
 	// Experimental.
-	MessageLanguage MessageLanguage `json:"messageLanguage"`
+	MessageLanguage MessageLanguage `json:"messageLanguage" yaml:"messageLanguage"`
 	// List of accounts to deploy stacks to.
 	// Experimental.
-	Accounts *[]*string `json:"accounts"`
+	Accounts *[]*string `json:"accounts" yaml:"accounts"`
 	// IAM role used to administer the StackSets configuration.
 	// Experimental.
-	AdminRole awsiam.IRole `json:"adminRole"`
+	AdminRole awsiam.IRole `json:"adminRole" yaml:"adminRole"`
 	// IAM role used to provision the products in the Stacks.
 	// Experimental.
-	ExecutionRoleName *string `json:"executionRoleName"`
+	ExecutionRoleName *string `json:"executionRoleName" yaml:"executionRoleName"`
 	// List of regions to deploy stacks to.
 	// Experimental.
-	Regions *[]*string `json:"regions"`
+	Regions *[]*string `json:"regions" yaml:"regions"`
 	// Wether to allow end users to create, update, and delete stacks.
 	// Experimental.
-	AllowStackSetInstanceOperations *bool `json:"allowStackSetInstanceOperations"`
+	AllowStackSetInstanceOperations *bool `json:"allowStackSetInstanceOperations" yaml:"allowStackSetInstanceOperations"`
 }
 
 // Defines a Tag Option, which are similar to tags but have multiple values per key.
@@ -2213,15 +2213,15 @@ func NewTagOptions_Override(t TagOptions, tagOptionsMap *map[string]*[]*string) 
 type TagUpdateConstraintOptions struct {
 	// The description of the constraint.
 	// Experimental.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The language code.
 	//
 	// Configures the language for error messages from service catalog.
 	// Experimental.
-	MessageLanguage MessageLanguage `json:"messageLanguage"`
+	MessageLanguage MessageLanguage `json:"messageLanguage" yaml:"messageLanguage"`
 	// Toggle for if users should be allowed to change/update tags on provisioned products.
 	// Experimental.
-	Allow *bool `json:"allow"`
+	Allow *bool `json:"allow" yaml:"allow"`
 }
 
 // Defines the provisioning template constraints.
@@ -2232,13 +2232,13 @@ type TagUpdateConstraintOptions struct {
 type TemplateRule struct {
 	// A list of assertions that make up the rule.
 	// Experimental.
-	Assertions *[]*TemplateRuleAssertion `json:"assertions"`
+	Assertions *[]*TemplateRuleAssertion `json:"assertions" yaml:"assertions"`
 	// Name of the rule.
 	// Experimental.
-	RuleName *string `json:"ruleName"`
+	RuleName *string `json:"ruleName" yaml:"ruleName"`
 	// Specify when to apply rule with a rule-specific intrinsic function.
 	// Experimental.
-	Condition awscdk.ICfnRuleConditionExpression `json:"condition"`
+	Condition awscdk.ICfnRuleConditionExpression `json:"condition" yaml:"condition"`
 }
 
 // An assertion within a template rule, defined by intrinsic functions.
@@ -2249,9 +2249,9 @@ type TemplateRule struct {
 type TemplateRuleAssertion struct {
 	// The assertion condition.
 	// Experimental.
-	Assert awscdk.ICfnRuleConditionExpression `json:"assert"`
+	Assert awscdk.ICfnRuleConditionExpression `json:"assert" yaml:"assert"`
 	// The description for the asssertion.
 	// Experimental.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 }
 

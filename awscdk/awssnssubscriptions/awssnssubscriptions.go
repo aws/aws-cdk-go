@@ -72,11 +72,11 @@ type EmailSubscriptionProps struct {
 	// Queue to be used as dead letter queue.
 	//
 	// If not passed no dead letter queue is enabled.
-	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue"`
+	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// The filter policy.
-	FilterPolicy *map[string]awssns.SubscriptionFilter `json:"filterPolicy"`
+	FilterPolicy *map[string]awssns.SubscriptionFilter `json:"filterPolicy" yaml:"filterPolicy"`
 	// Indicates if the full notification JSON should be sent to the email address or just the message text.
-	Json *bool `json:"json"`
+	Json *bool `json:"json" yaml:"json"`
 }
 
 // Use a Lambda function as a subscription target.
@@ -139,9 +139,9 @@ type LambdaSubscriptionProps struct {
 	// Queue to be used as dead letter queue.
 	//
 	// If not passed no dead letter queue is enabled.
-	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue"`
+	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// The filter policy.
-	FilterPolicy *map[string]awssns.SubscriptionFilter `json:"filterPolicy"`
+	FilterPolicy *map[string]awssns.SubscriptionFilter `json:"filterPolicy" yaml:"filterPolicy"`
 }
 
 // Use an sms address as a subscription target.
@@ -204,9 +204,9 @@ type SmsSubscriptionProps struct {
 	// Queue to be used as dead letter queue.
 	//
 	// If not passed no dead letter queue is enabled.
-	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue"`
+	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// The filter policy.
-	FilterPolicy *map[string]awssns.SubscriptionFilter `json:"filterPolicy"`
+	FilterPolicy *map[string]awssns.SubscriptionFilter `json:"filterPolicy" yaml:"filterPolicy"`
 }
 
 // Use an SQS queue as a subscription target.
@@ -269,13 +269,13 @@ type SqsSubscriptionProps struct {
 	// Queue to be used as dead letter queue.
 	//
 	// If not passed no dead letter queue is enabled.
-	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue"`
+	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// The filter policy.
-	FilterPolicy *map[string]awssns.SubscriptionFilter `json:"filterPolicy"`
+	FilterPolicy *map[string]awssns.SubscriptionFilter `json:"filterPolicy" yaml:"filterPolicy"`
 	// The message to the queue is the same as it was sent to the topic.
 	//
 	// If false, the message will be wrapped in an SNS envelope.
-	RawMessageDelivery *bool `json:"rawMessageDelivery"`
+	RawMessageDelivery *bool `json:"rawMessageDelivery" yaml:"rawMessageDelivery"`
 }
 
 // Options to subscribing to an SNS topic.
@@ -286,9 +286,9 @@ type SubscriptionProps struct {
 	// Queue to be used as dead letter queue.
 	//
 	// If not passed no dead letter queue is enabled.
-	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue"`
+	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// The filter policy.
-	FilterPolicy *map[string]awssns.SubscriptionFilter `json:"filterPolicy"`
+	FilterPolicy *map[string]awssns.SubscriptionFilter `json:"filterPolicy" yaml:"filterPolicy"`
 }
 
 // Use a URL as a subscription target.
@@ -355,14 +355,14 @@ type UrlSubscriptionProps struct {
 	// Queue to be used as dead letter queue.
 	//
 	// If not passed no dead letter queue is enabled.
-	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue"`
+	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// The filter policy.
-	FilterPolicy *map[string]awssns.SubscriptionFilter `json:"filterPolicy"`
+	FilterPolicy *map[string]awssns.SubscriptionFilter `json:"filterPolicy" yaml:"filterPolicy"`
 	// The subscription's protocol.
-	Protocol awssns.SubscriptionProtocol `json:"protocol"`
+	Protocol awssns.SubscriptionProtocol `json:"protocol" yaml:"protocol"`
 	// The message to the queue is the same as it was sent to the topic.
 	//
 	// If false, the message will be wrapped in an SNS envelope.
-	RawMessageDelivery *bool `json:"rawMessageDelivery"`
+	RawMessageDelivery *bool `json:"rawMessageDelivery" yaml:"rawMessageDelivery"`
 }
 

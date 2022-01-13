@@ -537,9 +537,9 @@ type CfnCluster_ClusterEndpointProperty struct {
 	// Specify an endpoint and AWS Region when you want to set or retrieve a routing control state in the cluster.
 	//
 	// To get or update the routing control state, see the Amazon Route 53 Application Recovery Controller Routing Control Actions.
-	Endpoint *string `json:"endpoint"`
+	Endpoint *string `json:"endpoint" yaml:"endpoint"`
 	// The AWS Region for a cluster endpoint.
-	Region *string `json:"region"`
+	Region *string `json:"region" yaml:"region"`
 }
 
 // Properties for defining a `CfnCluster`.
@@ -550,9 +550,9 @@ type CfnClusterProps struct {
 	// Name of the cluster.
 	//
 	// You can use any non-white space character in the name.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The value for a tag.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Route53RecoveryControl::ControlPanel`.
@@ -1110,11 +1110,11 @@ type CfnControlPanelProps struct {
 	// The name of the control panel.
 	//
 	// You can use any non-white space character in the name.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The Amazon Resource Name (ARN) of the cluster for the control panel.
-	ClusterArn *string `json:"clusterArn"`
+	ClusterArn *string `json:"clusterArn" yaml:"clusterArn"`
 	// The value for a tag.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Route53RecoveryControl::RoutingControl`.
@@ -1659,11 +1659,11 @@ type CfnRoutingControlProps struct {
 	// The name of the routing control.
 	//
 	// You can use any non-white space character in the name.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The Amazon Resource Name (ARN) of the cluster that includes the routing control.
-	ClusterArn *string `json:"clusterArn"`
+	ClusterArn *string `json:"clusterArn" yaml:"clusterArn"`
 	// The Amazon Resource Name (ARN) of the control panel that includes the routing control.
-	ControlPanelArn *string `json:"controlPanelArn"`
+	ControlPanelArn *string `json:"controlPanelArn" yaml:"controlPanelArn"`
 }
 
 // A CloudFormation `AWS::Route53RecoveryControl::SafetyRule`.
@@ -2261,11 +2261,11 @@ type CfnSafetyRule_AssertionRuleProperty struct {
 	// The routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.
 	//
 	// For example, you might include three routing controls, one for each of three AWS Regions.
-	AssertedControls *[]*string `json:"assertedControls"`
+	AssertedControls *[]*string `json:"assertedControls" yaml:"assertedControls"`
 	// An evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
 	//
 	// This helps prevent "flapping" of state. The wait period is 5000 ms by default, but you can choose a custom value.
-	WaitPeriodMs *float64 `json:"waitPeriodMs"`
+	WaitPeriodMs *float64 `json:"waitPeriodMs" yaml:"waitPeriodMs"`
 }
 
 // A gating rule verifies that a gating routing control or set of gating routing controls, evaluates as true, based on a rule configuration that you specify, which allows a set of routing control state changes to complete.
@@ -2278,15 +2278,15 @@ type CfnSafetyRule_GatingRuleProperty struct {
 	// An array of gating routing control Amazon Resource Names (ARNs).
 	//
 	// For a simple "on/off" switch, specify the ARN for one routing control. The gating routing controls are evaluated by the rule configuration that you specify to determine if the target routing control states can be changed.
-	GatingControls *[]*string `json:"gatingControls"`
+	GatingControls *[]*string `json:"gatingControls" yaml:"gatingControls"`
 	// An array of target routing control Amazon Resource Names (ARNs) for which the states can only be updated if the rule configuration that you specify evaluates to true for the gating routing control.
 	//
 	// As a simple example, if you have a single gating control, it acts as an overall "on/off" switch for a set of target routing controls. You can use this to manually override automated failover, for example.
-	TargetControls *[]*string `json:"targetControls"`
+	TargetControls *[]*string `json:"targetControls" yaml:"targetControls"`
 	// An evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
 	//
 	// This helps prevent "flapping" of state. The wait period is 5000 ms by default, but you can choose a custom value.
-	WaitPeriodMs *float64 `json:"waitPeriodMs"`
+	WaitPeriodMs *float64 `json:"waitPeriodMs" yaml:"waitPeriodMs"`
 }
 
 // The rule configuration for an assertion rule.
@@ -2299,13 +2299,13 @@ type CfnSafetyRule_RuleConfigProperty struct {
 	// Logical negation of the rule.
 	//
 	// If the rule would usually evaluate true, it's evaluated as false, and vice versa.
-	Inverted interface{} `json:"inverted"`
+	Inverted interface{} `json:"inverted" yaml:"inverted"`
 	// The value of N, when you specify an `ATLEAST` rule type.
 	//
 	// That is, `Threshold` is the number of controls that must be set when you specify an `ATLEAST` type.
-	Threshold *float64 `json:"threshold"`
+	Threshold *float64 `json:"threshold" yaml:"threshold"`
 	// A rule can be one of the following: `ATLEAST` , `AND` , or `OR` .
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 }
 
 // Properties for defining a `CfnSafetyRule`.
@@ -2314,24 +2314,24 @@ type CfnSafetyRule_RuleConfigProperty struct {
 //
 type CfnSafetyRuleProps struct {
 	// The Amazon Resource Name (ARN) for the control panel.
-	ControlPanelArn *string `json:"controlPanelArn"`
+	ControlPanelArn *string `json:"controlPanelArn" yaml:"controlPanelArn"`
 	// The name of the assertion rule.
 	//
 	// You can use any non-white space character in the name. The name must be unique within a control panel.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The criteria that you set for specific assertion controls (routing controls) that designate how many control states must be `ON` as the result of a transaction.
 	//
 	// For example, if you have three assertion controls, you might specify `ATLEAST 2` for your rule configuration. This means that at least two assertion controls must be `ON` , so that at least two AWS Regions have traffic flowing to them.
-	RuleConfig interface{} `json:"ruleConfig"`
+	RuleConfig interface{} `json:"ruleConfig" yaml:"ruleConfig"`
 	// An assertion rule enforces that, when you change a routing control state, that the criteria that you set in the rule configuration is met.
 	//
 	// Otherwise, the change to the routing control is not accepted. For example, the criteria might be that at least one routing control state is `On` after the transaction so that traffic continues to flow to at least one cell for the application. This ensures that you avoid a fail-open scenario.
-	AssertionRule interface{} `json:"assertionRule"`
+	AssertionRule interface{} `json:"assertionRule" yaml:"assertionRule"`
 	// A gating rule verifies that a gating routing control or set of gating routing controls, evaluates as true, based on a rule configuration that you specify, which allows a set of routing control state changes to complete.
 	//
 	// For example, if you specify one gating routing control and you set the `Type` in the rule configuration to `OR` , that indicates that you must set the gating routing control to `On` for the rule to evaluate as true; that is, for the gating control "switch" to be "On". When you do that, then you can update the routing control states for the target routing controls that you specify in the gating rule.
-	GatingRule interface{} `json:"gatingRule"`
+	GatingRule interface{} `json:"gatingRule" yaml:"gatingRule"`
 	// The value for a tag.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 

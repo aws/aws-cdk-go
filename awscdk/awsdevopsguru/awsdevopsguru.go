@@ -508,7 +508,7 @@ type CfnNotificationChannel_NotificationChannelConfigProperty struct {
 	// If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission to it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. For more information, see [Permissions for cross account Amazon SNS topics](https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-required-permissions.html) .
 	//
 	// If you use an Amazon SNS topic that is encrypted by an AWS Key Management Service customer-managed key (CMK), then you must add permissions to the CMK. For more information, see [Permissions for AWS KMS–encrypted Amazon SNS topics](https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-kms-permissions.html) .
-	Sns interface{} `json:"sns"`
+	Sns interface{} `json:"sns" yaml:"sns"`
 }
 
 // Contains the Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
@@ -521,7 +521,7 @@ type CfnNotificationChannel_NotificationChannelConfigProperty struct {
 //
 type CfnNotificationChannel_SnsChannelConfigProperty struct {
 	// The Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
-	TopicArn *string `json:"topicArn"`
+	TopicArn *string `json:"topicArn" yaml:"topicArn"`
 }
 
 // Properties for defining a `CfnNotificationChannel`.
@@ -530,7 +530,7 @@ type CfnNotificationChannel_SnsChannelConfigProperty struct {
 //
 type CfnNotificationChannelProps struct {
 	// A `NotificationChannelConfig` object that contains information about configured notification channels.
-	Config interface{} `json:"config"`
+	Config interface{} `json:"config" yaml:"config"`
 }
 
 // A CloudFormation `AWS::DevOpsGuru::ResourceCollection`.
@@ -1024,7 +1024,7 @@ func (c *jsiiProxy_CfnResourceCollection) ValidateProperties(_properties interfa
 //
 type CfnResourceCollection_CloudFormationCollectionFilterProperty struct {
 	// An array of CloudFormation stack names.
-	StackNames *[]*string `json:"stackNames"`
+	StackNames *[]*string `json:"stackNames" yaml:"stackNames"`
 }
 
 // Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
@@ -1035,7 +1035,7 @@ type CfnResourceCollection_ResourceCollectionFilterProperty struct {
 	// Information about AWS CloudFormation stacks.
 	//
 	// You can use up to 500 stacks to specify which AWS resources in your account to analyze. For more information, see [Stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html) in the *AWS CloudFormation User Guide* .
-	CloudFormation interface{} `json:"cloudFormation"`
+	CloudFormation interface{} `json:"cloudFormation" yaml:"cloudFormation"`
 }
 
 // Properties for defining a `CfnResourceCollection`.
@@ -1044,6 +1044,6 @@ type CfnResourceCollection_ResourceCollectionFilterProperty struct {
 //
 type CfnResourceCollectionProps struct {
 	// Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
-	ResourceCollectionFilter interface{} `json:"resourceCollectionFilter"`
+	ResourceCollectionFilter interface{} `json:"resourceCollectionFilter" yaml:"resourceCollectionFilter"`
 }
 

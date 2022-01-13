@@ -702,37 +702,37 @@ func (c *jsiiProxy_CfnComponent) ValidateProperties(_properties interface{}) {
 //
 type CfnComponentProps struct {
 	// The name of the component.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The platform of the component.
 	//
 	// For example, `Windows` .
-	Platform *string `json:"platform"`
+	Platform *string `json:"platform" yaml:"platform"`
 	// The component version.
 	//
 	// For example, `1.0.0` .
-	Version *string `json:"version"`
+	Version *string `json:"version" yaml:"version"`
 	// A change description of the component.
 	//
 	// For example `initial version` .
-	ChangeDescription *string `json:"changeDescription"`
+	ChangeDescription *string `json:"changeDescription" yaml:"changeDescription"`
 	// The data of the component.
 	//
 	// For example, `name: HelloWorldTestingDocument\ndescription: This is hello world testing document.\nschemaVersion: 1.0\n\nphases:\n - name: test\n steps:\n - name: HelloWorldStep\n action: ExecuteBash\n inputs:\n commands:\n - echo \"Hello World! Test.\"\n` . See Examples below for the schema for creating a component using Data.
-	Data *string `json:"data"`
+	Data *string `json:"data" yaml:"data"`
 	// The description of the component.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The KMS key identifier used to encrypt the component.
-	KmsKeyId *string `json:"kmsKeyId"`
+	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
 	// The operating system (OS) version supported by the component.
 	//
 	// If the OS information is available, a prefix match is performed against the base image OS version during image recipe creation.
-	SupportedOsVersions *[]*string `json:"supportedOsVersions"`
+	SupportedOsVersions *[]*string `json:"supportedOsVersions" yaml:"supportedOsVersions"`
 	// The tags associated with the component.
-	Tags *map[string]*string `json:"tags"`
+	Tags *map[string]*string `json:"tags" yaml:"tags"`
 	// The uri of the component.
 	//
 	// Must be an Amazon S3 URL and the requester must have permission to access the Amazon S3 bucket. If you use Amazon S3, you can specify component content up to your service quota. Either `data` or `uri` can be used to specify the data within the component.
-	Uri *string `json:"uri"`
+	Uri *string `json:"uri" yaml:"uri"`
 }
 
 // A CloudFormation `AWS::ImageBuilder::ContainerRecipe`.
@@ -1506,7 +1506,7 @@ func (c *jsiiProxy_CfnContainerRecipe) ValidateProperties(_properties interface{
 //
 type CfnContainerRecipe_ComponentConfigurationProperty struct {
 	// The Amazon Resource Name (ARN) of the component.
-	ComponentArn *string `json:"componentArn"`
+	ComponentArn *string `json:"componentArn" yaml:"componentArn"`
 }
 
 // Amazon EBS-specific block device mapping specifications.
@@ -1515,21 +1515,21 @@ type CfnContainerRecipe_ComponentConfigurationProperty struct {
 //
 type CfnContainerRecipe_EbsInstanceBlockDeviceSpecificationProperty struct {
 	// Use to configure delete on termination of the associated device.
-	DeleteOnTermination interface{} `json:"deleteOnTermination"`
+	DeleteOnTermination interface{} `json:"deleteOnTermination" yaml:"deleteOnTermination"`
 	// Use to configure device encryption.
-	Encrypted interface{} `json:"encrypted"`
+	Encrypted interface{} `json:"encrypted" yaml:"encrypted"`
 	// Use to configure device IOPS.
-	Iops *float64 `json:"iops"`
+	Iops *float64 `json:"iops" yaml:"iops"`
 	// Use to configure the KMS key to use when encrypting the device.
-	KmsKeyId *string `json:"kmsKeyId"`
+	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
 	// The snapshot that defines the device contents.
-	SnapshotId *string `json:"snapshotId"`
+	SnapshotId *string `json:"snapshotId" yaml:"snapshotId"`
 	// *For GP3 volumes only* – The throughput in MiB/s that the volume supports.
-	Throughput *float64 `json:"throughput"`
+	Throughput *float64 `json:"throughput" yaml:"throughput"`
 	// Use to override the device's volume size.
-	VolumeSize *float64 `json:"volumeSize"`
+	VolumeSize *float64 `json:"volumeSize" yaml:"volumeSize"`
 	// Use to override the device's volume type.
-	VolumeType *string `json:"volumeType"`
+	VolumeType *string `json:"volumeType" yaml:"volumeType"`
 }
 
 // Defines block device mappings for the instance used to configure your image.
@@ -1538,13 +1538,13 @@ type CfnContainerRecipe_EbsInstanceBlockDeviceSpecificationProperty struct {
 //
 type CfnContainerRecipe_InstanceBlockDeviceMappingProperty struct {
 	// The device to which these mappings apply.
-	DeviceName *string `json:"deviceName"`
+	DeviceName *string `json:"deviceName" yaml:"deviceName"`
 	// Use to manage Amazon EBS-specific configuration for this mapping.
-	Ebs interface{} `json:"ebs"`
+	Ebs interface{} `json:"ebs" yaml:"ebs"`
 	// Use to remove a mapping from the base image.
-	NoDevice *string `json:"noDevice"`
+	NoDevice *string `json:"noDevice" yaml:"noDevice"`
 	// Use to manage instance ephemeral devices.
-	VirtualName *string `json:"virtualName"`
+	VirtualName *string `json:"virtualName" yaml:"virtualName"`
 }
 
 // Defines a custom source AMI and block device mapping configurations of an instance used for building and testing container images.
@@ -1553,11 +1553,11 @@ type CfnContainerRecipe_InstanceBlockDeviceMappingProperty struct {
 //
 type CfnContainerRecipe_InstanceConfigurationProperty struct {
 	// Defines the block devices to attach for building an instance from this Image Builder AMI.
-	BlockDeviceMappings interface{} `json:"blockDeviceMappings"`
+	BlockDeviceMappings interface{} `json:"blockDeviceMappings" yaml:"blockDeviceMappings"`
 	// The AMI ID to use as the base image for a container build and test instance.
 	//
 	// If not specified, Image Builder will use the appropriate ECS-optimized AMI as a base image.
-	Image *string `json:"image"`
+	Image *string `json:"image" yaml:"image"`
 }
 
 // The container repository where the output container image is stored.
@@ -1568,9 +1568,9 @@ type CfnContainerRecipe_TargetContainerRepositoryProperty struct {
 	// The name of the container repository where the output container image is stored.
 	//
 	// This name is prefixed by the repository location.
-	RepositoryName *string `json:"repositoryName"`
+	RepositoryName *string `json:"repositoryName" yaml:"repositoryName"`
 	// Specifies the service in which this image was registered.
-	Service *string `json:"service"`
+	Service *string `json:"service" yaml:"service"`
 }
 
 // Properties for defining a `CfnContainerRecipe`.
@@ -1579,15 +1579,15 @@ type CfnContainerRecipe_TargetContainerRepositoryProperty struct {
 //
 type CfnContainerRecipeProps struct {
 	// Components for build and test that are included in the container recipe.
-	Components interface{} `json:"components"`
+	Components interface{} `json:"components" yaml:"components"`
 	// Specifies the type of container, such as Docker.
-	ContainerType *string `json:"containerType"`
+	ContainerType *string `json:"containerType" yaml:"containerType"`
 	// The name of the container recipe.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The base image for the container recipe.
-	ParentImage *string `json:"parentImage"`
+	ParentImage *string `json:"parentImage" yaml:"parentImage"`
 	// The destination repository for the container image.
-	TargetRepository interface{} `json:"targetRepository"`
+	TargetRepository interface{} `json:"targetRepository" yaml:"targetRepository"`
 	// The semantic version of the container recipe.
 	//
 	// > The semantic version has four nodes: <major>.<minor>.<patch>/<build>. You can assign values for the first three, and can filter on all of them.
@@ -1597,27 +1597,27 @@ type CfnContainerRecipeProps struct {
 	// > *Patterns:* You can use any numeric pattern that adheres to the assignment requirements for the nodes that you can assign. For example, you might choose a software version pattern, such as 1.0.0, or a date, such as 2021.01.01.
 	// >
 	// > *Filtering:* With semantic versioning, you have the flexibility to use wildcards (x) to specify the most recent versions or nodes when selecting the base image or components for your recipe. When you use a wildcard in any node, all nodes to the right of the first wildcard must also be wildcards.
-	Version *string `json:"version"`
+	Version *string `json:"version" yaml:"version"`
 	// The description of the container recipe.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Dockerfiles are text documents that are used to build Docker containers, and ensure that they contain all of the elements required by the application running inside.
 	//
 	// The template data consists of contextual variables where Image Builder places build information or scripts, based on your container image recipe.
-	DockerfileTemplateData *string `json:"dockerfileTemplateData"`
+	DockerfileTemplateData *string `json:"dockerfileTemplateData" yaml:"dockerfileTemplateData"`
 	// The S3 URI for the Dockerfile that will be used to build your container image.
-	DockerfileTemplateUri *string `json:"dockerfileTemplateUri"`
+	DockerfileTemplateUri *string `json:"dockerfileTemplateUri" yaml:"dockerfileTemplateUri"`
 	// Specifies the operating system version for the source image.
-	ImageOsVersionOverride *string `json:"imageOsVersionOverride"`
+	ImageOsVersionOverride *string `json:"imageOsVersionOverride" yaml:"imageOsVersionOverride"`
 	// A group of options that can be used to configure an instance for building and testing container images.
-	InstanceConfiguration interface{} `json:"instanceConfiguration"`
+	InstanceConfiguration interface{} `json:"instanceConfiguration" yaml:"instanceConfiguration"`
 	// Identifies which KMS key is used to encrypt the container image for distribution to the target Region.
-	KmsKeyId *string `json:"kmsKeyId"`
+	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
 	// Specifies the operating system platform when you use a custom source image.
-	PlatformOverride *string `json:"platformOverride"`
+	PlatformOverride *string `json:"platformOverride" yaml:"platformOverride"`
 	// Tags that are attached to the container recipe.
-	Tags *map[string]*string `json:"tags"`
+	Tags *map[string]*string `json:"tags" yaml:"tags"`
 	// The working directory for use during build and test workflows.
-	WorkingDirectory *string `json:"workingDirectory"`
+	WorkingDirectory *string `json:"workingDirectory" yaml:"workingDirectory"`
 }
 
 // A CloudFormation `AWS::ImageBuilder::DistributionConfiguration`.
@@ -2178,21 +2178,21 @@ type CfnDistributionConfiguration_DistributionProperty struct {
 	// The target Region for the Distribution Configuration.
 	//
 	// For example, `eu-west-1` .
-	Region *string `json:"region"`
+	Region *string `json:"region" yaml:"region"`
 	// The specific AMI settings, such as launch permissions and AMI tags.
 	//
 	// For details, see example schema below.
-	AmiDistributionConfiguration interface{} `json:"amiDistributionConfiguration"`
+	AmiDistributionConfiguration interface{} `json:"amiDistributionConfiguration" yaml:"amiDistributionConfiguration"`
 	// Container distribution settings for encryption, licensing, and sharing in a specific Region.
 	//
 	// For details, see example schema below.
-	ContainerDistributionConfiguration interface{} `json:"containerDistributionConfiguration"`
+	ContainerDistributionConfiguration interface{} `json:"containerDistributionConfiguration" yaml:"containerDistributionConfiguration"`
 	// A group of launchTemplateConfiguration settings that apply to image distribution for specified accounts.
-	LaunchTemplateConfigurations interface{} `json:"launchTemplateConfigurations"`
+	LaunchTemplateConfigurations interface{} `json:"launchTemplateConfigurations" yaml:"launchTemplateConfigurations"`
 	// The License Manager Configuration to associate with the AMI in the specified Region.
 	//
 	// For more information, see the [LicenseConfiguration API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_LicenseConfiguration.html) .
-	LicenseConfigurationArns *[]*string `json:"licenseConfigurationArns"`
+	LicenseConfigurationArns *[]*string `json:"licenseConfigurationArns" yaml:"licenseConfigurationArns"`
 }
 
 // Identifies an Amazon EC2 launch template to use for a specific account.
@@ -2201,11 +2201,11 @@ type CfnDistributionConfiguration_DistributionProperty struct {
 //
 type CfnDistributionConfiguration_LaunchTemplateConfigurationProperty struct {
 	// The account ID that this configuration applies to.
-	AccountId *string `json:"accountId"`
+	AccountId *string `json:"accountId" yaml:"accountId"`
 	// Identifies the Amazon EC2 launch template to use.
-	LaunchTemplateId *string `json:"launchTemplateId"`
+	LaunchTemplateId *string `json:"launchTemplateId" yaml:"launchTemplateId"`
 	// Set the specified Amazon EC2 launch template as the default launch template for the specified account.
-	SetDefaultVersion interface{} `json:"setDefaultVersion"`
+	SetDefaultVersion interface{} `json:"setDefaultVersion" yaml:"setDefaultVersion"`
 }
 
 // Properties for defining a `CfnDistributionConfiguration`.
@@ -2214,13 +2214,13 @@ type CfnDistributionConfiguration_LaunchTemplateConfigurationProperty struct {
 //
 type CfnDistributionConfigurationProps struct {
 	// The distributions of this distribution configuration formatted as an array of Distribution objects.
-	Distributions interface{} `json:"distributions"`
+	Distributions interface{} `json:"distributions" yaml:"distributions"`
 	// The name of this distribution configuration.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The description of this distribution configuration.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The tags of this distribution configuration.
-	Tags *map[string]*string `json:"tags"`
+	Tags *map[string]*string `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::ImageBuilder::Image`.
@@ -2849,9 +2849,9 @@ type CfnImage_ImageTestsConfigurationProperty struct {
 	// Determines if tests should run after building the image.
 	//
 	// Image Builder defaults to enable tests to run following the image build, before image distribution.
-	ImageTestsEnabled interface{} `json:"imageTestsEnabled"`
+	ImageTestsEnabled interface{} `json:"imageTestsEnabled" yaml:"imageTestsEnabled"`
 	// The maximum time in minutes that tests are permitted to run.
-	TimeoutMinutes *float64 `json:"timeoutMinutes"`
+	TimeoutMinutes *float64 `json:"timeoutMinutes" yaml:"timeoutMinutes"`
 }
 
 // A CloudFormation `AWS::ImageBuilder::ImagePipeline`.
@@ -3549,9 +3549,9 @@ type CfnImagePipeline_ImageTestsConfigurationProperty struct {
 	// Defines if tests should be executed when building this image.
 	//
 	// For example, `true` or `false` .
-	ImageTestsEnabled interface{} `json:"imageTestsEnabled"`
+	ImageTestsEnabled interface{} `json:"imageTestsEnabled" yaml:"imageTestsEnabled"`
 	// The maximum time in minutes that tests are permitted to run.
-	TimeoutMinutes *float64 `json:"timeoutMinutes"`
+	TimeoutMinutes *float64 `json:"timeoutMinutes" yaml:"timeoutMinutes"`
 }
 
 // A schedule configures how often and when a pipeline will automatically create a new image.
@@ -3562,11 +3562,11 @@ type CfnImagePipeline_ScheduleProperty struct {
 	// The condition configures when the pipeline should trigger a new image build.
 	//
 	// When the `pipelineExecutionStartCondition` is set to `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE` , and you use semantic version filters on the source image or components in your image recipe, Image Builder will build a new image only when there are new versions of the image or components in your recipe that match the semantic version filter. When it is set to `EXPRESSION_MATCH_ONLY` , it will build a new image every time the CRON expression matches the current time. For semantic version syntax, see [CreateComponent](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateComponent.html) in the *Image Builder API Reference* .
-	PipelineExecutionStartCondition *string `json:"pipelineExecutionStartCondition"`
+	PipelineExecutionStartCondition *string `json:"pipelineExecutionStartCondition" yaml:"pipelineExecutionStartCondition"`
 	// The cron expression determines how often EC2 Image Builder evaluates your `pipelineExecutionStartCondition` .
 	//
 	// For information on how to format a cron expression in Image Builder, see [Use cron expressions in EC2 Image Builder](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-builder-cron.html) .
-	ScheduleExpression *string `json:"scheduleExpression"`
+	ScheduleExpression *string `json:"scheduleExpression" yaml:"scheduleExpression"`
 }
 
 // Properties for defining a `CfnImagePipeline`.
@@ -3575,31 +3575,31 @@ type CfnImagePipeline_ScheduleProperty struct {
 //
 type CfnImagePipelineProps struct {
 	// The Amazon Resource Name (ARN) of the infrastructure configuration associated with this image pipeline.
-	InfrastructureConfigurationArn *string `json:"infrastructureConfigurationArn"`
+	InfrastructureConfigurationArn *string `json:"infrastructureConfigurationArn" yaml:"infrastructureConfigurationArn"`
 	// The name of the image pipeline.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The Amazon Resource Name (ARN) of the container recipe that is used for this pipeline.
-	ContainerRecipeArn *string `json:"containerRecipeArn"`
+	ContainerRecipeArn *string `json:"containerRecipeArn" yaml:"containerRecipeArn"`
 	// The description of this image pipeline.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The Amazon Resource Name (ARN) of the distribution configuration associated with this image pipeline.
-	DistributionConfigurationArn *string `json:"distributionConfigurationArn"`
+	DistributionConfigurationArn *string `json:"distributionConfigurationArn" yaml:"distributionConfigurationArn"`
 	// Collects additional information about the image being created, including the operating system (OS) version and package list.
 	//
 	// This information is used to enhance the overall experience of using EC2 Image Builder. Enabled by default.
-	EnhancedImageMetadataEnabled interface{} `json:"enhancedImageMetadataEnabled"`
+	EnhancedImageMetadataEnabled interface{} `json:"enhancedImageMetadataEnabled" yaml:"enhancedImageMetadataEnabled"`
 	// The Amazon Resource Name (ARN) of the image recipe associated with this image pipeline.
-	ImageRecipeArn *string `json:"imageRecipeArn"`
+	ImageRecipeArn *string `json:"imageRecipeArn" yaml:"imageRecipeArn"`
 	// The configuration of the image tests that run after image creation to ensure the quality of the image that was created.
-	ImageTestsConfiguration interface{} `json:"imageTestsConfiguration"`
+	ImageTestsConfiguration interface{} `json:"imageTestsConfiguration" yaml:"imageTestsConfiguration"`
 	// The schedule of the image pipeline.
 	//
 	// A schedule configures how often and when a pipeline automatically creates a new image.
-	Schedule interface{} `json:"schedule"`
+	Schedule interface{} `json:"schedule" yaml:"schedule"`
 	// The status of the image pipeline.
-	Status *string `json:"status"`
+	Status *string `json:"status" yaml:"status"`
 	// The tags of this image pipeline.
-	Tags *map[string]*string `json:"tags"`
+	Tags *map[string]*string `json:"tags" yaml:"tags"`
 }
 
 // Properties for defining a `CfnImage`.
@@ -3608,21 +3608,21 @@ type CfnImagePipelineProps struct {
 //
 type CfnImageProps struct {
 	// The Amazon Resource Name (ARN) of the infrastructure configuration associated with this image pipeline.
-	InfrastructureConfigurationArn *string `json:"infrastructureConfigurationArn"`
+	InfrastructureConfigurationArn *string `json:"infrastructureConfigurationArn" yaml:"infrastructureConfigurationArn"`
 	// The Amazon Resource Name (ARN) of the container recipe that is used for this pipeline.
-	ContainerRecipeArn *string `json:"containerRecipeArn"`
+	ContainerRecipeArn *string `json:"containerRecipeArn" yaml:"containerRecipeArn"`
 	// The Amazon Resource Name (ARN) of the distribution configuration.
-	DistributionConfigurationArn *string `json:"distributionConfigurationArn"`
+	DistributionConfigurationArn *string `json:"distributionConfigurationArn" yaml:"distributionConfigurationArn"`
 	// Collects additional information about the image being created, including the operating system (OS) version and package list.
 	//
 	// This information is used to enhance the overall experience of using EC2 Image Builder. Enabled by default.
-	EnhancedImageMetadataEnabled interface{} `json:"enhancedImageMetadataEnabled"`
+	EnhancedImageMetadataEnabled interface{} `json:"enhancedImageMetadataEnabled" yaml:"enhancedImageMetadataEnabled"`
 	// The Amazon Resource Name (ARN) of the image recipe.
-	ImageRecipeArn *string `json:"imageRecipeArn"`
+	ImageRecipeArn *string `json:"imageRecipeArn" yaml:"imageRecipeArn"`
 	// The configuration settings for your image test components, which includes a toggle that allows you to turn off tests, and a timeout setting.
-	ImageTestsConfiguration interface{} `json:"imageTestsConfiguration"`
+	ImageTestsConfiguration interface{} `json:"imageTestsConfiguration" yaml:"imageTestsConfiguration"`
 	// The tags of the image.
-	Tags *map[string]*string `json:"tags"`
+	Tags *map[string]*string `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::ImageBuilder::ImageRecipe`.
@@ -4278,11 +4278,11 @@ func (c *jsiiProxy_CfnImageRecipe) ValidateProperties(_properties interface{}) {
 //
 type CfnImageRecipe_AdditionalInstanceConfigurationProperty struct {
 	// Contains settings for the Systems Manager agent on your build instance.
-	SystemsManagerAgent interface{} `json:"systemsManagerAgent"`
+	SystemsManagerAgent interface{} `json:"systemsManagerAgent" yaml:"systemsManagerAgent"`
 	// Use this property to provide commands or a command script to run when you launch your build instance.
 	//
 	// > The userDataOverride property replaces any commands that Image Builder might have added to ensure that Systems Manager is installed on your Linux build instance. If you override the user data, make sure that you add commands to install Systems Manager, if it is not pre-installed on your base image.
-	UserDataOverride *string `json:"userDataOverride"`
+	UserDataOverride *string `json:"userDataOverride" yaml:"userDataOverride"`
 }
 
 // Configuration details of the component.
@@ -4291,9 +4291,9 @@ type CfnImageRecipe_AdditionalInstanceConfigurationProperty struct {
 //
 type CfnImageRecipe_ComponentConfigurationProperty struct {
 	// The Amazon Resource Name (ARN) of the component.
-	ComponentArn *string `json:"componentArn"`
+	ComponentArn *string `json:"componentArn" yaml:"componentArn"`
 	// A group of parameter settings that are used to configure the component for a specific recipe.
-	Parameters interface{} `json:"parameters"`
+	Parameters interface{} `json:"parameters" yaml:"parameters"`
 }
 
 // Contains a key/value pair that sets the named component parameter.
@@ -4302,9 +4302,9 @@ type CfnImageRecipe_ComponentConfigurationProperty struct {
 //
 type CfnImageRecipe_ComponentParameterProperty struct {
 	// The name of the component parameter to set.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// Sets the value for the named component parameter.
-	Value *[]*string `json:"value"`
+	Value *[]*string `json:"value" yaml:"value"`
 }
 
 // The image recipe EBS instance block device specification includes the Amazon EBS-specific block device mapping specifications for the image.
@@ -4313,21 +4313,21 @@ type CfnImageRecipe_ComponentParameterProperty struct {
 //
 type CfnImageRecipe_EbsInstanceBlockDeviceSpecificationProperty struct {
 	// Configures delete on termination of the associated device.
-	DeleteOnTermination interface{} `json:"deleteOnTermination"`
+	DeleteOnTermination interface{} `json:"deleteOnTermination" yaml:"deleteOnTermination"`
 	// Use to configure device encryption.
-	Encrypted interface{} `json:"encrypted"`
+	Encrypted interface{} `json:"encrypted" yaml:"encrypted"`
 	// Use to configure device IOPS.
-	Iops *float64 `json:"iops"`
+	Iops *float64 `json:"iops" yaml:"iops"`
 	// Use to configure the KMS key to use when encrypting the device.
-	KmsKeyId *string `json:"kmsKeyId"`
+	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
 	// The snapshot that defines the device contents.
-	SnapshotId *string `json:"snapshotId"`
+	SnapshotId *string `json:"snapshotId" yaml:"snapshotId"`
 	// *For GP3 volumes only* – The throughput in MiB/s that the volume supports.
-	Throughput *float64 `json:"throughput"`
+	Throughput *float64 `json:"throughput" yaml:"throughput"`
 	// Overrides the volume size of the device.
-	VolumeSize *float64 `json:"volumeSize"`
+	VolumeSize *float64 `json:"volumeSize" yaml:"volumeSize"`
 	// Overrides the volume type of the device.
-	VolumeType *string `json:"volumeType"`
+	VolumeType *string `json:"volumeType" yaml:"volumeType"`
 }
 
 // Defines block device mappings for the instance used to configure your image.
@@ -4336,17 +4336,17 @@ type CfnImageRecipe_EbsInstanceBlockDeviceSpecificationProperty struct {
 //
 type CfnImageRecipe_InstanceBlockDeviceMappingProperty struct {
 	// The device to which these mappings apply.
-	DeviceName *string `json:"deviceName"`
+	DeviceName *string `json:"deviceName" yaml:"deviceName"`
 	// Use to manage Amazon EBS-specific configuration for this mapping.
-	Ebs interface{} `json:"ebs"`
+	Ebs interface{} `json:"ebs" yaml:"ebs"`
 	// Enter an empty string to remove a mapping from the parent image.
 	//
 	// The following is an example of an empty string value in the `NoDevice` field.
 	//
 	// `NoDevice:""`
-	NoDevice *string `json:"noDevice"`
+	NoDevice *string `json:"noDevice" yaml:"noDevice"`
 	// Manages the instance ephemeral devices.
-	VirtualName *string `json:"virtualName"`
+	VirtualName *string `json:"virtualName" yaml:"virtualName"`
 }
 
 // Contains settings for the Systems Manager agent on your build instance.
@@ -4357,7 +4357,7 @@ type CfnImageRecipe_SystemsManagerAgentProperty struct {
 	// Controls whether the Systems Manager agent is removed from your final build image, prior to creating the new AMI.
 	//
 	// If this is set to true, then the agent is removed from the final image. If it's set to false, then the agent is left in, so that it is included in the new AMI. The default value is false.
-	UninstallAfterBuild interface{} `json:"uninstallAfterBuild"`
+	UninstallAfterBuild interface{} `json:"uninstallAfterBuild" yaml:"uninstallAfterBuild"`
 }
 
 // Properties for defining a `CfnImageRecipe`.
@@ -4368,27 +4368,27 @@ type CfnImageRecipeProps struct {
 	// The components of the image recipe.
 	//
 	// Components are orchestration documents that define a sequence of steps for downloading, installing, configuring, and testing software packages. They also define validation and security hardening steps. A component is defined using a YAML document format.
-	Components interface{} `json:"components"`
+	Components interface{} `json:"components" yaml:"components"`
 	// The name of the image recipe.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The parent image of the image recipe.
 	//
 	// The string must be either an Image ARN (SemVers is ok) or an AMI ID.
-	ParentImage *string `json:"parentImage"`
+	ParentImage *string `json:"parentImage" yaml:"parentImage"`
 	// The semantic version of the image recipe.
-	Version *string `json:"version"`
+	Version *string `json:"version" yaml:"version"`
 	// Before you create a new AMI, Image Builder launches temporary Amazon EC2 instances to build and test your image configuration.
 	//
 	// Instance configuration adds a layer of control over those instances. You can define settings and add scripts to run when an instance is launched from your AMI.
-	AdditionalInstanceConfiguration interface{} `json:"additionalInstanceConfiguration"`
+	AdditionalInstanceConfiguration interface{} `json:"additionalInstanceConfiguration" yaml:"additionalInstanceConfiguration"`
 	// The block device mappings to apply when creating images from this recipe.
-	BlockDeviceMappings interface{} `json:"blockDeviceMappings"`
+	BlockDeviceMappings interface{} `json:"blockDeviceMappings" yaml:"blockDeviceMappings"`
 	// The description of the image recipe.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The tags of the image recipe.
-	Tags *map[string]*string `json:"tags"`
+	Tags *map[string]*string `json:"tags" yaml:"tags"`
 	// The working directory to be used during build and test workflows.
-	WorkingDirectory *string `json:"workingDirectory"`
+	WorkingDirectory *string `json:"workingDirectory" yaml:"workingDirectory"`
 }
 
 // A CloudFormation `AWS::ImageBuilder::InfrastructureConfiguration`.
@@ -5124,7 +5124,7 @@ func (c *jsiiProxy_CfnInfrastructureConfiguration) ValidateProperties(_propertie
 //
 type CfnInfrastructureConfiguration_InstanceMetadataOptionsProperty struct {
 	// Limit the number of hops that an instance metadata request can traverse to reach its destination.
-	HttpPutResponseHopLimit *float64 `json:"httpPutResponseHopLimit"`
+	HttpPutResponseHopLimit *float64 `json:"httpPutResponseHopLimit" yaml:"httpPutResponseHopLimit"`
 	// Indicates whether a signed token header is required for instance metadata retrieval requests.
 	//
 	// The values affect the response as follows:
@@ -5133,7 +5133,7 @@ type CfnInfrastructureConfiguration_InstanceMetadataOptionsProperty struct {
 	// - *optional* – You can include a signed token header in your request to retrieve instance metadata, or you can leave it out. If you include it, version 2.0 credentials are returned for the IAM role. Otherwise, version 1.0 credentials are returned.
 	//
 	// The default setting is *optional* .
-	HttpTokens *string `json:"httpTokens"`
+	HttpTokens *string `json:"httpTokens" yaml:"httpTokens"`
 }
 
 // Logging configuration defines where Image Builder uploads your logs.
@@ -5142,7 +5142,7 @@ type CfnInfrastructureConfiguration_InstanceMetadataOptionsProperty struct {
 //
 type CfnInfrastructureConfiguration_LoggingProperty struct {
 	// The Amazon S3 logging configuration.
-	S3Logs interface{} `json:"s3Logs"`
+	S3Logs interface{} `json:"s3Logs" yaml:"s3Logs"`
 }
 
 // Amazon S3 logging configuration.
@@ -5151,9 +5151,9 @@ type CfnInfrastructureConfiguration_LoggingProperty struct {
 //
 type CfnInfrastructureConfiguration_S3LogsProperty struct {
 	// The S3 bucket in which to store the logs.
-	S3BucketName *string `json:"s3BucketName"`
+	S3BucketName *string `json:"s3BucketName" yaml:"s3BucketName"`
 	// The Amazon S3 path to the bucket where the logs are stored.
-	S3KeyPrefix *string `json:"s3KeyPrefix"`
+	S3KeyPrefix *string `json:"s3KeyPrefix" yaml:"s3KeyPrefix"`
 }
 
 // Properties for defining a `CfnInfrastructureConfiguration`.
@@ -5162,30 +5162,30 @@ type CfnInfrastructureConfiguration_S3LogsProperty struct {
 //
 type CfnInfrastructureConfigurationProps struct {
 	// The instance profile of the infrastructure configuration.
-	InstanceProfileName *string `json:"instanceProfileName"`
+	InstanceProfileName *string `json:"instanceProfileName" yaml:"instanceProfileName"`
 	// The name of the infrastructure configuration.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The description of the infrastructure configuration.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The instance metadata option settings for the infrastructure configuration.
-	InstanceMetadataOptions interface{} `json:"instanceMetadataOptions"`
+	InstanceMetadataOptions interface{} `json:"instanceMetadataOptions" yaml:"instanceMetadataOptions"`
 	// The instance types of the infrastructure configuration.
-	InstanceTypes *[]*string `json:"instanceTypes"`
+	InstanceTypes *[]*string `json:"instanceTypes" yaml:"instanceTypes"`
 	// The Amazon EC2 key pair of the infrastructure configuration.
-	KeyPair *string `json:"keyPair"`
+	KeyPair *string `json:"keyPair" yaml:"keyPair"`
 	// The logging configuration defines where Image Builder uploads your logs.
-	Logging interface{} `json:"logging"`
+	Logging interface{} `json:"logging" yaml:"logging"`
 	// The tags attached to the resource created by Image Builder.
-	ResourceTags interface{} `json:"resourceTags"`
+	ResourceTags interface{} `json:"resourceTags" yaml:"resourceTags"`
 	// The security group IDs of the infrastructure configuration.
-	SecurityGroupIds *[]*string `json:"securityGroupIds"`
+	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
 	// The Amazon Resource Name (ARN) of the SNS topic for the infrastructure configuration.
-	SnsTopicArn *string `json:"snsTopicArn"`
+	SnsTopicArn *string `json:"snsTopicArn" yaml:"snsTopicArn"`
 	// The subnet ID of the infrastructure configuration.
-	SubnetId *string `json:"subnetId"`
+	SubnetId *string `json:"subnetId" yaml:"subnetId"`
 	// The tags of the infrastructure configuration.
-	Tags *map[string]*string `json:"tags"`
+	Tags *map[string]*string `json:"tags" yaml:"tags"`
 	// The terminate instance on failure configuration of the infrastructure configuration.
-	TerminateInstanceOnFailure interface{} `json:"terminateInstanceOnFailure"`
+	TerminateInstanceOnFailure interface{} `json:"terminateInstanceOnFailure" yaml:"terminateInstanceOnFailure"`
 }
 

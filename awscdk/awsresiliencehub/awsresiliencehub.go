@@ -591,16 +591,16 @@ func (c *jsiiProxy_CfnApp) ValidateProperties(_properties interface{}) {
 //
 type CfnApp_PhysicalResourceIdProperty struct {
 	// The identifier of the physical resource.
-	Identifier *string `json:"identifier"`
+	Identifier *string `json:"identifier" yaml:"identifier"`
 	// Specifies the type of physical resource identifier.
 	//
 	// - **Arn** - The resource identifier is an Amazon Resource Name (ARN) .
 	// - **Native** - The resource identifier is a Resilience Hub-native identifier.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// The AWS account that owns the physical resource.
-	AwsAccountId *string `json:"awsAccountId"`
+	AwsAccountId *string `json:"awsAccountId" yaml:"awsAccountId"`
 	// The AWS Region that the physical resource is located in.
-	AwsRegion *string `json:"awsRegion"`
+	AwsRegion *string `json:"awsRegion" yaml:"awsRegion"`
 }
 
 // Defines a resource mapping.
@@ -614,13 +614,13 @@ type CfnApp_ResourceMappingProperty struct {
 	// - **CfnStack** - The resource is mapped to a CloudFormation stack. The name of the CloudFormation stack is contained in the `logicalStackName` property.
 	// - **Resource** - The resource is mapped to another resource. The name of the resource is contained in the `resourceName` property.
 	// - **ResourceGroup** - The resource is mapped to a resource group. The name of the resource group is contained in the `resourceGroupName` property.
-	MappingType *string `json:"mappingType"`
+	MappingType *string `json:"mappingType" yaml:"mappingType"`
 	// The identifier of this resource.
-	PhysicalResourceId interface{} `json:"physicalResourceId"`
+	PhysicalResourceId interface{} `json:"physicalResourceId" yaml:"physicalResourceId"`
 	// The name of the CloudFormation stack this resource is mapped to.
-	LogicalStackName *string `json:"logicalStackName"`
+	LogicalStackName *string `json:"logicalStackName" yaml:"logicalStackName"`
 	// The name of the resource this resource is mapped to.
-	ResourceName *string `json:"resourceName"`
+	ResourceName *string `json:"resourceName" yaml:"resourceName"`
 }
 
 // Properties for defining a `CfnApp`.
@@ -629,19 +629,19 @@ type CfnApp_ResourceMappingProperty struct {
 //
 type CfnAppProps struct {
 	// A string containing a full Resilience Hub app template body.
-	AppTemplateBody *string `json:"appTemplateBody"`
+	AppTemplateBody *string `json:"appTemplateBody" yaml:"appTemplateBody"`
 	// The name for the application.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// An array of ResourceMapping objects.
-	ResourceMappings interface{} `json:"resourceMappings"`
+	ResourceMappings interface{} `json:"resourceMappings" yaml:"resourceMappings"`
 	// The optional description for an app.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The Amazon Resource Name (ARN) of the resiliency policy.
-	ResiliencyPolicyArn *string `json:"resiliencyPolicyArn"`
+	ResiliencyPolicyArn *string `json:"resiliencyPolicyArn" yaml:"resiliencyPolicyArn"`
 	// The tags assigned to the resource.
 	//
 	// A tag is a label that you assign to an AWS resource. Each tag consists of a key/value pair.
-	Tags *map[string]*string `json:"tags"`
+	Tags *map[string]*string `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::ResilienceHub::ResiliencyPolicy`.
@@ -1224,9 +1224,9 @@ func (c *jsiiProxy_CfnResiliencyPolicy) ValidateProperties(_properties interface
 //
 type CfnResiliencyPolicy_FailurePolicyProperty struct {
 	// The Recovery Point Objective (RPO), in seconds.
-	RpoInSecs *float64 `json:"rpoInSecs"`
+	RpoInSecs *float64 `json:"rpoInSecs" yaml:"rpoInSecs"`
 	// The Recovery Time Objective (RTO), in seconds.
-	RtoInSecs *float64 `json:"rtoInSecs"`
+	RtoInSecs *float64 `json:"rtoInSecs" yaml:"rtoInSecs"`
 }
 
 // Properties for defining a `CfnResiliencyPolicy`.
@@ -1235,18 +1235,18 @@ type CfnResiliencyPolicy_FailurePolicyProperty struct {
 //
 type CfnResiliencyPolicyProps struct {
 	// The resiliency policy.
-	Policy interface{} `json:"policy"`
+	Policy interface{} `json:"policy" yaml:"policy"`
 	// The name of the policy.
-	PolicyName *string `json:"policyName"`
+	PolicyName *string `json:"policyName" yaml:"policyName"`
 	// The tier for this resiliency policy, ranging from the highest severity ( `MissionCritical` ) to lowest ( `NonCritical` ).
-	Tier *string `json:"tier"`
+	Tier *string `json:"tier" yaml:"tier"`
 	// Specifies a high-level geographical location constraint for where your resilience policy data can be stored.
-	DataLocationConstraint *string `json:"dataLocationConstraint"`
+	DataLocationConstraint *string `json:"dataLocationConstraint" yaml:"dataLocationConstraint"`
 	// The description for the policy.
-	PolicyDescription *string `json:"policyDescription"`
+	PolicyDescription *string `json:"policyDescription" yaml:"policyDescription"`
 	// The tags assigned to the resource.
 	//
 	// A tag is a label that you assign to an AWS resource. Each tag consists of a key/value pair.
-	Tags *map[string]*string `json:"tags"`
+	Tags *map[string]*string `json:"tags" yaml:"tags"`
 }
 

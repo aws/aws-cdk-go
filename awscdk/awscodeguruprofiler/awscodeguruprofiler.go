@@ -572,9 +572,9 @@ func (c *jsiiProxy_CfnProfilingGroup) ValidateProperties(_properties interface{}
 //
 type CfnProfilingGroup_ChannelProperty struct {
 	// The channel URI.
-	ChannelUri *string `json:"channelUri"`
+	ChannelUri *string `json:"channelUri" yaml:"channelUri"`
 	// The channel ID.
-	ChannelId *string `json:"channelId"`
+	ChannelId *string `json:"channelId" yaml:"channelId"`
 }
 
 // Properties for defining a `CfnProfilingGroup`.
@@ -583,7 +583,7 @@ type CfnProfilingGroup_ChannelProperty struct {
 //
 type CfnProfilingGroupProps struct {
 	// The name of the profiling group.
-	ProfilingGroupName *string `json:"profilingGroupName"`
+	ProfilingGroupName *string `json:"profilingGroupName" yaml:"profilingGroupName"`
 	// The agent permissions attached to this profiling group.
 	//
 	// This action group grants `ConfigureAgent` and `PostAgentProfile` permissions to perform actions required by the profiling agent. The Json consists of key `Principals` .
@@ -591,15 +591,15 @@ type CfnProfilingGroupProps struct {
 	// *Principals* : A list of string ARNs for the roles and users you want to grant access to the profiling group. Wildcards are not supported in the ARNs. You are allowed to provide up to 50 ARNs. An empty list is not permitted. This is a required key.
 	//
 	// For more information, see [Resource-based policies in CodeGuru Profiler](https://docs.aws.amazon.com/codeguru/latest/profiler-ug/resource-based-policies.html) in the *Amazon CodeGuru Profiler user guide* , [ConfigureAgent](https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ConfigureAgent.html) , and [PostAgentProfile](https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_PostAgentProfile.html) .
-	AgentPermissions interface{} `json:"agentPermissions"`
+	AgentPermissions interface{} `json:"agentPermissions" yaml:"agentPermissions"`
 	// Adds anomaly notifications for a profiling group.
-	AnomalyDetectionNotificationConfiguration interface{} `json:"anomalyDetectionNotificationConfiguration"`
+	AnomalyDetectionNotificationConfiguration interface{} `json:"anomalyDetectionNotificationConfiguration" yaml:"anomalyDetectionNotificationConfiguration"`
 	// The compute platform of the profiling group.
 	//
 	// Use `AWSLambda` if your application runs on AWS Lambda. Use `Default` if your application runs on a compute platform that is not AWS Lambda , such an Amazon EC2 instance, an on-premises server, or a different platform. If not specified, `Default` is used. This property is immutable.
-	ComputePlatform *string `json:"computePlatform"`
+	ComputePlatform *string `json:"computePlatform" yaml:"computePlatform"`
 	// A list of tags to add to the created profiling group.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // The compute platform of the profiling group.
@@ -977,8 +977,8 @@ func (p *jsiiProxy_ProfilingGroup) ToString() *string {
 //
 type ProfilingGroupProps struct {
 	// The compute platform of the profiling group.
-	ComputePlatform ComputePlatform `json:"computePlatform"`
+	ComputePlatform ComputePlatform `json:"computePlatform" yaml:"computePlatform"`
 	// A name for the profiling group.
-	ProfilingGroupName *string `json:"profilingGroupName"`
+	ProfilingGroupName *string `json:"profilingGroupName" yaml:"profilingGroupName"`
 }
 

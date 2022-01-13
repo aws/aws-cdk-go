@@ -509,9 +509,9 @@ func (c *jsiiProxy_CfnFleet) ValidateProperties(_properties interface{}) {
 //
 type CfnFleetProps struct {
 	// The name of the fleet.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The list of all tags added to the fleet.
-	Tags *map[string]*string `json:"tags"`
+	Tags *map[string]*string `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::RoboMaker::Robot`.
@@ -1639,9 +1639,9 @@ func (c *jsiiProxy_CfnRobotApplication) ValidateProperties(_properties interface
 //
 type CfnRobotApplication_RobotSoftwareSuiteProperty struct {
 	// The name of the robot software suite (ROS distribution).
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The version of the robot software suite (ROS distribution).
-	Version *string `json:"version"`
+	Version *string `json:"version" yaml:"version"`
 }
 
 // Information about a source configuration.
@@ -1650,11 +1650,11 @@ type CfnRobotApplication_RobotSoftwareSuiteProperty struct {
 //
 type CfnRobotApplication_SourceConfigProperty struct {
 	// The target processor architecture for the application.
-	Architecture *string `json:"architecture"`
+	Architecture *string `json:"architecture" yaml:"architecture"`
 	// The Amazon S3 bucket name.
-	S3Bucket *string `json:"s3Bucket"`
+	S3Bucket *string `json:"s3Bucket" yaml:"s3Bucket"`
 	// The s3 object key.
-	S3Key *string `json:"s3Key"`
+	S3Key *string `json:"s3Key" yaml:"s3Key"`
 }
 
 // Properties for defining a `CfnRobotApplication`.
@@ -1663,15 +1663,15 @@ type CfnRobotApplication_SourceConfigProperty struct {
 //
 type CfnRobotApplicationProps struct {
 	// The robot software suite (ROS distribuition) used by the robot application.
-	RobotSoftwareSuite interface{} `json:"robotSoftwareSuite"`
+	RobotSoftwareSuite interface{} `json:"robotSoftwareSuite" yaml:"robotSoftwareSuite"`
 	// The sources of the robot application.
-	Sources interface{} `json:"sources"`
+	Sources interface{} `json:"sources" yaml:"sources"`
 	// The current revision id.
-	CurrentRevisionId *string `json:"currentRevisionId"`
+	CurrentRevisionId *string `json:"currentRevisionId" yaml:"currentRevisionId"`
 	// The name of the robot application.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// A map that contains tag keys and tag values that are attached to the robot application.
-	Tags interface{} `json:"tags"`
+	Tags interface{} `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::RoboMaker::RobotApplicationVersion`.
@@ -2194,11 +2194,11 @@ func (c *jsiiProxy_CfnRobotApplicationVersion) ValidateProperties(_properties in
 //
 type CfnRobotApplicationVersionProps struct {
 	// The application information for the robot application.
-	Application *string `json:"application"`
+	Application *string `json:"application" yaml:"application"`
 	// The current revision id for the robot application.
 	//
 	// If you provide a value and it matches the latest revision ID, a new version will be created.
-	CurrentRevisionId *string `json:"currentRevisionId"`
+	CurrentRevisionId *string `json:"currentRevisionId" yaml:"currentRevisionId"`
 }
 
 // Properties for defining a `CfnRobot`.
@@ -2207,15 +2207,15 @@ type CfnRobotApplicationVersionProps struct {
 //
 type CfnRobotProps struct {
 	// The architecture of the robot.
-	Architecture *string `json:"architecture"`
+	Architecture *string `json:"architecture" yaml:"architecture"`
 	// The Greengrass group associated with the robot.
-	GreengrassGroupId *string `json:"greengrassGroupId"`
+	GreengrassGroupId *string `json:"greengrassGroupId" yaml:"greengrassGroupId"`
 	// The Amazon Resource Name (ARN) of the fleet to which the robot will be registered.
-	Fleet *string `json:"fleet"`
+	Fleet *string `json:"fleet" yaml:"fleet"`
 	// The name of the robot.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// A map that contains tag keys and tag values that are attached to the robot.
-	Tags *map[string]*string `json:"tags"`
+	Tags *map[string]*string `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::RoboMaker::SimulationApplication`.
@@ -2849,9 +2849,9 @@ func (c *jsiiProxy_CfnSimulationApplication) ValidateProperties(_properties inte
 //
 type CfnSimulationApplication_RenderingEngineProperty struct {
 	// The name of the rendering engine.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The version of the rendering engine.
-	Version *string `json:"version"`
+	Version *string `json:"version" yaml:"version"`
 }
 
 // Information about a robot software suite (ROS distribution).
@@ -2860,9 +2860,9 @@ type CfnSimulationApplication_RenderingEngineProperty struct {
 //
 type CfnSimulationApplication_RobotSoftwareSuiteProperty struct {
 	// The name of the robot software suite (ROS distribution).
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The version of the robot software suite (ROS distribution).
-	Version *string `json:"version"`
+	Version *string `json:"version" yaml:"version"`
 }
 
 // Information about a simulation software suite.
@@ -2871,9 +2871,9 @@ type CfnSimulationApplication_RobotSoftwareSuiteProperty struct {
 //
 type CfnSimulationApplication_SimulationSoftwareSuiteProperty struct {
 	// The name of the simulation software suite.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The version of the simulation software suite.
-	Version *string `json:"version"`
+	Version *string `json:"version" yaml:"version"`
 }
 
 // Information about a source configuration.
@@ -2882,11 +2882,11 @@ type CfnSimulationApplication_SimulationSoftwareSuiteProperty struct {
 //
 type CfnSimulationApplication_SourceConfigProperty struct {
 	// The target processor architecture for the application.
-	Architecture *string `json:"architecture"`
+	Architecture *string `json:"architecture" yaml:"architecture"`
 	// The Amazon S3 bucket name.
-	S3Bucket *string `json:"s3Bucket"`
+	S3Bucket *string `json:"s3Bucket" yaml:"s3Bucket"`
 	// The s3 object key.
-	S3Key *string `json:"s3Key"`
+	S3Key *string `json:"s3Key" yaml:"s3Key"`
 }
 
 // Properties for defining a `CfnSimulationApplication`.
@@ -2895,21 +2895,21 @@ type CfnSimulationApplication_SourceConfigProperty struct {
 //
 type CfnSimulationApplicationProps struct {
 	// The robot software suite (ROS distribution) used by the simulation application.
-	RobotSoftwareSuite interface{} `json:"robotSoftwareSuite"`
+	RobotSoftwareSuite interface{} `json:"robotSoftwareSuite" yaml:"robotSoftwareSuite"`
 	// The simulation software suite used by the simulation application.
-	SimulationSoftwareSuite interface{} `json:"simulationSoftwareSuite"`
+	SimulationSoftwareSuite interface{} `json:"simulationSoftwareSuite" yaml:"simulationSoftwareSuite"`
 	// The current revision id.
-	CurrentRevisionId *string `json:"currentRevisionId"`
+	CurrentRevisionId *string `json:"currentRevisionId" yaml:"currentRevisionId"`
 	// The environment of the simulation application.
-	Environment *string `json:"environment"`
+	Environment *string `json:"environment" yaml:"environment"`
 	// The name of the simulation application.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The rendering engine for the simulation application.
-	RenderingEngine interface{} `json:"renderingEngine"`
+	RenderingEngine interface{} `json:"renderingEngine" yaml:"renderingEngine"`
 	// The sources of the simulation application.
-	Sources interface{} `json:"sources"`
+	Sources interface{} `json:"sources" yaml:"sources"`
 	// A map that contains tag keys and tag values that are attached to the simulation application.
-	Tags *map[string]*string `json:"tags"`
+	Tags *map[string]*string `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::RoboMaker::SimulationApplicationVersion`.
@@ -3432,10 +3432,10 @@ func (c *jsiiProxy_CfnSimulationApplicationVersion) ValidateProperties(_properti
 //
 type CfnSimulationApplicationVersionProps struct {
 	// The application information for the simulation application.
-	Application *string `json:"application"`
+	Application *string `json:"application" yaml:"application"`
 	// The current revision id for the simulation application.
 	//
 	// If you provide a value and it matches the latest revision ID, a new version will be created.
-	CurrentRevisionId *string `json:"currentRevisionId"`
+	CurrentRevisionId *string `json:"currentRevisionId" yaml:"currentRevisionId"`
 }
 

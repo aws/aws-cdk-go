@@ -728,25 +728,25 @@ type CfnServer_EndpointDetailsProperty struct {
 	// This is only valid in the `UpdateServer` API.
 	//
 	// > This property can only be set when `EndpointType` is set to `VPC` .
-	AddressAllocationIds *[]*string `json:"addressAllocationIds"`
+	AddressAllocationIds *[]*string `json:"addressAllocationIds" yaml:"addressAllocationIds"`
 	// A list of security groups IDs that are available to attach to your server's endpoint.
 	//
 	// > This property can only be set when `EndpointType` is set to `VPC` .
 	//
 	// *Maximum number of security groups* : 5
-	SecurityGroupIds *[]*string `json:"securityGroupIds"`
+	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
 	// A list of subnet IDs that are required to host your server endpoint in your VPC.
 	//
 	// > This property can only be set when `EndpointType` is set to `VPC` .
-	SubnetIds *[]*string `json:"subnetIds"`
+	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
 	// The ID of the VPC endpoint.
 	//
 	// > This property can only be set when `EndpointType` is set to `VPC_ENDPOINT` .
-	VpcEndpointId *string `json:"vpcEndpointId"`
+	VpcEndpointId *string `json:"vpcEndpointId" yaml:"vpcEndpointId"`
 	// The VPC ID of the virtual private cloud in which the server's endpoint will be hosted.
 	//
 	// > This property can only be set when `EndpointType` is set to `VPC` .
-	VpcId *string `json:"vpcId"`
+	VpcId *string `json:"vpcId" yaml:"vpcId"`
 }
 
 // Required when `IdentityProviderType` is set to `AWS_DIRECTORY_SERVICE` or `API_GATEWAY` .
@@ -757,13 +757,13 @@ type CfnServer_EndpointDetailsProperty struct {
 //
 type CfnServer_IdentityProviderDetailsProperty struct {
 	// The identifier of the AWS Directory Service directory that you want to stop sharing.
-	DirectoryId *string `json:"directoryId"`
+	DirectoryId *string `json:"directoryId" yaml:"directoryId"`
 	// The ARN for a lambda function to use for the Identity provider.
-	Function *string `json:"function"`
+	Function *string `json:"function" yaml:"function"`
 	// Provides the type of `InvocationRole` used to authenticate the user account.
-	InvocationRole *string `json:"invocationRole"`
+	InvocationRole *string `json:"invocationRole" yaml:"invocationRole"`
 	// Provides the location of the service endpoint used to authenticate users.
-	Url *string `json:"url"`
+	Url *string `json:"url" yaml:"url"`
 }
 
 // Protocol settings that are configured for your server.
@@ -774,7 +774,7 @@ type CfnServer_ProtocolDetailsProperty struct {
 	// Indicates passive mode, for FTP and FTPS protocols.
 	//
 	// Enter a single dotted-quad IPv4 address, such as the external IP address of a firewall, router, or load balancer.
-	PassiveIp *string `json:"passiveIp"`
+	PassiveIp *string `json:"passiveIp" yaml:"passiveIp"`
 }
 
 // Specifies the workflow ID for the workflow to assign and the execution role used for executing the workflow.
@@ -783,9 +783,9 @@ type CfnServer_ProtocolDetailsProperty struct {
 //
 type CfnServer_WorkflowDetailProperty struct {
 	// Includes the necessary permissions for S3, EFS, and Lambda operations that Transfer can assume, so that all workflow steps can operate on the required resources.
-	ExecutionRole *string `json:"executionRole"`
+	ExecutionRole *string `json:"executionRole" yaml:"executionRole"`
 	// A unique identifier for the workflow.
-	WorkflowId *string `json:"workflowId"`
+	WorkflowId *string `json:"workflowId" yaml:"workflowId"`
 }
 
 // Container for the `WorkflowDetail` data type.
@@ -796,7 +796,7 @@ type CfnServer_WorkflowDetailProperty struct {
 //
 type CfnServer_WorkflowDetailsProperty struct {
 	// A trigger that starts a workflow: the workflow begins to execute after a file is uploaded.
-	OnUpload interface{} `json:"onUpload"`
+	OnUpload interface{} `json:"onUpload" yaml:"onUpload"`
 }
 
 // Properties for defining a `CfnServer`.
@@ -823,23 +823,23 @@ type CfnServerProps struct {
 	// - Elliptic Prime Curve 521 bit (EC_secp521r1)
 	//
 	// > The certificate must be a valid SSL/TLS X.509 version 3 certificate with FQDN or IP address specified and information about the issuer.
-	Certificate *string `json:"certificate"`
+	Certificate *string `json:"certificate" yaml:"certificate"`
 	// Specifies the domain of the storage system that is used for file transfers.
-	Domain *string `json:"domain"`
+	Domain *string `json:"domain" yaml:"domain"`
 	// The virtual private cloud (VPC) endpoint settings that are configured for your server.
 	//
 	// When you host your endpoint within your VPC, you can make it accessible only to resources within your VPC, or you can attach Elastic IPs and make it accessible to clients over the internet. You VPC's default security groups are automatically assigned to your endpoint.
-	EndpointDetails interface{} `json:"endpointDetails"`
+	EndpointDetails interface{} `json:"endpointDetails" yaml:"endpointDetails"`
 	// The type of VPC endpoint that you want your server to connect to.
 	//
 	// You can choose to connect to the public internet or a virtual private cloud (VPC) endpoint. With a VPC endpoint, you can restrict access to your server and resources only within your VPC.
 	//
 	// > It is recommended that you use `VPC` as the `EndpointType` . With this endpoint type, you have the option to directly associate up to three Elastic IPv4 addresses (BYO IP included) with your server's endpoint and use VPC security groups to restrict traffic by the client's public IP address. This is not possible with `EndpointType` set to `VPC_ENDPOINT` .
-	EndpointType *string `json:"endpointType"`
+	EndpointType *string `json:"endpointType" yaml:"endpointType"`
 	// Required when `IdentityProviderType` is set to `AWS_DIRECTORY_SERVICE` or `API_GATEWAY` .
 	//
 	// Accepts an array containing all of the information required to use a directory in `AWS_DIRECTORY_SERVICE` or invoke a customer-supplied authentication API, including the API Gateway URL. Not required when `IdentityProviderType` is set to `SERVICE_MANAGED` .
-	IdentityProviderDetails interface{} `json:"identityProviderDetails"`
+	IdentityProviderDetails interface{} `json:"identityProviderDetails" yaml:"identityProviderDetails"`
 	// Specifies the mode of authentication for a server.
 	//
 	// The default value is `SERVICE_MANAGED` , which allows you to store and access user credentials within the AWS Transfer Family service.
@@ -849,23 +849,23 @@ type CfnServerProps struct {
 	// Use the `API_GATEWAY` value to integrate with an identity provider of your choosing. The `API_GATEWAY` setting requires you to provide an API Gateway endpoint URL to call for authentication using the `IdentityProviderDetails` parameter.
 	//
 	// Use the `AWS_LAMBDA` value to directly use a Lambda function as your identity provider. If you choose this value, you must specify the ARN for the lambda function in the `Function` parameter for the `IdentityProviderDetails` data type.
-	IdentityProviderType *string `json:"identityProviderType"`
+	IdentityProviderType *string `json:"identityProviderType" yaml:"identityProviderType"`
 	// Specifies the Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows a server to turn on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events.
 	//
 	// When set, user activity can be viewed in your CloudWatch logs.
-	LoggingRole *string `json:"loggingRole"`
+	LoggingRole *string `json:"loggingRole" yaml:"loggingRole"`
 	// Protocol settings that are configured for your server.
 	//
 	// > Only valid in the `UpdateServer` API.
-	ProtocolDetails interface{} `json:"protocolDetails"`
+	ProtocolDetails interface{} `json:"protocolDetails" yaml:"protocolDetails"`
 	// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint.
-	Protocols *[]*string `json:"protocols"`
+	Protocols *[]*string `json:"protocols" yaml:"protocols"`
 	// Specifies the name of the security policy that is attached to the server.
-	SecurityPolicyName *string `json:"securityPolicyName"`
+	SecurityPolicyName *string `json:"securityPolicyName" yaml:"securityPolicyName"`
 	// Key-value pairs that can be used to group and search for servers.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// Specifies the workflow ID for the workflow to assign and the execution role used for executing the workflow.
-	WorkflowDetails interface{} `json:"workflowDetails"`
+	WorkflowDetails interface{} `json:"workflowDetails" yaml:"workflowDetails"`
 }
 
 // A CloudFormation `AWS::Transfer::User`.
@@ -1550,9 +1550,9 @@ func (c *jsiiProxy_CfnUser) ValidateProperties(_properties interface{}) {
 //
 type CfnUser_HomeDirectoryMapEntryProperty struct {
 	// Represents an entry for `HomeDirectoryMappings` .
-	Entry *string `json:"entry"`
+	Entry *string `json:"entry" yaml:"entry"`
 	// Represents the map target that is used in a `HomeDirectorymapEntry` .
-	Target *string `json:"target"`
+	Target *string `json:"target" yaml:"target"`
 }
 
 // The full POSIX identity, including user ID ( `Uid` ), group ID ( `Gid` ), and any secondary groups IDs ( `SecondaryGids` ), that controls your users' access to your Amazon EFS file systems.
@@ -1563,11 +1563,11 @@ type CfnUser_HomeDirectoryMapEntryProperty struct {
 //
 type CfnUser_PosixProfileProperty struct {
 	// The POSIX group ID used for all EFS operations by this user.
-	Gid *float64 `json:"gid"`
+	Gid *float64 `json:"gid" yaml:"gid"`
 	// The POSIX user ID used for all EFS operations by this user.
-	Uid *float64 `json:"uid"`
+	Uid *float64 `json:"uid" yaml:"uid"`
 	// The secondary POSIX group IDs used for all EFS operations by this user.
-	SecondaryGids interface{} `json:"secondaryGids"`
+	SecondaryGids interface{} `json:"secondaryGids" yaml:"secondaryGids"`
 }
 
 // Properties for defining a `CfnUser`.
@@ -1578,19 +1578,19 @@ type CfnUserProps struct {
 	// Specifies the Amazon Resource Name (ARN) of the IAM role that controls your users' access to your Amazon S3 bucket or EFS file system.
 	//
 	// The policies attached to this role determine the level of access that you want to provide your users when transferring files into and out of your Amazon S3 bucket or EFS file system. The IAM role should also contain a trust relationship that allows the server to access your resources when servicing your users' transfer requests.
-	Role *string `json:"role"`
+	Role *string `json:"role" yaml:"role"`
 	// A system-assigned unique identifier for a server instance.
 	//
 	// This is the specific server that you added your user to.
-	ServerId *string `json:"serverId"`
+	ServerId *string `json:"serverId" yaml:"serverId"`
 	// A unique string that identifies a user and is associated with a `ServerId` .
 	//
 	// This user name must be a minimum of 3 and a maximum of 100 characters long. The following are valid characters: a-z, A-Z, 0-9, underscore '_', hyphen '-', period '.', and at sign '@'. The user name can't start with a hyphen, period, or at sign.
-	UserName *string `json:"userName"`
+	UserName *string `json:"userName" yaml:"userName"`
 	// The landing directory (folder) for a user when they log in to the server using the client.
 	//
 	// A `HomeDirectory` example is `/bucket_name/home/mydirectory` .
-	HomeDirectory *string `json:"homeDirectory"`
+	HomeDirectory *string `json:"homeDirectory" yaml:"homeDirectory"`
 	// Logical directory mappings that specify what Amazon S3 paths and keys should be visible to your user and how you want to make them visible.
 	//
 	// You will need to specify the " `Entry` " and " `Target` " pair, where `Entry` shows how the path is made visible and `Target` is the actual Amazon S3 path. If you only specify a target, it will be displayed as is. You will need to also make sure that your IAM role provides access to paths in `Target` . The following is an example.
@@ -1600,11 +1600,11 @@ type CfnUserProps struct {
 	// In most cases, you can use this value instead of the session policy to lock your user down to the designated home directory ("chroot"). To do this, you can set `Entry` to '/' and set `Target` to the HomeDirectory parameter value.
 	//
 	// > If the target of a logical directory entry does not exist in Amazon S3, the entry will be ignored. As a workaround, you can use the Amazon S3 API to create 0 byte objects as place holders for your directory. If using the CLI, use the `s3api` call instead of `s3` so you can use the put-object operation. For example, you use the following: `AWS s3api put-object --bucket bucketname --key path/to/folder/` . Make sure that the end of the key name ends in a '/' for it to be considered a folder.
-	HomeDirectoryMappings interface{} `json:"homeDirectoryMappings"`
+	HomeDirectoryMappings interface{} `json:"homeDirectoryMappings" yaml:"homeDirectoryMappings"`
 	// The type of landing directory (folder) you want your users' home directory to be when they log into the server.
 	//
 	// If you set it to `PATH` , the user will see the absolute Amazon S3 bucket or EFS paths as is in their file transfer protocol clients. If you set it `LOGICAL` , you need to provide mappings in the `HomeDirectoryMappings` for how you want to make Amazon S3 or EFS paths visible to your users.
-	HomeDirectoryType *string `json:"homeDirectoryType"`
+	HomeDirectoryType *string `json:"homeDirectoryType" yaml:"homeDirectoryType"`
 	// A session policy for your user so you can use the same IAM role across multiple users.
 	//
 	// This policy restricts user access to portions of their Amazon S3 bucket. Variables that you can use inside this policy include `${Transfer:UserName}` , `${Transfer:HomeDirectory}` , and `${Transfer:HomeBucket}` .
@@ -1614,17 +1614,17 @@ type CfnUserProps struct {
 	// > For an example of a session policy, see [Example session policy](https://docs.aws.amazon.com/transfer/latest/userguide/session-policy.html) .
 	// >
 	// > For more information, see [AssumeRole](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) in the *AWS Security Token Service API Reference* .
-	Policy *string `json:"policy"`
+	Policy *string `json:"policy" yaml:"policy"`
 	// Specifies the full POSIX identity, including user ID ( `Uid` ), group ID ( `Gid` ), and any secondary groups IDs ( `SecondaryGids` ), that controls your users' access to your Amazon Elastic File System (Amazon EFS) file systems.
 	//
 	// The POSIX permissions that are set on files and directories in your file system determine the level of access your users get when transferring files into and out of your Amazon EFS file systems.
-	PosixProfile interface{} `json:"posixProfile"`
+	PosixProfile interface{} `json:"posixProfile" yaml:"posixProfile"`
 	// Specifies the public key portion of the Secure Shell (SSH) keys stored for the described user.
-	SshPublicKeys *[]*string `json:"sshPublicKeys"`
+	SshPublicKeys *[]*string `json:"sshPublicKeys" yaml:"sshPublicKeys"`
 	// Key-value pairs that can be used to group and search for users.
 	//
 	// Tags are metadata attached to users for any purpose.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Transfer::Workflow`.
@@ -2182,24 +2182,24 @@ type CfnWorkflow_WorkflowStepProperty struct {
 	// - A description
 	// - An S3 location for the destination of the file copy
 	// - A flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE` .
-	CopyStepDetails interface{} `json:"copyStepDetails"`
+	CopyStepDetails interface{} `json:"copyStepDetails" yaml:"copyStepDetails"`
 	// Details for a step that invokes a lambda function.
 	//
 	// Consists of the lambda function name, target, and timeout (in seconds).
-	CustomStepDetails interface{} `json:"customStepDetails"`
+	CustomStepDetails interface{} `json:"customStepDetails" yaml:"customStepDetails"`
 	// Details for a step that deletes the file.
-	DeleteStepDetails interface{} `json:"deleteStepDetails"`
+	DeleteStepDetails interface{} `json:"deleteStepDetails" yaml:"deleteStepDetails"`
 	// Details for a step that creates one or more tags.
 	//
 	// You specify one or more tags: each tag contains a key/value pair.
-	TagStepDetails interface{} `json:"tagStepDetails"`
+	TagStepDetails interface{} `json:"tagStepDetails" yaml:"tagStepDetails"`
 	// Currently, the following step types are supported.
 	//
 	// - *Copy* : copy the file to another location
 	// - *Custom* : custom step with a lambda target
 	// - *Delete* : delete the file
 	// - *Tag* : add a tag to the file
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 }
 
 // Properties for defining a `CfnWorkflow`.
@@ -2208,14 +2208,14 @@ type CfnWorkflow_WorkflowStepProperty struct {
 //
 type CfnWorkflowProps struct {
 	// Specifies the details for the steps that are in the specified workflow.
-	Steps interface{} `json:"steps"`
+	Steps interface{} `json:"steps" yaml:"steps"`
 	// Specifies the text description for the workflow.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Specifies the steps (actions) to take if errors are encountered during execution of the workflow.
-	OnExceptionSteps interface{} `json:"onExceptionSteps"`
+	OnExceptionSteps interface{} `json:"onExceptionSteps" yaml:"onExceptionSteps"`
 	// Key-value pairs that can be used to group and search for workflows.
 	//
 	// Tags are metadata attached to workflows for any purpose.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 

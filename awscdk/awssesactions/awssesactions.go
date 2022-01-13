@@ -74,12 +74,12 @@ type AddHeaderProps struct {
 	// Must be between 1 and 50 characters,
 	// inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters
 	// and dashes only.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The value of the header to add.
 	//
 	// Must be less than 2048 characters,
 	// and must not contain newline characters ("\r" or "\n").
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // Rejects the received email by returning a bounce response to the sender and, optionally, publishes a notification to Amazon SNS.
@@ -143,11 +143,11 @@ type BounceProps struct {
 	//
 	// This is the address
 	// from which the bounce message will be sent.
-	Sender *string `json:"sender"`
+	Sender *string `json:"sender" yaml:"sender"`
 	// The template containing the message, reply code and status code.
-	Template BounceTemplate `json:"template"`
+	Template BounceTemplate `json:"template" yaml:"template"`
 	// The SNS topic to notify when the bounce action is taken.
-	Topic awssns.ITopic `json:"topic"`
+	Topic awssns.ITopic `json:"topic" yaml:"topic"`
 }
 
 // A bounce template.
@@ -259,15 +259,15 @@ func BounceTemplate_TEMPORARY_FAILURE() BounceTemplate {
 //
 type BounceTemplateProps struct {
 	// Human-readable text to include in the bounce message.
-	Message *string `json:"message"`
+	Message *string `json:"message" yaml:"message"`
 	// The SMTP reply code, as defined by RFC 5321.
 	// See: https://tools.ietf.org/html/rfc5321
 	//
-	SmtpReplyCode *string `json:"smtpReplyCode"`
+	SmtpReplyCode *string `json:"smtpReplyCode" yaml:"smtpReplyCode"`
 	// The SMTP enhanced status code, as defined by RFC 3463.
 	// See: https://tools.ietf.org/html/rfc3463
 	//
-	StatusCode *string `json:"statusCode"`
+	StatusCode *string `json:"statusCode" yaml:"statusCode"`
 }
 
 // The type of email encoding to use for a SNS action.
@@ -344,11 +344,11 @@ const (
 //
 type LambdaProps struct {
 	// The Lambda function to invoke.
-	Function awslambda.IFunction `json:"function"`
+	Function awslambda.IFunction `json:"function" yaml:"function"`
 	// The invocation type of the Lambda function.
-	InvocationType LambdaInvocationType `json:"invocationType"`
+	InvocationType LambdaInvocationType `json:"invocationType" yaml:"invocationType"`
 	// The SNS topic to notify when the Lambda action is taken.
-	Topic awssns.ITopic `json:"topic"`
+	Topic awssns.ITopic `json:"topic" yaml:"topic"`
 }
 
 // Saves the received message to an Amazon S3 bucket and, optionally, publishes a notification to Amazon SNS.
@@ -409,13 +409,13 @@ func (s *jsiiProxy_S3) Bind(rule awsses.IReceiptRule) *awsses.ReceiptRuleActionC
 //
 type S3Props struct {
 	// The S3 bucket that incoming email will be saved to.
-	Bucket awss3.IBucket `json:"bucket"`
+	Bucket awss3.IBucket `json:"bucket" yaml:"bucket"`
 	// The master key that SES should use to encrypt your emails before saving them to the S3 bucket.
-	KmsKey awskms.IKey `json:"kmsKey"`
+	KmsKey awskms.IKey `json:"kmsKey" yaml:"kmsKey"`
 	// The key prefix of the S3 bucket.
-	ObjectKeyPrefix *string `json:"objectKeyPrefix"`
+	ObjectKeyPrefix *string `json:"objectKeyPrefix" yaml:"objectKeyPrefix"`
 	// The SNS topic to notify when the S3 action is taken.
-	Topic awssns.ITopic `json:"topic"`
+	Topic awssns.ITopic `json:"topic" yaml:"topic"`
 }
 
 // Publishes the email content within a notification to Amazon SNS.
@@ -476,9 +476,9 @@ func (s *jsiiProxy_Sns) Bind(_rule awsses.IReceiptRule) *awsses.ReceiptRuleActio
 //
 type SnsProps struct {
 	// The SNS topic to notify.
-	Topic awssns.ITopic `json:"topic"`
+	Topic awssns.ITopic `json:"topic" yaml:"topic"`
 	// The encoding to use for the email within the Amazon SNS notification.
-	Encoding EmailEncoding `json:"encoding"`
+	Encoding EmailEncoding `json:"encoding" yaml:"encoding"`
 }
 
 // Terminates the evaluation of the receipt rule set and optionally publishes a notification to Amazon SNS.
@@ -539,6 +539,6 @@ func (s *jsiiProxy_Stop) Bind(_rule awsses.IReceiptRule) *awsses.ReceiptRuleActi
 //
 type StopProps struct {
 	// The SNS topic to notify when the stop action is taken.
-	Topic awssns.ITopic `json:"topic"`
+	Topic awssns.ITopic `json:"topic" yaml:"topic"`
 }
 

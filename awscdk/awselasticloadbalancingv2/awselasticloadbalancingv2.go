@@ -21,7 +21,7 @@ type AddApplicationActionProps struct {
 	// Rule applies if matches the conditions.
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html
 	//
-	Conditions *[]ListenerCondition `json:"conditions"`
+	Conditions *[]ListenerCondition `json:"conditions" yaml:"conditions"`
 	// Priority of this target group.
 	//
 	// The rule with the lowest priority will be used for every request.
@@ -29,9 +29,9 @@ type AddApplicationActionProps struct {
 	// defaults, and must not have conditions.
 	//
 	// Priorities must be unique.
-	Priority *float64 `json:"priority"`
+	Priority *float64 `json:"priority" yaml:"priority"`
 	// Action to perform.
-	Action ListenerAction `json:"action"`
+	Action ListenerAction `json:"action" yaml:"action"`
 }
 
 // Properties for adding a new target group to a listener.
@@ -42,7 +42,7 @@ type AddApplicationTargetGroupsProps struct {
 	// Rule applies if matches the conditions.
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html
 	//
-	Conditions *[]ListenerCondition `json:"conditions"`
+	Conditions *[]ListenerCondition `json:"conditions" yaml:"conditions"`
 	// Priority of this target group.
 	//
 	// The rule with the lowest priority will be used for every request.
@@ -50,9 +50,9 @@ type AddApplicationTargetGroupsProps struct {
 	// defaults, and must not have conditions.
 	//
 	// Priorities must be unique.
-	Priority *float64 `json:"priority"`
+	Priority *float64 `json:"priority" yaml:"priority"`
 	// Target groups to forward requests to.
-	TargetGroups *[]IApplicationTargetGroup `json:"targetGroups"`
+	TargetGroups *[]IApplicationTargetGroup `json:"targetGroups" yaml:"targetGroups"`
 }
 
 // Properties for adding new targets to a listener.
@@ -63,7 +63,7 @@ type AddApplicationTargetsProps struct {
 	// Rule applies if matches the conditions.
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html
 	//
-	Conditions *[]ListenerCondition `json:"conditions"`
+	Conditions *[]ListenerCondition `json:"conditions" yaml:"conditions"`
 	// Priority of this target group.
 	//
 	// The rule with the lowest priority will be used for every request.
@@ -71,32 +71,32 @@ type AddApplicationTargetsProps struct {
 	// defaults, and must not have conditions.
 	//
 	// Priorities must be unique.
-	Priority *float64 `json:"priority"`
+	Priority *float64 `json:"priority" yaml:"priority"`
 	// The amount of time for Elastic Load Balancing to wait before deregistering a target.
 	//
 	// The range is 0-3600 seconds.
-	DeregistrationDelay awscdk.Duration `json:"deregistrationDelay"`
+	DeregistrationDelay awscdk.Duration `json:"deregistrationDelay" yaml:"deregistrationDelay"`
 	// Health check configuration.
-	HealthCheck *HealthCheck `json:"healthCheck"`
+	HealthCheck *HealthCheck `json:"healthCheck" yaml:"healthCheck"`
 	// The load balancing algorithm to select targets for routing requests.
-	LoadBalancingAlgorithmType TargetGroupLoadBalancingAlgorithmType `json:"loadBalancingAlgorithmType"`
+	LoadBalancingAlgorithmType TargetGroupLoadBalancingAlgorithmType `json:"loadBalancingAlgorithmType" yaml:"loadBalancingAlgorithmType"`
 	// The port on which the listener listens for requests.
-	Port *float64 `json:"port"`
+	Port *float64 `json:"port" yaml:"port"`
 	// The protocol to use.
-	Protocol ApplicationProtocol `json:"protocol"`
+	Protocol ApplicationProtocol `json:"protocol" yaml:"protocol"`
 	// The protocol version to use.
-	ProtocolVersion ApplicationProtocolVersion `json:"protocolVersion"`
+	ProtocolVersion ApplicationProtocolVersion `json:"protocolVersion" yaml:"protocolVersion"`
 	// The time period during which the load balancer sends a newly registered target a linearly increasing share of the traffic to the target group.
 	//
 	// The range is 30-900 seconds (15 minutes).
-	SlowStart awscdk.Duration `json:"slowStart"`
+	SlowStart awscdk.Duration `json:"slowStart" yaml:"slowStart"`
 	// The stickiness cookie expiration period.
 	//
 	// Setting this value enables load balancer stickiness.
 	//
 	// After this period, the cookie is considered stale. The minimum value is
 	// 1 second and the maximum value is 7 days (604800 seconds).
-	StickinessCookieDuration awscdk.Duration `json:"stickinessCookieDuration"`
+	StickinessCookieDuration awscdk.Duration `json:"stickinessCookieDuration" yaml:"stickinessCookieDuration"`
 	// The name of an application-based stickiness cookie.
 	//
 	// Names that start with the following prefixes are not allowed: AWSALB, AWSALBAPP,
@@ -106,18 +106,18 @@ type AddApplicationTargetsProps struct {
 	// If `stickinessCookieDuration` is not set, `stickinessCookieName` will be omitted.
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/sticky-sessions.html
 	//
-	StickinessCookieName *string `json:"stickinessCookieName"`
+	StickinessCookieName *string `json:"stickinessCookieName" yaml:"stickinessCookieName"`
 	// The name of the target group.
 	//
 	// This name must be unique per region per account, can have a maximum of
 	// 32 characters, must contain only alphanumeric characters or hyphens, and
 	// must not begin or end with a hyphen.
-	TargetGroupName *string `json:"targetGroupName"`
+	TargetGroupName *string `json:"targetGroupName" yaml:"targetGroupName"`
 	// The targets to add to this target group.
 	//
 	// Can be `Instance`, `IPAddress`, or any self-registering load balancing
 	// target. All target must be of the same type.
-	Targets *[]IApplicationLoadBalancerTarget `json:"targets"`
+	Targets *[]IApplicationLoadBalancerTarget `json:"targets" yaml:"targets"`
 }
 
 // Properties for adding a new action to a listener.
@@ -126,7 +126,7 @@ type AddApplicationTargetsProps struct {
 //
 type AddNetworkActionProps struct {
 	// Action to perform.
-	Action NetworkListenerAction `json:"action"`
+	Action NetworkListenerAction `json:"action" yaml:"action"`
 }
 
 // Properties for adding new network targets to a listener.
@@ -135,31 +135,31 @@ type AddNetworkActionProps struct {
 //
 type AddNetworkTargetsProps struct {
 	// The port on which the listener listens for requests.
-	Port *float64 `json:"port"`
+	Port *float64 `json:"port" yaml:"port"`
 	// The amount of time for Elastic Load Balancing to wait before deregistering a target.
 	//
 	// The range is 0-3600 seconds.
-	DeregistrationDelay awscdk.Duration `json:"deregistrationDelay"`
+	DeregistrationDelay awscdk.Duration `json:"deregistrationDelay" yaml:"deregistrationDelay"`
 	// Health check configuration.
-	HealthCheck *HealthCheck `json:"healthCheck"`
+	HealthCheck *HealthCheck `json:"healthCheck" yaml:"healthCheck"`
 	// Indicates whether client IP preservation is enabled.
-	PreserveClientIp *bool `json:"preserveClientIp"`
+	PreserveClientIp *bool `json:"preserveClientIp" yaml:"preserveClientIp"`
 	// Protocol for target group, expects TCP, TLS, UDP, or TCP_UDP.
-	Protocol Protocol `json:"protocol"`
+	Protocol Protocol `json:"protocol" yaml:"protocol"`
 	// Indicates whether Proxy Protocol version 2 is enabled.
-	ProxyProtocolV2 *bool `json:"proxyProtocolV2"`
+	ProxyProtocolV2 *bool `json:"proxyProtocolV2" yaml:"proxyProtocolV2"`
 	// The name of the target group.
 	//
 	// This name must be unique per region per account, can have a maximum of
 	// 32 characters, must contain only alphanumeric characters or hyphens, and
 	// must not begin or end with a hyphen.
-	TargetGroupName *string `json:"targetGroupName"`
+	TargetGroupName *string `json:"targetGroupName" yaml:"targetGroupName"`
 	// The targets to add to this target group.
 	//
 	// Can be `Instance`, `IPAddress`, or any self-registering load balancing
 	// target. If you use either `Instance` or `IPAddress` as targets, all
 	// target must be of the same type.
-	Targets *[]INetworkLoadBalancerTarget `json:"targets"`
+	Targets *[]INetworkLoadBalancerTarget `json:"targets" yaml:"targets"`
 }
 
 // Properties for adding a conditional load balancing rule.
@@ -170,7 +170,7 @@ type AddRuleProps struct {
 	// Rule applies if matches the conditions.
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html
 	//
-	Conditions *[]ListenerCondition `json:"conditions"`
+	Conditions *[]ListenerCondition `json:"conditions" yaml:"conditions"`
 	// Priority of this target group.
 	//
 	// The rule with the lowest priority will be used for every request.
@@ -178,7 +178,7 @@ type AddRuleProps struct {
 	// defaults, and must not have conditions.
 	//
 	// Priorities must be unique.
-	Priority *float64 `json:"priority"`
+	Priority *float64 `json:"priority" yaml:"priority"`
 }
 
 // Application-Layer Protocol Negotiation Policies for network load balancers.
@@ -572,11 +572,11 @@ func (a *jsiiProxy_ApplicationListener) ValidateListener() *[]*string {
 //
 type ApplicationListenerAttributes struct {
 	// ARN of the listener.
-	ListenerArn *string `json:"listenerArn"`
+	ListenerArn *string `json:"listenerArn" yaml:"listenerArn"`
 	// The default port on which this listener is listening.
-	DefaultPort *float64 `json:"defaultPort"`
+	DefaultPort *float64 `json:"defaultPort" yaml:"defaultPort"`
 	// Security group of the load balancer this listener is associated with.
-	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
+	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup" yaml:"securityGroup"`
 }
 
 // Add certificates to a listener.
@@ -668,11 +668,11 @@ func (a *jsiiProxy_ApplicationListenerCertificate) ToString() *string {
 //
 type ApplicationListenerCertificateProps struct {
 	// The listener to attach the rule to.
-	Listener IApplicationListener `json:"listener"`
+	Listener IApplicationListener `json:"listener" yaml:"listener"`
 	// Certificates to attach.
 	//
 	// Duplicates are not allowed.
-	Certificates *[]IListenerCertificate `json:"certificates"`
+	Certificates *[]IListenerCertificate `json:"certificates" yaml:"certificates"`
 }
 
 // Options for ApplicationListener lookup.
@@ -681,15 +681,15 @@ type ApplicationListenerCertificateProps struct {
 //
 type ApplicationListenerLookupOptions struct {
 	// Filter listeners by listener port.
-	ListenerPort *float64 `json:"listenerPort"`
+	ListenerPort *float64 `json:"listenerPort" yaml:"listenerPort"`
 	// Filter listeners by associated load balancer arn.
-	LoadBalancerArn *string `json:"loadBalancerArn"`
+	LoadBalancerArn *string `json:"loadBalancerArn" yaml:"loadBalancerArn"`
 	// Filter listeners by associated load balancer tags.
-	LoadBalancerTags *map[string]*string `json:"loadBalancerTags"`
+	LoadBalancerTags *map[string]*string `json:"loadBalancerTags" yaml:"loadBalancerTags"`
 	// ARN of the listener to look up.
-	ListenerArn *string `json:"listenerArn"`
+	ListenerArn *string `json:"listenerArn" yaml:"listenerArn"`
 	// Filter listeners by listener protocol.
-	ListenerProtocol ApplicationProtocol `json:"listenerProtocol"`
+	ListenerProtocol ApplicationProtocol `json:"listenerProtocol" yaml:"listenerProtocol"`
 }
 
 // Properties for defining a standalone ApplicationListener.
@@ -700,7 +700,7 @@ type ApplicationListenerProps struct {
 	// Certificate list of ACM cert ARNs.
 	//
 	// You must provide exactly one certificate if the listener protocol is HTTPS or TLS.
-	Certificates *[]IListenerCertificate `json:"certificates"`
+	Certificates *[]IListenerCertificate `json:"certificates" yaml:"certificates"`
 	// Default action to take for requests to this listener.
 	//
 	// This allows full control of the default action of the load balancer,
@@ -709,7 +709,7 @@ type ApplicationListenerProps struct {
 	// See the `ListenerAction` class for all options.
 	//
 	// Cannot be specified together with `defaultTargetGroups`.
-	DefaultAction ListenerAction `json:"defaultAction"`
+	DefaultAction ListenerAction `json:"defaultAction" yaml:"defaultAction"`
 	// Default target groups to load balance to.
 	//
 	// All target groups will be load balanced to with equal weight and without
@@ -717,7 +717,7 @@ type ApplicationListenerProps struct {
 	// either `defaultAction` or `addAction()`.
 	//
 	// Cannot be specified together with `defaultAction`.
-	DefaultTargetGroups *[]IApplicationTargetGroup `json:"defaultTargetGroups"`
+	DefaultTargetGroups *[]IApplicationTargetGroup `json:"defaultTargetGroups" yaml:"defaultTargetGroups"`
 	// Allow anyone to connect to this listener.
 	//
 	// If this is specified, the listener will be opened up to anyone who can reach it.
@@ -727,15 +727,15 @@ type ApplicationListenerProps struct {
 	// If you want to be more selective about who can access this load
 	// balancer, set this to `false` and use the listener's `connections`
 	// object to selectively grant access to the listener.
-	Open *bool `json:"open"`
+	Open *bool `json:"open" yaml:"open"`
 	// The port on which the listener listens for requests.
-	Port *float64 `json:"port"`
+	Port *float64 `json:"port" yaml:"port"`
 	// The protocol to use.
-	Protocol ApplicationProtocol `json:"protocol"`
+	Protocol ApplicationProtocol `json:"protocol" yaml:"protocol"`
 	// The security policy that defines which ciphers and protocols are supported.
-	SslPolicy SslPolicy `json:"sslPolicy"`
+	SslPolicy SslPolicy `json:"sslPolicy" yaml:"sslPolicy"`
 	// The load balancer to attach this listener to.
-	LoadBalancer IApplicationLoadBalancer `json:"loadBalancer"`
+	LoadBalancer IApplicationLoadBalancer `json:"loadBalancer" yaml:"loadBalancer"`
 }
 
 // Define a new listener rule.
@@ -862,23 +862,23 @@ type ApplicationListenerRuleProps struct {
 	// The rule with the lowest priority will be used for every request.
 	//
 	// Priorities must be unique.
-	Priority *float64 `json:"priority"`
+	Priority *float64 `json:"priority" yaml:"priority"`
 	// Action to perform when requests are received.
 	//
 	// Only one of `action`, `fixedResponse`, `redirectResponse` or `targetGroups` can be specified.
-	Action ListenerAction `json:"action"`
+	Action ListenerAction `json:"action" yaml:"action"`
 	// Rule applies if matches the conditions.
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html
 	//
-	Conditions *[]ListenerCondition `json:"conditions"`
+	Conditions *[]ListenerCondition `json:"conditions" yaml:"conditions"`
 	// Target groups to forward requests to.
 	//
 	// Only one of `action`, `fixedResponse`, `redirectResponse` or `targetGroups` can be specified.
 	//
 	// Implies a `forward` action.
-	TargetGroups *[]IApplicationTargetGroup `json:"targetGroups"`
+	TargetGroups *[]IApplicationTargetGroup `json:"targetGroups" yaml:"targetGroups"`
 	// The listener to attach the rule to.
-	Listener IApplicationListener `json:"listener"`
+	Listener IApplicationListener `json:"listener" yaml:"listener"`
 }
 
 // Define an Application Load Balancer.
@@ -1674,19 +1674,19 @@ func (a *jsiiProxy_ApplicationLoadBalancer) ToString() *string {
 //
 type ApplicationLoadBalancerAttributes struct {
 	// ARN of the load balancer.
-	LoadBalancerArn *string `json:"loadBalancerArn"`
+	LoadBalancerArn *string `json:"loadBalancerArn" yaml:"loadBalancerArn"`
 	// ID of the load balancer's security group.
-	SecurityGroupId *string `json:"securityGroupId"`
+	SecurityGroupId *string `json:"securityGroupId" yaml:"securityGroupId"`
 	// The canonical hosted zone ID of this load balancer.
-	LoadBalancerCanonicalHostedZoneId *string `json:"loadBalancerCanonicalHostedZoneId"`
+	LoadBalancerCanonicalHostedZoneId *string `json:"loadBalancerCanonicalHostedZoneId" yaml:"loadBalancerCanonicalHostedZoneId"`
 	// The DNS name of this load balancer.
-	LoadBalancerDnsName *string `json:"loadBalancerDnsName"`
+	LoadBalancerDnsName *string `json:"loadBalancerDnsName" yaml:"loadBalancerDnsName"`
 	// Whether the security group allows all outbound traffic or not.
 	//
 	// Unless set to `false`, no egress rules will be added to the security group.
-	SecurityGroupAllowsAllOutbound *bool `json:"securityGroupAllowsAllOutbound"`
+	SecurityGroupAllowsAllOutbound *bool `json:"securityGroupAllowsAllOutbound" yaml:"securityGroupAllowsAllOutbound"`
 	// The VPC this load balancer has been created in, if available.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 }
 
 // Options for looking up an ApplicationLoadBalancer.
@@ -1695,9 +1695,9 @@ type ApplicationLoadBalancerAttributes struct {
 //
 type ApplicationLoadBalancerLookupOptions struct {
 	// Find by load balancer's ARN.
-	LoadBalancerArn *string `json:"loadBalancerArn"`
+	LoadBalancerArn *string `json:"loadBalancerArn" yaml:"loadBalancerArn"`
 	// Match load balancer tags.
-	LoadBalancerTags *map[string]*string `json:"loadBalancerTags"`
+	LoadBalancerTags *map[string]*string `json:"loadBalancerTags" yaml:"loadBalancerTags"`
 }
 
 // Properties for defining an Application Load Balancer.
@@ -1706,25 +1706,25 @@ type ApplicationLoadBalancerLookupOptions struct {
 //
 type ApplicationLoadBalancerProps struct {
 	// The VPC network to place the load balancer in.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// Indicates whether deletion protection is enabled.
-	DeletionProtection *bool `json:"deletionProtection"`
+	DeletionProtection *bool `json:"deletionProtection" yaml:"deletionProtection"`
 	// Whether the load balancer has an internet-routable address.
-	InternetFacing *bool `json:"internetFacing"`
+	InternetFacing *bool `json:"internetFacing" yaml:"internetFacing"`
 	// Name of the load balancer.
-	LoadBalancerName *string `json:"loadBalancerName"`
+	LoadBalancerName *string `json:"loadBalancerName" yaml:"loadBalancerName"`
 	// Which subnets place the load balancer in.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 	// Indicates whether HTTP/2 is enabled.
-	Http2Enabled *bool `json:"http2Enabled"`
+	Http2Enabled *bool `json:"http2Enabled" yaml:"http2Enabled"`
 	// The load balancer idle timeout, in seconds.
-	IdleTimeout awscdk.Duration `json:"idleTimeout"`
+	IdleTimeout awscdk.Duration `json:"idleTimeout" yaml:"idleTimeout"`
 	// The type of IP addresses to use.
 	//
 	// Only applies to application load balancers.
-	IpAddressType IpAddressType `json:"ipAddressType"`
+	IpAddressType IpAddressType `json:"ipAddressType" yaml:"ipAddressType"`
 	// Security group to associate with this load balancer.
-	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
+	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup" yaml:"securityGroup"`
 }
 
 // Properties for a redirection config.
@@ -1741,15 +1741,15 @@ type ApplicationLoadBalancerRedirectConfig struct {
 	// If you want to be more selective about who can access this load
 	// balancer, set this to `false` and use the listener's `connections`
 	// object to selectively grant access to the listener.
-	Open *bool `json:"open"`
+	Open *bool `json:"open" yaml:"open"`
 	// The port number to listen to.
-	SourcePort *float64 `json:"sourcePort"`
+	SourcePort *float64 `json:"sourcePort" yaml:"sourcePort"`
 	// The protocol of the listener being created.
-	SourceProtocol ApplicationProtocol `json:"sourceProtocol"`
+	SourceProtocol ApplicationProtocol `json:"sourceProtocol" yaml:"sourceProtocol"`
 	// The port number to redirect to.
-	TargetPort *float64 `json:"targetPort"`
+	TargetPort *float64 `json:"targetPort" yaml:"targetPort"`
 	// The protocol of the redirection target.
-	TargetProtocol ApplicationProtocol `json:"targetProtocol"`
+	TargetProtocol ApplicationProtocol `json:"targetProtocol" yaml:"targetProtocol"`
 }
 
 // Load balancing protocol for application load balancers.
@@ -2286,44 +2286,44 @@ type ApplicationTargetGroupProps struct {
 	// The amount of time for Elastic Load Balancing to wait before deregistering a target.
 	//
 	// The range is 0-3600 seconds.
-	DeregistrationDelay awscdk.Duration `json:"deregistrationDelay"`
+	DeregistrationDelay awscdk.Duration `json:"deregistrationDelay" yaml:"deregistrationDelay"`
 	// Health check configuration.
-	HealthCheck *HealthCheck `json:"healthCheck"`
+	HealthCheck *HealthCheck `json:"healthCheck" yaml:"healthCheck"`
 	// The name of the target group.
 	//
 	// This name must be unique per region per account, can have a maximum of
 	// 32 characters, must contain only alphanumeric characters or hyphens, and
 	// must not begin or end with a hyphen.
-	TargetGroupName *string `json:"targetGroupName"`
+	TargetGroupName *string `json:"targetGroupName" yaml:"targetGroupName"`
 	// The type of targets registered to this TargetGroup, either IP or Instance.
 	//
 	// All targets registered into the group must be of this type. If you
 	// register targets to the TargetGroup in the CDK app, the TargetType is
 	// determined automatically.
-	TargetType TargetType `json:"targetType"`
+	TargetType TargetType `json:"targetType" yaml:"targetType"`
 	// The virtual private cloud (VPC).
 	//
 	// only if `TargetType` is `Ip` or `InstanceId`
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// The load balancing algorithm to select targets for routing requests.
-	LoadBalancingAlgorithmType TargetGroupLoadBalancingAlgorithmType `json:"loadBalancingAlgorithmType"`
+	LoadBalancingAlgorithmType TargetGroupLoadBalancingAlgorithmType `json:"loadBalancingAlgorithmType" yaml:"loadBalancingAlgorithmType"`
 	// The port on which the listener listens for requests.
-	Port *float64 `json:"port"`
+	Port *float64 `json:"port" yaml:"port"`
 	// The protocol to use.
-	Protocol ApplicationProtocol `json:"protocol"`
+	Protocol ApplicationProtocol `json:"protocol" yaml:"protocol"`
 	// The protocol version to use.
-	ProtocolVersion ApplicationProtocolVersion `json:"protocolVersion"`
+	ProtocolVersion ApplicationProtocolVersion `json:"protocolVersion" yaml:"protocolVersion"`
 	// The time period during which the load balancer sends a newly registered target a linearly increasing share of the traffic to the target group.
 	//
 	// The range is 30-900 seconds (15 minutes).
-	SlowStart awscdk.Duration `json:"slowStart"`
+	SlowStart awscdk.Duration `json:"slowStart" yaml:"slowStart"`
 	// The stickiness cookie expiration period.
 	//
 	// Setting this value enables load balancer stickiness.
 	//
 	// After this period, the cookie is considered stale. The minimum value is
 	// 1 second and the maximum value is 7 days (604800 seconds).
-	StickinessCookieDuration awscdk.Duration `json:"stickinessCookieDuration"`
+	StickinessCookieDuration awscdk.Duration `json:"stickinessCookieDuration" yaml:"stickinessCookieDuration"`
 	// The name of an application-based stickiness cookie.
 	//
 	// Names that start with the following prefixes are not allowed: AWSALB, AWSALBAPP,
@@ -2333,13 +2333,13 @@ type ApplicationTargetGroupProps struct {
 	// If `stickinessCookieDuration` is not set, `stickinessCookieName` will be omitted.
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/sticky-sessions.html
 	//
-	StickinessCookieName *string `json:"stickinessCookieName"`
+	StickinessCookieName *string `json:"stickinessCookieName" yaml:"stickinessCookieName"`
 	// The targets to add to this target group.
 	//
 	// Can be `Instance`, `IPAddress`, or any self-registering load balancing
 	// target. If you use either `Instance` or `IPAddress` as targets, all
 	// target must be of the same type.
-	Targets *[]IApplicationLoadBalancerTarget `json:"targets"`
+	Targets *[]IApplicationLoadBalancerTarget `json:"targets" yaml:"targets"`
 }
 
 // Options for `ListenerAction.authenciateOidc()`.
@@ -2350,37 +2350,37 @@ type AuthenticateOidcOptions struct {
 	// The authorization endpoint of the IdP.
 	//
 	// This must be a full URL, including the HTTPS protocol, the domain, and the path.
-	AuthorizationEndpoint *string `json:"authorizationEndpoint"`
+	AuthorizationEndpoint *string `json:"authorizationEndpoint" yaml:"authorizationEndpoint"`
 	// The OAuth 2.0 client identifier.
-	ClientId *string `json:"clientId"`
+	ClientId *string `json:"clientId" yaml:"clientId"`
 	// The OAuth 2.0 client secret.
-	ClientSecret awscdk.SecretValue `json:"clientSecret"`
+	ClientSecret awscdk.SecretValue `json:"clientSecret" yaml:"clientSecret"`
 	// The OIDC issuer identifier of the IdP.
 	//
 	// This must be a full URL, including the HTTPS protocol, the domain, and the path.
-	Issuer *string `json:"issuer"`
+	Issuer *string `json:"issuer" yaml:"issuer"`
 	// What action to execute next.
-	Next ListenerAction `json:"next"`
+	Next ListenerAction `json:"next" yaml:"next"`
 	// The token endpoint of the IdP.
 	//
 	// This must be a full URL, including the HTTPS protocol, the domain, and the path.
-	TokenEndpoint *string `json:"tokenEndpoint"`
+	TokenEndpoint *string `json:"tokenEndpoint" yaml:"tokenEndpoint"`
 	// The user info endpoint of the IdP.
 	//
 	// This must be a full URL, including the HTTPS protocol, the domain, and the path.
-	UserInfoEndpoint *string `json:"userInfoEndpoint"`
+	UserInfoEndpoint *string `json:"userInfoEndpoint" yaml:"userInfoEndpoint"`
 	// The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
-	AuthenticationRequestExtraParams *map[string]*string `json:"authenticationRequestExtraParams"`
+	AuthenticationRequestExtraParams *map[string]*string `json:"authenticationRequestExtraParams" yaml:"authenticationRequestExtraParams"`
 	// The behavior if the user is not authenticated.
-	OnUnauthenticatedRequest UnauthenticatedAction `json:"onUnauthenticatedRequest"`
+	OnUnauthenticatedRequest UnauthenticatedAction `json:"onUnauthenticatedRequest" yaml:"onUnauthenticatedRequest"`
 	// The set of user claims to be requested from the IdP.
 	//
 	// To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
-	Scope *string `json:"scope"`
+	Scope *string `json:"scope" yaml:"scope"`
 	// The name of the cookie used to maintain session information.
-	SessionCookieName *string `json:"sessionCookieName"`
+	SessionCookieName *string `json:"sessionCookieName" yaml:"sessionCookieName"`
 	// The maximum duration of the authentication session.
-	SessionTimeout awscdk.Duration `json:"sessionTimeout"`
+	SessionTimeout awscdk.Duration `json:"sessionTimeout" yaml:"sessionTimeout"`
 }
 
 // Basic properties for an ApplicationListener.
@@ -2391,7 +2391,7 @@ type BaseApplicationListenerProps struct {
 	// Certificate list of ACM cert ARNs.
 	//
 	// You must provide exactly one certificate if the listener protocol is HTTPS or TLS.
-	Certificates *[]IListenerCertificate `json:"certificates"`
+	Certificates *[]IListenerCertificate `json:"certificates" yaml:"certificates"`
 	// Default action to take for requests to this listener.
 	//
 	// This allows full control of the default action of the load balancer,
@@ -2400,7 +2400,7 @@ type BaseApplicationListenerProps struct {
 	// See the `ListenerAction` class for all options.
 	//
 	// Cannot be specified together with `defaultTargetGroups`.
-	DefaultAction ListenerAction `json:"defaultAction"`
+	DefaultAction ListenerAction `json:"defaultAction" yaml:"defaultAction"`
 	// Default target groups to load balance to.
 	//
 	// All target groups will be load balanced to with equal weight and without
@@ -2408,7 +2408,7 @@ type BaseApplicationListenerProps struct {
 	// either `defaultAction` or `addAction()`.
 	//
 	// Cannot be specified together with `defaultAction`.
-	DefaultTargetGroups *[]IApplicationTargetGroup `json:"defaultTargetGroups"`
+	DefaultTargetGroups *[]IApplicationTargetGroup `json:"defaultTargetGroups" yaml:"defaultTargetGroups"`
 	// Allow anyone to connect to this listener.
 	//
 	// If this is specified, the listener will be opened up to anyone who can reach it.
@@ -2418,13 +2418,13 @@ type BaseApplicationListenerProps struct {
 	// If you want to be more selective about who can access this load
 	// balancer, set this to `false` and use the listener's `connections`
 	// object to selectively grant access to the listener.
-	Open *bool `json:"open"`
+	Open *bool `json:"open" yaml:"open"`
 	// The port on which the listener listens for requests.
-	Port *float64 `json:"port"`
+	Port *float64 `json:"port" yaml:"port"`
 	// The protocol to use.
-	Protocol ApplicationProtocol `json:"protocol"`
+	Protocol ApplicationProtocol `json:"protocol" yaml:"protocol"`
 	// The security policy that defines which ciphers and protocols are supported.
-	SslPolicy SslPolicy `json:"sslPolicy"`
+	SslPolicy SslPolicy `json:"sslPolicy" yaml:"sslPolicy"`
 }
 
 // Basic properties for defining a rule on a listener.
@@ -2437,21 +2437,21 @@ type BaseApplicationListenerRuleProps struct {
 	// The rule with the lowest priority will be used for every request.
 	//
 	// Priorities must be unique.
-	Priority *float64 `json:"priority"`
+	Priority *float64 `json:"priority" yaml:"priority"`
 	// Action to perform when requests are received.
 	//
 	// Only one of `action`, `fixedResponse`, `redirectResponse` or `targetGroups` can be specified.
-	Action ListenerAction `json:"action"`
+	Action ListenerAction `json:"action" yaml:"action"`
 	// Rule applies if matches the conditions.
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html
 	//
-	Conditions *[]ListenerCondition `json:"conditions"`
+	Conditions *[]ListenerCondition `json:"conditions" yaml:"conditions"`
 	// Target groups to forward requests to.
 	//
 	// Only one of `action`, `fixedResponse`, `redirectResponse` or `targetGroups` can be specified.
 	//
 	// Implies a `forward` action.
-	TargetGroups *[]IApplicationTargetGroup `json:"targetGroups"`
+	TargetGroups *[]IApplicationTargetGroup `json:"targetGroups" yaml:"targetGroups"`
 }
 
 // Base class for listeners.
@@ -2672,11 +2672,11 @@ func (b *jsiiProxy_BaseListener) ValidateListener() *[]*string {
 //
 type BaseListenerLookupOptions struct {
 	// Filter listeners by listener port.
-	ListenerPort *float64 `json:"listenerPort"`
+	ListenerPort *float64 `json:"listenerPort" yaml:"listenerPort"`
 	// Filter listeners by associated load balancer arn.
-	LoadBalancerArn *string `json:"loadBalancerArn"`
+	LoadBalancerArn *string `json:"loadBalancerArn" yaml:"loadBalancerArn"`
 	// Filter listeners by associated load balancer tags.
-	LoadBalancerTags *map[string]*string `json:"loadBalancerTags"`
+	LoadBalancerTags *map[string]*string `json:"loadBalancerTags" yaml:"loadBalancerTags"`
 }
 
 // Base class for both Application and Network Load Balancers.
@@ -2983,9 +2983,9 @@ func (b *jsiiProxy_BaseLoadBalancer) ToString() *string {
 //
 type BaseLoadBalancerLookupOptions struct {
 	// Find by load balancer's ARN.
-	LoadBalancerArn *string `json:"loadBalancerArn"`
+	LoadBalancerArn *string `json:"loadBalancerArn" yaml:"loadBalancerArn"`
 	// Match load balancer tags.
-	LoadBalancerTags *map[string]*string `json:"loadBalancerTags"`
+	LoadBalancerTags *map[string]*string `json:"loadBalancerTags" yaml:"loadBalancerTags"`
 }
 
 // Shared properties of both Application and Network Load Balancers.
@@ -2994,15 +2994,15 @@ type BaseLoadBalancerLookupOptions struct {
 //
 type BaseLoadBalancerProps struct {
 	// The VPC network to place the load balancer in.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// Indicates whether deletion protection is enabled.
-	DeletionProtection *bool `json:"deletionProtection"`
+	DeletionProtection *bool `json:"deletionProtection" yaml:"deletionProtection"`
 	// Whether the load balancer has an internet-routable address.
-	InternetFacing *bool `json:"internetFacing"`
+	InternetFacing *bool `json:"internetFacing" yaml:"internetFacing"`
 	// Name of the load balancer.
-	LoadBalancerName *string `json:"loadBalancerName"`
+	LoadBalancerName *string `json:"loadBalancerName" yaml:"loadBalancerName"`
 	// Which subnets place the load balancer in.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 
 // Basic properties for a Network Listener.
@@ -3011,17 +3011,17 @@ type BaseLoadBalancerProps struct {
 //
 type BaseNetworkListenerProps struct {
 	// The port on which the listener listens for requests.
-	Port *float64 `json:"port"`
+	Port *float64 `json:"port" yaml:"port"`
 	// Application-Layer Protocol Negotiation (ALPN) is a TLS extension that is sent on the initial TLS handshake hello messages.
 	//
 	// ALPN enables the application layer to negotiate which protocols should be used over a secure connection, such as HTTP/1 and HTTP/2.
 	//
 	// Can only be specified together with Protocol TLS.
-	AlpnPolicy AlpnPolicy `json:"alpnPolicy"`
+	AlpnPolicy AlpnPolicy `json:"alpnPolicy" yaml:"alpnPolicy"`
 	// Certificate list of ACM cert ARNs.
 	//
 	// You must provide exactly one certificate if the listener protocol is HTTPS or TLS.
-	Certificates *[]IListenerCertificate `json:"certificates"`
+	Certificates *[]IListenerCertificate `json:"certificates" yaml:"certificates"`
 	// Default action to take for requests to this listener.
 	//
 	// This allows full control of the default Action of the load balancer,
@@ -3029,7 +3029,7 @@ type BaseNetworkListenerProps struct {
 	// all options.
 	//
 	// Cannot be specified together with `defaultTargetGroups`.
-	DefaultAction NetworkListenerAction `json:"defaultAction"`
+	DefaultAction NetworkListenerAction `json:"defaultAction" yaml:"defaultAction"`
 	// Default target groups to load balance to.
 	//
 	// All target groups will be load balanced to with equal weight and without
@@ -3037,11 +3037,11 @@ type BaseNetworkListenerProps struct {
 	// either `defaultAction` or `addAction()`.
 	//
 	// Cannot be specified together with `defaultAction`.
-	DefaultTargetGroups *[]INetworkTargetGroup `json:"defaultTargetGroups"`
+	DefaultTargetGroups *[]INetworkTargetGroup `json:"defaultTargetGroups" yaml:"defaultTargetGroups"`
 	// Protocol for listener, expects TCP, TLS, UDP, or TCP_UDP.
-	Protocol Protocol `json:"protocol"`
+	Protocol Protocol `json:"protocol" yaml:"protocol"`
 	// SSL Policy.
-	SslPolicy SslPolicy `json:"sslPolicy"`
+	SslPolicy SslPolicy `json:"sslPolicy" yaml:"sslPolicy"`
 }
 
 // Basic properties of both Application and Network Target Groups.
@@ -3052,25 +3052,25 @@ type BaseTargetGroupProps struct {
 	// The amount of time for Elastic Load Balancing to wait before deregistering a target.
 	//
 	// The range is 0-3600 seconds.
-	DeregistrationDelay awscdk.Duration `json:"deregistrationDelay"`
+	DeregistrationDelay awscdk.Duration `json:"deregistrationDelay" yaml:"deregistrationDelay"`
 	// Health check configuration.
-	HealthCheck *HealthCheck `json:"healthCheck"`
+	HealthCheck *HealthCheck `json:"healthCheck" yaml:"healthCheck"`
 	// The name of the target group.
 	//
 	// This name must be unique per region per account, can have a maximum of
 	// 32 characters, must contain only alphanumeric characters or hyphens, and
 	// must not begin or end with a hyphen.
-	TargetGroupName *string `json:"targetGroupName"`
+	TargetGroupName *string `json:"targetGroupName" yaml:"targetGroupName"`
 	// The type of targets registered to this TargetGroup, either IP or Instance.
 	//
 	// All targets registered into the group must be of this type. If you
 	// register targets to the TargetGroup in the CDK app, the TargetType is
 	// determined automatically.
-	TargetType TargetType `json:"targetType"`
+	TargetType TargetType `json:"targetType" yaml:"targetType"`
 	// The virtual private cloud (VPC).
 	//
 	// only if `TargetType` is `Ip` or `InstanceId`
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 }
 
 // A CloudFormation `AWS::ElasticLoadBalancingV2::Listener`.
@@ -3682,35 +3682,35 @@ func (c *jsiiProxy_CfnListener) ValidateProperties(_properties interface{}) {
 //
 type CfnListener_ActionProperty struct {
 	// The type of action.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// [HTTPS listeners] Information for using Amazon Cognito to authenticate users.
 	//
 	// Specify only when `Type` is `authenticate-cognito` .
-	AuthenticateCognitoConfig interface{} `json:"authenticateCognitoConfig"`
+	AuthenticateCognitoConfig interface{} `json:"authenticateCognitoConfig" yaml:"authenticateCognitoConfig"`
 	// [HTTPS listeners] Information about an identity provider that is compliant with OpenID Connect (OIDC).
 	//
 	// Specify only when `Type` is `authenticate-oidc` .
-	AuthenticateOidcConfig interface{} `json:"authenticateOidcConfig"`
+	AuthenticateOidcConfig interface{} `json:"authenticateOidcConfig" yaml:"authenticateOidcConfig"`
 	// [Application Load Balancer] Information for creating an action that returns a custom HTTP response.
 	//
 	// Specify only when `Type` is `fixed-response` .
-	FixedResponseConfig interface{} `json:"fixedResponseConfig"`
+	FixedResponseConfig interface{} `json:"fixedResponseConfig" yaml:"fixedResponseConfig"`
 	// Information for creating an action that distributes requests among one or more target groups.
 	//
 	// For Network Load Balancers, you can specify a single target group. Specify only when `Type` is `forward` . If you specify both `ForwardConfig` and `TargetGroupArn` , you can specify only one target group using `ForwardConfig` and it must be the same target group specified in `TargetGroupArn` .
-	ForwardConfig interface{} `json:"forwardConfig"`
+	ForwardConfig interface{} `json:"forwardConfig" yaml:"forwardConfig"`
 	// The order for the action.
 	//
 	// This value is required for rules with multiple actions. The action with the lowest value for order is performed first.
-	Order *float64 `json:"order"`
+	Order *float64 `json:"order" yaml:"order"`
 	// [Application Load Balancer] Information for creating a redirect action.
 	//
 	// Specify only when `Type` is `redirect` .
-	RedirectConfig interface{} `json:"redirectConfig"`
+	RedirectConfig interface{} `json:"redirectConfig" yaml:"redirectConfig"`
 	// The Amazon Resource Name (ARN) of the target group.
 	//
 	// Specify only when `Type` is `forward` and you want to route to a single target group. To route to one or more target groups, use `ForwardConfig` instead.
-	TargetGroupArn *string `json:"targetGroupArn"`
+	TargetGroupArn *string `json:"targetGroupArn" yaml:"targetGroupArn"`
 }
 
 // Specifies information required when integrating with Amazon Cognito to authenticate users.
@@ -3719,31 +3719,31 @@ type CfnListener_ActionProperty struct {
 //
 type CfnListener_AuthenticateCognitoConfigProperty struct {
 	// The Amazon Resource Name (ARN) of the Amazon Cognito user pool.
-	UserPoolArn *string `json:"userPoolArn"`
+	UserPoolArn *string `json:"userPoolArn" yaml:"userPoolArn"`
 	// The ID of the Amazon Cognito user pool client.
-	UserPoolClientId *string `json:"userPoolClientId"`
+	UserPoolClientId *string `json:"userPoolClientId" yaml:"userPoolClientId"`
 	// The domain prefix or fully-qualified domain name of the Amazon Cognito user pool.
-	UserPoolDomain *string `json:"userPoolDomain"`
+	UserPoolDomain *string `json:"userPoolDomain" yaml:"userPoolDomain"`
 	// The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
-	AuthenticationRequestExtraParams interface{} `json:"authenticationRequestExtraParams"`
+	AuthenticationRequestExtraParams interface{} `json:"authenticationRequestExtraParams" yaml:"authenticationRequestExtraParams"`
 	// The behavior if the user is not authenticated. The following are possible values:.
 	//
 	// - deny `` - Return an HTTP 401 Unauthorized error.
 	// - allow `` - Allow the request to be forwarded to the target.
 	// - authenticate `` - Redirect the request to the IdP authorization endpoint. This is the default value.
-	OnUnauthenticatedRequest *string `json:"onUnauthenticatedRequest"`
+	OnUnauthenticatedRequest *string `json:"onUnauthenticatedRequest" yaml:"onUnauthenticatedRequest"`
 	// The set of user claims to be requested from the IdP. The default is `openid` .
 	//
 	// To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
-	Scope *string `json:"scope"`
+	Scope *string `json:"scope" yaml:"scope"`
 	// The name of the cookie used to maintain session information.
 	//
 	// The default is AWSELBAuthSessionCookie.
-	SessionCookieName *string `json:"sessionCookieName"`
+	SessionCookieName *string `json:"sessionCookieName" yaml:"sessionCookieName"`
 	// The maximum duration of the authentication session, in seconds.
 	//
 	// The default is 604800 seconds (7 days).
-	SessionTimeout *string `json:"sessionTimeout"`
+	SessionTimeout *string `json:"sessionTimeout" yaml:"sessionTimeout"`
 }
 
 // Specifies information required using an identity provide (IdP) that is compliant with OpenID Connect (OIDC) to authenticate users.
@@ -3754,43 +3754,43 @@ type CfnListener_AuthenticateOidcConfigProperty struct {
 	// The authorization endpoint of the IdP.
 	//
 	// This must be a full URL, including the HTTPS protocol, the domain, and the path.
-	AuthorizationEndpoint *string `json:"authorizationEndpoint"`
+	AuthorizationEndpoint *string `json:"authorizationEndpoint" yaml:"authorizationEndpoint"`
 	// The OAuth 2.0 client identifier.
-	ClientId *string `json:"clientId"`
+	ClientId *string `json:"clientId" yaml:"clientId"`
 	// The OAuth 2.0 client secret. This parameter is required if you are creating a rule. If you are modifying a rule, you can omit this parameter if you set `UseExistingClientSecret` to true.
-	ClientSecret *string `json:"clientSecret"`
+	ClientSecret *string `json:"clientSecret" yaml:"clientSecret"`
 	// The OIDC issuer identifier of the IdP.
 	//
 	// This must be a full URL, including the HTTPS protocol, the domain, and the path.
-	Issuer *string `json:"issuer"`
+	Issuer *string `json:"issuer" yaml:"issuer"`
 	// The token endpoint of the IdP.
 	//
 	// This must be a full URL, including the HTTPS protocol, the domain, and the path.
-	TokenEndpoint *string `json:"tokenEndpoint"`
+	TokenEndpoint *string `json:"tokenEndpoint" yaml:"tokenEndpoint"`
 	// The user info endpoint of the IdP.
 	//
 	// This must be a full URL, including the HTTPS protocol, the domain, and the path.
-	UserInfoEndpoint *string `json:"userInfoEndpoint"`
+	UserInfoEndpoint *string `json:"userInfoEndpoint" yaml:"userInfoEndpoint"`
 	// The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
-	AuthenticationRequestExtraParams interface{} `json:"authenticationRequestExtraParams"`
+	AuthenticationRequestExtraParams interface{} `json:"authenticationRequestExtraParams" yaml:"authenticationRequestExtraParams"`
 	// The behavior if the user is not authenticated. The following are possible values:.
 	//
 	// - deny `` - Return an HTTP 401 Unauthorized error.
 	// - allow `` - Allow the request to be forwarded to the target.
 	// - authenticate `` - Redirect the request to the IdP authorization endpoint. This is the default value.
-	OnUnauthenticatedRequest *string `json:"onUnauthenticatedRequest"`
+	OnUnauthenticatedRequest *string `json:"onUnauthenticatedRequest" yaml:"onUnauthenticatedRequest"`
 	// The set of user claims to be requested from the IdP. The default is `openid` .
 	//
 	// To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
-	Scope *string `json:"scope"`
+	Scope *string `json:"scope" yaml:"scope"`
 	// The name of the cookie used to maintain session information.
 	//
 	// The default is AWSELBAuthSessionCookie.
-	SessionCookieName *string `json:"sessionCookieName"`
+	SessionCookieName *string `json:"sessionCookieName" yaml:"sessionCookieName"`
 	// The maximum duration of the authentication session, in seconds.
 	//
 	// The default is 604800 seconds (7 days).
-	SessionTimeout *string `json:"sessionTimeout"`
+	SessionTimeout *string `json:"sessionTimeout" yaml:"sessionTimeout"`
 }
 
 // Specifies an SSL server certificate to use as the default certificate for a secure listener.
@@ -3799,7 +3799,7 @@ type CfnListener_AuthenticateOidcConfigProperty struct {
 //
 type CfnListener_CertificateProperty struct {
 	// The Amazon Resource Name (ARN) of the certificate.
-	CertificateArn *string `json:"certificateArn"`
+	CertificateArn *string `json:"certificateArn" yaml:"certificateArn"`
 }
 
 // Specifies information required when returning a custom HTTP response.
@@ -3808,13 +3808,13 @@ type CfnListener_CertificateProperty struct {
 //
 type CfnListener_FixedResponseConfigProperty struct {
 	// The HTTP response code (2XX, 4XX, or 5XX).
-	StatusCode *string `json:"statusCode"`
+	StatusCode *string `json:"statusCode" yaml:"statusCode"`
 	// The content type.
 	//
 	// Valid Values: text/plain | text/css | text/html | application/javascript | application/json
-	ContentType *string `json:"contentType"`
+	ContentType *string `json:"contentType" yaml:"contentType"`
 	// The message.
-	MessageBody *string `json:"messageBody"`
+	MessageBody *string `json:"messageBody" yaml:"messageBody"`
 }
 
 // Information for creating an action that distributes requests among one or more target groups.
@@ -3825,9 +3825,9 @@ type CfnListener_FixedResponseConfigProperty struct {
 //
 type CfnListener_ForwardConfigProperty struct {
 	// Information about how traffic will be distributed between multiple target groups in a forward rule.
-	TargetGroups interface{} `json:"targetGroups"`
+	TargetGroups interface{} `json:"targetGroups" yaml:"targetGroups"`
 	// Information about the target group stickiness for a rule.
-	TargetGroupStickinessConfig interface{} `json:"targetGroupStickinessConfig"`
+	TargetGroupStickinessConfig interface{} `json:"targetGroupStickinessConfig" yaml:"targetGroupStickinessConfig"`
 }
 
 // Information about a redirect action.
@@ -3850,27 +3850,27 @@ type CfnListener_RedirectConfigProperty struct {
 	// The HTTP redirect code.
 	//
 	// The redirect is either permanent (HTTP 301) or temporary (HTTP 302).
-	StatusCode *string `json:"statusCode"`
+	StatusCode *string `json:"statusCode" yaml:"statusCode"`
 	// The hostname.
 	//
 	// This component is not percent-encoded. The hostname can contain #{host}.
-	Host *string `json:"host"`
+	Host *string `json:"host" yaml:"host"`
 	// The absolute path, starting with the leading "/".
 	//
 	// This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
-	Path *string `json:"path"`
+	Path *string `json:"path" yaml:"path"`
 	// The port.
 	//
 	// You can specify a value from 1 to 65535 or #{port}.
-	Port *string `json:"port"`
+	Port *string `json:"port" yaml:"port"`
 	// The protocol.
 	//
 	// You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.
-	Protocol *string `json:"protocol"`
+	Protocol *string `json:"protocol" yaml:"protocol"`
 	// The query parameters, URL-encoded when necessary, but not percent-encoded.
 	//
 	// Do not include the leading "?", as it is automatically added. You can specify any of the reserved keywords.
-	Query *string `json:"query"`
+	Query *string `json:"query" yaml:"query"`
 }
 
 // Information about the target group stickiness for a rule.
@@ -3881,9 +3881,9 @@ type CfnListener_TargetGroupStickinessConfigProperty struct {
 	// The time period, in seconds, during which requests from a client should be routed to the same target group.
 	//
 	// The range is 1-604800 seconds (7 days).
-	DurationSeconds *float64 `json:"durationSeconds"`
+	DurationSeconds *float64 `json:"durationSeconds" yaml:"durationSeconds"`
 	// Indicates whether target group stickiness is enabled.
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 }
 
 // Information about how traffic will be distributed between multiple target groups in a forward rule.
@@ -3892,11 +3892,11 @@ type CfnListener_TargetGroupStickinessConfigProperty struct {
 //
 type CfnListener_TargetGroupTupleProperty struct {
 	// The Amazon Resource Name (ARN) of the target group.
-	TargetGroupArn *string `json:"targetGroupArn"`
+	TargetGroupArn *string `json:"targetGroupArn" yaml:"targetGroupArn"`
 	// The weight.
 	//
 	// The range is 0 to 999.
-	Weight *float64 `json:"weight"`
+	Weight *float64 `json:"weight" yaml:"weight"`
 }
 
 // A CloudFormation `AWS::ElasticLoadBalancingV2::ListenerCertificate`.
@@ -4397,7 +4397,7 @@ func (c *jsiiProxy_CfnListenerCertificate) ValidateProperties(_properties interf
 //
 type CfnListenerCertificate_CertificateProperty struct {
 	// The Amazon Resource Name (ARN) of the certificate.
-	CertificateArn *string `json:"certificateArn"`
+	CertificateArn *string `json:"certificateArn" yaml:"certificateArn"`
 }
 
 // Properties for defining a `CfnListenerCertificate`.
@@ -4408,9 +4408,9 @@ type CfnListenerCertificateProps struct {
 	// The certificate.
 	//
 	// You can specify one certificate per resource.
-	Certificates interface{} `json:"certificates"`
+	Certificates interface{} `json:"certificates" yaml:"certificates"`
 	// The Amazon Resource Name (ARN) of the listener.
-	ListenerArn *string `json:"listenerArn"`
+	ListenerArn *string `json:"listenerArn" yaml:"listenerArn"`
 }
 
 // Properties for defining a `CfnListener`.
@@ -4421,29 +4421,29 @@ type CfnListenerProps struct {
 	// The actions for the default rule. You cannot define a condition for a default rule.
 	//
 	// To create additional rules for an Application Load Balancer, use [AWS::ElasticLoadBalancingV2::ListenerRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html) .
-	DefaultActions interface{} `json:"defaultActions"`
+	DefaultActions interface{} `json:"defaultActions" yaml:"defaultActions"`
 	// The Amazon Resource Name (ARN) of the load balancer.
-	LoadBalancerArn *string `json:"loadBalancerArn"`
+	LoadBalancerArn *string `json:"loadBalancerArn" yaml:"loadBalancerArn"`
 	// [TLS listener] The name of the Application-Layer Protocol Negotiation (ALPN) policy.
-	AlpnPolicy *[]*string `json:"alpnPolicy"`
+	AlpnPolicy *[]*string `json:"alpnPolicy" yaml:"alpnPolicy"`
 	// The default SSL server certificate for a secure listener.
 	//
 	// You must provide exactly one certificate if the listener protocol is HTTPS or TLS.
 	//
 	// To create a certificate list for a secure listener, use [AWS::ElasticLoadBalancingV2::ListenerCertificate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html) .
-	Certificates interface{} `json:"certificates"`
+	Certificates interface{} `json:"certificates" yaml:"certificates"`
 	// The port on which the load balancer is listening.
 	//
 	// You cannot specify a port for a Gateway Load Balancer.
-	Port *float64 `json:"port"`
+	Port *float64 `json:"port" yaml:"port"`
 	// The protocol for connections from clients to the load balancer.
 	//
 	// For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You cannot specify a protocol for a Gateway Load Balancer.
-	Protocol *string `json:"protocol"`
+	Protocol *string `json:"protocol" yaml:"protocol"`
 	// [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported.
 	//
 	// For more information, see [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies) in the *Application Load Balancers Guide* and [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies) in the *Network Load Balancers Guide* .
-	SslPolicy *string `json:"sslPolicy"`
+	SslPolicy *string `json:"sslPolicy" yaml:"sslPolicy"`
 }
 
 // A CloudFormation `AWS::ElasticLoadBalancingV2::ListenerRule`.
@@ -5006,35 +5006,35 @@ func (c *jsiiProxy_CfnListenerRule) ValidateProperties(_properties interface{}) 
 //
 type CfnListenerRule_ActionProperty struct {
 	// The type of action.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// [HTTPS listeners] Information for using Amazon Cognito to authenticate users.
 	//
 	// Specify only when `Type` is `authenticate-cognito` .
-	AuthenticateCognitoConfig interface{} `json:"authenticateCognitoConfig"`
+	AuthenticateCognitoConfig interface{} `json:"authenticateCognitoConfig" yaml:"authenticateCognitoConfig"`
 	// [HTTPS listeners] Information about an identity provider that is compliant with OpenID Connect (OIDC).
 	//
 	// Specify only when `Type` is `authenticate-oidc` .
-	AuthenticateOidcConfig interface{} `json:"authenticateOidcConfig"`
+	AuthenticateOidcConfig interface{} `json:"authenticateOidcConfig" yaml:"authenticateOidcConfig"`
 	// [Application Load Balancer] Information for creating an action that returns a custom HTTP response.
 	//
 	// Specify only when `Type` is `fixed-response` .
-	FixedResponseConfig interface{} `json:"fixedResponseConfig"`
+	FixedResponseConfig interface{} `json:"fixedResponseConfig" yaml:"fixedResponseConfig"`
 	// Information for creating an action that distributes requests among one or more target groups.
 	//
 	// For Network Load Balancers, you can specify a single target group. Specify only when `Type` is `forward` . If you specify both `ForwardConfig` and `TargetGroupArn` , you can specify only one target group using `ForwardConfig` and it must be the same target group specified in `TargetGroupArn` .
-	ForwardConfig interface{} `json:"forwardConfig"`
+	ForwardConfig interface{} `json:"forwardConfig" yaml:"forwardConfig"`
 	// The order for the action.
 	//
 	// This value is required for rules with multiple actions. The action with the lowest value for order is performed first.
-	Order *float64 `json:"order"`
+	Order *float64 `json:"order" yaml:"order"`
 	// [Application Load Balancer] Information for creating a redirect action.
 	//
 	// Specify only when `Type` is `redirect` .
-	RedirectConfig interface{} `json:"redirectConfig"`
+	RedirectConfig interface{} `json:"redirectConfig" yaml:"redirectConfig"`
 	// The Amazon Resource Name (ARN) of the target group.
 	//
 	// Specify only when `Type` is `forward` and you want to route to a single target group. To route to one or more target groups, use `ForwardConfig` instead.
-	TargetGroupArn *string `json:"targetGroupArn"`
+	TargetGroupArn *string `json:"targetGroupArn" yaml:"targetGroupArn"`
 }
 
 // Specifies information required when integrating with Amazon Cognito to authenticate users.
@@ -5043,31 +5043,31 @@ type CfnListenerRule_ActionProperty struct {
 //
 type CfnListenerRule_AuthenticateCognitoConfigProperty struct {
 	// The Amazon Resource Name (ARN) of the Amazon Cognito user pool.
-	UserPoolArn *string `json:"userPoolArn"`
+	UserPoolArn *string `json:"userPoolArn" yaml:"userPoolArn"`
 	// The ID of the Amazon Cognito user pool client.
-	UserPoolClientId *string `json:"userPoolClientId"`
+	UserPoolClientId *string `json:"userPoolClientId" yaml:"userPoolClientId"`
 	// The domain prefix or fully-qualified domain name of the Amazon Cognito user pool.
-	UserPoolDomain *string `json:"userPoolDomain"`
+	UserPoolDomain *string `json:"userPoolDomain" yaml:"userPoolDomain"`
 	// The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
-	AuthenticationRequestExtraParams interface{} `json:"authenticationRequestExtraParams"`
+	AuthenticationRequestExtraParams interface{} `json:"authenticationRequestExtraParams" yaml:"authenticationRequestExtraParams"`
 	// The behavior if the user is not authenticated. The following are possible values:.
 	//
 	// - deny `` - Return an HTTP 401 Unauthorized error.
 	// - allow `` - Allow the request to be forwarded to the target.
 	// - authenticate `` - Redirect the request to the IdP authorization endpoint. This is the default value.
-	OnUnauthenticatedRequest *string `json:"onUnauthenticatedRequest"`
+	OnUnauthenticatedRequest *string `json:"onUnauthenticatedRequest" yaml:"onUnauthenticatedRequest"`
 	// The set of user claims to be requested from the IdP. The default is `openid` .
 	//
 	// To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
-	Scope *string `json:"scope"`
+	Scope *string `json:"scope" yaml:"scope"`
 	// The name of the cookie used to maintain session information.
 	//
 	// The default is AWSELBAuthSessionCookie.
-	SessionCookieName *string `json:"sessionCookieName"`
+	SessionCookieName *string `json:"sessionCookieName" yaml:"sessionCookieName"`
 	// The maximum duration of the authentication session, in seconds.
 	//
 	// The default is 604800 seconds (7 days).
-	SessionTimeout *float64 `json:"sessionTimeout"`
+	SessionTimeout *float64 `json:"sessionTimeout" yaml:"sessionTimeout"`
 }
 
 // Specifies information required using an identity provide (IdP) that is compliant with OpenID Connect (OIDC) to authenticate users.
@@ -5078,47 +5078,47 @@ type CfnListenerRule_AuthenticateOidcConfigProperty struct {
 	// The authorization endpoint of the IdP.
 	//
 	// This must be a full URL, including the HTTPS protocol, the domain, and the path.
-	AuthorizationEndpoint *string `json:"authorizationEndpoint"`
+	AuthorizationEndpoint *string `json:"authorizationEndpoint" yaml:"authorizationEndpoint"`
 	// The OAuth 2.0 client identifier.
-	ClientId *string `json:"clientId"`
+	ClientId *string `json:"clientId" yaml:"clientId"`
 	// The OAuth 2.0 client secret. This parameter is required if you are creating a rule. If you are modifying a rule, you can omit this parameter if you set `UseExistingClientSecret` to true.
-	ClientSecret *string `json:"clientSecret"`
+	ClientSecret *string `json:"clientSecret" yaml:"clientSecret"`
 	// The OIDC issuer identifier of the IdP.
 	//
 	// This must be a full URL, including the HTTPS protocol, the domain, and the path.
-	Issuer *string `json:"issuer"`
+	Issuer *string `json:"issuer" yaml:"issuer"`
 	// The token endpoint of the IdP.
 	//
 	// This must be a full URL, including the HTTPS protocol, the domain, and the path.
-	TokenEndpoint *string `json:"tokenEndpoint"`
+	TokenEndpoint *string `json:"tokenEndpoint" yaml:"tokenEndpoint"`
 	// The user info endpoint of the IdP.
 	//
 	// This must be a full URL, including the HTTPS protocol, the domain, and the path.
-	UserInfoEndpoint *string `json:"userInfoEndpoint"`
+	UserInfoEndpoint *string `json:"userInfoEndpoint" yaml:"userInfoEndpoint"`
 	// The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
-	AuthenticationRequestExtraParams interface{} `json:"authenticationRequestExtraParams"`
+	AuthenticationRequestExtraParams interface{} `json:"authenticationRequestExtraParams" yaml:"authenticationRequestExtraParams"`
 	// The behavior if the user is not authenticated. The following are possible values:.
 	//
 	// - deny `` - Return an HTTP 401 Unauthorized error.
 	// - allow `` - Allow the request to be forwarded to the target.
 	// - authenticate `` - Redirect the request to the IdP authorization endpoint. This is the default value.
-	OnUnauthenticatedRequest *string `json:"onUnauthenticatedRequest"`
+	OnUnauthenticatedRequest *string `json:"onUnauthenticatedRequest" yaml:"onUnauthenticatedRequest"`
 	// The set of user claims to be requested from the IdP. The default is `openid` .
 	//
 	// To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
-	Scope *string `json:"scope"`
+	Scope *string `json:"scope" yaml:"scope"`
 	// The name of the cookie used to maintain session information.
 	//
 	// The default is AWSELBAuthSessionCookie.
-	SessionCookieName *string `json:"sessionCookieName"`
+	SessionCookieName *string `json:"sessionCookieName" yaml:"sessionCookieName"`
 	// The maximum duration of the authentication session, in seconds.
 	//
 	// The default is 604800 seconds (7 days).
-	SessionTimeout *float64 `json:"sessionTimeout"`
+	SessionTimeout *float64 `json:"sessionTimeout" yaml:"sessionTimeout"`
 	// Indicates whether to use the existing client secret when modifying a rule.
 	//
 	// If you are creating a rule, you can omit this parameter or set it to false.
-	UseExistingClientSecret interface{} `json:"useExistingClientSecret"`
+	UseExistingClientSecret interface{} `json:"useExistingClientSecret" yaml:"useExistingClientSecret"`
 }
 
 // Specifies information required when returning a custom HTTP response.
@@ -5127,13 +5127,13 @@ type CfnListenerRule_AuthenticateOidcConfigProperty struct {
 //
 type CfnListenerRule_FixedResponseConfigProperty struct {
 	// The HTTP response code (2XX, 4XX, or 5XX).
-	StatusCode *string `json:"statusCode"`
+	StatusCode *string `json:"statusCode" yaml:"statusCode"`
 	// The content type.
 	//
 	// Valid Values: text/plain | text/css | text/html | application/javascript | application/json
-	ContentType *string `json:"contentType"`
+	ContentType *string `json:"contentType" yaml:"contentType"`
 	// The message.
-	MessageBody *string `json:"messageBody"`
+	MessageBody *string `json:"messageBody" yaml:"messageBody"`
 }
 
 // Information for creating an action that distributes requests among one or more target groups.
@@ -5144,9 +5144,9 @@ type CfnListenerRule_FixedResponseConfigProperty struct {
 //
 type CfnListenerRule_ForwardConfigProperty struct {
 	// Information about how traffic will be distributed between multiple target groups in a forward rule.
-	TargetGroups interface{} `json:"targetGroups"`
+	TargetGroups interface{} `json:"targetGroups" yaml:"targetGroups"`
 	// Information about the target group stickiness for a rule.
-	TargetGroupStickinessConfig interface{} `json:"targetGroupStickinessConfig"`
+	TargetGroupStickinessConfig interface{} `json:"targetGroupStickinessConfig" yaml:"targetGroupStickinessConfig"`
 }
 
 // Information about a host header condition.
@@ -5159,7 +5159,7 @@ type CfnListenerRule_HostHeaderConfigProperty struct {
 	// The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
 	//
 	// If you specify multiple strings, the condition is satisfied if one of the strings matches the host name.
-	Values *[]*string `json:"values"`
+	Values *[]*string `json:"values" yaml:"values"`
 }
 
 // Information about an HTTP header condition.
@@ -5172,7 +5172,7 @@ type CfnListenerRule_HttpHeaderConfigProperty struct {
 	// The name of the HTTP header field.
 	//
 	// The maximum size is 40 characters. The header name is case insensitive. The allowed characters are specified by RFC 7230. Wildcards are not supported.
-	HttpHeaderName *string `json:"httpHeaderName"`
+	HttpHeaderName *string `json:"httpHeaderName" yaml:"httpHeaderName"`
 	// One or more strings to compare against the value of the HTTP header.
 	//
 	// The maximum size of each string is 128 characters. The comparison strings are case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
@@ -5180,7 +5180,7 @@ type CfnListenerRule_HttpHeaderConfigProperty struct {
 	// If the same header appears multiple times in the request, we search them in order until a match is found.
 	//
 	// If you specify multiple strings, the condition is satisfied if one of the strings matches the value of the HTTP header. To require that all of the strings are a match, create one condition per string.
-	Values *[]*string `json:"values"`
+	Values *[]*string `json:"values" yaml:"values"`
 }
 
 // Information about an HTTP method condition.
@@ -5195,7 +5195,7 @@ type CfnListenerRule_HttpRequestMethodConfigProperty struct {
 	// The maximum size is 40 characters. The allowed characters are A-Z, hyphen (-), and underscore (_). The comparison is case sensitive. Wildcards are not supported; therefore, the method name must be an exact match.
 	//
 	// If you specify multiple strings, the condition is satisfied if one of the strings matches the HTTP request method. We recommend that you route GET and HEAD requests in the same way, because the response to a HEAD request may be cached.
-	Values *[]*string `json:"values"`
+	Values *[]*string `json:"values" yaml:"values"`
 }
 
 // Information about a path pattern condition.
@@ -5208,7 +5208,7 @@ type CfnListenerRule_PathPatternConfigProperty struct {
 	// The maximum size of each string is 128 characters. The comparison is case sensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
 	//
 	// If you specify multiple strings, the condition is satisfied if one of them matches the request URL. The path pattern is compared only to the path of the URL, not to its query string.
-	Values *[]*string `json:"values"`
+	Values *[]*string `json:"values" yaml:"values"`
 }
 
 // Information about a query string condition.
@@ -5223,7 +5223,7 @@ type CfnListenerRule_QueryStringConfigProperty struct {
 	// The maximum size of each string is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '*' or '?' character in a query string, you must escape these characters in `Values` using a '\' character.
 	//
 	// If you specify multiple key/value pairs or values, the condition is satisfied if one of them is found in the query string.
-	Values interface{} `json:"values"`
+	Values interface{} `json:"values" yaml:"values"`
 }
 
 // Information about a key/value pair.
@@ -5234,9 +5234,9 @@ type CfnListenerRule_QueryStringKeyValueProperty struct {
 	// The key.
 	//
 	// You can omit the key.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// The value.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // Information about a redirect action.
@@ -5259,27 +5259,27 @@ type CfnListenerRule_RedirectConfigProperty struct {
 	// The HTTP redirect code.
 	//
 	// The redirect is either permanent (HTTP 301) or temporary (HTTP 302).
-	StatusCode *string `json:"statusCode"`
+	StatusCode *string `json:"statusCode" yaml:"statusCode"`
 	// The hostname.
 	//
 	// This component is not percent-encoded. The hostname can contain #{host}.
-	Host *string `json:"host"`
+	Host *string `json:"host" yaml:"host"`
 	// The absolute path, starting with the leading "/".
 	//
 	// This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
-	Path *string `json:"path"`
+	Path *string `json:"path" yaml:"path"`
 	// The port.
 	//
 	// You can specify a value from 1 to 65535 or #{port}.
-	Port *string `json:"port"`
+	Port *string `json:"port" yaml:"port"`
 	// The protocol.
 	//
 	// You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.
-	Protocol *string `json:"protocol"`
+	Protocol *string `json:"protocol" yaml:"protocol"`
 	// The query parameters, URL-encoded when necessary, but not percent-encoded.
 	//
 	// Do not include the leading "?", as it is automatically added. You can specify any of the reserved keywords.
-	Query *string `json:"query"`
+	Query *string `json:"query" yaml:"query"`
 }
 
 // Specifies a condition for a listener rule.
@@ -5295,31 +5295,31 @@ type CfnListenerRule_RuleConditionProperty struct {
 	// - `path-pattern`
 	// - `query-string`
 	// - `source-ip`
-	Field *string `json:"field"`
+	Field *string `json:"field" yaml:"field"`
 	// Information for a host header condition.
 	//
 	// Specify only when `Field` is `host-header` .
-	HostHeaderConfig interface{} `json:"hostHeaderConfig"`
+	HostHeaderConfig interface{} `json:"hostHeaderConfig" yaml:"hostHeaderConfig"`
 	// Information for an HTTP header condition.
 	//
 	// Specify only when `Field` is `http-header` .
-	HttpHeaderConfig interface{} `json:"httpHeaderConfig"`
+	HttpHeaderConfig interface{} `json:"httpHeaderConfig" yaml:"httpHeaderConfig"`
 	// Information for an HTTP method condition.
 	//
 	// Specify only when `Field` is `http-request-method` .
-	HttpRequestMethodConfig interface{} `json:"httpRequestMethodConfig"`
+	HttpRequestMethodConfig interface{} `json:"httpRequestMethodConfig" yaml:"httpRequestMethodConfig"`
 	// Information for a path pattern condition.
 	//
 	// Specify only when `Field` is `path-pattern` .
-	PathPatternConfig interface{} `json:"pathPatternConfig"`
+	PathPatternConfig interface{} `json:"pathPatternConfig" yaml:"pathPatternConfig"`
 	// Information for a query string condition.
 	//
 	// Specify only when `Field` is `query-string` .
-	QueryStringConfig interface{} `json:"queryStringConfig"`
+	QueryStringConfig interface{} `json:"queryStringConfig" yaml:"queryStringConfig"`
 	// Information for a source IP condition.
 	//
 	// Specify only when `Field` is `source-ip` .
-	SourceIpConfig interface{} `json:"sourceIpConfig"`
+	SourceIpConfig interface{} `json:"sourceIpConfig" yaml:"sourceIpConfig"`
 	// The condition value.
 	//
 	// Specify only when `Field` is `host-header` or `path-pattern` . Alternatively, to specify multiple host names or multiple path patterns, use `HostHeaderConfig` or `PathPatternConfig` .
@@ -5338,7 +5338,7 @@ type CfnListenerRule_RuleConditionProperty struct {
 	// - & (using &amp;)
 	// - * (matches 0 or more characters)
 	// - ? (matches exactly 1 character)
-	Values *[]*string `json:"values"`
+	Values *[]*string `json:"values" yaml:"values"`
 }
 
 // Information about a source IP condition.
@@ -5353,7 +5353,7 @@ type CfnListenerRule_SourceIpConfigProperty struct {
 	// You can use both IPv4 and IPv6 addresses. Wildcards are not supported.
 	//
 	// If you specify multiple addresses, the condition is satisfied if the source IP address of the request matches one of the CIDR blocks. This condition is not satisfied by the addresses in the X-Forwarded-For header.
-	Values *[]*string `json:"values"`
+	Values *[]*string `json:"values" yaml:"values"`
 }
 
 // Information about the target group stickiness for a rule.
@@ -5364,9 +5364,9 @@ type CfnListenerRule_TargetGroupStickinessConfigProperty struct {
 	// The time period, in seconds, during which requests from a client should be routed to the same target group.
 	//
 	// The range is 1-604800 seconds (7 days).
-	DurationSeconds *float64 `json:"durationSeconds"`
+	DurationSeconds *float64 `json:"durationSeconds" yaml:"durationSeconds"`
 	// Indicates whether target group stickiness is enabled.
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 }
 
 // Information about how traffic will be distributed between multiple target groups in a forward rule.
@@ -5375,11 +5375,11 @@ type CfnListenerRule_TargetGroupStickinessConfigProperty struct {
 //
 type CfnListenerRule_TargetGroupTupleProperty struct {
 	// The Amazon Resource Name (ARN) of the target group.
-	TargetGroupArn *string `json:"targetGroupArn"`
+	TargetGroupArn *string `json:"targetGroupArn" yaml:"targetGroupArn"`
 	// The weight.
 	//
 	// The range is 0 to 999.
-	Weight *float64 `json:"weight"`
+	Weight *float64 `json:"weight" yaml:"weight"`
 }
 
 // Properties for defining a `CfnListenerRule`.
@@ -5390,17 +5390,17 @@ type CfnListenerRuleProps struct {
 	// The actions.
 	//
 	// The rule must include exactly one of the following types of actions: `forward` , `fixed-response` , or `redirect` , and it must be the last action to be performed. If the rule is for an HTTPS listener, it can also optionally include an authentication action.
-	Actions interface{} `json:"actions"`
+	Actions interface{} `json:"actions" yaml:"actions"`
 	// The conditions.
 	//
 	// The rule can optionally include up to one of each of the following conditions: `http-request-method` , `host-header` , `path-pattern` , and `source-ip` . A rule can also optionally include one or more of each of the following conditions: `http-header` and `query-string` .
-	Conditions interface{} `json:"conditions"`
+	Conditions interface{} `json:"conditions" yaml:"conditions"`
 	// The Amazon Resource Name (ARN) of the listener.
-	ListenerArn *string `json:"listenerArn"`
+	ListenerArn *string `json:"listenerArn" yaml:"listenerArn"`
 	// The rule priority. A listener can't have multiple rules with the same priority.
 	//
 	// If you try to reorder rules by updating their priorities, do not specify a new priority if an existing rule already uses this priority, as this can cause an error. If you need to reuse a priority with a different rule, you must remove it as a priority first, and then specify it in a subsequent update.
-	Priority *float64 `json:"priority"`
+	Priority *float64 `json:"priority" yaml:"priority"`
 }
 
 // A CloudFormation `AWS::ElasticLoadBalancingV2::LoadBalancer`.
@@ -6112,9 +6112,9 @@ type CfnLoadBalancer_LoadBalancerAttributeProperty struct {
 	// The following attribute is supported by Network Load Balancers and Gateway Load Balancers:
 	//
 	// - `load_balancing.cross_zone.enabled` - Indicates whether cross-zone load balancing is enabled. The possible values are `true` and `false` . The default is `false` .
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// The value of the attribute.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // Specifies a subnet for a load balancer.
@@ -6123,13 +6123,13 @@ type CfnLoadBalancer_LoadBalancerAttributeProperty struct {
 //
 type CfnLoadBalancer_SubnetMappingProperty struct {
 	// The ID of the subnet.
-	SubnetId *string `json:"subnetId"`
+	SubnetId *string `json:"subnetId" yaml:"subnetId"`
 	// [Network Load Balancers] The allocation ID of the Elastic IP address for an internet-facing load balancer.
-	AllocationId *string `json:"allocationId"`
+	AllocationId *string `json:"allocationId" yaml:"allocationId"`
 	// [Network Load Balancers] The IPv6 address.
-	IPv6Address *string `json:"iPv6Address"`
+	IPv6Address *string `json:"iPv6Address" yaml:"iPv6Address"`
 	// [Network Load Balancers] The private IPv4 address for an internal load balancer.
-	PrivateIPv4Address *string `json:"privateIPv4Address"`
+	PrivateIPv4Address *string `json:"privateIPv4Address" yaml:"privateIPv4Address"`
 }
 
 // Properties for defining a `CfnLoadBalancer`.
@@ -6140,15 +6140,15 @@ type CfnLoadBalancerProps struct {
 	// The IP address type.
 	//
 	// The possible values are `ipv4` (for IPv4 addresses) and `dualstack` (for IPv4 and IPv6 addresses). You can’t specify `dualstack` for a load balancer with a UDP or TCP_UDP listener.
-	IpAddressType *string `json:"ipAddressType"`
+	IpAddressType *string `json:"ipAddressType" yaml:"ipAddressType"`
 	// The load balancer attributes.
-	LoadBalancerAttributes interface{} `json:"loadBalancerAttributes"`
+	LoadBalancerAttributes interface{} `json:"loadBalancerAttributes" yaml:"loadBalancerAttributes"`
 	// The name of the load balancer.
 	//
 	// This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with "internal-".
 	//
 	// If you don't specify a name, AWS CloudFormation generates a unique physical ID for the load balancer. If you specify a name, you cannot perform updates that require replacement of this resource, but you can perform other updates. To replace the resource, specify a new name.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The nodes of an Internet-facing load balancer have public IP addresses.
 	//
 	// The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet.
@@ -6158,9 +6158,9 @@ type CfnLoadBalancerProps struct {
 	// The default is an Internet-facing load balancer.
 	//
 	// You cannot specify a scheme for a Gateway Load Balancer.
-	Scheme *string `json:"scheme"`
+	Scheme *string `json:"scheme" yaml:"scheme"`
 	// [Application Load Balancers] The IDs of the security groups for the load balancer.
-	SecurityGroups *[]*string `json:"securityGroups"`
+	SecurityGroups *[]*string `json:"securityGroups" yaml:"securityGroups"`
 	// The IDs of the public subnets.
 	//
 	// You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both.
@@ -6174,7 +6174,7 @@ type CfnLoadBalancerProps struct {
 	// [Network Load Balancers] You can specify subnets from one or more Availability Zones. You can specify one Elastic IP address per subnet if you need static IP addresses for your internet-facing load balancer. For internal load balancers, you can specify one private IP address per subnet from the IPv4 range of the subnet. For internet-facing load balancer, you can specify one IPv6 address per subnet.
 	//
 	// [Gateway Load Balancers] You can specify subnets from one or more Availability Zones. You cannot specify Elastic IP addresses for your subnets.
-	SubnetMappings interface{} `json:"subnetMappings"`
+	SubnetMappings interface{} `json:"subnetMappings" yaml:"subnetMappings"`
 	// The IDs of the public subnets.
 	//
 	// You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both. To specify an Elastic IP address, specify subnet mappings instead of subnets.
@@ -6188,13 +6188,13 @@ type CfnLoadBalancerProps struct {
 	// [Network Load Balancers] You can specify subnets from one or more Availability Zones.
 	//
 	// [Gateway Load Balancers] You can specify subnets from one or more Availability Zones.
-	Subnets *[]*string `json:"subnets"`
+	Subnets *[]*string `json:"subnets" yaml:"subnets"`
 	// The tags to assign to the load balancer.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// The type of load balancer.
 	//
 	// The default is `application` .
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 }
 
 // A CloudFormation `AWS::ElasticLoadBalancingV2::TargetGroup`.
@@ -7063,7 +7063,7 @@ type CfnTargetGroup_MatcherProperty struct {
 	// You can specify values between 0 and 99.
 	//
 	// You can specify multiple values (for example, "0,1") or a range of values (for example, "0-5"). The default value is 12.
-	GrpcCode *string `json:"grpcCode"`
+	GrpcCode *string `json:"grpcCode" yaml:"grpcCode"`
 	// For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200.
 	//
 	// You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299").
@@ -7071,7 +7071,7 @@ type CfnTargetGroup_MatcherProperty struct {
 	// For Network Load Balancers and Gateway Load Balancers, this must be "200–399".
 	//
 	// Note that when using shorthand syntax, some values such as commas need to be escaped.
-	HttpCode *string `json:"httpCode"`
+	HttpCode *string `json:"httpCode" yaml:"httpCode"`
 }
 
 // Specifies a target to add to a target group.
@@ -7082,7 +7082,7 @@ type CfnTargetGroup_TargetDescriptionProperty struct {
 	// The ID of the target.
 	//
 	// If the target type of the target group is `instance` , specify an instance ID. If the target type is `ip` , specify an IP address. If the target type is `lambda` , specify the ARN of the Lambda function. If the target type is `alb` , specify the ARN of the Application Load Balancer target.
-	Id *string `json:"id"`
+	Id *string `json:"id" yaml:"id"`
 	// An Availability Zone or `all` .
 	//
 	// This determines whether the target receives traffic from the load balancer nodes in the specified Availability Zone or from all enabled Availability Zones for the load balancer.
@@ -7094,11 +7094,11 @@ type CfnTargetGroup_TargetDescriptionProperty struct {
 	// With an Application Load Balancer, if the target type is `ip` and the IP address is outside the VPC for the target group, the only supported value is `all` .
 	//
 	// If the target type is `lambda` , this parameter is optional and the only supported value is `all` .
-	AvailabilityZone *string `json:"availabilityZone"`
+	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
 	// The port on which the target is listening.
 	//
 	// If the target group protocol is GENEVE, the supported port is 6081. If the target type is `alb` , the targeted Application Load Balancer must have at least one listener whose port matches the target group port. Not used if the target is a Lambda function.
-	Port *float64 `json:"port"`
+	Port *float64 `json:"port" yaml:"port"`
 }
 
 // Specifies a target group attribute.
@@ -7134,9 +7134,9 @@ type CfnTargetGroup_TargetGroupAttributeProperty struct {
 	// - `deregistration_delay.connection_termination.enabled` - Indicates whether the load balancer terminates connections at the end of the deregistration timeout. The value is `true` or `false` . The default is `false` .
 	// - `preserve_client_ip.enabled` - Indicates whether client IP preservation is enabled. The value is `true` or `false` . The default is disabled if the target group type is IP address and the target group protocol is TCP or TLS. Otherwise, the default is enabled. Client IP preservation cannot be disabled for UDP and TCP_UDP target groups.
 	// - `proxy_protocol_v2.enabled` - Indicates whether Proxy Protocol version 2 is enabled. The value is `true` or `false` . The default is `false` .
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// The value of the attribute.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // Properties for defining a `CfnTargetGroup`.
@@ -7147,61 +7147,61 @@ type CfnTargetGroupProps struct {
 	// Indicates whether health checks are enabled.
 	//
 	// If the target type is `lambda` , health checks are disabled by default but can be enabled. If the target type is `instance` , `ip` , or `alb` , health checks are always enabled and cannot be disabled.
-	HealthCheckEnabled interface{} `json:"healthCheckEnabled"`
+	HealthCheckEnabled interface{} `json:"healthCheckEnabled" yaml:"healthCheckEnabled"`
 	// The approximate amount of time, in seconds, between health checks of an individual target.
 	//
 	// If the target group protocol is TCP, TLS, UDP, or TCP_UDP, the supported values are 10 and 30 seconds. If the target group protocol is HTTP or HTTPS, the default is 30 seconds. If the target group protocol is GENEVE, the default is 10 seconds. If the target type is `lambda` , the default is 35 seconds.
-	HealthCheckIntervalSeconds *float64 `json:"healthCheckIntervalSeconds"`
+	HealthCheckIntervalSeconds *float64 `json:"healthCheckIntervalSeconds" yaml:"healthCheckIntervalSeconds"`
 	// [HTTP/HTTPS health checks] The destination for health checks on the targets.
 	//
 	// [HTTP1 or HTTP2 protocol version] The ping path. The default is /.
 	//
 	// [GRPC protocol version] The path of a custom health check method with the format /package.service/method. The default is / AWS .ALB/healthcheck.
-	HealthCheckPath *string `json:"healthCheckPath"`
+	HealthCheckPath *string `json:"healthCheckPath" yaml:"healthCheckPath"`
 	// The port the load balancer uses when performing health checks on targets.
 	//
 	// If the protocol is HTTP, HTTPS, TCP, TLS, UDP, or TCP_UDP, the default is `traffic-port` , which is the port on which each target receives traffic from the load balancer. If the protocol is GENEVE, the default is port 80.
-	HealthCheckPort *string `json:"healthCheckPort"`
+	HealthCheckPort *string `json:"healthCheckPort" yaml:"healthCheckPort"`
 	// The protocol the load balancer uses when performing health checks on targets.
 	//
 	// For Application Load Balancers, the default is HTTP. For Network Load Balancers and Gateway Load Balancers, the default is TCP. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. The GENEVE, TLS, UDP, and TCP_UDP protocols are not supported for health checks.
-	HealthCheckProtocol *string `json:"healthCheckProtocol"`
+	HealthCheckProtocol *string `json:"healthCheckProtocol" yaml:"healthCheckProtocol"`
 	// The amount of time, in seconds, during which no response from a target means a failed health check.
 	//
 	// For target groups with a protocol of HTTP, HTTPS, or GENEVE, the default is 5 seconds. For target groups with a protocol of TCP or TLS, this value must be 6 seconds for HTTP health checks and 10 seconds for TCP and HTTPS health checks. If the target type is `lambda` , the default is 30 seconds.
-	HealthCheckTimeoutSeconds *float64 `json:"healthCheckTimeoutSeconds"`
+	HealthCheckTimeoutSeconds *float64 `json:"healthCheckTimeoutSeconds" yaml:"healthCheckTimeoutSeconds"`
 	// The number of consecutive health checks successes required before considering an unhealthy target healthy.
 	//
 	// For target groups with a protocol of HTTP or HTTPS, the default is 5. For target groups with a protocol of TCP, TLS, or GENEVE, the default is 3. If the target type is `lambda` , the default is 5.
-	HealthyThresholdCount *float64 `json:"healthyThresholdCount"`
+	HealthyThresholdCount *float64 `json:"healthyThresholdCount" yaml:"healthyThresholdCount"`
 	// The type of IP address used for this target group.
 	//
 	// The possible values are `ipv4` and `ipv6` . This is an optional parameter. If not specified, the IP address type defaults to `ipv4` .
-	IpAddressType *string `json:"ipAddressType"`
+	IpAddressType *string `json:"ipAddressType" yaml:"ipAddressType"`
 	// [HTTP/HTTPS health checks] The HTTP or gRPC codes to use when checking for a successful response from a target.
-	Matcher interface{} `json:"matcher"`
+	Matcher interface{} `json:"matcher" yaml:"matcher"`
 	// The name of the target group.
 	//
 	// This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The port on which the targets receive traffic.
 	//
 	// This port is used unless you specify a port override when registering the target. If the target is a Lambda function, this parameter does not apply. If the protocol is GENEVE, the supported port is 6081.
-	Port *float64 `json:"port"`
+	Port *float64 `json:"port" yaml:"port"`
 	// The protocol to use for routing traffic to the targets.
 	//
 	// For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, or TCP_UDP. For Gateway Load Balancers, the supported protocol is GENEVE. A TCP_UDP listener must be associated with a TCP_UDP target group. If the target is a Lambda function, this parameter does not apply.
-	Protocol *string `json:"protocol"`
+	Protocol *string `json:"protocol" yaml:"protocol"`
 	// [HTTP/HTTPS protocol] The protocol version.
 	//
 	// The possible values are `GRPC` , `HTTP1` , and `HTTP2` .
-	ProtocolVersion *string `json:"protocolVersion"`
+	ProtocolVersion *string `json:"protocolVersion" yaml:"protocolVersion"`
 	// The tags.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// The attributes.
-	TargetGroupAttributes interface{} `json:"targetGroupAttributes"`
+	TargetGroupAttributes interface{} `json:"targetGroupAttributes" yaml:"targetGroupAttributes"`
 	// The targets.
-	Targets interface{} `json:"targets"`
+	Targets interface{} `json:"targets" yaml:"targets"`
 	// The type of target that you must specify when registering targets with this target group.
 	//
 	// You can't specify targets for a target group using more than one target type.
@@ -7210,15 +7210,15 @@ type CfnTargetGroupProps struct {
 	// - `ip` - Register targets by IP address. You can specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can't specify publicly routable IP addresses.
 	// - `lambda` - Register a single Lambda function as a target.
 	// - `alb` - Register a single Application Load Balancer as a target.
-	TargetType *string `json:"targetType"`
+	TargetType *string `json:"targetType" yaml:"targetType"`
 	// The number of consecutive health check failures required before considering a target unhealthy.
 	//
 	// If the target group protocol is HTTP or HTTPS, the default is 2. If the target group protocol is TCP or TLS, this value must be the same as the healthy threshold count. If the target group protocol is GENEVE, the default is 3. If the target type is `lambda` , the default is 2.
-	UnhealthyThresholdCount *float64 `json:"unhealthyThresholdCount"`
+	UnhealthyThresholdCount *float64 `json:"unhealthyThresholdCount" yaml:"unhealthyThresholdCount"`
 	// The identifier of the virtual private cloud (VPC).
 	//
 	// If the target is a Lambda function, this parameter does not apply. Otherwise, this parameter is required.
-	VpcId *string `json:"vpcId"`
+	VpcId *string `json:"vpcId" yaml:"vpcId"`
 }
 
 // Options for `ListenerAction.fixedResponse()`.
@@ -7229,9 +7229,9 @@ type FixedResponseOptions struct {
 	// Content Type of the response.
 	//
 	// Valid Values: text/plain | text/css | text/html | application/javascript | application/json
-	ContentType *string `json:"contentType"`
+	ContentType *string `json:"contentType" yaml:"contentType"`
 	// The response body.
-	MessageBody *string `json:"messageBody"`
+	MessageBody *string `json:"messageBody" yaml:"messageBody"`
 }
 
 // Options for `ListenerAction.forward()`.
@@ -7242,7 +7242,7 @@ type ForwardOptions struct {
 	// For how long clients should be directed to the same target group.
 	//
 	// Range between 1 second and 7 days.
-	StickinessDuration awscdk.Duration `json:"stickinessDuration"`
+	StickinessDuration awscdk.Duration `json:"stickinessDuration" yaml:"stickinessDuration"`
 }
 
 // Properties for configuring a health check.
@@ -7255,44 +7255,44 @@ type HealthCheck struct {
 	// If the target type is lambda,
 	// health checks are disabled by default but can be enabled. If the target type
 	// is instance or ip, health checks are always enabled and cannot be disabled.
-	Enabled *bool `json:"enabled"`
+	Enabled *bool `json:"enabled" yaml:"enabled"`
 	// GRPC code to use when checking for a successful response from a target.
 	//
 	// You can specify values between 0 and 99. You can specify multiple values
 	// (for example, "0,1") or a range of values (for example, "0-5").
-	HealthyGrpcCodes *string `json:"healthyGrpcCodes"`
+	HealthyGrpcCodes *string `json:"healthyGrpcCodes" yaml:"healthyGrpcCodes"`
 	// HTTP code to use when checking for a successful response from a target.
 	//
 	// For Application Load Balancers, you can specify values between 200 and
 	// 499, and the default value is 200. You can specify multiple values (for
 	// example, "200,202") or a range of values (for example, "200-299").
-	HealthyHttpCodes *string `json:"healthyHttpCodes"`
+	HealthyHttpCodes *string `json:"healthyHttpCodes" yaml:"healthyHttpCodes"`
 	// The number of consecutive health checks successes required before considering an unhealthy target healthy.
 	//
 	// For Application Load Balancers, the default is 5. For Network Load Balancers, the default is 3.
-	HealthyThresholdCount *float64 `json:"healthyThresholdCount"`
+	HealthyThresholdCount *float64 `json:"healthyThresholdCount" yaml:"healthyThresholdCount"`
 	// The approximate number of seconds between health checks for an individual target.
-	Interval awscdk.Duration `json:"interval"`
+	Interval awscdk.Duration `json:"interval" yaml:"interval"`
 	// The ping path destination where Elastic Load Balancing sends health check requests.
-	Path *string `json:"path"`
+	Path *string `json:"path" yaml:"path"`
 	// The port that the load balancer uses when performing health checks on the targets.
-	Port *string `json:"port"`
+	Port *string `json:"port" yaml:"port"`
 	// The protocol the load balancer uses when performing health checks on targets.
 	//
 	// The TCP protocol is supported for health checks only if the protocol of the target group is TCP, TLS, UDP, or TCP_UDP.
 	// The TLS, UDP, and TCP_UDP protocols are not supported for health checks.
-	Protocol Protocol `json:"protocol"`
+	Protocol Protocol `json:"protocol" yaml:"protocol"`
 	// The amount of time, in seconds, during which no response from a target means a failed health check.
 	//
 	// For Application Load Balancers, the range is 2-60 seconds and the
 	// default is 5 seconds. For Network Load Balancers, this is 10 seconds for
 	// TCP and HTTPS health checks and 6 seconds for HTTP health checks.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The number of consecutive health check failures required before considering a target unhealthy.
 	//
 	// For Application Load Balancers, the default is 2. For Network Load
 	// Balancers, this value must be the same as the healthy threshold count.
-	UnhealthyThresholdCount *float64 `json:"unhealthyThresholdCount"`
+	UnhealthyThresholdCount *float64 `json:"unhealthyThresholdCount" yaml:"unhealthyThresholdCount"`
 }
 
 // Count of HTTP status originating from the load balancer.
@@ -8457,11 +8457,11 @@ func (l *jsiiProxy_ListenerCondition) RenderRawCondition() interface{} {
 //
 type LoadBalancerTargetProps struct {
 	// What kind of target this is.
-	TargetType TargetType `json:"targetType"`
+	TargetType TargetType `json:"targetType" yaml:"targetType"`
 	// JSON representing the target's direct addition to the TargetGroup list.
 	//
 	// May be omitted if the target is going to register itself later.
-	TargetJson interface{} `json:"targetJson"`
+	TargetJson interface{} `json:"targetJson" yaml:"targetJson"`
 }
 
 // Options for `NetworkListenerAction.forward()`.
@@ -8472,7 +8472,7 @@ type NetworkForwardOptions struct {
 	// For how long clients should be directed to the same target group.
 	//
 	// Range between 1 second and 7 days.
-	StickinessDuration awscdk.Duration `json:"stickinessDuration"`
+	StickinessDuration awscdk.Duration `json:"stickinessDuration" yaml:"stickinessDuration"`
 }
 
 // Define a Network Listener.
@@ -8959,13 +8959,13 @@ func (n *jsiiProxy_NetworkListenerAction) Renumber(actions *[]*CfnListener_Actio
 //
 type NetworkListenerLookupOptions struct {
 	// Filter listeners by listener port.
-	ListenerPort *float64 `json:"listenerPort"`
+	ListenerPort *float64 `json:"listenerPort" yaml:"listenerPort"`
 	// Filter listeners by associated load balancer arn.
-	LoadBalancerArn *string `json:"loadBalancerArn"`
+	LoadBalancerArn *string `json:"loadBalancerArn" yaml:"loadBalancerArn"`
 	// Filter listeners by associated load balancer tags.
-	LoadBalancerTags *map[string]*string `json:"loadBalancerTags"`
+	LoadBalancerTags *map[string]*string `json:"loadBalancerTags" yaml:"loadBalancerTags"`
 	// Protocol of the listener port.
-	ListenerProtocol Protocol `json:"listenerProtocol"`
+	ListenerProtocol Protocol `json:"listenerProtocol" yaml:"listenerProtocol"`
 }
 
 // Properties for a Network Listener attached to a Load Balancer.
@@ -8974,17 +8974,17 @@ type NetworkListenerLookupOptions struct {
 //
 type NetworkListenerProps struct {
 	// The port on which the listener listens for requests.
-	Port *float64 `json:"port"`
+	Port *float64 `json:"port" yaml:"port"`
 	// Application-Layer Protocol Negotiation (ALPN) is a TLS extension that is sent on the initial TLS handshake hello messages.
 	//
 	// ALPN enables the application layer to negotiate which protocols should be used over a secure connection, such as HTTP/1 and HTTP/2.
 	//
 	// Can only be specified together with Protocol TLS.
-	AlpnPolicy AlpnPolicy `json:"alpnPolicy"`
+	AlpnPolicy AlpnPolicy `json:"alpnPolicy" yaml:"alpnPolicy"`
 	// Certificate list of ACM cert ARNs.
 	//
 	// You must provide exactly one certificate if the listener protocol is HTTPS or TLS.
-	Certificates *[]IListenerCertificate `json:"certificates"`
+	Certificates *[]IListenerCertificate `json:"certificates" yaml:"certificates"`
 	// Default action to take for requests to this listener.
 	//
 	// This allows full control of the default Action of the load balancer,
@@ -8992,7 +8992,7 @@ type NetworkListenerProps struct {
 	// all options.
 	//
 	// Cannot be specified together with `defaultTargetGroups`.
-	DefaultAction NetworkListenerAction `json:"defaultAction"`
+	DefaultAction NetworkListenerAction `json:"defaultAction" yaml:"defaultAction"`
 	// Default target groups to load balance to.
 	//
 	// All target groups will be load balanced to with equal weight and without
@@ -9000,13 +9000,13 @@ type NetworkListenerProps struct {
 	// either `defaultAction` or `addAction()`.
 	//
 	// Cannot be specified together with `defaultAction`.
-	DefaultTargetGroups *[]INetworkTargetGroup `json:"defaultTargetGroups"`
+	DefaultTargetGroups *[]INetworkTargetGroup `json:"defaultTargetGroups" yaml:"defaultTargetGroups"`
 	// Protocol for listener, expects TCP, TLS, UDP, or TCP_UDP.
-	Protocol Protocol `json:"protocol"`
+	Protocol Protocol `json:"protocol" yaml:"protocol"`
 	// SSL Policy.
-	SslPolicy SslPolicy `json:"sslPolicy"`
+	SslPolicy SslPolicy `json:"sslPolicy" yaml:"sslPolicy"`
 	// The load balancer to attach this listener to.
-	LoadBalancer INetworkLoadBalancer `json:"loadBalancer"`
+	LoadBalancer INetworkLoadBalancer `json:"loadBalancer" yaml:"loadBalancer"`
 }
 
 // Define a new network load balancer.
@@ -9511,13 +9511,13 @@ func (n *jsiiProxy_NetworkLoadBalancer) ToString() *string {
 //
 type NetworkLoadBalancerAttributes struct {
 	// ARN of the load balancer.
-	LoadBalancerArn *string `json:"loadBalancerArn"`
+	LoadBalancerArn *string `json:"loadBalancerArn" yaml:"loadBalancerArn"`
 	// The canonical hosted zone ID of this load balancer.
-	LoadBalancerCanonicalHostedZoneId *string `json:"loadBalancerCanonicalHostedZoneId"`
+	LoadBalancerCanonicalHostedZoneId *string `json:"loadBalancerCanonicalHostedZoneId" yaml:"loadBalancerCanonicalHostedZoneId"`
 	// The DNS name of this load balancer.
-	LoadBalancerDnsName *string `json:"loadBalancerDnsName"`
+	LoadBalancerDnsName *string `json:"loadBalancerDnsName" yaml:"loadBalancerDnsName"`
 	// The VPC to associate with the load balancer.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 }
 
 // Options for looking up an NetworkLoadBalancer.
@@ -9526,9 +9526,9 @@ type NetworkLoadBalancerAttributes struct {
 //
 type NetworkLoadBalancerLookupOptions struct {
 	// Find by load balancer's ARN.
-	LoadBalancerArn *string `json:"loadBalancerArn"`
+	LoadBalancerArn *string `json:"loadBalancerArn" yaml:"loadBalancerArn"`
 	// Match load balancer tags.
-	LoadBalancerTags *map[string]*string `json:"loadBalancerTags"`
+	LoadBalancerTags *map[string]*string `json:"loadBalancerTags" yaml:"loadBalancerTags"`
 }
 
 // Properties for a network load balancer.
@@ -9537,17 +9537,17 @@ type NetworkLoadBalancerLookupOptions struct {
 //
 type NetworkLoadBalancerProps struct {
 	// The VPC network to place the load balancer in.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// Indicates whether deletion protection is enabled.
-	DeletionProtection *bool `json:"deletionProtection"`
+	DeletionProtection *bool `json:"deletionProtection" yaml:"deletionProtection"`
 	// Whether the load balancer has an internet-routable address.
-	InternetFacing *bool `json:"internetFacing"`
+	InternetFacing *bool `json:"internetFacing" yaml:"internetFacing"`
 	// Name of the load balancer.
-	LoadBalancerName *string `json:"loadBalancerName"`
+	LoadBalancerName *string `json:"loadBalancerName" yaml:"loadBalancerName"`
 	// Which subnets place the load balancer in.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 	// Indicates whether cross-zone load balancing is enabled.
-	CrossZoneEnabled *bool `json:"crossZoneEnabled"`
+	CrossZoneEnabled *bool `json:"crossZoneEnabled" yaml:"crossZoneEnabled"`
 }
 
 // Define a Network Target Group.
@@ -9901,39 +9901,39 @@ type NetworkTargetGroupProps struct {
 	// The amount of time for Elastic Load Balancing to wait before deregistering a target.
 	//
 	// The range is 0-3600 seconds.
-	DeregistrationDelay awscdk.Duration `json:"deregistrationDelay"`
+	DeregistrationDelay awscdk.Duration `json:"deregistrationDelay" yaml:"deregistrationDelay"`
 	// Health check configuration.
-	HealthCheck *HealthCheck `json:"healthCheck"`
+	HealthCheck *HealthCheck `json:"healthCheck" yaml:"healthCheck"`
 	// The name of the target group.
 	//
 	// This name must be unique per region per account, can have a maximum of
 	// 32 characters, must contain only alphanumeric characters or hyphens, and
 	// must not begin or end with a hyphen.
-	TargetGroupName *string `json:"targetGroupName"`
+	TargetGroupName *string `json:"targetGroupName" yaml:"targetGroupName"`
 	// The type of targets registered to this TargetGroup, either IP or Instance.
 	//
 	// All targets registered into the group must be of this type. If you
 	// register targets to the TargetGroup in the CDK app, the TargetType is
 	// determined automatically.
-	TargetType TargetType `json:"targetType"`
+	TargetType TargetType `json:"targetType" yaml:"targetType"`
 	// The virtual private cloud (VPC).
 	//
 	// only if `TargetType` is `Ip` or `InstanceId`
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// The port on which the listener listens for requests.
-	Port *float64 `json:"port"`
+	Port *float64 `json:"port" yaml:"port"`
 	// Indicates whether client IP preservation is enabled.
-	PreserveClientIp *bool `json:"preserveClientIp"`
+	PreserveClientIp *bool `json:"preserveClientIp" yaml:"preserveClientIp"`
 	// Protocol for target group, expects TCP, TLS, UDP, or TCP_UDP.
-	Protocol Protocol `json:"protocol"`
+	Protocol Protocol `json:"protocol" yaml:"protocol"`
 	// Indicates whether Proxy Protocol version 2 is enabled.
-	ProxyProtocolV2 *bool `json:"proxyProtocolV2"`
+	ProxyProtocolV2 *bool `json:"proxyProtocolV2" yaml:"proxyProtocolV2"`
 	// The targets to add to this target group.
 	//
 	// Can be `Instance`, `IPAddress`, or any self-registering load balancing
 	// target. If you use either `Instance` or `IPAddress` as targets, all
 	// target must be of the same type.
-	Targets *[]INetworkLoadBalancerTarget `json:"targets"`
+	Targets *[]INetworkLoadBalancerTarget `json:"targets" yaml:"targets"`
 }
 
 // A Target Group and weight combination.
@@ -9942,11 +9942,11 @@ type NetworkTargetGroupProps struct {
 //
 type NetworkWeightedTargetGroup struct {
 	// The target group.
-	TargetGroup INetworkTargetGroup `json:"targetGroup"`
+	TargetGroup INetworkTargetGroup `json:"targetGroup" yaml:"targetGroup"`
 	// The target group's weight.
 	//
 	// Range is [0..1000).
-	Weight *float64 `json:"weight"`
+	Weight *float64 `json:"weight" yaml:"weight"`
 }
 
 // Backend protocol for network load balancers and health checks.
@@ -9970,9 +9970,9 @@ const (
 //
 type QueryStringCondition struct {
 	// The query string value for the condition.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 	// The query string key for the condition.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 }
 
 // Options for `ListenerAction.redirect()`.
@@ -9999,27 +9999,27 @@ type RedirectOptions struct {
 	// The hostname.
 	//
 	// This component is not percent-encoded. The hostname can contain #{host}.
-	Host *string `json:"host"`
+	Host *string `json:"host" yaml:"host"`
 	// The absolute path, starting with the leading "/".
 	//
 	// This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
-	Path *string `json:"path"`
+	Path *string `json:"path" yaml:"path"`
 	// The HTTP redirect code.
 	//
 	// The redirect is either permanent (HTTP 301) or temporary (HTTP 302).
-	Permanent *bool `json:"permanent"`
+	Permanent *bool `json:"permanent" yaml:"permanent"`
 	// The port.
 	//
 	// You can specify a value from 1 to 65535 or #{port}.
-	Port *string `json:"port"`
+	Port *string `json:"port" yaml:"port"`
 	// The protocol.
 	//
 	// You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.
-	Protocol *string `json:"protocol"`
+	Protocol *string `json:"protocol" yaml:"protocol"`
 	// The query parameters, URL-encoded when necessary, but not percent-encoded.
 	//
 	// Do not include the leading "?", as it is automatically added. You can specify any of the reserved keywords.
-	Query *string `json:"query"`
+	Query *string `json:"query" yaml:"query"`
 }
 
 // Elastic Load Balancing provides the following security policies for Application Load Balancers.
@@ -10057,9 +10057,9 @@ const (
 //
 type TargetGroupAttributes struct {
 	// ARN of the target group.
-	TargetGroupArn *string `json:"targetGroupArn"`
+	TargetGroupArn *string `json:"targetGroupArn" yaml:"targetGroupArn"`
 	// A Token representing the list of ARNs for the load balancer routing to this target group.
-	LoadBalancerArns *string `json:"loadBalancerArns"`
+	LoadBalancerArns *string `json:"loadBalancerArns" yaml:"loadBalancerArns"`
 }
 
 // Define the target of a load balancer.
@@ -10351,10 +10351,10 @@ const (
 //
 type WeightedTargetGroup struct {
 	// The target group.
-	TargetGroup IApplicationTargetGroup `json:"targetGroup"`
+	TargetGroup IApplicationTargetGroup `json:"targetGroup" yaml:"targetGroup"`
 	// The target group's weight.
 	//
 	// Range is [0..1000).
-	Weight *float64 `json:"weight"`
+	Weight *float64 `json:"weight" yaml:"weight"`
 }
 

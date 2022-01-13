@@ -622,13 +622,13 @@ type CfnPipeline_FieldProperty struct {
 	// Specifies the name of a field for a particular object.
 	//
 	// To view valid values for a particular field, see [Pipeline Object Reference](https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-pipeline-objects.html) in the *AWS Data Pipeline Developer Guide* .
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// A field value that you specify as an identifier of another object in the same pipeline definition.
 	//
 	// > You can specify the field value as either a string value ( `StringValue` ) or a reference to another object ( `RefValue` ), but not both.
 	//
 	// Required if the key that you are using requires it.
-	RefValue *string `json:"refValue"`
+	RefValue *string `json:"refValue" yaml:"refValue"`
 	// A field value that you specify as a string.
 	//
 	// To view valid values for a particular field, see [Pipeline Object Reference](https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-pipeline-objects.html) in the *AWS Data Pipeline Developer Guide* .
@@ -636,7 +636,7 @@ type CfnPipeline_FieldProperty struct {
 	// > You can specify the field value as either a string value ( `StringValue` ) or a reference to another object ( `RefValue` ), but not both.
 	//
 	// Required if the key that you are using requires it.
-	StringValue *string `json:"stringValue"`
+	StringValue *string `json:"stringValue" yaml:"stringValue"`
 }
 
 // `Attribute` is a property of `ParameterObject` that defines the attributes of a parameter object as key-value pairs.
@@ -645,9 +645,9 @@ type CfnPipeline_FieldProperty struct {
 //
 type CfnPipeline_ParameterAttributeProperty struct {
 	// The field identifier.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// The field value, expressed as a String.
-	StringValue *string `json:"stringValue"`
+	StringValue *string `json:"stringValue" yaml:"stringValue"`
 }
 
 // Contains information about a parameter object.
@@ -656,9 +656,9 @@ type CfnPipeline_ParameterAttributeProperty struct {
 //
 type CfnPipeline_ParameterObjectProperty struct {
 	// The attributes of the parameter object.
-	Attributes interface{} `json:"attributes"`
+	Attributes interface{} `json:"attributes" yaml:"attributes"`
 	// The ID of the parameter object.
-	Id *string `json:"id"`
+	Id *string `json:"id" yaml:"id"`
 }
 
 // A value or list of parameter values.
@@ -667,9 +667,9 @@ type CfnPipeline_ParameterObjectProperty struct {
 //
 type CfnPipeline_ParameterValueProperty struct {
 	// The ID of the parameter value.
-	Id *string `json:"id"`
+	Id *string `json:"id" yaml:"id"`
 	// The field value, expressed as a String.
-	StringValue *string `json:"stringValue"`
+	StringValue *string `json:"stringValue" yaml:"stringValue"`
 }
 
 // PipelineObject is property of the AWS::DataPipeline::Pipeline resource that contains information about a pipeline object.
@@ -680,11 +680,11 @@ type CfnPipeline_ParameterValueProperty struct {
 //
 type CfnPipeline_PipelineObjectProperty struct {
 	// Key-value pairs that define the properties of the object.
-	Fields interface{} `json:"fields"`
+	Fields interface{} `json:"fields" yaml:"fields"`
 	// The ID of the object.
-	Id *string `json:"id"`
+	Id *string `json:"id" yaml:"id"`
 	// The name of the object.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // A list of arbitrary tags (key-value pairs) to associate with the pipeline, which you can use to control permissions.
@@ -695,9 +695,9 @@ type CfnPipeline_PipelineObjectProperty struct {
 //
 type CfnPipeline_PipelineTagProperty struct {
 	// The key name of a tag.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// The value to associate with the key name.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // Properties for defining a `CfnPipeline`.
@@ -706,24 +706,24 @@ type CfnPipeline_PipelineTagProperty struct {
 //
 type CfnPipelineProps struct {
 	// The name of the pipeline.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The parameter objects used with the pipeline.
-	ParameterObjects interface{} `json:"parameterObjects"`
+	ParameterObjects interface{} `json:"parameterObjects" yaml:"parameterObjects"`
 	// Indicates whether to validate and start the pipeline or stop an active pipeline.
 	//
 	// By default, the value is set to `true` .
-	Activate interface{} `json:"activate"`
+	Activate interface{} `json:"activate" yaml:"activate"`
 	// A description of the pipeline.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The parameter values used with the pipeline.
-	ParameterValues interface{} `json:"parameterValues"`
+	ParameterValues interface{} `json:"parameterValues" yaml:"parameterValues"`
 	// The objects that define the pipeline.
 	//
 	// These objects overwrite the existing pipeline definition. Not all objects, fields, and values can be updated. For information about restrictions, see [Editing Your Pipeline](https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-manage-pipeline-modify-console.html) in the *AWS Data Pipeline Developer Guide* .
-	PipelineObjects interface{} `json:"pipelineObjects"`
+	PipelineObjects interface{} `json:"pipelineObjects" yaml:"pipelineObjects"`
 	// A list of arbitrary tags (key-value pairs) to associate with the pipeline, which you can use to control permissions.
 	//
 	// For more information, see [Controlling Access to Pipelines and Resources](https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html) in the *AWS Data Pipeline Developer Guide* .
-	PipelineTags interface{} `json:"pipelineTags"`
+	PipelineTags interface{} `json:"pipelineTags" yaml:"pipelineTags"`
 }
 

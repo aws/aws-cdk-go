@@ -547,23 +547,23 @@ func (c *jsiiProxy_CfnClassifier) ValidateProperties(_properties interface{}) {
 //
 type CfnClassifier_CsvClassifierProperty struct {
 	// Enables the processing of files that contain only one column.
-	AllowSingleColumn interface{} `json:"allowSingleColumn"`
+	AllowSingleColumn interface{} `json:"allowSingleColumn" yaml:"allowSingleColumn"`
 	// Indicates whether the CSV file contains a header.
-	ContainsHeader *string `json:"containsHeader"`
+	ContainsHeader *string `json:"containsHeader" yaml:"containsHeader"`
 	// A custom symbol to denote what separates each column entry in the row.
-	Delimiter *string `json:"delimiter"`
+	Delimiter *string `json:"delimiter" yaml:"delimiter"`
 	// Specifies not to trim values before identifying the type of column values.
 	//
 	// The default value is `true` .
-	DisableValueTrimming interface{} `json:"disableValueTrimming"`
+	DisableValueTrimming interface{} `json:"disableValueTrimming" yaml:"disableValueTrimming"`
 	// A list of strings representing column names.
-	Header *[]*string `json:"header"`
+	Header *[]*string `json:"header" yaml:"header"`
 	// The name of the classifier.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// A custom symbol to denote what combines content into a single column value.
 	//
 	// It must be different from the column delimiter.
-	QuoteSymbol *string `json:"quoteSymbol"`
+	QuoteSymbol *string `json:"quoteSymbol" yaml:"quoteSymbol"`
 }
 
 // A classifier that uses `grok` patterns.
@@ -572,17 +572,17 @@ type CfnClassifier_CsvClassifierProperty struct {
 //
 type CfnClassifier_GrokClassifierProperty struct {
 	// An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, and so on.
-	Classification *string `json:"classification"`
+	Classification *string `json:"classification" yaml:"classification"`
 	// The grok pattern applied to a data store by this classifier.
 	//
 	// For more information, see built-in patterns in [Writing Custom Classifiers](https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html) .
-	GrokPattern *string `json:"grokPattern"`
+	GrokPattern *string `json:"grokPattern" yaml:"grokPattern"`
 	// Optional custom grok patterns defined by this classifier.
 	//
 	// For more information, see custom patterns in [Writing Custom Classifiers](https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html) .
-	CustomPatterns *string `json:"customPatterns"`
+	CustomPatterns *string `json:"customPatterns" yaml:"customPatterns"`
 	// The name of the classifier.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // A classifier for `JSON` content.
@@ -593,9 +593,9 @@ type CfnClassifier_JsonClassifierProperty struct {
 	// A `JsonPath` string defining the JSON data for the classifier to classify.
 	//
 	// AWS Glue supports a subset of `JsonPath` , as described in [Writing JsonPath Custom Classifiers](https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json) .
-	JsonPath *string `json:"jsonPath"`
+	JsonPath *string `json:"jsonPath" yaml:"jsonPath"`
 	// The name of the classifier.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // A classifier for `XML` content.
@@ -604,13 +604,13 @@ type CfnClassifier_JsonClassifierProperty struct {
 //
 type CfnClassifier_XMLClassifierProperty struct {
 	// An identifier of the data format that the classifier matches.
-	Classification *string `json:"classification"`
+	Classification *string `json:"classification" yaml:"classification"`
 	// The XML tag designating the element that contains each record in an XML document being parsed.
 	//
 	// This can't identify a self-closing element (closed by `/>` ). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, `<row item_a="A" item_b="B"></row>` is okay, but `<row item_a="A" item_b="B" />` is not).
-	RowTag *string `json:"rowTag"`
+	RowTag *string `json:"rowTag" yaml:"rowTag"`
 	// The name of the classifier.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // Properties for defining a `CfnClassifier`.
@@ -619,13 +619,13 @@ type CfnClassifier_XMLClassifierProperty struct {
 //
 type CfnClassifierProps struct {
 	// A classifier for comma-separated values (CSV).
-	CsvClassifier interface{} `json:"csvClassifier"`
+	CsvClassifier interface{} `json:"csvClassifier" yaml:"csvClassifier"`
 	// A classifier that uses `grok` .
-	GrokClassifier interface{} `json:"grokClassifier"`
+	GrokClassifier interface{} `json:"grokClassifier" yaml:"grokClassifier"`
 	// A classifier for JSON content.
-	JsonClassifier interface{} `json:"jsonClassifier"`
+	JsonClassifier interface{} `json:"jsonClassifier" yaml:"jsonClassifier"`
 	// A classifier for XML content.
-	XmlClassifier interface{} `json:"xmlClassifier"`
+	XmlClassifier interface{} `json:"xmlClassifier" yaml:"xmlClassifier"`
 }
 
 // A CloudFormation `AWS::Glue::Connection`.
@@ -1133,17 +1133,17 @@ type CfnConnection_ConnectionInputProperty struct {
 	// - `NETWORK` - Designates a network connection to a data source within an Amazon Virtual Private Cloud environment (Amazon VPC).
 	//
 	// SFTP is not supported.
-	ConnectionType *string `json:"connectionType"`
+	ConnectionType *string `json:"connectionType" yaml:"connectionType"`
 	// These key-value pairs define parameters for the connection.
-	ConnectionProperties interface{} `json:"connectionProperties"`
+	ConnectionProperties interface{} `json:"connectionProperties" yaml:"connectionProperties"`
 	// The description of the connection.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// A list of criteria that can be used in selecting this connection.
-	MatchCriteria *[]*string `json:"matchCriteria"`
+	MatchCriteria *[]*string `json:"matchCriteria" yaml:"matchCriteria"`
 	// The name of the connection.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// A map of physical connection requirements, such as virtual private cloud (VPC) and `SecurityGroup` , that are needed to successfully make this connection.
-	PhysicalConnectionRequirements interface{} `json:"physicalConnectionRequirements"`
+	PhysicalConnectionRequirements interface{} `json:"physicalConnectionRequirements" yaml:"physicalConnectionRequirements"`
 }
 
 // Specifies the physical requirements for a connection.
@@ -1154,11 +1154,11 @@ type CfnConnection_PhysicalConnectionRequirementsProperty struct {
 	// The connection's Availability Zone.
 	//
 	// This field is redundant because the specified subnet implies the Availability Zone to be used. Currently the field must be populated, but it will be deprecated in the future.
-	AvailabilityZone *string `json:"availabilityZone"`
+	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
 	// The security group ID list used by the connection.
-	SecurityGroupIdList *[]*string `json:"securityGroupIdList"`
+	SecurityGroupIdList *[]*string `json:"securityGroupIdList" yaml:"securityGroupIdList"`
 	// The subnet ID used by the connection.
-	SubnetId *string `json:"subnetId"`
+	SubnetId *string `json:"subnetId" yaml:"subnetId"`
 }
 
 // Properties for defining a `CfnConnection`.
@@ -1171,9 +1171,9 @@ type CfnConnectionProps struct {
 	// Currently, this should be the AWS account ID.
 	//
 	// > To specify the account ID, you can use the `Ref` intrinsic function with the `AWS::AccountId` pseudo parameter. For example: `!Ref AWS::AccountId` .
-	CatalogId *string `json:"catalogId"`
+	CatalogId *string `json:"catalogId" yaml:"catalogId"`
 	// The connection that you want to create.
-	ConnectionInput interface{} `json:"connectionInput"`
+	ConnectionInput interface{} `json:"connectionInput" yaml:"connectionInput"`
 }
 
 // A CloudFormation `AWS::Glue::Crawler`.
@@ -1885,9 +1885,9 @@ func (c *jsiiProxy_CfnCrawler) ValidateProperties(_properties interface{}) {
 //
 type CfnCrawler_CatalogTargetProperty struct {
 	// The name of the database to be synchronized.
-	DatabaseName *string `json:"databaseName"`
+	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
 	// A list of the tables to be synchronized.
-	Tables *[]*string `json:"tables"`
+	Tables *[]*string `json:"tables" yaml:"tables"`
 }
 
 // Specifies an Amazon DynamoDB table to crawl.
@@ -1896,7 +1896,7 @@ type CfnCrawler_CatalogTargetProperty struct {
 //
 type CfnCrawler_DynamoDBTargetProperty struct {
 	// The name of the DynamoDB table to crawl.
-	Path *string `json:"path"`
+	Path *string `json:"path" yaml:"path"`
 }
 
 // Specifies a JDBC data store to crawl.
@@ -1905,13 +1905,13 @@ type CfnCrawler_DynamoDBTargetProperty struct {
 //
 type CfnCrawler_JdbcTargetProperty struct {
 	// The name of the connection to use to connect to the JDBC target.
-	ConnectionName *string `json:"connectionName"`
+	ConnectionName *string `json:"connectionName" yaml:"connectionName"`
 	// A list of glob patterns used to exclude from the crawl.
 	//
 	// For more information, see [Catalog Tables with a Crawler](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html) .
-	Exclusions *[]*string `json:"exclusions"`
+	Exclusions *[]*string `json:"exclusions" yaml:"exclusions"`
 	// The path of the JDBC target.
-	Path *string `json:"path"`
+	Path *string `json:"path" yaml:"path"`
 }
 
 // When crawling an Amazon S3 data source after the first crawl is complete, specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run.
@@ -1928,7 +1928,7 @@ type CfnCrawler_RecrawlPolicyProperty struct {
 	// A value of `CRAWL_NEW_FOLDERS_ONLY` specifies crawling only folders that were added since the last crawler run.
 	//
 	// A value of `CRAWL_EVENT_MODE` specifies crawling only the changes identified by Amazon S3 events.
-	RecrawlBehavior *string `json:"recrawlBehavior"`
+	RecrawlBehavior *string `json:"recrawlBehavior" yaml:"recrawlBehavior"`
 }
 
 // Specifies a data store in Amazon Simple Storage Service (Amazon S3).
@@ -1937,13 +1937,13 @@ type CfnCrawler_RecrawlPolicyProperty struct {
 //
 type CfnCrawler_S3TargetProperty struct {
 	// The name of a connection which allows a job or crawler to access data in Amazon S3 within an Amazon Virtual Private Cloud environment (Amazon VPC).
-	ConnectionName *string `json:"connectionName"`
+	ConnectionName *string `json:"connectionName" yaml:"connectionName"`
 	// A list of glob patterns used to exclude from the crawl.
 	//
 	// For more information, see [Catalog Tables with a Crawler](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html) .
-	Exclusions *[]*string `json:"exclusions"`
+	Exclusions *[]*string `json:"exclusions" yaml:"exclusions"`
 	// The path to the Amazon S3 target.
-	Path *string `json:"path"`
+	Path *string `json:"path" yaml:"path"`
 }
 
 // A scheduling object using a `cron` statement to schedule an event.
@@ -1954,7 +1954,7 @@ type CfnCrawler_ScheduleProperty struct {
 	// A `cron` expression used to specify the schedule.
 	//
 	// For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html) . For example, to run something every day at 12:15 UTC, specify `cron(15 12 * * ? *)` .
-	ScheduleExpression *string `json:"scheduleExpression"`
+	ScheduleExpression *string `json:"scheduleExpression" yaml:"scheduleExpression"`
 }
 
 // A policy that specifies update and deletion behaviors for the crawler.
@@ -1963,9 +1963,9 @@ type CfnCrawler_ScheduleProperty struct {
 //
 type CfnCrawler_SchemaChangePolicyProperty struct {
 	// The deletion behavior when the crawler finds a deleted object.
-	DeleteBehavior *string `json:"deleteBehavior"`
+	DeleteBehavior *string `json:"deleteBehavior" yaml:"deleteBehavior"`
 	// The update behavior when the crawler finds a changed schema.
-	UpdateBehavior *string `json:"updateBehavior"`
+	UpdateBehavior *string `json:"updateBehavior" yaml:"updateBehavior"`
 }
 
 // Specifies data stores to crawl.
@@ -1974,13 +1974,13 @@ type CfnCrawler_SchemaChangePolicyProperty struct {
 //
 type CfnCrawler_TargetsProperty struct {
 	// Specifies AWS Glue Data Catalog targets.
-	CatalogTargets interface{} `json:"catalogTargets"`
+	CatalogTargets interface{} `json:"catalogTargets" yaml:"catalogTargets"`
 	// Specifies Amazon DynamoDB targets.
-	DynamoDbTargets interface{} `json:"dynamoDbTargets"`
+	DynamoDbTargets interface{} `json:"dynamoDbTargets" yaml:"dynamoDbTargets"`
 	// Specifies JDBC targets.
-	JdbcTargets interface{} `json:"jdbcTargets"`
+	JdbcTargets interface{} `json:"jdbcTargets" yaml:"jdbcTargets"`
 	// Specifies Amazon Simple Storage Service (Amazon S3) targets.
-	S3Targets interface{} `json:"s3Targets"`
+	S3Targets interface{} `json:"s3Targets" yaml:"s3Targets"`
 }
 
 // Properties for defining a `CfnCrawler`.
@@ -1989,33 +1989,33 @@ type CfnCrawler_TargetsProperty struct {
 //
 type CfnCrawlerProps struct {
 	// The Amazon Resource Name (ARN) of an IAM role that's used to access customer resources, such as Amazon Simple Storage Service (Amazon S3) data.
-	Role *string `json:"role"`
+	Role *string `json:"role" yaml:"role"`
 	// A collection of targets to crawl.
-	Targets interface{} `json:"targets"`
+	Targets interface{} `json:"targets" yaml:"targets"`
 	// A list of UTF-8 strings that specify the custom classifiers that are associated with the crawler.
-	Classifiers *[]*string `json:"classifiers"`
+	Classifiers *[]*string `json:"classifiers" yaml:"classifiers"`
 	// Crawler configuration information.
 	//
 	// This versioned JSON string allows users to specify aspects of a crawler's behavior. For more information, see [Configuring a Crawler](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html) .
-	Configuration *string `json:"configuration"`
+	Configuration *string `json:"configuration" yaml:"configuration"`
 	// The name of the `SecurityConfiguration` structure to be used by this crawler.
-	CrawlerSecurityConfiguration *string `json:"crawlerSecurityConfiguration"`
+	CrawlerSecurityConfiguration *string `json:"crawlerSecurityConfiguration" yaml:"crawlerSecurityConfiguration"`
 	// The name of the database in which the crawler's output is stored.
-	DatabaseName *string `json:"databaseName"`
+	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
 	// A description of the crawler.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The name of the crawler.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.
-	RecrawlPolicy interface{} `json:"recrawlPolicy"`
+	RecrawlPolicy interface{} `json:"recrawlPolicy" yaml:"recrawlPolicy"`
 	// For scheduled crawlers, the schedule when the crawler runs.
-	Schedule interface{} `json:"schedule"`
+	Schedule interface{} `json:"schedule" yaml:"schedule"`
 	// The policy that specifies update and delete behaviors for the crawler.
-	SchemaChangePolicy interface{} `json:"schemaChangePolicy"`
+	SchemaChangePolicy interface{} `json:"schemaChangePolicy" yaml:"schemaChangePolicy"`
 	// The prefix added to the names of tables that are created.
-	TablePrefix *string `json:"tablePrefix"`
+	TablePrefix *string `json:"tablePrefix" yaml:"tablePrefix"`
 	// The tags to use with this crawler.
-	Tags interface{} `json:"tags"`
+	Tags interface{} `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Glue::DataCatalogEncryptionSettings`.
@@ -2524,11 +2524,11 @@ type CfnDataCatalogEncryptionSettings_ConnectionPasswordEncryptionProperty struc
 	// An AWS KMS key that is used to encrypt the connection password.
 	//
 	// If connection password protection is enabled, the caller of `CreateConnection` and `UpdateConnection` needs at least `kms:Encrypt` permission on the specified AWS KMS key, to encrypt passwords before storing them in the Data Catalog. You can set the decrypt permission to enable or restrict access on the password key according to your security requirements.
-	KmsKeyId *string `json:"kmsKeyId"`
+	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
 	// When the `ReturnConnectionPasswordEncrypted` flag is set to "true", passwords remain encrypted in the responses of `GetConnection` and `GetConnections` .
 	//
 	// This encryption takes effect independently from catalog encryption.
-	ReturnConnectionPasswordEncrypted interface{} `json:"returnConnectionPasswordEncrypted"`
+	ReturnConnectionPasswordEncrypted interface{} `json:"returnConnectionPasswordEncrypted" yaml:"returnConnectionPasswordEncrypted"`
 }
 
 // Contains configuration information for maintaining Data Catalog security.
@@ -2539,9 +2539,9 @@ type CfnDataCatalogEncryptionSettings_DataCatalogEncryptionSettingsProperty stru
 	// When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of `CreateConnection` or `UpdateConnection` and store it in the `ENCRYPTED_PASSWORD` field in the connection properties.
 	//
 	// You can enable catalog encryption or only password encryption.
-	ConnectionPasswordEncryption interface{} `json:"connectionPasswordEncryption"`
+	ConnectionPasswordEncryption interface{} `json:"connectionPasswordEncryption" yaml:"connectionPasswordEncryption"`
 	// Specifies the encryption-at-rest configuration for the Data Catalog.
-	EncryptionAtRest interface{} `json:"encryptionAtRest"`
+	EncryptionAtRest interface{} `json:"encryptionAtRest" yaml:"encryptionAtRest"`
 }
 
 // Specifies the encryption-at-rest configuration for the Data Catalog.
@@ -2550,9 +2550,9 @@ type CfnDataCatalogEncryptionSettings_DataCatalogEncryptionSettingsProperty stru
 //
 type CfnDataCatalogEncryptionSettings_EncryptionAtRestProperty struct {
 	// The encryption-at-rest mode for encrypting Data Catalog data.
-	CatalogEncryptionMode *string `json:"catalogEncryptionMode"`
+	CatalogEncryptionMode *string `json:"catalogEncryptionMode" yaml:"catalogEncryptionMode"`
 	// The ID of the AWS KMS key to use for encryption at rest.
-	SseAwsKmsKeyId *string `json:"sseAwsKmsKeyId"`
+	SseAwsKmsKeyId *string `json:"sseAwsKmsKeyId" yaml:"sseAwsKmsKeyId"`
 }
 
 // Properties for defining a `CfnDataCatalogEncryptionSettings`.
@@ -2561,9 +2561,9 @@ type CfnDataCatalogEncryptionSettings_EncryptionAtRestProperty struct {
 //
 type CfnDataCatalogEncryptionSettingsProps struct {
 	// The ID of the Data Catalog in which the settings are created.
-	CatalogId *string `json:"catalogId"`
+	CatalogId *string `json:"catalogId" yaml:"catalogId"`
 	// Contains configuration information for maintaining Data Catalog security.
-	DataCatalogEncryptionSettings interface{} `json:"dataCatalogEncryptionSettings"`
+	DataCatalogEncryptionSettings interface{} `json:"dataCatalogEncryptionSettings" yaml:"dataCatalogEncryptionSettings"`
 }
 
 // A CloudFormation `AWS::Glue::Database`.
@@ -3064,7 +3064,7 @@ func (c *jsiiProxy_CfnDatabase) ValidateProperties(_properties interface{}) {
 //
 type CfnDatabase_DataLakePrincipalProperty struct {
 	// An identifier for the AWS Lake Formation principal.
-	DataLakePrincipalIdentifier *string `json:"dataLakePrincipalIdentifier"`
+	DataLakePrincipalIdentifier *string `json:"dataLakePrincipalIdentifier" yaml:"dataLakePrincipalIdentifier"`
 }
 
 // A structure that describes a target database for resource linking.
@@ -3073,9 +3073,9 @@ type CfnDatabase_DataLakePrincipalProperty struct {
 //
 type CfnDatabase_DatabaseIdentifierProperty struct {
 	// The ID of the Data Catalog in which the database resides.
-	CatalogId *string `json:"catalogId"`
+	CatalogId *string `json:"catalogId" yaml:"catalogId"`
 	// The name of the catalog database.
-	DatabaseName *string `json:"databaseName"`
+	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
 }
 
 // The structure used to create or update a database.
@@ -3084,28 +3084,28 @@ type CfnDatabase_DatabaseIdentifierProperty struct {
 //
 type CfnDatabase_DatabaseInputProperty struct {
 	// Creates a set of default permissions on the table for principals.
-	CreateTableDefaultPermissions interface{} `json:"createTableDefaultPermissions"`
+	CreateTableDefaultPermissions interface{} `json:"createTableDefaultPermissions" yaml:"createTableDefaultPermissions"`
 	// A description of the database.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The location of the database (for example, an HDFS path).
-	LocationUri *string `json:"locationUri"`
+	LocationUri *string `json:"locationUri" yaml:"locationUri"`
 	// The name of the database.
 	//
 	// For Hive compatibility, this is folded to lowercase when it is stored.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// These key-value pairs define parameters and properties of the database.
-	Parameters interface{} `json:"parameters"`
+	Parameters interface{} `json:"parameters" yaml:"parameters"`
 	// A `DatabaseIdentifier` structure that describes a target database for resource linking.
-	TargetDatabase interface{} `json:"targetDatabase"`
+	TargetDatabase interface{} `json:"targetDatabase" yaml:"targetDatabase"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnDatabase_PrincipalPrivilegesProperty struct {
 	// `CfnDatabase.PrincipalPrivilegesProperty.Permissions`.
-	Permissions *[]*string `json:"permissions"`
+	Permissions *[]*string `json:"permissions" yaml:"permissions"`
 	// `CfnDatabase.PrincipalPrivilegesProperty.Principal`.
-	Principal interface{} `json:"principal"`
+	Principal interface{} `json:"principal" yaml:"principal"`
 }
 
 // Properties for defining a `CfnDatabase`.
@@ -3116,9 +3116,9 @@ type CfnDatabaseProps struct {
 	// The AWS account ID for the account in which to create the catalog object.
 	//
 	// > To specify the account ID, you can use the `Ref` intrinsic function with the `AWS::AccountId` pseudo parameter. For example: `!Ref AWS::AccountId`
-	CatalogId *string `json:"catalogId"`
+	CatalogId *string `json:"catalogId" yaml:"catalogId"`
 	// The metadata for the database.
-	DatabaseInput interface{} `json:"databaseInput"`
+	DatabaseInput interface{} `json:"databaseInput" yaml:"databaseInput"`
 }
 
 // A CloudFormation `AWS::Glue::DevEndpoint`.
@@ -3870,7 +3870,7 @@ func (c *jsiiProxy_CfnDevEndpoint) ValidateProperties(_properties interface{}) {
 //
 type CfnDevEndpointProps struct {
 	// The Amazon Resource Name (ARN) of the IAM role used in this `DevEndpoint` .
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// A map of arguments used to configure the `DevEndpoint` .
 	//
 	// Valid arguments are:
@@ -3880,19 +3880,19 @@ type CfnDevEndpointProps struct {
 	// - `"GLUE_PYTHON_VERSION": "2"`
 	//
 	// You can specify a version of Python support for development endpoints by using the `Arguments` parameter in the `CreateDevEndpoint` or `UpdateDevEndpoint` APIs. If no arguments are provided, the version defaults to Python 2.
-	Arguments interface{} `json:"arguments"`
+	Arguments interface{} `json:"arguments" yaml:"arguments"`
 	// The name of the `DevEndpoint` .
-	EndpointName *string `json:"endpointName"`
+	EndpointName *string `json:"endpointName" yaml:"endpointName"`
 	// The path to one or more Java `.jar` files in an S3 bucket that should be loaded in your `DevEndpoint` .
 	//
 	// > You can only use pure Java/Scala libraries with a `DevEndpoint` .
-	ExtraJarsS3Path *string `json:"extraJarsS3Path"`
+	ExtraJarsS3Path *string `json:"extraJarsS3Path" yaml:"extraJarsS3Path"`
 	// The paths to one or more Python libraries in an Amazon S3 bucket that should be loaded in your `DevEndpoint` .
 	//
 	// Multiple values must be complete paths separated by a comma.
 	//
 	// > You can only use pure Python libraries with a `DevEndpoint` . Libraries that rely on C extensions, such as the [pandas](https://docs.aws.amazon.com/http://pandas.pydata.org/) Python data analysis library, are not currently supported.
-	ExtraPythonLibsS3Path *string `json:"extraPythonLibsS3Path"`
+	ExtraPythonLibsS3Path *string `json:"extraPythonLibsS3Path" yaml:"extraPythonLibsS3Path"`
 	// The AWS Glue version determines the versions of Apache Spark and Python that AWS Glue supports.
 	//
 	// The Python version indicates the version supported for running your ETL scripts on development endpoints.
@@ -3902,31 +3902,31 @@ type CfnDevEndpointProps struct {
 	// Development endpoints that are created without specifying a Glue version default to Glue 0.9.
 	//
 	// You can specify a version of Python support for development endpoints by using the `Arguments` parameter in the `CreateDevEndpoint` or `UpdateDevEndpoint` APIs. If no arguments are provided, the version defaults to Python 2.
-	GlueVersion *string `json:"glueVersion"`
+	GlueVersion *string `json:"glueVersion" yaml:"glueVersion"`
 	// The number of AWS Glue Data Processing Units (DPUs) allocated to this `DevEndpoint` .
-	NumberOfNodes *float64 `json:"numberOfNodes"`
+	NumberOfNodes *float64 `json:"numberOfNodes" yaml:"numberOfNodes"`
 	// The number of workers of a defined `workerType` that are allocated to the development endpoint.
 	//
 	// The maximum number of workers you can define are 299 for `G.1X` , and 149 for `G.2X` .
-	NumberOfWorkers *float64 `json:"numberOfWorkers"`
+	NumberOfWorkers *float64 `json:"numberOfWorkers" yaml:"numberOfWorkers"`
 	// The public key to be used by this `DevEndpoint` for authentication.
 	//
 	// This attribute is provided for backward compatibility because the recommended attribute to use is public keys.
-	PublicKey *string `json:"publicKey"`
+	PublicKey *string `json:"publicKey" yaml:"publicKey"`
 	// A list of public keys to be used by the `DevEndpoints` for authentication.
 	//
 	// Using this attribute is preferred over a single public key because the public keys allow you to have a different private key per client.
 	//
 	// > If you previously created an endpoint with a public key, you must remove that key to be able to set a list of public keys. Call the `UpdateDevEndpoint` API operation with the public key content in the `deletePublicKeys` attribute, and the list of new keys in the `addPublicKeys` attribute.
-	PublicKeys *[]*string `json:"publicKeys"`
+	PublicKeys *[]*string `json:"publicKeys" yaml:"publicKeys"`
 	// The name of the `SecurityConfiguration` structure to be used with this `DevEndpoint` .
-	SecurityConfiguration *string `json:"securityConfiguration"`
+	SecurityConfiguration *string `json:"securityConfiguration" yaml:"securityConfiguration"`
 	// A list of security group identifiers used in this `DevEndpoint` .
-	SecurityGroupIds *[]*string `json:"securityGroupIds"`
+	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
 	// The subnet ID for this `DevEndpoint` .
-	SubnetId *string `json:"subnetId"`
+	SubnetId *string `json:"subnetId" yaml:"subnetId"`
 	// The tags to use with this DevEndpoint.
-	Tags interface{} `json:"tags"`
+	Tags interface{} `json:"tags" yaml:"tags"`
 	// The type of predefined worker that is allocated to the development endpoint.
 	//
 	// Accepts a value of Standard, G.1X, or G.2X.
@@ -3936,7 +3936,7 @@ type CfnDevEndpointProps struct {
 	// - For the `G.2X` worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.
 	//
 	// Known issue: when a development endpoint is created with the `G.2X` `WorkerType` configuration, the Spark drivers for the development endpoint will run on 4 vCPU, 16 GB of memory, and a 64 GB disk.
-	WorkerType *string `json:"workerType"`
+	WorkerType *string `json:"workerType" yaml:"workerType"`
 }
 
 // A CloudFormation `AWS::Glue::Job`.
@@ -4748,7 +4748,7 @@ func (c *jsiiProxy_CfnJob) ValidateProperties(_properties interface{}) {
 //
 type CfnJob_ConnectionsListProperty struct {
 	// A list of connections used by the job.
-	Connections *[]*string `json:"connections"`
+	Connections *[]*string `json:"connections" yaml:"connections"`
 }
 
 // An execution property of a job.
@@ -4759,7 +4759,7 @@ type CfnJob_ExecutionPropertyProperty struct {
 	// The maximum number of concurrent runs allowed for the job.
 	//
 	// The default is 1. An error is returned when this threshold is reached. The maximum value you can specify is controlled by a service limit.
-	MaxConcurrentRuns *float64 `json:"maxConcurrentRuns"`
+	MaxConcurrentRuns *float64 `json:"maxConcurrentRuns" yaml:"maxConcurrentRuns"`
 }
 
 // Specifies code executed when a job is run.
@@ -4770,13 +4770,13 @@ type CfnJob_JobCommandProperty struct {
 	// The name of the job command.
 	//
 	// For an Apache Spark ETL job, this must be `glueetl` . For a Python shell job, it must be `pythonshell` .
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The Python version being used to execute a Python shell job.
 	//
 	// Allowed values are 2 or 3.
-	PythonVersion *string `json:"pythonVersion"`
+	PythonVersion *string `json:"pythonVersion" yaml:"pythonVersion"`
 	// Specifies the Amazon Simple Storage Service (Amazon S3) path to a script that executes a job (required).
-	ScriptLocation *string `json:"scriptLocation"`
+	ScriptLocation *string `json:"scriptLocation" yaml:"scriptLocation"`
 }
 
 // Specifies configuration properties of a notification.
@@ -4785,7 +4785,7 @@ type CfnJob_JobCommandProperty struct {
 //
 type CfnJob_NotificationPropertyProperty struct {
 	// After a job run starts, the number of minutes to wait before sending a job run delay notification.
-	NotifyDelayAfter *float64 `json:"notifyDelayAfter"`
+	NotifyDelayAfter *float64 `json:"notifyDelayAfter" yaml:"notifyDelayAfter"`
 }
 
 // Properties for defining a `CfnJob`.
@@ -4794,13 +4794,13 @@ type CfnJob_NotificationPropertyProperty struct {
 //
 type CfnJobProps struct {
 	// The code that executes a job.
-	Command interface{} `json:"command"`
+	Command interface{} `json:"command" yaml:"command"`
 	// The name or Amazon Resource Name (ARN) of the IAM role associated with this job.
-	Role *string `json:"role"`
+	Role *string `json:"role" yaml:"role"`
 	// The number of capacity units that are allocated to this job.
-	AllocatedCapacity *float64 `json:"allocatedCapacity"`
+	AllocatedCapacity *float64 `json:"allocatedCapacity" yaml:"allocatedCapacity"`
 	// The connections used for this job.
-	Connections interface{} `json:"connections"`
+	Connections interface{} `json:"connections" yaml:"connections"`
 	// The default arguments for this job, specified as name-value pairs.
 	//
 	// You can specify arguments here that your own job-execution script consumes, in addition to arguments that AWS Glue itself consumes.
@@ -4808,11 +4808,11 @@ type CfnJobProps struct {
 	// For information about how to specify and consume your own job arguments, see [Calling AWS Glue APIs in Python](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) in the *AWS Glue Developer Guide* .
 	//
 	// For information about the key-value pairs that AWS Glue consumes to set up your job, see [Special Parameters Used by AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html) in the *AWS Glue Developer Guide* .
-	DefaultArguments interface{} `json:"defaultArguments"`
+	DefaultArguments interface{} `json:"defaultArguments" yaml:"defaultArguments"`
 	// A description of the job.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The maximum number of concurrent runs that are allowed for this job.
-	ExecutionProperty interface{} `json:"executionProperty"`
+	ExecutionProperty interface{} `json:"executionProperty" yaml:"executionProperty"`
 	// Glue version determines the versions of Apache Spark and Python that AWS Glue supports.
 	//
 	// The Python version indicates the version supported for jobs of type Spark.
@@ -4820,9 +4820,9 @@ type CfnJobProps struct {
 	// For more information about the available AWS Glue versions and corresponding Spark and Python versions, see [Glue version](https://docs.aws.amazon.com/glue/latest/dg/add-job.html) in the developer guide.
 	//
 	// Jobs that are created without specifying a Glue version default to Glue 0.9.
-	GlueVersion *string `json:"glueVersion"`
+	GlueVersion *string `json:"glueVersion" yaml:"glueVersion"`
 	// This field is reserved for future use.
-	LogUri *string `json:"logUri"`
+	LogUri *string `json:"logUri" yaml:"logUri"`
 	// The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
 	//
 	// A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
@@ -4833,25 +4833,25 @@ type CfnJobProps struct {
 	//
 	// - When you specify a Python shell job ( `JobCommand.Name` ="pythonshell"), you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.
 	// - When you specify an Apache Spark ETL job ( `JobCommand.Name` ="glueetl"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.
-	MaxCapacity *float64 `json:"maxCapacity"`
+	MaxCapacity *float64 `json:"maxCapacity" yaml:"maxCapacity"`
 	// The maximum number of times to retry this job after a JobRun fails.
-	MaxRetries *float64 `json:"maxRetries"`
+	MaxRetries *float64 `json:"maxRetries" yaml:"maxRetries"`
 	// The name you assign to this job definition.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// Specifies configuration properties of a notification.
-	NotificationProperty interface{} `json:"notificationProperty"`
+	NotificationProperty interface{} `json:"notificationProperty" yaml:"notificationProperty"`
 	// The number of workers of a defined `workerType` that are allocated when a job runs.
 	//
 	// The maximum number of workers you can define are 299 for `G.1X` , and 149 for `G.2X` .
-	NumberOfWorkers *float64 `json:"numberOfWorkers"`
+	NumberOfWorkers *float64 `json:"numberOfWorkers" yaml:"numberOfWorkers"`
 	// The name of the `SecurityConfiguration` structure to be used with this job.
-	SecurityConfiguration *string `json:"securityConfiguration"`
+	SecurityConfiguration *string `json:"securityConfiguration" yaml:"securityConfiguration"`
 	// The tags to use with this job.
-	Tags interface{} `json:"tags"`
+	Tags interface{} `json:"tags" yaml:"tags"`
 	// The job timeout in minutes.
 	//
 	// This is the maximum time that a job run can consume resources before it is terminated and enters TIMEOUT status. The default is 2,880 minutes (48 hours).
-	Timeout *float64 `json:"timeout"`
+	Timeout *float64 `json:"timeout" yaml:"timeout"`
 	// The type of predefined worker that is allocated when a job runs.
 	//
 	// Accepts a value of Standard, G.1X, or G.2X.
@@ -4859,7 +4859,7 @@ type CfnJobProps struct {
 	// - For the `Standard` worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.
 	// - For the `G.1X` worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.
 	// - For the `G.2X` worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.
-	WorkerType *string `json:"workerType"`
+	WorkerType *string `json:"workerType" yaml:"workerType"`
 }
 
 // A CloudFormation `AWS::Glue::MLTransform`.
@@ -5573,7 +5573,7 @@ type CfnMLTransform_FindMatchesParametersProperty struct {
 	// The name of a column that uniquely identifies rows in the source table.
 	//
 	// Used to help identify matching records.
-	PrimaryKeyColumnName *string `json:"primaryKeyColumnName"`
+	PrimaryKeyColumnName *string `json:"primaryKeyColumnName" yaml:"primaryKeyColumnName"`
 	// The value that is selected when tuning your transform for a balance between accuracy and cost.
 	//
 	// A value of 0.5 means that the system balances accuracy and cost concerns. A value of 1.0 means a bias purely for accuracy, which typically results in a higher cost, sometimes substantially higher. A value of 0.0 means a bias purely for cost, which results in a less accurate `FindMatches` transform, sometimes with unacceptable accuracy.
@@ -5581,13 +5581,13 @@ type CfnMLTransform_FindMatchesParametersProperty struct {
 	// Accuracy measures how well the transform finds true positives and true negatives. Increasing accuracy requires more machine resources and cost. But it also results in increased recall.
 	//
 	// Cost measures how many compute resources, and thus money, are consumed to run the transform.
-	AccuracyCostTradeoff *float64 `json:"accuracyCostTradeoff"`
+	AccuracyCostTradeoff *float64 `json:"accuracyCostTradeoff" yaml:"accuracyCostTradeoff"`
 	// The value to switch on or off to force the output to match the provided labels from users.
 	//
 	// If the value is `True` , the `find matches` transform forces the output to match the provided labels. The results override the normal conflation results. If the value is `False` , the `find matches` transform does not ensure all the labels provided are respected, and the results rely on the trained model.
 	//
 	// Note that setting this value to true may increase the conflation execution time.
-	EnforceProvidedLabels interface{} `json:"enforceProvidedLabels"`
+	EnforceProvidedLabels interface{} `json:"enforceProvidedLabels" yaml:"enforceProvidedLabels"`
 	// The value selected when tuning your transform for a balance between precision and recall.
 	//
 	// A value of 0.5 means no preference; a value of 1.0 means a bias purely for precision, and a value of 0.0 means a bias for recall. Because this is a tradeoff, choosing values close to 1.0 means very low recall, and choosing values close to 0.0 results in very low precision.
@@ -5595,7 +5595,7 @@ type CfnMLTransform_FindMatchesParametersProperty struct {
 	// The precision metric indicates how often your model is correct when it predicts a match.
 	//
 	// The recall metric indicates that for an actual match, how often your model predicts the match.
-	PrecisionRecallTradeoff *float64 `json:"precisionRecallTradeoff"`
+	PrecisionRecallTradeoff *float64 `json:"precisionRecallTradeoff" yaml:"precisionRecallTradeoff"`
 }
 
 // The database and table in the AWS Glue Data Catalog that is used for input or output data.
@@ -5604,13 +5604,13 @@ type CfnMLTransform_FindMatchesParametersProperty struct {
 //
 type CfnMLTransform_GlueTablesProperty struct {
 	// A database name in the AWS Glue Data Catalog .
-	DatabaseName *string `json:"databaseName"`
+	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
 	// A table name in the AWS Glue Data Catalog .
-	TableName *string `json:"tableName"`
+	TableName *string `json:"tableName" yaml:"tableName"`
 	// A unique identifier for the AWS Glue Data Catalog .
-	CatalogId *string `json:"catalogId"`
+	CatalogId *string `json:"catalogId" yaml:"catalogId"`
 	// The name of the connection to the AWS Glue Data Catalog .
-	ConnectionName *string `json:"connectionName"`
+	ConnectionName *string `json:"connectionName" yaml:"connectionName"`
 }
 
 // A list of AWS Glue table definitions used by the transform.
@@ -5619,7 +5619,7 @@ type CfnMLTransform_GlueTablesProperty struct {
 //
 type CfnMLTransform_InputRecordTablesProperty struct {
 	// The database and table in the AWS Glue Data Catalog that is used for input or output data.
-	GlueTables interface{} `json:"glueTables"`
+	GlueTables interface{} `json:"glueTables" yaml:"glueTables"`
 }
 
 // The encryption-at-rest settings of the transform that apply to accessing user data.
@@ -5632,9 +5632,9 @@ type CfnMLTransform_MLUserDataEncryptionProperty struct {
 	// - DISABLED: encryption is disabled.
 	// - SSEKMS: use of server-side encryption with AWS Key Management Service (SSE-KMS) for user data
 	// stored in Amazon S3.
-	MlUserDataEncryptionMode *string `json:"mlUserDataEncryptionMode"`
+	MlUserDataEncryptionMode *string `json:"mlUserDataEncryptionMode" yaml:"mlUserDataEncryptionMode"`
 	// The ID for the customer-provided KMS key.
-	KmsKeyId *string `json:"kmsKeyId"`
+	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
 }
 
 // The encryption-at-rest settings of the transform that apply to accessing user data.
@@ -5649,9 +5649,9 @@ type CfnMLTransform_MLUserDataEncryptionProperty struct {
 //
 type CfnMLTransform_TransformEncryptionProperty struct {
 	// The encryption-at-rest settings of the transform that apply to accessing user data.
-	MlUserDataEncryption interface{} `json:"mlUserDataEncryption"`
+	MlUserDataEncryption interface{} `json:"mlUserDataEncryption" yaml:"mlUserDataEncryption"`
 	// The name of the security configuration.
-	TaskRunSecurityConfigurationName *string `json:"taskRunSecurityConfigurationName"`
+	TaskRunSecurityConfigurationName *string `json:"taskRunSecurityConfigurationName" yaml:"taskRunSecurityConfigurationName"`
 }
 
 // The algorithm-specific parameters that are associated with the machine learning transform.
@@ -5662,9 +5662,9 @@ type CfnMLTransform_TransformParametersProperty struct {
 	// The type of machine learning transform. `FIND_MATCHES` is the only option.
 	//
 	// For information about the types of machine learning transforms, see [Creating Machine Learning Transforms](https://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html) .
-	TransformType *string `json:"transformType"`
+	TransformType *string `json:"transformType" yaml:"transformType"`
 	// The parameters for the find matches algorithm.
-	FindMatchesParameters interface{} `json:"findMatchesParameters"`
+	FindMatchesParameters interface{} `json:"findMatchesParameters" yaml:"findMatchesParameters"`
 }
 
 // Properties for defining a `CfnMLTransform`.
@@ -5673,22 +5673,22 @@ type CfnMLTransform_TransformParametersProperty struct {
 //
 type CfnMLTransformProps struct {
 	// A list of AWS Glue table definitions used by the transform.
-	InputRecordTables interface{} `json:"inputRecordTables"`
+	InputRecordTables interface{} `json:"inputRecordTables" yaml:"inputRecordTables"`
 	// The name or Amazon Resource Name (ARN) of the IAM role with the required permissions.
 	//
 	// The required permissions include both AWS Glue service role permissions to AWS Glue resources, and Amazon S3 permissions required by the transform.
 	//
 	// - This role needs AWS Glue service role permissions to allow access to resources in AWS Glue . See [Attach a Policy to IAM Users That Access AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/attach-policy-iam-user.html) .
 	// - This role needs permission to your Amazon Simple Storage Service (Amazon S3) sources, targets, temporary directory, scripts, and any libraries used by the task run for this transform.
-	Role *string `json:"role"`
+	Role *string `json:"role" yaml:"role"`
 	// The algorithm-specific parameters that are associated with the machine learning transform.
-	TransformParameters interface{} `json:"transformParameters"`
+	TransformParameters interface{} `json:"transformParameters" yaml:"transformParameters"`
 	// A user-defined, long-form description text for the machine learning transform.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// This value determines which version of AWS Glue this machine learning transform is compatible with.
 	//
 	// Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9. For more information, see [AWS Glue Versions](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions) in the developer guide.
-	GlueVersion *string `json:"glueVersion"`
+	GlueVersion *string `json:"glueVersion" yaml:"glueVersion"`
 	// The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform.
 	//
 	// You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the [AWS Glue pricing page](https://docs.aws.amazon.com/glue/pricing/) .
@@ -5701,24 +5701,24 @@ type CfnMLTransformProps struct {
 	// - `MaxCapacity` and `NumberOfWorkers` must both be at least 1.
 	//
 	// When the `WorkerType` field is set to a value other than `Standard` , the `MaxCapacity` field is set automatically and becomes read-only.
-	MaxCapacity *float64 `json:"maxCapacity"`
+	MaxCapacity *float64 `json:"maxCapacity" yaml:"maxCapacity"`
 	// The maximum number of times to retry after an `MLTaskRun` of the machine learning transform fails.
-	MaxRetries *float64 `json:"maxRetries"`
+	MaxRetries *float64 `json:"maxRetries" yaml:"maxRetries"`
 	// A user-defined name for the machine learning transform. Names are required to be unique. `Name` is optional:.
 	//
 	// - If you supply `Name` , the stack cannot be repeatedly created.
 	// - If `Name` is not provided, a randomly generated name will be used instead.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The number of workers of a defined `workerType` that are allocated when a task of the transform runs.
 	//
 	// If `WorkerType` is set, then `NumberOfWorkers` is required (and vice versa).
-	NumberOfWorkers *float64 `json:"numberOfWorkers"`
+	NumberOfWorkers *float64 `json:"numberOfWorkers" yaml:"numberOfWorkers"`
 	// The tags to use with this machine learning transform.
 	//
 	// You may use tags to limit access to the machine learning transform. For more information about tags in AWS Glue , see [AWS Tags in AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html) in the developer guide.
-	Tags interface{} `json:"tags"`
+	Tags interface{} `json:"tags" yaml:"tags"`
 	// The timeout in minutes of the machine learning transform.
-	Timeout *float64 `json:"timeout"`
+	Timeout *float64 `json:"timeout" yaml:"timeout"`
 	// The encryption-at-rest settings of the transform that apply to accessing user data.
 	//
 	// Machine learning
@@ -5726,7 +5726,7 @@ type CfnMLTransformProps struct {
 	//
 	// Additionally, imported labels and trained transforms can now be encrypted using a customer provided
 	// KMS key.
-	TransformEncryption interface{} `json:"transformEncryption"`
+	TransformEncryption interface{} `json:"transformEncryption" yaml:"transformEncryption"`
 	// The type of predefined worker that is allocated when a task of this transform runs.
 	//
 	// Accepts a value of Standard, G.1X, or G.2X.
@@ -5741,7 +5741,7 @@ type CfnMLTransformProps struct {
 	// - If `MaxCapacity` is set then neither `NumberOfWorkers` or `WorkerType` can be set.
 	// - If `WorkerType` is set, then `NumberOfWorkers` is required (and vice versa).
 	// - `MaxCapacity` and `NumberOfWorkers` must both be at least 1.
-	WorkerType *string `json:"workerType"`
+	WorkerType *string `json:"workerType" yaml:"workerType"`
 }
 
 // A CloudFormation `AWS::Glue::Partition`.
@@ -6282,11 +6282,11 @@ func (c *jsiiProxy_CfnPartition) ValidateProperties(_properties interface{}) {
 //
 type CfnPartition_ColumnProperty struct {
 	// The name of the `Column` .
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// A free-form text comment.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// The data type of the `Column` .
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 }
 
 // Specifies the sort order of a sorted column.
@@ -6295,9 +6295,9 @@ type CfnPartition_ColumnProperty struct {
 //
 type CfnPartition_OrderProperty struct {
 	// The name of the column.
-	Column *string `json:"column"`
+	Column *string `json:"column" yaml:"column"`
 	// Indicates that the column is sorted in ascending order ( `== 1` ), or in descending order ( `==0` ).
-	SortOrder *float64 `json:"sortOrder"`
+	SortOrder *float64 `json:"sortOrder" yaml:"sortOrder"`
 }
 
 // The structure used to create and update a partition.
@@ -6310,11 +6310,11 @@ type CfnPartition_PartitionInputProperty struct {
 	// Although this parameter is not required by the SDK, you must specify this parameter for a valid input.
 	//
 	// The values for the keys for the new partition must be passed as an array of String objects that must be ordered in the same order as the partition keys appearing in the Amazon S3 prefix. Otherwise AWS Glue will add the values to the wrong keys.
-	Values *[]*string `json:"values"`
+	Values *[]*string `json:"values" yaml:"values"`
 	// These key-value pairs define partition parameters.
-	Parameters interface{} `json:"parameters"`
+	Parameters interface{} `json:"parameters" yaml:"parameters"`
 	// Provides information about the physical location where the partition is stored.
-	StorageDescriptor interface{} `json:"storageDescriptor"`
+	StorageDescriptor interface{} `json:"storageDescriptor" yaml:"storageDescriptor"`
 }
 
 // A structure that contains schema identity fields.
@@ -6326,16 +6326,16 @@ type CfnPartition_PartitionInputProperty struct {
 //
 type CfnPartition_SchemaIdProperty struct {
 	// The name of the schema registry that contains the schema.
-	RegistryName *string `json:"registryName"`
+	RegistryName *string `json:"registryName" yaml:"registryName"`
 	// The Amazon Resource Name (ARN) of the schema.
 	//
 	// One of `SchemaArn` or `SchemaName` has to be
 	// provided.
-	SchemaArn *string `json:"schemaArn"`
+	SchemaArn *string `json:"schemaArn" yaml:"schemaArn"`
 	// The name of the schema.
 	//
 	// One of `SchemaArn` or `SchemaName` has to be provided.
-	SchemaName *string `json:"schemaName"`
+	SchemaName *string `json:"schemaName" yaml:"schemaName"`
 }
 
 // An object that references a schema stored in the AWS Glue Schema Registry.
@@ -6347,13 +6347,13 @@ type CfnPartition_SchemaReferenceProperty struct {
 	//
 	// Either this or the `SchemaVersionId` has to be
 	// provided.
-	SchemaId interface{} `json:"schemaId"`
+	SchemaId interface{} `json:"schemaId" yaml:"schemaId"`
 	// The unique ID assigned to a version of the schema.
 	//
 	// Either this or the `SchemaId` has to be provided.
-	SchemaVersionId *string `json:"schemaVersionId"`
+	SchemaVersionId *string `json:"schemaVersionId" yaml:"schemaVersionId"`
 	// The version number of the schema.
-	SchemaVersionNumber *float64 `json:"schemaVersionNumber"`
+	SchemaVersionNumber *float64 `json:"schemaVersionNumber" yaml:"schemaVersionNumber"`
 }
 
 // Information about a serialization/deserialization program (SerDe) that serves as an extractor and loader.
@@ -6362,13 +6362,13 @@ type CfnPartition_SchemaReferenceProperty struct {
 //
 type CfnPartition_SerdeInfoProperty struct {
 	// Name of the SerDe.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// These key-value pairs define initialization parameters for the SerDe.
-	Parameters interface{} `json:"parameters"`
+	Parameters interface{} `json:"parameters" yaml:"parameters"`
 	// Usually the class that implements the SerDe.
 	//
 	// An example is `org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe` .
-	SerializationLibrary *string `json:"serializationLibrary"`
+	SerializationLibrary *string `json:"serializationLibrary" yaml:"serializationLibrary"`
 }
 
 // Specifies skewed values in a table.
@@ -6379,11 +6379,11 @@ type CfnPartition_SerdeInfoProperty struct {
 //
 type CfnPartition_SkewedInfoProperty struct {
 	// A list of names of columns that contain skewed values.
-	SkewedColumnNames *[]*string `json:"skewedColumnNames"`
+	SkewedColumnNames *[]*string `json:"skewedColumnNames" yaml:"skewedColumnNames"`
 	// A mapping of skewed values to the columns that contain them.
-	SkewedColumnValueLocationMaps interface{} `json:"skewedColumnValueLocationMaps"`
+	SkewedColumnValueLocationMaps interface{} `json:"skewedColumnValueLocationMaps" yaml:"skewedColumnValueLocationMaps"`
 	// A list of values that appear so frequently as to be considered skewed.
-	SkewedColumnValues *[]*string `json:"skewedColumnValues"`
+	SkewedColumnValues *[]*string `json:"skewedColumnValues" yaml:"skewedColumnValues"`
 }
 
 // Describes the physical storage of table data.
@@ -6392,35 +6392,35 @@ type CfnPartition_SkewedInfoProperty struct {
 //
 type CfnPartition_StorageDescriptorProperty struct {
 	// A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
-	BucketColumns *[]*string `json:"bucketColumns"`
+	BucketColumns *[]*string `json:"bucketColumns" yaml:"bucketColumns"`
 	// A list of the `Columns` in the table.
-	Columns interface{} `json:"columns"`
+	Columns interface{} `json:"columns" yaml:"columns"`
 	// `True` if the data in the table is compressed, or `False` if not.
-	Compressed interface{} `json:"compressed"`
+	Compressed interface{} `json:"compressed" yaml:"compressed"`
 	// The input format: `SequenceFileInputFormat` (binary), or `TextInputFormat` , or a custom format.
-	InputFormat *string `json:"inputFormat"`
+	InputFormat *string `json:"inputFormat" yaml:"inputFormat"`
 	// The physical location of the table.
 	//
 	// By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
-	Location *string `json:"location"`
+	Location *string `json:"location" yaml:"location"`
 	// The number of buckets.
 	//
 	// You must specify this property if the partition contains any dimension columns.
-	NumberOfBuckets *float64 `json:"numberOfBuckets"`
+	NumberOfBuckets *float64 `json:"numberOfBuckets" yaml:"numberOfBuckets"`
 	// The output format: `SequenceFileOutputFormat` (binary), or `IgnoreKeyTextOutputFormat` , or a custom format.
-	OutputFormat *string `json:"outputFormat"`
+	OutputFormat *string `json:"outputFormat" yaml:"outputFormat"`
 	// The user-supplied properties in key-value form.
-	Parameters interface{} `json:"parameters"`
+	Parameters interface{} `json:"parameters" yaml:"parameters"`
 	// An object that references a schema stored in the AWS Glue Schema Registry.
-	SchemaReference interface{} `json:"schemaReference"`
+	SchemaReference interface{} `json:"schemaReference" yaml:"schemaReference"`
 	// The serialization/deserialization (SerDe) information.
-	SerdeInfo interface{} `json:"serdeInfo"`
+	SerdeInfo interface{} `json:"serdeInfo" yaml:"serdeInfo"`
 	// The information about values that appear frequently in a column (skewed values).
-	SkewedInfo interface{} `json:"skewedInfo"`
+	SkewedInfo interface{} `json:"skewedInfo" yaml:"skewedInfo"`
 	// A list specifying the sort order of each bucket in the table.
-	SortColumns interface{} `json:"sortColumns"`
+	SortColumns interface{} `json:"sortColumns" yaml:"sortColumns"`
 	// `True` if the table data is stored in subdirectories, or `False` if not.
-	StoredAsSubDirectories interface{} `json:"storedAsSubDirectories"`
+	StoredAsSubDirectories interface{} `json:"storedAsSubDirectories" yaml:"storedAsSubDirectories"`
 }
 
 // Properties for defining a `CfnPartition`.
@@ -6431,13 +6431,13 @@ type CfnPartitionProps struct {
 	// The AWS account ID of the catalog in which the partion is to be created.
 	//
 	// > To specify the account ID, you can use the `Ref` intrinsic function with the `AWS::AccountId` pseudo parameter. For example: `!Ref AWS::AccountId`
-	CatalogId *string `json:"catalogId"`
+	CatalogId *string `json:"catalogId" yaml:"catalogId"`
 	// The name of the catalog database in which to create the partition.
-	DatabaseName *string `json:"databaseName"`
+	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
 	// The structure used to create and update a partition.
-	PartitionInput interface{} `json:"partitionInput"`
+	PartitionInput interface{} `json:"partitionInput" yaml:"partitionInput"`
 	// The name of the metadata table in which the partition is to be created.
-	TableName *string `json:"tableName"`
+	TableName *string `json:"tableName" yaml:"tableName"`
 }
 
 // A CloudFormation `AWS::Glue::Registry`.
@@ -6960,11 +6960,11 @@ func (c *jsiiProxy_CfnRegistry) ValidateProperties(_properties interface{}) {
 //
 type CfnRegistryProps struct {
 	// The name of the registry.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// A description of the registry.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// AWS tags that contain a key value pair and may be searched by console, command line, or API.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Glue::Schema`.
@@ -7598,9 +7598,9 @@ func (c *jsiiProxy_CfnSchema) ValidateProperties(_properties interface{}) {
 //
 type CfnSchema_RegistryProperty struct {
 	// The Amazon Resource Name (ARN) of the registry.
-	Arn *string `json:"arn"`
+	Arn *string `json:"arn" yaml:"arn"`
 	// The name of the registry.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // Specifies the version of a schema.
@@ -7609,9 +7609,9 @@ type CfnSchema_RegistryProperty struct {
 //
 type CfnSchema_SchemaVersionProperty struct {
 	// Indicates if this version is the latest version of the schema.
-	IsLatest interface{} `json:"isLatest"`
+	IsLatest interface{} `json:"isLatest" yaml:"isLatest"`
 	// The version number of the schema.
-	VersionNumber *float64 `json:"versionNumber"`
+	VersionNumber *float64 `json:"versionNumber" yaml:"versionNumber"`
 }
 
 // Properties for defining a `CfnSchema`.
@@ -7620,27 +7620,27 @@ type CfnSchema_SchemaVersionProperty struct {
 //
 type CfnSchemaProps struct {
 	// The compatibility mode of the schema.
-	Compatibility *string `json:"compatibility"`
+	Compatibility *string `json:"compatibility" yaml:"compatibility"`
 	// The data format of the schema definition.
 	//
 	// Currently only `AVRO` is supported.
-	DataFormat *string `json:"dataFormat"`
+	DataFormat *string `json:"dataFormat" yaml:"dataFormat"`
 	// Name of the schema to be created of max length of 255, and may only contain letters, numbers, hyphen, underscore, dollar sign, or hash mark.
 	//
 	// No whitespace.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The schema definition using the `DataFormat` setting for `SchemaName` .
-	SchemaDefinition *string `json:"schemaDefinition"`
+	SchemaDefinition *string `json:"schemaDefinition" yaml:"schemaDefinition"`
 	// Specify the `VersionNumber` or the `IsLatest` for setting the checkpoint for the schema.
 	//
 	// This is only required for updating a checkpoint.
-	CheckpointVersion interface{} `json:"checkpointVersion"`
+	CheckpointVersion interface{} `json:"checkpointVersion" yaml:"checkpointVersion"`
 	// A description of the schema if specified when created.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The registry where a schema is stored.
-	Registry interface{} `json:"registry"`
+	Registry interface{} `json:"registry" yaml:"registry"`
 	// AWS tags that contain a key value pair and may be searched by console, command line, or API.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Glue::SchemaVersion`.
@@ -8156,15 +8156,15 @@ type CfnSchemaVersion_SchemaProperty struct {
 	// The name of the registry where the schema is stored.
 	//
 	// Either `SchemaArn` , or `SchemaName` and `RegistryName` has to be provided.
-	RegistryName *string `json:"registryName"`
+	RegistryName *string `json:"registryName" yaml:"registryName"`
 	// The Amazon Resource Name (ARN) of the schema.
 	//
 	// Either `SchemaArn` , or `SchemaName` and `RegistryName` has to be provided.
-	SchemaArn *string `json:"schemaArn"`
+	SchemaArn *string `json:"schemaArn" yaml:"schemaArn"`
 	// The name of the schema.
 	//
 	// Either `SchemaArn` , or `SchemaName` and `RegistryName` has to be provided.
-	SchemaName *string `json:"schemaName"`
+	SchemaName *string `json:"schemaName" yaml:"schemaName"`
 }
 
 // A CloudFormation `AWS::Glue::SchemaVersionMetadata`.
@@ -8685,11 +8685,11 @@ func (c *jsiiProxy_CfnSchemaVersionMetadata) ValidateProperties(_properties inte
 //
 type CfnSchemaVersionMetadataProps struct {
 	// A metadata key in a key-value pair for metadata.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// The version number of the schema.
-	SchemaVersionId *string `json:"schemaVersionId"`
+	SchemaVersionId *string `json:"schemaVersionId" yaml:"schemaVersionId"`
 	// A metadata key's corresponding value.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // Properties for defining a `CfnSchemaVersion`.
@@ -8698,9 +8698,9 @@ type CfnSchemaVersionMetadataProps struct {
 //
 type CfnSchemaVersionProps struct {
 	// The schema that includes the schema version.
-	Schema interface{} `json:"schema"`
+	Schema interface{} `json:"schema" yaml:"schema"`
 	// The schema definition for the schema version.
-	SchemaDefinition *string `json:"schemaDefinition"`
+	SchemaDefinition *string `json:"schemaDefinition" yaml:"schemaDefinition"`
 }
 
 // A CloudFormation `AWS::Glue::SecurityConfiguration`.
@@ -9201,9 +9201,9 @@ func (c *jsiiProxy_CfnSecurityConfiguration) ValidateProperties(_properties inte
 //
 type CfnSecurityConfiguration_CloudWatchEncryptionProperty struct {
 	// The encryption mode to use for CloudWatch data.
-	CloudWatchEncryptionMode *string `json:"cloudWatchEncryptionMode"`
+	CloudWatchEncryptionMode *string `json:"cloudWatchEncryptionMode" yaml:"cloudWatchEncryptionMode"`
 	// The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-	KmsKeyArn *string `json:"kmsKeyArn"`
+	KmsKeyArn *string `json:"kmsKeyArn" yaml:"kmsKeyArn"`
 }
 
 // Specifies an encryption configuration.
@@ -9212,11 +9212,11 @@ type CfnSecurityConfiguration_CloudWatchEncryptionProperty struct {
 //
 type CfnSecurityConfiguration_EncryptionConfigurationProperty struct {
 	// The encryption configuration for Amazon CloudWatch.
-	CloudWatchEncryption interface{} `json:"cloudWatchEncryption"`
+	CloudWatchEncryption interface{} `json:"cloudWatchEncryption" yaml:"cloudWatchEncryption"`
 	// The encryption configuration for job bookmarks.
-	JobBookmarksEncryption interface{} `json:"jobBookmarksEncryption"`
+	JobBookmarksEncryption interface{} `json:"jobBookmarksEncryption" yaml:"jobBookmarksEncryption"`
 	// The encyption configuration for Amazon Simple Storage Service (Amazon S3) data.
-	S3Encryptions interface{} `json:"s3Encryptions"`
+	S3Encryptions interface{} `json:"s3Encryptions" yaml:"s3Encryptions"`
 }
 
 // Specifies how job bookmark data should be encrypted.
@@ -9225,9 +9225,9 @@ type CfnSecurityConfiguration_EncryptionConfigurationProperty struct {
 //
 type CfnSecurityConfiguration_JobBookmarksEncryptionProperty struct {
 	// The encryption mode to use for job bookmarks data.
-	JobBookmarksEncryptionMode *string `json:"jobBookmarksEncryptionMode"`
+	JobBookmarksEncryptionMode *string `json:"jobBookmarksEncryptionMode" yaml:"jobBookmarksEncryptionMode"`
 	// The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-	KmsKeyArn *string `json:"kmsKeyArn"`
+	KmsKeyArn *string `json:"kmsKeyArn" yaml:"kmsKeyArn"`
 }
 
 // Specifies how Amazon Simple Storage Service (Amazon S3) data should be encrypted.
@@ -9236,9 +9236,9 @@ type CfnSecurityConfiguration_JobBookmarksEncryptionProperty struct {
 //
 type CfnSecurityConfiguration_S3EncryptionProperty struct {
 	// The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-	KmsKeyArn *string `json:"kmsKeyArn"`
+	KmsKeyArn *string `json:"kmsKeyArn" yaml:"kmsKeyArn"`
 	// The encryption mode to use for Amazon S3 data.
-	S3EncryptionMode *string `json:"s3EncryptionMode"`
+	S3EncryptionMode *string `json:"s3EncryptionMode" yaml:"s3EncryptionMode"`
 }
 
 // Properties for defining a `CfnSecurityConfiguration`.
@@ -9247,9 +9247,9 @@ type CfnSecurityConfiguration_S3EncryptionProperty struct {
 //
 type CfnSecurityConfigurationProps struct {
 	// The encryption configuration associated with this security configuration.
-	EncryptionConfiguration interface{} `json:"encryptionConfiguration"`
+	EncryptionConfiguration interface{} `json:"encryptionConfiguration" yaml:"encryptionConfiguration"`
 	// The name of the security configuration.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // A CloudFormation `AWS::Glue::Table`.
@@ -9770,11 +9770,11 @@ func (c *jsiiProxy_CfnTable) ValidateProperties(_properties interface{}) {
 //
 type CfnTable_ColumnProperty struct {
 	// The name of the `Column` .
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// A free-form text comment.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// The data type of the `Column` .
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 }
 
 // Specifies the sort order of a sorted column.
@@ -9783,9 +9783,9 @@ type CfnTable_ColumnProperty struct {
 //
 type CfnTable_OrderProperty struct {
 	// The name of the column.
-	Column *string `json:"column"`
+	Column *string `json:"column" yaml:"column"`
 	// Indicates that the column is sorted in ascending order ( `== 1` ), or in descending order ( `==0` ).
-	SortOrder *float64 `json:"sortOrder"`
+	SortOrder *float64 `json:"sortOrder" yaml:"sortOrder"`
 }
 
 // A structure that contains schema identity fields.
@@ -9797,16 +9797,16 @@ type CfnTable_OrderProperty struct {
 //
 type CfnTable_SchemaIdProperty struct {
 	// The name of the schema registry that contains the schema.
-	RegistryName *string `json:"registryName"`
+	RegistryName *string `json:"registryName" yaml:"registryName"`
 	// The Amazon Resource Name (ARN) of the schema.
 	//
 	// One of `SchemaArn` or `SchemaName` has to be
 	// provided.
-	SchemaArn *string `json:"schemaArn"`
+	SchemaArn *string `json:"schemaArn" yaml:"schemaArn"`
 	// The name of the schema.
 	//
 	// One of `SchemaArn` or `SchemaName` has to be provided.
-	SchemaName *string `json:"schemaName"`
+	SchemaName *string `json:"schemaName" yaml:"schemaName"`
 }
 
 // An object that references a schema stored in the AWS Glue Schema Registry.
@@ -9818,13 +9818,13 @@ type CfnTable_SchemaReferenceProperty struct {
 	//
 	// Either this or the `SchemaVersionId` has to be
 	// provided.
-	SchemaId interface{} `json:"schemaId"`
+	SchemaId interface{} `json:"schemaId" yaml:"schemaId"`
 	// The unique ID assigned to a version of the schema.
 	//
 	// Either this or the `SchemaId` has to be provided.
-	SchemaVersionId *string `json:"schemaVersionId"`
+	SchemaVersionId *string `json:"schemaVersionId" yaml:"schemaVersionId"`
 	// The version number of the schema.
-	SchemaVersionNumber *float64 `json:"schemaVersionNumber"`
+	SchemaVersionNumber *float64 `json:"schemaVersionNumber" yaml:"schemaVersionNumber"`
 }
 
 // Information about a serialization/deserialization program (SerDe) that serves as an extractor and loader.
@@ -9833,13 +9833,13 @@ type CfnTable_SchemaReferenceProperty struct {
 //
 type CfnTable_SerdeInfoProperty struct {
 	// Name of the SerDe.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// These key-value pairs define initialization parameters for the SerDe.
-	Parameters interface{} `json:"parameters"`
+	Parameters interface{} `json:"parameters" yaml:"parameters"`
 	// Usually the class that implements the SerDe.
 	//
 	// An example is `org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe` .
-	SerializationLibrary *string `json:"serializationLibrary"`
+	SerializationLibrary *string `json:"serializationLibrary" yaml:"serializationLibrary"`
 }
 
 // Specifies skewed values in a table.
@@ -9850,11 +9850,11 @@ type CfnTable_SerdeInfoProperty struct {
 //
 type CfnTable_SkewedInfoProperty struct {
 	// A list of names of columns that contain skewed values.
-	SkewedColumnNames *[]*string `json:"skewedColumnNames"`
+	SkewedColumnNames *[]*string `json:"skewedColumnNames" yaml:"skewedColumnNames"`
 	// A mapping of skewed values to the columns that contain them.
-	SkewedColumnValueLocationMaps interface{} `json:"skewedColumnValueLocationMaps"`
+	SkewedColumnValueLocationMaps interface{} `json:"skewedColumnValueLocationMaps" yaml:"skewedColumnValueLocationMaps"`
 	// A list of values that appear so frequently as to be considered skewed.
-	SkewedColumnValues *[]*string `json:"skewedColumnValues"`
+	SkewedColumnValues *[]*string `json:"skewedColumnValues" yaml:"skewedColumnValues"`
 }
 
 // Describes the physical storage of table data.
@@ -9863,33 +9863,33 @@ type CfnTable_SkewedInfoProperty struct {
 //
 type CfnTable_StorageDescriptorProperty struct {
 	// A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
-	BucketColumns *[]*string `json:"bucketColumns"`
+	BucketColumns *[]*string `json:"bucketColumns" yaml:"bucketColumns"`
 	// A list of the `Columns` in the table.
-	Columns interface{} `json:"columns"`
+	Columns interface{} `json:"columns" yaml:"columns"`
 	// `True` if the data in the table is compressed, or `False` if not.
-	Compressed interface{} `json:"compressed"`
+	Compressed interface{} `json:"compressed" yaml:"compressed"`
 	// The input format: `SequenceFileInputFormat` (binary), or `TextInputFormat` , or a custom format.
-	InputFormat *string `json:"inputFormat"`
+	InputFormat *string `json:"inputFormat" yaml:"inputFormat"`
 	// The physical location of the table.
 	//
 	// By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
-	Location *string `json:"location"`
+	Location *string `json:"location" yaml:"location"`
 	// Must be specified if the table contains any dimension columns.
-	NumberOfBuckets *float64 `json:"numberOfBuckets"`
+	NumberOfBuckets *float64 `json:"numberOfBuckets" yaml:"numberOfBuckets"`
 	// The output format: `SequenceFileOutputFormat` (binary), or `IgnoreKeyTextOutputFormat` , or a custom format.
-	OutputFormat *string `json:"outputFormat"`
+	OutputFormat *string `json:"outputFormat" yaml:"outputFormat"`
 	// The user-supplied properties in key-value form.
-	Parameters interface{} `json:"parameters"`
+	Parameters interface{} `json:"parameters" yaml:"parameters"`
 	// An object that references a schema stored in the AWS Glue Schema Registry.
-	SchemaReference interface{} `json:"schemaReference"`
+	SchemaReference interface{} `json:"schemaReference" yaml:"schemaReference"`
 	// The serialization/deserialization (SerDe) information.
-	SerdeInfo interface{} `json:"serdeInfo"`
+	SerdeInfo interface{} `json:"serdeInfo" yaml:"serdeInfo"`
 	// The information about values that appear frequently in a column (skewed values).
-	SkewedInfo interface{} `json:"skewedInfo"`
+	SkewedInfo interface{} `json:"skewedInfo" yaml:"skewedInfo"`
 	// A list specifying the sort order of each bucket in the table.
-	SortColumns interface{} `json:"sortColumns"`
+	SortColumns interface{} `json:"sortColumns" yaml:"sortColumns"`
 	// `True` if the table data is stored in subdirectories, or `False` if not.
-	StoredAsSubDirectories interface{} `json:"storedAsSubDirectories"`
+	StoredAsSubDirectories interface{} `json:"storedAsSubDirectories" yaml:"storedAsSubDirectories"`
 }
 
 // A structure that describes a target table for resource linking.
@@ -9898,11 +9898,11 @@ type CfnTable_StorageDescriptorProperty struct {
 //
 type CfnTable_TableIdentifierProperty struct {
 	// The ID of the Data Catalog in which the table resides.
-	CatalogId *string `json:"catalogId"`
+	CatalogId *string `json:"catalogId" yaml:"catalogId"`
 	// The name of the catalog database that contains the target table.
-	DatabaseName *string `json:"databaseName"`
+	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
 	// The name of the target table.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // A structure used to define a table.
@@ -9911,37 +9911,37 @@ type CfnTable_TableIdentifierProperty struct {
 //
 type CfnTable_TableInputProperty struct {
 	// A description of the table.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The table name.
 	//
 	// For Hive compatibility, this is folded to lowercase when it is stored.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The table owner.
-	Owner *string `json:"owner"`
+	Owner *string `json:"owner" yaml:"owner"`
 	// These key-value pairs define properties associated with the table.
-	Parameters interface{} `json:"parameters"`
+	Parameters interface{} `json:"parameters" yaml:"parameters"`
 	// A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
 	//
 	// When you create a table used by Amazon Athena, and you do not specify any `partitionKeys` , you must at least set the value of `partitionKeys` to an empty list. For example:
 	//
 	// `"PartitionKeys": []`
-	PartitionKeys interface{} `json:"partitionKeys"`
+	PartitionKeys interface{} `json:"partitionKeys" yaml:"partitionKeys"`
 	// The retention time for this table.
-	Retention *float64 `json:"retention"`
+	Retention *float64 `json:"retention" yaml:"retention"`
 	// A storage descriptor containing information about the physical storage of this table.
-	StorageDescriptor interface{} `json:"storageDescriptor"`
+	StorageDescriptor interface{} `json:"storageDescriptor" yaml:"storageDescriptor"`
 	// The type of this table ( `EXTERNAL_TABLE` , `VIRTUAL_VIEW` , etc.).
-	TableType *string `json:"tableType"`
+	TableType *string `json:"tableType" yaml:"tableType"`
 	// A `TableIdentifier` structure that describes a target table for resource linking.
-	TargetTable interface{} `json:"targetTable"`
+	TargetTable interface{} `json:"targetTable" yaml:"targetTable"`
 	// If the table is a view, the expanded text of the view;
 	//
 	// otherwise `null` .
-	ViewExpandedText *string `json:"viewExpandedText"`
+	ViewExpandedText *string `json:"viewExpandedText" yaml:"viewExpandedText"`
 	// If the table is a view, the original text of the view;
 	//
 	// otherwise `null` .
-	ViewOriginalText *string `json:"viewOriginalText"`
+	ViewOriginalText *string `json:"viewOriginalText" yaml:"viewOriginalText"`
 }
 
 // Properties for defining a `CfnTable`.
@@ -9952,13 +9952,13 @@ type CfnTableProps struct {
 	// The ID of the Data Catalog in which to create the `Table` .
 	//
 	// If none is supplied, the AWS account ID is used by default.
-	CatalogId *string `json:"catalogId"`
+	CatalogId *string `json:"catalogId" yaml:"catalogId"`
 	// The name of the database where the table metadata resides.
 	//
 	// For Hive compatibility, this must be all lowercase.
-	DatabaseName *string `json:"databaseName"`
+	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
 	// A structure used to define a table.
-	TableInput interface{} `json:"tableInput"`
+	TableInput interface{} `json:"tableInput" yaml:"tableInput"`
 }
 
 // A CloudFormation `AWS::Glue::Trigger`.
@@ -10598,19 +10598,19 @@ type CfnTrigger_ActionProperty struct {
 	// For information about how to specify and consume your own job arguments, see [Calling AWS Glue APIs in Python](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) in the *AWS Glue Developer Guide* .
 	//
 	// For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html) topic in the developer guide.
-	Arguments interface{} `json:"arguments"`
+	Arguments interface{} `json:"arguments" yaml:"arguments"`
 	// The name of the crawler to be used with this action.
-	CrawlerName *string `json:"crawlerName"`
+	CrawlerName *string `json:"crawlerName" yaml:"crawlerName"`
 	// The name of a job to be executed.
-	JobName *string `json:"jobName"`
+	JobName *string `json:"jobName" yaml:"jobName"`
 	// Specifies configuration properties of a job run notification.
-	NotificationProperty interface{} `json:"notificationProperty"`
+	NotificationProperty interface{} `json:"notificationProperty" yaml:"notificationProperty"`
 	// The name of the `SecurityConfiguration` structure to be used with this action.
-	SecurityConfiguration *string `json:"securityConfiguration"`
+	SecurityConfiguration *string `json:"securityConfiguration" yaml:"securityConfiguration"`
 	// The `JobRun` timeout in minutes.
 	//
 	// This is the maximum time that a job run can consume resources before it is terminated and enters TIMEOUT status. The default is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.
-	Timeout *float64 `json:"timeout"`
+	Timeout *float64 `json:"timeout" yaml:"timeout"`
 }
 
 // Defines a condition under which a trigger fires.
@@ -10619,17 +10619,17 @@ type CfnTrigger_ActionProperty struct {
 //
 type CfnTrigger_ConditionProperty struct {
 	// The name of the crawler to which this condition applies.
-	CrawlerName *string `json:"crawlerName"`
+	CrawlerName *string `json:"crawlerName" yaml:"crawlerName"`
 	// The state of the crawler to which this condition applies.
-	CrawlState *string `json:"crawlState"`
+	CrawlState *string `json:"crawlState" yaml:"crawlState"`
 	// The name of the job whose `JobRuns` this condition applies to, and on which this trigger waits.
-	JobName *string `json:"jobName"`
+	JobName *string `json:"jobName" yaml:"jobName"`
 	// A logical operator.
-	LogicalOperator *string `json:"logicalOperator"`
+	LogicalOperator *string `json:"logicalOperator" yaml:"logicalOperator"`
 	// The condition state.
 	//
 	// Currently, the values supported are `SUCCEEDED` , `STOPPED` , `TIMEOUT` , and `FAILED` .
-	State *string `json:"state"`
+	State *string `json:"state" yaml:"state"`
 }
 
 // Specifies configuration properties of a job run notification.
@@ -10638,7 +10638,7 @@ type CfnTrigger_ConditionProperty struct {
 //
 type CfnTrigger_NotificationPropertyProperty struct {
 	// After a job run starts, the number of minutes to wait before sending a job run delay notification.
-	NotifyDelayAfter *float64 `json:"notifyDelayAfter"`
+	NotifyDelayAfter *float64 `json:"notifyDelayAfter" yaml:"notifyDelayAfter"`
 }
 
 // Defines the predicate of the trigger, which determines when it fires.
@@ -10647,11 +10647,11 @@ type CfnTrigger_NotificationPropertyProperty struct {
 //
 type CfnTrigger_PredicateProperty struct {
 	// A list of the conditions that determine when the trigger will fire.
-	Conditions interface{} `json:"conditions"`
+	Conditions interface{} `json:"conditions" yaml:"conditions"`
 	// An optional field if only one condition is listed.
 	//
 	// If multiple conditions are listed, then this field is required.
-	Logical *string `json:"logical"`
+	Logical *string `json:"logical" yaml:"logical"`
 }
 
 // Properties for defining a `CfnTrigger`.
@@ -10660,27 +10660,27 @@ type CfnTrigger_PredicateProperty struct {
 //
 type CfnTriggerProps struct {
 	// The actions initiated by this trigger.
-	Actions interface{} `json:"actions"`
+	Actions interface{} `json:"actions" yaml:"actions"`
 	// The type of trigger that this is.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// A description of this trigger.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The name of the trigger.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The predicate of this trigger, which defines when it will fire.
-	Predicate interface{} `json:"predicate"`
+	Predicate interface{} `json:"predicate" yaml:"predicate"`
 	// A `cron` expression used to specify the schedule.
 	//
 	// For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html) in the *AWS Glue Developer Guide* . For example, to run something every day at 12:15 UTC, specify `cron(15 12 * * ? *)` .
-	Schedule *string `json:"schedule"`
+	Schedule *string `json:"schedule" yaml:"schedule"`
 	// Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created.
 	//
 	// True is not supported for `ON_DEMAND` triggers.
-	StartOnCreation interface{} `json:"startOnCreation"`
+	StartOnCreation interface{} `json:"startOnCreation" yaml:"startOnCreation"`
 	// The tags to use with this trigger.
-	Tags interface{} `json:"tags"`
+	Tags interface{} `json:"tags" yaml:"tags"`
 	// The name of the workflow associated with the trigger.
-	WorkflowName *string `json:"workflowName"`
+	WorkflowName *string `json:"workflowName" yaml:"workflowName"`
 }
 
 // A CloudFormation `AWS::Glue::Workflow`.
@@ -11212,12 +11212,12 @@ func (c *jsiiProxy_CfnWorkflow) ValidateProperties(_properties interface{}) {
 //
 type CfnWorkflowProps struct {
 	// A collection of properties to be used as part of each execution of the workflow.
-	DefaultRunProperties interface{} `json:"defaultRunProperties"`
+	DefaultRunProperties interface{} `json:"defaultRunProperties" yaml:"defaultRunProperties"`
 	// A description of the workflow.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The name of the workflow representing the flow.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The tags to use with this workflow.
-	Tags interface{} `json:"tags"`
+	Tags interface{} `json:"tags" yaml:"tags"`
 }
 

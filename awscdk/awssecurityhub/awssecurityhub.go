@@ -480,6 +480,6 @@ func (c *jsiiProxy_CfnHub) ValidateProperties(_properties interface{}) {
 //
 type CfnHubProps struct {
 	// The tags to add to the hub resource.
-	Tags interface{} `json:"tags"`
+	Tags interface{} `json:"tags" yaml:"tags"`
 }
 

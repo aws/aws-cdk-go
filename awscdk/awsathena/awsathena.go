@@ -560,11 +560,11 @@ type CfnDataCatalogProps struct {
 	// The name of the data catalog.
 	//
 	// The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The type of data catalog: `LAMBDA` for a federated catalog, `GLUE` for AWS Glue Catalog, or `HIVE` for an external hive metastore.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// A description of the data catalog.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Specifies the Lambda function or functions to use for the data catalog.
 	//
 	// The mapping used depends on the catalog type.
@@ -587,9 +587,9 @@ type CfnDataCatalogProps struct {
 	// - The `GLUE` data catalog type also applies to the default `AwsDataCatalog` that already exists in your account, of which you can have only one and cannot modify.
 	// - Queries that specify a GLUE data catalog other than the default `AwsDataCatalog` must be run on Athena engine version 2.
 	// - In Regions where Athena engine version 2 is not available, creating new GLUE data catalogs results in an `INVALID_INPUT` error.
-	Parameters interface{} `json:"parameters"`
+	Parameters interface{} `json:"parameters" yaml:"parameters"`
 	// The tags (key-value pairs) to associate with this resource.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Athena::NamedQuery`.
@@ -1161,15 +1161,15 @@ func (c *jsiiProxy_CfnNamedQuery) ValidateProperties(_properties interface{}) {
 //
 type CfnNamedQueryProps struct {
 	// The database to which the query belongs.
-	Database *string `json:"database"`
+	Database *string `json:"database" yaml:"database"`
 	// The SQL query statements that comprise the query.
-	QueryString *string `json:"queryString"`
+	QueryString *string `json:"queryString" yaml:"queryString"`
 	// The query description.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The query name.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The name of the workgroup that contains the named query.
-	WorkGroup *string `json:"workGroup"`
+	WorkGroup *string `json:"workGroup" yaml:"workGroup"`
 }
 
 // A CloudFormation `AWS::Athena::PreparedStatement`.
@@ -1710,13 +1710,13 @@ func (c *jsiiProxy_CfnPreparedStatement) ValidateProperties(_properties interfac
 //
 type CfnPreparedStatementProps struct {
 	// The query string for the prepared statement.
-	QueryStatement *string `json:"queryStatement"`
+	QueryStatement *string `json:"queryStatement" yaml:"queryStatement"`
 	// The name of the prepared statement.
-	StatementName *string `json:"statementName"`
+	StatementName *string `json:"statementName" yaml:"statementName"`
 	// The workgroup to which the prepared statement belongs.
-	WorkGroup *string `json:"workGroup"`
+	WorkGroup *string `json:"workGroup" yaml:"workGroup"`
 	// The description of the prepared statement.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 }
 
 // A CloudFormation `AWS::Athena::WorkGroup`.
@@ -2343,9 +2343,9 @@ type CfnWorkGroup_EncryptionConfigurationProperty struct {
 	// Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys ( `SSE-S3` ), server-side encryption with KMS-managed keys ( `SSE-KMS` ), or client-side encryption with KMS-managed keys (CSE-KMS) is used.
 	//
 	// If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup's setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
-	EncryptionOption *string `json:"encryptionOption"`
+	EncryptionOption *string `json:"encryptionOption" yaml:"encryptionOption"`
 	// For `SSE-KMS` and `CSE-KMS` , this is the KMS key ARN or ID.
-	KmsKey *string `json:"kmsKey"`
+	KmsKey *string `json:"kmsKey" yaml:"kmsKey"`
 }
 
 // The Athena engine version for running queries.
@@ -2356,11 +2356,11 @@ type CfnWorkGroup_EngineVersionProperty struct {
 	// Read only.
 	//
 	// The engine version on which the query runs. If the user requests a valid engine version other than Auto, the effective engine version is the same as the engine version that the user requested. If the user requests Auto, the effective engine version is chosen by Athena. When a request to update the engine version is made by a `CreateWorkGroup` or `UpdateWorkGroup` operation, the `EffectiveEngineVersion` field is ignored.
-	EffectiveEngineVersion *string `json:"effectiveEngineVersion"`
+	EffectiveEngineVersion *string `json:"effectiveEngineVersion" yaml:"effectiveEngineVersion"`
 	// The engine version requested by the user.
 	//
 	// Possible values are determined by the output of `ListEngineVersions` , including Auto. The default is Auto.
-	SelectedEngineVersion *string `json:"selectedEngineVersion"`
+	SelectedEngineVersion *string `json:"selectedEngineVersion" yaml:"selectedEngineVersion"`
 }
 
 // The location in Amazon S3 where query results are stored and the encryption option, if any, used for query results.
@@ -2373,11 +2373,11 @@ type CfnWorkGroup_ResultConfigurationProperty struct {
 	// If query results are encrypted in Amazon S3, indicates the encryption option used (for example, `SSE-KMS` or `CSE-KMS` ) and key information.
 	//
 	// This is a client-side setting. If workgroup settings override client-side settings, then the query uses the encryption configuration that is specified for the workgroup, and also uses the location for storing query results specified in the workgroup. See `EnforceWorkGroupConfiguration` and [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
-	EncryptionConfiguration interface{} `json:"encryptionConfiguration"`
+	EncryptionConfiguration interface{} `json:"encryptionConfiguration" yaml:"encryptionConfiguration"`
 	// The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/` .
 	//
 	// To run a query, you must specify the query results location using either a client-side setting for individual queries or a location specified by the workgroup. If workgroup settings override client-side settings, then the query uses the location specified for the workgroup. If no query location is set, Athena issues an error. For more information, see [Working with Query Results, Output Files, and Query History](https://docs.aws.amazon.com/athena/latest/ug/querying.html) and `EnforceWorkGroupConfiguration` .
-	OutputLocation *string `json:"outputLocation"`
+	OutputLocation *string `json:"outputLocation" yaml:"outputLocation"`
 }
 
 // The information about the updates in the query results, such as output location and encryption configuration for the query results.
@@ -2386,19 +2386,19 @@ type CfnWorkGroup_ResultConfigurationProperty struct {
 //
 type CfnWorkGroup_ResultConfigurationUpdatesProperty struct {
 	// The encryption configuration for the query results.
-	EncryptionConfiguration interface{} `json:"encryptionConfiguration"`
+	EncryptionConfiguration interface{} `json:"encryptionConfiguration" yaml:"encryptionConfiguration"`
 	// The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/` .
 	//
 	// For more information, see [Query Results](https://docs.aws.amazon.com/athena/latest/ug/querying.html) If workgroup settings override client-side settings, then the query uses the location for the query results and the encryption configuration that are specified for the workgroup. The "workgroup settings override" is specified in EnforceWorkGroupConfiguration (true/false) in the WorkGroupConfiguration. See `EnforceWorkGroupConfiguration` .
-	OutputLocation *string `json:"outputLocation"`
+	OutputLocation *string `json:"outputLocation" yaml:"outputLocation"`
 	// If set to "true", indicates that the previously-specified encryption configuration (also known as the client-side setting) for queries in this workgroup should be ignored and set to null.
 	//
 	// If set to "false" or not set, and a value is present in the EncryptionConfiguration in ResultConfigurationUpdates (the client-side setting), the EncryptionConfiguration in the workgroup's ResultConfiguration will be updated with the new value. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
-	RemoveEncryptionConfiguration interface{} `json:"removeEncryptionConfiguration"`
+	RemoveEncryptionConfiguration interface{} `json:"removeEncryptionConfiguration" yaml:"removeEncryptionConfiguration"`
 	// If set to "true", indicates that the previously-specified query results location (also known as a client-side setting) for queries in this workgroup should be ignored and set to null.
 	//
 	// If set to "false" or not set, and a value is present in the OutputLocation in ResultConfigurationUpdates (the client-side setting), the OutputLocation in the workgroup's ResultConfiguration will be updated with the new value. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
-	RemoveOutputLocation interface{} `json:"removeOutputLocation"`
+	RemoveOutputLocation interface{} `json:"removeOutputLocation" yaml:"removeOutputLocation"`
 }
 
 // The configuration of the workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether Amazon CloudWatch Metrics are enabled for the workgroup, and the limit for the amount of bytes scanned (cutoff) per query, if it is specified.
@@ -2413,25 +2413,25 @@ type CfnWorkGroup_WorkGroupConfigurationProperty struct {
 	// No default is defined.
 	//
 	// > This property currently supports integer types. Support for long values is planned.
-	BytesScannedCutoffPerQuery *float64 `json:"bytesScannedCutoffPerQuery"`
+	BytesScannedCutoffPerQuery *float64 `json:"bytesScannedCutoffPerQuery" yaml:"bytesScannedCutoffPerQuery"`
 	// If set to "true", the settings for the workgroup override client-side settings.
 	//
 	// If set to "false", client-side settings are used. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
-	EnforceWorkGroupConfiguration interface{} `json:"enforceWorkGroupConfiguration"`
+	EnforceWorkGroupConfiguration interface{} `json:"enforceWorkGroupConfiguration" yaml:"enforceWorkGroupConfiguration"`
 	// The engine version that all queries running on the workgroup use.
 	//
 	// Queries on the `AmazonAthenaPreviewFunctionality` workgroup run on the preview engine regardless of this setting.
-	EngineVersion interface{} `json:"engineVersion"`
+	EngineVersion interface{} `json:"engineVersion" yaml:"engineVersion"`
 	// Indicates that the Amazon CloudWatch metrics are enabled for the workgroup.
-	PublishCloudWatchMetricsEnabled interface{} `json:"publishCloudWatchMetricsEnabled"`
+	PublishCloudWatchMetricsEnabled interface{} `json:"publishCloudWatchMetricsEnabled" yaml:"publishCloudWatchMetricsEnabled"`
 	// If set to `true` , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries.
 	//
 	// If set to `false` , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is `false` . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the *Amazon Simple Storage Service Developer Guide* .
-	RequesterPaysEnabled interface{} `json:"requesterPaysEnabled"`
+	RequesterPaysEnabled interface{} `json:"requesterPaysEnabled" yaml:"requesterPaysEnabled"`
 	// Specifies the location in Amazon S3 where query results are stored and the encryption option, if any, used for query results.
 	//
 	// For more information, see [Working with Query Results, Output Files, and Query History](https://docs.aws.amazon.com/athena/latest/ug/querying.html) .
-	ResultConfiguration interface{} `json:"resultConfiguration"`
+	ResultConfiguration interface{} `json:"resultConfiguration" yaml:"resultConfiguration"`
 }
 
 // The configuration information that will be updated for this workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether the Amazon CloudWatch Metrics are enabled for the workgroup, whether the workgroup settings override the client-side settings, and the data usage limit for the amount of bytes scanned per query, if it is specified.
@@ -2444,29 +2444,29 @@ type CfnWorkGroup_WorkGroupConfigurationUpdatesProperty struct {
 	// No default is defined.
 	//
 	// > This property currently supports integer types. Support for long values is planned.
-	BytesScannedCutoffPerQuery *float64 `json:"bytesScannedCutoffPerQuery"`
+	BytesScannedCutoffPerQuery *float64 `json:"bytesScannedCutoffPerQuery" yaml:"bytesScannedCutoffPerQuery"`
 	// If set to "true", the settings for the workgroup override client-side settings.
 	//
 	// If set to "false" client-side settings are used. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
-	EnforceWorkGroupConfiguration interface{} `json:"enforceWorkGroupConfiguration"`
+	EnforceWorkGroupConfiguration interface{} `json:"enforceWorkGroupConfiguration" yaml:"enforceWorkGroupConfiguration"`
 	// The engine version requested when a workgroup is updated.
 	//
 	// After the update, all queries on the workgroup run on the requested engine version. If no value was previously set, the default is Auto. Queries on the `AmazonAthenaPreviewFunctionality` workgroup run on the preview engine regardless of this setting.
-	EngineVersion interface{} `json:"engineVersion"`
+	EngineVersion interface{} `json:"engineVersion" yaml:"engineVersion"`
 	// Indicates whether this workgroup enables publishing metrics to Amazon CloudWatch.
-	PublishCloudWatchMetricsEnabled interface{} `json:"publishCloudWatchMetricsEnabled"`
+	PublishCloudWatchMetricsEnabled interface{} `json:"publishCloudWatchMetricsEnabled" yaml:"publishCloudWatchMetricsEnabled"`
 	// Indicates that the data usage control limit per query is removed.
 	//
 	// See `BytesScannedCutoffPerQuery` .
-	RemoveBytesScannedCutoffPerQuery interface{} `json:"removeBytesScannedCutoffPerQuery"`
+	RemoveBytesScannedCutoffPerQuery interface{} `json:"removeBytesScannedCutoffPerQuery" yaml:"removeBytesScannedCutoffPerQuery"`
 	// If set to `true` , allows members assigned to a workgroup to specify Amazon S3 Requester Pays buckets in queries.
 	//
 	// If set to `false` , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is `false` . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the *Amazon Simple Storage Service Developer Guide* .
-	RequesterPaysEnabled interface{} `json:"requesterPaysEnabled"`
+	RequesterPaysEnabled interface{} `json:"requesterPaysEnabled" yaml:"requesterPaysEnabled"`
 	// The result configuration information about the queries in this workgroup that will be updated.
 	//
 	// Includes the updated results location and an updated option for encrypting query results.
-	ResultConfigurationUpdates interface{} `json:"resultConfigurationUpdates"`
+	ResultConfigurationUpdates interface{} `json:"resultConfigurationUpdates" yaml:"resultConfigurationUpdates"`
 }
 
 // Properties for defining a `CfnWorkGroup`.
@@ -2475,22 +2475,22 @@ type CfnWorkGroup_WorkGroupConfigurationUpdatesProperty struct {
 //
 type CfnWorkGroupProps struct {
 	// The workgroup name.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The workgroup description.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The option to delete a workgroup and its contents even if the workgroup contains any named queries.
 	//
 	// The default is false.
-	RecursiveDeleteOption interface{} `json:"recursiveDeleteOption"`
+	RecursiveDeleteOption interface{} `json:"recursiveDeleteOption" yaml:"recursiveDeleteOption"`
 	// The state of the workgroup: ENABLED or DISABLED.
-	State *string `json:"state"`
+	State *string `json:"state" yaml:"state"`
 	// The tags (key-value pairs) to associate with this resource.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// The configuration of the workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether Amazon CloudWatch Metrics are enabled for the workgroup, and the limit for the amount of bytes scanned (cutoff) per query, if it is specified.
 	//
 	// The `EnforceWorkGroupConfiguration` option determines whether workgroup settings override client-side query settings.
-	WorkGroupConfiguration interface{} `json:"workGroupConfiguration"`
+	WorkGroupConfiguration interface{} `json:"workGroupConfiguration" yaml:"workGroupConfiguration"`
 	// The configuration information that will be updated for this workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether the Amazon CloudWatch Metrics are enabled for the workgroup, whether the workgroup settings override the client-side settings, and the data usage limit for the amount of bytes scanned per query, if it is specified.
-	WorkGroupConfigurationUpdates interface{} `json:"workGroupConfigurationUpdates"`
+	WorkGroupConfigurationUpdates interface{} `json:"workGroupConfigurationUpdates" yaml:"workGroupConfigurationUpdates"`
 }
 

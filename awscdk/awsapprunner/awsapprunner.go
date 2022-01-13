@@ -648,11 +648,11 @@ type CfnService_AuthenticationConfigurationProperty struct {
 	// The Amazon Resource Name (ARN) of the IAM role that grants the App Runner service access to a source repository.
 	//
 	// It's required for ECR image repositories (but not for ECR Public repositories).
-	AccessRoleArn *string `json:"accessRoleArn"`
+	AccessRoleArn *string `json:"accessRoleArn" yaml:"accessRoleArn"`
 	// The Amazon Resource Name (ARN) of the App Runner connection that enables the App Runner service to connect to a source repository.
 	//
 	// It's required for GitHub code repositories.
-	ConnectionArn *string `json:"connectionArn"`
+	ConnectionArn *string `json:"connectionArn" yaml:"connectionArn"`
 }
 
 // Describes the configuration that AWS App Runner uses to build and run an App Runner service from a source code repository.
@@ -664,11 +664,11 @@ type CfnService_CodeConfigurationProperty struct {
 	//
 	// - `REPOSITORY` – App Runner reads configuration values from the `apprunner.yaml` file in the source code repository and ignores `CodeConfigurationValues` .
 	// - `API` – App Runner uses configuration values provided in `CodeConfigurationValues` and ignores the `apprunner.yaml` file in the source code repository.
-	ConfigurationSource *string `json:"configurationSource"`
+	ConfigurationSource *string `json:"configurationSource" yaml:"configurationSource"`
 	// The basic configuration for building and running the App Runner service.
 	//
 	// Use it to quickly launch an App Runner service without providing a `apprunner.yaml` file in the source code repository (or ignoring the file if it exists).
-	CodeConfigurationValues interface{} `json:"codeConfigurationValues"`
+	CodeConfigurationValues interface{} `json:"codeConfigurationValues" yaml:"codeConfigurationValues"`
 }
 
 // Describes the basic configuration needed for building and running an AWS App Runner service.
@@ -681,19 +681,19 @@ type CfnService_CodeConfigurationValuesProperty struct {
 	// A runtime environment type for building and running an App Runner service.
 	//
 	// It represents a programming language runtime.
-	Runtime *string `json:"runtime"`
+	Runtime *string `json:"runtime" yaml:"runtime"`
 	// The command App Runner runs to build your application.
-	BuildCommand *string `json:"buildCommand"`
+	BuildCommand *string `json:"buildCommand" yaml:"buildCommand"`
 	// The port that your application listens to in the container.
 	//
 	// Default: `8080`
-	Port *string `json:"port"`
+	Port *string `json:"port" yaml:"port"`
 	// The environment variables that are available to your running App Runner service.
 	//
 	// An array of key-value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren't valid.
-	RuntimeEnvironmentVariables interface{} `json:"runtimeEnvironmentVariables"`
+	RuntimeEnvironmentVariables interface{} `json:"runtimeEnvironmentVariables" yaml:"runtimeEnvironmentVariables"`
 	// The command App Runner runs to start your application.
-	StartCommand *string `json:"startCommand"`
+	StartCommand *string `json:"startCommand" yaml:"startCommand"`
 }
 
 // Describes a source code repository.
@@ -702,11 +702,11 @@ type CfnService_CodeConfigurationValuesProperty struct {
 //
 type CfnService_CodeRepositoryProperty struct {
 	// The location of the repository that contains the source code.
-	RepositoryUrl *string `json:"repositoryUrl"`
+	RepositoryUrl *string `json:"repositoryUrl" yaml:"repositoryUrl"`
 	// The version that should be used within the source code repository.
-	SourceCodeVersion interface{} `json:"sourceCodeVersion"`
+	SourceCodeVersion interface{} `json:"sourceCodeVersion" yaml:"sourceCodeVersion"`
 	// Configuration for building and running the service from a source code repository.
-	CodeConfiguration interface{} `json:"codeConfiguration"`
+	CodeConfiguration interface{} `json:"codeConfiguration" yaml:"codeConfiguration"`
 }
 
 // Describes a custom encryption key that AWS App Runner uses to encrypt copies of the source repository and service logs.
@@ -715,7 +715,7 @@ type CfnService_CodeRepositoryProperty struct {
 //
 type CfnService_EncryptionConfigurationProperty struct {
 	// The ARN of the KMS key that's used for encryption.
-	KmsKey *string `json:"kmsKey"`
+	KmsKey *string `json:"kmsKey" yaml:"kmsKey"`
 }
 
 // Describes the settings for the health check that AWS App Runner performs to monitor the health of a service.
@@ -726,31 +726,31 @@ type CfnService_HealthCheckConfigurationProperty struct {
 	// The number of consecutive checks that must succeed before App Runner decides that the service is healthy.
 	//
 	// Default: `1`
-	HealthyThreshold *float64 `json:"healthyThreshold"`
+	HealthyThreshold *float64 `json:"healthyThreshold" yaml:"healthyThreshold"`
 	// The time interval, in seconds, between health checks.
 	//
 	// Default: `5`
-	Interval *float64 `json:"interval"`
+	Interval *float64 `json:"interval" yaml:"interval"`
 	// The URL that health check requests are sent to.
 	//
 	// `Path` is only applicable when you set `Protocol` to `HTTP` .
 	//
 	// Default: `"/"`
-	Path *string `json:"path"`
+	Path *string `json:"path" yaml:"path"`
 	// The IP protocol that App Runner uses to perform health checks for your service.
 	//
 	// If you set `Protocol` to `HTTP` , App Runner sends health check requests to the HTTP path specified by `Path` .
 	//
 	// Default: `TCP`
-	Protocol *string `json:"protocol"`
+	Protocol *string `json:"protocol" yaml:"protocol"`
 	// The time, in seconds, to wait for a health check response before deciding it failed.
 	//
 	// Default: `2`
-	Timeout *float64 `json:"timeout"`
+	Timeout *float64 `json:"timeout" yaml:"timeout"`
 	// The number of consecutive checks that must fail before App Runner decides that the service is unhealthy.
 	//
 	// Default: `5`
-	UnhealthyThreshold *float64 `json:"unhealthyThreshold"`
+	UnhealthyThreshold *float64 `json:"unhealthyThreshold" yaml:"unhealthyThreshold"`
 }
 
 // Describes the configuration that AWS App Runner uses to run an App Runner service using an image pulled from a source image repository.
@@ -761,15 +761,15 @@ type CfnService_ImageConfigurationProperty struct {
 	// The port that your application listens to in the container.
 	//
 	// Default: `8080`
-	Port *string `json:"port"`
+	Port *string `json:"port" yaml:"port"`
 	// Environment variables that are available to your running App Runner service.
 	//
 	// An array of key-value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren't valid.
-	RuntimeEnvironmentVariables interface{} `json:"runtimeEnvironmentVariables"`
+	RuntimeEnvironmentVariables interface{} `json:"runtimeEnvironmentVariables" yaml:"runtimeEnvironmentVariables"`
 	// An optional command that App Runner runs to start the application in the source image.
 	//
 	// If specified, this command overrides the Docker image’s default start command.
-	StartCommand *string `json:"startCommand"`
+	StartCommand *string `json:"startCommand" yaml:"startCommand"`
 }
 
 // Describes a source image repository.
@@ -780,13 +780,13 @@ type CfnService_ImageRepositoryProperty struct {
 	// The identifier of an image.
 	//
 	// For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the image name format, see [Pulling an image](https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-pull-ecr-image.html) in the *Amazon ECR User Guide* .
-	ImageIdentifier *string `json:"imageIdentifier"`
+	ImageIdentifier *string `json:"imageIdentifier" yaml:"imageIdentifier"`
 	// The type of the image repository.
 	//
 	// This reflects the repository provider and whether the repository is private or public.
-	ImageRepositoryType *string `json:"imageRepositoryType"`
+	ImageRepositoryType *string `json:"imageRepositoryType" yaml:"imageRepositoryType"`
 	// Configuration for running the identified image.
-	ImageConfiguration interface{} `json:"imageConfiguration"`
+	ImageConfiguration interface{} `json:"imageConfiguration" yaml:"imageConfiguration"`
 }
 
 // Describes the runtime configuration of an AWS App Runner service instance (scaling unit).
@@ -797,15 +797,15 @@ type CfnService_InstanceConfigurationProperty struct {
 	// The number of CPU units reserved for each instance of your App Runner service.
 	//
 	// Default: `1 vCPU`
-	Cpu *string `json:"cpu"`
+	Cpu *string `json:"cpu" yaml:"cpu"`
 	// The Amazon Resource Name (ARN) of an IAM role that provides permissions to your App Runner service.
 	//
 	// These are permissions that your code needs when it calls any AWS APIs.
-	InstanceRoleArn *string `json:"instanceRoleArn"`
+	InstanceRoleArn *string `json:"instanceRoleArn" yaml:"instanceRoleArn"`
 	// The amount of memory, in MB or GB, reserved for each instance of your App Runner service.
 	//
 	// Default: `2 GB`
-	Memory *string `json:"memory"`
+	Memory *string `json:"memory" yaml:"memory"`
 }
 
 // Describes a key-value pair, which is a string-to-string mapping.
@@ -814,9 +814,9 @@ type CfnService_InstanceConfigurationProperty struct {
 //
 type CfnService_KeyValuePairProperty struct {
 	// The key name string to map to a value.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The value string to which the key name is mapped.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // Identifies a version of code that AWS App Runner refers to within a source code repository.
@@ -827,11 +827,11 @@ type CfnService_SourceCodeVersionProperty struct {
 	// The type of version identifier.
 	//
 	// For a git-based repository, branches represent versions.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// A source code version.
 	//
 	// For a git-based repository, a branch name maps to a specific version. App Runner uses the most recent commit to the branch.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // Describes the source deployed to an AWS App Runner service.
@@ -842,21 +842,21 @@ type CfnService_SourceCodeVersionProperty struct {
 //
 type CfnService_SourceConfigurationProperty struct {
 	// Describes the resources that are needed to authenticate access to some source repositories.
-	AuthenticationConfiguration interface{} `json:"authenticationConfiguration"`
+	AuthenticationConfiguration interface{} `json:"authenticationConfiguration" yaml:"authenticationConfiguration"`
 	// If `true` , continuous integration from the source repository is enabled for the App Runner service.
 	//
 	// Each repository change (including any source code commit or new image version) starts a deployment.
 	//
 	// Default: App Runner sets to `false` for a source image that uses an ECR Public repository or an ECR repository that's in an AWS account other than the one that the service is in. App Runner sets to `true` in all other cases (which currently include a source code repository or a source image using a same-account ECR repository).
-	AutoDeploymentsEnabled interface{} `json:"autoDeploymentsEnabled"`
+	AutoDeploymentsEnabled interface{} `json:"autoDeploymentsEnabled" yaml:"autoDeploymentsEnabled"`
 	// The description of a source code repository.
 	//
 	// You must provide either this member or `ImageRepository` (but not both).
-	CodeRepository interface{} `json:"codeRepository"`
+	CodeRepository interface{} `json:"codeRepository" yaml:"codeRepository"`
 	// The description of a source image repository.
 	//
 	// You must provide either this member or `CodeRepository` (but not both).
-	ImageRepository interface{} `json:"imageRepository"`
+	ImageRepository interface{} `json:"imageRepository" yaml:"imageRepository"`
 }
 
 // Properties for defining a `CfnService`.
@@ -867,26 +867,26 @@ type CfnServiceProps struct {
 	// The source to deploy to the App Runner service.
 	//
 	// It can be a code or an image repository.
-	SourceConfiguration interface{} `json:"sourceConfiguration"`
+	SourceConfiguration interface{} `json:"sourceConfiguration" yaml:"sourceConfiguration"`
 	// The Amazon Resource Name (ARN) of an App Runner automatic scaling configuration resource that you want to associate with your service.
 	//
 	// If not provided, App Runner associates the latest revision of a default auto scaling configuration.
-	AutoScalingConfigurationArn *string `json:"autoScalingConfigurationArn"`
+	AutoScalingConfigurationArn *string `json:"autoScalingConfigurationArn" yaml:"autoScalingConfigurationArn"`
 	// An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs.
 	//
 	// By default, App Runner uses an AWS managed key .
-	EncryptionConfiguration interface{} `json:"encryptionConfiguration"`
+	EncryptionConfiguration interface{} `json:"encryptionConfiguration" yaml:"encryptionConfiguration"`
 	// The settings for the health check that AWS App Runner performs to monitor the health of your service.
-	HealthCheckConfiguration interface{} `json:"healthCheckConfiguration"`
+	HealthCheckConfiguration interface{} `json:"healthCheckConfiguration" yaml:"healthCheckConfiguration"`
 	// The runtime configuration of instances (scaling units) of the App Runner service.
-	InstanceConfiguration interface{} `json:"instanceConfiguration"`
+	InstanceConfiguration interface{} `json:"instanceConfiguration" yaml:"instanceConfiguration"`
 	// A name for the new service.
 	//
 	// It must be unique across all the running App Runner services in your AWS account in the AWS Region .
-	ServiceName *string `json:"serviceName"`
+	ServiceName *string `json:"serviceName" yaml:"serviceName"`
 	// An optional list of metadata items that you can associate with your service resource.
 	//
 	// A tag is a key-value pair.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 

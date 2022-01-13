@@ -606,35 +606,35 @@ func (c *jsiiProxy_CfnDetectorModel) ValidateProperties(_properties interface{})
 //
 type CfnDetectorModel_ActionProperty struct {
 	// Information needed to clear the timer.
-	ClearTimer interface{} `json:"clearTimer"`
+	ClearTimer interface{} `json:"clearTimer" yaml:"clearTimer"`
 	// Writes to the DynamoDB table that you created.
 	//
 	// The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html) . One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide* .
-	DynamoDb interface{} `json:"dynamoDb"`
+	DynamoDb interface{} `json:"dynamoDb" yaml:"dynamoDb"`
 	// Writes to the DynamoDB table that you created.
 	//
 	// The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html) . A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide* .
-	DynamoDBv2 interface{} `json:"dynamoDBv2"`
+	DynamoDBv2 interface{} `json:"dynamoDBv2" yaml:"dynamoDBv2"`
 	// Sends information about the detector model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
-	Firehose interface{} `json:"firehose"`
+	Firehose interface{} `json:"firehose" yaml:"firehose"`
 	// Sends AWS IoT Events input, which passes information about the detector model instance and the event that triggered the action.
-	IotEvents interface{} `json:"iotEvents"`
+	IotEvents interface{} `json:"iotEvents" yaml:"iotEvents"`
 	// Sends information about the detector model instance and the event that triggered the action to an asset property in AWS IoT SiteWise .
-	IotSiteWise interface{} `json:"iotSiteWise"`
+	IotSiteWise interface{} `json:"iotSiteWise" yaml:"iotSiteWise"`
 	// Publishes an MQTT message with the given topic to the AWS IoT message broker.
-	IotTopicPublish interface{} `json:"iotTopicPublish"`
+	IotTopicPublish interface{} `json:"iotTopicPublish" yaml:"iotTopicPublish"`
 	// Calls a Lambda function, passing in information about the detector model instance and the event that triggered the action.
-	Lambda interface{} `json:"lambda"`
+	Lambda interface{} `json:"lambda" yaml:"lambda"`
 	// Information needed to reset the timer.
-	ResetTimer interface{} `json:"resetTimer"`
+	ResetTimer interface{} `json:"resetTimer" yaml:"resetTimer"`
 	// Information needed to set the timer.
-	SetTimer interface{} `json:"setTimer"`
+	SetTimer interface{} `json:"setTimer" yaml:"setTimer"`
 	// Sets a variable to a specified value.
-	SetVariable interface{} `json:"setVariable"`
+	SetVariable interface{} `json:"setVariable" yaml:"setVariable"`
 	// Sends an Amazon SNS message.
-	Sns interface{} `json:"sns"`
+	Sns interface{} `json:"sns" yaml:"sns"`
 	// Sends an Amazon SNS message.
-	Sqs interface{} `json:"sqs"`
+	Sqs interface{} `json:"sqs" yaml:"sqs"`
 }
 
 // A structure that contains timestamp information. For more information, see [TimeInNanos](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_TimeInNanos.html) in the *AWS IoT SiteWise API Reference* .
@@ -657,11 +657,11 @@ type CfnDetectorModel_AssetPropertyTimestampProperty struct {
 	// The timestamp, in seconds, in the Unix epoch format.
 	//
 	// The valid range is between 1-31556889864403199.
-	TimeInSeconds *string `json:"timeInSeconds"`
+	TimeInSeconds *string `json:"timeInSeconds" yaml:"timeInSeconds"`
 	// The nanosecond offset converted from `timeInSeconds` .
 	//
 	// The valid range is between 0-999999999.
-	OffsetInNanos *string `json:"offsetInNanos"`
+	OffsetInNanos *string `json:"offsetInNanos" yaml:"offsetInNanos"`
 }
 
 // A structure that contains value information. For more information, see [AssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetPropertyValue.html) in the *AWS IoT SiteWise API Reference* .
@@ -677,15 +677,15 @@ type CfnDetectorModel_AssetPropertyTimestampProperty struct {
 //
 type CfnDetectorModel_AssetPropertyValueProperty struct {
 	// The value to send to an asset property.
-	Value interface{} `json:"value"`
+	Value interface{} `json:"value" yaml:"value"`
 	// The quality of the asset property value.
 	//
 	// The value must be `'GOOD'` , `'BAD'` , or `'UNCERTAIN'` .
-	Quality *string `json:"quality"`
+	Quality *string `json:"quality" yaml:"quality"`
 	// The timestamp associated with the asset property value.
 	//
 	// The default is the current event time.
-	Timestamp interface{} `json:"timestamp"`
+	Timestamp interface{} `json:"timestamp" yaml:"timestamp"`
 }
 
 // A structure that contains an asset property value.
@@ -712,19 +712,19 @@ type CfnDetectorModel_AssetPropertyVariantProperty struct {
 	// The asset property value is a Boolean value that must be `'TRUE'` or `'FALSE'` .
 	//
 	// You must use an expression, and the evaluated result should be a Boolean value.
-	BooleanValue *string `json:"booleanValue"`
+	BooleanValue *string `json:"booleanValue" yaml:"booleanValue"`
 	// The asset property value is a double.
 	//
 	// You must use an expression, and the evaluated result should be a double.
-	DoubleValue *string `json:"doubleValue"`
+	DoubleValue *string `json:"doubleValue" yaml:"doubleValue"`
 	// The asset property value is an integer.
 	//
 	// You must use an expression, and the evaluated result should be an integer.
-	IntegerValue *string `json:"integerValue"`
+	IntegerValue *string `json:"integerValue" yaml:"integerValue"`
 	// The asset property value is a string.
 	//
 	// You must use an expression, and the evaluated result should be a string.
-	StringValue *string `json:"stringValue"`
+	StringValue *string `json:"stringValue" yaml:"stringValue"`
 }
 
 // Information needed to clear the timer.
@@ -733,7 +733,7 @@ type CfnDetectorModel_AssetPropertyVariantProperty struct {
 //
 type CfnDetectorModel_ClearTimerProperty struct {
 	// The name of the timer to clear.
-	TimerName *string `json:"timerName"`
+	TimerName *string `json:"timerName" yaml:"timerName"`
 }
 
 // Information that defines how a detector operates.
@@ -742,9 +742,9 @@ type CfnDetectorModel_ClearTimerProperty struct {
 //
 type CfnDetectorModel_DetectorModelDefinitionProperty struct {
 	// The state that is entered at the creation of each detector (instance).
-	InitialStateName *string `json:"initialStateName"`
+	InitialStateName *string `json:"initialStateName" yaml:"initialStateName"`
 	// Information about the states of the detector.
-	States interface{} `json:"states"`
+	States interface{} `json:"states" yaml:"states"`
 }
 
 // Defines an action to write to the Amazon DynamoDB table that you created.
@@ -776,20 +776,20 @@ type CfnDetectorModel_DynamoDBProperty struct {
 	// The name of the hash key (also called the partition key).
 	//
 	// The `hashKeyField` value must match the partition key of the target DynamoDB table.
-	HashKeyField *string `json:"hashKeyField"`
+	HashKeyField *string `json:"hashKeyField" yaml:"hashKeyField"`
 	// The value of the hash key (also called the partition key).
-	HashKeyValue *string `json:"hashKeyValue"`
+	HashKeyValue *string `json:"hashKeyValue" yaml:"hashKeyValue"`
 	// The name of the DynamoDB table.
 	//
 	// The `tableName` value must match the table name of the target DynamoDB table.
-	TableName *string `json:"tableName"`
+	TableName *string `json:"tableName" yaml:"tableName"`
 	// The data type for the hash key (also called the partition key). You can specify the following values:.
 	//
 	// - `'STRING'` - The hash key is a string.
 	// - `'NUMBER'` - The hash key is a number.
 	//
 	// If you don't specify `hashKeyType` , the default value is `'STRING'` .
-	HashKeyType *string `json:"hashKeyType"`
+	HashKeyType *string `json:"hashKeyType" yaml:"hashKeyType"`
 	// The type of operation to perform. You can specify the following values:.
 	//
 	// - `'INSERT'` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
@@ -797,28 +797,28 @@ type CfnDetectorModel_DynamoDBProperty struct {
 	// - `'DELETE'` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
 	//
 	// If you don't specify this parameter, AWS IoT Events triggers the `'INSERT'` operation.
-	Operation *string `json:"operation"`
+	Operation *string `json:"operation" yaml:"operation"`
 	// Information needed to configure the payload.
 	//
 	// By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
-	Payload interface{} `json:"payload"`
+	Payload interface{} `json:"payload" yaml:"payload"`
 	// The name of the DynamoDB column that receives the action payload.
 	//
 	// If you don't specify this parameter, the name of the DynamoDB column is `payload` .
-	PayloadField *string `json:"payloadField"`
+	PayloadField *string `json:"payloadField" yaml:"payloadField"`
 	// The name of the range key (also called the sort key).
 	//
 	// The `rangeKeyField` value must match the sort key of the target DynamoDB table.
-	RangeKeyField *string `json:"rangeKeyField"`
+	RangeKeyField *string `json:"rangeKeyField" yaml:"rangeKeyField"`
 	// The data type for the range key (also called the sort key), You can specify the following values:.
 	//
 	// - `'STRING'` - The range key is a string.
 	// - `'NUMBER'` - The range key is number.
 	//
 	// If you don't specify `rangeKeyField` , the default value is `'STRING'` .
-	RangeKeyType *string `json:"rangeKeyType"`
+	RangeKeyType *string `json:"rangeKeyType" yaml:"rangeKeyType"`
 	// The value of the range key (also called the sort key).
-	RangeKeyValue *string `json:"rangeKeyValue"`
+	RangeKeyValue *string `json:"rangeKeyValue" yaml:"rangeKeyValue"`
 }
 
 // Defines an action to write to the Amazon DynamoDB table that you created.
@@ -848,11 +848,11 @@ type CfnDetectorModel_DynamoDBProperty struct {
 //
 type CfnDetectorModel_DynamoDBv2Property struct {
 	// The name of the DynamoDB table.
-	TableName *string `json:"tableName"`
+	TableName *string `json:"tableName" yaml:"tableName"`
 	// Information needed to configure the payload.
 	//
 	// By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
-	Payload interface{} `json:"payload"`
+	Payload interface{} `json:"payload" yaml:"payload"`
 }
 
 // Specifies the `actions` to be performed when the `condition` evaluates to TRUE.
@@ -861,13 +861,13 @@ type CfnDetectorModel_DynamoDBv2Property struct {
 //
 type CfnDetectorModel_EventProperty struct {
 	// The name of the event.
-	EventName *string `json:"eventName"`
+	EventName *string `json:"eventName" yaml:"eventName"`
 	// The actions to be performed.
-	Actions interface{} `json:"actions"`
+	Actions interface{} `json:"actions" yaml:"actions"`
 	// Optional.
 	//
 	// The Boolean expression that, when TRUE, causes the `actions` to be performed. If not present, the actions are performed (=TRUE). If the expression result is not a Boolean value, the actions are not performed (=FALSE).
-	Condition *string `json:"condition"`
+	Condition *string `json:"condition" yaml:"condition"`
 }
 
 // Sends information about the detector model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
@@ -876,13 +876,13 @@ type CfnDetectorModel_EventProperty struct {
 //
 type CfnDetectorModel_FirehoseProperty struct {
 	// The name of the Kinesis Data Firehose delivery stream where the data is written.
-	DeliveryStreamName *string `json:"deliveryStreamName"`
+	DeliveryStreamName *string `json:"deliveryStreamName" yaml:"deliveryStreamName"`
 	// You can configure the action payload when you send a message to an Amazon Kinesis Data Firehose delivery stream.
-	Payload interface{} `json:"payload"`
+	Payload interface{} `json:"payload" yaml:"payload"`
 	// A character separator that is used to separate records written to the Kinesis Data Firehose delivery stream.
 	//
 	// Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
-	Separator *string `json:"separator"`
+	Separator *string `json:"separator" yaml:"separator"`
 }
 
 // Sends an AWS IoT Events input, passing in information about the detector model instance and the event that triggered the action.
@@ -891,9 +891,9 @@ type CfnDetectorModel_FirehoseProperty struct {
 //
 type CfnDetectorModel_IotEventsProperty struct {
 	// The name of the AWS IoT Events input where the data is sent.
-	InputName *string `json:"inputName"`
+	InputName *string `json:"inputName" yaml:"inputName"`
 	// You can configure the action payload when you send a message to an AWS IoT Events input.
-	Payload interface{} `json:"payload"`
+	Payload interface{} `json:"payload" yaml:"payload"`
 }
 
 // Sends information about the detector model instance and the event that triggered the action to a specified asset property in AWS IoT SiteWise .
@@ -918,17 +918,17 @@ type CfnDetectorModel_IotSiteWiseProperty struct {
 	// The value to send to the asset property.
 	//
 	// This value contains timestamp, quality, and value (TQV) information.
-	PropertyValue interface{} `json:"propertyValue"`
+	PropertyValue interface{} `json:"propertyValue" yaml:"propertyValue"`
 	// The ID of the asset that has the specified property.
-	AssetId *string `json:"assetId"`
+	AssetId *string `json:"assetId" yaml:"assetId"`
 	// A unique identifier for this entry.
 	//
 	// You can use the entry ID to track which data entry causes an error in case of failure. The default is a new unique identifier.
-	EntryId *string `json:"entryId"`
+	EntryId *string `json:"entryId" yaml:"entryId"`
 	// The alias of the asset property.
-	PropertyAlias *string `json:"propertyAlias"`
+	PropertyAlias *string `json:"propertyAlias" yaml:"propertyAlias"`
 	// The ID of the asset property.
-	PropertyId *string `json:"propertyId"`
+	PropertyId *string `json:"propertyId" yaml:"propertyId"`
 }
 
 // Information required to publish the MQTT message through the AWS IoT message broker.
@@ -939,9 +939,9 @@ type CfnDetectorModel_IotTopicPublishProperty struct {
 	// The MQTT topic of the message.
 	//
 	// You can use a string expression that includes variables ( `$variable.<variable-name>` ) and input values ( `$input.<input-name>.<path-to-datum>` ) as the topic string.
-	MqttTopic *string `json:"mqttTopic"`
+	MqttTopic *string `json:"mqttTopic" yaml:"mqttTopic"`
 	// You can configure the action payload when you publish a message to an AWS IoT Core topic.
-	Payload interface{} `json:"payload"`
+	Payload interface{} `json:"payload" yaml:"payload"`
 }
 
 // Calls a Lambda function, passing in information about the detector model instance and the event that triggered the action.
@@ -950,9 +950,9 @@ type CfnDetectorModel_IotTopicPublishProperty struct {
 //
 type CfnDetectorModel_LambdaProperty struct {
 	// The ARN of the Lambda function that is executed.
-	FunctionArn *string `json:"functionArn"`
+	FunctionArn *string `json:"functionArn" yaml:"functionArn"`
 	// You can configure the action payload when you send a message to a Lambda function.
-	Payload interface{} `json:"payload"`
+	Payload interface{} `json:"payload" yaml:"payload"`
 }
 
 // When entering this state, perform these `actions` if the `condition` is TRUE.
@@ -961,7 +961,7 @@ type CfnDetectorModel_LambdaProperty struct {
 //
 type CfnDetectorModel_OnEnterProperty struct {
 	// Specifies the actions that are performed when the state is entered and the `condition` is `TRUE` .
-	Events interface{} `json:"events"`
+	Events interface{} `json:"events" yaml:"events"`
 }
 
 // When exiting this state, perform these `actions` if the specified `condition` is `TRUE` .
@@ -970,7 +970,7 @@ type CfnDetectorModel_OnEnterProperty struct {
 //
 type CfnDetectorModel_OnExitProperty struct {
 	// Specifies the `actions` that are performed when the state is exited and the `condition` is `TRUE` .
-	Events interface{} `json:"events"`
+	Events interface{} `json:"events" yaml:"events"`
 }
 
 // Specifies the actions performed when the `condition` evaluates to TRUE.
@@ -979,9 +979,9 @@ type CfnDetectorModel_OnExitProperty struct {
 //
 type CfnDetectorModel_OnInputProperty struct {
 	// Specifies the actions performed when the `condition` evaluates to TRUE.
-	Events interface{} `json:"events"`
+	Events interface{} `json:"events" yaml:"events"`
 	// Specifies the actions performed, and the next state entered, when a `condition` evaluates to TRUE.
-	TransitionEvents interface{} `json:"transitionEvents"`
+	TransitionEvents interface{} `json:"transitionEvents" yaml:"transitionEvents"`
 }
 
 // Information needed to configure the payload.
@@ -994,9 +994,9 @@ type CfnDetectorModel_PayloadProperty struct {
 	// The content of the payload.
 	//
 	// You can use a string expression that includes quoted strings ( `'<string>'` ), variables ( `$variable.<variable-name>` ), input values ( `$input.<input-name>.<path-to-datum>` ), string concatenations, and quoted strings that contain `${}` as the content. The recommended maximum size of a content expression is 1 KB.
-	ContentExpression *string `json:"contentExpression"`
+	ContentExpression *string `json:"contentExpression" yaml:"contentExpression"`
 	// The value of the payload type can be either `STRING` or `JSON` .
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 }
 
 // Information required to reset the timer.
@@ -1007,7 +1007,7 @@ type CfnDetectorModel_PayloadProperty struct {
 //
 type CfnDetectorModel_ResetTimerProperty struct {
 	// The name of the timer to reset.
-	TimerName *string `json:"timerName"`
+	TimerName *string `json:"timerName" yaml:"timerName"`
 }
 
 // Information needed to set the timer.
@@ -1016,15 +1016,15 @@ type CfnDetectorModel_ResetTimerProperty struct {
 //
 type CfnDetectorModel_SetTimerProperty struct {
 	// The name of the timer.
-	TimerName *string `json:"timerName"`
+	TimerName *string `json:"timerName" yaml:"timerName"`
 	// The duration of the timer, in seconds.
 	//
 	// You can use a string expression that includes numbers, variables ( `$variable.<variable-name>` ), and input values ( `$input.<input-name>.<path-to-datum>` ) as the duration. The range of the duration is 1-31622400 seconds. To ensure accuracy, the minimum duration is 60 seconds. The evaluated result of the duration is rounded down to the nearest whole number.
-	DurationExpression *string `json:"durationExpression"`
+	DurationExpression *string `json:"durationExpression" yaml:"durationExpression"`
 	// The number of seconds until the timer expires.
 	//
 	// The minimum value is 60 seconds to ensure accuracy. The maximum value is 31622400 seconds.
-	Seconds *float64 `json:"seconds"`
+	Seconds *float64 `json:"seconds" yaml:"seconds"`
 }
 
 // Information about the variable and its new value.
@@ -1033,9 +1033,9 @@ type CfnDetectorModel_SetTimerProperty struct {
 //
 type CfnDetectorModel_SetVariableProperty struct {
 	// The new value of the variable.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 	// The name of the variable.
-	VariableName *string `json:"variableName"`
+	VariableName *string `json:"variableName" yaml:"variableName"`
 }
 
 // Information required to publish the Amazon SNS message.
@@ -1044,9 +1044,9 @@ type CfnDetectorModel_SetVariableProperty struct {
 //
 type CfnDetectorModel_SnsProperty struct {
 	// The ARN of the Amazon SNS target where the message is sent.
-	TargetArn *string `json:"targetArn"`
+	TargetArn *string `json:"targetArn" yaml:"targetArn"`
 	// You can configure the action payload when you send a message as an Amazon SNS push notification.
-	Payload interface{} `json:"payload"`
+	Payload interface{} `json:"payload" yaml:"payload"`
 }
 
 // Sends information about the detector model instance and the event that triggered the action to an Amazon SQS queue.
@@ -1055,13 +1055,13 @@ type CfnDetectorModel_SnsProperty struct {
 //
 type CfnDetectorModel_SqsProperty struct {
 	// The URL of the SQS queue where the data is written.
-	QueueUrl *string `json:"queueUrl"`
+	QueueUrl *string `json:"queueUrl" yaml:"queueUrl"`
 	// You can configure the action payload when you send a message to an Amazon SQS queue.
-	Payload interface{} `json:"payload"`
+	Payload interface{} `json:"payload" yaml:"payload"`
 	// Set this to TRUE if you want the data to be base-64 encoded before it is written to the queue.
 	//
 	// Otherwise, set this to FALSE.
-	UseBase64 interface{} `json:"useBase64"`
+	UseBase64 interface{} `json:"useBase64" yaml:"useBase64"`
 }
 
 // Information that defines a state of a detector.
@@ -1070,13 +1070,13 @@ type CfnDetectorModel_SqsProperty struct {
 //
 type CfnDetectorModel_StateProperty struct {
 	// The name of the state.
-	StateName *string `json:"stateName"`
+	StateName *string `json:"stateName" yaml:"stateName"`
 	// When entering this state, perform these `actions` if the `condition` is TRUE.
-	OnEnter interface{} `json:"onEnter"`
+	OnEnter interface{} `json:"onEnter" yaml:"onEnter"`
 	// When exiting this state, perform these `actions` if the specified `condition` is `TRUE` .
-	OnExit interface{} `json:"onExit"`
+	OnExit interface{} `json:"onExit" yaml:"onExit"`
 	// When an input is received and the `condition` is TRUE, perform the specified `actions` .
-	OnInput interface{} `json:"onInput"`
+	OnInput interface{} `json:"onInput" yaml:"onInput"`
 }
 
 // Specifies the actions performed and the next state entered when a `condition` evaluates to TRUE.
@@ -1087,13 +1087,13 @@ type CfnDetectorModel_TransitionEventProperty struct {
 	// Required.
 	//
 	// A Boolean expression that when TRUE causes the actions to be performed and the `nextState` to be entered.
-	Condition *string `json:"condition"`
+	Condition *string `json:"condition" yaml:"condition"`
 	// The name of the transition event.
-	EventName *string `json:"eventName"`
+	EventName *string `json:"eventName" yaml:"eventName"`
 	// The next state to enter.
-	NextState *string `json:"nextState"`
+	NextState *string `json:"nextState" yaml:"nextState"`
 	// The actions to be performed.
-	Actions interface{} `json:"actions"`
+	Actions interface{} `json:"actions" yaml:"actions"`
 }
 
 // Properties for defining a `CfnDetectorModel`.
@@ -1102,25 +1102,25 @@ type CfnDetectorModel_TransitionEventProperty struct {
 //
 type CfnDetectorModelProps struct {
 	// Information that defines how a detector operates.
-	DetectorModelDefinition interface{} `json:"detectorModelDefinition"`
+	DetectorModelDefinition interface{} `json:"detectorModelDefinition" yaml:"detectorModelDefinition"`
 	// The ARN of the role that grants permission to AWS IoT Events to perform its operations.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// A brief description of the detector model.
-	DetectorModelDescription *string `json:"detectorModelDescription"`
+	DetectorModelDescription *string `json:"detectorModelDescription" yaml:"detectorModelDescription"`
 	// The name of the detector model.
-	DetectorModelName *string `json:"detectorModelName"`
+	DetectorModelName *string `json:"detectorModelName" yaml:"detectorModelName"`
 	// Information about the order in which events are evaluated and how actions are executed.
-	EvaluationMethod *string `json:"evaluationMethod"`
+	EvaluationMethod *string `json:"evaluationMethod" yaml:"evaluationMethod"`
 	// The value used to identify a detector instance.
 	//
 	// When a device or system sends input, a new detector instance with a unique key value is created. AWS IoT Events can continue to route input to its corresponding detector instance based on this identifying information.
 	//
 	// This parameter uses a JSON-path expression to select the attribute-value pair in the message payload that is used for identification. To route the message to the correct detector instance, the device must send a message payload that contains the same attribute-value.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::IoTEvents::Input`.
@@ -1658,7 +1658,7 @@ type CfnInput_AttributeProperty struct {
 	// Use this to specify an attribute from the JSON payload that is made available by the input. Inputs are derived from messages sent to AWS IoT Events ( `BatchPutMessage` ). Each such message contains a JSON payload. The attribute (and its paired value) specified here are available for use in the `condition` expressions used by detectors.
 	//
 	// Syntax: `<field-name>.<field-name>...`
-	JsonPath *string `json:"jsonPath"`
+	JsonPath *string `json:"jsonPath" yaml:"jsonPath"`
 }
 
 // The definition of the input.
@@ -1669,7 +1669,7 @@ type CfnInput_InputDefinitionProperty struct {
 	// The attributes from the JSON payload that are made available by the input.
 	//
 	// Inputs are derived from messages sent to the AWS IoT Events system using `BatchPutMessage` . Each such message contains a JSON payload, and those attributes (and their paired values) specified here are available for use in the `condition` expressions used by detectors that monitor this input.
-	Attributes interface{} `json:"attributes"`
+	Attributes interface{} `json:"attributes" yaml:"attributes"`
 }
 
 // Properties for defining a `CfnInput`.
@@ -1678,14 +1678,14 @@ type CfnInput_InputDefinitionProperty struct {
 //
 type CfnInputProps struct {
 	// The definition of the input.
-	InputDefinition interface{} `json:"inputDefinition"`
+	InputDefinition interface{} `json:"inputDefinition" yaml:"inputDefinition"`
 	// A brief description of the input.
-	InputDescription *string `json:"inputDescription"`
+	InputDescription *string `json:"inputDescription" yaml:"inputDescription"`
 	// The name of the input.
-	InputName *string `json:"inputName"`
+	InputName *string `json:"inputName" yaml:"inputName"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 

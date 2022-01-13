@@ -659,11 +659,11 @@ func (c *jsiiProxy_CfnCertificate) ValidateProperties(_properties interface{}) {
 //
 type CfnCertificate_ApiPassthroughProperty struct {
 	// Specifies X.509 extension information for a certificate.
-	Extensions interface{} `json:"extensions"`
+	Extensions interface{} `json:"extensions" yaml:"extensions"`
 	// Contains information about the certificate subject.
 	//
 	// The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
-	Subject interface{} `json:"subject"`
+	Subject interface{} `json:"subject" yaml:"subject"`
 }
 
 // Describes an Electronic Data Interchange (EDI) entity as described in as defined in [Subject Alternative Name](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc5280) in RFC 5280.
@@ -672,9 +672,9 @@ type CfnCertificate_ApiPassthroughProperty struct {
 //
 type CfnCertificate_EdiPartyNameProperty struct {
 	// Specifies the name assigner.
-	NameAssigner *string `json:"nameAssigner"`
+	NameAssigner *string `json:"nameAssigner" yaml:"nameAssigner"`
 	// Specifies the party name.
-	PartyName *string `json:"partyName"`
+	PartyName *string `json:"partyName" yaml:"partyName"`
 }
 
 // Specifies additional purposes for which the certified public key may be used other than basic purposes indicated in the `KeyUsage` extension.
@@ -683,9 +683,9 @@ type CfnCertificate_EdiPartyNameProperty struct {
 //
 type CfnCertificate_ExtendedKeyUsageProperty struct {
 	// Specifies a custom `ExtendedKeyUsage` with an object identifier (OID).
-	ExtendedKeyUsageObjectIdentifier *string `json:"extendedKeyUsageObjectIdentifier"`
+	ExtendedKeyUsageObjectIdentifier *string `json:"extendedKeyUsageObjectIdentifier" yaml:"extendedKeyUsageObjectIdentifier"`
 	// Specifies a standard `ExtendedKeyUsage` as defined as in [RFC 5280](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc5280#section-4.2.1.12) .
-	ExtendedKeyUsageType *string `json:"extendedKeyUsageType"`
+	ExtendedKeyUsageType *string `json:"extendedKeyUsageType" yaml:"extendedKeyUsageType"`
 }
 
 // Contains X.509 extension information for a certificate.
@@ -698,17 +698,17 @@ type CfnCertificate_ExtensionsProperty struct {
 	// For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier) .
 	//
 	// In an end-entity certificate, these terms indicate the policy under which the certificate was issued and the purposes for which it may be used. In a CA certificate, these terms limit the set of policies for certification paths that include this certificate.
-	CertificatePolicies interface{} `json:"certificatePolicies"`
+	CertificatePolicies interface{} `json:"certificatePolicies" yaml:"certificatePolicies"`
 	// Specifies additional purposes for which the certified public key may be used other than basic purposes indicated in the `KeyUsage` extension.
-	ExtendedKeyUsage interface{} `json:"extendedKeyUsage"`
+	ExtendedKeyUsage interface{} `json:"extendedKeyUsage" yaml:"extendedKeyUsage"`
 	// Defines one or more purposes for which the key contained in the certificate can be used.
 	//
 	// Default value for each option is false.
-	KeyUsage interface{} `json:"keyUsage"`
+	KeyUsage interface{} `json:"keyUsage" yaml:"keyUsage"`
 	// The subject alternative name extension allows identities to be bound to the subject of the certificate.
 	//
 	// These identities may be included in addition to or in place of the identity in the subject field of the certificate.
-	SubjectAlternativeNames interface{} `json:"subjectAlternativeNames"`
+	SubjectAlternativeNames interface{} `json:"subjectAlternativeNames" yaml:"subjectAlternativeNames"`
 }
 
 // Describes an ASN.1 X.400 `GeneralName` as defined in [RFC 5280](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc5280) . Only one of the following naming options should be provided. Providing more than one option results in an `InvalidArgsException` error.
@@ -719,21 +719,21 @@ type CfnCertificate_GeneralNameProperty struct {
 	// Contains information about the certificate subject.
 	//
 	// The certificate can be one issued by your private certificate authority (CA) or it can be your private CA certificate. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate. The DN must be unique for each entity, but your private CA can issue more than one certificate with the same DN to the same entity.
-	DirectoryName interface{} `json:"directoryName"`
+	DirectoryName interface{} `json:"directoryName" yaml:"directoryName"`
 	// Represents `GeneralName` as a DNS name.
-	DnsName *string `json:"dnsName"`
+	DnsName *string `json:"dnsName" yaml:"dnsName"`
 	// Represents `GeneralName` as an `EdiPartyName` object.
-	EdiPartyName interface{} `json:"ediPartyName"`
+	EdiPartyName interface{} `json:"ediPartyName" yaml:"ediPartyName"`
 	// Represents `GeneralName` as an IPv4 or IPv6 address.
-	IpAddress *string `json:"ipAddress"`
+	IpAddress *string `json:"ipAddress" yaml:"ipAddress"`
 	// Represents `GeneralName` using an `OtherName` object.
-	OtherName interface{} `json:"otherName"`
+	OtherName interface{} `json:"otherName" yaml:"otherName"`
 	// Represents `GeneralName` as an object identifier (OID).
-	RegisteredId *string `json:"registeredId"`
+	RegisteredId *string `json:"registeredId" yaml:"registeredId"`
 	// Represents `GeneralName` as an [RFC 822](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc822) email address.
-	Rfc822Name *string `json:"rfc822Name"`
+	Rfc822Name *string `json:"rfc822Name" yaml:"rfc822Name"`
 	// Represents `GeneralName` as a URI.
-	UniformResourceIdentifier *string `json:"uniformResourceIdentifier"`
+	UniformResourceIdentifier *string `json:"uniformResourceIdentifier" yaml:"uniformResourceIdentifier"`
 }
 
 // Defines one or more purposes for which the key contained in the certificate can be used.
@@ -744,23 +744,23 @@ type CfnCertificate_GeneralNameProperty struct {
 //
 type CfnCertificate_KeyUsageProperty struct {
 	// Key can be used to sign CRLs.
-	CrlSign interface{} `json:"crlSign"`
+	CrlSign interface{} `json:"crlSign" yaml:"crlSign"`
 	// Key can be used to decipher data.
-	DataEncipherment interface{} `json:"dataEncipherment"`
+	DataEncipherment interface{} `json:"dataEncipherment" yaml:"dataEncipherment"`
 	// Key can be used only to decipher data.
-	DecipherOnly interface{} `json:"decipherOnly"`
+	DecipherOnly interface{} `json:"decipherOnly" yaml:"decipherOnly"`
 	// Key can be used for digital signing.
-	DigitalSignature interface{} `json:"digitalSignature"`
+	DigitalSignature interface{} `json:"digitalSignature" yaml:"digitalSignature"`
 	// Key can be used only to encipher data.
-	EncipherOnly interface{} `json:"encipherOnly"`
+	EncipherOnly interface{} `json:"encipherOnly" yaml:"encipherOnly"`
 	// Key can be used in a key-agreement protocol.
-	KeyAgreement interface{} `json:"keyAgreement"`
+	KeyAgreement interface{} `json:"keyAgreement" yaml:"keyAgreement"`
 	// Key can be used to sign certificates.
-	KeyCertSign interface{} `json:"keyCertSign"`
+	KeyCertSign interface{} `json:"keyCertSign" yaml:"keyCertSign"`
 	// Key can be used to encipher data.
-	KeyEncipherment interface{} `json:"keyEncipherment"`
+	KeyEncipherment interface{} `json:"keyEncipherment" yaml:"keyEncipherment"`
 	// Key can be used for non-repudiation.
-	NonRepudiation interface{} `json:"nonRepudiation"`
+	NonRepudiation interface{} `json:"nonRepudiation" yaml:"nonRepudiation"`
 }
 
 // Defines a custom ASN.1 X.400 `GeneralName` using an object identifier (OID) and value. The OID must satisfy the regular expression shown below. For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier) .
@@ -769,9 +769,9 @@ type CfnCertificate_KeyUsageProperty struct {
 //
 type CfnCertificate_OtherNameProperty struct {
 	// Specifies an OID.
-	TypeId *string `json:"typeId"`
+	TypeId *string `json:"typeId" yaml:"typeId"`
 	// Specifies an OID value.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // Defines the X.509 `CertificatePolicies` extension.
@@ -782,11 +782,11 @@ type CfnCertificate_PolicyInformationProperty struct {
 	// Specifies the object identifier (OID) of the certificate policy under which the certificate was issued.
 	//
 	// For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier) .
-	CertPolicyId *string `json:"certPolicyId"`
+	CertPolicyId *string `json:"certPolicyId" yaml:"certPolicyId"`
 	// Modifies the given `CertPolicyId` with a qualifier.
 	//
 	// ACM Private CA supports the certification practice statement (CPS) qualifier.
-	PolicyQualifiers interface{} `json:"policyQualifiers"`
+	PolicyQualifiers interface{} `json:"policyQualifiers" yaml:"policyQualifiers"`
 }
 
 // Modifies the `CertPolicyId` of a `PolicyInformation` object with a qualifier.
@@ -797,11 +797,11 @@ type CfnCertificate_PolicyInformationProperty struct {
 //
 type CfnCertificate_PolicyQualifierInfoProperty struct {
 	// Identifies the qualifier modifying a `CertPolicyId` .
-	PolicyQualifierId *string `json:"policyQualifierId"`
+	PolicyQualifierId *string `json:"policyQualifierId" yaml:"policyQualifierId"`
 	// Defines the qualifier type.
 	//
 	// ACM Private CA supports the use of a URI for a CPS qualifier in this field.
-	Qualifier interface{} `json:"qualifier"`
+	Qualifier interface{} `json:"qualifier" yaml:"qualifier"`
 }
 
 // Defines a `PolicyInformation` qualifier.
@@ -812,7 +812,7 @@ type CfnCertificate_PolicyQualifierInfoProperty struct {
 //
 type CfnCertificate_QualifierProperty struct {
 	// Contains a pointer to a certification practice statement (CPS) published by the CA.
-	CpsUri *string `json:"cpsUri"`
+	CpsUri *string `json:"cpsUri" yaml:"cpsUri"`
 }
 
 // Contains information about the certificate subject.
@@ -825,41 +825,41 @@ type CfnCertificate_SubjectProperty struct {
 	// For CA and end-entity certificates in a private PKI, the common name (CN) can be any string within the length limit.
 	//
 	// Note: In publicly trusted certificates, the common name must be a fully qualified domain name (FQDN) associated with the certificate subject.
-	CommonName *string `json:"commonName"`
+	CommonName *string `json:"commonName" yaml:"commonName"`
 	// Two-digit code that specifies the country in which the certificate subject located.
-	Country *string `json:"country"`
+	Country *string `json:"country" yaml:"country"`
 	// Disambiguating information for the certificate subject.
-	DistinguishedNameQualifier *string `json:"distinguishedNameQualifier"`
+	DistinguishedNameQualifier *string `json:"distinguishedNameQualifier" yaml:"distinguishedNameQualifier"`
 	// Typically a qualifier appended to the name of an individual.
 	//
 	// Examples include Jr. for junior, Sr. for senior, and III for third.
-	GenerationQualifier *string `json:"generationQualifier"`
+	GenerationQualifier *string `json:"generationQualifier" yaml:"generationQualifier"`
 	// First name.
-	GivenName *string `json:"givenName"`
+	GivenName *string `json:"givenName" yaml:"givenName"`
 	// Concatenation that typically contains the first letter of the *GivenName* , the first letter of the middle name if one exists, and the first letter of the *Surname* .
-	Initials *string `json:"initials"`
+	Initials *string `json:"initials" yaml:"initials"`
 	// The locality (such as a city or town) in which the certificate subject is located.
-	Locality *string `json:"locality"`
+	Locality *string `json:"locality" yaml:"locality"`
 	// Legal name of the organization with which the certificate subject is affiliated.
-	Organization *string `json:"organization"`
+	Organization *string `json:"organization" yaml:"organization"`
 	// A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated.
-	OrganizationalUnit *string `json:"organizationalUnit"`
+	OrganizationalUnit *string `json:"organizationalUnit" yaml:"organizationalUnit"`
 	// Typically a shortened version of a longer *GivenName* .
 	//
 	// For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza.
-	Pseudonym *string `json:"pseudonym"`
+	Pseudonym *string `json:"pseudonym" yaml:"pseudonym"`
 	// The certificate serial number.
-	SerialNumber *string `json:"serialNumber"`
+	SerialNumber *string `json:"serialNumber" yaml:"serialNumber"`
 	// State in which the subject of the certificate is located.
-	State *string `json:"state"`
+	State *string `json:"state" yaml:"state"`
 	// Family name.
 	//
 	// In the US and the UK, for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first.
-	Surname *string `json:"surname"`
+	Surname *string `json:"surname" yaml:"surname"`
 	// A title such as Mr.
 	//
 	// or Ms., which is pre-pended to the name to refer formally to the certificate subject.
-	Title *string `json:"title"`
+	Title *string `json:"title" yaml:"title"`
 }
 
 // Length of time for which the certificate issued by your private certificate authority (CA), or by the private CA itself, is valid in days, months, or years.
@@ -870,9 +870,9 @@ type CfnCertificate_SubjectProperty struct {
 //
 type CfnCertificate_ValidityProperty struct {
 	// Specifies whether the `Value` parameter represents days, months, or years.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// A long integer interpreted according to the value of `Type` , below.
-	Value *float64 `json:"value"`
+	Value *float64 `json:"value" yaml:"value"`
 }
 
 // A CloudFormation `AWS::ACMPCA::CertificateAuthority`.
@@ -1508,9 +1508,9 @@ func (c *jsiiProxy_CfnCertificateAuthority) ValidateProperties(_properties inter
 //
 type CfnCertificateAuthority_AccessDescriptionProperty struct {
 	// The location of `AccessDescription` information.
-	AccessLocation interface{} `json:"accessLocation"`
+	AccessLocation interface{} `json:"accessLocation" yaml:"accessLocation"`
 	// The type and format of `AccessDescription` information.
-	AccessMethod interface{} `json:"accessMethod"`
+	AccessMethod interface{} `json:"accessMethod" yaml:"accessMethod"`
 }
 
 // Describes the type and format of extension access.
@@ -1521,11 +1521,11 @@ type CfnCertificateAuthority_AccessDescriptionProperty struct {
 //
 type CfnCertificateAuthority_AccessMethodProperty struct {
 	// Specifies the `AccessMethod` .
-	AccessMethodType *string `json:"accessMethodType"`
+	AccessMethodType *string `json:"accessMethodType" yaml:"accessMethodType"`
 	// An object identifier (OID) specifying the `AccessMethod` .
 	//
 	// The OID must satisfy the regular expression shown below. For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier) .
-	CustomObjectIdentifier *string `json:"customObjectIdentifier"`
+	CustomObjectIdentifier *string `json:"customObjectIdentifier" yaml:"customObjectIdentifier"`
 }
 
 // Contains configuration information for a certificate revocation list (CRL).
@@ -1571,17 +1571,17 @@ type CfnCertificateAuthority_CrlConfigurationProperty struct {
 	// Name inserted into the certificate *CRL Distribution Points* extension that enables the use of an alias for the CRL distribution point.
 	//
 	// Use this value if you don't want the name of your S3 bucket to be public.
-	CustomCname *string `json:"customCname"`
+	CustomCname *string `json:"customCname" yaml:"customCname"`
 	// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.
 	//
 	// You can use this value to enable certificate revocation for a new CA when you call the `CreateCertificateAuthority` operation or for an existing CA when you call the `UpdateCertificateAuthority` operation.
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 	// Validity period of the CRL in days.
-	ExpirationInDays *float64 `json:"expirationInDays"`
+	ExpirationInDays *float64 `json:"expirationInDays" yaml:"expirationInDays"`
 	// Name of the S3 bucket that contains the CRL.
 	//
 	// If you do not provide a value for the *CustomCname* argument, the name of your S3 bucket is placed into the *CRL Distribution Points* extension of the issued certificate. You can change the name of your bucket by calling the [UpdateCertificateAuthority](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_UpdateCertificateAuthority.html) operation. You must specify a [bucket policy](https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaCreateCa.html#s3-policies) that allows ACM Private CA to write the CRL to your bucket.
-	S3BucketName *string `json:"s3BucketName"`
+	S3BucketName *string `json:"s3BucketName" yaml:"s3BucketName"`
 	// Determines whether the CRL will be publicly readable or privately held in the CRL Amazon S3 bucket.
 	//
 	// If you choose PUBLIC_READ, the CRL will be accessible over the public internet. If you choose BUCKET_OWNER_FULL_CONTROL, only the owner of the CRL S3 bucket can access the CRL, and your PKI clients may need an alternative method of access.
@@ -1591,7 +1591,7 @@ type CfnCertificateAuthority_CrlConfigurationProperty struct {
 	// > This default can cause CA creation to fail in some circumstances. If you have enabled the Block Public Access (BPA) feature in your S3 account, then you must specify the value of this parameter as `BUCKET_OWNER_FULL_CONTROL` , and not doing so results in an error. If you have disabled BPA in S3, then you can specify either `BUCKET_OWNER_FULL_CONTROL` or `PUBLIC_READ` as the value.
 	//
 	// For more information, see [Blocking public access to the S3 bucket](https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaCreateCa.html#s3-bpa) .
-	S3ObjectAcl *string `json:"s3ObjectAcl"`
+	S3ObjectAcl *string `json:"s3ObjectAcl" yaml:"s3ObjectAcl"`
 }
 
 // Describes the certificate extensions to be added to the certificate signing request (CSR).
@@ -1600,11 +1600,11 @@ type CfnCertificateAuthority_CrlConfigurationProperty struct {
 //
 type CfnCertificateAuthority_CsrExtensionsProperty struct {
 	// Indicates the purpose of the certificate and of the key contained in the certificate.
-	KeyUsage interface{} `json:"keyUsage"`
+	KeyUsage interface{} `json:"keyUsage" yaml:"keyUsage"`
 	// For CA certificates, provides a path to additional information pertaining to the CA, such as revocation and policy.
 	//
 	// For more information, see [Subject Information Access](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc5280#section-4.2.2.2) in RFC 5280.
-	SubjectInformationAccess interface{} `json:"subjectInformationAccess"`
+	SubjectInformationAccess interface{} `json:"subjectInformationAccess" yaml:"subjectInformationAccess"`
 }
 
 // Describes an Electronic Data Interchange (EDI) entity as described in as defined in [Subject Alternative Name](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc5280) in RFC 5280.
@@ -1613,9 +1613,9 @@ type CfnCertificateAuthority_CsrExtensionsProperty struct {
 //
 type CfnCertificateAuthority_EdiPartyNameProperty struct {
 	// Specifies the name assigner.
-	NameAssigner *string `json:"nameAssigner"`
+	NameAssigner *string `json:"nameAssigner" yaml:"nameAssigner"`
 	// Specifies the party name.
-	PartyName *string `json:"partyName"`
+	PartyName *string `json:"partyName" yaml:"partyName"`
 }
 
 // Describes an ASN.1 X.400 `GeneralName` as defined in [RFC 5280](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc5280) . Only one of the following naming options should be provided. Providing more than one option results in an `InvalidArgsException` error.
@@ -1626,21 +1626,21 @@ type CfnCertificateAuthority_GeneralNameProperty struct {
 	// Contains information about the certificate subject.
 	//
 	// The certificate can be one issued by your private certificate authority (CA) or it can be your private CA certificate. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate. The DN must be unique for each entity, but your private CA can issue more than one certificate with the same DN to the same entity.
-	DirectoryName interface{} `json:"directoryName"`
+	DirectoryName interface{} `json:"directoryName" yaml:"directoryName"`
 	// Represents `GeneralName` as a DNS name.
-	DnsName *string `json:"dnsName"`
+	DnsName *string `json:"dnsName" yaml:"dnsName"`
 	// Represents `GeneralName` as an `EdiPartyName` object.
-	EdiPartyName interface{} `json:"ediPartyName"`
+	EdiPartyName interface{} `json:"ediPartyName" yaml:"ediPartyName"`
 	// Represents `GeneralName` as an IPv4 or IPv6 address.
-	IpAddress *string `json:"ipAddress"`
+	IpAddress *string `json:"ipAddress" yaml:"ipAddress"`
 	// Represents `GeneralName` using an `OtherName` object.
-	OtherName interface{} `json:"otherName"`
+	OtherName interface{} `json:"otherName" yaml:"otherName"`
 	// Represents `GeneralName` as an object identifier (OID).
-	RegisteredId *string `json:"registeredId"`
+	RegisteredId *string `json:"registeredId" yaml:"registeredId"`
 	// Represents `GeneralName` as an [RFC 822](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc822) email address.
-	Rfc822Name *string `json:"rfc822Name"`
+	Rfc822Name *string `json:"rfc822Name" yaml:"rfc822Name"`
 	// Represents `GeneralName` as a URI.
-	UniformResourceIdentifier *string `json:"uniformResourceIdentifier"`
+	UniformResourceIdentifier *string `json:"uniformResourceIdentifier" yaml:"uniformResourceIdentifier"`
 }
 
 // Defines one or more purposes for which the key contained in the certificate can be used.
@@ -1651,23 +1651,23 @@ type CfnCertificateAuthority_GeneralNameProperty struct {
 //
 type CfnCertificateAuthority_KeyUsageProperty struct {
 	// Key can be used to sign CRLs.
-	CrlSign interface{} `json:"crlSign"`
+	CrlSign interface{} `json:"crlSign" yaml:"crlSign"`
 	// Key can be used to decipher data.
-	DataEncipherment interface{} `json:"dataEncipherment"`
+	DataEncipherment interface{} `json:"dataEncipherment" yaml:"dataEncipherment"`
 	// Key can be used only to decipher data.
-	DecipherOnly interface{} `json:"decipherOnly"`
+	DecipherOnly interface{} `json:"decipherOnly" yaml:"decipherOnly"`
 	// Key can be used for digital signing.
-	DigitalSignature interface{} `json:"digitalSignature"`
+	DigitalSignature interface{} `json:"digitalSignature" yaml:"digitalSignature"`
 	// Key can be used only to encipher data.
-	EncipherOnly interface{} `json:"encipherOnly"`
+	EncipherOnly interface{} `json:"encipherOnly" yaml:"encipherOnly"`
 	// Key can be used in a key-agreement protocol.
-	KeyAgreement interface{} `json:"keyAgreement"`
+	KeyAgreement interface{} `json:"keyAgreement" yaml:"keyAgreement"`
 	// Key can be used to sign certificates.
-	KeyCertSign interface{} `json:"keyCertSign"`
+	KeyCertSign interface{} `json:"keyCertSign" yaml:"keyCertSign"`
 	// Key can be used to encipher data.
-	KeyEncipherment interface{} `json:"keyEncipherment"`
+	KeyEncipherment interface{} `json:"keyEncipherment" yaml:"keyEncipherment"`
 	// Key can be used for non-repudiation.
-	NonRepudiation interface{} `json:"nonRepudiation"`
+	NonRepudiation interface{} `json:"nonRepudiation" yaml:"nonRepudiation"`
 }
 
 // Contains information to enable and configure Online Certificate Status Protocol (OCSP) for validating certificate revocation status.
@@ -1676,13 +1676,13 @@ type CfnCertificateAuthority_KeyUsageProperty struct {
 //
 type CfnCertificateAuthority_OcspConfigurationProperty struct {
 	// Flag enabling use of the Online Certificate Status Protocol (OCSP) for validating certificate revocation status.
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 	// By default, ACM Private CA injects an Amazon domain into certificates being validated by the Online Certificate Status Protocol (OCSP).
 	//
 	// A customer can alternatively use this object to define a CNAME specifying a customized OCSP domain.
 	//
 	// Note: The value of the CNAME must not include a protocol prefix such as "http://" or "https://".
-	OcspCustomCname *string `json:"ocspCustomCname"`
+	OcspCustomCname *string `json:"ocspCustomCname" yaml:"ocspCustomCname"`
 }
 
 // Defines a custom ASN.1 X.400 `GeneralName` using an object identifier (OID) and value. The OID must satisfy the regular expression shown below. For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier) .
@@ -1691,9 +1691,9 @@ type CfnCertificateAuthority_OcspConfigurationProperty struct {
 //
 type CfnCertificateAuthority_OtherNameProperty struct {
 	// Specifies an OID.
-	TypeId *string `json:"typeId"`
+	TypeId *string `json:"typeId" yaml:"typeId"`
 	// Specifies an OID value.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // Certificate revocation information used by the CreateCertificateAuthority and UpdateCertificateAuthority actions.
@@ -1704,9 +1704,9 @@ type CfnCertificateAuthority_OtherNameProperty struct {
 //
 type CfnCertificateAuthority_RevocationConfigurationProperty struct {
 	// Configuration of the certificate revocation list (CRL), if any, maintained by your private CA.
-	CrlConfiguration interface{} `json:"crlConfiguration"`
+	CrlConfiguration interface{} `json:"crlConfiguration" yaml:"crlConfiguration"`
 	// Configuration of Online Certificate Status Protocol (OCSP) support, if any, maintained by your private CA.
-	OcspConfiguration interface{} `json:"ocspConfiguration"`
+	OcspConfiguration interface{} `json:"ocspConfiguration" yaml:"ocspConfiguration"`
 }
 
 // ASN1 subject for the certificate authority.
@@ -1715,37 +1715,37 @@ type CfnCertificateAuthority_RevocationConfigurationProperty struct {
 //
 type CfnCertificateAuthority_SubjectProperty struct {
 	// Fully qualified domain name (FQDN) associated with the certificate subject.
-	CommonName *string `json:"commonName"`
+	CommonName *string `json:"commonName" yaml:"commonName"`
 	// Two-digit code that specifies the country in which the certificate subject located.
-	Country *string `json:"country"`
+	Country *string `json:"country" yaml:"country"`
 	// Disambiguating information for the certificate subject.
-	DistinguishedNameQualifier *string `json:"distinguishedNameQualifier"`
+	DistinguishedNameQualifier *string `json:"distinguishedNameQualifier" yaml:"distinguishedNameQualifier"`
 	// Typically a qualifier appended to the name of an individual.
 	//
 	// Examples include Jr. for junior, Sr. for senior, and III for third.
-	GenerationQualifier *string `json:"generationQualifier"`
+	GenerationQualifier *string `json:"generationQualifier" yaml:"generationQualifier"`
 	// First name.
-	GivenName *string `json:"givenName"`
+	GivenName *string `json:"givenName" yaml:"givenName"`
 	// Concatenation that typically contains the first letter of the GivenName, the first letter of the middle name if one exists, and the first letter of the SurName.
-	Initials *string `json:"initials"`
+	Initials *string `json:"initials" yaml:"initials"`
 	// The locality (such as a city or town) in which the certificate subject is located.
-	Locality *string `json:"locality"`
+	Locality *string `json:"locality" yaml:"locality"`
 	// Legal name of the organization with which the certificate subject is affiliated.
-	Organization *string `json:"organization"`
+	Organization *string `json:"organization" yaml:"organization"`
 	// A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated.
-	OrganizationalUnit *string `json:"organizationalUnit"`
+	OrganizationalUnit *string `json:"organizationalUnit" yaml:"organizationalUnit"`
 	// Typically a shortened version of a longer GivenName.
 	//
 	// For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza.
-	Pseudonym *string `json:"pseudonym"`
+	Pseudonym *string `json:"pseudonym" yaml:"pseudonym"`
 	// The certificate serial number.
-	SerialNumber *string `json:"serialNumber"`
+	SerialNumber *string `json:"serialNumber" yaml:"serialNumber"`
 	// State in which the subject of the certificate is located.
-	State *string `json:"state"`
+	State *string `json:"state" yaml:"state"`
 	// Family name.
-	Surname *string `json:"surname"`
+	Surname *string `json:"surname" yaml:"surname"`
 	// A personal title such as Mr.
-	Title *string `json:"title"`
+	Title *string `json:"title" yaml:"title"`
 }
 
 // A CloudFormation `AWS::ACMPCA::CertificateAuthorityActivation`.
@@ -2297,13 +2297,13 @@ func (c *jsiiProxy_CfnCertificateAuthorityActivation) ValidateProperties(_proper
 //
 type CfnCertificateAuthorityActivationProps struct {
 	// The Base64 PEM-encoded certificate authority certificate.
-	Certificate *string `json:"certificate"`
+	Certificate *string `json:"certificate" yaml:"certificate"`
 	// The Amazon Resource Name (ARN) of your private CA.
-	CertificateAuthorityArn *string `json:"certificateAuthorityArn"`
+	CertificateAuthorityArn *string `json:"certificateAuthorityArn" yaml:"certificateAuthorityArn"`
 	// The Base64 PEM-encoded certificate chain that chains up to the root CA certificate that you used to sign your private CA certificate.
-	CertificateChain *string `json:"certificateChain"`
+	CertificateChain *string `json:"certificateChain" yaml:"certificateChain"`
 	// Status of your private CA.
-	Status *string `json:"status"`
+	Status *string `json:"status" yaml:"status"`
 }
 
 // Properties for defining a `CfnCertificateAuthority`.
@@ -2314,31 +2314,31 @@ type CfnCertificateAuthorityProps struct {
 	// Type of the public key algorithm and size, in bits, of the key pair that your CA creates when it issues a certificate.
 	//
 	// When you create a subordinate CA, you must use a key algorithm supported by the parent CA.
-	KeyAlgorithm *string `json:"keyAlgorithm"`
+	KeyAlgorithm *string `json:"keyAlgorithm" yaml:"keyAlgorithm"`
 	// Name of the algorithm your private CA uses to sign certificate requests.
 	//
 	// This parameter should not be confused with the `SigningAlgorithm` parameter used to sign certificates when they are issued.
-	SigningAlgorithm *string `json:"signingAlgorithm"`
+	SigningAlgorithm *string `json:"signingAlgorithm" yaml:"signingAlgorithm"`
 	// Structure that contains X.500 distinguished name information for your private CA.
-	Subject interface{} `json:"subject"`
+	Subject interface{} `json:"subject" yaml:"subject"`
 	// Type of your private CA.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// Specifies information to be added to the extension section of the certificate signing request (CSR).
-	CsrExtensions interface{} `json:"csrExtensions"`
+	CsrExtensions interface{} `json:"csrExtensions" yaml:"csrExtensions"`
 	// Specifies a cryptographic key management compliance standard used for handling CA keys.
 	//
 	// Default: FIPS_140_2_LEVEL_3_OR_HIGHER
 	//
 	// Note: `FIPS_140_2_LEVEL_3_OR_HIGHER` is not supported in Region ap-northeast-3. When creating a CA in the ap-northeast-3, you must provide `FIPS_140_2_LEVEL_2_OR_HIGHER` as the argument for `KeyStorageSecurityStandard` . Failure to do this results in an `InvalidArgsException` with the message, "A certificate authority cannot be created in this region with the specified security standard."
-	KeyStorageSecurityStandard *string `json:"keyStorageSecurityStandard"`
+	KeyStorageSecurityStandard *string `json:"keyStorageSecurityStandard" yaml:"keyStorageSecurityStandard"`
 	// Information about the certificate revocation list (CRL) created and maintained by your private CA.
 	//
 	// Certificate revocation information used by the CreateCertificateAuthority and UpdateCertificateAuthority actions. Your certificate authority can create and maintain a certificate revocation list (CRL). A CRL contains information about certificates that have been revoked.
-	RevocationConfiguration interface{} `json:"revocationConfiguration"`
+	RevocationConfiguration interface{} `json:"revocationConfiguration" yaml:"revocationConfiguration"`
 	// Key-value pairs that will be attached to the new private CA.
 	//
 	// You can associate up to 50 tags with a private CA. For information using tags with IAM to manage permissions, see [Controlling Access Using IAM Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // Properties for defining a `CfnCertificate`.
@@ -2347,23 +2347,23 @@ type CfnCertificateAuthorityProps struct {
 //
 type CfnCertificateProps struct {
 	// The Amazon Resource Name (ARN) for the private CA issues the certificate.
-	CertificateAuthorityArn *string `json:"certificateAuthorityArn"`
+	CertificateAuthorityArn *string `json:"certificateAuthorityArn" yaml:"certificateAuthorityArn"`
 	// The certificate signing request (CSR) for the certificate.
-	CertificateSigningRequest *string `json:"certificateSigningRequest"`
+	CertificateSigningRequest *string `json:"certificateSigningRequest" yaml:"certificateSigningRequest"`
 	// The name of the algorithm that will be used to sign the certificate to be issued.
 	//
 	// This parameter should not be confused with the `SigningAlgorithm` parameter used to sign a CSR in the `CreateCertificateAuthority` action.
 	//
 	// > The specified signing algorithm family (RSA or ECDSA) must match the algorithm family of the CA's secret key.
-	SigningAlgorithm *string `json:"signingAlgorithm"`
+	SigningAlgorithm *string `json:"signingAlgorithm" yaml:"signingAlgorithm"`
 	// The period of time during which the certificate will be valid.
-	Validity interface{} `json:"validity"`
+	Validity interface{} `json:"validity" yaml:"validity"`
 	// Specifies X.509 certificate information to be included in the issued certificate. An `APIPassthrough` or `APICSRPassthrough` template variant must be selected, or else this parameter is ignored.
-	ApiPassthrough interface{} `json:"apiPassthrough"`
+	ApiPassthrough interface{} `json:"apiPassthrough" yaml:"apiPassthrough"`
 	// Specifies a custom configuration template to use when issuing a certificate.
 	//
 	// If this parameter is not provided, ACM Private CA defaults to the `EndEntityCertificate/V1` template. For more information about ACM Private CA templates, see [Using Templates](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) .
-	TemplateArn *string `json:"templateArn"`
+	TemplateArn *string `json:"templateArn" yaml:"templateArn"`
 	// Information describing the start of the validity period of the certificate.
 	//
 	// This parameter sets the “Not Before" date for the certificate.
@@ -2373,7 +2373,7 @@ type CfnCertificateProps struct {
 	// Unlike the `Validity` parameter, the `ValidityNotBefore` parameter is optional.
 	//
 	// The `ValidityNotBefore` value is expressed as an explicit date and time, using the `Validity` type value `ABSOLUTE` .
-	ValidityNotBefore interface{} `json:"validityNotBefore"`
+	ValidityNotBefore interface{} `json:"validityNotBefore" yaml:"validityNotBefore"`
 }
 
 // A CloudFormation `AWS::ACMPCA::Permission`.
@@ -2922,15 +2922,15 @@ type CfnPermissionProps struct {
 	// The private CA actions that can be performed by the designated AWS service.
 	//
 	// Supported actions are `IssueCertificate` , `GetCertificate` , and `ListPermissions` .
-	Actions *[]*string `json:"actions"`
+	Actions *[]*string `json:"actions" yaml:"actions"`
 	// The Amazon Resource Number (ARN) of the private CA from which the permission was issued.
-	CertificateAuthorityArn *string `json:"certificateAuthorityArn"`
+	CertificateAuthorityArn *string `json:"certificateAuthorityArn" yaml:"certificateAuthorityArn"`
 	// The AWS service or entity that holds the permission.
 	//
 	// At this time, the only valid principal is `acm.amazonaws.com` .
-	Principal *string `json:"principal"`
+	Principal *string `json:"principal" yaml:"principal"`
 	// The ID of the account that assigned the permission.
-	SourceAccount *string `json:"sourceAccount"`
+	SourceAccount *string `json:"sourceAccount" yaml:"sourceAccount"`
 }
 
 // Interface which all CertificateAuthority based class must implement.

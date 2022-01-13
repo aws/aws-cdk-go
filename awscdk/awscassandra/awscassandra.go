@@ -504,9 +504,9 @@ type CfnKeyspaceProps struct {
 	// *Length constraints:* Minimum length of 3. Maximum length of 255.
 	//
 	// *Pattern:* `^[a-zA-Z0-9][a-zA-Z0-9_]{1,47}$`
-	KeyspaceName *string `json:"keyspaceName"`
+	KeyspaceName *string `json:"keyspaceName" yaml:"keyspaceName"`
 	// A list of key-value pair tags to be attached to the resource.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Cassandra::Table`.
@@ -1165,11 +1165,11 @@ type CfnTable_BillingModeProperty struct {
 	// > If you choose `PROVISIONED` mode, then you also need to specify provisioned throughput (read and write capacity) for the table.
 	//
 	// Valid values: `ON_DEMAND` | `PROVISIONED`
-	Mode *string `json:"mode"`
+	Mode *string `json:"mode" yaml:"mode"`
 	// The provisioned read capacity and write capacity for the table.
 	//
 	// For more information, see [Provisioned throughput capacity mode](https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html#ReadWriteCapacityMode.Provisioned) in the *Amazon Keyspaces Developer Guide* .
-	ProvisionedThroughput interface{} `json:"provisionedThroughput"`
+	ProvisionedThroughput interface{} `json:"provisionedThroughput" yaml:"provisionedThroughput"`
 }
 
 // Defines an individual column within the clustering key.
@@ -1178,12 +1178,12 @@ type CfnTable_BillingModeProperty struct {
 //
 type CfnTable_ClusteringKeyColumnProperty struct {
 	// The name and data type of this clustering key column.
-	Column interface{} `json:"column"`
+	Column interface{} `json:"column" yaml:"column"`
 	// The order in which this column's data is stored:.
 	//
 	// - `ASC` (default) - The column's data is stored in ascending order.
 	// - `DESC` - The column's data is stored in descending order.
-	OrderBy *string `json:"orderBy"`
+	OrderBy *string `json:"orderBy" yaml:"orderBy"`
 }
 
 // The name and data type of an individual column in a table.
@@ -1194,11 +1194,11 @@ type CfnTable_ColumnProperty struct {
 	// The name of the column.
 	//
 	// For more information, see [Identifiers](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.elements.identifier) in the *Amazon Keyspaces Developer Guide* .
-	ColumnName *string `json:"columnName"`
+	ColumnName *string `json:"columnName" yaml:"columnName"`
 	// The data type of the column.
 	//
 	// For more information, see [Data types](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types) in the *Amazon Keyspaces Developer Guide* .
-	ColumnType *string `json:"columnType"`
+	ColumnType *string `json:"columnType" yaml:"columnType"`
 }
 
 // Specifies the encryption at rest option selected for the table.
@@ -1214,9 +1214,9 @@ type CfnTable_EncryptionSpecificationProperty struct {
 	// > If you choose `CUSTOMER_MANAGED_KMS_KEY` , a `kms_key_identifier` in the format of a key ARN is required.
 	//
 	// Valid values: `CUSTOMER_MANAGED_KMS_KEY` | `AWS_OWNED_KMS_KEY` .
-	EncryptionType *string `json:"encryptionType"`
+	EncryptionType *string `json:"encryptionType" yaml:"encryptionType"`
 	// Requires a `kms_key_identifier` in the format of a key ARN.
-	KmsKeyIdentifier *string `json:"kmsKeyIdentifier"`
+	KmsKeyIdentifier *string `json:"kmsKeyIdentifier" yaml:"kmsKeyIdentifier"`
 }
 
 // The provisioned throughput for the table, which consists of `ReadCapacityUnits` and `WriteCapacityUnits` .
@@ -1227,11 +1227,11 @@ type CfnTable_ProvisionedThroughputProperty struct {
 	// The amount of read capacity that's provisioned for the table.
 	//
 	// For more information, see [Read/write capacity mode](https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html) in the *Amazon Keyspaces Developer Guide* .
-	ReadCapacityUnits *float64 `json:"readCapacityUnits"`
+	ReadCapacityUnits *float64 `json:"readCapacityUnits" yaml:"readCapacityUnits"`
 	// The amount of write capacity that's provisioned for the table.
 	//
 	// For more information, see [Read/write capacity mode](https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html) in the *Amazon Keyspaces Developer Guide* .
-	WriteCapacityUnits *float64 `json:"writeCapacityUnits"`
+	WriteCapacityUnits *float64 `json:"writeCapacityUnits" yaml:"writeCapacityUnits"`
 }
 
 // Properties for defining a `CfnTable`.
@@ -1242,26 +1242,26 @@ type CfnTableProps struct {
 	// The name of the keyspace in which to create the table.
 	//
 	// The keyspace must already exist.
-	KeyspaceName *string `json:"keyspaceName"`
+	KeyspaceName *string `json:"keyspaceName" yaml:"keyspaceName"`
 	// One or more columns that uniquely identify every row in the table.
 	//
 	// Every table must have a partition key.
-	PartitionKeyColumns interface{} `json:"partitionKeyColumns"`
+	PartitionKeyColumns interface{} `json:"partitionKeyColumns" yaml:"partitionKeyColumns"`
 	// The billing mode for the table, which determines how you'll be charged for reads and writes:.
 	//
 	// - *On-demand mode* (default) - You pay based on the actual reads and writes your application performs.
 	// - *Provisioned mode* - Lets you specify the number of reads and writes per second that you need for your application.
 	//
 	// If you don't specify a value for this property, then the table will use on-demand mode.
-	BillingMode interface{} `json:"billingMode"`
+	BillingMode interface{} `json:"billingMode" yaml:"billingMode"`
 	// One or more columns that determine how the table data is sorted.
-	ClusteringKeyColumns interface{} `json:"clusteringKeyColumns"`
+	ClusteringKeyColumns interface{} `json:"clusteringKeyColumns" yaml:"clusteringKeyColumns"`
 	// The default Time To Live (TTL) value for all rows in a table in seconds.
 	//
 	// The maximum configurable value is 630,720,000 seconds, which is the equivalent of 20 years. By default, the TTL value for a table is 0, which means data does not expire.
 	//
 	// For more information, see [Setting the default TTL value for a table](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl) in the *Amazon Keyspaces Developer Guide* .
-	DefaultTimeToLive *float64 `json:"defaultTimeToLive"`
+	DefaultTimeToLive *float64 `json:"defaultTimeToLive" yaml:"defaultTimeToLive"`
 	// The encryption at rest options for the table.
 	//
 	// - *AWS owned key* (default) - The key is owned by Amazon Keyspaces.
@@ -1270,15 +1270,15 @@ type CfnTableProps struct {
 	// > If you choose encryption with a customer managed key, you must specify a valid customer managed KMS key with permissions granted to Amazon Keyspaces.
 	//
 	// For more information, see [Encryption at rest in Amazon Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html) in the *Amazon Keyspaces Developer Guide* .
-	EncryptionSpecification interface{} `json:"encryptionSpecification"`
+	EncryptionSpecification interface{} `json:"encryptionSpecification" yaml:"encryptionSpecification"`
 	// Specifies if point-in-time recovery is enabled or disabled for the table.
 	//
 	// The options are `PointInTimeRecoveryEnabled=true` and `PointInTimeRecoveryEnabled=false` . If not specified, the default is `PointInTimeRecoveryEnabled=false` .
-	PointInTimeRecoveryEnabled interface{} `json:"pointInTimeRecoveryEnabled"`
+	PointInTimeRecoveryEnabled interface{} `json:"pointInTimeRecoveryEnabled" yaml:"pointInTimeRecoveryEnabled"`
 	// One or more columns that are not part of the primary key - that is, columns that are *not* defined as partition key columns or clustering key columns.
 	//
 	// You can add regular columns to existing tables by adding them to the template.
-	RegularColumns interface{} `json:"regularColumns"`
+	RegularColumns interface{} `json:"regularColumns" yaml:"regularColumns"`
 	// The name of the table to be created.
 	//
 	// The table name is case sensitive. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the table name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
@@ -1288,8 +1288,8 @@ type CfnTableProps struct {
 	// *Length constraints:* Minimum length of 3. Maximum length of 255.
 	//
 	// *Pattern:* `^[a-zA-Z0-9][a-zA-Z0-9_]{1,47}$`
-	TableName *string `json:"tableName"`
+	TableName *string `json:"tableName" yaml:"tableName"`
 	// A list of key-value pair tags to be attached to the resource.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 

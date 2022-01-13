@@ -509,9 +509,9 @@ type CfnFlowTemplate_DefinitionDocumentProperty struct {
 	// The language used to define the entity.
 	//
 	// `GRAPHQL` is the only valid value.
-	Language *string `json:"language"`
+	Language *string `json:"language" yaml:"language"`
 	// The GraphQL text that defines the entity.
-	Text *string `json:"text"`
+	Text *string `json:"text" yaml:"text"`
 }
 
 // Properties for defining a `CfnFlowTemplate`.
@@ -520,10 +520,10 @@ type CfnFlowTemplate_DefinitionDocumentProperty struct {
 //
 type CfnFlowTemplateProps struct {
 	// A workflow's definition document.
-	Definition interface{} `json:"definition"`
+	Definition interface{} `json:"definition" yaml:"definition"`
 	// The version of the user's namespace against which the workflow was validated.
 	//
 	// Use this value in your system instance.
-	CompatibleNamespaceVersion *float64 `json:"compatibleNamespaceVersion"`
+	CompatibleNamespaceVersion *float64 `json:"compatibleNamespaceVersion" yaml:"compatibleNamespaceVersion"`
 }
 

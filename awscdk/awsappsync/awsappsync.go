@@ -590,13 +590,13 @@ type CfnApiCacheProps struct {
 	//
 	// - *FULL_REQUEST_CACHING* : All requests are fully cached.
 	// - *PER_RESOLVER_CACHING* : Individual resolvers that you specify are cached.
-	ApiCachingBehavior *string `json:"apiCachingBehavior"`
+	ApiCachingBehavior *string `json:"apiCachingBehavior" yaml:"apiCachingBehavior"`
 	// The GraphQL API ID.
-	ApiId *string `json:"apiId"`
+	ApiId *string `json:"apiId" yaml:"apiId"`
 	// TTL in seconds for cache entries.
 	//
 	// Valid values are 1–3,600 seconds.
-	Ttl *float64 `json:"ttl"`
+	Ttl *float64 `json:"ttl" yaml:"ttl"`
 	// The cache instance type. Valid values are.
 	//
 	// - `SMALL`
@@ -619,15 +619,15 @@ type CfnApiCacheProps struct {
 	// - *R4_2XLARGE* : A r4.2xlarge instance type.
 	// - *R4_4XLARGE* : A r4.4xlarge instance type.
 	// - *R4_8XLARGE* : A r4.8xlarge instance type.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// At-rest encryption flag for cache.
 	//
 	// You cannot update this setting after creation.
-	AtRestEncryptionEnabled interface{} `json:"atRestEncryptionEnabled"`
+	AtRestEncryptionEnabled interface{} `json:"atRestEncryptionEnabled" yaml:"atRestEncryptionEnabled"`
 	// Transit encryption flag when connecting to cache.
 	//
 	// You cannot update this setting after creation.
-	TransitEncryptionEnabled interface{} `json:"transitEncryptionEnabled"`
+	TransitEncryptionEnabled interface{} `json:"transitEncryptionEnabled" yaml:"transitEncryptionEnabled"`
 }
 
 // A CloudFormation `AWS::AppSync::ApiKey`.
@@ -1190,15 +1190,15 @@ func (c *jsiiProxy_CfnApiKey) ValidateProperties(_properties interface{}) {
 //
 type CfnApiKeyProps struct {
 	// Unique AWS AppSync GraphQL API ID for this API key.
-	ApiId *string `json:"apiId"`
+	ApiId *string `json:"apiId" yaml:"apiId"`
 	// The API key ID.
-	ApiKeyId *string `json:"apiKeyId"`
+	ApiKeyId *string `json:"apiKeyId" yaml:"apiKeyId"`
 	// Unique description of your API key.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The time after which the API key expires.
 	//
 	// The date is represented as seconds since the epoch, rounded down to the nearest hour.
-	Expires *float64 `json:"expires"`
+	Expires *float64 `json:"expires" yaml:"expires"`
 }
 
 // A CloudFormation `AWS::AppSync::DataSource`.
@@ -1905,9 +1905,9 @@ type CfnDataSource_AuthorizationConfigProperty struct {
 	// The authorization type that the HTTP endpoint requires.
 	//
 	// - *AWS_IAM* : The authorization type is Signature Version 4 (SigV4).
-	AuthorizationType *string `json:"authorizationType"`
+	AuthorizationType *string `json:"authorizationType" yaml:"authorizationType"`
 	// The AWS Identity and Access Management settings.
-	AwsIamConfig interface{} `json:"awsIamConfig"`
+	AwsIamConfig interface{} `json:"awsIamConfig" yaml:"awsIamConfig"`
 }
 
 // Use the `AwsIamConfig` property type to specify `AwsIamConfig` for a AWS AppSync authorizaton.
@@ -1918,9 +1918,9 @@ type CfnDataSource_AuthorizationConfigProperty struct {
 //
 type CfnDataSource_AwsIamConfigProperty struct {
 	// The signing Region for AWS Identity and Access Management authorization.
-	SigningRegion *string `json:"signingRegion"`
+	SigningRegion *string `json:"signingRegion" yaml:"signingRegion"`
 	// The signing service name for AWS Identity and Access Management authorization.
-	SigningServiceName *string `json:"signingServiceName"`
+	SigningServiceName *string `json:"signingServiceName" yaml:"signingServiceName"`
 }
 
 // Describes a Delta Sync configuration.
@@ -1929,11 +1929,11 @@ type CfnDataSource_AwsIamConfigProperty struct {
 //
 type CfnDataSource_DeltaSyncConfigProperty struct {
 	// The number of minutes that an Item is stored in the data source.
-	BaseTableTtl *string `json:"baseTableTtl"`
+	BaseTableTtl *string `json:"baseTableTtl" yaml:"baseTableTtl"`
 	// The Delta Sync table name.
-	DeltaSyncTableName *string `json:"deltaSyncTableName"`
+	DeltaSyncTableName *string `json:"deltaSyncTableName" yaml:"deltaSyncTableName"`
 	// The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
-	DeltaSyncTableTtl *string `json:"deltaSyncTableTtl"`
+	DeltaSyncTableTtl *string `json:"deltaSyncTableTtl" yaml:"deltaSyncTableTtl"`
 }
 
 // The `DynamoDBConfig` property type specifies the `AwsRegion` and `TableName` for an Amazon DynamoDB table in your account for an AWS AppSync data source.
@@ -1944,15 +1944,15 @@ type CfnDataSource_DeltaSyncConfigProperty struct {
 //
 type CfnDataSource_DynamoDBConfigProperty struct {
 	// The AWS Region.
-	AwsRegion *string `json:"awsRegion"`
+	AwsRegion *string `json:"awsRegion" yaml:"awsRegion"`
 	// The table name.
-	TableName *string `json:"tableName"`
+	TableName *string `json:"tableName" yaml:"tableName"`
 	// The `DeltaSyncConfig` for a versioned datasource.
-	DeltaSyncConfig interface{} `json:"deltaSyncConfig"`
+	DeltaSyncConfig interface{} `json:"deltaSyncConfig" yaml:"deltaSyncConfig"`
 	// Set to `TRUE` to use AWS Identity and Access Management with this data source.
-	UseCallerCredentials interface{} `json:"useCallerCredentials"`
+	UseCallerCredentials interface{} `json:"useCallerCredentials" yaml:"useCallerCredentials"`
 	// Set to TRUE to use Conflict Detection and Resolution with this data source.
-	Versioned interface{} `json:"versioned"`
+	Versioned interface{} `json:"versioned" yaml:"versioned"`
 }
 
 // The `ElasticsearchConfig` property type specifies the `AwsRegion` and `Endpoints` for an Amazon OpenSearch Service domain in your account for an AWS AppSync data source.
@@ -1965,9 +1965,9 @@ type CfnDataSource_DynamoDBConfigProperty struct {
 //
 type CfnDataSource_ElasticsearchConfigProperty struct {
 	// The AWS Region.
-	AwsRegion *string `json:"awsRegion"`
+	AwsRegion *string `json:"awsRegion" yaml:"awsRegion"`
 	// The endpoint.
-	Endpoint *string `json:"endpoint"`
+	Endpoint *string `json:"endpoint" yaml:"endpoint"`
 }
 
 // Use the `HttpConfig` property type to specify `HttpConfig` for an AWS AppSync data source.
@@ -1978,9 +1978,9 @@ type CfnDataSource_ElasticsearchConfigProperty struct {
 //
 type CfnDataSource_HttpConfigProperty struct {
 	// The endpoint.
-	Endpoint *string `json:"endpoint"`
+	Endpoint *string `json:"endpoint" yaml:"endpoint"`
 	// The authorization configuration.
-	AuthorizationConfig interface{} `json:"authorizationConfig"`
+	AuthorizationConfig interface{} `json:"authorizationConfig" yaml:"authorizationConfig"`
 }
 
 // The `LambdaConfig` property type specifies the Lambda function ARN for an AWS AppSync data source.
@@ -1991,7 +1991,7 @@ type CfnDataSource_HttpConfigProperty struct {
 //
 type CfnDataSource_LambdaConfigProperty struct {
 	// The ARN for the Lambda function.
-	LambdaFunctionArn *string `json:"lambdaFunctionArn"`
+	LambdaFunctionArn *string `json:"lambdaFunctionArn" yaml:"lambdaFunctionArn"`
 }
 
 // The `OpenSearchServiceConfig` property type specifies the `AwsRegion` and `Endpoints` for an Amazon OpenSearch Service domain in your account for an AWS AppSync data source.
@@ -2002,9 +2002,9 @@ type CfnDataSource_LambdaConfigProperty struct {
 //
 type CfnDataSource_OpenSearchServiceConfigProperty struct {
 	// The AWS Region.
-	AwsRegion *string `json:"awsRegion"`
+	AwsRegion *string `json:"awsRegion" yaml:"awsRegion"`
 	// The endpoint.
-	Endpoint *string `json:"endpoint"`
+	Endpoint *string `json:"endpoint" yaml:"endpoint"`
 }
 
 // Use the `RdsHttpEndpointConfig` property type to specify the `RdsHttpEndpoint` for an AWS AppSync relational database.
@@ -2015,15 +2015,15 @@ type CfnDataSource_OpenSearchServiceConfigProperty struct {
 //
 type CfnDataSource_RdsHttpEndpointConfigProperty struct {
 	// AWS Region for RDS HTTP endpoint.
-	AwsRegion *string `json:"awsRegion"`
+	AwsRegion *string `json:"awsRegion" yaml:"awsRegion"`
 	// The ARN for database credentials stored in AWS Secrets Manager .
-	AwsSecretStoreArn *string `json:"awsSecretStoreArn"`
+	AwsSecretStoreArn *string `json:"awsSecretStoreArn" yaml:"awsSecretStoreArn"`
 	// Amazon RDS cluster Amazon Resource Name (ARN).
-	DbClusterIdentifier *string `json:"dbClusterIdentifier"`
+	DbClusterIdentifier *string `json:"dbClusterIdentifier" yaml:"dbClusterIdentifier"`
 	// Logical database name.
-	DatabaseName *string `json:"databaseName"`
+	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
 	// Logical schema name.
-	Schema *string `json:"schema"`
+	Schema *string `json:"schema" yaml:"schema"`
 }
 
 // Use the `RelationalDatabaseConfig` property type to specify `RelationalDatabaseConfig` for an AWS AppSync data source.
@@ -2034,9 +2034,9 @@ type CfnDataSource_RdsHttpEndpointConfigProperty struct {
 //
 type CfnDataSource_RelationalDatabaseConfigProperty struct {
 	// The type of relational data source.
-	RelationalDatabaseSourceType *string `json:"relationalDatabaseSourceType"`
+	RelationalDatabaseSourceType *string `json:"relationalDatabaseSourceType" yaml:"relationalDatabaseSourceType"`
 	// Information about the Amazon RDS resource.
-	RdsHttpEndpointConfig interface{} `json:"rdsHttpEndpointConfig"`
+	RdsHttpEndpointConfig interface{} `json:"rdsHttpEndpointConfig" yaml:"rdsHttpEndpointConfig"`
 }
 
 // Properties for defining a `CfnDataSource`.
@@ -2045,9 +2045,9 @@ type CfnDataSource_RelationalDatabaseConfigProperty struct {
 //
 type CfnDataSourceProps struct {
 	// Unique AWS AppSync GraphQL API identifier where this data source will be created.
-	ApiId *string `json:"apiId"`
+	ApiId *string `json:"apiId" yaml:"apiId"`
 	// Friendly name for you to identify your AppSync data source after creation.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The type of the data source.
 	//
 	// - *AWS_LAMBDA* : The data source is an AWS Lambda function.
@@ -2057,31 +2057,31 @@ type CfnDataSourceProps struct {
 	// - *NONE* : There is no data source. This type is used when you wish to invoke a GraphQL operation without connecting to a data source, such as performing data transformation with resolvers or triggering a subscription to be invoked from a mutation.
 	// - *HTTP* : The data source is an HTTP endpoint.
 	// - *RELATIONAL_DATABASE* : The data source is a relational database.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// The description of the data source.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// AWS Region and TableName for an Amazon DynamoDB table in your account.
-	DynamoDbConfig interface{} `json:"dynamoDbConfig"`
+	DynamoDbConfig interface{} `json:"dynamoDbConfig" yaml:"dynamoDbConfig"`
 	// AWS Region and Endpoints for an Amazon OpenSearch Service domain in your account.
 	//
 	// As of September 2021, Amazon Elasticsearch Service is Amazon OpenSearch Service . This property is deprecated. For new data sources, use *OpenSearchServiceConfig* to specify an OpenSearch Service data source.
-	ElasticsearchConfig interface{} `json:"elasticsearchConfig"`
+	ElasticsearchConfig interface{} `json:"elasticsearchConfig" yaml:"elasticsearchConfig"`
 	// Endpoints for an HTTP data source.
-	HttpConfig interface{} `json:"httpConfig"`
+	HttpConfig interface{} `json:"httpConfig" yaml:"httpConfig"`
 	// An ARN of a Lambda function in valid ARN format.
 	//
 	// This can be the ARN of a Lambda function that exists in the current account or in another account.
-	LambdaConfig interface{} `json:"lambdaConfig"`
+	LambdaConfig interface{} `json:"lambdaConfig" yaml:"lambdaConfig"`
 	// AWS Region and Endpoints for an Amazon OpenSearch Service domain in your account.
-	OpenSearchServiceConfig interface{} `json:"openSearchServiceConfig"`
+	OpenSearchServiceConfig interface{} `json:"openSearchServiceConfig" yaml:"openSearchServiceConfig"`
 	// Relational Database configuration of the relational database data source.
-	RelationalDatabaseConfig interface{} `json:"relationalDatabaseConfig"`
+	RelationalDatabaseConfig interface{} `json:"relationalDatabaseConfig" yaml:"relationalDatabaseConfig"`
 	// The AWS Identity and Access Management service role ARN for the data source.
 	//
 	// The system assumes this role when accessing the data source.
 	//
 	// Required if `Type` is specified as `AWS_LAMBDA` , `AMAZON_DYNAMODB` , `AMAZON_ELASTICSEARCH` , or `AMAZON_OPENSEARCH_SERVICE` .
-	ServiceRoleArn *string `json:"serviceRoleArn"`
+	ServiceRoleArn *string `json:"serviceRoleArn" yaml:"serviceRoleArn"`
 }
 
 // A CloudFormation `AWS::AppSync::DomainName`.
@@ -3138,9 +3138,9 @@ func (c *jsiiProxy_CfnDomainNameApiAssociation) ValidateProperties(_properties i
 //
 type CfnDomainNameApiAssociationProps struct {
 	// The API ID.
-	ApiId *string `json:"apiId"`
+	ApiId *string `json:"apiId" yaml:"apiId"`
 	// The domain name.
-	DomainName *string `json:"domainName"`
+	DomainName *string `json:"domainName" yaml:"domainName"`
 }
 
 // Properties for defining a `CfnDomainName`.
@@ -3151,11 +3151,11 @@ type CfnDomainNameProps struct {
 	// The Amazon Resource Name (ARN) of the certificate.
 	//
 	// This will be an AWS Certificate Manager certificate.
-	CertificateArn *string `json:"certificateArn"`
+	CertificateArn *string `json:"certificateArn" yaml:"certificateArn"`
 	// The domain name.
-	DomainName *string `json:"domainName"`
+	DomainName *string `json:"domainName" yaml:"domainName"`
 	// The decription for your domain name.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 }
 
 // A CloudFormation `AWS::AppSync::FunctionConfiguration`.
@@ -3864,7 +3864,7 @@ func (c *jsiiProxy_CfnFunctionConfiguration) ValidateProperties(_properties inte
 //
 type CfnFunctionConfiguration_LambdaConflictHandlerConfigProperty struct {
 	// The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
-	LambdaConflictHandlerArn *string `json:"lambdaConflictHandlerArn"`
+	LambdaConflictHandlerArn *string `json:"lambdaConflictHandlerArn" yaml:"lambdaConflictHandlerArn"`
 }
 
 // Describes a Sync configuration for a resolver.
@@ -3878,15 +3878,15 @@ type CfnFunctionConfiguration_SyncConfigProperty struct {
 	//
 	// - *VERSION* : Detect conflicts based on object versions for this resolver.
 	// - *NONE* : Do not detect conflicts when invoking this resolver.
-	ConflictDetection *string `json:"conflictDetection"`
+	ConflictDetection *string `json:"conflictDetection" yaml:"conflictDetection"`
 	// The Conflict Resolution strategy to perform in the event of a conflict.
 	//
 	// - *OPTIMISTIC_CONCURRENCY* : Resolve conflicts by rejecting mutations when versions don't match the latest version at the server.
 	// - *AUTOMERGE* : Resolve conflicts with the Automerge conflict resolution strategy.
 	// - *LAMBDA* : Resolve conflicts with an AWS Lambda function supplied in the `LambdaConflictHandlerConfig` .
-	ConflictHandler *string `json:"conflictHandler"`
+	ConflictHandler *string `json:"conflictHandler" yaml:"conflictHandler"`
 	// The `LambdaConflictHandlerConfig` when configuring `LAMBDA` as the Conflict Handler.
-	LambdaConflictHandlerConfig interface{} `json:"lambdaConflictHandlerConfig"`
+	LambdaConflictHandlerConfig interface{} `json:"lambdaConflictHandlerConfig" yaml:"lambdaConflictHandlerConfig"`
 }
 
 // Properties for defining a `CfnFunctionConfiguration`.
@@ -3895,35 +3895,35 @@ type CfnFunctionConfiguration_SyncConfigProperty struct {
 //
 type CfnFunctionConfigurationProps struct {
 	// The AWS AppSync GraphQL API that you want to attach using this function.
-	ApiId *string `json:"apiId"`
+	ApiId *string `json:"apiId" yaml:"apiId"`
 	// The name of data source this function will attach.
-	DataSourceName *string `json:"dataSourceName"`
+	DataSourceName *string `json:"dataSourceName" yaml:"dataSourceName"`
 	// The version of the request mapping template.
 	//
 	// Currently, only the 2018-05-29 version of the template is supported.
-	FunctionVersion *string `json:"functionVersion"`
+	FunctionVersion *string `json:"functionVersion" yaml:"functionVersion"`
 	// The name of the function.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The `Function` description.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The `Function` request mapping template.
 	//
 	// Functions support only the 2018-05-29 version of the request mapping template.
-	RequestMappingTemplate *string `json:"requestMappingTemplate"`
+	RequestMappingTemplate *string `json:"requestMappingTemplate" yaml:"requestMappingTemplate"`
 	// Describes a Sync configuration for a resolver.
 	//
 	// Contains information on which Conflict Detection, as well as Resolution strategy, should be performed when the resolver is invoked.
-	RequestMappingTemplateS3Location *string `json:"requestMappingTemplateS3Location"`
+	RequestMappingTemplateS3Location *string `json:"requestMappingTemplateS3Location" yaml:"requestMappingTemplateS3Location"`
 	// The `Function` response mapping template.
-	ResponseMappingTemplate *string `json:"responseMappingTemplate"`
+	ResponseMappingTemplate *string `json:"responseMappingTemplate" yaml:"responseMappingTemplate"`
 	// The location of a response mapping template in an Amazon S3 bucket.
 	//
 	// Use this if you want to provision with a template file in Amazon S3 rather than embedding it in your CloudFormation template.
-	ResponseMappingTemplateS3Location *string `json:"responseMappingTemplateS3Location"`
+	ResponseMappingTemplateS3Location *string `json:"responseMappingTemplateS3Location" yaml:"responseMappingTemplateS3Location"`
 	// Describes a Sync configuration for a resolver.
 	//
 	// Specifies which Conflict Detection strategy and Resolution strategy to use when the resolver is invoked.
-	SyncConfig interface{} `json:"syncConfig"`
+	SyncConfig interface{} `json:"syncConfig" yaml:"syncConfig"`
 }
 
 // A CloudFormation `AWS::AppSync::GraphQLApi`.
@@ -4590,13 +4590,13 @@ type CfnGraphQLApi_AdditionalAuthenticationProviderProperty struct {
 	// The authentication type for API key, AWS Identity and Access Management , OIDC, Amazon Cognito user pools , or AWS Lambda .
 	//
 	// Valid Values: `API_KEY` | `AWS_IAM` | `OPENID_CONNECT` | `AMAZON_COGNITO_USER_POOLS` | `AWS_LAMBDA`
-	AuthenticationType *string `json:"authenticationType"`
+	AuthenticationType *string `json:"authenticationType" yaml:"authenticationType"`
 	// Configuration for AWS Lambda function authorization.
-	LambdaAuthorizerConfig interface{} `json:"lambdaAuthorizerConfig"`
+	LambdaAuthorizerConfig interface{} `json:"lambdaAuthorizerConfig" yaml:"lambdaAuthorizerConfig"`
 	// The OIDC configuration.
-	OpenIdConnectConfig interface{} `json:"openIdConnectConfig"`
+	OpenIdConnectConfig interface{} `json:"openIdConnectConfig" yaml:"openIdConnectConfig"`
 	// The Amazon Cognito user pool configuration.
-	UserPoolConfig interface{} `json:"userPoolConfig"`
+	UserPoolConfig interface{} `json:"userPoolConfig" yaml:"userPoolConfig"`
 }
 
 // Describes an Amazon Cognito user pool configuration.
@@ -4605,11 +4605,11 @@ type CfnGraphQLApi_AdditionalAuthenticationProviderProperty struct {
 //
 type CfnGraphQLApi_CognitoUserPoolConfigProperty struct {
 	// A regular expression for validating the incoming Amazon Cognito user pool app client ID.
-	AppIdClientRegex *string `json:"appIdClientRegex"`
+	AppIdClientRegex *string `json:"appIdClientRegex" yaml:"appIdClientRegex"`
 	// The AWS Region in which the user pool was created.
-	AwsRegion *string `json:"awsRegion"`
+	AwsRegion *string `json:"awsRegion" yaml:"awsRegion"`
 	// The user pool ID.
-	UserPoolId *string `json:"userPoolId"`
+	UserPoolId *string `json:"userPoolId" yaml:"userPoolId"`
 }
 
 // Configuration for AWS Lambda function authorization.
@@ -4620,7 +4620,7 @@ type CfnGraphQLApi_LambdaAuthorizerConfigProperty struct {
 	// The number of seconds a response should be cached for.
 	//
 	// The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses.
-	AuthorizerResultTtlInSeconds *float64 `json:"authorizerResultTtlInSeconds"`
+	AuthorizerResultTtlInSeconds *float64 `json:"authorizerResultTtlInSeconds" yaml:"authorizerResultTtlInSeconds"`
 	// The ARN of the Lambda function to be called for authorization.
 	//
 	// This may be a standard Lambda ARN, a version ARN ( `.../v3` ) or alias ARN.
@@ -4628,9 +4628,9 @@ type CfnGraphQLApi_LambdaAuthorizerConfigProperty struct {
 	// *Note* : This Lambda function must have the following resource-based policy assigned to it. When configuring Lambda authorizers in the console, this is done for you. To do so with the AWS CLI , run the following:
 	//
 	// `aws lambda add-permission --function-name "arn:aws:lambda:us-east-2:111122223333:function:my-function" --statement-id "appsync" --principal appsync.amazonaws.com --action lambda:InvokeFunction`
-	AuthorizerUri *string `json:"authorizerUri"`
+	AuthorizerUri *string `json:"authorizerUri" yaml:"authorizerUri"`
 	// A regular expression for validation of tokens before the Lambda function is called.
-	IdentityValidationExpression *string `json:"identityValidationExpression"`
+	IdentityValidationExpression *string `json:"identityValidationExpression" yaml:"identityValidationExpression"`
 }
 
 // The `LogConfig` property type specifies the logging configuration when writing GraphQL operations and tracing to Amazon CloudWatch for an AWS AppSync GraphQL API.
@@ -4641,9 +4641,9 @@ type CfnGraphQLApi_LambdaAuthorizerConfigProperty struct {
 //
 type CfnGraphQLApi_LogConfigProperty struct {
 	// The service role that AWS AppSync will assume to publish to Amazon CloudWatch Logs in your account.
-	CloudWatchLogsRoleArn *string `json:"cloudWatchLogsRoleArn"`
+	CloudWatchLogsRoleArn *string `json:"cloudWatchLogsRoleArn" yaml:"cloudWatchLogsRoleArn"`
 	// Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging level.
-	ExcludeVerboseContent interface{} `json:"excludeVerboseContent"`
+	ExcludeVerboseContent interface{} `json:"excludeVerboseContent" yaml:"excludeVerboseContent"`
 	// The field logging level. Values can be NONE, ERROR, or ALL.
 	//
 	// - *NONE* : No field-level logs are captured.
@@ -4656,7 +4656,7 @@ type CfnGraphQLApi_LogConfigProperty struct {
 	//
 	// - Field-level tracing information.
 	// - The generated request/response functions that got resolved for each field.
-	FieldLogLevel *string `json:"fieldLogLevel"`
+	FieldLogLevel *string `json:"fieldLogLevel" yaml:"fieldLogLevel"`
 }
 
 // The `OpenIDConnectConfig` property type specifies the optional authorization configuration for using an OpenID Connect compliant service with your GraphQL endpoint for an AWS AppSync GraphQL API.
@@ -4667,17 +4667,17 @@ type CfnGraphQLApi_LogConfigProperty struct {
 //
 type CfnGraphQLApi_OpenIDConnectConfigProperty struct {
 	// The number of milliseconds that a token is valid after being authenticated.
-	AuthTtl *float64 `json:"authTtl"`
+	AuthTtl *float64 `json:"authTtl" yaml:"authTtl"`
 	// The client identifier of the Relying party at the OpenID identity provider.
 	//
 	// This identifier is typically obtained when the Relying party is registered with the OpenID identity provider. You can specify a regular expression so that AWS AppSync can validate against multiple client identifiers at a time.
-	ClientId *string `json:"clientId"`
+	ClientId *string `json:"clientId" yaml:"clientId"`
 	// The number of milliseconds that a token is valid after it's issued to a user.
-	IatTtl *float64 `json:"iatTtl"`
+	IatTtl *float64 `json:"iatTtl" yaml:"iatTtl"`
 	// The issuer for the OIDC configuration.
 	//
 	// The issuer returned by discovery must exactly match the value of `iss` in the ID token.
-	Issuer *string `json:"issuer"`
+	Issuer *string `json:"issuer" yaml:"issuer"`
 }
 
 // The `UserPoolConfig` property type specifies the optional authorization configuration for using Amazon Cognito user pools with your GraphQL endpoint for an AWS AppSync GraphQL API.
@@ -4686,15 +4686,15 @@ type CfnGraphQLApi_OpenIDConnectConfigProperty struct {
 //
 type CfnGraphQLApi_UserPoolConfigProperty struct {
 	// A regular expression for validating the incoming Amazon Cognito user pool app client ID.
-	AppIdClientRegex *string `json:"appIdClientRegex"`
+	AppIdClientRegex *string `json:"appIdClientRegex" yaml:"appIdClientRegex"`
 	// The AWS Region in which the user pool was created.
-	AwsRegion *string `json:"awsRegion"`
+	AwsRegion *string `json:"awsRegion" yaml:"awsRegion"`
 	// The action that you want your GraphQL API to take when a request that uses Amazon Cognito user pool authentication doesn't match the Amazon Cognito user pool configuration.
 	//
 	// When specifying Amazon Cognito user pools as the default authentication, you must set the value for `DefaultAction` to `ALLOW` if specifying `AdditionalAuthenticationProviders` .
-	DefaultAction *string `json:"defaultAction"`
+	DefaultAction *string `json:"defaultAction" yaml:"defaultAction"`
 	// The user pool ID.
-	UserPoolId *string `json:"userPoolId"`
+	UserPoolId *string `json:"userPoolId" yaml:"userPoolId"`
 }
 
 // Properties for defining a `CfnGraphQLApi`.
@@ -4705,25 +4705,25 @@ type CfnGraphQLApiProps struct {
 	// Security configuration for your GraphQL API.
 	//
 	// For allowed values (such as `API_KEY` , `AWS_IAM` , `AMAZON_COGNITO_USER_POOLS` , `OPENID_CONNECT` , or `AWS_LAMBDA` ), see [Security](https://docs.aws.amazon.com/appsync/latest/devguide/security.html) in the *AWS AppSync Developer Guide* .
-	AuthenticationType *string `json:"authenticationType"`
+	AuthenticationType *string `json:"authenticationType" yaml:"authenticationType"`
 	// The API name.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// A list of additional authentication providers for the `GraphqlApi` API.
-	AdditionalAuthenticationProviders interface{} `json:"additionalAuthenticationProviders"`
+	AdditionalAuthenticationProviders interface{} `json:"additionalAuthenticationProviders" yaml:"additionalAuthenticationProviders"`
 	// A `LambdaAuthorizerConfig` holds configuration on how to authorize AWS AppSync API access when using the `AWS_LAMBDA` authorizer mode.
 	//
 	// Be aware that an AWS AppSync API may have only one Lambda authorizer configured at a time.
-	LambdaAuthorizerConfig interface{} `json:"lambdaAuthorizerConfig"`
+	LambdaAuthorizerConfig interface{} `json:"lambdaAuthorizerConfig" yaml:"lambdaAuthorizerConfig"`
 	// The Amazon CloudWatch Logs configuration.
-	LogConfig interface{} `json:"logConfig"`
+	LogConfig interface{} `json:"logConfig" yaml:"logConfig"`
 	// The OpenID Connect configuration.
-	OpenIdConnectConfig interface{} `json:"openIdConnectConfig"`
+	OpenIdConnectConfig interface{} `json:"openIdConnectConfig" yaml:"openIdConnectConfig"`
 	// An arbitrary set of tags (key-value pairs) for this GraphQL API.
-	Tags interface{} `json:"tags"`
+	Tags interface{} `json:"tags" yaml:"tags"`
 	// Optional authorization configuration for using Amazon Cognito user pools with your GraphQL endpoint.
-	UserPoolConfig interface{} `json:"userPoolConfig"`
+	UserPoolConfig interface{} `json:"userPoolConfig" yaml:"userPoolConfig"`
 	// A flag indicating whether to use AWS X-Ray tracing for this `GraphqlApi` .
-	XrayEnabled interface{} `json:"xrayEnabled"`
+	XrayEnabled interface{} `json:"xrayEnabled" yaml:"xrayEnabled"`
 }
 
 // A CloudFormation `AWS::AppSync::GraphQLSchema`.
@@ -5248,15 +5248,15 @@ func (c *jsiiProxy_CfnGraphQLSchema) ValidateProperties(_properties interface{})
 //
 type CfnGraphQLSchemaProps struct {
 	// The AWS AppSync GraphQL API identifier to which you want to apply this schema.
-	ApiId *string `json:"apiId"`
+	ApiId *string `json:"apiId" yaml:"apiId"`
 	// The text representation of a GraphQL schema in SDL format.
 	//
 	// For more information about using the `Ref` function, see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref) .
-	Definition *string `json:"definition"`
+	Definition *string `json:"definition" yaml:"definition"`
 	// The location of a GraphQL schema file in an Amazon S3 bucket.
 	//
 	// Use this if you want to provision with the schema living in Amazon S3 rather than embedding it in your CloudFormation template.
-	DefinitionS3Location *string `json:"definitionS3Location"`
+	DefinitionS3Location *string `json:"definitionS3Location" yaml:"definitionS3Location"`
 }
 
 // A CloudFormation `AWS::AppSync::Resolver`.
@@ -5996,11 +5996,11 @@ type CfnResolver_CachingConfigProperty struct {
 	// The caching keys for a resolver that has caching activated.
 	//
 	// Valid values are entries from the `$context.arguments` , `$context.source` , and `$context.identity` maps.
-	CachingKeys *[]*string `json:"cachingKeys"`
+	CachingKeys *[]*string `json:"cachingKeys" yaml:"cachingKeys"`
 	// The TTL in seconds for a resolver that has caching activated.
 	//
 	// Valid values are 1–3,600 seconds.
-	Ttl *float64 `json:"ttl"`
+	Ttl *float64 `json:"ttl" yaml:"ttl"`
 }
 
 // The `LambdaConflictHandlerConfig` when configuring LAMBDA as the Conflict Handler.
@@ -6009,7 +6009,7 @@ type CfnResolver_CachingConfigProperty struct {
 //
 type CfnResolver_LambdaConflictHandlerConfigProperty struct {
 	// The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
-	LambdaConflictHandlerArn *string `json:"lambdaConflictHandlerArn"`
+	LambdaConflictHandlerArn *string `json:"lambdaConflictHandlerArn" yaml:"lambdaConflictHandlerArn"`
 }
 
 // Use the `PipelineConfig` property type to specify `PipelineConfig` for an AWS AppSync resolver.
@@ -6020,7 +6020,7 @@ type CfnResolver_LambdaConflictHandlerConfigProperty struct {
 //
 type CfnResolver_PipelineConfigProperty struct {
 	// A list of `Function` objects.
-	Functions *[]*string `json:"functions"`
+	Functions *[]*string `json:"functions" yaml:"functions"`
 }
 
 // Describes a Sync configuration for a resolver.
@@ -6034,15 +6034,15 @@ type CfnResolver_SyncConfigProperty struct {
 	//
 	// - *VERSION* : Detect conflicts based on object versions for this resolver.
 	// - *NONE* : Do not detect conflicts when invoking this resolver.
-	ConflictDetection *string `json:"conflictDetection"`
+	ConflictDetection *string `json:"conflictDetection" yaml:"conflictDetection"`
 	// The Conflict Resolution strategy to perform in the event of a conflict.
 	//
 	// - *OPTIMISTIC_CONCURRENCY* : Resolve conflicts by rejecting mutations when versions don't match the latest version at the server.
 	// - *AUTOMERGE* : Resolve conflicts with the Automerge conflict resolution strategy.
 	// - *LAMBDA* : Resolve conflicts with an AWS Lambda function supplied in the `LambdaConflictHandlerConfig` .
-	ConflictHandler *string `json:"conflictHandler"`
+	ConflictHandler *string `json:"conflictHandler" yaml:"conflictHandler"`
 	// The `LambdaConflictHandlerConfig` when configuring `LAMBDA` as the Conflict Handler.
-	LambdaConflictHandlerConfig interface{} `json:"lambdaConflictHandlerConfig"`
+	LambdaConflictHandlerConfig interface{} `json:"lambdaConflictHandlerConfig" yaml:"lambdaConflictHandlerConfig"`
 }
 
 // Properties for defining a `CfnResolver`.
@@ -6051,37 +6051,37 @@ type CfnResolver_SyncConfigProperty struct {
 //
 type CfnResolverProps struct {
 	// The AWS AppSync GraphQL API to which you want to attach this resolver.
-	ApiId *string `json:"apiId"`
+	ApiId *string `json:"apiId" yaml:"apiId"`
 	// The GraphQL field on a type that invokes the resolver.
-	FieldName *string `json:"fieldName"`
+	FieldName *string `json:"fieldName" yaml:"fieldName"`
 	// The GraphQL type that invokes this resolver.
-	TypeName *string `json:"typeName"`
+	TypeName *string `json:"typeName" yaml:"typeName"`
 	// The caching configuration for the resolver.
-	CachingConfig interface{} `json:"cachingConfig"`
+	CachingConfig interface{} `json:"cachingConfig" yaml:"cachingConfig"`
 	// The resolver data source name.
-	DataSourceName *string `json:"dataSourceName"`
+	DataSourceName *string `json:"dataSourceName" yaml:"dataSourceName"`
 	// The resolver type.
 	//
 	// - *UNIT* : A UNIT resolver type. A UNIT resolver is the default resolver type. You can use a UNIT resolver to run a GraphQL query against a single data source.
 	// - *PIPELINE* : A PIPELINE resolver type. You can use a PIPELINE resolver to invoke a series of `Function` objects in a serial manner. You can use a pipeline resolver to run a GraphQL query against multiple data sources.
-	Kind *string `json:"kind"`
+	Kind *string `json:"kind" yaml:"kind"`
 	// Functions linked with the pipeline resolver.
-	PipelineConfig interface{} `json:"pipelineConfig"`
+	PipelineConfig interface{} `json:"pipelineConfig" yaml:"pipelineConfig"`
 	// The request mapping template.
 	//
 	// Request mapping templates are optional when using a Lambda data source. For all other data sources, a request mapping template is required.
-	RequestMappingTemplate *string `json:"requestMappingTemplate"`
+	RequestMappingTemplate *string `json:"requestMappingTemplate" yaml:"requestMappingTemplate"`
 	// The location of a request mapping template in an Amazon S3 bucket.
 	//
 	// Use this if you want to provision with a template file in Amazon S3 rather than embedding it in your CloudFormation template.
-	RequestMappingTemplateS3Location *string `json:"requestMappingTemplateS3Location"`
+	RequestMappingTemplateS3Location *string `json:"requestMappingTemplateS3Location" yaml:"requestMappingTemplateS3Location"`
 	// The response mapping template.
-	ResponseMappingTemplate *string `json:"responseMappingTemplate"`
+	ResponseMappingTemplate *string `json:"responseMappingTemplate" yaml:"responseMappingTemplate"`
 	// The location of a response mapping template in an Amazon S3 bucket.
 	//
 	// Use this if you want to provision with a template file in Amazon S3 rather than embedding it in your CloudFormation template.
-	ResponseMappingTemplateS3Location *string `json:"responseMappingTemplateS3Location"`
+	ResponseMappingTemplateS3Location *string `json:"responseMappingTemplateS3Location" yaml:"responseMappingTemplateS3Location"`
 	// The `SyncConfig` for a resolver attached to a versioned data source.
-	SyncConfig interface{} `json:"syncConfig"`
+	SyncConfig interface{} `json:"syncConfig" yaml:"syncConfig"`
 }
 

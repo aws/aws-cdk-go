@@ -571,9 +571,9 @@ func (c *jsiiProxy_CfnLifecyclePolicy) ValidateProperties(_properties interface{
 //
 type CfnLifecyclePolicy_ActionProperty struct {
 	// The rule for copying shared snapshots across Regions.
-	CrossRegionCopy interface{} `json:"crossRegionCopy"`
+	CrossRegionCopy interface{} `json:"crossRegionCopy" yaml:"crossRegionCopy"`
 	// A descriptive name for the action.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // Specifies when to create snapshots of EBS volumes.
@@ -586,13 +586,13 @@ type CfnLifecyclePolicy_CreateRuleProperty struct {
 	// The schedule, as a Cron expression.
 	//
 	// The schedule interval must be between 1 hour and 1 year. For more information, see [Cron expressions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions) in the *Amazon CloudWatch User Guide* .
-	CronExpression *string `json:"cronExpression"`
+	CronExpression *string `json:"cronExpression" yaml:"cronExpression"`
 	// The interval between snapshots.
 	//
 	// The supported values are 1, 2, 3, 4, 6, 8, 12, and 24.
-	Interval *float64 `json:"interval"`
+	Interval *float64 `json:"interval" yaml:"interval"`
 	// The interval unit.
-	IntervalUnit *string `json:"intervalUnit"`
+	IntervalUnit *string `json:"intervalUnit" yaml:"intervalUnit"`
 	// Specifies the destination for snapshots created by the policy.
 	//
 	// To create snapshots in the same Region as the source resource, specify `CLOUD` . To create snapshots on the same Outpost as the source resource, specify `OUTPOST_LOCAL` . If you omit this parameter, `CLOUD` is used by default.
@@ -600,11 +600,11 @@ type CfnLifecyclePolicy_CreateRuleProperty struct {
 	// If the policy targets resources in an AWS Region , then you must create snapshots in the same Region as the source resource.
 	//
 	// If the policy targets resources on an Outpost, then you can create snapshots on the same Outpost as the source resource, or in the Region of that Outpost.
-	Location *string `json:"location"`
+	Location *string `json:"location" yaml:"location"`
 	// The time, in UTC, to start the operation. The supported format is hh:mm.
 	//
 	// The operation occurs within a one-hour window following the specified time. If you do not specify a time, Amazon DLM selects a time within the next 24 hours.
-	Times *[]*string `json:"times"`
+	Times *[]*string `json:"times" yaml:"times"`
 }
 
 // Specifies a rule for copying shared snapshots across Regions.
@@ -613,11 +613,11 @@ type CfnLifecyclePolicy_CreateRuleProperty struct {
 //
 type CfnLifecyclePolicy_CrossRegionCopyActionProperty struct {
 	// The encryption settings for the copied snapshot.
-	EncryptionConfiguration interface{} `json:"encryptionConfiguration"`
+	EncryptionConfiguration interface{} `json:"encryptionConfiguration" yaml:"encryptionConfiguration"`
 	// The target Region.
-	Target *string `json:"target"`
+	Target *string `json:"target" yaml:"target"`
 	// Specifies the retention rule for cross-Region snapshot copies.
-	RetainRule interface{} `json:"retainRule"`
+	RetainRule interface{} `json:"retainRule" yaml:"retainRule"`
 }
 
 // Specifies an AMI deprecation rule for cross-Region AMI copies created by a cross-Region copy rule.
@@ -628,9 +628,9 @@ type CfnLifecyclePolicy_CrossRegionCopyDeprecateRuleProperty struct {
 	// The period after which to deprecate the cross-Region AMI copies.
 	//
 	// The period must be less than or equal to the cross-Region AMI copy retention period, and it can't be greater than 10 years. This is equivalent to 120 months, 520 weeks, or 3650 days.
-	Interval *float64 `json:"interval"`
+	Interval *float64 `json:"interval" yaml:"interval"`
 	// The unit of time in which to measure the *Interval* .
-	IntervalUnit *string `json:"intervalUnit"`
+	IntervalUnit *string `json:"intervalUnit" yaml:"intervalUnit"`
 }
 
 // Specifies the retention rule for cross-Region snapshot copies.
@@ -641,9 +641,9 @@ type CfnLifecyclePolicy_CrossRegionCopyRetainRuleProperty struct {
 	// The amount of time to retain each snapshot.
 	//
 	// The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
-	Interval *float64 `json:"interval"`
+	Interval *float64 `json:"interval" yaml:"interval"`
 	// The unit of time for time-based retention.
-	IntervalUnit *string `json:"intervalUnit"`
+	IntervalUnit *string `json:"intervalUnit" yaml:"intervalUnit"`
 }
 
 // Specifies a rule for cross-Region snapshot copies.
@@ -654,27 +654,27 @@ type CfnLifecyclePolicy_CrossRegionCopyRuleProperty struct {
 	// To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter.
 	//
 	// Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
-	Encrypted interface{} `json:"encrypted"`
+	Encrypted interface{} `json:"encrypted" yaml:"encrypted"`
 	// The Amazon Resource Name (ARN) of the AWS KMS key to use for EBS encryption.
 	//
 	// If this parameter is not specified, the default KMS key for the account is used.
-	CmkArn *string `json:"cmkArn"`
+	CmkArn *string `json:"cmkArn" yaml:"cmkArn"`
 	// Indicates whether to copy all user-defined tags from the source snapshot to the cross-Region snapshot copy.
-	CopyTags interface{} `json:"copyTags"`
+	CopyTags interface{} `json:"copyTags" yaml:"copyTags"`
 	// The AMI deprecation rule for cross-Region AMI copies created by the rule.
-	DeprecateRule interface{} `json:"deprecateRule"`
+	DeprecateRule interface{} `json:"deprecateRule" yaml:"deprecateRule"`
 	// The retention rule that indicates how long snapshot copies are to be retained in the destination Region.
-	RetainRule interface{} `json:"retainRule"`
+	RetainRule interface{} `json:"retainRule" yaml:"retainRule"`
 	// The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
 	//
 	// Use this parameter instead of *TargetRegion* . Do not specify both.
-	Target *string `json:"target"`
+	Target *string `json:"target" yaml:"target"`
 	// Avoid using this parameter when creating new policies.
 	//
 	// Instead, use *Target* to specify a target Region or a target Outpost for snapshot copies.
 	//
 	// For policies created before the *Target* parameter was introduced, this parameter indicates the target Region for snapshot copies.
-	TargetRegion *string `json:"targetRegion"`
+	TargetRegion *string `json:"targetRegion" yaml:"targetRegion"`
 }
 
 // Specifies an AMI deprecation rule for a schedule.
@@ -685,13 +685,13 @@ type CfnLifecyclePolicy_DeprecateRuleProperty struct {
 	// If the schedule has a count-based retention rule, this parameter specifies the number of oldest AMIs to deprecate.
 	//
 	// The count must be less than or equal to the schedule's retention count, and it can't be greater than 1000.
-	Count *float64 `json:"count"`
+	Count *float64 `json:"count" yaml:"count"`
 	// If the schedule has an age-based retention rule, this parameter specifies the period after which to deprecate AMIs created by the schedule.
 	//
 	// The period must be less than or equal to the schedule's retention period, and it can't be greater than 10 years. This is equivalent to 120 months, 520 weeks, or 3650 days.
-	Interval *float64 `json:"interval"`
+	Interval *float64 `json:"interval" yaml:"interval"`
 	// The unit of time in which to measure the *Interval* .
-	IntervalUnit *string `json:"intervalUnit"`
+	IntervalUnit *string `json:"intervalUnit" yaml:"intervalUnit"`
 }
 
 // Specifies the encryption settings for shared snapshots that are copied across Regions.
@@ -702,11 +702,11 @@ type CfnLifecyclePolicy_EncryptionConfigurationProperty struct {
 	// To encrypt a copy of an unencrypted snapshot when encryption by default is not enabled, enable encryption using this parameter.
 	//
 	// Copies of encrypted snapshots are encrypted, even if this parameter is false or when encryption by default is not enabled.
-	Encrypted interface{} `json:"encrypted"`
+	Encrypted interface{} `json:"encrypted" yaml:"encrypted"`
 	// The Amazon Resource Name (ARN) of the AWS KMS key to use for EBS encryption.
 	//
 	// If this parameter is not specified, the default KMS key for the account is used.
-	CmkArn *string `json:"cmkArn"`
+	CmkArn *string `json:"cmkArn" yaml:"cmkArn"`
 }
 
 // Specifies an event that triggers an event-based policy.
@@ -717,17 +717,17 @@ type CfnLifecyclePolicy_EventParametersProperty struct {
 	// The type of event.
 	//
 	// Currently, only snapshot sharing events are supported.
-	EventType *string `json:"eventType"`
+	EventType *string `json:"eventType" yaml:"eventType"`
 	// The IDs of the AWS accounts that can trigger policy by sharing snapshots with your account.
 	//
 	// The policy only runs if one of the specified AWS accounts shares a snapshot with your account.
-	SnapshotOwner *[]*string `json:"snapshotOwner"`
+	SnapshotOwner *[]*string `json:"snapshotOwner" yaml:"snapshotOwner"`
 	// The snapshot description that can trigger the policy.
 	//
 	// The description pattern is specified using a regular expression. The policy runs only if a snapshot with a description that matches the specified pattern is shared with your account.
 	//
 	// For example, specifying `^.*Created for policy: policy-1234567890abcdef0.*$` configures the policy to run only if snapshots created by policy `policy-1234567890abcdef0` are shared with your account.
-	DescriptionRegex *string `json:"descriptionRegex"`
+	DescriptionRegex *string `json:"descriptionRegex" yaml:"descriptionRegex"`
 }
 
 // Specifies an event that triggers an event-based policy.
@@ -738,9 +738,9 @@ type CfnLifecyclePolicy_EventSourceProperty struct {
 	// The source of the event.
 	//
 	// Currently only managed CloudWatch Events rules are supported.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// Information about the event.
-	Parameters interface{} `json:"parameters"`
+	Parameters interface{} `json:"parameters" yaml:"parameters"`
 }
 
 // Specifies a rule for enabling fast snapshot restore.
@@ -751,15 +751,15 @@ type CfnLifecyclePolicy_EventSourceProperty struct {
 //
 type CfnLifecyclePolicy_FastRestoreRuleProperty struct {
 	// The Availability Zones in which to enable fast snapshot restore.
-	AvailabilityZones *[]*string `json:"availabilityZones"`
+	AvailabilityZones *[]*string `json:"availabilityZones" yaml:"availabilityZones"`
 	// The number of snapshots to be enabled with fast snapshot restore.
-	Count *float64 `json:"count"`
+	Count *float64 `json:"count" yaml:"count"`
 	// The amount of time to enable fast snapshot restore.
 	//
 	// The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
-	Interval *float64 `json:"interval"`
+	Interval *float64 `json:"interval" yaml:"interval"`
 	// The unit of time for enabling fast snapshot restore.
-	IntervalUnit *string `json:"intervalUnit"`
+	IntervalUnit *string `json:"intervalUnit" yaml:"intervalUnit"`
 }
 
 // Specifies optional parameters to add to a policy.
@@ -770,11 +770,11 @@ type CfnLifecyclePolicy_FastRestoreRuleProperty struct {
 //
 type CfnLifecyclePolicy_ParametersProperty struct {
 	// [EBS Snapshot Management – Instance policies only] Indicates whether to exclude the root volume from snapshots created using [CreateSnapshots](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSnapshots.html) . The default is false.
-	ExcludeBootVolume interface{} `json:"excludeBootVolume"`
+	ExcludeBootVolume interface{} `json:"excludeBootVolume" yaml:"excludeBootVolume"`
 	// Applies to AMI lifecycle policies only.
 	//
 	// Indicates whether targeted instances are rebooted when the lifecycle policy runs. `true` indicates that targeted instances are not rebooted when the policy runs. `false` indicates that target instances are rebooted when the policy runs. The default is `true` (instances are not rebooted).
-	NoReboot interface{} `json:"noReboot"`
+	NoReboot interface{} `json:"noReboot" yaml:"noReboot"`
 }
 
 // Specifies the configuration of a lifecycle policy.
@@ -785,45 +785,45 @@ type CfnLifecyclePolicy_PolicyDetailsProperty struct {
 	// The actions to be performed when the event-based policy is triggered. You can specify only one action per policy.
 	//
 	// This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter.
-	Actions interface{} `json:"actions"`
+	Actions interface{} `json:"actions" yaml:"actions"`
 	// The event that triggers the event-based policy.
 	//
 	// This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter.
-	EventSource interface{} `json:"eventSource"`
+	EventSource interface{} `json:"eventSource" yaml:"eventSource"`
 	// A set of optional parameters for snapshot and AMI lifecycle policies.
 	//
 	// This parameter is required for snapshot and AMI policies only. If you are creating an event-based policy, omit this parameter.
 	//
 	// > If you are modifying a policy that was created or previously modified using the Amazon Data Lifecycle Manager console, then you must include this parameter and specify either the default values or the new values that you require. You can't omit this parameter or set its values to null.
-	Parameters interface{} `json:"parameters"`
+	Parameters interface{} `json:"parameters" yaml:"parameters"`
 	// The valid target resource types and actions a policy can manage.
 	//
 	// Specify `EBS_SNAPSHOT_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify `IMAGE_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify `EVENT_BASED_POLICY` to create an event-based policy that performs specific actions when a defined event occurs in your AWS account .
 	//
 	// The default is `EBS_SNAPSHOT_MANAGEMENT` .
-	PolicyType *string `json:"policyType"`
+	PolicyType *string `json:"policyType" yaml:"policyType"`
 	// The location of the resources to backup.
 	//
 	// If the source resources are located in an AWS Region , specify `CLOUD` . If the source resources are located on an Outpost in your account, specify `OUTPOST` .
 	//
 	// If you specify `OUTPOST` , Amazon Data Lifecycle Manager backs up all resources of the specified type with matching target tags across all of the Outposts in your account.
-	ResourceLocations *[]*string `json:"resourceLocations"`
+	ResourceLocations *[]*string `json:"resourceLocations" yaml:"resourceLocations"`
 	// The target resource type for snapshot and AMI lifecycle policies.
 	//
 	// Use `VOLUME` to create snapshots of individual volumes or use `INSTANCE` to create multi-volume snapshots from the volumes for an instance.
 	//
 	// This parameter is required for snapshot and AMI policies only. If you are creating an event-based policy, omit this parameter.
-	ResourceTypes *[]*string `json:"resourceTypes"`
+	ResourceTypes *[]*string `json:"resourceTypes" yaml:"resourceTypes"`
 	// The schedules of policy-defined actions for snapshot and AMI lifecycle policies.
 	//
 	// A policy can have up to four schedules—one mandatory schedule and up to three optional schedules.
 	//
 	// This parameter is required for snapshot and AMI policies only. If you are creating an event-based policy, omit this parameter.
-	Schedules interface{} `json:"schedules"`
+	Schedules interface{} `json:"schedules" yaml:"schedules"`
 	// The single tag that identifies targeted resources for this policy.
 	//
 	// This parameter is required for snapshot and AMI policies only. If you are creating an event-based policy, omit this parameter.
-	TargetTags interface{} `json:"targetTags"`
+	TargetTags interface{} `json:"targetTags" yaml:"targetTags"`
 }
 
 // Specifies the retention rule for a lifecycle policy.
@@ -834,13 +834,13 @@ type CfnLifecyclePolicy_PolicyDetailsProperty struct {
 //
 type CfnLifecyclePolicy_RetainRuleProperty struct {
 	// The number of snapshots to retain for each volume, up to a maximum of 1000.
-	Count *float64 `json:"count"`
+	Count *float64 `json:"count" yaml:"count"`
 	// The amount of time to retain each snapshot.
 	//
 	// The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
-	Interval *float64 `json:"interval"`
+	Interval *float64 `json:"interval" yaml:"interval"`
 	// The unit of time for time-based retention.
-	IntervalUnit *string `json:"intervalUnit"`
+	IntervalUnit *string `json:"intervalUnit" yaml:"intervalUnit"`
 }
 
 // Specifies a backup schedule for a snapshot or AMI lifecycle policy.
@@ -849,31 +849,31 @@ type CfnLifecyclePolicy_RetainRuleProperty struct {
 //
 type CfnLifecyclePolicy_ScheduleProperty struct {
 	// Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
-	CopyTags interface{} `json:"copyTags"`
+	CopyTags interface{} `json:"copyTags" yaml:"copyTags"`
 	// The creation rule.
-	CreateRule interface{} `json:"createRule"`
+	CreateRule interface{} `json:"createRule" yaml:"createRule"`
 	// The rule for cross-Region snapshot copies.
 	//
 	// You can only specify cross-Region copy rules for policies that create snapshots in a Region. If the policy creates snapshots on an Outpost, then you cannot copy the snapshots to a Region or to an Outpost. If the policy creates snapshots in a Region, then snapshots can be copied to up to three Regions or Outposts.
-	CrossRegionCopyRules interface{} `json:"crossRegionCopyRules"`
+	CrossRegionCopyRules interface{} `json:"crossRegionCopyRules" yaml:"crossRegionCopyRules"`
 	// The AMI deprecation rule for the schedule.
-	DeprecateRule interface{} `json:"deprecateRule"`
+	DeprecateRule interface{} `json:"deprecateRule" yaml:"deprecateRule"`
 	// The rule for enabling fast snapshot restore.
-	FastRestoreRule interface{} `json:"fastRestoreRule"`
+	FastRestoreRule interface{} `json:"fastRestoreRule" yaml:"fastRestoreRule"`
 	// The name of the schedule.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The retention rule.
-	RetainRule interface{} `json:"retainRule"`
+	RetainRule interface{} `json:"retainRule" yaml:"retainRule"`
 	// The rule for sharing snapshots with other AWS accounts .
-	ShareRules interface{} `json:"shareRules"`
+	ShareRules interface{} `json:"shareRules" yaml:"shareRules"`
 	// The tags to apply to policy-created resources.
 	//
 	// These user-defined tags are in addition to the AWS -added lifecycle tags.
-	TagsToAdd interface{} `json:"tagsToAdd"`
+	TagsToAdd interface{} `json:"tagsToAdd" yaml:"tagsToAdd"`
 	// A collection of key/value pairs with values determined dynamically when the policy is executed.
 	//
 	// Keys may be any valid Amazon EC2 tag key. Values must be in one of the two following formats: `$(instance-id)` or `$(timestamp)` . Variable tags are only valid for EBS Snapshot Management – Instance policies.
-	VariableTags interface{} `json:"variableTags"`
+	VariableTags interface{} `json:"variableTags" yaml:"variableTags"`
 }
 
 // Specifies a rule for sharing snapshots across AWS accounts .
@@ -882,11 +882,11 @@ type CfnLifecyclePolicy_ScheduleProperty struct {
 //
 type CfnLifecyclePolicy_ShareRuleProperty struct {
 	// The IDs of the AWS accounts with which to share the snapshots.
-	TargetAccounts *[]*string `json:"targetAccounts"`
+	TargetAccounts *[]*string `json:"targetAccounts" yaml:"targetAccounts"`
 	// The period after which snapshots that are shared with other AWS accounts are automatically unshared.
-	UnshareInterval *float64 `json:"unshareInterval"`
+	UnshareInterval *float64 `json:"unshareInterval" yaml:"unshareInterval"`
 	// The unit of time for the automatic unsharing interval.
-	UnshareIntervalUnit *string `json:"unshareIntervalUnit"`
+	UnshareIntervalUnit *string `json:"unshareIntervalUnit" yaml:"unshareIntervalUnit"`
 }
 
 // Properties for defining a `CfnLifecyclePolicy`.
@@ -897,14 +897,14 @@ type CfnLifecyclePolicyProps struct {
 	// A description of the lifecycle policy.
 	//
 	// The characters ^[0-9A-Za-z _-]+$ are supported.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by the lifecycle policy.
-	ExecutionRoleArn *string `json:"executionRoleArn"`
+	ExecutionRoleArn *string `json:"executionRoleArn" yaml:"executionRoleArn"`
 	// The configuration details of the lifecycle policy.
-	PolicyDetails interface{} `json:"policyDetails"`
+	PolicyDetails interface{} `json:"policyDetails" yaml:"policyDetails"`
 	// The activation state of the lifecycle policy.
-	State *string `json:"state"`
+	State *string `json:"state" yaml:"state"`
 	// The tags to apply to the lifecycle policy during creation.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 

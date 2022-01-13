@@ -235,10 +235,10 @@ func ClassificationString_XML() ClassificationString {
 type CloudWatchEncryption struct {
 	// Encryption mode.
 	// Experimental.
-	Mode CloudWatchEncryptionMode `json:"mode"`
+	Mode CloudWatchEncryptionMode `json:"mode" yaml:"mode"`
 	// The KMS key to be used to encrypt the data.
 	// Experimental.
-	KmsKey awskms.IKey `json:"kmsKey"`
+	KmsKey awskms.IKey `json:"kmsKey" yaml:"kmsKey"`
 }
 
 // Encryption mode for CloudWatch Logs.
@@ -336,7 +336,7 @@ func (c *jsiiProxy_Code) Bind(scope constructs.Construct, grantable awsiam.IGran
 type CodeConfig struct {
 	// The location of the code in S3.
 	// Experimental.
-	S3Location *awss3.Location `json:"s3Location"`
+	S3Location *awss3.Location `json:"s3Location" yaml:"s3Location"`
 }
 
 // A column of a table.
@@ -347,13 +347,13 @@ type CodeConfig struct {
 type Column struct {
 	// Name of the column.
 	// Experimental.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// Type of the column.
 	// Experimental.
-	Type *Type `json:"type"`
+	Type *Type `json:"type" yaml:"type"`
 	// Coment describing the column.
 	// Experimental.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 }
 
 // An AWS Glue connection to a data source.
@@ -645,28 +645,28 @@ func (c *jsiiProxy_Connection) ToString() *string {
 type ConnectionOptions struct {
 	// The name of the connection.
 	// Experimental.
-	ConnectionName *string `json:"connectionName"`
+	ConnectionName *string `json:"connectionName" yaml:"connectionName"`
 	// The description of the connection.
 	// Experimental.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// A list of criteria that can be used in selecting this connection.
 	//
 	// This is useful for filtering the results of https://awscli.amazonaws.com/v2/documentation/api/latest/reference/glue/get-connections.html
 	// Experimental.
-	MatchCriteria *[]*string `json:"matchCriteria"`
+	MatchCriteria *[]*string `json:"matchCriteria" yaml:"matchCriteria"`
 	// Key-Value pairs that define parameters for the connection.
 	// See: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-connect.html
 	//
 	// Experimental.
-	Properties *map[string]*string `json:"properties"`
+	Properties *map[string]*string `json:"properties" yaml:"properties"`
 	// The list of security groups needed to successfully make this connection e.g. to successfully connect to VPC.
 	// Experimental.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// The VPC subnet to connect to resources within a VPC.
 	//
 	// See more at https://docs.aws.amazon.com/glue/latest/dg/start-connecting.html.
 	// Experimental.
-	Subnet awsec2.ISubnet `json:"subnet"`
+	Subnet awsec2.ISubnet `json:"subnet" yaml:"subnet"`
 }
 
 // Construction properties for {@link Connection}.
@@ -677,31 +677,31 @@ type ConnectionOptions struct {
 type ConnectionProps struct {
 	// The name of the connection.
 	// Experimental.
-	ConnectionName *string `json:"connectionName"`
+	ConnectionName *string `json:"connectionName" yaml:"connectionName"`
 	// The description of the connection.
 	// Experimental.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// A list of criteria that can be used in selecting this connection.
 	//
 	// This is useful for filtering the results of https://awscli.amazonaws.com/v2/documentation/api/latest/reference/glue/get-connections.html
 	// Experimental.
-	MatchCriteria *[]*string `json:"matchCriteria"`
+	MatchCriteria *[]*string `json:"matchCriteria" yaml:"matchCriteria"`
 	// Key-Value pairs that define parameters for the connection.
 	// See: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-connect.html
 	//
 	// Experimental.
-	Properties *map[string]*string `json:"properties"`
+	Properties *map[string]*string `json:"properties" yaml:"properties"`
 	// The list of security groups needed to successfully make this connection e.g. to successfully connect to VPC.
 	// Experimental.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// The VPC subnet to connect to resources within a VPC.
 	//
 	// See more at https://docs.aws.amazon.com/glue/latest/dg/start-connecting.html.
 	// Experimental.
-	Subnet awsec2.ISubnet `json:"subnet"`
+	Subnet awsec2.ISubnet `json:"subnet" yaml:"subnet"`
 	// The type of the connection.
 	// Experimental.
-	Type ConnectionType `json:"type"`
+	Type ConnectionType `json:"type" yaml:"type"`
 }
 
 // The type of the glue connection.
@@ -828,21 +828,21 @@ func (c *jsiiProxy_ConnectionType) ToString() *string {
 type ContinuousLoggingProps struct {
 	// Enable continouous logging.
 	// Experimental.
-	Enabled *bool `json:"enabled"`
+	Enabled *bool `json:"enabled" yaml:"enabled"`
 	// Apply the provided conversion pattern.
 	//
 	// This is a Log4j Conversion Pattern to customize driver and executor logs.
 	// Experimental.
-	ConversionPattern *string `json:"conversionPattern"`
+	ConversionPattern *string `json:"conversionPattern" yaml:"conversionPattern"`
 	// Specify a custom CloudWatch log group name.
 	// Experimental.
-	LogGroup awslogs.ILogGroup `json:"logGroup"`
+	LogGroup awslogs.ILogGroup `json:"logGroup" yaml:"logGroup"`
 	// Specify a custom CloudWatch log stream prefix.
 	// Experimental.
-	LogStreamPrefix *string `json:"logStreamPrefix"`
+	LogStreamPrefix *string `json:"logStreamPrefix" yaml:"logStreamPrefix"`
 	// Filter out non-useful Apache Spark driver/executor and Apache Hadoop YARN heartbeat log messages.
 	// Experimental.
-	Quiet *bool `json:"quiet"`
+	Quiet *bool `json:"quiet" yaml:"quiet"`
 }
 
 // Defines the input/output formats and ser/de for a single DataFormat.
@@ -1036,16 +1036,16 @@ func DataFormat_TSV() DataFormat {
 type DataFormatProps struct {
 	// `InputFormat` for this data format.
 	// Experimental.
-	InputFormat InputFormat `json:"inputFormat"`
+	InputFormat InputFormat `json:"inputFormat" yaml:"inputFormat"`
 	// `OutputFormat` for this data format.
 	// Experimental.
-	OutputFormat OutputFormat `json:"outputFormat"`
+	OutputFormat OutputFormat `json:"outputFormat" yaml:"outputFormat"`
 	// Serialization library for this data format.
 	// Experimental.
-	SerializationLibrary SerializationLibrary `json:"serializationLibrary"`
+	SerializationLibrary SerializationLibrary `json:"serializationLibrary" yaml:"serializationLibrary"`
 	// Classification string given to tables with this data format.
 	// Experimental.
-	ClassificationString ClassificationString `json:"classificationString"`
+	ClassificationString ClassificationString `json:"classificationString" yaml:"classificationString"`
 }
 
 // A Glue database.
@@ -1339,12 +1339,12 @@ func (d *jsiiProxy_Database) ToString() *string {
 type DatabaseProps struct {
 	// The name of the database.
 	// Experimental.
-	DatabaseName *string `json:"databaseName"`
+	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
 	// The location of the database (for example, an HDFS path).
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html
 	//
 	// Experimental.
-	LocationUri *string `json:"locationUri"`
+	LocationUri *string `json:"locationUri" yaml:"locationUri"`
 }
 
 // AWS Glue version determines the versions of Apache Spark and Python that are available to the job.
@@ -2392,10 +2392,10 @@ func (j *jsiiProxy_Job) ToString() *string {
 type JobAttributes struct {
 	// The name of the job.
 	// Experimental.
-	JobName *string `json:"jobName"`
+	JobName *string `json:"jobName" yaml:"jobName"`
 	// The IAM role assumed by Glue to run this job.
 	// Experimental.
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 }
 
 // Job bookmarks encryption configuration.
@@ -2406,10 +2406,10 @@ type JobAttributes struct {
 type JobBookmarksEncryption struct {
 	// Encryption mode.
 	// Experimental.
-	Mode JobBookmarksEncryptionMode `json:"mode"`
+	Mode JobBookmarksEncryptionMode `json:"mode" yaml:"mode"`
 	// The KMS key to be used to encrypt the data.
 	// Experimental.
-	KmsKey awskms.IKey `json:"kmsKey"`
+	KmsKey awskms.IKey `json:"kmsKey" yaml:"kmsKey"`
 }
 
 // Encryption mode for Job Bookmarks.
@@ -2566,48 +2566,48 @@ type JobExecutableConfig struct {
 	// See: https://docs.aws.amazon.com/glue/latest/dg/release-notes.html
 	//
 	// Experimental.
-	GlueVersion GlueVersion `json:"glueVersion"`
+	GlueVersion GlueVersion `json:"glueVersion" yaml:"glueVersion"`
 	// The language of the job (Scala or Python).
 	// See: `--job-language` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Experimental.
-	Language JobLanguage `json:"language"`
+	Language JobLanguage `json:"language" yaml:"language"`
 	// The script that is executed by a job.
 	// Experimental.
-	Script Code `json:"script"`
+	Script Code `json:"script" yaml:"script"`
 	// Specify the type of the job whether it's an Apache Spark ETL or streaming one or if it's a Python shell job.
 	// Experimental.
-	Type JobType `json:"type"`
+	Type JobType `json:"type" yaml:"type"`
 	// The Scala class that serves as the entry point for the job.
 	//
 	// This applies only if your the job langauage is Scala.
 	// See: `--class` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Experimental.
-	ClassName *string `json:"className"`
+	ClassName *string `json:"className" yaml:"className"`
 	// Additional files, such as configuration files that AWS Glue copies to the working directory of your script before executing it.
 	// See: `--extra-files` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Experimental.
-	ExtraFiles *[]Code `json:"extraFiles"`
+	ExtraFiles *[]Code `json:"extraFiles" yaml:"extraFiles"`
 	// Additional Java .jar files that AWS Glue adds to the Java classpath before executing your script.
 	// See: `--extra-jars` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Experimental.
-	ExtraJars *[]Code `json:"extraJars"`
+	ExtraJars *[]Code `json:"extraJars" yaml:"extraJars"`
 	// Setting this value to true prioritizes the customer's extra JAR files in the classpath.
 	// See: `--user-jars-first` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Experimental.
-	ExtraJarsFirst *bool `json:"extraJarsFirst"`
+	ExtraJarsFirst *bool `json:"extraJarsFirst" yaml:"extraJarsFirst"`
 	// Additional Python files that AWS Glue adds to the Python path before executing your script.
 	// See: `--extra-py-files` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Experimental.
-	ExtraPythonFiles *[]Code `json:"extraPythonFiles"`
+	ExtraPythonFiles *[]Code `json:"extraPythonFiles" yaml:"extraPythonFiles"`
 	// The Python version to use.
 	// Experimental.
-	PythonVersion PythonVersion `json:"pythonVersion"`
+	PythonVersion PythonVersion `json:"pythonVersion" yaml:"pythonVersion"`
 }
 
 // Runtime language of the Glue job.
@@ -2627,76 +2627,76 @@ const (
 type JobProps struct {
 	// The job's executable properties.
 	// Experimental.
-	Executable JobExecutable `json:"executable"`
+	Executable JobExecutable `json:"executable" yaml:"executable"`
 	// The {@link Connection}s used for this job.
 	//
 	// Connections are used to connect to other AWS Service or resources within a VPC.
 	// Experimental.
-	Connections *[]IConnection `json:"connections"`
+	Connections *[]IConnection `json:"connections" yaml:"connections"`
 	// Enables continuous logging with the specified props.
 	// See: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Experimental.
-	ContinuousLogging *ContinuousLoggingProps `json:"continuousLogging"`
+	ContinuousLogging *ContinuousLoggingProps `json:"continuousLogging" yaml:"continuousLogging"`
 	// The default arguments for this job, specified as name-value pairs.
 	// See: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html for a list of reserved parameters
 	//
 	// Experimental.
-	DefaultArguments *map[string]*string `json:"defaultArguments"`
+	DefaultArguments *map[string]*string `json:"defaultArguments" yaml:"defaultArguments"`
 	// The description of the job.
 	// Experimental.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Enables the collection of metrics for job profiling.
 	// See: `--enable-metrics` at https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Experimental.
-	EnableProfilingMetrics *bool `json:"enableProfilingMetrics"`
+	EnableProfilingMetrics *bool `json:"enableProfilingMetrics" yaml:"enableProfilingMetrics"`
 	// The name of the job.
 	// Experimental.
-	JobName *string `json:"jobName"`
+	JobName *string `json:"jobName" yaml:"jobName"`
 	// The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
 	//
 	// Cannot be used for Glue version 2.0 and later - workerType and workerCount should be used instead.
 	// Experimental.
-	MaxCapacity *float64 `json:"maxCapacity"`
+	MaxCapacity *float64 `json:"maxCapacity" yaml:"maxCapacity"`
 	// The maximum number of concurrent runs allowed for the job.
 	//
 	// An error is returned when this threshold is reached. The maximum value you can specify is controlled by a service limit.
 	// Experimental.
-	MaxConcurrentRuns *float64 `json:"maxConcurrentRuns"`
+	MaxConcurrentRuns *float64 `json:"maxConcurrentRuns" yaml:"maxConcurrentRuns"`
 	// The maximum number of times to retry this job after a job run fails.
 	// Experimental.
-	MaxRetries *float64 `json:"maxRetries"`
+	MaxRetries *float64 `json:"maxRetries" yaml:"maxRetries"`
 	// The number of minutes to wait after a job run starts, before sending a job run delay notification.
 	// Experimental.
-	NotifyDelayAfter awscdk.Duration `json:"notifyDelayAfter"`
+	NotifyDelayAfter awscdk.Duration `json:"notifyDelayAfter" yaml:"notifyDelayAfter"`
 	// The IAM role assumed by Glue to run this job.
 	//
 	// If providing a custom role, it needs to trust the Glue service principal (glue.amazonaws.com) and be granted sufficient permissions.
 	// See: https://docs.aws.amazon.com/glue/latest/dg/getting-started-access.html
 	//
 	// Experimental.
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 	// The {@link SecurityConfiguration} to use for this job.
 	// Experimental.
-	SecurityConfiguration ISecurityConfiguration `json:"securityConfiguration"`
+	SecurityConfiguration ISecurityConfiguration `json:"securityConfiguration" yaml:"securityConfiguration"`
 	// Enables the Spark UI debugging and monitoring with the specified props.
 	// See: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Experimental.
-	SparkUI *SparkUIProps `json:"sparkUI"`
+	SparkUI *SparkUIProps `json:"sparkUI" yaml:"sparkUI"`
 	// The tags to add to the resources on which the job runs.
 	// Experimental.
-	Tags *map[string]*string `json:"tags"`
+	Tags *map[string]*string `json:"tags" yaml:"tags"`
 	// The maximum time that a job run can consume resources before it is terminated and enters TIMEOUT status.
 	// Experimental.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The number of workers of a defined {@link WorkerType} that are allocated when a job runs.
 	// Experimental.
-	WorkerCount *float64 `json:"workerCount"`
+	WorkerCount *float64 `json:"workerCount" yaml:"workerCount"`
 	// The type of predefined worker that is allocated when a job runs.
 	// Experimental.
-	WorkerType WorkerType `json:"workerType"`
+	WorkerType WorkerType `json:"workerType" yaml:"workerType"`
 }
 
 // Job states emitted by Glue to CloudWatch Events.
@@ -2910,10 +2910,10 @@ type PartitionIndex struct {
 	// The names must correspond to a name in the
 	// table's partition keys.
 	// Experimental.
-	KeyNames *[]*string `json:"keyNames"`
+	KeyNames *[]*string `json:"keyNames" yaml:"keyNames"`
 	// The name of the partition index.
 	// Experimental.
-	IndexName *string `json:"indexName"`
+	IndexName *string `json:"indexName" yaml:"indexName"`
 }
 
 // Props for creating a Python shell job executable.
@@ -2926,27 +2926,27 @@ type PythonShellExecutableProps struct {
 	// See: https://docs.aws.amazon.com/glue/latest/dg/release-notes.html
 	//
 	// Experimental.
-	GlueVersion GlueVersion `json:"glueVersion"`
+	GlueVersion GlueVersion `json:"glueVersion" yaml:"glueVersion"`
 	// The Python version to use.
 	// Experimental.
-	PythonVersion PythonVersion `json:"pythonVersion"`
+	PythonVersion PythonVersion `json:"pythonVersion" yaml:"pythonVersion"`
 	// The script that executes a job.
 	// Experimental.
-	Script Code `json:"script"`
+	Script Code `json:"script" yaml:"script"`
 	// Additional files, such as configuration files that AWS Glue copies to the working directory of your script before executing it.
 	//
 	// Only individual files are supported, directories are not supported.
 	// See: `--extra-files` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Experimental.
-	ExtraFiles *[]Code `json:"extraFiles"`
+	ExtraFiles *[]Code `json:"extraFiles" yaml:"extraFiles"`
 	// Additional Python files that AWS Glue adds to the Python path before executing your script.
 	//
 	// Only individual files are supported, directories are not supported.
 	// See: `--extra-py-files` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Experimental.
-	ExtraPythonFiles *[]Code `json:"extraPythonFiles"`
+	ExtraPythonFiles *[]Code `json:"extraPythonFiles" yaml:"extraPythonFiles"`
 }
 
 // Props for creating a Python Spark (ETL or Streaming) job executable.
@@ -2959,37 +2959,37 @@ type PythonSparkJobExecutableProps struct {
 	// See: https://docs.aws.amazon.com/glue/latest/dg/release-notes.html
 	//
 	// Experimental.
-	GlueVersion GlueVersion `json:"glueVersion"`
+	GlueVersion GlueVersion `json:"glueVersion" yaml:"glueVersion"`
 	// The Python version to use.
 	// Experimental.
-	PythonVersion PythonVersion `json:"pythonVersion"`
+	PythonVersion PythonVersion `json:"pythonVersion" yaml:"pythonVersion"`
 	// The script that executes a job.
 	// Experimental.
-	Script Code `json:"script"`
+	Script Code `json:"script" yaml:"script"`
 	// Additional files, such as configuration files that AWS Glue copies to the working directory of your script before executing it.
 	//
 	// Only individual files are supported, directories are not supported.
 	// See: `--extra-files` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Experimental.
-	ExtraFiles *[]Code `json:"extraFiles"`
+	ExtraFiles *[]Code `json:"extraFiles" yaml:"extraFiles"`
 	// Additional Java .jar files that AWS Glue adds to the Java classpath before executing your script. Only individual files are supported, directories are not supported.
 	// See: `--extra-jars` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Experimental.
-	ExtraJars *[]Code `json:"extraJars"`
+	ExtraJars *[]Code `json:"extraJars" yaml:"extraJars"`
 	// Setting this value to true prioritizes the customer's extra JAR files in the classpath.
 	// See: `--user-jars-first` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Experimental.
-	ExtraJarsFirst *bool `json:"extraJarsFirst"`
+	ExtraJarsFirst *bool `json:"extraJarsFirst" yaml:"extraJarsFirst"`
 	// Additional Python files that AWS Glue adds to the Python path before executing your script.
 	//
 	// Only individual files are supported, directories are not supported.
 	// See: `--extra-py-files` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Experimental.
-	ExtraPythonFiles *[]Code `json:"extraPythonFiles"`
+	ExtraPythonFiles *[]Code `json:"extraPythonFiles" yaml:"extraPythonFiles"`
 }
 
 // Python version.
@@ -3102,10 +3102,10 @@ func (s *jsiiProxy_S3Code) Bind(_scope constructs.Construct, grantable awsiam.IG
 type S3Encryption struct {
 	// Encryption mode.
 	// Experimental.
-	Mode S3EncryptionMode `json:"mode"`
+	Mode S3EncryptionMode `json:"mode" yaml:"mode"`
 	// The KMS key to be used to encrypt the data.
 	// Experimental.
-	KmsKey awskms.IKey `json:"kmsKey"`
+	KmsKey awskms.IKey `json:"kmsKey" yaml:"kmsKey"`
 }
 
 // Encryption mode for S3.
@@ -3132,32 +3132,32 @@ type ScalaJobExecutableProps struct {
 	// See: `--class` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Experimental.
-	ClassName *string `json:"className"`
+	ClassName *string `json:"className" yaml:"className"`
 	// Glue version.
 	// See: https://docs.aws.amazon.com/glue/latest/dg/release-notes.html
 	//
 	// Experimental.
-	GlueVersion GlueVersion `json:"glueVersion"`
+	GlueVersion GlueVersion `json:"glueVersion" yaml:"glueVersion"`
 	// The script that executes a job.
 	// Experimental.
-	Script Code `json:"script"`
+	Script Code `json:"script" yaml:"script"`
 	// Additional files, such as configuration files that AWS Glue copies to the working directory of your script before executing it.
 	//
 	// Only individual files are supported, directories are not supported.
 	// See: `--extra-files` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Experimental.
-	ExtraFiles *[]Code `json:"extraFiles"`
+	ExtraFiles *[]Code `json:"extraFiles" yaml:"extraFiles"`
 	// Additional Java .jar files that AWS Glue adds to the Java classpath before executing your script. Only individual files are supported, directories are not supported.
 	// See: `--extra-jars` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Experimental.
-	ExtraJars *[]Code `json:"extraJars"`
+	ExtraJars *[]Code `json:"extraJars" yaml:"extraJars"`
 	// Setting this value to true prioritizes the customer's extra JAR files in the classpath.
 	// See: `--user-jars-first` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Experimental.
-	ExtraJarsFirst *bool `json:"extraJarsFirst"`
+	ExtraJarsFirst *bool `json:"extraJarsFirst" yaml:"extraJarsFirst"`
 }
 
 // TODO: EXAMPLE
@@ -3713,16 +3713,16 @@ func (s *jsiiProxy_SecurityConfiguration) ToString() *string {
 type SecurityConfigurationProps struct {
 	// The name of the security configuration.
 	// Experimental.
-	SecurityConfigurationName *string `json:"securityConfigurationName"`
+	SecurityConfigurationName *string `json:"securityConfigurationName" yaml:"securityConfigurationName"`
 	// The encryption configuration for Amazon CloudWatch Logs.
 	// Experimental.
-	CloudWatchEncryption *CloudWatchEncryption `json:"cloudWatchEncryption"`
+	CloudWatchEncryption *CloudWatchEncryption `json:"cloudWatchEncryption" yaml:"cloudWatchEncryption"`
 	// The encryption configuration for Glue Job Bookmarks.
 	// Experimental.
-	JobBookmarksEncryption *JobBookmarksEncryption `json:"jobBookmarksEncryption"`
+	JobBookmarksEncryption *JobBookmarksEncryption `json:"jobBookmarksEncryption" yaml:"jobBookmarksEncryption"`
 	// The encryption configuration for Amazon Simple Storage Service (Amazon S3) data.
 	// Experimental.
-	S3Encryption *S3Encryption `json:"s3Encryption"`
+	S3Encryption *S3Encryption `json:"s3Encryption" yaml:"s3Encryption"`
 }
 
 // Serialization library to use when serializing/deserializing (SerDe) table records.
@@ -3898,10 +3898,10 @@ func SerializationLibrary_REGEXP() SerializationLibrary {
 type SparkUILoggingLocation struct {
 	// The bucket where the Glue job stores the logs.
 	// Experimental.
-	Bucket awss3.IBucket `json:"bucket"`
+	Bucket awss3.IBucket `json:"bucket" yaml:"bucket"`
 	// The path inside the bucket (objects prefix) where the Glue job stores the logs.
 	// Experimental.
-	Prefix *string `json:"prefix"`
+	Prefix *string `json:"prefix" yaml:"prefix"`
 }
 
 // Properties for enabling Spark UI monitoring feature for Spark-based Glue jobs.
@@ -3914,13 +3914,13 @@ type SparkUILoggingLocation struct {
 type SparkUIProps struct {
 	// Enable Spark UI.
 	// Experimental.
-	Enabled *bool `json:"enabled"`
+	Enabled *bool `json:"enabled" yaml:"enabled"`
 	// The bucket where the Glue job stores the logs.
 	// Experimental.
-	Bucket awss3.IBucket `json:"bucket"`
+	Bucket awss3.IBucket `json:"bucket" yaml:"bucket"`
 	// The path inside the bucket (objects prefix) where the Glue job stores the logs.
 	// Experimental.
-	Prefix *string `json:"prefix"`
+	Prefix *string `json:"prefix" yaml:"prefix"`
 }
 
 // A Glue table.
@@ -4406,9 +4406,9 @@ func (t *jsiiProxy_Table) ToString() *string {
 // Experimental.
 type TableAttributes struct {
 	// Experimental.
-	TableArn *string `json:"tableArn"`
+	TableArn *string `json:"tableArn" yaml:"tableArn"`
 	// Experimental.
-	TableName *string `json:"tableName"`
+	TableName *string `json:"tableName" yaml:"tableName"`
 }
 
 // Encryption options for a Table.
@@ -4434,25 +4434,25 @@ const (
 type TableProps struct {
 	// Columns of the table.
 	// Experimental.
-	Columns *[]*Column `json:"columns"`
+	Columns *[]*Column `json:"columns" yaml:"columns"`
 	// Database in which to store the table.
 	// Experimental.
-	Database IDatabase `json:"database"`
+	Database IDatabase `json:"database" yaml:"database"`
 	// Storage type of the table's data.
 	// Experimental.
-	DataFormat DataFormat `json:"dataFormat"`
+	DataFormat DataFormat `json:"dataFormat" yaml:"dataFormat"`
 	// Name of the table.
 	// Experimental.
-	TableName *string `json:"tableName"`
+	TableName *string `json:"tableName" yaml:"tableName"`
 	// S3 bucket in which to store data.
 	// Experimental.
-	Bucket awss3.IBucket `json:"bucket"`
+	Bucket awss3.IBucket `json:"bucket" yaml:"bucket"`
 	// Indicates whether the table's data is compressed or not.
 	// Experimental.
-	Compressed *bool `json:"compressed"`
+	Compressed *bool `json:"compressed" yaml:"compressed"`
 	// Description of the table.
 	// Experimental.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The kind of encryption to secure the data with.
 	//
 	// You can only provide this option if you are not explicitly passing in a bucket.
@@ -4460,28 +4460,28 @@ type TableProps struct {
 	// If you choose `SSE-KMS`, you *can* provide an un-managed KMS key with `encryptionKey`.
 	// If you choose `CSE-KMS`, you *must* provide an un-managed KMS key with `encryptionKey`.
 	// Experimental.
-	Encryption TableEncryption `json:"encryption"`
+	Encryption TableEncryption `json:"encryption" yaml:"encryption"`
 	// External KMS key to use for bucket encryption.
 	//
 	// The `encryption` property must be `SSE-KMS` or `CSE-KMS`.
 	// Experimental.
-	EncryptionKey awskms.IKey `json:"encryptionKey"`
+	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
 	// Partition indexes on the table.
 	//
 	// A maximum of 3 indexes
 	// are allowed on a table. Keys in the index must be part
 	// of the table's partition keys.
 	// Experimental.
-	PartitionIndexes *[]*PartitionIndex `json:"partitionIndexes"`
+	PartitionIndexes *[]*PartitionIndex `json:"partitionIndexes" yaml:"partitionIndexes"`
 	// Partition columns of the table.
 	// Experimental.
-	PartitionKeys *[]*Column `json:"partitionKeys"`
+	PartitionKeys *[]*Column `json:"partitionKeys" yaml:"partitionKeys"`
 	// S3 prefix under which table objects are stored.
 	// Experimental.
-	S3Prefix *string `json:"s3Prefix"`
+	S3Prefix *string `json:"s3Prefix" yaml:"s3Prefix"`
 	// Indicates whether the table data is stored in subdirectories.
 	// Experimental.
-	StoredAsSubDirectories *bool `json:"storedAsSubDirectories"`
+	StoredAsSubDirectories *bool `json:"storedAsSubDirectories" yaml:"storedAsSubDirectories"`
 }
 
 // Represents a type of a column in a table schema.
@@ -4492,10 +4492,10 @@ type TableProps struct {
 type Type struct {
 	// Glue InputString for this type.
 	// Experimental.
-	InputString *string `json:"inputString"`
+	InputString *string `json:"inputString" yaml:"inputString"`
 	// Indicates whether this type is a primitive data type.
 	// Experimental.
-	IsPrimitive *bool `json:"isPrimitive"`
+	IsPrimitive *bool `json:"isPrimitive" yaml:"isPrimitive"`
 }
 
 // The type of predefined worker that is allocated when a job runs.

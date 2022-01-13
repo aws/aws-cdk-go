@@ -507,13 +507,13 @@ func (c *jsiiProxy_CfnAcceptedPortfolioShare) ValidateProperties(_properties int
 //
 type CfnAcceptedPortfolioShareProps struct {
 	// The portfolio identifier.
-	PortfolioId *string `json:"portfolioId"`
+	PortfolioId *string `json:"portfolioId" yaml:"portfolioId"`
 	// The language code.
 	//
 	// - `en` - English (default)
 	// - `jp` - Japanese
 	// - `zh` - Chinese
-	AcceptLanguage *string `json:"acceptLanguage"`
+	AcceptLanguage *string `json:"acceptLanguage" yaml:"acceptLanguage"`
 }
 
 // A CloudFormation `AWS::ServiceCatalog::CloudFormationProduct`.
@@ -1226,15 +1226,15 @@ type CfnCloudFormationProduct_ProvisioningArtifactPropertiesProperty struct {
 	// `"LoadTemplateFromURL": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/..."`
 	//
 	// `ImportFromPhysicalId` : The physical id of the resource that contains the template. Currently only supports AWS CloudFormation stack arn. Specify the physical id in JSON format as follows: `ImportFromPhysicalId: “arn:aws:cloudformation:[us-east-1]:[accountId]:stack/[StackName]/[resourceId]`
-	Info interface{} `json:"info"`
+	Info interface{} `json:"info" yaml:"info"`
 	// The description of the provisioning artifact, including how it differs from the previous provisioning artifact.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// If set to true, AWS Service Catalog stops validating the specified provisioning artifact even if it is invalid.
-	DisableTemplateValidation interface{} `json:"disableTemplateValidation"`
+	DisableTemplateValidation interface{} `json:"disableTemplateValidation" yaml:"disableTemplateValidation"`
 	// The name of the provisioning artifact (for example, v1 v2beta).
 	//
 	// No spaces are allowed.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // Properties for defining a `CfnCloudFormationProduct`.
@@ -1243,37 +1243,37 @@ type CfnCloudFormationProduct_ProvisioningArtifactPropertiesProperty struct {
 //
 type CfnCloudFormationProductProps struct {
 	// The name of the product.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The owner of the product.
-	Owner *string `json:"owner"`
+	Owner *string `json:"owner" yaml:"owner"`
 	// The configuration of the provisioning artifact (also known as a version).
-	ProvisioningArtifactParameters interface{} `json:"provisioningArtifactParameters"`
+	ProvisioningArtifactParameters interface{} `json:"provisioningArtifactParameters" yaml:"provisioningArtifactParameters"`
 	// The language code.
 	//
 	// - `en` - English (default)
 	// - `jp` - Japanese
 	// - `zh` - Chinese
-	AcceptLanguage *string `json:"acceptLanguage"`
+	AcceptLanguage *string `json:"acceptLanguage" yaml:"acceptLanguage"`
 	// The description of the product.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The distributor of the product.
-	Distributor *string `json:"distributor"`
+	Distributor *string `json:"distributor" yaml:"distributor"`
 	// This property is turned off by default.
 	//
 	// If turned off, you can update provisioning artifacts or product attributes (such as description, distributor, name, owner, and more) and the associated provisioning artifacts will retain the same unique identifier. Provisioning artifacts are matched within the CloudFormationProduct resource, and only those that have been updated will be changed. Provisioning artifacts are matched by a combinaton of provisioning artifact template URL and name.
 	//
 	// If turned on, provisioning artifacts will be given a new unique identifier when you update the product or provisioning artifacts.
-	ReplaceProvisioningArtifacts interface{} `json:"replaceProvisioningArtifacts"`
+	ReplaceProvisioningArtifacts interface{} `json:"replaceProvisioningArtifacts" yaml:"replaceProvisioningArtifacts"`
 	// The support information about the product.
-	SupportDescription *string `json:"supportDescription"`
+	SupportDescription *string `json:"supportDescription" yaml:"supportDescription"`
 	// The contact email for product support.
-	SupportEmail *string `json:"supportEmail"`
+	SupportEmail *string `json:"supportEmail" yaml:"supportEmail"`
 	// The contact URL for product support.
 	//
 	// `^https?:\/\//` / is the pattern used to validate SupportUrl.
-	SupportUrl *string `json:"supportUrl"`
+	SupportUrl *string `json:"supportUrl" yaml:"supportUrl"`
 	// One or more tags.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::ServiceCatalog::CloudFormationProvisionedProduct`.
@@ -2002,9 +2002,9 @@ func (c *jsiiProxy_CfnCloudFormationProvisionedProduct) ValidateProperties(_prop
 //
 type CfnCloudFormationProvisionedProduct_ProvisioningParameterProperty struct {
 	// The parameter key.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// The parameter value.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // The user-defined preferences that will be applied when updating a provisioned product.
@@ -2029,7 +2029,7 @@ type CfnCloudFormationProvisionedProduct_ProvisioningPreferencesProperty struct 
 	// The specified accounts should be within the list of accounts from the `STACKSET` constraint. To get the list of accounts in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.
 	//
 	// If no values are specified, the default value is all acounts from the `STACKSET` constraint.
-	StackSetAccounts *[]*string `json:"stackSetAccounts"`
+	StackSetAccounts *[]*string `json:"stackSetAccounts" yaml:"stackSetAccounts"`
 	// The number of accounts, per Region, for which this operation can fail before AWS Service Catalog stops the operation in that Region.
 	//
 	// If the operation is stopped in a Region, AWS Service Catalog doesn't attempt the operation in any subsequent Regions.
@@ -2039,7 +2039,7 @@ type CfnCloudFormationProvisionedProduct_ProvisioningPreferencesProperty struct 
 	// Conditional: You must specify either `StackSetFailureToleranceCount` or `StackSetFailureTolerancePercentage` , but not both.
 	//
 	// The default value is `0` if no value is specified.
-	StackSetFailureToleranceCount *float64 `json:"stackSetFailureToleranceCount"`
+	StackSetFailureToleranceCount *float64 `json:"stackSetFailureToleranceCount" yaml:"stackSetFailureToleranceCount"`
 	// The percentage of accounts, per Region, for which this stack operation can fail before AWS Service Catalog stops the operation in that Region.
 	//
 	// If the operation is stopped in a Region, AWS Service Catalog doesn't attempt the operation in any subsequent Regions.
@@ -2049,7 +2049,7 @@ type CfnCloudFormationProvisionedProduct_ProvisioningPreferencesProperty struct 
 	// Applicable only to a `CFN_STACKSET` provisioned product type.
 	//
 	// Conditional: You must specify either `StackSetFailureToleranceCount` or `StackSetFailureTolerancePercentage` , but not both.
-	StackSetFailureTolerancePercentage *float64 `json:"stackSetFailureTolerancePercentage"`
+	StackSetFailureTolerancePercentage *float64 `json:"stackSetFailureTolerancePercentage" yaml:"stackSetFailureTolerancePercentage"`
 	// The maximum number of accounts in which to perform this operation at one time.
 	//
 	// This is dependent on the value of `StackSetFailureToleranceCount` . `StackSetMaxConcurrentCount` is at most one more than the `StackSetFailureToleranceCount` .
@@ -2059,7 +2059,7 @@ type CfnCloudFormationProvisionedProduct_ProvisioningPreferencesProperty struct 
 	// Applicable only to a `CFN_STACKSET` provisioned product type.
 	//
 	// Conditional: You must specify either `StackSetMaxConcurrentCount` or `StackSetMaxConcurrentPercentage` , but not both.
-	StackSetMaxConcurrencyCount *float64 `json:"stackSetMaxConcurrencyCount"`
+	StackSetMaxConcurrencyCount *float64 `json:"stackSetMaxConcurrencyCount" yaml:"stackSetMaxConcurrencyCount"`
 	// The maximum percentage of accounts in which to perform this operation at one time.
 	//
 	// When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, AWS Service Catalog sets the number as `1` instead.
@@ -2069,7 +2069,7 @@ type CfnCloudFormationProvisionedProduct_ProvisioningPreferencesProperty struct 
 	// Applicable only to a `CFN_STACKSET` provisioned product type.
 	//
 	// Conditional: You must specify either `StackSetMaxConcurrentCount` or `StackSetMaxConcurrentPercentage` , but not both.
-	StackSetMaxConcurrencyPercentage *float64 `json:"stackSetMaxConcurrencyPercentage"`
+	StackSetMaxConcurrencyPercentage *float64 `json:"stackSetMaxConcurrencyPercentage" yaml:"stackSetMaxConcurrencyPercentage"`
 	// Determines what action AWS Service Catalog performs to a stack set or a stack instance represented by the provisioned product.
 	//
 	// The default value is `UPDATE` if nothing is specified.
@@ -2079,7 +2079,7 @@ type CfnCloudFormationProvisionedProduct_ProvisioningPreferencesProperty struct 
 	// - **CREATE** - Creates a new stack instance in the stack set represented by the provisioned product. In this case, only new stack instances are created based on accounts and Regions; if new ProductId or ProvisioningArtifactID are passed, they will be ignored.
 	// - **UPDATE** - Updates the stack set represented by the provisioned product and also its stack instances.
 	// - **DELETE** - Deletes a stack instance in the stack set represented by the provisioned product.
-	StackSetOperationType *string `json:"stackSetOperationType"`
+	StackSetOperationType *string `json:"stackSetOperationType" yaml:"stackSetOperationType"`
 	// One or more AWS Regions where the provisioned product will be available.
 	//
 	// Applicable only to a `CFN_STACKSET` provisioned product type.
@@ -2087,7 +2087,7 @@ type CfnCloudFormationProvisionedProduct_ProvisioningPreferencesProperty struct 
 	// The specified Regions should be within the list of Regions from the `STACKSET` constraint. To get the list of Regions in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.
 	//
 	// If no values are specified, the default value is all Regions from the `STACKSET` constraint.
-	StackSetRegions *[]*string `json:"stackSetRegions"`
+	StackSetRegions *[]*string `json:"stackSetRegions" yaml:"stackSetRegions"`
 }
 
 // Properties for defining a `CfnCloudFormationProvisionedProduct`.
@@ -2100,27 +2100,27 @@ type CfnCloudFormationProvisionedProductProps struct {
 	// - `en` - English (default)
 	// - `jp` - Japanese
 	// - `zh` - Chinese
-	AcceptLanguage *string `json:"acceptLanguage"`
+	AcceptLanguage *string `json:"acceptLanguage" yaml:"acceptLanguage"`
 	// Passed to AWS CloudFormation .
 	//
 	// The SNS topic ARNs to which to publish stack-related events.
-	NotificationArns *[]*string `json:"notificationArns"`
+	NotificationArns *[]*string `json:"notificationArns" yaml:"notificationArns"`
 	// The path identifier of the product.
 	//
 	// This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use [ListLaunchPaths](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ListLaunchPaths.html) .
 	//
 	// > You must provide the name or ID, but not both.
-	PathId *string `json:"pathId"`
+	PathId *string `json:"pathId" yaml:"pathId"`
 	// The name of the path.
 	//
 	// This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use [ListLaunchPaths](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ListLaunchPaths.html) .
 	//
 	// > You must provide the name or ID, but not both.
-	PathName *string `json:"pathName"`
+	PathName *string `json:"pathName" yaml:"pathName"`
 	// The product identifier.
 	//
 	// > You must specify either the ID or the name of the product, but not both.
-	ProductId *string `json:"productId"`
+	ProductId *string `json:"productId" yaml:"productId"`
 	// A user-friendly name for the provisioned product.
 	//
 	// This value must be unique for the AWS account and cannot be updated after the product is provisioned.
@@ -2128,29 +2128,29 @@ type CfnCloudFormationProvisionedProductProps struct {
 	// Each time a stack is created or updated, if `ProductName` is provided it will successfully resolve to `ProductId` as long as only one product exists in the account or Region with that `ProductName` .
 	//
 	// > You must specify either the name or the ID of the product, but not both.
-	ProductName *string `json:"productName"`
+	ProductName *string `json:"productName" yaml:"productName"`
 	// A user-friendly name for the provisioned product.
 	//
 	// This value must be unique for the AWS account and cannot be updated after the product is provisioned.
-	ProvisionedProductName *string `json:"provisionedProductName"`
+	ProvisionedProductName *string `json:"provisionedProductName" yaml:"provisionedProductName"`
 	// The identifier of the provisioning artifact (also known as a version).
 	//
 	// > You must specify either the ID or the name of the provisioning artifact, but not both.
-	ProvisioningArtifactId *string `json:"provisioningArtifactId"`
+	ProvisioningArtifactId *string `json:"provisioningArtifactId" yaml:"provisioningArtifactId"`
 	// The name of the provisioning artifact (also known as a version) for the product.
 	//
 	// This name must be unique for the product.
 	//
 	// > You must specify either the name or the ID of the provisioning artifact, but not both. You must also specify either the name or the ID of the product, but not both.
-	ProvisioningArtifactName *string `json:"provisioningArtifactName"`
+	ProvisioningArtifactName *string `json:"provisioningArtifactName" yaml:"provisioningArtifactName"`
 	// Parameters specified by the administrator that are required for provisioning the product.
-	ProvisioningParameters interface{} `json:"provisioningParameters"`
+	ProvisioningParameters interface{} `json:"provisioningParameters" yaml:"provisioningParameters"`
 	// StackSet preferences that are required for provisioning the product or updating a provisioned product.
-	ProvisioningPreferences interface{} `json:"provisioningPreferences"`
+	ProvisioningPreferences interface{} `json:"provisioningPreferences" yaml:"provisioningPreferences"`
 	// One or more tags.
 	//
 	// > Requires the provisioned product to have an [ResourceUpdateConstraint](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-resourceupdateconstraint.html) resource with `TagUpdatesOnProvisionedProduct` set to `ALLOWED` to allow tag updates. If `RESOURCE_UPDATE` constraint is not present, tags updates are ignored.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::ServiceCatalog::LaunchNotificationConstraint`.
@@ -2711,19 +2711,19 @@ func (c *jsiiProxy_CfnLaunchNotificationConstraint) ValidateProperties(_properti
 //
 type CfnLaunchNotificationConstraintProps struct {
 	// The notification ARNs.
-	NotificationArns *[]*string `json:"notificationArns"`
+	NotificationArns *[]*string `json:"notificationArns" yaml:"notificationArns"`
 	// The portfolio identifier.
-	PortfolioId *string `json:"portfolioId"`
+	PortfolioId *string `json:"portfolioId" yaml:"portfolioId"`
 	// The product identifier.
-	ProductId *string `json:"productId"`
+	ProductId *string `json:"productId" yaml:"productId"`
 	// The language code.
 	//
 	// - `en` - English (default)
 	// - `jp` - Japanese
 	// - `zh` - Chinese
-	AcceptLanguage *string `json:"acceptLanguage"`
+	AcceptLanguage *string `json:"acceptLanguage" yaml:"acceptLanguage"`
 	// The description of the constraint.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 }
 
 // A CloudFormation `AWS::ServiceCatalog::LaunchRoleConstraint`.
@@ -3304,27 +3304,27 @@ func (c *jsiiProxy_CfnLaunchRoleConstraint) ValidateProperties(_properties inter
 //
 type CfnLaunchRoleConstraintProps struct {
 	// The portfolio identifier.
-	PortfolioId *string `json:"portfolioId"`
+	PortfolioId *string `json:"portfolioId" yaml:"portfolioId"`
 	// The product identifier.
-	ProductId *string `json:"productId"`
+	ProductId *string `json:"productId" yaml:"productId"`
 	// The language code.
 	//
 	// - `en` - English (default)
 	// - `jp` - Japanese
 	// - `zh` - Chinese
-	AcceptLanguage *string `json:"acceptLanguage"`
+	AcceptLanguage *string `json:"acceptLanguage" yaml:"acceptLanguage"`
 	// The description of the constraint.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// You are required to specify either the `RoleArn` or the `LocalRoleName` but can't use both.
 	//
 	// If you specify the `LocalRoleName` property, when an account uses the launch constraint, the IAM role with that name in the account will be used. This allows launch-role constraints to be account-agnostic so the administrator can create fewer resources per shared account.
 	//
 	// The given role name must exist in the account used to create the launch constraint and the account of the user who launches a product with this launch constraint.
-	LocalRoleName *string `json:"localRoleName"`
+	LocalRoleName *string `json:"localRoleName" yaml:"localRoleName"`
 	// The ARN of the launch role.
 	//
 	// You are required to specify `RoleArn` or `LocalRoleName` but can't use both.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 }
 
 // A CloudFormation `AWS::ServiceCatalog::LaunchTemplateConstraint`.
@@ -3885,19 +3885,19 @@ func (c *jsiiProxy_CfnLaunchTemplateConstraint) ValidateProperties(_properties i
 //
 type CfnLaunchTemplateConstraintProps struct {
 	// The portfolio identifier.
-	PortfolioId *string `json:"portfolioId"`
+	PortfolioId *string `json:"portfolioId" yaml:"portfolioId"`
 	// The product identifier.
-	ProductId *string `json:"productId"`
+	ProductId *string `json:"productId" yaml:"productId"`
 	// The constraint rules.
-	Rules *string `json:"rules"`
+	Rules *string `json:"rules" yaml:"rules"`
 	// The language code.
 	//
 	// - `en` - English (default)
 	// - `jp` - Japanese
 	// - `zh` - Chinese
-	AcceptLanguage *string `json:"acceptLanguage"`
+	AcceptLanguage *string `json:"acceptLanguage" yaml:"acceptLanguage"`
 	// The description of the constraint.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 }
 
 // A CloudFormation `AWS::ServiceCatalog::Portfolio`.
@@ -4992,19 +4992,19 @@ func (c *jsiiProxy_CfnPortfolioPrincipalAssociation) ValidateProperties(_propert
 //
 type CfnPortfolioPrincipalAssociationProps struct {
 	// The portfolio identifier.
-	PortfolioId *string `json:"portfolioId"`
+	PortfolioId *string `json:"portfolioId" yaml:"portfolioId"`
 	// The ARN of the principal (IAM user, role, or group).
-	PrincipalArn *string `json:"principalArn"`
+	PrincipalArn *string `json:"principalArn" yaml:"principalArn"`
 	// The principal type.
 	//
 	// The supported value is `IAM` .
-	PrincipalType *string `json:"principalType"`
+	PrincipalType *string `json:"principalType" yaml:"principalType"`
 	// The language code.
 	//
 	// - `en` - English (default)
 	// - `jp` - Japanese
 	// - `zh` - Chinese
-	AcceptLanguage *string `json:"acceptLanguage"`
+	AcceptLanguage *string `json:"acceptLanguage" yaml:"acceptLanguage"`
 }
 
 // A CloudFormation `AWS::ServiceCatalog::PortfolioProductAssociation`.
@@ -5547,17 +5547,17 @@ func (c *jsiiProxy_CfnPortfolioProductAssociation) ValidateProperties(_propertie
 //
 type CfnPortfolioProductAssociationProps struct {
 	// The portfolio identifier.
-	PortfolioId *string `json:"portfolioId"`
+	PortfolioId *string `json:"portfolioId" yaml:"portfolioId"`
 	// The product identifier.
-	ProductId *string `json:"productId"`
+	ProductId *string `json:"productId" yaml:"productId"`
 	// The language code.
 	//
 	// - `en` - English (default)
 	// - `jp` - Japanese
 	// - `zh` - Chinese
-	AcceptLanguage *string `json:"acceptLanguage"`
+	AcceptLanguage *string `json:"acceptLanguage" yaml:"acceptLanguage"`
 	// The identifier of the source portfolio.
-	SourcePortfolioId *string `json:"sourcePortfolioId"`
+	SourcePortfolioId *string `json:"sourcePortfolioId" yaml:"sourcePortfolioId"`
 }
 
 // Properties for defining a `CfnPortfolio`.
@@ -5566,19 +5566,19 @@ type CfnPortfolioProductAssociationProps struct {
 //
 type CfnPortfolioProps struct {
 	// The name to use for display purposes.
-	DisplayName *string `json:"displayName"`
+	DisplayName *string `json:"displayName" yaml:"displayName"`
 	// The name of the portfolio provider.
-	ProviderName *string `json:"providerName"`
+	ProviderName *string `json:"providerName" yaml:"providerName"`
 	// The language code.
 	//
 	// - `en` - English (default)
 	// - `jp` - Japanese
 	// - `zh` - Chinese
-	AcceptLanguage *string `json:"acceptLanguage"`
+	AcceptLanguage *string `json:"acceptLanguage" yaml:"acceptLanguage"`
 	// The description of the portfolio.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// One or more tags.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::ServiceCatalog::PortfolioShare`.
@@ -6121,17 +6121,17 @@ type CfnPortfolioShareProps struct {
 	// The AWS account ID.
 	//
 	// For example, `123456789012` .
-	AccountId *string `json:"accountId"`
+	AccountId *string `json:"accountId" yaml:"accountId"`
 	// The portfolio identifier.
-	PortfolioId *string `json:"portfolioId"`
+	PortfolioId *string `json:"portfolioId" yaml:"portfolioId"`
 	// The language code.
 	//
 	// - `en` - English (default)
 	// - `jp` - Japanese
 	// - `zh` - Chinese
-	AcceptLanguage *string `json:"acceptLanguage"`
+	AcceptLanguage *string `json:"acceptLanguage" yaml:"acceptLanguage"`
 	// Indicates whether TagOptions sharing is enabled or disabled for the portfolio share.
-	ShareTagOptions interface{} `json:"shareTagOptions"`
+	ShareTagOptions interface{} `json:"shareTagOptions" yaml:"shareTagOptions"`
 }
 
 // A CloudFormation `AWS::ServiceCatalog::ResourceUpdateConstraint`.
@@ -6692,21 +6692,21 @@ func (c *jsiiProxy_CfnResourceUpdateConstraint) ValidateProperties(_properties i
 //
 type CfnResourceUpdateConstraintProps struct {
 	// The portfolio identifier.
-	PortfolioId *string `json:"portfolioId"`
+	PortfolioId *string `json:"portfolioId" yaml:"portfolioId"`
 	// The product identifier.
-	ProductId *string `json:"productId"`
+	ProductId *string `json:"productId" yaml:"productId"`
 	// If set to `ALLOWED` , lets users change tags in a [CloudFormationProvisionedProduct](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html) resource.
 	//
 	// If set to `NOT_ALLOWED` , prevents users from changing tags in a [CloudFormationProvisionedProduct](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html) resource.
-	TagUpdateOnProvisionedProduct *string `json:"tagUpdateOnProvisionedProduct"`
+	TagUpdateOnProvisionedProduct *string `json:"tagUpdateOnProvisionedProduct" yaml:"tagUpdateOnProvisionedProduct"`
 	// The language code.
 	//
 	// - `en` - English (default)
 	// - `jp` - Japanese
 	// - `zh` - Chinese
-	AcceptLanguage *string `json:"acceptLanguage"`
+	AcceptLanguage *string `json:"acceptLanguage" yaml:"acceptLanguage"`
 	// The description of the constraint.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 }
 
 // A CloudFormation `AWS::ServiceCatalog::ServiceAction`.
@@ -7280,9 +7280,9 @@ func (c *jsiiProxy_CfnServiceAction) ValidateProperties(_properties interface{})
 //
 type CfnServiceAction_DefinitionParameterProperty struct {
 	// The parameter key.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// The value of the parameter.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // A CloudFormation `AWS::ServiceCatalog::ServiceActionAssociation`.
@@ -7805,15 +7805,15 @@ type CfnServiceActionAssociationProps struct {
 	// The product identifier.
 	//
 	// For example, `prod-abcdzk7xy33qa` .
-	ProductId *string `json:"productId"`
+	ProductId *string `json:"productId" yaml:"productId"`
 	// The identifier of the provisioning artifact.
 	//
 	// For example, `pa-4abcdjnxjj6ne` .
-	ProvisioningArtifactId *string `json:"provisioningArtifactId"`
+	ProvisioningArtifactId *string `json:"provisioningArtifactId" yaml:"provisioningArtifactId"`
 	// The self-service action identifier.
 	//
 	// For example, `act-fs7abcd89wxyz` .
-	ServiceActionId *string `json:"serviceActionId"`
+	ServiceActionId *string `json:"serviceActionId" yaml:"serviceActionId"`
 }
 
 // Properties for defining a `CfnServiceAction`.
@@ -7822,21 +7822,21 @@ type CfnServiceActionAssociationProps struct {
 //
 type CfnServiceActionProps struct {
 	// A map that defines the self-service action.
-	Definition interface{} `json:"definition"`
+	Definition interface{} `json:"definition" yaml:"definition"`
 	// The self-service action definition type.
 	//
 	// For example, `SSM_AUTOMATION` .
-	DefinitionType *string `json:"definitionType"`
+	DefinitionType *string `json:"definitionType" yaml:"definitionType"`
 	// The self-service action name.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The language code.
 	//
 	// - `en` - English (default)
 	// - `jp` - Japanese
 	// - `zh` - Chinese
-	AcceptLanguage *string `json:"acceptLanguage"`
+	AcceptLanguage *string `json:"acceptLanguage" yaml:"acceptLanguage"`
 	// The self-service action description.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 }
 
 // A CloudFormation `AWS::ServiceCatalog::StackSetConstraint`.
@@ -8477,17 +8477,17 @@ func (c *jsiiProxy_CfnStackSetConstraint) ValidateProperties(_properties interfa
 //
 type CfnStackSetConstraintProps struct {
 	// One or more AWS accounts that will have access to the provisioned product.
-	AccountList *[]*string `json:"accountList"`
+	AccountList *[]*string `json:"accountList" yaml:"accountList"`
 	// AdminRole ARN.
-	AdminRole *string `json:"adminRole"`
+	AdminRole *string `json:"adminRole" yaml:"adminRole"`
 	// The description of the constraint.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// ExecutionRole name.
-	ExecutionRole *string `json:"executionRole"`
+	ExecutionRole *string `json:"executionRole" yaml:"executionRole"`
 	// The portfolio identifier.
-	PortfolioId *string `json:"portfolioId"`
+	PortfolioId *string `json:"portfolioId" yaml:"portfolioId"`
 	// The product identifier.
-	ProductId *string `json:"productId"`
+	ProductId *string `json:"productId" yaml:"productId"`
 	// One or more AWS Regions where the provisioned product will be available.
 	//
 	// Applicable only to a `CFN_STACKSET` provisioned product type.
@@ -8495,17 +8495,17 @@ type CfnStackSetConstraintProps struct {
 	// The specified Regions should be within the list of Regions from the `STACKSET` constraint. To get the list of Regions in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.
 	//
 	// If no values are specified, the default value is all Regions from the `STACKSET` constraint.
-	RegionList *[]*string `json:"regionList"`
+	RegionList *[]*string `json:"regionList" yaml:"regionList"`
 	// Permission to create, update, and delete stack instances.
 	//
 	// Choose from ALLOWED and NOT_ALLOWED.
-	StackInstanceControl *string `json:"stackInstanceControl"`
+	StackInstanceControl *string `json:"stackInstanceControl" yaml:"stackInstanceControl"`
 	// The language code.
 	//
 	// - `en` - English (default)
 	// - `jp` - Japanese
 	// - `zh` - Chinese
-	AcceptLanguage *string `json:"acceptLanguage"`
+	AcceptLanguage *string `json:"acceptLanguage" yaml:"acceptLanguage"`
 }
 
 // A CloudFormation `AWS::ServiceCatalog::TagOption`.
@@ -9518,9 +9518,9 @@ func (c *jsiiProxy_CfnTagOptionAssociation) ValidateProperties(_properties inter
 //
 type CfnTagOptionAssociationProps struct {
 	// The resource identifier.
-	ResourceId *string `json:"resourceId"`
+	ResourceId *string `json:"resourceId" yaml:"resourceId"`
 	// The TagOption identifier.
-	TagOptionId *string `json:"tagOptionId"`
+	TagOptionId *string `json:"tagOptionId" yaml:"tagOptionId"`
 }
 
 // Properties for defining a `CfnTagOption`.
@@ -9529,10 +9529,10 @@ type CfnTagOptionAssociationProps struct {
 //
 type CfnTagOptionProps struct {
 	// The TagOption key.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// The TagOption value.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 	// The TagOption active state.
-	Active interface{} `json:"active"`
+	Active interface{} `json:"active" yaml:"active"`
 }
 

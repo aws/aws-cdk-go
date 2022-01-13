@@ -561,13 +561,13 @@ func (c *jsiiProxy_CfnDestination) ValidateProperties(_properties interface{}) {
 //
 type CfnDestinationProps struct {
 	// The name of the destination.
-	DestinationName *string `json:"destinationName"`
+	DestinationName *string `json:"destinationName" yaml:"destinationName"`
 	// An IAM policy document that governs which AWS accounts can create subscription filters against this destination.
-	DestinationPolicy *string `json:"destinationPolicy"`
+	DestinationPolicy *string `json:"destinationPolicy" yaml:"destinationPolicy"`
 	// The ARN of an IAM role that permits CloudWatch Logs to send data to the specified AWS resource.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// The Amazon Resource Name (ARN) of the physical target where the log events are delivered (for example, a Kinesis stream).
-	TargetArn *string `json:"targetArn"`
+	TargetArn *string `json:"targetArn" yaml:"targetArn"`
 }
 
 // A CloudFormation `AWS::Logs::LogGroup`.
@@ -1116,21 +1116,21 @@ func (c *jsiiProxy_CfnLogGroup) ValidateProperties(_properties interface{}) {
 //
 type CfnLogGroupProps struct {
 	// The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
-	KmsKeyId *string `json:"kmsKeyId"`
+	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
 	// The name of the log group.
 	//
 	// If you don't specify a name, AWS CloudFormation generates a unique ID for the log group.
-	LogGroupName *string `json:"logGroupName"`
+	LogGroupName *string `json:"logGroupName" yaml:"logGroupName"`
 	// The number of days to retain the log events in the specified log group.
 	//
 	// Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.
 	//
 	// To set a log group to never have log events expire, use [DeleteRetentionPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html) .
-	RetentionInDays *float64 `json:"retentionInDays"`
+	RetentionInDays *float64 `json:"retentionInDays" yaml:"retentionInDays"`
 	// An array of key-value pairs to apply to the log group.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Logs::LogStream`.
@@ -1639,11 +1639,11 @@ func (c *jsiiProxy_CfnLogStream) ValidateProperties(_properties interface{}) {
 //
 type CfnLogStreamProps struct {
 	// The name of the log group where the log stream is created.
-	LogGroupName *string `json:"logGroupName"`
+	LogGroupName *string `json:"logGroupName" yaml:"logGroupName"`
 	// The name of the log stream.
 	//
 	// The name must be unique within the log group.
-	LogStreamName *string `json:"logStreamName"`
+	LogStreamName *string `json:"logStreamName" yaml:"logStreamName"`
 }
 
 // A CloudFormation `AWS::Logs::MetricFilter`.
@@ -2166,19 +2166,19 @@ func (c *jsiiProxy_CfnMetricFilter) ValidateProperties(_properties interface{}) 
 //
 type CfnMetricFilter_MetricTransformationProperty struct {
 	// The name of the CloudWatch metric.
-	MetricName *string `json:"metricName"`
+	MetricName *string `json:"metricName" yaml:"metricName"`
 	// A custom namespace to contain your metric in CloudWatch.
 	//
 	// Use namespaces to group together metrics that are similar. For more information, see [Namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Namespace) .
-	MetricNamespace *string `json:"metricNamespace"`
+	MetricNamespace *string `json:"metricNamespace" yaml:"metricNamespace"`
 	// The value that is published to the CloudWatch metric.
 	//
 	// For example, if you're counting the occurrences of a particular term like `Error` , specify 1 for the metric value. If you're counting the number of bytes transferred, reference the value that is in the log event by using $ followed by the name of the field that you specified in the filter pattern, such as `$size` .
-	MetricValue *string `json:"metricValue"`
+	MetricValue *string `json:"metricValue" yaml:"metricValue"`
 	// (Optional) The value to emit when a filter pattern does not match a log event.
 	//
 	// This value can be null.
-	DefaultValue *float64 `json:"defaultValue"`
+	DefaultValue *float64 `json:"defaultValue" yaml:"defaultValue"`
 }
 
 // Properties for defining a `CfnMetricFilter`.
@@ -2189,11 +2189,11 @@ type CfnMetricFilterProps struct {
 	// A filter pattern for extracting metric data out of ingested log events.
 	//
 	// For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html) .
-	FilterPattern *string `json:"filterPattern"`
+	FilterPattern *string `json:"filterPattern" yaml:"filterPattern"`
 	// The name of an existing log group that you want to associate with this metric filter.
-	LogGroupName *string `json:"logGroupName"`
+	LogGroupName *string `json:"logGroupName" yaml:"logGroupName"`
 	// The metric transformations.
-	MetricTransformations interface{} `json:"metricTransformations"`
+	MetricTransformations interface{} `json:"metricTransformations" yaml:"metricTransformations"`
 }
 
 // A CloudFormation `AWS::Logs::QueryDefinition`.
@@ -2725,13 +2725,13 @@ func (c *jsiiProxy_CfnQueryDefinition) ValidateProperties(_properties interface{
 //
 type CfnQueryDefinitionProps struct {
 	// A name for the query definition.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The query string to use for this query definition.
 	//
 	// For more information, see [CloudWatch Logs Insights Query Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html) .
-	QueryString *string `json:"queryString"`
+	QueryString *string `json:"queryString" yaml:"queryString"`
 	// Use this parameter if you want the query to query only certain log groups.
-	LogGroupNames *[]*string `json:"logGroupNames"`
+	LogGroupNames *[]*string `json:"logGroupNames" yaml:"logGroupNames"`
 }
 
 // A CloudFormation `AWS::Logs::ResourcePolicy`.
@@ -3234,9 +3234,9 @@ type CfnResourcePolicyProps struct {
 	// The details of the policy.
 	//
 	// It must be formatted in JSON, and you must use backslashes to escape characters that need to be escaped in JSON strings, such as double quote marks.
-	PolicyDocument *string `json:"policyDocument"`
+	PolicyDocument *string `json:"policyDocument" yaml:"policyDocument"`
 	// The name of the resource policy.
-	PolicyName *string `json:"policyName"`
+	PolicyName *string `json:"policyName" yaml:"policyName"`
 }
 
 // A CloudFormation `AWS::Logs::SubscriptionFilter`.
@@ -3784,34 +3784,34 @@ func (c *jsiiProxy_CfnSubscriptionFilter) ValidateProperties(_properties interfa
 //
 type CfnSubscriptionFilterProps struct {
 	// The Amazon Resource Name (ARN) of the destination.
-	DestinationArn *string `json:"destinationArn"`
+	DestinationArn *string `json:"destinationArn" yaml:"destinationArn"`
 	// The filtering expressions that restrict what gets delivered to the destination AWS resource.
 	//
 	// For more information about the filter pattern syntax, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html) .
-	FilterPattern *string `json:"filterPattern"`
+	FilterPattern *string `json:"filterPattern" yaml:"filterPattern"`
 	// The log group to associate with the subscription filter.
 	//
 	// All log events that are uploaded to this log group are filtered and delivered to the specified AWS resource if the filter pattern matches the log events.
-	LogGroupName *string `json:"logGroupName"`
+	LogGroupName *string `json:"logGroupName" yaml:"logGroupName"`
 	// The ARN of an IAM role that grants CloudWatch Logs permissions to deliver ingested log events to the destination stream.
 	//
 	// You don't need to provide the ARN when you are working with a logical destination for cross-account delivery.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 }
 
 // TODO: EXAMPLE
 //
 type ColumnRestriction struct {
 	// Comparison operator to use.
-	Comparison *string `json:"comparison"`
+	Comparison *string `json:"comparison" yaml:"comparison"`
 	// Number value to compare to.
 	//
 	// Exactly one of 'stringValue' and 'numberValue' must be set.
-	NumberValue *float64 `json:"numberValue"`
+	NumberValue *float64 `json:"numberValue" yaml:"numberValue"`
 	// String value to compare to.
 	//
 	// Exactly one of 'stringValue' and 'numberValue' must be set.
-	StringValue *string `json:"stringValue"`
+	StringValue *string `json:"stringValue" yaml:"stringValue"`
 }
 
 // A new CloudWatch Logs Destination for use in cross-account scenarios.
@@ -4099,11 +4099,11 @@ type CrossAccountDestinationProps struct {
 	// The role to assume that grants permissions to write to 'target'.
 	//
 	// The role must be assumable by 'logs.{REGION}.amazonaws.com'.
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 	// The log destination target's ARN.
-	TargetArn *string `json:"targetArn"`
+	TargetArn *string `json:"targetArn" yaml:"targetArn"`
 	// The name of the log destination.
-	DestinationName *string `json:"destinationName"`
+	DestinationName *string `json:"destinationName" yaml:"destinationName"`
 }
 
 // A collection of static methods to generate appropriate ILogPatterns.
@@ -5104,20 +5104,20 @@ func (l *jsiiProxy_LogGroup) ToString() *string {
 //
 type LogGroupProps struct {
 	// The KMS Key to encrypt the log group with.
-	EncryptionKey awskms.IKey `json:"encryptionKey"`
+	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
 	// Name of the log group.
-	LogGroupName *string `json:"logGroupName"`
+	LogGroupName *string `json:"logGroupName" yaml:"logGroupName"`
 	// Determine the removal policy of this log group.
 	//
 	// Normally you want to retain the log group so you can diagnose issues
 	// from logs even after a deployment that no longer includes the log group.
 	// In that case, use the normal date-based retention policy to age out your
 	// logs.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 	// How long, in days, the log contents will be retained.
 	//
 	// To retain all logs, set this value to RetentionDays.INFINITE.
-	Retention RetentionDays `json:"retention"`
+	Retention RetentionDays `json:"retention" yaml:"retention"`
 }
 
 // Creates a custom resource to control the retention policy of a CloudWatch Logs log group.
@@ -5225,15 +5225,15 @@ func (l *jsiiProxy_LogRetention) ToString() *string {
 //
 type LogRetentionProps struct {
 	// The log group name.
-	LogGroupName *string `json:"logGroupName"`
+	LogGroupName *string `json:"logGroupName" yaml:"logGroupName"`
 	// The number of days log events are kept in CloudWatch Logs.
-	Retention RetentionDays `json:"retention"`
+	Retention RetentionDays `json:"retention" yaml:"retention"`
 	// The region where the log group should be created.
-	LogGroupRegion *string `json:"logGroupRegion"`
+	LogGroupRegion *string `json:"logGroupRegion" yaml:"logGroupRegion"`
 	// Retry options for all AWS API calls.
-	LogRetentionRetryOptions *LogRetentionRetryOptions `json:"logRetentionRetryOptions"`
+	LogRetentionRetryOptions *LogRetentionRetryOptions `json:"logRetentionRetryOptions" yaml:"logRetentionRetryOptions"`
 	// The IAM role for the Lambda function associated with the custom resource.
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 }
 
 // Retry options for all AWS API calls.
@@ -5242,9 +5242,9 @@ type LogRetentionProps struct {
 //
 type LogRetentionRetryOptions struct {
 	// The base duration to use in the exponential backoff for operation retries.
-	Base awscdk.Duration `json:"base"`
+	Base awscdk.Duration `json:"base" yaml:"base"`
 	// The maximum amount of retries.
-	MaxRetries *float64 `json:"maxRetries"`
+	MaxRetries *float64 `json:"maxRetries" yaml:"maxRetries"`
 }
 
 // Define a Log Stream in a Log Group.
@@ -5485,11 +5485,11 @@ func (l *jsiiProxy_LogStream) ToString() *string {
 //
 type LogStreamProps struct {
 	// The log group to create a log stream for.
-	LogGroup ILogGroup `json:"logGroup"`
+	LogGroup ILogGroup `json:"logGroup" yaml:"logGroup"`
 	// The name of the log stream to create.
 	//
 	// The name must be unique within the log group.
-	LogStreamName *string `json:"logStreamName"`
+	LogStreamName *string `json:"logStreamName" yaml:"logStreamName"`
 	// Determine what happens when the log stream resource is removed from the app.
 	//
 	// Normally you want to retain the log stream so you can diagnose issues from
@@ -5497,7 +5497,7 @@ type LogStreamProps struct {
 	//
 	// The date-based retention policy of your log group will age out the logs
 	// after a certain time.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 }
 
 // Properties returned by a Subscription destination.
@@ -5506,9 +5506,9 @@ type LogStreamProps struct {
 //
 type LogSubscriptionDestinationConfig struct {
 	// The ARN of the subscription's destination.
-	Arn *string `json:"arn"`
+	Arn *string `json:"arn" yaml:"arn"`
 	// The role to assume to write log events to the destination.
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 }
 
 // A filter that extracts information from CloudWatch Logs and emits to CloudWatch Metrics.
@@ -5735,13 +5735,13 @@ func (m *jsiiProxy_MetricFilter) ToString() *string {
 //
 type MetricFilterOptions struct {
 	// Pattern to search for log events.
-	FilterPattern IFilterPattern `json:"filterPattern"`
+	FilterPattern IFilterPattern `json:"filterPattern" yaml:"filterPattern"`
 	// The name of the metric to emit.
-	MetricName *string `json:"metricName"`
+	MetricName *string `json:"metricName" yaml:"metricName"`
 	// The namespace of the metric to emit.
-	MetricNamespace *string `json:"metricNamespace"`
+	MetricNamespace *string `json:"metricNamespace" yaml:"metricNamespace"`
 	// The value to emit if the pattern does not match a particular event.
-	DefaultValue *float64 `json:"defaultValue"`
+	DefaultValue *float64 `json:"defaultValue" yaml:"defaultValue"`
 	// The value to emit for the metric.
 	//
 	// Can either be a literal number (typically "1"), or the name of a field in the structure
@@ -5753,7 +5753,7 @@ type MetricFilterOptions struct {
 	//
 	// If you want to specify a field from a matched space-delimited structure,
 	// use '$fieldName'.
-	MetricValue *string `json:"metricValue"`
+	MetricValue *string `json:"metricValue" yaml:"metricValue"`
 }
 
 // Properties for a MetricFilter.
@@ -5762,13 +5762,13 @@ type MetricFilterOptions struct {
 //
 type MetricFilterProps struct {
 	// Pattern to search for log events.
-	FilterPattern IFilterPattern `json:"filterPattern"`
+	FilterPattern IFilterPattern `json:"filterPattern" yaml:"filterPattern"`
 	// The name of the metric to emit.
-	MetricName *string `json:"metricName"`
+	MetricName *string `json:"metricName" yaml:"metricName"`
 	// The namespace of the metric to emit.
-	MetricNamespace *string `json:"metricNamespace"`
+	MetricNamespace *string `json:"metricNamespace" yaml:"metricNamespace"`
 	// The value to emit if the pattern does not match a particular event.
-	DefaultValue *float64 `json:"defaultValue"`
+	DefaultValue *float64 `json:"defaultValue" yaml:"defaultValue"`
 	// The value to emit for the metric.
 	//
 	// Can either be a literal number (typically "1"), or the name of a field in the structure
@@ -5780,9 +5780,9 @@ type MetricFilterProps struct {
 	//
 	// If you want to specify a field from a matched space-delimited structure,
 	// use '$fieldName'.
-	MetricValue *string `json:"metricValue"`
+	MetricValue *string `json:"metricValue" yaml:"metricValue"`
 	// The log group to create the filter on.
-	LogGroup ILogGroup `json:"logGroup"`
+	LogGroup ILogGroup `json:"logGroup" yaml:"logGroup"`
 }
 
 // Resource Policy for CloudWatch Log Groups.
@@ -6016,9 +6016,9 @@ func (r *jsiiProxy_ResourcePolicy) ToString() *string {
 //
 type ResourcePolicyProps struct {
 	// Initial statements to add to the resource policy.
-	PolicyStatements *[]awsiam.PolicyStatement `json:"policyStatements"`
+	PolicyStatements *[]awsiam.PolicyStatement `json:"policyStatements" yaml:"policyStatements"`
 	// Name of the log group resource policy.
-	ResourcePolicyName *string `json:"resourcePolicyName"`
+	ResourcePolicyName *string `json:"resourcePolicyName" yaml:"resourcePolicyName"`
 }
 
 // How long, in days, the log contents will be retained.
@@ -6157,7 +6157,7 @@ type StreamOptions struct {
 	// The name of the log stream to create.
 	//
 	// The name must be unique within the log group.
-	LogStreamName *string `json:"logStreamName"`
+	LogStreamName *string `json:"logStreamName" yaml:"logStreamName"`
 }
 
 // A new Subscription on a CloudWatch log group.
@@ -6371,9 +6371,9 @@ type SubscriptionFilterOptions struct {
 	// The destination to send the filtered events to.
 	//
 	// For example, a Kinesis stream or a Lambda function.
-	Destination ILogSubscriptionDestination `json:"destination"`
+	Destination ILogSubscriptionDestination `json:"destination" yaml:"destination"`
 	// Log events matching this pattern will be sent to the destination.
-	FilterPattern IFilterPattern `json:"filterPattern"`
+	FilterPattern IFilterPattern `json:"filterPattern" yaml:"filterPattern"`
 }
 
 // Properties for a SubscriptionFilter.
@@ -6384,10 +6384,10 @@ type SubscriptionFilterProps struct {
 	// The destination to send the filtered events to.
 	//
 	// For example, a Kinesis stream or a Lambda function.
-	Destination ILogSubscriptionDestination `json:"destination"`
+	Destination ILogSubscriptionDestination `json:"destination" yaml:"destination"`
 	// Log events matching this pattern will be sent to the destination.
-	FilterPattern IFilterPattern `json:"filterPattern"`
+	FilterPattern IFilterPattern `json:"filterPattern" yaml:"filterPattern"`
 	// The log group to create the subscription on.
-	LogGroup ILogGroup `json:"logGroup"`
+	LogGroup ILogGroup `json:"logGroup" yaml:"logGroup"`
 }
 

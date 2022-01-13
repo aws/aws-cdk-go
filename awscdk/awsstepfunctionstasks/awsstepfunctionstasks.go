@@ -189,15 +189,15 @@ type AlgorithmSpecification struct {
 	//
 	// This must be an algorithm resource that you created or subscribe to on AWS Marketplace.
 	// If you specify a value for this parameter, you can't specify a value for TrainingImage.
-	AlgorithmName *string `json:"algorithmName"`
+	AlgorithmName *string `json:"algorithmName" yaml:"algorithmName"`
 	// List of metric definition objects.
 	//
 	// Each object specifies the metric name and regular expressions used to parse algorithm logs.
-	MetricDefinitions *[]*MetricDefinition `json:"metricDefinitions"`
+	MetricDefinitions *[]*MetricDefinition `json:"metricDefinitions" yaml:"metricDefinitions"`
 	// Registry path of the Docker image that contains the training algorithm.
-	TrainingImage DockerImage `json:"trainingImage"`
+	TrainingImage DockerImage `json:"trainingImage" yaml:"trainingImage"`
 	// Input mode that the algorithm supports.
-	TrainingInputMode InputMode `json:"trainingInputMode"`
+	TrainingInputMode InputMode `json:"trainingInputMode" yaml:"trainingInputMode"`
 }
 
 // A configuration specification to be used when provisioning virtual clusters, which can include configurations for applications and software bundled with Amazon EMR on EKS.
@@ -214,15 +214,15 @@ type ApplicationConfiguration struct {
 	// The classification within a configuration.
 	//
 	// Length Constraints: Minimum length of 1. Maximum length of 1024.
-	Classification Classification `json:"classification"`
+	Classification Classification `json:"classification" yaml:"classification"`
 	// A list of additional configurations to apply within a configuration object.
 	//
 	// Array Members: Maximum number of 100 items.
-	NestedConfig *[]*ApplicationConfiguration `json:"nestedConfig"`
+	NestedConfig *[]*ApplicationConfiguration `json:"nestedConfig" yaml:"nestedConfig"`
 	// A set of properties specified within a configuration classification.
 	//
 	// Map Entries: Maximum number of 100 items.
-	Properties *map[string]*string `json:"properties"`
+	Properties *map[string]*string `json:"properties" yaml:"properties"`
 }
 
 // How to assemble the results of the transform job as a single S3 object.
@@ -989,43 +989,43 @@ func (a *jsiiProxy_AthenaGetQueryExecution) WhenBoundToGraph(graph awsstepfuncti
 //
 type AthenaGetQueryExecutionProps struct {
 	// An optional description for this state.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	Heartbeat awscdk.Duration `json:"heartbeat"`
+	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	InputPath *string `json:"inputPath"`
+	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern"`
+	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	OutputPath *string `json:"outputPath"`
+	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	ResultPath *string `json:"resultPath"`
+	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
 	// You can use ResultSelector to create a payload with values that are static
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	ResultSelector *map[string]interface{} `json:"resultSelector"`
+	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// Query that will be retrieved.
 	//
 	// Example value: `adfsaf-23trf23-f23rt23`
-	QueryExecutionId *string `json:"queryExecutionId"`
+	QueryExecutionId *string `json:"queryExecutionId" yaml:"queryExecutionId"`
 }
 
 // Get an Athena Query Results as a Task.
@@ -1784,47 +1784,47 @@ func (a *jsiiProxy_AthenaGetQueryResults) WhenBoundToGraph(graph awsstepfunction
 //
 type AthenaGetQueryResultsProps struct {
 	// An optional description for this state.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	Heartbeat awscdk.Duration `json:"heartbeat"`
+	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	InputPath *string `json:"inputPath"`
+	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern"`
+	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	OutputPath *string `json:"outputPath"`
+	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	ResultPath *string `json:"resultPath"`
+	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
 	// You can use ResultSelector to create a payload with values that are static
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	ResultSelector *map[string]interface{} `json:"resultSelector"`
+	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// Query that will be retrieved.
 	//
 	// Example value: `adfsaf-23trf23-f23rt23`
-	QueryExecutionId *string `json:"queryExecutionId"`
+	QueryExecutionId *string `json:"queryExecutionId" yaml:"queryExecutionId"`
 	// Max number of results.
-	MaxResults *float64 `json:"maxResults"`
+	MaxResults *float64 `json:"maxResults" yaml:"maxResults"`
 	// Pagination token.
-	NextToken *string `json:"nextToken"`
+	NextToken *string `json:"nextToken" yaml:"nextToken"`
 }
 
 // Start an Athena Query as a Task.
@@ -2583,49 +2583,49 @@ func (a *jsiiProxy_AthenaStartQueryExecution) WhenBoundToGraph(graph awsstepfunc
 //
 type AthenaStartQueryExecutionProps struct {
 	// An optional description for this state.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	Heartbeat awscdk.Duration `json:"heartbeat"`
+	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	InputPath *string `json:"inputPath"`
+	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern"`
+	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	OutputPath *string `json:"outputPath"`
+	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	ResultPath *string `json:"resultPath"`
+	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
 	// You can use ResultSelector to create a payload with values that are static
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	ResultSelector *map[string]interface{} `json:"resultSelector"`
+	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// Query that will be started.
-	QueryString *string `json:"queryString"`
+	QueryString *string `json:"queryString" yaml:"queryString"`
 	// Unique string string to ensure idempotence.
-	ClientRequestToken *string `json:"clientRequestToken"`
+	ClientRequestToken *string `json:"clientRequestToken" yaml:"clientRequestToken"`
 	// Database within which query executes.
-	QueryExecutionContext *QueryExecutionContext `json:"queryExecutionContext"`
+	QueryExecutionContext *QueryExecutionContext `json:"queryExecutionContext" yaml:"queryExecutionContext"`
 	// Configuration on how and where to save query.
-	ResultConfiguration *ResultConfiguration `json:"resultConfiguration"`
+	ResultConfiguration *ResultConfiguration `json:"resultConfiguration" yaml:"resultConfiguration"`
 	// Configuration on how and where to save query.
-	WorkGroup *string `json:"workGroup"`
+	WorkGroup *string `json:"workGroup" yaml:"workGroup"`
 }
 
 // Stop an Athena Query Execution as a Task.
@@ -3384,41 +3384,41 @@ func (a *jsiiProxy_AthenaStopQueryExecution) WhenBoundToGraph(graph awsstepfunct
 //
 type AthenaStopQueryExecutionProps struct {
 	// An optional description for this state.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	Heartbeat awscdk.Duration `json:"heartbeat"`
+	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	InputPath *string `json:"inputPath"`
+	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern"`
+	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	OutputPath *string `json:"outputPath"`
+	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	ResultPath *string `json:"resultPath"`
+	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
 	// You can use ResultSelector to create a payload with values that are static
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	ResultSelector *map[string]interface{} `json:"resultSelector"`
+	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// Query that will be stopped.
-	QueryExecutionId *string `json:"queryExecutionId"`
+	QueryExecutionId *string `json:"queryExecutionId" yaml:"queryExecutionId"`
 }
 
 // The authentication method used to call the endpoint.
@@ -3436,29 +3436,29 @@ const (
 //
 type BatchContainerOverrides struct {
 	// The command to send to the container that overrides the default command from the Docker image or the job definition.
-	Command *[]*string `json:"command"`
+	Command *[]*string `json:"command" yaml:"command"`
 	// The environment variables to send to the container.
 	//
 	// You can add new environment variables, which are added to the container
 	// at launch, or you can override the existing environment variables from
 	// the Docker image or the job definition.
-	Environment *map[string]*string `json:"environment"`
+	Environment *map[string]*string `json:"environment" yaml:"environment"`
 	// The number of physical GPUs to reserve for the container.
 	//
 	// The number of GPUs reserved for all containers in a job
 	// should not exceed the number of available GPUs on the compute
 	// resource that the job is launched on.
-	GpuCount *float64 `json:"gpuCount"`
+	GpuCount *float64 `json:"gpuCount" yaml:"gpuCount"`
 	// The instance type to use for a multi-node parallel job.
 	//
 	// This parameter is not valid for single-node container jobs.
-	InstanceType awsec2.InstanceType `json:"instanceType"`
+	InstanceType awsec2.InstanceType `json:"instanceType" yaml:"instanceType"`
 	// Memory reserved for the job.
-	Memory awscdk.Size `json:"memory"`
+	Memory awscdk.Size `json:"memory" yaml:"memory"`
 	// The number of vCPUs to reserve for the container.
 	//
 	// This value overrides the value set in the job definition.
-	Vcpus *float64 `json:"vcpus"`
+	Vcpus *float64 `json:"vcpus" yaml:"vcpus"`
 }
 
 // An object representing an AWS Batch job dependency.
@@ -3467,9 +3467,9 @@ type BatchContainerOverrides struct {
 //
 type BatchJobDependency struct {
 	// The job ID of the AWS Batch job associated with this dependency.
-	JobId *string `json:"jobId"`
+	JobId *string `json:"jobId" yaml:"jobId"`
 	// The type of the job dependency.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 }
 
 // Specifies the number of records to include in a mini-batch for an HTTP inference request.
@@ -4236,71 +4236,71 @@ func (b *jsiiProxy_BatchSubmitJob) WhenBoundToGraph(graph awsstepfunctions.State
 //
 type BatchSubmitJobProps struct {
 	// An optional description for this state.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	Heartbeat awscdk.Duration `json:"heartbeat"`
+	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	InputPath *string `json:"inputPath"`
+	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern"`
+	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	OutputPath *string `json:"outputPath"`
+	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	ResultPath *string `json:"resultPath"`
+	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
 	// You can use ResultSelector to create a payload with values that are static
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	ResultSelector *map[string]interface{} `json:"resultSelector"`
+	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The arn of the job definition used by this job.
-	JobDefinitionArn *string `json:"jobDefinitionArn"`
+	JobDefinitionArn *string `json:"jobDefinitionArn" yaml:"jobDefinitionArn"`
 	// The name of the job.
 	//
 	// The first character must be alphanumeric, and up to 128 letters (uppercase and lowercase),
 	// numbers, hyphens, and underscores are allowed.
-	JobName *string `json:"jobName"`
+	JobName *string `json:"jobName" yaml:"jobName"`
 	// The arn of the job queue into which the job is submitted.
-	JobQueueArn *string `json:"jobQueueArn"`
+	JobQueueArn *string `json:"jobQueueArn" yaml:"jobQueueArn"`
 	// The array size can be between 2 and 10,000.
 	//
 	// If you specify array properties for a job, it becomes an array job.
 	// For more information, see Array Jobs in the AWS Batch User Guide.
-	ArraySize *float64 `json:"arraySize"`
+	ArraySize *float64 `json:"arraySize" yaml:"arraySize"`
 	// The number of times to move a job to the RUNNABLE status.
 	//
 	// You may specify between 1 and 10 attempts.
 	// If the value of attempts is greater than one,
 	// the job is retried on failure the same number of attempts as the value.
-	Attempts *float64 `json:"attempts"`
+	Attempts *float64 `json:"attempts" yaml:"attempts"`
 	// A list of container overrides in JSON format that specify the name of a container in the specified job definition and the overrides it should receive.
 	// See: https://docs.aws.amazon.com/batch/latest/APIReference/API_SubmitJob.html#Batch-SubmitJob-request-containerOverrides
 	//
-	ContainerOverrides *BatchContainerOverrides `json:"containerOverrides"`
+	ContainerOverrides *BatchContainerOverrides `json:"containerOverrides" yaml:"containerOverrides"`
 	// A list of dependencies for the job.
 	//
 	// A job can depend upon a maximum of 20 jobs.
 	// See: https://docs.aws.amazon.com/batch/latest/APIReference/API_SubmitJob.html#Batch-SubmitJob-request-dependsOn
 	//
-	DependsOn *[]*BatchJobDependency `json:"dependsOn"`
+	DependsOn *[]*BatchJobDependency `json:"dependsOn" yaml:"dependsOn"`
 	// The payload to be passed as parameters to the batch job.
-	Payload awsstepfunctions.TaskInput `json:"payload"`
+	Payload awsstepfunctions.TaskInput `json:"payload" yaml:"payload"`
 }
 
 // Base CallApiGatewayEdnpoint Task Props.
@@ -4309,51 +4309,51 @@ type BatchSubmitJobProps struct {
 //
 type CallApiGatewayEndpointBaseProps struct {
 	// An optional description for this state.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	Heartbeat awscdk.Duration `json:"heartbeat"`
+	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	InputPath *string `json:"inputPath"`
+	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern"`
+	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	OutputPath *string `json:"outputPath"`
+	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	ResultPath *string `json:"resultPath"`
+	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
 	// You can use ResultSelector to create a payload with values that are static
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	ResultSelector *map[string]interface{} `json:"resultSelector"`
+	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// Http method for the API.
-	Method HttpMethod `json:"method"`
+	Method HttpMethod `json:"method" yaml:"method"`
 	// Path parameters appended after API endpoint.
-	ApiPath *string `json:"apiPath"`
+	ApiPath *string `json:"apiPath" yaml:"apiPath"`
 	// Authentication methods.
-	AuthType AuthType `json:"authType"`
+	AuthType AuthType `json:"authType" yaml:"authType"`
 	// HTTP request information that does not relate to contents of the request.
-	Headers awsstepfunctions.TaskInput `json:"headers"`
+	Headers awsstepfunctions.TaskInput `json:"headers" yaml:"headers"`
 	// Query strings attatched to end of request.
-	QueryParameters awsstepfunctions.TaskInput `json:"queryParameters"`
+	QueryParameters awsstepfunctions.TaskInput `json:"queryParameters" yaml:"queryParameters"`
 	// HTTP Request body.
-	RequestBody awsstepfunctions.TaskInput `json:"requestBody"`
+	RequestBody awsstepfunctions.TaskInput `json:"requestBody" yaml:"requestBody"`
 }
 
 // Call HTTP API endpoint as a Task.
@@ -5159,57 +5159,57 @@ func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) WhenBoundToGraph(graph awsstep
 //
 type CallApiGatewayHttpApiEndpointProps struct {
 	// An optional description for this state.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	Heartbeat awscdk.Duration `json:"heartbeat"`
+	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	InputPath *string `json:"inputPath"`
+	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern"`
+	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	OutputPath *string `json:"outputPath"`
+	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	ResultPath *string `json:"resultPath"`
+	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
 	// You can use ResultSelector to create a payload with values that are static
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	ResultSelector *map[string]interface{} `json:"resultSelector"`
+	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// Http method for the API.
-	Method HttpMethod `json:"method"`
+	Method HttpMethod `json:"method" yaml:"method"`
 	// Path parameters appended after API endpoint.
-	ApiPath *string `json:"apiPath"`
+	ApiPath *string `json:"apiPath" yaml:"apiPath"`
 	// Authentication methods.
-	AuthType AuthType `json:"authType"`
+	AuthType AuthType `json:"authType" yaml:"authType"`
 	// HTTP request information that does not relate to contents of the request.
-	Headers awsstepfunctions.TaskInput `json:"headers"`
+	Headers awsstepfunctions.TaskInput `json:"headers" yaml:"headers"`
 	// Query strings attatched to end of request.
-	QueryParameters awsstepfunctions.TaskInput `json:"queryParameters"`
+	QueryParameters awsstepfunctions.TaskInput `json:"queryParameters" yaml:"queryParameters"`
 	// HTTP Request body.
-	RequestBody awsstepfunctions.TaskInput `json:"requestBody"`
+	RequestBody awsstepfunctions.TaskInput `json:"requestBody" yaml:"requestBody"`
 	// The Id of the API to call.
-	ApiId *string `json:"apiId"`
+	ApiId *string `json:"apiId" yaml:"apiId"`
 	// The Stack in which the API is defined.
-	ApiStack awscdk.Stack `json:"apiStack"`
+	ApiStack awscdk.Stack `json:"apiStack" yaml:"apiStack"`
 	// Name of the stage where the API is deployed to in API Gateway.
-	StageName *string `json:"stageName"`
+	StageName *string `json:"stageName" yaml:"stageName"`
 }
 
 // Call REST API endpoint as a Task.
@@ -6015,55 +6015,55 @@ func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) WhenBoundToGraph(graph awsstep
 //
 type CallApiGatewayRestApiEndpointProps struct {
 	// An optional description for this state.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	Heartbeat awscdk.Duration `json:"heartbeat"`
+	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	InputPath *string `json:"inputPath"`
+	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern"`
+	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	OutputPath *string `json:"outputPath"`
+	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	ResultPath *string `json:"resultPath"`
+	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
 	// You can use ResultSelector to create a payload with values that are static
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	ResultSelector *map[string]interface{} `json:"resultSelector"`
+	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// Http method for the API.
-	Method HttpMethod `json:"method"`
+	Method HttpMethod `json:"method" yaml:"method"`
 	// Path parameters appended after API endpoint.
-	ApiPath *string `json:"apiPath"`
+	ApiPath *string `json:"apiPath" yaml:"apiPath"`
 	// Authentication methods.
-	AuthType AuthType `json:"authType"`
+	AuthType AuthType `json:"authType" yaml:"authType"`
 	// HTTP request information that does not relate to contents of the request.
-	Headers awsstepfunctions.TaskInput `json:"headers"`
+	Headers awsstepfunctions.TaskInput `json:"headers" yaml:"headers"`
 	// Query strings attatched to end of request.
-	QueryParameters awsstepfunctions.TaskInput `json:"queryParameters"`
+	QueryParameters awsstepfunctions.TaskInput `json:"queryParameters" yaml:"queryParameters"`
 	// HTTP Request body.
-	RequestBody awsstepfunctions.TaskInput `json:"requestBody"`
+	RequestBody awsstepfunctions.TaskInput `json:"requestBody" yaml:"requestBody"`
 	// API to call.
-	Api awsapigateway.IRestApi `json:"api"`
+	Api awsapigateway.IRestApi `json:"api" yaml:"api"`
 	// Name of the stage where the API is deployed to in API Gateway.
-	StageName *string `json:"stageName"`
+	StageName *string `json:"stageName" yaml:"stageName"`
 }
 
 // A StepFunctions task to call an AWS service API.
@@ -6822,60 +6822,60 @@ func (c *jsiiProxy_CallAwsService) WhenBoundToGraph(graph awsstepfunctions.State
 //
 type CallAwsServiceProps struct {
 	// An optional description for this state.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	Heartbeat awscdk.Duration `json:"heartbeat"`
+	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	InputPath *string `json:"inputPath"`
+	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern"`
+	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	OutputPath *string `json:"outputPath"`
+	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	ResultPath *string `json:"resultPath"`
+	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
 	// You can use ResultSelector to create a payload with values that are static
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	ResultSelector *map[string]interface{} `json:"resultSelector"`
+	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The API action to call.
 	//
 	// Use camelCase.
-	Action *string `json:"action"`
+	Action *string `json:"action" yaml:"action"`
 	// The resources for the IAM statement that will be added to the state machine role's policy to allow the state machine to make the API call.
 	//
 	// By default the action for this IAM statement will be `service:action`.
-	IamResources *[]*string `json:"iamResources"`
+	IamResources *[]*string `json:"iamResources" yaml:"iamResources"`
 	// The AWS service to call.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/supported-services-awssdk.html
 	//
-	Service *string `json:"service"`
+	Service *string `json:"service" yaml:"service"`
 	// The action for the IAM statement that will be added to the state machine role's policy to allow the state machine to make the API call.
 	//
 	// Use in the case where the IAM action name does not match with the
 	// API service/action name, e.g. `s3:ListBuckets` requires `s3:ListAllMyBuckets`.
-	IamAction *string `json:"iamAction"`
+	IamAction *string `json:"iamAction" yaml:"iamAction"`
 	// Parameters for the API action call.
 	//
 	// Use PascalCase for the parameter names.
-	Parameters *map[string]interface{} `json:"parameters"`
+	Parameters *map[string]interface{} `json:"parameters" yaml:"parameters"`
 }
 
 // Describes the training, validation or test dataset and the Amazon S3 location where it is stored.
@@ -6884,22 +6884,22 @@ type CallAwsServiceProps struct {
 //
 type Channel struct {
 	// Name of the channel.
-	ChannelName *string `json:"channelName"`
+	ChannelName *string `json:"channelName" yaml:"channelName"`
 	// Location of the channel data.
-	DataSource *DataSource `json:"dataSource"`
+	DataSource *DataSource `json:"dataSource" yaml:"dataSource"`
 	// Compression type if training data is compressed.
-	CompressionType CompressionType `json:"compressionType"`
+	CompressionType CompressionType `json:"compressionType" yaml:"compressionType"`
 	// The MIME type of the data.
-	ContentType *string `json:"contentType"`
+	ContentType *string `json:"contentType" yaml:"contentType"`
 	// Input mode to use for the data channel in a training job.
-	InputMode InputMode `json:"inputMode"`
+	InputMode InputMode `json:"inputMode" yaml:"inputMode"`
 	// Specify RecordIO as the value when input data is in raw format but the training algorithm requires the RecordIO format.
 	//
 	// In this case, Amazon SageMaker wraps each individual S3 object in a RecordIO record.
 	// If the input data is already in RecordIO format, you don't need to set this attribute.
-	RecordWrapperType RecordWrapperType `json:"recordWrapperType"`
+	RecordWrapperType RecordWrapperType `json:"recordWrapperType" yaml:"recordWrapperType"`
 	// Shuffle config option for input data in a channel.
-	ShuffleConfig *ShuffleConfig `json:"shuffleConfig"`
+	ShuffleConfig *ShuffleConfig `json:"shuffleConfig" yaml:"shuffleConfig"`
 }
 
 // The classification within a EMR Containers application configuration.
@@ -7777,43 +7777,43 @@ func (c *jsiiProxy_CodeBuildStartBuild) WhenBoundToGraph(graph awsstepfunctions.
 //
 type CodeBuildStartBuildProps struct {
 	// An optional description for this state.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	Heartbeat awscdk.Duration `json:"heartbeat"`
+	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	InputPath *string `json:"inputPath"`
+	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern"`
+	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	OutputPath *string `json:"outputPath"`
+	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	ResultPath *string `json:"resultPath"`
+	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
 	// You can use ResultSelector to create a payload with values that are static
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	ResultSelector *map[string]interface{} `json:"resultSelector"`
+	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// CodeBuild project to start.
-	Project awscodebuild.IProject `json:"project"`
+	Project awscodebuild.IProject `json:"project" yaml:"project"`
 	// A set of environment variables to be used for this build only.
-	EnvironmentVariablesOverride *map[string]*awscodebuild.BuildEnvironmentVariable `json:"environmentVariablesOverride"`
+	EnvironmentVariablesOverride *map[string]*awscodebuild.BuildEnvironmentVariable `json:"environmentVariablesOverride" yaml:"environmentVariablesOverride"`
 }
 
 // Basic properties for ECS Tasks.
@@ -7822,21 +7822,21 @@ type CodeBuildStartBuildProps struct {
 //
 type CommonEcsRunTaskProps struct {
 	// The topic to run the task on.
-	Cluster awsecs.ICluster `json:"cluster"`
+	Cluster awsecs.ICluster `json:"cluster" yaml:"cluster"`
 	// Task Definition used for running tasks in the service.
 	//
 	// Note: this must be TaskDefinition, and not ITaskDefinition,
 	// as it requires properties that are not known for imported task definitions
-	TaskDefinition awsecs.TaskDefinition `json:"taskDefinition"`
+	TaskDefinition awsecs.TaskDefinition `json:"taskDefinition" yaml:"taskDefinition"`
 	// Container setting overrides.
 	//
 	// Key is the name of the container to override, value is the
 	// values you want to override.
-	ContainerOverrides *[]*ContainerOverride `json:"containerOverrides"`
+	ContainerOverrides *[]*ContainerOverride `json:"containerOverrides" yaml:"containerOverrides"`
 	// The service integration pattern indicates different ways to call RunTask in ECS.
 	//
 	// The valid value for Lambda is FIRE_AND_FORGET, SYNC and WAIT_FOR_TASK_TOKEN.
-	IntegrationPattern awsstepfunctions.ServiceIntegrationPattern `json:"integrationPattern"`
+	IntegrationPattern awsstepfunctions.ServiceIntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 }
 
 // Compression type of the data.
@@ -7907,7 +7907,7 @@ func (c *jsiiProxy_ContainerDefinition) Bind(task ISageMakerTask) *ContainerDefi
 //
 type ContainerDefinitionConfig struct {
 	// Additional parameters to pass to the base task.
-	Parameters *map[string]interface{} `json:"parameters"`
+	Parameters *map[string]interface{} `json:"parameters" yaml:"parameters"`
 }
 
 // Properties to define a ContainerDefinition.
@@ -7921,20 +7921,20 @@ type ContainerDefinitionOptions struct {
 	//
 	// When a ContainerDefinition is part of an inference pipeline,
 	// the value of the parameter uniquely identifies the container for the purposes of logging and metrics.
-	ContainerHostName *string `json:"containerHostName"`
+	ContainerHostName *string `json:"containerHostName" yaml:"containerHostName"`
 	// The environment variables to set in the Docker container.
-	EnvironmentVariables awsstepfunctions.TaskInput `json:"environmentVariables"`
+	EnvironmentVariables awsstepfunctions.TaskInput `json:"environmentVariables" yaml:"environmentVariables"`
 	// The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored.
-	Image DockerImage `json:"image"`
+	Image DockerImage `json:"image" yaml:"image"`
 	// Defines how many models the container hosts.
-	Mode Mode `json:"mode"`
+	Mode Mode `json:"mode" yaml:"mode"`
 	// The name or Amazon Resource Name (ARN) of the model package to use to create the model.
-	ModelPackageName *string `json:"modelPackageName"`
+	ModelPackageName *string `json:"modelPackageName" yaml:"modelPackageName"`
 	// The S3 path where the model artifacts, which result from model training, are stored.
 	//
 	// This path must point to a single gzip compressed tar archive (.tar.gz suffix).
 	// The S3 path is required for Amazon SageMaker built-in algorithms, but not if you use your own algorithms.
-	ModelS3Location S3Location `json:"modelS3Location"`
+	ModelS3Location S3Location `json:"modelS3Location" yaml:"modelS3Location"`
 }
 
 // A list of container overrides that specify the name of a container and the overrides it should receive.
@@ -7943,20 +7943,20 @@ type ContainerDefinitionOptions struct {
 //
 type ContainerOverride struct {
 	// Name of the container inside the task definition.
-	ContainerDefinition awsecs.ContainerDefinition `json:"containerDefinition"`
+	ContainerDefinition awsecs.ContainerDefinition `json:"containerDefinition" yaml:"containerDefinition"`
 	// Command to run inside the container.
-	Command *[]*string `json:"command"`
+	Command *[]*string `json:"command" yaml:"command"`
 	// The number of cpu units reserved for the container.
-	Cpu *float64 `json:"cpu"`
+	Cpu *float64 `json:"cpu" yaml:"cpu"`
 	// The environment variables to send to the container.
 	//
 	// You can add new environment variables, which are added to the container at launch,
 	// or you can override the existing environment variables from the Docker image or the task definition.
-	Environment *[]*TaskEnvironmentVariable `json:"environment"`
+	Environment *[]*TaskEnvironmentVariable `json:"environment" yaml:"environment"`
 	// The hard limit (in MiB) of memory to present to the container.
-	MemoryLimit *float64 `json:"memoryLimit"`
+	MemoryLimit *float64 `json:"memoryLimit" yaml:"memoryLimit"`
 	// The soft limit (in MiB) of memory to reserve for the container.
-	MemoryReservation *float64 `json:"memoryReservation"`
+	MemoryReservation *float64 `json:"memoryReservation" yaml:"memoryReservation"`
 }
 
 // The overrides that should be sent to a container.
@@ -7965,31 +7965,31 @@ type ContainerOverride struct {
 //
 type ContainerOverrides struct {
 	// The command to send to the container that overrides the default command from the Docker image or the job definition.
-	Command *[]*string `json:"command"`
+	Command *[]*string `json:"command" yaml:"command"`
 	// The environment variables to send to the container.
 	//
 	// You can add new environment variables, which are added to the container
 	// at launch, or you can override the existing environment variables from
 	// the Docker image or the job definition.
-	Environment *map[string]*string `json:"environment"`
+	Environment *map[string]*string `json:"environment" yaml:"environment"`
 	// The number of physical GPUs to reserve for the container.
 	//
 	// The number of GPUs reserved for all containers in a job
 	// should not exceed the number of available GPUs on the compute
 	// resource that the job is launched on.
-	GpuCount *float64 `json:"gpuCount"`
+	GpuCount *float64 `json:"gpuCount" yaml:"gpuCount"`
 	// The instance type to use for a multi-node parallel job.
 	//
 	// This parameter is not valid for single-node container jobs.
-	InstanceType awsec2.InstanceType `json:"instanceType"`
+	InstanceType awsec2.InstanceType `json:"instanceType" yaml:"instanceType"`
 	// The number of MiB of memory reserved for the job.
 	//
 	// This value overrides the value set in the job definition.
-	Memory *float64 `json:"memory"`
+	Memory *float64 `json:"memory" yaml:"memory"`
 	// The number of vCPUs to reserve for the container.
 	//
 	// This value overrides the value set in the job definition.
-	Vcpus *float64 `json:"vcpus"`
+	Vcpus *float64 `json:"vcpus" yaml:"vcpus"`
 }
 
 // Location of the channel data.
@@ -7998,7 +7998,7 @@ type ContainerOverrides struct {
 //
 type DataSource struct {
 	// S3 location of the data source that is associated with a channel.
-	S3DataSource *S3DataSource `json:"s3DataSource"`
+	S3DataSource *S3DataSource `json:"s3DataSource" yaml:"s3DataSource"`
 }
 
 // Creates `IDockerImage` instances.
@@ -8110,7 +8110,7 @@ func (d *jsiiProxy_DockerImage) Bind(task ISageMakerTask) *DockerImageConfig {
 //
 type DockerImageConfig struct {
 	// The fully qualified URI of the Docker image.
-	ImageUri *string `json:"imageUri"`
+	ImageUri *string `json:"imageUri" yaml:"imageUri"`
 }
 
 // Represents the data for an attribute.
@@ -9210,39 +9210,39 @@ func (d *jsiiProxy_DynamoDeleteItem) WhenBoundToGraph(graph awsstepfunctions.Sta
 //
 type DynamoDeleteItemProps struct {
 	// An optional description for this state.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	Heartbeat awscdk.Duration `json:"heartbeat"`
+	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	InputPath *string `json:"inputPath"`
+	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern"`
+	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	OutputPath *string `json:"outputPath"`
+	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	ResultPath *string `json:"resultPath"`
+	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
 	// You can use ResultSelector to create a payload with values that are static
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	ResultSelector *map[string]interface{} `json:"resultSelector"`
+	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// Primary key of the item to retrieve.
 	//
 	// For the primary key, you must provide all of the attributes.
@@ -9250,35 +9250,35 @@ type DynamoDeleteItemProps struct {
 	// For a composite primary key, you must provide values for both the partition key and the sort key.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_GetItem.html#DDB-GetItem-request-Key
 	//
-	Key *map[string]DynamoAttributeValue `json:"key"`
+	Key *map[string]DynamoAttributeValue `json:"key" yaml:"key"`
 	// The name of the table containing the requested item.
-	Table awsdynamodb.ITable `json:"table"`
+	Table awsdynamodb.ITable `json:"table" yaml:"table"`
 	// A condition that must be satisfied in order for a conditional DeleteItem to succeed.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DeleteItem.html#DDB-DeleteItem-request-ConditionExpression
 	//
-	ConditionExpression *string `json:"conditionExpression"`
+	ConditionExpression *string `json:"conditionExpression" yaml:"conditionExpression"`
 	// One or more substitution tokens for attribute names in an expression.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DeleteItem.html#DDB-DeleteItem-request-ExpressionAttributeNames
 	//
-	ExpressionAttributeNames *map[string]*string `json:"expressionAttributeNames"`
+	ExpressionAttributeNames *map[string]*string `json:"expressionAttributeNames" yaml:"expressionAttributeNames"`
 	// One or more values that can be substituted in an expression.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DeleteItem.html#DDB-DeleteItem-request-ExpressionAttributeValues
 	//
-	ExpressionAttributeValues *map[string]DynamoAttributeValue `json:"expressionAttributeValues"`
+	ExpressionAttributeValues *map[string]DynamoAttributeValue `json:"expressionAttributeValues" yaml:"expressionAttributeValues"`
 	// Determines the level of detail about provisioned throughput consumption that is returned in the response.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DeleteItem.html#DDB-DeleteItem-request-ReturnConsumedCapacity
 	//
-	ReturnConsumedCapacity DynamoConsumedCapacity `json:"returnConsumedCapacity"`
+	ReturnConsumedCapacity DynamoConsumedCapacity `json:"returnConsumedCapacity" yaml:"returnConsumedCapacity"`
 	// Determines whether item collection metrics are returned.
 	//
 	// If set to SIZE, the response includes statistics about item collections, if any,
 	// that were modified during the operation are returned in the response.
 	// If set to NONE (the default), no statistics are returned.
-	ReturnItemCollectionMetrics DynamoItemCollectionMetrics `json:"returnItemCollectionMetrics"`
+	ReturnItemCollectionMetrics DynamoItemCollectionMetrics `json:"returnItemCollectionMetrics" yaml:"returnItemCollectionMetrics"`
 	// Use ReturnValues if you want to get the item attributes as they appeared before they were deleted.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DeleteItem.html#DDB-DeleteItem-request-ReturnValues
 	//
-	ReturnValues DynamoReturnValues `json:"returnValues"`
+	ReturnValues DynamoReturnValues `json:"returnValues" yaml:"returnValues"`
 }
 
 // A StepFunctions task to call DynamoGetItem.
@@ -10035,39 +10035,39 @@ func (d *jsiiProxy_DynamoGetItem) WhenBoundToGraph(graph awsstepfunctions.StateG
 //
 type DynamoGetItemProps struct {
 	// An optional description for this state.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	Heartbeat awscdk.Duration `json:"heartbeat"`
+	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	InputPath *string `json:"inputPath"`
+	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern"`
+	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	OutputPath *string `json:"outputPath"`
+	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	ResultPath *string `json:"resultPath"`
+	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
 	// You can use ResultSelector to create a payload with values that are static
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	ResultSelector *map[string]interface{} `json:"resultSelector"`
+	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// Primary key of the item to retrieve.
 	//
 	// For the primary key, you must provide all of the attributes.
@@ -10075,27 +10075,27 @@ type DynamoGetItemProps struct {
 	// For a composite primary key, you must provide values for both the partition key and the sort key.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_GetItem.html#DDB-GetItem-request-Key
 	//
-	Key *map[string]DynamoAttributeValue `json:"key"`
+	Key *map[string]DynamoAttributeValue `json:"key" yaml:"key"`
 	// The name of the table containing the requested item.
-	Table awsdynamodb.ITable `json:"table"`
+	Table awsdynamodb.ITable `json:"table" yaml:"table"`
 	// Determines the read consistency model: If set to true, then the operation uses strongly consistent reads;
 	//
 	// otherwise, the operation uses eventually consistent reads.
-	ConsistentRead *bool `json:"consistentRead"`
+	ConsistentRead *bool `json:"consistentRead" yaml:"consistentRead"`
 	// One or more substitution tokens for attribute names in an expression.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_GetItem.html#DDB-GetItem-request-ExpressionAttributeNames
 	//
-	ExpressionAttributeNames *map[string]*string `json:"expressionAttributeNames"`
+	ExpressionAttributeNames *map[string]*string `json:"expressionAttributeNames" yaml:"expressionAttributeNames"`
 	// An array of DynamoProjectionExpression that identifies one or more attributes to retrieve from the table.
 	//
 	// These attributes can include scalars, sets, or elements of a JSON document.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_GetItem.html#DDB-GetItem-request-ProjectionExpression
 	//
-	ProjectionExpression *[]DynamoProjectionExpression `json:"projectionExpression"`
+	ProjectionExpression *[]DynamoProjectionExpression `json:"projectionExpression" yaml:"projectionExpression"`
 	// Determines the level of detail about provisioned throughput consumption that is returned in the response.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_GetItem.html#DDB-GetItem-request-ReturnConsumedCapacity
 	//
-	ReturnConsumedCapacity DynamoConsumedCapacity `json:"returnConsumedCapacity"`
+	ReturnConsumedCapacity DynamoConsumedCapacity `json:"returnConsumedCapacity" yaml:"returnConsumedCapacity"`
 }
 
 // Determines whether item collection metrics are returned.
@@ -10941,72 +10941,72 @@ func (d *jsiiProxy_DynamoPutItem) WhenBoundToGraph(graph awsstepfunctions.StateG
 //
 type DynamoPutItemProps struct {
 	// An optional description for this state.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	Heartbeat awscdk.Duration `json:"heartbeat"`
+	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	InputPath *string `json:"inputPath"`
+	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern"`
+	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	OutputPath *string `json:"outputPath"`
+	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	ResultPath *string `json:"resultPath"`
+	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
 	// You can use ResultSelector to create a payload with values that are static
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	ResultSelector *map[string]interface{} `json:"resultSelector"`
+	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// A map of attribute name/value pairs, one for each attribute.
 	//
 	// Only the primary key attributes are required;
 	// you can optionally provide other attribute name-value pairs for the item.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_PutItem.html#DDB-PutItem-request-Item
 	//
-	Item *map[string]DynamoAttributeValue `json:"item"`
+	Item *map[string]DynamoAttributeValue `json:"item" yaml:"item"`
 	// The name of the table where the item should be written .
-	Table awsdynamodb.ITable `json:"table"`
+	Table awsdynamodb.ITable `json:"table" yaml:"table"`
 	// A condition that must be satisfied in order for a conditional PutItem operation to succeed.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_PutItem.html#DDB-PutItem-request-ConditionExpression
 	//
-	ConditionExpression *string `json:"conditionExpression"`
+	ConditionExpression *string `json:"conditionExpression" yaml:"conditionExpression"`
 	// One or more substitution tokens for attribute names in an expression.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_PutItem.html#DDB-PutItem-request-ExpressionAttributeNames
 	//
-	ExpressionAttributeNames *map[string]*string `json:"expressionAttributeNames"`
+	ExpressionAttributeNames *map[string]*string `json:"expressionAttributeNames" yaml:"expressionAttributeNames"`
 	// One or more values that can be substituted in an expression.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_PutItem.html#DDB-PutItem-request-ExpressionAttributeValues
 	//
-	ExpressionAttributeValues *map[string]DynamoAttributeValue `json:"expressionAttributeValues"`
+	ExpressionAttributeValues *map[string]DynamoAttributeValue `json:"expressionAttributeValues" yaml:"expressionAttributeValues"`
 	// Determines the level of detail about provisioned throughput consumption that is returned in the response.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_PutItem.html#DDB-PutItem-request-ReturnConsumedCapacity
 	//
-	ReturnConsumedCapacity DynamoConsumedCapacity `json:"returnConsumedCapacity"`
+	ReturnConsumedCapacity DynamoConsumedCapacity `json:"returnConsumedCapacity" yaml:"returnConsumedCapacity"`
 	// The item collection metrics to returned in the response.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LSI.html#LSI.ItemCollections
 	//
-	ReturnItemCollectionMetrics DynamoItemCollectionMetrics `json:"returnItemCollectionMetrics"`
+	ReturnItemCollectionMetrics DynamoItemCollectionMetrics `json:"returnItemCollectionMetrics" yaml:"returnItemCollectionMetrics"`
 	// Use ReturnValues if you want to get the item attributes as they appeared before they were updated with the PutItem request.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_PutItem.html#DDB-PutItem-request-ReturnValues
 	//
-	ReturnValues DynamoReturnValues `json:"returnValues"`
+	ReturnValues DynamoReturnValues `json:"returnValues" yaml:"returnValues"`
 }
 
 // Use ReturnValues if you want to get the item attributes as they appear before or after they are changed.
@@ -11774,39 +11774,39 @@ func (d *jsiiProxy_DynamoUpdateItem) WhenBoundToGraph(graph awsstepfunctions.Sta
 //
 type DynamoUpdateItemProps struct {
 	// An optional description for this state.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	Heartbeat awscdk.Duration `json:"heartbeat"`
+	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	InputPath *string `json:"inputPath"`
+	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern"`
+	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	OutputPath *string `json:"outputPath"`
+	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	ResultPath *string `json:"resultPath"`
+	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
 	// You can use ResultSelector to create a payload with values that are static
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	ResultSelector *map[string]interface{} `json:"resultSelector"`
+	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// Primary key of the item to retrieve.
 	//
 	// For the primary key, you must provide all of the attributes.
@@ -11814,39 +11814,39 @@ type DynamoUpdateItemProps struct {
 	// For a composite primary key, you must provide values for both the partition key and the sort key.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_GetItem.html#DDB-GetItem-request-Key
 	//
-	Key *map[string]DynamoAttributeValue `json:"key"`
+	Key *map[string]DynamoAttributeValue `json:"key" yaml:"key"`
 	// The name of the table containing the requested item.
-	Table awsdynamodb.ITable `json:"table"`
+	Table awsdynamodb.ITable `json:"table" yaml:"table"`
 	// A condition that must be satisfied in order for a conditional DeleteItem to succeed.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateItem.html#DDB-UpdateItem-request-ConditionExpression
 	//
-	ConditionExpression *string `json:"conditionExpression"`
+	ConditionExpression *string `json:"conditionExpression" yaml:"conditionExpression"`
 	// One or more substitution tokens for attribute names in an expression.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateItem.html#DDB-UpdateItem-request-ExpressionAttributeNames
 	//
-	ExpressionAttributeNames *map[string]*string `json:"expressionAttributeNames"`
+	ExpressionAttributeNames *map[string]*string `json:"expressionAttributeNames" yaml:"expressionAttributeNames"`
 	// One or more values that can be substituted in an expression.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateItem.html#DDB-UpdateItem-request-ExpressionAttributeValues
 	//
-	ExpressionAttributeValues *map[string]DynamoAttributeValue `json:"expressionAttributeValues"`
+	ExpressionAttributeValues *map[string]DynamoAttributeValue `json:"expressionAttributeValues" yaml:"expressionAttributeValues"`
 	// Determines the level of detail about provisioned throughput consumption that is returned in the response.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateItem.html#DDB-UpdateItem-request-ReturnConsumedCapacity
 	//
-	ReturnConsumedCapacity DynamoConsumedCapacity `json:"returnConsumedCapacity"`
+	ReturnConsumedCapacity DynamoConsumedCapacity `json:"returnConsumedCapacity" yaml:"returnConsumedCapacity"`
 	// Determines whether item collection metrics are returned.
 	//
 	// If set to SIZE, the response includes statistics about item collections, if any,
 	// that were modified during the operation are returned in the response.
 	// If set to NONE (the default), no statistics are returned.
-	ReturnItemCollectionMetrics DynamoItemCollectionMetrics `json:"returnItemCollectionMetrics"`
+	ReturnItemCollectionMetrics DynamoItemCollectionMetrics `json:"returnItemCollectionMetrics" yaml:"returnItemCollectionMetrics"`
 	// Use ReturnValues if you want to get the item attributes as they appeared before they were deleted.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateItem.html#DDB-UpdateItem-request-ReturnValues
 	//
-	ReturnValues DynamoReturnValues `json:"returnValues"`
+	ReturnValues DynamoReturnValues `json:"returnValues" yaml:"returnValues"`
 	// An expression that defines one or more attributes to be updated, the action to be performed on them, and new values for them.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateItem.html#DDB-UpdateItem-request-UpdateExpression
 	//
-	UpdateExpression *string `json:"updateExpression"`
+	UpdateExpression *string `json:"updateExpression" yaml:"updateExpression"`
 }
 
 // Configuration for running an ECS task on EC2.
@@ -11909,9 +11909,9 @@ func (e *jsiiProxy_EcsEc2LaunchTarget) Bind(_task EcsRunTask, launchTargetOption
 //
 type EcsEc2LaunchTargetOptions struct {
 	// Placement constraints.
-	PlacementConstraints *[]awsecs.PlacementConstraint `json:"placementConstraints"`
+	PlacementConstraints *[]awsecs.PlacementConstraint `json:"placementConstraints" yaml:"placementConstraints"`
 	// Placement strategies.
-	PlacementStrategies *[]awsecs.PlacementStrategy `json:"placementStrategies"`
+	PlacementStrategies *[]awsecs.PlacementStrategy `json:"placementStrategies" yaml:"placementStrategies"`
 }
 
 // Configuration for running an ECS task on Fargate.
@@ -11978,7 +11978,7 @@ type EcsFargateLaunchTargetOptions struct {
 	// Fargate platform version is a combination of the kernel and container runtime versions.
 	// See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html
 	//
-	PlatformVersion awsecs.FargatePlatformVersion `json:"platformVersion"`
+	PlatformVersion awsecs.FargatePlatformVersion `json:"platformVersion" yaml:"platformVersion"`
 }
 
 // Configuration options for the ECS launch type.
@@ -11987,7 +11987,7 @@ type EcsFargateLaunchTargetOptions struct {
 //
 type EcsLaunchTargetConfig struct {
 	// Additional parameters to pass to the base task.
-	Parameters *map[string]interface{} `json:"parameters"`
+	Parameters *map[string]interface{} `json:"parameters" yaml:"parameters"`
 }
 
 // Run a Task on ECS or Fargate.
@@ -12757,60 +12757,60 @@ func (e *jsiiProxy_EcsRunTask) WhenBoundToGraph(graph awsstepfunctions.StateGrap
 //
 type EcsRunTaskProps struct {
 	// An optional description for this state.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	Heartbeat awscdk.Duration `json:"heartbeat"`
+	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	InputPath *string `json:"inputPath"`
+	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern"`
+	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	OutputPath *string `json:"outputPath"`
+	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	ResultPath *string `json:"resultPath"`
+	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
 	// You can use ResultSelector to create a payload with values that are static
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	ResultSelector *map[string]interface{} `json:"resultSelector"`
+	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The ECS cluster to run the task on.
-	Cluster awsecs.ICluster `json:"cluster"`
+	Cluster awsecs.ICluster `json:"cluster" yaml:"cluster"`
 	// An Amazon ECS launch type determines the type of infrastructure on which your tasks and services are hosted.
 	// See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html
 	//
-	LaunchTarget IEcsLaunchTarget `json:"launchTarget"`
+	LaunchTarget IEcsLaunchTarget `json:"launchTarget" yaml:"launchTarget"`
 	// [disable-awslint:ref-via-interface] Task Definition used for running tasks in the service.
 	//
 	// Note: this must be TaskDefinition, and not ITaskDefinition,
 	// as it requires properties that are not known for imported task definitions
-	TaskDefinition awsecs.TaskDefinition `json:"taskDefinition"`
+	TaskDefinition awsecs.TaskDefinition `json:"taskDefinition" yaml:"taskDefinition"`
 	// Assign public IP addresses to each task.
-	AssignPublicIp *bool `json:"assignPublicIp"`
+	AssignPublicIp *bool `json:"assignPublicIp" yaml:"assignPublicIp"`
 	// Container setting overrides.
 	//
 	// Specify the container to use and the overrides to apply.
-	ContainerOverrides *[]*ContainerOverride `json:"containerOverrides"`
+	ContainerOverrides *[]*ContainerOverride `json:"containerOverrides" yaml:"containerOverrides"`
 	// Existing security groups to use for the tasks.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// Subnets to place the task's ENIs.
-	Subnets *awsec2.SubnetSelection `json:"subnets"`
+	Subnets *awsec2.SubnetSelection `json:"subnets" yaml:"subnets"`
 }
 
 // Call a EKS endpoint as a Task.
@@ -13569,49 +13569,49 @@ func (e *jsiiProxy_EksCall) WhenBoundToGraph(graph awsstepfunctions.StateGraph) 
 //
 type EksCallProps struct {
 	// An optional description for this state.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	Heartbeat awscdk.Duration `json:"heartbeat"`
+	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	InputPath *string `json:"inputPath"`
+	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern"`
+	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	OutputPath *string `json:"outputPath"`
+	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	ResultPath *string `json:"resultPath"`
+	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
 	// You can use ResultSelector to create a payload with values that are static
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	ResultSelector *map[string]interface{} `json:"resultSelector"`
+	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The EKS cluster.
-	Cluster awseks.ICluster `json:"cluster"`
+	Cluster awseks.ICluster `json:"cluster" yaml:"cluster"`
 	// HTTP method ("GET", "POST", "PUT", ...) part of HTTP request.
-	HttpMethod HttpMethods `json:"httpMethod"`
+	HttpMethod HttpMethods `json:"httpMethod" yaml:"httpMethod"`
 	// HTTP path of the Kubernetes REST API operation For example: /api/v1/namespaces/default/pods.
-	HttpPath *string `json:"httpPath"`
+	HttpPath *string `json:"httpPath" yaml:"httpPath"`
 	// Query Parameters part of HTTP request.
-	QueryParameters *map[string]*[]*string `json:"queryParameters"`
+	QueryParameters *map[string]*[]*string `json:"queryParameters" yaml:"queryParameters"`
 	// Request body part of HTTP request.
-	RequestBody awsstepfunctions.TaskInput `json:"requestBody"`
+	RequestBody awsstepfunctions.TaskInput `json:"requestBody" yaml:"requestBody"`
 }
 
 // Class that supports methods which return the EKS cluster name depending on input type.
@@ -14428,69 +14428,69 @@ func (e *jsiiProxy_EmrAddStep) WhenBoundToGraph(graph awsstepfunctions.StateGrap
 //
 type EmrAddStepProps struct {
 	// An optional description for this state.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	Heartbeat awscdk.Duration `json:"heartbeat"`
+	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	InputPath *string `json:"inputPath"`
+	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern"`
+	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	OutputPath *string `json:"outputPath"`
+	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	ResultPath *string `json:"resultPath"`
+	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
 	// You can use ResultSelector to create a payload with values that are static
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	ResultSelector *map[string]interface{} `json:"resultSelector"`
+	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The ClusterId to add the Step to.
-	ClusterId *string `json:"clusterId"`
+	ClusterId *string `json:"clusterId" yaml:"clusterId"`
 	// A path to a JAR file run during the step.
 	// See: https://docs.aws.amazon.com/emr/latest/APIReference/API_HadoopJarStepConfig.html
 	//
-	Jar *string `json:"jar"`
+	Jar *string `json:"jar" yaml:"jar"`
 	// The name of the Step.
 	// See: https://docs.aws.amazon.com/emr/latest/APIReference/API_StepConfig.html
 	//
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The action to take when the cluster step fails.
 	// See: https://docs.aws.amazon.com/emr/latest/APIReference/API_StepConfig.html
 	//
-	ActionOnFailure ActionOnFailure `json:"actionOnFailure"`
+	ActionOnFailure ActionOnFailure `json:"actionOnFailure" yaml:"actionOnFailure"`
 	// A list of command line arguments passed to the JAR file's main function when executed.
 	// See: https://docs.aws.amazon.com/emr/latest/APIReference/API_HadoopJarStepConfig.html
 	//
-	Args *[]*string `json:"args"`
+	Args *[]*string `json:"args" yaml:"args"`
 	// The name of the main class in the specified Java file.
 	//
 	// If not specified, the JAR file should specify a Main-Class in its manifest file.
 	// See: https://docs.aws.amazon.com/emr/latest/APIReference/API_HadoopJarStepConfig.html
 	//
-	MainClass *string `json:"mainClass"`
+	MainClass *string `json:"mainClass" yaml:"mainClass"`
 	// A list of Java properties that are set when the step runs.
 	//
 	// You can use these properties to pass key value pairs to your main function.
 	// See: https://docs.aws.amazon.com/emr/latest/APIReference/API_HadoopJarStepConfig.html
 	//
-	Properties *map[string]*string `json:"properties"`
+	Properties *map[string]*string `json:"properties" yaml:"properties"`
 }
 
 // A Step Functions Task to to cancel a Step on an EMR Cluster.
@@ -15247,43 +15247,43 @@ func (e *jsiiProxy_EmrCancelStep) WhenBoundToGraph(graph awsstepfunctions.StateG
 //
 type EmrCancelStepProps struct {
 	// An optional description for this state.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	Heartbeat awscdk.Duration `json:"heartbeat"`
+	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	InputPath *string `json:"inputPath"`
+	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern"`
+	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	OutputPath *string `json:"outputPath"`
+	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	ResultPath *string `json:"resultPath"`
+	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
 	// You can use ResultSelector to create a payload with values that are static
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	ResultSelector *map[string]interface{} `json:"resultSelector"`
+	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The ClusterId to update.
-	ClusterId *string `json:"clusterId"`
+	ClusterId *string `json:"clusterId" yaml:"clusterId"`
 	// The StepId to cancel.
-	StepId *string `json:"stepId"`
+	StepId *string `json:"stepId" yaml:"stepId"`
 }
 
 // Task that creates an EMR Containers virtual cluster from an EKS cluster.
@@ -16042,47 +16042,47 @@ func (e *jsiiProxy_EmrContainersCreateVirtualCluster) WhenBoundToGraph(graph aws
 //
 type EmrContainersCreateVirtualClusterProps struct {
 	// An optional description for this state.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	Heartbeat awscdk.Duration `json:"heartbeat"`
+	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	InputPath *string `json:"inputPath"`
+	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern"`
+	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	OutputPath *string `json:"outputPath"`
+	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	ResultPath *string `json:"resultPath"`
+	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
 	// You can use ResultSelector to create a payload with values that are static
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	ResultSelector *map[string]interface{} `json:"resultSelector"`
+	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// EKS Cluster or task input that contains the name of the cluster.
-	EksCluster EksClusterInput `json:"eksCluster"`
+	EksCluster EksClusterInput `json:"eksCluster" yaml:"eksCluster"`
 	// The namespace of an EKS cluster.
-	EksNamespace *string `json:"eksNamespace"`
+	EksNamespace *string `json:"eksNamespace" yaml:"eksNamespace"`
 	// The tags assigned to the virtual cluster.
-	Tags *map[string]*string `json:"tags"`
+	Tags *map[string]*string `json:"tags" yaml:"tags"`
 	// Name of the virtual cluster that will be created.
-	VirtualClusterName *string `json:"virtualClusterName"`
+	VirtualClusterName *string `json:"virtualClusterName" yaml:"virtualClusterName"`
 }
 
 // Deletes an EMR Containers virtual cluster as a Task.
@@ -16841,41 +16841,41 @@ func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) WhenBoundToGraph(graph aws
 //
 type EmrContainersDeleteVirtualClusterProps struct {
 	// An optional description for this state.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	Heartbeat awscdk.Duration `json:"heartbeat"`
+	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	InputPath *string `json:"inputPath"`
+	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern"`
+	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	OutputPath *string `json:"outputPath"`
+	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	ResultPath *string `json:"resultPath"`
+	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
 	// You can use ResultSelector to create a payload with values that are static
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	ResultSelector *map[string]interface{} `json:"resultSelector"`
+	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The ID of the virtual cluster that will be deleted.
-	VirtualClusterId awsstepfunctions.TaskInput `json:"virtualClusterId"`
+	VirtualClusterId awsstepfunctions.TaskInput `json:"virtualClusterId" yaml:"virtualClusterId"`
 }
 
 // Starts a job run.
@@ -17651,68 +17651,68 @@ func (e *jsiiProxy_EmrContainersStartJobRun) WhenBoundToGraph(graph awsstepfunct
 //
 type EmrContainersStartJobRunProps struct {
 	// An optional description for this state.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	Heartbeat awscdk.Duration `json:"heartbeat"`
+	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	InputPath *string `json:"inputPath"`
+	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern"`
+	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	OutputPath *string `json:"outputPath"`
+	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	ResultPath *string `json:"resultPath"`
+	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
 	// You can use ResultSelector to create a payload with values that are static
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	ResultSelector *map[string]interface{} `json:"resultSelector"`
+	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The job driver for the job run.
 	// See: https://docs.aws.amazon.com/emr-on-eks/latest/APIReference/API_JobDriver.html
 	//
-	JobDriver *JobDriver `json:"jobDriver"`
+	JobDriver *JobDriver `json:"jobDriver" yaml:"jobDriver"`
 	// The Amazon EMR release version to use for the job run.
-	ReleaseLabel ReleaseLabel `json:"releaseLabel"`
+	ReleaseLabel ReleaseLabel `json:"releaseLabel" yaml:"releaseLabel"`
 	// The ID of the virtual cluster where the job will be run.
-	VirtualCluster VirtualClusterInput `json:"virtualCluster"`
+	VirtualCluster VirtualClusterInput `json:"virtualCluster" yaml:"virtualCluster"`
 	// The configurations for the application running in the job run.
 	//
 	// Maximum of 100 items
 	// See: https://docs.aws.amazon.com/emr-on-eks/latest/APIReference/API_Configuration.html
 	//
-	ApplicationConfig *[]*ApplicationConfiguration `json:"applicationConfig"`
+	ApplicationConfig *[]*ApplicationConfiguration `json:"applicationConfig" yaml:"applicationConfig"`
 	// The execution role for the job run.
 	//
 	// If `virtualClusterId` is from a JSON input path, an execution role must be provided.
 	// If an execution role is provided, follow the documentation to update the role trust policy.
 	// See: https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/setting-up-trust-policy.html
 	//
-	ExecutionRole awsiam.IRole `json:"executionRole"`
+	ExecutionRole awsiam.IRole `json:"executionRole" yaml:"executionRole"`
 	// The name of the job run.
-	JobName *string `json:"jobName"`
+	JobName *string `json:"jobName" yaml:"jobName"`
 	// Configuration for monitoring the job run.
 	// See: https://docs.aws.amazon.com/emr-on-eks/latest/APIReference/API_MonitoringConfiguration.html
 	//
-	Monitoring *Monitoring `json:"monitoring"`
+	Monitoring *Monitoring `json:"monitoring" yaml:"monitoring"`
 	// The tags assigned to job runs.
-	Tags *map[string]*string `json:"tags"`
+	Tags *map[string]*string `json:"tags" yaml:"tags"`
 }
 
 // A Step Functions Task to create an EMR Cluster.
@@ -18513,16 +18513,16 @@ func (e *jsiiProxy_EmrCreateCluster) WhenBoundToGraph(graph awsstepfunctions.Sta
 //
 type EmrCreateCluster_ApplicationConfigProperty struct {
 	// The name of the application.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// This option is for advanced users only.
 	//
 	// This is meta information about third-party applications that third-party vendors use
 	// for testing purposes.
-	AdditionalInfo *map[string]*string `json:"additionalInfo"`
+	AdditionalInfo *map[string]*string `json:"additionalInfo" yaml:"additionalInfo"`
 	// Arguments for Amazon EMR to pass to the application.
-	Args *[]*string `json:"args"`
+	Args *[]*string `json:"args" yaml:"args"`
 	// The version of the application.
-	Version *string `json:"version"`
+	Version *string `json:"version" yaml:"version"`
 }
 
 // An automatic scaling policy for a core instance group or task instance group in an Amazon EMR cluster.
@@ -18536,9 +18536,9 @@ type EmrCreateCluster_AutoScalingPolicyProperty struct {
 	//
 	// Automatic scaling activity will not cause an instance
 	// group to grow above or below these limits.
-	Constraints *EmrCreateCluster_ScalingConstraintsProperty `json:"constraints"`
+	Constraints *EmrCreateCluster_ScalingConstraintsProperty `json:"constraints" yaml:"constraints"`
 	// The scale-in and scale-out rules that comprise the automatic scaling policy.
-	Rules *[]*EmrCreateCluster_ScalingRuleProperty `json:"rules"`
+	Rules *[]*EmrCreateCluster_ScalingRuleProperty `json:"rules" yaml:"rules"`
 }
 
 // Configuration of a bootstrap action.
@@ -18551,9 +18551,9 @@ type EmrCreateCluster_AutoScalingPolicyProperty struct {
 //
 type EmrCreateCluster_BootstrapActionConfigProperty struct {
 	// The name of the bootstrap action.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The script run by the bootstrap action.
-	ScriptBootstrapAction *EmrCreateCluster_ScriptBootstrapActionConfigProperty `json:"scriptBootstrapAction"`
+	ScriptBootstrapAction *EmrCreateCluster_ScriptBootstrapActionConfigProperty `json:"scriptBootstrapAction" yaml:"scriptBootstrapAction"`
 }
 
 // CloudWatch Alarm Comparison Operators.
@@ -18577,29 +18577,29 @@ const (
 //
 type EmrCreateCluster_CloudWatchAlarmDefinitionProperty struct {
 	// Determines how the metric specified by MetricName is compared to the value specified by Threshold.
-	ComparisonOperator EmrCreateCluster_CloudWatchAlarmComparisonOperator `json:"comparisonOperator"`
+	ComparisonOperator EmrCreateCluster_CloudWatchAlarmComparisonOperator `json:"comparisonOperator" yaml:"comparisonOperator"`
 	// The name of the CloudWatch metric that is watched to determine an alarm condition.
-	MetricName *string `json:"metricName"`
+	MetricName *string `json:"metricName" yaml:"metricName"`
 	// The period, in seconds, over which the statistic is applied.
 	//
 	// EMR CloudWatch metrics are emitted every five minutes (300 seconds), so if
 	// an EMR CloudWatch metric is specified, specify 300.
-	Period awscdk.Duration `json:"period"`
+	Period awscdk.Duration `json:"period" yaml:"period"`
 	// A CloudWatch metric dimension.
-	Dimensions *[]*EmrCreateCluster_MetricDimensionProperty `json:"dimensions"`
+	Dimensions *[]*EmrCreateCluster_MetricDimensionProperty `json:"dimensions" yaml:"dimensions"`
 	// The number of periods, in five-minute increments, during which the alarm condition must exist before the alarm triggers automatic scaling activity.
-	EvaluationPeriods *float64 `json:"evaluationPeriods"`
+	EvaluationPeriods *float64 `json:"evaluationPeriods" yaml:"evaluationPeriods"`
 	// The namespace for the CloudWatch metric.
-	Namespace *string `json:"namespace"`
+	Namespace *string `json:"namespace" yaml:"namespace"`
 	// The statistic to apply to the metric associated with the alarm.
-	Statistic EmrCreateCluster_CloudWatchAlarmStatistic `json:"statistic"`
+	Statistic EmrCreateCluster_CloudWatchAlarmStatistic `json:"statistic" yaml:"statistic"`
 	// The value against which the specified statistic is compared.
-	Threshold *float64 `json:"threshold"`
+	Threshold *float64 `json:"threshold" yaml:"threshold"`
 	// The unit of measure associated with the CloudWatch metric being watched.
 	//
 	// The value specified for Unit must correspond to the units
 	// specified in the CloudWatch metric.
-	Unit EmrCreateCluster_CloudWatchAlarmUnit `json:"unit"`
+	Unit EmrCreateCluster_CloudWatchAlarmUnit `json:"unit" yaml:"unit"`
 }
 
 // CloudWatch Alarm Statistics.
@@ -18656,11 +18656,11 @@ const (
 //
 type EmrCreateCluster_ConfigurationProperty struct {
 	// The classification within a configuration.
-	Classification *string `json:"classification"`
+	Classification *string `json:"classification" yaml:"classification"`
 	// A list of additional configurations to apply within a configuration object.
-	Configurations *[]*EmrCreateCluster_ConfigurationProperty `json:"configurations"`
+	Configurations *[]*EmrCreateCluster_ConfigurationProperty `json:"configurations" yaml:"configurations"`
 	// A set of properties specified within a configuration classification.
-	Properties *map[string]*string `json:"properties"`
+	Properties *map[string]*string `json:"properties" yaml:"properties"`
 }
 
 // Configuration of requested EBS block device associated with the instance group with count of volumes that will be associated to every instance.
@@ -18671,9 +18671,9 @@ type EmrCreateCluster_ConfigurationProperty struct {
 //
 type EmrCreateCluster_EbsBlockDeviceConfigProperty struct {
 	// EBS volume specifications such as volume type, IOPS, and size (GiB) that will be requested for the EBS volume attached to an EC2 instance in the cluster.
-	VolumeSpecification *EmrCreateCluster_VolumeSpecificationProperty `json:"volumeSpecification"`
+	VolumeSpecification *EmrCreateCluster_VolumeSpecificationProperty `json:"volumeSpecification" yaml:"volumeSpecification"`
 	// Number of EBS volumes with a specific volume configuration that will be associated with every instance in the instance group.
-	VolumesPerInstance *float64 `json:"volumesPerInstance"`
+	VolumesPerInstance *float64 `json:"volumesPerInstance" yaml:"volumesPerInstance"`
 }
 
 // EBS Volume Types.
@@ -18693,9 +18693,9 @@ const (
 //
 type EmrCreateCluster_EbsConfigurationProperty struct {
 	// An array of Amazon EBS volume specifications attached to a cluster instance.
-	EbsBlockDeviceConfigs *[]*EmrCreateCluster_EbsBlockDeviceConfigProperty `json:"ebsBlockDeviceConfigs"`
+	EbsBlockDeviceConfigs *[]*EmrCreateCluster_EbsBlockDeviceConfigProperty `json:"ebsBlockDeviceConfigs" yaml:"ebsBlockDeviceConfigs"`
 	// Indicates whether an Amazon EBS volume is EBS-optimized.
-	EbsOptimized *bool `json:"ebsOptimized"`
+	EbsOptimized *bool `json:"ebsOptimized" yaml:"ebsOptimized"`
 }
 
 // The Cluster ScaleDownBehavior specifies the way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an instance group is resized.
@@ -18718,17 +18718,17 @@ type EmrCreateCluster_InstanceFleetConfigProperty struct {
 	// The node type that the instance fleet hosts.
 	//
 	// Valid values are MASTER,CORE,and TASK.
-	InstanceFleetType EmrCreateCluster_InstanceRoleType `json:"instanceFleetType"`
+	InstanceFleetType EmrCreateCluster_InstanceRoleType `json:"instanceFleetType" yaml:"instanceFleetType"`
 	// The instance type configurations that define the EC2 instances in the instance fleet.
-	InstanceTypeConfigs *[]*EmrCreateCluster_InstanceTypeConfigProperty `json:"instanceTypeConfigs"`
+	InstanceTypeConfigs *[]*EmrCreateCluster_InstanceTypeConfigProperty `json:"instanceTypeConfigs" yaml:"instanceTypeConfigs"`
 	// The launch specification for the instance fleet.
-	LaunchSpecifications *EmrCreateCluster_InstanceFleetProvisioningSpecificationsProperty `json:"launchSpecifications"`
+	LaunchSpecifications *EmrCreateCluster_InstanceFleetProvisioningSpecificationsProperty `json:"launchSpecifications" yaml:"launchSpecifications"`
 	// The friendly name of the instance fleet.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
-	TargetOnDemandCapacity *float64 `json:"targetOnDemandCapacity"`
+	TargetOnDemandCapacity *float64 `json:"targetOnDemandCapacity" yaml:"targetOnDemandCapacity"`
 	// The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
-	TargetSpotCapacity *float64 `json:"targetSpotCapacity"`
+	TargetSpotCapacity *float64 `json:"targetSpotCapacity" yaml:"targetSpotCapacity"`
 }
 
 // The launch specification for Spot instances in the fleet, which determines the defined duration and provisioning timeout behavior.
@@ -18739,7 +18739,7 @@ type EmrCreateCluster_InstanceFleetConfigProperty struct {
 //
 type EmrCreateCluster_InstanceFleetProvisioningSpecificationsProperty struct {
 	// The launch specification for Spot instances in the fleet, which determines the defined duration and provisioning timeout behavior.
-	SpotSpecification *EmrCreateCluster_SpotProvisioningSpecificationProperty `json:"spotSpecification"`
+	SpotSpecification *EmrCreateCluster_SpotProvisioningSpecificationProperty `json:"spotSpecification" yaml:"spotSpecification"`
 }
 
 // Configuration defining a new instance group.
@@ -18750,25 +18750,25 @@ type EmrCreateCluster_InstanceFleetProvisioningSpecificationsProperty struct {
 //
 type EmrCreateCluster_InstanceGroupConfigProperty struct {
 	// Target number of instances for the instance group.
-	InstanceCount *float64 `json:"instanceCount"`
+	InstanceCount *float64 `json:"instanceCount" yaml:"instanceCount"`
 	// The role of the instance group in the cluster.
-	InstanceRole EmrCreateCluster_InstanceRoleType `json:"instanceRole"`
+	InstanceRole EmrCreateCluster_InstanceRoleType `json:"instanceRole" yaml:"instanceRole"`
 	// The EC2 instance type for all instances in the instance group.
-	InstanceType *string `json:"instanceType"`
+	InstanceType *string `json:"instanceType" yaml:"instanceType"`
 	// An automatic scaling policy for a core instance group or task instance group in an Amazon EMR cluster.
-	AutoScalingPolicy *EmrCreateCluster_AutoScalingPolicyProperty `json:"autoScalingPolicy"`
+	AutoScalingPolicy *EmrCreateCluster_AutoScalingPolicyProperty `json:"autoScalingPolicy" yaml:"autoScalingPolicy"`
 	// The bid price for each EC2 Spot instance type as defined by InstanceType.
 	//
 	// Expressed in USD.
-	BidPrice *string `json:"bidPrice"`
+	BidPrice *string `json:"bidPrice" yaml:"bidPrice"`
 	// The list of configurations supplied for an EMR cluster instance group.
-	Configurations *[]*EmrCreateCluster_ConfigurationProperty `json:"configurations"`
+	Configurations *[]*EmrCreateCluster_ConfigurationProperty `json:"configurations" yaml:"configurations"`
 	// EBS configurations that will be attached to each EC2 instance in the instance group.
-	EbsConfiguration *EmrCreateCluster_EbsConfigurationProperty `json:"ebsConfiguration"`
+	EbsConfiguration *EmrCreateCluster_EbsConfigurationProperty `json:"ebsConfiguration" yaml:"ebsConfiguration"`
 	// Market type of the EC2 instances used to create a cluster node.
-	Market EmrCreateCluster_InstanceMarket `json:"market"`
+	Market EmrCreateCluster_InstanceMarket `json:"market" yaml:"market"`
 	// Friendly name given to the instance group.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // EC2 Instance Market.
@@ -18796,19 +18796,19 @@ const (
 //
 type EmrCreateCluster_InstanceTypeConfigProperty struct {
 	// An EC2 instance type.
-	InstanceType *string `json:"instanceType"`
+	InstanceType *string `json:"instanceType" yaml:"instanceType"`
 	// The bid price for each EC2 Spot instance type as defined by InstanceType.
 	//
 	// Expressed in USD.
-	BidPrice *string `json:"bidPrice"`
+	BidPrice *string `json:"bidPrice" yaml:"bidPrice"`
 	// The bid price, as a percentage of On-Demand price.
-	BidPriceAsPercentageOfOnDemandPrice *float64 `json:"bidPriceAsPercentageOfOnDemandPrice"`
+	BidPriceAsPercentageOfOnDemandPrice *float64 `json:"bidPriceAsPercentageOfOnDemandPrice" yaml:"bidPriceAsPercentageOfOnDemandPrice"`
 	// A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster.
-	Configurations *[]*EmrCreateCluster_ConfigurationProperty `json:"configurations"`
+	Configurations *[]*EmrCreateCluster_ConfigurationProperty `json:"configurations" yaml:"configurations"`
 	// The configuration of Amazon Elastic Block Storage (EBS) attached to each instance as defined by InstanceType.
-	EbsConfiguration *EmrCreateCluster_EbsConfigurationProperty `json:"ebsConfiguration"`
+	EbsConfiguration *EmrCreateCluster_EbsConfigurationProperty `json:"ebsConfiguration" yaml:"ebsConfiguration"`
 	// The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in the InstanceFleetConfig.
-	WeightedCapacity *float64 `json:"weightedCapacity"`
+	WeightedCapacity *float64 `json:"weightedCapacity" yaml:"weightedCapacity"`
 }
 
 // A specification of the number and type of Amazon EC2 instances.
@@ -18821,45 +18821,45 @@ type EmrCreateCluster_InstanceTypeConfigProperty struct {
 //
 type EmrCreateCluster_InstancesConfigProperty struct {
 	// A list of additional Amazon EC2 security group IDs for the master node.
-	AdditionalMasterSecurityGroups *[]*string `json:"additionalMasterSecurityGroups"`
+	AdditionalMasterSecurityGroups *[]*string `json:"additionalMasterSecurityGroups" yaml:"additionalMasterSecurityGroups"`
 	// A list of additional Amazon EC2 security group IDs for the core and task nodes.
-	AdditionalSlaveSecurityGroups *[]*string `json:"additionalSlaveSecurityGroups"`
+	AdditionalSlaveSecurityGroups *[]*string `json:"additionalSlaveSecurityGroups" yaml:"additionalSlaveSecurityGroups"`
 	// The name of the EC2 key pair that can be used to ssh to the master node as the user called "hadoop.".
-	Ec2KeyName *string `json:"ec2KeyName"`
+	Ec2KeyName *string `json:"ec2KeyName" yaml:"ec2KeyName"`
 	// Applies to clusters that use the uniform instance group configuration.
 	//
 	// To launch the cluster in Amazon Virtual Private Cloud (Amazon VPC),
 	// set this parameter to the identifier of the Amazon VPC subnet where you want the cluster to launch.
-	Ec2SubnetId *string `json:"ec2SubnetId"`
+	Ec2SubnetId *string `json:"ec2SubnetId" yaml:"ec2SubnetId"`
 	// Applies to clusters that use the instance fleet configuration.
 	//
 	// When multiple EC2 subnet IDs are specified, Amazon EMR evaluates them and
 	// launches instances in the optimal subnet.
-	Ec2SubnetIds *[]*string `json:"ec2SubnetIds"`
+	Ec2SubnetIds *[]*string `json:"ec2SubnetIds" yaml:"ec2SubnetIds"`
 	// The identifier of the Amazon EC2 security group for the master node.
-	EmrManagedMasterSecurityGroup *string `json:"emrManagedMasterSecurityGroup"`
+	EmrManagedMasterSecurityGroup *string `json:"emrManagedMasterSecurityGroup" yaml:"emrManagedMasterSecurityGroup"`
 	// The identifier of the Amazon EC2 security group for the core and task nodes.
-	EmrManagedSlaveSecurityGroup *string `json:"emrManagedSlaveSecurityGroup"`
+	EmrManagedSlaveSecurityGroup *string `json:"emrManagedSlaveSecurityGroup" yaml:"emrManagedSlaveSecurityGroup"`
 	// Applies only to Amazon EMR release versions earlier than 4.0. The Hadoop version for the cluster.
-	HadoopVersion *string `json:"hadoopVersion"`
+	HadoopVersion *string `json:"hadoopVersion" yaml:"hadoopVersion"`
 	// The number of EC2 instances in the cluster.
-	InstanceCount *float64 `json:"instanceCount"`
+	InstanceCount *float64 `json:"instanceCount" yaml:"instanceCount"`
 	// Describes the EC2 instances and instance configurations for clusters that use the instance fleet configuration.
 	//
 	// The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions.
-	InstanceFleets *[]*EmrCreateCluster_InstanceFleetConfigProperty `json:"instanceFleets"`
+	InstanceFleets *[]*EmrCreateCluster_InstanceFleetConfigProperty `json:"instanceFleets" yaml:"instanceFleets"`
 	// Configuration for the instance groups in a cluster.
-	InstanceGroups *[]*EmrCreateCluster_InstanceGroupConfigProperty `json:"instanceGroups"`
+	InstanceGroups *[]*EmrCreateCluster_InstanceGroupConfigProperty `json:"instanceGroups" yaml:"instanceGroups"`
 	// The EC2 instance type of the master node.
-	MasterInstanceType *string `json:"masterInstanceType"`
+	MasterInstanceType *string `json:"masterInstanceType" yaml:"masterInstanceType"`
 	// The Availability Zone in which the cluster runs.
-	Placement *EmrCreateCluster_PlacementTypeProperty `json:"placement"`
+	Placement *EmrCreateCluster_PlacementTypeProperty `json:"placement" yaml:"placement"`
 	// The identifier of the Amazon EC2 security group for the Amazon EMR service to access clusters in VPC private subnets.
-	ServiceAccessSecurityGroup *string `json:"serviceAccessSecurityGroup"`
+	ServiceAccessSecurityGroup *string `json:"serviceAccessSecurityGroup" yaml:"serviceAccessSecurityGroup"`
 	// The EC2 instance type of the core and task nodes.
-	SlaveInstanceType *string `json:"slaveInstanceType"`
+	SlaveInstanceType *string `json:"slaveInstanceType" yaml:"slaveInstanceType"`
 	// Specifies whether to lock the cluster to prevent the Amazon EC2 instances from being terminated by API call, user intervention, or in the event of a job-flow error.
-	TerminationProtected *bool `json:"terminationProtected"`
+	TerminationProtected *bool `json:"terminationProtected" yaml:"terminationProtected"`
 }
 
 // Attributes for Kerberos configuration when Kerberos authentication is enabled using a security configuration.
@@ -18874,21 +18874,21 @@ type EmrCreateCluster_KerberosAttributesProperty struct {
 	// The name of the Kerberos realm to which all nodes in a cluster belong.
 	//
 	// For example, EC2.INTERNAL.
-	Realm *string `json:"realm"`
+	Realm *string `json:"realm" yaml:"realm"`
 	// The Active Directory password for ADDomainJoinUser.
-	AdDomainJoinPassword *string `json:"adDomainJoinPassword"`
+	AdDomainJoinPassword *string `json:"adDomainJoinPassword" yaml:"adDomainJoinPassword"`
 	// Required only when establishing a cross-realm trust with an Active Directory domain.
 	//
 	// A user with sufficient privileges to join
 	// resources to the domain.
-	AdDomainJoinUser *string `json:"adDomainJoinUser"`
+	AdDomainJoinUser *string `json:"adDomainJoinUser" yaml:"adDomainJoinUser"`
 	// Required only when establishing a cross-realm trust with a KDC in a different realm.
 	//
 	// The cross-realm principal password, which
 	// must be identical across realms.
-	CrossRealmTrustPrincipalPassword *string `json:"crossRealmTrustPrincipalPassword"`
+	CrossRealmTrustPrincipalPassword *string `json:"crossRealmTrustPrincipalPassword" yaml:"crossRealmTrustPrincipalPassword"`
 	// The password used within the cluster for the kadmin service on the cluster-dedicated KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster.
-	KdcAdminPassword *string `json:"kdcAdminPassword"`
+	KdcAdminPassword *string `json:"kdcAdminPassword" yaml:"kdcAdminPassword"`
 }
 
 // A CloudWatch dimension, which is specified using a Key (known as a Name in CloudWatch), Value pair.
@@ -18903,9 +18903,9 @@ type EmrCreateCluster_KerberosAttributesProperty struct {
 //
 type EmrCreateCluster_MetricDimensionProperty struct {
 	// The dimension name.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// The dimension value.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // The Amazon EC2 Availability Zone configuration of the cluster (job flow).
@@ -18919,11 +18919,11 @@ type EmrCreateCluster_PlacementTypeProperty struct {
 	//
 	// AvailabilityZone is used for uniform instance groups, while AvailabilityZones
 	// (plural) is used for instance fleets.
-	AvailabilityZone *string `json:"availabilityZone"`
+	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
 	// When multiple Availability Zones are specified, Amazon EMR evaluates them and launches instances in the optimal Availability Zone.
 	//
 	// AvailabilityZones is used for instance fleets, while AvailabilityZone (singular) is used for uniform instance groups.
-	AvailabilityZones *[]*string `json:"availabilityZones"`
+	AvailabilityZones *[]*string `json:"availabilityZones" yaml:"availabilityZones"`
 }
 
 // The type of adjustment the automatic scaling activity makes when triggered, and the periodicity of the adjustment.
@@ -18937,11 +18937,11 @@ type EmrCreateCluster_PlacementTypeProperty struct {
 //
 type EmrCreateCluster_ScalingActionProperty struct {
 	// The type of adjustment the automatic scaling activity makes when triggered, and the periodicity of the adjustment.
-	SimpleScalingPolicyConfiguration *EmrCreateCluster_SimpleScalingPolicyConfigurationProperty `json:"simpleScalingPolicyConfiguration"`
+	SimpleScalingPolicyConfiguration *EmrCreateCluster_SimpleScalingPolicyConfigurationProperty `json:"simpleScalingPolicyConfiguration" yaml:"simpleScalingPolicyConfiguration"`
 	// Not available for instance groups.
 	//
 	// Instance groups use the market type specified for the group.
-	Market EmrCreateCluster_InstanceMarket `json:"market"`
+	Market EmrCreateCluster_InstanceMarket `json:"market" yaml:"market"`
 }
 
 // AutoScaling Adjustment Type.
@@ -18967,12 +18967,12 @@ type EmrCreateCluster_ScalingConstraintsProperty struct {
 	//
 	// Scale-out
 	// activities will not add instances beyond this boundary.
-	MaxCapacity *float64 `json:"maxCapacity"`
+	MaxCapacity *float64 `json:"maxCapacity" yaml:"maxCapacity"`
 	// The lower boundary of EC2 instances in an instance group below which scaling activities are not allowed to shrink.
 	//
 	// Scale-in
 	// activities will not terminate instances below this boundary.
-	MinCapacity *float64 `json:"minCapacity"`
+	MinCapacity *float64 `json:"minCapacity" yaml:"minCapacity"`
 }
 
 // A scale-in or scale-out rule that defines scaling activity, including the CloudWatch metric alarm that triggers activity, how EC2 instances are added or removed, and the periodicity of adjustments.
@@ -18983,15 +18983,15 @@ type EmrCreateCluster_ScalingConstraintsProperty struct {
 //
 type EmrCreateCluster_ScalingRuleProperty struct {
 	// The conditions that trigger an automatic scaling activity.
-	Action *EmrCreateCluster_ScalingActionProperty `json:"action"`
+	Action *EmrCreateCluster_ScalingActionProperty `json:"action" yaml:"action"`
 	// The name used to identify an automatic scaling rule.
 	//
 	// Rule names must be unique within a scaling policy.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The CloudWatch alarm definition that determines when automatic scaling activity is triggered.
-	Trigger *EmrCreateCluster_ScalingTriggerProperty `json:"trigger"`
+	Trigger *EmrCreateCluster_ScalingTriggerProperty `json:"trigger" yaml:"trigger"`
 	// A friendly, more verbose description of the automatic scaling rule.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 }
 
 // The conditions that trigger an automatic scaling activity and the definition of a CloudWatch metric alarm.
@@ -19007,7 +19007,7 @@ type EmrCreateCluster_ScalingTriggerProperty struct {
 	//
 	// When the defined alarm conditions are met along with other trigger parameters,
 	// scaling activity begins.
-	CloudWatchAlarmDefinition *EmrCreateCluster_CloudWatchAlarmDefinitionProperty `json:"cloudWatchAlarmDefinition"`
+	CloudWatchAlarmDefinition *EmrCreateCluster_CloudWatchAlarmDefinitionProperty `json:"cloudWatchAlarmDefinition" yaml:"cloudWatchAlarmDefinition"`
 }
 
 // Configuration of the script to run during a bootstrap action.
@@ -19020,9 +19020,9 @@ type EmrCreateCluster_ScriptBootstrapActionConfigProperty struct {
 	// Location of the script to run during a bootstrap action.
 	//
 	// Can be either a location in Amazon S3 or on a local file system.
-	Path *string `json:"path"`
+	Path *string `json:"path" yaml:"path"`
 	// A list of command line arguments to pass to the bootstrap action script.
-	Args *[]*string `json:"args"`
+	Args *[]*string `json:"args" yaml:"args"`
 }
 
 // An automatic scaling configuration, which describes how the policy adds or removes instances, the cooldown period, and the number of EC2 instances that will be added each time the CloudWatch metric alarm condition is satisfied.
@@ -19037,11 +19037,11 @@ type EmrCreateCluster_SimpleScalingPolicyConfigurationProperty struct {
 	// A positive value adds to the instance group's
 	// EC2 instance count while a negative number removes instances. If AdjustmentType is set to EXACT_CAPACITY, the number should only be
 	// a positive integer.
-	ScalingAdjustment *float64 `json:"scalingAdjustment"`
+	ScalingAdjustment *float64 `json:"scalingAdjustment" yaml:"scalingAdjustment"`
 	// The way in which EC2 instances are added (if ScalingAdjustment is a positive number) or terminated (if ScalingAdjustment is a negative number) each time the scaling activity is triggered.
-	AdjustmentType EmrCreateCluster_ScalingAdjustmentType `json:"adjustmentType"`
+	AdjustmentType EmrCreateCluster_ScalingAdjustmentType `json:"adjustmentType" yaml:"adjustmentType"`
 	// The amount of time, in seconds, after a scaling activity completes before any further trigger-related scaling activities can start.
-	CoolDown *float64 `json:"coolDown"`
+	CoolDown *float64 `json:"coolDown" yaml:"coolDown"`
 }
 
 // Spot Allocation Strategies.
@@ -19063,13 +19063,13 @@ const (
 //
 type EmrCreateCluster_SpotProvisioningSpecificationProperty struct {
 	// The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired.
-	TimeoutAction EmrCreateCluster_SpotTimeoutAction `json:"timeoutAction"`
+	TimeoutAction EmrCreateCluster_SpotTimeoutAction `json:"timeoutAction" yaml:"timeoutAction"`
 	// The spot provisioning timeout period in minutes.
-	TimeoutDurationMinutes *float64 `json:"timeoutDurationMinutes"`
+	TimeoutDurationMinutes *float64 `json:"timeoutDurationMinutes" yaml:"timeoutDurationMinutes"`
 	// Specifies the strategy to use in launching Spot Instance fleets.
-	AllocationStrategy EmrCreateCluster_SpotAllocationStrategy `json:"allocationStrategy"`
+	AllocationStrategy EmrCreateCluster_SpotAllocationStrategy `json:"allocationStrategy" yaml:"allocationStrategy"`
 	// The defined duration for Spot instances (also known as Spot blocks) in minutes.
-	BlockDurationMinutes *float64 `json:"blockDurationMinutes"`
+	BlockDurationMinutes *float64 `json:"blockDurationMinutes" yaml:"blockDurationMinutes"`
 }
 
 // Spot Timeout Actions.
@@ -19091,13 +19091,13 @@ type EmrCreateCluster_VolumeSpecificationProperty struct {
 	//
 	// If the volume type is EBS-optimized, the minimum value is 10GiB.
 	// Maximum size is 1TiB
-	VolumeSize awscdk.Size `json:"volumeSize"`
+	VolumeSize awscdk.Size `json:"volumeSize" yaml:"volumeSize"`
 	// The volume type.
 	//
 	// Volume types supported are gp2, io1, standard.
-	VolumeType EmrCreateCluster_EbsBlockDeviceVolumeType `json:"volumeType"`
+	VolumeType EmrCreateCluster_EbsBlockDeviceVolumeType `json:"volumeType" yaml:"volumeType"`
 	// The number of I/O operations per second (IOPS) that the volume supports.
-	Iops *float64 `json:"iops"`
+	Iops *float64 `json:"iops" yaml:"iops"`
 }
 
 // Properties for EmrCreateCluster.
@@ -19110,84 +19110,84 @@ type EmrCreateCluster_VolumeSpecificationProperty struct {
 //
 type EmrCreateClusterProps struct {
 	// An optional description for this state.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	Heartbeat awscdk.Duration `json:"heartbeat"`
+	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	InputPath *string `json:"inputPath"`
+	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern"`
+	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	OutputPath *string `json:"outputPath"`
+	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	ResultPath *string `json:"resultPath"`
+	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
 	// You can use ResultSelector to create a payload with values that are static
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	ResultSelector *map[string]interface{} `json:"resultSelector"`
+	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// A specification of the number and type of Amazon EC2 instances.
-	Instances *EmrCreateCluster_InstancesConfigProperty `json:"instances"`
+	Instances *EmrCreateCluster_InstancesConfigProperty `json:"instances" yaml:"instances"`
 	// The Name of the Cluster.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// A JSON string for selecting additional features.
-	AdditionalInfo *string `json:"additionalInfo"`
+	AdditionalInfo *string `json:"additionalInfo" yaml:"additionalInfo"`
 	// A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster.
-	Applications *[]*EmrCreateCluster_ApplicationConfigProperty `json:"applications"`
+	Applications *[]*EmrCreateCluster_ApplicationConfigProperty `json:"applications" yaml:"applications"`
 	// An IAM role for automatic scaling policies.
-	AutoScalingRole awsiam.IRole `json:"autoScalingRole"`
+	AutoScalingRole awsiam.IRole `json:"autoScalingRole" yaml:"autoScalingRole"`
 	// A list of bootstrap actions to run before Hadoop starts on the cluster nodes.
-	BootstrapActions *[]*EmrCreateCluster_BootstrapActionConfigProperty `json:"bootstrapActions"`
+	BootstrapActions *[]*EmrCreateCluster_BootstrapActionConfigProperty `json:"bootstrapActions" yaml:"bootstrapActions"`
 	// Also called instance profile and EC2 role.
 	//
 	// An IAM role for an EMR cluster. The EC2 instances of the cluster assume this role.
 	//
 	// This attribute has been renamed from jobFlowRole to clusterRole to align with other ERM/StepFunction integration parameters.
-	ClusterRole awsiam.IRole `json:"clusterRole"`
+	ClusterRole awsiam.IRole `json:"clusterRole" yaml:"clusterRole"`
 	// The list of configurations supplied for the EMR cluster you are creating.
-	Configurations *[]*EmrCreateCluster_ConfigurationProperty `json:"configurations"`
+	Configurations *[]*EmrCreateCluster_ConfigurationProperty `json:"configurations" yaml:"configurations"`
 	// The ID of a custom Amazon EBS-backed Linux AMI.
-	CustomAmiId *string `json:"customAmiId"`
+	CustomAmiId *string `json:"customAmiId" yaml:"customAmiId"`
 	// The size of the EBS root device volume of the Linux AMI that is used for each EC2 instance.
-	EbsRootVolumeSize awscdk.Size `json:"ebsRootVolumeSize"`
+	EbsRootVolumeSize awscdk.Size `json:"ebsRootVolumeSize" yaml:"ebsRootVolumeSize"`
 	// Attributes for Kerberos configuration when Kerberos authentication is enabled using a security configuration.
-	KerberosAttributes *EmrCreateCluster_KerberosAttributesProperty `json:"kerberosAttributes"`
+	KerberosAttributes *EmrCreateCluster_KerberosAttributesProperty `json:"kerberosAttributes" yaml:"kerberosAttributes"`
 	// The location in Amazon S3 to write the log files of the job flow.
-	LogUri *string `json:"logUri"`
+	LogUri *string `json:"logUri" yaml:"logUri"`
 	// The Amazon EMR release label, which determines the version of open-source application packages installed on the cluster.
-	ReleaseLabel *string `json:"releaseLabel"`
+	ReleaseLabel *string `json:"releaseLabel" yaml:"releaseLabel"`
 	// Specifies the way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an instance group is resized.
-	ScaleDownBehavior EmrCreateCluster_EmrClusterScaleDownBehavior `json:"scaleDownBehavior"`
+	ScaleDownBehavior EmrCreateCluster_EmrClusterScaleDownBehavior `json:"scaleDownBehavior" yaml:"scaleDownBehavior"`
 	// The name of a security configuration to apply to the cluster.
-	SecurityConfiguration *string `json:"securityConfiguration"`
+	SecurityConfiguration *string `json:"securityConfiguration" yaml:"securityConfiguration"`
 	// The IAM role that will be assumed by the Amazon EMR service to access AWS resources on your behalf.
-	ServiceRole awsiam.IRole `json:"serviceRole"`
+	ServiceRole awsiam.IRole `json:"serviceRole" yaml:"serviceRole"`
 	// Specifies the step concurrency level to allow multiple steps to run in parallel.
 	//
 	// Requires EMR release label 5.28.0 or above.
 	// Must be in range [1, 256].
-	StepConcurrencyLevel *float64 `json:"stepConcurrencyLevel"`
+	StepConcurrencyLevel *float64 `json:"stepConcurrencyLevel" yaml:"stepConcurrencyLevel"`
 	// A list of tags to associate with a cluster and propagate to Amazon EC2 instances.
-	Tags *map[string]*string `json:"tags"`
+	Tags *map[string]*string `json:"tags" yaml:"tags"`
 	// A value of true indicates that all IAM users in the AWS account can perform cluster actions if they have the proper IAM policy permissions.
-	VisibleToAllUsers *bool `json:"visibleToAllUsers"`
+	VisibleToAllUsers *bool `json:"visibleToAllUsers" yaml:"visibleToAllUsers"`
 }
 
 // A Step Functions Task to to modify an InstanceFleet on an EMR Cluster.
@@ -19944,51 +19944,51 @@ func (e *jsiiProxy_EmrModifyInstanceFleetByName) WhenBoundToGraph(graph awsstepf
 //
 type EmrModifyInstanceFleetByNameProps struct {
 	// An optional description for this state.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	Heartbeat awscdk.Duration `json:"heartbeat"`
+	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	InputPath *string `json:"inputPath"`
+	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern"`
+	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	OutputPath *string `json:"outputPath"`
+	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	ResultPath *string `json:"resultPath"`
+	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
 	// You can use ResultSelector to create a payload with values that are static
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	ResultSelector *map[string]interface{} `json:"resultSelector"`
+	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The ClusterId to update.
-	ClusterId *string `json:"clusterId"`
+	ClusterId *string `json:"clusterId" yaml:"clusterId"`
 	// The InstanceFleetName to update.
-	InstanceFleetName *string `json:"instanceFleetName"`
+	InstanceFleetName *string `json:"instanceFleetName" yaml:"instanceFleetName"`
 	// The target capacity of On-Demand units for the instance fleet.
 	// See: https://docs.aws.amazon.com/emr/latest/APIReference/API_InstanceFleetModifyConfig.html
 	//
-	TargetOnDemandCapacity *float64 `json:"targetOnDemandCapacity"`
+	TargetOnDemandCapacity *float64 `json:"targetOnDemandCapacity" yaml:"targetOnDemandCapacity"`
 	// The target capacity of Spot units for the instance fleet.
 	// See: https://docs.aws.amazon.com/emr/latest/APIReference/API_InstanceFleetModifyConfig.html
 	//
-	TargetSpotCapacity *float64 `json:"targetSpotCapacity"`
+	TargetSpotCapacity *float64 `json:"targetSpotCapacity" yaml:"targetSpotCapacity"`
 }
 
 // A Step Functions Task to to modify an InstanceGroup on an EMR Cluster.
@@ -20747,17 +20747,17 @@ func (e *jsiiProxy_EmrModifyInstanceGroupByName) WhenBoundToGraph(graph awsstepf
 //
 type EmrModifyInstanceGroupByName_InstanceGroupModifyConfigProperty struct {
 	// A list of new or modified configurations to apply for an instance group.
-	Configurations *[]*EmrCreateCluster_ConfigurationProperty `json:"configurations"`
+	Configurations *[]*EmrCreateCluster_ConfigurationProperty `json:"configurations" yaml:"configurations"`
 	// The EC2 InstanceIds to terminate.
 	//
 	// After you terminate the instances, the instance group will not return to its original requested size.
-	EC2InstanceIdsToTerminate *[]*string `json:"eC2InstanceIdsToTerminate"`
+	EC2InstanceIdsToTerminate *[]*string `json:"eC2InstanceIdsToTerminate" yaml:"eC2InstanceIdsToTerminate"`
 	// Target size for the instance group.
-	InstanceCount *float64 `json:"instanceCount"`
+	InstanceCount *float64 `json:"instanceCount" yaml:"instanceCount"`
 	// Policy for customizing shrink operations.
 	// See: https://docs.aws.amazon.com/emr/latest/APIReference/API_ShrinkPolicy.html
 	//
-	ShrinkPolicy *EmrModifyInstanceGroupByName_ShrinkPolicyProperty `json:"shrinkPolicy"`
+	ShrinkPolicy *EmrModifyInstanceGroupByName_ShrinkPolicyProperty `json:"shrinkPolicy" yaml:"shrinkPolicy"`
 }
 
 // Custom policy for requesting termination protection or termination of specific instances when shrinking an instance group.
@@ -20768,11 +20768,11 @@ type EmrModifyInstanceGroupByName_InstanceGroupModifyConfigProperty struct {
 //
 type EmrModifyInstanceGroupByName_InstanceResizePolicyProperty struct {
 	// Specific list of instances to be protected when shrinking an instance group.
-	InstancesToProtect *[]*string `json:"instancesToProtect"`
+	InstancesToProtect *[]*string `json:"instancesToProtect" yaml:"instancesToProtect"`
 	// Specific list of instances to be terminated when shrinking an instance group.
-	InstancesToTerminate *[]*string `json:"instancesToTerminate"`
+	InstancesToTerminate *[]*string `json:"instancesToTerminate" yaml:"instancesToTerminate"`
 	// Decommissioning timeout override for the specific list of instances to be terminated.
-	InstanceTerminationTimeout awscdk.Duration `json:"instanceTerminationTimeout"`
+	InstanceTerminationTimeout awscdk.Duration `json:"instanceTerminationTimeout" yaml:"instanceTerminationTimeout"`
 }
 
 // Policy for customizing shrink operations.
@@ -20787,9 +20787,9 @@ type EmrModifyInstanceGroupByName_ShrinkPolicyProperty struct {
 	// The desired timeout for decommissioning an instance.
 	//
 	// Overrides the default YARN decommissioning timeout.
-	DecommissionTimeout awscdk.Duration `json:"decommissionTimeout"`
+	DecommissionTimeout awscdk.Duration `json:"decommissionTimeout" yaml:"decommissionTimeout"`
 	// Custom policy for requesting termination protection or termination of specific instances when shrinking an instance group.
-	InstanceResizePolicy *EmrModifyInstanceGroupByName_InstanceResizePolicyProperty `json:"instanceResizePolicy"`
+	InstanceResizePolicy *EmrModifyInstanceGroupByName_InstanceResizePolicyProperty `json:"instanceResizePolicy" yaml:"instanceResizePolicy"`
 }
 
 // Properties for EmrModifyInstanceGroupByName.
@@ -20798,49 +20798,49 @@ type EmrModifyInstanceGroupByName_ShrinkPolicyProperty struct {
 //
 type EmrModifyInstanceGroupByNameProps struct {
 	// An optional description for this state.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	Heartbeat awscdk.Duration `json:"heartbeat"`
+	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	InputPath *string `json:"inputPath"`
+	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern"`
+	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	OutputPath *string `json:"outputPath"`
+	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	ResultPath *string `json:"resultPath"`
+	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
 	// You can use ResultSelector to create a payload with values that are static
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	ResultSelector *map[string]interface{} `json:"resultSelector"`
+	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The ClusterId to update.
-	ClusterId *string `json:"clusterId"`
+	ClusterId *string `json:"clusterId" yaml:"clusterId"`
 	// The JSON that you want to provide to your ModifyInstanceGroup call as input.
 	//
 	// This uses the same syntax as the ModifyInstanceGroups API.
 	// See: https://docs.aws.amazon.com/emr/latest/APIReference/API_ModifyInstanceGroups.html
 	//
-	InstanceGroup *EmrModifyInstanceGroupByName_InstanceGroupModifyConfigProperty `json:"instanceGroup"`
+	InstanceGroup *EmrModifyInstanceGroupByName_InstanceGroupModifyConfigProperty `json:"instanceGroup" yaml:"instanceGroup"`
 	// The InstanceGroupName to update.
-	InstanceGroupName *string `json:"instanceGroupName"`
+	InstanceGroupName *string `json:"instanceGroupName" yaml:"instanceGroupName"`
 }
 
 // A Step Functions Task to to set Termination Protection on an EMR Cluster.
@@ -21597,43 +21597,43 @@ func (e *jsiiProxy_EmrSetClusterTerminationProtection) WhenBoundToGraph(graph aw
 //
 type EmrSetClusterTerminationProtectionProps struct {
 	// An optional description for this state.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	Heartbeat awscdk.Duration `json:"heartbeat"`
+	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	InputPath *string `json:"inputPath"`
+	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern"`
+	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	OutputPath *string `json:"outputPath"`
+	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	ResultPath *string `json:"resultPath"`
+	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
 	// You can use ResultSelector to create a payload with values that are static
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	ResultSelector *map[string]interface{} `json:"resultSelector"`
+	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The ClusterId to update.
-	ClusterId *string `json:"clusterId"`
+	ClusterId *string `json:"clusterId" yaml:"clusterId"`
 	// Termination protection indicator.
-	TerminationProtected *bool `json:"terminationProtected"`
+	TerminationProtected *bool `json:"terminationProtected" yaml:"terminationProtected"`
 }
 
 // A Step Functions Task to terminate an EMR Cluster.
@@ -22390,41 +22390,41 @@ func (e *jsiiProxy_EmrTerminateCluster) WhenBoundToGraph(graph awsstepfunctions.
 //
 type EmrTerminateClusterProps struct {
 	// An optional description for this state.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	Heartbeat awscdk.Duration `json:"heartbeat"`
+	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	InputPath *string `json:"inputPath"`
+	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern"`
+	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	OutputPath *string `json:"outputPath"`
+	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	ResultPath *string `json:"resultPath"`
+	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
 	// You can use ResultSelector to create a payload with values that are static
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	ResultSelector *map[string]interface{} `json:"resultSelector"`
+	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The ClusterId to terminate.
-	ClusterId *string `json:"clusterId"`
+	ClusterId *string `json:"clusterId" yaml:"clusterId"`
 }
 
 // Encryption Configuration of the S3 bucket.
@@ -22435,9 +22435,9 @@ type EmrTerminateClusterProps struct {
 //
 type EncryptionConfiguration struct {
 	// Type of S3 server-side encryption enabled.
-	EncryptionOption EncryptionOption `json:"encryptionOption"`
+	EncryptionOption EncryptionOption `json:"encryptionOption" yaml:"encryptionOption"`
 	// KMS key ARN or ID.
-	EncryptionKey awskms.IKey `json:"encryptionKey"`
+	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
 }
 
 // Encryption Options of the S3 bucket.
@@ -23210,45 +23210,45 @@ func (e *jsiiProxy_EvaluateExpression) WhenBoundToGraph(graph awsstepfunctions.S
 //
 type EvaluateExpressionProps struct {
 	// An optional description for this state.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	Heartbeat awscdk.Duration `json:"heartbeat"`
+	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	InputPath *string `json:"inputPath"`
+	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern"`
+	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	OutputPath *string `json:"outputPath"`
+	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	ResultPath *string `json:"resultPath"`
+	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
 	// You can use ResultSelector to create a payload with values that are static
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	ResultSelector *map[string]interface{} `json:"resultSelector"`
+	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The expression to evaluate. The expression may contain state paths.
 	//
 	// Example value: `'$.a + $.b'`
-	Expression *string `json:"expression"`
+	Expression *string `json:"expression" yaml:"expression"`
 	// The runtime language to use to evaluate the expression.
-	Runtime awslambda.Runtime `json:"runtime"`
+	Runtime awslambda.Runtime `json:"runtime" yaml:"runtime"`
 }
 
 // A StepFunctions Task to send events to an EventBridge event bus.
@@ -24012,21 +24012,21 @@ type EventBridgePutEventsEntry struct {
 	//
 	// TODO: EXAMPLE
 	//
-	Detail awsstepfunctions.TaskInput `json:"detail"`
+	Detail awsstepfunctions.TaskInput `json:"detail" yaml:"detail"`
 	// Used along with the source field to help identify the fields and values expected in the detail field.
 	//
 	// For example, events by CloudTrail have detail type "AWS API Call via CloudTrail"
 	// See: https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events.html
 	//
-	DetailType *string `json:"detailType"`
+	DetailType *string `json:"detailType" yaml:"detailType"`
 	// The service or application that caused this event to be generated.
 	//
 	// Example value: `com.example.service`
 	// See: https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events.html
 	//
-	Source *string `json:"source"`
+	Source *string `json:"source" yaml:"source"`
 	// The event bus the entry will be sent to.
-	EventBus awsevents.IEventBus `json:"eventBus"`
+	EventBus awsevents.IEventBus `json:"eventBus" yaml:"eventBus"`
 }
 
 // Properties for sending events with PutEvents.
@@ -24035,41 +24035,41 @@ type EventBridgePutEventsEntry struct {
 //
 type EventBridgePutEventsProps struct {
 	// An optional description for this state.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	Heartbeat awscdk.Duration `json:"heartbeat"`
+	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	InputPath *string `json:"inputPath"`
+	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern"`
+	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	OutputPath *string `json:"outputPath"`
+	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	ResultPath *string `json:"resultPath"`
+	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
 	// You can use ResultSelector to create a payload with values that are static
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	ResultSelector *map[string]interface{} `json:"resultSelector"`
+	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The entries that will be sent (must be at least 1).
-	Entries *[]*EventBridgePutEventsEntry `json:"entries"`
+	Entries *[]*EventBridgePutEventsEntry `json:"entries" yaml:"entries"`
 }
 
 // Start a Job run as a Task.
@@ -24828,41 +24828,41 @@ func (g *jsiiProxy_GlueDataBrewStartJobRun) WhenBoundToGraph(graph awsstepfuncti
 //
 type GlueDataBrewStartJobRunProps struct {
 	// An optional description for this state.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	Heartbeat awscdk.Duration `json:"heartbeat"`
+	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	InputPath *string `json:"inputPath"`
+	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern"`
+	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	OutputPath *string `json:"outputPath"`
+	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	ResultPath *string `json:"resultPath"`
+	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
 	// You can use ResultSelector to create a payload with values that are static
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	ResultSelector *map[string]interface{} `json:"resultSelector"`
+	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// Glue DataBrew Job to run.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // Starts an AWS Glue job in a Task state.
@@ -25624,56 +25624,56 @@ func (g *jsiiProxy_GlueStartJobRun) WhenBoundToGraph(graph awsstepfunctions.Stat
 //
 type GlueStartJobRunProps struct {
 	// An optional description for this state.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	Heartbeat awscdk.Duration `json:"heartbeat"`
+	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	InputPath *string `json:"inputPath"`
+	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern"`
+	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	OutputPath *string `json:"outputPath"`
+	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	ResultPath *string `json:"resultPath"`
+	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
 	// You can use ResultSelector to create a payload with values that are static
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	ResultSelector *map[string]interface{} `json:"resultSelector"`
+	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// Glue job name.
-	GlueJobName *string `json:"glueJobName"`
+	GlueJobName *string `json:"glueJobName" yaml:"glueJobName"`
 	// The job arguments specifically for this run.
 	//
 	// For this job run, they replace the default arguments set in the job
 	// definition itself.
-	Arguments awsstepfunctions.TaskInput `json:"arguments"`
+	Arguments awsstepfunctions.TaskInput `json:"arguments" yaml:"arguments"`
 	// After a job run starts, the number of minutes to wait before sending a job run delay notification.
 	//
 	// Must be at least 1 minute.
-	NotifyDelayAfter awscdk.Duration `json:"notifyDelayAfter"`
+	NotifyDelayAfter awscdk.Duration `json:"notifyDelayAfter" yaml:"notifyDelayAfter"`
 	// The name of the SecurityConfiguration structure to be used with this job run.
 	//
 	// This must match the Glue API
 	// See: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html#aws-glue-api-regex-oneLine
 	//
-	SecurityConfiguration *string `json:"securityConfiguration"`
+	SecurityConfiguration *string `json:"securityConfiguration" yaml:"securityConfiguration"`
 }
 
 // Http Methods that API Gateway supports.
@@ -25786,9 +25786,9 @@ const (
 //
 type JobDependency struct {
 	// The job ID of the AWS Batch job associated with this dependency.
-	JobId *string `json:"jobId"`
+	JobId *string `json:"jobId" yaml:"jobId"`
 	// The type of the job dependency.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 }
 
 // Specify the driver that the EMR Containers job runs on.
@@ -25801,7 +25801,7 @@ type JobDriver struct {
 	// The job driver parameters specified for spark submit.
 	// See: https://docs.aws.amazon.com/emr-on-eks/latest/APIReference/API_SparkSubmitJobDriver.html
 	//
-	SparkSubmitJobDriver *SparkSubmitJobDriver `json:"sparkSubmitJobDriver"`
+	SparkSubmitJobDriver *SparkSubmitJobDriver `json:"sparkSubmitJobDriver" yaml:"sparkSubmitJobDriver"`
 }
 
 // Invocation type of a Lambda.
@@ -26572,59 +26572,59 @@ func (l *jsiiProxy_LambdaInvoke) WhenBoundToGraph(graph awsstepfunctions.StateGr
 //
 type LambdaInvokeProps struct {
 	// An optional description for this state.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	Heartbeat awscdk.Duration `json:"heartbeat"`
+	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	InputPath *string `json:"inputPath"`
+	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern"`
+	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	OutputPath *string `json:"outputPath"`
+	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	ResultPath *string `json:"resultPath"`
+	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
 	// You can use ResultSelector to create a payload with values that are static
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	ResultSelector *map[string]interface{} `json:"resultSelector"`
+	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// Lambda function to invoke.
-	LambdaFunction awslambda.IFunction `json:"lambdaFunction"`
+	LambdaFunction awslambda.IFunction `json:"lambdaFunction" yaml:"lambdaFunction"`
 	// Up to 3583 bytes of base64-encoded data about the invoking client to pass to the function.
-	ClientContext *string `json:"clientContext"`
+	ClientContext *string `json:"clientContext" yaml:"clientContext"`
 	// Invocation type of the Lambda function.
-	InvocationType LambdaInvocationType `json:"invocationType"`
+	InvocationType LambdaInvocationType `json:"invocationType" yaml:"invocationType"`
 	// The JSON that will be supplied as input to the Lambda function.
-	Payload awsstepfunctions.TaskInput `json:"payload"`
+	Payload awsstepfunctions.TaskInput `json:"payload" yaml:"payload"`
 	// Invoke the Lambda in a way that only returns the payload response without additional metadata.
 	//
 	// The `payloadResponseOnly` property cannot be used if `integrationPattern`, `invocationType`,
 	// `clientContext`, or `qualifier` are specified.
 	// It always uses the REQUEST_RESPONSE behavior.
-	PayloadResponseOnly *bool `json:"payloadResponseOnly"`
+	PayloadResponseOnly *bool `json:"payloadResponseOnly" yaml:"payloadResponseOnly"`
 	// Version or alias to invoke a published version of the function.
 	//
 	// You only need to supply this if you want the version of the Lambda Function to depend
 	// on data in the state machine state. If not, you can pass the appropriate Alias or Version object
 	// directly as the `lambdaFunction` argument.
-	Qualifier *string `json:"qualifier"`
+	Qualifier *string `json:"qualifier" yaml:"qualifier"`
 	// Whether to retry on Lambda service exceptions.
 	//
 	// This handles `Lambda.ServiceException`, `Lambda.AWSLambdaException` and
@@ -26632,7 +26632,7 @@ type LambdaInvokeProps struct {
 	// of 2 and 6 maximum attempts.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/bp-lambda-serviceexception.html
 	//
-	RetryOnServiceExceptions *bool `json:"retryOnServiceExceptions"`
+	RetryOnServiceExceptions *bool `json:"retryOnServiceExceptions" yaml:"retryOnServiceExceptions"`
 }
 
 // Options for binding a launch target to an ECS run job task.
@@ -26641,9 +26641,9 @@ type LambdaInvokeProps struct {
 //
 type LaunchTargetBindOptions struct {
 	// Task definition to run Docker containers in Amazon ECS.
-	TaskDefinition awsecs.ITaskDefinition `json:"taskDefinition"`
+	TaskDefinition awsecs.ITaskDefinition `json:"taskDefinition" yaml:"taskDefinition"`
 	// A regional grouping of one or more container instances on which you can run tasks and services.
-	Cluster awsecs.ICluster `json:"cluster"`
+	Cluster awsecs.ICluster `json:"cluster" yaml:"cluster"`
 }
 
 // A message attribute to add to the SNS message.
@@ -26654,11 +26654,11 @@ type LaunchTargetBindOptions struct {
 //
 type MessageAttribute struct {
 	// The value of the attribute.
-	Value interface{} `json:"value"`
+	Value interface{} `json:"value" yaml:"value"`
 	// The data type for the attribute.
 	// See: https://docs.aws.amazon.com/sns/latest/dg/sns-message-attributes.html#SNSMessageAttributes.DataTypes
 	//
-	DataType MessageAttributeDataType `json:"dataType"`
+	DataType MessageAttributeDataType `json:"dataType" yaml:"dataType"`
 }
 
 // The data type set for the SNS message attributes.
@@ -26682,9 +26682,9 @@ const (
 //
 type MetricDefinition struct {
 	// Name of the metric.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// Regular expression that searches the output of a training job and gets the value of the metric.
-	Regex *string `json:"regex"`
+	Regex *string `json:"regex" yaml:"regex"`
 }
 
 // Specifies how many models the container hosts.
@@ -26704,9 +26704,9 @@ const (
 //
 type ModelClientOptions struct {
 	// The maximum number of retries when invocation requests are failing.
-	InvocationsMaxRetries *float64 `json:"invocationsMaxRetries"`
+	InvocationsMaxRetries *float64 `json:"invocationsMaxRetries" yaml:"invocationsMaxRetries"`
 	// The timeout duration for an invocation request.
-	InvocationsTimeout awscdk.Duration `json:"invocationsTimeout"`
+	InvocationsTimeout awscdk.Duration `json:"invocationsTimeout" yaml:"invocationsTimeout"`
 }
 
 // Configuration setting for monitoring.
@@ -26717,20 +26717,20 @@ type Monitoring struct {
 	// Amazon S3 Bucket for monitoring log publishing.
 	//
 	// You can configure your jobs to send log information to Amazon S3.
-	LogBucket awss3.IBucket `json:"logBucket"`
+	LogBucket awss3.IBucket `json:"logBucket" yaml:"logBucket"`
 	// Enable logging for this job.
 	//
 	// If set to true, will automatically create a Cloudwatch Log Group and S3 bucket.
 	// This will be set to `true` implicitly if values are provided for `logGroup` or `logBucket`.
-	Logging *bool `json:"logging"`
+	Logging *bool `json:"logging" yaml:"logging"`
 	// A log group for CloudWatch monitoring.
 	//
 	// You can configure your jobs to send log information to CloudWatch Logs.
-	LogGroup awslogs.ILogGroup `json:"logGroup"`
+	LogGroup awslogs.ILogGroup `json:"logGroup" yaml:"logGroup"`
 	// A log stream name prefix for Cloudwatch monitoring.
-	LogStreamNamePrefix *string `json:"logStreamNamePrefix"`
+	LogStreamNamePrefix *string `json:"logStreamNamePrefix" yaml:"logStreamNamePrefix"`
 	// Monitoring configurations for the persistent application UI.
-	PersistentAppUI *bool `json:"persistentAppUI"`
+	PersistentAppUI *bool `json:"persistentAppUI" yaml:"persistentAppUI"`
 }
 
 // Configures the S3 bucket where SageMaker will save the result of model training.
@@ -26739,9 +26739,9 @@ type Monitoring struct {
 //
 type OutputDataConfig struct {
 	// Identifies the S3 path where you want Amazon SageMaker to store the model artifacts.
-	S3OutputLocation S3Location `json:"s3OutputLocation"`
+	S3OutputLocation S3Location `json:"s3OutputLocation" yaml:"s3OutputLocation"`
 	// Optional KMS encryption key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
-	EncryptionKey awskms.IKey `json:"encryptionKey"`
+	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
 }
 
 // Identifies a model that you want to host and the resources to deploy for hosting it.
@@ -26752,19 +26752,19 @@ type OutputDataConfig struct {
 //
 type ProductionVariant struct {
 	// The ML compute instance type.
-	InstanceType awsec2.InstanceType `json:"instanceType"`
+	InstanceType awsec2.InstanceType `json:"instanceType" yaml:"instanceType"`
 	// The name of the model that you want to host.
 	//
 	// This is the name that you specified when creating the model.
-	ModelName *string `json:"modelName"`
+	ModelName *string `json:"modelName" yaml:"modelName"`
 	// The name of the production variant.
-	VariantName *string `json:"variantName"`
+	VariantName *string `json:"variantName" yaml:"variantName"`
 	// The size of the Elastic Inference (EI) instance to use for the production variant.
-	AcceleratorType AcceleratorType `json:"acceleratorType"`
+	AcceleratorType AcceleratorType `json:"acceleratorType" yaml:"acceleratorType"`
 	// Number of instances to launch initially.
-	InitialInstanceCount *float64 `json:"initialInstanceCount"`
+	InitialInstanceCount *float64 `json:"initialInstanceCount" yaml:"initialInstanceCount"`
 	// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration.
-	InitialVariantWeight *float64 `json:"initialVariantWeight"`
+	InitialVariantWeight *float64 `json:"initialVariantWeight" yaml:"initialVariantWeight"`
 }
 
 // Database and data catalog context in which the query execution occurs.
@@ -26775,9 +26775,9 @@ type ProductionVariant struct {
 //
 type QueryExecutionContext struct {
 	// Name of catalog used in query execution.
-	CatalogName *string `json:"catalogName"`
+	CatalogName *string `json:"catalogName" yaml:"catalogName"`
 	// Name of database used in query execution.
-	DatabaseName *string `json:"databaseName"`
+	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
 }
 
 // Define the format of the input data.
@@ -26892,7 +26892,7 @@ func ReleaseLabel_EMR_6_3_0() ReleaseLabel {
 //
 type ResourceConfig struct {
 	// The number of ML compute instances to use.
-	InstanceCount *float64 `json:"instanceCount"`
+	InstanceCount *float64 `json:"instanceCount" yaml:"instanceCount"`
 	// ML compute instance type.
 	//
 	// To provide an instance type from the task input, supply an instance type in the following way
@@ -26903,11 +26903,11 @@ type ResourceConfig struct {
 	// ```
 	// See: https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ResourceConfig.html#sagemaker-Type-ResourceConfig-InstanceType
 	//
-	InstanceType awsec2.InstanceType `json:"instanceType"`
+	InstanceType awsec2.InstanceType `json:"instanceType" yaml:"instanceType"`
 	// Size of the ML storage volume that you want to provision.
-	VolumeSize awscdk.Size `json:"volumeSize"`
+	VolumeSize awscdk.Size `json:"volumeSize" yaml:"volumeSize"`
 	// KMS key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the training job.
-	VolumeEncryptionKey awskms.IKey `json:"volumeEncryptionKey"`
+	VolumeEncryptionKey awskms.IKey `json:"volumeEncryptionKey" yaml:"volumeEncryptionKey"`
 }
 
 // Location of query result along with S3 bucket configuration.
@@ -26918,11 +26918,11 @@ type ResourceConfig struct {
 //
 type ResultConfiguration struct {
 	// Encryption option used if enabled in S3.
-	EncryptionConfiguration *EncryptionConfiguration `json:"encryptionConfiguration"`
+	EncryptionConfiguration *EncryptionConfiguration `json:"encryptionConfiguration" yaml:"encryptionConfiguration"`
 	// S3 path of query results.
 	//
 	// Example value: `s3://query-results-bucket/folder/`
-	OutputLocation *awss3.Location `json:"outputLocation"`
+	OutputLocation *awss3.Location `json:"outputLocation" yaml:"outputLocation"`
 }
 
 // S3 Data Distribution Type.
@@ -26941,13 +26941,13 @@ const (
 //
 type S3DataSource struct {
 	// S3 Uri.
-	S3Location S3Location `json:"s3Location"`
+	S3Location S3Location `json:"s3Location" yaml:"s3Location"`
 	// List of one or more attribute names to use that are found in a specified augmented manifest file.
-	AttributeNames *[]*string `json:"attributeNames"`
+	AttributeNames *[]*string `json:"attributeNames" yaml:"attributeNames"`
 	// S3 Data Distribution Type.
-	S3DataDistributionType S3DataDistributionType `json:"s3DataDistributionType"`
+	S3DataDistributionType S3DataDistributionType `json:"s3DataDistributionType" yaml:"s3DataDistributionType"`
 	// S3 Data Type.
-	S3DataType S3DataType `json:"s3DataType"`
+	S3DataType S3DataType `json:"s3DataType" yaml:"s3DataType"`
 }
 
 // S3 Data Type.
@@ -27040,9 +27040,9 @@ func (s *jsiiProxy_S3Location) Bind(task ISageMakerTask, opts *S3LocationBindOpt
 //
 type S3LocationBindOptions struct {
 	// Allow reading from the S3 Location.
-	ForReading *bool `json:"forReading"`
+	ForReading *bool `json:"forReading" yaml:"forReading"`
 	// Allow writing to the S3 Location.
-	ForWriting *bool `json:"forWriting"`
+	ForWriting *bool `json:"forWriting" yaml:"forWriting"`
 }
 
 // Stores information about the location of an object in Amazon S3.
@@ -27051,7 +27051,7 @@ type S3LocationBindOptions struct {
 //
 type S3LocationConfig struct {
 	// Uniquely identifies the resource in Amazon S3.
-	Uri *string `json:"uri"`
+	Uri *string `json:"uri" yaml:"uri"`
 }
 
 // A Step Functions Task to create a SageMaker endpoint.
@@ -28562,50 +28562,50 @@ func (s *jsiiProxy_SageMakerCreateEndpointConfig) WhenBoundToGraph(graph awsstep
 //
 type SageMakerCreateEndpointConfigProps struct {
 	// An optional description for this state.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	Heartbeat awscdk.Duration `json:"heartbeat"`
+	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	InputPath *string `json:"inputPath"`
+	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern"`
+	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	OutputPath *string `json:"outputPath"`
+	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	ResultPath *string `json:"resultPath"`
+	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
 	// You can use ResultSelector to create a payload with values that are static
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	ResultSelector *map[string]interface{} `json:"resultSelector"`
+	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The name of the endpoint configuration.
-	EndpointConfigName *string `json:"endpointConfigName"`
+	EndpointConfigName *string `json:"endpointConfigName" yaml:"endpointConfigName"`
 	// An list of ProductionVariant objects, one for each model that you want to host at this endpoint.
 	//
 	// Identifies a model that you want to host and the resources to deploy for hosting it.
 	// If you are deploying multiple models, tell Amazon SageMaker how to distribute traffic among the models by specifying variant weights.
-	ProductionVariants *[]*ProductionVariant `json:"productionVariants"`
+	ProductionVariants *[]*ProductionVariant `json:"productionVariants" yaml:"productionVariants"`
 	// AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
-	KmsKey awskms.IKey `json:"kmsKey"`
+	KmsKey awskms.IKey `json:"kmsKey" yaml:"kmsKey"`
 	// Tags to be applied to the endpoint configuration.
-	Tags awsstepfunctions.TaskInput `json:"tags"`
+	Tags awsstepfunctions.TaskInput `json:"tags" yaml:"tags"`
 }
 
 // Properties for creating an Amazon SageMaker endpoint.
@@ -28616,47 +28616,47 @@ type SageMakerCreateEndpointConfigProps struct {
 //
 type SageMakerCreateEndpointProps struct {
 	// An optional description for this state.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	Heartbeat awscdk.Duration `json:"heartbeat"`
+	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	InputPath *string `json:"inputPath"`
+	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern"`
+	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	OutputPath *string `json:"outputPath"`
+	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	ResultPath *string `json:"resultPath"`
+	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
 	// You can use ResultSelector to create a payload with values that are static
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	ResultSelector *map[string]interface{} `json:"resultSelector"`
+	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The name of an endpoint configuration.
-	EndpointConfigName *string `json:"endpointConfigName"`
+	EndpointConfigName *string `json:"endpointConfigName" yaml:"endpointConfigName"`
 	// The name of the endpoint.
 	//
 	// The name must be unique within an AWS Region in your AWS account.
-	EndpointName *string `json:"endpointName"`
+	EndpointName *string `json:"endpointName" yaml:"endpointName"`
 	// Tags to be applied to the endpoint.
-	Tags awsstepfunctions.TaskInput `json:"tags"`
+	Tags awsstepfunctions.TaskInput `json:"tags" yaml:"tags"`
 }
 
 // A Step Functions Task to create a SageMaker model.
@@ -29464,57 +29464,57 @@ func (s *jsiiProxy_SageMakerCreateModel) WhenBoundToGraph(graph awsstepfunctions
 //
 type SageMakerCreateModelProps struct {
 	// An optional description for this state.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	Heartbeat awscdk.Duration `json:"heartbeat"`
+	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	InputPath *string `json:"inputPath"`
+	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern"`
+	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	OutputPath *string `json:"outputPath"`
+	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	ResultPath *string `json:"resultPath"`
+	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
 	// You can use ResultSelector to create a payload with values that are static
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	ResultSelector *map[string]interface{} `json:"resultSelector"`
+	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The name of the new model.
-	ModelName *string `json:"modelName"`
+	ModelName *string `json:"modelName" yaml:"modelName"`
 	// The definition of the primary docker image containing inference code, associated artifacts, and custom environment map that the inference code uses when the model is deployed for predictions.
-	PrimaryContainer IContainerDefinition `json:"primaryContainer"`
+	PrimaryContainer IContainerDefinition `json:"primaryContainer" yaml:"primaryContainer"`
 	// Specifies the containers in the inference pipeline.
-	Containers *[]IContainerDefinition `json:"containers"`
+	Containers *[]IContainerDefinition `json:"containers" yaml:"containers"`
 	// Isolates the model container.
 	//
 	// No inbound or outbound network calls can be made to or from the model container.
-	EnableNetworkIsolation *bool `json:"enableNetworkIsolation"`
+	EnableNetworkIsolation *bool `json:"enableNetworkIsolation" yaml:"enableNetworkIsolation"`
 	// An execution role that you can pass in a CreateModel API request.
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 	// The subnets of the VPC to which the hosted model is connected (Note this parameter is only used when VPC is provided).
-	SubnetSelection *awsec2.SubnetSelection `json:"subnetSelection"`
+	SubnetSelection *awsec2.SubnetSelection `json:"subnetSelection" yaml:"subnetSelection"`
 	// Tags to be applied to the model.
-	Tags awsstepfunctions.TaskInput `json:"tags"`
+	Tags awsstepfunctions.TaskInput `json:"tags" yaml:"tags"`
 	// The VPC that is accessible by the hosted model.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 }
 
 // Class representing the SageMaker Create Training Job task.
@@ -30318,73 +30318,73 @@ func (s *jsiiProxy_SageMakerCreateTrainingJob) WhenBoundToGraph(graph awsstepfun
 //
 type SageMakerCreateTrainingJobProps struct {
 	// An optional description for this state.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	Heartbeat awscdk.Duration `json:"heartbeat"`
+	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	InputPath *string `json:"inputPath"`
+	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern"`
+	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	OutputPath *string `json:"outputPath"`
+	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	ResultPath *string `json:"resultPath"`
+	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
 	// You can use ResultSelector to create a payload with values that are static
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	ResultSelector *map[string]interface{} `json:"resultSelector"`
+	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// Identifies the training algorithm to use.
-	AlgorithmSpecification *AlgorithmSpecification `json:"algorithmSpecification"`
+	AlgorithmSpecification *AlgorithmSpecification `json:"algorithmSpecification" yaml:"algorithmSpecification"`
 	// Describes the various datasets (e.g. train, validation, test) and the Amazon S3 location where stored.
-	InputDataConfig *[]*Channel `json:"inputDataConfig"`
+	InputDataConfig *[]*Channel `json:"inputDataConfig" yaml:"inputDataConfig"`
 	// Identifies the Amazon S3 location where you want Amazon SageMaker to save the results of model training.
-	OutputDataConfig *OutputDataConfig `json:"outputDataConfig"`
+	OutputDataConfig *OutputDataConfig `json:"outputDataConfig" yaml:"outputDataConfig"`
 	// Training Job Name.
-	TrainingJobName *string `json:"trainingJobName"`
+	TrainingJobName *string `json:"trainingJobName" yaml:"trainingJobName"`
 	// Isolates the training container.
 	//
 	// No inbound or outbound network calls can be made to or from the training container.
-	EnableNetworkIsolation *bool `json:"enableNetworkIsolation"`
+	EnableNetworkIsolation *bool `json:"enableNetworkIsolation" yaml:"enableNetworkIsolation"`
 	// Algorithm-specific parameters that influence the quality of the model.
 	//
 	// Set hyperparameters before you start the learning process.
 	// For a list of hyperparameters provided by Amazon SageMaker
 	// See: https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html
 	//
-	Hyperparameters *map[string]interface{} `json:"hyperparameters"`
+	Hyperparameters *map[string]interface{} `json:"hyperparameters" yaml:"hyperparameters"`
 	// Specifies the resources, ML compute instances, and ML storage volumes to deploy for model training.
-	ResourceConfig *ResourceConfig `json:"resourceConfig"`
+	ResourceConfig *ResourceConfig `json:"resourceConfig" yaml:"resourceConfig"`
 	// Role for the Training Job.
 	//
 	// The role must be granted all necessary permissions for the SageMaker training job to
 	// be able to operate.
 	//
 	// See https://docs.aws.amazon.com/fr_fr/sagemaker/latest/dg/sagemaker-roles.html#sagemaker-roles-createtrainingjob-perms
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 	// Sets a time limit for training.
-	StoppingCondition *StoppingCondition `json:"stoppingCondition"`
+	StoppingCondition *StoppingCondition `json:"stoppingCondition" yaml:"stoppingCondition"`
 	// Tags to be applied to the train job.
-	Tags *map[string]*string `json:"tags"`
+	Tags *map[string]*string `json:"tags" yaml:"tags"`
 	// Specifies the VPC that you want your training job to connect to.
-	VpcConfig *VpcConfig `json:"vpcConfig"`
+	VpcConfig *VpcConfig `json:"vpcConfig" yaml:"vpcConfig"`
 }
 
 // Class representing the SageMaker Create Transform Job task.
@@ -31152,63 +31152,63 @@ func (s *jsiiProxy_SageMakerCreateTransformJob) WhenBoundToGraph(graph awsstepfu
 //
 type SageMakerCreateTransformJobProps struct {
 	// An optional description for this state.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	Heartbeat awscdk.Duration `json:"heartbeat"`
+	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	InputPath *string `json:"inputPath"`
+	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern"`
+	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	OutputPath *string `json:"outputPath"`
+	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	ResultPath *string `json:"resultPath"`
+	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
 	// You can use ResultSelector to create a payload with values that are static
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	ResultSelector *map[string]interface{} `json:"resultSelector"`
+	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// Name of the model that you want to use for the transform job.
-	ModelName *string `json:"modelName"`
+	ModelName *string `json:"modelName" yaml:"modelName"`
 	// Dataset to be transformed and the Amazon S3 location where it is stored.
-	TransformInput *TransformInput `json:"transformInput"`
+	TransformInput *TransformInput `json:"transformInput" yaml:"transformInput"`
 	// Transform Job Name.
-	TransformJobName *string `json:"transformJobName"`
+	TransformJobName *string `json:"transformJobName" yaml:"transformJobName"`
 	// S3 location where you want Amazon SageMaker to save the results from the transform job.
-	TransformOutput *TransformOutput `json:"transformOutput"`
+	TransformOutput *TransformOutput `json:"transformOutput" yaml:"transformOutput"`
 	// Number of records to include in a mini-batch for an HTTP inference request.
-	BatchStrategy BatchStrategy `json:"batchStrategy"`
+	BatchStrategy BatchStrategy `json:"batchStrategy" yaml:"batchStrategy"`
 	// Environment variables to set in the Docker container.
-	Environment *map[string]*string `json:"environment"`
+	Environment *map[string]*string `json:"environment" yaml:"environment"`
 	// Maximum number of parallel requests that can be sent to each instance in a transform job.
-	MaxConcurrentTransforms *float64 `json:"maxConcurrentTransforms"`
+	MaxConcurrentTransforms *float64 `json:"maxConcurrentTransforms" yaml:"maxConcurrentTransforms"`
 	// Maximum allowed size of the payload, in MB.
-	MaxPayload awscdk.Size `json:"maxPayload"`
+	MaxPayload awscdk.Size `json:"maxPayload" yaml:"maxPayload"`
 	// Configures the timeout and maximum number of retries for processing a transform job invocation.
-	ModelClientOptions *ModelClientOptions `json:"modelClientOptions"`
+	ModelClientOptions *ModelClientOptions `json:"modelClientOptions" yaml:"modelClientOptions"`
 	// Role for the Transform Job.
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 	// Tags to be applied to the train job.
-	Tags *map[string]*string `json:"tags"`
+	Tags *map[string]*string `json:"tags" yaml:"tags"`
 	// ML compute instances for the transform job.
-	TransformResources *TransformResources `json:"transformResources"`
+	TransformResources *TransformResources `json:"transformResources" yaml:"transformResources"`
 }
 
 // A Step Functions Task to update a SageMaker endpoint.
@@ -31969,43 +31969,43 @@ func (s *jsiiProxy_SageMakerUpdateEndpoint) WhenBoundToGraph(graph awsstepfuncti
 //
 type SageMakerUpdateEndpointProps struct {
 	// An optional description for this state.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	Heartbeat awscdk.Duration `json:"heartbeat"`
+	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	InputPath *string `json:"inputPath"`
+	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern"`
+	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	OutputPath *string `json:"outputPath"`
+	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	ResultPath *string `json:"resultPath"`
+	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
 	// You can use ResultSelector to create a payload with values that are static
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	ResultSelector *map[string]interface{} `json:"resultSelector"`
+	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The name of the new endpoint configuration.
-	EndpointConfigName *string `json:"endpointConfigName"`
+	EndpointConfigName *string `json:"endpointConfigName" yaml:"endpointConfigName"`
 	// The name of the endpoint whose configuration you want to update.
-	EndpointName *string `json:"endpointName"`
+	EndpointName *string `json:"endpointName" yaml:"endpointName"`
 }
 
 // Configuration for a shuffle option for input data in a channel.
@@ -32014,7 +32014,7 @@ type SageMakerUpdateEndpointProps struct {
 //
 type ShuffleConfig struct {
 	// Determines the shuffling order.
-	Seed *float64 `json:"seed"`
+	Seed *float64 `json:"seed" yaml:"seed"`
 }
 
 // A Step Functions Task to publish messages to SNS topic.
@@ -32771,54 +32771,54 @@ func (s *jsiiProxy_SnsPublish) WhenBoundToGraph(graph awsstepfunctions.StateGrap
 //
 type SnsPublishProps struct {
 	// An optional description for this state.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	Heartbeat awscdk.Duration `json:"heartbeat"`
+	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	InputPath *string `json:"inputPath"`
+	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern"`
+	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	OutputPath *string `json:"outputPath"`
+	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	ResultPath *string `json:"resultPath"`
+	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
 	// You can use ResultSelector to create a payload with values that are static
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	ResultSelector *map[string]interface{} `json:"resultSelector"`
+	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The message you want to send.
 	//
 	// With the exception of SMS, messages must be UTF-8 encoded strings and
 	// at most 256 KB in size.
 	// For SMS, each message can contain up to 140 characters.
-	Message awsstepfunctions.TaskInput `json:"message"`
+	Message awsstepfunctions.TaskInput `json:"message" yaml:"message"`
 	// The SNS topic that the task will publish to.
-	Topic awssns.ITopic `json:"topic"`
+	Topic awssns.ITopic `json:"topic" yaml:"topic"`
 	// Add message attributes when publishing.
 	//
 	// These attributes carry additional metadata about the message and may be used
 	// for subscription filters.
 	// See: https://docs.aws.amazon.com/sns/latest/dg/sns-message-attributes.html
 	//
-	MessageAttributes *map[string]*MessageAttribute `json:"messageAttributes"`
+	MessageAttributes *map[string]*MessageAttribute `json:"messageAttributes" yaml:"messageAttributes"`
 	// Send different messages for each transport protocol.
 	//
 	// For example, you might want to send a shorter message to SMS subscribers
@@ -32830,12 +32830,12 @@ type SnsPublishProps struct {
 	// send to a specific transport protocol (i.e. "sqs", "email", "http", etc)
 	// See: https://docs.aws.amazon.com/sns/latest/api/API_Publish.html#API_Publish_RequestParameters
 	//
-	MessagePerSubscriptionType *bool `json:"messagePerSubscriptionType"`
+	MessagePerSubscriptionType *bool `json:"messagePerSubscriptionType" yaml:"messagePerSubscriptionType"`
 	// Used as the "Subject" line when the message is delivered to email endpoints.
 	//
 	// This field will also be included, if present, in the standard JSON messages
 	// delivered to other endpoints.
-	Subject *string `json:"subject"`
+	Subject *string `json:"subject" yaml:"subject"`
 }
 
 // The information about job driver for Spark submit.
@@ -32846,15 +32846,15 @@ type SparkSubmitJobDriver struct {
 	// The entry point of job application.
 	//
 	// Length Constraints: Minimum length of 1. Maximum length of 256.
-	EntryPoint awsstepfunctions.TaskInput `json:"entryPoint"`
+	EntryPoint awsstepfunctions.TaskInput `json:"entryPoint" yaml:"entryPoint"`
 	// The arguments for a job application in a task input object containing an array of strings.
 	//
 	// Length Constraints: Minimum length of 1. Maximum length of 10280.
-	EntryPointArguments awsstepfunctions.TaskInput `json:"entryPointArguments"`
+	EntryPointArguments awsstepfunctions.TaskInput `json:"entryPointArguments" yaml:"entryPointArguments"`
 	// The Spark submit parameters that are used for job runs.
 	//
 	// Length Constraints: Minimum length of 1. Maximum length of 102400.
-	SparkSubmitParameters *string `json:"sparkSubmitParameters"`
+	SparkSubmitParameters *string `json:"sparkSubmitParameters" yaml:"sparkSubmitParameters"`
 }
 
 // Method to use to split the transform job's data files into smaller batches.
@@ -33621,58 +33621,58 @@ func (s *jsiiProxy_SqsSendMessage) WhenBoundToGraph(graph awsstepfunctions.State
 //
 type SqsSendMessageProps struct {
 	// An optional description for this state.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	Heartbeat awscdk.Duration `json:"heartbeat"`
+	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	InputPath *string `json:"inputPath"`
+	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern"`
+	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	OutputPath *string `json:"outputPath"`
+	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	ResultPath *string `json:"resultPath"`
+	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
 	// You can use ResultSelector to create a payload with values that are static
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	ResultSelector *map[string]interface{} `json:"resultSelector"`
+	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The text message to send to the queue.
-	MessageBody awsstepfunctions.TaskInput `json:"messageBody"`
+	MessageBody awsstepfunctions.TaskInput `json:"messageBody" yaml:"messageBody"`
 	// The SQS queue that messages will be sent to.
-	Queue awssqs.IQueue `json:"queue"`
+	Queue awssqs.IQueue `json:"queue" yaml:"queue"`
 	// The length of time, for which to delay a message.
 	//
 	// Messages that you send to the queue remain invisible to consumers for the duration
 	// of the delay period. The maximum allowed delay is 15 minutes.
-	Delay awscdk.Duration `json:"delay"`
+	Delay awscdk.Duration `json:"delay" yaml:"delay"`
 	// The token used for deduplication of sent messages.
 	//
 	// Any messages sent with the same deduplication ID are accepted successfully,
 	// but aren't delivered during the 5-minute deduplication interval.
-	MessageDeduplicationId *string `json:"messageDeduplicationId"`
+	MessageDeduplicationId *string `json:"messageDeduplicationId" yaml:"messageDeduplicationId"`
 	// The tag that specifies that a message belongs to a specific message group.
 	//
 	// Messages that belong to the same message group are processed in a FIFO manner.
 	// Messages in different message groups might be processed out of order.
-	MessageGroupId *string `json:"messageGroupId"`
+	MessageGroupId *string `json:"messageGroupId" yaml:"messageGroupId"`
 }
 
 // A Step Functions Task to invoke an Activity worker.
@@ -34431,41 +34431,41 @@ func (s *jsiiProxy_StepFunctionsInvokeActivity) WhenBoundToGraph(graph awsstepfu
 //
 type StepFunctionsInvokeActivityProps struct {
 	// An optional description for this state.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	Heartbeat awscdk.Duration `json:"heartbeat"`
+	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	InputPath *string `json:"inputPath"`
+	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern"`
+	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	OutputPath *string `json:"outputPath"`
+	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	ResultPath *string `json:"resultPath"`
+	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
 	// You can use ResultSelector to create a payload with values that are static
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	ResultSelector *map[string]interface{} `json:"resultSelector"`
+	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// Step Functions Activity to invoke.
-	Activity awsstepfunctions.IActivity `json:"activity"`
+	Activity awsstepfunctions.IActivity `json:"activity" yaml:"activity"`
 }
 
 // A Step Functions Task to call StartExecution on another state machine.
@@ -35224,41 +35224,41 @@ func (s *jsiiProxy_StepFunctionsStartExecution) WhenBoundToGraph(graph awsstepfu
 //
 type StepFunctionsStartExecutionProps struct {
 	// An optional description for this state.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
-	Heartbeat awscdk.Duration `json:"heartbeat"`
+	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	InputPath *string `json:"inputPath"`
+	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern"`
+	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	OutputPath *string `json:"outputPath"`
+	OutputPath *string `json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	ResultPath *string `json:"resultPath"`
+	ResultPath *string `json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
 	// You can use ResultSelector to create a payload with values that are static
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	ResultSelector *map[string]interface{} `json:"resultSelector"`
+	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// The Step Functions state machine to start the execution on.
-	StateMachine awsstepfunctions.IStateMachine `json:"stateMachine"`
+	StateMachine awsstepfunctions.IStateMachine `json:"stateMachine" yaml:"stateMachine"`
 	// Pass the execution ID from the context object to the execution input.
 	//
 	// This allows the Step Functions UI to link child executions from parent executions, making it easier to trace execution flow across state machines.
@@ -35266,15 +35266,15 @@ type StepFunctionsStartExecutionProps struct {
 	// If you set this property to `true`, the `input` property must be an object (provided by `sfn.TaskInput.fromObject`) or omitted entirely.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/concepts-nested-workflows.html#nested-execution-startid
 	//
-	AssociateWithParent *bool `json:"associateWithParent"`
+	AssociateWithParent *bool `json:"associateWithParent" yaml:"associateWithParent"`
 	// The JSON input for the execution, same as that of StartExecution.
 	// See: https://docs.aws.amazon.com/step-functions/latest/apireference/API_StartExecution.html
 	//
-	Input awsstepfunctions.TaskInput `json:"input"`
+	Input awsstepfunctions.TaskInput `json:"input" yaml:"input"`
 	// The name of the execution, same as that of StartExecution.
 	// See: https://docs.aws.amazon.com/step-functions/latest/apireference/API_StartExecution.html
 	//
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // Specifies a limit to how long a model training job can run.
@@ -35285,7 +35285,7 @@ type StepFunctionsStartExecutionProps struct {
 //
 type StoppingCondition struct {
 	// The maximum length of time, in seconds, that the training or compilation job can run.
-	MaxRuntime awscdk.Duration `json:"maxRuntime"`
+	MaxRuntime awscdk.Duration `json:"maxRuntime" yaml:"maxRuntime"`
 }
 
 // An environment variable to be set in the container run as a task.
@@ -35296,11 +35296,11 @@ type TaskEnvironmentVariable struct {
 	// Name for the environment variable.
 	//
 	// Use `JsonPath` class's static methods to specify name from a JSON path.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// Value of the environment variable.
 	//
 	// Use `JsonPath` class's static methods to specify value from a JSON path.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // S3 location of the input data that the model can consume.
@@ -35309,7 +35309,7 @@ type TaskEnvironmentVariable struct {
 //
 type TransformDataSource struct {
 	// S3 location of the input data.
-	S3DataSource *TransformS3DataSource `json:"s3DataSource"`
+	S3DataSource *TransformS3DataSource `json:"s3DataSource" yaml:"s3DataSource"`
 }
 
 // Dataset to be transformed and the Amazon S3 location where it is stored.
@@ -35318,13 +35318,13 @@ type TransformDataSource struct {
 //
 type TransformInput struct {
 	// S3 location of the channel data.
-	TransformDataSource *TransformDataSource `json:"transformDataSource"`
+	TransformDataSource *TransformDataSource `json:"transformDataSource" yaml:"transformDataSource"`
 	// The compression type of the transform data.
-	CompressionType CompressionType `json:"compressionType"`
+	CompressionType CompressionType `json:"compressionType" yaml:"compressionType"`
 	// Multipurpose internet mail extension (MIME) type of the data.
-	ContentType *string `json:"contentType"`
+	ContentType *string `json:"contentType" yaml:"contentType"`
 	// Method to use to split the transform job's data files into smaller batches.
-	SplitType SplitType `json:"splitType"`
+	SplitType SplitType `json:"splitType" yaml:"splitType"`
 }
 
 // S3 location where you want Amazon SageMaker to save the results from the transform job.
@@ -35333,13 +35333,13 @@ type TransformInput struct {
 //
 type TransformOutput struct {
 	// S3 path where you want Amazon SageMaker to store the results of the transform job.
-	S3OutputPath *string `json:"s3OutputPath"`
+	S3OutputPath *string `json:"s3OutputPath" yaml:"s3OutputPath"`
 	// MIME type used to specify the output data.
-	Accept *string `json:"accept"`
+	Accept *string `json:"accept" yaml:"accept"`
 	// Defines how to assemble the results of the transform job as a single S3 object.
-	AssembleWith AssembleWith `json:"assembleWith"`
+	AssembleWith AssembleWith `json:"assembleWith" yaml:"assembleWith"`
 	// AWS KMS key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
-	EncryptionKey awskms.IKey `json:"encryptionKey"`
+	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
 }
 
 // ML compute instances for the transform job.
@@ -35348,11 +35348,11 @@ type TransformOutput struct {
 //
 type TransformResources struct {
 	// Number of ML compute instances to use in the transform job.
-	InstanceCount *float64 `json:"instanceCount"`
+	InstanceCount *float64 `json:"instanceCount" yaml:"instanceCount"`
 	// ML compute instance type for the transform job.
-	InstanceType awsec2.InstanceType `json:"instanceType"`
+	InstanceType awsec2.InstanceType `json:"instanceType" yaml:"instanceType"`
 	// AWS KMS key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s).
-	VolumeEncryptionKey awskms.IKey `json:"volumeEncryptionKey"`
+	VolumeEncryptionKey awskms.IKey `json:"volumeEncryptionKey" yaml:"volumeEncryptionKey"`
 }
 
 // Location of the channel data.
@@ -35361,9 +35361,9 @@ type TransformResources struct {
 //
 type TransformS3DataSource struct {
 	// Identifies either a key name prefix or a manifest.
-	S3Uri *string `json:"s3Uri"`
+	S3Uri *string `json:"s3Uri" yaml:"s3Uri"`
 	// S3 Data Type.
-	S3DataType S3DataType `json:"s3DataType"`
+	S3DataType S3DataType `json:"s3DataType" yaml:"s3DataType"`
 }
 
 // Class that returns a virtual cluster's id depending on input type.
@@ -35428,8 +35428,8 @@ func VirtualClusterInput_FromVirtualClusterId(virtualClusterId *string) VirtualC
 //
 type VpcConfig struct {
 	// VPC.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// VPC subnets.
-	Subnets *awsec2.SubnetSelection `json:"subnets"`
+	Subnets *awsec2.SubnetSelection `json:"subnets" yaml:"subnets"`
 }
 

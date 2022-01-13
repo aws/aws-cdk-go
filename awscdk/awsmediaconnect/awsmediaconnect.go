@@ -602,35 +602,35 @@ func (c *jsiiProxy_CfnFlow) ValidateProperties(_properties interface{}) {
 //
 type CfnFlow_EncryptionProperty struct {
 	// The Amazon Resource Name (ARN) of the role that you created during setup (when you set up MediaConnect as a trusted entity).
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
-	Algorithm *string `json:"algorithm"`
+	Algorithm *string `json:"algorithm" yaml:"algorithm"`
 	// A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content.
 	//
 	// This parameter is not valid for static key encryption.
-	ConstantInitializationVector *string `json:"constantInitializationVector"`
+	ConstantInitializationVector *string `json:"constantInitializationVector" yaml:"constantInitializationVector"`
 	// The value of one of the devices that you configured with your digital rights management (DRM) platform key provider.
 	//
 	// This parameter is required for SPEKE encryption and is not valid for static key encryption.
-	DeviceId *string `json:"deviceId"`
+	DeviceId *string `json:"deviceId" yaml:"deviceId"`
 	// The type of key that is used for the encryption.
 	//
 	// If you don't specify a `keyType` value, the service uses the default setting ( `static-key` ).
-	KeyType *string `json:"keyType"`
+	KeyType *string `json:"keyType" yaml:"keyType"`
 	// The AWS Region that the API Gateway proxy endpoint was created in.
 	//
 	// This parameter is required for SPEKE encryption and is not valid for static key encryption.
-	Region *string `json:"region"`
+	Region *string `json:"region" yaml:"region"`
 	// An identifier for the content.
 	//
 	// The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.
-	ResourceId *string `json:"resourceId"`
+	ResourceId *string `json:"resourceId" yaml:"resourceId"`
 	// The ARN of the secret that you created in AWS Secrets Manager to store the encryption key.
-	SecretArn *string `json:"secretArn"`
+	SecretArn *string `json:"secretArn" yaml:"secretArn"`
 	// The URL from the API Gateway proxy that you set up to talk to your key server.
 	//
 	// This parameter is required for SPEKE encryption and is not valid for static key encryption.
-	Url *string `json:"url"`
+	Url *string `json:"url" yaml:"url"`
 }
 
 // The settings for source failover.
@@ -641,11 +641,11 @@ type CfnFlow_FailoverConfigProperty struct {
 	// The size of the buffer (delay) that the service maintains.
 	//
 	// A larger buffer means a longer delay in transmitting the stream, but more room for error correction. A smaller buffer means a shorter delay, but less room for error correction.
-	RecoveryWindow *float64 `json:"recoveryWindow"`
+	RecoveryWindow *float64 `json:"recoveryWindow" yaml:"recoveryWindow"`
 	// The state of source failover on the flow.
 	//
 	// If the state is disabled, the flow can have only one source. If the state is enabled, the flow can have one or two sources.
-	State *string `json:"state"`
+	State *string `json:"state" yaml:"state"`
 }
 
 // The details of the sources of the flow.
@@ -660,49 +660,49 @@ type CfnFlow_FailoverConfigProperty struct {
 //
 type CfnFlow_SourceProperty struct {
 	// The type of encryption that is used on the content ingested from the source.
-	Decryption interface{} `json:"decryption"`
+	Decryption interface{} `json:"decryption" yaml:"decryption"`
 	// A description of the source.
 	//
 	// This description is not visible outside of the current AWS account.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The ARN of the entitlement that allows you to subscribe to content that comes from another AWS account.
 	//
 	// The entitlement is set by the content originator and the ARN is generated as part of the originator’s flow.
-	EntitlementArn *string `json:"entitlementArn"`
+	EntitlementArn *string `json:"entitlementArn" yaml:"entitlementArn"`
 	// The IP address that the flow listens on for incoming content.
-	IngestIp *string `json:"ingestIp"`
+	IngestIp *string `json:"ingestIp" yaml:"ingestIp"`
 	// The port that the flow listens on for incoming content.
 	//
 	// If the protocol of the source is Zixi, the port must be set to 2088.
-	IngestPort *float64 `json:"ingestPort"`
+	IngestPort *float64 `json:"ingestPort" yaml:"ingestPort"`
 	// The maximum bitrate for RIST, RTP, and RTP-FEC streams.
-	MaxBitrate *float64 `json:"maxBitrate"`
+	MaxBitrate *float64 `json:"maxBitrate" yaml:"maxBitrate"`
 	// The maximum latency in milliseconds for a RIST or Zixi-based source.
-	MaxLatency *float64 `json:"maxLatency"`
+	MaxLatency *float64 `json:"maxLatency" yaml:"maxLatency"`
 	// The minimum latency in milliseconds for SRT-based streams.
 	//
 	// In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender’s minimum latency and the receiver’s minimum latency.
-	MinLatency *float64 `json:"minLatency"`
+	MinLatency *float64 `json:"minLatency" yaml:"minLatency"`
 	// The name of the source.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The protocol that is used by the source.
 	//
 	// For a full list of available protocols, see: [Source protocols](https://docs.aws.amazon.com/mediaconnect/latest/api/v1-flows-flowarn-source.html#v1-flows-flowarn-source-prop-setsourcerequest-protocol) in the *AWS Elemental MediaConnect API Reference* .
-	Protocol *string `json:"protocol"`
+	Protocol *string `json:"protocol" yaml:"protocol"`
 	// The ARN of the source.
-	SourceArn *string `json:"sourceArn"`
+	SourceArn *string `json:"sourceArn" yaml:"sourceArn"`
 	// The port that the flow will be listening on for incoming content.
-	SourceIngestPort *string `json:"sourceIngestPort"`
+	SourceIngestPort *string `json:"sourceIngestPort" yaml:"sourceIngestPort"`
 	// The stream ID that you want to use for the transport.
 	//
 	// This parameter applies only to Zixi-based streams.
-	StreamId *string `json:"streamId"`
+	StreamId *string `json:"streamId" yaml:"streamId"`
 	// The name of the VPC interface that the source content comes from.
-	VpcInterfaceName *string `json:"vpcInterfaceName"`
+	VpcInterfaceName *string `json:"vpcInterfaceName" yaml:"vpcInterfaceName"`
 	// The range of IP addresses that are allowed to contribute content to your source.
 	//
 	// Format the IP addresses as a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
-	WhitelistCidr *string `json:"whitelistCidr"`
+	WhitelistCidr *string `json:"whitelistCidr" yaml:"whitelistCidr"`
 }
 
 // A CloudFormation `AWS::MediaConnect::FlowEntitlement`.
@@ -1314,35 +1314,35 @@ func (c *jsiiProxy_CfnFlowEntitlement) ValidateProperties(_properties interface{
 //
 type CfnFlowEntitlement_EncryptionProperty struct {
 	// The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
-	Algorithm *string `json:"algorithm"`
+	Algorithm *string `json:"algorithm" yaml:"algorithm"`
 	// The Amazon Resource Name (ARN) of the role that you created during setup (when you set up MediaConnect as a trusted entity).
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content.
 	//
 	// This parameter is not valid for static key encryption.
-	ConstantInitializationVector *string `json:"constantInitializationVector"`
+	ConstantInitializationVector *string `json:"constantInitializationVector" yaml:"constantInitializationVector"`
 	// The value of one of the devices that you configured with your digital rights management (DRM) platform key provider.
 	//
 	// This parameter is required for SPEKE encryption and is not valid for static key encryption.
-	DeviceId *string `json:"deviceId"`
+	DeviceId *string `json:"deviceId" yaml:"deviceId"`
 	// The type of key that is used for the encryption.
 	//
 	// If you don't specify a `keyType` value, the service uses the default setting ( `static-key` ).
-	KeyType *string `json:"keyType"`
+	KeyType *string `json:"keyType" yaml:"keyType"`
 	// The AWS Region that the API Gateway proxy endpoint was created in.
 	//
 	// This parameter is required for SPEKE encryption and is not valid for static key encryption.
-	Region *string `json:"region"`
+	Region *string `json:"region" yaml:"region"`
 	// An identifier for the content.
 	//
 	// The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.
-	ResourceId *string `json:"resourceId"`
+	ResourceId *string `json:"resourceId" yaml:"resourceId"`
 	// The ARN of the secret that you created in AWS Secrets Manager to store the encryption key.
-	SecretArn *string `json:"secretArn"`
+	SecretArn *string `json:"secretArn" yaml:"secretArn"`
 	// The URL from the API Gateway proxy that you set up to talk to your key server.
 	//
 	// This parameter is required for SPEKE encryption and is not valid for static key encryption.
-	Url *string `json:"url"`
+	Url *string `json:"url" yaml:"url"`
 }
 
 // Properties for defining a `CfnFlowEntitlement`.
@@ -1353,25 +1353,25 @@ type CfnFlowEntitlementProps struct {
 	// A description of the entitlement.
 	//
 	// This description appears only on the MediaConnect console and is not visible outside of the current AWS account.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The Amazon Resource Name (ARN) of the flow.
-	FlowArn *string `json:"flowArn"`
+	FlowArn *string `json:"flowArn" yaml:"flowArn"`
 	// The name of the entitlement.
 	//
 	// This value must be unique within the current flow.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The AWS account IDs that you want to share your content with.
 	//
 	// The receiving accounts (subscribers) will be allowed to create their own flows using your content as the source.
-	Subscribers *[]*string `json:"subscribers"`
+	Subscribers *[]*string `json:"subscribers" yaml:"subscribers"`
 	// The percentage of the entitlement data transfer fee that you want the subscriber to be responsible for.
-	DataTransferSubscriberFeePercent *float64 `json:"dataTransferSubscriberFeePercent"`
+	DataTransferSubscriberFeePercent *float64 `json:"dataTransferSubscriberFeePercent" yaml:"dataTransferSubscriberFeePercent"`
 	// The type of encryption that MediaConnect will use on the output that is associated with the entitlement.
-	Encryption interface{} `json:"encryption"`
+	Encryption interface{} `json:"encryption" yaml:"encryption"`
 	// An indication of whether the new entitlement should be enabled or disabled as soon as it is created.
 	//
 	// If you don’t specify the entitlementStatus field in your request, MediaConnect sets it to ENABLED.
-	EntitlementStatus *string `json:"entitlementStatus"`
+	EntitlementStatus *string `json:"entitlementStatus" yaml:"entitlementStatus"`
 }
 
 // A CloudFormation `AWS::MediaConnect::FlowOutput`.
@@ -2123,15 +2123,15 @@ func (c *jsiiProxy_CfnFlowOutput) ValidateProperties(_properties interface{}) {
 //
 type CfnFlowOutput_EncryptionProperty struct {
 	// The Amazon Resource Name (ARN) of the role that you created during setup (when you set up MediaConnect as a trusted entity).
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// The ARN of the secret that you created in AWS Secrets Manager to store the encryption key.
-	SecretArn *string `json:"secretArn"`
+	SecretArn *string `json:"secretArn" yaml:"secretArn"`
 	// The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
-	Algorithm *string `json:"algorithm"`
+	Algorithm *string `json:"algorithm" yaml:"algorithm"`
 	// The type of key that is used for the encryption.
 	//
 	// If you don't specify a `keyType` value, the service uses the default setting ( `static-key` ).
-	KeyType *string `json:"keyType"`
+	KeyType *string `json:"keyType" yaml:"keyType"`
 }
 
 // The VPC interface that you want to send your output to.
@@ -2140,7 +2140,7 @@ type CfnFlowOutput_EncryptionProperty struct {
 //
 type CfnFlowOutput_VpcInterfaceAttachmentProperty struct {
 	// The name of the VPC interface that you want to send your output to.
-	VpcInterfaceName *string `json:"vpcInterfaceName"`
+	VpcInterfaceName *string `json:"vpcInterfaceName" yaml:"vpcInterfaceName"`
 }
 
 // Properties for defining a `CfnFlowOutput`.
@@ -2149,43 +2149,43 @@ type CfnFlowOutput_VpcInterfaceAttachmentProperty struct {
 //
 type CfnFlowOutputProps struct {
 	// The Amazon Resource Name (ARN) of the flow.
-	FlowArn *string `json:"flowArn"`
+	FlowArn *string `json:"flowArn" yaml:"flowArn"`
 	// The protocol to use for the output.
-	Protocol *string `json:"protocol"`
+	Protocol *string `json:"protocol" yaml:"protocol"`
 	// The range of IP addresses that are allowed to initiate output requests to this flow.
 	//
 	// Format the IP addresses as a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
-	CidrAllowList *[]*string `json:"cidrAllowList"`
+	CidrAllowList *[]*string `json:"cidrAllowList" yaml:"cidrAllowList"`
 	// A description of the output.
 	//
 	// This description is not visible outside of the current AWS account even if the account grants entitlements to other accounts.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The IP address where you want to send the output.
-	Destination *string `json:"destination"`
+	Destination *string `json:"destination" yaml:"destination"`
 	// The encryption credentials that you want to use for the output.
-	Encryption interface{} `json:"encryption"`
+	Encryption interface{} `json:"encryption" yaml:"encryption"`
 	// The maximum latency in milliseconds for Zixi-based streams.
-	MaxLatency *float64 `json:"maxLatency"`
+	MaxLatency *float64 `json:"maxLatency" yaml:"maxLatency"`
 	// The minimum latency in milliseconds for SRT-based streams.
 	//
 	// In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender’s minimum latency and the receiver’s minimum latency.
-	MinLatency *float64 `json:"minLatency"`
+	MinLatency *float64 `json:"minLatency" yaml:"minLatency"`
 	// The name of the VPC interface.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The port to use when MediaConnect distributes content to the output.
-	Port *float64 `json:"port"`
+	Port *float64 `json:"port" yaml:"port"`
 	// The identifier that is assigned to the Zixi receiver.
 	//
 	// This parameter applies only to outputs that use Zixi pull.
-	RemoteId *string `json:"remoteId"`
+	RemoteId *string `json:"remoteId" yaml:"remoteId"`
 	// The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
-	SmoothingLatency *float64 `json:"smoothingLatency"`
+	SmoothingLatency *float64 `json:"smoothingLatency" yaml:"smoothingLatency"`
 	// The stream ID that you want to use for the transport.
 	//
 	// This parameter applies only to Zixi-based streams.
-	StreamId *string `json:"streamId"`
+	StreamId *string `json:"streamId" yaml:"streamId"`
 	// The VPC interface that you want to send your output to.
-	VpcInterfaceAttachment interface{} `json:"vpcInterfaceAttachment"`
+	VpcInterfaceAttachment interface{} `json:"vpcInterfaceAttachment" yaml:"vpcInterfaceAttachment"`
 }
 
 // Properties for defining a `CfnFlow`.
@@ -2194,15 +2194,15 @@ type CfnFlowOutputProps struct {
 //
 type CfnFlowProps struct {
 	// The name of the flow.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The settings for the source that you want to use for the new flow.
-	Source interface{} `json:"source"`
+	Source interface{} `json:"source" yaml:"source"`
 	// The Availability Zone that you want to create the flow in.
 	//
 	// These options are limited to the Availability Zones within the current AWS Region.
-	AvailabilityZone *string `json:"availabilityZone"`
+	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
 	// The settings for source failover.
-	SourceFailoverConfig interface{} `json:"sourceFailoverConfig"`
+	SourceFailoverConfig interface{} `json:"sourceFailoverConfig" yaml:"sourceFailoverConfig"`
 }
 
 // A CloudFormation `AWS::MediaConnect::FlowSource`.
@@ -2938,35 +2938,35 @@ func (c *jsiiProxy_CfnFlowSource) ValidateProperties(_properties interface{}) {
 //
 type CfnFlowSource_EncryptionProperty struct {
 	// The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
-	Algorithm *string `json:"algorithm"`
+	Algorithm *string `json:"algorithm" yaml:"algorithm"`
 	// The Amazon Resource Name (ARN) of the role that you created during setup (when you set up MediaConnect as a trusted entity).
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content.
 	//
 	// This parameter is not valid for static key encryption.
-	ConstantInitializationVector *string `json:"constantInitializationVector"`
+	ConstantInitializationVector *string `json:"constantInitializationVector" yaml:"constantInitializationVector"`
 	// The value of one of the devices that you configured with your digital rights management (DRM) platform key provider.
 	//
 	// This parameter is required for SPEKE encryption and is not valid for static key encryption.
-	DeviceId *string `json:"deviceId"`
+	DeviceId *string `json:"deviceId" yaml:"deviceId"`
 	// The type of key that is used for the encryption.
 	//
 	// If you don't specify a `keyType` value, the service uses the default setting ( `static-key` ).
-	KeyType *string `json:"keyType"`
+	KeyType *string `json:"keyType" yaml:"keyType"`
 	// The AWS Region that the API Gateway proxy endpoint was created in.
 	//
 	// This parameter is required for SPEKE encryption and is not valid for static key encryption.
-	Region *string `json:"region"`
+	Region *string `json:"region" yaml:"region"`
 	// An identifier for the content.
 	//
 	// The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.
-	ResourceId *string `json:"resourceId"`
+	ResourceId *string `json:"resourceId" yaml:"resourceId"`
 	// The ARN of the secret that you created in AWS Secrets Manager to store the encryption key.
-	SecretArn *string `json:"secretArn"`
+	SecretArn *string `json:"secretArn" yaml:"secretArn"`
 	// The URL from the API Gateway proxy that you set up to talk to your key server.
 	//
 	// This parameter is required for SPEKE encryption and is not valid for static key encryption.
-	Url *string `json:"url"`
+	Url *string `json:"url" yaml:"url"`
 }
 
 // Properties for defining a `CfnFlowSource`.
@@ -2977,39 +2977,39 @@ type CfnFlowSourceProps struct {
 	// A description of the source.
 	//
 	// This description is not visible outside of the current AWS account.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The name of the source.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The type of encryption that is used on the content ingested from the source.
-	Decryption interface{} `json:"decryption"`
+	Decryption interface{} `json:"decryption" yaml:"decryption"`
 	// The ARN of the entitlement that allows you to subscribe to the flow.
 	//
 	// The entitlement is set by the content originator, and the ARN is generated as part of the originator's flow.
-	EntitlementArn *string `json:"entitlementArn"`
+	EntitlementArn *string `json:"entitlementArn" yaml:"entitlementArn"`
 	// The Amazon Resource Name (ARN) of the flow.
-	FlowArn *string `json:"flowArn"`
+	FlowArn *string `json:"flowArn" yaml:"flowArn"`
 	// The port that the flow listens on for incoming content.
 	//
 	// If the protocol of the source is Zixi, the port must be set to 2088.
-	IngestPort *float64 `json:"ingestPort"`
+	IngestPort *float64 `json:"ingestPort" yaml:"ingestPort"`
 	// The maximum bitrate for RIST, RTP, and RTP-FEC streams.
-	MaxBitrate *float64 `json:"maxBitrate"`
+	MaxBitrate *float64 `json:"maxBitrate" yaml:"maxBitrate"`
 	// The maximum latency in milliseconds.
 	//
 	// This parameter applies only to RIST-based, Zixi-based, and Fujitsu-based streams.
-	MaxLatency *float64 `json:"maxLatency"`
+	MaxLatency *float64 `json:"maxLatency" yaml:"maxLatency"`
 	// The protocol that the source uses to deliver the content to MediaConnect.
-	Protocol *string `json:"protocol"`
+	Protocol *string `json:"protocol" yaml:"protocol"`
 	// The stream ID that you want to use for the transport.
 	//
 	// This parameter applies only to Zixi-based streams.
-	StreamId *string `json:"streamId"`
+	StreamId *string `json:"streamId" yaml:"streamId"`
 	// The name of the VPC interface that you want to send your output to.
-	VpcInterfaceName *string `json:"vpcInterfaceName"`
+	VpcInterfaceName *string `json:"vpcInterfaceName" yaml:"vpcInterfaceName"`
 	// The range of IP addresses that are allowed to contribute content to your source.
 	//
 	// Format the IP addresses as a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
-	WhitelistCidr *string `json:"whitelistCidr"`
+	WhitelistCidr *string `json:"whitelistCidr" yaml:"whitelistCidr"`
 }
 
 // A CloudFormation `AWS::MediaConnect::FlowVpcInterface`.
@@ -3589,22 +3589,22 @@ func (c *jsiiProxy_CfnFlowVpcInterface) ValidateProperties(_properties interface
 //
 type CfnFlowVpcInterfaceProps struct {
 	// The Amazon Resource Name (ARN) of the flow.
-	FlowArn *string `json:"flowArn"`
+	FlowArn *string `json:"flowArn" yaml:"flowArn"`
 	// The name of the VPC Interface.
 	//
 	// This value must be unique within the current flow.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The Amazon Resource Name (ARN) of the role that you created when you set up MediaConnect as a trusted service.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// The VPC security groups that you want MediaConnect to use for your VPC configuration.
 	//
 	// You must include at least one security group in the request.
-	SecurityGroupIds *[]*string `json:"securityGroupIds"`
+	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
 	// The subnet IDs that you want to use for your VPC interface.
 	//
 	// A range of IP addresses in your VPC. When you create your VPC, you specify a range of IPv4 addresses for the VPC in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16. This is the primary CIDR block for your VPC. When you create a subnet for your VPC, you specify the CIDR block for the subnet, which is a subset of the VPC CIDR block.
 	//
 	// The subnets that you use across all VPC interfaces on the flow must be in the same Availability Zone as the flow.
-	SubnetId *string `json:"subnetId"`
+	SubnetId *string `json:"subnetId" yaml:"subnetId"`
 }
 

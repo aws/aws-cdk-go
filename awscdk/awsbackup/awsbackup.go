@@ -377,18 +377,18 @@ func (b *jsiiProxy_BackupPlan) ToString() *string {
 //
 type BackupPlanProps struct {
 	// The display name of the backup plan.
-	BackupPlanName *string `json:"backupPlanName"`
+	BackupPlanName *string `json:"backupPlanName" yaml:"backupPlanName"`
 	// Rules for the backup plan.
 	//
 	// Use `addRule()` to add rules after
 	// instantiation.
-	BackupPlanRules *[]BackupPlanRule `json:"backupPlanRules"`
+	BackupPlanRules *[]BackupPlanRule `json:"backupPlanRules" yaml:"backupPlanRules"`
 	// The backup vault where backups are stored.
-	BackupVault IBackupVault `json:"backupVault"`
+	BackupVault IBackupVault `json:"backupVault" yaml:"backupVault"`
 	// Enable Windows VSS backup.
 	// See: https://docs.aws.amazon.com/aws-backup/latest/devguide/windows-backups.html
 	//
-	WindowsVss *bool `json:"windowsVss"`
+	WindowsVss *bool `json:"windowsVss" yaml:"windowsVss"`
 }
 
 // A backup plan rule.
@@ -525,28 +525,28 @@ func BackupPlanRule_Weekly(backupVault IBackupVault) BackupPlanRule {
 //
 type BackupPlanRuleProps struct {
 	// The backup vault where backups are.
-	BackupVault IBackupVault `json:"backupVault"`
+	BackupVault IBackupVault `json:"backupVault" yaml:"backupVault"`
 	// The duration after a backup job is successfully started before it must be completed or it is canceled by AWS Backup.
-	CompletionWindow awscdk.Duration `json:"completionWindow"`
+	CompletionWindow awscdk.Duration `json:"completionWindow" yaml:"completionWindow"`
 	// Specifies the duration after creation that a recovery point is deleted.
 	//
 	// Must be greater than `moveToColdStorageAfter`.
-	DeleteAfter awscdk.Duration `json:"deleteAfter"`
+	DeleteAfter awscdk.Duration `json:"deleteAfter" yaml:"deleteAfter"`
 	// Enables continuous backup and point-in-time restores (PITR).
 	//
 	// Property `deleteAfter` defines the retention period for the backup. It is mandatory if PITR is enabled.
 	// If no value is specified, the retention period is set to 35 days which is the maximum retention period supported by PITR.
 	//
 	// Property `moveToColdStorageAfter` must not be specified because PITR does not support this option.
-	EnableContinuousBackup *bool `json:"enableContinuousBackup"`
+	EnableContinuousBackup *bool `json:"enableContinuousBackup" yaml:"enableContinuousBackup"`
 	// Specifies the duration after creation that a recovery point is moved to cold storage.
-	MoveToColdStorageAfter awscdk.Duration `json:"moveToColdStorageAfter"`
+	MoveToColdStorageAfter awscdk.Duration `json:"moveToColdStorageAfter" yaml:"moveToColdStorageAfter"`
 	// A display name for the backup rule.
-	RuleName *string `json:"ruleName"`
+	RuleName *string `json:"ruleName" yaml:"ruleName"`
 	// A CRON expression specifying when AWS Backup initiates a backup job.
-	ScheduleExpression awsevents.Schedule `json:"scheduleExpression"`
+	ScheduleExpression awsevents.Schedule `json:"scheduleExpression" yaml:"scheduleExpression"`
 	// The duration after a backup is scheduled before a job is canceled if it doesn't start successfully.
-	StartWindow awscdk.Duration `json:"startWindow"`
+	StartWindow awscdk.Duration `json:"startWindow" yaml:"startWindow"`
 }
 
 // A resource to backup.
@@ -977,19 +977,19 @@ type BackupSelectionOptions struct {
 	// The resources to backup.
 	//
 	// Use the helper static methods defined on `BackupResource`.
-	Resources *[]BackupResource `json:"resources"`
+	Resources *[]BackupResource `json:"resources" yaml:"resources"`
 	// Whether to automatically give restores permissions to the role that AWS Backup uses.
 	//
 	// If `true`, the `AWSBackupServiceRolePolicyForRestores` managed
 	// policy will be attached to the role.
-	AllowRestores *bool `json:"allowRestores"`
+	AllowRestores *bool `json:"allowRestores" yaml:"allowRestores"`
 	// The name for this selection.
-	BackupSelectionName *string `json:"backupSelectionName"`
+	BackupSelectionName *string `json:"backupSelectionName" yaml:"backupSelectionName"`
 	// The role that AWS Backup uses to authenticate when backuping or restoring the resources.
 	//
 	// The `AWSBackupServiceRolePolicyForBackup` managed policy
 	// will be attached to this role.
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 }
 
 // Properties for a BackupSelection.
@@ -1000,21 +1000,21 @@ type BackupSelectionProps struct {
 	// The resources to backup.
 	//
 	// Use the helper static methods defined on `BackupResource`.
-	Resources *[]BackupResource `json:"resources"`
+	Resources *[]BackupResource `json:"resources" yaml:"resources"`
 	// Whether to automatically give restores permissions to the role that AWS Backup uses.
 	//
 	// If `true`, the `AWSBackupServiceRolePolicyForRestores` managed
 	// policy will be attached to the role.
-	AllowRestores *bool `json:"allowRestores"`
+	AllowRestores *bool `json:"allowRestores" yaml:"allowRestores"`
 	// The name for this selection.
-	BackupSelectionName *string `json:"backupSelectionName"`
+	BackupSelectionName *string `json:"backupSelectionName" yaml:"backupSelectionName"`
 	// The role that AWS Backup uses to authenticate when backuping or restoring the resources.
 	//
 	// The `AWSBackupServiceRolePolicyForBackup` managed policy
 	// will be attached to this role.
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 	// The backup plan for this selection.
-	BackupPlan IBackupPlan `json:"backupPlan"`
+	BackupPlan IBackupPlan `json:"backupPlan" yaml:"backupPlan"`
 }
 
 // A backup vault.
@@ -1343,30 +1343,30 @@ const (
 //
 type BackupVaultProps struct {
 	// A resource-based policy that is used to manage access permissions on the backup vault.
-	AccessPolicy awsiam.PolicyDocument `json:"accessPolicy"`
+	AccessPolicy awsiam.PolicyDocument `json:"accessPolicy" yaml:"accessPolicy"`
 	// The name of a logical container where backups are stored.
 	//
 	// Backup vaults
 	// are identified by names that are unique to the account used to create
 	// them and the AWS Region where they are created.
-	BackupVaultName *string `json:"backupVaultName"`
+	BackupVaultName *string `json:"backupVaultName" yaml:"backupVaultName"`
 	// Whether to add statements to the vault access policy that prevents anyone from deleting a recovery point.
-	BlockRecoveryPointDeletion *bool `json:"blockRecoveryPointDeletion"`
+	BlockRecoveryPointDeletion *bool `json:"blockRecoveryPointDeletion" yaml:"blockRecoveryPointDeletion"`
 	// The server-side encryption key to use to protect your backups.
-	EncryptionKey awskms.IKey `json:"encryptionKey"`
+	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
 	// The vault events to send.
 	// See: https://docs.aws.amazon.com/aws-backup/latest/devguide/sns-notifications.html
 	//
-	NotificationEvents *[]BackupVaultEvents `json:"notificationEvents"`
+	NotificationEvents *[]BackupVaultEvents `json:"notificationEvents" yaml:"notificationEvents"`
 	// A SNS topic to send vault events to.
 	// See: https://docs.aws.amazon.com/aws-backup/latest/devguide/sns-notifications.html
 	//
-	NotificationTopic awssns.ITopic `json:"notificationTopic"`
+	NotificationTopic awssns.ITopic `json:"notificationTopic" yaml:"notificationTopic"`
 	// The removal policy to apply to the vault.
 	//
 	// Note that removing a vault
 	// that contains recovery points will fail.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 }
 
 // A CloudFormation `AWS::Backup::BackupPlan`.
@@ -1904,11 +1904,11 @@ type CfnBackupPlan_AdvancedBackupSettingResourceTypeProperty struct {
 	// The backup option for the resource.
 	//
 	// Each option is a key-value pair.
-	BackupOptions interface{} `json:"backupOptions"`
+	BackupOptions interface{} `json:"backupOptions" yaml:"backupOptions"`
 	// The name of a resource type.
 	//
 	// The only supported resource type is EC2.
-	ResourceType *string `json:"resourceType"`
+	ResourceType *string `json:"resourceType" yaml:"resourceType"`
 }
 
 // Specifies an object containing properties used to create a backup plan.
@@ -1917,11 +1917,11 @@ type CfnBackupPlan_AdvancedBackupSettingResourceTypeProperty struct {
 //
 type CfnBackupPlan_BackupPlanResourceTypeProperty struct {
 	// The display name of a backup plan.
-	BackupPlanName *string `json:"backupPlanName"`
+	BackupPlanName *string `json:"backupPlanName" yaml:"backupPlanName"`
 	// An array of `BackupRule` objects, each of which specifies a scheduled task that is used to back up a selection of resources.
-	BackupPlanRule interface{} `json:"backupPlanRule"`
+	BackupPlanRule interface{} `json:"backupPlanRule" yaml:"backupPlanRule"`
 	// A list of backup options for each resource type.
-	AdvancedBackupSettings interface{} `json:"advancedBackupSettings"`
+	AdvancedBackupSettings interface{} `json:"advancedBackupSettings" yaml:"advancedBackupSettings"`
 }
 
 // Specifies an object containing properties used to schedule a task to back up a selection of resources.
@@ -1930,29 +1930,29 @@ type CfnBackupPlan_BackupPlanResourceTypeProperty struct {
 //
 type CfnBackupPlan_BackupRuleResourceTypeProperty struct {
 	// A display name for a backup rule.
-	RuleName *string `json:"ruleName"`
+	RuleName *string `json:"ruleName" yaml:"ruleName"`
 	// The name of a logical container where backups are stored.
 	//
 	// Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created. They consist of letters, numbers, and hyphens.
-	TargetBackupVault *string `json:"targetBackupVault"`
+	TargetBackupVault *string `json:"targetBackupVault" yaml:"targetBackupVault"`
 	// A value in minutes after a backup job is successfully started before it must be completed or it is canceled by AWS Backup .
-	CompletionWindowMinutes *float64 `json:"completionWindowMinutes"`
+	CompletionWindowMinutes *float64 `json:"completionWindowMinutes" yaml:"completionWindowMinutes"`
 	// An array of CopyAction objects, which contains the details of the copy operation.
-	CopyActions interface{} `json:"copyActions"`
+	CopyActions interface{} `json:"copyActions" yaml:"copyActions"`
 	// Enables continuous backup and point-in-time restores (PITR).
-	EnableContinuousBackup interface{} `json:"enableContinuousBackup"`
+	EnableContinuousBackup interface{} `json:"enableContinuousBackup" yaml:"enableContinuousBackup"`
 	// The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.
 	//
 	// AWS Backup transitions and expires backups automatically according to the lifecycle that you define.
-	Lifecycle interface{} `json:"lifecycle"`
+	Lifecycle interface{} `json:"lifecycle" yaml:"lifecycle"`
 	// To help organize your resources, you can assign your own metadata to the resources that you create.
 	//
 	// Each tag is a key-value pair.
-	RecoveryPointTags interface{} `json:"recoveryPointTags"`
+	RecoveryPointTags interface{} `json:"recoveryPointTags" yaml:"recoveryPointTags"`
 	// A CRON expression specifying when AWS Backup initiates a backup job.
-	ScheduleExpression *string `json:"scheduleExpression"`
+	ScheduleExpression *string `json:"scheduleExpression" yaml:"scheduleExpression"`
 	// An optional value that specifies a period of time in minutes after a backup is scheduled before a job is canceled if it doesn't start successfully.
-	StartWindowMinutes *float64 `json:"startWindowMinutes"`
+	StartWindowMinutes *float64 `json:"startWindowMinutes" yaml:"startWindowMinutes"`
 }
 
 // Copies backups created by a backup rule to another vault.
@@ -1963,13 +1963,13 @@ type CfnBackupPlan_CopyActionResourceTypeProperty struct {
 	// An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
 	//
 	// For example, `arn:aws:backup:us-east-1:123456789012:vault:aBackupVault.`
-	DestinationBackupVaultArn *string `json:"destinationBackupVaultArn"`
+	DestinationBackupVaultArn *string `json:"destinationBackupVaultArn" yaml:"destinationBackupVaultArn"`
 	// Defines when a protected resource is transitioned to cold storage and when it expires.
 	//
 	// AWS Backup transitions and expires backups automatically according to the lifecycle that you define. If you do not specify a lifecycle, AWS Backup applies the lifecycle policy of the source backup to the destination backup.
 	//
 	// Backups transitioned to cold storage must be stored in cold storage for a minimum of 90 days.
-	Lifecycle interface{} `json:"lifecycle"`
+	Lifecycle interface{} `json:"lifecycle" yaml:"lifecycle"`
 }
 
 // Specifies an object containing an array of `Transition` objects that determine how long in days before a recovery point transitions to cold storage or is deleted.
@@ -1980,9 +1980,9 @@ type CfnBackupPlan_LifecycleResourceTypeProperty struct {
 	// Specifies the number of days after creation that a recovery point is deleted.
 	//
 	// Must be greater than `MoveToColdStorageAfterDays` .
-	DeleteAfterDays *float64 `json:"deleteAfterDays"`
+	DeleteAfterDays *float64 `json:"deleteAfterDays" yaml:"deleteAfterDays"`
 	// Specifies the number of days after creation that a recovery point is moved to cold storage.
-	MoveToColdStorageAfterDays *float64 `json:"moveToColdStorageAfterDays"`
+	MoveToColdStorageAfterDays *float64 `json:"moveToColdStorageAfterDays" yaml:"moveToColdStorageAfterDays"`
 }
 
 // Properties for defining a `CfnBackupPlan`.
@@ -1991,11 +1991,11 @@ type CfnBackupPlan_LifecycleResourceTypeProperty struct {
 //
 type CfnBackupPlanProps struct {
 	// Uniquely identifies the backup plan to be associated with the selection of resources.
-	BackupPlan interface{} `json:"backupPlan"`
+	BackupPlan interface{} `json:"backupPlan" yaml:"backupPlan"`
 	// To help organize your resources, you can assign your own metadata to the resources that you create.
 	//
 	// Each tag is a key-value pair. The specified tags are assigned to all backups created with this plan.
-	BackupPlanTags interface{} `json:"backupPlanTags"`
+	BackupPlanTags interface{} `json:"backupPlanTags" yaml:"backupPlanTags"`
 }
 
 // A CloudFormation `AWS::Backup::BackupSelection`.
@@ -2533,9 +2533,9 @@ type CfnBackupSelection_BackupSelectionResourceTypeProperty struct {
 	// The ARN of the IAM role that AWS Backup uses to authenticate when backing up the target resource;
 	//
 	// for example, `arn:aws:iam::123456789012:role/S3Access` .
-	IamRoleArn *string `json:"iamRoleArn"`
+	IamRoleArn *string `json:"iamRoleArn" yaml:"iamRoleArn"`
 	// The display name of a resource selection document.
-	SelectionName *string `json:"selectionName"`
+	SelectionName *string `json:"selectionName" yaml:"selectionName"`
 	// A list of conditions that you define to assign resources to your backup plans using tags.
 	//
 	// For example, `"StringEquals": {"Department": "accounting"` . Condition operators are case sensitive.
@@ -2544,19 +2544,19 @@ type CfnBackupSelection_BackupSelectionResourceTypeProperty struct {
 	//
 	// - When you specify more than one condition, you only assign the resources that match ALL conditions (using AND logic).
 	// - `Conditions` supports `StringEquals` , `StringLike` , `StringNotEquals` , and `StringNotLike` . `ListOfTags` only supports `StringEquals` .
-	Conditions interface{} `json:"conditions"`
+	Conditions interface{} `json:"conditions" yaml:"conditions"`
 	// An array of conditions used to specify a set of resources to assign to a backup plan;
 	//
 	// for example, `"STRINGEQUALS": {"Department":"accounting"` .
-	ListOfTags interface{} `json:"listOfTags"`
+	ListOfTags interface{} `json:"listOfTags" yaml:"listOfTags"`
 	// A list of Amazon Resource Names (ARNs) to exclude from a backup plan.
 	//
 	// The maximum number of ARNs is 500 without wildcards, or 30 ARNs with wildcards.
 	//
 	// If you need to exclude many resources from a backup plan, consider a different resource selection strategy, such as assigning only one or a few resource types or refining your resource selection using tags.
-	NotResources *[]*string `json:"notResources"`
+	NotResources *[]*string `json:"notResources" yaml:"notResources"`
 	// An array of strings that contain Amazon Resource Names (ARNs) of resources to assign to a backup plan.
-	Resources *[]*string `json:"resources"`
+	Resources *[]*string `json:"resources" yaml:"resources"`
 }
 
 // Specifies an object that contains an array of triplets made up of a condition type (such as `STRINGEQUALS` ), a key, and a value.
@@ -2569,13 +2569,13 @@ type CfnBackupSelection_ConditionResourceTypeProperty struct {
 	// The key in a key-value pair.
 	//
 	// For example, in `"Department": "accounting"` , `"Department"` is the key.
-	ConditionKey *string `json:"conditionKey"`
+	ConditionKey *string `json:"conditionKey" yaml:"conditionKey"`
 	// An operation, such as `STRINGEQUALS` , that is applied to a key-value pair used to filter resources in a selection.
-	ConditionType *string `json:"conditionType"`
+	ConditionType *string `json:"conditionType" yaml:"conditionType"`
 	// The value in a key-value pair.
 	//
 	// For example, in `"Department": "accounting"` , `"accounting"` is the value.
-	ConditionValue *string `json:"conditionValue"`
+	ConditionValue *string `json:"conditionValue" yaml:"conditionValue"`
 }
 
 // Properties for defining a `CfnBackupSelection`.
@@ -2584,11 +2584,11 @@ type CfnBackupSelection_ConditionResourceTypeProperty struct {
 //
 type CfnBackupSelectionProps struct {
 	// Uniquely identifies a backup plan.
-	BackupPlanId *string `json:"backupPlanId"`
+	BackupPlanId *string `json:"backupPlanId" yaml:"backupPlanId"`
 	// Specifies the body of a request to assign a set of resources to a backup plan.
 	//
 	// It includes an array of resources, an optional array of patterns to exclude resources, an optional role to provide access to the AWS service the resource belongs to, and an optional array of tags used to identify a set of resources.
-	BackupSelection interface{} `json:"backupSelection"`
+	BackupSelection interface{} `json:"backupSelection" yaml:"backupSelection"`
 }
 
 // A CloudFormation `AWS::Backup::BackupVault`.
@@ -3201,7 +3201,7 @@ type CfnBackupVault_LockConfigurationTypeProperty struct {
 	// If this parameter is not specified, Vault Lock will not enforce a minimum retention period.
 	//
 	// If this parameter is specified, any backup or copy job to the vault must have a lifecycle policy with a retention period equal to or longer than the minimum retention period. If the job's retention period is shorter than that minimum retention period, then the vault fails that backup or copy job, and you should either modify your lifecycle settings or use a different vault. Recovery points already saved in the vault prior to Vault Lock are not affected.
-	MinRetentionDays *float64 `json:"minRetentionDays"`
+	MinRetentionDays *float64 `json:"minRetentionDays" yaml:"minRetentionDays"`
 	// The AWS Backup Vault Lock configuration that specifies the number of days before the lock date.
 	//
 	// For example, setting `ChangeableForDays` to 30 on Jan. 1, 2022 at 8pm UTC will set the lock date to Jan. 31, 2022 at 8pm UTC.
@@ -3211,7 +3211,7 @@ type CfnBackupVault_LockConfigurationTypeProperty struct {
 	// Before the lock date, you can delete Vault Lock from the vault using `DeleteBackupVaultLockConfiguration` or change the Vault Lock configuration using `PutBackupVaultLockConfiguration` . On and after the lock date, the Vault Lock becomes immutable and cannot be changed or deleted.
 	//
 	// If this parameter is not specified, you can delete Vault Lock from the vault using `DeleteBackupVaultLockConfiguration` or change the Vault Lock configuration using `PutBackupVaultLockConfiguration` at any time.
-	ChangeableForDays *float64 `json:"changeableForDays"`
+	ChangeableForDays *float64 `json:"changeableForDays" yaml:"changeableForDays"`
 	// The AWS Backup Vault Lock configuration that specifies the maximum retention period that the vault retains its recovery points.
 	//
 	// This setting can be useful if, for example, your organization's policies require you to destroy certain data after retaining it for four years (1460 days).
@@ -3219,7 +3219,7 @@ type CfnBackupVault_LockConfigurationTypeProperty struct {
 	// If this parameter is not included, Vault Lock does not enforce a maximum retention period on the recovery points in the vault. If this parameter is included without a value, Vault Lock will not enforce a maximum retention period.
 	//
 	// If this parameter is specified, any backup or copy job to the vault must have a lifecycle policy with a retention period equal to or shorter than the maximum retention period. If the job's retention period is longer than that maximum retention period, then the vault fails the backup or copy job, and you should either modify your lifecycle settings or use a different vault. Recovery points already saved in the vault prior to Vault Lock are not affected.
-	MaxRetentionDays *float64 `json:"maxRetentionDays"`
+	MaxRetentionDays *float64 `json:"maxRetentionDays" yaml:"maxRetentionDays"`
 }
 
 // Specifies an object containing SNS event notification properties for the target backup vault.
@@ -3230,11 +3230,11 @@ type CfnBackupVault_NotificationObjectTypeProperty struct {
 	// An array of events that indicate the status of jobs to back up resources to the backup vault.
 	//
 	// For valid events, see [BackupVaultEvents](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_PutBackupVaultNotifications.html#API_PutBackupVaultNotifications_RequestSyntax) in the *AWS Backup API Guide* .
-	BackupVaultEvents *[]*string `json:"backupVaultEvents"`
+	BackupVaultEvents *[]*string `json:"backupVaultEvents" yaml:"backupVaultEvents"`
 	// An ARN that uniquely identifies an Amazon Simple Notification Service (Amazon SNS) topic;
 	//
 	// for example, `arn:aws:sns:us-west-2:111122223333:MyTopic` .
-	SnsTopicArn *string `json:"snsTopicArn"`
+	SnsTopicArn *string `json:"snsTopicArn" yaml:"snsTopicArn"`
 }
 
 // Properties for defining a `CfnBackupVault`.
@@ -3245,21 +3245,21 @@ type CfnBackupVaultProps struct {
 	// The name of a logical container where backups are stored.
 	//
 	// Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created. They consist of lowercase letters, numbers, and hyphens.
-	BackupVaultName *string `json:"backupVaultName"`
+	BackupVaultName *string `json:"backupVaultName" yaml:"backupVaultName"`
 	// A resource-based policy that is used to manage access permissions on the target backup vault.
-	AccessPolicy interface{} `json:"accessPolicy"`
+	AccessPolicy interface{} `json:"accessPolicy" yaml:"accessPolicy"`
 	// Metadata that you can assign to help organize the resources that you create.
 	//
 	// Each tag is a key-value pair.
-	BackupVaultTags interface{} `json:"backupVaultTags"`
+	BackupVaultTags interface{} `json:"backupVaultTags" yaml:"backupVaultTags"`
 	// The server-side encryption key that is used to protect your backups;
 	//
 	// for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` .
-	EncryptionKeyArn *string `json:"encryptionKeyArn"`
+	EncryptionKeyArn *string `json:"encryptionKeyArn" yaml:"encryptionKeyArn"`
 	// Configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
-	LockConfiguration interface{} `json:"lockConfiguration"`
+	LockConfiguration interface{} `json:"lockConfiguration" yaml:"lockConfiguration"`
 	// The SNS event notifications for the specified backup vault.
-	Notifications interface{} `json:"notifications"`
+	Notifications interface{} `json:"notifications" yaml:"notifications"`
 }
 
 // A CloudFormation `AWS::Backup::Framework`.
@@ -3848,9 +3848,9 @@ func (c *jsiiProxy_CfnFramework) ValidateProperties(_properties interface{}) {
 //
 type CfnFramework_ControlInputParameterProperty struct {
 	// The name of a parameter, for example, `BackupPlanFrequency` .
-	ParameterName *string `json:"parameterName"`
+	ParameterName *string `json:"parameterName" yaml:"parameterName"`
 	// The value of parameter, for example, `hourly` .
-	ParameterValue *string `json:"parameterValue"`
+	ParameterValue *string `json:"parameterValue" yaml:"parameterValue"`
 }
 
 // Contains detailed information about all of the controls of a framework.
@@ -3863,13 +3863,13 @@ type CfnFramework_FrameworkControlProperty struct {
 	// The name of a control.
 	//
 	// This name is between 1 and 256 characters.
-	ControlName *string `json:"controlName"`
+	ControlName *string `json:"controlName" yaml:"controlName"`
 	// A list of `ParameterName` and `ParameterValue` pairs.
-	ControlInputParameters interface{} `json:"controlInputParameters"`
+	ControlInputParameters interface{} `json:"controlInputParameters" yaml:"controlInputParameters"`
 	// The scope of a control.
 	//
 	// The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. For more information, see `ControlScope` .
-	ControlScope interface{} `json:"controlScope"`
+	ControlScope interface{} `json:"controlScope" yaml:"controlScope"`
 }
 
 // Properties for defining a `CfnFramework`.
@@ -3880,15 +3880,15 @@ type CfnFrameworkProps struct {
 	// Contains detailed information about all of the controls of a framework.
 	//
 	// Each framework must contain at least one control.
-	FrameworkControls interface{} `json:"frameworkControls"`
+	FrameworkControls interface{} `json:"frameworkControls" yaml:"frameworkControls"`
 	// An optional description of the framework with a maximum 1,024 characters.
-	FrameworkDescription *string `json:"frameworkDescription"`
+	FrameworkDescription *string `json:"frameworkDescription" yaml:"frameworkDescription"`
 	// The unique name of a framework.
 	//
 	// This name is between 1 and 256 characters, starting with a letter, and consisting of letters (a-z, A-Z), numbers (0-9), and underscores (_).
-	FrameworkName *string `json:"frameworkName"`
+	FrameworkName *string `json:"frameworkName" yaml:"frameworkName"`
 	// A list of tags with which to tag your framework.
-	FrameworkTags interface{} `json:"frameworkTags"`
+	FrameworkTags interface{} `json:"frameworkTags" yaml:"frameworkTags"`
 }
 
 // A CloudFormation `AWS::Backup::ReportPlan`.
@@ -4464,21 +4464,21 @@ func (c *jsiiProxy_CfnReportPlan) ValidateProperties(_properties interface{}) {
 //
 type CfnReportPlanProps struct {
 	// Contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports.
-	ReportDeliveryChannel interface{} `json:"reportDeliveryChannel"`
+	ReportDeliveryChannel interface{} `json:"reportDeliveryChannel" yaml:"reportDeliveryChannel"`
 	// Identifies the report template for the report. Reports are built using a report template. The report templates are:.
 	//
 	// `RESOURCE_COMPLIANCE_REPORT | CONTROL_COMPLIANCE_REPORT | BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT`
 	//
 	// If the report template is `RESOURCE_COMPLIANCE_REPORT` or `CONTROL_COMPLIANCE_REPORT` , this API resource also describes the report coverage by AWS Regions and frameworks.
-	ReportSetting interface{} `json:"reportSetting"`
+	ReportSetting interface{} `json:"reportSetting" yaml:"reportSetting"`
 	// An optional description of the report plan with a maximum 1,024 characters.
-	ReportPlanDescription *string `json:"reportPlanDescription"`
+	ReportPlanDescription *string `json:"reportPlanDescription" yaml:"reportPlanDescription"`
 	// The unique name of the report plan.
 	//
 	// This name is between 1 and 256 characters starting with a letter, and consisting of letters (a-z, A-Z), numbers (0-9), and underscores (_).
-	ReportPlanName *string `json:"reportPlanName"`
+	ReportPlanName *string `json:"reportPlanName" yaml:"reportPlanName"`
 	// A list of tags to tag your report plan.
-	ReportPlanTags interface{} `json:"reportPlanTags"`
+	ReportPlanTags interface{} `json:"reportPlanTags" yaml:"reportPlanTags"`
 }
 
 // A backup plan.
@@ -4566,14 +4566,14 @@ type TagCondition struct {
 	//
 	// For example, in `"ec2:ResourceTag/Department": "accounting"`,
 	// `ec2:ResourceTag/Department` is the key.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// The value in a key-value pair.
 	//
 	// For example, in `"ec2:ResourceTag/Department": "accounting"`,
 	// `accounting` is the value.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 	// An operation that is applied to a key-value pair used to filter resources in a selection.
-	Operation TagOperation `json:"operation"`
+	Operation TagOperation `json:"operation" yaml:"operation"`
 }
 
 // An operation that is applied to a key-value pair.

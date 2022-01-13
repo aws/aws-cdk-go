@@ -254,31 +254,31 @@ type AwsCustomResourceProps struct {
 	// permissions/grants from all resources.
 	// See: Policy.fromSdkCalls
 	//
-	Policy AwsCustomResourcePolicy `json:"policy"`
+	Policy AwsCustomResourcePolicy `json:"policy" yaml:"policy"`
 	// A name for the Lambda function implementing this custom resource.
-	FunctionName *string `json:"functionName"`
+	FunctionName *string `json:"functionName" yaml:"functionName"`
 	// Whether to install the latest AWS SDK v2. Allows to use the latest API calls documented at https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/index.html.
 	//
 	// The installation takes around 60 seconds.
-	InstallLatestAwsSdk *bool `json:"installLatestAwsSdk"`
+	InstallLatestAwsSdk *bool `json:"installLatestAwsSdk" yaml:"installLatestAwsSdk"`
 	// The number of days log events of the Lambda function implementing this custom resource are kept in CloudWatch Logs.
-	LogRetention awslogs.RetentionDays `json:"logRetention"`
+	LogRetention awslogs.RetentionDays `json:"logRetention" yaml:"logRetention"`
 	// The AWS SDK call to make when the resource is created.
-	OnCreate *AwsSdkCall `json:"onCreate"`
+	OnCreate *AwsSdkCall `json:"onCreate" yaml:"onCreate"`
 	// The AWS SDK call to make when the resource is deleted.
-	OnDelete *AwsSdkCall `json:"onDelete"`
+	OnDelete *AwsSdkCall `json:"onDelete" yaml:"onDelete"`
 	// The AWS SDK call to make when the resource is updated.
-	OnUpdate *AwsSdkCall `json:"onUpdate"`
+	OnUpdate *AwsSdkCall `json:"onUpdate" yaml:"onUpdate"`
 	// Cloudformation Resource type.
-	ResourceType *string `json:"resourceType"`
+	ResourceType *string `json:"resourceType" yaml:"resourceType"`
 	// The execution role for the Lambda function implementing this custom resource provider.
 	//
 	// This role will apply to all `AwsCustomResource`
 	// instances in the stack. The role must be assumable by the
 	// `lambda.amazonaws.com` service principal.
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 	// The timeout for the Lambda function implementing this custom resource.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 }
 
 // An AWS SDK call.
@@ -289,25 +289,25 @@ type AwsSdkCall struct {
 	// The service action to call.
 	// See: https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/index.html
 	//
-	Action *string `json:"action"`
+	Action *string `json:"action" yaml:"action"`
 	// The service to call.
 	// See: https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/index.html
 	//
-	Service *string `json:"service"`
+	Service *string `json:"service" yaml:"service"`
 	// API version to use for the service.
 	// See: https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/locking-api-versions.html
 	//
-	ApiVersion *string `json:"apiVersion"`
+	ApiVersion *string `json:"apiVersion" yaml:"apiVersion"`
 	// Used for running the SDK calls in underlying lambda with a different role Can be used primarily for cross-account requests to for example connect hostedzone with a shared vpc.
 	//
 	// Example for Route53 / associateVPCWithHostedZone
-	AssumedRoleArn *string `json:"assumedRoleArn"`
+	AssumedRoleArn *string `json:"assumedRoleArn" yaml:"assumedRoleArn"`
 	// The regex pattern to use to catch API errors.
 	//
 	// The `code` property of the
 	// `Error` object will be tested against this pattern. If there is a match an
 	// error will not be thrown.
-	IgnoreErrorCodesMatching *string `json:"ignoreErrorCodesMatching"`
+	IgnoreErrorCodesMatching *string `json:"ignoreErrorCodesMatching" yaml:"ignoreErrorCodesMatching"`
 	// Restrict the data returned by the custom resource to specific paths in the API response.
 	//
 	// Use this to limit the data returned by the custom
@@ -315,20 +315,20 @@ type AwsSdkCall struct {
 	// response objects exceeding the hard limit of 4096 bytes.
 	//
 	// Example for ECS / updateService: ['service.deploymentConfiguration.maximumPercent']
-	OutputPaths *[]*string `json:"outputPaths"`
+	OutputPaths *[]*string `json:"outputPaths" yaml:"outputPaths"`
 	// The parameters for the service action.
 	// See: https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/index.html
 	//
-	Parameters interface{} `json:"parameters"`
+	Parameters interface{} `json:"parameters" yaml:"parameters"`
 	// The physical resource id of the custom resource for this call.
 	//
 	// Mandatory for onCreate or onUpdate calls.
-	PhysicalResourceId PhysicalResourceId `json:"physicalResourceId"`
+	PhysicalResourceId PhysicalResourceId `json:"physicalResourceId" yaml:"physicalResourceId"`
 	// The region to send service requests to.
 	//
 	// **Note: Cross-region operations are generally considered an anti-pattern.**
 	// **Consider first deploying a stack in that region.**
-	Region *string `json:"region"`
+	Region *string `json:"region" yaml:"region"`
 }
 
 // Physical ID of the custom resource.
@@ -621,50 +621,50 @@ type ProviderProps struct {
 	// (CREATE/UPDATE/DELETE) and return any additional properties to add to the
 	// event, which will later be passed to `isComplete`. The `PhysicalResourceId`
 	// property must be included in the response.
-	OnEventHandler awslambda.IFunction `json:"onEventHandler"`
+	OnEventHandler awslambda.IFunction `json:"onEventHandler" yaml:"onEventHandler"`
 	// The AWS Lambda function to invoke in order to determine if the operation is complete.
 	//
 	// This function will be called immediately after `onEvent` and then
 	// periodically based on the configured query interval as long as it returns
 	// `false`. If the function still returns `false` and the alloted timeout has
 	// passed, the operation will fail.
-	IsCompleteHandler awslambda.IFunction `json:"isCompleteHandler"`
+	IsCompleteHandler awslambda.IFunction `json:"isCompleteHandler" yaml:"isCompleteHandler"`
 	// The number of days framework log events are kept in CloudWatch Logs.
 	//
 	// When
 	// updating this property, unsetting it doesn't remove the log retention policy.
 	// To remove the retention policy, set the value to `INFINITE`.
-	LogRetention awslogs.RetentionDays `json:"logRetention"`
+	LogRetention awslogs.RetentionDays `json:"logRetention" yaml:"logRetention"`
 	// Provider Lambda name.
 	//
 	// The provider lambda function name.
-	ProviderFunctionName *string `json:"providerFunctionName"`
+	ProviderFunctionName *string `json:"providerFunctionName" yaml:"providerFunctionName"`
 	// Time between calls to the `isComplete` handler which determines if the resource has been stabilized.
 	//
 	// The first `isComplete` will be called immediately after `handler` and then
 	// every `queryInterval` seconds, and until `timeout` has been reached or until
 	// `isComplete` returns `true`.
-	QueryInterval awscdk.Duration `json:"queryInterval"`
+	QueryInterval awscdk.Duration `json:"queryInterval" yaml:"queryInterval"`
 	// AWS Lambda execution role.
 	//
 	// The role that will be assumed by the AWS Lambda.
 	// Must be assumable by the 'lambda.amazonaws.com' service principal.
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 	// Security groups to attach to the provider functions.
 	//
 	// Only used if 'vpc' is supplied
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// Total timeout for the entire operation.
 	//
 	// The maximum timeout is 2 hours (yes, it can exceed the AWS Lambda 15 minutes)
-	TotalTimeout awscdk.Duration `json:"totalTimeout"`
+	TotalTimeout awscdk.Duration `json:"totalTimeout" yaml:"totalTimeout"`
 	// The vpc to provision the lambda functions in.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// Which subnets from the VPC to place the lambda functions in.
 	//
 	// Only used if 'vpc' is supplied. Note: internet access for Lambdas
 	// requires a NAT gateway, so picking Public subnets is not allowed.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 
 // Options for the auto-generation of policies based on the configured SDK calls.
@@ -679,6 +679,6 @@ type SdkCallsPolicyOptions struct {
 	// know the physical name of in advance.
 	//
 	// Note that will apply to ALL SDK calls.
-	Resources *[]*string `json:"resources"`
+	Resources *[]*string `json:"resources" yaml:"resources"`
 }
 

@@ -80,7 +80,7 @@ func (c *jsiiProxy_CloudWatchLogsAction) Bind(rule awscdkiotalpha.ITopicRule) *a
 type CloudWatchLogsActionProps struct {
 	// The IAM role that allows access to AWS service.
 	// Experimental.
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 }
 
 // The action to capture an Amazon CloudWatch metric.
@@ -147,42 +147,42 @@ func (c *jsiiProxy_CloudWatchPutMetricAction) Bind(rule awscdkiotalpha.ITopicRul
 type CloudWatchPutMetricActionProps struct {
 	// The IAM role that allows access to AWS service.
 	// Experimental.
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 	// The CloudWatch metric name.
 	//
 	// Supports substitution templates.
 	// See: https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html
 	//
 	// Experimental.
-	MetricName *string `json:"metricName"`
+	MetricName *string `json:"metricName" yaml:"metricName"`
 	// The CloudWatch metric namespace name.
 	//
 	// Supports substitution templates.
 	// See: https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html
 	//
 	// Experimental.
-	MetricNamespace *string `json:"metricNamespace"`
+	MetricNamespace *string `json:"metricNamespace" yaml:"metricNamespace"`
 	// The metric unit supported by CloudWatch.
 	//
 	// Supports substitution templates.
 	// See: https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html
 	//
 	// Experimental.
-	MetricUnit *string `json:"metricUnit"`
+	MetricUnit *string `json:"metricUnit" yaml:"metricUnit"`
 	// A string that contains the CloudWatch metric value.
 	//
 	// Supports substitution templates.
 	// See: https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html
 	//
 	// Experimental.
-	MetricValue *string `json:"metricValue"`
+	MetricValue *string `json:"metricValue" yaml:"metricValue"`
 	// A string that contains the timestamp, expressed in seconds in Unix epoch time.
 	//
 	// Supports substitution templates.
 	// See: https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html
 	//
 	// Experimental.
-	MetricTimestamp *string `json:"metricTimestamp"`
+	MetricTimestamp *string `json:"metricTimestamp" yaml:"metricTimestamp"`
 }
 
 // The action to change the state of an Amazon CloudWatch alarm.
@@ -249,13 +249,13 @@ func (c *jsiiProxy_CloudWatchSetAlarmStateAction) Bind(topicRule awscdkiotalpha.
 type CloudWatchSetAlarmStateActionProps struct {
 	// The IAM role that allows access to AWS service.
 	// Experimental.
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 	// The value of the alarm state to set.
 	// Experimental.
-	AlarmStateToSet awscloudwatch.AlarmState `json:"alarmStateToSet"`
+	AlarmStateToSet awscloudwatch.AlarmState `json:"alarmStateToSet" yaml:"alarmStateToSet"`
 	// The reason for the alarm change.
 	// Experimental.
-	Reason *string `json:"reason"`
+	Reason *string `json:"reason" yaml:"reason"`
 }
 
 // Common properties shared by Actions it access to AWS service.
@@ -266,7 +266,7 @@ type CloudWatchSetAlarmStateActionProps struct {
 type CommonActionProps struct {
 	// The IAM role that allows access to AWS service.
 	// Experimental.
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 }
 
 // The action to put the record from an MQTT message to the Kinesis Data Firehose stream.
@@ -333,17 +333,17 @@ func (f *jsiiProxy_FirehosePutRecordAction) Bind(rule awscdkiotalpha.ITopicRule)
 type FirehosePutRecordActionProps struct {
 	// The IAM role that allows access to AWS service.
 	// Experimental.
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 	// Whether to deliver the Kinesis Data Firehose stream as a batch by using `PutRecordBatch`.
 	//
 	// When batchMode is true and the rule's SQL statement evaluates to an Array, each Array
 	// element forms one record in the PutRecordBatch request. The resulting array can't have
 	// more than 500 records.
 	// Experimental.
-	BatchMode *bool `json:"batchMode"`
+	BatchMode *bool `json:"batchMode" yaml:"batchMode"`
 	// A character separator that will be used to separate records written to the Kinesis Data Firehose stream.
 	// Experimental.
-	RecordSeparator FirehoseRecordSeparator `json:"recordSeparator"`
+	RecordSeparator FirehoseRecordSeparator `json:"recordSeparator" yaml:"recordSeparator"`
 }
 
 // Record Separator to be used to separate records.
@@ -480,19 +480,19 @@ func (s *jsiiProxy_S3PutObjectAction) Bind(rule awscdkiotalpha.ITopicRule) *awsc
 type S3PutObjectActionProps struct {
 	// The IAM role that allows access to AWS service.
 	// Experimental.
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 	// The Amazon S3 canned ACL that controls access to the object identified by the object key.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl
 	//
 	// Experimental.
-	AccessControl awss3.BucketAccessControl `json:"accessControl"`
+	AccessControl awss3.BucketAccessControl `json:"accessControl" yaml:"accessControl"`
 	// The path to the file where the data is written.
 	//
 	// Supports substitution templates.
 	// See: https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html
 	//
 	// Experimental.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 }
 
 // The action to write the data from an MQTT message to an Amazon SQS queue.
@@ -559,9 +559,9 @@ func (s *jsiiProxy_SqsQueueAction) Bind(rule awscdkiotalpha.ITopicRule) *awscdki
 type SqsQueueActionProps struct {
 	// The IAM role that allows access to AWS service.
 	// Experimental.
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 	// Specifies whether to use Base64 encoding.
 	// Experimental.
-	UseBase64 *bool `json:"useBase64"`
+	UseBase64 *bool `json:"useBase64" yaml:"useBase64"`
 }
 

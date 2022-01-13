@@ -21,12 +21,12 @@ import (
 type AssetProps struct {
 	// Represents the docker image asset.
 	// Experimental.
-	Asset awsecrassets.DockerImageAsset `json:"asset"`
+	Asset awsecrassets.DockerImageAsset `json:"asset" yaml:"asset"`
 	// The image configuration for the image built from the asset.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html#cfn-apprunner-service-imageconfiguration-port
 	//
 	// Experimental.
-	ImageConfiguration *ImageConfiguration `json:"imageConfiguration"`
+	ImageConfiguration *ImageConfiguration `json:"imageConfiguration" yaml:"imageConfiguration"`
 }
 
 // Represents the source from local assets.
@@ -163,13 +163,13 @@ func (a *jsiiProxy_AssetSource) Bind(_scope constructs.Construct) *SourceConfig 
 type CodeConfiguration struct {
 	// The source of the App Runner configuration.
 	// Experimental.
-	ConfigurationSource ConfigurationSourceType `json:"configurationSource"`
+	ConfigurationSource ConfigurationSourceType `json:"configurationSource" yaml:"configurationSource"`
 	// The basic configuration for building and running the App Runner service.
 	//
 	// Use it to quickly launch an App Runner service without providing a apprunner.yaml file in the
 	// source code repository (or ignoring the file if it exists).
 	// Experimental.
-	ConfigurationValues *CodeConfigurationValues `json:"configurationValues"`
+	ConfigurationValues *CodeConfigurationValues `json:"configurationValues" yaml:"configurationValues"`
 }
 
 // Describes the basic configuration needed for building and running an AWS App Runner service.
@@ -186,19 +186,19 @@ type CodeConfigurationValues struct {
 	// It represents
 	// a programming language runtime.
 	// Experimental.
-	Runtime Runtime `json:"runtime"`
+	Runtime Runtime `json:"runtime" yaml:"runtime"`
 	// The command App Runner runs to build your application.
 	// Experimental.
-	BuildCommand *string `json:"buildCommand"`
+	BuildCommand *string `json:"buildCommand" yaml:"buildCommand"`
 	// The environment variables that are available to your running App Runner service.
 	// Experimental.
-	Environment *map[string]*string `json:"environment"`
+	Environment *map[string]*string `json:"environment" yaml:"environment"`
 	// The port that your application listens to in the container.
 	// Experimental.
-	Port *string `json:"port"`
+	Port *string `json:"port" yaml:"port"`
 	// The command App Runner runs to start your application.
 	// Experimental.
-	StartCommand *string `json:"startCommand"`
+	StartCommand *string `json:"startCommand" yaml:"startCommand"`
 }
 
 // Properties of the CodeRepository.
@@ -209,16 +209,16 @@ type CodeConfigurationValues struct {
 type CodeRepositoryProps struct {
 	// Configuration for building and running the service from a source code repository.
 	// Experimental.
-	CodeConfiguration *CodeConfiguration `json:"codeConfiguration"`
+	CodeConfiguration *CodeConfiguration `json:"codeConfiguration" yaml:"codeConfiguration"`
 	// The App Runner connection for GitHub.
 	// Experimental.
-	Connection GitHubConnection `json:"connection"`
+	Connection GitHubConnection `json:"connection" yaml:"connection"`
 	// The location of the repository that contains the source code.
 	// Experimental.
-	RepositoryUrl *string `json:"repositoryUrl"`
+	RepositoryUrl *string `json:"repositoryUrl" yaml:"repositoryUrl"`
 	// The version that should be used within the source code repository.
 	// Experimental.
-	SourceCodeVersion *SourceCodeVersion `json:"sourceCodeVersion"`
+	SourceCodeVersion *SourceCodeVersion `json:"sourceCodeVersion" yaml:"sourceCodeVersion"`
 }
 
 // The source of the App Runner configuration.
@@ -307,15 +307,15 @@ func Cpu_TWO_VCPU() Cpu {
 type EcrProps struct {
 	// Represents the ECR repository.
 	// Experimental.
-	Repository awsecr.IRepository `json:"repository"`
+	Repository awsecr.IRepository `json:"repository" yaml:"repository"`
 	// The image configuration for the image from ECR.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html#cfn-apprunner-service-imageconfiguration-port
 	//
 	// Experimental.
-	ImageConfiguration *ImageConfiguration `json:"imageConfiguration"`
+	ImageConfiguration *ImageConfiguration `json:"imageConfiguration" yaml:"imageConfiguration"`
 	// Image tag.
 	// Experimental.
-	Tag *string `json:"tag"`
+	Tag *string `json:"tag" yaml:"tag"`
 }
 
 // Properties of the image repository for `Source.fromEcrPublic()`.
@@ -326,12 +326,12 @@ type EcrProps struct {
 type EcrPublicProps struct {
 	// The ECR Public image URI.
 	// Experimental.
-	ImageIdentifier *string `json:"imageIdentifier"`
+	ImageIdentifier *string `json:"imageIdentifier" yaml:"imageIdentifier"`
 	// The image configuration for the image from ECR Public.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html#cfn-apprunner-service-imageconfiguration-port
 	//
 	// Experimental.
-	ImageConfiguration *ImageConfiguration `json:"imageConfiguration"`
+	ImageConfiguration *ImageConfiguration `json:"imageConfiguration" yaml:"imageConfiguration"`
 }
 
 // Represents the service source from ECR Public.
@@ -662,23 +662,23 @@ func GitHubConnection_FromConnectionArn(arn *string) GitHubConnection {
 type GithubRepositoryProps struct {
 	// The source of the App Runner configuration.
 	// Experimental.
-	ConfigurationSource ConfigurationSourceType `json:"configurationSource"`
+	ConfigurationSource ConfigurationSourceType `json:"configurationSource" yaml:"configurationSource"`
 	// ARN of the connection to Github.
 	//
 	// Only required for Github source.
 	// Experimental.
-	Connection GitHubConnection `json:"connection"`
+	Connection GitHubConnection `json:"connection" yaml:"connection"`
 	// The location of the repository that contains the source code.
 	// Experimental.
-	RepositoryUrl *string `json:"repositoryUrl"`
+	RepositoryUrl *string `json:"repositoryUrl" yaml:"repositoryUrl"`
 	// The branch name that represents a specific version for the repository.
 	// Experimental.
-	Branch *string `json:"branch"`
+	Branch *string `json:"branch" yaml:"branch"`
 	// The code configuration values.
 	//
 	// Will be ignored if configurationSource is `REPOSITORY`.
 	// Experimental.
-	CodeConfigurationValues *CodeConfigurationValues `json:"codeConfigurationValues"`
+	CodeConfigurationValues *CodeConfigurationValues `json:"codeConfigurationValues" yaml:"codeConfigurationValues"`
 }
 
 // Represents the service source from a Github repository.
@@ -852,15 +852,15 @@ func (j *jsiiProxy_IService) ServiceName() *string {
 type ImageConfiguration struct {
 	// Environment variables that are available to your running App Runner service.
 	// Experimental.
-	Environment *map[string]*string `json:"environment"`
+	Environment *map[string]*string `json:"environment" yaml:"environment"`
 	// The port that your application listens to in the container.
 	// Experimental.
-	Port *float64 `json:"port"`
+	Port *float64 `json:"port" yaml:"port"`
 	// An optional command that App Runner runs to start the application in the source image.
 	//
 	// If specified, this command overrides the Docker image’s default start command.
 	// Experimental.
-	StartCommand *string `json:"startCommand"`
+	StartCommand *string `json:"startCommand" yaml:"startCommand"`
 }
 
 // Describes a source image repository.
@@ -879,18 +879,18 @@ type ImageRepository struct {
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imagerepository.html for more details.
 	//
 	// Experimental.
-	ImageIdentifier *string `json:"imageIdentifier"`
+	ImageIdentifier *string `json:"imageIdentifier" yaml:"imageIdentifier"`
 	// The type of the image repository.
 	//
 	// This reflects the repository provider and whether
 	// the repository is private or public.
 	// Experimental.
-	ImageRepositoryType ImageRepositoryType `json:"imageRepositoryType"`
+	ImageRepositoryType ImageRepositoryType `json:"imageRepositoryType" yaml:"imageRepositoryType"`
 	// Configuration for running the identified image.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html#cfn-apprunner-service-imageconfiguration-port
 	//
 	// Experimental.
-	ImageConfiguration *ImageConfiguration `json:"imageConfiguration"`
+	ImageConfiguration *ImageConfiguration `json:"imageConfiguration" yaml:"imageConfiguration"`
 }
 
 // The image repository types.
@@ -1354,16 +1354,16 @@ func (s *jsiiProxy_Service) ToString() *string {
 type ServiceAttributes struct {
 	// The ARN of the service.
 	// Experimental.
-	ServiceArn *string `json:"serviceArn"`
+	ServiceArn *string `json:"serviceArn" yaml:"serviceArn"`
 	// The name of the service.
 	// Experimental.
-	ServiceName *string `json:"serviceName"`
+	ServiceName *string `json:"serviceName" yaml:"serviceName"`
 	// The status of the service.
 	// Experimental.
-	ServiceStatus *string `json:"serviceStatus"`
+	ServiceStatus *string `json:"serviceStatus" yaml:"serviceStatus"`
 	// The URL of the service.
 	// Experimental.
-	ServiceUrl *string `json:"serviceUrl"`
+	ServiceUrl *string `json:"serviceUrl" yaml:"serviceUrl"`
 }
 
 // Properties of the AppRunner Service.
@@ -1374,7 +1374,7 @@ type ServiceAttributes struct {
 type ServiceProps struct {
 	// The source of the repository for the service.
 	// Experimental.
-	Source Source `json:"source"`
+	Source Source `json:"source" yaml:"source"`
 	// The IAM role that grants the App Runner service access to a source repository.
 	//
 	// It's required for ECR image repositories (but not for ECR Public repositories).
@@ -1383,10 +1383,10 @@ type ServiceProps struct {
 	// See: https://docs.aws.amazon.com/apprunner/latest/dg/security_iam_service-with-iam.html#security_iam_service-with-iam-roles-service.access
 	//
 	// Experimental.
-	AccessRole awsiam.IRole `json:"accessRole"`
+	AccessRole awsiam.IRole `json:"accessRole" yaml:"accessRole"`
 	// The number of CPU units reserved for each instance of your App Runner service.
 	// Experimental.
-	Cpu Cpu `json:"cpu"`
+	Cpu Cpu `json:"cpu" yaml:"cpu"`
 	// The IAM role that provides permissions to your App Runner service.
 	//
 	// These are permissions that your code needs when it calls any AWS APIs.
@@ -1395,13 +1395,13 @@ type ServiceProps struct {
 	// See: https://docs.aws.amazon.com/apprunner/latest/dg/security_iam_service-with-iam.html#security_iam_service-with-iam-roles-service.instance
 	//
 	// Experimental.
-	InstanceRole awsiam.IRole `json:"instanceRole"`
+	InstanceRole awsiam.IRole `json:"instanceRole" yaml:"instanceRole"`
 	// The amount of memory reserved for each instance of your App Runner service.
 	// Experimental.
-	Memory Memory `json:"memory"`
+	Memory Memory `json:"memory" yaml:"memory"`
 	// Name of the service.
 	// Experimental.
-	ServiceName *string `json:"serviceName"`
+	ServiceName *string `json:"serviceName" yaml:"serviceName"`
 }
 
 // Represents the App Runner service source.
@@ -1522,10 +1522,10 @@ func (s *jsiiProxy_Source) Bind(scope constructs.Construct) *SourceConfig {
 type SourceCodeVersion struct {
 	// The type of version identifier.
 	// Experimental.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// A source code version.
 	// Experimental.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // Result of binding `Source` into a `Service`.
@@ -1536,12 +1536,12 @@ type SourceCodeVersion struct {
 type SourceConfig struct {
 	// The code repository configuration (mutually exclusive  with `imageRepository`).
 	// Experimental.
-	CodeRepository *CodeRepositoryProps `json:"codeRepository"`
+	CodeRepository *CodeRepositoryProps `json:"codeRepository" yaml:"codeRepository"`
 	// The ECR repository (required to grant the pull privileges for the iam role).
 	// Experimental.
-	EcrRepository awsecr.IRepository `json:"ecrRepository"`
+	EcrRepository awsecr.IRepository `json:"ecrRepository" yaml:"ecrRepository"`
 	// The image repository configuration (mutually exclusive  with `codeRepository`).
 	// Experimental.
-	ImageRepository *ImageRepository `json:"imageRepository"`
+	ImageRepository *ImageRepository `json:"imageRepository" yaml:"imageRepository"`
 }
 

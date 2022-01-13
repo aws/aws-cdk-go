@@ -127,17 +127,17 @@ func (a *jsiiProxy_Action) VariableExpression(variableName *string) *string {
 // TODO: EXAMPLE
 //
 type ActionArtifactBounds struct {
-	MaxInputs *float64 `json:"maxInputs"`
-	MaxOutputs *float64 `json:"maxOutputs"`
-	MinInputs *float64 `json:"minInputs"`
-	MinOutputs *float64 `json:"minOutputs"`
+	MaxInputs *float64 `json:"maxInputs" yaml:"maxInputs"`
+	MaxOutputs *float64 `json:"maxOutputs" yaml:"maxOutputs"`
+	MinInputs *float64 `json:"minInputs" yaml:"minInputs"`
+	MinOutputs *float64 `json:"minOutputs" yaml:"minOutputs"`
 }
 
 // TODO: EXAMPLE
 //
 type ActionBindOptions struct {
-	Bucket awss3.IBucket `json:"bucket"`
-	Role awsiam.IRole `json:"role"`
+	Bucket awss3.IBucket `json:"bucket" yaml:"bucket"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 }
 
 // TODO: EXAMPLE
@@ -156,21 +156,21 @@ const (
 // TODO: EXAMPLE
 //
 type ActionConfig struct {
-	Configuration interface{} `json:"configuration"`
+	Configuration interface{} `json:"configuration" yaml:"configuration"`
 }
 
 // TODO: EXAMPLE
 //
 type ActionProperties struct {
-	ActionName *string `json:"actionName"`
-	ArtifactBounds *ActionArtifactBounds `json:"artifactBounds"`
+	ActionName *string `json:"actionName" yaml:"actionName"`
+	ArtifactBounds *ActionArtifactBounds `json:"artifactBounds" yaml:"artifactBounds"`
 	// The category of the action.
 	//
 	// The category defines which action type the owner
 	// (the entity that performs the action) performs.
-	Category ActionCategory `json:"category"`
+	Category ActionCategory `json:"category" yaml:"category"`
 	// The service provider that the action calls.
-	Provider *string `json:"provider"`
+	Provider *string `json:"provider" yaml:"provider"`
 	// The account the Action is supposed to live in.
 	//
 	// For Actions backed by resources,
@@ -179,30 +179,30 @@ type ActionProperties struct {
 	// are not backed by any resource, and they still might want to be cross-account.
 	// In general, a concrete Action class should specify either {@link resource},
 	// or {@link account} - but not both.
-	Account *string `json:"account"`
-	Inputs *[]Artifact `json:"inputs"`
-	Outputs *[]Artifact `json:"outputs"`
-	Owner *string `json:"owner"`
+	Account *string `json:"account" yaml:"account"`
+	Inputs *[]Artifact `json:"inputs" yaml:"inputs"`
+	Outputs *[]Artifact `json:"outputs" yaml:"outputs"`
+	Owner *string `json:"owner" yaml:"owner"`
 	// The AWS region the given Action resides in.
 	//
 	// Note that a cross-region Pipeline requires replication buckets to function correctly.
 	// You can provide their names with the {@link PipelineProps#crossRegionReplicationBuckets} property.
 	// If you don't, the CodePipeline Construct will create new Stacks in your CDK app containing those buckets,
 	// that you will need to `cdk deploy` before deploying the main, Pipeline-containing Stack.
-	Region *string `json:"region"`
+	Region *string `json:"region" yaml:"region"`
 	// The optional resource that is backing this Action.
 	//
 	// This is used for automatically handling Actions backed by
 	// resources from a different account and/or region.
-	Resource awscdk.IResource `json:"resource"`
-	Role awsiam.IRole `json:"role"`
+	Resource awscdk.IResource `json:"resource" yaml:"resource"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 	// The order in which AWS CodePipeline runs this action. For more information, see the AWS CodePipeline User Guide.
 	//
 	// https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements
-	RunOrder *float64 `json:"runOrder"`
+	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
-	VariablesNamespace *string `json:"variablesNamespace"`
-	Version *string `json:"version"`
+	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
+	Version *string `json:"version" yaml:"version"`
 }
 
 // An output artifact of an action.
@@ -1092,9 +1092,9 @@ func (c *jsiiProxy_CfnCustomActionType) ValidateProperties(_properties interface
 //
 type CfnCustomActionType_ArtifactDetailsProperty struct {
 	// The maximum number of artifacts allowed for the action type.
-	MaximumCount *float64 `json:"maximumCount"`
+	MaximumCount *float64 `json:"maximumCount" yaml:"maximumCount"`
 	// The minimum number of artifacts allowed for the action type.
-	MinimumCount *float64 `json:"minimumCount"`
+	MinimumCount *float64 `json:"minimumCount" yaml:"minimumCount"`
 }
 
 // The configuration properties for the custom action.
@@ -1105,27 +1105,27 @@ type CfnCustomActionType_ArtifactDetailsProperty struct {
 //
 type CfnCustomActionType_ConfigurationPropertiesProperty struct {
 	// Whether the configuration property is a key.
-	Key interface{} `json:"key"`
+	Key interface{} `json:"key" yaml:"key"`
 	// The name of the action configuration property.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// Whether the configuration property is a required value.
-	Required interface{} `json:"required"`
+	Required interface{} `json:"required" yaml:"required"`
 	// Whether the configuration property is secret.
 	//
 	// Secrets are hidden from all calls except for `GetJobDetails` , `GetThirdPartyJobDetails` , `PollForJobs` , and `PollForThirdPartyJobs` .
 	//
 	// When updating a pipeline, passing * * * * * without changing any other values of the action preserves the previous value of the secret.
-	Secret interface{} `json:"secret"`
+	Secret interface{} `json:"secret" yaml:"secret"`
 	// The description of the action configuration property that is displayed to users.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Indicates that the property is used with `PollForJobs` .
 	//
 	// When creating a custom action, an action can have up to one queryable property. If it has one, that property must be both required and not secret.
 	//
 	// If you create a pipeline with a custom action type, and that custom action contains a queryable property, the value for that configuration property is subject to other restrictions. The value must be less than or equal to twenty (20) characters. The value can contain only alphanumeric characters, underscores, and hyphens.
-	Queryable interface{} `json:"queryable"`
+	Queryable interface{} `json:"queryable" yaml:"queryable"`
 	// The type of the configuration property.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 }
 
 // `Settings` is a property of the `AWS::CodePipeline::CustomActionType` resource that provides URLs that users can access to view information about the CodePipeline custom action.
@@ -1136,15 +1136,15 @@ type CfnCustomActionType_SettingsProperty struct {
 	// The URL returned to the CodePipeline console that provides a deep link to the resources of the external system, such as the configuration page for a CodeDeploy deployment group.
 	//
 	// This link is provided as part of the action display in the pipeline.
-	EntityUrlTemplate *string `json:"entityUrlTemplate"`
+	EntityUrlTemplate *string `json:"entityUrlTemplate" yaml:"entityUrlTemplate"`
 	// The URL returned to the CodePipeline console that contains a link to the top-level landing page for the external system, such as the console page for CodeDeploy.
 	//
 	// This link is shown on the pipeline view page in the CodePipeline console and provides a link to the execution entity of the external action.
-	ExecutionUrlTemplate *string `json:"executionUrlTemplate"`
+	ExecutionUrlTemplate *string `json:"executionUrlTemplate" yaml:"executionUrlTemplate"`
 	// The URL returned to the CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action.
-	RevisionUrlTemplate *string `json:"revisionUrlTemplate"`
+	RevisionUrlTemplate *string `json:"revisionUrlTemplate" yaml:"revisionUrlTemplate"`
 	// The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
-	ThirdPartyConfigurationUrl *string `json:"thirdPartyConfigurationUrl"`
+	ThirdPartyConfigurationUrl *string `json:"thirdPartyConfigurationUrl" yaml:"thirdPartyConfigurationUrl"`
 }
 
 // Properties for defining a `CfnCustomActionType`.
@@ -1153,23 +1153,23 @@ type CfnCustomActionType_SettingsProperty struct {
 //
 type CfnCustomActionTypeProps struct {
 	// The category of the custom action, such as a build action or a test action.
-	Category *string `json:"category"`
+	Category *string `json:"category" yaml:"category"`
 	// The details of the input artifact for the action, such as its commit ID.
-	InputArtifactDetails interface{} `json:"inputArtifactDetails"`
+	InputArtifactDetails interface{} `json:"inputArtifactDetails" yaml:"inputArtifactDetails"`
 	// The details of the output artifact of the action, such as its commit ID.
-	OutputArtifactDetails interface{} `json:"outputArtifactDetails"`
+	OutputArtifactDetails interface{} `json:"outputArtifactDetails" yaml:"outputArtifactDetails"`
 	// The provider of the service used in the custom action, such as CodeDeploy.
-	Provider *string `json:"provider"`
+	Provider *string `json:"provider" yaml:"provider"`
 	// The version identifier of the custom action.
-	Version *string `json:"version"`
+	Version *string `json:"version" yaml:"version"`
 	// The configuration properties for the custom action.
 	//
 	// > You can refer to a name in the configuration properties of the custom action within the URL templates by following the format of {Config:name}, as long as the configuration property is both required and not secret. For more information, see [Create a Custom Action for a Pipeline](https://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-create-custom-action.html) .
-	ConfigurationProperties interface{} `json:"configurationProperties"`
+	ConfigurationProperties interface{} `json:"configurationProperties" yaml:"configurationProperties"`
 	// URLs that provide users information about this custom action.
-	Settings interface{} `json:"settings"`
+	Settings interface{} `json:"settings" yaml:"settings"`
 	// The tags for the custom action.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::CodePipeline::Pipeline`.
@@ -1792,9 +1792,9 @@ func (c *jsiiProxy_CfnPipeline) ValidateProperties(_properties interface{}) {
 //
 type CfnPipeline_ActionDeclarationProperty struct {
 	// Specifies the action type and the provider of the action.
-	ActionTypeId interface{} `json:"actionTypeId"`
+	ActionTypeId interface{} `json:"actionTypeId" yaml:"actionTypeId"`
 	// The action declaration's name.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The action's configuration.
 	//
 	// These are key-value pairs that specify input values for an action. For more information, see [Action Structure Requirements in CodePipeline](https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements) . For the list of configuration properties for the AWS CloudFormation action type in CodePipeline, see [Configuration Properties Reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-action-reference.html) in the *AWS CloudFormation User Guide* . For template snippets with examples, see [Using Parameter Override Functions with CodePipeline Pipelines](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-parameter-override-functions.html) in the *AWS CloudFormation User Guide* .
@@ -1804,25 +1804,25 @@ type CfnPipeline_ActionDeclarationProperty struct {
 	// *JSON:*
 	//
 	// `"Configuration" : { Key : Value },`
-	Configuration interface{} `json:"configuration"`
+	Configuration interface{} `json:"configuration" yaml:"configuration"`
 	// The name or ID of the artifact consumed by the action, such as a test or build artifact.
 	//
 	// > For a CodeBuild action with multiple input artifacts, one of your input sources must be designated the PrimarySource. For more information, see the [CodeBuild action reference page](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodeBuild.html) in the *AWS CodePipeline User Guide* .
-	InputArtifacts interface{} `json:"inputArtifacts"`
+	InputArtifacts interface{} `json:"inputArtifacts" yaml:"inputArtifacts"`
 	// The variable namespace associated with the action.
 	//
 	// All variables produced as output by this action fall under this namespace.
-	Namespace *string `json:"namespace"`
+	Namespace *string `json:"namespace" yaml:"namespace"`
 	// The name or ID of the result of the action declaration, such as a test or build artifact.
-	OutputArtifacts interface{} `json:"outputArtifacts"`
+	OutputArtifacts interface{} `json:"outputArtifacts" yaml:"outputArtifacts"`
 	// The action declaration's AWS Region, such as us-east-1.
-	Region *string `json:"region"`
+	Region *string `json:"region" yaml:"region"`
 	// The ARN of the IAM service role that performs the declared action.
 	//
 	// This is assumed through the roleArn for the pipeline.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// The order in which actions are run.
-	RunOrder *float64 `json:"runOrder"`
+	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
 }
 
 // Represents information about an action type.
@@ -1840,17 +1840,17 @@ type CfnPipeline_ActionTypeIdProperty struct {
 	// - `Deploy`
 	// - `Invoke`
 	// - `Approval`
-	Category *string `json:"category"`
+	Category *string `json:"category" yaml:"category"`
 	// The creator of the action being called.
 	//
 	// There are three valid values for the `Owner` field in the action category section within your pipeline structure: `AWS` , `ThirdParty` , and `Custom` . For more information, see [Valid Action Types and Providers in CodePipeline](https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers) .
-	Owner *string `json:"owner"`
+	Owner *string `json:"owner" yaml:"owner"`
 	// The provider of the service being called by the action.
 	//
 	// Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of CodeDeploy, which would be specified as CodeDeploy. For more information, see [Valid Action Types and Providers in CodePipeline](https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers) .
-	Provider *string `json:"provider"`
+	Provider *string `json:"provider" yaml:"provider"`
 	// A string that describes the action version.
-	Version *string `json:"version"`
+	Version *string `json:"version" yaml:"version"`
 }
 
 // A mapping of `artifactStore` objects and their corresponding AWS Regions.
@@ -1865,9 +1865,9 @@ type CfnPipeline_ArtifactStoreMapProperty struct {
 	// Represents information about the S3 bucket where artifacts are stored for the pipeline.
 	//
 	// > You must include either `artifactStore` or `artifactStores` in your pipeline, but you cannot use both. If you create a cross-region action in your pipeline, you must use `artifactStores` .
-	ArtifactStore interface{} `json:"artifactStore"`
+	ArtifactStore interface{} `json:"artifactStore" yaml:"artifactStore"`
 	// The action declaration's AWS Region, such as us-east-1.
-	Region *string `json:"region"`
+	Region *string `json:"region" yaml:"region"`
 }
 
 // The S3 bucket where artifacts for the pipeline are stored.
@@ -1880,13 +1880,13 @@ type CfnPipeline_ArtifactStoreProperty struct {
 	// The S3 bucket used for storing the artifacts for a pipeline.
 	//
 	// You can specify the name of an S3 bucket but not a folder in the bucket. A folder to contain the pipeline artifacts is created for you based on the name of the pipeline. You can use any S3 bucket in the same AWS Region as the pipeline to store your pipeline artifacts.
-	Location *string `json:"location"`
+	Location *string `json:"location" yaml:"location"`
 	// The type of the artifact store, such as S3.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// The encryption key used to encrypt the data in the artifact store, such as an AWS Key Management Service ( AWS KMS) key.
 	//
 	// If this is undefined, the default key for Amazon S3 is used. To see an example artifact store encryption key field, see the example structure here: [AWS::CodePipeline::Pipeline](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html) .
-	EncryptionKey interface{} `json:"encryptionKey"`
+	EncryptionKey interface{} `json:"encryptionKey" yaml:"encryptionKey"`
 }
 
 // Reserved for future use.
@@ -1895,9 +1895,9 @@ type CfnPipeline_ArtifactStoreProperty struct {
 //
 type CfnPipeline_BlockerDeclarationProperty struct {
 	// Reserved for future use.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// Reserved for future use.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 }
 
 // Represents information about the key used to encrypt data in the artifact store, such as an AWS Key Management Service ( AWS KMS) key.
@@ -1912,11 +1912,11 @@ type CfnPipeline_EncryptionKeyProperty struct {
 	// For an AWS KMS key, you can use the key ID, the key ARN, or the alias ARN.
 	//
 	// > Aliases are recognized only in the account that created the AWS KMS key. For cross-account actions, you can only use the key ID or key ARN to identify the key.
-	Id *string `json:"id"`
+	Id *string `json:"id" yaml:"id"`
 	// The type of encryption key, such as an AWS KMS key.
 	//
 	// When creating or updating a pipeline, the value must be set to 'KMS'.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 }
 
 // Represents information about an artifact to be worked on, such as a test or build artifact.
@@ -1927,7 +1927,7 @@ type CfnPipeline_InputArtifactProperty struct {
 	// The name of the artifact to be worked on (for example, "My App").
 	//
 	// The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // Represents information about the output of an action.
@@ -1940,7 +1940,7 @@ type CfnPipeline_OutputArtifactProperty struct {
 	// The output artifact name must exactly match the input artifact declared for a downstream action. However, the downstream action's input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
 	//
 	// Output artifact names must be unique within a pipeline.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // Represents information about a stage and its definition.
@@ -1949,11 +1949,11 @@ type CfnPipeline_OutputArtifactProperty struct {
 //
 type CfnPipeline_StageDeclarationProperty struct {
 	// The actions included in a stage.
-	Actions interface{} `json:"actions"`
+	Actions interface{} `json:"actions" yaml:"actions"`
 	// The name of the stage.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// Reserved for future use.
-	Blockers interface{} `json:"blockers"`
+	Blockers interface{} `json:"blockers" yaml:"blockers"`
 }
 
 // The name of the pipeline in which you want to disable the flow of artifacts from one stage to another.
@@ -1964,9 +1964,9 @@ type CfnPipeline_StageTransitionProperty struct {
 	// The reason given to the user that a stage is disabled, such as waiting for manual approval or manual tests.
 	//
 	// This message is displayed in the pipeline console UI.
-	Reason *string `json:"reason"`
+	Reason *string `json:"reason" yaml:"reason"`
 	// The name of the stage where you want to disable the inbound or outbound transition of artifacts.
-	StageName *string `json:"stageName"`
+	StageName *string `json:"stageName" yaml:"stageName"`
 }
 
 // Properties for defining a `CfnPipeline`.
@@ -1975,27 +1975,27 @@ type CfnPipeline_StageTransitionProperty struct {
 //
 type CfnPipelineProps struct {
 	// The Amazon Resource Name (ARN) for CodePipeline to use to either perform actions with no `actionRoleArn` , or to use to assume roles for actions with an `actionRoleArn` .
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// Represents information about a stage and its definition.
-	Stages interface{} `json:"stages"`
+	Stages interface{} `json:"stages" yaml:"stages"`
 	// The S3 bucket where artifacts for the pipeline are stored.
 	//
 	// > You must include either `artifactStore` or `artifactStores` in your pipeline, but you cannot use both. If you create a cross-region action in your pipeline, you must use `artifactStores` .
-	ArtifactStore interface{} `json:"artifactStore"`
+	ArtifactStore interface{} `json:"artifactStore" yaml:"artifactStore"`
 	// A mapping of `artifactStore` objects and their corresponding AWS Regions.
 	//
 	// There must be an artifact store for the pipeline Region and for each cross-region action in the pipeline.
 	//
 	// > You must include either `artifactStore` or `artifactStores` in your pipeline, but you cannot use both. If you create a cross-region action in your pipeline, you must use `artifactStores` .
-	ArtifactStores interface{} `json:"artifactStores"`
+	ArtifactStores interface{} `json:"artifactStores" yaml:"artifactStores"`
 	// Represents the input of a `DisableStageTransition` action.
-	DisableInboundStageTransitions interface{} `json:"disableInboundStageTransitions"`
+	DisableInboundStageTransitions interface{} `json:"disableInboundStageTransitions" yaml:"disableInboundStageTransitions"`
 	// The name of the pipeline.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// Indicates whether to rerun the CodePipeline pipeline after you update it.
-	RestartExecutionOnUpdate interface{} `json:"restartExecutionOnUpdate"`
+	RestartExecutionOnUpdate interface{} `json:"restartExecutionOnUpdate" yaml:"restartExecutionOnUpdate"`
 	// Specifies the tags applied to the pipeline.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::CodePipeline::Webhook`.
@@ -2633,11 +2633,11 @@ type CfnWebhook_WebhookAuthConfigurationProperty struct {
 	// The property used to configure acceptance of webhooks in an IP address range.
 	//
 	// For IP, only the `AllowedIPRange` property must be set. This property must be set to a valid CIDR range.
-	AllowedIpRange *string `json:"allowedIpRange"`
+	AllowedIpRange *string `json:"allowedIpRange" yaml:"allowedIpRange"`
 	// The property used to configure GitHub authentication.
 	//
 	// For GITHUB_HMAC, only the `SecretToken` property must be set.
-	SecretToken *string `json:"secretToken"`
+	SecretToken *string `json:"secretToken" yaml:"secretToken"`
 }
 
 // The event criteria that specify when a webhook notification is sent to your URL.
@@ -2648,11 +2648,11 @@ type CfnWebhook_WebhookFilterRuleProperty struct {
 	// A JsonPath expression that is applied to the body/payload of the webhook.
 	//
 	// The value selected by the JsonPath expression must match the value specified in the `MatchEquals` field. Otherwise, the request is ignored. For more information, see [Java JsonPath implementation](https://docs.aws.amazon.com/https://github.com/json-path/JsonPath) in GitHub.
-	JsonPath *string `json:"jsonPath"`
+	JsonPath *string `json:"jsonPath" yaml:"jsonPath"`
 	// The value selected by the `JsonPath` expression must match what is supplied in the `MatchEquals` field.
 	//
 	// Otherwise, the request is ignored. Properties from the target action configuration can be included as placeholders in this value by surrounding the action configuration key with curly brackets. For example, if the value supplied here is "refs/heads/{Branch}" and the target action has an action configuration property called "Branch" with a value of "main", the `MatchEquals` value is evaluated as "refs/heads/main". For a list of action configuration properties for built-in action types, see [Pipeline Structure Reference Action Requirements](https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements) .
-	MatchEquals *string `json:"matchEquals"`
+	MatchEquals *string `json:"matchEquals" yaml:"matchEquals"`
 }
 
 // Properties for defining a `CfnWebhook`.
@@ -2665,21 +2665,21 @@ type CfnWebhookProps struct {
 	// - For information about the authentication scheme implemented by GITHUB_HMAC, see [Securing your webhooks](https://docs.aws.amazon.com/https://developer.github.com/webhooks/securing/) on the GitHub Developer website.
 	// - IP rejects webhooks trigger requests unless they originate from an IP address in the IP range whitelisted in the authentication configuration.
 	// - UNAUTHENTICATED accepts all webhook trigger requests regardless of origin.
-	Authentication *string `json:"authentication"`
+	Authentication *string `json:"authentication" yaml:"authentication"`
 	// Properties that configure the authentication applied to incoming webhook trigger requests.
 	//
 	// The required properties depend on the authentication type. For GITHUB_HMAC, only the `SecretToken` property must be set. For IP, only the `AllowedIPRange` property must be set to a valid CIDR range. For UNAUTHENTICATED, no properties can be set.
-	AuthenticationConfiguration interface{} `json:"authenticationConfiguration"`
+	AuthenticationConfiguration interface{} `json:"authenticationConfiguration" yaml:"authenticationConfiguration"`
 	// A list of rules applied to the body/payload sent in the POST request to a webhook URL.
 	//
 	// All defined rules must pass for the request to be accepted and the pipeline started.
-	Filters interface{} `json:"filters"`
+	Filters interface{} `json:"filters" yaml:"filters"`
 	// The name of the action in a pipeline you want to connect to the webhook.
 	//
 	// The action must be from the source (first) stage of the pipeline.
-	TargetAction *string `json:"targetAction"`
+	TargetAction *string `json:"targetAction" yaml:"targetAction"`
 	// The name of the pipeline you want to connect to the webhook.
-	TargetPipeline *string `json:"targetPipeline"`
+	TargetPipeline *string `json:"targetPipeline" yaml:"targetPipeline"`
 	// The version number of the pipeline to be connected to the trigger request.
 	//
 	// Required: Yes
@@ -2687,11 +2687,11 @@ type CfnWebhookProps struct {
 	// Type: Integer
 	//
 	// Update requires: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
-	TargetPipelineVersion *float64 `json:"targetPipelineVersion"`
+	TargetPipelineVersion *float64 `json:"targetPipelineVersion" yaml:"targetPipelineVersion"`
 	// The name of the webhook.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// Configures a connection between the webhook that was created and the external tool with events to be detected.
-	RegisterWithThirdParty interface{} `json:"registerWithThirdParty"`
+	RegisterWithThirdParty interface{} `json:"registerWithThirdParty" yaml:"registerWithThirdParty"`
 }
 
 // Common properties shared by all Actions.
@@ -2702,15 +2702,15 @@ type CommonActionProps struct {
 	// The physical, human-readable name of the Action.
 	//
 	// Note that Action names must be unique within a single Stage.
-	ActionName *string `json:"actionName"`
+	ActionName *string `json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
-	RunOrder *float64 `json:"runOrder"`
+	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
-	VariablesNamespace *string `json:"variablesNamespace"`
+	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
 }
 
 // Common properties shared by all Actions whose {@link ActionProperties.owner} field is 'AWS' (or unset, as 'AWS' is the default).
@@ -2721,15 +2721,15 @@ type CommonAwsActionProps struct {
 	// The physical, human-readable name of the Action.
 	//
 	// Note that Action names must be unique within a single Stage.
-	ActionName *string `json:"actionName"`
+	ActionName *string `json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
-	RunOrder *float64 `json:"runOrder"`
+	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
-	VariablesNamespace *string `json:"variablesNamespace"`
+	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
 	// The Pipeline's Role will assume this Role
@@ -2737,7 +2737,7 @@ type CommonAwsActionProps struct {
 	// right before executing this Action.
 	// This Action will be passed into your {@link IAction.bind}
 	// method in the {@link ActionBindOptions.role} property.
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 }
 
 // An interface representing resources generated in order to support the cross-region capabilities of CodePipeline.
@@ -2750,9 +2750,9 @@ type CrossRegionSupport struct {
 	// The replication Bucket used by CodePipeline to operate in this region.
 	//
 	// Belongs to {@link stack}.
-	ReplicationBucket awss3.IBucket `json:"replicationBucket"`
+	ReplicationBucket awss3.IBucket `json:"replicationBucket" yaml:"replicationBucket"`
 	// The Stack that has been created to house the replication Bucket required for this  region.
-	Stack awscdk.Stack `json:"stack"`
+	Stack awscdk.Stack `json:"stack" yaml:"stack"`
 }
 
 // The creation attributes used for defining a configuration property of a custom Action.
@@ -2763,25 +2763,25 @@ type CustomActionProperty struct {
 	// The name of the property.
 	//
 	// You use this name in the `configuration` attribute when defining your custom Action class.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// Whether this property is required.
-	Required *bool `json:"required"`
+	Required *bool `json:"required" yaml:"required"`
 	// The description of the property.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Whether this property is a key.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype-configurationproperties.html#cfn-codepipeline-customactiontype-configurationproperties-key
 	//
-	Key *bool `json:"key"`
+	Key *bool `json:"key" yaml:"key"`
 	// Whether this property is queryable.
 	//
 	// Note that only a single property of a custom Action can be queryable.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype-configurationproperties.html#cfn-codepipeline-customactiontype-configurationproperties-queryable
 	//
-	Queryable *bool `json:"queryable"`
+	Queryable *bool `json:"queryable" yaml:"queryable"`
 	// Whether this property is secret, like a password, or access key.
-	Secret *bool `json:"secret"`
+	Secret *bool `json:"secret" yaml:"secret"`
 	// The type of the property, like 'String', 'Number', or 'Boolean'.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 }
 
 // The resource representing registering a custom Action with CodePipeline.
@@ -2878,21 +2878,21 @@ func (c *jsiiProxy_CustomActionRegistration) ToString() *string {
 //
 type CustomActionRegistrationProps struct {
 	// The artifact bounds of the Action.
-	ArtifactBounds *ActionArtifactBounds `json:"artifactBounds"`
+	ArtifactBounds *ActionArtifactBounds `json:"artifactBounds" yaml:"artifactBounds"`
 	// The category of the Action.
-	Category ActionCategory `json:"category"`
+	Category ActionCategory `json:"category" yaml:"category"`
 	// The provider of the Action.
 	//
 	// For example, `'MyCustomActionProvider'`
-	Provider *string `json:"provider"`
+	Provider *string `json:"provider" yaml:"provider"`
 	// The properties used for customizing the instance of your Action.
-	ActionProperties *[]*CustomActionProperty `json:"actionProperties"`
+	ActionProperties *[]*CustomActionProperty `json:"actionProperties" yaml:"actionProperties"`
 	// The URL shown for the entire Action in the Pipeline UI.
-	EntityUrl *string `json:"entityUrl"`
+	EntityUrl *string `json:"entityUrl" yaml:"entityUrl"`
 	// The URL shown for a particular execution of an Action in the Pipeline UI.
-	ExecutionUrl *string `json:"executionUrl"`
+	ExecutionUrl *string `json:"executionUrl" yaml:"executionUrl"`
 	// The version of your Action.
-	Version *string `json:"version"`
+	Version *string `json:"version" yaml:"version"`
 }
 
 // The CodePipeline variables that are global, not bound to a specific action.
@@ -3788,28 +3788,28 @@ type PipelineNotifyOnOptions struct {
 	//
 	// BASIC will include only the contents of the event as it would appear in AWS CloudWatch.
 	// FULL will include any supplemental information provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created.
-	DetailType awscodestarnotifications.DetailType `json:"detailType"`
+	DetailType awscodestarnotifications.DetailType `json:"detailType" yaml:"detailType"`
 	// The status of the notification rule.
 	//
 	// If the enabled is set to DISABLED, notifications aren't sent for the notification rule.
-	Enabled *bool `json:"enabled"`
+	Enabled *bool `json:"enabled" yaml:"enabled"`
 	// The name for the notification rule.
 	//
 	// Notification rule names must be unique in your AWS account.
-	NotificationRuleName *string `json:"notificationRuleName"`
+	NotificationRuleName *string `json:"notificationRuleName" yaml:"notificationRuleName"`
 	// A list of event types associated with this notification rule for CodePipeline Pipeline.
 	//
 	// For a complete list of event types and IDs, see Notification concepts in the Developer Tools Console User Guide.
 	// See: https://docs.aws.amazon.com/dtconsole/latest/userguide/concepts.html#concepts-api
 	//
-	Events *[]PipelineNotificationEvents `json:"events"`
+	Events *[]PipelineNotificationEvents `json:"events" yaml:"events"`
 }
 
 // TODO: EXAMPLE
 //
 type PipelineProps struct {
 	// The S3 bucket used by this Pipeline to store artifacts.
-	ArtifactBucket awss3.IBucket `json:"artifactBucket"`
+	ArtifactBucket awss3.IBucket `json:"artifactBucket" yaml:"artifactBucket"`
 	// Create KMS keys for cross-account deployments.
 	//
 	// This controls whether the pipeline is enabled for cross-account deployments.
@@ -3821,42 +3821,42 @@ type PipelineProps struct {
 	// not create those keys and save on that cost (the artifact bucket will be
 	// encrypted with an AWS-managed key). However, cross-account deployments will
 	// no longer be possible.
-	CrossAccountKeys *bool `json:"crossAccountKeys"`
+	CrossAccountKeys *bool `json:"crossAccountKeys" yaml:"crossAccountKeys"`
 	// A map of region to S3 bucket name used for cross-region CodePipeline.
 	//
 	// For every Action that you specify targeting a different region than the Pipeline itself,
 	// if you don't provide an explicit Bucket for that region using this property,
 	// the construct will automatically create a Stack containing an S3 Bucket in that region.
-	CrossRegionReplicationBuckets *map[string]awss3.IBucket `json:"crossRegionReplicationBuckets"`
+	CrossRegionReplicationBuckets *map[string]awss3.IBucket `json:"crossRegionReplicationBuckets" yaml:"crossRegionReplicationBuckets"`
 	// Enable KMS key rotation for the generated KMS keys.
 	//
 	// By default KMS key rotation is disabled, but will add an additional $1/month
 	// for each year the key exists when enabled.
-	EnableKeyRotation *bool `json:"enableKeyRotation"`
+	EnableKeyRotation *bool `json:"enableKeyRotation" yaml:"enableKeyRotation"`
 	// Name of the pipeline.
-	PipelineName *string `json:"pipelineName"`
+	PipelineName *string `json:"pipelineName" yaml:"pipelineName"`
 	// Indicates whether to rerun the AWS CodePipeline pipeline after you update it.
-	RestartExecutionOnUpdate *bool `json:"restartExecutionOnUpdate"`
+	RestartExecutionOnUpdate *bool `json:"restartExecutionOnUpdate" yaml:"restartExecutionOnUpdate"`
 	// Reuse the same cross region support stack for all pipelines in the App.
-	ReuseCrossRegionSupportStacks *bool `json:"reuseCrossRegionSupportStacks"`
+	ReuseCrossRegionSupportStacks *bool `json:"reuseCrossRegionSupportStacks" yaml:"reuseCrossRegionSupportStacks"`
 	// The IAM role to be assumed by this Pipeline.
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 	// The list of Stages, in order, to create this Pipeline with.
 	//
 	// You can always add more Stages later by calling {@link Pipeline#addStage}.
-	Stages *[]*StageProps `json:"stages"`
+	Stages *[]*StageProps `json:"stages" yaml:"stages"`
 }
 
 // TODO: EXAMPLE
 //
 type StageOptions struct {
 	// The physical, human-readable name to assign to this Pipeline Stage.
-	StageName *string `json:"stageName"`
+	StageName *string `json:"stageName" yaml:"stageName"`
 	// The list of Actions to create this Stage with.
 	//
 	// You can always add more Actions later by calling {@link IStage#addAction}.
-	Actions *[]IAction `json:"actions"`
-	Placement *StagePlacement `json:"placement"`
+	Actions *[]IAction `json:"actions" yaml:"actions"`
+	Placement *StagePlacement `json:"placement" yaml:"placement"`
 }
 
 // Allows you to control where to place a new Stage when it's added to the Pipeline.
@@ -3870,9 +3870,9 @@ type StageOptions struct {
 //
 type StagePlacement struct {
 	// Inserts the new Stage as a child of the given Stage (changing its current child Stage, if it had one).
-	JustAfter IStage `json:"justAfter"`
+	JustAfter IStage `json:"justAfter" yaml:"justAfter"`
 	// Inserts the new Stage as a parent of the given Stage (changing its current parent Stage, if it had one).
-	RightBefore IStage `json:"rightBefore"`
+	RightBefore IStage `json:"rightBefore" yaml:"rightBefore"`
 }
 
 // Construction properties of a Pipeline Stage.
@@ -3881,10 +3881,10 @@ type StagePlacement struct {
 //
 type StageProps struct {
 	// The physical, human-readable name to assign to this Pipeline Stage.
-	StageName *string `json:"stageName"`
+	StageName *string `json:"stageName" yaml:"stageName"`
 	// The list of Actions to create this Stage with.
 	//
 	// You can always add more Actions later by calling {@link IStage#addAction}.
-	Actions *[]IAction `json:"actions"`
+	Actions *[]IAction `json:"actions" yaml:"actions"`
 }
 

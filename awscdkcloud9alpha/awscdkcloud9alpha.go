@@ -359,22 +359,22 @@ func (e *jsiiProxy_Ec2Environment) ToString() *string {
 type Ec2EnvironmentProps struct {
 	// The VPC that AWS Cloud9 will use to communicate with the Amazon Elastic Compute Cloud (Amazon EC2) instance.
 	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// The AWS CodeCommit repository to be cloned.
 	// Experimental.
-	ClonedRepositories *[]CloneRepository `json:"clonedRepositories"`
+	ClonedRepositories *[]CloneRepository `json:"clonedRepositories" yaml:"clonedRepositories"`
 	// Description of the environment.
 	// Experimental.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Name of the environment.
 	// Experimental.
-	Ec2EnvironmentName *string `json:"ec2EnvironmentName"`
+	Ec2EnvironmentName *string `json:"ec2EnvironmentName" yaml:"ec2EnvironmentName"`
 	// The type of instance to connect to the environment.
 	// Experimental.
-	InstanceType awsec2.InstanceType `json:"instanceType"`
+	InstanceType awsec2.InstanceType `json:"instanceType" yaml:"instanceType"`
 	// The subnetSelection of the VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
 	// Experimental.
-	SubnetSelection *awsec2.SubnetSelection `json:"subnetSelection"`
+	SubnetSelection *awsec2.SubnetSelection `json:"subnetSelection" yaml:"subnetSelection"`
 }
 
 // A Cloud9 Environment.

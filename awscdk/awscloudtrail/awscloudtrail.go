@@ -21,11 +21,11 @@ import (
 //
 type AddEventSelectorOptions struct {
 	// An optional list of service event sources from which you do not want management events to be logged on your trail.
-	ExcludeManagementEventSources *[]ManagementEventSources `json:"excludeManagementEventSources"`
+	ExcludeManagementEventSources *[]ManagementEventSources `json:"excludeManagementEventSources" yaml:"excludeManagementEventSources"`
 	// Specifies whether the event selector includes management events for the trail.
-	IncludeManagementEvents *bool `json:"includeManagementEvents"`
+	IncludeManagementEvents *bool `json:"includeManagementEvents" yaml:"includeManagementEvents"`
 	// Specifies whether to log read-only events, write-only events, or all events.
-	ReadWriteType ReadWriteType `json:"readWriteType"`
+	ReadWriteType ReadWriteType `json:"readWriteType" yaml:"readWriteType"`
 }
 
 // A CloudFormation `AWS::CloudTrail::Trail`.
@@ -833,7 +833,7 @@ type CfnTrail_DataResourceProperty struct {
 	// - `AWS::EC2::Snapshot`
 	// - `AWS::S3::AccessPoint`
 	// - `AWS::DynamoDB::Stream`
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// An array of Amazon Resource Name (ARN) strings or partial ARN strings for the specified objects.
 	//
 	// - To log data events for all objects in all S3 buckets in your AWS account , specify the prefix as `arn:aws:s3:::` .
@@ -848,7 +848,7 @@ type CfnTrail_DataResourceProperty struct {
 	//
 	// > Lambda function ARNs are exact. For example, if you specify a function ARN *arn:aws:lambda:us-west-2:111111111111:function:helloworld* , data events will only be logged for *arn:aws:lambda:us-west-2:111111111111:function:helloworld* . They will not be logged for *arn:aws:lambda:us-west-2:111111111111:function:helloworld2* .
 	// - To log data events for all DynamoDB tables in your AWS account , specify the prefix as `arn:aws:dynamodb` .
-	Values *[]*string `json:"values"`
+	Values *[]*string `json:"values" yaml:"values"`
 }
 
 // Use event selectors to further specify the management and data event settings for your trail.
@@ -867,11 +867,11 @@ type CfnTrail_EventSelectorProperty struct {
 	// You can specify up to 250 resources for an individual event selector, but the total number of data resources cannot exceed 250 across all event selectors in a trail. This limit does not apply if you configure resource logging for all data events.
 	//
 	// For more information, see [Data Events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html#logging-data-events) and [Limits in AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) in the *AWS CloudTrail User Guide* .
-	DataResources interface{} `json:"dataResources"`
+	DataResources interface{} `json:"dataResources" yaml:"dataResources"`
 	// An optional list of service event sources from which you do not want management events to be logged on your trail.
 	//
 	// In this release, the list can be empty (disables the filter), or it can filter out AWS Key Management Service or Amazon RDS Data API events by containing `kms.amazonaws.com` or `rdsdata.amazonaws.com` . By default, `ExcludeManagementEventSources` is empty, and AWS KMS and Amazon RDS Data API events are logged to your trail.
-	ExcludeManagementEventSources *[]*string `json:"excludeManagementEventSources"`
+	ExcludeManagementEventSources *[]*string `json:"excludeManagementEventSources" yaml:"excludeManagementEventSources"`
 	// Specify if you want your event selector to include management events for your trail.
 	//
 	// For more information, see [Management Events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html#logging-management-events) in the *AWS CloudTrail User Guide* .
@@ -879,13 +879,13 @@ type CfnTrail_EventSelectorProperty struct {
 	// By default, the value is `true` .
 	//
 	// The first copy of management events is free. You are charged for additional copies of management events that you are logging on any subsequent trail in the same region. For more information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://docs.aws.amazon.com/cloudtrail/pricing/) .
-	IncludeManagementEvents interface{} `json:"includeManagementEvents"`
+	IncludeManagementEvents interface{} `json:"includeManagementEvents" yaml:"includeManagementEvents"`
 	// Specify if you want your trail to log read-only events, write-only events, or all.
 	//
 	// For example, the EC2 `GetConsoleOutput` is a read-only API operation and `RunInstances` is a write-only API operation.
 	//
 	// By default, the value is `All` .
-	ReadWriteType *string `json:"readWriteType"`
+	ReadWriteType *string `json:"readWriteType" yaml:"readWriteType"`
 }
 
 // A JSON string that contains a list of insight types that are logged on a trail.
@@ -896,7 +896,7 @@ type CfnTrail_InsightSelectorProperty struct {
 	// The type of insights to log on a trail.
 	//
 	// `ApiCallRateInsight` and `ApiErrorRateInsight` are valid insight types.
-	InsightType *string `json:"insightType"`
+	InsightType *string `json:"insightType" yaml:"insightType"`
 }
 
 // Properties for defining a `CfnTrail`.
@@ -905,21 +905,21 @@ type CfnTrail_InsightSelectorProperty struct {
 //
 type CfnTrailProps struct {
 	// Whether the CloudTrail trail is currently logging AWS API calls.
-	IsLogging interface{} `json:"isLogging"`
+	IsLogging interface{} `json:"isLogging" yaml:"isLogging"`
 	// Specifies the name of the Amazon S3 bucket designated for publishing log files.
 	//
 	// See [Amazon S3 Bucket Naming Requirements](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create_trail_naming_policy.html) .
-	S3BucketName *string `json:"s3BucketName"`
+	S3BucketName *string `json:"s3BucketName" yaml:"s3BucketName"`
 	// Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs are delivered.
 	//
 	// Not required unless you specify `CloudWatchLogsRoleArn` .
-	CloudWatchLogsLogGroupArn *string `json:"cloudWatchLogsLogGroupArn"`
+	CloudWatchLogsLogGroupArn *string `json:"cloudWatchLogsLogGroupArn" yaml:"cloudWatchLogsLogGroupArn"`
 	// Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.
-	CloudWatchLogsRoleArn *string `json:"cloudWatchLogsRoleArn"`
+	CloudWatchLogsRoleArn *string `json:"cloudWatchLogsRoleArn" yaml:"cloudWatchLogsRoleArn"`
 	// Specifies whether log file validation is enabled. The default is false.
 	//
 	// > When you disable log file integrity validation, the chain of digest files is broken after one hour. CloudTrail does not create digest files for log files that were delivered during a period in which log file integrity validation was disabled. For example, if you enable log file integrity validation at noon on January 1, disable it at noon on January 2, and re-enable it at noon on January 10, digest files will not be created for the log files delivered from noon on January 2 to noon on January 10. The same applies whenever you stop CloudTrail logging or delete a trail.
-	EnableLogFileValidation interface{} `json:"enableLogFileValidation"`
+	EnableLogFileValidation interface{} `json:"enableLogFileValidation" yaml:"enableLogFileValidation"`
 	// Use event selectors to further specify the management and data event settings for your trail.
 	//
 	// By default, trails created without specific event selectors will be configured to log all read and write management events, and no data events. When an event occurs in your account, CloudTrail evaluates the event selector for all trails. For each trail, if the event matches any event selector, the trail processes and logs the event. If the event doesn't match any event selector, the trail doesn't log the event.
@@ -927,19 +927,19 @@ type CfnTrailProps struct {
 	// You can configure up to five event selectors for a trail.
 	//
 	// You cannot apply both event selectors and advanced event selectors to a trail.
-	EventSelectors interface{} `json:"eventSelectors"`
+	EventSelectors interface{} `json:"eventSelectors" yaml:"eventSelectors"`
 	// Specifies whether the trail is publishing events from global services such as IAM to the log files.
-	IncludeGlobalServiceEvents interface{} `json:"includeGlobalServiceEvents"`
+	IncludeGlobalServiceEvents interface{} `json:"includeGlobalServiceEvents" yaml:"includeGlobalServiceEvents"`
 	// Specifies whether a trail has insight types specified in an `InsightSelector` list.
-	InsightSelectors interface{} `json:"insightSelectors"`
+	InsightSelectors interface{} `json:"insightSelectors" yaml:"insightSelectors"`
 	// Specifies whether the trail applies only to the current region or to all regions.
 	//
 	// The default is false. If the trail exists only in the current region and this value is set to true, shadow trails (replications of the trail) will be created in the other regions. If the trail exists in all regions and this value is set to false, the trail will remain in the region where it was created, and its shadow trails in other regions will be deleted. As a best practice, consider using trails that log events in all regions.
-	IsMultiRegionTrail interface{} `json:"isMultiRegionTrail"`
+	IsMultiRegionTrail interface{} `json:"isMultiRegionTrail" yaml:"isMultiRegionTrail"`
 	// Specifies whether the trail is created for all accounts in an organization in AWS Organizations , or only for the current AWS account .
 	//
 	// The default is false, and cannot be true unless the call is made on behalf of an AWS account that is the management account for an organization in AWS Organizations .
-	IsOrganizationTrail interface{} `json:"isOrganizationTrail"`
+	IsOrganizationTrail interface{} `json:"isOrganizationTrail" yaml:"isOrganizationTrail"`
 	// Specifies the AWS KMS key ID to use to encrypt the logs delivered by CloudTrail.
 	//
 	// The value can be an alias name prefixed by "alias/", a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
@@ -952,17 +952,17 @@ type CfnTrailProps struct {
 	// - arn:aws:kms:us-east-2:123456789012:alias/MyAliasName
 	// - arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012
 	// - 12345678-1234-1234-1234-123456789012
-	KmsKeyId *string `json:"kmsKeyId"`
+	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
 	// Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery.
 	//
 	// For more information, see [Finding Your CloudTrail Log Files](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html) . The maximum length is 200 characters.
-	S3KeyPrefix *string `json:"s3KeyPrefix"`
+	S3KeyPrefix *string `json:"s3KeyPrefix" yaml:"s3KeyPrefix"`
 	// Specifies the name of the Amazon SNS topic defined for notification of log file delivery.
 	//
 	// The maximum length is 256 characters.
-	SnsTopicName *string `json:"snsTopicName"`
+	SnsTopicName *string `json:"snsTopicName" yaml:"snsTopicName"`
 	// A custom set of tags (key-value pairs) for this trail.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// Specifies the name of the trail. The name must meet the following requirements:.
 	//
 	// - Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)
@@ -970,7 +970,7 @@ type CfnTrailProps struct {
 	// - Be between 3 and 128 characters
 	// - Have no adjacent periods, underscores or dashes. Names like `my-_namespace` and `my--namespace` are not valid.
 	// - Not be in IP address format (for example, 192.168.5.4)
-	TrailName *string `json:"trailName"`
+	TrailName *string `json:"trailName" yaml:"trailName"`
 }
 
 // Resource type for a data event.
@@ -1008,9 +1008,9 @@ const (
 //
 type S3EventSelector struct {
 	// S3 bucket.
-	Bucket awss3.IBucket `json:"bucket"`
+	Bucket awss3.IBucket `json:"bucket" yaml:"bucket"`
 	// Data events for objects whose key matches this prefix will be logged.
-	ObjectPrefix *string `json:"objectPrefix"`
+	ObjectPrefix *string `json:"objectPrefix" yaml:"objectPrefix"`
 }
 
 // Cloud trail allows you to log events that happen in your AWS account For example:.
@@ -1359,30 +1359,30 @@ func (t *jsiiProxy_Trail) ToString() *string {
 //
 type TrailProps struct {
 	// The Amazon S3 bucket.
-	Bucket awss3.IBucket `json:"bucket"`
+	Bucket awss3.IBucket `json:"bucket" yaml:"bucket"`
 	// Log Group to which CloudTrail to push logs to.
 	//
 	// Ignored if sendToCloudWatchLogs is set to false.
-	CloudWatchLogGroup awslogs.ILogGroup `json:"cloudWatchLogGroup"`
+	CloudWatchLogGroup awslogs.ILogGroup `json:"cloudWatchLogGroup" yaml:"cloudWatchLogGroup"`
 	// How long to retain logs in CloudWatchLogs.
 	//
 	// Ignored if sendToCloudWatchLogs is false or if cloudWatchLogGroup is set.
-	CloudWatchLogsRetention awslogs.RetentionDays `json:"cloudWatchLogsRetention"`
+	CloudWatchLogsRetention awslogs.RetentionDays `json:"cloudWatchLogsRetention" yaml:"cloudWatchLogsRetention"`
 	// To determine whether a log file was modified, deleted, or unchanged after CloudTrail delivered it, you can use CloudTrail log file integrity validation.
 	//
 	// This feature is built using industry standard algorithms: SHA-256 for hashing and SHA-256 with RSA for digital signing.
 	// This makes it computationally infeasible to modify, delete or forge CloudTrail log files without detection.
 	// You can use the AWS CLI to validate the files in the location where CloudTrail delivered them.
-	EnableFileValidation *bool `json:"enableFileValidation"`
+	EnableFileValidation *bool `json:"enableFileValidation" yaml:"enableFileValidation"`
 	// The AWS Key Management Service (AWS KMS) key ID that you want to use to encrypt CloudTrail logs.
-	EncryptionKey awskms.IKey `json:"encryptionKey"`
+	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
 	// For most services, events are recorded in the region where the action occurred.
 	//
 	// For global services such as AWS Identity and Access Management (IAM), AWS STS, Amazon CloudFront, and Route 53,
 	// events are delivered to any trail that includes global services, and are logged as occurring in US East (N. Virginia) Region.
-	IncludeGlobalServiceEvents *bool `json:"includeGlobalServiceEvents"`
+	IncludeGlobalServiceEvents *bool `json:"includeGlobalServiceEvents" yaml:"includeGlobalServiceEvents"`
 	// Whether or not this trail delivers log files from multiple regions to a single S3 bucket for a single account.
-	IsMultiRegionTrail *bool `json:"isMultiRegionTrail"`
+	IsMultiRegionTrail *bool `json:"isMultiRegionTrail" yaml:"isMultiRegionTrail"`
 	// When an event occurs in your account, CloudTrail evaluates whether the event matches the settings for your trails.
 	//
 	// Only events that match your trail settings are delivered to your Amazon S3 bucket and Amazon CloudWatch Logs log group.
@@ -1393,18 +1393,18 @@ type TrailProps struct {
 	// These are also known as control plane operations.
 	// Management events can also include non-API events that occur in your account.
 	// For example, when a user logs in to your account, CloudTrail logs the ConsoleLogin event.
-	ManagementEvents ReadWriteType `json:"managementEvents"`
+	ManagementEvents ReadWriteType `json:"managementEvents" yaml:"managementEvents"`
 	// An Amazon S3 object key prefix that precedes the name of all log files.
-	S3KeyPrefix *string `json:"s3KeyPrefix"`
+	S3KeyPrefix *string `json:"s3KeyPrefix" yaml:"s3KeyPrefix"`
 	// If CloudTrail pushes logs to CloudWatch Logs in addition to S3.
 	//
 	// Disabled for cost out of the box.
-	SendToCloudWatchLogs *bool `json:"sendToCloudWatchLogs"`
+	SendToCloudWatchLogs *bool `json:"sendToCloudWatchLogs" yaml:"sendToCloudWatchLogs"`
 	// SNS topic that is notified when new log files are published.
-	SnsTopic awssns.ITopic `json:"snsTopic"`
+	SnsTopic awssns.ITopic `json:"snsTopic" yaml:"snsTopic"`
 	// The name of the trail.
 	//
 	// We recommend customers do not set an explicit name.
-	TrailName *string `json:"trailName"`
+	TrailName *string `json:"trailName" yaml:"trailName"`
 }
 

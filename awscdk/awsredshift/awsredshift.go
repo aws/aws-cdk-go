@@ -1444,9 +1444,9 @@ func (c *jsiiProxy_CfnCluster) ValidateProperties(_properties interface{}) {
 //
 type CfnCluster_EndpointProperty struct {
 	// The DNS address of the Cluster.
-	Address *string `json:"address"`
+	Address *string `json:"address" yaml:"address"`
 	// The port that the database engine is listening on.
-	Port *string `json:"port"`
+	Port *string `json:"port" yaml:"port"`
 }
 
 // Specifies logging information, such as queries and connection attempts, for the specified Amazon Redshift cluster.
@@ -1460,7 +1460,7 @@ type CfnCluster_LoggingPropertiesProperty struct {
 	//
 	// - Must be in the same region as the cluster
 	// - The cluster must have read bucket and put object permissions
-	BucketName *string `json:"bucketName"`
+	BucketName *string `json:"bucketName" yaml:"bucketName"`
 	// The prefix applied to the log file names.
 	//
 	// Constraints:
@@ -1473,7 +1473,7 @@ type CfnCluster_LoggingPropertiesProperty struct {
 	// - x27
 	// - x5c
 	// - x7f or larger
-	S3KeyPrefix *string `json:"s3KeyPrefix"`
+	S3KeyPrefix *string `json:"s3KeyPrefix" yaml:"s3KeyPrefix"`
 }
 
 // A CloudFormation `AWS::Redshift::ClusterParameterGroup`.
@@ -2005,11 +2005,11 @@ func (c *jsiiProxy_CfnClusterParameterGroup) ValidateProperties(_properties inte
 //
 type CfnClusterParameterGroup_ParameterProperty struct {
 	// The name of the parameter.
-	ParameterName *string `json:"parameterName"`
+	ParameterName *string `json:"parameterName" yaml:"parameterName"`
 	// The value of the parameter.
 	//
 	// If `ParameterName` is `wlm_json_configuration` , then the maximum size of `ParameterValue` is 8000 characters.
-	ParameterValue *string `json:"parameterValue"`
+	ParameterValue *string `json:"parameterValue" yaml:"parameterValue"`
 }
 
 // Properties for defining a `CfnClusterParameterGroup`.
@@ -2018,17 +2018,17 @@ type CfnClusterParameterGroup_ParameterProperty struct {
 //
 type CfnClusterParameterGroupProps struct {
 	// The description of the parameter group.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The name of the cluster parameter group family that this cluster parameter group is compatible with.
-	ParameterGroupFamily *string `json:"parameterGroupFamily"`
+	ParameterGroupFamily *string `json:"parameterGroupFamily" yaml:"parameterGroupFamily"`
 	// An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
 	//
 	// For each parameter to be modified, you must supply at least the parameter name and parameter value; other name-value pairs of the parameter are optional.
 	//
 	// For the workload management (WLM) configuration, you must supply all the name-value pairs in the wlm_json_configuration parameter.
-	Parameters interface{} `json:"parameters"`
+	Parameters interface{} `json:"parameters" yaml:"parameters"`
 	// The list of tags for the cluster parameter group.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // Properties for defining a `CfnCluster`.
@@ -2044,7 +2044,7 @@ type CfnClusterProps struct {
 	// Valid Values: `multi-node` | `single-node`
 	//
 	// Default: `multi-node`
-	ClusterType *string `json:"clusterType"`
+	ClusterType *string `json:"clusterType" yaml:"clusterType"`
 	// The name of the first database to be created when the cluster is created.
 	//
 	// To create additional databases after the cluster is created, connect to the cluster with a SQL client and use SQL commands to create a database. For more information, go to [Create a Database](https://docs.aws.amazon.com/redshift/latest/dg/t_creating_database.html) in the Amazon Redshift Database Developer Guide.
@@ -2056,7 +2056,7 @@ type CfnClusterProps struct {
 	// - Must contain 1 to 64 alphanumeric characters.
 	// - Must contain only lowercase letters.
 	// - Cannot be a word that is reserved by the service. A list of reserved words can be found in [Reserved Words](https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html) in the Amazon Redshift Database Developer Guide.
-	DbName *string `json:"dbName"`
+	DbName *string `json:"dbName" yaml:"dbName"`
 	// The user name associated with the admin user account for the cluster that is being created.
 	//
 	// Constraints:
@@ -2064,7 +2064,7 @@ type CfnClusterProps struct {
 	// - Must be 1 - 128 alphanumeric characters. The user name can't be `PUBLIC` .
 	// - First character must be a letter.
 	// - Cannot be a reserved word. A list of reserved words can be found in [Reserved Words](https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html) in the Amazon Redshift Database Developer Guide.
-	MasterUsername *string `json:"masterUsername"`
+	MasterUsername *string `json:"masterUsername" yaml:"masterUsername"`
 	// The password associated with the admin user account for the cluster that is being created.
 	//
 	// Constraints:
@@ -2074,19 +2074,19 @@ type CfnClusterProps struct {
 	// - Must contain at least one lowercase letter.
 	// - Must contain one number.
 	// - Can be any printable ASCII character (ASCII code 33 to 126) except ' (single quote), " (double quote), \, /, @, or space.
-	MasterUserPassword *string `json:"masterUserPassword"`
+	MasterUserPassword *string `json:"masterUserPassword" yaml:"masterUserPassword"`
 	// The node type to be provisioned for the cluster.
 	//
 	// For information about node types, go to [Working with Clusters](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes) in the *Amazon Redshift Cluster Management Guide* .
 	//
 	// Valid Values: `ds2.xlarge` | `ds2.8xlarge` | `dc1.large` | `dc1.8xlarge` | `dc2.large` | `dc2.8xlarge` | `ra3.xlplus` | `ra3.4xlarge` | `ra3.16xlarge`
-	NodeType *string `json:"nodeType"`
+	NodeType *string `json:"nodeType" yaml:"nodeType"`
 	// If `true` , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster.
 	//
 	// When a new major version of the Amazon Redshift engine is released, you can request that the service automatically apply upgrades during the maintenance window to the Amazon Redshift engine that is running on your cluster.
 	//
 	// Default: `true`
-	AllowVersionUpgrade interface{} `json:"allowVersionUpgrade"`
+	AllowVersionUpgrade interface{} `json:"allowVersionUpgrade" yaml:"allowVersionUpgrade"`
 	// The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) when it is created.
 	//
 	// Possible values include the following.
@@ -2094,7 +2094,7 @@ type CfnClusterProps struct {
 	// - enabled - Use AQUA if it is available for the current AWS Region and Amazon Redshift node type.
 	// - disabled - Don't use AQUA.
 	// - auto - Amazon Redshift determines whether to use AQUA.
-	AquaConfigurationStatus *string `json:"aquaConfigurationStatus"`
+	AquaConfigurationStatus *string `json:"aquaConfigurationStatus" yaml:"aquaConfigurationStatus"`
 	// The number of days that automated snapshots are retained.
 	//
 	// If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with [CreateClusterSnapshot](https://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateClusterSnapshot.html) in the *Amazon Redshift API Reference* .
@@ -2102,7 +2102,7 @@ type CfnClusterProps struct {
 	// Default: `1`
 	//
 	// Constraints: Must be a value from 0 to 35.
-	AutomatedSnapshotRetentionPeriod *float64 `json:"automatedSnapshotRetentionPeriod"`
+	AutomatedSnapshotRetentionPeriod *float64 `json:"automatedSnapshotRetentionPeriod" yaml:"automatedSnapshotRetentionPeriod"`
 	// The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster.
 	//
 	// For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency.
@@ -2112,15 +2112,15 @@ type CfnClusterProps struct {
 	// Example: `us-east-2d`
 	//
 	// Constraint: The specified Availability Zone must be in the same region as the current endpoint.
-	AvailabilityZone *string `json:"availabilityZone"`
+	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
 	// The option to enable relocation for an Amazon Redshift cluster between Availability Zones after the cluster is created.
-	AvailabilityZoneRelocation interface{} `json:"availabilityZoneRelocation"`
+	AvailabilityZoneRelocation interface{} `json:"availabilityZoneRelocation" yaml:"availabilityZoneRelocation"`
 	// Describes the status of the Availability Zone relocation operation.
-	AvailabilityZoneRelocationStatus *string `json:"availabilityZoneRelocationStatus"`
+	AvailabilityZoneRelocationStatus *string `json:"availabilityZoneRelocationStatus" yaml:"availabilityZoneRelocationStatus"`
 	// A boolean value indicating whether the resize operation is using the classic resize process.
 	//
 	// If you don't provide this parameter or set the value to `false` , the resize type is elastic.
-	Classic interface{} `json:"classic"`
+	Classic interface{} `json:"classic" yaml:"classic"`
 	// A unique identifier for the cluster.
 	//
 	// You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. The identifier also appears in the Amazon Redshift console.
@@ -2134,7 +2134,7 @@ type CfnClusterProps struct {
 	// - Must be unique for all clusters within an AWS account .
 	//
 	// Example: `myexamplecluster`
-	ClusterIdentifier *string `json:"clusterIdentifier"`
+	ClusterIdentifier *string `json:"clusterIdentifier" yaml:"clusterIdentifier"`
 	// The name of the parameter group to be associated with this cluster.
 	//
 	// Default: The default Amazon Redshift cluster parameter group. For information about the default parameter group, go to [Working with Amazon Redshift Parameter Groups](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html)
@@ -2144,15 +2144,15 @@ type CfnClusterProps struct {
 	// - Must be 1 to 255 alphanumeric characters or hyphens.
 	// - First character must be a letter.
 	// - Cannot end with a hyphen or contain two consecutive hyphens.
-	ClusterParameterGroupName *string `json:"clusterParameterGroupName"`
+	ClusterParameterGroupName *string `json:"clusterParameterGroupName" yaml:"clusterParameterGroupName"`
 	// A list of security groups to be associated with this cluster.
 	//
 	// Default: The default cluster security group for Amazon Redshift.
-	ClusterSecurityGroups *[]*string `json:"clusterSecurityGroups"`
+	ClusterSecurityGroups *[]*string `json:"clusterSecurityGroups" yaml:"clusterSecurityGroups"`
 	// The name of a cluster subnet group to be associated with this cluster.
 	//
 	// If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
-	ClusterSubnetGroupName *string `json:"clusterSubnetGroupName"`
+	ClusterSubnetGroupName *string `json:"clusterSubnetGroupName" yaml:"clusterSubnetGroupName"`
 	// The version of the Amazon Redshift engine software that you want to deploy on the cluster.
 	//
 	// The version selected runs on all the nodes in the cluster.
@@ -2160,25 +2160,25 @@ type CfnClusterProps struct {
 	// Constraints: Only version 1.0 is currently available.
 	//
 	// Example: `1.0`
-	ClusterVersion *string `json:"clusterVersion"`
+	ClusterVersion *string `json:"clusterVersion" yaml:"clusterVersion"`
 	// `AWS::Redshift::Cluster.DeferMaintenance`.
-	DeferMaintenance interface{} `json:"deferMaintenance"`
+	DeferMaintenance interface{} `json:"deferMaintenance" yaml:"deferMaintenance"`
 	// `AWS::Redshift::Cluster.DeferMaintenanceDuration`.
-	DeferMaintenanceDuration *float64 `json:"deferMaintenanceDuration"`
+	DeferMaintenanceDuration *float64 `json:"deferMaintenanceDuration" yaml:"deferMaintenanceDuration"`
 	// `AWS::Redshift::Cluster.DeferMaintenanceEndTime`.
-	DeferMaintenanceEndTime *string `json:"deferMaintenanceEndTime"`
+	DeferMaintenanceEndTime *string `json:"deferMaintenanceEndTime" yaml:"deferMaintenanceEndTime"`
 	// `AWS::Redshift::Cluster.DeferMaintenanceStartTime`.
-	DeferMaintenanceStartTime *string `json:"deferMaintenanceStartTime"`
+	DeferMaintenanceStartTime *string `json:"deferMaintenanceStartTime" yaml:"deferMaintenanceStartTime"`
 	// The destination region that snapshots are automatically copied to when cross-region snapshot copy is enabled.
-	DestinationRegion *string `json:"destinationRegion"`
+	DestinationRegion *string `json:"destinationRegion" yaml:"destinationRegion"`
 	// The Elastic IP (EIP) address for the cluster.
 	//
 	// Constraints: The cluster must be provisioned in EC2-VPC and publicly-accessible through an Internet gateway. For more information about provisioning clusters in EC2-VPC, go to [Supported Platforms to Launch Your Cluster](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms) in the Amazon Redshift Cluster Management Guide.
-	ElasticIp *string `json:"elasticIp"`
+	ElasticIp *string `json:"elasticIp" yaml:"elasticIp"`
 	// If `true` , the data in the cluster is encrypted at rest.
 	//
 	// Default: false
-	Encrypted interface{} `json:"encrypted"`
+	Encrypted interface{} `json:"encrypted" yaml:"encrypted"`
 	// An option that specifies whether to create the cluster with enhanced VPC routing enabled.
 	//
 	// To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see [Enhanced VPC Routing](https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html) in the Amazon Redshift Cluster Management Guide.
@@ -2186,31 +2186,31 @@ type CfnClusterProps struct {
 	// If this option is `true` , enhanced VPC routing is enabled.
 	//
 	// Default: false
-	EnhancedVpcRouting interface{} `json:"enhancedVpcRouting"`
+	EnhancedVpcRouting interface{} `json:"enhancedVpcRouting" yaml:"enhancedVpcRouting"`
 	// Specifies the name of the HSM client certificate the Amazon Redshift cluster uses to retrieve the data encryption keys stored in an HSM.
-	HsmClientCertificateIdentifier *string `json:"hsmClientCertificateIdentifier"`
+	HsmClientCertificateIdentifier *string `json:"hsmClientCertificateIdentifier" yaml:"hsmClientCertificateIdentifier"`
 	// Specifies the name of the HSM configuration that contains the information the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
-	HsmConfigurationIdentifier *string `json:"hsmConfigurationIdentifier"`
+	HsmConfigurationIdentifier *string `json:"hsmConfigurationIdentifier" yaml:"hsmConfigurationIdentifier"`
 	// A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services.
 	//
 	// You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 10 IAM roles in a single request.
 	//
 	// A cluster can have up to 10 IAM roles associated with it at any time.
-	IamRoles *[]*string `json:"iamRoles"`
+	IamRoles *[]*string `json:"iamRoles" yaml:"iamRoles"`
 	// The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the cluster.
-	KmsKeyId *string `json:"kmsKeyId"`
+	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
 	// Specifies logging information, such as queries and connection attempts, for the specified Amazon Redshift cluster.
-	LoggingProperties interface{} `json:"loggingProperties"`
+	LoggingProperties interface{} `json:"loggingProperties" yaml:"loggingProperties"`
 	// An optional parameter for the name of the maintenance track for the cluster.
 	//
 	// If you don't provide a maintenance track name, the cluster is assigned to the `current` track.
-	MaintenanceTrackName *string `json:"maintenanceTrackName"`
+	MaintenanceTrackName *string `json:"maintenanceTrackName" yaml:"maintenanceTrackName"`
 	// The default number of days to retain a manual snapshot.
 	//
 	// If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots.
 	//
 	// The value must be either -1 or an integer between 1 and 3,653.
-	ManualSnapshotRetentionPeriod *float64 `json:"manualSnapshotRetentionPeriod"`
+	ManualSnapshotRetentionPeriod *float64 `json:"manualSnapshotRetentionPeriod" yaml:"manualSnapshotRetentionPeriod"`
 	// The number of compute nodes in the cluster.
 	//
 	// This parameter is required when the *ClusterType* parameter is specified as `multi-node` .
@@ -2222,11 +2222,11 @@ type CfnClusterProps struct {
 	// Default: `1`
 	//
 	// Constraints: Value must be at least 1 and no more than 100.
-	NumberOfNodes *float64 `json:"numberOfNodes"`
+	NumberOfNodes *float64 `json:"numberOfNodes" yaml:"numberOfNodes"`
 	// The AWS account used to create or copy the snapshot.
 	//
 	// Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
-	OwnerAccount *string `json:"ownerAccount"`
+	OwnerAccount *string `json:"ownerAccount" yaml:"ownerAccount"`
 	// The port number on which the cluster accepts incoming connections.
 	//
 	// The cluster is accessible only via the JDBC and ODBC connection strings. Part of the connection string requires the port on which the cluster will listen for incoming connections.
@@ -2234,7 +2234,7 @@ type CfnClusterProps struct {
 	// Default: `5439`
 	//
 	// Valid Values: `1150-65535`
-	Port *float64 `json:"port"`
+	Port *float64 `json:"port" yaml:"port"`
 	// The weekly time range (in UTC) during which automated cluster maintenance can occur.
 	//
 	// Format: `ddd:hh24:mi-ddd:hh24:mi`
@@ -2244,35 +2244,35 @@ type CfnClusterProps struct {
 	// Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun
 	//
 	// Constraints: Minimum 30-minute window.
-	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow"`
+	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
 	// If `true` , the cluster can be accessed from a public network.
-	PubliclyAccessible interface{} `json:"publiclyAccessible"`
+	PubliclyAccessible interface{} `json:"publiclyAccessible" yaml:"publiclyAccessible"`
 	// `AWS::Redshift::Cluster.ResourceAction`.
-	ResourceAction *string `json:"resourceAction"`
+	ResourceAction *string `json:"resourceAction" yaml:"resourceAction"`
 	// `AWS::Redshift::Cluster.RevisionTarget`.
-	RevisionTarget *string `json:"revisionTarget"`
+	RevisionTarget *string `json:"revisionTarget" yaml:"revisionTarget"`
 	// `AWS::Redshift::Cluster.RotateEncryptionKey`.
-	RotateEncryptionKey interface{} `json:"rotateEncryptionKey"`
+	RotateEncryptionKey interface{} `json:"rotateEncryptionKey" yaml:"rotateEncryptionKey"`
 	// The name of the cluster the source snapshot was created from.
 	//
 	// This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.
-	SnapshotClusterIdentifier *string `json:"snapshotClusterIdentifier"`
+	SnapshotClusterIdentifier *string `json:"snapshotClusterIdentifier" yaml:"snapshotClusterIdentifier"`
 	// The name of the snapshot copy grant.
-	SnapshotCopyGrantName *string `json:"snapshotCopyGrantName"`
+	SnapshotCopyGrantName *string `json:"snapshotCopyGrantName" yaml:"snapshotCopyGrantName"`
 	// `AWS::Redshift::Cluster.SnapshotCopyManual`.
-	SnapshotCopyManual interface{} `json:"snapshotCopyManual"`
+	SnapshotCopyManual interface{} `json:"snapshotCopyManual" yaml:"snapshotCopyManual"`
 	// `AWS::Redshift::Cluster.SnapshotCopyRetentionPeriod`.
-	SnapshotCopyRetentionPeriod *float64 `json:"snapshotCopyRetentionPeriod"`
+	SnapshotCopyRetentionPeriod *float64 `json:"snapshotCopyRetentionPeriod" yaml:"snapshotCopyRetentionPeriod"`
 	// The name of the snapshot from which to create the new cluster. This parameter isn't case sensitive.
 	//
 	// Example: `my-snapshot-id`
-	SnapshotIdentifier *string `json:"snapshotIdentifier"`
+	SnapshotIdentifier *string `json:"snapshotIdentifier" yaml:"snapshotIdentifier"`
 	// A list of tag instances.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
 	//
 	// Default: The default VPC security group is associated with the cluster.
-	VpcSecurityGroupIds *[]*string `json:"vpcSecurityGroupIds"`
+	VpcSecurityGroupIds *[]*string `json:"vpcSecurityGroupIds" yaml:"vpcSecurityGroupIds"`
 }
 
 // A CloudFormation `AWS::Redshift::ClusterSecurityGroup`.
@@ -3304,11 +3304,11 @@ func (c *jsiiProxy_CfnClusterSecurityGroupIngress) ValidateProperties(_propertie
 //
 type CfnClusterSecurityGroupIngressProps struct {
 	// The name of the security group to which the ingress rule is added.
-	ClusterSecurityGroupName *string `json:"clusterSecurityGroupName"`
+	ClusterSecurityGroupName *string `json:"clusterSecurityGroupName" yaml:"clusterSecurityGroupName"`
 	// The IP range to be added the Amazon Redshift security group.
-	Cidrip *string `json:"cidrip"`
+	Cidrip *string `json:"cidrip" yaml:"cidrip"`
 	// The EC2 security group to be added the Amazon Redshift security group.
-	Ec2SecurityGroupName *string `json:"ec2SecurityGroupName"`
+	Ec2SecurityGroupName *string `json:"ec2SecurityGroupName" yaml:"ec2SecurityGroupName"`
 	// The AWS account number of the owner of the security group specified by the *EC2SecurityGroupName* parameter.
 	//
 	// The AWS Access Key ID is not an acceptable value.
@@ -3316,7 +3316,7 @@ type CfnClusterSecurityGroupIngressProps struct {
 	// Example: `111122223333`
 	//
 	// Conditional. If you specify the `EC2SecurityGroupName` property, you must specify this property.
-	Ec2SecurityGroupOwnerId *string `json:"ec2SecurityGroupOwnerId"`
+	Ec2SecurityGroupOwnerId *string `json:"ec2SecurityGroupOwnerId" yaml:"ec2SecurityGroupOwnerId"`
 }
 
 // Properties for defining a `CfnClusterSecurityGroup`.
@@ -3325,11 +3325,11 @@ type CfnClusterSecurityGroupIngressProps struct {
 //
 type CfnClusterSecurityGroupProps struct {
 	// A description for the security group.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Specifies an arbitrary set of tags (key–value pairs) to associate with this security group.
 	//
 	// Use tags to manage your resources.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Redshift::ClusterSubnetGroup`.
@@ -3843,15 +3843,15 @@ func (c *jsiiProxy_CfnClusterSubnetGroup) ValidateProperties(_properties interfa
 //
 type CfnClusterSubnetGroupProps struct {
 	// A description for the subnet group.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// An array of VPC subnet IDs.
 	//
 	// A maximum of 20 subnets can be modified in a single request.
-	SubnetIds *[]*string `json:"subnetIds"`
+	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
 	// Specifies an arbitrary set of tags (key–value pairs) to associate with this subnet group.
 	//
 	// Use tags to manage your resources.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Redshift::EndpointAccess`.
@@ -4467,9 +4467,9 @@ func (c *jsiiProxy_CfnEndpointAccess) ValidateProperties(_properties interface{}
 //
 type CfnEndpointAccess_VpcSecurityGroupProperty struct {
 	// The status of the endpoint.
-	Status *string `json:"status"`
+	Status *string `json:"status" yaml:"status"`
 	// The identifier of the VPC security group.
-	VpcSecurityGroupId *string `json:"vpcSecurityGroupId"`
+	VpcSecurityGroupId *string `json:"vpcSecurityGroupId" yaml:"vpcSecurityGroupId"`
 }
 
 // Properties for defining a `CfnEndpointAccess`.
@@ -4478,15 +4478,15 @@ type CfnEndpointAccess_VpcSecurityGroupProperty struct {
 //
 type CfnEndpointAccessProps struct {
 	// The name of the endpoint.
-	EndpointName *string `json:"endpointName"`
+	EndpointName *string `json:"endpointName" yaml:"endpointName"`
 	// The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
-	VpcSecurityGroupIds *[]*string `json:"vpcSecurityGroupIds"`
+	VpcSecurityGroupIds *[]*string `json:"vpcSecurityGroupIds" yaml:"vpcSecurityGroupIds"`
 	// The cluster identifier of the cluster associated with the endpoint.
-	ClusterIdentifier *string `json:"clusterIdentifier"`
+	ClusterIdentifier *string `json:"clusterIdentifier" yaml:"clusterIdentifier"`
 	// The AWS account ID of the owner of the cluster.
-	ResourceOwner *string `json:"resourceOwner"`
+	ResourceOwner *string `json:"resourceOwner" yaml:"resourceOwner"`
 	// The subnet group name where Amazon Redshift chooses to deploy the endpoint.
-	SubnetGroupName *string `json:"subnetGroupName"`
+	SubnetGroupName *string `json:"subnetGroupName" yaml:"subnetGroupName"`
 }
 
 // A CloudFormation `AWS::Redshift::EndpointAuthorization`.
@@ -5117,15 +5117,15 @@ type CfnEndpointAuthorizationProps struct {
 	// The A AWS account ID of either the cluster owner (grantor) or grantee.
 	//
 	// If `Grantee` parameter is true, then the `Account` value is of the grantor.
-	Account *string `json:"account"`
+	Account *string `json:"account" yaml:"account"`
 	// The cluster identifier.
-	ClusterIdentifier *string `json:"clusterIdentifier"`
+	ClusterIdentifier *string `json:"clusterIdentifier" yaml:"clusterIdentifier"`
 	// Indicates whether to force the revoke action.
 	//
 	// If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted.
-	Force interface{} `json:"force"`
+	Force interface{} `json:"force" yaml:"force"`
 	// The virtual private cloud (VPC) identifiers to grant access to.
-	VpcIds *[]*string `json:"vpcIds"`
+	VpcIds *[]*string `json:"vpcIds" yaml:"vpcIds"`
 }
 
 // A CloudFormation `AWS::Redshift::EventSubscription`.
@@ -5808,23 +5808,23 @@ type CfnEventSubscriptionProps struct {
 	// - Must contain from 1 to 255 alphanumeric characters or hyphens.
 	// - First character must be a letter.
 	// - Cannot end with a hyphen or contain two consecutive hyphens.
-	SubscriptionName *string `json:"subscriptionName"`
+	SubscriptionName *string `json:"subscriptionName" yaml:"subscriptionName"`
 	// A boolean value;
 	//
 	// set to `true` to activate the subscription, and set to `false` to create the subscription but not activate it.
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 	// Specifies the Amazon Redshift event categories to be published by the event notification subscription.
 	//
 	// Values: configuration, management, monitoring, security, pending
-	EventCategories *[]*string `json:"eventCategories"`
+	EventCategories *[]*string `json:"eventCategories" yaml:"eventCategories"`
 	// Specifies the Amazon Redshift event severity to be published by the event notification subscription.
 	//
 	// Values: ERROR, INFO
-	Severity *string `json:"severity"`
+	Severity *string `json:"severity" yaml:"severity"`
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic used to transmit the event notifications.
 	//
 	// The ARN is created by Amazon SNS when you create a topic and subscribe to it.
-	SnsTopicArn *string `json:"snsTopicArn"`
+	SnsTopicArn *string `json:"snsTopicArn" yaml:"snsTopicArn"`
 	// A list of one or more identifiers of Amazon Redshift source objects.
 	//
 	// All of the objects must be of the same type as was specified in the source type parameter. The event subscription will return only events generated by the specified objects. If not specified, then events are returned for all objects within the source type specified.
@@ -5832,15 +5832,15 @@ type CfnEventSubscriptionProps struct {
 	// Example: my-cluster-1, my-cluster-2
 	//
 	// Example: my-snapshot-20131010
-	SourceIds *[]*string `json:"sourceIds"`
+	SourceIds *[]*string `json:"sourceIds" yaml:"sourceIds"`
 	// The type of source that will be generating the events.
 	//
 	// For example, if you want to be notified of events generated by a cluster, you would set this parameter to cluster. If this value is not specified, events are returned for all Amazon Redshift objects in your AWS account . You must specify a source type in order to specify source IDs.
 	//
 	// Valid values: cluster, cluster-parameter-group, cluster-security-group, cluster-snapshot, and scheduled-action.
-	SourceType *string `json:"sourceType"`
+	SourceType *string `json:"sourceType" yaml:"sourceType"`
 	// A list of tag instances.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Redshift::ScheduledAction`.
@@ -6485,7 +6485,7 @@ func (c *jsiiProxy_CfnScheduledAction) ValidateProperties(_properties interface{
 //
 type CfnScheduledAction_PauseClusterMessageProperty struct {
 	// The identifier of the cluster to be paused.
-	ClusterIdentifier *string `json:"clusterIdentifier"`
+	ClusterIdentifier *string `json:"clusterIdentifier" yaml:"clusterIdentifier"`
 }
 
 // Describes a resize cluster operation.
@@ -6496,21 +6496,21 @@ type CfnScheduledAction_PauseClusterMessageProperty struct {
 //
 type CfnScheduledAction_ResizeClusterMessageProperty struct {
 	// The unique identifier for the cluster to resize.
-	ClusterIdentifier *string `json:"clusterIdentifier"`
+	ClusterIdentifier *string `json:"clusterIdentifier" yaml:"clusterIdentifier"`
 	// A boolean value indicating whether the resize operation is using the classic resize process.
 	//
 	// If you don't provide this parameter or set the value to `false` , the resize type is elastic.
-	Classic interface{} `json:"classic"`
+	Classic interface{} `json:"classic" yaml:"classic"`
 	// The new cluster type for the specified cluster.
-	ClusterType *string `json:"clusterType"`
+	ClusterType *string `json:"clusterType" yaml:"clusterType"`
 	// The new node type for the nodes you are adding.
 	//
 	// If not specified, the cluster's current node type is used.
-	NodeType *string `json:"nodeType"`
+	NodeType *string `json:"nodeType" yaml:"nodeType"`
 	// The new number of nodes for the cluster.
 	//
 	// If not specified, the cluster's current number of nodes is used.
-	NumberOfNodes *float64 `json:"numberOfNodes"`
+	NumberOfNodes *float64 `json:"numberOfNodes" yaml:"numberOfNodes"`
 }
 
 // Describes a resume cluster operation.
@@ -6521,7 +6521,7 @@ type CfnScheduledAction_ResizeClusterMessageProperty struct {
 //
 type CfnScheduledAction_ResumeClusterMessageProperty struct {
 	// The identifier of the cluster to be resumed.
-	ClusterIdentifier *string `json:"clusterIdentifier"`
+	ClusterIdentifier *string `json:"clusterIdentifier" yaml:"clusterIdentifier"`
 }
 
 // The action type that specifies an Amazon Redshift API operation that is supported by the Amazon Redshift scheduler.
@@ -6530,11 +6530,11 @@ type CfnScheduledAction_ResumeClusterMessageProperty struct {
 //
 type CfnScheduledAction_ScheduledActionTypeProperty struct {
 	// An action that runs a `PauseCluster` API operation.
-	PauseCluster interface{} `json:"pauseCluster"`
+	PauseCluster interface{} `json:"pauseCluster" yaml:"pauseCluster"`
 	// An action that runs a `ResizeCluster` API operation.
-	ResizeCluster interface{} `json:"resizeCluster"`
+	ResizeCluster interface{} `json:"resizeCluster" yaml:"resizeCluster"`
 	// An action that runs a `ResumeCluster` API operation.
-	ResumeCluster interface{} `json:"resumeCluster"`
+	ResumeCluster interface{} `json:"resumeCluster" yaml:"resumeCluster"`
 }
 
 // Properties for defining a `CfnScheduledAction`.
@@ -6543,19 +6543,19 @@ type CfnScheduledAction_ScheduledActionTypeProperty struct {
 //
 type CfnScheduledActionProps struct {
 	// The name of the scheduled action.
-	ScheduledActionName *string `json:"scheduledActionName"`
+	ScheduledActionName *string `json:"scheduledActionName" yaml:"scheduledActionName"`
 	// If true, the schedule is enabled.
 	//
 	// If false, the scheduled action does not trigger. For more information about `state` of the scheduled action, see `ScheduledAction` .
-	Enable interface{} `json:"enable"`
+	Enable interface{} `json:"enable" yaml:"enable"`
 	// The end time in UTC when the schedule is no longer active.
 	//
 	// After this time, the scheduled action does not trigger.
-	EndTime *string `json:"endTime"`
+	EndTime *string `json:"endTime" yaml:"endTime"`
 	// The IAM role to assume to run the scheduled action.
 	//
 	// This IAM role must have permission to run the Amazon Redshift API operation in the scheduled action. This IAM role must allow the Amazon Redshift scheduler (Principal scheduler.redshift.amazonaws.com) to assume permissions on your behalf. For more information about the IAM role to use with the Amazon Redshift scheduler, see [Using Identity-Based Policies for Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html) in the *Amazon Redshift Cluster Management Guide* .
-	IamRole *string `json:"iamRole"`
+	IamRole *string `json:"iamRole" yaml:"iamRole"`
 	// The schedule for a one-time (at format) or recurring (cron format) scheduled action.
 	//
 	// Schedule invocations must be separated by at least one hour.
@@ -6563,16 +6563,16 @@ type CfnScheduledActionProps struct {
 	// Format of at expressions is " `at(yyyy-mm-ddThh:mm:ss)` ". For example, " `at(2016-03-04T17:27:00)` ".
 	//
 	// Format of cron expressions is " `cron(Minutes Hours Day-of-month Month Day-of-week Year)` ". For example, " `cron(0 10 ? * MON *)` ". For more information, see [Cron Expressions](https://docs.aws.amazon.com//AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions) in the *Amazon CloudWatch Events User Guide* .
-	Schedule *string `json:"schedule"`
+	Schedule *string `json:"schedule" yaml:"schedule"`
 	// The description of the scheduled action.
-	ScheduledActionDescription *string `json:"scheduledActionDescription"`
+	ScheduledActionDescription *string `json:"scheduledActionDescription" yaml:"scheduledActionDescription"`
 	// The start time in UTC when the schedule is active.
 	//
 	// Before this time, the scheduled action does not trigger.
-	StartTime *string `json:"startTime"`
+	StartTime *string `json:"startTime" yaml:"startTime"`
 	// A JSON format string of the Amazon Redshift API operation with input parameters.
 	//
 	// " `{\"ResizeCluster\":{\"NodeType\":\"ds2.8xlarge\",\"ClusterIdentifier\":\"my-test-cluster\",\"NumberOfNodes\":3}}` ".
-	TargetAction interface{} `json:"targetAction"`
+	TargetAction interface{} `json:"targetAction" yaml:"targetAction"`
 }
 

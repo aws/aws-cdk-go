@@ -102,37 +102,37 @@ type HttpOriginProps struct {
 	// The number of times that CloudFront attempts to connect to the origin;
 	//
 	// valid values are 1, 2, or 3 attempts.
-	ConnectionAttempts *float64 `json:"connectionAttempts"`
+	ConnectionAttempts *float64 `json:"connectionAttempts" yaml:"connectionAttempts"`
 	// The number of seconds that CloudFront waits when trying to establish a connection to the origin.
 	//
 	// Valid values are 1-10 seconds, inclusive.
-	ConnectionTimeout awscdk.Duration `json:"connectionTimeout"`
+	ConnectionTimeout awscdk.Duration `json:"connectionTimeout" yaml:"connectionTimeout"`
 	// A list of HTTP header names and values that CloudFront adds to requests it sends to the origin.
-	CustomHeaders *map[string]*string `json:"customHeaders"`
+	CustomHeaders *map[string]*string `json:"customHeaders" yaml:"customHeaders"`
 	// An optional path that CloudFront appends to the origin domain name when CloudFront requests content from the origin.
 	//
 	// Must begin, but not end, with '/' (e.g., '/production/images').
-	OriginPath *string `json:"originPath"`
+	OriginPath *string `json:"originPath" yaml:"originPath"`
 	// When you enable Origin Shield in the AWS Region that has the lowest latency to your origin, you can get better network performance.
 	// See: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html
 	//
-	OriginShieldRegion *string `json:"originShieldRegion"`
+	OriginShieldRegion *string `json:"originShieldRegion" yaml:"originShieldRegion"`
 	// The HTTP port that CloudFront uses to connect to the origin.
-	HttpPort *float64 `json:"httpPort"`
+	HttpPort *float64 `json:"httpPort" yaml:"httpPort"`
 	// The HTTPS port that CloudFront uses to connect to the origin.
-	HttpsPort *float64 `json:"httpsPort"`
+	HttpsPort *float64 `json:"httpsPort" yaml:"httpsPort"`
 	// Specifies how long, in seconds, CloudFront persists its connection to the origin.
 	//
 	// The valid range is from 1 to 60 seconds, inclusive.
-	KeepaliveTimeout awscdk.Duration `json:"keepaliveTimeout"`
+	KeepaliveTimeout awscdk.Duration `json:"keepaliveTimeout" yaml:"keepaliveTimeout"`
 	// The SSL versions to use when interacting with the origin.
-	OriginSslProtocols *[]awscloudfront.OriginSslPolicy `json:"originSslProtocols"`
+	OriginSslProtocols *[]awscloudfront.OriginSslPolicy `json:"originSslProtocols" yaml:"originSslProtocols"`
 	// Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect to the origin.
-	ProtocolPolicy awscloudfront.OriginProtocolPolicy `json:"protocolPolicy"`
+	ProtocolPolicy awscloudfront.OriginProtocolPolicy `json:"protocolPolicy" yaml:"protocolPolicy"`
 	// Specifies how long, in seconds, CloudFront waits for a response from the origin, also known as the origin response timeout.
 	//
 	// The valid range is from 1 to 60 seconds, inclusive.
-	ReadTimeout awscdk.Duration `json:"readTimeout"`
+	ReadTimeout awscdk.Duration `json:"readTimeout" yaml:"readTimeout"`
 }
 
 // An Origin for a v2 load balancer.
@@ -225,37 +225,37 @@ type LoadBalancerV2OriginProps struct {
 	// The number of times that CloudFront attempts to connect to the origin;
 	//
 	// valid values are 1, 2, or 3 attempts.
-	ConnectionAttempts *float64 `json:"connectionAttempts"`
+	ConnectionAttempts *float64 `json:"connectionAttempts" yaml:"connectionAttempts"`
 	// The number of seconds that CloudFront waits when trying to establish a connection to the origin.
 	//
 	// Valid values are 1-10 seconds, inclusive.
-	ConnectionTimeout awscdk.Duration `json:"connectionTimeout"`
+	ConnectionTimeout awscdk.Duration `json:"connectionTimeout" yaml:"connectionTimeout"`
 	// A list of HTTP header names and values that CloudFront adds to requests it sends to the origin.
-	CustomHeaders *map[string]*string `json:"customHeaders"`
+	CustomHeaders *map[string]*string `json:"customHeaders" yaml:"customHeaders"`
 	// An optional path that CloudFront appends to the origin domain name when CloudFront requests content from the origin.
 	//
 	// Must begin, but not end, with '/' (e.g., '/production/images').
-	OriginPath *string `json:"originPath"`
+	OriginPath *string `json:"originPath" yaml:"originPath"`
 	// When you enable Origin Shield in the AWS Region that has the lowest latency to your origin, you can get better network performance.
 	// See: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html
 	//
-	OriginShieldRegion *string `json:"originShieldRegion"`
+	OriginShieldRegion *string `json:"originShieldRegion" yaml:"originShieldRegion"`
 	// The HTTP port that CloudFront uses to connect to the origin.
-	HttpPort *float64 `json:"httpPort"`
+	HttpPort *float64 `json:"httpPort" yaml:"httpPort"`
 	// The HTTPS port that CloudFront uses to connect to the origin.
-	HttpsPort *float64 `json:"httpsPort"`
+	HttpsPort *float64 `json:"httpsPort" yaml:"httpsPort"`
 	// Specifies how long, in seconds, CloudFront persists its connection to the origin.
 	//
 	// The valid range is from 1 to 60 seconds, inclusive.
-	KeepaliveTimeout awscdk.Duration `json:"keepaliveTimeout"`
+	KeepaliveTimeout awscdk.Duration `json:"keepaliveTimeout" yaml:"keepaliveTimeout"`
 	// The SSL versions to use when interacting with the origin.
-	OriginSslProtocols *[]awscloudfront.OriginSslPolicy `json:"originSslProtocols"`
+	OriginSslProtocols *[]awscloudfront.OriginSslPolicy `json:"originSslProtocols" yaml:"originSslProtocols"`
 	// Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect to the origin.
-	ProtocolPolicy awscloudfront.OriginProtocolPolicy `json:"protocolPolicy"`
+	ProtocolPolicy awscloudfront.OriginProtocolPolicy `json:"protocolPolicy" yaml:"protocolPolicy"`
 	// Specifies how long, in seconds, CloudFront waits for a response from the origin, also known as the origin response timeout.
 	//
 	// The valid range is from 1 to 60 seconds, inclusive.
-	ReadTimeout awscdk.Duration `json:"readTimeout"`
+	ReadTimeout awscdk.Duration `json:"readTimeout" yaml:"readTimeout"`
 }
 
 // An Origin that represents a group.
@@ -319,11 +319,11 @@ func (o *jsiiProxy_OriginGroup) Bind(scope constructs.Construct, options *awsclo
 //
 type OriginGroupProps struct {
 	// The fallback origin that should serve requests when the primary fails.
-	FallbackOrigin awscloudfront.IOrigin `json:"fallbackOrigin"`
+	FallbackOrigin awscloudfront.IOrigin `json:"fallbackOrigin" yaml:"fallbackOrigin"`
 	// The primary origin that should serve requests for this group.
-	PrimaryOrigin awscloudfront.IOrigin `json:"primaryOrigin"`
+	PrimaryOrigin awscloudfront.IOrigin `json:"primaryOrigin" yaml:"primaryOrigin"`
 	// The list of HTTP status codes that, when returned from the primary origin, would cause querying the fallback origin.
-	FallbackStatusCodes *[]*float64 `json:"fallbackStatusCodes"`
+	FallbackStatusCodes *[]*float64 `json:"fallbackStatusCodes" yaml:"fallbackStatusCodes"`
 }
 
 // An Origin that is backed by an S3 bucket.
@@ -390,22 +390,22 @@ type S3OriginProps struct {
 	// The number of times that CloudFront attempts to connect to the origin;
 	//
 	// valid values are 1, 2, or 3 attempts.
-	ConnectionAttempts *float64 `json:"connectionAttempts"`
+	ConnectionAttempts *float64 `json:"connectionAttempts" yaml:"connectionAttempts"`
 	// The number of seconds that CloudFront waits when trying to establish a connection to the origin.
 	//
 	// Valid values are 1-10 seconds, inclusive.
-	ConnectionTimeout awscdk.Duration `json:"connectionTimeout"`
+	ConnectionTimeout awscdk.Duration `json:"connectionTimeout" yaml:"connectionTimeout"`
 	// A list of HTTP header names and values that CloudFront adds to requests it sends to the origin.
-	CustomHeaders *map[string]*string `json:"customHeaders"`
+	CustomHeaders *map[string]*string `json:"customHeaders" yaml:"customHeaders"`
 	// An optional path that CloudFront appends to the origin domain name when CloudFront requests content from the origin.
 	//
 	// Must begin, but not end, with '/' (e.g., '/production/images').
-	OriginPath *string `json:"originPath"`
+	OriginPath *string `json:"originPath" yaml:"originPath"`
 	// When you enable Origin Shield in the AWS Region that has the lowest latency to your origin, you can get better network performance.
 	// See: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html
 	//
-	OriginShieldRegion *string `json:"originShieldRegion"`
+	OriginShieldRegion *string `json:"originShieldRegion" yaml:"originShieldRegion"`
 	// An optional Origin Access Identity of the origin identity cloudfront will use when calling your s3 bucket.
-	OriginAccessIdentity awscloudfront.IOriginAccessIdentity `json:"originAccessIdentity"`
+	OriginAccessIdentity awscloudfront.IOriginAccessIdentity `json:"originAccessIdentity" yaml:"originAccessIdentity"`
 }
 

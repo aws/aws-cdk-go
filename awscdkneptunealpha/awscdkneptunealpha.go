@@ -263,13 +263,13 @@ func (c *jsiiProxy_ClusterParameterGroup) ToString() *string {
 type ClusterParameterGroupProps struct {
 	// The parameters in this parameter group.
 	// Experimental.
-	Parameters *map[string]*string `json:"parameters"`
+	Parameters *map[string]*string `json:"parameters" yaml:"parameters"`
 	// The name of the parameter group.
 	// Experimental.
-	ClusterParameterGroupName *string `json:"clusterParameterGroupName"`
+	ClusterParameterGroupName *string `json:"clusterParameterGroupName" yaml:"clusterParameterGroupName"`
 	// Description for this parameter group.
 	// Experimental.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 }
 
 // Create a clustered database with a given number of instances.
@@ -668,22 +668,22 @@ func (d *jsiiProxy_DatabaseCluster) ToString() *string {
 type DatabaseClusterAttributes struct {
 	// Cluster endpoint address.
 	// Experimental.
-	ClusterEndpointAddress *string `json:"clusterEndpointAddress"`
+	ClusterEndpointAddress *string `json:"clusterEndpointAddress" yaml:"clusterEndpointAddress"`
 	// Identifier for the cluster.
 	// Experimental.
-	ClusterIdentifier *string `json:"clusterIdentifier"`
+	ClusterIdentifier *string `json:"clusterIdentifier" yaml:"clusterIdentifier"`
 	// Resource Identifier for the cluster.
 	// Experimental.
-	ClusterResourceIdentifier *string `json:"clusterResourceIdentifier"`
+	ClusterResourceIdentifier *string `json:"clusterResourceIdentifier" yaml:"clusterResourceIdentifier"`
 	// The database port.
 	// Experimental.
-	Port *float64 `json:"port"`
+	Port *float64 `json:"port" yaml:"port"`
 	// Reader endpoint address.
 	// Experimental.
-	ReaderEndpointAddress *string `json:"readerEndpointAddress"`
+	ReaderEndpointAddress *string `json:"readerEndpointAddress" yaml:"readerEndpointAddress"`
 	// The security group of the database cluster.
 	// Experimental.
-	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
+	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup" yaml:"securityGroup"`
 }
 
 // A new or imported database cluster.
@@ -1001,83 +1001,83 @@ func (d *jsiiProxy_DatabaseClusterBase) ToString() *string {
 type DatabaseClusterProps struct {
 	// What type of instance to start for the replicas.
 	// Experimental.
-	InstanceType InstanceType `json:"instanceType"`
+	InstanceType InstanceType `json:"instanceType" yaml:"instanceType"`
 	// What subnets to run the Neptune instances in.
 	//
 	// Must be at least 2 subnets in two different AZs.
 	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// A list of AWS Identity and Access Management (IAM) role that can be used by the cluster to access other AWS services.
 	// Experimental.
-	AssociatedRoles *[]awsiam.IRole `json:"associatedRoles"`
+	AssociatedRoles *[]awsiam.IRole `json:"associatedRoles" yaml:"associatedRoles"`
 	// How many days to retain the backup.
 	// Experimental.
-	BackupRetention awscdk.Duration `json:"backupRetention"`
+	BackupRetention awscdk.Duration `json:"backupRetention" yaml:"backupRetention"`
 	// Additional parameters to pass to the database engine.
 	// Experimental.
-	ClusterParameterGroup IClusterParameterGroup `json:"clusterParameterGroup"`
+	ClusterParameterGroup IClusterParameterGroup `json:"clusterParameterGroup" yaml:"clusterParameterGroup"`
 	// An optional identifier for the cluster.
 	// Experimental.
-	DbClusterName *string `json:"dbClusterName"`
+	DbClusterName *string `json:"dbClusterName" yaml:"dbClusterName"`
 	// Indicates whether the DB cluster should have deletion protection enabled.
 	// Experimental.
-	DeletionProtection *bool `json:"deletionProtection"`
+	DeletionProtection *bool `json:"deletionProtection" yaml:"deletionProtection"`
 	// What version of the database to start.
 	// Experimental.
-	EngineVersion EngineVersion `json:"engineVersion"`
+	EngineVersion EngineVersion `json:"engineVersion" yaml:"engineVersion"`
 	// Map AWS Identity and Access Management (IAM) accounts to database accounts.
 	// Experimental.
-	IamAuthentication *bool `json:"iamAuthentication"`
+	IamAuthentication *bool `json:"iamAuthentication" yaml:"iamAuthentication"`
 	// Base identifier for instances.
 	//
 	// Every replica is named by appending the replica number to this string, 1-based.
 	// Experimental.
-	InstanceIdentifierBase *string `json:"instanceIdentifierBase"`
+	InstanceIdentifierBase *string `json:"instanceIdentifierBase" yaml:"instanceIdentifierBase"`
 	// Number of Neptune compute instances.
 	// Experimental.
-	Instances *float64 `json:"instances"`
+	Instances *float64 `json:"instances" yaml:"instances"`
 	// The KMS key for storage encryption.
 	// Experimental.
-	KmsKey awskms.IKey `json:"kmsKey"`
+	KmsKey awskms.IKey `json:"kmsKey" yaml:"kmsKey"`
 	// The DB parameter group to associate with the instance.
 	// Experimental.
-	ParameterGroup IParameterGroup `json:"parameterGroup"`
+	ParameterGroup IParameterGroup `json:"parameterGroup" yaml:"parameterGroup"`
 	// The port the Neptune cluster will listen on.
 	// Experimental.
-	Port *float64 `json:"port"`
+	Port *float64 `json:"port" yaml:"port"`
 	// A daily time range in 24-hours UTC format in which backups preferably execute.
 	//
 	// Must be at least 30 minutes long.
 	//
 	// Example: '01:00-02:00'
 	// Experimental.
-	PreferredBackupWindow *string `json:"preferredBackupWindow"`
+	PreferredBackupWindow *string `json:"preferredBackupWindow" yaml:"preferredBackupWindow"`
 	// A weekly time range in which maintenance should preferably execute.
 	//
 	// Must be at least 30 minutes long.
 	//
 	// Example: 'tue:04:17-tue:04:47'
 	// Experimental.
-	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow"`
+	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
 	// The removal policy to apply when the cluster and its instances are removed or replaced during a stack update, or when the stack is deleted.
 	//
 	// This
 	// removal policy also applies to the implicit security group created for the
 	// cluster if one is not supplied as a parameter.
 	// Experimental.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 	// Security group.
 	// Experimental.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// Whether to enable storage encryption.
 	// Experimental.
-	StorageEncrypted *bool `json:"storageEncrypted"`
+	StorageEncrypted *bool `json:"storageEncrypted" yaml:"storageEncrypted"`
 	// Existing subnet group for the cluster.
 	// Experimental.
-	SubnetGroup ISubnetGroup `json:"subnetGroup"`
+	SubnetGroup ISubnetGroup `json:"subnetGroup" yaml:"subnetGroup"`
 	// Where to place the instances within the VPC.
 	// Experimental.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 
 // A database instance.
@@ -1374,13 +1374,13 @@ func (d *jsiiProxy_DatabaseInstance) ToString() *string {
 type DatabaseInstanceAttributes struct {
 	// The endpoint address.
 	// Experimental.
-	InstanceEndpointAddress *string `json:"instanceEndpointAddress"`
+	InstanceEndpointAddress *string `json:"instanceEndpointAddress" yaml:"instanceEndpointAddress"`
 	// The instance identifier.
 	// Experimental.
-	InstanceIdentifier *string `json:"instanceIdentifier"`
+	InstanceIdentifier *string `json:"instanceIdentifier" yaml:"instanceIdentifier"`
 	// The database port.
 	// Experimental.
-	Port *float64 `json:"port"`
+	Port *float64 `json:"port" yaml:"port"`
 }
 
 // Construction properties for a DatabaseInstanceNew.
@@ -1391,25 +1391,25 @@ type DatabaseInstanceAttributes struct {
 type DatabaseInstanceProps struct {
 	// The Neptune database cluster the instance should launch into.
 	// Experimental.
-	Cluster IDatabaseCluster `json:"cluster"`
+	Cluster IDatabaseCluster `json:"cluster" yaml:"cluster"`
 	// What type of instance to start for the replicas.
 	// Experimental.
-	InstanceType InstanceType `json:"instanceType"`
+	InstanceType InstanceType `json:"instanceType" yaml:"instanceType"`
 	// The name of the Availability Zone where the DB instance will be located.
 	// Experimental.
-	AvailabilityZone *string `json:"availabilityZone"`
+	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
 	// A name for the DB instance.
 	//
 	// If you specify a name, AWS CloudFormation
 	// converts it to lowercase.
 	// Experimental.
-	DbInstanceName *string `json:"dbInstanceName"`
+	DbInstanceName *string `json:"dbInstanceName" yaml:"dbInstanceName"`
 	// The DB parameter group to associate with the instance.
 	// Experimental.
-	ParameterGroup IParameterGroup `json:"parameterGroup"`
+	ParameterGroup IParameterGroup `json:"parameterGroup" yaml:"parameterGroup"`
 	// The CloudFormation policy to apply when the instance is removed from the stack or replaced during an update.
 	// Experimental.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 }
 
 // Connection endpoint of a neptune cluster or instance.
@@ -2425,13 +2425,13 @@ func (p *jsiiProxy_ParameterGroup) ToString() *string {
 type ParameterGroupProps struct {
 	// The parameters in this parameter group.
 	// Experimental.
-	Parameters *map[string]*string `json:"parameters"`
+	Parameters *map[string]*string `json:"parameters" yaml:"parameters"`
 	// Description for this parameter group.
 	// Experimental.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The name of the parameter group.
 	// Experimental.
-	ParameterGroupName *string `json:"parameterGroupName"`
+	ParameterGroupName *string `json:"parameterGroupName" yaml:"parameterGroupName"`
 }
 
 // Class for creating a RDS DB subnet group.
@@ -2684,18 +2684,18 @@ func (s *jsiiProxy_SubnetGroup) ToString() *string {
 type SubnetGroupProps struct {
 	// The VPC to place the subnet group in.
 	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// Description of the subnet group.
 	// Experimental.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The removal policy to apply when the subnet group are removed from the stack or replaced during an update.
 	// Experimental.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 	// The name of the subnet group.
 	// Experimental.
-	SubnetGroupName *string `json:"subnetGroupName"`
+	SubnetGroupName *string `json:"subnetGroupName" yaml:"subnetGroupName"`
 	// Which subnets within the VPC to associate with this group.
 	// Experimental.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 

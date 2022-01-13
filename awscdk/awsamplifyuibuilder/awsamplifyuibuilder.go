@@ -715,19 +715,19 @@ func (c *jsiiProxy_CfnComponent) ValidateProperties(_properties interface{}) {
 //
 type CfnComponent_ComponentBindingPropertiesValuePropertiesProperty struct {
 	// An Amazon S3 bucket.
-	Bucket *string `json:"bucket"`
+	Bucket *string `json:"bucket" yaml:"bucket"`
 	// The default value to assign to the property.
-	DefaultValue *string `json:"defaultValue"`
+	DefaultValue *string `json:"defaultValue" yaml:"defaultValue"`
 	// The field to bind the data to.
-	Field *string `json:"field"`
+	Field *string `json:"field" yaml:"field"`
 	// The storage key for an Amazon S3 bucket.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// An Amplify DataStore model.
-	Model *string `json:"model"`
+	Model *string `json:"model" yaml:"model"`
 	// A list of predicates for binding a component's properties to data.
-	Predicates interface{} `json:"predicates"`
+	Predicates interface{} `json:"predicates" yaml:"predicates"`
 	// An authenticated user attribute.
-	UserAttribute *string `json:"userAttribute"`
+	UserAttribute *string `json:"userAttribute" yaml:"userAttribute"`
 }
 
 // The `ComponentBindingPropertiesValue` property specifies the data binding configuration for a component at runtime.
@@ -738,11 +738,11 @@ type CfnComponent_ComponentBindingPropertiesValuePropertiesProperty struct {
 //
 type CfnComponent_ComponentBindingPropertiesValueProperty struct {
 	// Describes the properties to customize with data at runtime.
-	BindingProperties interface{} `json:"bindingProperties"`
+	BindingProperties interface{} `json:"bindingProperties" yaml:"bindingProperties"`
 	// The default value of the property.
-	DefaultValue *string `json:"defaultValue"`
+	DefaultValue *string `json:"defaultValue" yaml:"defaultValue"`
 	// The property type.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 }
 
 // The `ComponentChild` property specifies a nested UI configuration within a parent `Component` .
@@ -751,13 +751,13 @@ type CfnComponent_ComponentBindingPropertiesValueProperty struct {
 //
 type CfnComponent_ComponentChildProperty struct {
 	// The type of the child component.
-	ComponentType *string `json:"componentType"`
+	ComponentType *string `json:"componentType" yaml:"componentType"`
 	// The name of the child component.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// Describes the properties of the child component.
-	Properties interface{} `json:"properties"`
+	Properties interface{} `json:"properties" yaml:"properties"`
 	// The list of `ComponentChild` instances for this component.
-	Children interface{} `json:"children"`
+	Children interface{} `json:"children" yaml:"children"`
 }
 
 // The `ComponentConditionProperty` property specifies a conditional expression for setting a component property.
@@ -768,19 +768,19 @@ type CfnComponent_ComponentChildProperty struct {
 //
 type CfnComponent_ComponentConditionPropertyProperty struct {
 	// The value to assign to the property if the condition is not met.
-	Else interface{} `json:"else"`
+	Else interface{} `json:"else" yaml:"else"`
 	// The name of a field.
 	//
 	// Specify this when the property is a data model.
-	Field *string `json:"field"`
+	Field *string `json:"field" yaml:"field"`
 	// The value of the property to evaluate.
-	Operand *string `json:"operand"`
+	Operand *string `json:"operand" yaml:"operand"`
 	// The operator to use to perform the evaluation, such as `eq` to represent equals.
-	Operator *string `json:"operator"`
+	Operator *string `json:"operator" yaml:"operator"`
 	// The name of the conditional property.
-	Property *string `json:"property"`
+	Property *string `json:"property" yaml:"property"`
 	// The value to assign to the property if the condition is met.
-	Then interface{} `json:"then"`
+	Then interface{} `json:"then" yaml:"then"`
 }
 
 // The `ComponentDataConfiguration` property specifies the configuration for binding a component's properties to data.
@@ -789,17 +789,17 @@ type CfnComponent_ComponentConditionPropertyProperty struct {
 //
 type CfnComponent_ComponentDataConfigurationProperty struct {
 	// The name of the data model to use to bind data to a component.
-	Model *string `json:"model"`
+	Model *string `json:"model" yaml:"model"`
 	// A list of IDs to use to bind data to a component.
 	//
 	// Use this property to bind specifically chosen data, rather than data retrieved from a query.
-	Identifiers *[]*string `json:"identifiers"`
+	Identifiers *[]*string `json:"identifiers" yaml:"identifiers"`
 	// Represents the conditional logic to use when binding data to a component.
 	//
 	// Use this property to retrieve only a subset of the data in a collection.
-	Predicate interface{} `json:"predicate"`
+	Predicate interface{} `json:"predicate" yaml:"predicate"`
 	// Describes how to sort the component's properties.
-	Sort interface{} `json:"sort"`
+	Sort interface{} `json:"sort" yaml:"sort"`
 }
 
 // The `ComponentOverrides` property specifies the component's properties that can be overriden in a customized instance of the component.
@@ -831,9 +831,9 @@ type CfnComponent_ComponentPropertiesProperty struct {
 //
 type CfnComponent_ComponentPropertyBindingPropertiesProperty struct {
 	// The component property to bind to the data field.
-	Property *string `json:"property"`
+	Property *string `json:"property" yaml:"property"`
 	// The data field to bind the property to.
-	Field *string `json:"field"`
+	Field *string `json:"field" yaml:"field"`
 }
 
 // The `ComponentProperty` property specifies the configuration for all of a component's properties.
@@ -844,35 +844,35 @@ type CfnComponent_ComponentPropertyBindingPropertiesProperty struct {
 //
 type CfnComponent_ComponentPropertyProperty struct {
 	// The information to bind the component property to data at runtime.
-	BindingProperties interface{} `json:"bindingProperties"`
+	BindingProperties interface{} `json:"bindingProperties" yaml:"bindingProperties"`
 	// The information to bind the component property to form data.
-	Bindings interface{} `json:"bindings"`
+	Bindings interface{} `json:"bindings" yaml:"bindings"`
 	// The information to bind the component property to data at runtime.
 	//
 	// Use this for collection components.
-	CollectionBindingProperties interface{} `json:"collectionBindingProperties"`
+	CollectionBindingProperties interface{} `json:"collectionBindingProperties" yaml:"collectionBindingProperties"`
 	// A list of component properties to concatenate to create the value to assign to this component property.
-	Concat interface{} `json:"concat"`
+	Concat interface{} `json:"concat" yaml:"concat"`
 	// The conditional expression to use to assign a value to the component property.
-	Condition interface{} `json:"condition"`
+	Condition interface{} `json:"condition" yaml:"condition"`
 	// Specifies whether the user configured the property in Amplify Studio after importing it.
-	Configured interface{} `json:"configured"`
+	Configured interface{} `json:"configured" yaml:"configured"`
 	// The default value to assign to the component property.
-	DefaultValue *string `json:"defaultValue"`
+	DefaultValue *string `json:"defaultValue" yaml:"defaultValue"`
 	// An event that occurs in your app.
 	//
 	// Use this for workflow data binding.
-	Event *string `json:"event"`
+	Event *string `json:"event" yaml:"event"`
 	// The default value assigned to the property when the component is imported into an app.
-	ImportedValue *string `json:"importedValue"`
+	ImportedValue *string `json:"importedValue" yaml:"importedValue"`
 	// The data model to use to assign a value to the component property.
-	Model *string `json:"model"`
+	Model *string `json:"model" yaml:"model"`
 	// The component type.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// An authenticated user attribute to use to assign a value to the component property.
-	UserAttribute *string `json:"userAttribute"`
+	UserAttribute *string `json:"userAttribute" yaml:"userAttribute"`
 	// The value to assign to the component property.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // The `ComponentVariant` property specifies the style configuration of a unique variation of a main component.
@@ -881,9 +881,9 @@ type CfnComponent_ComponentPropertyProperty struct {
 //
 type CfnComponent_ComponentVariantProperty struct {
 	// The properties of the component variant that can be overriden when customizing an instance of the component.
-	Overrides interface{} `json:"overrides"`
+	Overrides interface{} `json:"overrides" yaml:"overrides"`
 	// The combination of variants that comprise this variant.
-	VariantValues interface{} `json:"variantValues"`
+	VariantValues interface{} `json:"variantValues" yaml:"variantValues"`
 }
 
 // The `ComponentVariantValues` property specifies the combination of variants that comprise a `ComponentVariant` .
@@ -908,15 +908,15 @@ type CfnComponent_FormBindingsProperty struct {
 //
 type CfnComponent_PredicateProperty struct {
 	// A list of predicates to combine logically.
-	And interface{} `json:"and"`
+	And interface{} `json:"and" yaml:"and"`
 	// The field to query.
-	Field *string `json:"field"`
+	Field *string `json:"field" yaml:"field"`
 	// The value to use when performing the evaluation.
-	Operand *string `json:"operand"`
+	Operand *string `json:"operand" yaml:"operand"`
 	// The operator to use to perform the evaluation.
-	Operator *string `json:"operator"`
+	Operator *string `json:"operator" yaml:"operator"`
 	// A list of predicates to combine logically.
-	Or interface{} `json:"or"`
+	Or interface{} `json:"or" yaml:"or"`
 }
 
 // The `SortProperty` property specifies how to sort the data that you bind to a component.
@@ -925,9 +925,9 @@ type CfnComponent_PredicateProperty struct {
 //
 type CfnComponent_SortPropertyProperty struct {
 	// The direction of the sort, either ascending or descending.
-	Direction *string `json:"direction"`
+	Direction *string `json:"direction" yaml:"direction"`
 	// The field to perform the sort on.
-	Field *string `json:"field"`
+	Field *string `json:"field" yaml:"field"`
 }
 
 // Properties for defining a `CfnComponent`.
@@ -936,31 +936,31 @@ type CfnComponent_SortPropertyProperty struct {
 //
 type CfnComponentProps struct {
 	// The information to connect a component's properties to data at runtime.
-	BindingProperties interface{} `json:"bindingProperties"`
+	BindingProperties interface{} `json:"bindingProperties" yaml:"bindingProperties"`
 	// A list of the component's `ComponentChild` instances.
-	Children interface{} `json:"children"`
+	Children interface{} `json:"children" yaml:"children"`
 	// The data binding configuration for the component's properties.
 	//
 	// Use this for a collection component.
-	CollectionProperties interface{} `json:"collectionProperties"`
+	CollectionProperties interface{} `json:"collectionProperties" yaml:"collectionProperties"`
 	// The type of the component.
 	//
 	// This can be an Amplify custom UI component or another custom component.
-	ComponentType *string `json:"componentType"`
+	ComponentType *string `json:"componentType" yaml:"componentType"`
 	// The name of the component.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// Describes the component's properties that can be overriden in a customized instance of the component.
-	Overrides interface{} `json:"overrides"`
+	Overrides interface{} `json:"overrides" yaml:"overrides"`
 	// Describes the component's properties.
-	Properties interface{} `json:"properties"`
+	Properties interface{} `json:"properties" yaml:"properties"`
 	// The unique ID of the component in its original source system, such as Figma.
-	SourceId *string `json:"sourceId"`
+	SourceId *string `json:"sourceId" yaml:"sourceId"`
 	// One or more key-value pairs to use when tagging the component.
-	Tags *map[string]*string `json:"tags"`
+	Tags *map[string]*string `json:"tags" yaml:"tags"`
 	// A list of the component's variants.
 	//
 	// A variant is a unique style configuration of a main component.
-	Variants interface{} `json:"variants"`
+	Variants interface{} `json:"variants" yaml:"variants"`
 }
 
 // A CloudFormation `AWS::AmplifyUIBuilder::Theme`.
@@ -1547,9 +1547,9 @@ func (c *jsiiProxy_CfnTheme) ValidateProperties(_properties interface{}) {
 //
 type CfnTheme_ThemeValueProperty struct {
 	// A list of key-value pairs that define the theme's properties.
-	Children interface{} `json:"children"`
+	Children interface{} `json:"children" yaml:"children"`
 	// The value of a theme property.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // The `ThemeValues` property specifies key-value pair that defines a property of a theme.
@@ -1558,9 +1558,9 @@ type CfnTheme_ThemeValueProperty struct {
 //
 type CfnTheme_ThemeValuesProperty struct {
 	// The name of the property.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// The value of the property.
-	Value interface{} `json:"value"`
+	Value interface{} `json:"value" yaml:"value"`
 }
 
 // Properties for defining a `CfnTheme`.
@@ -1569,12 +1569,12 @@ type CfnTheme_ThemeValuesProperty struct {
 //
 type CfnThemeProps struct {
 	// The name of the theme.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// A list of key-value pairs that defines the properties of the theme.
-	Values interface{} `json:"values"`
+	Values interface{} `json:"values" yaml:"values"`
 	// Describes the properties that can be overriden to customize a theme.
-	Overrides interface{} `json:"overrides"`
+	Overrides interface{} `json:"overrides" yaml:"overrides"`
 	// One or more key-value pairs to use when tagging the theme.
-	Tags *map[string]*string `json:"tags"`
+	Tags *map[string]*string `json:"tags" yaml:"tags"`
 }
 

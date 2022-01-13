@@ -19,44 +19,44 @@ import (
 //
 type AddBehaviorOptions struct {
 	// HTTP methods to allow for this behavior.
-	AllowedMethods AllowedMethods `json:"allowedMethods"`
+	AllowedMethods AllowedMethods `json:"allowedMethods" yaml:"allowedMethods"`
 	// HTTP methods to cache for this behavior.
-	CachedMethods CachedMethods `json:"cachedMethods"`
+	CachedMethods CachedMethods `json:"cachedMethods" yaml:"cachedMethods"`
 	// The cache policy for this behavior.
 	//
 	// The cache policy determines what values are included in the cache key,
 	// and the time-to-live (TTL) values for the cache.
 	// See: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html.
 	//
-	CachePolicy ICachePolicy `json:"cachePolicy"`
+	CachePolicy ICachePolicy `json:"cachePolicy" yaml:"cachePolicy"`
 	// Whether you want CloudFront to automatically compress certain files for this cache behavior.
 	//
 	// See https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/ServingCompressedFiles.html#compressed-content-cloudfront-file-types
 	// for file types CloudFront will compress.
-	Compress *bool `json:"compress"`
+	Compress *bool `json:"compress" yaml:"compress"`
 	// The Lambda@Edge functions to invoke before serving the contents.
 	// See: https://aws.amazon.com/lambda/edge
 	//
-	EdgeLambdas *[]*EdgeLambda `json:"edgeLambdas"`
+	EdgeLambdas *[]*EdgeLambda `json:"edgeLambdas" yaml:"edgeLambdas"`
 	// The CloudFront functions to invoke before serving the contents.
-	FunctionAssociations *[]*FunctionAssociation `json:"functionAssociations"`
+	FunctionAssociations *[]*FunctionAssociation `json:"functionAssociations" yaml:"functionAssociations"`
 	// The origin request policy for this behavior.
 	//
 	// The origin request policy determines which values (e.g., headers, cookies)
 	// are included in requests that CloudFront sends to the origin.
-	OriginRequestPolicy IOriginRequestPolicy `json:"originRequestPolicy"`
+	OriginRequestPolicy IOriginRequestPolicy `json:"originRequestPolicy" yaml:"originRequestPolicy"`
 	// The response headers policy for this behavior.
 	//
 	// The response headers policy determines which headers are included in responses
-	ResponseHeadersPolicy IResponseHeadersPolicy `json:"responseHeadersPolicy"`
+	ResponseHeadersPolicy IResponseHeadersPolicy `json:"responseHeadersPolicy" yaml:"responseHeadersPolicy"`
 	// Set this to true to indicate you want to distribute media files in the Microsoft Smooth Streaming format using this behavior.
-	SmoothStreaming *bool `json:"smoothStreaming"`
+	SmoothStreaming *bool `json:"smoothStreaming" yaml:"smoothStreaming"`
 	// A list of Key Groups that CloudFront can use to validate signed URLs or signed cookies.
 	// See: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html
 	//
-	TrustedKeyGroups *[]IKeyGroup `json:"trustedKeyGroups"`
+	TrustedKeyGroups *[]IKeyGroup `json:"trustedKeyGroups" yaml:"trustedKeyGroups"`
 	// The protocol that viewers can use to access the files controlled by this behavior.
-	ViewerProtocolPolicy ViewerProtocolPolicy `json:"viewerProtocolPolicy"`
+	ViewerProtocolPolicy ViewerProtocolPolicy `json:"viewerProtocolPolicy" yaml:"viewerProtocolPolicy"`
 }
 
 // The HTTP methods that the Behavior will accept requests on.
@@ -122,41 +122,41 @@ func AllowedMethods_ALLOW_GET_HEAD_OPTIONS() AllowedMethods {
 //
 type Behavior struct {
 	// The method this CloudFront distribution responds do.
-	AllowedMethods CloudFrontAllowedMethods `json:"allowedMethods"`
+	AllowedMethods CloudFrontAllowedMethods `json:"allowedMethods" yaml:"allowedMethods"`
 	// Which methods are cached by CloudFront by default.
-	CachedMethods CloudFrontAllowedCachedMethods `json:"cachedMethods"`
+	CachedMethods CloudFrontAllowedCachedMethods `json:"cachedMethods" yaml:"cachedMethods"`
 	// If CloudFront should automatically compress some content types.
-	Compress *bool `json:"compress"`
+	Compress *bool `json:"compress" yaml:"compress"`
 	// The default amount of time CloudFront will cache an object.
 	//
 	// This value applies only when your custom origin does not add HTTP headers,
 	// such as Cache-Control max-age, Cache-Control s-maxage, and Expires to objects.
-	DefaultTtl awscdk.Duration `json:"defaultTtl"`
+	DefaultTtl awscdk.Duration `json:"defaultTtl" yaml:"defaultTtl"`
 	// The values CloudFront will forward to the origin when making a request.
-	ForwardedValues *CfnDistribution_ForwardedValuesProperty `json:"forwardedValues"`
+	ForwardedValues *CfnDistribution_ForwardedValuesProperty `json:"forwardedValues" yaml:"forwardedValues"`
 	// The CloudFront functions to invoke before serving the contents.
-	FunctionAssociations *[]*FunctionAssociation `json:"functionAssociations"`
+	FunctionAssociations *[]*FunctionAssociation `json:"functionAssociations" yaml:"functionAssociations"`
 	// If this behavior is the default behavior for the distribution.
 	//
 	// You must specify exactly one default distribution per CloudFront distribution.
 	// The default behavior is allowed to omit the "path" property.
-	IsDefaultBehavior *bool `json:"isDefaultBehavior"`
+	IsDefaultBehavior *bool `json:"isDefaultBehavior" yaml:"isDefaultBehavior"`
 	// Declares associated lambda@edge functions for this distribution behaviour.
-	LambdaFunctionAssociations *[]*LambdaFunctionAssociation `json:"lambdaFunctionAssociations"`
+	LambdaFunctionAssociations *[]*LambdaFunctionAssociation `json:"lambdaFunctionAssociations" yaml:"lambdaFunctionAssociations"`
 	// The max amount of time you want objects to stay in the cache before CloudFront queries your origin.
-	MaxTtl awscdk.Duration `json:"maxTtl"`
+	MaxTtl awscdk.Duration `json:"maxTtl" yaml:"maxTtl"`
 	// The minimum amount of time that you want objects to stay in the cache before CloudFront queries your origin.
-	MinTtl awscdk.Duration `json:"minTtl"`
+	MinTtl awscdk.Duration `json:"minTtl" yaml:"minTtl"`
 	// The path this behavior responds to.
 	//
 	// Required for all non-default behaviors. (The default behavior implicitly has "*" as the path pattern. )
-	PathPattern *string `json:"pathPattern"`
+	PathPattern *string `json:"pathPattern" yaml:"pathPattern"`
 	// A list of Key Groups that CloudFront can use to validate signed URLs or signed cookies.
 	// See: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html
 	//
-	TrustedKeyGroups *[]IKeyGroup `json:"trustedKeyGroups"`
+	TrustedKeyGroups *[]IKeyGroup `json:"trustedKeyGroups" yaml:"trustedKeyGroups"`
 	// The viewer policy for this behavior.
-	ViewerProtocolPolicy ViewerProtocolPolicy `json:"viewerProtocolPolicy"`
+	ViewerProtocolPolicy ViewerProtocolPolicy `json:"viewerProtocolPolicy" yaml:"viewerProtocolPolicy"`
 }
 
 // Options for creating a new behavior.
@@ -165,46 +165,46 @@ type Behavior struct {
 //
 type BehaviorOptions struct {
 	// HTTP methods to allow for this behavior.
-	AllowedMethods AllowedMethods `json:"allowedMethods"`
+	AllowedMethods AllowedMethods `json:"allowedMethods" yaml:"allowedMethods"`
 	// HTTP methods to cache for this behavior.
-	CachedMethods CachedMethods `json:"cachedMethods"`
+	CachedMethods CachedMethods `json:"cachedMethods" yaml:"cachedMethods"`
 	// The cache policy for this behavior.
 	//
 	// The cache policy determines what values are included in the cache key,
 	// and the time-to-live (TTL) values for the cache.
 	// See: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html.
 	//
-	CachePolicy ICachePolicy `json:"cachePolicy"`
+	CachePolicy ICachePolicy `json:"cachePolicy" yaml:"cachePolicy"`
 	// Whether you want CloudFront to automatically compress certain files for this cache behavior.
 	//
 	// See https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/ServingCompressedFiles.html#compressed-content-cloudfront-file-types
 	// for file types CloudFront will compress.
-	Compress *bool `json:"compress"`
+	Compress *bool `json:"compress" yaml:"compress"`
 	// The Lambda@Edge functions to invoke before serving the contents.
 	// See: https://aws.amazon.com/lambda/edge
 	//
-	EdgeLambdas *[]*EdgeLambda `json:"edgeLambdas"`
+	EdgeLambdas *[]*EdgeLambda `json:"edgeLambdas" yaml:"edgeLambdas"`
 	// The CloudFront functions to invoke before serving the contents.
-	FunctionAssociations *[]*FunctionAssociation `json:"functionAssociations"`
+	FunctionAssociations *[]*FunctionAssociation `json:"functionAssociations" yaml:"functionAssociations"`
 	// The origin request policy for this behavior.
 	//
 	// The origin request policy determines which values (e.g., headers, cookies)
 	// are included in requests that CloudFront sends to the origin.
-	OriginRequestPolicy IOriginRequestPolicy `json:"originRequestPolicy"`
+	OriginRequestPolicy IOriginRequestPolicy `json:"originRequestPolicy" yaml:"originRequestPolicy"`
 	// The response headers policy for this behavior.
 	//
 	// The response headers policy determines which headers are included in responses
-	ResponseHeadersPolicy IResponseHeadersPolicy `json:"responseHeadersPolicy"`
+	ResponseHeadersPolicy IResponseHeadersPolicy `json:"responseHeadersPolicy" yaml:"responseHeadersPolicy"`
 	// Set this to true to indicate you want to distribute media files in the Microsoft Smooth Streaming format using this behavior.
-	SmoothStreaming *bool `json:"smoothStreaming"`
+	SmoothStreaming *bool `json:"smoothStreaming" yaml:"smoothStreaming"`
 	// A list of Key Groups that CloudFront can use to validate signed URLs or signed cookies.
 	// See: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html
 	//
-	TrustedKeyGroups *[]IKeyGroup `json:"trustedKeyGroups"`
+	TrustedKeyGroups *[]IKeyGroup `json:"trustedKeyGroups" yaml:"trustedKeyGroups"`
 	// The protocol that viewers can use to access the files controlled by this behavior.
-	ViewerProtocolPolicy ViewerProtocolPolicy `json:"viewerProtocolPolicy"`
+	ViewerProtocolPolicy ViewerProtocolPolicy `json:"viewerProtocolPolicy" yaml:"viewerProtocolPolicy"`
 	// The origin that you want CloudFront to route requests to when they match this behavior.
-	Origin IOrigin `json:"origin"`
+	Origin IOrigin `json:"origin" yaml:"origin"`
 }
 
 // Determines whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin.
@@ -683,29 +683,29 @@ type CachePolicyProps struct {
 	// A unique name to identify the cache policy.
 	//
 	// The name must only include '-', '_', or alphanumeric characters.
-	CachePolicyName *string `json:"cachePolicyName"`
+	CachePolicyName *string `json:"cachePolicyName" yaml:"cachePolicyName"`
 	// A comment to describe the cache policy.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// Determines whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin.
-	CookieBehavior CacheCookieBehavior `json:"cookieBehavior"`
+	CookieBehavior CacheCookieBehavior `json:"cookieBehavior" yaml:"cookieBehavior"`
 	// The default amount of time for objects to stay in the CloudFront cache.
 	//
 	// Only used when the origin does not send Cache-Control or Expires headers with the object.
-	DefaultTtl awscdk.Duration `json:"defaultTtl"`
+	DefaultTtl awscdk.Duration `json:"defaultTtl" yaml:"defaultTtl"`
 	// Whether to normalize and include the `Accept-Encoding` header in the cache key when the `Accept-Encoding` header is 'br'.
-	EnableAcceptEncodingBrotli *bool `json:"enableAcceptEncodingBrotli"`
+	EnableAcceptEncodingBrotli *bool `json:"enableAcceptEncodingBrotli" yaml:"enableAcceptEncodingBrotli"`
 	// Whether to normalize and include the `Accept-Encoding` header in the cache key when the `Accept-Encoding` header is 'gzip'.
-	EnableAcceptEncodingGzip *bool `json:"enableAcceptEncodingGzip"`
+	EnableAcceptEncodingGzip *bool `json:"enableAcceptEncodingGzip" yaml:"enableAcceptEncodingGzip"`
 	// Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin.
-	HeaderBehavior CacheHeaderBehavior `json:"headerBehavior"`
+	HeaderBehavior CacheHeaderBehavior `json:"headerBehavior" yaml:"headerBehavior"`
 	// The maximum amount of time for objects to stay in the CloudFront cache.
 	//
 	// CloudFront uses this value only when the origin sends Cache-Control or Expires headers with the object.
-	MaxTtl awscdk.Duration `json:"maxTtl"`
+	MaxTtl awscdk.Duration `json:"maxTtl" yaml:"maxTtl"`
 	// The minimum amount of time for objects to stay in the CloudFront cache.
-	MinTtl awscdk.Duration `json:"minTtl"`
+	MinTtl awscdk.Duration `json:"minTtl" yaml:"minTtl"`
 	// Determines whether any query strings are included in the cache key and automatically included in requests that CloudFront sends to the origin.
-	QueryStringBehavior CacheQueryStringBehavior `json:"queryStringBehavior"`
+	QueryStringBehavior CacheQueryStringBehavior `json:"queryStringBehavior" yaml:"queryStringBehavior"`
 }
 
 // Determines whether any URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin.
@@ -1381,27 +1381,27 @@ type CfnCachePolicy_CachePolicyConfigProperty struct {
 	// CloudFront uses this value as the object’s time to live (TTL) only when the origin does *not* send `Cache-Control` or `Expires` headers with the object. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide* .
 	//
 	// The default value for this field is 86400 seconds (one day). If the value of `MinTTL` is more than 86400 seconds, then the default value for this field is the same as the value of `MinTTL` .
-	DefaultTtl *float64 `json:"defaultTtl"`
+	DefaultTtl *float64 `json:"defaultTtl" yaml:"defaultTtl"`
 	// The maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
 	//
 	// CloudFront uses this value only when the origin sends `Cache-Control` or `Expires` headers with the object. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide* .
 	//
 	// The default value for this field is 31536000 seconds (one year). If the value of `MinTTL` or `DefaultTTL` is more than 31536000 seconds, then the default value for this field is the same as the value of `DefaultTTL` .
-	MaxTtl *float64 `json:"maxTtl"`
+	MaxTtl *float64 `json:"maxTtl" yaml:"maxTtl"`
 	// The minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
 	//
 	// For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide* .
-	MinTtl *float64 `json:"minTtl"`
+	MinTtl *float64 `json:"minTtl" yaml:"minTtl"`
 	// A unique name to identify the cache policy.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The HTTP headers, cookies, and URL query strings to include in the cache key.
 	//
 	// The values included in the cache key are automatically included in requests that CloudFront sends to the origin.
-	ParametersInCacheKeyAndForwardedToOrigin interface{} `json:"parametersInCacheKeyAndForwardedToOrigin"`
+	ParametersInCacheKeyAndForwardedToOrigin interface{} `json:"parametersInCacheKeyAndForwardedToOrigin" yaml:"parametersInCacheKeyAndForwardedToOrigin"`
 	// A comment to describe the cache policy.
 	//
 	// The comment cannot be longer than 128 characters.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 }
 
 // An object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and automatically included in requests that CloudFront sends to the origin.
@@ -1417,9 +1417,9 @@ type CfnCachePolicy_CookiesConfigProperty struct {
 	// - `whitelist` – The cookies in viewer requests that are listed in the `CookieNames` type are included in the cache key and automatically included in requests that CloudFront sends to the origin.
 	// - `allExcept` – All cookies in viewer requests that are **not** listed in the `CookieNames` type are included in the cache key and automatically included in requests that CloudFront sends to the origin.
 	// - `all` – All cookies in viewer requests are included in the cache key and are automatically included in requests that CloudFront sends to the origin.
-	CookieBehavior *string `json:"cookieBehavior"`
+	CookieBehavior *string `json:"cookieBehavior" yaml:"cookieBehavior"`
 	// Contains a list of cookie names.
-	Cookies *[]*string `json:"cookies"`
+	Cookies *[]*string `json:"cookies" yaml:"cookies"`
 }
 
 // An object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and automatically included in requests that CloudFront sends to the origin.
@@ -1433,9 +1433,9 @@ type CfnCachePolicy_HeadersConfigProperty struct {
 	//
 	// - `none` – HTTP headers are not included in the cache key and are not automatically included in requests that CloudFront sends to the origin. Even when this field is set to `none` , any headers that are listed in an `OriginRequestPolicy` *are* included in origin requests.
 	// - `whitelist` – The HTTP headers that are listed in the `Headers` type are included in the cache key and are automatically included in requests that CloudFront sends to the origin.
-	HeaderBehavior *string `json:"headerBehavior"`
+	HeaderBehavior *string `json:"headerBehavior" yaml:"headerBehavior"`
 	// Contains a list of HTTP header names.
-	Headers *[]*string `json:"headers"`
+	Headers *[]*string `json:"headers" yaml:"headers"`
 }
 
 // This object determines the values that CloudFront includes in the cache key.
@@ -1448,7 +1448,7 @@ type CfnCachePolicy_HeadersConfigProperty struct {
 //
 type CfnCachePolicy_ParametersInCacheKeyAndForwardedToOriginProperty struct {
 	// An object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and automatically included in requests that CloudFront sends to the origin.
-	CookiesConfig interface{} `json:"cookiesConfig"`
+	CookiesConfig interface{} `json:"cookiesConfig" yaml:"cookiesConfig"`
 	// A flag that can affect whether the `Accept-Encoding` HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
 	//
 	// This field is related to the `EnableAcceptEncodingBrotli` field. If one or both of these fields is `true` *and* the viewer request includes the `Accept-Encoding` header, then CloudFront does the following:
@@ -1462,11 +1462,11 @@ type CfnCachePolicy_ParametersInCacheKeyAndForwardedToOriginProperty struct {
 	// If you set this value to `true` , and this cache behavior also has an origin request policy attached, do not include the `Accept-Encoding` header in the origin request policy. CloudFront always includes the `Accept-Encoding` header in origin requests when the value of this field is `true` , so including this header in an origin request policy has no effect.
 	//
 	// If both of these fields are `false` , then CloudFront treats the `Accept-Encoding` header the same as any other HTTP header in the viewer request. By default, it’s not included in the cache key and it’s not included in origin requests. In this case, you can manually add `Accept-Encoding` to the headers whitelist like any other HTTP header.
-	EnableAcceptEncodingGzip interface{} `json:"enableAcceptEncodingGzip"`
+	EnableAcceptEncodingGzip interface{} `json:"enableAcceptEncodingGzip" yaml:"enableAcceptEncodingGzip"`
 	// An object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and automatically included in requests that CloudFront sends to the origin.
-	HeadersConfig interface{} `json:"headersConfig"`
+	HeadersConfig interface{} `json:"headersConfig" yaml:"headersConfig"`
 	// An object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and automatically included in requests that CloudFront sends to the origin.
-	QueryStringsConfig interface{} `json:"queryStringsConfig"`
+	QueryStringsConfig interface{} `json:"queryStringsConfig" yaml:"queryStringsConfig"`
 	// A flag that can affect whether the `Accept-Encoding` HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
 	//
 	// This field is related to the `EnableAcceptEncodingGzip` field. If one or both of these fields is `true` *and* the viewer request includes the `Accept-Encoding` header, then CloudFront does the following:
@@ -1480,7 +1480,7 @@ type CfnCachePolicy_ParametersInCacheKeyAndForwardedToOriginProperty struct {
 	// If you set this value to `true` , and this cache behavior also has an origin request policy attached, do not include the `Accept-Encoding` header in the origin request policy. CloudFront always includes the `Accept-Encoding` header in origin requests when the value of this field is `true` , so including this header in an origin request policy has no effect.
 	//
 	// If both of these fields are `false` , then CloudFront treats the `Accept-Encoding` header the same as any other HTTP header in the viewer request. By default, it’s not included in the cache key and it’s not included in origin requests. In this case, you can manually add `Accept-Encoding` to the headers whitelist like any other HTTP header.
-	EnableAcceptEncodingBrotli interface{} `json:"enableAcceptEncodingBrotli"`
+	EnableAcceptEncodingBrotli interface{} `json:"enableAcceptEncodingBrotli" yaml:"enableAcceptEncodingBrotli"`
 }
 
 // An object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and automatically included in requests that CloudFront sends to the origin.
@@ -1496,9 +1496,9 @@ type CfnCachePolicy_QueryStringsConfigProperty struct {
 	// - `whitelist` – The query strings in viewer requests that are listed in the `QueryStringNames` type are included in the cache key and automatically included in requests that CloudFront sends to the origin.
 	// - `allExcept` – All query strings in viewer requests that are **not** listed in the `QueryStringNames` type are included in the cache key and automatically included in requests that CloudFront sends to the origin.
 	// - `all` – All query strings in viewer requests are included in the cache key and are automatically included in requests that CloudFront sends to the origin.
-	QueryStringBehavior *string `json:"queryStringBehavior"`
+	QueryStringBehavior *string `json:"queryStringBehavior" yaml:"queryStringBehavior"`
 	// Contains a list of query string names.
-	QueryStrings *[]*string `json:"queryStrings"`
+	QueryStrings *[]*string `json:"queryStrings" yaml:"queryStrings"`
 }
 
 // Properties for defining a `CfnCachePolicy`.
@@ -1507,7 +1507,7 @@ type CfnCachePolicy_QueryStringsConfigProperty struct {
 //
 type CfnCachePolicyProps struct {
 	// The cache policy configuration.
-	CachePolicyConfig interface{} `json:"cachePolicyConfig"`
+	CachePolicyConfig interface{} `json:"cachePolicyConfig" yaml:"cachePolicyConfig"`
 }
 
 // A CloudFormation `AWS::CloudFront::CloudFrontOriginAccessIdentity`.
@@ -2014,7 +2014,7 @@ type CfnCloudFrontOriginAccessIdentity_CloudFrontOriginAccessIdentityConfigPrope
 	// A comment to describe the origin access identity.
 	//
 	// The comment cannot be longer than 128 characters.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 }
 
 // Properties for defining a `CfnCloudFrontOriginAccessIdentity`.
@@ -2023,7 +2023,7 @@ type CfnCloudFrontOriginAccessIdentity_CloudFrontOriginAccessIdentityConfigPrope
 //
 type CfnCloudFrontOriginAccessIdentityProps struct {
 	// The current configuration information for the identity.
-	CloudFrontOriginAccessIdentityConfig interface{} `json:"cloudFrontOriginAccessIdentityConfig"`
+	CloudFrontOriginAccessIdentityConfig interface{} `json:"cloudFrontOriginAccessIdentityConfig" yaml:"cloudFrontOriginAccessIdentityConfig"`
 }
 
 // A CloudFormation `AWS::CloudFront::Distribution`.
@@ -2555,9 +2555,9 @@ type CfnDistribution_CacheBehaviorProperty struct {
 	// The path pattern for the default cache behavior is `*` and cannot be changed. If the request for an object does not match the path pattern for any cache behaviors, CloudFront applies the behavior in the default cache behavior.
 	//
 	// For more information, see [Path Pattern](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesPathPattern) in the *Amazon CloudFront Developer Guide* .
-	PathPattern *string `json:"pathPattern"`
+	PathPattern *string `json:"pathPattern" yaml:"pathPattern"`
 	// The value of `ID` for the origin that you want CloudFront to route requests to when they match this cache behavior.
-	TargetOriginId *string `json:"targetOriginId"`
+	TargetOriginId *string `json:"targetOriginId" yaml:"targetOriginId"`
 	// The protocol that viewers can use to access the files in the origin specified by `TargetOriginId` when a request matches the path pattern in `PathPattern` .
 	//
 	// You can specify the following options:
@@ -2569,7 +2569,7 @@ type CfnDistribution_CacheBehaviorProperty struct {
 	// For more information about requiring the HTTPS protocol, see [Requiring HTTPS Between Viewers and CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-viewers-to-cloudfront.html) in the *Amazon CloudFront Developer Guide* .
 	//
 	// > The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects’ cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see [Managing Cache Expiration](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide* .
-	ViewerProtocolPolicy *string `json:"viewerProtocolPolicy"`
+	ViewerProtocolPolicy *string `json:"viewerProtocolPolicy" yaml:"viewerProtocolPolicy"`
 	// A complex type that controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
 	//
 	// There are three choices:
@@ -2579,7 +2579,7 @@ type CfnDistribution_CacheBehaviorProperty struct {
 	// - CloudFront forwards `GET, HEAD, OPTIONS, PUT, PATCH, POST` , and `DELETE` requests.
 	//
 	// If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can't perform operations that you don't want them to. For example, you might not want users to have permissions to delete objects from your origin.
-	AllowedMethods *[]*string `json:"allowedMethods"`
+	AllowedMethods *[]*string `json:"allowedMethods" yaml:"allowedMethods"`
 	// A complex type that controls whether CloudFront caches the response to requests using the specified HTTP methods.
 	//
 	// There are two choices:
@@ -2588,25 +2588,25 @@ type CfnDistribution_CacheBehaviorProperty struct {
 	// - CloudFront caches responses to `GET` , `HEAD` , and `OPTIONS` requests.
 	//
 	// If you pick the second choice for your Amazon S3 Origin, you may need to forward Access-Control-Request-Method, Access-Control-Request-Headers, and Origin headers for the responses to be cached correctly.
-	CachedMethods *[]*string `json:"cachedMethods"`
+	CachedMethods *[]*string `json:"cachedMethods" yaml:"cachedMethods"`
 	// The unique identifier of the cache policy that is attached to this cache behavior.
 	//
 	// For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide* .
 	//
 	// A `CacheBehavior` must include either a `CachePolicyId` or `ForwardedValues` . We recommend that you use a `CachePolicyId` .
-	CachePolicyId *string `json:"cachePolicyId"`
+	CachePolicyId *string `json:"cachePolicyId" yaml:"cachePolicyId"`
 	// Whether you want CloudFront to automatically compress certain files for this cache behavior.
 	//
 	// If so, specify true; if not, specify false. For more information, see [Serving Compressed Files](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/ServingCompressedFiles.html) in the *Amazon CloudFront Developer Guide* .
-	Compress interface{} `json:"compress"`
+	Compress interface{} `json:"compress" yaml:"compress"`
 	// This field is deprecated.
 	//
 	// We recommend that you use the `DefaultTTL` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide* .
 	//
 	// The default amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin does not add HTTP headers such as `Cache-Control max-age` , `Cache-Control s-maxage` , and `Expires` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide* .
-	DefaultTtl *float64 `json:"defaultTtl"`
+	DefaultTtl *float64 `json:"defaultTtl" yaml:"defaultTtl"`
 	// The value of `ID` for the field-level encryption configuration that you want CloudFront to use for encrypting specific fields of data for this cache behavior.
-	FieldLevelEncryptionId *string `json:"fieldLevelEncryptionId"`
+	FieldLevelEncryptionId *string `json:"fieldLevelEncryptionId" yaml:"fieldLevelEncryptionId"`
 	// This field is deprecated.
 	//
 	// We recommend that you use a cache policy or an origin request policy instead of this field. For more information, see [Working with policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/working-with-policies.html) in the *Amazon CloudFront Developer Guide* .
@@ -2618,19 +2618,19 @@ type CfnDistribution_CacheBehaviorProperty struct {
 	// A `CacheBehavior` must include either a `CachePolicyId` or `ForwardedValues` . We recommend that you use a `CachePolicyId` .
 	//
 	// A complex type that specifies how CloudFront handles query strings, cookies, and HTTP headers.
-	ForwardedValues interface{} `json:"forwardedValues"`
+	ForwardedValues interface{} `json:"forwardedValues" yaml:"forwardedValues"`
 	// A list of CloudFront functions that are associated with this cache behavior.
 	//
 	// CloudFront functions must be published to the `LIVE` stage to associate them with a cache behavior.
-	FunctionAssociations interface{} `json:"functionAssociations"`
+	FunctionAssociations interface{} `json:"functionAssociations" yaml:"functionAssociations"`
 	// A complex type that contains zero or more Lambda@Edge function associations for a cache behavior.
-	LambdaFunctionAssociations interface{} `json:"lambdaFunctionAssociations"`
+	LambdaFunctionAssociations interface{} `json:"lambdaFunctionAssociations" yaml:"lambdaFunctionAssociations"`
 	// This field is deprecated.
 	//
 	// We recommend that you use the `MaxTTL` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide* .
 	//
 	// The maximum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin adds HTTP headers such as `Cache-Control max-age` , `Cache-Control s-maxage` , and `Expires` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide* .
-	MaxTtl *float64 `json:"maxTtl"`
+	MaxTtl *float64 `json:"maxTtl" yaml:"maxTtl"`
 	// This field is deprecated.
 	//
 	// We recommend that you use the `MinTTL` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide* .
@@ -2638,31 +2638,31 @@ type CfnDistribution_CacheBehaviorProperty struct {
 	// The minimum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide* .
 	//
 	// You must specify `0` for `MinTTL` if you configure CloudFront to forward all headers to your origin (under `Headers` , if you specify `1` for `Quantity` and `*` for `Name` ).
-	MinTtl *float64 `json:"minTtl"`
+	MinTtl *float64 `json:"minTtl" yaml:"minTtl"`
 	// The unique identifier of the origin request policy that is attached to this cache behavior.
 	//
 	// For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) or [Using the managed origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-origin-request-policies.html) in the *Amazon CloudFront Developer Guide* .
-	OriginRequestPolicyId *string `json:"originRequestPolicyId"`
+	OriginRequestPolicyId *string `json:"originRequestPolicyId" yaml:"originRequestPolicyId"`
 	// The Amazon Resource Name (ARN) of the real-time log configuration that is attached to this cache behavior.
 	//
 	// For more information, see [Real-time logs](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html) in the *Amazon CloudFront Developer Guide* .
-	RealtimeLogConfigArn *string `json:"realtimeLogConfigArn"`
+	RealtimeLogConfigArn *string `json:"realtimeLogConfigArn" yaml:"realtimeLogConfigArn"`
 	// The identifier for a response headers policy.
-	ResponseHeadersPolicyId *string `json:"responseHeadersPolicyId"`
+	ResponseHeadersPolicyId *string `json:"responseHeadersPolicyId" yaml:"responseHeadersPolicyId"`
 	// Indicates whether you want to distribute media files in the Microsoft Smooth Streaming format using the origin that is associated with this cache behavior.
 	//
 	// If so, specify `true` ; if not, specify `false` . If you specify `true` for `SmoothStreaming` , you can still distribute other content using this cache behavior if the content matches the value of `PathPattern` .
-	SmoothStreaming interface{} `json:"smoothStreaming"`
+	SmoothStreaming interface{} `json:"smoothStreaming" yaml:"smoothStreaming"`
 	// A list of key groups that CloudFront can use to validate signed URLs or signed cookies.
 	//
 	// When a cache behavior contains trusted key groups, CloudFront requires signed URLs or signed cookies for all requests that match the cache behavior. The URLs or cookies must be signed with a private key whose corresponding public key is in the key group. The signed URL or cookie contains information about which public key CloudFront should use to verify the signature. For more information, see [Serving private content](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) in the *Amazon CloudFront Developer Guide* .
-	TrustedKeyGroups *[]*string `json:"trustedKeyGroups"`
+	TrustedKeyGroups *[]*string `json:"trustedKeyGroups" yaml:"trustedKeyGroups"`
 	// > We recommend using `TrustedKeyGroups` instead of `TrustedSigners` .
 	//
 	// A list of AWS account IDs whose public keys CloudFront can use to validate signed URLs or signed cookies.
 	//
 	// When a cache behavior contains trusted signers, CloudFront requires signed URLs or signed cookies for all requests that match the cache behavior. The URLs or cookies must be signed with the private key of a CloudFront key pair in the trusted signer’s AWS account . The signed URL or cookie contains information about which public key CloudFront should use to verify the signature. For more information, see [Serving private content](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) in the *Amazon CloudFront Developer Guide* .
-	TrustedSigners *[]*string `json:"trustedSigners"`
+	TrustedSigners *[]*string `json:"trustedSigners" yaml:"trustedSigners"`
 }
 
 // This field is deprecated.
@@ -2689,7 +2689,7 @@ type CfnDistribution_CookiesProperty struct {
 	// Specifies which cookies to forward to the origin for this cache behavior: all, none, or the list of cookies specified in the `WhitelistedNames` complex type.
 	//
 	// Amazon S3 doesn't process cookies. When the cache behavior is forwarding requests to an Amazon S3 origin, specify none for the `Forward` element.
-	Forward *string `json:"forward"`
+	Forward *string `json:"forward" yaml:"forward"`
 	// This field is deprecated.
 	//
 	// We recommend that you use a cache policy or an origin request policy instead of this field.
@@ -2703,7 +2703,7 @@ type CfnDistribution_CookiesProperty struct {
 	// If you specify `all` or `none` for the value of `Forward` , omit `WhitelistedNames` . If you change the value of `Forward` from `whitelist` to `all` or `none` and you don't delete the `WhitelistedNames` element and its child elements, CloudFront deletes them automatically.
 	//
 	// For the current limit on the number of cookie names that you can whitelist for each cache behavior, see [CloudFront Limits](https://docs.aws.amazon.com/general/latest/gr/xrefaws_service_limits.html#limits_cloudfront) in the *AWS General Reference* .
-	WhitelistedNames *[]*string `json:"whitelistedNames"`
+	WhitelistedNames *[]*string `json:"whitelistedNames" yaml:"whitelistedNames"`
 }
 
 // A complex type that controls:.
@@ -2717,13 +2717,13 @@ type CfnDistribution_CookiesProperty struct {
 //
 type CfnDistribution_CustomErrorResponseProperty struct {
 	// The HTTP status code for which you want to specify a custom error page and/or a caching duration.
-	ErrorCode *float64 `json:"errorCode"`
+	ErrorCode *float64 `json:"errorCode" yaml:"errorCode"`
 	// The minimum amount of time, in seconds, that you want CloudFront to cache the HTTP status code specified in `ErrorCode` .
 	//
 	// When this time period has elapsed, CloudFront queries your origin to see whether the problem that caused the error has been resolved and the requested object is now available.
 	//
 	// For more information, see [Customizing Error Responses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html) in the *Amazon CloudFront Developer Guide* .
-	ErrorCachingMinTtl *float64 `json:"errorCachingMinTtl"`
+	ErrorCachingMinTtl *float64 `json:"errorCachingMinTtl" yaml:"errorCachingMinTtl"`
 	// The HTTP status code that you want CloudFront to return to the viewer along with the custom error page.
 	//
 	// There are a variety of reasons that you might want CloudFront to return a status code different from the status code that your origin returned to CloudFront, for example:
@@ -2733,7 +2733,7 @@ type CfnDistribution_CustomErrorResponseProperty struct {
 	// - You might want to return a `200` status code (OK) and static website so your customers don't know that your website is down.
 	//
 	// If you specify a value for `ResponseCode` , you must also specify a value for `ResponsePagePath` .
-	ResponseCode *float64 `json:"responseCode"`
+	ResponseCode *float64 `json:"responseCode" yaml:"responseCode"`
 	// The path to the custom error page that you want CloudFront to return to a viewer when your origin returns the HTTP status code specified by `ErrorCode` , for example, `/4xx-errors/403-forbidden.html` . If you want to store your objects and your custom error pages in different locations, your distribution must include a cache behavior for which the following is true:.
 	//
 	// - The value of `PathPattern` matches the path to your custom error messages. For example, suppose you saved custom error pages for 4xx errors in an Amazon S3 bucket in a directory named `/4xx-errors` . Your distribution must include a cache behavior for which the path pattern routes requests for your custom error pages to that location, for example, `/4xx-errors/*` .
@@ -2742,7 +2742,7 @@ type CfnDistribution_CustomErrorResponseProperty struct {
 	// If you specify a value for `ResponsePagePath` , you must also specify a value for `ResponseCode` .
 	//
 	// We recommend that you store custom error pages in an Amazon S3 bucket. If you store custom error pages on an HTTP server and the server starts to return 5xx errors, CloudFront can't get the files that you want to return to viewers because the origin server is unavailable.
-	ResponsePagePath *string `json:"responsePagePath"`
+	ResponsePagePath *string `json:"responsePagePath" yaml:"responsePagePath"`
 }
 
 // A custom origin.
@@ -2757,33 +2757,33 @@ type CfnDistribution_CustomOriginConfigProperty struct {
 	// - `http-only` – CloudFront always uses HTTP to connect to the origin.
 	// - `match-viewer` – CloudFront connects to the origin using the same protocol that the viewer used to connect to CloudFront.
 	// - `https-only` – CloudFront always uses HTTPS to connect to the origin.
-	OriginProtocolPolicy *string `json:"originProtocolPolicy"`
+	OriginProtocolPolicy *string `json:"originProtocolPolicy" yaml:"originProtocolPolicy"`
 	// The HTTP port that CloudFront uses to connect to the origin.
 	//
 	// Specify the HTTP port that the origin listens on.
-	HttpPort *float64 `json:"httpPort"`
+	HttpPort *float64 `json:"httpPort" yaml:"httpPort"`
 	// The HTTPS port that CloudFront uses to connect to the origin.
 	//
 	// Specify the HTTPS port that the origin listens on.
-	HttpsPort *float64 `json:"httpsPort"`
+	HttpsPort *float64 `json:"httpsPort" yaml:"httpsPort"`
 	// Specifies how long, in seconds, CloudFront persists its connection to the origin.
 	//
 	// The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don’t specify otherwise) is 5 seconds.
 	//
 	// For more information, see [Origin Keep-alive Timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide* .
-	OriginKeepaliveTimeout *float64 `json:"originKeepaliveTimeout"`
+	OriginKeepaliveTimeout *float64 `json:"originKeepaliveTimeout" yaml:"originKeepaliveTimeout"`
 	// Specifies how long, in seconds, CloudFront waits for a response from the origin.
 	//
 	// This is also known as the *origin response timeout* . The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don’t specify otherwise) is 30 seconds.
 	//
 	// For more information, see [Origin Response Timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide* .
-	OriginReadTimeout *float64 `json:"originReadTimeout"`
+	OriginReadTimeout *float64 `json:"originReadTimeout" yaml:"originReadTimeout"`
 	// Specifies the minimum SSL/TLS protocol that CloudFront uses when connecting to your origin over HTTPS.
 	//
 	// Valid values include `SSLv3` , `TLSv1` , `TLSv1.1` , and `TLSv1.2` .
 	//
 	// For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the *Amazon CloudFront Developer Guide* .
-	OriginSslProtocols *[]*string `json:"originSslProtocols"`
+	OriginSslProtocols *[]*string `json:"originSslProtocols" yaml:"originSslProtocols"`
 }
 
 // A complex type that describes the default cache behavior if you don’t specify a `CacheBehavior` element or if request URLs don’t match any of the values of `PathPattern` in `CacheBehavior` elements.
@@ -2794,7 +2794,7 @@ type CfnDistribution_CustomOriginConfigProperty struct {
 //
 type CfnDistribution_DefaultCacheBehaviorProperty struct {
 	// The value of `ID` for the origin that you want CloudFront to route requests to when they use the default cache behavior.
-	TargetOriginId *string `json:"targetOriginId"`
+	TargetOriginId *string `json:"targetOriginId" yaml:"targetOriginId"`
 	// The protocol that viewers can use to access the files in the origin specified by `TargetOriginId` when a request matches the path pattern in `PathPattern` .
 	//
 	// You can specify the following options:
@@ -2806,7 +2806,7 @@ type CfnDistribution_DefaultCacheBehaviorProperty struct {
 	// For more information about requiring the HTTPS protocol, see [Requiring HTTPS Between Viewers and CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-viewers-to-cloudfront.html) in the *Amazon CloudFront Developer Guide* .
 	//
 	// > The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects’ cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see [Managing Cache Expiration](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide* .
-	ViewerProtocolPolicy *string `json:"viewerProtocolPolicy"`
+	ViewerProtocolPolicy *string `json:"viewerProtocolPolicy" yaml:"viewerProtocolPolicy"`
 	// A complex type that controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
 	//
 	// There are three choices:
@@ -2816,7 +2816,7 @@ type CfnDistribution_DefaultCacheBehaviorProperty struct {
 	// - CloudFront forwards `GET, HEAD, OPTIONS, PUT, PATCH, POST` , and `DELETE` requests.
 	//
 	// If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can't perform operations that you don't want them to. For example, you might not want users to have permissions to delete objects from your origin.
-	AllowedMethods *[]*string `json:"allowedMethods"`
+	AllowedMethods *[]*string `json:"allowedMethods" yaml:"allowedMethods"`
 	// A complex type that controls whether CloudFront caches the response to requests using the specified HTTP methods.
 	//
 	// There are two choices:
@@ -2825,25 +2825,25 @@ type CfnDistribution_DefaultCacheBehaviorProperty struct {
 	// - CloudFront caches responses to `GET` , `HEAD` , and `OPTIONS` requests.
 	//
 	// If you pick the second choice for your Amazon S3 Origin, you may need to forward Access-Control-Request-Method, Access-Control-Request-Headers, and Origin headers for the responses to be cached correctly.
-	CachedMethods *[]*string `json:"cachedMethods"`
+	CachedMethods *[]*string `json:"cachedMethods" yaml:"cachedMethods"`
 	// The unique identifier of the cache policy that is attached to the default cache behavior.
 	//
 	// For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide* .
 	//
 	// A `DefaultCacheBehavior` must include either a `CachePolicyId` or `ForwardedValues` . We recommend that you use a `CachePolicyId` .
-	CachePolicyId *string `json:"cachePolicyId"`
+	CachePolicyId *string `json:"cachePolicyId" yaml:"cachePolicyId"`
 	// Whether you want CloudFront to automatically compress certain files for this cache behavior.
 	//
 	// If so, specify `true` ; if not, specify `false` . For more information, see [Serving Compressed Files](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/ServingCompressedFiles.html) in the *Amazon CloudFront Developer Guide* .
-	Compress interface{} `json:"compress"`
+	Compress interface{} `json:"compress" yaml:"compress"`
 	// This field is deprecated.
 	//
 	// We recommend that you use the `DefaultTTL` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide* .
 	//
 	// The default amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin does not add HTTP headers such as `Cache-Control max-age` , `Cache-Control s-maxage` , and `Expires` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide* .
-	DefaultTtl *float64 `json:"defaultTtl"`
+	DefaultTtl *float64 `json:"defaultTtl" yaml:"defaultTtl"`
 	// The value of `ID` for the field-level encryption configuration that you want CloudFront to use for encrypting specific fields of data for the default cache behavior.
-	FieldLevelEncryptionId *string `json:"fieldLevelEncryptionId"`
+	FieldLevelEncryptionId *string `json:"fieldLevelEncryptionId" yaml:"fieldLevelEncryptionId"`
 	// This field is deprecated.
 	//
 	// We recommend that you use a cache policy or an origin request policy instead of this field. For more information, see [Working with policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/working-with-policies.html) in the *Amazon CloudFront Developer Guide* .
@@ -2855,19 +2855,19 @@ type CfnDistribution_DefaultCacheBehaviorProperty struct {
 	// A `DefaultCacheBehavior` must include either a `CachePolicyId` or `ForwardedValues` . We recommend that you use a `CachePolicyId` .
 	//
 	// A complex type that specifies how CloudFront handles query strings, cookies, and HTTP headers.
-	ForwardedValues interface{} `json:"forwardedValues"`
+	ForwardedValues interface{} `json:"forwardedValues" yaml:"forwardedValues"`
 	// A list of CloudFront functions that are associated with this cache behavior.
 	//
 	// CloudFront functions must be published to the `LIVE` stage to associate them with a cache behavior.
-	FunctionAssociations interface{} `json:"functionAssociations"`
+	FunctionAssociations interface{} `json:"functionAssociations" yaml:"functionAssociations"`
 	// A complex type that contains zero or more Lambda@Edge function associations for a cache behavior.
-	LambdaFunctionAssociations interface{} `json:"lambdaFunctionAssociations"`
+	LambdaFunctionAssociations interface{} `json:"lambdaFunctionAssociations" yaml:"lambdaFunctionAssociations"`
 	// This field is deprecated.
 	//
 	// We recommend that you use the `MaxTTL` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide* .
 	//
 	// The maximum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin adds HTTP headers such as `Cache-Control max-age` , `Cache-Control s-maxage` , and `Expires` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide* .
-	MaxTtl *float64 `json:"maxTtl"`
+	MaxTtl *float64 `json:"maxTtl" yaml:"maxTtl"`
 	// This field is deprecated.
 	//
 	// We recommend that you use the `MinTTL` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide* .
@@ -2875,31 +2875,31 @@ type CfnDistribution_DefaultCacheBehaviorProperty struct {
 	// The minimum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide* .
 	//
 	// You must specify `0` for `MinTTL` if you configure CloudFront to forward all headers to your origin (under `Headers` , if you specify `1` for `Quantity` and `*` for `Name` ).
-	MinTtl *float64 `json:"minTtl"`
+	MinTtl *float64 `json:"minTtl" yaml:"minTtl"`
 	// The unique identifier of the origin request policy that is attached to the default cache behavior.
 	//
 	// For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) or [Using the managed origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-origin-request-policies.html) in the *Amazon CloudFront Developer Guide* .
-	OriginRequestPolicyId *string `json:"originRequestPolicyId"`
+	OriginRequestPolicyId *string `json:"originRequestPolicyId" yaml:"originRequestPolicyId"`
 	// The Amazon Resource Name (ARN) of the real-time log configuration that is attached to this cache behavior.
 	//
 	// For more information, see [Real-time logs](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html) in the *Amazon CloudFront Developer Guide* .
-	RealtimeLogConfigArn *string `json:"realtimeLogConfigArn"`
+	RealtimeLogConfigArn *string `json:"realtimeLogConfigArn" yaml:"realtimeLogConfigArn"`
 	// The identifier for a response headers policy.
-	ResponseHeadersPolicyId *string `json:"responseHeadersPolicyId"`
+	ResponseHeadersPolicyId *string `json:"responseHeadersPolicyId" yaml:"responseHeadersPolicyId"`
 	// Indicates whether you want to distribute media files in the Microsoft Smooth Streaming format using the origin that is associated with this cache behavior.
 	//
 	// If so, specify `true` ; if not, specify `false` . If you specify `true` for `SmoothStreaming` , you can still distribute other content using this cache behavior if the content matches the value of `PathPattern` .
-	SmoothStreaming interface{} `json:"smoothStreaming"`
+	SmoothStreaming interface{} `json:"smoothStreaming" yaml:"smoothStreaming"`
 	// A list of key groups that CloudFront can use to validate signed URLs or signed cookies.
 	//
 	// When a cache behavior contains trusted key groups, CloudFront requires signed URLs or signed cookies for all requests that match the cache behavior. The URLs or cookies must be signed with a private key whose corresponding public key is in the key group. The signed URL or cookie contains information about which public key CloudFront should use to verify the signature. For more information, see [Serving private content](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) in the *Amazon CloudFront Developer Guide* .
-	TrustedKeyGroups *[]*string `json:"trustedKeyGroups"`
+	TrustedKeyGroups *[]*string `json:"trustedKeyGroups" yaml:"trustedKeyGroups"`
 	// > We recommend using `TrustedKeyGroups` instead of `TrustedSigners` .
 	//
 	// A list of AWS account IDs whose public keys CloudFront can use to validate signed URLs or signed cookies.
 	//
 	// When a cache behavior contains trusted signers, CloudFront requires signed URLs or signed cookies for all requests that match the cache behavior. The URLs or cookies must be signed with the private key of a CloudFront key pair in a trusted signer’s AWS account . The signed URL or cookie contains information about which public key CloudFront should use to verify the signature. For more information, see [Serving private content](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) in the *Amazon CloudFront Developer Guide* .
-	TrustedSigners *[]*string `json:"trustedSigners"`
+	TrustedSigners *[]*string `json:"trustedSigners" yaml:"trustedSigners"`
 }
 
 // A distribution configuration.
@@ -2908,30 +2908,30 @@ type CfnDistribution_DefaultCacheBehaviorProperty struct {
 //
 type CfnDistribution_DistributionConfigProperty struct {
 	// From this field, you can enable or disable the selected distribution.
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 	// A complex type that contains information about CNAMEs (alternate domain names), if any, for this distribution.
-	Aliases *[]*string `json:"aliases"`
+	Aliases *[]*string `json:"aliases" yaml:"aliases"`
 	// A complex type that contains zero or more `CacheBehavior` elements.
-	CacheBehaviors interface{} `json:"cacheBehaviors"`
+	CacheBehaviors interface{} `json:"cacheBehaviors" yaml:"cacheBehaviors"`
 	// `CfnDistribution.DistributionConfigProperty.CNAMEs`.
-	CnamEs *[]*string `json:"cnamEs"`
+	CnamEs *[]*string `json:"cnamEs" yaml:"cnamEs"`
 	// An optional comment to describe the distribution.
 	//
 	// The comment cannot be longer than 128 characters.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// A complex type that controls the following:.
 	//
 	// - Whether CloudFront replaces HTTP status codes in the 4xx and 5xx range with custom error messages before returning the response to the viewer.
 	// - How long CloudFront caches HTTP status codes in the 4xx and 5xx range.
 	//
 	// For more information about custom error pages, see [Customizing Error Responses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html) in the *Amazon CloudFront Developer Guide* .
-	CustomErrorResponses interface{} `json:"customErrorResponses"`
+	CustomErrorResponses interface{} `json:"customErrorResponses" yaml:"customErrorResponses"`
 	// `CfnDistribution.DistributionConfigProperty.CustomOrigin`.
-	CustomOrigin interface{} `json:"customOrigin"`
+	CustomOrigin interface{} `json:"customOrigin" yaml:"customOrigin"`
 	// A complex type that describes the default cache behavior if you don't specify a `CacheBehavior` element or if files don't match any of the values of `PathPattern` in `CacheBehavior` elements.
 	//
 	// You must create exactly one default cache behavior.
-	DefaultCacheBehavior interface{} `json:"defaultCacheBehavior"`
+	DefaultCacheBehavior interface{} `json:"defaultCacheBehavior" yaml:"defaultCacheBehavior"`
 	// The object that you want CloudFront to request from your origin (for example, `index.html` ) when a viewer requests the root URL for your distribution ( `http://www.example.com` ) instead of an object in your distribution ( `http://www.example.com/product-description.html` ). Specifying a default root object avoids exposing the contents of your distribution.
 	//
 	// Specify only the object name, for example, `index.html` . Don't add a `/` before the object name.
@@ -2943,7 +2943,7 @@ type CfnDistribution_DistributionConfigProperty struct {
 	// To replace the default root object, update the distribution configuration and specify the new object.
 	//
 	// For more information about the default root object, see [Creating a Default Root Object](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DefaultRootObject.html) in the *Amazon CloudFront Developer Guide* .
-	DefaultRootObject *string `json:"defaultRootObject"`
+	DefaultRootObject *string `json:"defaultRootObject" yaml:"defaultRootObject"`
 	// (Optional) Specify the maximum HTTP version that you want viewers to use to communicate with CloudFront .
 	//
 	// The default value for new web distributions is `http1.1` .
@@ -2951,7 +2951,7 @@ type CfnDistribution_DistributionConfigProperty struct {
 	// For viewers and CloudFront to use HTTP/2, viewers must support TLS 1.2 or later, and must support server name identification (SNI).
 	//
 	// In general, configuring CloudFront to communicate with viewers using HTTP/2 reduces latency. You can improve performance by optimizing for HTTP/2.
-	HttpVersion *string `json:"httpVersion"`
+	HttpVersion *string `json:"httpVersion" yaml:"httpVersion"`
 	// If you want CloudFront to respond to IPv6 DNS requests with an IPv6 address for your distribution, specify `true` .
 	//
 	// If you specify `false` , CloudFront responds to IPv6 DNS requests with the DNS response code `NOERROR` and with no IP addresses. This allows viewers to submit a second request, for an IPv4 address for your distribution.
@@ -2966,15 +2966,15 @@ type CfnDistribution_DistributionConfigProperty struct {
 	// For more information, see [Routing Traffic to an Amazon CloudFront Web Distribution by Using Your Domain Name](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-cloudfront-distribution.html) in the *Amazon Route 53 AWS Integration Developer Guide* .
 	//
 	// If you created a CNAME resource record set, either with Amazon Route 53 AWS Integration or with another DNS service, you don't need to make any changes. A CNAME record will route traffic to your distribution regardless of the IP address format of the viewer request.
-	Ipv6Enabled interface{} `json:"ipv6Enabled"`
+	Ipv6Enabled interface{} `json:"ipv6Enabled" yaml:"ipv6Enabled"`
 	// A complex type that controls whether access logs are written for the distribution.
 	//
 	// For more information about logging, see [Access Logs](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html) in the *Amazon CloudFront Developer Guide* .
-	Logging interface{} `json:"logging"`
+	Logging interface{} `json:"logging" yaml:"logging"`
 	// A complex type that contains information about origin groups for this distribution.
-	OriginGroups interface{} `json:"originGroups"`
+	OriginGroups interface{} `json:"originGroups" yaml:"originGroups"`
 	// A complex type that contains information about origins for this distribution.
-	Origins interface{} `json:"origins"`
+	Origins interface{} `json:"origins" yaml:"origins"`
 	// The price class that corresponds with the maximum price that you want to pay for CloudFront service.
 	//
 	// If you specify `PriceClass_All` , CloudFront responds to requests for your objects from all CloudFront edge locations.
@@ -2982,19 +2982,19 @@ type CfnDistribution_DistributionConfigProperty struct {
 	// If you specify a price class other than `PriceClass_All` , CloudFront serves your objects from the CloudFront edge location that has the lowest latency among the edge locations in your price class. Viewers who are in or near regions that are excluded from your specified price class may encounter slower performance.
 	//
 	// For more information about price classes, see [Choosing the Price Class for a CloudFront Distribution](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PriceClass.html) in the *Amazon CloudFront Developer Guide* . For information about CloudFront pricing, including how price classes (such as Price Class 100) map to CloudFront regions, see [Amazon CloudFront Pricing](https://docs.aws.amazon.com/cloudfront/pricing/) .
-	PriceClass *string `json:"priceClass"`
+	PriceClass *string `json:"priceClass" yaml:"priceClass"`
 	// A complex type that identifies ways in which you want to restrict distribution of your content.
-	Restrictions interface{} `json:"restrictions"`
+	Restrictions interface{} `json:"restrictions" yaml:"restrictions"`
 	// `CfnDistribution.DistributionConfigProperty.S3Origin`.
-	S3Origin interface{} `json:"s3Origin"`
+	S3Origin interface{} `json:"s3Origin" yaml:"s3Origin"`
 	// A complex type that determines the distribution’s SSL/TLS configuration for communicating with viewers.
-	ViewerCertificate interface{} `json:"viewerCertificate"`
+	ViewerCertificate interface{} `json:"viewerCertificate" yaml:"viewerCertificate"`
 	// A unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution.
 	//
 	// To specify a web ACL created using the latest version of AWS WAF , use the ACL ARN, for example `arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a` . To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `473e64fd-f30b-4765-81a0-62ad96dd167a` .
 	//
 	// AWS WAF is a web application firewall that lets you monitor the HTTP and HTTPS requests that are forwarded to CloudFront, and lets you control access to your content. Based on conditions that you specify, such as the IP addresses that requests originate from or the values of query strings, CloudFront responds to requests either with the requested content or with an HTTP 403 status code (Forbidden). You can also configure CloudFront to return a custom error page when a request is blocked. For more information about AWS WAF , see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html) .
-	WebAclId *string `json:"webAclId"`
+	WebAclId *string `json:"webAclId" yaml:"webAclId"`
 }
 
 // This field is deprecated.
@@ -3027,7 +3027,7 @@ type CfnDistribution_ForwardedValuesProperty struct {
 	// If you specify false for `QueryString` , CloudFront doesn't forward any query string parameters to the origin, and doesn't cache based on query string parameters.
 	//
 	// For more information, see [Configuring CloudFront to Cache Based on Query String Parameters](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/QueryStringParameters.html) in the *Amazon CloudFront Developer Guide* .
-	QueryString interface{} `json:"queryString"`
+	QueryString interface{} `json:"queryString" yaml:"queryString"`
 	// This field is deprecated.
 	//
 	// We recommend that you use a cache policy or an origin request policy instead of this field.
@@ -3037,7 +3037,7 @@ type CfnDistribution_ForwardedValuesProperty struct {
 	// If you want to send cookies to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide* .
 	//
 	// A complex type that specifies whether you want CloudFront to forward cookies to the origin and, if so, which ones. For more information about forwarding cookies to the origin, see [How CloudFront Forwards, Caches, and Logs Cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Cookies.html) in the *Amazon CloudFront Developer Guide* .
-	Cookies interface{} `json:"cookies"`
+	Cookies interface{} `json:"cookies" yaml:"cookies"`
 	// This field is deprecated.
 	//
 	// We recommend that you use a cache policy or an origin request policy instead of this field.
@@ -3049,7 +3049,7 @@ type CfnDistribution_ForwardedValuesProperty struct {
 	// A complex type that specifies the `Headers` , if any, that you want CloudFront to forward to the origin for this cache behavior (whitelisted headers). For the headers that you specify, CloudFront also caches separate versions of a specified object that is based on the header values in viewer requests.
 	//
 	// For more information, see [Caching Content Based on Request Headers](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/header-caching.html) in the *Amazon CloudFront Developer Guide* .
-	Headers *[]*string `json:"headers"`
+	Headers *[]*string `json:"headers" yaml:"headers"`
 	// This field is deprecated.
 	//
 	// We recommend that you use a cache policy or an origin request policy instead of this field.
@@ -3059,7 +3059,7 @@ type CfnDistribution_ForwardedValuesProperty struct {
 	// If you want to send query strings to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide* .
 	//
 	// A complex type that contains information about the query string parameters that you want CloudFront to use for caching for this cache behavior.
-	QueryStringCacheKeys *[]*string `json:"queryStringCacheKeys"`
+	QueryStringCacheKeys *[]*string `json:"queryStringCacheKeys" yaml:"queryStringCacheKeys"`
 }
 
 // A CloudFront function that is associated with a cache behavior in a CloudFront distribution.
@@ -3070,9 +3070,9 @@ type CfnDistribution_FunctionAssociationProperty struct {
 	// The event type of the function, either `viewer-request` or `viewer-response` .
 	//
 	// You cannot use origin-facing event types ( `origin-request` and `origin-response` ) with a CloudFront function.
-	EventType *string `json:"eventType"`
+	EventType *string `json:"eventType" yaml:"eventType"`
 	// The Amazon Resource Name (ARN) of the function.
-	FunctionArn *string `json:"functionArn"`
+	FunctionArn *string `json:"functionArn" yaml:"functionArn"`
 }
 
 // A complex type that controls the countries in which your content is distributed.
@@ -3087,13 +3087,13 @@ type CfnDistribution_GeoRestrictionProperty struct {
 	// - `none` : No geo restriction is enabled, meaning access to content is not restricted by client geo location.
 	// - `blacklist` : The `Location` elements specify the countries in which you don't want CloudFront to distribute your content.
 	// - `whitelist` : The `Location` elements specify the countries in which you want CloudFront to distribute your content.
-	RestrictionType *string `json:"restrictionType"`
+	RestrictionType *string `json:"restrictionType" yaml:"restrictionType"`
 	// A complex type that contains a `Location` element for each country in which you want CloudFront either to distribute your content ( `whitelist` ) or not distribute your content ( `blacklist` ).
 	//
 	// The `Location` element is a two-letter, uppercase country code for a country that you want to include in your `blacklist` or `whitelist` . Include one `Location` element for each country.
 	//
 	// CloudFront and `MaxMind` both use `ISO 3166` country codes. For the current list of countries and the corresponding codes, see `ISO 3166-1-alpha-2` code on the *International Organization for Standardization* website. You can also refer to the country list on the CloudFront console, which includes both country names and codes.
-	Locations *[]*string `json:"locations"`
+	Locations *[]*string `json:"locations" yaml:"locations"`
 }
 
 // A complex type that contains a Lambda@Edge function association.
@@ -3109,39 +3109,39 @@ type CfnDistribution_LambdaFunctionAssociationProperty struct {
 	// - `viewer-response` : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache.
 	//
 	// If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute.
-	EventType *string `json:"eventType"`
+	EventType *string `json:"eventType" yaml:"eventType"`
 	// A flag that allows a Lambda@Edge function to have read access to the body content.
 	//
 	// For more information, see [Accessing the Request Body by Choosing the Include Body Option](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-include-body-access.html) in the Amazon CloudFront Developer Guide.
-	IncludeBody interface{} `json:"includeBody"`
+	IncludeBody interface{} `json:"includeBody" yaml:"includeBody"`
 	// The ARN of the Lambda@Edge function.
 	//
 	// You must specify the ARN of a function version; you can't specify an alias or $LATEST.
-	LambdaFunctionArn *string `json:"lambdaFunctionArn"`
+	LambdaFunctionArn *string `json:"lambdaFunctionArn" yaml:"lambdaFunctionArn"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnDistribution_LegacyCustomOriginProperty struct {
 	// `CfnDistribution.LegacyCustomOriginProperty.DNSName`.
-	DnsName *string `json:"dnsName"`
+	DnsName *string `json:"dnsName" yaml:"dnsName"`
 	// `CfnDistribution.LegacyCustomOriginProperty.OriginProtocolPolicy`.
-	OriginProtocolPolicy *string `json:"originProtocolPolicy"`
+	OriginProtocolPolicy *string `json:"originProtocolPolicy" yaml:"originProtocolPolicy"`
 	// `CfnDistribution.LegacyCustomOriginProperty.OriginSSLProtocols`.
-	OriginSslProtocols *[]*string `json:"originSslProtocols"`
+	OriginSslProtocols *[]*string `json:"originSslProtocols" yaml:"originSslProtocols"`
 	// `CfnDistribution.LegacyCustomOriginProperty.HTTPPort`.
-	HttpPort *float64 `json:"httpPort"`
+	HttpPort *float64 `json:"httpPort" yaml:"httpPort"`
 	// `CfnDistribution.LegacyCustomOriginProperty.HTTPSPort`.
-	HttpsPort *float64 `json:"httpsPort"`
+	HttpsPort *float64 `json:"httpsPort" yaml:"httpsPort"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnDistribution_LegacyS3OriginProperty struct {
 	// `CfnDistribution.LegacyS3OriginProperty.DNSName`.
-	DnsName *string `json:"dnsName"`
+	DnsName *string `json:"dnsName" yaml:"dnsName"`
 	// `CfnDistribution.LegacyS3OriginProperty.OriginAccessIdentity`.
-	OriginAccessIdentity *string `json:"originAccessIdentity"`
+	OriginAccessIdentity *string `json:"originAccessIdentity" yaml:"originAccessIdentity"`
 }
 
 // A complex type that controls whether access logs are written for the distribution.
@@ -3150,15 +3150,15 @@ type CfnDistribution_LegacyS3OriginProperty struct {
 //
 type CfnDistribution_LoggingProperty struct {
 	// The Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com` .
-	Bucket *string `json:"bucket"`
+	Bucket *string `json:"bucket" yaml:"bucket"`
 	// Specifies whether you want CloudFront to include cookies in access logs, specify `true` for `IncludeCookies` .
 	//
 	// If you choose to include cookies in logs, CloudFront logs all cookies regardless of how you configure the cache behaviors for this distribution. If you don't want to include cookies when you create a distribution or if you want to disable include cookies for an existing distribution, specify `false` for `IncludeCookies` .
-	IncludeCookies interface{} `json:"includeCookies"`
+	IncludeCookies interface{} `json:"includeCookies" yaml:"includeCookies"`
 	// An optional string that you want CloudFront to prefix to the access log `filenames` for this distribution, for example, `myprefix/` .
 	//
 	// If you want to enable logging, but you don't want to specify a prefix, you still must include an empty `Prefix` element in the `Logging` element.
-	Prefix *string `json:"prefix"`
+	Prefix *string `json:"prefix" yaml:"prefix"`
 }
 
 // A complex type that contains `HeaderName` and `HeaderValue` elements, if any, for this distribution.
@@ -3169,9 +3169,9 @@ type CfnDistribution_OriginCustomHeaderProperty struct {
 	// The name of a header that you want CloudFront to send to your origin.
 	//
 	// For more information, see [Adding Custom Headers to Origin Requests](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/forward-custom-headers.html) in the *Amazon CloudFront Developer Guide* .
-	HeaderName *string `json:"headerName"`
+	HeaderName *string `json:"headerName" yaml:"headerName"`
 	// The value for the header that you specified in the `HeaderName` field.
-	HeaderValue *string `json:"headerValue"`
+	HeaderValue *string `json:"headerValue" yaml:"headerValue"`
 }
 
 // A complex data type that includes information about the failover criteria for an origin group, including the status codes for which CloudFront will failover from the primary origin to the second origin.
@@ -3180,7 +3180,7 @@ type CfnDistribution_OriginCustomHeaderProperty struct {
 //
 type CfnDistribution_OriginGroupFailoverCriteriaProperty struct {
 	// The status codes that, when returned from the primary origin, will trigger CloudFront to failover to the second origin.
-	StatusCodes interface{} `json:"statusCodes"`
+	StatusCodes interface{} `json:"statusCodes" yaml:"statusCodes"`
 }
 
 // An origin in an origin group.
@@ -3189,7 +3189,7 @@ type CfnDistribution_OriginGroupFailoverCriteriaProperty struct {
 //
 type CfnDistribution_OriginGroupMemberProperty struct {
 	// The ID for an origin in an origin group.
-	OriginId *string `json:"originId"`
+	OriginId *string `json:"originId" yaml:"originId"`
 }
 
 // A complex data type for the origins included in an origin group.
@@ -3198,9 +3198,9 @@ type CfnDistribution_OriginGroupMemberProperty struct {
 //
 type CfnDistribution_OriginGroupMembersProperty struct {
 	// Items (origins) in an origin group.
-	Items interface{} `json:"items"`
+	Items interface{} `json:"items" yaml:"items"`
 	// The number of origins in an origin group.
-	Quantity *float64 `json:"quantity"`
+	Quantity *float64 `json:"quantity" yaml:"quantity"`
 }
 
 // An origin group includes two origins (a primary origin and a second origin to failover to) and a failover criteria that you specify.
@@ -3211,11 +3211,11 @@ type CfnDistribution_OriginGroupMembersProperty struct {
 //
 type CfnDistribution_OriginGroupProperty struct {
 	// A complex type that contains information about the failover criteria for an origin group.
-	FailoverCriteria interface{} `json:"failoverCriteria"`
+	FailoverCriteria interface{} `json:"failoverCriteria" yaml:"failoverCriteria"`
 	// The origin group's ID.
-	Id *string `json:"id"`
+	Id *string `json:"id" yaml:"id"`
 	// A complex type that contains information about the origins in an origin group.
-	Members interface{} `json:"members"`
+	Members interface{} `json:"members" yaml:"members"`
 }
 
 // A complex data type for the origin groups specified for a distribution.
@@ -3224,9 +3224,9 @@ type CfnDistribution_OriginGroupProperty struct {
 //
 type CfnDistribution_OriginGroupsProperty struct {
 	// The number of origin groups.
-	Quantity *float64 `json:"quantity"`
+	Quantity *float64 `json:"quantity" yaml:"quantity"`
 	// The items (origin groups) in a distribution.
-	Items interface{} `json:"items"`
+	Items interface{} `json:"items" yaml:"items"`
 }
 
 // An origin.
@@ -3250,11 +3250,11 @@ type CfnDistribution_OriginProperty struct {
 	// The domain name for the origin.
 	//
 	// For more information, see [Origin Domain Name](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesDomainName) in the *Amazon CloudFront Developer Guide* .
-	DomainName *string `json:"domainName"`
+	DomainName *string `json:"domainName" yaml:"domainName"`
 	// A unique identifier for the origin. This value must be unique within the distribution.
 	//
 	// Use this value to specify the `TargetOriginId` in a `CacheBehavior` or `DefaultCacheBehavior` .
-	Id *string `json:"id"`
+	Id *string `json:"id" yaml:"id"`
 	// The number of times that CloudFront attempts to connect to the origin.
 	//
 	// The minimum number is 1, the maximum is 3, and the default (if you don’t specify otherwise) is 3.
@@ -3262,33 +3262,33 @@ type CfnDistribution_OriginProperty struct {
 	// For a custom origin (including an Amazon S3 bucket that’s configured with static website hosting), this value also specifies the number of times that CloudFront attempts to get a response from the origin, in the case of an [Origin Response Timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout) .
 	//
 	// For more information, see [Origin Connection Attempts](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#origin-connection-attempts) in the *Amazon CloudFront Developer Guide* .
-	ConnectionAttempts *float64 `json:"connectionAttempts"`
+	ConnectionAttempts *float64 `json:"connectionAttempts" yaml:"connectionAttempts"`
 	// The number of seconds that CloudFront waits when trying to establish a connection to the origin.
 	//
 	// The minimum timeout is 1 second, the maximum is 10 seconds, and the default (if you don’t specify otherwise) is 10 seconds.
 	//
 	// For more information, see [Origin Connection Timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#origin-connection-timeout) in the *Amazon CloudFront Developer Guide* .
-	ConnectionTimeout *float64 `json:"connectionTimeout"`
+	ConnectionTimeout *float64 `json:"connectionTimeout" yaml:"connectionTimeout"`
 	// Use this type to specify an origin that is not an Amazon S3 bucket, with one exception.
 	//
 	// If the Amazon S3 bucket is configured with static website hosting, use this type. If the Amazon S3 bucket is not configured with static website hosting, use the `S3OriginConfig` type instead.
-	CustomOriginConfig interface{} `json:"customOriginConfig"`
+	CustomOriginConfig interface{} `json:"customOriginConfig" yaml:"customOriginConfig"`
 	// A list of HTTP header names and values that CloudFront adds to the requests that it sends to the origin.
 	//
 	// For more information, see [Adding Custom Headers to Origin Requests](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/add-origin-custom-headers.html) in the *Amazon CloudFront Developer Guide* .
-	OriginCustomHeaders interface{} `json:"originCustomHeaders"`
+	OriginCustomHeaders interface{} `json:"originCustomHeaders" yaml:"originCustomHeaders"`
 	// An optional path that CloudFront appends to the origin domain name when CloudFront requests content from the origin.
 	//
 	// For more information, see [Origin Path](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginPath) in the *Amazon CloudFront Developer Guide* .
-	OriginPath *string `json:"originPath"`
+	OriginPath *string `json:"originPath" yaml:"originPath"`
 	// CloudFront Origin Shield. Using Origin Shield can help reduce the load on your origin.
 	//
 	// For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the *Amazon CloudFront Developer Guide* .
-	OriginShield interface{} `json:"originShield"`
+	OriginShield interface{} `json:"originShield" yaml:"originShield"`
 	// Use this type to specify an origin that is an Amazon S3 bucket that is not configured with static website hosting.
 	//
 	// To specify any other type of origin, including an Amazon S3 bucket that is configured with static website hosting, use the `CustomOriginConfig` type instead.
-	S3OriginConfig interface{} `json:"s3OriginConfig"`
+	S3OriginConfig interface{} `json:"s3OriginConfig" yaml:"s3OriginConfig"`
 }
 
 // CloudFront Origin Shield.
@@ -3301,13 +3301,13 @@ type CfnDistribution_OriginShieldProperty struct {
 	// A flag that specifies whether Origin Shield is enabled.
 	//
 	// When it’s enabled, CloudFront routes all requests through Origin Shield, which can help protect your origin. When it’s disabled, CloudFront might send requests directly to your origin from multiple edge locations or regional edge caches.
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 	// The AWS Region for Origin Shield.
 	//
 	// Specify the AWS Region that has the lowest latency to your origin. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as `us-east-2` .
 	//
 	// When you enable CloudFront Origin Shield, you must specify the AWS Region for Origin Shield. For the list of AWS Regions that you can specify, and for help choosing the best Region for your origin, see [Choosing the AWS Region for Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html#choose-origin-shield-region) in the *Amazon CloudFront Developer Guide* .
-	OriginShieldRegion *string `json:"originShieldRegion"`
+	OriginShieldRegion *string `json:"originShieldRegion" yaml:"originShieldRegion"`
 }
 
 // A complex type that identifies ways in which you want to restrict distribution of your content.
@@ -3318,7 +3318,7 @@ type CfnDistribution_RestrictionsProperty struct {
 	// A complex type that controls the countries in which your content is distributed.
 	//
 	// CloudFront determines the location of your users using `MaxMind` GeoIP databases. To disable geo restriction, remove the [Restrictions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-restrictions) property from your stack template.
-	GeoRestriction interface{} `json:"geoRestriction"`
+	GeoRestriction interface{} `json:"geoRestriction" yaml:"geoRestriction"`
 }
 
 // A complex type that contains information about the Amazon S3 origin.
@@ -3343,7 +3343,7 @@ type CfnDistribution_S3OriginConfigProperty struct {
 	// To replace the origin access identity, update the distribution configuration and specify the new origin access identity.
 	//
 	// For more information about the origin access identity, see [Serving Private Content through CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) in the *Amazon CloudFront Developer Guide* .
-	OriginAccessIdentity *string `json:"originAccessIdentity"`
+	OriginAccessIdentity *string `json:"originAccessIdentity" yaml:"originAccessIdentity"`
 }
 
 // A complex data type for the status codes that you specify that, when returned by a primary origin, trigger CloudFront to failover to a second origin.
@@ -3352,9 +3352,9 @@ type CfnDistribution_S3OriginConfigProperty struct {
 //
 type CfnDistribution_StatusCodesProperty struct {
 	// The items (status codes) for an origin group.
-	Items interface{} `json:"items"`
+	Items interface{} `json:"items" yaml:"items"`
 	// The number of status codes.
-	Quantity *float64 `json:"quantity"`
+	Quantity *float64 `json:"quantity" yaml:"quantity"`
 }
 
 // A complex type that determines the distribution’s SSL/TLS configuration for communicating with viewers.
@@ -3385,7 +3385,7 @@ type CfnDistribution_ViewerCertificateProperty struct {
 	// If the distribution uses `Aliases` (alternate domain names or CNAMEs) and the SSL/TLS certificate is stored in [AWS Certificate Manager (ACM)](https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html) , provide the Amazon Resource Name (ARN) of the ACM certificate. CloudFront only supports ACM certificates in the US East (N. Virginia) Region ( `us-east-1` ).
 	//
 	// If you specify an ACM certificate ARN, you must also specify values for `MinimumProtocolVersion` and `SSLSupportMethod` . (In CloudFormation, the field name is `SslSupportMethod` . Note the different capitalization.)
-	AcmCertificateArn *string `json:"acmCertificateArn"`
+	AcmCertificateArn *string `json:"acmCertificateArn" yaml:"acmCertificateArn"`
 	// If the distribution uses the CloudFront domain name such as `d111111abcdef8.cloudfront.net` , set this field to `true` .
 	//
 	// If the distribution uses `Aliases` (alternate domain names or CNAMEs), set this field to `false` and specify values for the following fields:
@@ -3395,13 +3395,13 @@ type CfnDistribution_ViewerCertificateProperty struct {
 	// In CloudFormation, these field names are `AcmCertificateArn` and `IamCertificateId` . Note the different capitalization.
 	// - `MinimumProtocolVersion`
 	// - `SSLSupportMethod` (In CloudFormation, this field name is `SslSupportMethod` . Note the different capitalization.)
-	CloudFrontDefaultCertificate interface{} `json:"cloudFrontDefaultCertificate"`
+	CloudFrontDefaultCertificate interface{} `json:"cloudFrontDefaultCertificate" yaml:"cloudFrontDefaultCertificate"`
 	// > In CloudFormation, this field name is `IamCertificateId` . Note the different capitalization.
 	//
 	// If the distribution uses `Aliases` (alternate domain names or CNAMEs) and the SSL/TLS certificate is stored in [AWS Identity and Access Management (IAM)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html) , provide the ID of the IAM certificate.
 	//
 	// If you specify an IAM certificate ID, you must also specify values for `MinimumProtocolVersion` and `SSLSupportMethod` . (In CloudFormation, the field name is `SslSupportMethod` . Note the different capitalization.)
-	IamCertificateId *string `json:"iamCertificateId"`
+	IamCertificateId *string `json:"iamCertificateId" yaml:"iamCertificateId"`
 	// If the distribution uses `Aliases` (alternate domain names or CNAMEs), specify the security policy that you want CloudFront to use for HTTPS connections with viewers.
 	//
 	// The security policy determines two settings:
@@ -3416,7 +3416,7 @@ type CfnDistribution_ViewerCertificateProperty struct {
 	// When you’re using SNI only (you set `SSLSupportMethod` to `sni-only` ), you must specify `TLSv1` or higher. (In CloudFormation, the field name is `SslSupportMethod` . Note the different capitalization.)
 	//
 	// If the distribution uses the CloudFront domain name such as `d111111abcdef8.cloudfront.net` (you set `CloudFrontDefaultCertificate` to `true` ), CloudFront automatically sets the security policy to `TLSv1` regardless of the value that you set here.
-	MinimumProtocolVersion *string `json:"minimumProtocolVersion"`
+	MinimumProtocolVersion *string `json:"minimumProtocolVersion" yaml:"minimumProtocolVersion"`
 	// > In CloudFormation, this field name is `SslSupportMethod` . Note the different capitalization.
 	//
 	// If the distribution uses `Aliases` (alternate domain names or CNAMEs), specify which viewers the distribution accepts HTTPS connections from.
@@ -3426,7 +3426,7 @@ type CfnDistribution_ViewerCertificateProperty struct {
 	// - `static-ip` - Do not specify this value unless your distribution has been enabled for this feature by the CloudFront team. If you have a use case that requires static IP addresses for a distribution, contact CloudFront through the [AWS Support Center](https://docs.aws.amazon.com/support/home) .
 	//
 	// If the distribution uses the CloudFront domain name such as `d111111abcdef8.cloudfront.net` , don’t set a value for this field.
-	SslSupportMethod *string `json:"sslSupportMethod"`
+	SslSupportMethod *string `json:"sslSupportMethod" yaml:"sslSupportMethod"`
 }
 
 // Properties for defining a `CfnDistribution`.
@@ -3437,9 +3437,9 @@ type CfnDistributionProps struct {
 	// The current configuration information for the distribution.
 	//
 	// Send a `GET` request to the `/ *CloudFront API version* /distribution ID/config` resource.
-	DistributionConfig interface{} `json:"distributionConfig"`
+	DistributionConfig interface{} `json:"distributionConfig" yaml:"distributionConfig"`
 	// A complex type that contains zero or more `Tag` elements.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::CloudFront::Function`.
@@ -4021,11 +4021,11 @@ func (c *jsiiProxy_CfnFunction) ValidateProperties(_properties interface{}) {
 //
 type CfnFunction_FunctionConfigProperty struct {
 	// A comment to describe the function.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// The function’s runtime environment.
 	//
 	// The only valid value is `cloudfront-js-1.0` .
-	Runtime *string `json:"runtime"`
+	Runtime *string `json:"runtime" yaml:"runtime"`
 }
 
 // Contains metadata about a CloudFront function.
@@ -4036,7 +4036,7 @@ type CfnFunction_FunctionMetadataProperty struct {
 	// The Amazon Resource Name (ARN) of the function.
 	//
 	// The ARN uniquely identifies the function.
-	FunctionArn *string `json:"functionArn"`
+	FunctionArn *string `json:"functionArn" yaml:"functionArn"`
 }
 
 // Properties for defining a `CfnFunction`.
@@ -4045,17 +4045,17 @@ type CfnFunction_FunctionMetadataProperty struct {
 //
 type CfnFunctionProps struct {
 	// A name to identify the function.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// A flag that determines whether to automatically publish the function to the `LIVE` stage when it’s created.
 	//
 	// To automatically publish to the `LIVE` stage, set this property to `true` .
-	AutoPublish interface{} `json:"autoPublish"`
+	AutoPublish interface{} `json:"autoPublish" yaml:"autoPublish"`
 	// The function code.
 	//
 	// For more information about writing a CloudFront function, see [Writing function code for CloudFront Functions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/writing-function-code.html) in the *Amazon CloudFront Developer Guide* .
-	FunctionCode *string `json:"functionCode"`
+	FunctionCode *string `json:"functionCode" yaml:"functionCode"`
 	// Contains configuration information about a CloudFront function.
-	FunctionConfig interface{} `json:"functionConfig"`
+	FunctionConfig interface{} `json:"functionConfig" yaml:"functionConfig"`
 }
 
 // A CloudFormation `AWS::CloudFront::KeyGroup`.
@@ -4562,13 +4562,13 @@ func (c *jsiiProxy_CfnKeyGroup) ValidateProperties(_properties interface{}) {
 //
 type CfnKeyGroup_KeyGroupConfigProperty struct {
 	// A list of the identifiers of the public keys in the key group.
-	Items *[]*string `json:"items"`
+	Items *[]*string `json:"items" yaml:"items"`
 	// A name to identify the key group.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// A comment to describe the key group.
 	//
 	// The comment cannot be longer than 128 characters.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 }
 
 // Properties for defining a `CfnKeyGroup`.
@@ -4577,7 +4577,7 @@ type CfnKeyGroup_KeyGroupConfigProperty struct {
 //
 type CfnKeyGroupProps struct {
 	// The key group configuration.
-	KeyGroupConfig interface{} `json:"keyGroupConfig"`
+	KeyGroupConfig interface{} `json:"keyGroupConfig" yaml:"keyGroupConfig"`
 }
 
 // A CloudFormation `AWS::CloudFront::OriginRequestPolicy`.
@@ -5092,9 +5092,9 @@ type CfnOriginRequestPolicy_CookiesConfigProperty struct {
 	// - `none` – Cookies in viewer requests are not included in requests that CloudFront sends to the origin. Even when this field is set to `none` , any cookies that are listed in a `CachePolicy` *are* included in origin requests.
 	// - `whitelist` – The cookies in viewer requests that are listed in the `CookieNames` type are included in requests that CloudFront sends to the origin.
 	// - `all` – All cookies in viewer requests are included in requests that CloudFront sends to the origin.
-	CookieBehavior *string `json:"cookieBehavior"`
+	CookieBehavior *string `json:"cookieBehavior" yaml:"cookieBehavior"`
 	// Contains a list of cookie names.
-	Cookies *[]*string `json:"cookies"`
+	Cookies *[]*string `json:"cookies" yaml:"cookies"`
 }
 
 // An object that determines whether any HTTP headers (and if so, which headers) are included in requests that CloudFront sends to the origin.
@@ -5108,9 +5108,9 @@ type CfnOriginRequestPolicy_HeadersConfigProperty struct {
 	// - `whitelist` – The HTTP headers that are listed in the `Headers` type are included in requests that CloudFront sends to the origin.
 	// - `allViewer` – All HTTP headers in viewer requests are included in requests that CloudFront sends to the origin.
 	// - `allViewerAndWhitelistCloudFront` – All HTTP headers in viewer requests and the additional CloudFront headers that are listed in the `Headers` type are included in requests that CloudFront sends to the origin. The additional headers are added by CloudFront.
-	HeaderBehavior *string `json:"headerBehavior"`
+	HeaderBehavior *string `json:"headerBehavior" yaml:"headerBehavior"`
 	// Contains a list of HTTP header names.
-	Headers *[]*string `json:"headers"`
+	Headers *[]*string `json:"headers" yaml:"headers"`
 }
 
 // An origin request policy configuration.
@@ -5127,19 +5127,19 @@ type CfnOriginRequestPolicy_HeadersConfigProperty struct {
 //
 type CfnOriginRequestPolicy_OriginRequestPolicyConfigProperty struct {
 	// The cookies from viewer requests to include in origin requests.
-	CookiesConfig interface{} `json:"cookiesConfig"`
+	CookiesConfig interface{} `json:"cookiesConfig" yaml:"cookiesConfig"`
 	// The HTTP headers to include in origin requests.
 	//
 	// These can include headers from viewer requests and additional headers added by CloudFront.
-	HeadersConfig interface{} `json:"headersConfig"`
+	HeadersConfig interface{} `json:"headersConfig" yaml:"headersConfig"`
 	// A unique name to identify the origin request policy.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The URL query strings from viewer requests to include in origin requests.
-	QueryStringsConfig interface{} `json:"queryStringsConfig"`
+	QueryStringsConfig interface{} `json:"queryStringsConfig" yaml:"queryStringsConfig"`
 	// A comment to describe the origin request policy.
 	//
 	// The comment cannot be longer than 128 characters.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 }
 
 // An object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in requests that CloudFront sends to the origin.
@@ -5154,9 +5154,9 @@ type CfnOriginRequestPolicy_QueryStringsConfigProperty struct {
 	// - `none` – Query strings in viewer requests are not included in requests that CloudFront sends to the origin. Even when this field is set to `none` , any query strings that are listed in a `CachePolicy` *are* included in origin requests.
 	// - `whitelist` – The query strings in viewer requests that are listed in the `QueryStringNames` type are included in requests that CloudFront sends to the origin.
 	// - `all` – All query strings in viewer requests are included in requests that CloudFront sends to the origin.
-	QueryStringBehavior *string `json:"queryStringBehavior"`
+	QueryStringBehavior *string `json:"queryStringBehavior" yaml:"queryStringBehavior"`
 	// Contains a list of query string names.
-	QueryStrings *[]*string `json:"queryStrings"`
+	QueryStrings *[]*string `json:"queryStrings" yaml:"queryStrings"`
 }
 
 // Properties for defining a `CfnOriginRequestPolicy`.
@@ -5165,7 +5165,7 @@ type CfnOriginRequestPolicy_QueryStringsConfigProperty struct {
 //
 type CfnOriginRequestPolicyProps struct {
 	// The origin request policy configuration.
-	OriginRequestPolicyConfig interface{} `json:"originRequestPolicyConfig"`
+	OriginRequestPolicyConfig interface{} `json:"originRequestPolicyConfig" yaml:"originRequestPolicyConfig"`
 }
 
 // A CloudFormation `AWS::CloudFront::PublicKey`.
@@ -5668,15 +5668,15 @@ func (c *jsiiProxy_CfnPublicKey) ValidateProperties(_properties interface{}) {
 //
 type CfnPublicKey_PublicKeyConfigProperty struct {
 	// A string included in the request to help make sure that the request can’t be replayed.
-	CallerReference *string `json:"callerReference"`
+	CallerReference *string `json:"callerReference" yaml:"callerReference"`
 	// The public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) , or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html) .
-	EncodedKey *string `json:"encodedKey"`
+	EncodedKey *string `json:"encodedKey" yaml:"encodedKey"`
 	// A name to help identify the public key.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// A comment to describe the public key.
 	//
 	// The comment cannot be longer than 128 characters.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 }
 
 // Properties for defining a `CfnPublicKey`.
@@ -5685,7 +5685,7 @@ type CfnPublicKey_PublicKeyConfigProperty struct {
 //
 type CfnPublicKeyProps struct {
 	// Configuration information about a public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) , or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html) .
-	PublicKeyConfig interface{} `json:"publicKeyConfig"`
+	PublicKeyConfig interface{} `json:"publicKeyConfig" yaml:"publicKeyConfig"`
 }
 
 // A CloudFormation `AWS::CloudFront::RealtimeLogConfig`.
@@ -6237,11 +6237,11 @@ func (c *jsiiProxy_CfnRealtimeLogConfig) ValidateProperties(_properties interfac
 //
 type CfnRealtimeLogConfig_EndPointProperty struct {
 	// Contains information about the Amazon Kinesis data stream where you are sending real-time log data.
-	KinesisStreamConfig interface{} `json:"kinesisStreamConfig"`
+	KinesisStreamConfig interface{} `json:"kinesisStreamConfig" yaml:"kinesisStreamConfig"`
 	// The type of data stream where you are sending real-time log data.
 	//
 	// The only valid value is `Kinesis` .
-	StreamType *string `json:"streamType"`
+	StreamType *string `json:"streamType" yaml:"streamType"`
 }
 
 // Contains information about the Amazon Kinesis data stream where you are sending real-time log data.
@@ -6252,9 +6252,9 @@ type CfnRealtimeLogConfig_KinesisStreamConfigProperty struct {
 	// The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that CloudFront can use to send real-time log data to your Kinesis data stream.
 	//
 	// For more information the IAM role, see [Real-time log configuration IAM role](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role) in the *Amazon CloudFront Developer Guide* .
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// The Amazon Resource Name (ARN) of the Kinesis data stream where you are sending real-time log data.
-	StreamArn *string `json:"streamArn"`
+	StreamArn *string `json:"streamArn" yaml:"streamArn"`
 }
 
 // Properties for defining a `CfnRealtimeLogConfig`.
@@ -6263,19 +6263,19 @@ type CfnRealtimeLogConfig_KinesisStreamConfigProperty struct {
 //
 type CfnRealtimeLogConfigProps struct {
 	// Contains information about the Amazon Kinesis data stream where you are sending real-time log data for this real-time log configuration.
-	EndPoints interface{} `json:"endPoints"`
+	EndPoints interface{} `json:"endPoints" yaml:"endPoints"`
 	// A list of fields that are included in each real-time log record.
 	//
 	// In an API response, the fields are provided in the same order in which they are sent to the Amazon Kinesis data stream.
 	//
 	// For more information about fields, see [Real-time log configuration fields](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) in the *Amazon CloudFront Developer Guide* .
-	Fields *[]*string `json:"fields"`
+	Fields *[]*string `json:"fields" yaml:"fields"`
 	// The unique name of this real-time log configuration.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The sampling rate for this real-time log configuration.
 	//
 	// The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. The sampling rate is an integer between 1 and 100, inclusive.
-	SamplingRate *float64 `json:"samplingRate"`
+	SamplingRate *float64 `json:"samplingRate" yaml:"samplingRate"`
 }
 
 // A CloudFormation `AWS::CloudFront::ResponseHeadersPolicy`.
@@ -6788,7 +6788,7 @@ type CfnResponseHeadersPolicy_AccessControlAllowHeadersProperty struct {
 	// The list of HTTP header names.
 	//
 	// You can specify `*` to allow all headers.
-	Items *[]*string `json:"items"`
+	Items *[]*string `json:"items" yaml:"items"`
 }
 
 // A list of HTTP methods that CloudFront includes as values for the `Access-Control-Allow-Methods` HTTP response header.
@@ -6810,7 +6810,7 @@ type CfnResponseHeadersPolicy_AccessControlAllowMethodsProperty struct {
 	// - `ALL`
 	//
 	// `ALL` is a special value that includes all of the listed HTTP methods.
-	Items *[]*string `json:"items"`
+	Items *[]*string `json:"items" yaml:"items"`
 }
 
 // A list of origins (domain names) that CloudFront can use as the value for the `Access-Control-Allow-Origin` HTTP response header.
@@ -6823,7 +6823,7 @@ type CfnResponseHeadersPolicy_AccessControlAllowOriginsProperty struct {
 	// The list of origins (domain names).
 	//
 	// You can specify `*` to allow all origins.
-	Items *[]*string `json:"items"`
+	Items *[]*string `json:"items" yaml:"items"`
 }
 
 // A list of HTTP headers that CloudFront includes as values for the `Access-Control-Expose-Headers` HTTP response header.
@@ -6836,7 +6836,7 @@ type CfnResponseHeadersPolicy_AccessControlExposeHeadersProperty struct {
 	// The list of HTTP headers.
 	//
 	// You can specify `*` to expose all headers.
-	Items *[]*string `json:"items"`
+	Items *[]*string `json:"items" yaml:"items"`
 }
 
 // The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header.
@@ -6847,9 +6847,9 @@ type CfnResponseHeadersPolicy_AccessControlExposeHeadersProperty struct {
 //
 type CfnResponseHeadersPolicy_ContentSecurityPolicyProperty struct {
 	// The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header.
-	ContentSecurityPolicy *string `json:"contentSecurityPolicy"`
+	ContentSecurityPolicy *string `json:"contentSecurityPolicy" yaml:"contentSecurityPolicy"`
 	// A Boolean that determines whether CloudFront overrides the `Content-Security-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
-	Override interface{} `json:"override"`
+	Override interface{} `json:"override" yaml:"override"`
 }
 
 // Determines whether CloudFront includes the `X-Content-Type-Options` HTTP response header with its value set to `nosniff` .
@@ -6860,7 +6860,7 @@ type CfnResponseHeadersPolicy_ContentSecurityPolicyProperty struct {
 //
 type CfnResponseHeadersPolicy_ContentTypeOptionsProperty struct {
 	// A Boolean that determines whether CloudFront overrides the `X-Content-Type-Options` HTTP response header received from the origin with the one specified in this response headers policy.
-	Override interface{} `json:"override"`
+	Override interface{} `json:"override" yaml:"override"`
 }
 
 // A configuration for a set of HTTP response headers that are used for cross-origin resource sharing (CORS).
@@ -6875,29 +6875,29 @@ type CfnResponseHeadersPolicy_CorsConfigProperty struct {
 	// A Boolean that CloudFront uses as the value for the `Access-Control-Allow-Credentials` HTTP response header.
 	//
 	// For more information about the `Access-Control-Allow-Credentials` HTTP response header, see [Access-Control-Allow-Credentials](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials) in the MDN Web Docs.
-	AccessControlAllowCredentials interface{} `json:"accessControlAllowCredentials"`
+	AccessControlAllowCredentials interface{} `json:"accessControlAllowCredentials" yaml:"accessControlAllowCredentials"`
 	// A list of HTTP header names that CloudFront includes as values for the `Access-Control-Allow-Headers` HTTP response header.
 	//
 	// For more information about the `Access-Control-Allow-Headers` HTTP response header, see [Access-Control-Allow-Headers](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Headers) in the MDN Web Docs.
-	AccessControlAllowHeaders interface{} `json:"accessControlAllowHeaders"`
+	AccessControlAllowHeaders interface{} `json:"accessControlAllowHeaders" yaml:"accessControlAllowHeaders"`
 	// A list of HTTP methods that CloudFront includes as values for the `Access-Control-Allow-Methods` HTTP response header.
 	//
 	// For more information about the `Access-Control-Allow-Methods` HTTP response header, see [Access-Control-Allow-Methods](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Methods) in the MDN Web Docs.
-	AccessControlAllowMethods interface{} `json:"accessControlAllowMethods"`
+	AccessControlAllowMethods interface{} `json:"accessControlAllowMethods" yaml:"accessControlAllowMethods"`
 	// A list of origins (domain names) that CloudFront can use as the value for the `Access-Control-Allow-Origin` HTTP response header.
 	//
 	// For more information about the `Access-Control-Allow-Origin` HTTP response header, see [Access-Control-Allow-Origin](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin) in the MDN Web Docs.
-	AccessControlAllowOrigins interface{} `json:"accessControlAllowOrigins"`
+	AccessControlAllowOrigins interface{} `json:"accessControlAllowOrigins" yaml:"accessControlAllowOrigins"`
 	// A Boolean that determines whether CloudFront overrides HTTP response headers received from the origin with the ones specified in this response headers policy.
-	OriginOverride interface{} `json:"originOverride"`
+	OriginOverride interface{} `json:"originOverride" yaml:"originOverride"`
 	// A list of HTTP headers that CloudFront includes as values for the `Access-Control-Expose-Headers` HTTP response header.
 	//
 	// For more information about the `Access-Control-Expose-Headers` HTTP response header, see [Access-Control-Expose-Headers](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Expose-Headers) in the MDN Web Docs.
-	AccessControlExposeHeaders interface{} `json:"accessControlExposeHeaders"`
+	AccessControlExposeHeaders interface{} `json:"accessControlExposeHeaders" yaml:"accessControlExposeHeaders"`
 	// A number that CloudFront uses as the value for the `Access-Control-Max-Age` HTTP response header.
 	//
 	// For more information about the `Access-Control-Max-Age` HTTP response header, see [Access-Control-Max-Age](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Max-Age) in the MDN Web Docs.
-	AccessControlMaxAgeSec *float64 `json:"accessControlMaxAgeSec"`
+	AccessControlMaxAgeSec *float64 `json:"accessControlMaxAgeSec" yaml:"accessControlMaxAgeSec"`
 }
 
 // An HTTP response header name and its value.
@@ -6908,11 +6908,11 @@ type CfnResponseHeadersPolicy_CorsConfigProperty struct {
 //
 type CfnResponseHeadersPolicy_CustomHeaderProperty struct {
 	// The HTTP response header name.
-	Header *string `json:"header"`
+	Header *string `json:"header" yaml:"header"`
 	// A Boolean that determines whether CloudFront overrides a response header with the same name received from the origin with the header specified here.
-	Override interface{} `json:"override"`
+	Override interface{} `json:"override" yaml:"override"`
 	// The value for the HTTP response header.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // A list of HTTP response header names and their values.
@@ -6923,7 +6923,7 @@ type CfnResponseHeadersPolicy_CustomHeaderProperty struct {
 //
 type CfnResponseHeadersPolicy_CustomHeadersConfigProperty struct {
 	// The list of HTTP response headers and their values.
-	Items interface{} `json:"items"`
+	Items interface{} `json:"items" yaml:"items"`
 }
 
 // Determines whether CloudFront includes the `X-Frame-Options` HTTP response header and the header’s value.
@@ -6936,9 +6936,9 @@ type CfnResponseHeadersPolicy_FrameOptionsProperty struct {
 	// The value of the `X-Frame-Options` HTTP response header. Valid values are `DENY` and `SAMEORIGIN` .
 	//
 	// For more information about these values, see [X-Frame-Options](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options) in the MDN Web Docs.
-	FrameOption *string `json:"frameOption"`
+	FrameOption *string `json:"frameOption" yaml:"frameOption"`
 	// A Boolean that determines whether CloudFront overrides the `X-Frame-Options` HTTP response header received from the origin with the one specified in this response headers policy.
-	Override interface{} `json:"override"`
+	Override interface{} `json:"override" yaml:"override"`
 }
 
 // Determines whether CloudFront includes the `Referrer-Policy` HTTP response header and the header’s value.
@@ -6949,7 +6949,7 @@ type CfnResponseHeadersPolicy_FrameOptionsProperty struct {
 //
 type CfnResponseHeadersPolicy_ReferrerPolicyProperty struct {
 	// A Boolean that determines whether CloudFront overrides the `Referrer-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
-	Override interface{} `json:"override"`
+	Override interface{} `json:"override" yaml:"override"`
 	// The value of the `Referrer-Policy` HTTP response header. Valid values are:.
 	//
 	// - `no-referrer`
@@ -6962,7 +6962,7 @@ type CfnResponseHeadersPolicy_ReferrerPolicyProperty struct {
 	// - `unsafe-url`
 	//
 	// For more information about these values, see [Referrer-Policy](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy) in the MDN Web Docs.
-	ReferrerPolicy *string `json:"referrerPolicy"`
+	ReferrerPolicy *string `json:"referrerPolicy" yaml:"referrerPolicy"`
 }
 
 // A response headers policy configuration.
@@ -6975,17 +6975,17 @@ type CfnResponseHeadersPolicy_ResponseHeadersPolicyConfigProperty struct {
 	// A name to identify the response headers policy.
 	//
 	// The name must be unique for response headers policies in this AWS account .
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// A comment to describe the response headers policy.
 	//
 	// The comment cannot be longer than 128 characters.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// A configuration for a set of HTTP response headers that are used for cross-origin resource sharing (CORS).
-	CorsConfig interface{} `json:"corsConfig"`
+	CorsConfig interface{} `json:"corsConfig" yaml:"corsConfig"`
 	// A configuration for a set of custom HTTP response headers.
-	CustomHeadersConfig interface{} `json:"customHeadersConfig"`
+	CustomHeadersConfig interface{} `json:"customHeadersConfig" yaml:"customHeadersConfig"`
 	// A configuration for a set of security-related HTTP response headers.
-	SecurityHeadersConfig interface{} `json:"securityHeadersConfig"`
+	SecurityHeadersConfig interface{} `json:"securityHeadersConfig" yaml:"securityHeadersConfig"`
 }
 
 // A configuration for a set of security-related HTTP response headers.
@@ -6998,27 +6998,27 @@ type CfnResponseHeadersPolicy_SecurityHeadersConfigProperty struct {
 	// The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header.
 	//
 	// For more information about the `Content-Security-Policy` HTTP response header, see [Content-Security-Policy](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) in the MDN Web Docs.
-	ContentSecurityPolicy interface{} `json:"contentSecurityPolicy"`
+	ContentSecurityPolicy interface{} `json:"contentSecurityPolicy" yaml:"contentSecurityPolicy"`
 	// Determines whether CloudFront includes the `X-Content-Type-Options` HTTP response header with its value set to `nosniff` .
 	//
 	// For more information about the `X-Content-Type-Options` HTTP response header, see [X-Content-Type-Options](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options) in the MDN Web Docs.
-	ContentTypeOptions interface{} `json:"contentTypeOptions"`
+	ContentTypeOptions interface{} `json:"contentTypeOptions" yaml:"contentTypeOptions"`
 	// Determines whether CloudFront includes the `X-Frame-Options` HTTP response header and the header’s value.
 	//
 	// For more information about the `X-Frame-Options` HTTP response header, see [X-Frame-Options](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options) in the MDN Web Docs.
-	FrameOptions interface{} `json:"frameOptions"`
+	FrameOptions interface{} `json:"frameOptions" yaml:"frameOptions"`
 	// Determines whether CloudFront includes the `Referrer-Policy` HTTP response header and the header’s value.
 	//
 	// For more information about the `Referrer-Policy` HTTP response header, see [Referrer-Policy](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy) in the MDN Web Docs.
-	ReferrerPolicy interface{} `json:"referrerPolicy"`
+	ReferrerPolicy interface{} `json:"referrerPolicy" yaml:"referrerPolicy"`
 	// Determines whether CloudFront includes the `Strict-Transport-Security` HTTP response header and the header’s value.
 	//
 	// For more information about the `Strict-Transport-Security` HTTP response header, see [Strict-Transport-Security](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security) in the MDN Web Docs.
-	StrictTransportSecurity interface{} `json:"strictTransportSecurity"`
+	StrictTransportSecurity interface{} `json:"strictTransportSecurity" yaml:"strictTransportSecurity"`
 	// Determines whether CloudFront includes the `X-XSS-Protection` HTTP response header and the header’s value.
 	//
 	// For more information about the `X-XSS-Protection` HTTP response header, see [X-XSS-Protection](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection) in the MDN Web Docs.
-	XssProtection interface{} `json:"xssProtection"`
+	XssProtection interface{} `json:"xssProtection" yaml:"xssProtection"`
 }
 
 // Determines whether CloudFront includes the `Strict-Transport-Security` HTTP response header and the header’s value.
@@ -7029,13 +7029,13 @@ type CfnResponseHeadersPolicy_SecurityHeadersConfigProperty struct {
 //
 type CfnResponseHeadersPolicy_StrictTransportSecurityProperty struct {
 	// A number that CloudFront uses as the value for the `max-age` directive in the `Strict-Transport-Security` HTTP response header.
-	AccessControlMaxAgeSec *float64 `json:"accessControlMaxAgeSec"`
+	AccessControlMaxAgeSec *float64 `json:"accessControlMaxAgeSec" yaml:"accessControlMaxAgeSec"`
 	// A Boolean that determines whether CloudFront overrides the `Strict-Transport-Security` HTTP response header received from the origin with the one specified in this response headers policy.
-	Override interface{} `json:"override"`
+	Override interface{} `json:"override" yaml:"override"`
 	// A Boolean that determines whether CloudFront includes the `includeSubDomains` directive in the `Strict-Transport-Security` HTTP response header.
-	IncludeSubdomains interface{} `json:"includeSubdomains"`
+	IncludeSubdomains interface{} `json:"includeSubdomains" yaml:"includeSubdomains"`
 	// A Boolean that determines whether CloudFront includes the `preload` directive in the `Strict-Transport-Security` HTTP response header.
-	Preload interface{} `json:"preload"`
+	Preload interface{} `json:"preload" yaml:"preload"`
 }
 
 // Determines whether CloudFront includes the `X-XSS-Protection` HTTP response header and the header’s value.
@@ -7046,23 +7046,23 @@ type CfnResponseHeadersPolicy_StrictTransportSecurityProperty struct {
 //
 type CfnResponseHeadersPolicy_XSSProtectionProperty struct {
 	// A Boolean that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
-	Override interface{} `json:"override"`
+	Override interface{} `json:"override" yaml:"override"`
 	// A Boolean that determines the value of the `X-XSS-Protection` HTTP response header.
 	//
 	// When this setting is `true` , the value of the `X-XSS-Protection` header is `1` . When this setting is `false` , the value of the `X-XSS-Protection` header is `0` .
 	//
 	// For more information about these settings, see [X-XSS-Protection](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection) in the MDN Web Docs.
-	Protection interface{} `json:"protection"`
+	Protection interface{} `json:"protection" yaml:"protection"`
 	// A Boolean that determines whether CloudFront includes the `mode=block` directive in the `X-XSS-Protection` header.
 	//
 	// For more information about this directive, see [X-XSS-Protection](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection) in the MDN Web Docs.
-	ModeBlock interface{} `json:"modeBlock"`
+	ModeBlock interface{} `json:"modeBlock" yaml:"modeBlock"`
 	// A reporting URI, which CloudFront uses as the value of the `report` directive in the `X-XSS-Protection` header.
 	//
 	// You cannot specify a `ReportUri` when `ModeBlock` is `true` .
 	//
 	// For more information about using a reporting URL, see [X-XSS-Protection](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection) in the MDN Web Docs.
-	ReportUri *string `json:"reportUri"`
+	ReportUri *string `json:"reportUri" yaml:"reportUri"`
 }
 
 // Properties for defining a `CfnResponseHeadersPolicy`.
@@ -7073,7 +7073,7 @@ type CfnResponseHeadersPolicyProps struct {
 	// A response headers policy configuration.
 	//
 	// A response headers policy contains information about a set of HTTP response headers and their values. CloudFront adds the headers in the policy to HTTP responses that it sends for requests that match a cache behavior that’s associated with the policy.
-	ResponseHeadersPolicyConfig interface{} `json:"responseHeadersPolicyConfig"`
+	ResponseHeadersPolicyConfig interface{} `json:"responseHeadersPolicyConfig" yaml:"responseHeadersPolicyConfig"`
 }
 
 // A CloudFormation `AWS::CloudFront::StreamingDistribution`.
@@ -7576,15 +7576,15 @@ func (c *jsiiProxy_CfnStreamingDistribution) ValidateProperties(_properties inte
 //
 type CfnStreamingDistribution_LoggingProperty struct {
 	// The Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com` .
-	Bucket *string `json:"bucket"`
+	Bucket *string `json:"bucket" yaml:"bucket"`
 	// Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket.
 	//
 	// If you don't want to enable logging when you create a streaming distribution or if you want to disable logging for an existing streaming distribution, specify `false` for `Enabled` , and specify `empty Bucket` and `Prefix` elements. If you specify `false` for `Enabled` but you specify values for `Bucket` and `Prefix` , the values are automatically deleted.
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 	// An optional string that you want CloudFront to prefix to the access log filenames for this streaming distribution, for example, `myprefix/` .
 	//
 	// If you want to enable logging, but you don't want to specify a prefix, you still must include an empty `Prefix` element in the `Logging` element.
-	Prefix *string `json:"prefix"`
+	Prefix *string `json:"prefix" yaml:"prefix"`
 }
 
 // A complex type that contains information about the Amazon S3 bucket from which you want CloudFront to get your media files for distribution.
@@ -7593,7 +7593,7 @@ type CfnStreamingDistribution_LoggingProperty struct {
 //
 type CfnStreamingDistribution_S3OriginProperty struct {
 	// The DNS name of the Amazon S3 origin.
-	DomainName *string `json:"domainName"`
+	DomainName *string `json:"domainName" yaml:"domainName"`
 	// The CloudFront origin access identity to associate with the distribution.
 	//
 	// Use an origin access identity to configure the distribution so that end users can only access objects in an Amazon S3 bucket through CloudFront.
@@ -7605,7 +7605,7 @@ type CfnStreamingDistribution_S3OriginProperty struct {
 	// To replace the origin access identity, update the distribution configuration and specify the new origin access identity.
 	//
 	// For more information, see [Using an Origin Access Identity to Restrict Access to Your Amazon S3 Content](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html) in the *Amazon CloudFront Developer Guide* .
-	OriginAccessIdentity *string `json:"originAccessIdentity"`
+	OriginAccessIdentity *string `json:"originAccessIdentity" yaml:"originAccessIdentity"`
 }
 
 // The RTMP distribution's configuration information.
@@ -7614,21 +7614,21 @@ type CfnStreamingDistribution_S3OriginProperty struct {
 //
 type CfnStreamingDistribution_StreamingDistributionConfigProperty struct {
 	// Any comments you want to include about the streaming distribution.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// Whether the streaming distribution is enabled to accept user requests for content.
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 	// A complex type that contains information about the Amazon S3 bucket from which you want CloudFront to get your media files for distribution.
-	S3Origin interface{} `json:"s3Origin"`
+	S3Origin interface{} `json:"s3Origin" yaml:"s3Origin"`
 	// A complex type that specifies any AWS accounts that you want to permit to create signed URLs for private content.
 	//
 	// If you want the distribution to use signed URLs, include this element; if you want the distribution to use public URLs, remove this element. For more information, see [Serving Private Content through CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) in the *Amazon CloudFront Developer Guide* .
-	TrustedSigners interface{} `json:"trustedSigners"`
+	TrustedSigners interface{} `json:"trustedSigners" yaml:"trustedSigners"`
 	// A complex type that contains information about CNAMEs (alternate domain names), if any, for this streaming distribution.
-	Aliases *[]*string `json:"aliases"`
+	Aliases *[]*string `json:"aliases" yaml:"aliases"`
 	// A complex type that controls whether access logs are written for the streaming distribution.
-	Logging interface{} `json:"logging"`
+	Logging interface{} `json:"logging" yaml:"logging"`
 	// A complex type that contains information about price class for this streaming distribution.
-	PriceClass *string `json:"priceClass"`
+	PriceClass *string `json:"priceClass" yaml:"priceClass"`
 }
 
 // A list of AWS accounts whose public keys CloudFront can use to verify the signatures of signed URLs and signed cookies.
@@ -7639,11 +7639,11 @@ type CfnStreamingDistribution_TrustedSignersProperty struct {
 	// This field is `true` if any of the AWS accounts have public keys that CloudFront can use to verify the signatures of signed URLs and signed cookies.
 	//
 	// If not, this field is `false` .
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 	// An AWS account number that contains active CloudFront key pairs that CloudFront can use to verify the signatures of signed URLs and signed cookies.
 	//
 	// If the AWS account that owns the key pairs is the same account that owns the CloudFront distribution, the value of this field is `self` .
-	AwsAccountNumbers *[]*string `json:"awsAccountNumbers"`
+	AwsAccountNumbers *[]*string `json:"awsAccountNumbers" yaml:"awsAccountNumbers"`
 }
 
 // Properties for defining a `CfnStreamingDistribution`.
@@ -7652,9 +7652,9 @@ type CfnStreamingDistribution_TrustedSignersProperty struct {
 //
 type CfnStreamingDistributionProps struct {
 	// The current configuration information for the RTMP distribution.
-	StreamingDistributionConfig interface{} `json:"streamingDistributionConfig"`
+	StreamingDistributionConfig interface{} `json:"streamingDistributionConfig" yaml:"streamingDistributionConfig"`
 	// A complex type that contains zero or more `Tag` elements.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // Enums for the methods CloudFront can cache.
@@ -7957,9 +7957,9 @@ func (c *jsiiProxy_CloudFrontWebDistribution) ToString() *string {
 //
 type CloudFrontWebDistributionAttributes struct {
 	// The distribution ID for this distribution.
-	DistributionId *string `json:"distributionId"`
+	DistributionId *string `json:"distributionId" yaml:"distributionId"`
 	// The generated domain name of the Distribution, such as d111111abcdef8.cloudfront.net.
-	DomainName *string `json:"domainName"`
+	DomainName *string `json:"domainName" yaml:"domainName"`
 }
 
 // TODO: EXAMPLE
@@ -7968,37 +7968,37 @@ type CloudFrontWebDistributionProps struct {
 	// The origin configurations for this distribution.
 	//
 	// Behaviors are a part of the origin.
-	OriginConfigs *[]*SourceConfiguration `json:"originConfigs"`
+	OriginConfigs *[]*SourceConfiguration `json:"originConfigs" yaml:"originConfigs"`
 	// A comment for this distribution in the CloudFront console.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// The default object to serve.
-	DefaultRootObject *string `json:"defaultRootObject"`
+	DefaultRootObject *string `json:"defaultRootObject" yaml:"defaultRootObject"`
 	// Enable or disable the distribution.
-	Enabled *bool `json:"enabled"`
+	Enabled *bool `json:"enabled" yaml:"enabled"`
 	// If your distribution should have IPv6 enabled.
-	EnableIpV6 *bool `json:"enableIpV6"`
+	EnableIpV6 *bool `json:"enableIpV6" yaml:"enableIpV6"`
 	// How CloudFront should handle requests that are not successful (eg PageNotFound).
 	//
 	// By default, CloudFront does not replace HTTP status codes in the 4xx and 5xx range
 	// with custom error messages. CloudFront does not cache HTTP status codes.
-	ErrorConfigurations *[]*CfnDistribution_CustomErrorResponseProperty `json:"errorConfigurations"`
+	ErrorConfigurations *[]*CfnDistribution_CustomErrorResponseProperty `json:"errorConfigurations" yaml:"errorConfigurations"`
 	// Controls the countries in which your content is distributed.
-	GeoRestriction GeoRestriction `json:"geoRestriction"`
+	GeoRestriction GeoRestriction `json:"geoRestriction" yaml:"geoRestriction"`
 	// The max supported HTTP Versions.
-	HttpVersion HttpVersion `json:"httpVersion"`
+	HttpVersion HttpVersion `json:"httpVersion" yaml:"httpVersion"`
 	// Optional - if we should enable logging.
 	//
 	// You can pass an empty object ({}) to have us auto create a bucket for logging.
 	// Omission of this property indicates no logging is to be enabled.
-	LoggingConfig *LoggingConfiguration `json:"loggingConfig"`
+	LoggingConfig *LoggingConfiguration `json:"loggingConfig" yaml:"loggingConfig"`
 	// The price class for the distribution (this impacts how many locations CloudFront uses for your distribution, and billing).
-	PriceClass PriceClass `json:"priceClass"`
+	PriceClass PriceClass `json:"priceClass" yaml:"priceClass"`
 	// Specifies whether you want viewers to use HTTP or HTTPS to request your objects, whether you're using an alternate domain name with HTTPS, and if so, if you're using AWS Certificate Manager (ACM) or a third-party certificate authority.
 	// See: https://aws.amazon.com/premiumsupport/knowledge-center/custom-ssl-certificate-cloudfront/
 	//
-	ViewerCertificate ViewerCertificate `json:"viewerCertificate"`
+	ViewerCertificate ViewerCertificate `json:"viewerCertificate" yaml:"viewerCertificate"`
 	// The default viewer policy for incoming clients.
-	ViewerProtocolPolicy ViewerProtocolPolicy `json:"viewerProtocolPolicy"`
+	ViewerProtocolPolicy ViewerProtocolPolicy `json:"viewerProtocolPolicy" yaml:"viewerProtocolPolicy"`
 	// Unique identifier that specifies the AWS WAF web ACL to associate with this CloudFront distribution.
 	//
 	// To specify a web ACL created using the latest version of AWS WAF, use the ACL ARN, for example
@@ -8007,7 +8007,7 @@ type CloudFrontWebDistributionProps struct {
 	// To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `473e64fd-f30b-4765-81a0-62ad96dd167a`.
 	// See: https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CreateDistribution.html#API_CreateDistribution_RequestParameters.
 	//
-	WebACLId *string `json:"webACLId"`
+	WebACLId *string `json:"webACLId" yaml:"webACLId"`
 }
 
 // A custom origin configuration.
@@ -8018,25 +8018,25 @@ type CustomOriginConfig struct {
 	// The domain name of the custom origin.
 	//
 	// Should not include the path - that should be in the parent SourceConfiguration
-	DomainName *string `json:"domainName"`
+	DomainName *string `json:"domainName" yaml:"domainName"`
 	// The SSL versions to use when interacting with the origin.
-	AllowedOriginSSLVersions *[]OriginSslPolicy `json:"allowedOriginSSLVersions"`
+	AllowedOriginSSLVersions *[]OriginSslPolicy `json:"allowedOriginSSLVersions" yaml:"allowedOriginSSLVersions"`
 	// The origin HTTP port.
-	HttpPort *float64 `json:"httpPort"`
+	HttpPort *float64 `json:"httpPort" yaml:"httpPort"`
 	// The origin HTTPS port.
-	HttpsPort *float64 `json:"httpsPort"`
+	HttpsPort *float64 `json:"httpsPort" yaml:"httpsPort"`
 	// Any additional headers to pass to the origin.
-	OriginHeaders *map[string]*string `json:"originHeaders"`
+	OriginHeaders *map[string]*string `json:"originHeaders" yaml:"originHeaders"`
 	// The keep alive timeout when making calls in seconds.
-	OriginKeepaliveTimeout awscdk.Duration `json:"originKeepaliveTimeout"`
+	OriginKeepaliveTimeout awscdk.Duration `json:"originKeepaliveTimeout" yaml:"originKeepaliveTimeout"`
 	// The relative path to the origin root to use for sources.
-	OriginPath *string `json:"originPath"`
+	OriginPath *string `json:"originPath" yaml:"originPath"`
 	// The protocol (http or https) policy to use when interacting with the origin.
-	OriginProtocolPolicy OriginProtocolPolicy `json:"originProtocolPolicy"`
+	OriginProtocolPolicy OriginProtocolPolicy `json:"originProtocolPolicy" yaml:"originProtocolPolicy"`
 	// The read timeout when calling the origin in seconds.
-	OriginReadTimeout awscdk.Duration `json:"originReadTimeout"`
+	OriginReadTimeout awscdk.Duration `json:"originReadTimeout" yaml:"originReadTimeout"`
 	// When you enable Origin Shield in the AWS Region that has the lowest latency to your origin, you can get better network performance.
-	OriginShieldRegion *string `json:"originShieldRegion"`
+	OriginShieldRegion *string `json:"originShieldRegion" yaml:"originShieldRegion"`
 }
 
 // A CloudFront distribution with associated origin(s) and caching behavior(s).
@@ -8309,9 +8309,9 @@ func (d *jsiiProxy_Distribution) ToString() *string {
 //
 type DistributionAttributes struct {
 	// The distribution ID for this distribution.
-	DistributionId *string `json:"distributionId"`
+	DistributionId *string `json:"distributionId" yaml:"distributionId"`
 	// The generated domain name of the Distribution, such as d111111abcdef8.cloudfront.net.
-	DomainName *string `json:"domainName"`
+	DomainName *string `json:"domainName" yaml:"domainName"`
 }
 
 // Properties for a Distribution.
@@ -8320,57 +8320,57 @@ type DistributionAttributes struct {
 //
 type DistributionProps struct {
 	// The default behavior for the distribution.
-	DefaultBehavior *BehaviorOptions `json:"defaultBehavior"`
+	DefaultBehavior *BehaviorOptions `json:"defaultBehavior" yaml:"defaultBehavior"`
 	// Additional behaviors for the distribution, mapped by the pathPattern that specifies which requests to apply the behavior to.
-	AdditionalBehaviors *map[string]*BehaviorOptions `json:"additionalBehaviors"`
+	AdditionalBehaviors *map[string]*BehaviorOptions `json:"additionalBehaviors" yaml:"additionalBehaviors"`
 	// A certificate to associate with the distribution.
 	//
 	// The certificate must be located in N. Virginia (us-east-1).
-	Certificate awscertificatemanager.ICertificate `json:"certificate"`
+	Certificate awscertificatemanager.ICertificate `json:"certificate" yaml:"certificate"`
 	// Any comments you want to include about the distribution.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// The object that you want CloudFront to request from your origin (for example, index.html) when a viewer requests the root URL for your distribution. If no default object is set, the request goes to the origin's root (e.g., example.com/).
-	DefaultRootObject *string `json:"defaultRootObject"`
+	DefaultRootObject *string `json:"defaultRootObject" yaml:"defaultRootObject"`
 	// Alternative domain names for this distribution.
 	//
 	// If you want to use your own domain name, such as www.example.com, instead of the cloudfront.net domain name,
 	// you can add an alternate domain name to your distribution. If you attach a certificate to the distribution,
 	// you must add (at least one of) the domain names of the certificate to this list.
-	DomainNames *[]*string `json:"domainNames"`
+	DomainNames *[]*string `json:"domainNames" yaml:"domainNames"`
 	// Enable or disable the distribution.
-	Enabled *bool `json:"enabled"`
+	Enabled *bool `json:"enabled" yaml:"enabled"`
 	// Whether CloudFront will respond to IPv6 DNS requests with an IPv6 address.
 	//
 	// If you specify false, CloudFront responds to IPv6 DNS requests with the DNS response code NOERROR and with no IP addresses.
 	// This allows viewers to submit a second request, for an IPv4 address for your distribution.
-	EnableIpv6 *bool `json:"enableIpv6"`
+	EnableIpv6 *bool `json:"enableIpv6" yaml:"enableIpv6"`
 	// Enable access logging for the distribution.
-	EnableLogging *bool `json:"enableLogging"`
+	EnableLogging *bool `json:"enableLogging" yaml:"enableLogging"`
 	// How CloudFront should handle requests that are not successful (e.g., PageNotFound).
-	ErrorResponses *[]*ErrorResponse `json:"errorResponses"`
+	ErrorResponses *[]*ErrorResponse `json:"errorResponses" yaml:"errorResponses"`
 	// Controls the countries in which your content is distributed.
-	GeoRestriction GeoRestriction `json:"geoRestriction"`
+	GeoRestriction GeoRestriction `json:"geoRestriction" yaml:"geoRestriction"`
 	// Specify the maximum HTTP version that you want viewers to use to communicate with CloudFront.
 	//
 	// For viewers and CloudFront to use HTTP/2, viewers must support TLS 1.2 or later, and must support server name identification (SNI).
-	HttpVersion HttpVersion `json:"httpVersion"`
+	HttpVersion HttpVersion `json:"httpVersion" yaml:"httpVersion"`
 	// The Amazon S3 bucket to store the access logs in.
-	LogBucket awss3.IBucket `json:"logBucket"`
+	LogBucket awss3.IBucket `json:"logBucket" yaml:"logBucket"`
 	// An optional string that you want CloudFront to prefix to the access log filenames for this distribution.
-	LogFilePrefix *string `json:"logFilePrefix"`
+	LogFilePrefix *string `json:"logFilePrefix" yaml:"logFilePrefix"`
 	// Specifies whether you want CloudFront to include cookies in access logs.
-	LogIncludesCookies *bool `json:"logIncludesCookies"`
+	LogIncludesCookies *bool `json:"logIncludesCookies" yaml:"logIncludesCookies"`
 	// The minimum version of the SSL protocol that you want CloudFront to use for HTTPS connections.
 	//
 	// CloudFront serves your objects only to browsers or devices that support at
 	// least the SSL version that you specify.
-	MinimumProtocolVersion SecurityPolicyProtocol `json:"minimumProtocolVersion"`
+	MinimumProtocolVersion SecurityPolicyProtocol `json:"minimumProtocolVersion" yaml:"minimumProtocolVersion"`
 	// The price class that corresponds with the maximum price that you want to pay for CloudFront service.
 	//
 	// If you specify PriceClass_All, CloudFront responds to requests for your objects from all CloudFront edge locations.
 	// If you specify a price class other than PriceClass_All, CloudFront serves your objects from the CloudFront edge location
 	// that has the lowest latency among the edge locations in your price class.
-	PriceClass PriceClass `json:"priceClass"`
+	PriceClass PriceClass `json:"priceClass" yaml:"priceClass"`
 	// Unique identifier that specifies the AWS WAF web ACL to associate with this CloudFront distribution.
 	//
 	// To specify a web ACL created using the latest version of AWS WAF, use the ACL ARN, for example
@@ -8378,7 +8378,7 @@ type DistributionProps struct {
 	// To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `473e64fd-f30b-4765-81a0-62ad96dd167a`.
 	// See: https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CreateDistribution.html#API_CreateDistribution_RequestParameters.
 	//
-	WebAclId *string `json:"webAclId"`
+	WebAclId *string `json:"webAclId" yaml:"webAclId"`
 }
 
 // Represents a Lambda function version and event type when using Lambda@Edge.
@@ -8389,16 +8389,16 @@ type DistributionProps struct {
 //
 type EdgeLambda struct {
 	// The type of event in response to which should the function be invoked.
-	EventType LambdaEdgeEventType `json:"eventType"`
+	EventType LambdaEdgeEventType `json:"eventType" yaml:"eventType"`
 	// The version of the Lambda function that will be invoked.
 	//
 	// **Note**: it's not possible to use the '$LATEST' function version for Lambda@Edge!
-	FunctionVersion awslambda.IVersion `json:"functionVersion"`
+	FunctionVersion awslambda.IVersion `json:"functionVersion" yaml:"functionVersion"`
 	// Allows a Lambda function to have read access to the body content.
 	//
 	// Only valid for "request" event types (`ORIGIN_REQUEST` or `VIEWER_REQUEST`).
 	// See https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-include-body-access.html
-	IncludeBody *bool `json:"includeBody"`
+	IncludeBody *bool `json:"includeBody" yaml:"includeBody"`
 }
 
 // Options for configuring custom error responses.
@@ -8407,15 +8407,15 @@ type EdgeLambda struct {
 //
 type ErrorResponse struct {
 	// The HTTP status code for which you want to specify a custom error page and/or a caching duration.
-	HttpStatus *float64 `json:"httpStatus"`
+	HttpStatus *float64 `json:"httpStatus" yaml:"httpStatus"`
 	// The HTTP status code that you want CloudFront to return to the viewer along with the custom error page.
 	//
 	// If you specify a value for `responseHttpStatus`, you must also specify a value for `responsePagePath`.
-	ResponseHttpStatus *float64 `json:"responseHttpStatus"`
+	ResponseHttpStatus *float64 `json:"responseHttpStatus" yaml:"responseHttpStatus"`
 	// The path to the custom error page that you want CloudFront to return to a viewer when your origin returns the `httpStatus`, for example, /4xx-errors/403-forbidden.html.
-	ResponsePagePath *string `json:"responsePagePath"`
+	ResponsePagePath *string `json:"responsePagePath" yaml:"responsePagePath"`
 	// The minimum amount of time, in seconds, that you want CloudFront to cache the HTTP status code specified in ErrorCode.
-	Ttl awscdk.Duration `json:"ttl"`
+	Ttl awscdk.Duration `json:"ttl" yaml:"ttl"`
 }
 
 // HTTP status code to failover to second origin.
@@ -8439,7 +8439,7 @@ const (
 //
 type FileCodeOptions struct {
 	// The path of the file to read the code from.
-	FilePath *string `json:"filePath"`
+	FilePath *string `json:"filePath" yaml:"filePath"`
 }
 
 // A CloudFront Function.
@@ -8704,9 +8704,9 @@ func (f *jsiiProxy_Function) ToString() *string {
 //
 type FunctionAssociation struct {
 	// The type of event which should invoke the function.
-	EventType FunctionEventType `json:"eventType"`
+	EventType FunctionEventType `json:"eventType" yaml:"eventType"`
 	// The CloudFront function that will be invoked.
-	Function IFunction `json:"function"`
+	Function IFunction `json:"function" yaml:"function"`
 }
 
 // Attributes of an existing CloudFront Function to import it.
@@ -8715,9 +8715,9 @@ type FunctionAssociation struct {
 //
 type FunctionAttributes struct {
 	// The ARN of the function.
-	FunctionArn *string `json:"functionArn"`
+	FunctionArn *string `json:"functionArn" yaml:"functionArn"`
 	// The name of the function.
-	FunctionName *string `json:"functionName"`
+	FunctionName *string `json:"functionName" yaml:"functionName"`
 }
 
 // Represents the function's source code.
@@ -8810,11 +8810,11 @@ const (
 //
 type FunctionProps struct {
 	// The source code of the function.
-	Code FunctionCode `json:"code"`
+	Code FunctionCode `json:"code" yaml:"code"`
 	// A comment to describe the function.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// A name to identify the function.
-	FunctionName *string `json:"functionName"`
+	FunctionName *string `json:"functionName" yaml:"functionName"`
 }
 
 // Controls the countries in which content is distributed.
@@ -9441,11 +9441,11 @@ func (k *jsiiProxy_KeyGroup) ToString() *string {
 //
 type KeyGroupProps struct {
 	// A list of public keys to add to the key group.
-	Items *[]IPublicKey `json:"items"`
+	Items *[]IPublicKey `json:"items" yaml:"items"`
 	// A comment to describe the key group.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// A name to identify the key group.
-	KeyGroupName *string `json:"keyGroupName"`
+	KeyGroupName *string `json:"keyGroupName" yaml:"keyGroupName"`
 }
 
 // The type of events that a Lambda@Edge function can be invoked in response to.
@@ -9465,14 +9465,14 @@ const (
 //
 type LambdaFunctionAssociation struct {
 	// The lambda event type defines at which event the lambda is called during the request lifecycle.
-	EventType LambdaEdgeEventType `json:"eventType"`
+	EventType LambdaEdgeEventType `json:"eventType" yaml:"eventType"`
 	// A version of the lambda to associate.
-	LambdaFunction awslambda.IVersion `json:"lambdaFunction"`
+	LambdaFunction awslambda.IVersion `json:"lambdaFunction" yaml:"lambdaFunction"`
 	// Allows a Lambda function to have read access to the body content.
 	//
 	// Only valid for "request" event types (`ORIGIN_REQUEST` or `VIEWER_REQUEST`).
 	// See https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-include-body-access.html
-	IncludeBody *bool `json:"includeBody"`
+	IncludeBody *bool `json:"includeBody" yaml:"includeBody"`
 }
 
 // Logging configuration for incoming requests.
@@ -9481,11 +9481,11 @@ type LambdaFunctionAssociation struct {
 //
 type LoggingConfiguration struct {
 	// Bucket to log requests to.
-	Bucket awss3.IBucket `json:"bucket"`
+	Bucket awss3.IBucket `json:"bucket" yaml:"bucket"`
 	// Whether to include the cookies in the logs.
-	IncludeCookies *bool `json:"includeCookies"`
+	IncludeCookies *bool `json:"includeCookies" yaml:"includeCookies"`
 	// Where in the bucket to store logs.
-	Prefix *string `json:"prefix"`
+	Prefix *string `json:"prefix" yaml:"prefix"`
 }
 
 // An origin access identity is a special CloudFront user that you can associate with Amazon S3 origins, so that you can secure all or just some of your Amazon S3 content.
@@ -9763,7 +9763,7 @@ func (o *jsiiProxy_OriginAccessIdentity) ToString() *string {
 //
 type OriginAccessIdentityProps struct {
 	// Any comments you want to include about the origin access identity.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 }
 
 // Represents a distribution origin, that describes the Amazon S3 bucket, HTTP server (for example, a web server), Amazon MediaStore, or other server from which CloudFront gets your files.
@@ -9837,9 +9837,9 @@ func (o *jsiiProxy_OriginBase) RenderS3OriginConfig() *CfnDistribution_S3OriginC
 //
 type OriginBindConfig struct {
 	// The failover configuration for this Origin.
-	FailoverConfig *OriginFailoverConfig `json:"failoverConfig"`
+	FailoverConfig *OriginFailoverConfig `json:"failoverConfig" yaml:"failoverConfig"`
 	// The CloudFormation OriginProperty configuration for this Origin.
-	OriginProperty *CfnDistribution_OriginProperty `json:"originProperty"`
+	OriginProperty *CfnDistribution_OriginProperty `json:"originProperty" yaml:"originProperty"`
 }
 
 // Options passed to Origin.bind().
@@ -9848,7 +9848,7 @@ type OriginBindConfig struct {
 //
 type OriginBindOptions struct {
 	// The identifier of this Origin, as assigned by the Distribution this Origin has been used added to.
-	OriginId *string `json:"originId"`
+	OriginId *string `json:"originId" yaml:"originId"`
 }
 
 // The failover configuration used for Origin Groups, returned in {@link OriginBindConfig.failoverConfig}.
@@ -9857,9 +9857,9 @@ type OriginBindOptions struct {
 //
 type OriginFailoverConfig struct {
 	// The origin to use as the fallback origin.
-	FailoverOrigin IOrigin `json:"failoverOrigin"`
+	FailoverOrigin IOrigin `json:"failoverOrigin" yaml:"failoverOrigin"`
 	// The HTTP status codes of the response that trigger querying the failover Origin.
-	StatusCodes *[]*float64 `json:"statusCodes"`
+	StatusCodes *[]*float64 `json:"statusCodes" yaml:"statusCodes"`
 }
 
 // Properties to define an Origin.
@@ -9870,21 +9870,21 @@ type OriginProps struct {
 	// The number of times that CloudFront attempts to connect to the origin;
 	//
 	// valid values are 1, 2, or 3 attempts.
-	ConnectionAttempts *float64 `json:"connectionAttempts"`
+	ConnectionAttempts *float64 `json:"connectionAttempts" yaml:"connectionAttempts"`
 	// The number of seconds that CloudFront waits when trying to establish a connection to the origin.
 	//
 	// Valid values are 1-10 seconds, inclusive.
-	ConnectionTimeout awscdk.Duration `json:"connectionTimeout"`
+	ConnectionTimeout awscdk.Duration `json:"connectionTimeout" yaml:"connectionTimeout"`
 	// A list of HTTP header names and values that CloudFront adds to requests it sends to the origin.
-	CustomHeaders *map[string]*string `json:"customHeaders"`
+	CustomHeaders *map[string]*string `json:"customHeaders" yaml:"customHeaders"`
 	// An optional path that CloudFront appends to the origin domain name when CloudFront requests content from the origin.
 	//
 	// Must begin, but not end, with '/' (e.g., '/production/images').
-	OriginPath *string `json:"originPath"`
+	OriginPath *string `json:"originPath" yaml:"originPath"`
 	// When you enable Origin Shield in the AWS Region that has the lowest latency to your origin, you can get better network performance.
 	// See: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html
 	//
-	OriginShieldRegion *string `json:"originShieldRegion"`
+	OriginShieldRegion *string `json:"originShieldRegion" yaml:"originShieldRegion"`
 }
 
 // Defines what protocols CloudFront will use to connect to an origin.
@@ -10381,19 +10381,19 @@ func (o *jsiiProxy_OriginRequestPolicy) ToString() *string {
 //
 type OriginRequestPolicyProps struct {
 	// A comment to describe the origin request policy.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// The cookies from viewer requests to include in origin requests.
-	CookieBehavior OriginRequestCookieBehavior `json:"cookieBehavior"`
+	CookieBehavior OriginRequestCookieBehavior `json:"cookieBehavior" yaml:"cookieBehavior"`
 	// The HTTP headers to include in origin requests.
 	//
 	// These can include headers from viewer requests and additional headers added by CloudFront.
-	HeaderBehavior OriginRequestHeaderBehavior `json:"headerBehavior"`
+	HeaderBehavior OriginRequestHeaderBehavior `json:"headerBehavior" yaml:"headerBehavior"`
 	// A unique name to identify the origin request policy.
 	//
 	// The name must only include '-', '_', or alphanumeric characters.
-	OriginRequestPolicyName *string `json:"originRequestPolicyName"`
+	OriginRequestPolicyName *string `json:"originRequestPolicyName" yaml:"originRequestPolicyName"`
 	// The URL query strings from viewer requests to include in origin requests.
-	QueryStringBehavior OriginRequestQueryStringBehavior `json:"queryStringBehavior"`
+	QueryStringBehavior OriginRequestQueryStringBehavior `json:"queryStringBehavior" yaml:"queryStringBehavior"`
 }
 
 // Determines whether any URL query strings in viewer requests (and if so, which query strings) are included in requests that CloudFront sends to the origin.
@@ -10748,11 +10748,11 @@ type PublicKeyProps struct {
 	// The `encodedKey` parameter must include `-----BEGIN PUBLIC KEY-----` and `-----END PUBLIC KEY-----` lines.
 	// See: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html
 	//
-	EncodedKey *string `json:"encodedKey"`
+	EncodedKey *string `json:"encodedKey" yaml:"encodedKey"`
 	// A comment to describe the public key.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// A name to identify the public key.
-	PublicKeyName *string `json:"publicKeyName"`
+	PublicKeyName *string `json:"publicKeyName" yaml:"publicKeyName"`
 }
 
 // An HTTP response header name and its value.
@@ -10763,11 +10763,11 @@ type PublicKeyProps struct {
 //
 type ResponseCustomHeader struct {
 	// The HTTP response header name.
-	Header *string `json:"header"`
+	Header *string `json:"header" yaml:"header"`
 	// A Boolean that determines whether CloudFront overrides a response header with the same name received from the origin with the header specified here.
-	Override *bool `json:"override"`
+	Override *bool `json:"override" yaml:"override"`
 	// The value for the HTTP response header.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // Configuration for a set of HTTP response headers that are sent for requests that match a cache behavior that’s associated with this response headers policy.
@@ -10776,7 +10776,7 @@ type ResponseCustomHeader struct {
 //
 type ResponseCustomHeadersBehavior struct {
 	// The list of HTTP response headers and their values.
-	CustomHeaders *[]*ResponseCustomHeader `json:"customHeaders"`
+	CustomHeaders *[]*ResponseCustomHeader `json:"customHeaders" yaml:"customHeaders"`
 }
 
 // The policy directives and their values that CloudFront includes as values for the Content-Security-Policy HTTP response header.
@@ -10785,9 +10785,9 @@ type ResponseCustomHeadersBehavior struct {
 //
 type ResponseHeadersContentSecurityPolicy struct {
 	// The policy directives and their values that CloudFront includes as values for the Content-Security-Policy HTTP response header.
-	ContentSecurityPolicy *string `json:"contentSecurityPolicy"`
+	ContentSecurityPolicy *string `json:"contentSecurityPolicy" yaml:"contentSecurityPolicy"`
 	// A Boolean that determines whether CloudFront overrides the Content-Security-Policy HTTP response header received from the origin with the one specified in this response headers policy.
-	Override *bool `json:"override"`
+	Override *bool `json:"override" yaml:"override"`
 }
 
 // Determines whether CloudFront includes the X-Content-Type-Options HTTP response header with its value set to nosniff.
@@ -10796,7 +10796,7 @@ type ResponseHeadersContentSecurityPolicy struct {
 //
 type ResponseHeadersContentTypeOptions struct {
 	// A Boolean that determines whether CloudFront overrides the X-Content-Type-Options HTTP response header received from the origin with the one specified in this response headers policy.
-	Override *bool `json:"override"`
+	Override *bool `json:"override" yaml:"override"`
 }
 
 // Configuration for a set of HTTP response headers that are used for cross-origin resource sharing (CORS).
@@ -10808,25 +10808,25 @@ type ResponseHeadersContentTypeOptions struct {
 //
 type ResponseHeadersCorsBehavior struct {
 	// A Boolean that CloudFront uses as the value for the Access-Control-Allow-Credentials HTTP response header.
-	AccessControlAllowCredentials *bool `json:"accessControlAllowCredentials"`
+	AccessControlAllowCredentials *bool `json:"accessControlAllowCredentials" yaml:"accessControlAllowCredentials"`
 	// A list of HTTP header names that CloudFront includes as values for the Access-Control-Allow-Headers HTTP response header.
 	//
 	// You can specify `['*']` to allow all headers.
-	AccessControlAllowHeaders *[]*string `json:"accessControlAllowHeaders"`
+	AccessControlAllowHeaders *[]*string `json:"accessControlAllowHeaders" yaml:"accessControlAllowHeaders"`
 	// A list of HTTP methods that CloudFront includes as values for the Access-Control-Allow-Methods HTTP response header.
-	AccessControlAllowMethods *[]*string `json:"accessControlAllowMethods"`
+	AccessControlAllowMethods *[]*string `json:"accessControlAllowMethods" yaml:"accessControlAllowMethods"`
 	// A list of origins (domain names) that CloudFront can use as the value for the Access-Control-Allow-Origin HTTP response header.
 	//
 	// You can specify `['*']` to allow all origins.
-	AccessControlAllowOrigins *[]*string `json:"accessControlAllowOrigins"`
+	AccessControlAllowOrigins *[]*string `json:"accessControlAllowOrigins" yaml:"accessControlAllowOrigins"`
 	// A Boolean that determines whether CloudFront overrides HTTP response headers received from the origin with the ones specified in this response headers policy.
-	OriginOverride *bool `json:"originOverride"`
+	OriginOverride *bool `json:"originOverride" yaml:"originOverride"`
 	// A list of HTTP headers that CloudFront includes as values for the Access-Control-Expose-Headers HTTP response header.
 	//
 	// You can specify `['*']` to expose all headers.
-	AccessControlExposeHeaders *[]*string `json:"accessControlExposeHeaders"`
+	AccessControlExposeHeaders *[]*string `json:"accessControlExposeHeaders" yaml:"accessControlExposeHeaders"`
 	// A number that CloudFront uses as the value for the Access-Control-Max-Age HTTP response header.
-	AccessControlMaxAge awscdk.Duration `json:"accessControlMaxAge"`
+	AccessControlMaxAge awscdk.Duration `json:"accessControlMaxAge" yaml:"accessControlMaxAge"`
 }
 
 // Determines whether CloudFront includes the X-Frame-Options HTTP response header and the header’s value.
@@ -10835,9 +10835,9 @@ type ResponseHeadersCorsBehavior struct {
 //
 type ResponseHeadersFrameOptions struct {
 	// The value of the X-Frame-Options HTTP response header.
-	FrameOption HeadersFrameOption `json:"frameOption"`
+	FrameOption HeadersFrameOption `json:"frameOption" yaml:"frameOption"`
 	// A Boolean that determines whether CloudFront overrides the X-Frame-Options HTTP response header received from the origin with the one specified in this response headers policy.
-	Override *bool `json:"override"`
+	Override *bool `json:"override" yaml:"override"`
 }
 
 // A Response Headers Policy configuration.
@@ -11133,15 +11133,15 @@ func (r *jsiiProxy_ResponseHeadersPolicy) ToString() *string {
 //
 type ResponseHeadersPolicyProps struct {
 	// A comment to describe the response headers policy.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// A configuration for a set of HTTP response headers that are used for cross-origin resource sharing (CORS).
-	CorsBehavior *ResponseHeadersCorsBehavior `json:"corsBehavior"`
+	CorsBehavior *ResponseHeadersCorsBehavior `json:"corsBehavior" yaml:"corsBehavior"`
 	// A configuration for a set of custom HTTP response headers.
-	CustomHeadersBehavior *ResponseCustomHeadersBehavior `json:"customHeadersBehavior"`
+	CustomHeadersBehavior *ResponseCustomHeadersBehavior `json:"customHeadersBehavior" yaml:"customHeadersBehavior"`
 	// A unique name to identify the response headers policy.
-	ResponseHeadersPolicyName *string `json:"responseHeadersPolicyName"`
+	ResponseHeadersPolicyName *string `json:"responseHeadersPolicyName" yaml:"responseHeadersPolicyName"`
 	// A configuration for a set of security-related HTTP response headers.
-	SecurityHeadersBehavior *ResponseSecurityHeadersBehavior `json:"securityHeadersBehavior"`
+	SecurityHeadersBehavior *ResponseSecurityHeadersBehavior `json:"securityHeadersBehavior" yaml:"securityHeadersBehavior"`
 }
 
 // Determines whether CloudFront includes the Referrer-Policy HTTP response header and the header’s value.
@@ -11150,9 +11150,9 @@ type ResponseHeadersPolicyProps struct {
 //
 type ResponseHeadersReferrerPolicy struct {
 	// A Boolean that determines whether CloudFront overrides the Referrer-Policy HTTP response header received from the origin with the one specified in this response headers policy.
-	Override *bool `json:"override"`
+	Override *bool `json:"override" yaml:"override"`
 	// The value of the Referrer-Policy HTTP response header.
-	ReferrerPolicy HeadersReferrerPolicy `json:"referrerPolicy"`
+	ReferrerPolicy HeadersReferrerPolicy `json:"referrerPolicy" yaml:"referrerPolicy"`
 }
 
 // Determines whether CloudFront includes the Strict-Transport-Security HTTP response header and the header’s value.
@@ -11161,13 +11161,13 @@ type ResponseHeadersReferrerPolicy struct {
 //
 type ResponseHeadersStrictTransportSecurity struct {
 	// A number that CloudFront uses as the value for the max-age directive in the Strict-Transport-Security HTTP response header.
-	AccessControlMaxAge awscdk.Duration `json:"accessControlMaxAge"`
+	AccessControlMaxAge awscdk.Duration `json:"accessControlMaxAge" yaml:"accessControlMaxAge"`
 	// A Boolean that determines whether CloudFront overrides the Strict-Transport-Security HTTP response header received from the origin with the one specified in this response headers policy.
-	Override *bool `json:"override"`
+	Override *bool `json:"override" yaml:"override"`
 	// A Boolean that determines whether CloudFront includes the includeSubDomains directive in the Strict-Transport-Security HTTP response header.
-	IncludeSubdomains *bool `json:"includeSubdomains"`
+	IncludeSubdomains *bool `json:"includeSubdomains" yaml:"includeSubdomains"`
 	// A Boolean that determines whether CloudFront includes the preload directive in the Strict-Transport-Security HTTP response header.
-	Preload *bool `json:"preload"`
+	Preload *bool `json:"preload" yaml:"preload"`
 }
 
 // Determines whether CloudFront includes the X-XSS-Protection HTTP response header and the header’s value.
@@ -11176,18 +11176,18 @@ type ResponseHeadersStrictTransportSecurity struct {
 //
 type ResponseHeadersXSSProtection struct {
 	// A Boolean that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
-	Override *bool `json:"override"`
+	Override *bool `json:"override" yaml:"override"`
 	// A Boolean that determines the value of the X-XSS-Protection HTTP response header.
 	//
 	// When this setting is true, the value of the X-XSS-Protection header is 1.
 	// When this setting is false, the value of the X-XSS-Protection header is 0.
-	Protection *bool `json:"protection"`
+	Protection *bool `json:"protection" yaml:"protection"`
 	// A Boolean that determines whether CloudFront includes the mode=block directive in the X-XSS-Protection header.
-	ModeBlock *bool `json:"modeBlock"`
+	ModeBlock *bool `json:"modeBlock" yaml:"modeBlock"`
 	// A reporting URI, which CloudFront uses as the value of the report directive in the X-XSS-Protection header.
 	//
 	// You cannot specify a ReportUri when ModeBlock is true.
-	ReportUri *string `json:"reportUri"`
+	ReportUri *string `json:"reportUri" yaml:"reportUri"`
 }
 
 // Configuration for a set of security-related HTTP response headers.
@@ -11199,17 +11199,17 @@ type ResponseHeadersXSSProtection struct {
 //
 type ResponseSecurityHeadersBehavior struct {
 	// The policy directives and their values that CloudFront includes as values for the Content-Security-Policy HTTP response header.
-	ContentSecurityPolicy *ResponseHeadersContentSecurityPolicy `json:"contentSecurityPolicy"`
+	ContentSecurityPolicy *ResponseHeadersContentSecurityPolicy `json:"contentSecurityPolicy" yaml:"contentSecurityPolicy"`
 	// Determines whether CloudFront includes the X-Content-Type-Options HTTP response header with its value set to nosniff.
-	ContentTypeOptions *ResponseHeadersContentTypeOptions `json:"contentTypeOptions"`
+	ContentTypeOptions *ResponseHeadersContentTypeOptions `json:"contentTypeOptions" yaml:"contentTypeOptions"`
 	// Determines whether CloudFront includes the X-Frame-Options HTTP response header and the header’s value.
-	FrameOptions *ResponseHeadersFrameOptions `json:"frameOptions"`
+	FrameOptions *ResponseHeadersFrameOptions `json:"frameOptions" yaml:"frameOptions"`
 	// Determines whether CloudFront includes the Referrer-Policy HTTP response header and the header’s value.
-	ReferrerPolicy *ResponseHeadersReferrerPolicy `json:"referrerPolicy"`
+	ReferrerPolicy *ResponseHeadersReferrerPolicy `json:"referrerPolicy" yaml:"referrerPolicy"`
 	// Determines whether CloudFront includes the Strict-Transport-Security HTTP response header and the header’s value.
-	StrictTransportSecurity *ResponseHeadersStrictTransportSecurity `json:"strictTransportSecurity"`
+	StrictTransportSecurity *ResponseHeadersStrictTransportSecurity `json:"strictTransportSecurity" yaml:"strictTransportSecurity"`
 	// Determines whether CloudFront includes the X-XSS-Protection HTTP response header and the header’s value.
-	XssProtection *ResponseHeadersXSSProtection `json:"xssProtection"`
+	XssProtection *ResponseHeadersXSSProtection `json:"xssProtection" yaml:"xssProtection"`
 }
 
 // S3 origin configuration for CloudFront.
@@ -11218,15 +11218,15 @@ type ResponseSecurityHeadersBehavior struct {
 //
 type S3OriginConfig struct {
 	// The source bucket to serve content from.
-	S3BucketSource awss3.IBucket `json:"s3BucketSource"`
+	S3BucketSource awss3.IBucket `json:"s3BucketSource" yaml:"s3BucketSource"`
 	// The optional Origin Access Identity of the origin identity cloudfront will use when calling your s3 bucket.
-	OriginAccessIdentity IOriginAccessIdentity `json:"originAccessIdentity"`
+	OriginAccessIdentity IOriginAccessIdentity `json:"originAccessIdentity" yaml:"originAccessIdentity"`
 	// Any additional headers to pass to the origin.
-	OriginHeaders *map[string]*string `json:"originHeaders"`
+	OriginHeaders *map[string]*string `json:"originHeaders" yaml:"originHeaders"`
 	// The relative path to the origin root to use for sources.
-	OriginPath *string `json:"originPath"`
+	OriginPath *string `json:"originPath" yaml:"originPath"`
 	// When you enable Origin Shield in the AWS Region that has the lowest latency to your origin, you can get better network performance.
-	OriginShieldRegion *string `json:"originShieldRegion"`
+	OriginShieldRegion *string `json:"originShieldRegion" yaml:"originShieldRegion"`
 }
 
 // The SSL method CloudFront will use for your distribution.
@@ -11281,29 +11281,29 @@ type SourceConfiguration struct {
 	// The behaviors associated with this source.
 	//
 	// At least one (default) behavior must be included.
-	Behaviors *[]*Behavior `json:"behaviors"`
+	Behaviors *[]*Behavior `json:"behaviors" yaml:"behaviors"`
 	// The number of times that CloudFront attempts to connect to the origin.
 	//
 	// You can specify 1, 2, or 3 as the number of attempts.
-	ConnectionAttempts *float64 `json:"connectionAttempts"`
+	ConnectionAttempts *float64 `json:"connectionAttempts" yaml:"connectionAttempts"`
 	// The number of seconds that CloudFront waits when trying to establish a connection to the origin.
 	//
 	// You can specify a number of seconds between 1 and 10 (inclusive).
-	ConnectionTimeout awscdk.Duration `json:"connectionTimeout"`
+	ConnectionTimeout awscdk.Duration `json:"connectionTimeout" yaml:"connectionTimeout"`
 	// A custom origin source - for all non-s3 sources.
-	CustomOriginSource *CustomOriginConfig `json:"customOriginSource"`
+	CustomOriginSource *CustomOriginConfig `json:"customOriginSource" yaml:"customOriginSource"`
 	// HTTP status code to failover to second origin.
-	FailoverCriteriaStatusCodes *[]FailoverStatusCode `json:"failoverCriteriaStatusCodes"`
+	FailoverCriteriaStatusCodes *[]FailoverStatusCode `json:"failoverCriteriaStatusCodes" yaml:"failoverCriteriaStatusCodes"`
 	// A custom origin source for failover in case the s3OriginSource returns invalid status code.
-	FailoverCustomOriginSource *CustomOriginConfig `json:"failoverCustomOriginSource"`
+	FailoverCustomOriginSource *CustomOriginConfig `json:"failoverCustomOriginSource" yaml:"failoverCustomOriginSource"`
 	// An s3 origin source for failover in case the s3OriginSource returns invalid status code.
-	FailoverS3OriginSource *S3OriginConfig `json:"failoverS3OriginSource"`
+	FailoverS3OriginSource *S3OriginConfig `json:"failoverS3OriginSource" yaml:"failoverS3OriginSource"`
 	// When you enable Origin Shield in the AWS Region that has the lowest latency to your origin, you can get better network performance.
 	// See: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html
 	//
-	OriginShieldRegion *string `json:"originShieldRegion"`
+	OriginShieldRegion *string `json:"originShieldRegion" yaml:"originShieldRegion"`
 	// An s3 origin source - if you're using s3 for your assets.
-	S3OriginSource *S3OriginConfig `json:"s3OriginSource"`
+	S3OriginSource *S3OriginConfig `json:"s3OriginSource" yaml:"s3OriginSource"`
 }
 
 // Viewer certificate configuration class.
@@ -11398,18 +11398,18 @@ func ViewerCertificate_FromIamCertificate(iamCertificateId *string, options *Vie
 //
 type ViewerCertificateOptions struct {
 	// Domain names on the certificate (both main domain name and Subject Alternative names).
-	Aliases *[]*string `json:"aliases"`
+	Aliases *[]*string `json:"aliases" yaml:"aliases"`
 	// The minimum version of the SSL protocol that you want CloudFront to use for HTTPS connections.
 	//
 	// CloudFront serves your objects only to browsers or devices that support at
 	// least the SSL version that you specify.
-	SecurityPolicy SecurityPolicyProtocol `json:"securityPolicy"`
+	SecurityPolicy SecurityPolicyProtocol `json:"securityPolicy" yaml:"securityPolicy"`
 	// How CloudFront should serve HTTPS requests.
 	//
 	// See the notes on SSLMethod if you wish to use other SSL termination types.
 	// See: https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ViewerCertificate.html
 	//
-	SslMethod SSLMethod `json:"sslMethod"`
+	SslMethod SSLMethod `json:"sslMethod" yaml:"sslMethod"`
 }
 
 // How HTTPs should be handled with your distribution.

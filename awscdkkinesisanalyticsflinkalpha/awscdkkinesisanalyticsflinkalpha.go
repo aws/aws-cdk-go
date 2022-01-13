@@ -405,10 +405,10 @@ func (a *jsiiProxy_ApplicationCode) Bind(scope constructs.Construct) *Applicatio
 type ApplicationCodeConfig struct {
 	// Low-level Cloudformation ApplicationConfigurationProperty.
 	// Experimental.
-	ApplicationCodeConfigurationProperty *awskinesisanalytics.CfnApplicationV2_ApplicationConfigurationProperty `json:"applicationCodeConfigurationProperty"`
+	ApplicationCodeConfigurationProperty *awskinesisanalytics.CfnApplicationV2_ApplicationConfigurationProperty `json:"applicationCodeConfigurationProperty" yaml:"applicationCodeConfigurationProperty"`
 	// S3 Bucket that stores the Flink application code.
 	// Experimental.
-	Bucket awss3.IBucket `json:"bucket"`
+	Bucket awss3.IBucket `json:"bucket" yaml:"bucket"`
 }
 
 // Props for creating an Application construct.
@@ -419,66 +419,66 @@ type ApplicationCodeConfig struct {
 type ApplicationProps struct {
 	// The Flink code asset to run.
 	// Experimental.
-	Code ApplicationCode `json:"code"`
+	Code ApplicationCode `json:"code" yaml:"code"`
 	// The Flink version to use for this application.
 	// Experimental.
-	Runtime Runtime `json:"runtime"`
+	Runtime Runtime `json:"runtime" yaml:"runtime"`
 	// A name for your Application that is unique to an AWS account.
 	// Experimental.
-	ApplicationName *string `json:"applicationName"`
+	ApplicationName *string `json:"applicationName" yaml:"applicationName"`
 	// Whether the Kinesis Data Analytics service can increase the parallelism of the application in response to resource usage.
 	// Experimental.
-	AutoScalingEnabled *bool `json:"autoScalingEnabled"`
+	AutoScalingEnabled *bool `json:"autoScalingEnabled" yaml:"autoScalingEnabled"`
 	// Whether checkpointing is enabled while your application runs.
 	// Experimental.
-	CheckpointingEnabled *bool `json:"checkpointingEnabled"`
+	CheckpointingEnabled *bool `json:"checkpointingEnabled" yaml:"checkpointingEnabled"`
 	// The interval between checkpoints.
 	// Experimental.
-	CheckpointInterval awscdk.Duration `json:"checkpointInterval"`
+	CheckpointInterval awscdk.Duration `json:"checkpointInterval" yaml:"checkpointInterval"`
 	// The log group to send log entries to.
 	// Experimental.
-	LogGroup awslogs.ILogGroup `json:"logGroup"`
+	LogGroup awslogs.ILogGroup `json:"logGroup" yaml:"logGroup"`
 	// The level of log verbosity from the Flink application.
 	// Experimental.
-	LogLevel LogLevel `json:"logLevel"`
+	LogLevel LogLevel `json:"logLevel" yaml:"logLevel"`
 	// Describes the granularity of the CloudWatch metrics for an application.
 	//
 	// Use caution with Parallelism level metrics. Parallelism granularity logs
 	// metrics for each parallel thread and can quickly become expensive when
 	// parallelism is high (e.g. > 64).
 	// Experimental.
-	MetricsLevel MetricsLevel `json:"metricsLevel"`
+	MetricsLevel MetricsLevel `json:"metricsLevel" yaml:"metricsLevel"`
 	// The minimum amount of time in to wait after a checkpoint finishes to start a new checkpoint.
 	// Experimental.
-	MinPauseBetweenCheckpoints awscdk.Duration `json:"minPauseBetweenCheckpoints"`
+	MinPauseBetweenCheckpoints awscdk.Duration `json:"minPauseBetweenCheckpoints" yaml:"minPauseBetweenCheckpoints"`
 	// The initial parallelism for the application.
 	//
 	// Kinesis Data Analytics can
 	// stop the app, increase the parallelism, and start the app again if
 	// autoScalingEnabled is true (the default value).
 	// Experimental.
-	Parallelism *float64 `json:"parallelism"`
+	Parallelism *float64 `json:"parallelism" yaml:"parallelism"`
 	// The Flink parallelism allowed per Kinesis Processing Unit (KPU).
 	// Experimental.
-	ParallelismPerKpu *float64 `json:"parallelismPerKpu"`
+	ParallelismPerKpu *float64 `json:"parallelismPerKpu" yaml:"parallelismPerKpu"`
 	// Configuration PropertyGroups.
 	//
 	// You can use these property groups to pass
 	// arbitrary runtime configuration values to your Flink app.
 	// Experimental.
-	PropertyGroups *PropertyGroups `json:"propertyGroups"`
+	PropertyGroups *PropertyGroups `json:"propertyGroups" yaml:"propertyGroups"`
 	// Provide a RemovalPolicy to override the default.
 	// Experimental.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 	// A role to use to grant permissions to your application.
 	//
 	// Prefer omitting
 	// this property and using the default role.
 	// Experimental.
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 	// Determines if Flink snapshots are enabled.
 	// Experimental.
-	SnapshotsEnabled *bool `json:"snapshotsEnabled"`
+	SnapshotsEnabled *bool `json:"snapshotsEnabled" yaml:"snapshotsEnabled"`
 }
 
 // An interface expressing the public properties on both an imported and CDK-created Flink application.

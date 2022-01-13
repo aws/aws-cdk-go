@@ -558,9 +558,9 @@ func (c *jsiiProxy_CfnContact) ValidateProperties(_properties interface{}) {
 //
 type CfnContact_ChannelTargetInfoProperty struct {
 	// The Amazon Resource Name (ARN) of the contact channel.
-	ChannelId *string `json:"channelId"`
+	ChannelId *string `json:"channelId" yaml:"channelId"`
 	// The number of minutes to wait to retry sending engagement in the case the engagement initially fails.
-	RetryIntervalInMinutes *float64 `json:"retryIntervalInMinutes"`
+	RetryIntervalInMinutes *float64 `json:"retryIntervalInMinutes" yaml:"retryIntervalInMinutes"`
 }
 
 // The contact that Incident Manager is engaging during an incident.
@@ -569,9 +569,9 @@ type CfnContact_ChannelTargetInfoProperty struct {
 //
 type CfnContact_ContactTargetInfoProperty struct {
 	// The Amazon Resource Name (ARN) of the contact.
-	ContactId *string `json:"contactId"`
+	ContactId *string `json:"contactId" yaml:"contactId"`
 	// A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
-	IsEssential interface{} `json:"isEssential"`
+	IsEssential interface{} `json:"isEssential" yaml:"isEssential"`
 }
 
 // The `Stage` property type specifies a set amount of time that an escalation plan or engagement plan engages the specified contacts or contact methods.
@@ -582,9 +582,9 @@ type CfnContact_StageProperty struct {
 	// The time to wait until beginning the next stage.
 	//
 	// The duration can only be set to 0 if a target is specified.
-	DurationInMinutes *float64 `json:"durationInMinutes"`
+	DurationInMinutes *float64 `json:"durationInMinutes" yaml:"durationInMinutes"`
 	// The contacts or contact methods that the escalation plan or engagement plan is engaging.
-	Targets interface{} `json:"targets"`
+	Targets interface{} `json:"targets" yaml:"targets"`
 }
 
 // The contact or contact channel that's being engaged.
@@ -593,9 +593,9 @@ type CfnContact_StageProperty struct {
 //
 type CfnContact_TargetsProperty struct {
 	// Information about the contact channel Incident Manager is engaging.
-	ChannelTargetInfo interface{} `json:"channelTargetInfo"`
+	ChannelTargetInfo interface{} `json:"channelTargetInfo" yaml:"channelTargetInfo"`
 	// The contact that Incident Manager is engaging during an incident.
-	ContactTargetInfo interface{} `json:"contactTargetInfo"`
+	ContactTargetInfo interface{} `json:"contactTargetInfo" yaml:"contactTargetInfo"`
 }
 
 // A CloudFormation `AWS::SSMContacts::ContactChannel`.
@@ -1167,21 +1167,21 @@ func (c *jsiiProxy_CfnContactChannel) ValidateProperties(_properties interface{}
 //
 type CfnContactChannelProps struct {
 	// The details that Incident Manager uses when trying to engage the contact channel.
-	ChannelAddress *string `json:"channelAddress"`
+	ChannelAddress *string `json:"channelAddress" yaml:"channelAddress"`
 	// The name of the contact channel.
-	ChannelName *string `json:"channelName"`
+	ChannelName *string `json:"channelName" yaml:"channelName"`
 	// The type of the contact channel. Incident Manager supports three contact methods:.
 	//
 	// - SMS
 	// - VOICE
 	// - EMAIL
-	ChannelType *string `json:"channelType"`
+	ChannelType *string `json:"channelType" yaml:"channelType"`
 	// The Amazon Resource Name (ARN) of the contact you are adding the contact channel to.
-	ContactId *string `json:"contactId"`
+	ContactId *string `json:"contactId" yaml:"contactId"`
 	// If you want to activate the channel at a later time, you can choose to defer activation.
 	//
 	// Incident Manager can't engage your contact channel until it has been activated.
-	DeferActivation interface{} `json:"deferActivation"`
+	DeferActivation interface{} `json:"deferActivation" yaml:"deferActivation"`
 }
 
 // Properties for defining a `CfnContact`.
@@ -1190,16 +1190,16 @@ type CfnContactChannelProps struct {
 //
 type CfnContactProps struct {
 	// The unique and identifiable alias of the contact or escalation plan.
-	Alias *string `json:"alias"`
+	Alias *string `json:"alias" yaml:"alias"`
 	// The full name of the contact or escalation plan.
-	DisplayName *string `json:"displayName"`
+	DisplayName *string `json:"displayName" yaml:"displayName"`
 	// A list of stages.
 	//
 	// A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
-	Plan interface{} `json:"plan"`
+	Plan interface{} `json:"plan" yaml:"plan"`
 	// Refers to the type of contact.
 	//
 	// A single contact is type `PERSONAL` and an escalation plan is type `ESCALATION` .
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 }
 

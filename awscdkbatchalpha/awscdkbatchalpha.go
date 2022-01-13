@@ -290,7 +290,7 @@ type ComputeEnvironmentProps struct {
 	//
 	// Up to 128 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.
 	// Experimental.
-	ComputeEnvironmentName *string `json:"computeEnvironmentName"`
+	ComputeEnvironmentName *string `json:"computeEnvironmentName" yaml:"computeEnvironmentName"`
 	// The details of the required compute resources for the managed compute environment.
 	//
 	// If specified, and this is an unmanaged compute environment, will throw an error.
@@ -298,24 +298,24 @@ type ComputeEnvironmentProps struct {
 	// By default, AWS Batch managed compute environments use a recent, approved version of the
 	// Amazon ECS-optimized AMI for compute resources.
 	// Experimental.
-	ComputeResources *ComputeResources `json:"computeResources"`
+	ComputeResources *ComputeResources `json:"computeResources" yaml:"computeResources"`
 	// The state of the compute environment.
 	//
 	// If the state is set to true, then the compute
 	// environment accepts jobs from a queue and can scale out automatically based on queues.
 	// Experimental.
-	Enabled *bool `json:"enabled"`
+	Enabled *bool `json:"enabled" yaml:"enabled"`
 	// Determines if AWS should manage the allocation of compute resources for processing jobs.
 	//
 	// If set to false, then you are in charge of providing the compute resource details.
 	// Experimental.
-	Managed *bool `json:"managed"`
+	Managed *bool `json:"managed" yaml:"managed"`
 	// The IAM role used by Batch to make calls to other AWS services on your behalf for managing the resources that you use with the service.
 	//
 	// By default, this role is created for you using
 	// the AWS managed service policy for Batch.
 	// Experimental.
-	ServiceRole awsiam.IRole `json:"serviceRole"`
+	ServiceRole awsiam.IRole `json:"serviceRole" yaml:"serviceRole"`
 }
 
 // Property to specify if the compute environment uses On-Demand, SpotFleet, Fargate, or Fargate Spot compute resources.
@@ -340,7 +340,7 @@ const (
 type ComputeResources struct {
 	// The VPC network that all compute resources will be connected to.
 	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated.
 	//
 	// This could be due to availability of the instance type in
@@ -355,7 +355,7 @@ type ComputeResources struct {
 	// to meet the requirements of the jobs in the queue, with a preference for an instance type that is
 	// less likely to be interrupted.
 	// Experimental.
-	AllocationStrategy AllocationStrategy `json:"allocationStrategy"`
+	AllocationStrategy AllocationStrategy `json:"allocationStrategy" yaml:"allocationStrategy"`
 	// This property will be ignored if you set the environment type to ON_DEMAND.
 	//
 	// The maximum percentage that a Spot Instance price can be when compared with the On-Demand price for
@@ -364,24 +364,24 @@ type ComputeResources struct {
 	// pay the lowest (market) price and never more than your maximum percentage. If you leave this field empty,
 	// the default value is 100% of the On-Demand price.
 	// Experimental.
-	BidPercentage *float64 `json:"bidPercentage"`
+	BidPercentage *float64 `json:"bidPercentage" yaml:"bidPercentage"`
 	// Key-value pair tags to be applied to resources that are launched in the compute environment.
 	//
 	// For AWS Batch, these take the form of "String1": "String2", where String1 is the tag key and
 	// String2 is the tag value—for example, { "Name": "AWS Batch Instance - C4OnDemand" }.
 	// Experimental.
-	ComputeResourcesTags *map[string]*string `json:"computeResourcesTags"`
+	ComputeResourcesTags *map[string]*string `json:"computeResourcesTags" yaml:"computeResourcesTags"`
 	// The desired number of EC2 vCPUS in the compute environment.
 	// Experimental.
-	DesiredvCpus *float64 `json:"desiredvCpus"`
+	DesiredvCpus *float64 `json:"desiredvCpus" yaml:"desiredvCpus"`
 	// The EC2 key pair that is used for instances launched in the compute environment.
 	//
 	// If no key is defined, then SSH access is not allowed to provisioned compute resources.
 	// Experimental.
-	Ec2KeyPair *string `json:"ec2KeyPair"`
+	Ec2KeyPair *string `json:"ec2KeyPair" yaml:"ec2KeyPair"`
 	// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment.
 	// Experimental.
-	Image awsec2.IMachineImage `json:"image"`
+	Image awsec2.IMachineImage `json:"image" yaml:"image"`
 	// The Amazon ECS instance profile applied to Amazon EC2 instances in a compute environment.
 	//
 	// You can specify
@@ -389,7 +389,7 @@ type ComputeResources struct {
 	// arn:aws:iam::<aws_account_id>:instance-profile/ecsInstanceRole . For more information, see Amazon ECS
 	// Instance Role in the AWS Batch User Guide.
 	// Experimental.
-	InstanceRole *string `json:"instanceRole"`
+	InstanceRole *string `json:"instanceRole" yaml:"instanceRole"`
 	// The types of EC2 instances that may be launched in the compute environment.
 	//
 	// You can specify instance
@@ -397,42 +397,42 @@ type ComputeResources struct {
 	// specific sizes within a family (such as c4.8xlarge). You can also choose optimal to pick instance types
 	// (from the C, M, and R instance families) on the fly that match the demand of your job queues.
 	// Experimental.
-	InstanceTypes *[]awsec2.InstanceType `json:"instanceTypes"`
+	InstanceTypes *[]awsec2.InstanceType `json:"instanceTypes" yaml:"instanceTypes"`
 	// An optional launch template to associate with your compute resources.
 	//
 	// For more information, see README file.
 	// Experimental.
-	LaunchTemplate *LaunchTemplateSpecification `json:"launchTemplate"`
+	LaunchTemplate *LaunchTemplateSpecification `json:"launchTemplate" yaml:"launchTemplate"`
 	// The maximum number of EC2 vCPUs that an environment can reach.
 	//
 	// Each vCPU is equivalent to
 	// 1,024 CPU shares. You must specify at least one vCPU.
 	// Experimental.
-	MaxvCpus *float64 `json:"maxvCpus"`
+	MaxvCpus *float64 `json:"maxvCpus" yaml:"maxvCpus"`
 	// The minimum number of EC2 vCPUs that an environment should maintain (even if the compute environment state is DISABLED).
 	//
 	// Each vCPU is equivalent to 1,024 CPU shares. By keeping this set to 0 you will not have instance time wasted when
 	// there is no work to be run. If you set this above zero you will maintain that number of vCPUs at all times.
 	// Experimental.
-	MinvCpus *float64 `json:"minvCpus"`
+	MinvCpus *float64 `json:"minvCpus" yaml:"minvCpus"`
 	// The Amazon EC2 placement group to associate with your compute resources.
 	// Experimental.
-	PlacementGroup *string `json:"placementGroup"`
+	PlacementGroup *string `json:"placementGroup" yaml:"placementGroup"`
 	// The EC2 security group(s) associated with instances launched in the compute environment.
 	// Experimental.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// This property will be ignored if you set the environment type to ON_DEMAND.
 	//
 	// The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment.
 	// For more information, see Amazon EC2 Spot Fleet Role in the AWS Batch User Guide.
 	// Experimental.
-	SpotFleetRole awsiam.IRole `json:"spotFleetRole"`
+	SpotFleetRole awsiam.IRole `json:"spotFleetRole" yaml:"spotFleetRole"`
 	// The type of compute environment: ON_DEMAND, SPOT, FARGATE, or FARGATE_SPOT.
 	// Experimental.
-	Type ComputeResourceType `json:"type"`
+	Type ComputeResourceType `json:"type" yaml:"type"`
 	// The VPC subnets into which the compute resources are launched.
 	// Experimental.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 
 // Exposed secret for log configuration.
@@ -1122,80 +1122,80 @@ func (j *jsiiProxy_JobDefinition) ToString() *string {
 type JobDefinitionContainer struct {
 	// The image used to start a container.
 	// Experimental.
-	Image awsecs.ContainerImage `json:"image"`
+	Image awsecs.ContainerImage `json:"image" yaml:"image"`
 	// Whether or not to assign a public IP to the job.
 	// Experimental.
-	AssignPublicIp *bool `json:"assignPublicIp"`
+	AssignPublicIp *bool `json:"assignPublicIp" yaml:"assignPublicIp"`
 	// The command that is passed to the container.
 	//
 	// If you provide a shell command as a single string, you have to quote command-line arguments.
 	// Experimental.
-	Command *[]*string `json:"command"`
+	Command *[]*string `json:"command" yaml:"command"`
 	// The environment variables to pass to the container.
 	// Experimental.
-	Environment *map[string]*string `json:"environment"`
+	Environment *map[string]*string `json:"environment" yaml:"environment"`
 	// The IAM role that AWS Batch can assume.
 	//
 	// Required when using Fargate.
 	// Experimental.
-	ExecutionRole awsiam.IRole `json:"executionRole"`
+	ExecutionRole awsiam.IRole `json:"executionRole" yaml:"executionRole"`
 	// The number of physical GPUs to reserve for the container.
 	//
 	// The number of GPUs reserved for all
 	// containers in a job should not exceed the number of available GPUs on the compute resource that the job is launched on.
 	// Experimental.
-	GpuCount *float64 `json:"gpuCount"`
+	GpuCount *float64 `json:"gpuCount" yaml:"gpuCount"`
 	// The instance type to use for a multi-node parallel job.
 	//
 	// Currently all node groups in a
 	// multi-node parallel job must use the same instance type. This parameter is not valid
 	// for single-node container jobs.
 	// Experimental.
-	InstanceType awsec2.InstanceType `json:"instanceType"`
+	InstanceType awsec2.InstanceType `json:"instanceType" yaml:"instanceType"`
 	// The IAM role that the container can assume for AWS permissions.
 	// Experimental.
-	JobRole awsiam.IRole `json:"jobRole"`
+	JobRole awsiam.IRole `json:"jobRole" yaml:"jobRole"`
 	// Linux-specific modifications that are applied to the container, such as details for device mappings.
 	//
 	// For now, only the `devices` property is supported.
 	// Experimental.
-	LinuxParams awsecs.LinuxParameters `json:"linuxParams"`
+	LinuxParams awsecs.LinuxParameters `json:"linuxParams" yaml:"linuxParams"`
 	// The log configuration specification for the container.
 	// Experimental.
-	LogConfiguration *LogConfiguration `json:"logConfiguration"`
+	LogConfiguration *LogConfiguration `json:"logConfiguration" yaml:"logConfiguration"`
 	// The hard limit (in MiB) of memory to present to the container.
 	//
 	// If your container attempts to exceed
 	// the memory specified here, the container is killed. You must specify at least 4 MiB of memory for EC2 and 512 MiB for Fargate.
 	// Experimental.
-	MemoryLimitMiB *float64 `json:"memoryLimitMiB"`
+	MemoryLimitMiB *float64 `json:"memoryLimitMiB" yaml:"memoryLimitMiB"`
 	// The mount points for data volumes in your container.
 	// Experimental.
-	MountPoints *[]*awsecs.MountPoint `json:"mountPoints"`
+	MountPoints *[]*awsecs.MountPoint `json:"mountPoints" yaml:"mountPoints"`
 	// Fargate platform version.
 	// Experimental.
-	PlatformVersion awsecs.FargatePlatformVersion `json:"platformVersion"`
+	PlatformVersion awsecs.FargatePlatformVersion `json:"platformVersion" yaml:"platformVersion"`
 	// When this parameter is true, the container is given elevated privileges on the host container instance (similar to the root user).
 	// Experimental.
-	Privileged *bool `json:"privileged"`
+	Privileged *bool `json:"privileged" yaml:"privileged"`
 	// When this parameter is true, the container is given read-only access to its root file system.
 	// Experimental.
-	ReadOnly *bool `json:"readOnly"`
+	ReadOnly *bool `json:"readOnly" yaml:"readOnly"`
 	// A list of ulimits to set in the container.
 	// Experimental.
-	Ulimits *[]*awsecs.Ulimit `json:"ulimits"`
+	Ulimits *[]*awsecs.Ulimit `json:"ulimits" yaml:"ulimits"`
 	// The user name to use inside the container.
 	// Experimental.
-	User *string `json:"user"`
+	User *string `json:"user" yaml:"user"`
 	// The number of vCPUs reserved for the container.
 	//
 	// Each vCPU is equivalent to
 	// 1,024 CPU shares. You must specify at least one vCPU for EC2 and 0.25 for Fargate.
 	// Experimental.
-	Vcpus *float64 `json:"vcpus"`
+	Vcpus *float64 `json:"vcpus" yaml:"vcpus"`
 	// A list of data volumes used in a job.
 	// Experimental.
-	Volumes *[]*awsecs.Volume `json:"volumes"`
+	Volumes *[]*awsecs.Volume `json:"volumes" yaml:"volumes"`
 }
 
 // Construction properties of the {@link JobDefinition} construct.
@@ -1206,15 +1206,15 @@ type JobDefinitionContainer struct {
 type JobDefinitionProps struct {
 	// An object with various properties specific to container-based jobs.
 	// Experimental.
-	Container *JobDefinitionContainer `json:"container"`
+	Container *JobDefinitionContainer `json:"container" yaml:"container"`
 	// The name of the job definition.
 	//
 	// Up to 128 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.
 	// Experimental.
-	JobDefinitionName *string `json:"jobDefinitionName"`
+	JobDefinitionName *string `json:"jobDefinitionName" yaml:"jobDefinitionName"`
 	// An object with various properties specific to multi-node parallel jobs.
 	// Experimental.
-	NodeProps IMultiNodeProps `json:"nodeProps"`
+	NodeProps IMultiNodeProps `json:"nodeProps" yaml:"nodeProps"`
 	// When you submit a job, you can specify parameters that should replace the placeholders or override the default job definition parameters.
 	//
 	// Parameters
@@ -1222,23 +1222,23 @@ type JobDefinitionProps struct {
 	// This allows you to use the same job definition for multiple jobs that use the same
 	// format, and programmatically change values in the command at submission time.
 	// Experimental.
-	Parameters *map[string]*string `json:"parameters"`
+	Parameters *map[string]*string `json:"parameters" yaml:"parameters"`
 	// The platform capabilities required by the job definition.
 	// Experimental.
-	PlatformCapabilities *[]PlatformCapabilities `json:"platformCapabilities"`
+	PlatformCapabilities *[]PlatformCapabilities `json:"platformCapabilities" yaml:"platformCapabilities"`
 	// The number of times to move a job to the RUNNABLE status.
 	//
 	// You may specify between 1 and
 	// 10 attempts. If the value of attempts is greater than one, the job is retried on failure
 	// the same number of attempts as the value.
 	// Experimental.
-	RetryAttempts *float64 `json:"retryAttempts"`
+	RetryAttempts *float64 `json:"retryAttempts" yaml:"retryAttempts"`
 	// The timeout configuration for jobs that are submitted with this job definition.
 	//
 	// You can specify
 	// a timeout duration after which AWS Batch terminates your jobs if they have not finished.
 	// Experimental.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 }
 
 // Batch Job Queue.
@@ -1505,10 +1505,10 @@ func (j *jsiiProxy_JobQueue) ToString() *string {
 type JobQueueComputeEnvironment struct {
 	// The batch compute environment to use for processing submitted jobs to this queue.
 	// Experimental.
-	ComputeEnvironment IComputeEnvironment `json:"computeEnvironment"`
+	ComputeEnvironment IComputeEnvironment `json:"computeEnvironment" yaml:"computeEnvironment"`
 	// The order in which this compute environment will be selected for dynamic allocation of resources to process submitted jobs.
 	// Experimental.
-	Order *float64 `json:"order"`
+	Order *float64 `json:"order" yaml:"order"`
 }
 
 // Properties of a batch job queue.
@@ -1523,24 +1523,24 @@ type JobQueueProps struct {
 	// determine which compute environment should execute a given job. Compute environments must be in the VALID state before you can associate them
 	// with a job queue. You can associate up to three compute environments with a job queue.
 	// Experimental.
-	ComputeEnvironments *[]*JobQueueComputeEnvironment `json:"computeEnvironments"`
+	ComputeEnvironments *[]*JobQueueComputeEnvironment `json:"computeEnvironments" yaml:"computeEnvironments"`
 	// The state of the job queue.
 	//
 	// If set to true, it is able to accept jobs.
 	// Experimental.
-	Enabled *bool `json:"enabled"`
+	Enabled *bool `json:"enabled" yaml:"enabled"`
 	// A name for the job queue.
 	//
 	// Up to 128 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.
 	// Experimental.
-	JobQueueName *string `json:"jobQueueName"`
+	JobQueueName *string `json:"jobQueueName" yaml:"jobQueueName"`
 	// The priority of the job queue.
 	//
 	// Job queues with a higher priority (or a higher integer value for the priority parameter) are evaluated first
 	// when associated with the same compute environment. Priority is determined in descending order, for example, a job queue with a priority value
 	// of 10 is given scheduling preference over a job queue with a priority value of 1.
 	// Experimental.
-	Priority *float64 `json:"priority"`
+	Priority *float64 `json:"priority" yaml:"priority"`
 }
 
 // Launch template property specification.
@@ -1551,10 +1551,10 @@ type JobQueueProps struct {
 type LaunchTemplateSpecification struct {
 	// The Launch template name.
 	// Experimental.
-	LaunchTemplateName *string `json:"launchTemplateName"`
+	LaunchTemplateName *string `json:"launchTemplateName" yaml:"launchTemplateName"`
 	// The launch template version to be used (optional).
 	// Experimental.
-	Version *string `json:"version"`
+	Version *string `json:"version" yaml:"version"`
 }
 
 // Log configuration options to send to a custom log driver for the container.
@@ -1565,15 +1565,15 @@ type LaunchTemplateSpecification struct {
 type LogConfiguration struct {
 	// The log driver to use for the container.
 	// Experimental.
-	LogDriver LogDriver `json:"logDriver"`
+	LogDriver LogDriver `json:"logDriver" yaml:"logDriver"`
 	// The configuration options to send to the log driver.
 	// Experimental.
-	Options interface{} `json:"options"`
+	Options interface{} `json:"options" yaml:"options"`
 	// The secrets to pass to the log configuration as options.
 	//
 	// For more information, see https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data-secrets.html#secrets-logconfig
 	// Experimental.
-	SecretOptions *[]ExposedSecret `json:"secretOptions"`
+	SecretOptions *[]ExposedSecret `json:"secretOptions" yaml:"secretOptions"`
 }
 
 // The log driver to use for the container.

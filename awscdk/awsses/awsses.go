@@ -15,9 +15,9 @@ import (
 //
 type AddHeaderActionConfig struct {
 	// The name of the header that you want to add to the incoming message.
-	HeaderName *string `json:"headerName"`
+	HeaderName *string `json:"headerName" yaml:"headerName"`
 	// The content that you want to include in the header.
-	HeaderValue *string `json:"headerValue"`
+	HeaderValue *string `json:"headerValue" yaml:"headerValue"`
 }
 
 // An allow list receipt filter.
@@ -109,7 +109,7 @@ func (a *jsiiProxy_AllowListReceiptFilter) ToString() *string {
 //
 type AllowListReceiptFilterProps struct {
 	// A list of ip addresses or ranges to allow list.
-	Ips *[]*string `json:"ips"`
+	Ips *[]*string `json:"ips" yaml:"ips"`
 }
 
 // BoundAction configuration.
@@ -118,17 +118,17 @@ type AllowListReceiptFilterProps struct {
 //
 type BounceActionConfig struct {
 	// Human-readable text to include in the bounce message.
-	Message *string `json:"message"`
+	Message *string `json:"message" yaml:"message"`
 	// The email address of the sender of the bounced email.
 	//
 	// This is the address that the bounce message is sent from.
-	Sender *string `json:"sender"`
+	Sender *string `json:"sender" yaml:"sender"`
 	// The SMTP reply code, as defined by RFC 5321.
-	SmtpReplyCode *string `json:"smtpReplyCode"`
+	SmtpReplyCode *string `json:"smtpReplyCode" yaml:"smtpReplyCode"`
 	// The SMTP enhanced status code, as defined by RFC 3463.
-	StatusCode *string `json:"statusCode"`
+	StatusCode *string `json:"statusCode" yaml:"statusCode"`
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the bounce action is taken.
-	TopicArn *string `json:"topicArn"`
+	TopicArn *string `json:"topicArn" yaml:"topicArn"`
 }
 
 // A CloudFormation `AWS::SES::ConfigurationSet`.
@@ -1107,7 +1107,7 @@ func (c *jsiiProxy_CfnConfigurationSetEventDestination) ValidateProperties(_prop
 //
 type CfnConfigurationSetEventDestination_CloudWatchDestinationProperty struct {
 	// A list of dimensions upon which to categorize your emails when you publish email sending events to Amazon CloudWatch.
-	DimensionConfigurations interface{} `json:"dimensionConfigurations"`
+	DimensionConfigurations interface{} `json:"dimensionConfigurations" yaml:"dimensionConfigurations"`
 }
 
 // Contains the dimension configuration to use when you publish email sending events to Amazon CloudWatch.
@@ -1123,18 +1123,18 @@ type CfnConfigurationSetEventDestination_DimensionConfigurationProperty struct {
 	//
 	// - Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), dashes (-), at signs (@), or periods (.).
 	// - Contain 256 characters or fewer.
-	DefaultDimensionValue *string `json:"defaultDimensionValue"`
+	DefaultDimensionValue *string `json:"defaultDimensionValue" yaml:"defaultDimensionValue"`
 	// The name of an Amazon CloudWatch dimension associated with an email sending metric.
 	//
 	// The name must meet the following requirements:
 	//
 	// - Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).
 	// - Contain 256 characters or fewer.
-	DimensionName *string `json:"dimensionName"`
+	DimensionName *string `json:"dimensionName" yaml:"dimensionName"`
 	// The place where Amazon SES finds the value of a dimension to publish to Amazon CloudWatch.
 	//
 	// To use the message tags that you specify using an `X-SES-MESSAGE-TAGS` header or a parameter to the `SendEmail` / `SendRawEmail` API, specify `messageTag` . To use your own email headers, specify `emailHeader` . To put a custom tag on any link included in your email, specify `linkTag` .
-	DimensionValueSource *string `json:"dimensionValueSource"`
+	DimensionValueSource *string `json:"dimensionValueSource" yaml:"dimensionValueSource"`
 }
 
 // Contains information about an event destination.
@@ -1156,20 +1156,20 @@ type CfnConfigurationSetEventDestination_EventDestinationProperty struct {
 	// - `open` - The recipient received the email and opened it in their email client.
 	// - `click` - The recipient clicked one or more links in the email.
 	// - `renderingFailure` - Amazon SES did not send the email because of a template rendering issue.
-	MatchingEventTypes *[]*string `json:"matchingEventTypes"`
+	MatchingEventTypes *[]*string `json:"matchingEventTypes" yaml:"matchingEventTypes"`
 	// An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.
-	CloudWatchDestination interface{} `json:"cloudWatchDestination"`
+	CloudWatchDestination interface{} `json:"cloudWatchDestination" yaml:"cloudWatchDestination"`
 	// Sets whether Amazon SES publishes events to this destination when you send an email with the associated configuration set.
 	//
 	// Set to `true` to enable publishing to this destination; set to `false` to prevent publishing to this destination. The default value is `false` .
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 	// An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
-	KinesisFirehoseDestination interface{} `json:"kinesisFirehoseDestination"`
+	KinesisFirehoseDestination interface{} `json:"kinesisFirehoseDestination" yaml:"kinesisFirehoseDestination"`
 	// The name of the event destination. The name must meet the following requirements:.
 	//
 	// - Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).
 	// - Contain 64 characters or fewer.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // Contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
@@ -1180,9 +1180,9 @@ type CfnConfigurationSetEventDestination_EventDestinationProperty struct {
 //
 type CfnConfigurationSetEventDestination_KinesisFirehoseDestinationProperty struct {
 	// The ARN of the Amazon Kinesis Firehose stream that email sending events should be published to.
-	DeliveryStreamArn *string `json:"deliveryStreamArn"`
+	DeliveryStreamArn *string `json:"deliveryStreamArn" yaml:"deliveryStreamArn"`
 	// The ARN of the IAM role under which Amazon SES publishes email sending events to the Amazon Kinesis Firehose stream.
-	IamRoleArn *string `json:"iamRoleArn"`
+	IamRoleArn *string `json:"iamRoleArn" yaml:"iamRoleArn"`
 }
 
 // Properties for defining a `CfnConfigurationSetEventDestination`.
@@ -1191,9 +1191,9 @@ type CfnConfigurationSetEventDestination_KinesisFirehoseDestinationProperty stru
 //
 type CfnConfigurationSetEventDestinationProps struct {
 	// The name of the configuration set that contains the event destination.
-	ConfigurationSetName *string `json:"configurationSetName"`
+	ConfigurationSetName *string `json:"configurationSetName" yaml:"configurationSetName"`
 	// The event destination object.
-	EventDestination interface{} `json:"eventDestination"`
+	EventDestination interface{} `json:"eventDestination" yaml:"eventDestination"`
 }
 
 // Properties for defining a `CfnConfigurationSet`.
@@ -1202,7 +1202,7 @@ type CfnConfigurationSetEventDestinationProps struct {
 //
 type CfnConfigurationSetProps struct {
 	// `AWS::SES::ConfigurationSet.Name`.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // A CloudFormation `AWS::SES::ContactList`.
@@ -1736,13 +1736,13 @@ func (c *jsiiProxy_CfnContactList) ValidateProperties(_properties interface{}) {
 //
 type CfnContactList_TopicProperty struct {
 	// The default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
-	DefaultSubscriptionStatus *string `json:"defaultSubscriptionStatus"`
+	DefaultSubscriptionStatus *string `json:"defaultSubscriptionStatus" yaml:"defaultSubscriptionStatus"`
 	// The name of the topic the contact will see.
-	DisplayName *string `json:"displayName"`
+	DisplayName *string `json:"displayName" yaml:"displayName"`
 	// The name of the topic.
-	TopicName *string `json:"topicName"`
+	TopicName *string `json:"topicName" yaml:"topicName"`
 	// A description of what the topic is about, which the contact will see.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 }
 
 // Properties for defining a `CfnContactList`.
@@ -1751,15 +1751,15 @@ type CfnContactList_TopicProperty struct {
 //
 type CfnContactListProps struct {
 	// The name of the contact list.
-	ContactListName *string `json:"contactListName"`
+	ContactListName *string `json:"contactListName" yaml:"contactListName"`
 	// A description of what the contact list is about.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The tags associated with a contact list.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// An interest group, theme, or label within a list.
 	//
 	// A contact list can have multiple topics.
-	Topics interface{} `json:"topics"`
+	Topics interface{} `json:"topics" yaml:"topics"`
 }
 
 // A CloudFormation `AWS::SES::ReceiptFilter`.
@@ -2240,13 +2240,13 @@ func (c *jsiiProxy_CfnReceiptFilter) ValidateProperties(_properties interface{})
 //
 type CfnReceiptFilter_FilterProperty struct {
 	// A structure that provides the IP addresses to block or allow, and whether to block or allow incoming mail from them.
-	IpFilter interface{} `json:"ipFilter"`
+	IpFilter interface{} `json:"ipFilter" yaml:"ipFilter"`
 	// The name of the IP address filter. The name must meet the following requirements:.
 	//
 	// - Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).
 	// - Start and end with a letter or number.
 	// - Contain 64 characters or fewer.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // A receipt IP address filter enables you to specify whether to accept or reject mail originating from an IP address or range of IP addresses.
@@ -2259,9 +2259,9 @@ type CfnReceiptFilter_IpFilterProperty struct {
 	// A single IP address or a range of IP addresses to block or allow, specified in Classless Inter-Domain Routing (CIDR) notation.
 	//
 	// An example of a single email address is 10.0.0.1. An example of a range of IP addresses is 10.0.0.1/24. For more information about CIDR notation, see [RFC 2317](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc2317) .
-	Cidr *string `json:"cidr"`
+	Cidr *string `json:"cidr" yaml:"cidr"`
 	// Indicates whether to block or allow incoming mail from the specified IP addresses.
-	Policy *string `json:"policy"`
+	Policy *string `json:"policy" yaml:"policy"`
 }
 
 // Properties for defining a `CfnReceiptFilter`.
@@ -2270,7 +2270,7 @@ type CfnReceiptFilter_IpFilterProperty struct {
 //
 type CfnReceiptFilterProps struct {
 	// A data structure that describes the IP address filter to create, which consists of a name, an IP address range, and whether to allow or block mail from it.
-	Filter interface{} `json:"filter"`
+	Filter interface{} `json:"filter" yaml:"filter"`
 }
 
 // A CloudFormation `AWS::SES::ReceiptRule`.
@@ -2795,19 +2795,19 @@ func (c *jsiiProxy_CfnReceiptRule) ValidateProperties(_properties interface{}) {
 //
 type CfnReceiptRule_ActionProperty struct {
 	// Adds a header to the received email.
-	AddHeaderAction interface{} `json:"addHeaderAction"`
+	AddHeaderAction interface{} `json:"addHeaderAction" yaml:"addHeaderAction"`
 	// Rejects the received email by returning a bounce response to the sender and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).
-	BounceAction interface{} `json:"bounceAction"`
+	BounceAction interface{} `json:"bounceAction" yaml:"bounceAction"`
 	// Calls an AWS Lambda function, and optionally, publishes a notification to Amazon SNS.
-	LambdaAction interface{} `json:"lambdaAction"`
+	LambdaAction interface{} `json:"lambdaAction" yaml:"lambdaAction"`
 	// Saves the received message to an Amazon Simple Storage Service (Amazon S3) bucket and, optionally, publishes a notification to Amazon SNS.
-	S3Action interface{} `json:"s3Action"`
+	S3Action interface{} `json:"s3Action" yaml:"s3Action"`
 	// Publishes the email content within a notification to Amazon SNS.
-	SnsAction interface{} `json:"snsAction"`
+	SnsAction interface{} `json:"snsAction" yaml:"snsAction"`
 	// Terminates the evaluation of the receipt rule set and optionally publishes a notification to Amazon SNS.
-	StopAction interface{} `json:"stopAction"`
+	StopAction interface{} `json:"stopAction" yaml:"stopAction"`
 	// Calls Amazon WorkMail and, optionally, publishes a notification to Amazon Amazon SNS.
-	WorkmailAction interface{} `json:"workmailAction"`
+	WorkmailAction interface{} `json:"workmailAction" yaml:"workmailAction"`
 }
 
 // When included in a receipt rule, this action adds a header to the received email.
@@ -2820,11 +2820,11 @@ type CfnReceiptRule_AddHeaderActionProperty struct {
 	// The name of the header to add to the incoming message.
 	//
 	// The name must contain at least one character, and can contain up to 50 characters. It consists of alphanumeric (a–z, A–Z, 0–9) characters and dashes.
-	HeaderName *string `json:"headerName"`
+	HeaderName *string `json:"headerName" yaml:"headerName"`
 	// The content to include in the header.
 	//
 	// This value can contain up to 2048 characters. It can't contain newline ( `\n` ) or carriage return ( `\r` ) characters.
-	HeaderValue *string `json:"headerValue"`
+	HeaderValue *string `json:"headerValue" yaml:"headerValue"`
 }
 
 // When included in a receipt rule, this action rejects the received email by returning a bounce response to the sender and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).
@@ -2835,21 +2835,21 @@ type CfnReceiptRule_AddHeaderActionProperty struct {
 //
 type CfnReceiptRule_BounceActionProperty struct {
 	// Human-readable text to include in the bounce message.
-	Message *string `json:"message"`
+	Message *string `json:"message" yaml:"message"`
 	// The email address of the sender of the bounced email.
 	//
 	// This is the address from which the bounce message is sent.
-	Sender *string `json:"sender"`
+	Sender *string `json:"sender" yaml:"sender"`
 	// The SMTP reply code, as defined by [RFC 5321](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc5321) .
-	SmtpReplyCode *string `json:"smtpReplyCode"`
+	SmtpReplyCode *string `json:"smtpReplyCode" yaml:"smtpReplyCode"`
 	// The SMTP enhanced status code, as defined by [RFC 3463](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc3463) .
-	StatusCode *string `json:"statusCode"`
+	StatusCode *string `json:"statusCode" yaml:"statusCode"`
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the bounce action is taken.
 	//
 	// You can find the ARN of a topic by using the [ListTopics](https://docs.aws.amazon.com/sns/latest/api/API_ListTopics.html) operation in Amazon SNS.
 	//
 	// For more information about Amazon SNS topics, see the [Amazon SNS Developer Guide](https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html) .
-	TopicArn *string `json:"topicArn"`
+	TopicArn *string `json:"topicArn" yaml:"topicArn"`
 }
 
 // When included in a receipt rule, this action calls an AWS Lambda function and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).
@@ -2864,19 +2864,19 @@ type CfnReceiptRule_LambdaActionProperty struct {
 	// The Amazon Resource Name (ARN) of the AWS Lambda function.
 	//
 	// An example of an AWS Lambda function ARN is `arn:aws:lambda:us-west-2:account-id:function:MyFunction` . For more information about AWS Lambda, see the [AWS Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html) .
-	FunctionArn *string `json:"functionArn"`
+	FunctionArn *string `json:"functionArn" yaml:"functionArn"`
 	// The invocation type of the AWS Lambda function.
 	//
 	// An invocation type of `RequestResponse` means that the execution of the function immediately results in a response, and a value of `Event` means that the function is invoked asynchronously. The default value is `Event` . For information about AWS Lambda invocation types, see the [AWS Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html) .
 	//
 	// > There is a 30-second timeout on `RequestResponse` invocations. You should use `Event` invocation in most cases. Use `RequestResponse` only to make a mail flow decision, such as whether to stop the receipt rule or the receipt rule set.
-	InvocationType *string `json:"invocationType"`
+	InvocationType *string `json:"invocationType" yaml:"invocationType"`
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the Lambda action is executed.
 	//
 	// You can find the ARN of a topic by using the [ListTopics](https://docs.aws.amazon.com/sns/latest/api/API_ListTopics.html) operation in Amazon SNS.
 	//
 	// For more information about Amazon SNS topics, see the [Amazon SNS Developer Guide](https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html) .
-	TopicArn *string `json:"topicArn"`
+	TopicArn *string `json:"topicArn" yaml:"topicArn"`
 }
 
 // Receipt rules enable you to specify which actions Amazon SES should take when it receives mail on behalf of one or more email addresses or domains that you own.
@@ -2889,29 +2889,29 @@ type CfnReceiptRule_LambdaActionProperty struct {
 //
 type CfnReceiptRule_RuleProperty struct {
 	// An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule.
-	Actions interface{} `json:"actions"`
+	Actions interface{} `json:"actions" yaml:"actions"`
 	// If `true` , the receipt rule is active.
 	//
 	// The default value is `false` .
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 	// The name of the receipt rule. The name must meet the following requirements:.
 	//
 	// - Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).
 	// - Start and end with a letter or number.
 	// - Contain 64 characters or fewer.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The recipient domains and email addresses that the receipt rule applies to.
 	//
 	// If this field is not specified, this rule matches all recipients on all verified domains.
-	Recipients *[]*string `json:"recipients"`
+	Recipients *[]*string `json:"recipients" yaml:"recipients"`
 	// If `true` , then messages that this receipt rule applies to are scanned for spam and viruses.
 	//
 	// The default value is `false` .
-	ScanEnabled interface{} `json:"scanEnabled"`
+	ScanEnabled interface{} `json:"scanEnabled" yaml:"scanEnabled"`
 	// Specifies whether Amazon SES should require that incoming email is delivered over a connection encrypted with Transport Layer Security (TLS).
 	//
 	// If this parameter is set to `Require` , Amazon SES bounces emails that are not received over TLS. The default is `Optional` .
-	TlsPolicy *string `json:"tlsPolicy"`
+	TlsPolicy *string `json:"tlsPolicy" yaml:"tlsPolicy"`
 }
 
 // When included in a receipt rule, this action saves the received message to an Amazon Simple Storage Service (Amazon S3) bucket and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).
@@ -2926,7 +2926,7 @@ type CfnReceiptRule_RuleProperty struct {
 //
 type CfnReceiptRule_S3ActionProperty struct {
 	// The name of the Amazon S3 bucket for incoming email.
-	BucketName *string `json:"bucketName"`
+	BucketName *string `json:"bucketName" yaml:"bucketName"`
 	// The customer master key that Amazon SES should use to encrypt your emails before saving them to the Amazon S3 bucket.
 	//
 	// You can use the default master key or a custom master key that you created in AWS KMS as follows:
@@ -2937,17 +2937,17 @@ type CfnReceiptRule_S3ActionProperty struct {
 	// For more information about key policies, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html) . If you do not specify a master key, Amazon SES does not encrypt your emails.
 	//
 	// > Your mail is encrypted by Amazon SES using the Amazon S3 encryption client before the mail is submitted to Amazon S3 for storage. It is not encrypted using Amazon S3 server-side encryption. This means that you must use the Amazon S3 encryption client to decrypt the email after retrieving it from Amazon S3, as the service has no access to use your AWS KMS keys for decryption. This encryption client is currently available with the [AWS SDK for Java](https://docs.aws.amazon.com/sdk-for-java/) and [AWS SDK for Ruby](https://docs.aws.amazon.com/sdk-for-ruby/) only. For more information about client-side encryption using AWS KMS master keys, see the [Amazon S3 Developer Guide](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html) .
-	KmsKeyArn *string `json:"kmsKeyArn"`
+	KmsKeyArn *string `json:"kmsKeyArn" yaml:"kmsKeyArn"`
 	// The key prefix of the Amazon S3 bucket.
 	//
 	// The key prefix is similar to a directory name that enables you to store similar data under the same directory in a bucket.
-	ObjectKeyPrefix *string `json:"objectKeyPrefix"`
+	ObjectKeyPrefix *string `json:"objectKeyPrefix" yaml:"objectKeyPrefix"`
 	// The ARN of the Amazon SNS topic to notify when the message is saved to the Amazon S3 bucket.
 	//
 	// You can find the ARN of a topic by using the [ListTopics](https://docs.aws.amazon.com/sns/latest/api/API_ListTopics.html) operation in Amazon SNS.
 	//
 	// For more information about Amazon SNS topics, see the [Amazon SNS Developer Guide](https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html) .
-	TopicArn *string `json:"topicArn"`
+	TopicArn *string `json:"topicArn" yaml:"topicArn"`
 }
 
 // When included in a receipt rule, this action publishes a notification to Amazon Simple Notification Service (Amazon SNS).
@@ -2966,13 +2966,13 @@ type CfnReceiptRule_SNSActionProperty struct {
 	// The encoding to use for the email within the Amazon SNS notification.
 	//
 	// UTF-8 is easier to use, but may not preserve all special characters when a message was encoded with a different encoding format. Base64 preserves all special characters. The default value is UTF-8.
-	Encoding *string `json:"encoding"`
+	Encoding *string `json:"encoding" yaml:"encoding"`
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify.
 	//
 	// You can find the ARN of a topic by using the [ListTopics](https://docs.aws.amazon.com/sns/latest/api/API_ListTopics.html) operation in Amazon SNS.
 	//
 	// For more information about Amazon SNS topics, see the [Amazon SNS Developer Guide](https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html) .
-	TopicArn *string `json:"topicArn"`
+	TopicArn *string `json:"topicArn" yaml:"topicArn"`
 }
 
 // When included in a receipt rule, this action terminates the evaluation of the receipt rule set and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).
@@ -2985,13 +2985,13 @@ type CfnReceiptRule_StopActionProperty struct {
 	// The scope of the StopAction.
 	//
 	// The only acceptable value is `RuleSet` .
-	Scope *string `json:"scope"`
+	Scope *string `json:"scope" yaml:"scope"`
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the stop action is taken.
 	//
 	// You can find the ARN of a topic by using the [ListTopics](https://docs.aws.amazon.com/sns/latest/api/API_ListTopics.html) Amazon SNS operation.
 	//
 	// For more information about Amazon SNS topics, see the [Amazon SNS Developer Guide](https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html) .
-	TopicArn *string `json:"topicArn"`
+	TopicArn *string `json:"topicArn" yaml:"topicArn"`
 }
 
 // When included in a receipt rule, this action calls Amazon WorkMail and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).
@@ -3010,13 +3010,13 @@ type CfnReceiptRule_WorkmailActionProperty struct {
 	// You can find the ID of your organization by using the [ListOrganizations](https://docs.aws.amazon.com/workmail/latest/APIReference/API_ListOrganizations.html) operation in Amazon WorkMail. Amazon WorkMail organization IDs begin with " `m-` ", followed by a string of alphanumeric characters.
 	//
 	// For information about Amazon WorkMail organizations, see the [Amazon WorkMail Administrator Guide](https://docs.aws.amazon.com/workmail/latest/adminguide/organizations_overview.html) .
-	OrganizationArn *string `json:"organizationArn"`
+	OrganizationArn *string `json:"organizationArn" yaml:"organizationArn"`
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the WorkMail action is called.
 	//
 	// You can find the ARN of a topic by using the [ListTopics](https://docs.aws.amazon.com/sns/latest/api/API_ListTopics.html) operation in Amazon SNS.
 	//
 	// For more information about Amazon SNS topics, see the [Amazon SNS Developer Guide](https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html) .
-	TopicArn *string `json:"topicArn"`
+	TopicArn *string `json:"topicArn" yaml:"topicArn"`
 }
 
 // Properties for defining a `CfnReceiptRule`.
@@ -3025,13 +3025,13 @@ type CfnReceiptRule_WorkmailActionProperty struct {
 //
 type CfnReceiptRuleProps struct {
 	// A data structure that contains the specified rule's name, actions, recipients, domains, enabled status, scan status, and TLS policy.
-	Rule interface{} `json:"rule"`
+	Rule interface{} `json:"rule" yaml:"rule"`
 	// The name of the rule set where the receipt rule is added.
-	RuleSetName *string `json:"ruleSetName"`
+	RuleSetName *string `json:"ruleSetName" yaml:"ruleSetName"`
 	// The name of an existing rule after which the new rule is placed.
 	//
 	// If this parameter is null, the new rule is inserted at the beginning of the rule list.
-	After *string `json:"after"`
+	After *string `json:"after" yaml:"after"`
 }
 
 // A CloudFormation `AWS::SES::ReceiptRuleSet`.
@@ -3516,7 +3516,7 @@ func (c *jsiiProxy_CfnReceiptRuleSet) ValidateProperties(_properties interface{}
 //
 type CfnReceiptRuleSetProps struct {
 	// The name of the receipt rule set to reorder.
-	RuleSetName *string `json:"ruleSetName"`
+	RuleSetName *string `json:"ruleSetName" yaml:"ruleSetName"`
 }
 
 // A CloudFormation `AWS::SES::Template`.
@@ -3997,13 +3997,13 @@ func (c *jsiiProxy_CfnTemplate) ValidateProperties(_properties interface{}) {
 //
 type CfnTemplate_TemplateProperty struct {
 	// The HTML body of the email.
-	HtmlPart *string `json:"htmlPart"`
+	HtmlPart *string `json:"htmlPart" yaml:"htmlPart"`
 	// The subject line of the email.
-	SubjectPart *string `json:"subjectPart"`
+	SubjectPart *string `json:"subjectPart" yaml:"subjectPart"`
 	// The name of the template.
-	TemplateName *string `json:"templateName"`
+	TemplateName *string `json:"templateName" yaml:"templateName"`
 	// The email body that is visible to recipients whose email clients do not display HTML content.
-	TextPart *string `json:"textPart"`
+	TextPart *string `json:"textPart" yaml:"textPart"`
 }
 
 // Properties for defining a `CfnTemplate`.
@@ -4012,7 +4012,7 @@ type CfnTemplate_TemplateProperty struct {
 //
 type CfnTemplateProps struct {
 	// The content of the email, composed of a subject line, an HTML part, and a text-only part.
-	Template interface{} `json:"template"`
+	Template interface{} `json:"template" yaml:"template"`
 }
 
 // A rule added at the top of the rule set to drop spam/virus.
@@ -4115,21 +4115,21 @@ func (d *jsiiProxy_DropSpamReceiptRule) ToString() *string {
 //
 type DropSpamReceiptRuleProps struct {
 	// An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule.
-	Actions *[]IReceiptRuleAction `json:"actions"`
+	Actions *[]IReceiptRuleAction `json:"actions" yaml:"actions"`
 	// An existing rule after which the new rule will be placed.
-	After IReceiptRule `json:"after"`
+	After IReceiptRule `json:"after" yaml:"after"`
 	// Whether the rule is active.
-	Enabled *bool `json:"enabled"`
+	Enabled *bool `json:"enabled" yaml:"enabled"`
 	// The name for the rule.
-	ReceiptRuleName *string `json:"receiptRuleName"`
+	ReceiptRuleName *string `json:"receiptRuleName" yaml:"receiptRuleName"`
 	// The recipient domains and email addresses that the receipt rule applies to.
-	Recipients *[]*string `json:"recipients"`
+	Recipients *[]*string `json:"recipients" yaml:"recipients"`
 	// Whether to scan for spam and viruses.
-	ScanEnabled *bool `json:"scanEnabled"`
+	ScanEnabled *bool `json:"scanEnabled" yaml:"scanEnabled"`
 	// Whether Amazon SES should require that incoming email is delivered over a connection encrypted with Transport Layer Security (TLS).
-	TlsPolicy TlsPolicy `json:"tlsPolicy"`
+	TlsPolicy TlsPolicy `json:"tlsPolicy" yaml:"tlsPolicy"`
 	// The name of the rule set that the receipt rule will be added to.
-	RuleSet IReceiptRuleSet `json:"ruleSet"`
+	RuleSet IReceiptRuleSet `json:"ruleSet" yaml:"ruleSet"`
 }
 
 // A receipt rule.
@@ -4224,11 +4224,11 @@ func (j *jsiiProxy_IReceiptRuleSet) ReceiptRuleSetName() *string {
 //
 type LambdaActionConfig struct {
 	// The Amazon Resource Name (ARN) of the AWS Lambda function.
-	FunctionArn *string `json:"functionArn"`
+	FunctionArn *string `json:"functionArn" yaml:"functionArn"`
 	// The invocation type of the AWS Lambda function.
-	InvocationType *string `json:"invocationType"`
+	InvocationType *string `json:"invocationType" yaml:"invocationType"`
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the Lambda action is executed.
-	TopicArn *string `json:"topicArn"`
+	TopicArn *string `json:"topicArn" yaml:"topicArn"`
 }
 
 // A receipt filter.
@@ -4451,11 +4451,11 @@ const (
 //
 type ReceiptFilterProps struct {
 	// The ip address or range to filter.
-	Ip *string `json:"ip"`
+	Ip *string `json:"ip" yaml:"ip"`
 	// The policy for the filter.
-	Policy ReceiptFilterPolicy `json:"policy"`
+	Policy ReceiptFilterPolicy `json:"policy" yaml:"policy"`
 	// The name for the receipt filter.
-	ReceiptFilterName *string `json:"receiptFilterName"`
+	ReceiptFilterName *string `json:"receiptFilterName" yaml:"receiptFilterName"`
 }
 
 // A new receipt rule.
@@ -4705,19 +4705,19 @@ func (r *jsiiProxy_ReceiptRule) ToString() *string {
 //
 type ReceiptRuleActionConfig struct {
 	// Adds a header to the received email.
-	AddHeaderAction *AddHeaderActionConfig `json:"addHeaderAction"`
+	AddHeaderAction *AddHeaderActionConfig `json:"addHeaderAction" yaml:"addHeaderAction"`
 	// Rejects the received email by returning a bounce response to the sender and, optionally, publishes a notification to Amazon SNS.
-	BounceAction *BounceActionConfig `json:"bounceAction"`
+	BounceAction *BounceActionConfig `json:"bounceAction" yaml:"bounceAction"`
 	// Calls an AWS Lambda function, and optionally, publishes a notification to Amazon SNS.
-	LambdaAction *LambdaActionConfig `json:"lambdaAction"`
+	LambdaAction *LambdaActionConfig `json:"lambdaAction" yaml:"lambdaAction"`
 	// Saves the received message to an Amazon S3 bucket and, optionally, publishes a notification to Amazon SNS.
-	S3Action *S3ActionConfig `json:"s3Action"`
+	S3Action *S3ActionConfig `json:"s3Action" yaml:"s3Action"`
 	// Publishes the email content within a notification to Amazon SNS.
-	SnsAction *SNSActionConfig `json:"snsAction"`
+	SnsAction *SNSActionConfig `json:"snsAction" yaml:"snsAction"`
 	// Terminates the evaluation of the receipt rule set and optionally publishes a notification to Amazon SNS.
-	StopAction *StopActionConfig `json:"stopAction"`
+	StopAction *StopActionConfig `json:"stopAction" yaml:"stopAction"`
 	// Calls Amazon WorkMail and, optionally, publishes a notification to Amazon SNS.
-	WorkmailAction *WorkmailActionConfig `json:"workmailAction"`
+	WorkmailAction *WorkmailActionConfig `json:"workmailAction" yaml:"workmailAction"`
 }
 
 // Options to add a receipt rule to a receipt rule set.
@@ -4726,19 +4726,19 @@ type ReceiptRuleActionConfig struct {
 //
 type ReceiptRuleOptions struct {
 	// An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule.
-	Actions *[]IReceiptRuleAction `json:"actions"`
+	Actions *[]IReceiptRuleAction `json:"actions" yaml:"actions"`
 	// An existing rule after which the new rule will be placed.
-	After IReceiptRule `json:"after"`
+	After IReceiptRule `json:"after" yaml:"after"`
 	// Whether the rule is active.
-	Enabled *bool `json:"enabled"`
+	Enabled *bool `json:"enabled" yaml:"enabled"`
 	// The name for the rule.
-	ReceiptRuleName *string `json:"receiptRuleName"`
+	ReceiptRuleName *string `json:"receiptRuleName" yaml:"receiptRuleName"`
 	// The recipient domains and email addresses that the receipt rule applies to.
-	Recipients *[]*string `json:"recipients"`
+	Recipients *[]*string `json:"recipients" yaml:"recipients"`
 	// Whether to scan for spam and viruses.
-	ScanEnabled *bool `json:"scanEnabled"`
+	ScanEnabled *bool `json:"scanEnabled" yaml:"scanEnabled"`
 	// Whether Amazon SES should require that incoming email is delivered over a connection encrypted with Transport Layer Security (TLS).
-	TlsPolicy TlsPolicy `json:"tlsPolicy"`
+	TlsPolicy TlsPolicy `json:"tlsPolicy" yaml:"tlsPolicy"`
 }
 
 // Construction properties for a ReceiptRule.
@@ -4747,21 +4747,21 @@ type ReceiptRuleOptions struct {
 //
 type ReceiptRuleProps struct {
 	// An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule.
-	Actions *[]IReceiptRuleAction `json:"actions"`
+	Actions *[]IReceiptRuleAction `json:"actions" yaml:"actions"`
 	// An existing rule after which the new rule will be placed.
-	After IReceiptRule `json:"after"`
+	After IReceiptRule `json:"after" yaml:"after"`
 	// Whether the rule is active.
-	Enabled *bool `json:"enabled"`
+	Enabled *bool `json:"enabled" yaml:"enabled"`
 	// The name for the rule.
-	ReceiptRuleName *string `json:"receiptRuleName"`
+	ReceiptRuleName *string `json:"receiptRuleName" yaml:"receiptRuleName"`
 	// The recipient domains and email addresses that the receipt rule applies to.
-	Recipients *[]*string `json:"recipients"`
+	Recipients *[]*string `json:"recipients" yaml:"recipients"`
 	// Whether to scan for spam and viruses.
-	ScanEnabled *bool `json:"scanEnabled"`
+	ScanEnabled *bool `json:"scanEnabled" yaml:"scanEnabled"`
 	// Whether Amazon SES should require that incoming email is delivered over a connection encrypted with Transport Layer Security (TLS).
-	TlsPolicy TlsPolicy `json:"tlsPolicy"`
+	TlsPolicy TlsPolicy `json:"tlsPolicy" yaml:"tlsPolicy"`
 	// The name of the rule set that the receipt rule will be added to.
-	RuleSet IReceiptRuleSet `json:"ruleSet"`
+	RuleSet IReceiptRuleSet `json:"ruleSet" yaml:"ruleSet"`
 }
 
 // A new receipt rule set.
@@ -5030,14 +5030,14 @@ func (r *jsiiProxy_ReceiptRuleSet) ToString() *string {
 //
 type ReceiptRuleSetProps struct {
 	// Whether to add a first rule to stop processing messages that have at least one spam indicator.
-	DropSpam *bool `json:"dropSpam"`
+	DropSpam *bool `json:"dropSpam" yaml:"dropSpam"`
 	// The name for the receipt rule set.
-	ReceiptRuleSetName *string `json:"receiptRuleSetName"`
+	ReceiptRuleSetName *string `json:"receiptRuleSetName" yaml:"receiptRuleSetName"`
 	// The list of rules to add to this rule set.
 	//
 	// Rules are added in the same
 	// order as they appear in the list.
-	Rules *[]*ReceiptRuleOptions `json:"rules"`
+	Rules *[]*ReceiptRuleOptions `json:"rules" yaml:"rules"`
 }
 
 // S3Action configuration.
@@ -5046,13 +5046,13 @@ type ReceiptRuleSetProps struct {
 //
 type S3ActionConfig struct {
 	// The name of the Amazon S3 bucket that you want to send incoming mail to.
-	BucketName *string `json:"bucketName"`
+	BucketName *string `json:"bucketName" yaml:"bucketName"`
 	// The customer master key that Amazon SES should use to encrypt your emails before saving them to the Amazon S3 bucket.
-	KmsKeyArn *string `json:"kmsKeyArn"`
+	KmsKeyArn *string `json:"kmsKeyArn" yaml:"kmsKeyArn"`
 	// The key prefix of the Amazon S3 bucket.
-	ObjectKeyPrefix *string `json:"objectKeyPrefix"`
+	ObjectKeyPrefix *string `json:"objectKeyPrefix" yaml:"objectKeyPrefix"`
 	// The ARN of the Amazon SNS topic to notify when the message is saved to the Amazon S3 bucket.
-	TopicArn *string `json:"topicArn"`
+	TopicArn *string `json:"topicArn" yaml:"topicArn"`
 }
 
 // SNSAction configuration.
@@ -5061,9 +5061,9 @@ type S3ActionConfig struct {
 //
 type SNSActionConfig struct {
 	// The encoding to use for the email within the Amazon SNS notification.
-	Encoding *string `json:"encoding"`
+	Encoding *string `json:"encoding" yaml:"encoding"`
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify.
-	TopicArn *string `json:"topicArn"`
+	TopicArn *string `json:"topicArn" yaml:"topicArn"`
 }
 
 // StopAction configuration.
@@ -5074,9 +5074,9 @@ type StopActionConfig struct {
 	// The scope of the StopAction.
 	//
 	// The only acceptable value is RuleSet.
-	Scope *string `json:"scope"`
+	Scope *string `json:"scope" yaml:"scope"`
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the stop action is taken.
-	TopicArn *string `json:"topicArn"`
+	TopicArn *string `json:"topicArn" yaml:"topicArn"`
 }
 
 // The type of TLS policy for a receipt rule.
@@ -5093,8 +5093,8 @@ const (
 //
 type WorkmailActionConfig struct {
 	// The Amazon Resource Name (ARN) of the Amazon WorkMail organization.
-	OrganizationArn *string `json:"organizationArn"`
+	OrganizationArn *string `json:"organizationArn" yaml:"organizationArn"`
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the WorkMail action is called.
-	TopicArn *string `json:"topicArn"`
+	TopicArn *string `json:"topicArn" yaml:"topicArn"`
 }
 

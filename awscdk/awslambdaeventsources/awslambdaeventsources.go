@@ -78,7 +78,7 @@ const (
 //
 type BaseStreamEventSourceProps struct {
 	// Where to begin consuming the stream.
-	StartingPosition awslambda.StartingPosition `json:"startingPosition"`
+	StartingPosition awslambda.StartingPosition `json:"startingPosition" yaml:"startingPosition"`
 	// The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function.
 	//
 	// Your function receives an
@@ -89,15 +89,15 @@ type BaseStreamEventSourceProps struct {
 	// * Maximum value of:
 	//    * 1000 for {@link DynamoEventSource}
 	//    * 10000 for {@link KinesisEventSource}, {@link ManagedKafkaEventSource} and {@link SelfManagedKafkaEventSource}
-	BatchSize *float64 `json:"batchSize"`
+	BatchSize *float64 `json:"batchSize" yaml:"batchSize"`
 	// If the stream event source mapping should be enabled.
-	Enabled *bool `json:"enabled"`
+	Enabled *bool `json:"enabled" yaml:"enabled"`
 	// The maximum amount of time to gather records before invoking the function.
 	//
 	// Maximum of Duration.minutes(5)
-	MaxBatchingWindow awscdk.Duration `json:"maxBatchingWindow"`
+	MaxBatchingWindow awscdk.Duration `json:"maxBatchingWindow" yaml:"maxBatchingWindow"`
 	// An Amazon SQS queue or Amazon SNS topic destination for discarded records.
-	OnFailure awslambda.IEventSourceDlq `json:"onFailure"`
+	OnFailure awslambda.IEventSourceDlq `json:"onFailure" yaml:"onFailure"`
 }
 
 // Use an Amazon DynamoDB stream as an event source for AWS Lambda.
@@ -188,7 +188,7 @@ func (d *jsiiProxy_DynamoEventSource) EnrichMappingOptions(options *awslambda.Ev
 //
 type DynamoEventSourceProps struct {
 	// Where to begin consuming the stream.
-	StartingPosition awslambda.StartingPosition `json:"startingPosition"`
+	StartingPosition awslambda.StartingPosition `json:"startingPosition" yaml:"startingPosition"`
 	// The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function.
 	//
 	// Your function receives an
@@ -199,37 +199,37 @@ type DynamoEventSourceProps struct {
 	// * Maximum value of:
 	//    * 1000 for {@link DynamoEventSource}
 	//    * 10000 for {@link KinesisEventSource}, {@link ManagedKafkaEventSource} and {@link SelfManagedKafkaEventSource}
-	BatchSize *float64 `json:"batchSize"`
+	BatchSize *float64 `json:"batchSize" yaml:"batchSize"`
 	// If the stream event source mapping should be enabled.
-	Enabled *bool `json:"enabled"`
+	Enabled *bool `json:"enabled" yaml:"enabled"`
 	// The maximum amount of time to gather records before invoking the function.
 	//
 	// Maximum of Duration.minutes(5)
-	MaxBatchingWindow awscdk.Duration `json:"maxBatchingWindow"`
+	MaxBatchingWindow awscdk.Duration `json:"maxBatchingWindow" yaml:"maxBatchingWindow"`
 	// An Amazon SQS queue or Amazon SNS topic destination for discarded records.
-	OnFailure awslambda.IEventSourceDlq `json:"onFailure"`
+	OnFailure awslambda.IEventSourceDlq `json:"onFailure" yaml:"onFailure"`
 	// If the function returns an error, split the batch in two and retry.
-	BisectBatchOnError *bool `json:"bisectBatchOnError"`
+	BisectBatchOnError *bool `json:"bisectBatchOnError" yaml:"bisectBatchOnError"`
 	// The maximum age of a record that Lambda sends to a function for processing.
 	//
 	// Valid Range:
 	// * Minimum value of 60 seconds
 	// * Maximum value of 7 days
-	MaxRecordAge awscdk.Duration `json:"maxRecordAge"`
+	MaxRecordAge awscdk.Duration `json:"maxRecordAge" yaml:"maxRecordAge"`
 	// The number of batches to process from each shard concurrently.
 	//
 	// Valid Range:
 	// * Minimum value of 1
 	// * Maximum value of 10
-	ParallelizationFactor *float64 `json:"parallelizationFactor"`
+	ParallelizationFactor *float64 `json:"parallelizationFactor" yaml:"parallelizationFactor"`
 	// Allow functions to return partially successful responses for a batch of records.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting
 	//
-	ReportBatchItemFailures *bool `json:"reportBatchItemFailures"`
+	ReportBatchItemFailures *bool `json:"reportBatchItemFailures" yaml:"reportBatchItemFailures"`
 	// Maximum number of retry attempts Valid Range: * Minimum value of 0 * Maximum value of 10000.
-	RetryAttempts *float64 `json:"retryAttempts"`
+	RetryAttempts *float64 `json:"retryAttempts" yaml:"retryAttempts"`
 	// The size of the tumbling windows to group records sent to DynamoDB or Kinesis Valid Range: 0 - 15 minutes.
-	TumblingWindow awscdk.Duration `json:"tumblingWindow"`
+	TumblingWindow awscdk.Duration `json:"tumblingWindow" yaml:"tumblingWindow"`
 }
 
 // Properties for a Kafka event source.
@@ -238,7 +238,7 @@ type DynamoEventSourceProps struct {
 //
 type KafkaEventSourceProps struct {
 	// Where to begin consuming the stream.
-	StartingPosition awslambda.StartingPosition `json:"startingPosition"`
+	StartingPosition awslambda.StartingPosition `json:"startingPosition" yaml:"startingPosition"`
 	// The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function.
 	//
 	// Your function receives an
@@ -249,19 +249,19 @@ type KafkaEventSourceProps struct {
 	// * Maximum value of:
 	//    * 1000 for {@link DynamoEventSource}
 	//    * 10000 for {@link KinesisEventSource}, {@link ManagedKafkaEventSource} and {@link SelfManagedKafkaEventSource}
-	BatchSize *float64 `json:"batchSize"`
+	BatchSize *float64 `json:"batchSize" yaml:"batchSize"`
 	// If the stream event source mapping should be enabled.
-	Enabled *bool `json:"enabled"`
+	Enabled *bool `json:"enabled" yaml:"enabled"`
 	// The maximum amount of time to gather records before invoking the function.
 	//
 	// Maximum of Duration.minutes(5)
-	MaxBatchingWindow awscdk.Duration `json:"maxBatchingWindow"`
+	MaxBatchingWindow awscdk.Duration `json:"maxBatchingWindow" yaml:"maxBatchingWindow"`
 	// An Amazon SQS queue or Amazon SNS topic destination for discarded records.
-	OnFailure awslambda.IEventSourceDlq `json:"onFailure"`
+	OnFailure awslambda.IEventSourceDlq `json:"onFailure" yaml:"onFailure"`
 	// The Kafka topic to subscribe to.
-	Topic *string `json:"topic"`
+	Topic *string `json:"topic" yaml:"topic"`
 	// The secret with the Kafka credentials, see https://docs.aws.amazon.com/msk/latest/developerguide/msk-password.html for details This field is required if your Kafka brokers are accessed over the Internet.
-	Secret awssecretsmanager.ISecret `json:"secret"`
+	Secret awssecretsmanager.ISecret `json:"secret" yaml:"secret"`
 }
 
 // Use an Amazon Kinesis stream as an event source for AWS Lambda.
@@ -363,7 +363,7 @@ func (k *jsiiProxy_KinesisEventSource) EnrichMappingOptions(options *awslambda.E
 //
 type KinesisEventSourceProps struct {
 	// Where to begin consuming the stream.
-	StartingPosition awslambda.StartingPosition `json:"startingPosition"`
+	StartingPosition awslambda.StartingPosition `json:"startingPosition" yaml:"startingPosition"`
 	// The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function.
 	//
 	// Your function receives an
@@ -374,37 +374,37 @@ type KinesisEventSourceProps struct {
 	// * Maximum value of:
 	//    * 1000 for {@link DynamoEventSource}
 	//    * 10000 for {@link KinesisEventSource}, {@link ManagedKafkaEventSource} and {@link SelfManagedKafkaEventSource}
-	BatchSize *float64 `json:"batchSize"`
+	BatchSize *float64 `json:"batchSize" yaml:"batchSize"`
 	// If the stream event source mapping should be enabled.
-	Enabled *bool `json:"enabled"`
+	Enabled *bool `json:"enabled" yaml:"enabled"`
 	// The maximum amount of time to gather records before invoking the function.
 	//
 	// Maximum of Duration.minutes(5)
-	MaxBatchingWindow awscdk.Duration `json:"maxBatchingWindow"`
+	MaxBatchingWindow awscdk.Duration `json:"maxBatchingWindow" yaml:"maxBatchingWindow"`
 	// An Amazon SQS queue or Amazon SNS topic destination for discarded records.
-	OnFailure awslambda.IEventSourceDlq `json:"onFailure"`
+	OnFailure awslambda.IEventSourceDlq `json:"onFailure" yaml:"onFailure"`
 	// If the function returns an error, split the batch in two and retry.
-	BisectBatchOnError *bool `json:"bisectBatchOnError"`
+	BisectBatchOnError *bool `json:"bisectBatchOnError" yaml:"bisectBatchOnError"`
 	// The maximum age of a record that Lambda sends to a function for processing.
 	//
 	// Valid Range:
 	// * Minimum value of 60 seconds
 	// * Maximum value of 7 days
-	MaxRecordAge awscdk.Duration `json:"maxRecordAge"`
+	MaxRecordAge awscdk.Duration `json:"maxRecordAge" yaml:"maxRecordAge"`
 	// The number of batches to process from each shard concurrently.
 	//
 	// Valid Range:
 	// * Minimum value of 1
 	// * Maximum value of 10
-	ParallelizationFactor *float64 `json:"parallelizationFactor"`
+	ParallelizationFactor *float64 `json:"parallelizationFactor" yaml:"parallelizationFactor"`
 	// Allow functions to return partially successful responses for a batch of records.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting
 	//
-	ReportBatchItemFailures *bool `json:"reportBatchItemFailures"`
+	ReportBatchItemFailures *bool `json:"reportBatchItemFailures" yaml:"reportBatchItemFailures"`
 	// Maximum number of retry attempts Valid Range: * Minimum value of 0 * Maximum value of 10000.
-	RetryAttempts *float64 `json:"retryAttempts"`
+	RetryAttempts *float64 `json:"retryAttempts" yaml:"retryAttempts"`
 	// The size of the tumbling windows to group records sent to DynamoDB or Kinesis Valid Range: 0 - 15 minutes.
-	TumblingWindow awscdk.Duration `json:"tumblingWindow"`
+	TumblingWindow awscdk.Duration `json:"tumblingWindow" yaml:"tumblingWindow"`
 }
 
 // Use a MSK cluster as a streaming source for AWS Lambda.
@@ -497,7 +497,7 @@ func (m *jsiiProxy_ManagedKafkaEventSource) EnrichMappingOptions(options *awslam
 //
 type ManagedKafkaEventSourceProps struct {
 	// Where to begin consuming the stream.
-	StartingPosition awslambda.StartingPosition `json:"startingPosition"`
+	StartingPosition awslambda.StartingPosition `json:"startingPosition" yaml:"startingPosition"`
 	// The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function.
 	//
 	// Your function receives an
@@ -508,21 +508,21 @@ type ManagedKafkaEventSourceProps struct {
 	// * Maximum value of:
 	//    * 1000 for {@link DynamoEventSource}
 	//    * 10000 for {@link KinesisEventSource}, {@link ManagedKafkaEventSource} and {@link SelfManagedKafkaEventSource}
-	BatchSize *float64 `json:"batchSize"`
+	BatchSize *float64 `json:"batchSize" yaml:"batchSize"`
 	// If the stream event source mapping should be enabled.
-	Enabled *bool `json:"enabled"`
+	Enabled *bool `json:"enabled" yaml:"enabled"`
 	// The maximum amount of time to gather records before invoking the function.
 	//
 	// Maximum of Duration.minutes(5)
-	MaxBatchingWindow awscdk.Duration `json:"maxBatchingWindow"`
+	MaxBatchingWindow awscdk.Duration `json:"maxBatchingWindow" yaml:"maxBatchingWindow"`
 	// An Amazon SQS queue or Amazon SNS topic destination for discarded records.
-	OnFailure awslambda.IEventSourceDlq `json:"onFailure"`
+	OnFailure awslambda.IEventSourceDlq `json:"onFailure" yaml:"onFailure"`
 	// The Kafka topic to subscribe to.
-	Topic *string `json:"topic"`
+	Topic *string `json:"topic" yaml:"topic"`
 	// The secret with the Kafka credentials, see https://docs.aws.amazon.com/msk/latest/developerguide/msk-password.html for details This field is required if your Kafka brokers are accessed over the Internet.
-	Secret awssecretsmanager.ISecret `json:"secret"`
+	Secret awssecretsmanager.ISecret `json:"secret" yaml:"secret"`
 	// An MSK cluster construct.
-	ClusterArn *string `json:"clusterArn"`
+	ClusterArn *string `json:"clusterArn" yaml:"clusterArn"`
 }
 
 // Use S3 bucket notifications as an event source for AWS Lambda.
@@ -588,13 +588,13 @@ func (s *jsiiProxy_S3EventSource) Bind(target awslambda.IFunction) {
 //
 type S3EventSourceProps struct {
 	// The s3 event types that will trigger the notification.
-	Events *[]awss3.EventType `json:"events"`
+	Events *[]awss3.EventType `json:"events" yaml:"events"`
 	// S3 object key filter rules to determine which objects trigger this event.
 	//
 	// Each filter must include a `prefix` and/or `suffix` that will be matched
 	// against the s3 object key. Refer to the S3 Developer Guide for details
 	// about allowed filter rules.
-	Filters *[]*awss3.NotificationKeyFilter `json:"filters"`
+	Filters *[]*awss3.NotificationKeyFilter `json:"filters" yaml:"filters"`
 }
 
 // Use a self hosted Kafka installation as a streaming source for AWS Lambda.
@@ -678,7 +678,7 @@ func (s *jsiiProxy_SelfManagedKafkaEventSource) EnrichMappingOptions(options *aw
 //
 type SelfManagedKafkaEventSourceProps struct {
 	// Where to begin consuming the stream.
-	StartingPosition awslambda.StartingPosition `json:"startingPosition"`
+	StartingPosition awslambda.StartingPosition `json:"startingPosition" yaml:"startingPosition"`
 	// The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function.
 	//
 	// Your function receives an
@@ -689,31 +689,31 @@ type SelfManagedKafkaEventSourceProps struct {
 	// * Maximum value of:
 	//    * 1000 for {@link DynamoEventSource}
 	//    * 10000 for {@link KinesisEventSource}, {@link ManagedKafkaEventSource} and {@link SelfManagedKafkaEventSource}
-	BatchSize *float64 `json:"batchSize"`
+	BatchSize *float64 `json:"batchSize" yaml:"batchSize"`
 	// If the stream event source mapping should be enabled.
-	Enabled *bool `json:"enabled"`
+	Enabled *bool `json:"enabled" yaml:"enabled"`
 	// The maximum amount of time to gather records before invoking the function.
 	//
 	// Maximum of Duration.minutes(5)
-	MaxBatchingWindow awscdk.Duration `json:"maxBatchingWindow"`
+	MaxBatchingWindow awscdk.Duration `json:"maxBatchingWindow" yaml:"maxBatchingWindow"`
 	// An Amazon SQS queue or Amazon SNS topic destination for discarded records.
-	OnFailure awslambda.IEventSourceDlq `json:"onFailure"`
+	OnFailure awslambda.IEventSourceDlq `json:"onFailure" yaml:"onFailure"`
 	// The Kafka topic to subscribe to.
-	Topic *string `json:"topic"`
+	Topic *string `json:"topic" yaml:"topic"`
 	// The secret with the Kafka credentials, see https://docs.aws.amazon.com/msk/latest/developerguide/msk-password.html for details This field is required if your Kafka brokers are accessed over the Internet.
-	Secret awssecretsmanager.ISecret `json:"secret"`
+	Secret awssecretsmanager.ISecret `json:"secret" yaml:"secret"`
 	// The list of host and port pairs that are the addresses of the Kafka brokers in a "bootstrap" Kafka cluster that a Kafka client connects to initially to bootstrap itself.
 	//
 	// They are in the format `abc.xyz.com:xxxx`.
-	BootstrapServers *[]*string `json:"bootstrapServers"`
+	BootstrapServers *[]*string `json:"bootstrapServers" yaml:"bootstrapServers"`
 	// The authentication method for your Kafka cluster.
-	AuthenticationMethod AuthenticationMethod `json:"authenticationMethod"`
+	AuthenticationMethod AuthenticationMethod `json:"authenticationMethod" yaml:"authenticationMethod"`
 	// If your Kafka brokers are only reachable via VPC, provide the security group here.
-	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
+	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup" yaml:"securityGroup"`
 	// If your Kafka brokers are only reachable via VPC provide the VPC here.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// If your Kafka brokers are only reachable via VPC, provide the subnets selection here.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 
 // An SNS dead letter queue destination configuration for a Lambda event source.
@@ -835,9 +835,9 @@ type SnsEventSourceProps struct {
 	// Queue to be used as dead letter queue.
 	//
 	// If not passed no dead letter queue is enabled.
-	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue"`
+	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// The filter policy.
-	FilterPolicy *map[string]awssns.SubscriptionFilter `json:"filterPolicy"`
+	FilterPolicy *map[string]awssns.SubscriptionFilter `json:"filterPolicy" yaml:"filterPolicy"`
 }
 
 // An SQS dead letter queue destination configuration for a Lambda event source.
@@ -972,17 +972,17 @@ type SqsEventSourceProps struct {
 	//
 	// Valid Range: Minimum value of 1. Maximum value of 10.
 	// If `maxBatchingWindow` is configured, this value can go up to 10,000.
-	BatchSize *float64 `json:"batchSize"`
+	BatchSize *float64 `json:"batchSize" yaml:"batchSize"`
 	// If the SQS event source mapping should be enabled.
-	Enabled *bool `json:"enabled"`
+	Enabled *bool `json:"enabled" yaml:"enabled"`
 	// The maximum amount of time to gather records before invoking the function.
 	//
 	// Valid Range: Minimum value of 0 minutes. Maximum value of 5 minutes.
-	MaxBatchingWindow awscdk.Duration `json:"maxBatchingWindow"`
+	MaxBatchingWindow awscdk.Duration `json:"maxBatchingWindow" yaml:"maxBatchingWindow"`
 	// Allow functions to return partially successful responses for a batch of records.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#services-sqs-batchfailurereporting
 	//
-	ReportBatchItemFailures *bool `json:"reportBatchItemFailures"`
+	ReportBatchItemFailures *bool `json:"reportBatchItemFailures" yaml:"reportBatchItemFailures"`
 }
 
 // Use an stream as an event source for AWS Lambda.
@@ -1047,7 +1047,7 @@ func (s *jsiiProxy_StreamEventSource) EnrichMappingOptions(options *awslambda.Ev
 //
 type StreamEventSourceProps struct {
 	// Where to begin consuming the stream.
-	StartingPosition awslambda.StartingPosition `json:"startingPosition"`
+	StartingPosition awslambda.StartingPosition `json:"startingPosition" yaml:"startingPosition"`
 	// The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function.
 	//
 	// Your function receives an
@@ -1058,36 +1058,36 @@ type StreamEventSourceProps struct {
 	// * Maximum value of:
 	//    * 1000 for {@link DynamoEventSource}
 	//    * 10000 for {@link KinesisEventSource}, {@link ManagedKafkaEventSource} and {@link SelfManagedKafkaEventSource}
-	BatchSize *float64 `json:"batchSize"`
+	BatchSize *float64 `json:"batchSize" yaml:"batchSize"`
 	// If the stream event source mapping should be enabled.
-	Enabled *bool `json:"enabled"`
+	Enabled *bool `json:"enabled" yaml:"enabled"`
 	// The maximum amount of time to gather records before invoking the function.
 	//
 	// Maximum of Duration.minutes(5)
-	MaxBatchingWindow awscdk.Duration `json:"maxBatchingWindow"`
+	MaxBatchingWindow awscdk.Duration `json:"maxBatchingWindow" yaml:"maxBatchingWindow"`
 	// An Amazon SQS queue or Amazon SNS topic destination for discarded records.
-	OnFailure awslambda.IEventSourceDlq `json:"onFailure"`
+	OnFailure awslambda.IEventSourceDlq `json:"onFailure" yaml:"onFailure"`
 	// If the function returns an error, split the batch in two and retry.
-	BisectBatchOnError *bool `json:"bisectBatchOnError"`
+	BisectBatchOnError *bool `json:"bisectBatchOnError" yaml:"bisectBatchOnError"`
 	// The maximum age of a record that Lambda sends to a function for processing.
 	//
 	// Valid Range:
 	// * Minimum value of 60 seconds
 	// * Maximum value of 7 days
-	MaxRecordAge awscdk.Duration `json:"maxRecordAge"`
+	MaxRecordAge awscdk.Duration `json:"maxRecordAge" yaml:"maxRecordAge"`
 	// The number of batches to process from each shard concurrently.
 	//
 	// Valid Range:
 	// * Minimum value of 1
 	// * Maximum value of 10
-	ParallelizationFactor *float64 `json:"parallelizationFactor"`
+	ParallelizationFactor *float64 `json:"parallelizationFactor" yaml:"parallelizationFactor"`
 	// Allow functions to return partially successful responses for a batch of records.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting
 	//
-	ReportBatchItemFailures *bool `json:"reportBatchItemFailures"`
+	ReportBatchItemFailures *bool `json:"reportBatchItemFailures" yaml:"reportBatchItemFailures"`
 	// Maximum number of retry attempts Valid Range: * Minimum value of 0 * Maximum value of 10000.
-	RetryAttempts *float64 `json:"retryAttempts"`
+	RetryAttempts *float64 `json:"retryAttempts" yaml:"retryAttempts"`
 	// The size of the tumbling windows to group records sent to DynamoDB or Kinesis Valid Range: 0 - 15 minutes.
-	TumblingWindow awscdk.Duration `json:"tumblingWindow"`
+	TumblingWindow awscdk.Duration `json:"tumblingWindow" yaml:"tumblingWindow"`
 }
 

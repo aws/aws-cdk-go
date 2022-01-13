@@ -885,66 +885,66 @@ func (c *jsiiProxy_CfnApi) ValidateProperties(_properties interface{}) {
 //
 type CfnApi_AccessLogSettingProperty struct {
 	// `CfnApi.AccessLogSettingProperty.DestinationArn`.
-	DestinationArn *string `json:"destinationArn"`
+	DestinationArn *string `json:"destinationArn" yaml:"destinationArn"`
 	// `CfnApi.AccessLogSettingProperty.Format`.
-	Format *string `json:"format"`
+	Format *string `json:"format" yaml:"format"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnApi_AuthProperty struct {
 	// `CfnApi.AuthProperty.Authorizers`.
-	Authorizers interface{} `json:"authorizers"`
+	Authorizers interface{} `json:"authorizers" yaml:"authorizers"`
 	// `CfnApi.AuthProperty.DefaultAuthorizer`.
-	DefaultAuthorizer *string `json:"defaultAuthorizer"`
+	DefaultAuthorizer *string `json:"defaultAuthorizer" yaml:"defaultAuthorizer"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnApi_CanarySettingProperty struct {
 	// `CfnApi.CanarySettingProperty.DeploymentId`.
-	DeploymentId *string `json:"deploymentId"`
+	DeploymentId *string `json:"deploymentId" yaml:"deploymentId"`
 	// `CfnApi.CanarySettingProperty.PercentTraffic`.
-	PercentTraffic *float64 `json:"percentTraffic"`
+	PercentTraffic *float64 `json:"percentTraffic" yaml:"percentTraffic"`
 	// `CfnApi.CanarySettingProperty.StageVariableOverrides`.
-	StageVariableOverrides interface{} `json:"stageVariableOverrides"`
+	StageVariableOverrides interface{} `json:"stageVariableOverrides" yaml:"stageVariableOverrides"`
 	// `CfnApi.CanarySettingProperty.UseStageCache`.
-	UseStageCache interface{} `json:"useStageCache"`
+	UseStageCache interface{} `json:"useStageCache" yaml:"useStageCache"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnApi_CorsConfigurationProperty struct {
 	// `CfnApi.CorsConfigurationProperty.AllowOrigin`.
-	AllowOrigin *string `json:"allowOrigin"`
+	AllowOrigin *string `json:"allowOrigin" yaml:"allowOrigin"`
 	// `CfnApi.CorsConfigurationProperty.AllowCredentials`.
-	AllowCredentials interface{} `json:"allowCredentials"`
+	AllowCredentials interface{} `json:"allowCredentials" yaml:"allowCredentials"`
 	// `CfnApi.CorsConfigurationProperty.AllowHeaders`.
-	AllowHeaders *string `json:"allowHeaders"`
+	AllowHeaders *string `json:"allowHeaders" yaml:"allowHeaders"`
 	// `CfnApi.CorsConfigurationProperty.AllowMethods`.
-	AllowMethods *string `json:"allowMethods"`
+	AllowMethods *string `json:"allowMethods" yaml:"allowMethods"`
 	// `CfnApi.CorsConfigurationProperty.MaxAge`.
-	MaxAge *string `json:"maxAge"`
+	MaxAge *string `json:"maxAge" yaml:"maxAge"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnApi_EndpointConfigurationProperty struct {
 	// `CfnApi.EndpointConfigurationProperty.Type`.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// `CfnApi.EndpointConfigurationProperty.VpcEndpointIds`.
-	VpcEndpointIds *[]*string `json:"vpcEndpointIds"`
+	VpcEndpointIds *[]*string `json:"vpcEndpointIds" yaml:"vpcEndpointIds"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnApi_S3LocationProperty struct {
 	// `CfnApi.S3LocationProperty.Bucket`.
-	Bucket *string `json:"bucket"`
+	Bucket *string `json:"bucket" yaml:"bucket"`
 	// `CfnApi.S3LocationProperty.Key`.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// `CfnApi.S3LocationProperty.Version`.
-	Version *float64 `json:"version"`
+	Version *float64 `json:"version" yaml:"version"`
 }
 
 // Properties for defining a `CfnApi`.
@@ -953,47 +953,47 @@ type CfnApi_S3LocationProperty struct {
 //
 type CfnApiProps struct {
 	// `AWS::Serverless::Api.StageName`.
-	StageName *string `json:"stageName"`
+	StageName *string `json:"stageName" yaml:"stageName"`
 	// `AWS::Serverless::Api.AccessLogSetting`.
-	AccessLogSetting interface{} `json:"accessLogSetting"`
+	AccessLogSetting interface{} `json:"accessLogSetting" yaml:"accessLogSetting"`
 	// `AWS::Serverless::Api.Auth`.
-	Auth interface{} `json:"auth"`
+	Auth interface{} `json:"auth" yaml:"auth"`
 	// `AWS::Serverless::Api.BinaryMediaTypes`.
-	BinaryMediaTypes *[]*string `json:"binaryMediaTypes"`
+	BinaryMediaTypes *[]*string `json:"binaryMediaTypes" yaml:"binaryMediaTypes"`
 	// `AWS::Serverless::Api.CacheClusterEnabled`.
-	CacheClusterEnabled interface{} `json:"cacheClusterEnabled"`
+	CacheClusterEnabled interface{} `json:"cacheClusterEnabled" yaml:"cacheClusterEnabled"`
 	// `AWS::Serverless::Api.CacheClusterSize`.
-	CacheClusterSize *string `json:"cacheClusterSize"`
+	CacheClusterSize *string `json:"cacheClusterSize" yaml:"cacheClusterSize"`
 	// `AWS::Serverless::Api.CanarySetting`.
-	CanarySetting interface{} `json:"canarySetting"`
+	CanarySetting interface{} `json:"canarySetting" yaml:"canarySetting"`
 	// `AWS::Serverless::Api.Cors`.
-	Cors interface{} `json:"cors"`
+	Cors interface{} `json:"cors" yaml:"cors"`
 	// `AWS::Serverless::Api.DefinitionBody`.
-	DefinitionBody interface{} `json:"definitionBody"`
+	DefinitionBody interface{} `json:"definitionBody" yaml:"definitionBody"`
 	// `AWS::Serverless::Api.DefinitionUri`.
-	DefinitionUri interface{} `json:"definitionUri"`
+	DefinitionUri interface{} `json:"definitionUri" yaml:"definitionUri"`
 	// `AWS::Serverless::Api.Description`.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// `AWS::Serverless::Api.EndpointConfiguration`.
-	EndpointConfiguration interface{} `json:"endpointConfiguration"`
+	EndpointConfiguration interface{} `json:"endpointConfiguration" yaml:"endpointConfiguration"`
 	// `AWS::Serverless::Api.GatewayResponses`.
-	GatewayResponses interface{} `json:"gatewayResponses"`
+	GatewayResponses interface{} `json:"gatewayResponses" yaml:"gatewayResponses"`
 	// `AWS::Serverless::Api.MethodSettings`.
-	MethodSettings interface{} `json:"methodSettings"`
+	MethodSettings interface{} `json:"methodSettings" yaml:"methodSettings"`
 	// `AWS::Serverless::Api.MinimumCompressionSize`.
-	MinimumCompressionSize *float64 `json:"minimumCompressionSize"`
+	MinimumCompressionSize *float64 `json:"minimumCompressionSize" yaml:"minimumCompressionSize"`
 	// `AWS::Serverless::Api.Models`.
-	Models interface{} `json:"models"`
+	Models interface{} `json:"models" yaml:"models"`
 	// `AWS::Serverless::Api.Name`.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// `AWS::Serverless::Api.OpenApiVersion`.
-	OpenApiVersion *string `json:"openApiVersion"`
+	OpenApiVersion *string `json:"openApiVersion" yaml:"openApiVersion"`
 	// `AWS::Serverless::Api.Tags`.
-	Tags *map[string]*string `json:"tags"`
+	Tags *map[string]*string `json:"tags" yaml:"tags"`
 	// `AWS::Serverless::Api.TracingEnabled`.
-	TracingEnabled interface{} `json:"tracingEnabled"`
+	TracingEnabled interface{} `json:"tracingEnabled" yaml:"tracingEnabled"`
 	// `AWS::Serverless::Api.Variables`.
-	Variables interface{} `json:"variables"`
+	Variables interface{} `json:"variables" yaml:"variables"`
 }
 
 // A CloudFormation `AWS::Serverless::Application`.
@@ -1552,9 +1552,9 @@ func (c *jsiiProxy_CfnApplication) ValidateProperties(_properties interface{}) {
 //
 type CfnApplication_ApplicationLocationProperty struct {
 	// `CfnApplication.ApplicationLocationProperty.ApplicationId`.
-	ApplicationId *string `json:"applicationId"`
+	ApplicationId *string `json:"applicationId" yaml:"applicationId"`
 	// `CfnApplication.ApplicationLocationProperty.SemanticVersion`.
-	SemanticVersion *string `json:"semanticVersion"`
+	SemanticVersion *string `json:"semanticVersion" yaml:"semanticVersion"`
 }
 
 // Properties for defining a `CfnApplication`.
@@ -1563,15 +1563,15 @@ type CfnApplication_ApplicationLocationProperty struct {
 //
 type CfnApplicationProps struct {
 	// `AWS::Serverless::Application.Location`.
-	Location interface{} `json:"location"`
+	Location interface{} `json:"location" yaml:"location"`
 	// `AWS::Serverless::Application.NotificationArns`.
-	NotificationArns *[]*string `json:"notificationArns"`
+	NotificationArns *[]*string `json:"notificationArns" yaml:"notificationArns"`
 	// `AWS::Serverless::Application.Parameters`.
-	Parameters interface{} `json:"parameters"`
+	Parameters interface{} `json:"parameters" yaml:"parameters"`
 	// `AWS::Serverless::Application.Tags`.
-	Tags *map[string]*string `json:"tags"`
+	Tags *map[string]*string `json:"tags" yaml:"tags"`
 	// `AWS::Serverless::Application.TimeoutInMinutes`.
-	TimeoutInMinutes *float64 `json:"timeoutInMinutes"`
+	TimeoutInMinutes *float64 `json:"timeoutInMinutes" yaml:"timeoutInMinutes"`
 }
 
 // A CloudFormation `AWS::Serverless::Function`.
@@ -2690,164 +2690,164 @@ func (c *jsiiProxy_CfnFunction) ValidateProperties(_properties interface{}) {
 //
 type CfnFunction_AlexaSkillEventProperty struct {
 	// `CfnFunction.AlexaSkillEventProperty.Variables`.
-	Variables interface{} `json:"variables"`
+	Variables interface{} `json:"variables" yaml:"variables"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnFunction_ApiEventProperty struct {
 	// `CfnFunction.ApiEventProperty.Method`.
-	Method *string `json:"method"`
+	Method *string `json:"method" yaml:"method"`
 	// `CfnFunction.ApiEventProperty.Path`.
-	Path *string `json:"path"`
+	Path *string `json:"path" yaml:"path"`
 	// `CfnFunction.ApiEventProperty.Auth`.
-	Auth interface{} `json:"auth"`
+	Auth interface{} `json:"auth" yaml:"auth"`
 	// `CfnFunction.ApiEventProperty.RestApiId`.
-	RestApiId *string `json:"restApiId"`
+	RestApiId *string `json:"restApiId" yaml:"restApiId"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnFunction_AuthProperty struct {
 	// `CfnFunction.AuthProperty.ApiKeyRequired`.
-	ApiKeyRequired interface{} `json:"apiKeyRequired"`
+	ApiKeyRequired interface{} `json:"apiKeyRequired" yaml:"apiKeyRequired"`
 	// `CfnFunction.AuthProperty.AuthorizationScopes`.
-	AuthorizationScopes *[]*string `json:"authorizationScopes"`
+	AuthorizationScopes *[]*string `json:"authorizationScopes" yaml:"authorizationScopes"`
 	// `CfnFunction.AuthProperty.Authorizer`.
-	Authorizer *string `json:"authorizer"`
+	Authorizer *string `json:"authorizer" yaml:"authorizer"`
 	// `CfnFunction.AuthProperty.ResourcePolicy`.
-	ResourcePolicy interface{} `json:"resourcePolicy"`
+	ResourcePolicy interface{} `json:"resourcePolicy" yaml:"resourcePolicy"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnFunction_AuthResourcePolicyProperty struct {
 	// `CfnFunction.AuthResourcePolicyProperty.AwsAccountBlacklist`.
-	AwsAccountBlacklist *[]*string `json:"awsAccountBlacklist"`
+	AwsAccountBlacklist *[]*string `json:"awsAccountBlacklist" yaml:"awsAccountBlacklist"`
 	// `CfnFunction.AuthResourcePolicyProperty.AwsAccountWhitelist`.
-	AwsAccountWhitelist *[]*string `json:"awsAccountWhitelist"`
+	AwsAccountWhitelist *[]*string `json:"awsAccountWhitelist" yaml:"awsAccountWhitelist"`
 	// `CfnFunction.AuthResourcePolicyProperty.CustomStatements`.
-	CustomStatements interface{} `json:"customStatements"`
+	CustomStatements interface{} `json:"customStatements" yaml:"customStatements"`
 	// `CfnFunction.AuthResourcePolicyProperty.IntrinsicVpcBlacklist`.
-	IntrinsicVpcBlacklist *[]*string `json:"intrinsicVpcBlacklist"`
+	IntrinsicVpcBlacklist *[]*string `json:"intrinsicVpcBlacklist" yaml:"intrinsicVpcBlacklist"`
 	// `CfnFunction.AuthResourcePolicyProperty.IntrinsicVpceBlacklist`.
-	IntrinsicVpceBlacklist *[]*string `json:"intrinsicVpceBlacklist"`
+	IntrinsicVpceBlacklist *[]*string `json:"intrinsicVpceBlacklist" yaml:"intrinsicVpceBlacklist"`
 	// `CfnFunction.AuthResourcePolicyProperty.IntrinsicVpceWhitelist`.
-	IntrinsicVpceWhitelist *[]*string `json:"intrinsicVpceWhitelist"`
+	IntrinsicVpceWhitelist *[]*string `json:"intrinsicVpceWhitelist" yaml:"intrinsicVpceWhitelist"`
 	// `CfnFunction.AuthResourcePolicyProperty.IntrinsicVpcWhitelist`.
-	IntrinsicVpcWhitelist *[]*string `json:"intrinsicVpcWhitelist"`
+	IntrinsicVpcWhitelist *[]*string `json:"intrinsicVpcWhitelist" yaml:"intrinsicVpcWhitelist"`
 	// `CfnFunction.AuthResourcePolicyProperty.IpRangeBlacklist`.
-	IpRangeBlacklist *[]*string `json:"ipRangeBlacklist"`
+	IpRangeBlacklist *[]*string `json:"ipRangeBlacklist" yaml:"ipRangeBlacklist"`
 	// `CfnFunction.AuthResourcePolicyProperty.IpRangeWhitelist`.
-	IpRangeWhitelist *[]*string `json:"ipRangeWhitelist"`
+	IpRangeWhitelist *[]*string `json:"ipRangeWhitelist" yaml:"ipRangeWhitelist"`
 	// `CfnFunction.AuthResourcePolicyProperty.SourceVpcBlacklist`.
-	SourceVpcBlacklist *[]*string `json:"sourceVpcBlacklist"`
+	SourceVpcBlacklist *[]*string `json:"sourceVpcBlacklist" yaml:"sourceVpcBlacklist"`
 	// `CfnFunction.AuthResourcePolicyProperty.SourceVpcWhitelist`.
-	SourceVpcWhitelist *[]*string `json:"sourceVpcWhitelist"`
+	SourceVpcWhitelist *[]*string `json:"sourceVpcWhitelist" yaml:"sourceVpcWhitelist"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnFunction_BucketSAMPTProperty struct {
 	// `CfnFunction.BucketSAMPTProperty.BucketName`.
-	BucketName *string `json:"bucketName"`
+	BucketName *string `json:"bucketName" yaml:"bucketName"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnFunction_CloudWatchEventEventProperty struct {
 	// `CfnFunction.CloudWatchEventEventProperty.Pattern`.
-	Pattern interface{} `json:"pattern"`
+	Pattern interface{} `json:"pattern" yaml:"pattern"`
 	// `CfnFunction.CloudWatchEventEventProperty.Input`.
-	Input *string `json:"input"`
+	Input *string `json:"input" yaml:"input"`
 	// `CfnFunction.CloudWatchEventEventProperty.InputPath`.
-	InputPath *string `json:"inputPath"`
+	InputPath *string `json:"inputPath" yaml:"inputPath"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnFunction_CloudWatchLogsEventProperty struct {
 	// `CfnFunction.CloudWatchLogsEventProperty.FilterPattern`.
-	FilterPattern *string `json:"filterPattern"`
+	FilterPattern *string `json:"filterPattern" yaml:"filterPattern"`
 	// `CfnFunction.CloudWatchLogsEventProperty.LogGroupName`.
-	LogGroupName *string `json:"logGroupName"`
+	LogGroupName *string `json:"logGroupName" yaml:"logGroupName"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnFunction_CollectionSAMPTProperty struct {
 	// `CfnFunction.CollectionSAMPTProperty.CollectionId`.
-	CollectionId *string `json:"collectionId"`
+	CollectionId *string `json:"collectionId" yaml:"collectionId"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnFunction_DeadLetterQueueProperty struct {
 	// `CfnFunction.DeadLetterQueueProperty.TargetArn`.
-	TargetArn *string `json:"targetArn"`
+	TargetArn *string `json:"targetArn" yaml:"targetArn"`
 	// `CfnFunction.DeadLetterQueueProperty.Type`.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnFunction_DeploymentPreferenceProperty struct {
 	// `CfnFunction.DeploymentPreferenceProperty.Enabled`.
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 	// `CfnFunction.DeploymentPreferenceProperty.Type`.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// `CfnFunction.DeploymentPreferenceProperty.Alarms`.
-	Alarms *[]*string `json:"alarms"`
+	Alarms *[]*string `json:"alarms" yaml:"alarms"`
 	// `CfnFunction.DeploymentPreferenceProperty.Hooks`.
-	Hooks *[]*string `json:"hooks"`
+	Hooks *[]*string `json:"hooks" yaml:"hooks"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnFunction_DestinationConfigProperty struct {
 	// `CfnFunction.DestinationConfigProperty.OnFailure`.
-	OnFailure interface{} `json:"onFailure"`
+	OnFailure interface{} `json:"onFailure" yaml:"onFailure"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnFunction_DestinationProperty struct {
 	// `CfnFunction.DestinationProperty.Destination`.
-	Destination *string `json:"destination"`
+	Destination *string `json:"destination" yaml:"destination"`
 	// `CfnFunction.DestinationProperty.Type`.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnFunction_DomainSAMPTProperty struct {
 	// `CfnFunction.DomainSAMPTProperty.DomainName`.
-	DomainName *string `json:"domainName"`
+	DomainName *string `json:"domainName" yaml:"domainName"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnFunction_DynamoDBEventProperty struct {
 	// `CfnFunction.DynamoDBEventProperty.StartingPosition`.
-	StartingPosition *string `json:"startingPosition"`
+	StartingPosition *string `json:"startingPosition" yaml:"startingPosition"`
 	// `CfnFunction.DynamoDBEventProperty.Stream`.
-	Stream *string `json:"stream"`
+	Stream *string `json:"stream" yaml:"stream"`
 	// `CfnFunction.DynamoDBEventProperty.BatchSize`.
-	BatchSize *float64 `json:"batchSize"`
+	BatchSize *float64 `json:"batchSize" yaml:"batchSize"`
 	// `CfnFunction.DynamoDBEventProperty.BisectBatchOnFunctionError`.
-	BisectBatchOnFunctionError interface{} `json:"bisectBatchOnFunctionError"`
+	BisectBatchOnFunctionError interface{} `json:"bisectBatchOnFunctionError" yaml:"bisectBatchOnFunctionError"`
 	// `CfnFunction.DynamoDBEventProperty.DestinationConfig`.
-	DestinationConfig interface{} `json:"destinationConfig"`
+	DestinationConfig interface{} `json:"destinationConfig" yaml:"destinationConfig"`
 	// `CfnFunction.DynamoDBEventProperty.Enabled`.
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 	// `CfnFunction.DynamoDBEventProperty.MaximumBatchingWindowInSeconds`.
-	MaximumBatchingWindowInSeconds *float64 `json:"maximumBatchingWindowInSeconds"`
+	MaximumBatchingWindowInSeconds *float64 `json:"maximumBatchingWindowInSeconds" yaml:"maximumBatchingWindowInSeconds"`
 	// `CfnFunction.DynamoDBEventProperty.MaximumRecordAgeInSeconds`.
-	MaximumRecordAgeInSeconds *float64 `json:"maximumRecordAgeInSeconds"`
+	MaximumRecordAgeInSeconds *float64 `json:"maximumRecordAgeInSeconds" yaml:"maximumRecordAgeInSeconds"`
 	// `CfnFunction.DynamoDBEventProperty.MaximumRetryAttempts`.
-	MaximumRetryAttempts *float64 `json:"maximumRetryAttempts"`
+	MaximumRetryAttempts *float64 `json:"maximumRetryAttempts" yaml:"maximumRetryAttempts"`
 	// `CfnFunction.DynamoDBEventProperty.ParallelizationFactor`.
-	ParallelizationFactor *float64 `json:"parallelizationFactor"`
+	ParallelizationFactor *float64 `json:"parallelizationFactor" yaml:"parallelizationFactor"`
 }
 
 // TODO: EXAMPLE
@@ -2859,323 +2859,323 @@ type CfnFunction_EmptySAMPTProperty struct {
 //
 type CfnFunction_EventBridgeRuleEventProperty struct {
 	// `CfnFunction.EventBridgeRuleEventProperty.Pattern`.
-	Pattern interface{} `json:"pattern"`
+	Pattern interface{} `json:"pattern" yaml:"pattern"`
 	// `CfnFunction.EventBridgeRuleEventProperty.EventBusName`.
-	EventBusName *string `json:"eventBusName"`
+	EventBusName *string `json:"eventBusName" yaml:"eventBusName"`
 	// `CfnFunction.EventBridgeRuleEventProperty.Input`.
-	Input *string `json:"input"`
+	Input *string `json:"input" yaml:"input"`
 	// `CfnFunction.EventBridgeRuleEventProperty.InputPath`.
-	InputPath *string `json:"inputPath"`
+	InputPath *string `json:"inputPath" yaml:"inputPath"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnFunction_EventInvokeConfigProperty struct {
 	// `CfnFunction.EventInvokeConfigProperty.DestinationConfig`.
-	DestinationConfig interface{} `json:"destinationConfig"`
+	DestinationConfig interface{} `json:"destinationConfig" yaml:"destinationConfig"`
 	// `CfnFunction.EventInvokeConfigProperty.MaximumEventAgeInSeconds`.
-	MaximumEventAgeInSeconds *float64 `json:"maximumEventAgeInSeconds"`
+	MaximumEventAgeInSeconds *float64 `json:"maximumEventAgeInSeconds" yaml:"maximumEventAgeInSeconds"`
 	// `CfnFunction.EventInvokeConfigProperty.MaximumRetryAttempts`.
-	MaximumRetryAttempts *float64 `json:"maximumRetryAttempts"`
+	MaximumRetryAttempts *float64 `json:"maximumRetryAttempts" yaml:"maximumRetryAttempts"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnFunction_EventInvokeDestinationConfigProperty struct {
 	// `CfnFunction.EventInvokeDestinationConfigProperty.OnFailure`.
-	OnFailure interface{} `json:"onFailure"`
+	OnFailure interface{} `json:"onFailure" yaml:"onFailure"`
 	// `CfnFunction.EventInvokeDestinationConfigProperty.OnSuccess`.
-	OnSuccess interface{} `json:"onSuccess"`
+	OnSuccess interface{} `json:"onSuccess" yaml:"onSuccess"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnFunction_EventSourceProperty struct {
 	// `CfnFunction.EventSourceProperty.Properties`.
-	Properties interface{} `json:"properties"`
+	Properties interface{} `json:"properties" yaml:"properties"`
 	// `CfnFunction.EventSourceProperty.Type`.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnFunction_FileSystemConfigProperty struct {
 	// `CfnFunction.FileSystemConfigProperty.Arn`.
-	Arn *string `json:"arn"`
+	Arn *string `json:"arn" yaml:"arn"`
 	// `CfnFunction.FileSystemConfigProperty.LocalMountPath`.
-	LocalMountPath *string `json:"localMountPath"`
+	LocalMountPath *string `json:"localMountPath" yaml:"localMountPath"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnFunction_FunctionEnvironmentProperty struct {
 	// `CfnFunction.FunctionEnvironmentProperty.Variables`.
-	Variables interface{} `json:"variables"`
+	Variables interface{} `json:"variables" yaml:"variables"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnFunction_FunctionSAMPTProperty struct {
 	// `CfnFunction.FunctionSAMPTProperty.FunctionName`.
-	FunctionName *string `json:"functionName"`
+	FunctionName *string `json:"functionName" yaml:"functionName"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnFunction_IAMPolicyDocumentProperty struct {
 	// `CfnFunction.IAMPolicyDocumentProperty.Statement`.
-	Statement interface{} `json:"statement"`
+	Statement interface{} `json:"statement" yaml:"statement"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnFunction_IdentitySAMPTProperty struct {
 	// `CfnFunction.IdentitySAMPTProperty.IdentityName`.
-	IdentityName *string `json:"identityName"`
+	IdentityName *string `json:"identityName" yaml:"identityName"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnFunction_ImageConfigProperty struct {
 	// `CfnFunction.ImageConfigProperty.Command`.
-	Command *[]*string `json:"command"`
+	Command *[]*string `json:"command" yaml:"command"`
 	// `CfnFunction.ImageConfigProperty.EntryPoint`.
-	EntryPoint *[]*string `json:"entryPoint"`
+	EntryPoint *[]*string `json:"entryPoint" yaml:"entryPoint"`
 	// `CfnFunction.ImageConfigProperty.WorkingDirectory`.
-	WorkingDirectory *string `json:"workingDirectory"`
+	WorkingDirectory *string `json:"workingDirectory" yaml:"workingDirectory"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnFunction_IoTRuleEventProperty struct {
 	// `CfnFunction.IoTRuleEventProperty.Sql`.
-	Sql *string `json:"sql"`
+	Sql *string `json:"sql" yaml:"sql"`
 	// `CfnFunction.IoTRuleEventProperty.AwsIotSqlVersion`.
-	AwsIotSqlVersion *string `json:"awsIotSqlVersion"`
+	AwsIotSqlVersion *string `json:"awsIotSqlVersion" yaml:"awsIotSqlVersion"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnFunction_KeySAMPTProperty struct {
 	// `CfnFunction.KeySAMPTProperty.KeyId`.
-	KeyId *string `json:"keyId"`
+	KeyId *string `json:"keyId" yaml:"keyId"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnFunction_KinesisEventProperty struct {
 	// `CfnFunction.KinesisEventProperty.StartingPosition`.
-	StartingPosition *string `json:"startingPosition"`
+	StartingPosition *string `json:"startingPosition" yaml:"startingPosition"`
 	// `CfnFunction.KinesisEventProperty.Stream`.
-	Stream *string `json:"stream"`
+	Stream *string `json:"stream" yaml:"stream"`
 	// `CfnFunction.KinesisEventProperty.BatchSize`.
-	BatchSize *float64 `json:"batchSize"`
+	BatchSize *float64 `json:"batchSize" yaml:"batchSize"`
 	// `CfnFunction.KinesisEventProperty.Enabled`.
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnFunction_LogGroupSAMPTProperty struct {
 	// `CfnFunction.LogGroupSAMPTProperty.LogGroupName`.
-	LogGroupName *string `json:"logGroupName"`
+	LogGroupName *string `json:"logGroupName" yaml:"logGroupName"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnFunction_ProvisionedConcurrencyConfigProperty struct {
 	// `CfnFunction.ProvisionedConcurrencyConfigProperty.ProvisionedConcurrentExecutions`.
-	ProvisionedConcurrentExecutions *string `json:"provisionedConcurrentExecutions"`
+	ProvisionedConcurrentExecutions *string `json:"provisionedConcurrentExecutions" yaml:"provisionedConcurrentExecutions"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnFunction_QueueSAMPTProperty struct {
 	// `CfnFunction.QueueSAMPTProperty.QueueName`.
-	QueueName *string `json:"queueName"`
+	QueueName *string `json:"queueName" yaml:"queueName"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnFunction_S3EventProperty struct {
 	// `CfnFunction.S3EventProperty.Bucket`.
-	Bucket *string `json:"bucket"`
+	Bucket *string `json:"bucket" yaml:"bucket"`
 	// `CfnFunction.S3EventProperty.Events`.
-	Events interface{} `json:"events"`
+	Events interface{} `json:"events" yaml:"events"`
 	// `CfnFunction.S3EventProperty.Filter`.
-	Filter interface{} `json:"filter"`
+	Filter interface{} `json:"filter" yaml:"filter"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnFunction_S3KeyFilterProperty struct {
 	// `CfnFunction.S3KeyFilterProperty.Rules`.
-	Rules interface{} `json:"rules"`
+	Rules interface{} `json:"rules" yaml:"rules"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnFunction_S3KeyFilterRuleProperty struct {
 	// `CfnFunction.S3KeyFilterRuleProperty.Name`.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// `CfnFunction.S3KeyFilterRuleProperty.Value`.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnFunction_S3LocationProperty struct {
 	// `CfnFunction.S3LocationProperty.Bucket`.
-	Bucket *string `json:"bucket"`
+	Bucket *string `json:"bucket" yaml:"bucket"`
 	// `CfnFunction.S3LocationProperty.Key`.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// `CfnFunction.S3LocationProperty.Version`.
-	Version *float64 `json:"version"`
+	Version *float64 `json:"version" yaml:"version"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnFunction_S3NotificationFilterProperty struct {
 	// `CfnFunction.S3NotificationFilterProperty.S3Key`.
-	S3Key interface{} `json:"s3Key"`
+	S3Key interface{} `json:"s3Key" yaml:"s3Key"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnFunction_SAMPolicyTemplateProperty struct {
 	// `CfnFunction.SAMPolicyTemplateProperty.AMIDescribePolicy`.
-	AmiDescribePolicy interface{} `json:"amiDescribePolicy"`
+	AmiDescribePolicy interface{} `json:"amiDescribePolicy" yaml:"amiDescribePolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.CloudFormationDescribeStacksPolicy`.
-	CloudFormationDescribeStacksPolicy interface{} `json:"cloudFormationDescribeStacksPolicy"`
+	CloudFormationDescribeStacksPolicy interface{} `json:"cloudFormationDescribeStacksPolicy" yaml:"cloudFormationDescribeStacksPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.CloudWatchPutMetricPolicy`.
-	CloudWatchPutMetricPolicy interface{} `json:"cloudWatchPutMetricPolicy"`
+	CloudWatchPutMetricPolicy interface{} `json:"cloudWatchPutMetricPolicy" yaml:"cloudWatchPutMetricPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.DynamoDBCrudPolicy`.
-	DynamoDbCrudPolicy interface{} `json:"dynamoDbCrudPolicy"`
+	DynamoDbCrudPolicy interface{} `json:"dynamoDbCrudPolicy" yaml:"dynamoDbCrudPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.DynamoDBReadPolicy`.
-	DynamoDbReadPolicy interface{} `json:"dynamoDbReadPolicy"`
+	DynamoDbReadPolicy interface{} `json:"dynamoDbReadPolicy" yaml:"dynamoDbReadPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.DynamoDBStreamReadPolicy`.
-	DynamoDbStreamReadPolicy interface{} `json:"dynamoDbStreamReadPolicy"`
+	DynamoDbStreamReadPolicy interface{} `json:"dynamoDbStreamReadPolicy" yaml:"dynamoDbStreamReadPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.EC2DescribePolicy`.
-	Ec2DescribePolicy interface{} `json:"ec2DescribePolicy"`
+	Ec2DescribePolicy interface{} `json:"ec2DescribePolicy" yaml:"ec2DescribePolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.ElasticsearchHttpPostPolicy`.
-	ElasticsearchHttpPostPolicy interface{} `json:"elasticsearchHttpPostPolicy"`
+	ElasticsearchHttpPostPolicy interface{} `json:"elasticsearchHttpPostPolicy" yaml:"elasticsearchHttpPostPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.FilterLogEventsPolicy`.
-	FilterLogEventsPolicy interface{} `json:"filterLogEventsPolicy"`
+	FilterLogEventsPolicy interface{} `json:"filterLogEventsPolicy" yaml:"filterLogEventsPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.KinesisCrudPolicy`.
-	KinesisCrudPolicy interface{} `json:"kinesisCrudPolicy"`
+	KinesisCrudPolicy interface{} `json:"kinesisCrudPolicy" yaml:"kinesisCrudPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.KinesisStreamReadPolicy`.
-	KinesisStreamReadPolicy interface{} `json:"kinesisStreamReadPolicy"`
+	KinesisStreamReadPolicy interface{} `json:"kinesisStreamReadPolicy" yaml:"kinesisStreamReadPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.KMSDecryptPolicy`.
-	KmsDecryptPolicy interface{} `json:"kmsDecryptPolicy"`
+	KmsDecryptPolicy interface{} `json:"kmsDecryptPolicy" yaml:"kmsDecryptPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.LambdaInvokePolicy`.
-	LambdaInvokePolicy interface{} `json:"lambdaInvokePolicy"`
+	LambdaInvokePolicy interface{} `json:"lambdaInvokePolicy" yaml:"lambdaInvokePolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.RekognitionDetectOnlyPolicy`.
-	RekognitionDetectOnlyPolicy interface{} `json:"rekognitionDetectOnlyPolicy"`
+	RekognitionDetectOnlyPolicy interface{} `json:"rekognitionDetectOnlyPolicy" yaml:"rekognitionDetectOnlyPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.RekognitionLabelsPolicy`.
-	RekognitionLabelsPolicy interface{} `json:"rekognitionLabelsPolicy"`
+	RekognitionLabelsPolicy interface{} `json:"rekognitionLabelsPolicy" yaml:"rekognitionLabelsPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.RekognitionNoDataAccessPolicy`.
-	RekognitionNoDataAccessPolicy interface{} `json:"rekognitionNoDataAccessPolicy"`
+	RekognitionNoDataAccessPolicy interface{} `json:"rekognitionNoDataAccessPolicy" yaml:"rekognitionNoDataAccessPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.RekognitionReadPolicy`.
-	RekognitionReadPolicy interface{} `json:"rekognitionReadPolicy"`
+	RekognitionReadPolicy interface{} `json:"rekognitionReadPolicy" yaml:"rekognitionReadPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.RekognitionWriteOnlyAccessPolicy`.
-	RekognitionWriteOnlyAccessPolicy interface{} `json:"rekognitionWriteOnlyAccessPolicy"`
+	RekognitionWriteOnlyAccessPolicy interface{} `json:"rekognitionWriteOnlyAccessPolicy" yaml:"rekognitionWriteOnlyAccessPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.S3CrudPolicy`.
-	S3CrudPolicy interface{} `json:"s3CrudPolicy"`
+	S3CrudPolicy interface{} `json:"s3CrudPolicy" yaml:"s3CrudPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.S3ReadPolicy`.
-	S3ReadPolicy interface{} `json:"s3ReadPolicy"`
+	S3ReadPolicy interface{} `json:"s3ReadPolicy" yaml:"s3ReadPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.SESBulkTemplatedCrudPolicy`.
-	SesBulkTemplatedCrudPolicy interface{} `json:"sesBulkTemplatedCrudPolicy"`
+	SesBulkTemplatedCrudPolicy interface{} `json:"sesBulkTemplatedCrudPolicy" yaml:"sesBulkTemplatedCrudPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.SESCrudPolicy`.
-	SesCrudPolicy interface{} `json:"sesCrudPolicy"`
+	SesCrudPolicy interface{} `json:"sesCrudPolicy" yaml:"sesCrudPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.SESEmailTemplateCrudPolicy`.
-	SesEmailTemplateCrudPolicy interface{} `json:"sesEmailTemplateCrudPolicy"`
+	SesEmailTemplateCrudPolicy interface{} `json:"sesEmailTemplateCrudPolicy" yaml:"sesEmailTemplateCrudPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.SESSendBouncePolicy`.
-	SesSendBouncePolicy interface{} `json:"sesSendBouncePolicy"`
+	SesSendBouncePolicy interface{} `json:"sesSendBouncePolicy" yaml:"sesSendBouncePolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.SNSCrudPolicy`.
-	SnsCrudPolicy interface{} `json:"snsCrudPolicy"`
+	SnsCrudPolicy interface{} `json:"snsCrudPolicy" yaml:"snsCrudPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.SNSPublishMessagePolicy`.
-	SnsPublishMessagePolicy interface{} `json:"snsPublishMessagePolicy"`
+	SnsPublishMessagePolicy interface{} `json:"snsPublishMessagePolicy" yaml:"snsPublishMessagePolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.SQSPollerPolicy`.
-	SqsPollerPolicy interface{} `json:"sqsPollerPolicy"`
+	SqsPollerPolicy interface{} `json:"sqsPollerPolicy" yaml:"sqsPollerPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.SQSSendMessagePolicy`.
-	SqsSendMessagePolicy interface{} `json:"sqsSendMessagePolicy"`
+	SqsSendMessagePolicy interface{} `json:"sqsSendMessagePolicy" yaml:"sqsSendMessagePolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.StepFunctionsExecutionPolicy`.
-	StepFunctionsExecutionPolicy interface{} `json:"stepFunctionsExecutionPolicy"`
+	StepFunctionsExecutionPolicy interface{} `json:"stepFunctionsExecutionPolicy" yaml:"stepFunctionsExecutionPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.VPCAccessPolicy`.
-	VpcAccessPolicy interface{} `json:"vpcAccessPolicy"`
+	VpcAccessPolicy interface{} `json:"vpcAccessPolicy" yaml:"vpcAccessPolicy"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnFunction_SNSEventProperty struct {
 	// `CfnFunction.SNSEventProperty.Topic`.
-	Topic *string `json:"topic"`
+	Topic *string `json:"topic" yaml:"topic"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnFunction_SQSEventProperty struct {
 	// `CfnFunction.SQSEventProperty.Queue`.
-	Queue *string `json:"queue"`
+	Queue *string `json:"queue" yaml:"queue"`
 	// `CfnFunction.SQSEventProperty.BatchSize`.
-	BatchSize *float64 `json:"batchSize"`
+	BatchSize *float64 `json:"batchSize" yaml:"batchSize"`
 	// `CfnFunction.SQSEventProperty.Enabled`.
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnFunction_ScheduleEventProperty struct {
 	// `CfnFunction.ScheduleEventProperty.Schedule`.
-	Schedule *string `json:"schedule"`
+	Schedule *string `json:"schedule" yaml:"schedule"`
 	// `CfnFunction.ScheduleEventProperty.Input`.
-	Input *string `json:"input"`
+	Input *string `json:"input" yaml:"input"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnFunction_StateMachineSAMPTProperty struct {
 	// `CfnFunction.StateMachineSAMPTProperty.StateMachineName`.
-	StateMachineName *string `json:"stateMachineName"`
+	StateMachineName *string `json:"stateMachineName" yaml:"stateMachineName"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnFunction_StreamSAMPTProperty struct {
 	// `CfnFunction.StreamSAMPTProperty.StreamName`.
-	StreamName *string `json:"streamName"`
+	StreamName *string `json:"streamName" yaml:"streamName"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnFunction_TableSAMPTProperty struct {
 	// `CfnFunction.TableSAMPTProperty.TableName`.
-	TableName *string `json:"tableName"`
+	TableName *string `json:"tableName" yaml:"tableName"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnFunction_TableStreamSAMPTProperty struct {
 	// `CfnFunction.TableStreamSAMPTProperty.StreamName`.
-	StreamName *string `json:"streamName"`
+	StreamName *string `json:"streamName" yaml:"streamName"`
 	// `CfnFunction.TableStreamSAMPTProperty.TableName`.
-	TableName *string `json:"tableName"`
+	TableName *string `json:"tableName" yaml:"tableName"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnFunction_TopicSAMPTProperty struct {
 	// `CfnFunction.TopicSAMPTProperty.TopicName`.
-	TopicName *string `json:"topicName"`
+	TopicName *string `json:"topicName" yaml:"topicName"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnFunction_VpcConfigProperty struct {
 	// `CfnFunction.VpcConfigProperty.SecurityGroupIds`.
-	SecurityGroupIds *[]*string `json:"securityGroupIds"`
+	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
 	// `CfnFunction.VpcConfigProperty.SubnetIds`.
-	SubnetIds *[]*string `json:"subnetIds"`
+	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
 }
 
 // Properties for defining a `CfnFunction`.
@@ -3184,71 +3184,71 @@ type CfnFunction_VpcConfigProperty struct {
 //
 type CfnFunctionProps struct {
 	// `AWS::Serverless::Function.Architectures`.
-	Architectures *[]*string `json:"architectures"`
+	Architectures *[]*string `json:"architectures" yaml:"architectures"`
 	// `AWS::Serverless::Function.AssumeRolePolicyDocument`.
-	AssumeRolePolicyDocument interface{} `json:"assumeRolePolicyDocument"`
+	AssumeRolePolicyDocument interface{} `json:"assumeRolePolicyDocument" yaml:"assumeRolePolicyDocument"`
 	// `AWS::Serverless::Function.AutoPublishAlias`.
-	AutoPublishAlias *string `json:"autoPublishAlias"`
+	AutoPublishAlias *string `json:"autoPublishAlias" yaml:"autoPublishAlias"`
 	// `AWS::Serverless::Function.AutoPublishCodeSha256`.
-	AutoPublishCodeSha256 *string `json:"autoPublishCodeSha256"`
+	AutoPublishCodeSha256 *string `json:"autoPublishCodeSha256" yaml:"autoPublishCodeSha256"`
 	// `AWS::Serverless::Function.CodeSigningConfigArn`.
-	CodeSigningConfigArn *string `json:"codeSigningConfigArn"`
+	CodeSigningConfigArn *string `json:"codeSigningConfigArn" yaml:"codeSigningConfigArn"`
 	// `AWS::Serverless::Function.CodeUri`.
-	CodeUri interface{} `json:"codeUri"`
+	CodeUri interface{} `json:"codeUri" yaml:"codeUri"`
 	// `AWS::Serverless::Function.DeadLetterQueue`.
-	DeadLetterQueue interface{} `json:"deadLetterQueue"`
+	DeadLetterQueue interface{} `json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// `AWS::Serverless::Function.DeploymentPreference`.
-	DeploymentPreference interface{} `json:"deploymentPreference"`
+	DeploymentPreference interface{} `json:"deploymentPreference" yaml:"deploymentPreference"`
 	// `AWS::Serverless::Function.Description`.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// `AWS::Serverless::Function.Environment`.
-	Environment interface{} `json:"environment"`
+	Environment interface{} `json:"environment" yaml:"environment"`
 	// `AWS::Serverless::Function.EventInvokeConfig`.
-	EventInvokeConfig interface{} `json:"eventInvokeConfig"`
+	EventInvokeConfig interface{} `json:"eventInvokeConfig" yaml:"eventInvokeConfig"`
 	// `AWS::Serverless::Function.Events`.
-	Events interface{} `json:"events"`
+	Events interface{} `json:"events" yaml:"events"`
 	// `AWS::Serverless::Function.FileSystemConfigs`.
-	FileSystemConfigs interface{} `json:"fileSystemConfigs"`
+	FileSystemConfigs interface{} `json:"fileSystemConfigs" yaml:"fileSystemConfigs"`
 	// `AWS::Serverless::Function.FunctionName`.
-	FunctionName *string `json:"functionName"`
+	FunctionName *string `json:"functionName" yaml:"functionName"`
 	// `AWS::Serverless::Function.Handler`.
-	Handler *string `json:"handler"`
+	Handler *string `json:"handler" yaml:"handler"`
 	// `AWS::Serverless::Function.ImageConfig`.
-	ImageConfig interface{} `json:"imageConfig"`
+	ImageConfig interface{} `json:"imageConfig" yaml:"imageConfig"`
 	// `AWS::Serverless::Function.ImageUri`.
-	ImageUri *string `json:"imageUri"`
+	ImageUri *string `json:"imageUri" yaml:"imageUri"`
 	// `AWS::Serverless::Function.InlineCode`.
-	InlineCode *string `json:"inlineCode"`
+	InlineCode *string `json:"inlineCode" yaml:"inlineCode"`
 	// `AWS::Serverless::Function.KmsKeyArn`.
-	KmsKeyArn *string `json:"kmsKeyArn"`
+	KmsKeyArn *string `json:"kmsKeyArn" yaml:"kmsKeyArn"`
 	// `AWS::Serverless::Function.Layers`.
-	Layers *[]*string `json:"layers"`
+	Layers *[]*string `json:"layers" yaml:"layers"`
 	// `AWS::Serverless::Function.MemorySize`.
-	MemorySize *float64 `json:"memorySize"`
+	MemorySize *float64 `json:"memorySize" yaml:"memorySize"`
 	// `AWS::Serverless::Function.PackageType`.
-	PackageType *string `json:"packageType"`
+	PackageType *string `json:"packageType" yaml:"packageType"`
 	// `AWS::Serverless::Function.PermissionsBoundary`.
-	PermissionsBoundary *string `json:"permissionsBoundary"`
+	PermissionsBoundary *string `json:"permissionsBoundary" yaml:"permissionsBoundary"`
 	// `AWS::Serverless::Function.Policies`.
-	Policies interface{} `json:"policies"`
+	Policies interface{} `json:"policies" yaml:"policies"`
 	// `AWS::Serverless::Function.ProvisionedConcurrencyConfig`.
-	ProvisionedConcurrencyConfig interface{} `json:"provisionedConcurrencyConfig"`
+	ProvisionedConcurrencyConfig interface{} `json:"provisionedConcurrencyConfig" yaml:"provisionedConcurrencyConfig"`
 	// `AWS::Serverless::Function.ReservedConcurrentExecutions`.
-	ReservedConcurrentExecutions *float64 `json:"reservedConcurrentExecutions"`
+	ReservedConcurrentExecutions *float64 `json:"reservedConcurrentExecutions" yaml:"reservedConcurrentExecutions"`
 	// `AWS::Serverless::Function.Role`.
-	Role *string `json:"role"`
+	Role *string `json:"role" yaml:"role"`
 	// `AWS::Serverless::Function.Runtime`.
-	Runtime *string `json:"runtime"`
+	Runtime *string `json:"runtime" yaml:"runtime"`
 	// `AWS::Serverless::Function.Tags`.
-	Tags *map[string]*string `json:"tags"`
+	Tags *map[string]*string `json:"tags" yaml:"tags"`
 	// `AWS::Serverless::Function.Timeout`.
-	Timeout *float64 `json:"timeout"`
+	Timeout *float64 `json:"timeout" yaml:"timeout"`
 	// `AWS::Serverless::Function.Tracing`.
-	Tracing *string `json:"tracing"`
+	Tracing *string `json:"tracing" yaml:"tracing"`
 	// `AWS::Serverless::Function.VersionDescription`.
-	VersionDescription *string `json:"versionDescription"`
+	VersionDescription *string `json:"versionDescription" yaml:"versionDescription"`
 	// `AWS::Serverless::Function.VpcConfig`.
-	VpcConfig interface{} `json:"vpcConfig"`
+	VpcConfig interface{} `json:"vpcConfig" yaml:"vpcConfig"`
 }
 
 // A CloudFormation `AWS::Serverless::HttpApi`.
@@ -3987,104 +3987,104 @@ func (c *jsiiProxy_CfnHttpApi) ValidateProperties(_properties interface{}) {
 //
 type CfnHttpApi_AccessLogSettingProperty struct {
 	// `CfnHttpApi.AccessLogSettingProperty.DestinationArn`.
-	DestinationArn *string `json:"destinationArn"`
+	DestinationArn *string `json:"destinationArn" yaml:"destinationArn"`
 	// `CfnHttpApi.AccessLogSettingProperty.Format`.
-	Format *string `json:"format"`
+	Format *string `json:"format" yaml:"format"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnHttpApi_CorsConfigurationObjectProperty struct {
 	// `CfnHttpApi.CorsConfigurationObjectProperty.AllowCredentials`.
-	AllowCredentials interface{} `json:"allowCredentials"`
+	AllowCredentials interface{} `json:"allowCredentials" yaml:"allowCredentials"`
 	// `CfnHttpApi.CorsConfigurationObjectProperty.AllowHeaders`.
-	AllowHeaders *string `json:"allowHeaders"`
+	AllowHeaders *string `json:"allowHeaders" yaml:"allowHeaders"`
 	// `CfnHttpApi.CorsConfigurationObjectProperty.AllowMethods`.
-	AllowMethods *string `json:"allowMethods"`
+	AllowMethods *string `json:"allowMethods" yaml:"allowMethods"`
 	// `CfnHttpApi.CorsConfigurationObjectProperty.AllowOrigin`.
-	AllowOrigin *string `json:"allowOrigin"`
+	AllowOrigin *string `json:"allowOrigin" yaml:"allowOrigin"`
 	// `CfnHttpApi.CorsConfigurationObjectProperty.ExposeHeaders`.
-	ExposeHeaders *[]*string `json:"exposeHeaders"`
+	ExposeHeaders *[]*string `json:"exposeHeaders" yaml:"exposeHeaders"`
 	// `CfnHttpApi.CorsConfigurationObjectProperty.MaxAge`.
-	MaxAge *string `json:"maxAge"`
+	MaxAge *string `json:"maxAge" yaml:"maxAge"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnHttpApi_HttpApiAuthProperty struct {
 	// `CfnHttpApi.HttpApiAuthProperty.Authorizers`.
-	Authorizers interface{} `json:"authorizers"`
+	Authorizers interface{} `json:"authorizers" yaml:"authorizers"`
 	// `CfnHttpApi.HttpApiAuthProperty.DefaultAuthorizer`.
-	DefaultAuthorizer *string `json:"defaultAuthorizer"`
+	DefaultAuthorizer *string `json:"defaultAuthorizer" yaml:"defaultAuthorizer"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnHttpApi_HttpApiDomainConfigurationProperty struct {
 	// `CfnHttpApi.HttpApiDomainConfigurationProperty.CertificateArn`.
-	CertificateArn *string `json:"certificateArn"`
+	CertificateArn *string `json:"certificateArn" yaml:"certificateArn"`
 	// `CfnHttpApi.HttpApiDomainConfigurationProperty.DomainName`.
-	DomainName *string `json:"domainName"`
+	DomainName *string `json:"domainName" yaml:"domainName"`
 	// `CfnHttpApi.HttpApiDomainConfigurationProperty.BasePath`.
-	BasePath *string `json:"basePath"`
+	BasePath *string `json:"basePath" yaml:"basePath"`
 	// `CfnHttpApi.HttpApiDomainConfigurationProperty.EndpointConfiguration`.
-	EndpointConfiguration *string `json:"endpointConfiguration"`
+	EndpointConfiguration *string `json:"endpointConfiguration" yaml:"endpointConfiguration"`
 	// `CfnHttpApi.HttpApiDomainConfigurationProperty.MutualTlsAuthentication`.
-	MutualTlsAuthentication interface{} `json:"mutualTlsAuthentication"`
+	MutualTlsAuthentication interface{} `json:"mutualTlsAuthentication" yaml:"mutualTlsAuthentication"`
 	// `CfnHttpApi.HttpApiDomainConfigurationProperty.Route53`.
-	Route53 interface{} `json:"route53"`
+	Route53 interface{} `json:"route53" yaml:"route53"`
 	// `CfnHttpApi.HttpApiDomainConfigurationProperty.SecurityPolicy`.
-	SecurityPolicy *string `json:"securityPolicy"`
+	SecurityPolicy *string `json:"securityPolicy" yaml:"securityPolicy"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnHttpApi_MutualTlsAuthenticationProperty struct {
 	// `CfnHttpApi.MutualTlsAuthenticationProperty.TruststoreUri`.
-	TruststoreUri *string `json:"truststoreUri"`
+	TruststoreUri *string `json:"truststoreUri" yaml:"truststoreUri"`
 	// `CfnHttpApi.MutualTlsAuthenticationProperty.TruststoreVersion`.
-	TruststoreVersion interface{} `json:"truststoreVersion"`
+	TruststoreVersion interface{} `json:"truststoreVersion" yaml:"truststoreVersion"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnHttpApi_Route53ConfigurationProperty struct {
 	// `CfnHttpApi.Route53ConfigurationProperty.DistributedDomainName`.
-	DistributedDomainName *string `json:"distributedDomainName"`
+	DistributedDomainName *string `json:"distributedDomainName" yaml:"distributedDomainName"`
 	// `CfnHttpApi.Route53ConfigurationProperty.EvaluateTargetHealth`.
-	EvaluateTargetHealth interface{} `json:"evaluateTargetHealth"`
+	EvaluateTargetHealth interface{} `json:"evaluateTargetHealth" yaml:"evaluateTargetHealth"`
 	// `CfnHttpApi.Route53ConfigurationProperty.HostedZoneId`.
-	HostedZoneId *string `json:"hostedZoneId"`
+	HostedZoneId *string `json:"hostedZoneId" yaml:"hostedZoneId"`
 	// `CfnHttpApi.Route53ConfigurationProperty.HostedZoneName`.
-	HostedZoneName *string `json:"hostedZoneName"`
+	HostedZoneName *string `json:"hostedZoneName" yaml:"hostedZoneName"`
 	// `CfnHttpApi.Route53ConfigurationProperty.IpV6`.
-	IpV6 interface{} `json:"ipV6"`
+	IpV6 interface{} `json:"ipV6" yaml:"ipV6"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnHttpApi_RouteSettingsProperty struct {
 	// `CfnHttpApi.RouteSettingsProperty.DataTraceEnabled`.
-	DataTraceEnabled interface{} `json:"dataTraceEnabled"`
+	DataTraceEnabled interface{} `json:"dataTraceEnabled" yaml:"dataTraceEnabled"`
 	// `CfnHttpApi.RouteSettingsProperty.DetailedMetricsEnabled`.
-	DetailedMetricsEnabled interface{} `json:"detailedMetricsEnabled"`
+	DetailedMetricsEnabled interface{} `json:"detailedMetricsEnabled" yaml:"detailedMetricsEnabled"`
 	// `CfnHttpApi.RouteSettingsProperty.LoggingLevel`.
-	LoggingLevel *string `json:"loggingLevel"`
+	LoggingLevel *string `json:"loggingLevel" yaml:"loggingLevel"`
 	// `CfnHttpApi.RouteSettingsProperty.ThrottlingBurstLimit`.
-	ThrottlingBurstLimit *float64 `json:"throttlingBurstLimit"`
+	ThrottlingBurstLimit *float64 `json:"throttlingBurstLimit" yaml:"throttlingBurstLimit"`
 	// `CfnHttpApi.RouteSettingsProperty.ThrottlingRateLimit`.
-	ThrottlingRateLimit *float64 `json:"throttlingRateLimit"`
+	ThrottlingRateLimit *float64 `json:"throttlingRateLimit" yaml:"throttlingRateLimit"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnHttpApi_S3LocationProperty struct {
 	// `CfnHttpApi.S3LocationProperty.Bucket`.
-	Bucket *string `json:"bucket"`
+	Bucket *string `json:"bucket" yaml:"bucket"`
 	// `CfnHttpApi.S3LocationProperty.Key`.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// `CfnHttpApi.S3LocationProperty.Version`.
-	Version *float64 `json:"version"`
+	Version *float64 `json:"version" yaml:"version"`
 }
 
 // Properties for defining a `CfnHttpApi`.
@@ -4093,33 +4093,33 @@ type CfnHttpApi_S3LocationProperty struct {
 //
 type CfnHttpApiProps struct {
 	// `AWS::Serverless::HttpApi.AccessLogSetting`.
-	AccessLogSetting interface{} `json:"accessLogSetting"`
+	AccessLogSetting interface{} `json:"accessLogSetting" yaml:"accessLogSetting"`
 	// `AWS::Serverless::HttpApi.Auth`.
-	Auth interface{} `json:"auth"`
+	Auth interface{} `json:"auth" yaml:"auth"`
 	// `AWS::Serverless::HttpApi.CorsConfiguration`.
-	CorsConfiguration interface{} `json:"corsConfiguration"`
+	CorsConfiguration interface{} `json:"corsConfiguration" yaml:"corsConfiguration"`
 	// `AWS::Serverless::HttpApi.DefaultRouteSettings`.
-	DefaultRouteSettings interface{} `json:"defaultRouteSettings"`
+	DefaultRouteSettings interface{} `json:"defaultRouteSettings" yaml:"defaultRouteSettings"`
 	// `AWS::Serverless::HttpApi.DefinitionBody`.
-	DefinitionBody interface{} `json:"definitionBody"`
+	DefinitionBody interface{} `json:"definitionBody" yaml:"definitionBody"`
 	// `AWS::Serverless::HttpApi.DefinitionUri`.
-	DefinitionUri interface{} `json:"definitionUri"`
+	DefinitionUri interface{} `json:"definitionUri" yaml:"definitionUri"`
 	// `AWS::Serverless::HttpApi.Description`.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// `AWS::Serverless::HttpApi.DisableExecuteApiEndpoint`.
-	DisableExecuteApiEndpoint interface{} `json:"disableExecuteApiEndpoint"`
+	DisableExecuteApiEndpoint interface{} `json:"disableExecuteApiEndpoint" yaml:"disableExecuteApiEndpoint"`
 	// `AWS::Serverless::HttpApi.Domain`.
-	Domain interface{} `json:"domain"`
+	Domain interface{} `json:"domain" yaml:"domain"`
 	// `AWS::Serverless::HttpApi.FailOnWarnings`.
-	FailOnWarnings interface{} `json:"failOnWarnings"`
+	FailOnWarnings interface{} `json:"failOnWarnings" yaml:"failOnWarnings"`
 	// `AWS::Serverless::HttpApi.RouteSettings`.
-	RouteSettings interface{} `json:"routeSettings"`
+	RouteSettings interface{} `json:"routeSettings" yaml:"routeSettings"`
 	// `AWS::Serverless::HttpApi.StageName`.
-	StageName *string `json:"stageName"`
+	StageName *string `json:"stageName" yaml:"stageName"`
 	// `AWS::Serverless::HttpApi.StageVariables`.
-	StageVariables interface{} `json:"stageVariables"`
+	StageVariables interface{} `json:"stageVariables" yaml:"stageVariables"`
 	// `AWS::Serverless::HttpApi.Tags`.
-	Tags *map[string]*string `json:"tags"`
+	Tags *map[string]*string `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Serverless::LayerVersion`.
@@ -4707,11 +4707,11 @@ func (c *jsiiProxy_CfnLayerVersion) ValidateProperties(_properties interface{}) 
 //
 type CfnLayerVersion_S3LocationProperty struct {
 	// `CfnLayerVersion.S3LocationProperty.Bucket`.
-	Bucket *string `json:"bucket"`
+	Bucket *string `json:"bucket" yaml:"bucket"`
 	// `CfnLayerVersion.S3LocationProperty.Key`.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// `CfnLayerVersion.S3LocationProperty.Version`.
-	Version *float64 `json:"version"`
+	Version *float64 `json:"version" yaml:"version"`
 }
 
 // Properties for defining a `CfnLayerVersion`.
@@ -4720,17 +4720,17 @@ type CfnLayerVersion_S3LocationProperty struct {
 //
 type CfnLayerVersionProps struct {
 	// `AWS::Serverless::LayerVersion.CompatibleRuntimes`.
-	CompatibleRuntimes *[]*string `json:"compatibleRuntimes"`
+	CompatibleRuntimes *[]*string `json:"compatibleRuntimes" yaml:"compatibleRuntimes"`
 	// `AWS::Serverless::LayerVersion.ContentUri`.
-	ContentUri interface{} `json:"contentUri"`
+	ContentUri interface{} `json:"contentUri" yaml:"contentUri"`
 	// `AWS::Serverless::LayerVersion.Description`.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// `AWS::Serverless::LayerVersion.LayerName`.
-	LayerName *string `json:"layerName"`
+	LayerName *string `json:"layerName" yaml:"layerName"`
 	// `AWS::Serverless::LayerVersion.LicenseInfo`.
-	LicenseInfo *string `json:"licenseInfo"`
+	LicenseInfo *string `json:"licenseInfo" yaml:"licenseInfo"`
 	// `AWS::Serverless::LayerVersion.RetentionPolicy`.
-	RetentionPolicy *string `json:"retentionPolicy"`
+	RetentionPolicy *string `json:"retentionPolicy" yaml:"retentionPolicy"`
 }
 
 // A CloudFormation `AWS::Serverless::SimpleTable`.
@@ -5289,25 +5289,25 @@ func (c *jsiiProxy_CfnSimpleTable) ValidateProperties(_properties interface{}) {
 //
 type CfnSimpleTable_PrimaryKeyProperty struct {
 	// `CfnSimpleTable.PrimaryKeyProperty.Type`.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// `CfnSimpleTable.PrimaryKeyProperty.Name`.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnSimpleTable_ProvisionedThroughputProperty struct {
 	// `CfnSimpleTable.ProvisionedThroughputProperty.WriteCapacityUnits`.
-	WriteCapacityUnits *float64 `json:"writeCapacityUnits"`
+	WriteCapacityUnits *float64 `json:"writeCapacityUnits" yaml:"writeCapacityUnits"`
 	// `CfnSimpleTable.ProvisionedThroughputProperty.ReadCapacityUnits`.
-	ReadCapacityUnits *float64 `json:"readCapacityUnits"`
+	ReadCapacityUnits *float64 `json:"readCapacityUnits" yaml:"readCapacityUnits"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnSimpleTable_SSESpecificationProperty struct {
 	// `CfnSimpleTable.SSESpecificationProperty.SSEEnabled`.
-	SseEnabled interface{} `json:"sseEnabled"`
+	SseEnabled interface{} `json:"sseEnabled" yaml:"sseEnabled"`
 }
 
 // Properties for defining a `CfnSimpleTable`.
@@ -5316,15 +5316,15 @@ type CfnSimpleTable_SSESpecificationProperty struct {
 //
 type CfnSimpleTableProps struct {
 	// `AWS::Serverless::SimpleTable.PrimaryKey`.
-	PrimaryKey interface{} `json:"primaryKey"`
+	PrimaryKey interface{} `json:"primaryKey" yaml:"primaryKey"`
 	// `AWS::Serverless::SimpleTable.ProvisionedThroughput`.
-	ProvisionedThroughput interface{} `json:"provisionedThroughput"`
+	ProvisionedThroughput interface{} `json:"provisionedThroughput" yaml:"provisionedThroughput"`
 	// `AWS::Serverless::SimpleTable.SSESpecification`.
-	SseSpecification interface{} `json:"sseSpecification"`
+	SseSpecification interface{} `json:"sseSpecification" yaml:"sseSpecification"`
 	// `AWS::Serverless::SimpleTable.TableName`.
-	TableName *string `json:"tableName"`
+	TableName *string `json:"tableName" yaml:"tableName"`
 	// `AWS::Serverless::SimpleTable.Tags`.
-	Tags *map[string]*string `json:"tags"`
+	Tags *map[string]*string `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Serverless::StateMachine`.
@@ -6023,128 +6023,128 @@ func (c *jsiiProxy_CfnStateMachine) ValidateProperties(_properties interface{}) 
 //
 type CfnStateMachine_ApiEventProperty struct {
 	// `CfnStateMachine.ApiEventProperty.Method`.
-	Method *string `json:"method"`
+	Method *string `json:"method" yaml:"method"`
 	// `CfnStateMachine.ApiEventProperty.Path`.
-	Path *string `json:"path"`
+	Path *string `json:"path" yaml:"path"`
 	// `CfnStateMachine.ApiEventProperty.RestApiId`.
-	RestApiId *string `json:"restApiId"`
+	RestApiId *string `json:"restApiId" yaml:"restApiId"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnStateMachine_CloudWatchEventEventProperty struct {
 	// `CfnStateMachine.CloudWatchEventEventProperty.Pattern`.
-	Pattern interface{} `json:"pattern"`
+	Pattern interface{} `json:"pattern" yaml:"pattern"`
 	// `CfnStateMachine.CloudWatchEventEventProperty.EventBusName`.
-	EventBusName *string `json:"eventBusName"`
+	EventBusName *string `json:"eventBusName" yaml:"eventBusName"`
 	// `CfnStateMachine.CloudWatchEventEventProperty.Input`.
-	Input *string `json:"input"`
+	Input *string `json:"input" yaml:"input"`
 	// `CfnStateMachine.CloudWatchEventEventProperty.InputPath`.
-	InputPath *string `json:"inputPath"`
+	InputPath *string `json:"inputPath" yaml:"inputPath"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnStateMachine_CloudWatchLogsLogGroupProperty struct {
 	// `CfnStateMachine.CloudWatchLogsLogGroupProperty.LogGroupArn`.
-	LogGroupArn *string `json:"logGroupArn"`
+	LogGroupArn *string `json:"logGroupArn" yaml:"logGroupArn"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnStateMachine_EventBridgeRuleEventProperty struct {
 	// `CfnStateMachine.EventBridgeRuleEventProperty.Pattern`.
-	Pattern interface{} `json:"pattern"`
+	Pattern interface{} `json:"pattern" yaml:"pattern"`
 	// `CfnStateMachine.EventBridgeRuleEventProperty.EventBusName`.
-	EventBusName *string `json:"eventBusName"`
+	EventBusName *string `json:"eventBusName" yaml:"eventBusName"`
 	// `CfnStateMachine.EventBridgeRuleEventProperty.Input`.
-	Input *string `json:"input"`
+	Input *string `json:"input" yaml:"input"`
 	// `CfnStateMachine.EventBridgeRuleEventProperty.InputPath`.
-	InputPath *string `json:"inputPath"`
+	InputPath *string `json:"inputPath" yaml:"inputPath"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnStateMachine_EventSourceProperty struct {
 	// `CfnStateMachine.EventSourceProperty.Properties`.
-	Properties interface{} `json:"properties"`
+	Properties interface{} `json:"properties" yaml:"properties"`
 	// `CfnStateMachine.EventSourceProperty.Type`.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnStateMachine_FunctionSAMPTProperty struct {
 	// `CfnStateMachine.FunctionSAMPTProperty.FunctionName`.
-	FunctionName *string `json:"functionName"`
+	FunctionName *string `json:"functionName" yaml:"functionName"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnStateMachine_IAMPolicyDocumentProperty struct {
 	// `CfnStateMachine.IAMPolicyDocumentProperty.Statement`.
-	Statement interface{} `json:"statement"`
+	Statement interface{} `json:"statement" yaml:"statement"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnStateMachine_LogDestinationProperty struct {
 	// `CfnStateMachine.LogDestinationProperty.CloudWatchLogsLogGroup`.
-	CloudWatchLogsLogGroup interface{} `json:"cloudWatchLogsLogGroup"`
+	CloudWatchLogsLogGroup interface{} `json:"cloudWatchLogsLogGroup" yaml:"cloudWatchLogsLogGroup"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnStateMachine_LoggingConfigurationProperty struct {
 	// `CfnStateMachine.LoggingConfigurationProperty.Destinations`.
-	Destinations interface{} `json:"destinations"`
+	Destinations interface{} `json:"destinations" yaml:"destinations"`
 	// `CfnStateMachine.LoggingConfigurationProperty.IncludeExecutionData`.
-	IncludeExecutionData interface{} `json:"includeExecutionData"`
+	IncludeExecutionData interface{} `json:"includeExecutionData" yaml:"includeExecutionData"`
 	// `CfnStateMachine.LoggingConfigurationProperty.Level`.
-	Level *string `json:"level"`
+	Level *string `json:"level" yaml:"level"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnStateMachine_S3LocationProperty struct {
 	// `CfnStateMachine.S3LocationProperty.Bucket`.
-	Bucket *string `json:"bucket"`
+	Bucket *string `json:"bucket" yaml:"bucket"`
 	// `CfnStateMachine.S3LocationProperty.Key`.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// `CfnStateMachine.S3LocationProperty.Version`.
-	Version *float64 `json:"version"`
+	Version *float64 `json:"version" yaml:"version"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnStateMachine_SAMPolicyTemplateProperty struct {
 	// `CfnStateMachine.SAMPolicyTemplateProperty.LambdaInvokePolicy`.
-	LambdaInvokePolicy interface{} `json:"lambdaInvokePolicy"`
+	LambdaInvokePolicy interface{} `json:"lambdaInvokePolicy" yaml:"lambdaInvokePolicy"`
 	// `CfnStateMachine.SAMPolicyTemplateProperty.StepFunctionsExecutionPolicy`.
-	StepFunctionsExecutionPolicy interface{} `json:"stepFunctionsExecutionPolicy"`
+	StepFunctionsExecutionPolicy interface{} `json:"stepFunctionsExecutionPolicy" yaml:"stepFunctionsExecutionPolicy"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnStateMachine_ScheduleEventProperty struct {
 	// `CfnStateMachine.ScheduleEventProperty.Schedule`.
-	Schedule *string `json:"schedule"`
+	Schedule *string `json:"schedule" yaml:"schedule"`
 	// `CfnStateMachine.ScheduleEventProperty.Input`.
-	Input *string `json:"input"`
+	Input *string `json:"input" yaml:"input"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnStateMachine_StateMachineSAMPTProperty struct {
 	// `CfnStateMachine.StateMachineSAMPTProperty.StateMachineName`.
-	StateMachineName *string `json:"stateMachineName"`
+	StateMachineName *string `json:"stateMachineName" yaml:"stateMachineName"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnStateMachine_TracingConfigurationProperty struct {
 	// `CfnStateMachine.TracingConfigurationProperty.Enabled`.
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 }
 
 // Properties for defining a `CfnStateMachine`.
@@ -6153,28 +6153,28 @@ type CfnStateMachine_TracingConfigurationProperty struct {
 //
 type CfnStateMachineProps struct {
 	// `AWS::Serverless::StateMachine.Definition`.
-	Definition interface{} `json:"definition"`
+	Definition interface{} `json:"definition" yaml:"definition"`
 	// `AWS::Serverless::StateMachine.DefinitionSubstitutions`.
-	DefinitionSubstitutions interface{} `json:"definitionSubstitutions"`
+	DefinitionSubstitutions interface{} `json:"definitionSubstitutions" yaml:"definitionSubstitutions"`
 	// `AWS::Serverless::StateMachine.DefinitionUri`.
-	DefinitionUri interface{} `json:"definitionUri"`
+	DefinitionUri interface{} `json:"definitionUri" yaml:"definitionUri"`
 	// `AWS::Serverless::StateMachine.Events`.
-	Events interface{} `json:"events"`
+	Events interface{} `json:"events" yaml:"events"`
 	// `AWS::Serverless::StateMachine.Logging`.
-	Logging interface{} `json:"logging"`
+	Logging interface{} `json:"logging" yaml:"logging"`
 	// `AWS::Serverless::StateMachine.Name`.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// `AWS::Serverless::StateMachine.PermissionsBoundaries`.
-	PermissionsBoundaries *string `json:"permissionsBoundaries"`
+	PermissionsBoundaries *string `json:"permissionsBoundaries" yaml:"permissionsBoundaries"`
 	// `AWS::Serverless::StateMachine.Policies`.
-	Policies interface{} `json:"policies"`
+	Policies interface{} `json:"policies" yaml:"policies"`
 	// `AWS::Serverless::StateMachine.Role`.
-	Role *string `json:"role"`
+	Role *string `json:"role" yaml:"role"`
 	// `AWS::Serverless::StateMachine.Tags`.
-	Tags *map[string]*string `json:"tags"`
+	Tags *map[string]*string `json:"tags" yaml:"tags"`
 	// `AWS::Serverless::StateMachine.Tracing`.
-	Tracing interface{} `json:"tracing"`
+	Tracing interface{} `json:"tracing" yaml:"tracing"`
 	// `AWS::Serverless::StateMachine.Type`.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 }
 

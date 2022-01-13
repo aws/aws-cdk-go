@@ -813,15 +813,15 @@ type CfnApi_BodyS3LocationProperty struct {
 	// The S3 bucket that contains the OpenAPI definition to import.
 	//
 	// Required if you specify a `BodyS3Location` for an API.
-	Bucket *string `json:"bucket"`
+	Bucket *string `json:"bucket" yaml:"bucket"`
 	// The Etag of the S3 object.
-	Etag *string `json:"etag"`
+	Etag *string `json:"etag" yaml:"etag"`
 	// The key of the S3 object.
 	//
 	// Required if you specify a `BodyS3Location` for an API.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// The version of the S3 object.
-	Version *string `json:"version"`
+	Version *string `json:"version" yaml:"version"`
 }
 
 // The `Cors` property specifies a CORS configuration for an API.
@@ -834,27 +834,27 @@ type CfnApi_CorsProperty struct {
 	// Specifies whether credentials are included in the CORS request.
 	//
 	// Supported only for HTTP APIs.
-	AllowCredentials interface{} `json:"allowCredentials"`
+	AllowCredentials interface{} `json:"allowCredentials" yaml:"allowCredentials"`
 	// Represents a collection of allowed headers.
 	//
 	// Supported only for HTTP APIs.
-	AllowHeaders *[]*string `json:"allowHeaders"`
+	AllowHeaders *[]*string `json:"allowHeaders" yaml:"allowHeaders"`
 	// Represents a collection of allowed HTTP methods.
 	//
 	// Supported only for HTTP APIs.
-	AllowMethods *[]*string `json:"allowMethods"`
+	AllowMethods *[]*string `json:"allowMethods" yaml:"allowMethods"`
 	// Represents a collection of allowed origins.
 	//
 	// Supported only for HTTP APIs.
-	AllowOrigins *[]*string `json:"allowOrigins"`
+	AllowOrigins *[]*string `json:"allowOrigins" yaml:"allowOrigins"`
 	// Represents a collection of exposed headers.
 	//
 	// Supported only for HTTP APIs.
-	ExposeHeaders *[]*string `json:"exposeHeaders"`
+	ExposeHeaders *[]*string `json:"exposeHeaders" yaml:"exposeHeaders"`
 	// The number of seconds that the browser should cache preflight request results.
 	//
 	// Supported only for HTTP APIs.
-	MaxAge *float64 `json:"maxAge"`
+	MaxAge *float64 `json:"maxAge" yaml:"maxAge"`
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::ApiGatewayManagedOverrides`.
@@ -1395,11 +1395,11 @@ func (c *jsiiProxy_CfnApiGatewayManagedOverrides) ValidateProperties(_properties
 //
 type CfnApiGatewayManagedOverrides_AccessLogSettingsProperty struct {
 	// The ARN of the CloudWatch Logs log group to receive access logs.
-	DestinationArn *string `json:"destinationArn"`
+	DestinationArn *string `json:"destinationArn" yaml:"destinationArn"`
 	// A single line format of the access logs of data, as specified by selected $context variables.
 	//
 	// The format must include at least $context.requestId.
-	Format *string `json:"format"`
+	Format *string `json:"format" yaml:"format"`
 }
 
 // The `IntegrationOverrides` property overrides the integration settings for an API Gateway-managed integration.
@@ -1410,17 +1410,17 @@ type CfnApiGatewayManagedOverrides_AccessLogSettingsProperty struct {
 //
 type CfnApiGatewayManagedOverrides_IntegrationOverridesProperty struct {
 	// The description of the integration.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Specifies the integration's HTTP method type.
-	IntegrationMethod *string `json:"integrationMethod"`
+	IntegrationMethod *string `json:"integrationMethod" yaml:"integrationMethod"`
 	// Specifies the format of the payload sent to an integration.
 	//
 	// Required for HTTP APIs. For HTTP APIs, supported values for Lambda proxy integrations are `1.0` and `2.0` . For all other integrations, `1.0` is the only supported value. To learn more, see [Working with AWS Lambda proxy integrations for HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html) .
-	PayloadFormatVersion *string `json:"payloadFormatVersion"`
+	PayloadFormatVersion *string `json:"payloadFormatVersion" yaml:"payloadFormatVersion"`
 	// Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs.
 	//
 	// The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
-	TimeoutInMillis *float64 `json:"timeoutInMillis"`
+	TimeoutInMillis *float64 `json:"timeoutInMillis" yaml:"timeoutInMillis"`
 }
 
 // The `RouteOverrides` property overrides the route configuration for an API Gateway-managed route.
@@ -1431,21 +1431,21 @@ type CfnApiGatewayManagedOverrides_IntegrationOverridesProperty struct {
 //
 type CfnApiGatewayManagedOverrides_RouteOverridesProperty struct {
 	// The authorization scopes supported by this route.
-	AuthorizationScopes *[]*string `json:"authorizationScopes"`
+	AuthorizationScopes *[]*string `json:"authorizationScopes" yaml:"authorizationScopes"`
 	// The authorization type for the route.
 	//
 	// To learn more, see [AuthorizationType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-route.html#cfn-apigatewayv2-route-authorizationtype) .
-	AuthorizationType *string `json:"authorizationType"`
+	AuthorizationType *string `json:"authorizationType" yaml:"authorizationType"`
 	// The identifier of the `Authorizer` resource to be associated with this route.
 	//
 	// The authorizer identifier is generated by API Gateway when you created the authorizer.
-	AuthorizerId *string `json:"authorizerId"`
+	AuthorizerId *string `json:"authorizerId" yaml:"authorizerId"`
 	// The operation name for the route.
-	OperationName *string `json:"operationName"`
+	OperationName *string `json:"operationName" yaml:"operationName"`
 	// For HTTP integrations, specify a fully qualified URL.
 	//
 	// For Lambda integrations, specify a function ARN. The type of the integration will be HTTP_PROXY or AWS_PROXY, respectively.
-	Target *string `json:"target"`
+	Target *string `json:"target" yaml:"target"`
 }
 
 // The `RouteSettings` property overrides the route settings for an API Gateway-managed route.
@@ -1456,17 +1456,17 @@ type CfnApiGatewayManagedOverrides_RouteSettingsProperty struct {
 	// Specifies whether ( `true` ) or not ( `false` ) data trace logging is enabled for this route.
 	//
 	// This property affects the log entries pushed to Amazon CloudWatch Logs. Supported only for WebSocket APIs.
-	DataTraceEnabled interface{} `json:"dataTraceEnabled"`
+	DataTraceEnabled interface{} `json:"dataTraceEnabled" yaml:"dataTraceEnabled"`
 	// Specifies whether detailed metrics are enabled.
-	DetailedMetricsEnabled interface{} `json:"detailedMetricsEnabled"`
+	DetailedMetricsEnabled interface{} `json:"detailedMetricsEnabled" yaml:"detailedMetricsEnabled"`
 	// Specifies the logging level for this route: `INFO` , `ERROR` , or `OFF` .
 	//
 	// This property affects the log entries pushed to Amazon CloudWatch Logs. Supported only for WebSocket APIs.
-	LoggingLevel *string `json:"loggingLevel"`
+	LoggingLevel *string `json:"loggingLevel" yaml:"loggingLevel"`
 	// Specifies the throttling burst limit.
-	ThrottlingBurstLimit *float64 `json:"throttlingBurstLimit"`
+	ThrottlingBurstLimit *float64 `json:"throttlingBurstLimit" yaml:"throttlingBurstLimit"`
 	// Specifies the throttling rate limit.
-	ThrottlingRateLimit *float64 `json:"throttlingRateLimit"`
+	ThrottlingRateLimit *float64 `json:"throttlingRateLimit" yaml:"throttlingRateLimit"`
 }
 
 // The `StageOverrides` property overrides the stage configuration for an API Gateway-managed stage.
@@ -1477,21 +1477,21 @@ type CfnApiGatewayManagedOverrides_RouteSettingsProperty struct {
 //
 type CfnApiGatewayManagedOverrides_StageOverridesProperty struct {
 	// Settings for logging access in a stage.
-	AccessLogSettings interface{} `json:"accessLogSettings"`
+	AccessLogSettings interface{} `json:"accessLogSettings" yaml:"accessLogSettings"`
 	// Specifies whether updates to an API automatically trigger a new deployment.
 	//
 	// The default value is `true` .
-	AutoDeploy interface{} `json:"autoDeploy"`
+	AutoDeploy interface{} `json:"autoDeploy" yaml:"autoDeploy"`
 	// The default route settings for the stage.
-	DefaultRouteSettings interface{} `json:"defaultRouteSettings"`
+	DefaultRouteSettings interface{} `json:"defaultRouteSettings" yaml:"defaultRouteSettings"`
 	// The description for the API stage.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Route settings for the stage.
-	RouteSettings interface{} `json:"routeSettings"`
+	RouteSettings interface{} `json:"routeSettings" yaml:"routeSettings"`
 	// A map that defines the stage variables for a `Stage` .
 	//
 	// Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&=,]+.
-	StageVariables interface{} `json:"stageVariables"`
+	StageVariables interface{} `json:"stageVariables" yaml:"stageVariables"`
 }
 
 // Properties for defining a `CfnApiGatewayManagedOverrides`.
@@ -1500,13 +1500,13 @@ type CfnApiGatewayManagedOverrides_StageOverridesProperty struct {
 //
 type CfnApiGatewayManagedOverridesProps struct {
 	// The ID of the API for which to override the configuration of API Gateway-managed resources.
-	ApiId *string `json:"apiId"`
+	ApiId *string `json:"apiId" yaml:"apiId"`
 	// Overrides the integration configuration for an API Gateway-managed integration.
-	Integration interface{} `json:"integration"`
+	Integration interface{} `json:"integration" yaml:"integration"`
 	// Overrides the route configuration for an API Gateway-managed route.
-	Route interface{} `json:"route"`
+	Route interface{} `json:"route" yaml:"route"`
 	// Overrides the stage configuration for an API Gateway-managed stage.
-	Stage interface{} `json:"stage"`
+	Stage interface{} `json:"stage" yaml:"stage"`
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::ApiMapping`.
@@ -2047,13 +2047,13 @@ func (c *jsiiProxy_CfnApiMapping) ValidateProperties(_properties interface{}) {
 //
 type CfnApiMappingProps struct {
 	// The identifier of the API.
-	ApiId *string `json:"apiId"`
+	ApiId *string `json:"apiId" yaml:"apiId"`
 	// The domain name.
-	DomainName *string `json:"domainName"`
+	DomainName *string `json:"domainName" yaml:"domainName"`
 	// The API stage.
-	Stage *string `json:"stage"`
+	Stage *string `json:"stage" yaml:"stage"`
 	// The API mapping key.
-	ApiMappingKey *string `json:"apiMappingKey"`
+	ApiMappingKey *string `json:"apiMappingKey" yaml:"apiMappingKey"`
 }
 
 // Properties for defining a `CfnApi`.
@@ -2064,67 +2064,67 @@ type CfnApiProps struct {
 	// An API key selection expression.
 	//
 	// Supported only for WebSocket APIs. See [API Key Selection Expressions](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions) .
-	ApiKeySelectionExpression *string `json:"apiKeySelectionExpression"`
+	ApiKeySelectionExpression *string `json:"apiKeySelectionExpression" yaml:"apiKeySelectionExpression"`
 	// Specifies how to interpret the base path of the API during import.
 	//
 	// Valid values are `ignore` , `prepend` , and `split` . The default value is `ignore` . To learn more, see [Set the OpenAPI basePath Property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api-basePath.html) . Supported only for HTTP APIs.
-	BasePath *string `json:"basePath"`
+	BasePath *string `json:"basePath" yaml:"basePath"`
 	// The OpenAPI definition.
 	//
 	// Supported only for HTTP APIs. To import an HTTP API, you must specify a `Body` or `BodyS3Location` . If you specify a `Body` or `BodyS3Location` , don't specify CloudFormation resources such as `AWS::ApiGatewayV2::Authorizer` or `AWS::ApiGatewayV2::Route` . API Gateway doesn't support the combination of OpenAPI and CloudFormation resources.
-	Body interface{} `json:"body"`
+	Body interface{} `json:"body" yaml:"body"`
 	// The S3 location of an OpenAPI definition.
 	//
 	// Supported only for HTTP APIs. To import an HTTP API, you must specify a `Body` or `BodyS3Location` . If you specify a `Body` or `BodyS3Location` , don't specify CloudFormation resources such as `AWS::ApiGatewayV2::Authorizer` or `AWS::ApiGatewayV2::Route` . API Gateway doesn't support the combination of OpenAPI and CloudFormation resources.
-	BodyS3Location interface{} `json:"bodyS3Location"`
+	BodyS3Location interface{} `json:"bodyS3Location" yaml:"bodyS3Location"`
 	// A CORS configuration.
 	//
 	// Supported only for HTTP APIs. See [Configuring CORS](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html) for more information.
-	CorsConfiguration interface{} `json:"corsConfiguration"`
+	CorsConfiguration interface{} `json:"corsConfiguration" yaml:"corsConfiguration"`
 	// This property is part of quick create.
 	//
 	// It specifies the credentials required for the integration, if any. For a Lambda integration, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify `arn:aws:iam::*:user/*` . To use resource-based permissions on supported AWS services, specify `null` . Currently, this property is not used for HTTP integrations. Supported only for HTTP APIs.
-	CredentialsArn *string `json:"credentialsArn"`
+	CredentialsArn *string `json:"credentialsArn" yaml:"credentialsArn"`
 	// The description of the API.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Specifies whether clients can invoke your API by using the default `execute-api` endpoint.
 	//
 	// By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.
-	DisableExecuteApiEndpoint interface{} `json:"disableExecuteApiEndpoint"`
+	DisableExecuteApiEndpoint interface{} `json:"disableExecuteApiEndpoint" yaml:"disableExecuteApiEndpoint"`
 	// Avoid validating models when creating a deployment.
 	//
 	// Supported only for WebSocket APIs.
-	DisableSchemaValidation interface{} `json:"disableSchemaValidation"`
+	DisableSchemaValidation interface{} `json:"disableSchemaValidation" yaml:"disableSchemaValidation"`
 	// Specifies whether to rollback the API creation when a warning is encountered.
 	//
 	// By default, API creation continues if a warning is encountered.
-	FailOnWarnings interface{} `json:"failOnWarnings"`
+	FailOnWarnings interface{} `json:"failOnWarnings" yaml:"failOnWarnings"`
 	// The name of the API.
 	//
 	// Required unless you specify an OpenAPI definition for `Body` or `S3BodyLocation` .
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The API protocol.
 	//
 	// Valid values are `WEBSOCKET` or `HTTP` . Required unless you specify an OpenAPI definition for `Body` or `S3BodyLocation` .
-	ProtocolType *string `json:"protocolType"`
+	ProtocolType *string `json:"protocolType" yaml:"protocolType"`
 	// This property is part of quick create.
 	//
 	// If you don't specify a `routeKey` , a default route of `$default` is created. The `$default` route acts as a catch-all for any request made to your API, for a particular stage. The `$default` route key can't be modified. You can add routes after creating the API, and you can update the route keys of additional routes. Supported only for HTTP APIs.
-	RouteKey *string `json:"routeKey"`
+	RouteKey *string `json:"routeKey" yaml:"routeKey"`
 	// The route selection expression for the API.
 	//
 	// For HTTP APIs, the `routeSelectionExpression` must be `${request.method} ${request.path}` . If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.
-	RouteSelectionExpression *string `json:"routeSelectionExpression"`
+	RouteSelectionExpression *string `json:"routeSelectionExpression" yaml:"routeSelectionExpression"`
 	// The collection of tags.
 	//
 	// Each tag element is associated with a given resource.
-	Tags interface{} `json:"tags"`
+	Tags interface{} `json:"tags" yaml:"tags"`
 	// This property is part of quick create.
 	//
 	// Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes. For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN. The type of the integration will be HTTP_PROXY or AWS_PROXY, respectively. Supported only for HTTP APIs.
-	Target *string `json:"target"`
+	Target *string `json:"target" yaml:"target"`
 	// A version identifier for the API.
-	Version *string `json:"version"`
+	Version *string `json:"version" yaml:"version"`
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::Authorizer`.
@@ -2809,11 +2809,11 @@ type CfnAuthorizer_JWTConfigurationProperty struct {
 	// A list of the intended recipients of the JWT.
 	//
 	// A valid JWT must provide an `aud` that matches at least one entry in this list. See [RFC 7519](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc7519#section-4.1.3) . Required for the `JWT` authorizer type. Supported only for HTTP APIs.
-	Audience *[]*string `json:"audience"`
+	Audience *[]*string `json:"audience" yaml:"audience"`
 	// The base domain of the identity provider that issues JSON Web Tokens.
 	//
 	// For example, an Amazon Cognito user pool has the following format: `https://cognito-idp. {region} .amazonaws.com/ {userPoolId}` . Required for the `JWT` authorizer type. Supported only for HTTP APIs.
-	Issuer *string `json:"issuer"`
+	Issuer *string `json:"issuer" yaml:"issuer"`
 }
 
 // Properties for defining a `CfnAuthorizer`.
@@ -2822,45 +2822,45 @@ type CfnAuthorizer_JWTConfigurationProperty struct {
 //
 type CfnAuthorizerProps struct {
 	// The API identifier.
-	ApiId *string `json:"apiId"`
+	ApiId *string `json:"apiId" yaml:"apiId"`
 	// The authorizer type.
 	//
 	// Specify `REQUEST` for a Lambda function using incoming request parameters. Specify `JWT` to use JSON Web Tokens (supported only for HTTP APIs).
-	AuthorizerType *string `json:"authorizerType"`
+	AuthorizerType *string `json:"authorizerType" yaml:"authorizerType"`
 	// The name of the authorizer.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer.
 	//
 	// To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null. Supported only for `REQUEST` authorizers.
-	AuthorizerCredentialsArn *string `json:"authorizerCredentialsArn"`
+	AuthorizerCredentialsArn *string `json:"authorizerCredentialsArn" yaml:"authorizerCredentialsArn"`
 	// Specifies the format of the payload sent to an HTTP API Lambda authorizer.
 	//
 	// Required for HTTP API Lambda authorizers. Supported values are `1.0` and `2.0` . To learn more, see [Working with AWS Lambda authorizers for HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html) .
-	AuthorizerPayloadFormatVersion *string `json:"authorizerPayloadFormatVersion"`
+	AuthorizerPayloadFormatVersion *string `json:"authorizerPayloadFormatVersion" yaml:"authorizerPayloadFormatVersion"`
 	// The time to live (TTL) for cached authorizer results, in seconds.
 	//
 	// If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Supported only for HTTP API Lambda authorizers.
-	AuthorizerResultTtlInSeconds *float64 `json:"authorizerResultTtlInSeconds"`
+	AuthorizerResultTtlInSeconds *float64 `json:"authorizerResultTtlInSeconds" yaml:"authorizerResultTtlInSeconds"`
 	// The authorizer's Uniform Resource Identifier (URI).
 	//
 	// For `REQUEST` authorizers, this must be a well-formed Lambda function URI, for example, `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2: *{account_id}* :function: *{lambda_function_name}* /invocations` . In general, the URI has this form: `arn:aws:apigateway: *{region}* :lambda:path/ *{service_api}*` , where *{region}* is the same as the region hosting the Lambda function, path indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial `/` . For Lambda functions, this is usually of the form `/2015-03-31/functions/[FunctionARN]/invocations` .
-	AuthorizerUri *string `json:"authorizerUri"`
+	AuthorizerUri *string `json:"authorizerUri" yaml:"authorizerUri"`
 	// Specifies whether a Lambda authorizer returns a response in a simple format.
 	//
 	// By default, a Lambda authorizer must return an IAM policy. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy. Supported only for HTTP APIs. To learn more, see [Working with AWS Lambda authorizers for HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html) .
-	EnableSimpleResponses interface{} `json:"enableSimpleResponses"`
+	EnableSimpleResponses interface{} `json:"enableSimpleResponses" yaml:"enableSimpleResponses"`
 	// The identity source for which authorization is requested.
 	//
 	// For a `REQUEST` authorizer, this is optional. The value is a set of one or more mapping expressions of the specified request parameters. The identity source can be headers, query string parameters, stage variables, and context parameters. For example, if an Auth header and a Name query string parameter are defined as identity sources, this value is route.request.header.Auth, route.request.querystring.Name for WebSocket APIs. For HTTP APIs, use selection expressions prefixed with `$` , for example, `$request.header.Auth` , `$request.querystring.Name` . These parameters are used to perform runtime validation for Lambda-based authorizers by verifying all of the identity-related request parameters are present in the request, not null, and non-empty. Only when this is true does the authorizer invoke the authorizer Lambda function. Otherwise, it returns a 401 Unauthorized response without calling the Lambda function. For HTTP APIs, identity sources are also used as the cache key when caching is enabled. To learn more, see [Working with AWS Lambda authorizers for HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html) .
 	//
 	// For `JWT` , a single entry that specifies where to extract the JSON Web Token (JWT) from inbound requests. Currently only header-based and query parameter-based selections are supported, for example `$request.header.Authorization` .
-	IdentitySource *[]*string `json:"identitySource"`
+	IdentitySource *[]*string `json:"identitySource" yaml:"identitySource"`
 	// This parameter is not used.
-	IdentityValidationExpression *string `json:"identityValidationExpression"`
+	IdentityValidationExpression *string `json:"identityValidationExpression" yaml:"identityValidationExpression"`
 	// The `JWTConfiguration` property specifies the configuration of a JWT authorizer.
 	//
 	// Required for the `JWT` authorizer type. Supported only for HTTP APIs.
-	JwtConfiguration interface{} `json:"jwtConfiguration"`
+	JwtConfiguration interface{} `json:"jwtConfiguration" yaml:"jwtConfiguration"`
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::Deployment`.
@@ -3381,11 +3381,11 @@ func (c *jsiiProxy_CfnDeployment) ValidateProperties(_properties interface{}) {
 //
 type CfnDeploymentProps struct {
 	// The API identifier.
-	ApiId *string `json:"apiId"`
+	ApiId *string `json:"apiId" yaml:"apiId"`
 	// The description for the deployment resource.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The name of an existing stage to associate with the deployment.
-	StageName *string `json:"stageName"`
+	StageName *string `json:"stageName" yaml:"stageName"`
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::DomainName`.
@@ -3945,19 +3945,19 @@ type CfnDomainName_DomainNameConfigurationProperty struct {
 	// An AWS -managed certificate that will be used by the edge-optimized endpoint for this domain name.
 	//
 	// AWS Certificate Manager is the only supported source.
-	CertificateArn *string `json:"certificateArn"`
+	CertificateArn *string `json:"certificateArn" yaml:"certificateArn"`
 	// The user-friendly name of the certificate that will be used by the edge-optimized endpoint for this domain name.
-	CertificateName *string `json:"certificateName"`
+	CertificateName *string `json:"certificateName" yaml:"certificateName"`
 	// The endpoint type.
-	EndpointType *string `json:"endpointType"`
+	EndpointType *string `json:"endpointType" yaml:"endpointType"`
 	// The ARN of the public certificate issued by ACM to validate ownership of your custom domain.
 	//
 	// Only required when configuring mutual TLS and using an ACM imported or private CA certificate ARN as the RegionalCertificateArn.
-	OwnershipVerificationCertificateArn *string `json:"ownershipVerificationCertificateArn"`
+	OwnershipVerificationCertificateArn *string `json:"ownershipVerificationCertificateArn" yaml:"ownershipVerificationCertificateArn"`
 	// The Transport Layer Security (TLS) version of the security policy for this domain name.
 	//
 	// The valid values are `TLS_1_0` and `TLS_1_2` .
-	SecurityPolicy *string `json:"securityPolicy"`
+	SecurityPolicy *string `json:"securityPolicy" yaml:"securityPolicy"`
 }
 
 // If specified, API Gateway performs two-way authentication between the client and the server.
@@ -3970,11 +3970,11 @@ type CfnDomainName_MutualTlsAuthenticationProperty struct {
 	// An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3:// bucket-name / key-name` .
 	//
 	// The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version. To update the truststore, you must have permissions to access the S3 object.
-	TruststoreUri *string `json:"truststoreUri"`
+	TruststoreUri *string `json:"truststoreUri" yaml:"truststoreUri"`
 	// The version of the S3 object that contains your truststore.
 	//
 	// To specify a version, you must have versioning enabled for the S3 bucket.
-	TruststoreVersion *string `json:"truststoreVersion"`
+	TruststoreVersion *string `json:"truststoreVersion" yaml:"truststoreVersion"`
 }
 
 // Properties for defining a `CfnDomainName`.
@@ -3985,13 +3985,13 @@ type CfnDomainNameProps struct {
 	// The custom domain name for your API in Amazon API Gateway.
 	//
 	// Uppercase letters are not supported.
-	DomainName *string `json:"domainName"`
+	DomainName *string `json:"domainName" yaml:"domainName"`
 	// The domain name configurations.
-	DomainNameConfigurations interface{} `json:"domainNameConfigurations"`
+	DomainNameConfigurations interface{} `json:"domainNameConfigurations" yaml:"domainNameConfigurations"`
 	// The mutual TLS authentication configuration for a custom domain name.
-	MutualTlsAuthentication interface{} `json:"mutualTlsAuthentication"`
+	MutualTlsAuthentication interface{} `json:"mutualTlsAuthentication" yaml:"mutualTlsAuthentication"`
 	// The collection of tags associated with a domain name.
-	Tags interface{} `json:"tags"`
+	Tags interface{} `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::Integration`.
@@ -4814,7 +4814,7 @@ type CfnIntegration_ResponseParameterListProperty struct {
 	// Supported only for HTTP APIs.
 	//
 	// You use response parameters to transform the HTTP response from a backend integration before returning the response to clients. Specify a key-value map from a selection key to response parameters. The selection key must be a valid HTTP status code within the range of 200-599. Response parameters are a key-value map. The key must match the pattern `<action>:<header>.<location>` or `overwrite.statuscode` . The action can be `append` , `overwrite` or `remove` . The value can be a static value, or map to response data, stage variables, or context variables that are evaluated at runtime. To learn more, see [Transforming API requests and responses](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) .
-	ResponseParameters interface{} `json:"responseParameters"`
+	ResponseParameters interface{} `json:"responseParameters" yaml:"responseParameters"`
 }
 
 // Supported only for HTTP APIs.
@@ -4827,11 +4827,11 @@ type CfnIntegration_ResponseParameterProperty struct {
 	// Specifies the location of the response to modify, and how to modify it.
 	//
 	// To learn more, see [Transforming API requests and responses](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) .
-	Destination *string `json:"destination"`
+	Destination *string `json:"destination" yaml:"destination"`
 	// Specifies the data to update the parameter with.
 	//
 	// To learn more, see [Transforming API requests and responses](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) .
-	Source *string `json:"source"`
+	Source *string `json:"source" yaml:"source"`
 }
 
 // The `TlsConfig` property specifies the TLS configuration for a private integration.
@@ -4844,7 +4844,7 @@ type CfnIntegration_TlsConfigProperty struct {
 	// If you specify a server name, API Gateway uses it to verify the hostname on the integration's certificate.
 	//
 	// The server name is also included in the TLS handshake to support Server Name Indication (SNI) or virtual hosting.
-	ServerNameToVerify *string `json:"serverNameToVerify"`
+	ServerNameToVerify *string `json:"serverNameToVerify" yaml:"serverNameToVerify"`
 }
 
 // Properties for defining a `CfnIntegration`.
@@ -4853,7 +4853,7 @@ type CfnIntegration_TlsConfigProperty struct {
 //
 type CfnIntegrationProps struct {
 	// The API identifier.
-	ApiId *string `json:"apiId"`
+	ApiId *string `json:"apiId" yaml:"apiId"`
 	// The integration type of an integration. One of the following:.
 	//
 	// `AWS` : for integrating the route or method request with an AWS service action, including the Lambda function-invoking action. With the Lambda function-invoking action, this is referred to as the Lambda custom integration. With any other AWS service action, this is known as AWS integration. Supported only for WebSocket APIs.
@@ -4865,15 +4865,15 @@ type CfnIntegrationProps struct {
 	// `HTTP_PROXY` : for integrating the route or method request with an HTTP endpoint, with the client request passed through as-is. This is also referred to as HTTP proxy integration. For HTTP API private integrations, use an `HTTP_PROXY` integration.
 	//
 	// `MOCK` : for integrating the route or method request with API Gateway as a "loopback" endpoint without invoking any backend. Supported only for WebSocket APIs.
-	IntegrationType *string `json:"integrationType"`
+	IntegrationType *string `json:"integrationType" yaml:"integrationType"`
 	// The ID of the VPC link for a private integration.
 	//
 	// Supported only for HTTP APIs.
-	ConnectionId *string `json:"connectionId"`
+	ConnectionId *string `json:"connectionId" yaml:"connectionId"`
 	// The type of the network connection to the integration endpoint.
 	//
 	// Specify `INTERNET` for connections through the public routable internet or `VPC_LINK` for private connections between API Gateway and resources in a VPC. The default value is `INTERNET` .
-	ConnectionType *string `json:"connectionType"`
+	ConnectionType *string `json:"connectionType" yaml:"connectionType"`
 	// Supported only for WebSocket APIs.
 	//
 	// Specifies how to handle response payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT` , with the following behaviors:
@@ -4883,25 +4883,25 @@ type CfnIntegrationProps struct {
 	// `CONVERT_TO_TEXT` : Converts a response payload from a binary blob to a Base64-encoded string.
 	//
 	// If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.
-	ContentHandlingStrategy *string `json:"contentHandlingStrategy"`
+	ContentHandlingStrategy *string `json:"contentHandlingStrategy" yaml:"contentHandlingStrategy"`
 	// Specifies the credentials required for the integration, if any.
 	//
 	// For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string `arn:aws:iam::*:user/*` . To use resource-based permissions on supported AWS services, don't specify this parameter.
-	CredentialsArn *string `json:"credentialsArn"`
+	CredentialsArn *string `json:"credentialsArn" yaml:"credentialsArn"`
 	// The description of the integration.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Specifies the integration's HTTP method type.
-	IntegrationMethod *string `json:"integrationMethod"`
+	IntegrationMethod *string `json:"integrationMethod" yaml:"integrationMethod"`
 	// Supported only for HTTP API `AWS_PROXY` integrations.
 	//
 	// Specifies the AWS service action to invoke. To learn more, see [Integration subtype reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) .
-	IntegrationSubtype *string `json:"integrationSubtype"`
+	IntegrationSubtype *string `json:"integrationSubtype" yaml:"integrationSubtype"`
 	// For a Lambda integration, specify the URI of a Lambda function.
 	//
 	// For an HTTP integration, specify a fully-qualified URL.
 	//
 	// For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service. If you specify the ARN of an AWS Cloud Map service, API Gateway uses `DiscoverInstances` to identify resources. You can use query parameters to target specific resources. To learn more, see [DiscoverInstances](https://docs.aws.amazon.com/cloud-map/latest/api/API_DiscoverInstances.html) . For private integrations, all resources must be owned by the same AWS account .
-	IntegrationUri *string `json:"integrationUri"`
+	IntegrationUri *string `json:"integrationUri" yaml:"integrationUri"`
 	// Specifies the pass-through behavior for incoming requests based on the `Content-Type` header in the request, and the available mapping templates specified as the `requestTemplates` property on the `Integration` resource.
 	//
 	// There are three valid values: `WHEN_NO_MATCH` , `WHEN_NO_TEMPLATES` , and `NEVER` . Supported only for WebSocket APIs.
@@ -4911,11 +4911,11 @@ type CfnIntegrationProps struct {
 	// `NEVER` rejects unmapped content types with an `HTTP 415 Unsupported Media Type` response.
 	//
 	// `WHEN_NO_TEMPLATES` allows pass-through when the integration has no content types mapped to templates. However, if there is at least one content type defined, unmapped content types will be rejected with the same `HTTP 415 Unsupported Media Type` response.
-	PassthroughBehavior *string `json:"passthroughBehavior"`
+	PassthroughBehavior *string `json:"passthroughBehavior" yaml:"passthroughBehavior"`
 	// Specifies the format of the payload sent to an integration.
 	//
 	// Required for HTTP APIs. For HTTP APIs, supported values for Lambda proxy integrations are `1.0` and `2.0` . For all other integrations, `1.0` is the only supported value. To learn more, see [Working with AWS Lambda proxy integrations for HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html) .
-	PayloadFormatVersion *string `json:"payloadFormatVersion"`
+	PayloadFormatVersion *string `json:"payloadFormatVersion" yaml:"payloadFormatVersion"`
 	// For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend.
 	//
 	// The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the backend. The method request parameter value must match the pattern of `method.request. {location} . {name}` , where `{location}` is `querystring` , `path` , or `header` ; and `{name}` must be a valid and unique method request parameter name.
@@ -4923,27 +4923,27 @@ type CfnIntegrationProps struct {
 	// For HTTP API integrations with a specified `integrationSubtype` , request parameters are a key-value map specifying parameters that are passed to `AWS_PROXY` integrations. You can provide static values, or map request data, stage variables, or context variables that are evaluated at runtime. To learn more, see [Working with AWS service integrations for HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services.html) .
 	//
 	// For HTTP API integrations without a specified `integrationSubtype` request parameters are a key-value map specifying how to transform HTTP requests before sending them to the backend. The key should follow the pattern <action>:<header|querystring|path>.<location> where action can be `append` , `overwrite` or `remove` . For values, you can provide static values, or map request data, stage variables, or context variables that are evaluated at runtime. To learn more, see [Transforming API requests and responses](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) .
-	RequestParameters interface{} `json:"requestParameters"`
+	RequestParameters interface{} `json:"requestParameters" yaml:"requestParameters"`
 	// Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
 	//
 	// The content type value is the key in this map, and the template (as a String) is the value. Supported only for WebSocket APIs.
-	RequestTemplates interface{} `json:"requestTemplates"`
+	RequestTemplates interface{} `json:"requestTemplates" yaml:"requestTemplates"`
 	// Supported only for HTTP APIs.
 	//
 	// You use response parameters to transform the HTTP response from a backend integration before returning the response to clients. Specify a key-value map from a selection key to response parameters. The selection key must be a valid HTTP status code within the range of 200-599. The value is of type [`ResponseParameterList`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-integration-responseparameterlist.html) . To learn more, see [Transforming API requests and responses](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) .
-	ResponseParameters interface{} `json:"responseParameters"`
+	ResponseParameters interface{} `json:"responseParameters" yaml:"responseParameters"`
 	// The template selection expression for the integration.
 	//
 	// Supported only for WebSocket APIs.
-	TemplateSelectionExpression *string `json:"templateSelectionExpression"`
+	TemplateSelectionExpression *string `json:"templateSelectionExpression" yaml:"templateSelectionExpression"`
 	// Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs.
 	//
 	// The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
-	TimeoutInMillis *float64 `json:"timeoutInMillis"`
+	TimeoutInMillis *float64 `json:"timeoutInMillis" yaml:"timeoutInMillis"`
 	// The TLS configuration for a private integration.
 	//
 	// If you specify a TLS configuration, private integration traffic uses the HTTPS protocol. Supported only for HTTP APIs.
-	TlsConfig interface{} `json:"tlsConfig"`
+	TlsConfig interface{} `json:"tlsConfig" yaml:"tlsConfig"`
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::IntegrationResponse`.
@@ -5544,11 +5544,11 @@ func (c *jsiiProxy_CfnIntegrationResponse) ValidateProperties(_properties interf
 //
 type CfnIntegrationResponseProps struct {
 	// The API identifier.
-	ApiId *string `json:"apiId"`
+	ApiId *string `json:"apiId" yaml:"apiId"`
 	// The integration ID.
-	IntegrationId *string `json:"integrationId"`
+	IntegrationId *string `json:"integrationId" yaml:"integrationId"`
 	// The integration response key.
-	IntegrationResponseKey *string `json:"integrationResponseKey"`
+	IntegrationResponseKey *string `json:"integrationResponseKey" yaml:"integrationResponseKey"`
 	// Supported only for WebSocket APIs.
 	//
 	// Specifies how to handle response payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT` , with the following behaviors:
@@ -5558,19 +5558,19 @@ type CfnIntegrationResponseProps struct {
 	// `CONVERT_TO_TEXT` : Converts a response payload from a binary blob to a Base64-encoded string.
 	//
 	// If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.
-	ContentHandlingStrategy *string `json:"contentHandlingStrategy"`
+	ContentHandlingStrategy *string `json:"contentHandlingStrategy" yaml:"contentHandlingStrategy"`
 	// A key-value map specifying response parameters that are passed to the method response from the backend.
 	//
 	// The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of `method.response.header. *{name}*` , where name is a valid and unique header name. The mapped non-static value must match the pattern of `integration.response.header. *{name}*` or `integration.response.body. *{JSON-expression}*` , where `*{name}*` is a valid and unique response header name and `*{JSON-expression}*` is a valid JSON expression without the `$` prefix.
-	ResponseParameters interface{} `json:"responseParameters"`
+	ResponseParameters interface{} `json:"responseParameters" yaml:"responseParameters"`
 	// The collection of response templates for the integration response as a string-to-string map of key-value pairs.
 	//
 	// Response templates are represented as a key/value map, with a content-type as the key and a template as the value.
-	ResponseTemplates interface{} `json:"responseTemplates"`
+	ResponseTemplates interface{} `json:"responseTemplates" yaml:"responseTemplates"`
 	// The template selection expression for the integration response.
 	//
 	// Supported only for WebSocket APIs.
-	TemplateSelectionExpression *string `json:"templateSelectionExpression"`
+	TemplateSelectionExpression *string `json:"templateSelectionExpression" yaml:"templateSelectionExpression"`
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::Model`.
@@ -6131,17 +6131,17 @@ func (c *jsiiProxy_CfnModel) ValidateProperties(_properties interface{}) {
 //
 type CfnModelProps struct {
 	// The API identifier.
-	ApiId *string `json:"apiId"`
+	ApiId *string `json:"apiId" yaml:"apiId"`
 	// The name of the model.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The schema for the model.
 	//
 	// For application/json models, this should be JSON schema draft 4 model.
-	Schema interface{} `json:"schema"`
+	Schema interface{} `json:"schema" yaml:"schema"`
 	// The content-type for the model, for example, "application/json".
-	ContentType *string `json:"contentType"`
+	ContentType *string `json:"contentType" yaml:"contentType"`
 	// The description of the model.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::Route`.
@@ -6842,7 +6842,7 @@ func (c *jsiiProxy_CfnRoute) ValidateProperties(_properties interface{}) {
 //
 type CfnRoute_ParameterConstraintsProperty struct {
 	// Specifies whether the parameter is required.
-	Required interface{} `json:"required"`
+	Required interface{} `json:"required" yaml:"required"`
 }
 
 // Properties for defining a `CfnRoute`.
@@ -6851,45 +6851,45 @@ type CfnRoute_ParameterConstraintsProperty struct {
 //
 type CfnRouteProps struct {
 	// The API identifier.
-	ApiId *string `json:"apiId"`
+	ApiId *string `json:"apiId" yaml:"apiId"`
 	// The route key for the route.
 	//
 	// For HTTP APIs, the route key can be either `$default` , or a combination of an HTTP method and resource path, for example, `GET /pets` .
-	RouteKey *string `json:"routeKey"`
+	RouteKey *string `json:"routeKey" yaml:"routeKey"`
 	// Specifies whether an API key is required for the route.
 	//
 	// Supported only for WebSocket APIs.
-	ApiKeyRequired interface{} `json:"apiKeyRequired"`
+	ApiKeyRequired interface{} `json:"apiKeyRequired" yaml:"apiKeyRequired"`
 	// The authorization scopes supported by this route.
-	AuthorizationScopes *[]*string `json:"authorizationScopes"`
+	AuthorizationScopes *[]*string `json:"authorizationScopes" yaml:"authorizationScopes"`
 	// The authorization type for the route.
 	//
 	// For WebSocket APIs, valid values are `NONE` for open access, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer. For HTTP APIs, valid values are `NONE` for open access, `JWT` for using JSON Web Tokens, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
-	AuthorizationType *string `json:"authorizationType"`
+	AuthorizationType *string `json:"authorizationType" yaml:"authorizationType"`
 	// The identifier of the `Authorizer` resource to be associated with this route.
 	//
 	// The authorizer identifier is generated by API Gateway when you created the authorizer.
-	AuthorizerId *string `json:"authorizerId"`
+	AuthorizerId *string `json:"authorizerId" yaml:"authorizerId"`
 	// The model selection expression for the route.
 	//
 	// Supported only for WebSocket APIs.
-	ModelSelectionExpression *string `json:"modelSelectionExpression"`
+	ModelSelectionExpression *string `json:"modelSelectionExpression" yaml:"modelSelectionExpression"`
 	// The operation name for the route.
-	OperationName *string `json:"operationName"`
+	OperationName *string `json:"operationName" yaml:"operationName"`
 	// The request models for the route.
 	//
 	// Supported only for WebSocket APIs.
-	RequestModels interface{} `json:"requestModels"`
+	RequestModels interface{} `json:"requestModels" yaml:"requestModels"`
 	// The request parameters for the route.
 	//
 	// Supported only for WebSocket APIs.
-	RequestParameters interface{} `json:"requestParameters"`
+	RequestParameters interface{} `json:"requestParameters" yaml:"requestParameters"`
 	// The route response selection expression for the route.
 	//
 	// Supported only for WebSocket APIs.
-	RouteResponseSelectionExpression *string `json:"routeResponseSelectionExpression"`
+	RouteResponseSelectionExpression *string `json:"routeResponseSelectionExpression" yaml:"routeResponseSelectionExpression"`
 	// The target for the route.
-	Target *string `json:"target"`
+	Target *string `json:"target" yaml:"target"`
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::RouteResponse`.
@@ -7470,7 +7470,7 @@ func (c *jsiiProxy_CfnRouteResponse) ValidateProperties(_properties interface{})
 //
 type CfnRouteResponse_ParameterConstraintsProperty struct {
 	// Specifies whether the parameter is required.
-	Required interface{} `json:"required"`
+	Required interface{} `json:"required" yaml:"required"`
 }
 
 // Properties for defining a `CfnRouteResponse`.
@@ -7479,19 +7479,19 @@ type CfnRouteResponse_ParameterConstraintsProperty struct {
 //
 type CfnRouteResponseProps struct {
 	// The API identifier.
-	ApiId *string `json:"apiId"`
+	ApiId *string `json:"apiId" yaml:"apiId"`
 	// The route ID.
-	RouteId *string `json:"routeId"`
+	RouteId *string `json:"routeId" yaml:"routeId"`
 	// The route response key.
-	RouteResponseKey *string `json:"routeResponseKey"`
+	RouteResponseKey *string `json:"routeResponseKey" yaml:"routeResponseKey"`
 	// The model selection expression for the route response.
 	//
 	// Supported only for WebSocket APIs.
-	ModelSelectionExpression *string `json:"modelSelectionExpression"`
+	ModelSelectionExpression *string `json:"modelSelectionExpression" yaml:"modelSelectionExpression"`
 	// The response models for the route response.
-	ResponseModels interface{} `json:"responseModels"`
+	ResponseModels interface{} `json:"responseModels" yaml:"responseModels"`
 	// The route response parameters.
-	ResponseParameters interface{} `json:"responseParameters"`
+	ResponseParameters interface{} `json:"responseParameters" yaml:"responseParameters"`
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::Stage`.
@@ -8185,11 +8185,11 @@ type CfnStage_AccessLogSettingsProperty struct {
 	// The ARN of the CloudWatch Logs log group to receive access logs.
 	//
 	// This parameter is required to enable access logging.
-	DestinationArn *string `json:"destinationArn"`
+	DestinationArn *string `json:"destinationArn" yaml:"destinationArn"`
 	// A single line format of the access logs of data, as specified by selected $context variables.
 	//
 	// The format must include at least $context.requestId. This parameter is required to enable access logging.
-	Format *string `json:"format"`
+	Format *string `json:"format" yaml:"format"`
 }
 
 // Represents a collection of route settings.
@@ -8200,17 +8200,17 @@ type CfnStage_RouteSettingsProperty struct {
 	// Specifies whether ( `true` ) or not ( `false` ) data trace logging is enabled for this route.
 	//
 	// This property affects the log entries pushed to Amazon CloudWatch Logs. Supported only for WebSocket APIs.
-	DataTraceEnabled interface{} `json:"dataTraceEnabled"`
+	DataTraceEnabled interface{} `json:"dataTraceEnabled" yaml:"dataTraceEnabled"`
 	// Specifies whether detailed metrics are enabled.
-	DetailedMetricsEnabled interface{} `json:"detailedMetricsEnabled"`
+	DetailedMetricsEnabled interface{} `json:"detailedMetricsEnabled" yaml:"detailedMetricsEnabled"`
 	// Specifies the logging level for this route: `INFO` , `ERROR` , or `OFF` .
 	//
 	// This property affects the log entries pushed to Amazon CloudWatch Logs. Supported only for WebSocket APIs.
-	LoggingLevel *string `json:"loggingLevel"`
+	LoggingLevel *string `json:"loggingLevel" yaml:"loggingLevel"`
 	// Specifies the throttling burst limit.
-	ThrottlingBurstLimit *float64 `json:"throttlingBurstLimit"`
+	ThrottlingBurstLimit *float64 `json:"throttlingBurstLimit" yaml:"throttlingBurstLimit"`
 	// Specifies the throttling rate limit.
-	ThrottlingRateLimit *float64 `json:"throttlingRateLimit"`
+	ThrottlingRateLimit *float64 `json:"throttlingRateLimit" yaml:"throttlingRateLimit"`
 }
 
 // Properties for defining a `CfnStage`.
@@ -8219,41 +8219,41 @@ type CfnStage_RouteSettingsProperty struct {
 //
 type CfnStageProps struct {
 	// The API identifier.
-	ApiId *string `json:"apiId"`
+	ApiId *string `json:"apiId" yaml:"apiId"`
 	// The stage name.
 	//
 	// Stage names can contain only alphanumeric characters, hyphens, and underscores, or be `$default` . Maximum length is 128 characters.
-	StageName *string `json:"stageName"`
+	StageName *string `json:"stageName" yaml:"stageName"`
 	// Settings for logging access in this stage.
-	AccessLogSettings interface{} `json:"accessLogSettings"`
+	AccessLogSettings interface{} `json:"accessLogSettings" yaml:"accessLogSettings"`
 	// This parameter is not currently supported.
-	AccessPolicyId *string `json:"accessPolicyId"`
+	AccessPolicyId *string `json:"accessPolicyId" yaml:"accessPolicyId"`
 	// Specifies whether updates to an API automatically trigger a new deployment.
 	//
 	// The default value is `false` .
-	AutoDeploy interface{} `json:"autoDeploy"`
+	AutoDeploy interface{} `json:"autoDeploy" yaml:"autoDeploy"`
 	// The identifier of a client certificate for a `Stage` .
 	//
 	// Supported only for WebSocket APIs.
-	ClientCertificateId *string `json:"clientCertificateId"`
+	ClientCertificateId *string `json:"clientCertificateId" yaml:"clientCertificateId"`
 	// The default route settings for the stage.
-	DefaultRouteSettings interface{} `json:"defaultRouteSettings"`
+	DefaultRouteSettings interface{} `json:"defaultRouteSettings" yaml:"defaultRouteSettings"`
 	// The deployment identifier for the API stage.
 	//
 	// Can't be updated if `autoDeploy` is enabled.
-	DeploymentId *string `json:"deploymentId"`
+	DeploymentId *string `json:"deploymentId" yaml:"deploymentId"`
 	// The description for the API stage.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Route settings for the stage.
-	RouteSettings interface{} `json:"routeSettings"`
+	RouteSettings interface{} `json:"routeSettings" yaml:"routeSettings"`
 	// A map that defines the stage variables for a `Stage` .
 	//
 	// Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&=,]+.
-	StageVariables interface{} `json:"stageVariables"`
+	StageVariables interface{} `json:"stageVariables" yaml:"stageVariables"`
 	// The collection of tags.
 	//
 	// Each tag element is associated with a given resource.
-	Tags interface{} `json:"tags"`
+	Tags interface{} `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::VpcLink`.
@@ -8785,14 +8785,14 @@ func (c *jsiiProxy_CfnVpcLink) ValidateProperties(_properties interface{}) {
 //
 type CfnVpcLinkProps struct {
 	// The name of the VPC link.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// A list of subnet IDs to include in the VPC link.
-	SubnetIds *[]*string `json:"subnetIds"`
+	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
 	// A list of security group IDs for the VPC link.
-	SecurityGroupIds *[]*string `json:"securityGroupIds"`
+	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
 	// The collection of tags.
 	//
 	// Each tag element is associated with a given resource.
-	Tags interface{} `json:"tags"`
+	Tags interface{} `json:"tags" yaml:"tags"`
 }
 

@@ -591,9 +591,9 @@ func (c *jsiiProxy_CfnConnectorProfile) ValidateProperties(_properties interface
 //
 type CfnConnectorProfile_AmplitudeConnectorProfileCredentialsProperty struct {
 	// A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
-	ApiKey *string `json:"apiKey"`
+	ApiKey *string `json:"apiKey" yaml:"apiKey"`
 	// The Secret Access Key portion of the credentials.
-	SecretKey *string `json:"secretKey"`
+	SecretKey *string `json:"secretKey" yaml:"secretKey"`
 }
 
 // The `ConnectorOAuthRequest` property type specifies the select connectors for which the OAuth workflow is supported, such as Salesforce, Google Analytics, Marketo, Zendesk, and Slack.
@@ -602,9 +602,9 @@ type CfnConnectorProfile_AmplitudeConnectorProfileCredentialsProperty struct {
 //
 type CfnConnectorProfile_ConnectorOAuthRequestProperty struct {
 	// The code provided by the connector when it has been authenticated via the connected app.
-	AuthCode *string `json:"authCode"`
+	AuthCode *string `json:"authCode" yaml:"authCode"`
 	// The URL to which the authentication server redirects the browser after authorization has been granted.
-	RedirectUri *string `json:"redirectUri"`
+	RedirectUri *string `json:"redirectUri" yaml:"redirectUri"`
 }
 
 // Defines the connector-specific configuration and credentials for the connector profile.
@@ -613,9 +613,9 @@ type CfnConnectorProfile_ConnectorOAuthRequestProperty struct {
 //
 type CfnConnectorProfile_ConnectorProfileConfigProperty struct {
 	// The connector-specific credentials required by each connector.
-	ConnectorProfileCredentials interface{} `json:"connectorProfileCredentials"`
+	ConnectorProfileCredentials interface{} `json:"connectorProfileCredentials" yaml:"connectorProfileCredentials"`
 	// The connector-specific properties of the profile configuration.
-	ConnectorProfileProperties interface{} `json:"connectorProfileProperties"`
+	ConnectorProfileProperties interface{} `json:"connectorProfileProperties" yaml:"connectorProfileProperties"`
 }
 
 // The `ConnectorProfileCredentials` property type specifies the connector-specific credentials required by a given connector.
@@ -624,37 +624,37 @@ type CfnConnectorProfile_ConnectorProfileConfigProperty struct {
 //
 type CfnConnectorProfile_ConnectorProfileCredentialsProperty struct {
 	// The connector-specific credentials required when using Amplitude.
-	Amplitude interface{} `json:"amplitude"`
+	Amplitude interface{} `json:"amplitude" yaml:"amplitude"`
 	// The connector-specific credentials required when using Datadog.
-	Datadog interface{} `json:"datadog"`
+	Datadog interface{} `json:"datadog" yaml:"datadog"`
 	// The connector-specific credentials required when using Dynatrace.
-	Dynatrace interface{} `json:"dynatrace"`
+	Dynatrace interface{} `json:"dynatrace" yaml:"dynatrace"`
 	// The connector-specific credentials required when using Google Analytics.
-	GoogleAnalytics interface{} `json:"googleAnalytics"`
+	GoogleAnalytics interface{} `json:"googleAnalytics" yaml:"googleAnalytics"`
 	// The connector-specific credentials required when using Infor Nexus.
-	InforNexus interface{} `json:"inforNexus"`
+	InforNexus interface{} `json:"inforNexus" yaml:"inforNexus"`
 	// The connector-specific credentials required when using Marketo.
-	Marketo interface{} `json:"marketo"`
+	Marketo interface{} `json:"marketo" yaml:"marketo"`
 	// The connector-specific credentials required when using Amazon Redshift.
-	Redshift interface{} `json:"redshift"`
+	Redshift interface{} `json:"redshift" yaml:"redshift"`
 	// The connector-specific credentials required when using Salesforce.
-	Salesforce interface{} `json:"salesforce"`
+	Salesforce interface{} `json:"salesforce" yaml:"salesforce"`
 	// `CfnConnectorProfile.ConnectorProfileCredentialsProperty.SAPOData`.
-	SapoData interface{} `json:"sapoData"`
+	SapoData interface{} `json:"sapoData" yaml:"sapoData"`
 	// The connector-specific credentials required when using ServiceNow.
-	ServiceNow interface{} `json:"serviceNow"`
+	ServiceNow interface{} `json:"serviceNow" yaml:"serviceNow"`
 	// The connector-specific credentials required when using Singular.
-	Singular interface{} `json:"singular"`
+	Singular interface{} `json:"singular" yaml:"singular"`
 	// The connector-specific credentials required when using Slack.
-	Slack interface{} `json:"slack"`
+	Slack interface{} `json:"slack" yaml:"slack"`
 	// The connector-specific credentials required when using Snowflake.
-	Snowflake interface{} `json:"snowflake"`
+	Snowflake interface{} `json:"snowflake" yaml:"snowflake"`
 	// The connector-specific credentials required when using Trend Micro.
-	Trendmicro interface{} `json:"trendmicro"`
+	Trendmicro interface{} `json:"trendmicro" yaml:"trendmicro"`
 	// The connector-specific credentials required when using Veeva.
-	Veeva interface{} `json:"veeva"`
+	Veeva interface{} `json:"veeva" yaml:"veeva"`
 	// The connector-specific credentials required when using Zendesk.
-	Zendesk interface{} `json:"zendesk"`
+	Zendesk interface{} `json:"zendesk" yaml:"zendesk"`
 }
 
 // The `ConnectorProfileProperties` property type specifies the connector-specific profile properties required by each connector.
@@ -663,29 +663,29 @@ type CfnConnectorProfile_ConnectorProfileCredentialsProperty struct {
 //
 type CfnConnectorProfile_ConnectorProfilePropertiesProperty struct {
 	// The connector-specific properties required by Datadog.
-	Datadog interface{} `json:"datadog"`
+	Datadog interface{} `json:"datadog" yaml:"datadog"`
 	// The connector-specific properties required by Dynatrace.
-	Dynatrace interface{} `json:"dynatrace"`
+	Dynatrace interface{} `json:"dynatrace" yaml:"dynatrace"`
 	// The connector-specific properties required by Infor Nexus.
-	InforNexus interface{} `json:"inforNexus"`
+	InforNexus interface{} `json:"inforNexus" yaml:"inforNexus"`
 	// The connector-specific properties required by Marketo.
-	Marketo interface{} `json:"marketo"`
+	Marketo interface{} `json:"marketo" yaml:"marketo"`
 	// The connector-specific properties required by Amazon Redshift.
-	Redshift interface{} `json:"redshift"`
+	Redshift interface{} `json:"redshift" yaml:"redshift"`
 	// The connector-specific properties required by Salesforce.
-	Salesforce interface{} `json:"salesforce"`
+	Salesforce interface{} `json:"salesforce" yaml:"salesforce"`
 	// `CfnConnectorProfile.ConnectorProfilePropertiesProperty.SAPOData`.
-	SapoData interface{} `json:"sapoData"`
+	SapoData interface{} `json:"sapoData" yaml:"sapoData"`
 	// The connector-specific properties required by serviceNow.
-	ServiceNow interface{} `json:"serviceNow"`
+	ServiceNow interface{} `json:"serviceNow" yaml:"serviceNow"`
 	// The connector-specific properties required by Slack.
-	Slack interface{} `json:"slack"`
+	Slack interface{} `json:"slack" yaml:"slack"`
 	// The connector-specific properties required by Snowflake.
-	Snowflake interface{} `json:"snowflake"`
+	Snowflake interface{} `json:"snowflake" yaml:"snowflake"`
 	// The connector-specific properties required by Veeva.
-	Veeva interface{} `json:"veeva"`
+	Veeva interface{} `json:"veeva" yaml:"veeva"`
 	// The connector-specific properties required by Zendesk.
-	Zendesk interface{} `json:"zendesk"`
+	Zendesk interface{} `json:"zendesk" yaml:"zendesk"`
 }
 
 // The `DatadogConnectorProfileCredentials` property type specifies the connector-specific credentials required by Datadog.
@@ -694,11 +694,11 @@ type CfnConnectorProfile_ConnectorProfilePropertiesProperty struct {
 //
 type CfnConnectorProfile_DatadogConnectorProfileCredentialsProperty struct {
 	// A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
-	ApiKey *string `json:"apiKey"`
+	ApiKey *string `json:"apiKey" yaml:"apiKey"`
 	// Application keys, in conjunction with your API key, give you full access to Datadog’s programmatic API.
 	//
 	// Application keys are associated with the user account that created them. The application key is used to log all requests made to the API.
-	ApplicationKey *string `json:"applicationKey"`
+	ApplicationKey *string `json:"applicationKey" yaml:"applicationKey"`
 }
 
 // The `DatadogConnectorProfileProperties` property type specifies the connector-specific profile properties required by Datadog.
@@ -707,7 +707,7 @@ type CfnConnectorProfile_DatadogConnectorProfileCredentialsProperty struct {
 //
 type CfnConnectorProfile_DatadogConnectorProfilePropertiesProperty struct {
 	// The location of the Datadog resource.
-	InstanceUrl *string `json:"instanceUrl"`
+	InstanceUrl *string `json:"instanceUrl" yaml:"instanceUrl"`
 }
 
 // The `DynatraceConnectorProfileCredentials` property type specifies the connector-specific profile credentials required by Dynatrace.
@@ -716,7 +716,7 @@ type CfnConnectorProfile_DatadogConnectorProfilePropertiesProperty struct {
 //
 type CfnConnectorProfile_DynatraceConnectorProfileCredentialsProperty struct {
 	// The API tokens used by Dynatrace API to authenticate various API calls.
-	ApiToken *string `json:"apiToken"`
+	ApiToken *string `json:"apiToken" yaml:"apiToken"`
 }
 
 // The `DynatraceConnectorProfileProperties` property type specifies the connector-specific profile properties required by Dynatrace.
@@ -725,7 +725,7 @@ type CfnConnectorProfile_DynatraceConnectorProfileCredentialsProperty struct {
 //
 type CfnConnectorProfile_DynatraceConnectorProfilePropertiesProperty struct {
 	// The location of the Dynatrace resource.
-	InstanceUrl *string `json:"instanceUrl"`
+	InstanceUrl *string `json:"instanceUrl" yaml:"instanceUrl"`
 }
 
 // The `GoogleAnalyticsConnectorProfileCredentials` property type specifies the connector-specific profile credentials required by Google Analytics.
@@ -734,17 +734,17 @@ type CfnConnectorProfile_DynatraceConnectorProfilePropertiesProperty struct {
 //
 type CfnConnectorProfile_GoogleAnalyticsConnectorProfileCredentialsProperty struct {
 	// The identifier for the desired client.
-	ClientId *string `json:"clientId"`
+	ClientId *string `json:"clientId" yaml:"clientId"`
 	// The client secret used by the OAuth client to authenticate to the authorization server.
-	ClientSecret *string `json:"clientSecret"`
+	ClientSecret *string `json:"clientSecret" yaml:"clientSecret"`
 	// The credentials used to access protected Google Analytics resources.
-	AccessToken *string `json:"accessToken"`
+	AccessToken *string `json:"accessToken" yaml:"accessToken"`
 	// Used by select connectors for which the OAuth workflow is supported, such as Salesforce, Google Analytics, Marketo, Zendesk, and Slack.
-	ConnectorOAuthRequest interface{} `json:"connectorOAuthRequest"`
+	ConnectorOAuthRequest interface{} `json:"connectorOAuthRequest" yaml:"connectorOAuthRequest"`
 	// The credentials used to acquire new access tokens.
 	//
 	// This is required only for OAuth2 access tokens, and is not required for OAuth1 access tokens.
-	RefreshToken *string `json:"refreshToken"`
+	RefreshToken *string `json:"refreshToken" yaml:"refreshToken"`
 }
 
 // The `InforNexusConnectorProfileCredentials` property type specifies the connector-specific profile credentials required by Infor Nexus.
@@ -753,13 +753,13 @@ type CfnConnectorProfile_GoogleAnalyticsConnectorProfileCredentialsProperty stru
 //
 type CfnConnectorProfile_InforNexusConnectorProfileCredentialsProperty struct {
 	// The Access Key portion of the credentials.
-	AccessKeyId *string `json:"accessKeyId"`
+	AccessKeyId *string `json:"accessKeyId" yaml:"accessKeyId"`
 	// The encryption keys used to encrypt data.
-	Datakey *string `json:"datakey"`
+	Datakey *string `json:"datakey" yaml:"datakey"`
 	// The secret key used to sign requests.
-	SecretAccessKey *string `json:"secretAccessKey"`
+	SecretAccessKey *string `json:"secretAccessKey" yaml:"secretAccessKey"`
 	// The identifier for the user.
-	UserId *string `json:"userId"`
+	UserId *string `json:"userId" yaml:"userId"`
 }
 
 // The `InforNexusConnectorProfileProperties` property type specifies the connector-specific profile properties required by Infor Nexus.
@@ -768,7 +768,7 @@ type CfnConnectorProfile_InforNexusConnectorProfileCredentialsProperty struct {
 //
 type CfnConnectorProfile_InforNexusConnectorProfilePropertiesProperty struct {
 	// The location of the Infor Nexus resource.
-	InstanceUrl *string `json:"instanceUrl"`
+	InstanceUrl *string `json:"instanceUrl" yaml:"instanceUrl"`
 }
 
 // The `MarketoConnectorProfileCredentials` property type specifies the connector-specific profile credentials required by Marketo.
@@ -777,13 +777,13 @@ type CfnConnectorProfile_InforNexusConnectorProfilePropertiesProperty struct {
 //
 type CfnConnectorProfile_MarketoConnectorProfileCredentialsProperty struct {
 	// The identifier for the desired client.
-	ClientId *string `json:"clientId"`
+	ClientId *string `json:"clientId" yaml:"clientId"`
 	// The client secret used by the OAuth client to authenticate to the authorization server.
-	ClientSecret *string `json:"clientSecret"`
+	ClientSecret *string `json:"clientSecret" yaml:"clientSecret"`
 	// The credentials used to access protected Marketo resources.
-	AccessToken *string `json:"accessToken"`
+	AccessToken *string `json:"accessToken" yaml:"accessToken"`
 	// Used by select connectors for which the OAuth workflow is supported, such as Salesforce, Google Analytics, Marketo, Zendesk, and Slack.
-	ConnectorOAuthRequest interface{} `json:"connectorOAuthRequest"`
+	ConnectorOAuthRequest interface{} `json:"connectorOAuthRequest" yaml:"connectorOAuthRequest"`
 }
 
 // The `MarketoConnectorProfileProperties` property type specifies the connector-specific profile properties required when using Marketo.
@@ -792,18 +792,18 @@ type CfnConnectorProfile_MarketoConnectorProfileCredentialsProperty struct {
 //
 type CfnConnectorProfile_MarketoConnectorProfilePropertiesProperty struct {
 	// The location of the Marketo resource.
-	InstanceUrl *string `json:"instanceUrl"`
+	InstanceUrl *string `json:"instanceUrl" yaml:"instanceUrl"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnConnectorProfile_OAuthPropertiesProperty struct {
 	// `CfnConnectorProfile.OAuthPropertiesProperty.AuthCodeUrl`.
-	AuthCodeUrl *string `json:"authCodeUrl"`
+	AuthCodeUrl *string `json:"authCodeUrl" yaml:"authCodeUrl"`
 	// `CfnConnectorProfile.OAuthPropertiesProperty.OAuthScopes`.
-	OAuthScopes *[]*string `json:"oAuthScopes"`
+	OAuthScopes *[]*string `json:"oAuthScopes" yaml:"oAuthScopes"`
 	// `CfnConnectorProfile.OAuthPropertiesProperty.TokenUrl`.
-	TokenUrl *string `json:"tokenUrl"`
+	TokenUrl *string `json:"tokenUrl" yaml:"tokenUrl"`
 }
 
 // The `RedshiftConnectorProfileCredentials` property type specifies the connector-specific profile credentials required when using Amazon Redshift.
@@ -812,9 +812,9 @@ type CfnConnectorProfile_OAuthPropertiesProperty struct {
 //
 type CfnConnectorProfile_RedshiftConnectorProfileCredentialsProperty struct {
 	// The password that corresponds to the user name.
-	Password *string `json:"password"`
+	Password *string `json:"password" yaml:"password"`
 	// The name of the user.
-	Username *string `json:"username"`
+	Username *string `json:"username" yaml:"username"`
 }
 
 // The `RedshiftConnectorProfileProperties` property type specifies the connector-specific profile properties when using Amazon Redshift.
@@ -823,41 +823,41 @@ type CfnConnectorProfile_RedshiftConnectorProfileCredentialsProperty struct {
 //
 type CfnConnectorProfile_RedshiftConnectorProfilePropertiesProperty struct {
 	// A name for the associated Amazon S3 bucket.
-	BucketName *string `json:"bucketName"`
+	BucketName *string `json:"bucketName" yaml:"bucketName"`
 	// The JDBC URL of the Amazon Redshift cluster.
-	DatabaseUrl *string `json:"databaseUrl"`
+	DatabaseUrl *string `json:"databaseUrl" yaml:"databaseUrl"`
 	// The Amazon Resource Name (ARN) of the IAM role.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// The object key for the destination bucket in which Amazon AppFlow places the files.
-	BucketPrefix *string `json:"bucketPrefix"`
+	BucketPrefix *string `json:"bucketPrefix" yaml:"bucketPrefix"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnConnectorProfile_SAPODataConnectorProfileCredentialsProperty struct {
 	// `CfnConnectorProfile.SAPODataConnectorProfileCredentialsProperty.BasicAuthCredentials`.
-	BasicAuthCredentials interface{} `json:"basicAuthCredentials"`
+	BasicAuthCredentials interface{} `json:"basicAuthCredentials" yaml:"basicAuthCredentials"`
 	// `CfnConnectorProfile.SAPODataConnectorProfileCredentialsProperty.OAuthCredentials`.
-	OAuthCredentials interface{} `json:"oAuthCredentials"`
+	OAuthCredentials interface{} `json:"oAuthCredentials" yaml:"oAuthCredentials"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnConnectorProfile_SAPODataConnectorProfilePropertiesProperty struct {
 	// `CfnConnectorProfile.SAPODataConnectorProfilePropertiesProperty.ApplicationHostUrl`.
-	ApplicationHostUrl *string `json:"applicationHostUrl"`
+	ApplicationHostUrl *string `json:"applicationHostUrl" yaml:"applicationHostUrl"`
 	// `CfnConnectorProfile.SAPODataConnectorProfilePropertiesProperty.ApplicationServicePath`.
-	ApplicationServicePath *string `json:"applicationServicePath"`
+	ApplicationServicePath *string `json:"applicationServicePath" yaml:"applicationServicePath"`
 	// `CfnConnectorProfile.SAPODataConnectorProfilePropertiesProperty.ClientNumber`.
-	ClientNumber *string `json:"clientNumber"`
+	ClientNumber *string `json:"clientNumber" yaml:"clientNumber"`
 	// `CfnConnectorProfile.SAPODataConnectorProfilePropertiesProperty.LogonLanguage`.
-	LogonLanguage *string `json:"logonLanguage"`
+	LogonLanguage *string `json:"logonLanguage" yaml:"logonLanguage"`
 	// `CfnConnectorProfile.SAPODataConnectorProfilePropertiesProperty.OAuthProperties`.
-	OAuthProperties interface{} `json:"oAuthProperties"`
+	OAuthProperties interface{} `json:"oAuthProperties" yaml:"oAuthProperties"`
 	// `CfnConnectorProfile.SAPODataConnectorProfilePropertiesProperty.PortNumber`.
-	PortNumber *float64 `json:"portNumber"`
+	PortNumber *float64 `json:"portNumber" yaml:"portNumber"`
 	// `CfnConnectorProfile.SAPODataConnectorProfilePropertiesProperty.PrivateLinkServiceName`.
-	PrivateLinkServiceName *string `json:"privateLinkServiceName"`
+	PrivateLinkServiceName *string `json:"privateLinkServiceName" yaml:"privateLinkServiceName"`
 }
 
 // The `SalesforceConnectorProfileCredentials` property type specifies the connector-specific profile credentials required when using Salesforce.
@@ -866,13 +866,13 @@ type CfnConnectorProfile_SAPODataConnectorProfilePropertiesProperty struct {
 //
 type CfnConnectorProfile_SalesforceConnectorProfileCredentialsProperty struct {
 	// The credentials used to access protected Salesforce resources.
-	AccessToken *string `json:"accessToken"`
+	AccessToken *string `json:"accessToken" yaml:"accessToken"`
 	// The secret manager ARN, which contains the client ID and client secret of the connected app.
-	ClientCredentialsArn *string `json:"clientCredentialsArn"`
+	ClientCredentialsArn *string `json:"clientCredentialsArn" yaml:"clientCredentialsArn"`
 	// Used by select connectors for which the OAuth workflow is supported, such as Salesforce, Google Analytics, Marketo, Zendesk, and Slack.
-	ConnectorOAuthRequest interface{} `json:"connectorOAuthRequest"`
+	ConnectorOAuthRequest interface{} `json:"connectorOAuthRequest" yaml:"connectorOAuthRequest"`
 	// The credentials used to acquire new access tokens.
-	RefreshToken *string `json:"refreshToken"`
+	RefreshToken *string `json:"refreshToken" yaml:"refreshToken"`
 }
 
 // The `SalesforceConnectorProfileProperties` property type specifies the connector-specific profile properties required when using Salesforce.
@@ -881,9 +881,9 @@ type CfnConnectorProfile_SalesforceConnectorProfileCredentialsProperty struct {
 //
 type CfnConnectorProfile_SalesforceConnectorProfilePropertiesProperty struct {
 	// The location of the Salesforce resource.
-	InstanceUrl *string `json:"instanceUrl"`
+	InstanceUrl *string `json:"instanceUrl" yaml:"instanceUrl"`
 	// Indicates whether the connector profile applies to a sandbox or production environment.
-	IsSandboxEnvironment interface{} `json:"isSandboxEnvironment"`
+	IsSandboxEnvironment interface{} `json:"isSandboxEnvironment" yaml:"isSandboxEnvironment"`
 }
 
 // The `ServiceNowConnectorProfileCredentials` property type specifies the connector-specific profile credentials required when using ServiceNow.
@@ -892,9 +892,9 @@ type CfnConnectorProfile_SalesforceConnectorProfilePropertiesProperty struct {
 //
 type CfnConnectorProfile_ServiceNowConnectorProfileCredentialsProperty struct {
 	// The password that corresponds to the user name.
-	Password *string `json:"password"`
+	Password *string `json:"password" yaml:"password"`
 	// The name of the user.
-	Username *string `json:"username"`
+	Username *string `json:"username" yaml:"username"`
 }
 
 // The `ServiceNowConnectorProfileProperties` property type specifies the connector-specific profile properties required when using ServiceNow.
@@ -903,7 +903,7 @@ type CfnConnectorProfile_ServiceNowConnectorProfileCredentialsProperty struct {
 //
 type CfnConnectorProfile_ServiceNowConnectorProfilePropertiesProperty struct {
 	// The location of the ServiceNow resource.
-	InstanceUrl *string `json:"instanceUrl"`
+	InstanceUrl *string `json:"instanceUrl" yaml:"instanceUrl"`
 }
 
 // The `SingularConnectorProfileCredentials` property type specifies the connector-specific profile credentials required when using Singular.
@@ -912,7 +912,7 @@ type CfnConnectorProfile_ServiceNowConnectorProfilePropertiesProperty struct {
 //
 type CfnConnectorProfile_SingularConnectorProfileCredentialsProperty struct {
 	// A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
-	ApiKey *string `json:"apiKey"`
+	ApiKey *string `json:"apiKey" yaml:"apiKey"`
 }
 
 // The `SlackConnectorProfileCredentials` property type specifies the connector-specific profile credentials required when using Slack.
@@ -921,13 +921,13 @@ type CfnConnectorProfile_SingularConnectorProfileCredentialsProperty struct {
 //
 type CfnConnectorProfile_SlackConnectorProfileCredentialsProperty struct {
 	// The identifier for the client.
-	ClientId *string `json:"clientId"`
+	ClientId *string `json:"clientId" yaml:"clientId"`
 	// The client secret used by the OAuth client to authenticate to the authorization server.
-	ClientSecret *string `json:"clientSecret"`
+	ClientSecret *string `json:"clientSecret" yaml:"clientSecret"`
 	// The credentials used to access protected Slack resources.
-	AccessToken *string `json:"accessToken"`
+	AccessToken *string `json:"accessToken" yaml:"accessToken"`
 	// Used by select connectors for which the OAuth workflow is supported, such as Salesforce, Google Analytics, Marketo, Zendesk, and Slack.
-	ConnectorOAuthRequest interface{} `json:"connectorOAuthRequest"`
+	ConnectorOAuthRequest interface{} `json:"connectorOAuthRequest" yaml:"connectorOAuthRequest"`
 }
 
 // The `SlackConnectorProfileProperties` property type specifies the connector-specific profile properties required when using Slack.
@@ -936,7 +936,7 @@ type CfnConnectorProfile_SlackConnectorProfileCredentialsProperty struct {
 //
 type CfnConnectorProfile_SlackConnectorProfilePropertiesProperty struct {
 	// The location of the Slack resource.
-	InstanceUrl *string `json:"instanceUrl"`
+	InstanceUrl *string `json:"instanceUrl" yaml:"instanceUrl"`
 }
 
 // The `SnowflakeConnectorProfileCredentials` property type specifies the connector-specific profile credentials required when using Snowflake.
@@ -945,9 +945,9 @@ type CfnConnectorProfile_SlackConnectorProfilePropertiesProperty struct {
 //
 type CfnConnectorProfile_SnowflakeConnectorProfileCredentialsProperty struct {
 	// The password that corresponds to the user name.
-	Password *string `json:"password"`
+	Password *string `json:"password" yaml:"password"`
 	// The name of the user.
-	Username *string `json:"username"`
+	Username *string `json:"username" yaml:"username"`
 }
 
 // The `SnowflakeConnectorProfileProperties` property type specifies the connector-specific profile properties required when using Snowflake.
@@ -956,21 +956,21 @@ type CfnConnectorProfile_SnowflakeConnectorProfileCredentialsProperty struct {
 //
 type CfnConnectorProfile_SnowflakeConnectorProfilePropertiesProperty struct {
 	// The name of the Amazon S3 bucket associated with Snowflake.
-	BucketName *string `json:"bucketName"`
+	BucketName *string `json:"bucketName" yaml:"bucketName"`
 	// The name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account.
 	//
 	// This is written in the following format: < Database>< Schema><Stage Name>.
-	Stage *string `json:"stage"`
+	Stage *string `json:"stage" yaml:"stage"`
 	// The name of the Snowflake warehouse.
-	Warehouse *string `json:"warehouse"`
+	Warehouse *string `json:"warehouse" yaml:"warehouse"`
 	// The name of the account.
-	AccountName *string `json:"accountName"`
+	AccountName *string `json:"accountName" yaml:"accountName"`
 	// The bucket path that refers to the Amazon S3 bucket associated with Snowflake.
-	BucketPrefix *string `json:"bucketPrefix"`
+	BucketPrefix *string `json:"bucketPrefix" yaml:"bucketPrefix"`
 	// The Snowflake Private Link service name to be used for private data transfers.
-	PrivateLinkServiceName *string `json:"privateLinkServiceName"`
+	PrivateLinkServiceName *string `json:"privateLinkServiceName" yaml:"privateLinkServiceName"`
 	// The AWS Region of the Snowflake account.
-	Region *string `json:"region"`
+	Region *string `json:"region" yaml:"region"`
 }
 
 // The `TrendmicroConnectorProfileCredentials` property type specifies the connector-specific profile credentials required when using Trend Micro.
@@ -979,7 +979,7 @@ type CfnConnectorProfile_SnowflakeConnectorProfilePropertiesProperty struct {
 //
 type CfnConnectorProfile_TrendmicroConnectorProfileCredentialsProperty struct {
 	// The Secret Access Key portion of the credentials.
-	ApiSecretKey *string `json:"apiSecretKey"`
+	ApiSecretKey *string `json:"apiSecretKey" yaml:"apiSecretKey"`
 }
 
 // The `VeevaConnectorProfileCredentials` property type specifies the connector-specific profile credentials required when using Veeva.
@@ -988,9 +988,9 @@ type CfnConnectorProfile_TrendmicroConnectorProfileCredentialsProperty struct {
 //
 type CfnConnectorProfile_VeevaConnectorProfileCredentialsProperty struct {
 	// The password that corresponds to the user name.
-	Password *string `json:"password"`
+	Password *string `json:"password" yaml:"password"`
 	// The name of the user.
-	Username *string `json:"username"`
+	Username *string `json:"username" yaml:"username"`
 }
 
 // The `VeevaConnectorProfileProperties` property type specifies the connector-specific profile properties required when using Veeva.
@@ -999,7 +999,7 @@ type CfnConnectorProfile_VeevaConnectorProfileCredentialsProperty struct {
 //
 type CfnConnectorProfile_VeevaConnectorProfilePropertiesProperty struct {
 	// The location of the Veeva resource.
-	InstanceUrl *string `json:"instanceUrl"`
+	InstanceUrl *string `json:"instanceUrl" yaml:"instanceUrl"`
 }
 
 // The `ZendeskConnectorProfileCredentials` property type specifies the connector-specific profile credentials required when using Zendesk.
@@ -1008,13 +1008,13 @@ type CfnConnectorProfile_VeevaConnectorProfilePropertiesProperty struct {
 //
 type CfnConnectorProfile_ZendeskConnectorProfileCredentialsProperty struct {
 	// The identifier for the desired client.
-	ClientId *string `json:"clientId"`
+	ClientId *string `json:"clientId" yaml:"clientId"`
 	// The client secret used by the OAuth client to authenticate to the authorization server.
-	ClientSecret *string `json:"clientSecret"`
+	ClientSecret *string `json:"clientSecret" yaml:"clientSecret"`
 	// The credentials used to access protected Zendesk resources.
-	AccessToken *string `json:"accessToken"`
+	AccessToken *string `json:"accessToken" yaml:"accessToken"`
 	// Used by select connectors for which the OAuth workflow is supported, such as Salesforce, Google Analytics, Marketo, Zendesk, and Slack.
-	ConnectorOAuthRequest interface{} `json:"connectorOAuthRequest"`
+	ConnectorOAuthRequest interface{} `json:"connectorOAuthRequest" yaml:"connectorOAuthRequest"`
 }
 
 // The `ZendeskConnectorProfileProperties` property type specifies the connector-specific profile properties required when using Zendesk.
@@ -1023,7 +1023,7 @@ type CfnConnectorProfile_ZendeskConnectorProfileCredentialsProperty struct {
 //
 type CfnConnectorProfile_ZendeskConnectorProfilePropertiesProperty struct {
 	// The location of the Zendesk resource.
-	InstanceUrl *string `json:"instanceUrl"`
+	InstanceUrl *string `json:"instanceUrl" yaml:"instanceUrl"`
 }
 
 // Properties for defining a `CfnConnectorProfile`.
@@ -1032,19 +1032,19 @@ type CfnConnectorProfile_ZendeskConnectorProfilePropertiesProperty struct {
 //
 type CfnConnectorProfileProps struct {
 	// Indicates the connection mode and if it is public or private.
-	ConnectionMode *string `json:"connectionMode"`
+	ConnectionMode *string `json:"connectionMode" yaml:"connectionMode"`
 	// The name of the connector profile.
 	//
 	// The name is unique for each `ConnectorProfile` in the AWS account .
-	ConnectorProfileName *string `json:"connectorProfileName"`
+	ConnectorProfileName *string `json:"connectorProfileName" yaml:"connectorProfileName"`
 	// The type of connector, such as Salesforce, Amplitude, and so on.
-	ConnectorType *string `json:"connectorType"`
+	ConnectorType *string `json:"connectorType" yaml:"connectorType"`
 	// Defines the connector-specific configuration and credentials.
-	ConnectorProfileConfig interface{} `json:"connectorProfileConfig"`
+	ConnectorProfileConfig interface{} `json:"connectorProfileConfig" yaml:"connectorProfileConfig"`
 	// The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption.
 	//
 	// This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
-	KmsArn *string `json:"kmsArn"`
+	KmsArn *string `json:"kmsArn" yaml:"kmsArn"`
 }
 
 // A CloudFormation `AWS::AppFlow::Flow`.
@@ -1669,7 +1669,7 @@ func (c *jsiiProxy_CfnFlow) ValidateProperties(_properties interface{}) {
 //
 type CfnFlow_AggregationConfigProperty struct {
 	// Specifies whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated.
-	AggregationType *string `json:"aggregationType"`
+	AggregationType *string `json:"aggregationType" yaml:"aggregationType"`
 }
 
 // The properties that are applied when Amplitude is being used as a source.
@@ -1678,7 +1678,7 @@ type CfnFlow_AggregationConfigProperty struct {
 //
 type CfnFlow_AmplitudeSourcePropertiesProperty struct {
 	// The object specified in the Amplitude flow source.
-	Object *string `json:"object"`
+	Object *string `json:"object" yaml:"object"`
 }
 
 // The operation to be performed on the provided source fields.
@@ -1687,35 +1687,35 @@ type CfnFlow_AmplitudeSourcePropertiesProperty struct {
 //
 type CfnFlow_ConnectorOperatorProperty struct {
 	// The operation to be performed on the provided Amplitude source fields.
-	Amplitude *string `json:"amplitude"`
+	Amplitude *string `json:"amplitude" yaml:"amplitude"`
 	// The operation to be performed on the provided Datadog source fields.
-	Datadog *string `json:"datadog"`
+	Datadog *string `json:"datadog" yaml:"datadog"`
 	// The operation to be performed on the provided Dynatrace source fields.
-	Dynatrace *string `json:"dynatrace"`
+	Dynatrace *string `json:"dynatrace" yaml:"dynatrace"`
 	// The operation to be performed on the provided Google Analytics source fields.
-	GoogleAnalytics *string `json:"googleAnalytics"`
+	GoogleAnalytics *string `json:"googleAnalytics" yaml:"googleAnalytics"`
 	// The operation to be performed on the provided Infor Nexus source fields.
-	InforNexus *string `json:"inforNexus"`
+	InforNexus *string `json:"inforNexus" yaml:"inforNexus"`
 	// The operation to be performed on the provided Marketo source fields.
-	Marketo *string `json:"marketo"`
+	Marketo *string `json:"marketo" yaml:"marketo"`
 	// The operation to be performed on the provided Amazon S3 source fields.
-	S3 *string `json:"s3"`
+	S3 *string `json:"s3" yaml:"s3"`
 	// The operation to be performed on the provided Salesforce source fields.
-	Salesforce *string `json:"salesforce"`
+	Salesforce *string `json:"salesforce" yaml:"salesforce"`
 	// `CfnFlow.ConnectorOperatorProperty.SAPOData`.
-	SapoData *string `json:"sapoData"`
+	SapoData *string `json:"sapoData" yaml:"sapoData"`
 	// The operation to be performed on the provided ServiceNow source fields.
-	ServiceNow *string `json:"serviceNow"`
+	ServiceNow *string `json:"serviceNow" yaml:"serviceNow"`
 	// The operation to be performed on the provided Singular source fields.
-	Singular *string `json:"singular"`
+	Singular *string `json:"singular" yaml:"singular"`
 	// The operation to be performed on the provided Slack source fields.
-	Slack *string `json:"slack"`
+	Slack *string `json:"slack" yaml:"slack"`
 	// The operation to be performed on the provided Trend Micro source fields.
-	Trendmicro *string `json:"trendmicro"`
+	Trendmicro *string `json:"trendmicro" yaml:"trendmicro"`
 	// The operation to be performed on the provided Veeva source fields.
-	Veeva *string `json:"veeva"`
+	Veeva *string `json:"veeva" yaml:"veeva"`
 	// The operation to be performed on the provided Zendesk source fields.
-	Zendesk *string `json:"zendesk"`
+	Zendesk *string `json:"zendesk" yaml:"zendesk"`
 }
 
 // The properties that are applied when Datadog is being used as a source.
@@ -1724,7 +1724,7 @@ type CfnFlow_ConnectorOperatorProperty struct {
 //
 type CfnFlow_DatadogSourcePropertiesProperty struct {
 	// The object specified in the Datadog flow source.
-	Object *string `json:"object"`
+	Object *string `json:"object" yaml:"object"`
 }
 
 // This stores the information that is required to query a particular connector.
@@ -1733,21 +1733,21 @@ type CfnFlow_DatadogSourcePropertiesProperty struct {
 //
 type CfnFlow_DestinationConnectorPropertiesProperty struct {
 	// The properties required to query Amazon EventBridge.
-	EventBridge interface{} `json:"eventBridge"`
+	EventBridge interface{} `json:"eventBridge" yaml:"eventBridge"`
 	// The properties required to query Amazon Lookout for Metrics.
-	LookoutMetrics interface{} `json:"lookoutMetrics"`
+	LookoutMetrics interface{} `json:"lookoutMetrics" yaml:"lookoutMetrics"`
 	// The properties required to query Amazon Redshift.
-	Redshift interface{} `json:"redshift"`
+	Redshift interface{} `json:"redshift" yaml:"redshift"`
 	// The properties required to query Amazon S3.
-	S3 interface{} `json:"s3"`
+	S3 interface{} `json:"s3" yaml:"s3"`
 	// The properties required to query Salesforce.
-	Salesforce interface{} `json:"salesforce"`
+	Salesforce interface{} `json:"salesforce" yaml:"salesforce"`
 	// The properties required to query Snowflake.
-	Snowflake interface{} `json:"snowflake"`
+	Snowflake interface{} `json:"snowflake" yaml:"snowflake"`
 	// The properties required to query Upsolver.
-	Upsolver interface{} `json:"upsolver"`
+	Upsolver interface{} `json:"upsolver" yaml:"upsolver"`
 	// `CfnFlow.DestinationConnectorPropertiesProperty.Zendesk`.
-	Zendesk interface{} `json:"zendesk"`
+	Zendesk interface{} `json:"zendesk" yaml:"zendesk"`
 }
 
 // The `DestinationFlowConfig` property type specifies information about the configuration of destination connectors present in the flow.
@@ -1758,13 +1758,13 @@ type CfnFlow_DestinationFlowConfigProperty struct {
 	// The type of destination connector, such as Sales force, Amazon S3, and so on.
 	//
 	// *Allowed Values* : `EventBridge | Redshift | S3 | Salesforce | Snowflake`
-	ConnectorType *string `json:"connectorType"`
+	ConnectorType *string `json:"connectorType" yaml:"connectorType"`
 	// This stores the information that is required to query a particular connector.
-	DestinationConnectorProperties interface{} `json:"destinationConnectorProperties"`
+	DestinationConnectorProperties interface{} `json:"destinationConnectorProperties" yaml:"destinationConnectorProperties"`
 	// The name of the connector profile.
 	//
 	// This name must be unique for each connector profile in the AWS account .
-	ConnectorProfileName *string `json:"connectorProfileName"`
+	ConnectorProfileName *string `json:"connectorProfileName" yaml:"connectorProfileName"`
 }
 
 // The properties that are applied when Dynatrace is being used as a source.
@@ -1773,7 +1773,7 @@ type CfnFlow_DestinationFlowConfigProperty struct {
 //
 type CfnFlow_DynatraceSourcePropertiesProperty struct {
 	// The object specified in the Dynatrace flow source.
-	Object *string `json:"object"`
+	Object *string `json:"object" yaml:"object"`
 }
 
 // The settings that determine how Amazon AppFlow handles an error when placing data in the destination.
@@ -1784,11 +1784,11 @@ type CfnFlow_DynatraceSourcePropertiesProperty struct {
 //
 type CfnFlow_ErrorHandlingConfigProperty struct {
 	// Specifies the name of the Amazon S3 bucket.
-	BucketName *string `json:"bucketName"`
+	BucketName *string `json:"bucketName" yaml:"bucketName"`
 	// Specifies the Amazon S3 bucket prefix.
-	BucketPrefix *string `json:"bucketPrefix"`
+	BucketPrefix *string `json:"bucketPrefix" yaml:"bucketPrefix"`
 	// Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
-	FailOnFirstError interface{} `json:"failOnFirstError"`
+	FailOnFirstError interface{} `json:"failOnFirstError" yaml:"failOnFirstError"`
 }
 
 // The properties that are applied when Amazon EventBridge is being used as a destination.
@@ -1797,9 +1797,9 @@ type CfnFlow_ErrorHandlingConfigProperty struct {
 //
 type CfnFlow_EventBridgeDestinationPropertiesProperty struct {
 	// The object specified in the Amazon EventBridge flow destination.
-	Object *string `json:"object"`
+	Object *string `json:"object" yaml:"object"`
 	// The object specified in the Amplitude flow source.
-	ErrorHandlingConfig interface{} `json:"errorHandlingConfig"`
+	ErrorHandlingConfig interface{} `json:"errorHandlingConfig" yaml:"errorHandlingConfig"`
 }
 
 // The properties that are applied when Google Analytics is being used as a source.
@@ -1808,7 +1808,7 @@ type CfnFlow_EventBridgeDestinationPropertiesProperty struct {
 //
 type CfnFlow_GoogleAnalyticsSourcePropertiesProperty struct {
 	// The object specified in the Google Analytics flow source.
-	Object *string `json:"object"`
+	Object *string `json:"object" yaml:"object"`
 }
 
 // Specifies the configuration used when importing incremental records from the source.
@@ -1817,7 +1817,7 @@ type CfnFlow_GoogleAnalyticsSourcePropertiesProperty struct {
 //
 type CfnFlow_IncrementalPullConfigProperty struct {
 	// A field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
-	DatetimeTypeFieldName *string `json:"datetimeTypeFieldName"`
+	DatetimeTypeFieldName *string `json:"datetimeTypeFieldName" yaml:"datetimeTypeFieldName"`
 }
 
 // The properties that are applied when Infor Nexus is being used as a source.
@@ -1826,7 +1826,7 @@ type CfnFlow_IncrementalPullConfigProperty struct {
 //
 type CfnFlow_InforNexusSourcePropertiesProperty struct {
 	// The object specified in the Infor Nexus flow source.
-	Object *string `json:"object"`
+	Object *string `json:"object" yaml:"object"`
 }
 
 // The properties that are applied when Amazon Lookout for Metrics is used as a destination.
@@ -1835,7 +1835,7 @@ type CfnFlow_InforNexusSourcePropertiesProperty struct {
 //
 type CfnFlow_LookoutMetricsDestinationPropertiesProperty struct {
 	// The object specified in the Amazon Lookout for Metrics flow destination.
-	Object *string `json:"object"`
+	Object *string `json:"object" yaml:"object"`
 }
 
 // The properties that are applied when Marketo is being used as a source.
@@ -1844,7 +1844,7 @@ type CfnFlow_LookoutMetricsDestinationPropertiesProperty struct {
 //
 type CfnFlow_MarketoSourcePropertiesProperty struct {
 	// The object specified in the Marketo flow source.
-	Object *string `json:"object"`
+	Object *string `json:"object" yaml:"object"`
 }
 
 // Determines the prefix that Amazon AppFlow applies to the destination folder name.
@@ -1855,9 +1855,9 @@ type CfnFlow_MarketoSourcePropertiesProperty struct {
 //
 type CfnFlow_PrefixConfigProperty struct {
 	// Determines the level of granularity that's included in the prefix.
-	PrefixFormat *string `json:"prefixFormat"`
+	PrefixFormat *string `json:"prefixFormat" yaml:"prefixFormat"`
 	// Determines the format of the prefix, and whether it applies to the file name, file path, or both.
-	PrefixType *string `json:"prefixType"`
+	PrefixType *string `json:"prefixType" yaml:"prefixType"`
 }
 
 // The properties that are applied when Amazon Redshift is being used as a destination.
@@ -1866,15 +1866,15 @@ type CfnFlow_PrefixConfigProperty struct {
 //
 type CfnFlow_RedshiftDestinationPropertiesProperty struct {
 	// The intermediate bucket that Amazon AppFlow uses when moving data into Amazon Redshift.
-	IntermediateBucketName *string `json:"intermediateBucketName"`
+	IntermediateBucketName *string `json:"intermediateBucketName" yaml:"intermediateBucketName"`
 	// The object specified in the Amazon Redshift flow destination.
-	Object *string `json:"object"`
+	Object *string `json:"object" yaml:"object"`
 	// The object key for the bucket in which Amazon AppFlow places the destination files.
-	BucketPrefix *string `json:"bucketPrefix"`
+	BucketPrefix *string `json:"bucketPrefix" yaml:"bucketPrefix"`
 	// The settings that determine how Amazon AppFlow handles an error when placing data in the Amazon Redshift destination.
 	//
 	// For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
-	ErrorHandlingConfig interface{} `json:"errorHandlingConfig"`
+	ErrorHandlingConfig interface{} `json:"errorHandlingConfig" yaml:"errorHandlingConfig"`
 }
 
 // The properties that are applied when Amazon S3 is used as a destination.
@@ -1883,18 +1883,18 @@ type CfnFlow_RedshiftDestinationPropertiesProperty struct {
 //
 type CfnFlow_S3DestinationPropertiesProperty struct {
 	// The Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
-	BucketName *string `json:"bucketName"`
+	BucketName *string `json:"bucketName" yaml:"bucketName"`
 	// The object key for the destination bucket in which Amazon AppFlow places the files.
-	BucketPrefix *string `json:"bucketPrefix"`
+	BucketPrefix *string `json:"bucketPrefix" yaml:"bucketPrefix"`
 	// The configuration that determines how Amazon AppFlow should format the flow output data when Amazon S3 is used as the destination.
-	S3OutputFormatConfig interface{} `json:"s3OutputFormatConfig"`
+	S3OutputFormatConfig interface{} `json:"s3OutputFormatConfig" yaml:"s3OutputFormatConfig"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnFlow_S3InputFormatConfigProperty struct {
 	// `CfnFlow.S3InputFormatConfigProperty.S3InputFileType`.
-	S3InputFileType *string `json:"s3InputFileType"`
+	S3InputFileType *string `json:"s3InputFileType" yaml:"s3InputFileType"`
 }
 
 // The configuration that determines how Amazon AppFlow should format the flow output data when Amazon S3 is used as the destination.
@@ -1903,13 +1903,13 @@ type CfnFlow_S3InputFormatConfigProperty struct {
 //
 type CfnFlow_S3OutputFormatConfigProperty struct {
 	// The aggregation settings that you can use to customize the output format of your flow data.
-	AggregationConfig interface{} `json:"aggregationConfig"`
+	AggregationConfig interface{} `json:"aggregationConfig" yaml:"aggregationConfig"`
 	// Indicates the file type that Amazon AppFlow places in the Amazon S3 bucket.
-	FileType *string `json:"fileType"`
+	FileType *string `json:"fileType" yaml:"fileType"`
 	// Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket.
 	//
 	// You can name folders according to the flow frequency and date.
-	PrefixConfig interface{} `json:"prefixConfig"`
+	PrefixConfig interface{} `json:"prefixConfig" yaml:"prefixConfig"`
 }
 
 // The properties that are applied when Amazon S3 is being used as the flow source.
@@ -1918,18 +1918,18 @@ type CfnFlow_S3OutputFormatConfigProperty struct {
 //
 type CfnFlow_S3SourcePropertiesProperty struct {
 	// The Amazon S3 bucket name where the source files are stored.
-	BucketName *string `json:"bucketName"`
+	BucketName *string `json:"bucketName" yaml:"bucketName"`
 	// The object key for the Amazon S3 bucket in which the source files are stored.
-	BucketPrefix *string `json:"bucketPrefix"`
+	BucketPrefix *string `json:"bucketPrefix" yaml:"bucketPrefix"`
 	// `CfnFlow.S3SourcePropertiesProperty.S3InputFormatConfig`.
-	S3InputFormatConfig interface{} `json:"s3InputFormatConfig"`
+	S3InputFormatConfig interface{} `json:"s3InputFormatConfig" yaml:"s3InputFormatConfig"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnFlow_SAPODataSourcePropertiesProperty struct {
 	// `CfnFlow.SAPODataSourcePropertiesProperty.ObjectPath`.
-	ObjectPath *string `json:"objectPath"`
+	ObjectPath *string `json:"objectPath" yaml:"objectPath"`
 }
 
 // The properties that are applied when Salesforce is being used as a destination.
@@ -1938,17 +1938,17 @@ type CfnFlow_SAPODataSourcePropertiesProperty struct {
 //
 type CfnFlow_SalesforceDestinationPropertiesProperty struct {
 	// The object specified in the Salesforce flow destination.
-	Object *string `json:"object"`
+	Object *string `json:"object" yaml:"object"`
 	// The settings that determine how Amazon AppFlow handles an error when placing data in the Salesforce destination.
 	//
 	// For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
-	ErrorHandlingConfig interface{} `json:"errorHandlingConfig"`
+	ErrorHandlingConfig interface{} `json:"errorHandlingConfig" yaml:"errorHandlingConfig"`
 	// The name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
-	IdFieldNames *[]*string `json:"idFieldNames"`
+	IdFieldNames *[]*string `json:"idFieldNames" yaml:"idFieldNames"`
 	// This specifies the type of write operation to be performed in Salesforce.
 	//
 	// When the value is `UPSERT` , then `idFieldNames` is required.
-	WriteOperationType *string `json:"writeOperationType"`
+	WriteOperationType *string `json:"writeOperationType" yaml:"writeOperationType"`
 }
 
 // The properties that are applied when Salesforce is being used as a source.
@@ -1957,11 +1957,11 @@ type CfnFlow_SalesforceDestinationPropertiesProperty struct {
 //
 type CfnFlow_SalesforceSourcePropertiesProperty struct {
 	// The object specified in the Salesforce flow source.
-	Object *string `json:"object"`
+	Object *string `json:"object" yaml:"object"`
 	// The flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
-	EnableDynamicFieldUpdate interface{} `json:"enableDynamicFieldUpdate"`
+	EnableDynamicFieldUpdate interface{} `json:"enableDynamicFieldUpdate" yaml:"enableDynamicFieldUpdate"`
 	// Indicates whether Amazon AppFlow includes deleted files in the flow run.
-	IncludeDeletedRecords interface{} `json:"includeDeletedRecords"`
+	IncludeDeletedRecords interface{} `json:"includeDeletedRecords" yaml:"includeDeletedRecords"`
 }
 
 // Specifies the configuration details of a schedule-triggered flow as defined by the user.
@@ -1972,17 +1972,17 @@ type CfnFlow_SalesforceSourcePropertiesProperty struct {
 //
 type CfnFlow_ScheduledTriggerPropertiesProperty struct {
 	// The scheduling expression that determines the rate at which the scheduled flow will run, for example: `rate(5minutes)` .
-	ScheduleExpression *string `json:"scheduleExpression"`
+	ScheduleExpression *string `json:"scheduleExpression" yaml:"scheduleExpression"`
 	// Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run.
-	DataPullMode *string `json:"dataPullMode"`
+	DataPullMode *string `json:"dataPullMode" yaml:"dataPullMode"`
 	// Specifies the scheduled end time for a schedule-triggered flow.
-	ScheduleEndTime *float64 `json:"scheduleEndTime"`
+	ScheduleEndTime *float64 `json:"scheduleEndTime" yaml:"scheduleEndTime"`
 	// Specifies the optional offset that is added to the time interval for a schedule-triggered flow.
-	ScheduleOffset *float64 `json:"scheduleOffset"`
+	ScheduleOffset *float64 `json:"scheduleOffset" yaml:"scheduleOffset"`
 	// Specifies the scheduled start time for a schedule-triggered flow.
-	ScheduleStartTime *float64 `json:"scheduleStartTime"`
+	ScheduleStartTime *float64 `json:"scheduleStartTime" yaml:"scheduleStartTime"`
 	// Specifies the time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York` .
-	TimeZone *string `json:"timeZone"`
+	TimeZone *string `json:"timeZone" yaml:"timeZone"`
 }
 
 // The properties that are applied when ServiceNow is being used as a source.
@@ -1991,7 +1991,7 @@ type CfnFlow_ScheduledTriggerPropertiesProperty struct {
 //
 type CfnFlow_ServiceNowSourcePropertiesProperty struct {
 	// The object specified in the ServiceNow flow source.
-	Object *string `json:"object"`
+	Object *string `json:"object" yaml:"object"`
 }
 
 // The properties that are applied when Singular is being used as a source.
@@ -2000,7 +2000,7 @@ type CfnFlow_ServiceNowSourcePropertiesProperty struct {
 //
 type CfnFlow_SingularSourcePropertiesProperty struct {
 	// The object specified in the Singular flow source.
-	Object *string `json:"object"`
+	Object *string `json:"object" yaml:"object"`
 }
 
 // The properties that are applied when Slack is being used as a source.
@@ -2009,7 +2009,7 @@ type CfnFlow_SingularSourcePropertiesProperty struct {
 //
 type CfnFlow_SlackSourcePropertiesProperty struct {
 	// The object specified in the Slack flow source.
-	Object *string `json:"object"`
+	Object *string `json:"object" yaml:"object"`
 }
 
 // The properties that are applied when Snowflake is being used as a destination.
@@ -2018,15 +2018,15 @@ type CfnFlow_SlackSourcePropertiesProperty struct {
 //
 type CfnFlow_SnowflakeDestinationPropertiesProperty struct {
 	// The intermediate bucket that Amazon AppFlow uses when moving data into Snowflake.
-	IntermediateBucketName *string `json:"intermediateBucketName"`
+	IntermediateBucketName *string `json:"intermediateBucketName" yaml:"intermediateBucketName"`
 	// The object specified in the Snowflake flow destination.
-	Object *string `json:"object"`
+	Object *string `json:"object" yaml:"object"`
 	// The object key for the destination bucket in which Amazon AppFlow places the files.
-	BucketPrefix *string `json:"bucketPrefix"`
+	BucketPrefix *string `json:"bucketPrefix" yaml:"bucketPrefix"`
 	// The settings that determine how Amazon AppFlow handles an error when placing data in the Snowflake destination.
 	//
 	// For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
-	ErrorHandlingConfig interface{} `json:"errorHandlingConfig"`
+	ErrorHandlingConfig interface{} `json:"errorHandlingConfig" yaml:"errorHandlingConfig"`
 }
 
 // Specifies the information that is required to query a particular connector.
@@ -2035,35 +2035,35 @@ type CfnFlow_SnowflakeDestinationPropertiesProperty struct {
 //
 type CfnFlow_SourceConnectorPropertiesProperty struct {
 	// Specifies the information that is required for querying Amplitude.
-	Amplitude interface{} `json:"amplitude"`
+	Amplitude interface{} `json:"amplitude" yaml:"amplitude"`
 	// Specifies the information that is required for querying Datadog.
-	Datadog interface{} `json:"datadog"`
+	Datadog interface{} `json:"datadog" yaml:"datadog"`
 	// Specifies the information that is required for querying Dynatrace.
-	Dynatrace interface{} `json:"dynatrace"`
+	Dynatrace interface{} `json:"dynatrace" yaml:"dynatrace"`
 	// Specifies the information that is required for querying Google Analytics.
-	GoogleAnalytics interface{} `json:"googleAnalytics"`
+	GoogleAnalytics interface{} `json:"googleAnalytics" yaml:"googleAnalytics"`
 	// Specifies the information that is required for querying Infor Nexus.
-	InforNexus interface{} `json:"inforNexus"`
+	InforNexus interface{} `json:"inforNexus" yaml:"inforNexus"`
 	// Specifies the information that is required for querying Marketo.
-	Marketo interface{} `json:"marketo"`
+	Marketo interface{} `json:"marketo" yaml:"marketo"`
 	// Specifies the information that is required for querying Amazon S3.
-	S3 interface{} `json:"s3"`
+	S3 interface{} `json:"s3" yaml:"s3"`
 	// Specifies the information that is required for querying Salesforce.
-	Salesforce interface{} `json:"salesforce"`
+	Salesforce interface{} `json:"salesforce" yaml:"salesforce"`
 	// `CfnFlow.SourceConnectorPropertiesProperty.SAPOData`.
-	SapoData interface{} `json:"sapoData"`
+	SapoData interface{} `json:"sapoData" yaml:"sapoData"`
 	// Specifies the information that is required for querying ServiceNow.
-	ServiceNow interface{} `json:"serviceNow"`
+	ServiceNow interface{} `json:"serviceNow" yaml:"serviceNow"`
 	// Specifies the information that is required for querying Singular.
-	Singular interface{} `json:"singular"`
+	Singular interface{} `json:"singular" yaml:"singular"`
 	// Specifies the information that is required for querying Slack.
-	Slack interface{} `json:"slack"`
+	Slack interface{} `json:"slack" yaml:"slack"`
 	// Specifies the information that is required for querying Trend Micro.
-	Trendmicro interface{} `json:"trendmicro"`
+	Trendmicro interface{} `json:"trendmicro" yaml:"trendmicro"`
 	// Specifies the information that is required for querying Veeva.
-	Veeva interface{} `json:"veeva"`
+	Veeva interface{} `json:"veeva" yaml:"veeva"`
 	// Specifies the information that is required for querying Zendesk.
-	Zendesk interface{} `json:"zendesk"`
+	Zendesk interface{} `json:"zendesk" yaml:"zendesk"`
 }
 
 // Contains information about the configuration of the source connector used in the flow.
@@ -2074,17 +2074,17 @@ type CfnFlow_SourceFlowConfigProperty struct {
 	// The type of source connector, such as Salesforce, Amplitude, and so on.
 	//
 	// *Allowed Values* : S3 | Amplitude | Datadog | Dynatrace | Googleanalytics | Infornexus | Salesforce | Servicenow | Singular | Slack | Trendmicro | Veeva | Zendesk
-	ConnectorType *string `json:"connectorType"`
+	ConnectorType *string `json:"connectorType" yaml:"connectorType"`
 	// Specifies the information that is required to query a particular source connector.
-	SourceConnectorProperties interface{} `json:"sourceConnectorProperties"`
+	SourceConnectorProperties interface{} `json:"sourceConnectorProperties" yaml:"sourceConnectorProperties"`
 	// The name of the connector profile.
 	//
 	// This name must be unique for each connector profile in the AWS account .
-	ConnectorProfileName *string `json:"connectorProfileName"`
+	ConnectorProfileName *string `json:"connectorProfileName" yaml:"connectorProfileName"`
 	// Defines the configuration for a scheduled incremental data pull.
 	//
 	// If a valid configuration is provided, the fields specified in the configuration are used when querying for the incremental data pull.
-	IncrementalPullConfig interface{} `json:"incrementalPullConfig"`
+	IncrementalPullConfig interface{} `json:"incrementalPullConfig" yaml:"incrementalPullConfig"`
 }
 
 // A map used to store task-related information.
@@ -2097,9 +2097,9 @@ type CfnFlow_TaskPropertiesObjectProperty struct {
 	// The task property key.
 	//
 	// *Allowed Values* : `VALUE | VALUES | DATA_TYPE | UPPER_BOUND | LOWER_BOUND | SOURCE_DATA_TYPE | DESTINATION_DATA_TYPE | VALIDATION_ACTION | MASK_VALUE | MASK_LENGTH | TRUNCATE_LENGTH | MATH_OPERATION_FIELDS_ORDER | CONCAT_FORMAT | SUBFIELD_CATEGORY_MAP` | `EXCLUDE_SOURCE_FIELDS_LIST`
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// The task property value.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // The `Task` property type specifies the class for modeling different type of tasks.
@@ -2110,19 +2110,19 @@ type CfnFlow_TaskPropertiesObjectProperty struct {
 //
 type CfnFlow_TaskProperty struct {
 	// The source fields to which a particular task is applied.
-	SourceFields *[]*string `json:"sourceFields"`
+	SourceFields *[]*string `json:"sourceFields" yaml:"sourceFields"`
 	// Specifies the particular task implementation that Amazon AppFlow performs.
 	//
 	// *Allowed values* : `Arithmetic` | `Filter` | `Map` | `Map_all` | `Mask` | `Merge` | `Truncate` | `Validate`
-	TaskType *string `json:"taskType"`
+	TaskType *string `json:"taskType" yaml:"taskType"`
 	// The operation to be performed on the provided source fields.
-	ConnectorOperator interface{} `json:"connectorOperator"`
+	ConnectorOperator interface{} `json:"connectorOperator" yaml:"connectorOperator"`
 	// A field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
-	DestinationField *string `json:"destinationField"`
+	DestinationField *string `json:"destinationField" yaml:"destinationField"`
 	// A map used to store task-related information.
 	//
 	// The execution service looks for particular information based on the `TaskType` .
-	TaskProperties interface{} `json:"taskProperties"`
+	TaskProperties interface{} `json:"taskProperties" yaml:"taskProperties"`
 }
 
 // The properties that are applied when using Trend Micro as a flow source.
@@ -2131,7 +2131,7 @@ type CfnFlow_TaskProperty struct {
 //
 type CfnFlow_TrendmicroSourcePropertiesProperty struct {
 	// The object specified in the Trend Micro flow source.
-	Object *string `json:"object"`
+	Object *string `json:"object" yaml:"object"`
 }
 
 // The trigger settings that determine how and when Amazon AppFlow runs the specified flow.
@@ -2142,11 +2142,11 @@ type CfnFlow_TriggerConfigProperty struct {
 	// Specifies the type of flow trigger.
 	//
 	// This can be `OnDemand` , `Scheduled` , or `Event` .
-	TriggerType *string `json:"triggerType"`
+	TriggerType *string `json:"triggerType" yaml:"triggerType"`
 	// Specifies the configuration details of a schedule-triggered flow as defined by the user.
 	//
 	// Currently, these settings only apply to the `Scheduled` trigger type.
-	TriggerProperties interface{} `json:"triggerProperties"`
+	TriggerProperties interface{} `json:"triggerProperties" yaml:"triggerProperties"`
 }
 
 // The properties that are applied when Upsolver is used as a destination.
@@ -2155,11 +2155,11 @@ type CfnFlow_TriggerConfigProperty struct {
 //
 type CfnFlow_UpsolverDestinationPropertiesProperty struct {
 	// The Upsolver Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
-	BucketName *string `json:"bucketName"`
+	BucketName *string `json:"bucketName" yaml:"bucketName"`
 	// The configuration that determines how data is formatted when Upsolver is used as the flow destination.
-	S3OutputFormatConfig interface{} `json:"s3OutputFormatConfig"`
+	S3OutputFormatConfig interface{} `json:"s3OutputFormatConfig" yaml:"s3OutputFormatConfig"`
 	// The object key for the destination Upsolver Amazon S3 bucket in which Amazon AppFlow places the files.
-	BucketPrefix *string `json:"bucketPrefix"`
+	BucketPrefix *string `json:"bucketPrefix" yaml:"bucketPrefix"`
 }
 
 // The configuration that determines how Amazon AppFlow formats the flow output data when Upsolver is used as the destination.
@@ -2170,11 +2170,11 @@ type CfnFlow_UpsolverS3OutputFormatConfigProperty struct {
 	// Determines the prefix that Amazon AppFlow applies to the destination folder name.
 	//
 	// You can name your destination folders according to the flow frequency and date.
-	PrefixConfig interface{} `json:"prefixConfig"`
+	PrefixConfig interface{} `json:"prefixConfig" yaml:"prefixConfig"`
 	// The aggregation settings that you can use to customize the output format of your flow data.
-	AggregationConfig interface{} `json:"aggregationConfig"`
+	AggregationConfig interface{} `json:"aggregationConfig" yaml:"aggregationConfig"`
 	// Indicates the file type that Amazon AppFlow places in the Upsolver Amazon S3 bucket.
-	FileType *string `json:"fileType"`
+	FileType *string `json:"fileType" yaml:"fileType"`
 }
 
 // The properties that are applied when using Veeva as a flow source.
@@ -2183,28 +2183,28 @@ type CfnFlow_UpsolverS3OutputFormatConfigProperty struct {
 //
 type CfnFlow_VeevaSourcePropertiesProperty struct {
 	// The object specified in the Veeva flow source.
-	Object *string `json:"object"`
+	Object *string `json:"object" yaml:"object"`
 	// `CfnFlow.VeevaSourcePropertiesProperty.DocumentType`.
-	DocumentType *string `json:"documentType"`
+	DocumentType *string `json:"documentType" yaml:"documentType"`
 	// `CfnFlow.VeevaSourcePropertiesProperty.IncludeAllVersions`.
-	IncludeAllVersions interface{} `json:"includeAllVersions"`
+	IncludeAllVersions interface{} `json:"includeAllVersions" yaml:"includeAllVersions"`
 	// `CfnFlow.VeevaSourcePropertiesProperty.IncludeRenditions`.
-	IncludeRenditions interface{} `json:"includeRenditions"`
+	IncludeRenditions interface{} `json:"includeRenditions" yaml:"includeRenditions"`
 	// `CfnFlow.VeevaSourcePropertiesProperty.IncludeSourceFiles`.
-	IncludeSourceFiles interface{} `json:"includeSourceFiles"`
+	IncludeSourceFiles interface{} `json:"includeSourceFiles" yaml:"includeSourceFiles"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnFlow_ZendeskDestinationPropertiesProperty struct {
 	// `CfnFlow.ZendeskDestinationPropertiesProperty.Object`.
-	Object *string `json:"object"`
+	Object *string `json:"object" yaml:"object"`
 	// `CfnFlow.ZendeskDestinationPropertiesProperty.ErrorHandlingConfig`.
-	ErrorHandlingConfig interface{} `json:"errorHandlingConfig"`
+	ErrorHandlingConfig interface{} `json:"errorHandlingConfig" yaml:"errorHandlingConfig"`
 	// `CfnFlow.ZendeskDestinationPropertiesProperty.IdFieldNames`.
-	IdFieldNames *[]*string `json:"idFieldNames"`
+	IdFieldNames *[]*string `json:"idFieldNames" yaml:"idFieldNames"`
 	// `CfnFlow.ZendeskDestinationPropertiesProperty.WriteOperationType`.
-	WriteOperationType *string `json:"writeOperationType"`
+	WriteOperationType *string `json:"writeOperationType" yaml:"writeOperationType"`
 }
 
 // The properties that are applied when using Zendesk as a flow source.
@@ -2213,7 +2213,7 @@ type CfnFlow_ZendeskDestinationPropertiesProperty struct {
 //
 type CfnFlow_ZendeskSourcePropertiesProperty struct {
 	// The object specified in the Zendesk flow source.
-	Object *string `json:"object"`
+	Object *string `json:"object" yaml:"object"`
 }
 
 // Properties for defining a `CfnFlow`.
@@ -2222,24 +2222,24 @@ type CfnFlow_ZendeskSourcePropertiesProperty struct {
 //
 type CfnFlowProps struct {
 	// The configuration that controls how Amazon AppFlow places data in the destination connector.
-	DestinationFlowConfigList interface{} `json:"destinationFlowConfigList"`
+	DestinationFlowConfigList interface{} `json:"destinationFlowConfigList" yaml:"destinationFlowConfigList"`
 	// The specified name of the flow.
 	//
 	// Spaces are not allowed. Use underscores (_) or hyphens (-) only.
-	FlowName *string `json:"flowName"`
+	FlowName *string `json:"flowName" yaml:"flowName"`
 	// Contains information about the configuration of the source connector used in the flow.
-	SourceFlowConfig interface{} `json:"sourceFlowConfig"`
+	SourceFlowConfig interface{} `json:"sourceFlowConfig" yaml:"sourceFlowConfig"`
 	// A list of tasks that Amazon AppFlow performs while transferring the data in the flow run.
-	Tasks interface{} `json:"tasks"`
+	Tasks interface{} `json:"tasks" yaml:"tasks"`
 	// The trigger settings that determine how and when Amazon AppFlow runs the specified flow.
-	TriggerConfig interface{} `json:"triggerConfig"`
+	TriggerConfig interface{} `json:"triggerConfig" yaml:"triggerConfig"`
 	// A user-entered description of the flow.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption.
 	//
 	// This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
-	KmsArn *string `json:"kmsArn"`
+	KmsArn *string `json:"kmsArn" yaml:"kmsArn"`
 	// The tags used to organize, track, or control access for your flow.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 

@@ -549,11 +549,11 @@ func (c *jsiiProxy_CfnAccessPolicy) ValidateProperties(_properties interface{}) 
 //
 type CfnAccessPolicy_AccessPolicyIdentityProperty struct {
 	// An IAM role identity.
-	IamRole interface{} `json:"iamRole"`
+	IamRole interface{} `json:"iamRole" yaml:"iamRole"`
 	// An IAM user identity.
-	IamUser interface{} `json:"iamUser"`
+	IamUser interface{} `json:"iamUser" yaml:"iamUser"`
 	// The AWS SSO user to which this access policy maps.
-	User interface{} `json:"user"`
+	User interface{} `json:"user" yaml:"user"`
 }
 
 // The AWS IoT SiteWise Monitor resource for this access policy.
@@ -564,9 +564,9 @@ type CfnAccessPolicy_AccessPolicyIdentityProperty struct {
 //
 type CfnAccessPolicy_AccessPolicyResourceProperty struct {
 	// The AWS IoT SiteWise Monitor portal for this access policy.
-	Portal interface{} `json:"portal"`
+	Portal interface{} `json:"portal" yaml:"portal"`
 	// The AWS IoT SiteWise Monitor project for this access policy.
-	Project interface{} `json:"project"`
+	Project interface{} `json:"project" yaml:"project"`
 }
 
 // Contains information about an AWS Identity and Access Management role.
@@ -579,7 +579,7 @@ type CfnAccessPolicy_IamRoleProperty struct {
 	// The ARN of the IAM role.
 	//
 	// For more information, see [IAM ARNs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html) in the *IAM User Guide* .
-	Arn *string `json:"arn"`
+	Arn *string `json:"arn" yaml:"arn"`
 }
 
 // Contains information about an AWS Identity and Access Management user.
@@ -590,7 +590,7 @@ type CfnAccessPolicy_IamUserProperty struct {
 	// The ARN of the IAM user. For more information, see [IAM ARNs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html) in the *IAM User Guide* .
 	//
 	// > If you delete the IAM user, access policies that contain this identity include an empty `arn` . You can delete the access policy for the IAM user that no longer exists.
-	Arn *string `json:"arn"`
+	Arn *string `json:"arn" yaml:"arn"`
 }
 
 // The `Portal` property type specifies the AWS IoT SiteWise Monitor portal for an [AWS::IoTSiteWise::AccessPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html) .
@@ -599,7 +599,7 @@ type CfnAccessPolicy_IamUserProperty struct {
 //
 type CfnAccessPolicy_PortalProperty struct {
 	// The ID of the portal.
-	Id *string `json:"id"`
+	Id *string `json:"id" yaml:"id"`
 }
 
 // The `Project` property type specifies the AWS IoT SiteWise Monitor project for an [AWS::IoTSiteWise::AccessPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html) .
@@ -608,7 +608,7 @@ type CfnAccessPolicy_PortalProperty struct {
 //
 type CfnAccessPolicy_ProjectProperty struct {
 	// The ID of the project.
-	Id *string `json:"id"`
+	Id *string `json:"id" yaml:"id"`
 }
 
 // The `User` property type specifies the AWS IoT SiteWise Monitor user for an [AWS::IoTSiteWise::AccessPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html) .
@@ -617,7 +617,7 @@ type CfnAccessPolicy_ProjectProperty struct {
 //
 type CfnAccessPolicy_UserProperty struct {
 	// The ID of the user.
-	Id *string `json:"id"`
+	Id *string `json:"id" yaml:"id"`
 }
 
 // Properties for defining a `CfnAccessPolicy`.
@@ -628,15 +628,15 @@ type CfnAccessPolicyProps struct {
 	// The identity for this access policy.
 	//
 	// Choose an AWS SSO user, an AWS SSO group, or an IAM user.
-	AccessPolicyIdentity interface{} `json:"accessPolicyIdentity"`
+	AccessPolicyIdentity interface{} `json:"accessPolicyIdentity" yaml:"accessPolicyIdentity"`
 	// The permission level for this access policy.
 	//
 	// Choose either a `ADMINISTRATOR` or `VIEWER` . Note that a project `ADMINISTRATOR` is also known as a project owner.
-	AccessPolicyPermission *string `json:"accessPolicyPermission"`
+	AccessPolicyPermission *string `json:"accessPolicyPermission" yaml:"accessPolicyPermission"`
 	// The AWS IoT SiteWise Monitor resource for this access policy.
 	//
 	// Choose either a portal or a project.
-	AccessPolicyResource interface{} `json:"accessPolicyResource"`
+	AccessPolicyResource interface{} `json:"accessPolicyResource" yaml:"accessPolicyResource"`
 }
 
 // A CloudFormation `AWS::IoTSiteWise::Asset`.
@@ -1210,11 +1210,11 @@ func (c *jsiiProxy_CfnAsset) ValidateProperties(_properties interface{}) {
 //
 type CfnAsset_AssetHierarchyProperty struct {
 	// The Id of the child asset.
-	ChildAssetId *string `json:"childAssetId"`
+	ChildAssetId *string `json:"childAssetId" yaml:"childAssetId"`
 	// The `LogicalID` of the hierarchy. This ID is a `hierarchyLogicalId` .
 	//
 	// The maximum length is 256 characters, with the pattern `[^\ u0000-\ u001F\ u007F]+` .
-	LogicalId *string `json:"logicalId"`
+	LogicalId *string `json:"logicalId" yaml:"logicalId"`
 }
 
 // Contains asset property information.
@@ -1225,19 +1225,19 @@ type CfnAsset_AssetPropertyProperty struct {
 	// The `LogicalID` of the asset property.
 	//
 	// The maximum length is 256 characters, with the pattern `[^\ u0000-\ u001F\ u007F]+` .
-	LogicalId *string `json:"logicalId"`
+	LogicalId *string `json:"logicalId" yaml:"logicalId"`
 	// The property alias that identifies the property, such as an OPC-UA server data stream path (for example, `/company/windfarm/3/turbine/7/temperature` ).
 	//
 	// For more information, see [Mapping industrial data streams to asset properties](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html) in the *AWS IoT SiteWise User Guide* .
 	//
 	// The property alias must have 1-1000 characters.
-	Alias *string `json:"alias"`
+	Alias *string `json:"alias" yaml:"alias"`
 	// The MQTT notification state (enabled or disabled) for this asset property.
 	//
 	// When the notification state is enabled, AWS IoT SiteWise publishes property value updates to a unique MQTT topic. For more information, see [Interacting with other services](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/interact-with-other-services.html) in the *AWS IoT SiteWise User Guide* .
 	//
 	// If you omit this parameter, the notification state is set to `DISABLED` .
-	NotificationState *string `json:"notificationState"`
+	NotificationState *string `json:"notificationState" yaml:"notificationState"`
 }
 
 // A CloudFormation `AWS::IoTSiteWise::AssetModel`.
@@ -1862,15 +1862,15 @@ func (c *jsiiProxy_CfnAssetModel) ValidateProperties(_properties interface{}) {
 //
 type CfnAssetModel_AssetModelCompositeModelProperty struct {
 	// The name of the composite model.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The type of the composite model.
 	//
 	// For alarm composite models, this type is `AWS/ALARM` .
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// The asset property definitions for this composite model.
-	CompositeModelProperties interface{} `json:"compositeModelProperties"`
+	CompositeModelProperties interface{} `json:"compositeModelProperties" yaml:"compositeModelProperties"`
 	// The description of the composite model.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 }
 
 // Describes an asset hierarchy that contains a hierarchy's name, `LogicalID` , and child asset model ID that specifies the type of asset that can be in this hierarchy.
@@ -1879,15 +1879,15 @@ type CfnAssetModel_AssetModelCompositeModelProperty struct {
 //
 type CfnAssetModel_AssetModelHierarchyProperty struct {
 	// The Id of the asset model.
-	ChildAssetModelId *string `json:"childAssetModelId"`
+	ChildAssetModelId *string `json:"childAssetModelId" yaml:"childAssetModelId"`
 	// The `LogicalID` of the asset model hierarchy. This ID is a `hierarchyLogicalId` .
 	//
 	// The maximum length is 256 characters, with the pattern `[^\ u0000-\ u001F\ u007F]+`
-	LogicalId *string `json:"logicalId"`
+	LogicalId *string `json:"logicalId" yaml:"logicalId"`
 	// The name of the asset model hierarchy.
 	//
 	// The maximum length is 256 characters with the pattern `[^\ u0000-\ u001F\ u007F]+` .
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // Contains information about an asset model property.
@@ -1898,23 +1898,23 @@ type CfnAssetModel_AssetModelPropertyProperty struct {
 	// The data type of the asset model property.
 	//
 	// The value can be `STRING` , `INTEGER` , `DOUBLE` , `BOOLEAN` , or `STRUCT` .
-	DataType *string `json:"dataType"`
+	DataType *string `json:"dataType" yaml:"dataType"`
 	// The `LogicalID` of the asset model property.
 	//
 	// The maximum length is 256 characters, with the pattern `[^\\ u0000-\\ u001F\\ u007F]+` .
-	LogicalId *string `json:"logicalId"`
+	LogicalId *string `json:"logicalId" yaml:"logicalId"`
 	// The name of the asset model property.
 	//
 	// The maximum length is 256 characters with the pattern `[^\ u0000-\ u001F\ u007F]+` .
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// Contains a property type, which can be one of `attribute` , `measurement` , `metric` , or `transform` .
-	Type interface{} `json:"type"`
+	Type interface{} `json:"type" yaml:"type"`
 	// The data type of the structure for this property.
 	//
 	// This parameter exists on properties that have the `STRUCT` data type.
-	DataTypeSpec *string `json:"dataTypeSpec"`
+	DataTypeSpec *string `json:"dataTypeSpec" yaml:"dataTypeSpec"`
 	// The unit of the asset model property, such as `Newtons` or `RPM` .
-	Unit *string `json:"unit"`
+	Unit *string `json:"unit" yaml:"unit"`
 }
 
 // Contains an asset attribute property.
@@ -1927,7 +1927,7 @@ type CfnAssetModel_AttributeProperty struct {
 	// The default value of the asset model property attribute.
 	//
 	// All assets that you create from the asset model contain this attribute value. You can update an attribute's value after you create an asset. For more information, see [Updating attribute values](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-attribute-values.html) in the *AWS IoT SiteWise User Guide* .
-	DefaultValue *string `json:"defaultValue"`
+	DefaultValue *string `json:"defaultValue" yaml:"defaultValue"`
 }
 
 // Contains expression variable information.
@@ -1938,9 +1938,9 @@ type CfnAssetModel_ExpressionVariableProperty struct {
 	// The friendly name of the variable to be used in the expression.
 	//
 	// The maximum length is 64 characters with the pattern `^[a-z][a-z0-9_]*$` .
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The variable that identifies an asset property from which to use values.
-	Value interface{} `json:"value"`
+	Value interface{} `json:"value" yaml:"value"`
 }
 
 // Contains an asset metric property.
@@ -1959,13 +1959,13 @@ type CfnAssetModel_MetricProperty struct {
 	// You can specify up to 10 variables per expression. You can specify up to 10 functions per expression.
 	//
 	// For more information, see [Quotas](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html) in the *AWS IoT SiteWise User Guide* .
-	Expression *string `json:"expression"`
+	Expression *string `json:"expression" yaml:"expression"`
 	// The list of variables used in the expression.
-	Variables interface{} `json:"variables"`
+	Variables interface{} `json:"variables" yaml:"variables"`
 	// The window (time interval) over which AWS IoT SiteWise computes the metric's aggregation expression.
 	//
 	// AWS IoT SiteWise computes one data point per `window` .
-	Window interface{} `json:"window"`
+	Window interface{} `json:"window" yaml:"window"`
 }
 
 // Contains a time interval window used for data aggregate computations (for example, average, sum, count, and so on).
@@ -1974,7 +1974,7 @@ type CfnAssetModel_MetricProperty struct {
 //
 type CfnAssetModel_MetricWindowProperty struct {
 	// The tumbling time interval window.
-	Tumbling interface{} `json:"tumbling"`
+	Tumbling interface{} `json:"tumbling" yaml:"tumbling"`
 }
 
 // Contains a property type, which can be one of `attribute` , `measurement` , `metric` , or `transform` .
@@ -1983,25 +1983,25 @@ type CfnAssetModel_MetricWindowProperty struct {
 //
 type CfnAssetModel_PropertyTypeProperty struct {
 	// The type of property type, which can be one of `Attribute` , `Measurement` , `Metric` , or `Transform` .
-	TypeName *string `json:"typeName"`
+	TypeName *string `json:"typeName" yaml:"typeName"`
 	// Specifies an asset attribute property.
 	//
 	// An attribute generally contains static information, such as the serial number of an [industrial IoT](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Internet_of_things#Industrial_applications) wind turbine.
 	//
 	// This is required if the `TypeName` is `Attribute` and has a `DefaultValue` .
-	Attribute interface{} `json:"attribute"`
+	Attribute interface{} `json:"attribute" yaml:"attribute"`
 	// Specifies an asset metric property.
 	//
 	// A metric contains a mathematical expression that uses aggregate functions to process all input data points over a time interval and output a single data point, such as to calculate the average hourly temperature.
 	//
 	// This is required if the `TypeName` is `Metric` .
-	Metric interface{} `json:"metric"`
+	Metric interface{} `json:"metric" yaml:"metric"`
 	// Specifies an asset transform property.
 	//
 	// A transform contains a mathematical expression that maps a property's data points from one form to another, such as a unit conversion from Celsius to Fahrenheit.
 	//
 	// This is required if the `TypeName` is `Transform` .
-	Transform interface{} `json:"transform"`
+	Transform interface{} `json:"transform" yaml:"transform"`
 }
 
 // Contains an asset transform property.
@@ -2018,9 +2018,9 @@ type CfnAssetModel_TransformProperty struct {
 	// You can specify up to 10 variables per expression. You can specify up to 10 functions per expression.
 	//
 	// For more information, see [Quotas](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html) in the *AWS IoT SiteWise User Guide* .
-	Expression *string `json:"expression"`
+	Expression *string `json:"expression" yaml:"expression"`
 	// The list of variables used in the expression.
-	Variables interface{} `json:"variables"`
+	Variables interface{} `json:"variables" yaml:"variables"`
 }
 
 // Contains a tumbling window, which is a repeating fixed-sized, non-overlapping, and contiguous time window.
@@ -2039,9 +2039,9 @@ type CfnAssetModel_TumblingWindowProperty struct {
 	// AWS IoT SiteWise computes the `1w` interval the end of Sunday at midnight each week (UTC), the `1d` interval at the end of each day at midnight (UTC), the `1h` interval at the end of each hour, and so on.
 	//
 	// When AWS IoT SiteWise aggregates data points for metric computations, the start of each interval is exclusive and the end of each interval is inclusive. AWS IoT SiteWise places the computed data point at the end of the interval.
-	Interval *string `json:"interval"`
+	Interval *string `json:"interval" yaml:"interval"`
 	// `CfnAssetModel.TumblingWindowProperty.Offset`.
-	Offset *string `json:"offset"`
+	Offset *string `json:"offset" yaml:"offset"`
 }
 
 // Identifies a property value used in an expression.
@@ -2050,11 +2050,11 @@ type CfnAssetModel_TumblingWindowProperty struct {
 //
 type CfnAssetModel_VariableValueProperty struct {
 	// The `LogicalID` of the property to use as the variable.
-	PropertyLogicalId *string `json:"propertyLogicalId"`
+	PropertyLogicalId *string `json:"propertyLogicalId" yaml:"propertyLogicalId"`
 	// The `LogicalID` of the hierarchy to query for the `PropertyLogicalID` .
 	//
 	// You use a `hierarchyLogicalID` instead of a model ID because you can have several hierarchies using the same model and therefore the same property. For example, you might have separately grouped assets that come from the same asset model. For more information, see [Defining relationships between assets](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html) in the *AWS IoT SiteWise User Guide* .
-	HierarchyLogicalId *string `json:"hierarchyLogicalId"`
+	HierarchyLogicalId *string `json:"hierarchyLogicalId" yaml:"hierarchyLogicalId"`
 }
 
 // Properties for defining a `CfnAssetModel`.
@@ -2065,29 +2065,29 @@ type CfnAssetModelProps struct {
 	// A unique, friendly name for the asset model.
 	//
 	// The maximum length is 256 characters with the pattern `[^\ u0000-\ u001F\ u007F]+` .
-	AssetModelName *string `json:"assetModelName"`
+	AssetModelName *string `json:"assetModelName" yaml:"assetModelName"`
 	// The composite asset models that are part of this asset model.
 	//
 	// Composite asset models are asset models that contain specific properties. Each composite model has a type that defines the properties that the composite model supports. You can use composite asset models to define alarms on this asset model.
-	AssetModelCompositeModels interface{} `json:"assetModelCompositeModels"`
+	AssetModelCompositeModels interface{} `json:"assetModelCompositeModels" yaml:"assetModelCompositeModels"`
 	// A description for the asset model.
-	AssetModelDescription *string `json:"assetModelDescription"`
+	AssetModelDescription *string `json:"assetModelDescription" yaml:"assetModelDescription"`
 	// The hierarchy definitions of the asset model.
 	//
 	// Each hierarchy specifies an asset model whose assets can be children of any other assets created from this asset model. For more information, see [Defining relationships between assets](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html) in the *AWS IoT SiteWise User Guide* .
 	//
 	// You can specify up to 10 hierarchies per asset model. For more information, see [Quotas](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html) in the *AWS IoT SiteWise User Guide* .
-	AssetModelHierarchies interface{} `json:"assetModelHierarchies"`
+	AssetModelHierarchies interface{} `json:"assetModelHierarchies" yaml:"assetModelHierarchies"`
 	// The property definitions of the asset model.
 	//
 	// For more information, see [Defining data properties](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html) in the *AWS IoT SiteWise User Guide* .
 	//
 	// You can specify up to 200 properties per asset model. For more information, see [Quotas](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html) in the *AWS IoT SiteWise User Guide* .
-	AssetModelProperties interface{} `json:"assetModelProperties"`
+	AssetModelProperties interface{} `json:"assetModelProperties" yaml:"assetModelProperties"`
 	// A list of key-value pairs that contain metadata for the asset.
 	//
 	// For more information, see [Tagging your AWS IoT SiteWise resources](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html) in the *AWS IoT SiteWise User Guide* .
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // Properties for defining a `CfnAsset`.
@@ -2096,23 +2096,23 @@ type CfnAssetModelProps struct {
 //
 type CfnAssetProps struct {
 	// The ID of the asset model from which to create the asset.
-	AssetModelId *string `json:"assetModelId"`
+	AssetModelId *string `json:"assetModelId" yaml:"assetModelId"`
 	// A unique, friendly name for the asset.
 	//
 	// The maximum length is 256 characters with the pattern `[^\ u0000-\ u001F\ u007F]+` .
-	AssetName *string `json:"assetName"`
+	AssetName *string `json:"assetName" yaml:"assetName"`
 	// A list of asset hierarchies that each contain a `hierarchyLogicalId` .
 	//
 	// A hierarchy specifies allowed parent/child asset relationships.
-	AssetHierarchies interface{} `json:"assetHierarchies"`
+	AssetHierarchies interface{} `json:"assetHierarchies" yaml:"assetHierarchies"`
 	// The list of asset properties for the asset.
 	//
 	// This object doesn't include properties that you define in composite models. You can find composite model properties in the `assetCompositeModels` object.
-	AssetProperties interface{} `json:"assetProperties"`
+	AssetProperties interface{} `json:"assetProperties" yaml:"assetProperties"`
 	// A list of key-value pairs that contain metadata for the asset.
 	//
 	// For more information, see [Tagging your AWS IoT SiteWise resources](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html) in the *AWS IoT SiteWise User Guide* .
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::IoTSiteWise::Dashboard`.
@@ -2688,17 +2688,17 @@ type CfnDashboardProps struct {
 	// The dashboard definition specified in a JSON literal.
 	//
 	// For detailed information, see [Creating dashboards (CLI)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-dashboards-using-aws-cli.html) in the *AWS IoT SiteWise User Guide* .
-	DashboardDefinition *string `json:"dashboardDefinition"`
+	DashboardDefinition *string `json:"dashboardDefinition" yaml:"dashboardDefinition"`
 	// A description for the dashboard.
-	DashboardDescription *string `json:"dashboardDescription"`
+	DashboardDescription *string `json:"dashboardDescription" yaml:"dashboardDescription"`
 	// A friendly name for the dashboard.
-	DashboardName *string `json:"dashboardName"`
+	DashboardName *string `json:"dashboardName" yaml:"dashboardName"`
 	// The ID of the project in which to create the dashboard.
-	ProjectId *string `json:"projectId"`
+	ProjectId *string `json:"projectId" yaml:"projectId"`
 	// A list of key-value pairs that contain metadata for the dashboard.
 	//
 	// For more information, see [Tagging your AWS IoT SiteWise resources](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html) in the *AWS IoT SiteWise User Guide* .
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::IoTSiteWise::Gateway`.
@@ -3245,11 +3245,11 @@ type CfnGateway_GatewayCapabilitySummaryProperty struct {
 	// For example, if you configure OPC-UA sources from the AWS IoT SiteWise console, your OPC-UA capability configuration has the namespace `iotsitewise:opcuacollector:version` , where `version` is a number such as `1` .
 	//
 	// The maximum length is 512 characters with the pattern `^[a-zA-Z]+:[a-zA-Z]+:[0-9]+$` .
-	CapabilityNamespace *string `json:"capabilityNamespace"`
+	CapabilityNamespace *string `json:"capabilityNamespace" yaml:"capabilityNamespace"`
 	// The JSON document that defines the configuration for the gateway capability.
 	//
 	// For more information, see [Configuring data sources (CLI)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/configure-sources.html#configure-source-cli) in the *AWS IoT SiteWise User Guide* .
-	CapabilityConfiguration *string `json:"capabilityConfiguration"`
+	CapabilityConfiguration *string `json:"capabilityConfiguration" yaml:"capabilityConfiguration"`
 }
 
 // Contains a gateway's platform information.
@@ -3258,7 +3258,7 @@ type CfnGateway_GatewayCapabilitySummaryProperty struct {
 //
 type CfnGateway_GatewayPlatformProperty struct {
 	// A gateway that runs on AWS IoT Greengrass .
-	Greengrass interface{} `json:"greengrass"`
+	Greengrass interface{} `json:"greengrass" yaml:"greengrass"`
 }
 
 // Contains details for a gateway that runs on AWS IoT Greengrass .
@@ -3269,7 +3269,7 @@ type CfnGateway_GatewayPlatformProperty struct {
 //
 type CfnGateway_GreengrassProperty struct {
 	// The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the Greengrass group. For more information about how to find a group's ARN, see [ListGroups](https://docs.aws.amazon.com/greengrass/latest/apireference/listgroups-get.html) and [GetGroup](https://docs.aws.amazon.com/greengrass/latest/apireference/getgroup-get.html) in the *AWS IoT Greengrass API Reference* .
-	GroupArn *string `json:"groupArn"`
+	GroupArn *string `json:"groupArn" yaml:"groupArn"`
 }
 
 // Properties for defining a `CfnGateway`.
@@ -3280,19 +3280,19 @@ type CfnGatewayProps struct {
 	// A unique, friendly name for the gateway.
 	//
 	// The maximum length is 256 characters with the pattern `[^\ u0000-\ u001F\ u007F]+` .
-	GatewayName *string `json:"gatewayName"`
+	GatewayName *string `json:"gatewayName" yaml:"gatewayName"`
 	// The gateway's platform.
 	//
 	// You can only specify one platform in a gateway.
-	GatewayPlatform interface{} `json:"gatewayPlatform"`
+	GatewayPlatform interface{} `json:"gatewayPlatform" yaml:"gatewayPlatform"`
 	// A list of gateway capability summaries that each contain a namespace and status.
 	//
 	// Each gateway capability defines data sources for the gateway. To retrieve a capability configuration's definition, use [DescribeGatewayCapabilityConfiguration](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeGatewayCapabilityConfiguration.html) .
-	GatewayCapabilitySummaries interface{} `json:"gatewayCapabilitySummaries"`
+	GatewayCapabilitySummaries interface{} `json:"gatewayCapabilitySummaries" yaml:"gatewayCapabilitySummaries"`
 	// A list of key-value pairs that contain metadata for the gateway.
 	//
 	// For more information, see [Tagging your AWS IoT SiteWise resources](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html) in the *AWS IoT SiteWise User Guide* .
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::IoTSiteWise::Portal`.
@@ -3950,19 +3950,19 @@ func (c *jsiiProxy_CfnPortal) ValidateProperties(_properties interface{}) {
 //
 type CfnPortalProps struct {
 	// The AWS administrator's contact email address.
-	PortalContactEmail *string `json:"portalContactEmail"`
+	PortalContactEmail *string `json:"portalContactEmail" yaml:"portalContactEmail"`
 	// A friendly name for the portal.
-	PortalName *string `json:"portalName"`
+	PortalName *string `json:"portalName" yaml:"portalName"`
 	// The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of a service role that allows the portal's users to access your AWS IoT SiteWise resources on your behalf. For more information, see [Using service roles for AWS IoT SiteWise Monitor](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-service-role.html) in the *AWS IoT SiteWise User Guide* .
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal.
 	//
 	// You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range. For more information, see [Monitoring with alarms](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/monitor-alarms.html) in the *AWS IoT SiteWise Application Guide* .
-	Alarms interface{} `json:"alarms"`
+	Alarms interface{} `json:"alarms" yaml:"alarms"`
 	// The email address that sends alarm notifications.
 	//
 	// > If you use the [AWS IoT Events managed Lambda function](https://docs.aws.amazon.com/iotevents/latest/developerguide/lambda-support.html) to manage your emails, you must [verify the sender email address in Amazon SES](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html) .
-	NotificationSenderEmail *string `json:"notificationSenderEmail"`
+	NotificationSenderEmail *string `json:"notificationSenderEmail" yaml:"notificationSenderEmail"`
 	// The service to use to authenticate users to the portal. Choose from the following options:.
 	//
 	// - `SSO` – The portal uses AWS Single Sign-On to authenticate users and manage user permissions. Before you can create a portal that uses AWS SSO , you must enable AWS SSO . For more information, see [Enabling AWS SSO](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-get-started.html#mon-gs-sso) in the *AWS IoT SiteWise User Guide* . This option is only available in AWS Regions other than the China Regions.
@@ -3971,13 +3971,13 @@ type CfnPortalProps struct {
 	// You can't change this value after you create a portal.
 	//
 	// Default: `SSO`
-	PortalAuthMode *string `json:"portalAuthMode"`
+	PortalAuthMode *string `json:"portalAuthMode" yaml:"portalAuthMode"`
 	// A description for the portal.
-	PortalDescription *string `json:"portalDescription"`
+	PortalDescription *string `json:"portalDescription" yaml:"portalDescription"`
 	// A list of key-value pairs that contain metadata for the portal.
 	//
 	// For more information, see [Tagging your AWS IoT SiteWise resources](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html) in the *AWS IoT SiteWise User Guide* .
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::IoTSiteWise::Project`.
@@ -4553,16 +4553,16 @@ func (c *jsiiProxy_CfnProject) ValidateProperties(_properties interface{}) {
 //
 type CfnProjectProps struct {
 	// The ID of the portal in which to create the project.
-	PortalId *string `json:"portalId"`
+	PortalId *string `json:"portalId" yaml:"portalId"`
 	// A friendly name for the project.
-	ProjectName *string `json:"projectName"`
+	ProjectName *string `json:"projectName" yaml:"projectName"`
 	// `AWS::IoTSiteWise::Project.AssetIds`.
-	AssetIds *[]*string `json:"assetIds"`
+	AssetIds *[]*string `json:"assetIds" yaml:"assetIds"`
 	// A description for the project.
-	ProjectDescription *string `json:"projectDescription"`
+	ProjectDescription *string `json:"projectDescription" yaml:"projectDescription"`
 	// A list of key-value pairs that contain metadata for the project.
 	//
 	// For more information, see [Tagging your AWS IoT SiteWise resources](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html) in the *AWS IoT SiteWise User Guide* .
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 

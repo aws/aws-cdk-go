@@ -601,17 +601,17 @@ type CfnExperimentTemplate_ExperimentTemplateActionProperty struct {
 	// The ID of the action.
 	//
 	// The format of the action ID is: aws: *service-name* : *action-type* .
-	ActionId *string `json:"actionId"`
+	ActionId *string `json:"actionId" yaml:"actionId"`
 	// A description for the action.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The parameters for the action, if applicable.
-	Parameters interface{} `json:"parameters"`
+	Parameters interface{} `json:"parameters" yaml:"parameters"`
 	// The name of the action that must be completed before the current action starts.
 	//
 	// Omit this parameter to run the action at the start of the experiment.
-	StartAfter *[]*string `json:"startAfter"`
+	StartAfter *[]*string `json:"startAfter" yaml:"startAfter"`
 	// The targets for the action.
-	Targets interface{} `json:"targets"`
+	Targets interface{} `json:"targets" yaml:"targets"`
 }
 
 // Specifies a stop condition for an experiment template.
@@ -622,11 +622,11 @@ type CfnExperimentTemplate_ExperimentTemplateStopConditionProperty struct {
 	// The source for the stop condition.
 	//
 	// Specify `aws:cloudwatch:alarm` if the stop condition is defined by a CloudWatch alarm. Specify `none` if there is no stop condition.
-	Source *string `json:"source"`
+	Source *string `json:"source" yaml:"source"`
 	// The Amazon Resource Name (ARN) of the CloudWatch alarm.
 	//
 	// This is required if the source is a CloudWatch alarm.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // Specifies a filter used for the target resource input in an experiment template.
@@ -637,9 +637,9 @@ type CfnExperimentTemplate_ExperimentTemplateStopConditionProperty struct {
 //
 type CfnExperimentTemplate_ExperimentTemplateTargetFilterProperty struct {
 	// The attribute path for the filter.
-	Path *string `json:"path"`
+	Path *string `json:"path" yaml:"path"`
 	// The attribute values for the filter.
-	Values *[]*string `json:"values"`
+	Values *[]*string `json:"values" yaml:"values"`
 }
 
 // Specifies a target for an experiment.
@@ -654,7 +654,7 @@ type CfnExperimentTemplate_ExperimentTemplateTargetProperty struct {
 	// The AWS resource type.
 	//
 	// The resource type must be supported for the specified action.
-	ResourceType *string `json:"resourceType"`
+	ResourceType *string `json:"resourceType" yaml:"resourceType"`
 	// Scopes the identified resources to a specific count of the resources at random, or a percentage of the resources.
 	//
 	// All identified resources are included in the target.
@@ -662,13 +662,13 @@ type CfnExperimentTemplate_ExperimentTemplateTargetProperty struct {
 	// - ALL - Run the action on all identified targets. This is the default.
 	// - COUNT(n) - Run the action on the specified number of targets, chosen from the identified targets at random. For example, COUNT(1) selects one of the targets.
 	// - PERCENT(n) - Run the action on the specified percentage of targets, chosen from the identified targets at random. For example, PERCENT(25) selects 25% of the targets.
-	SelectionMode *string `json:"selectionMode"`
+	SelectionMode *string `json:"selectionMode" yaml:"selectionMode"`
 	// The filters to apply to identify target resources using specific attributes.
-	Filters interface{} `json:"filters"`
+	Filters interface{} `json:"filters" yaml:"filters"`
 	// The Amazon Resource Names (ARNs) of the resources.
-	ResourceArns *[]*string `json:"resourceArns"`
+	ResourceArns *[]*string `json:"resourceArns" yaml:"resourceArns"`
 	// The tags for the target resources.
-	ResourceTags interface{} `json:"resourceTags"`
+	ResourceTags interface{} `json:"resourceTags" yaml:"resourceTags"`
 }
 
 // Properties for defining a `CfnExperimentTemplate`.
@@ -677,16 +677,16 @@ type CfnExperimentTemplate_ExperimentTemplateTargetProperty struct {
 //
 type CfnExperimentTemplateProps struct {
 	// A description for the experiment template.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The Amazon Resource Name (ARN) of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// The stop conditions.
-	StopConditions interface{} `json:"stopConditions"`
+	StopConditions interface{} `json:"stopConditions" yaml:"stopConditions"`
 	// The tags to apply to the experiment template.
-	Tags *map[string]*string `json:"tags"`
+	Tags *map[string]*string `json:"tags" yaml:"tags"`
 	// The targets for the experiment.
-	Targets interface{} `json:"targets"`
+	Targets interface{} `json:"targets" yaml:"targets"`
 	// The actions for the experiment.
-	Actions interface{} `json:"actions"`
+	Actions interface{} `json:"actions" yaml:"actions"`
 }
 

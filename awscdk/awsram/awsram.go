@@ -589,13 +589,13 @@ func (c *jsiiProxy_CfnResourceShare) ValidateProperties(_properties interface{})
 //
 type CfnResourceShareProps struct {
 	// Specifies the name of the resource share.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// Specifies whether principals outside your organization in AWS Organizations can be associated with a resource share.
 	//
 	// A value of `true` lets you share with individual AWS accounts that are *not* in your organization. A value of `false` only has meaning if your account is a member of an AWS Organization. The default value is `true` .
-	AllowExternalPrincipals interface{} `json:"allowExternalPrincipals"`
+	AllowExternalPrincipals interface{} `json:"allowExternalPrincipals" yaml:"allowExternalPrincipals"`
 	// Specifies the [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) of the AWS RAM permission to associate with the resource share. If you do not specify an ARN for the permission, AWS RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
-	PermissionArns *[]*string `json:"permissionArns"`
+	PermissionArns *[]*string `json:"permissionArns" yaml:"permissionArns"`
 	// Specifies a list of one or more principals to associate with the resource share.
 	//
 	// You can include the following values:
@@ -607,12 +607,12 @@ type CfnResourceShareProps struct {
 	// - An ARN of an IAM user, for example: `arn:aws:iam::123456789012user/username`
 	//
 	// > Not all resource types can be shared with IAM roles and users. For more information, see [Sharing with IAM roles and users](https://docs.aws.amazon.com//ram/latest/userguide/permissions.html#permissions-rbp-supported-resource-types) in the *AWS Resource Access Manager User Guide* .
-	Principals *[]*string `json:"principals"`
+	Principals *[]*string `json:"principals" yaml:"principals"`
 	// Specifies a list of one or more ARNs of the resources to associate with the resource share.
-	ResourceArns *[]*string `json:"resourceArns"`
+	ResourceArns *[]*string `json:"resourceArns" yaml:"resourceArns"`
 	// Specifies one or more tags to attach to the resource share itself.
 	//
 	// It doesn't attach the tags to the resources associated with the resource share.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 

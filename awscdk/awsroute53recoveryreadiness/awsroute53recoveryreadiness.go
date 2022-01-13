@@ -540,13 +540,13 @@ func (c *jsiiProxy_CfnCell) ValidateProperties(_properties interface{}) {
 //
 type CfnCellProps struct {
 	// The name of the cell to create.
-	CellName *string `json:"cellName"`
+	CellName *string `json:"cellName" yaml:"cellName"`
 	// A list of cell Amazon Resource Names (ARNs) contained within this cell, for use in nested cells.
 	//
 	// For example, Availability Zones within specific AWS Regions .
-	Cells *[]*string `json:"cells"`
+	Cells *[]*string `json:"cells" yaml:"cells"`
 	// A collection of tags associated with a resource.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Route53RecoveryReadiness::ReadinessCheck`.
@@ -1069,11 +1069,11 @@ func (c *jsiiProxy_CfnReadinessCheck) ValidateProperties(_properties interface{}
 //
 type CfnReadinessCheckProps struct {
 	// The name of the readiness check to create.
-	ReadinessCheckName *string `json:"readinessCheckName"`
+	ReadinessCheckName *string `json:"readinessCheckName" yaml:"readinessCheckName"`
 	// The name of the resource set to check.
-	ResourceSetName *string `json:"resourceSetName"`
+	ResourceSetName *string `json:"resourceSetName" yaml:"resourceSetName"`
 	// A collection of tags associated with a resource.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Route53RecoveryReadiness::RecoveryGroup`.
@@ -1596,11 +1596,11 @@ func (c *jsiiProxy_CfnRecoveryGroup) ValidateProperties(_properties interface{})
 //
 type CfnRecoveryGroupProps struct {
 	// The name of the recovery group to create.
-	RecoveryGroupName *string `json:"recoveryGroupName"`
+	RecoveryGroupName *string `json:"recoveryGroupName" yaml:"recoveryGroupName"`
 	// A list of the cell Amazon Resource Names (ARNs) in the recovery group.
-	Cells *[]*string `json:"cells"`
+	Cells *[]*string `json:"cells" yaml:"cells"`
 	// A collection of tags associated with a resource.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Route53RecoveryReadiness::ResourceSet`.
@@ -2143,15 +2143,15 @@ func (c *jsiiProxy_CfnResourceSet) ValidateProperties(_properties interface{}) {
 //
 type CfnResourceSet_DNSTargetResourceProperty struct {
 	// The domain name that acts as an ingress point to a portion of the customer application.
-	DomainName *string `json:"domainName"`
+	DomainName *string `json:"domainName" yaml:"domainName"`
 	// The hosted zone Amazon Resource Name (ARN) that contains the DNS record with the provided name of the target resource.
-	HostedZoneArn *string `json:"hostedZoneArn"`
+	HostedZoneArn *string `json:"hostedZoneArn" yaml:"hostedZoneArn"`
 	// The Route 53 record set ID that uniquely identifies a DNS record, given a name and a type.
-	RecordSetId *string `json:"recordSetId"`
+	RecordSetId *string `json:"recordSetId" yaml:"recordSetId"`
 	// The type of DNS record of the target resource.
-	RecordType *string `json:"recordType"`
+	RecordType *string `json:"recordType" yaml:"recordType"`
 	// The target resource that the Route 53 record points to.
-	TargetResource interface{} `json:"targetResource"`
+	TargetResource interface{} `json:"targetResource" yaml:"targetResource"`
 }
 
 // The Network Load Balancer resource that a DNS target resource points to.
@@ -2160,7 +2160,7 @@ type CfnResourceSet_DNSTargetResourceProperty struct {
 //
 type CfnResourceSet_NLBResourceProperty struct {
 	// The Network Load Balancer resource Amazon Resource Name (ARN).
-	Arn *string `json:"arn"`
+	Arn *string `json:"arn" yaml:"arn"`
 }
 
 // The Route 53 resource that a DNS target resource record points to.
@@ -2169,9 +2169,9 @@ type CfnResourceSet_NLBResourceProperty struct {
 //
 type CfnResourceSet_R53ResourceRecordProperty struct {
 	// The DNS target domain name.
-	DomainName *string `json:"domainName"`
+	DomainName *string `json:"domainName" yaml:"domainName"`
 	// The Route 53 Resource Record Set ID.
-	RecordSetId *string `json:"recordSetId"`
+	RecordSetId *string `json:"recordSetId" yaml:"recordSetId"`
 }
 
 // The resource element of a resource set.
@@ -2180,17 +2180,17 @@ type CfnResourceSet_R53ResourceRecordProperty struct {
 //
 type CfnResourceSet_ResourceProperty struct {
 	// The component identifier of the resource, generated when DNS target resource is used.
-	ComponentId *string `json:"componentId"`
+	ComponentId *string `json:"componentId" yaml:"componentId"`
 	// A component for DNS/routing control readiness checks.
 	//
 	// This is a required setting when `ResourceSet` `ResourceSetType` is set to `AWS::Route53RecoveryReadiness::DNSTargetResource` . Do not set it for any other `ResourceSetType` setting.
-	DnsTargetResource interface{} `json:"dnsTargetResource"`
+	DnsTargetResource interface{} `json:"dnsTargetResource" yaml:"dnsTargetResource"`
 	// A list of recovery group Amazon Resource Names (ARNs) and cell ARNs that this resource is contained within.
-	ReadinessScopes *[]*string `json:"readinessScopes"`
+	ReadinessScopes *[]*string `json:"readinessScopes" yaml:"readinessScopes"`
 	// The Amazon Resource Name (ARN) of the AWS resource.
 	//
 	// This is a required setting for all `ResourceSet` `ResourceSetType` settings except `AWS::Route53RecoveryReadiness::DNSTargetResource` . Do not set this when `ResourceSetType` is set to `AWS::Route53RecoveryReadiness::DNSTargetResource` .
-	ResourceArn *string `json:"resourceArn"`
+	ResourceArn *string `json:"resourceArn" yaml:"resourceArn"`
 }
 
 // The target resource that the Route 53 record points to.
@@ -2199,9 +2199,9 @@ type CfnResourceSet_ResourceProperty struct {
 //
 type CfnResourceSet_TargetResourceProperty struct {
 	// The Network Load Balancer resource that a DNS target resource points to.
-	NlbResource interface{} `json:"nlbResource"`
+	NlbResource interface{} `json:"nlbResource" yaml:"nlbResource"`
 	// The Route 53 resource that a DNS target resource record points to.
-	R53Resource interface{} `json:"r53Resource"`
+	R53Resource interface{} `json:"r53Resource" yaml:"r53Resource"`
 }
 
 // Properties for defining a `CfnResourceSet`.
@@ -2210,16 +2210,16 @@ type CfnResourceSet_TargetResourceProperty struct {
 //
 type CfnResourceSetProps struct {
 	// A list of resource objects in the resource set.
-	Resources interface{} `json:"resources"`
+	Resources interface{} `json:"resources" yaml:"resources"`
 	// The name of the resource set to create.
-	ResourceSetName *string `json:"resourceSetName"`
+	ResourceSetName *string `json:"resourceSetName" yaml:"resourceSetName"`
 	// The resource type of the resources in the resource set. Enter one of the following values for resource type:.
 	//
 	// AWS::AutoScaling::AutoScalingGroup, AWS::CloudWatch::Alarm, AWS::EC2::CustomerGateway, AWS::DynamoDB::Table, AWS::EC2::Volume, AWS::ElasticLoadBalancing::LoadBalancer, AWS::ElasticLoadBalancingV2::LoadBalancer, AWS::MSK::Cluster, AWS::RDS::DBCluster, AWS::Route53::HealthCheck, AWS::SQS::Queue, AWS::SNS::Topic, AWS::SNS::Subscription, AWS::EC2::VPC, AWS::EC2::VPNConnection, AWS::EC2::VPNGateway, AWS::Route53RecoveryReadiness::DNSTargetResource.
 	//
 	// Note that AWS::Route53RecoveryReadiness::DNSTargetResource is only used for this setting. It isn't an actual AWS CloudFormation resource type.
-	ResourceSetType *string `json:"resourceSetType"`
+	ResourceSetType *string `json:"resourceSetType" yaml:"resourceSetType"`
 	// A tag to associate with the parameters for a resource set.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 

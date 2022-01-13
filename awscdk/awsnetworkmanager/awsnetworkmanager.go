@@ -549,13 +549,13 @@ func (c *jsiiProxy_CfnCustomerGatewayAssociation) ValidateProperties(_properties
 //
 type CfnCustomerGatewayAssociationProps struct {
 	// The Amazon Resource Name (ARN) of the customer gateway.
-	CustomerGatewayArn *string `json:"customerGatewayArn"`
+	CustomerGatewayArn *string `json:"customerGatewayArn" yaml:"customerGatewayArn"`
 	// The ID of the device.
-	DeviceId *string `json:"deviceId"`
+	DeviceId *string `json:"deviceId" yaml:"deviceId"`
 	// The ID of the global network.
-	GlobalNetworkId *string `json:"globalNetworkId"`
+	GlobalNetworkId *string `json:"globalNetworkId" yaml:"globalNetworkId"`
 	// The ID of the link.
-	LinkId *string `json:"linkId"`
+	LinkId *string `json:"linkId" yaml:"linkId"`
 }
 
 // A CloudFormation `AWS::NetworkManager::Device`.
@@ -1209,11 +1209,11 @@ func (c *jsiiProxy_CfnDevice) ValidateProperties(_properties interface{}) {
 //
 type CfnDevice_LocationProperty struct {
 	// The physical address.
-	Address *string `json:"address"`
+	Address *string `json:"address" yaml:"address"`
 	// The latitude.
-	Latitude *string `json:"latitude"`
+	Latitude *string `json:"latitude" yaml:"latitude"`
 	// The longitude.
-	Longitude *string `json:"longitude"`
+	Longitude *string `json:"longitude" yaml:"longitude"`
 }
 
 // Properties for defining a `CfnDevice`.
@@ -1222,31 +1222,31 @@ type CfnDevice_LocationProperty struct {
 //
 type CfnDeviceProps struct {
 	// The ID of the global network.
-	GlobalNetworkId *string `json:"globalNetworkId"`
+	GlobalNetworkId *string `json:"globalNetworkId" yaml:"globalNetworkId"`
 	// A description of the device.
 	//
 	// Constraints: Maximum length of 256 characters.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The site location.
-	Location interface{} `json:"location"`
+	Location interface{} `json:"location" yaml:"location"`
 	// The model of the device.
 	//
 	// Constraints: Maximum length of 128 characters.
-	Model *string `json:"model"`
+	Model *string `json:"model" yaml:"model"`
 	// The serial number of the device.
 	//
 	// Constraints: Maximum length of 128 characters.
-	SerialNumber *string `json:"serialNumber"`
+	SerialNumber *string `json:"serialNumber" yaml:"serialNumber"`
 	// The site ID.
-	SiteId *string `json:"siteId"`
+	SiteId *string `json:"siteId" yaml:"siteId"`
 	// The tags for the device.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// The device type.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// The vendor of the device.
 	//
 	// Constraints: Maximum length of 128 characters.
-	Vendor *string `json:"vendor"`
+	Vendor *string `json:"vendor" yaml:"vendor"`
 }
 
 // A CloudFormation `AWS::NetworkManager::GlobalNetwork`.
@@ -1762,9 +1762,9 @@ type CfnGlobalNetworkProps struct {
 	// A description of the global network.
 	//
 	// Constraints: Maximum length of 256 characters.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The tags for the global network.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::NetworkManager::Link`.
@@ -2378,9 +2378,9 @@ func (c *jsiiProxy_CfnLink) ValidateProperties(_properties interface{}) {
 //
 type CfnLink_BandwidthProperty struct {
 	// Download speed in Mbps.
-	DownloadSpeed *float64 `json:"downloadSpeed"`
+	DownloadSpeed *float64 `json:"downloadSpeed" yaml:"downloadSpeed"`
 	// Upload speed in Mbps.
-	UploadSpeed *float64 `json:"uploadSpeed"`
+	UploadSpeed *float64 `json:"uploadSpeed" yaml:"uploadSpeed"`
 }
 
 // A CloudFormation `AWS::NetworkManager::LinkAssociation`.
@@ -2901,11 +2901,11 @@ func (c *jsiiProxy_CfnLinkAssociation) ValidateProperties(_properties interface{
 //
 type CfnLinkAssociationProps struct {
 	// The device ID for the link association.
-	DeviceId *string `json:"deviceId"`
+	DeviceId *string `json:"deviceId" yaml:"deviceId"`
 	// The ID of the global network.
-	GlobalNetworkId *string `json:"globalNetworkId"`
+	GlobalNetworkId *string `json:"globalNetworkId" yaml:"globalNetworkId"`
 	// The ID of the link.
-	LinkId *string `json:"linkId"`
+	LinkId *string `json:"linkId" yaml:"linkId"`
 }
 
 // Properties for defining a `CfnLink`.
@@ -2914,25 +2914,25 @@ type CfnLinkAssociationProps struct {
 //
 type CfnLinkProps struct {
 	// The bandwidth for the link.
-	Bandwidth interface{} `json:"bandwidth"`
+	Bandwidth interface{} `json:"bandwidth" yaml:"bandwidth"`
 	// The ID of the global network.
-	GlobalNetworkId *string `json:"globalNetworkId"`
+	GlobalNetworkId *string `json:"globalNetworkId" yaml:"globalNetworkId"`
 	// The ID of the site.
-	SiteId *string `json:"siteId"`
+	SiteId *string `json:"siteId" yaml:"siteId"`
 	// A description of the link.
 	//
 	// Constraints: Maximum length of 256 characters.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The provider of the link.
 	//
 	// Constraints: Maximum length of 128 characters. Cannot include the following characters: | \ ^
-	Provider *string `json:"provider"`
+	Provider *string `json:"provider" yaml:"provider"`
 	// The tags for the link.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// The type of the link.
 	//
 	// Constraints: Maximum length of 128 characters. Cannot include the following characters: | \ ^
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 }
 
 // A CloudFormation `AWS::NetworkManager::Site`.
@@ -3486,11 +3486,11 @@ func (c *jsiiProxy_CfnSite) ValidateProperties(_properties interface{}) {
 //
 type CfnSite_LocationProperty struct {
 	// The physical address.
-	Address *string `json:"address"`
+	Address *string `json:"address" yaml:"address"`
 	// The latitude.
-	Latitude *string `json:"latitude"`
+	Latitude *string `json:"latitude" yaml:"latitude"`
 	// The longitude.
-	Longitude *string `json:"longitude"`
+	Longitude *string `json:"longitude" yaml:"longitude"`
 }
 
 // Properties for defining a `CfnSite`.
@@ -3499,11 +3499,11 @@ type CfnSite_LocationProperty struct {
 //
 type CfnSiteProps struct {
 	// The ID of the global network.
-	GlobalNetworkId *string `json:"globalNetworkId"`
+	GlobalNetworkId *string `json:"globalNetworkId" yaml:"globalNetworkId"`
 	// A description of your site.
 	//
 	// Constraints: Maximum length of 256 characters.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The site location.
 	//
 	// This information is used for visualization in the Network Manager console. If you specify the address, the latitude and longitude are automatically calculated.
@@ -3511,9 +3511,9 @@ type CfnSiteProps struct {
 	// - `Address` : The physical address of the site.
 	// - `Latitude` : The latitude of the site.
 	// - `Longitude` : The longitude of the site.
-	Location interface{} `json:"location"`
+	Location interface{} `json:"location" yaml:"location"`
 	// The tags for the site.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::NetworkManager::TransitGatewayRegistration`.
@@ -4014,8 +4014,8 @@ func (c *jsiiProxy_CfnTransitGatewayRegistration) ValidateProperties(_properties
 //
 type CfnTransitGatewayRegistrationProps struct {
 	// The ID of the global network.
-	GlobalNetworkId *string `json:"globalNetworkId"`
+	GlobalNetworkId *string `json:"globalNetworkId" yaml:"globalNetworkId"`
 	// The Amazon Resource Name (ARN) of the transit gateway.
-	TransitGatewayArn *string `json:"transitGatewayArn"`
+	TransitGatewayArn *string `json:"transitGatewayArn" yaml:"transitGatewayArn"`
 }
 

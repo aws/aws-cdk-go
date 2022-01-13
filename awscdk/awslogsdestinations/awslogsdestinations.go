@@ -137,6 +137,6 @@ func (l *jsiiProxy_LambdaDestination) Bind(scope constructs.Construct, logGroup 
 //
 type LambdaDestinationOptions struct {
 	// Whether or not to add Lambda Permissions.
-	AddPermissions *bool `json:"addPermissions"`
+	AddPermissions *bool `json:"addPermissions" yaml:"addPermissions"`
 }
 

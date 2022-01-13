@@ -580,7 +580,7 @@ func (c *jsiiProxy_CfnEventIntegration) ValidateProperties(_properties interface
 //
 type CfnEventIntegration_EventFilterProperty struct {
 	// The source of the events.
-	Source *string `json:"source"`
+	Source *string `json:"source" yaml:"source"`
 }
 
 // The event integration association.
@@ -589,15 +589,15 @@ type CfnEventIntegration_EventFilterProperty struct {
 //
 type CfnEventIntegration_EventIntegrationAssociationProperty struct {
 	// The metadata associated with the client.
-	ClientAssociationMetadata interface{} `json:"clientAssociationMetadata"`
+	ClientAssociationMetadata interface{} `json:"clientAssociationMetadata" yaml:"clientAssociationMetadata"`
 	// The identifier for the client that is associated with the event integration.
-	ClientId *string `json:"clientId"`
+	ClientId *string `json:"clientId" yaml:"clientId"`
 	// The name of the EventBridge rule.
-	EventBridgeRuleName *string `json:"eventBridgeRuleName"`
+	EventBridgeRuleName *string `json:"eventBridgeRuleName" yaml:"eventBridgeRuleName"`
 	// The Amazon Resource Name (ARN) for the event integration association.
-	EventIntegrationAssociationArn *string `json:"eventIntegrationAssociationArn"`
+	EventIntegrationAssociationArn *string `json:"eventIntegrationAssociationArn" yaml:"eventIntegrationAssociationArn"`
 	// The identifier for the event integration association.
-	EventIntegrationAssociationId *string `json:"eventIntegrationAssociationId"`
+	EventIntegrationAssociationId *string `json:"eventIntegrationAssociationId" yaml:"eventIntegrationAssociationId"`
 }
 
 // The metadata associated with the client.
@@ -606,9 +606,9 @@ type CfnEventIntegration_EventIntegrationAssociationProperty struct {
 //
 type CfnEventIntegration_MetadataProperty struct {
 	// The key name.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// The value.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // Properties for defining a `CfnEventIntegration`.
@@ -617,16 +617,16 @@ type CfnEventIntegration_MetadataProperty struct {
 //
 type CfnEventIntegrationProps struct {
 	// The Amazon EventBridge bus for the event integration.
-	EventBridgeBus *string `json:"eventBridgeBus"`
+	EventBridgeBus *string `json:"eventBridgeBus" yaml:"eventBridgeBus"`
 	// The event integration filter.
-	EventFilter interface{} `json:"eventFilter"`
+	EventFilter interface{} `json:"eventFilter" yaml:"eventFilter"`
 	// The name of the event integration.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The event integration description.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 

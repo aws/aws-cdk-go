@@ -49,7 +49,7 @@ const (
 //
 type AuroraClusterEngineProps struct {
 	// The version of the Aurora cluster engine.
-	Version AuroraEngineVersion `json:"version"`
+	Version AuroraEngineVersion `json:"version" yaml:"version"`
 }
 
 // The versions for the Aurora cluster engine (those returned by {@link DatabaseClusterEngine.aurora}).
@@ -265,7 +265,7 @@ func AuroraEngineVersion_VER_10A() AuroraEngineVersion {
 //
 type AuroraMysqlClusterEngineProps struct {
 	// The version of the Aurora MySQL cluster engine.
-	Version AuroraMysqlEngineVersion `json:"version"`
+	Version AuroraMysqlEngineVersion `json:"version" yaml:"version"`
 }
 
 // The versions for the Aurora MySQL cluster engine (those returned by {@link DatabaseClusterEngine.auroraMysql}).
@@ -624,7 +624,7 @@ func AuroraMysqlEngineVersion_VER_5_7_12() AuroraMysqlEngineVersion {
 //
 type AuroraPostgresClusterEngineProps struct {
 	// The version of the Aurora PostgreSQL cluster engine.
-	Version AuroraPostgresEngineVersion `json:"version"`
+	Version AuroraPostgresEngineVersion `json:"version" yaml:"version"`
 }
 
 // Features supported by this version of the Aurora Postgres cluster engine.
@@ -633,9 +633,9 @@ type AuroraPostgresClusterEngineProps struct {
 //
 type AuroraPostgresEngineFeatures struct {
 	// Whether this version of the Aurora Postgres cluster engine supports the S3 data export feature.
-	S3Export *bool `json:"s3Export"`
+	S3Export *bool `json:"s3Export" yaml:"s3Export"`
 	// Whether this version of the Aurora Postgres cluster engine supports the S3 data import feature.
-	S3Import *bool `json:"s3Import"`
+	S3Import *bool `json:"s3Import" yaml:"s3Import"`
 }
 
 // The versions for the Aurora PostgreSQL cluster engine (those returned by {@link DatabaseClusterEngine.auroraPostgres}).
@@ -1027,13 +1027,13 @@ func AuroraPostgresEngineVersion_VER_9_6_9() AuroraPostgresEngineVersion {
 //
 type BackupProps struct {
 	// How many days to retain the backup.
-	Retention awscdk.Duration `json:"retention"`
+	Retention awscdk.Duration `json:"retention" yaml:"retention"`
 	// A daily time range in 24-hours UTC format in which backups preferably execute.
 	//
 	// Must be at least 30 minutes long.
 	//
 	// Example: '01:00-02:00'
-	PreferredWindow *string `json:"preferredWindow"`
+	PreferredWindow *string `json:"preferredWindow" yaml:"preferredWindow"`
 }
 
 // A CloudFormation `AWS::RDS::DBCluster`.
@@ -2201,11 +2201,11 @@ func (c *jsiiProxy_CfnDBCluster) ValidateProperties(_properties interface{}) {
 //
 type CfnDBCluster_DBClusterRoleProperty struct {
 	// The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// The name of the feature associated with the AWS Identity and Access Management (IAM) role.
 	//
 	// IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf. For the list of supported feature names, see the `SupportedFeatureNames` description in [DBEngineVersion](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DBEngineVersion.html) in the *Amazon RDS API Reference* .
-	FeatureName *string `json:"featureName"`
+	FeatureName *string `json:"featureName" yaml:"featureName"`
 }
 
 // The `ScalingConfiguration` property type specifies the scaling configuration of an Aurora Serverless DB cluster.
@@ -2220,7 +2220,7 @@ type CfnDBCluster_ScalingConfigurationProperty struct {
 	// A DB cluster can be paused only when it's idle (it has no connections).
 	//
 	// > If a DB cluster is paused for more than seven days, the DB cluster might be backed up with a snapshot. In this case, the DB cluster is restored when there is a request to connect to it.
-	AutoPause interface{} `json:"autoPause"`
+	AutoPause interface{} `json:"autoPause" yaml:"autoPause"`
 	// The maximum capacity for an Aurora DB cluster in `serverless` DB engine mode.
 	//
 	// For Aurora MySQL, valid capacity values are `1` , `2` , `4` , `8` , `16` , `32` , `64` , `128` , and `256` .
@@ -2228,7 +2228,7 @@ type CfnDBCluster_ScalingConfigurationProperty struct {
 	// For Aurora PostgreSQL, valid capacity values are `2` , `4` , `8` , `16` , `32` , `64` , `192` , and `384` .
 	//
 	// The maximum capacity must be greater than or equal to the minimum capacity.
-	MaxCapacity *float64 `json:"maxCapacity"`
+	MaxCapacity *float64 `json:"maxCapacity" yaml:"maxCapacity"`
 	// The minimum capacity for an Aurora DB cluster in `serverless` DB engine mode.
 	//
 	// For Aurora MySQL, valid capacity values are `1` , `2` , `4` , `8` , `16` , `32` , `64` , `128` , and `256` .
@@ -2236,11 +2236,11 @@ type CfnDBCluster_ScalingConfigurationProperty struct {
 	// For Aurora PostgreSQL, valid capacity values are `2` , `4` , `8` , `16` , `32` , `64` , `192` , and `384` .
 	//
 	// The minimum capacity must be less than or equal to the maximum capacity.
-	MinCapacity *float64 `json:"minCapacity"`
+	MinCapacity *float64 `json:"minCapacity" yaml:"minCapacity"`
 	// The time, in seconds, before an Aurora DB cluster in `serverless` mode is paused.
 	//
 	// Specify a value between 300 and 86,400 seconds.
-	SecondsUntilAutoPause *float64 `json:"secondsUntilAutoPause"`
+	SecondsUntilAutoPause *float64 `json:"secondsUntilAutoPause" yaml:"secondsUntilAutoPause"`
 }
 
 // A CloudFormation `AWS::RDS::DBClusterParameterGroup`.
@@ -2778,7 +2778,7 @@ func (c *jsiiProxy_CfnDBClusterParameterGroup) ValidateProperties(_properties in
 //
 type CfnDBClusterParameterGroupProps struct {
 	// A friendly description for this DB cluster parameter group.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The DB cluster parameter group family name.
 	//
 	// A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a DB engine and engine version compatible with that DB cluster parameter group family.
@@ -2792,11 +2792,11 @@ type CfnDBClusterParameterGroupProps struct {
 	// The output contains duplicates.
 	//
 	// For more information, see `[CreateDBClusterParameterGroup](https://docs.aws.amazon.com//AmazonRDS/latest/APIReference/API_CreateDBClusterParameterGroup.html)` .
-	Family *string `json:"family"`
+	Family *string `json:"family" yaml:"family"`
 	// Provides a list of parameters for the DB cluster parameter group.
-	Parameters interface{} `json:"parameters"`
+	Parameters interface{} `json:"parameters" yaml:"parameters"`
 	// Tags to assign to the DB cluster parameter group.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // Properties for defining a `CfnDBCluster`.
@@ -2807,15 +2807,15 @@ type CfnDBClusterProps struct {
 	// The name of the database engine to be used for this DB cluster.
 	//
 	// Valid Values: `aurora` (for MySQL 5.6-compatible Aurora), `aurora-mysql` (for MySQL 5.7-compatible Aurora), and `aurora-postgresql`
-	Engine *string `json:"engine"`
+	Engine *string `json:"engine" yaml:"engine"`
 	// Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster.
 	//
 	// IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other Amazon Web Services on your behalf.
-	AssociatedRoles interface{} `json:"associatedRoles"`
+	AssociatedRoles interface{} `json:"associatedRoles" yaml:"associatedRoles"`
 	// A list of Availability Zones (AZs) where instances in the DB cluster can be created.
 	//
 	// For information on AWS Regions and Availability Zones, see [Choosing the Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html) in the *Amazon Aurora User Guide* .
-	AvailabilityZones *[]*string `json:"availabilityZones"`
+	AvailabilityZones *[]*string `json:"availabilityZones" yaml:"availabilityZones"`
 	// The target backtrack window, in seconds. To disable backtracking, set this value to 0.
 	//
 	// > Currently, Backtrack is only supported for Aurora MySQL DB clusters.
@@ -2825,7 +2825,7 @@ type CfnDBClusterProps struct {
 	// Constraints:
 	//
 	// - If specified, this value must be set to a number from 0 to 259,200 (72 hours).
-	BacktrackWindow *float64 `json:"backtrackWindow"`
+	BacktrackWindow *float64 `json:"backtrackWindow" yaml:"backtrackWindow"`
 	// The number of days for which automated backups are retained.
 	//
 	// Default: 1
@@ -2833,15 +2833,15 @@ type CfnDBClusterProps struct {
 	// Constraints:
 	//
 	// - Must be a value from 1 to 35
-	BackupRetentionPeriod *float64 `json:"backupRetentionPeriod"`
+	BackupRetentionPeriod *float64 `json:"backupRetentionPeriod" yaml:"backupRetentionPeriod"`
 	// A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster.
 	//
 	// The default is not to copy them.
-	CopyTagsToSnapshot interface{} `json:"copyTagsToSnapshot"`
+	CopyTagsToSnapshot interface{} `json:"copyTagsToSnapshot" yaml:"copyTagsToSnapshot"`
 	// The name of your database.
 	//
 	// If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see [Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints) in the *Amazon RDS User Guide* .
-	DatabaseName *string `json:"databaseName"`
+	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
 	// The DB cluster identifier. This parameter is stored as a lowercase string.
 	//
 	// Constraints:
@@ -2851,7 +2851,7 @@ type CfnDBClusterProps struct {
 	// - Can't end with a hyphen or contain two consecutive hyphens.
 	//
 	// Example: `my-cluster1`
-	DbClusterIdentifier *string `json:"dbClusterIdentifier"`
+	DbClusterIdentifier *string `json:"dbClusterIdentifier" yaml:"dbClusterIdentifier"`
 	// The name of the DB cluster parameter group to associate with this DB cluster.
 	//
 	// > If you apply a parameter group to an existing DB cluster, then its DB instances might need to reboot. This can result in an outage while the DB instances are rebooting.
@@ -2861,15 +2861,15 @@ type CfnDBClusterProps struct {
 	// To list all of the available DB cluster parameter group names, use the following command:
 	//
 	// `aws rds describe-db-cluster-parameter-groups --query "DBClusterParameterGroups[].DBClusterParameterGroupName" --output text`
-	DbClusterParameterGroupName *string `json:"dbClusterParameterGroupName"`
+	DbClusterParameterGroupName *string `json:"dbClusterParameterGroupName" yaml:"dbClusterParameterGroupName"`
 	// A DB subnet group that you want to associate with this DB cluster.
 	//
 	// If you are restoring a DB cluster to a point in time with `RestoreType` set to `copy-on-write` , and don't specify a DB subnet group name, then the DB cluster is restored with a default DB subnet group.
-	DbSubnetGroupName *string `json:"dbSubnetGroupName"`
+	DbSubnetGroupName *string `json:"dbSubnetGroupName" yaml:"dbSubnetGroupName"`
 	// A value that indicates whether the DB cluster has deletion protection enabled.
 	//
 	// The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
-	DeletionProtection interface{} `json:"deletionProtection"`
+	DeletionProtection interface{} `json:"deletionProtection" yaml:"deletionProtection"`
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs.
 	//
 	// The values in the list depend on the DB engine being used. For more information, see [Publishing Database Logs to Amazon CloudWatch Logs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch) in the *Amazon Aurora User Guide* .
@@ -2881,7 +2881,7 @@ type CfnDBClusterProps struct {
 	// *Aurora PostgreSQL*
 	//
 	// Valid values: `postgresql`
-	EnableCloudwatchLogsExports *[]*string `json:"enableCloudwatchLogsExports"`
+	EnableCloudwatchLogsExports *[]*string `json:"enableCloudwatchLogsExports" yaml:"enableCloudwatchLogsExports"`
 	// A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster.
 	//
 	// By default, the HTTP endpoint is disabled.
@@ -2889,13 +2889,13 @@ type CfnDBClusterProps struct {
 	// When enabled, the HTTP endpoint provides a connectionless web service API for running SQL queries on the Aurora Serverless DB cluster. You can also query your database from inside the RDS console with the query editor.
 	//
 	// For more information, see [Using the Data API for Aurora Serverless](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html) in the *Amazon Aurora User Guide* .
-	EnableHttpEndpoint interface{} `json:"enableHttpEndpoint"`
+	EnableHttpEndpoint interface{} `json:"enableHttpEndpoint" yaml:"enableHttpEndpoint"`
 	// A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts.
 	//
 	// By default, mapping is disabled.
 	//
 	// For more information, see [IAM Database Authentication](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) in the *Amazon Aurora User Guide.*
-	EnableIamDatabaseAuthentication interface{} `json:"enableIamDatabaseAuthentication"`
+	EnableIamDatabaseAuthentication interface{} `json:"enableIamDatabaseAuthentication" yaml:"enableIamDatabaseAuthentication"`
 	// The DB engine mode of the DB cluster, either `provisioned` , `serverless` , `parallelquery` , `global` , or `multimaster` .
 	//
 	// The `parallelquery` engine mode isn't required for Aurora MySQL version 1.23 and higher 1.x versions, and version 2.09 and higher 2.x versions.
@@ -2912,7 +2912,7 @@ type CfnDBClusterProps struct {
 	// - [Limitations of Parallel Query](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-parallel-query.html#aurora-mysql-parallel-query-limitations)
 	// - [Limitations of Aurora Global Databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database.limitations)
 	// - [Limitations of Multi-Master Clusters](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html#aurora-multi-master-limitations)
-	EngineMode *string `json:"engineMode"`
+	EngineMode *string `json:"engineMode" yaml:"engineMode"`
 	// The version number of the database engine to use.
 	//
 	// To list all of the available engine versions for `aurora` (for MySQL 5.6-compatible Aurora), use the following command:
@@ -2926,7 +2926,7 @@ type CfnDBClusterProps struct {
 	// To list all of the available engine versions for `aurora-postgresql` , use the following command:
 	//
 	// `aws rds describe-db-engine-versions --engine aurora-postgresql --query "DBEngineVersions[].EngineVersion"`
-	EngineVersion *string `json:"engineVersion"`
+	EngineVersion *string `json:"engineVersion" yaml:"engineVersion"`
 	// If you are configuring an Aurora global database cluster and want your Aurora DB cluster to be a secondary member in the global database cluster, specify the global cluster ID of the global database cluster.
 	//
 	// To define the primary database cluster of the global cluster, use the [AWS::RDS::GlobalCluster](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html) resource.
@@ -2936,21 +2936,21 @@ type CfnDBClusterProps struct {
 	// > To remove the DB cluster from a global database cluster, specify an empty value for the `GlobalClusterIdentifier` property.
 	//
 	// For information about Aurora global databases, see [Working with Amazon Aurora Global Databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) in the *Amazon Aurora User Guide* .
-	GlobalClusterIdentifier *string `json:"globalClusterIdentifier"`
+	GlobalClusterIdentifier *string `json:"globalClusterIdentifier" yaml:"globalClusterIdentifier"`
 	// The Amazon Resource Name (ARN) of the AWS Key Management Service master key that is used to encrypt the database instances in the DB cluster, such as `arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef` .
 	//
 	// If you enable the `StorageEncrypted` property but don't specify this property, the default master key is used. If you specify this property, you must set the `StorageEncrypted` property to `true` .
 	//
 	// If you specify the `SnapshotIdentifier` property, the `StorageEncrypted` property value is inherited from the snapshot, and if the DB cluster is encrypted, the specified `KmsKeyId` property is used.
-	KmsKeyId *string `json:"kmsKeyId"`
+	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
 	// The name of the master user for the DB cluster.
 	//
 	// > If you specify the `SourceDBClusterIdentifier` or `SnapshotIdentifier` property, don't specify this property. The value is inherited from the source DB instance or snapshot.
-	MasterUsername *string `json:"masterUsername"`
+	MasterUsername *string `json:"masterUsername" yaml:"masterUsername"`
 	// The master password for the DB instance.
 	//
 	// > If you specify the `SourceDBClusterIdentifier` or `SnapshotIdentifier` property, don't specify this property. The value is inherited from the source DB instance or snapshot.
-	MasterUserPassword *string `json:"masterUserPassword"`
+	MasterUserPassword *string `json:"masterUserPassword" yaml:"masterUserPassword"`
 	// The port number on which the DB instances in the DB cluster accept connections.
 	//
 	// Default:
@@ -2960,7 +2960,7 @@ type CfnDBClusterProps struct {
 	//
 	// - `3306` when `Engine` is `aurora` or `aurora-mysql`
 	// - `5432` when `Engine` is `aurora-postgresql`
-	Port *float64 `json:"port"`
+	Port *float64 `json:"port" yaml:"port"`
 	// The daily time range during which automated backups are created.
 	//
 	// For more information, see [Backup Window](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.Backups.BackupWindow) in the *Amazon Aurora User Guide.*
@@ -2971,7 +2971,7 @@ type CfnDBClusterProps struct {
 	// - Must be in Universal Coordinated Time (UTC).
 	// - Must not conflict with the preferred maintenance window.
 	// - Must be at least 30 minutes.
-	PreferredBackupWindow *string `json:"preferredBackupWindow"`
+	PreferredBackupWindow *string `json:"preferredBackupWindow" yaml:"preferredBackupWindow"`
 	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
 	//
 	// Format: `ddd:hh24:mi-ddd:hh24:mi`
@@ -2981,9 +2981,9 @@ type CfnDBClusterProps struct {
 	// Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
 	//
 	// Constraints: Minimum 30-minute window.
-	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow"`
+	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
 	// The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster is created as a read replica.
-	ReplicationSourceIdentifier *string `json:"replicationSourceIdentifier"`
+	ReplicationSourceIdentifier *string `json:"replicationSourceIdentifier" yaml:"replicationSourceIdentifier"`
 	// The type of restore to be performed. You can specify one of the following values:.
 	//
 	// - `full-copy` - The new DB cluster is restored as a full copy of the source DB cluster.
@@ -2992,9 +2992,9 @@ type CfnDBClusterProps struct {
 	// Constraints: You can't specify `copy-on-write` if the engine version of the source DB cluster is earlier than 1.11.
 	//
 	// If you don't specify a `RestoreType` value, then the new DB cluster is restored as a full copy of the source DB cluster.
-	RestoreType *string `json:"restoreType"`
+	RestoreType *string `json:"restoreType" yaml:"restoreType"`
 	// The `ScalingConfiguration` property type specifies the scaling configuration of an Aurora Serverless DB cluster.
-	ScalingConfiguration interface{} `json:"scalingConfiguration"`
+	ScalingConfiguration interface{} `json:"scalingConfiguration" yaml:"scalingConfiguration"`
 	// The identifier for the DB snapshot or DB cluster snapshot to restore from.
 	//
 	// You can use either the name or the Amazon Resource Name (ARN) to specify a DB cluster snapshot. However, you can use only the ARN to specify a DB snapshot.
@@ -3015,33 +3015,33 @@ type CfnDBClusterProps struct {
 	// Constraints:
 	//
 	// - Must match the identifier of an existing Snapshot.
-	SnapshotIdentifier *string `json:"snapshotIdentifier"`
+	SnapshotIdentifier *string `json:"snapshotIdentifier" yaml:"snapshotIdentifier"`
 	// When restoring a DB cluster to a point in time, the identifier of the source DB cluster from which to restore.
 	//
 	// Constraints:
 	//
 	// - Must match the identifier of an existing DBCluster.
-	SourceDbClusterIdentifier *string `json:"sourceDbClusterIdentifier"`
+	SourceDbClusterIdentifier *string `json:"sourceDbClusterIdentifier" yaml:"sourceDbClusterIdentifier"`
 	// The AWS Region which contains the source DB cluster when replicating a DB cluster.
 	//
 	// For example, `us-east-1` .
-	SourceRegion *string `json:"sourceRegion"`
+	SourceRegion *string `json:"sourceRegion" yaml:"sourceRegion"`
 	// Indicates whether the DB cluster is encrypted.
 	//
 	// If you specify the `KmsKeyId` property, then you must enable encryption.
 	//
 	// If you specify the `SnapshotIdentifier` or `SourceDBClusterIdentifier` property, don't specify this property. The value is inherited from the snapshot or source DB cluster, and if the DB cluster is encrypted, the specified `KmsKeyId` property is used.
-	StorageEncrypted interface{} `json:"storageEncrypted"`
+	StorageEncrypted interface{} `json:"storageEncrypted" yaml:"storageEncrypted"`
 	// Tags to assign to the DB cluster.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// A value that indicates whether to restore the DB cluster to the latest restorable backup time.
 	//
 	// By default, the DB cluster is not restored to the latest restorable backup time.
-	UseLatestRestorableTime interface{} `json:"useLatestRestorableTime"`
+	UseLatestRestorableTime interface{} `json:"useLatestRestorableTime" yaml:"useLatestRestorableTime"`
 	// A list of EC2 VPC security groups to associate with this DB cluster.
 	//
 	// If you plan to update the resource, don't specify VPC security groups in a shared VPC.
-	VpcSecurityGroupIds *[]*string `json:"vpcSecurityGroupIds"`
+	VpcSecurityGroupIds *[]*string `json:"vpcSecurityGroupIds" yaml:"vpcSecurityGroupIds"`
 }
 
 // A CloudFormation `AWS::RDS::DBInstance`.
@@ -4585,9 +4585,9 @@ type CfnDBInstance_DBInstanceRoleProperty struct {
 	// The name of the feature associated with the AWS Identity and Access Management (IAM) role.
 	//
 	// IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf. For the list of supported feature names, see the `SupportedFeatureNames` description in [DBEngineVersion](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DBEngineVersion.html) in the *Amazon RDS API Reference* .
-	FeatureName *string `json:"featureName"`
+	FeatureName *string `json:"featureName" yaml:"featureName"`
 	// The Amazon Resource Name (ARN) of the IAM role that is associated with the DB instance.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 }
 
 // The `ProcessorFeature` property type specifies the processor features of a DB instance class status.
@@ -4598,9 +4598,9 @@ type CfnDBInstance_ProcessorFeatureProperty struct {
 	// The name of the processor feature.
 	//
 	// Valid names are `coreCount` and `threadsPerCore` .
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The value of a processor feature name.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // Properties for defining a `CfnDBInstance`.
@@ -4611,7 +4611,7 @@ type CfnDBInstanceProps struct {
 	// The compute and memory capacity of the DB instance, for example, `db.m4.large` . Not all DB instance classes are available in all AWS Regions, or for all database engines.
 	//
 	// For the full list of DB instance classes, and availability for your engine, see [DB Instance Class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the *Amazon RDS User Guide.* For more information about DB instance class pricing and AWS Region support for DB instance classes, see [Amazon RDS Pricing](https://docs.aws.amazon.com/rds/pricing/) .
-	DbInstanceClass *string `json:"dbInstanceClass"`
+	DbInstanceClass *string `json:"dbInstanceClass" yaml:"dbInstanceClass"`
 	// The amount of storage (in gigabytes) to be initially allocated for the database instance.
 	//
 	// > If any value is set in the `Iops` parameter, `AllocatedStorage` must be at least 100 GiB, which corresponds to the minimum Iops value of 1,000. If you increase the `Iops` value (in 1,000 IOPS increments), then you must also increase the `AllocatedStorage` value (in 100-GiB increments).
@@ -4668,19 +4668,19 @@ type CfnDBInstanceProps struct {
 	//
 	// - Enterprise and Standard editions: Must be an integer from 20 to 1024.
 	// - Web and Express editions: Must be an integer from 20 to 1024.
-	AllocatedStorage *string `json:"allocatedStorage"`
+	AllocatedStorage *string `json:"allocatedStorage" yaml:"allocatedStorage"`
 	// A value that indicates whether major version upgrades are allowed.
 	//
 	// Changing this parameter doesn't result in an outage and the change is asynchronously applied as soon as possible.
 	//
 	// Constraints: Major version upgrades must be allowed when specifying a value for the `EngineVersion` parameter that is a different major version than the DB instance's current version.
-	AllowMajorVersionUpgrade interface{} `json:"allowMajorVersionUpgrade"`
+	AllowMajorVersionUpgrade interface{} `json:"allowMajorVersionUpgrade" yaml:"allowMajorVersionUpgrade"`
 	// The AWS Identity and Access Management (IAM) roles associated with the DB instance.
-	AssociatedRoles interface{} `json:"associatedRoles"`
+	AssociatedRoles interface{} `json:"associatedRoles" yaml:"associatedRoles"`
 	// A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window.
 	//
 	// By default, minor engine upgrades are applied automatically.
-	AutoMinorVersionUpgrade interface{} `json:"autoMinorVersionUpgrade"`
+	AutoMinorVersionUpgrade interface{} `json:"autoMinorVersionUpgrade" yaml:"autoMinorVersionUpgrade"`
 	// The Availability Zone that the database instance will be created in.
 	//
 	// Default: A random, system-chosen Availability Zone in the endpoint's region.
@@ -4688,7 +4688,7 @@ type CfnDBInstanceProps struct {
 	// Example: `us-east-1d`
 	//
 	// Constraint: The AvailabilityZone parameter cannot be specified if the MultiAZ parameter is set to `true` . The specified Availability Zone must be in the same region as the current endpoint.
-	AvailabilityZone *string `json:"availabilityZone"`
+	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
 	// The number of days for which automated backups are retained.
 	//
 	// Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups.
@@ -4703,7 +4703,7 @@ type CfnDBInstanceProps struct {
 	//
 	// - Must be a value from 0 to 35
 	// - Can't be set to 0 if the DB instance is a source to read replicas
-	BackupRetentionPeriod *float64 `json:"backupRetentionPeriod"`
+	BackupRetentionPeriod *float64 `json:"backupRetentionPeriod" yaml:"backupRetentionPeriod"`
 	// The identifier of the CA certificate for this DB instance.
 	//
 	// > Specifying or updating this property triggers a reboot.
@@ -4711,13 +4711,13 @@ type CfnDBInstanceProps struct {
 	// For more information about CA certificate identifiers for RDS DB engines, see [Rotating Your SSL/TLS Certificate](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL-certificate-rotation.html) in the *Amazon RDS User Guide* .
 	//
 	// For more information about CA certificate identifiers for Aurora DB engines, see [Rotating Your SSL/TLS Certificate](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL-certificate-rotation.html) in the *Amazon Aurora User Guide* .
-	CaCertificateIdentifier *string `json:"caCertificateIdentifier"`
+	CaCertificateIdentifier *string `json:"caCertificateIdentifier" yaml:"caCertificateIdentifier"`
 	// For supported engines, indicates that the DB instance should be associated with the specified character set.
 	//
 	// *Amazon Aurora*
 	//
 	// Not applicable. The character set is managed by the DB cluster. For more information, see [AWS::RDS::DBCluster](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html) .
-	CharacterSetName *string `json:"characterSetName"`
+	CharacterSetName *string `json:"characterSetName" yaml:"characterSetName"`
 	// A value that indicates whether to copy tags from the DB instance to snapshots of the DB instance.
 	//
 	// By default, tags are not copied.
@@ -4725,15 +4725,15 @@ type CfnDBInstanceProps struct {
 	// *Amazon Aurora*
 	//
 	// Not applicable. Copying tags to snapshots is managed by the DB cluster. Setting this value for an Aurora DB instance has no effect on the DB cluster setting.
-	CopyTagsToSnapshot interface{} `json:"copyTagsToSnapshot"`
+	CopyTagsToSnapshot interface{} `json:"copyTagsToSnapshot" yaml:"copyTagsToSnapshot"`
 	// The identifier of the DB cluster that the instance will belong to.
-	DbClusterIdentifier *string `json:"dbClusterIdentifier"`
+	DbClusterIdentifier *string `json:"dbClusterIdentifier" yaml:"dbClusterIdentifier"`
 	// A name for the DB instance.
 	//
 	// If you specify a name, AWS CloudFormation converts it to lowercase. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the DB instance. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
 	//
 	// > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
-	DbInstanceIdentifier *string `json:"dbInstanceIdentifier"`
+	DbInstanceIdentifier *string `json:"dbInstanceIdentifier" yaml:"dbInstanceIdentifier"`
 	// The meaning of this parameter differs according to the database engine you use.
 	//
 	// > If you specify the `[DBSnapshotIdentifier](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbsnapshotidentifier)` property, AWS CloudFormation ignores this property.
@@ -4800,7 +4800,7 @@ type CfnDBInstanceProps struct {
 	// - It must contain 1 to 63 alphanumeric characters.
 	// - It must begin with a letter or an underscore. Subsequent characters can be letters, underscores, or digits (0 to 9).
 	// - It can't be a word reserved by the database engine.
-	DbName *string `json:"dbName"`
+	DbName *string `json:"dbName" yaml:"dbName"`
 	// The name of an existing DB parameter group or a reference to an [AWS::RDS::DBParameterGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbparametergroup.html) resource created in the template.
 	//
 	// To list all of the available DB parameter group names, use the following command:
@@ -4810,7 +4810,7 @@ type CfnDBInstanceProps struct {
 	// > If any of the data members of the referenced parameter group are changed during an update, the DB instance might need to be restarted, which causes some interruption. If the parameter group contains static parameters, whether they were changed or not, an update triggers a reboot.
 	//
 	// If you don't specify a value for the `DBParameterGroupName` property, the default DB parameter group for the specified engine and engine version is used.
-	DbParameterGroupName *string `json:"dbParameterGroupName"`
+	DbParameterGroupName *string `json:"dbParameterGroupName" yaml:"dbParameterGroupName"`
 	// A list of the DB security groups to assign to the DB instance.
 	//
 	// The list can include both the name of existing DB security groups or references to AWS::RDS::DBSecurityGroup resources created in the template.
@@ -4841,7 +4841,7 @@ type CfnDBInstanceProps struct {
 	// > - `PreferredMaintenanceWindow`
 	// >
 	// > All other properties are ignored. Specify a virtual private cloud (VPC) security group if you want to submit other properties, such as `StorageType` , `StorageEncrypted` , or `KmsKeyId` . If you're already using the `DBSecurityGroups` property, you can't use these other properties by updating your DB instance to use a VPC security group. You must recreate the DB instance.
-	DbSecurityGroups *[]*string `json:"dbSecurityGroups"`
+	DbSecurityGroups *[]*string `json:"dbSecurityGroups" yaml:"dbSecurityGroups"`
 	// The name or Amazon Resource Name (ARN) of the DB snapshot that's used to restore the DB instance.
 	//
 	// If you're restoring from a shared manual DB snapshot, you must specify the ARN of the snapshot.
@@ -4870,7 +4870,7 @@ type CfnDBInstanceProps struct {
 	// - `SourceRegion`
 	// - `StorageEncrypted`
 	// - `Timezone`
-	DbSnapshotIdentifier *string `json:"dbSnapshotIdentifier"`
+	DbSnapshotIdentifier *string `json:"dbSnapshotIdentifier" yaml:"dbSnapshotIdentifier"`
 	// A DB subnet group to associate with the DB instance.
 	//
 	// If you update this value, the new subnet group must be a subnet group in a new VPC.
@@ -4882,11 +4882,11 @@ type CfnDBInstanceProps struct {
 	// *Amazon Aurora*
 	//
 	// Not applicable. The DB subnet group is managed by the DB cluster. If specified, the setting must match the DB cluster setting.
-	DbSubnetGroupName *string `json:"dbSubnetGroupName"`
+	DbSubnetGroupName *string `json:"dbSubnetGroupName" yaml:"dbSubnetGroupName"`
 	// A value that indicates whether to remove automated backups immediately after the DB instance is deleted.
 	//
 	// This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.
-	DeleteAutomatedBackups interface{} `json:"deleteAutomatedBackups"`
+	DeleteAutomatedBackups interface{} `json:"deleteAutomatedBackups" yaml:"deleteAutomatedBackups"`
 	// A value that indicates whether the DB instance has deletion protection enabled.
 	//
 	// The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled. For more information, see [Deleting a DB Instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html) .
@@ -4894,17 +4894,17 @@ type CfnDBInstanceProps struct {
 	// *Amazon Aurora*
 	//
 	// Not applicable. You can enable or disable deletion protection for the DB cluster. For more information, see `CreateDBCluster` . DB instances in a DB cluster can be deleted even when deletion protection is enabled for the DB cluster.
-	DeletionProtection interface{} `json:"deletionProtection"`
+	DeletionProtection interface{} `json:"deletionProtection" yaml:"deletionProtection"`
 	// The Active Directory directory ID to create the DB instance in.
 	//
 	// Currently, only Microsoft SQL Server, Oracle, and PostgreSQL DB instances can be created in an Active Directory Domain.
 	//
 	// For more information, see [Kerberos Authentication](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html) in the *Amazon RDS User Guide* .
-	Domain *string `json:"domain"`
+	Domain *string `json:"domain" yaml:"domain"`
 	// Specify the name of the IAM role to be used when making API calls to the Directory Service.
 	//
 	// This setting doesn't apply to RDS Custom.
-	DomainIamRoleName *string `json:"domainIamRoleName"`
+	DomainIamRoleName *string `json:"domainIamRoleName" yaml:"domainIamRoleName"`
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs.
 	//
 	// The values in the list depend on the DB engine being used. For more information, see [Publishing Database Logs to Amazon CloudWatch Logs](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch) in the *Amazon Relational Database Service User Guide* .
@@ -4932,7 +4932,7 @@ type CfnDBInstanceProps struct {
 	// *PostgreSQL*
 	//
 	// Valid values: `postgresql` , `upgrade`
-	EnableCloudwatchLogsExports *[]*string `json:"enableCloudwatchLogsExports"`
+	EnableCloudwatchLogsExports *[]*string `json:"enableCloudwatchLogsExports" yaml:"enableCloudwatchLogsExports"`
 	// A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts.
 	//
 	// By default, mapping is disabled.
@@ -4942,13 +4942,13 @@ type CfnDBInstanceProps struct {
 	// *Amazon Aurora*
 	//
 	// Not applicable. Mapping AWS IAM accounts to database accounts is managed by the DB cluster.
-	EnableIamDatabaseAuthentication interface{} `json:"enableIamDatabaseAuthentication"`
+	EnableIamDatabaseAuthentication interface{} `json:"enableIamDatabaseAuthentication" yaml:"enableIamDatabaseAuthentication"`
 	// A value that indicates whether to enable Performance Insights for the DB instance.
 	//
 	// For more information, see [Using Amazon Performance Insights](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html) in the *Amazon Relational Database Service User Guide* .
 	//
 	// This setting doesn't apply to RDS Custom.
-	EnablePerformanceInsights interface{} `json:"enablePerformanceInsights"`
+	EnablePerformanceInsights interface{} `json:"enablePerformanceInsights" yaml:"enablePerformanceInsights"`
 	// The name of the database engine that you want to use for this DB instance.
 	//
 	// > When you are creating a DB instance, the `Engine` property is required.
@@ -4969,7 +4969,7 @@ type CfnDBInstanceProps struct {
 	// - `sqlserver-se`
 	// - `sqlserver-ex`
 	// - `sqlserver-web`
-	Engine *string `json:"engine"`
+	Engine *string `json:"engine" yaml:"engine"`
 	// The version number of the database engine to use.
 	//
 	// For a list of valid engine versions, use the `DescribeDBEngineVersions` action.
@@ -4999,7 +4999,7 @@ type CfnDBInstanceProps struct {
 	// *PostgreSQL*
 	//
 	// See [Supported PostgreSQL Database Versions](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts.General.DBVersions) in the *Amazon RDS User Guide.*
-	EngineVersion *string `json:"engineVersion"`
+	EngineVersion *string `json:"engineVersion" yaml:"engineVersion"`
 	// The number of I/O operations per second (IOPS) that the database provisions.
 	//
 	// The value must be equal to or greater than 1000.
@@ -5007,7 +5007,7 @@ type CfnDBInstanceProps struct {
 	// If you specify this property, you must follow the range of allowed ratios of your requested IOPS rate to the amount of storage that you allocate (IOPS to allocated storage). For example, you can provision an Oracle database instance with 1000 IOPS and 200 GiB of storage (a ratio of 5:1), or specify 2000 IOPS with 200 GiB of storage (a ratio of 10:1). For more information, see [Amazon RDS Provisioned IOPS Storage to Improve Performance](https://docs.aws.amazon.com/AmazonRDS/latest/DeveloperGuide/CHAP_Storage.html#USER_PIOPS) in the *Amazon RDS User Guide* .
 	//
 	// > If you specify `io1` for the `StorageType` property, then you must also specify the `Iops` property.
-	Iops *float64 `json:"iops"`
+	Iops *float64 `json:"iops" yaml:"iops"`
 	// The ARN of the AWS Key Management Service ( AWS KMS) master key that's used to encrypt the DB instance, such as `arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef` .
 	//
 	// If you enable the StorageEncrypted property but don't specify this property, AWS CloudFormation uses the default master key. If you specify this property, you must set the StorageEncrypted property to true.
@@ -5023,13 +5023,13 @@ type CfnDBInstanceProps struct {
 	// *Amazon Aurora*
 	//
 	// Not applicable. The KMS key identifier is managed by the DB cluster.
-	KmsKeyId *string `json:"kmsKeyId"`
+	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
 	// License model information for this DB instance.
 	//
 	// Valid values: `license-included` | `bring-your-own-license` | `general-public-license`
 	//
 	// > If you've specified `DBSecurityGroups` and then you update the license model, AWS CloudFormation replaces the underlying DB instance. This will incur some interruptions to database availability.
-	LicenseModel *string `json:"licenseModel"`
+	LicenseModel *string `json:"licenseModel" yaml:"licenseModel"`
 	// The master user name for the DB instance.
 	//
 	// > If you specify the `SourceDBInstanceIdentifier` or `DBSnapshotIdentifier` property, don't specify this property. The value is inherited from the source DB instance or snapshot.
@@ -5081,7 +5081,7 @@ type CfnDBInstanceProps struct {
 	// - Must be 1 to 63 letters or numbers.
 	// - First character must be a letter.
 	// - Can't be a reserved word for the chosen database engine.
-	MasterUsername *string `json:"masterUsername"`
+	MasterUsername *string `json:"masterUsername" yaml:"masterUsername"`
 	// The password for the master user. The password can include any printable ASCII character except "/", """, or "@".
 	//
 	// *Amazon Aurora*
@@ -5107,13 +5107,13 @@ type CfnDBInstanceProps struct {
 	// *PostgreSQL*
 	//
 	// Constraints: Must contain from 8 to 128 characters.
-	MasterUserPassword *string `json:"masterUserPassword"`
+	MasterUserPassword *string `json:"masterUserPassword" yaml:"masterUserPassword"`
 	// The upper limit in gibibytes (GiB) to which Amazon RDS can automatically scale the storage of the DB instance.
 	//
 	// For more information about this setting, including limitations that apply to it, see [Managing capacity automatically with Amazon RDS storage autoscaling](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling) in the *Amazon RDS User Guide* .
 	//
 	// This setting doesn't apply to RDS Custom.
-	MaxAllocatedStorage *float64 `json:"maxAllocatedStorage"`
+	MaxAllocatedStorage *float64 `json:"maxAllocatedStorage" yaml:"maxAllocatedStorage"`
 	// The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
 	//
 	// To disable collection of Enhanced Monitoring metrics, specify 0. The default is 0.
@@ -5123,7 +5123,7 @@ type CfnDBInstanceProps struct {
 	// This setting doesn't apply to RDS Custom.
 	//
 	// Valid Values: `0, 1, 5, 10, 15, 30, 60`
-	MonitoringInterval *float64 `json:"monitoringInterval"`
+	MonitoringInterval *float64 `json:"monitoringInterval" yaml:"monitoringInterval"`
 	// The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to Amazon CloudWatch Logs.
 	//
 	// For example, `arn:aws:iam:123456789012:role/emaccess` . For information on creating a monitoring role, see [Setting Up and Enabling Enhanced Monitoring](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html#USER_Monitoring.OS.Enabling) in the *Amazon RDS User Guide* .
@@ -5131,7 +5131,7 @@ type CfnDBInstanceProps struct {
 	// If `MonitoringInterval` is set to a value other than 0, then you must supply a `MonitoringRoleArn` value.
 	//
 	// This setting doesn't apply to RDS Custom.
-	MonitoringRoleArn *string `json:"monitoringRoleArn"`
+	MonitoringRoleArn *string `json:"monitoringRoleArn" yaml:"monitoringRoleArn"`
 	// Specifies whether the database instance is a multiple Availability Zone deployment.
 	//
 	// You can't set the `AvailabilityZone` parameter if the `MultiAZ` parameter is set to true.
@@ -5139,11 +5139,11 @@ type CfnDBInstanceProps struct {
 	// *Amazon Aurora*
 	//
 	// Not applicable. Amazon Aurora storage is replicated across all of the Availability Zones and doesn't require the `MultiAZ` option to be set.
-	MultiAz interface{} `json:"multiAz"`
+	MultiAz interface{} `json:"multiAz" yaml:"multiAz"`
 	// Indicates that the DB instance should be associated with the specified option group.
 	//
 	// Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option group. Also, that option group can't be removed from a DB instance once it is associated with a DB instance.
-	OptionGroupName *string `json:"optionGroupName"`
+	OptionGroupName *string `json:"optionGroupName" yaml:"optionGroupName"`
 	// The AWS KMS key identifier for encryption of Performance Insights data.
 	//
 	// The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).
@@ -5151,13 +5151,13 @@ type CfnDBInstanceProps struct {
 	// If you do not specify a value for `PerformanceInsightsKMSKeyId` , then Amazon RDS uses your default CMK. There is a default CMK for your AWS account. Your AWS account has a different default CMK for each AWS Region.
 	//
 	// For information about enabling Performance Insights, see [EnablePerformanceInsights](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-enableperformanceinsights) .
-	PerformanceInsightsKmsKeyId *string `json:"performanceInsightsKmsKeyId"`
+	PerformanceInsightsKmsKeyId *string `json:"performanceInsightsKmsKeyId" yaml:"performanceInsightsKmsKeyId"`
 	// The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).
 	//
 	// For information about enabling Performance Insights, see [EnablePerformanceInsights](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-enableperformanceinsights) .
-	PerformanceInsightsRetentionPeriod *float64 `json:"performanceInsightsRetentionPeriod"`
+	PerformanceInsightsRetentionPeriod *float64 `json:"performanceInsightsRetentionPeriod" yaml:"performanceInsightsRetentionPeriod"`
 	// The port number on which the database accepts connections.
-	Port *string `json:"port"`
+	Port *string `json:"port" yaml:"port"`
 	// The daily time range during which automated backups are created if automated backups are enabled, using the `BackupRetentionPeriod` parameter.
 	//
 	// For more information, see [Backup Window](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow) in the *Amazon RDS User Guide.*
@@ -5172,7 +5172,7 @@ type CfnDBInstanceProps struct {
 	// *Amazon Aurora*
 	//
 	// Not applicable. The daily time range for creating automated backups is managed by the DB cluster.
-	PreferredBackupWindow *string `json:"preferredBackupWindow"`
+	PreferredBackupWindow *string `json:"preferredBackupWindow" yaml:"preferredBackupWindow"`
 	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
 	//
 	// Format: `ddd:hh24:mi-ddd:hh24:mi`
@@ -5182,11 +5182,11 @@ type CfnDBInstanceProps struct {
 	// > This property applies when AWS CloudFormation initially creates the DB instance. If you use AWS CloudFormation to update the DB instance, those updates are applied immediately.
 	//
 	// Constraints: Minimum 30-minute window.
-	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow"`
+	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
 	// The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
 	//
 	// This setting doesn't apply to RDS Custom.
-	ProcessorFeatures interface{} `json:"processorFeatures"`
+	ProcessorFeatures interface{} `json:"processorFeatures" yaml:"processorFeatures"`
 	// A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance.
 	//
 	// For more information, see [Fault Tolerance for an Aurora DB Cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance) in the *Amazon Aurora User Guide* .
@@ -5196,7 +5196,7 @@ type CfnDBInstanceProps struct {
 	// Default: 1
 	//
 	// Valid Values: 0 - 15
-	PromotionTier *float64 `json:"promotionTier"`
+	PromotionTier *float64 `json:"promotionTier" yaml:"promotionTier"`
 	// Indicates whether the DB instance is an internet-facing instance.
 	//
 	// If you specify `true` , AWS CloudFormation creates an instance with a publicly resolvable DNS name, which resolves to a public IP address. If you specify false, AWS CloudFormation creates an internal instance with a DNS name that resolves to a private IP address.
@@ -5206,7 +5206,7 @@ type CfnDBInstanceProps struct {
 	// If this resource has a public IP address and is also in a VPC that is defined in the same template, you must use the *DependsOn* attribute to declare a dependency on the VPC-gateway attachment. For more information, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) .
 	//
 	// > If you specify DBSecurityGroups, AWS CloudFormation ignores this property. To specify a security group and this property, you must use a VPC security group. For more information about Amazon RDS and VPC, see [Using Amazon RDS with Amazon VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html) in the *Amazon RDS User Guide* .
-	PubliclyAccessible interface{} `json:"publiclyAccessible"`
+	PubliclyAccessible interface{} `json:"publiclyAccessible" yaml:"publiclyAccessible"`
 	// If you want to create a read replica DB instance, specify the ID of the source DB instance.
 	//
 	// Each DB instance can have a limited number of read replicas. For more information, see [Working with Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/DeveloperGuide/USER_ReadRepl.html) in the *Amazon Relational Database Service Developer Guide* .
@@ -5219,9 +5219,9 @@ type CfnDBInstanceProps struct {
 	// > - Don't set the `BackupRetentionPeriod` , `DBName` , `MasterUsername` , `MasterUserPassword` , and `PreferredBackupWindow` properties. The database attributes are inherited from the source DB instance, and backups are disabled for read replicas.
 	// > - If the source DB instance is in a different region than the read replica, specify the source region in `SourceRegion` , and specify an ARN for a valid DB instance in `SourceDBInstanceIdentifier` . For more information, see [Constructing a Amazon RDS Amazon Resource Name (ARN)](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN) in the *Amazon RDS User Guide* .
 	// > - For DB instances in Amazon Aurora clusters, don't specify this property. Amazon RDS automatically assigns writer and reader DB instances.
-	SourceDbInstanceIdentifier *string `json:"sourceDbInstanceIdentifier"`
+	SourceDbInstanceIdentifier *string `json:"sourceDbInstanceIdentifier" yaml:"sourceDbInstanceIdentifier"`
 	// The ID of the region that contains the source DB instance for the read replica.
-	SourceRegion *string `json:"sourceRegion"`
+	SourceRegion *string `json:"sourceRegion" yaml:"sourceRegion"`
 	// A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.
 	//
 	// If you specify the `KmsKeyId` property, then you must enable encryption.
@@ -5231,7 +5231,7 @@ type CfnDBInstanceProps struct {
 	// *Amazon Aurora*
 	//
 	// Not applicable. The encryption for DB instances is managed by the DB cluster.
-	StorageEncrypted interface{} `json:"storageEncrypted"`
+	StorageEncrypted interface{} `json:"storageEncrypted" yaml:"storageEncrypted"`
 	// Specifies the storage type to be associated with the DB instance.
 	//
 	// Valid values: `standard | gp2 | io1`
@@ -5247,17 +5247,17 @@ type CfnDBInstanceProps struct {
 	// *Amazon Aurora*
 	//
 	// Not applicable. Aurora data is stored in the cluster volume, which is a single, virtual volume that uses solid state drives (SSDs).
-	StorageType *string `json:"storageType"`
+	StorageType *string `json:"storageType" yaml:"storageType"`
 	// Tags to assign to the DB instance.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// The time zone of the DB instance.
 	//
 	// The time zone parameter is currently supported only by [Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone) .
-	Timezone *string `json:"timezone"`
+	Timezone *string `json:"timezone" yaml:"timezone"`
 	// A value that indicates whether the DB instance class of the DB instance uses its default processor features.
 	//
 	// This setting doesn't apply to RDS Custom.
-	UseDefaultProcessorFeatures interface{} `json:"useDefaultProcessorFeatures"`
+	UseDefaultProcessorFeatures interface{} `json:"useDefaultProcessorFeatures" yaml:"useDefaultProcessorFeatures"`
 	// A list of the VPC security group IDs to assign to the DB instance.
 	//
 	// The list can include both the physical IDs of existing VPC security groups and references to [AWS::EC2::SecurityGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group.html) resources created in the template.
@@ -5277,7 +5277,7 @@ type CfnDBInstanceProps struct {
 	// *Amazon Aurora*
 	//
 	// Not applicable. The associated list of EC2 VPC security groups is managed by the DB cluster. If specified, the setting must match the DB cluster setting.
-	VpcSecurityGroups *[]*string `json:"vpcSecurityGroups"`
+	VpcSecurityGroups *[]*string `json:"vpcSecurityGroups" yaml:"vpcSecurityGroups"`
 }
 
 // A CloudFormation `AWS::RDS::DBParameterGroup`.
@@ -5817,7 +5817,7 @@ func (c *jsiiProxy_CfnDBParameterGroup) ValidateProperties(_properties interface
 //
 type CfnDBParameterGroupProps struct {
 	// Provides the customer-specified description for this DB Parameter Group.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The DB parameter group family name.
 	//
 	// A DB parameter group can be associated with one and only one DB parameter group family, and can be applied only to a DB instance running a DB engine and engine version compatible with that DB parameter group family.
@@ -5831,7 +5831,7 @@ type CfnDBParameterGroupProps struct {
 	// The output contains duplicates.
 	//
 	// For more information, see `[CreateDBParameterGroup](https://docs.aws.amazon.com//AmazonRDS/latest/APIReference/API_CreateDBParameterGroup.html)` .
-	Family *string `json:"family"`
+	Family *string `json:"family" yaml:"family"`
 	// An array of parameter names and values for the parameter update.
 	//
 	// At least one parameter name and value must be supplied. Subsequent arguments are optional.
@@ -5841,9 +5841,9 @@ type CfnDBParameterGroupProps struct {
 	// For more information about DB cluster and DB instance parameters and parameter groups for Amazon Aurora DB engines, see [Working with DB Parameter Groups and DB Cluster Parameter Groups](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.html) in the *Amazon Aurora User Guide* .
 	//
 	// > AWS CloudFormation doesn't support specifying an apply method for each individual parameter. The default apply method for each parameter is used.
-	Parameters interface{} `json:"parameters"`
+	Parameters interface{} `json:"parameters" yaml:"parameters"`
 	// Tags to assign to the DB parameter group.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::RDS::DBProxy`.
@@ -6549,19 +6549,19 @@ type CfnDBProxy_AuthFormatProperty struct {
 	// The type of authentication that the proxy uses for connections from the proxy to the underlying database.
 	//
 	// Valid Values: `SECRETS`
-	AuthScheme *string `json:"authScheme"`
+	AuthScheme *string `json:"authScheme" yaml:"authScheme"`
 	// A user-specified description about the authentication used by a proxy to log in as a specific database user.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy.
 	//
 	// Valid Values: `DISABLED | REQUIRED`
-	IamAuth *string `json:"iamAuth"`
+	IamAuth *string `json:"iamAuth" yaml:"iamAuth"`
 	// The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster.
 	//
 	// These secrets are stored within Amazon Secrets Manager.
-	SecretArn *string `json:"secretArn"`
+	SecretArn *string `json:"secretArn" yaml:"secretArn"`
 	// The name of the database user to which the proxy connects.
-	UserName *string `json:"userName"`
+	UserName *string `json:"userName" yaml:"userName"`
 }
 
 // Metadata assigned to a DB proxy consisting of a key-value pair.
@@ -6572,11 +6572,11 @@ type CfnDBProxy_TagFormatProperty struct {
 	// A key is the required name of the tag.
 	//
 	// The string value can be 1-128 Unicode characters in length and can't be prefixed with `aws:` . The string can contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// A value is the optional value of the tag.
 	//
 	// The string value can be 1-256 Unicode characters in length and can't be prefixed with `aws:` . The string can contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // A CloudFormation `AWS::RDS::DBProxyEndpoint`.
@@ -7205,9 +7205,9 @@ type CfnDBProxyEndpoint_TagFormatProperty struct {
 	// A value is the optional value of the tag.
 	//
 	// The string value can be 1-256 Unicode characters in length and can't be prefixed with `aws:` . The string can contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// Metadata assigned to a DB instance consisting of a key-value pair.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // Properties for defining a `CfnDBProxyEndpoint`.
@@ -7216,23 +7216,23 @@ type CfnDBProxyEndpoint_TagFormatProperty struct {
 //
 type CfnDBProxyEndpointProps struct {
 	// The name of the DB proxy endpoint to create.
-	DbProxyEndpointName *string `json:"dbProxyEndpointName"`
+	DbProxyEndpointName *string `json:"dbProxyEndpointName" yaml:"dbProxyEndpointName"`
 	// The name of the DB proxy associated with the DB proxy endpoint that you create.
-	DbProxyName *string `json:"dbProxyName"`
+	DbProxyName *string `json:"dbProxyName" yaml:"dbProxyName"`
 	// The VPC subnet IDs for the DB proxy endpoint that you create.
 	//
 	// You can specify a different set of subnet IDs than for the original DB proxy.
-	VpcSubnetIds *[]*string `json:"vpcSubnetIds"`
+	VpcSubnetIds *[]*string `json:"vpcSubnetIds" yaml:"vpcSubnetIds"`
 	// An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
-	Tags *[]*CfnDBProxyEndpoint_TagFormatProperty `json:"tags"`
+	Tags *[]*CfnDBProxyEndpoint_TagFormatProperty `json:"tags" yaml:"tags"`
 	// A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
 	//
 	// Valid Values: `READ_WRITE | READ_ONLY`
-	TargetRole *string `json:"targetRole"`
+	TargetRole *string `json:"targetRole" yaml:"targetRole"`
 	// The VPC security group IDs for the DB proxy endpoint that you create.
 	//
 	// You can specify a different set of security group IDs than for the original DB proxy. The default is the default security group for the VPC.
-	VpcSecurityGroupIds *[]*string `json:"vpcSecurityGroupIds"`
+	VpcSecurityGroupIds *[]*string `json:"vpcSecurityGroupIds" yaml:"vpcSecurityGroupIds"`
 }
 
 // Properties for defining a `CfnDBProxy`.
@@ -7241,39 +7241,39 @@ type CfnDBProxyEndpointProps struct {
 //
 type CfnDBProxyProps struct {
 	// The authorization mechanism that the proxy uses.
-	Auth interface{} `json:"auth"`
+	Auth interface{} `json:"auth" yaml:"auth"`
 	// The identifier for the proxy.
 	//
 	// This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
-	DbProxyName *string `json:"dbProxyName"`
+	DbProxyName *string `json:"dbProxyName" yaml:"dbProxyName"`
 	// The kinds of databases that the proxy can connect to.
 	//
 	// This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. The engine family applies to MySQL and PostgreSQL for both RDS and Aurora.
 	//
 	// *Valid values* : `MYSQL` | `POSTGRESQL`
-	EngineFamily *string `json:"engineFamily"`
+	EngineFamily *string `json:"engineFamily" yaml:"engineFamily"`
 	// The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// One or more VPC subnet IDs to associate with the new proxy.
-	VpcSubnetIds *[]*string `json:"vpcSubnetIds"`
+	VpcSubnetIds *[]*string `json:"vpcSubnetIds" yaml:"vpcSubnetIds"`
 	// Whether the proxy includes detailed information about SQL statements in its logs.
 	//
 	// This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections. The debug information includes the text of SQL statements that you submit through the proxy. Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive information that appears in the logs.
-	DebugLogging interface{} `json:"debugLogging"`
+	DebugLogging interface{} `json:"debugLogging" yaml:"debugLogging"`
 	// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.
 	//
 	// You can set this value higher or lower than the connection timeout limit for the associated database.
-	IdleClientTimeout *float64 `json:"idleClientTimeout"`
+	IdleClientTimeout *float64 `json:"idleClientTimeout" yaml:"idleClientTimeout"`
 	// A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
 	//
 	// By enabling this setting, you can enforce encrypted TLS connections to the proxy.
-	RequireTls interface{} `json:"requireTls"`
+	RequireTls interface{} `json:"requireTls" yaml:"requireTls"`
 	// An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
-	Tags *[]*CfnDBProxy_TagFormatProperty `json:"tags"`
+	Tags *[]*CfnDBProxy_TagFormatProperty `json:"tags" yaml:"tags"`
 	// One or more VPC security group IDs to associate with the new proxy.
 	//
 	// If you plan to update the resource, don't specify VPC security groups in a shared VPC.
-	VpcSecurityGroupIds *[]*string `json:"vpcSecurityGroupIds"`
+	VpcSecurityGroupIds *[]*string `json:"vpcSecurityGroupIds" yaml:"vpcSecurityGroupIds"`
 }
 
 // A CloudFormation `AWS::RDS::DBProxyTargetGroup`.
@@ -7865,13 +7865,13 @@ type CfnDBProxyTargetGroup_ConnectionPoolConfigurationInfoFormatProperty struct 
 	// Default: 120
 	//
 	// Constraints: between 1 and 3600, or 0 representing unlimited
-	ConnectionBorrowTimeout *float64 `json:"connectionBorrowTimeout"`
+	ConnectionBorrowTimeout *float64 `json:"connectionBorrowTimeout" yaml:"connectionBorrowTimeout"`
 	// One or more SQL statements for the proxy to run when opening each new database connection.
 	//
 	// Typically used with `SET` statements to make sure that each connection has identical settings such as time zone and character set. For multiple statements, use semicolons as the separator. You can also include multiple variables in a single `SET` statement, such as `SET x=1, y=2` .
 	//
 	// Default: no initialization query
-	InitQuery *string `json:"initQuery"`
+	InitQuery *string `json:"initQuery" yaml:"initQuery"`
 	// The maximum size of the connection pool for each target in a target group.
 	//
 	// The value is expressed as a percentage of the `max_connections` setting for the RDS DB instance or Aurora DB cluster used by the target group.
@@ -7879,7 +7879,7 @@ type CfnDBProxyTargetGroup_ConnectionPoolConfigurationInfoFormatProperty struct 
 	// Default: 100
 	//
 	// Constraints: between 1 and 100
-	MaxConnectionsPercent *float64 `json:"maxConnectionsPercent"`
+	MaxConnectionsPercent *float64 `json:"maxConnectionsPercent" yaml:"maxConnectionsPercent"`
 	// Controls how actively the proxy closes idle database connections in the connection pool.
 	//
 	// The value is expressed as a percentage of the `max_connections` setting for the RDS DB instance or Aurora DB cluster used by the target group. With a high value, the proxy leaves a high percentage of idle database connections open. A low value causes the proxy to close more idle connections and return them to the database.
@@ -7887,13 +7887,13 @@ type CfnDBProxyTargetGroup_ConnectionPoolConfigurationInfoFormatProperty struct 
 	// Default: 50
 	//
 	// Constraints: between 0 and `MaxConnectionsPercent`
-	MaxIdleConnectionsPercent *float64 `json:"maxIdleConnectionsPercent"`
+	MaxIdleConnectionsPercent *float64 `json:"maxIdleConnectionsPercent" yaml:"maxIdleConnectionsPercent"`
 	// Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection.
 	//
 	// Including an item in the list exempts that class of SQL operations from the pinning behavior.
 	//
 	// Default: no session pinning filters
-	SessionPinningFilters *[]*string `json:"sessionPinningFilters"`
+	SessionPinningFilters *[]*string `json:"sessionPinningFilters" yaml:"sessionPinningFilters"`
 }
 
 // Properties for defining a `CfnDBProxyTargetGroup`.
@@ -7902,17 +7902,17 @@ type CfnDBProxyTargetGroup_ConnectionPoolConfigurationInfoFormatProperty struct 
 //
 type CfnDBProxyTargetGroupProps struct {
 	// The identifier of the `DBProxy` that is associated with the `DBProxyTargetGroup` .
-	DbProxyName *string `json:"dbProxyName"`
+	DbProxyName *string `json:"dbProxyName" yaml:"dbProxyName"`
 	// The identifier for the target group.
 	//
 	// > Currently, this property must be set to `default` .
-	TargetGroupName *string `json:"targetGroupName"`
+	TargetGroupName *string `json:"targetGroupName" yaml:"targetGroupName"`
 	// Settings that control the size and behavior of the connection pool associated with a `DBProxyTargetGroup` .
-	ConnectionPoolConfigurationInfo interface{} `json:"connectionPoolConfigurationInfo"`
+	ConnectionPoolConfigurationInfo interface{} `json:"connectionPoolConfigurationInfo" yaml:"connectionPoolConfigurationInfo"`
 	// One or more DB cluster identifiers.
-	DbClusterIdentifiers *[]*string `json:"dbClusterIdentifiers"`
+	DbClusterIdentifiers *[]*string `json:"dbClusterIdentifiers" yaml:"dbClusterIdentifiers"`
 	// One or more DB instance identifiers.
-	DbInstanceIdentifiers *[]*string `json:"dbInstanceIdentifiers"`
+	DbInstanceIdentifiers *[]*string `json:"dbInstanceIdentifiers" yaml:"dbInstanceIdentifiers"`
 }
 
 // A CloudFormation `AWS::RDS::DBSecurityGroup`.
@@ -8446,19 +8446,19 @@ func (c *jsiiProxy_CfnDBSecurityGroup) ValidateProperties(_properties interface{
 //
 type CfnDBSecurityGroup_IngressProperty struct {
 	// The IP range to authorize.
-	Cidrip *string `json:"cidrip"`
+	Cidrip *string `json:"cidrip" yaml:"cidrip"`
 	// Id of the EC2 Security Group to authorize.
 	//
 	// For VPC DB Security Groups, `EC2SecurityGroupId` must be provided. Otherwise, EC2SecurityGroupOwnerId and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
-	Ec2SecurityGroupId *string `json:"ec2SecurityGroupId"`
+	Ec2SecurityGroupId *string `json:"ec2SecurityGroupId" yaml:"ec2SecurityGroupId"`
 	// Name of the EC2 Security Group to authorize.
 	//
 	// For VPC DB Security Groups, `EC2SecurityGroupId` must be provided. Otherwise, EC2SecurityGroupOwnerId and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
-	Ec2SecurityGroupName *string `json:"ec2SecurityGroupName"`
+	Ec2SecurityGroupName *string `json:"ec2SecurityGroupName" yaml:"ec2SecurityGroupName"`
 	// AWS Account Number of the owner of the EC2 Security Group specified in the EC2SecurityGroupName parameter.
 	//
 	// The AWS Access Key ID is not an acceptable value. For VPC DB Security Groups, `EC2SecurityGroupId` must be provided. Otherwise, EC2SecurityGroupOwnerId and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
-	Ec2SecurityGroupOwnerId *string `json:"ec2SecurityGroupOwnerId"`
+	Ec2SecurityGroupOwnerId *string `json:"ec2SecurityGroupOwnerId" yaml:"ec2SecurityGroupOwnerId"`
 }
 
 // A CloudFormation `AWS::RDS::DBSecurityGroupIngress`.
@@ -9023,21 +9023,21 @@ func (c *jsiiProxy_CfnDBSecurityGroupIngress) ValidateProperties(_properties int
 //
 type CfnDBSecurityGroupIngressProps struct {
 	// The name of the DB Security Group to add authorization to.
-	DbSecurityGroupName *string `json:"dbSecurityGroupName"`
+	DbSecurityGroupName *string `json:"dbSecurityGroupName" yaml:"dbSecurityGroupName"`
 	// The IP range to authorize.
-	Cidrip *string `json:"cidrip"`
+	Cidrip *string `json:"cidrip" yaml:"cidrip"`
 	// Id of the EC2 Security Group to authorize.
 	//
 	// For VPC DB Security Groups, `EC2SecurityGroupId` must be provided. Otherwise, EC2SecurityGroupOwnerId and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
-	Ec2SecurityGroupId *string `json:"ec2SecurityGroupId"`
+	Ec2SecurityGroupId *string `json:"ec2SecurityGroupId" yaml:"ec2SecurityGroupId"`
 	// Name of the EC2 Security Group to authorize.
 	//
 	// For VPC DB Security Groups, `EC2SecurityGroupId` must be provided. Otherwise, EC2SecurityGroupOwnerId and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
-	Ec2SecurityGroupName *string `json:"ec2SecurityGroupName"`
+	Ec2SecurityGroupName *string `json:"ec2SecurityGroupName" yaml:"ec2SecurityGroupName"`
 	// AWS Account Number of the owner of the EC2 Security Group specified in the EC2SecurityGroupName parameter.
 	//
 	// The AWS Access Key ID is not an acceptable value. For VPC DB Security Groups, `EC2SecurityGroupId` must be provided. Otherwise, EC2SecurityGroupOwnerId and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
-	Ec2SecurityGroupOwnerId *string `json:"ec2SecurityGroupOwnerId"`
+	Ec2SecurityGroupOwnerId *string `json:"ec2SecurityGroupOwnerId" yaml:"ec2SecurityGroupOwnerId"`
 }
 
 // Properties for defining a `CfnDBSecurityGroup`.
@@ -9046,15 +9046,15 @@ type CfnDBSecurityGroupIngressProps struct {
 //
 type CfnDBSecurityGroupProps struct {
 	// Ingress rules to be applied to the DB security group.
-	DbSecurityGroupIngress interface{} `json:"dbSecurityGroupIngress"`
+	DbSecurityGroupIngress interface{} `json:"dbSecurityGroupIngress" yaml:"dbSecurityGroupIngress"`
 	// Provides the description of the DB Security Group.
-	GroupDescription *string `json:"groupDescription"`
+	GroupDescription *string `json:"groupDescription" yaml:"groupDescription"`
 	// The identifier of an Amazon VPC. This property indicates the VPC that this DB security group belongs to.
 	//
 	// > The `EC2VpcId` property is for backward compatibility with older regions, and is no longer recommended for providing security information to an RDS DB instance.
-	Ec2VpcId *string `json:"ec2VpcId"`
+	Ec2VpcId *string `json:"ec2VpcId" yaml:"ec2VpcId"`
 	// Tags to assign to the DB security group.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::RDS::DBSubnetGroup`.
@@ -9588,17 +9588,17 @@ func (c *jsiiProxy_CfnDBSubnetGroup) ValidateProperties(_properties interface{})
 //
 type CfnDBSubnetGroupProps struct {
 	// The description for the DB Subnet Group.
-	DbSubnetGroupDescription *string `json:"dbSubnetGroupDescription"`
+	DbSubnetGroupDescription *string `json:"dbSubnetGroupDescription" yaml:"dbSubnetGroupDescription"`
 	// The EC2 Subnet IDs for the DB Subnet Group.
-	SubnetIds *[]*string `json:"subnetIds"`
+	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
 	// The name for the DB subnet group. This value is stored as a lowercase string.
 	//
 	// Constraints: Must contain no more than 255 lowercase alphanumeric characters or hyphens. Must not be "Default".
 	//
 	// Example: `mysubnetgroup`
-	DbSubnetGroupName *string `json:"dbSubnetGroupName"`
+	DbSubnetGroupName *string `json:"dbSubnetGroupName" yaml:"dbSubnetGroupName"`
 	// Tags to assign to the DB subnet group.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::RDS::EventSubscription`.
@@ -10161,15 +10161,15 @@ type CfnEventSubscriptionProps struct {
 	// The Amazon Resource Name (ARN) of the SNS topic created for event notification.
 	//
 	// The ARN is created by Amazon SNS when you create a topic and subscribe to it.
-	SnsTopicArn *string `json:"snsTopicArn"`
+	SnsTopicArn *string `json:"snsTopicArn" yaml:"snsTopicArn"`
 	// A Boolean value;
 	//
 	// set to *true* to activate the subscription, set to *false* to create the subscription but not active it.
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 	// A list of event categories for a SourceType that you want to subscribe to.
 	//
 	// You can see a list of the categories for a given SourceType in the [Events](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html) topic in the Amazon RDS User Guide or by using the *DescribeEventCategories* action.
-	EventCategories *[]*string `json:"eventCategories"`
+	EventCategories *[]*string `json:"eventCategories" yaml:"eventCategories"`
 	// The list of identifiers of the event sources for which events are returned.
 	//
 	// If not specified, then all sources are included in the response. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens. It can't end with a hyphen or contain two consecutive hyphens.
@@ -10183,13 +10183,13 @@ type CfnEventSubscriptionProps struct {
 	// - If the source type is a DB security group, a `DBSecurityGroupName` value must be supplied.
 	// - If the source type is a DB snapshot, a `DBSnapshotIdentifier` value must be supplied.
 	// - If the source type is a DB cluster snapshot, a `DBClusterSnapshotIdentifier` value must be supplied.
-	SourceIds *[]*string `json:"sourceIds"`
+	SourceIds *[]*string `json:"sourceIds" yaml:"sourceIds"`
 	// The type of source that is generating the events.
 	//
 	// For example, if you want to be notified of events generated by a DB instance, set this parameter to `db-instance` . If this value isn't specified, all events are returned.
 	//
 	// Valid values: `db-instance` | `db-cluster` | `db-parameter-group` | `db-security-group` | `db-snapshot` | `db-cluster-snapshot`
-	SourceType *string `json:"sourceType"`
+	SourceType *string `json:"sourceType" yaml:"sourceType"`
 }
 
 // A CloudFormation `AWS::RDS::GlobalCluster`.
@@ -10778,23 +10778,23 @@ type CfnGlobalClusterProps struct {
 	// The deletion protection setting for the new global database.
 	//
 	// The global database can't be deleted when deletion protection is enabled.
-	DeletionProtection interface{} `json:"deletionProtection"`
+	DeletionProtection interface{} `json:"deletionProtection" yaml:"deletionProtection"`
 	// The name of the database engine to be used for this DB cluster.
 	//
 	// If this property isn't specified, the database engine is derived from the source DB cluster specified by the `SourceDBClusterIdentifier` property.
 	//
 	// > If the `SourceDBClusterIdentifier` property isn't specified, this property is required. If the `SourceDBClusterIdentifier` property is specified, make sure this property isn't specified.
-	Engine *string `json:"engine"`
+	Engine *string `json:"engine" yaml:"engine"`
 	// The engine version of the Aurora global database.
-	EngineVersion *string `json:"engineVersion"`
+	EngineVersion *string `json:"engineVersion" yaml:"engineVersion"`
 	// The cluster identifier of the global database cluster.
-	GlobalClusterIdentifier *string `json:"globalClusterIdentifier"`
+	GlobalClusterIdentifier *string `json:"globalClusterIdentifier" yaml:"globalClusterIdentifier"`
 	// The DB cluster identifier or Amazon Resource Name (ARN) to use as the primary cluster of the global database.
 	//
 	// > If the `Engine` property isn't specified, this property is required. If the `Engine` property is specified, make sure this property isn't specified.
-	SourceDbClusterIdentifier *string `json:"sourceDbClusterIdentifier"`
+	SourceDbClusterIdentifier *string `json:"sourceDbClusterIdentifier" yaml:"sourceDbClusterIdentifier"`
 	// The storage encryption setting for the global database cluster.
-	StorageEncrypted interface{} `json:"storageEncrypted"`
+	StorageEncrypted interface{} `json:"storageEncrypted" yaml:"storageEncrypted"`
 }
 
 // A CloudFormation `AWS::RDS::OptionGroup`.
@@ -11346,17 +11346,17 @@ func (c *jsiiProxy_CfnOptionGroup) ValidateProperties(_properties interface{}) {
 //
 type CfnOptionGroup_OptionConfigurationProperty struct {
 	// The configuration of options to include in a group.
-	OptionName *string `json:"optionName"`
+	OptionName *string `json:"optionName" yaml:"optionName"`
 	// A list of DBSecurityGroupMembership name strings used for this option.
-	DbSecurityGroupMemberships *[]*string `json:"dbSecurityGroupMemberships"`
+	DbSecurityGroupMemberships *[]*string `json:"dbSecurityGroupMemberships" yaml:"dbSecurityGroupMemberships"`
 	// The option settings to include in an option group.
-	OptionSettings interface{} `json:"optionSettings"`
+	OptionSettings interface{} `json:"optionSettings" yaml:"optionSettings"`
 	// The version for the option.
-	OptionVersion *string `json:"optionVersion"`
+	OptionVersion *string `json:"optionVersion" yaml:"optionVersion"`
 	// The optional port for the option.
-	Port *float64 `json:"port"`
+	Port *float64 `json:"port" yaml:"port"`
 	// A list of VpcSecurityGroupMembership name strings used for this option.
-	VpcSecurityGroupMemberships *[]*string `json:"vpcSecurityGroupMemberships"`
+	VpcSecurityGroupMemberships *[]*string `json:"vpcSecurityGroupMemberships" yaml:"vpcSecurityGroupMemberships"`
 }
 
 // The `OptionSetting` property type specifies the value for an option within an `OptionSetting` property.
@@ -11365,9 +11365,9 @@ type CfnOptionGroup_OptionConfigurationProperty struct {
 //
 type CfnOptionGroup_OptionSettingProperty struct {
 	// The name of the option that has settings that you can set.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The current value of the option setting.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // Properties for defining a `CfnOptionGroup`.
@@ -11390,15 +11390,15 @@ type CfnOptionGroupProps struct {
 	// - `sqlserver-se`
 	// - `sqlserver-ex`
 	// - `sqlserver-web`
-	EngineName *string `json:"engineName"`
+	EngineName *string `json:"engineName" yaml:"engineName"`
 	// Specifies the major version of the engine that this option group should be associated with.
-	MajorEngineVersion *string `json:"majorEngineVersion"`
+	MajorEngineVersion *string `json:"majorEngineVersion" yaml:"majorEngineVersion"`
 	// A list of options and the settings for each option.
-	OptionConfigurations interface{} `json:"optionConfigurations"`
+	OptionConfigurations interface{} `json:"optionConfigurations" yaml:"optionConfigurations"`
 	// The description of the option group.
-	OptionGroupDescription *string `json:"optionGroupDescription"`
+	OptionGroupDescription *string `json:"optionGroupDescription" yaml:"optionGroupDescription"`
 	// Tags to assign to the option group.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // The extra options passed to the {@link IClusterEngine.bindToCluster} method.
@@ -11407,11 +11407,11 @@ type CfnOptionGroupProps struct {
 //
 type ClusterEngineBindOptions struct {
 	// The customer-provided ParameterGroup.
-	ParameterGroup IParameterGroup `json:"parameterGroup"`
+	ParameterGroup IParameterGroup `json:"parameterGroup" yaml:"parameterGroup"`
 	// The role used for S3 exporting.
-	S3ExportRole awsiam.IRole `json:"s3ExportRole"`
+	S3ExportRole awsiam.IRole `json:"s3ExportRole" yaml:"s3ExportRole"`
 	// The role used for S3 importing.
-	S3ImportRole awsiam.IRole `json:"s3ImportRole"`
+	S3ImportRole awsiam.IRole `json:"s3ImportRole" yaml:"s3ImportRole"`
 }
 
 // The type returned from the {@link IClusterEngine.bindToCluster} method.
@@ -11422,11 +11422,11 @@ type ClusterEngineConfig struct {
 	// Features supported by the database engine.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DBEngineVersion.html
 	//
-	Features *ClusterEngineFeatures `json:"features"`
+	Features *ClusterEngineFeatures `json:"features" yaml:"features"`
 	// The ParameterGroup to use for the cluster.
-	ParameterGroup IParameterGroup `json:"parameterGroup"`
+	ParameterGroup IParameterGroup `json:"parameterGroup" yaml:"parameterGroup"`
 	// The port to use for this cluster, unless the customer specified the port directly.
-	Port *float64 `json:"port"`
+	Port *float64 `json:"port" yaml:"port"`
 }
 
 // Represents Database Engine features.
@@ -11435,9 +11435,9 @@ type ClusterEngineConfig struct {
 //
 type ClusterEngineFeatures struct {
 	// Feature name for the DB instance that the IAM role to export to S3 bucket is to be associated with.
-	S3Export *string `json:"s3Export"`
+	S3Export *string `json:"s3Export" yaml:"s3Export"`
 	// Feature name for the DB instance that the IAM role to access the S3 bucket for import is to be associated with.
-	S3Import *string `json:"s3Import"`
+	S3Import *string `json:"s3Import" yaml:"s3Import"`
 }
 
 // Username and password combination.
@@ -11634,15 +11634,15 @@ func Credentials_FromUsername(username *string, options *CredentialsFromUsername
 //
 type CredentialsBaseOptions struct {
 	// KMS encryption key to encrypt the generated secret.
-	EncryptionKey awskms.IKey `json:"encryptionKey"`
+	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
 	// The characters to exclude from the generated password.
 	//
 	// Has no effect if {@link password} has been provided.
-	ExcludeCharacters *string `json:"excludeCharacters"`
+	ExcludeCharacters *string `json:"excludeCharacters" yaml:"excludeCharacters"`
 	// A list of regions where to replicate this secret.
-	ReplicaRegions *[]*awssecretsmanager.ReplicaRegion `json:"replicaRegions"`
+	ReplicaRegions *[]*awssecretsmanager.ReplicaRegion `json:"replicaRegions" yaml:"replicaRegions"`
 	// The name of the secret.
-	SecretName *string `json:"secretName"`
+	SecretName *string `json:"secretName" yaml:"secretName"`
 }
 
 // Options for creating Credentials from a username.
@@ -11651,19 +11651,19 @@ type CredentialsBaseOptions struct {
 //
 type CredentialsFromUsernameOptions struct {
 	// KMS encryption key to encrypt the generated secret.
-	EncryptionKey awskms.IKey `json:"encryptionKey"`
+	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
 	// The characters to exclude from the generated password.
 	//
 	// Has no effect if {@link password} has been provided.
-	ExcludeCharacters *string `json:"excludeCharacters"`
+	ExcludeCharacters *string `json:"excludeCharacters" yaml:"excludeCharacters"`
 	// A list of regions where to replicate this secret.
-	ReplicaRegions *[]*awssecretsmanager.ReplicaRegion `json:"replicaRegions"`
+	ReplicaRegions *[]*awssecretsmanager.ReplicaRegion `json:"replicaRegions" yaml:"replicaRegions"`
 	// The name of the secret.
-	SecretName *string `json:"secretName"`
+	SecretName *string `json:"secretName" yaml:"secretName"`
 	// Password.
 	//
 	// Do not put passwords in your CDK code directly.
-	Password awscdk.SecretValue `json:"password"`
+	Password awscdk.SecretValue `json:"password" yaml:"password"`
 }
 
 // Create a clustered database with a given number of instances.
@@ -12325,21 +12325,21 @@ func (d *jsiiProxy_DatabaseCluster) ToString() *string {
 //
 type DatabaseClusterAttributes struct {
 	// Identifier for the cluster.
-	ClusterIdentifier *string `json:"clusterIdentifier"`
+	ClusterIdentifier *string `json:"clusterIdentifier" yaml:"clusterIdentifier"`
 	// Cluster endpoint address.
-	ClusterEndpointAddress *string `json:"clusterEndpointAddress"`
+	ClusterEndpointAddress *string `json:"clusterEndpointAddress" yaml:"clusterEndpointAddress"`
 	// The engine of the existing Cluster.
-	Engine IClusterEngine `json:"engine"`
+	Engine IClusterEngine `json:"engine" yaml:"engine"`
 	// Endpoint addresses of individual instances.
-	InstanceEndpointAddresses *[]*string `json:"instanceEndpointAddresses"`
+	InstanceEndpointAddresses *[]*string `json:"instanceEndpointAddresses" yaml:"instanceEndpointAddresses"`
 	// Identifier for the instances.
-	InstanceIdentifiers *[]*string `json:"instanceIdentifiers"`
+	InstanceIdentifiers *[]*string `json:"instanceIdentifiers" yaml:"instanceIdentifiers"`
 	// The database port.
-	Port *float64 `json:"port"`
+	Port *float64 `json:"port" yaml:"port"`
 	// Reader endpoint address.
-	ReaderEndpointAddress *string `json:"readerEndpointAddress"`
+	ReaderEndpointAddress *string `json:"readerEndpointAddress" yaml:"readerEndpointAddress"`
 	// The security groups of the database cluster.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 }
 
 // A new or imported clustered database.
@@ -13612,67 +13612,67 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) ToString() *string {
 //
 type DatabaseClusterFromSnapshotProps struct {
 	// What kind of database to start.
-	Engine IClusterEngine `json:"engine"`
+	Engine IClusterEngine `json:"engine" yaml:"engine"`
 	// Settings for the individual instances that are launched.
-	InstanceProps *InstanceProps `json:"instanceProps"`
+	InstanceProps *InstanceProps `json:"instanceProps" yaml:"instanceProps"`
 	// The identifier for the DB instance snapshot or DB cluster snapshot to restore from.
 	//
 	// You can use either the name or the Amazon Resource Name (ARN) to specify a DB cluster snapshot.
 	// However, you can use only the ARN to specify a DB instance snapshot.
-	SnapshotIdentifier *string `json:"snapshotIdentifier"`
+	SnapshotIdentifier *string `json:"snapshotIdentifier" yaml:"snapshotIdentifier"`
 	// The number of seconds to set a cluster's target backtrack window to.
 	//
 	// This feature is only supported by the Aurora MySQL database engine and
 	// cannot be enabled on existing clusters.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.Backtrack.html
 	//
-	BacktrackWindow awscdk.Duration `json:"backtrackWindow"`
+	BacktrackWindow awscdk.Duration `json:"backtrackWindow" yaml:"backtrackWindow"`
 	// Backup settings.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow
 	//
-	Backup *BackupProps `json:"backup"`
+	Backup *BackupProps `json:"backup" yaml:"backup"`
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs.
-	CloudwatchLogsExports *[]*string `json:"cloudwatchLogsExports"`
+	CloudwatchLogsExports *[]*string `json:"cloudwatchLogsExports" yaml:"cloudwatchLogsExports"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// When updating
 	// this property, unsetting it doesn't remove the log retention policy. To
 	// remove the retention policy, set the value to `Infinity`.
-	CloudwatchLogsRetention awslogs.RetentionDays `json:"cloudwatchLogsRetention"`
+	CloudwatchLogsRetention awslogs.RetentionDays `json:"cloudwatchLogsRetention" yaml:"cloudwatchLogsRetention"`
 	// The IAM role for the Lambda function associated with the custom resource that sets the retention policy.
-	CloudwatchLogsRetentionRole awsiam.IRole `json:"cloudwatchLogsRetentionRole"`
+	CloudwatchLogsRetentionRole awsiam.IRole `json:"cloudwatchLogsRetentionRole" yaml:"cloudwatchLogsRetentionRole"`
 	// An optional identifier for the cluster.
-	ClusterIdentifier *string `json:"clusterIdentifier"`
+	ClusterIdentifier *string `json:"clusterIdentifier" yaml:"clusterIdentifier"`
 	// Name of a database which is automatically created inside the cluster.
-	DefaultDatabaseName *string `json:"defaultDatabaseName"`
+	DefaultDatabaseName *string `json:"defaultDatabaseName" yaml:"defaultDatabaseName"`
 	// Indicates whether the DB cluster should have deletion protection enabled.
-	DeletionProtection *bool `json:"deletionProtection"`
+	DeletionProtection *bool `json:"deletionProtection" yaml:"deletionProtection"`
 	// Whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts.
-	IamAuthentication *bool `json:"iamAuthentication"`
+	IamAuthentication *bool `json:"iamAuthentication" yaml:"iamAuthentication"`
 	// Base identifier for instances.
 	//
 	// Every replica is named by appending the replica number to this string, 1-based.
-	InstanceIdentifierBase *string `json:"instanceIdentifierBase"`
+	InstanceIdentifierBase *string `json:"instanceIdentifierBase" yaml:"instanceIdentifierBase"`
 	// How many replicas/instances to create.
 	//
 	// Has to be at least 1.
-	Instances *float64 `json:"instances"`
+	Instances *float64 `json:"instances" yaml:"instances"`
 	// The interval, in seconds, between points when Amazon RDS collects enhanced monitoring metrics for the DB instances.
-	MonitoringInterval awscdk.Duration `json:"monitoringInterval"`
+	MonitoringInterval awscdk.Duration `json:"monitoringInterval" yaml:"monitoringInterval"`
 	// Role that will be used to manage DB instances monitoring.
-	MonitoringRole awsiam.IRole `json:"monitoringRole"`
+	MonitoringRole awsiam.IRole `json:"monitoringRole" yaml:"monitoringRole"`
 	// Additional parameters to pass to the database engine.
-	ParameterGroup IParameterGroup `json:"parameterGroup"`
+	ParameterGroup IParameterGroup `json:"parameterGroup" yaml:"parameterGroup"`
 	// What port to listen on.
-	Port *float64 `json:"port"`
+	Port *float64 `json:"port" yaml:"port"`
 	// A preferred maintenance window day/time range. Should be specified as a range ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC).
 	//
 	// Example: 'Sun:23:45-Mon:00:15'
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#Concepts.DBMaintenance
 	//
-	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow"`
+	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
 	// The removal policy to apply when the cluster and its instances are removed from the stack or replaced during an update.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 	// S3 buckets that you want to load data into. This feature is only supported by the Aurora database engine.
 	//
 	// This property must not be used if `s3ExportRole` is used.
@@ -13680,7 +13680,7 @@ type DatabaseClusterFromSnapshotProps struct {
 	// For MySQL:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/postgresql-s3-export.html
 	//
-	S3ExportBuckets *[]awss3.IBucket `json:"s3ExportBuckets"`
+	S3ExportBuckets *[]awss3.IBucket `json:"s3ExportBuckets" yaml:"s3ExportBuckets"`
 	// Role that will be associated with this DB cluster to enable S3 export.
 	//
 	// This feature is only supported by the Aurora database engine.
@@ -13690,7 +13690,7 @@ type DatabaseClusterFromSnapshotProps struct {
 	// For MySQL:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/postgresql-s3-export.html
 	//
-	S3ExportRole awsiam.IRole `json:"s3ExportRole"`
+	S3ExportRole awsiam.IRole `json:"s3ExportRole" yaml:"s3ExportRole"`
 	// S3 buckets that you want to load data from. This feature is only supported by the Aurora database engine.
 	//
 	// This property must not be used if `s3ImportRole` is used.
@@ -13698,7 +13698,7 @@ type DatabaseClusterFromSnapshotProps struct {
 	// For MySQL:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Migrating.html
 	//
-	S3ImportBuckets *[]awss3.IBucket `json:"s3ImportBuckets"`
+	S3ImportBuckets *[]awss3.IBucket `json:"s3ImportBuckets" yaml:"s3ImportBuckets"`
 	// Role that will be associated with this DB cluster to enable S3 import.
 	//
 	// This feature is only supported by the Aurora database engine.
@@ -13708,9 +13708,9 @@ type DatabaseClusterFromSnapshotProps struct {
 	// For MySQL:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Migrating.html
 	//
-	S3ImportRole awsiam.IRole `json:"s3ImportRole"`
+	S3ImportRole awsiam.IRole `json:"s3ImportRole" yaml:"s3ImportRole"`
 	// Existing subnet group for the cluster.
-	SubnetGroup ISubnetGroup `json:"subnetGroup"`
+	SubnetGroup ISubnetGroup `json:"subnetGroup" yaml:"subnetGroup"`
 }
 
 // Properties for a new database cluster.
@@ -13719,66 +13719,66 @@ type DatabaseClusterFromSnapshotProps struct {
 //
 type DatabaseClusterProps struct {
 	// What kind of database to start.
-	Engine IClusterEngine `json:"engine"`
+	Engine IClusterEngine `json:"engine" yaml:"engine"`
 	// Settings for the individual instances that are launched.
-	InstanceProps *InstanceProps `json:"instanceProps"`
+	InstanceProps *InstanceProps `json:"instanceProps" yaml:"instanceProps"`
 	// The number of seconds to set a cluster's target backtrack window to.
 	//
 	// This feature is only supported by the Aurora MySQL database engine and
 	// cannot be enabled on existing clusters.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.Backtrack.html
 	//
-	BacktrackWindow awscdk.Duration `json:"backtrackWindow"`
+	BacktrackWindow awscdk.Duration `json:"backtrackWindow" yaml:"backtrackWindow"`
 	// Backup settings.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow
 	//
-	Backup *BackupProps `json:"backup"`
+	Backup *BackupProps `json:"backup" yaml:"backup"`
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs.
-	CloudwatchLogsExports *[]*string `json:"cloudwatchLogsExports"`
+	CloudwatchLogsExports *[]*string `json:"cloudwatchLogsExports" yaml:"cloudwatchLogsExports"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// When updating
 	// this property, unsetting it doesn't remove the log retention policy. To
 	// remove the retention policy, set the value to `Infinity`.
-	CloudwatchLogsRetention awslogs.RetentionDays `json:"cloudwatchLogsRetention"`
+	CloudwatchLogsRetention awslogs.RetentionDays `json:"cloudwatchLogsRetention" yaml:"cloudwatchLogsRetention"`
 	// The IAM role for the Lambda function associated with the custom resource that sets the retention policy.
-	CloudwatchLogsRetentionRole awsiam.IRole `json:"cloudwatchLogsRetentionRole"`
+	CloudwatchLogsRetentionRole awsiam.IRole `json:"cloudwatchLogsRetentionRole" yaml:"cloudwatchLogsRetentionRole"`
 	// An optional identifier for the cluster.
-	ClusterIdentifier *string `json:"clusterIdentifier"`
+	ClusterIdentifier *string `json:"clusterIdentifier" yaml:"clusterIdentifier"`
 	// Whether to copy tags to the snapshot when a snapshot is created.
-	CopyTagsToSnapshot *bool `json:"copyTagsToSnapshot"`
+	CopyTagsToSnapshot *bool `json:"copyTagsToSnapshot" yaml:"copyTagsToSnapshot"`
 	// Credentials for the administrative user.
-	Credentials Credentials `json:"credentials"`
+	Credentials Credentials `json:"credentials" yaml:"credentials"`
 	// Name of a database which is automatically created inside the cluster.
-	DefaultDatabaseName *string `json:"defaultDatabaseName"`
+	DefaultDatabaseName *string `json:"defaultDatabaseName" yaml:"defaultDatabaseName"`
 	// Indicates whether the DB cluster should have deletion protection enabled.
-	DeletionProtection *bool `json:"deletionProtection"`
+	DeletionProtection *bool `json:"deletionProtection" yaml:"deletionProtection"`
 	// Whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts.
-	IamAuthentication *bool `json:"iamAuthentication"`
+	IamAuthentication *bool `json:"iamAuthentication" yaml:"iamAuthentication"`
 	// Base identifier for instances.
 	//
 	// Every replica is named by appending the replica number to this string, 1-based.
-	InstanceIdentifierBase *string `json:"instanceIdentifierBase"`
+	InstanceIdentifierBase *string `json:"instanceIdentifierBase" yaml:"instanceIdentifierBase"`
 	// How many replicas/instances to create.
 	//
 	// Has to be at least 1.
-	Instances *float64 `json:"instances"`
+	Instances *float64 `json:"instances" yaml:"instances"`
 	// The interval, in seconds, between points when Amazon RDS collects enhanced monitoring metrics for the DB instances.
-	MonitoringInterval awscdk.Duration `json:"monitoringInterval"`
+	MonitoringInterval awscdk.Duration `json:"monitoringInterval" yaml:"monitoringInterval"`
 	// Role that will be used to manage DB instances monitoring.
-	MonitoringRole awsiam.IRole `json:"monitoringRole"`
+	MonitoringRole awsiam.IRole `json:"monitoringRole" yaml:"monitoringRole"`
 	// Additional parameters to pass to the database engine.
-	ParameterGroup IParameterGroup `json:"parameterGroup"`
+	ParameterGroup IParameterGroup `json:"parameterGroup" yaml:"parameterGroup"`
 	// What port to listen on.
-	Port *float64 `json:"port"`
+	Port *float64 `json:"port" yaml:"port"`
 	// A preferred maintenance window day/time range. Should be specified as a range ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC).
 	//
 	// Example: 'Sun:23:45-Mon:00:15'
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#Concepts.DBMaintenance
 	//
-	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow"`
+	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
 	// The removal policy to apply when the cluster and its instances are removed from the stack or replaced during an update.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 	// S3 buckets that you want to load data into. This feature is only supported by the Aurora database engine.
 	//
 	// This property must not be used if `s3ExportRole` is used.
@@ -13786,7 +13786,7 @@ type DatabaseClusterProps struct {
 	// For MySQL:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/postgresql-s3-export.html
 	//
-	S3ExportBuckets *[]awss3.IBucket `json:"s3ExportBuckets"`
+	S3ExportBuckets *[]awss3.IBucket `json:"s3ExportBuckets" yaml:"s3ExportBuckets"`
 	// Role that will be associated with this DB cluster to enable S3 export.
 	//
 	// This feature is only supported by the Aurora database engine.
@@ -13796,7 +13796,7 @@ type DatabaseClusterProps struct {
 	// For MySQL:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/postgresql-s3-export.html
 	//
-	S3ExportRole awsiam.IRole `json:"s3ExportRole"`
+	S3ExportRole awsiam.IRole `json:"s3ExportRole" yaml:"s3ExportRole"`
 	// S3 buckets that you want to load data from. This feature is only supported by the Aurora database engine.
 	//
 	// This property must not be used if `s3ImportRole` is used.
@@ -13804,7 +13804,7 @@ type DatabaseClusterProps struct {
 	// For MySQL:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Migrating.html
 	//
-	S3ImportBuckets *[]awss3.IBucket `json:"s3ImportBuckets"`
+	S3ImportBuckets *[]awss3.IBucket `json:"s3ImportBuckets" yaml:"s3ImportBuckets"`
 	// Role that will be associated with this DB cluster to enable S3 import.
 	//
 	// This feature is only supported by the Aurora database engine.
@@ -13814,15 +13814,15 @@ type DatabaseClusterProps struct {
 	// For MySQL:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Migrating.html
 	//
-	S3ImportRole awsiam.IRole `json:"s3ImportRole"`
+	S3ImportRole awsiam.IRole `json:"s3ImportRole" yaml:"s3ImportRole"`
 	// Whether to enable storage encryption.
-	StorageEncrypted *bool `json:"storageEncrypted"`
+	StorageEncrypted *bool `json:"storageEncrypted" yaml:"storageEncrypted"`
 	// The KMS key for storage encryption.
 	//
 	// If specified, {@link storageEncrypted} will be set to `true`.
-	StorageEncryptionKey awskms.IKey `json:"storageEncryptionKey"`
+	StorageEncryptionKey awskms.IKey `json:"storageEncryptionKey" yaml:"storageEncryptionKey"`
 	// Existing subnet group for the cluster.
-	SubnetGroup ISubnetGroup `json:"subnetGroup"`
+	SubnetGroup ISubnetGroup `json:"subnetGroup" yaml:"subnetGroup"`
 }
 
 // A database instance.
@@ -14434,15 +14434,15 @@ func (d *jsiiProxy_DatabaseInstance) ToString() *string {
 //
 type DatabaseInstanceAttributes struct {
 	// The endpoint address.
-	InstanceEndpointAddress *string `json:"instanceEndpointAddress"`
+	InstanceEndpointAddress *string `json:"instanceEndpointAddress" yaml:"instanceEndpointAddress"`
 	// The instance identifier.
-	InstanceIdentifier *string `json:"instanceIdentifier"`
+	InstanceIdentifier *string `json:"instanceIdentifier" yaml:"instanceIdentifier"`
 	// The database port.
-	Port *float64 `json:"port"`
+	Port *float64 `json:"port" yaml:"port"`
 	// The security groups of the instance.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// The engine of the existing database Instance.
-	Engine IInstanceEngine `json:"engine"`
+	Engine IInstanceEngine `json:"engine" yaml:"engine"`
 }
 
 // A new or imported database instance.
@@ -15820,73 +15820,73 @@ func (d *jsiiProxy_DatabaseInstanceFromSnapshot) ToString() *string {
 //
 type DatabaseInstanceFromSnapshotProps struct {
 	// The VPC network where the DB subnet group should be created.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// Indicates that minor engine upgrades are applied automatically to the DB instance during the maintenance window.
-	AutoMinorVersionUpgrade *bool `json:"autoMinorVersionUpgrade"`
+	AutoMinorVersionUpgrade *bool `json:"autoMinorVersionUpgrade" yaml:"autoMinorVersionUpgrade"`
 	// The name of the Availability Zone where the DB instance will be located.
-	AvailabilityZone *string `json:"availabilityZone"`
+	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
 	// The number of days during which automatic DB snapshots are retained.
 	//
 	// Set to zero to disable backups.
 	// When creating a read replica, you must enable automatic backups on the source
 	// database instance by setting the backup retention to a value other than zero.
-	BackupRetention awscdk.Duration `json:"backupRetention"`
+	BackupRetention awscdk.Duration `json:"backupRetention" yaml:"backupRetention"`
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs.
-	CloudwatchLogsExports *[]*string `json:"cloudwatchLogsExports"`
+	CloudwatchLogsExports *[]*string `json:"cloudwatchLogsExports" yaml:"cloudwatchLogsExports"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// When updating
 	// this property, unsetting it doesn't remove the log retention policy. To
 	// remove the retention policy, set the value to `Infinity`.
-	CloudwatchLogsRetention awslogs.RetentionDays `json:"cloudwatchLogsRetention"`
+	CloudwatchLogsRetention awslogs.RetentionDays `json:"cloudwatchLogsRetention" yaml:"cloudwatchLogsRetention"`
 	// The IAM role for the Lambda function associated with the custom resource that sets the retention policy.
-	CloudwatchLogsRetentionRole awsiam.IRole `json:"cloudwatchLogsRetentionRole"`
+	CloudwatchLogsRetentionRole awsiam.IRole `json:"cloudwatchLogsRetentionRole" yaml:"cloudwatchLogsRetentionRole"`
 	// Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance.
-	CopyTagsToSnapshot *bool `json:"copyTagsToSnapshot"`
+	CopyTagsToSnapshot *bool `json:"copyTagsToSnapshot" yaml:"copyTagsToSnapshot"`
 	// Indicates whether automated backups should be deleted or retained when you delete a DB instance.
-	DeleteAutomatedBackups *bool `json:"deleteAutomatedBackups"`
+	DeleteAutomatedBackups *bool `json:"deleteAutomatedBackups" yaml:"deleteAutomatedBackups"`
 	// Indicates whether the DB instance should have deletion protection enabled.
-	DeletionProtection *bool `json:"deletionProtection"`
+	DeletionProtection *bool `json:"deletionProtection" yaml:"deletionProtection"`
 	// The Active Directory directory ID to create the DB instance in.
-	Domain *string `json:"domain"`
+	Domain *string `json:"domain" yaml:"domain"`
 	// The IAM role to be used when making API calls to the Directory Service.
 	//
 	// The role needs the AWS-managed policy
 	// AmazonRDSDirectoryServiceAccess or equivalent.
-	DomainRole awsiam.IRole `json:"domainRole"`
+	DomainRole awsiam.IRole `json:"domainRole" yaml:"domainRole"`
 	// Whether to enable Performance Insights for the DB instance.
-	EnablePerformanceInsights *bool `json:"enablePerformanceInsights"`
+	EnablePerformanceInsights *bool `json:"enablePerformanceInsights" yaml:"enablePerformanceInsights"`
 	// Whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts.
-	IamAuthentication *bool `json:"iamAuthentication"`
+	IamAuthentication *bool `json:"iamAuthentication" yaml:"iamAuthentication"`
 	// A name for the DB instance.
 	//
 	// If you specify a name, AWS CloudFormation
 	// converts it to lowercase.
-	InstanceIdentifier *string `json:"instanceIdentifier"`
+	InstanceIdentifier *string `json:"instanceIdentifier" yaml:"instanceIdentifier"`
 	// The number of I/O operations per second (IOPS) that the database provisions.
 	//
 	// The value must be equal to or greater than 1000.
-	Iops *float64 `json:"iops"`
+	Iops *float64 `json:"iops" yaml:"iops"`
 	// Upper limit to which RDS can scale the storage in GiB(Gibibyte).
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling
 	//
-	MaxAllocatedStorage *float64 `json:"maxAllocatedStorage"`
+	MaxAllocatedStorage *float64 `json:"maxAllocatedStorage" yaml:"maxAllocatedStorage"`
 	// The interval, in seconds, between points when Amazon RDS collects enhanced monitoring metrics for the DB instance.
-	MonitoringInterval awscdk.Duration `json:"monitoringInterval"`
+	MonitoringInterval awscdk.Duration `json:"monitoringInterval" yaml:"monitoringInterval"`
 	// Role that will be used to manage DB instance monitoring.
-	MonitoringRole awsiam.IRole `json:"monitoringRole"`
+	MonitoringRole awsiam.IRole `json:"monitoringRole" yaml:"monitoringRole"`
 	// Specifies if the database instance is a multiple Availability Zone deployment.
-	MultiAz *bool `json:"multiAz"`
+	MultiAz *bool `json:"multiAz" yaml:"multiAz"`
 	// The option group to associate with the instance.
-	OptionGroup IOptionGroup `json:"optionGroup"`
+	OptionGroup IOptionGroup `json:"optionGroup" yaml:"optionGroup"`
 	// The DB parameter group to associate with the instance.
-	ParameterGroup IParameterGroup `json:"parameterGroup"`
+	ParameterGroup IParameterGroup `json:"parameterGroup" yaml:"parameterGroup"`
 	// The AWS KMS key for encryption of Performance Insights data.
-	PerformanceInsightEncryptionKey awskms.IKey `json:"performanceInsightEncryptionKey"`
+	PerformanceInsightEncryptionKey awskms.IKey `json:"performanceInsightEncryptionKey" yaml:"performanceInsightEncryptionKey"`
 	// The amount of time, in days, to retain Performance Insights data.
-	PerformanceInsightRetention PerformanceInsightRetention `json:"performanceInsightRetention"`
+	PerformanceInsightRetention PerformanceInsightRetention `json:"performanceInsightRetention" yaml:"performanceInsightRetention"`
 	// The port for the instance.
-	Port *float64 `json:"port"`
+	Port *float64 `json:"port" yaml:"port"`
 	// The daily time range during which automated backups are performed.
 	//
 	// Constraints:
@@ -15894,18 +15894,18 @@ type DatabaseInstanceFromSnapshotProps struct {
 	// - Must be in Universal Coordinated Time (UTC).
 	// - Must not conflict with the preferred maintenance window.
 	// - Must be at least 30 minutes.
-	PreferredBackupWindow *string `json:"preferredBackupWindow"`
+	PreferredBackupWindow *string `json:"preferredBackupWindow" yaml:"preferredBackupWindow"`
 	// The weekly time range (in UTC) during which system maintenance can occur.
 	//
 	// Format: `ddd:hh24:mi-ddd:hh24:mi`
 	// Constraint: Minimum 30-minute window
-	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow"`
+	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
 	// The number of CPU cores and the number of threads per core.
-	ProcessorFeatures *ProcessorFeatures `json:"processorFeatures"`
+	ProcessorFeatures *ProcessorFeatures `json:"processorFeatures" yaml:"processorFeatures"`
 	// Indicates whether the DB instance is an internet-facing instance.
-	PubliclyAccessible *bool `json:"publiclyAccessible"`
+	PubliclyAccessible *bool `json:"publiclyAccessible" yaml:"publiclyAccessible"`
 	// The CloudFormation policy to apply when the instance is removed from the stack or replaced during an update.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 	// S3 buckets that you want to load data into.
 	//
 	// This property must not be used if `s3ExportRole` is used.
@@ -15913,7 +15913,7 @@ type DatabaseInstanceFromSnapshotProps struct {
 	// For Microsoft SQL Server:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-s3-integration.html
 	//
-	S3ExportBuckets *[]awss3.IBucket `json:"s3ExportBuckets"`
+	S3ExportBuckets *[]awss3.IBucket `json:"s3ExportBuckets" yaml:"s3ExportBuckets"`
 	// Role that will be associated with this DB instance to enable S3 export.
 	//
 	// This property must not be used if `s3ExportBuckets` is used.
@@ -15921,7 +15921,7 @@ type DatabaseInstanceFromSnapshotProps struct {
 	// For Microsoft SQL Server:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-s3-integration.html
 	//
-	S3ExportRole awsiam.IRole `json:"s3ExportRole"`
+	S3ExportRole awsiam.IRole `json:"s3ExportRole" yaml:"s3ExportRole"`
 	// S3 buckets that you want to load data from.
 	//
 	// This feature is only supported by the Microsoft SQL Server, Oracle, and PostgreSQL engines.
@@ -15931,7 +15931,7 @@ type DatabaseInstanceFromSnapshotProps struct {
 	// For Microsoft SQL Server:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL.Procedural.Importing.html
 	//
-	S3ImportBuckets *[]awss3.IBucket `json:"s3ImportBuckets"`
+	S3ImportBuckets *[]awss3.IBucket `json:"s3ImportBuckets" yaml:"s3ImportBuckets"`
 	// Role that will be associated with this DB instance to enable S3 import.
 	//
 	// This feature is only supported by the Microsoft SQL Server, Oracle, and PostgreSQL engines.
@@ -15941,45 +15941,45 @@ type DatabaseInstanceFromSnapshotProps struct {
 	// For Microsoft SQL Server:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL.Procedural.Importing.html
 	//
-	S3ImportRole awsiam.IRole `json:"s3ImportRole"`
+	S3ImportRole awsiam.IRole `json:"s3ImportRole" yaml:"s3ImportRole"`
 	// The security groups to assign to the DB instance.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// The storage type.
 	//
 	// Storage types supported are gp2, io1, standard.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#Concepts.Storage.GeneralSSD
 	//
-	StorageType StorageType `json:"storageType"`
+	StorageType StorageType `json:"storageType" yaml:"storageType"`
 	// Existing subnet group for the instance.
-	SubnetGroup ISubnetGroup `json:"subnetGroup"`
+	SubnetGroup ISubnetGroup `json:"subnetGroup" yaml:"subnetGroup"`
 	// The type of subnets to add to the created DB subnet group.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 	// The database engine.
-	Engine IInstanceEngine `json:"engine"`
+	Engine IInstanceEngine `json:"engine" yaml:"engine"`
 	// The allocated storage size, specified in gigabytes (GB).
-	AllocatedStorage *float64 `json:"allocatedStorage"`
+	AllocatedStorage *float64 `json:"allocatedStorage" yaml:"allocatedStorage"`
 	// Whether to allow major version upgrades.
-	AllowMajorVersionUpgrade *bool `json:"allowMajorVersionUpgrade"`
+	AllowMajorVersionUpgrade *bool `json:"allowMajorVersionUpgrade" yaml:"allowMajorVersionUpgrade"`
 	// The name of the database.
-	DatabaseName *string `json:"databaseName"`
+	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
 	// The name of the compute and memory capacity for the instance.
-	InstanceType awsec2.InstanceType `json:"instanceType"`
+	InstanceType awsec2.InstanceType `json:"instanceType" yaml:"instanceType"`
 	// The license model.
-	LicenseModel LicenseModel `json:"licenseModel"`
+	LicenseModel LicenseModel `json:"licenseModel" yaml:"licenseModel"`
 	// The time zone of the instance.
 	//
 	// This is currently supported only by Microsoft Sql Server.
-	Timezone *string `json:"timezone"`
+	Timezone *string `json:"timezone" yaml:"timezone"`
 	// The name or Amazon Resource Name (ARN) of the DB snapshot that's used to restore the DB instance.
 	//
 	// If you're restoring from a shared manual DB
 	// snapshot, you must specify the ARN of the snapshot.
-	SnapshotIdentifier *string `json:"snapshotIdentifier"`
+	SnapshotIdentifier *string `json:"snapshotIdentifier" yaml:"snapshotIdentifier"`
 	// Master user credentials.
 	//
 	// Note - It is not possible to change the master username for a snapshot;
 	// however, it is possible to provide (or generate) a new password.
-	Credentials SnapshotCredentials `json:"credentials"`
+	Credentials SnapshotCredentials `json:"credentials" yaml:"credentials"`
 }
 
 // Construction properties for a DatabaseInstanceNew.
@@ -15988,73 +15988,73 @@ type DatabaseInstanceFromSnapshotProps struct {
 //
 type DatabaseInstanceNewProps struct {
 	// The VPC network where the DB subnet group should be created.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// Indicates that minor engine upgrades are applied automatically to the DB instance during the maintenance window.
-	AutoMinorVersionUpgrade *bool `json:"autoMinorVersionUpgrade"`
+	AutoMinorVersionUpgrade *bool `json:"autoMinorVersionUpgrade" yaml:"autoMinorVersionUpgrade"`
 	// The name of the Availability Zone where the DB instance will be located.
-	AvailabilityZone *string `json:"availabilityZone"`
+	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
 	// The number of days during which automatic DB snapshots are retained.
 	//
 	// Set to zero to disable backups.
 	// When creating a read replica, you must enable automatic backups on the source
 	// database instance by setting the backup retention to a value other than zero.
-	BackupRetention awscdk.Duration `json:"backupRetention"`
+	BackupRetention awscdk.Duration `json:"backupRetention" yaml:"backupRetention"`
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs.
-	CloudwatchLogsExports *[]*string `json:"cloudwatchLogsExports"`
+	CloudwatchLogsExports *[]*string `json:"cloudwatchLogsExports" yaml:"cloudwatchLogsExports"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// When updating
 	// this property, unsetting it doesn't remove the log retention policy. To
 	// remove the retention policy, set the value to `Infinity`.
-	CloudwatchLogsRetention awslogs.RetentionDays `json:"cloudwatchLogsRetention"`
+	CloudwatchLogsRetention awslogs.RetentionDays `json:"cloudwatchLogsRetention" yaml:"cloudwatchLogsRetention"`
 	// The IAM role for the Lambda function associated with the custom resource that sets the retention policy.
-	CloudwatchLogsRetentionRole awsiam.IRole `json:"cloudwatchLogsRetentionRole"`
+	CloudwatchLogsRetentionRole awsiam.IRole `json:"cloudwatchLogsRetentionRole" yaml:"cloudwatchLogsRetentionRole"`
 	// Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance.
-	CopyTagsToSnapshot *bool `json:"copyTagsToSnapshot"`
+	CopyTagsToSnapshot *bool `json:"copyTagsToSnapshot" yaml:"copyTagsToSnapshot"`
 	// Indicates whether automated backups should be deleted or retained when you delete a DB instance.
-	DeleteAutomatedBackups *bool `json:"deleteAutomatedBackups"`
+	DeleteAutomatedBackups *bool `json:"deleteAutomatedBackups" yaml:"deleteAutomatedBackups"`
 	// Indicates whether the DB instance should have deletion protection enabled.
-	DeletionProtection *bool `json:"deletionProtection"`
+	DeletionProtection *bool `json:"deletionProtection" yaml:"deletionProtection"`
 	// The Active Directory directory ID to create the DB instance in.
-	Domain *string `json:"domain"`
+	Domain *string `json:"domain" yaml:"domain"`
 	// The IAM role to be used when making API calls to the Directory Service.
 	//
 	// The role needs the AWS-managed policy
 	// AmazonRDSDirectoryServiceAccess or equivalent.
-	DomainRole awsiam.IRole `json:"domainRole"`
+	DomainRole awsiam.IRole `json:"domainRole" yaml:"domainRole"`
 	// Whether to enable Performance Insights for the DB instance.
-	EnablePerformanceInsights *bool `json:"enablePerformanceInsights"`
+	EnablePerformanceInsights *bool `json:"enablePerformanceInsights" yaml:"enablePerformanceInsights"`
 	// Whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts.
-	IamAuthentication *bool `json:"iamAuthentication"`
+	IamAuthentication *bool `json:"iamAuthentication" yaml:"iamAuthentication"`
 	// A name for the DB instance.
 	//
 	// If you specify a name, AWS CloudFormation
 	// converts it to lowercase.
-	InstanceIdentifier *string `json:"instanceIdentifier"`
+	InstanceIdentifier *string `json:"instanceIdentifier" yaml:"instanceIdentifier"`
 	// The number of I/O operations per second (IOPS) that the database provisions.
 	//
 	// The value must be equal to or greater than 1000.
-	Iops *float64 `json:"iops"`
+	Iops *float64 `json:"iops" yaml:"iops"`
 	// Upper limit to which RDS can scale the storage in GiB(Gibibyte).
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling
 	//
-	MaxAllocatedStorage *float64 `json:"maxAllocatedStorage"`
+	MaxAllocatedStorage *float64 `json:"maxAllocatedStorage" yaml:"maxAllocatedStorage"`
 	// The interval, in seconds, between points when Amazon RDS collects enhanced monitoring metrics for the DB instance.
-	MonitoringInterval awscdk.Duration `json:"monitoringInterval"`
+	MonitoringInterval awscdk.Duration `json:"monitoringInterval" yaml:"monitoringInterval"`
 	// Role that will be used to manage DB instance monitoring.
-	MonitoringRole awsiam.IRole `json:"monitoringRole"`
+	MonitoringRole awsiam.IRole `json:"monitoringRole" yaml:"monitoringRole"`
 	// Specifies if the database instance is a multiple Availability Zone deployment.
-	MultiAz *bool `json:"multiAz"`
+	MultiAz *bool `json:"multiAz" yaml:"multiAz"`
 	// The option group to associate with the instance.
-	OptionGroup IOptionGroup `json:"optionGroup"`
+	OptionGroup IOptionGroup `json:"optionGroup" yaml:"optionGroup"`
 	// The DB parameter group to associate with the instance.
-	ParameterGroup IParameterGroup `json:"parameterGroup"`
+	ParameterGroup IParameterGroup `json:"parameterGroup" yaml:"parameterGroup"`
 	// The AWS KMS key for encryption of Performance Insights data.
-	PerformanceInsightEncryptionKey awskms.IKey `json:"performanceInsightEncryptionKey"`
+	PerformanceInsightEncryptionKey awskms.IKey `json:"performanceInsightEncryptionKey" yaml:"performanceInsightEncryptionKey"`
 	// The amount of time, in days, to retain Performance Insights data.
-	PerformanceInsightRetention PerformanceInsightRetention `json:"performanceInsightRetention"`
+	PerformanceInsightRetention PerformanceInsightRetention `json:"performanceInsightRetention" yaml:"performanceInsightRetention"`
 	// The port for the instance.
-	Port *float64 `json:"port"`
+	Port *float64 `json:"port" yaml:"port"`
 	// The daily time range during which automated backups are performed.
 	//
 	// Constraints:
@@ -16062,18 +16062,18 @@ type DatabaseInstanceNewProps struct {
 	// - Must be in Universal Coordinated Time (UTC).
 	// - Must not conflict with the preferred maintenance window.
 	// - Must be at least 30 minutes.
-	PreferredBackupWindow *string `json:"preferredBackupWindow"`
+	PreferredBackupWindow *string `json:"preferredBackupWindow" yaml:"preferredBackupWindow"`
 	// The weekly time range (in UTC) during which system maintenance can occur.
 	//
 	// Format: `ddd:hh24:mi-ddd:hh24:mi`
 	// Constraint: Minimum 30-minute window
-	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow"`
+	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
 	// The number of CPU cores and the number of threads per core.
-	ProcessorFeatures *ProcessorFeatures `json:"processorFeatures"`
+	ProcessorFeatures *ProcessorFeatures `json:"processorFeatures" yaml:"processorFeatures"`
 	// Indicates whether the DB instance is an internet-facing instance.
-	PubliclyAccessible *bool `json:"publiclyAccessible"`
+	PubliclyAccessible *bool `json:"publiclyAccessible" yaml:"publiclyAccessible"`
 	// The CloudFormation policy to apply when the instance is removed from the stack or replaced during an update.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 	// S3 buckets that you want to load data into.
 	//
 	// This property must not be used if `s3ExportRole` is used.
@@ -16081,7 +16081,7 @@ type DatabaseInstanceNewProps struct {
 	// For Microsoft SQL Server:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-s3-integration.html
 	//
-	S3ExportBuckets *[]awss3.IBucket `json:"s3ExportBuckets"`
+	S3ExportBuckets *[]awss3.IBucket `json:"s3ExportBuckets" yaml:"s3ExportBuckets"`
 	// Role that will be associated with this DB instance to enable S3 export.
 	//
 	// This property must not be used if `s3ExportBuckets` is used.
@@ -16089,7 +16089,7 @@ type DatabaseInstanceNewProps struct {
 	// For Microsoft SQL Server:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-s3-integration.html
 	//
-	S3ExportRole awsiam.IRole `json:"s3ExportRole"`
+	S3ExportRole awsiam.IRole `json:"s3ExportRole" yaml:"s3ExportRole"`
 	// S3 buckets that you want to load data from.
 	//
 	// This feature is only supported by the Microsoft SQL Server, Oracle, and PostgreSQL engines.
@@ -16099,7 +16099,7 @@ type DatabaseInstanceNewProps struct {
 	// For Microsoft SQL Server:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL.Procedural.Importing.html
 	//
-	S3ImportBuckets *[]awss3.IBucket `json:"s3ImportBuckets"`
+	S3ImportBuckets *[]awss3.IBucket `json:"s3ImportBuckets" yaml:"s3ImportBuckets"`
 	// Role that will be associated with this DB instance to enable S3 import.
 	//
 	// This feature is only supported by the Microsoft SQL Server, Oracle, and PostgreSQL engines.
@@ -16109,19 +16109,19 @@ type DatabaseInstanceNewProps struct {
 	// For Microsoft SQL Server:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL.Procedural.Importing.html
 	//
-	S3ImportRole awsiam.IRole `json:"s3ImportRole"`
+	S3ImportRole awsiam.IRole `json:"s3ImportRole" yaml:"s3ImportRole"`
 	// The security groups to assign to the DB instance.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// The storage type.
 	//
 	// Storage types supported are gp2, io1, standard.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#Concepts.Storage.GeneralSSD
 	//
-	StorageType StorageType `json:"storageType"`
+	StorageType StorageType `json:"storageType" yaml:"storageType"`
 	// Existing subnet group for the instance.
-	SubnetGroup ISubnetGroup `json:"subnetGroup"`
+	SubnetGroup ISubnetGroup `json:"subnetGroup" yaml:"subnetGroup"`
 	// The type of subnets to add to the created DB subnet group.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 
 // Construction properties for a DatabaseInstance.
@@ -16130,73 +16130,73 @@ type DatabaseInstanceNewProps struct {
 //
 type DatabaseInstanceProps struct {
 	// The VPC network where the DB subnet group should be created.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// Indicates that minor engine upgrades are applied automatically to the DB instance during the maintenance window.
-	AutoMinorVersionUpgrade *bool `json:"autoMinorVersionUpgrade"`
+	AutoMinorVersionUpgrade *bool `json:"autoMinorVersionUpgrade" yaml:"autoMinorVersionUpgrade"`
 	// The name of the Availability Zone where the DB instance will be located.
-	AvailabilityZone *string `json:"availabilityZone"`
+	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
 	// The number of days during which automatic DB snapshots are retained.
 	//
 	// Set to zero to disable backups.
 	// When creating a read replica, you must enable automatic backups on the source
 	// database instance by setting the backup retention to a value other than zero.
-	BackupRetention awscdk.Duration `json:"backupRetention"`
+	BackupRetention awscdk.Duration `json:"backupRetention" yaml:"backupRetention"`
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs.
-	CloudwatchLogsExports *[]*string `json:"cloudwatchLogsExports"`
+	CloudwatchLogsExports *[]*string `json:"cloudwatchLogsExports" yaml:"cloudwatchLogsExports"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// When updating
 	// this property, unsetting it doesn't remove the log retention policy. To
 	// remove the retention policy, set the value to `Infinity`.
-	CloudwatchLogsRetention awslogs.RetentionDays `json:"cloudwatchLogsRetention"`
+	CloudwatchLogsRetention awslogs.RetentionDays `json:"cloudwatchLogsRetention" yaml:"cloudwatchLogsRetention"`
 	// The IAM role for the Lambda function associated with the custom resource that sets the retention policy.
-	CloudwatchLogsRetentionRole awsiam.IRole `json:"cloudwatchLogsRetentionRole"`
+	CloudwatchLogsRetentionRole awsiam.IRole `json:"cloudwatchLogsRetentionRole" yaml:"cloudwatchLogsRetentionRole"`
 	// Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance.
-	CopyTagsToSnapshot *bool `json:"copyTagsToSnapshot"`
+	CopyTagsToSnapshot *bool `json:"copyTagsToSnapshot" yaml:"copyTagsToSnapshot"`
 	// Indicates whether automated backups should be deleted or retained when you delete a DB instance.
-	DeleteAutomatedBackups *bool `json:"deleteAutomatedBackups"`
+	DeleteAutomatedBackups *bool `json:"deleteAutomatedBackups" yaml:"deleteAutomatedBackups"`
 	// Indicates whether the DB instance should have deletion protection enabled.
-	DeletionProtection *bool `json:"deletionProtection"`
+	DeletionProtection *bool `json:"deletionProtection" yaml:"deletionProtection"`
 	// The Active Directory directory ID to create the DB instance in.
-	Domain *string `json:"domain"`
+	Domain *string `json:"domain" yaml:"domain"`
 	// The IAM role to be used when making API calls to the Directory Service.
 	//
 	// The role needs the AWS-managed policy
 	// AmazonRDSDirectoryServiceAccess or equivalent.
-	DomainRole awsiam.IRole `json:"domainRole"`
+	DomainRole awsiam.IRole `json:"domainRole" yaml:"domainRole"`
 	// Whether to enable Performance Insights for the DB instance.
-	EnablePerformanceInsights *bool `json:"enablePerformanceInsights"`
+	EnablePerformanceInsights *bool `json:"enablePerformanceInsights" yaml:"enablePerformanceInsights"`
 	// Whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts.
-	IamAuthentication *bool `json:"iamAuthentication"`
+	IamAuthentication *bool `json:"iamAuthentication" yaml:"iamAuthentication"`
 	// A name for the DB instance.
 	//
 	// If you specify a name, AWS CloudFormation
 	// converts it to lowercase.
-	InstanceIdentifier *string `json:"instanceIdentifier"`
+	InstanceIdentifier *string `json:"instanceIdentifier" yaml:"instanceIdentifier"`
 	// The number of I/O operations per second (IOPS) that the database provisions.
 	//
 	// The value must be equal to or greater than 1000.
-	Iops *float64 `json:"iops"`
+	Iops *float64 `json:"iops" yaml:"iops"`
 	// Upper limit to which RDS can scale the storage in GiB(Gibibyte).
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling
 	//
-	MaxAllocatedStorage *float64 `json:"maxAllocatedStorage"`
+	MaxAllocatedStorage *float64 `json:"maxAllocatedStorage" yaml:"maxAllocatedStorage"`
 	// The interval, in seconds, between points when Amazon RDS collects enhanced monitoring metrics for the DB instance.
-	MonitoringInterval awscdk.Duration `json:"monitoringInterval"`
+	MonitoringInterval awscdk.Duration `json:"monitoringInterval" yaml:"monitoringInterval"`
 	// Role that will be used to manage DB instance monitoring.
-	MonitoringRole awsiam.IRole `json:"monitoringRole"`
+	MonitoringRole awsiam.IRole `json:"monitoringRole" yaml:"monitoringRole"`
 	// Specifies if the database instance is a multiple Availability Zone deployment.
-	MultiAz *bool `json:"multiAz"`
+	MultiAz *bool `json:"multiAz" yaml:"multiAz"`
 	// The option group to associate with the instance.
-	OptionGroup IOptionGroup `json:"optionGroup"`
+	OptionGroup IOptionGroup `json:"optionGroup" yaml:"optionGroup"`
 	// The DB parameter group to associate with the instance.
-	ParameterGroup IParameterGroup `json:"parameterGroup"`
+	ParameterGroup IParameterGroup `json:"parameterGroup" yaml:"parameterGroup"`
 	// The AWS KMS key for encryption of Performance Insights data.
-	PerformanceInsightEncryptionKey awskms.IKey `json:"performanceInsightEncryptionKey"`
+	PerformanceInsightEncryptionKey awskms.IKey `json:"performanceInsightEncryptionKey" yaml:"performanceInsightEncryptionKey"`
 	// The amount of time, in days, to retain Performance Insights data.
-	PerformanceInsightRetention PerformanceInsightRetention `json:"performanceInsightRetention"`
+	PerformanceInsightRetention PerformanceInsightRetention `json:"performanceInsightRetention" yaml:"performanceInsightRetention"`
 	// The port for the instance.
-	Port *float64 `json:"port"`
+	Port *float64 `json:"port" yaml:"port"`
 	// The daily time range during which automated backups are performed.
 	//
 	// Constraints:
@@ -16204,18 +16204,18 @@ type DatabaseInstanceProps struct {
 	// - Must be in Universal Coordinated Time (UTC).
 	// - Must not conflict with the preferred maintenance window.
 	// - Must be at least 30 minutes.
-	PreferredBackupWindow *string `json:"preferredBackupWindow"`
+	PreferredBackupWindow *string `json:"preferredBackupWindow" yaml:"preferredBackupWindow"`
 	// The weekly time range (in UTC) during which system maintenance can occur.
 	//
 	// Format: `ddd:hh24:mi-ddd:hh24:mi`
 	// Constraint: Minimum 30-minute window
-	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow"`
+	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
 	// The number of CPU cores and the number of threads per core.
-	ProcessorFeatures *ProcessorFeatures `json:"processorFeatures"`
+	ProcessorFeatures *ProcessorFeatures `json:"processorFeatures" yaml:"processorFeatures"`
 	// Indicates whether the DB instance is an internet-facing instance.
-	PubliclyAccessible *bool `json:"publiclyAccessible"`
+	PubliclyAccessible *bool `json:"publiclyAccessible" yaml:"publiclyAccessible"`
 	// The CloudFormation policy to apply when the instance is removed from the stack or replaced during an update.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 	// S3 buckets that you want to load data into.
 	//
 	// This property must not be used if `s3ExportRole` is used.
@@ -16223,7 +16223,7 @@ type DatabaseInstanceProps struct {
 	// For Microsoft SQL Server:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-s3-integration.html
 	//
-	S3ExportBuckets *[]awss3.IBucket `json:"s3ExportBuckets"`
+	S3ExportBuckets *[]awss3.IBucket `json:"s3ExportBuckets" yaml:"s3ExportBuckets"`
 	// Role that will be associated with this DB instance to enable S3 export.
 	//
 	// This property must not be used if `s3ExportBuckets` is used.
@@ -16231,7 +16231,7 @@ type DatabaseInstanceProps struct {
 	// For Microsoft SQL Server:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-s3-integration.html
 	//
-	S3ExportRole awsiam.IRole `json:"s3ExportRole"`
+	S3ExportRole awsiam.IRole `json:"s3ExportRole" yaml:"s3ExportRole"`
 	// S3 buckets that you want to load data from.
 	//
 	// This feature is only supported by the Microsoft SQL Server, Oracle, and PostgreSQL engines.
@@ -16241,7 +16241,7 @@ type DatabaseInstanceProps struct {
 	// For Microsoft SQL Server:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL.Procedural.Importing.html
 	//
-	S3ImportBuckets *[]awss3.IBucket `json:"s3ImportBuckets"`
+	S3ImportBuckets *[]awss3.IBucket `json:"s3ImportBuckets" yaml:"s3ImportBuckets"`
 	// Role that will be associated with this DB instance to enable S3 import.
 	//
 	// This feature is only supported by the Microsoft SQL Server, Oracle, and PostgreSQL engines.
@@ -16251,43 +16251,43 @@ type DatabaseInstanceProps struct {
 	// For Microsoft SQL Server:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL.Procedural.Importing.html
 	//
-	S3ImportRole awsiam.IRole `json:"s3ImportRole"`
+	S3ImportRole awsiam.IRole `json:"s3ImportRole" yaml:"s3ImportRole"`
 	// The security groups to assign to the DB instance.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// The storage type.
 	//
 	// Storage types supported are gp2, io1, standard.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#Concepts.Storage.GeneralSSD
 	//
-	StorageType StorageType `json:"storageType"`
+	StorageType StorageType `json:"storageType" yaml:"storageType"`
 	// Existing subnet group for the instance.
-	SubnetGroup ISubnetGroup `json:"subnetGroup"`
+	SubnetGroup ISubnetGroup `json:"subnetGroup" yaml:"subnetGroup"`
 	// The type of subnets to add to the created DB subnet group.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 	// The database engine.
-	Engine IInstanceEngine `json:"engine"`
+	Engine IInstanceEngine `json:"engine" yaml:"engine"`
 	// The allocated storage size, specified in gigabytes (GB).
-	AllocatedStorage *float64 `json:"allocatedStorage"`
+	AllocatedStorage *float64 `json:"allocatedStorage" yaml:"allocatedStorage"`
 	// Whether to allow major version upgrades.
-	AllowMajorVersionUpgrade *bool `json:"allowMajorVersionUpgrade"`
+	AllowMajorVersionUpgrade *bool `json:"allowMajorVersionUpgrade" yaml:"allowMajorVersionUpgrade"`
 	// The name of the database.
-	DatabaseName *string `json:"databaseName"`
+	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
 	// The name of the compute and memory capacity for the instance.
-	InstanceType awsec2.InstanceType `json:"instanceType"`
+	InstanceType awsec2.InstanceType `json:"instanceType" yaml:"instanceType"`
 	// The license model.
-	LicenseModel LicenseModel `json:"licenseModel"`
+	LicenseModel LicenseModel `json:"licenseModel" yaml:"licenseModel"`
 	// The time zone of the instance.
 	//
 	// This is currently supported only by Microsoft Sql Server.
-	Timezone *string `json:"timezone"`
+	Timezone *string `json:"timezone" yaml:"timezone"`
 	// For supported engines, specifies the character set to associate with the DB instance.
-	CharacterSetName *string `json:"characterSetName"`
+	CharacterSetName *string `json:"characterSetName" yaml:"characterSetName"`
 	// Credentials for the administrative user.
-	Credentials Credentials `json:"credentials"`
+	Credentials Credentials `json:"credentials" yaml:"credentials"`
 	// Indicates whether the DB instance is encrypted.
-	StorageEncrypted *bool `json:"storageEncrypted"`
+	StorageEncrypted *bool `json:"storageEncrypted" yaml:"storageEncrypted"`
 	// The KMS key that's used to encrypt the DB instance.
-	StorageEncryptionKey awskms.IKey `json:"storageEncryptionKey"`
+	StorageEncryptionKey awskms.IKey `json:"storageEncryptionKey" yaml:"storageEncryptionKey"`
 }
 
 // A read replica database instance.
@@ -16847,73 +16847,73 @@ func (d *jsiiProxy_DatabaseInstanceReadReplica) ToString() *string {
 //
 type DatabaseInstanceReadReplicaProps struct {
 	// The VPC network where the DB subnet group should be created.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// Indicates that minor engine upgrades are applied automatically to the DB instance during the maintenance window.
-	AutoMinorVersionUpgrade *bool `json:"autoMinorVersionUpgrade"`
+	AutoMinorVersionUpgrade *bool `json:"autoMinorVersionUpgrade" yaml:"autoMinorVersionUpgrade"`
 	// The name of the Availability Zone where the DB instance will be located.
-	AvailabilityZone *string `json:"availabilityZone"`
+	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
 	// The number of days during which automatic DB snapshots are retained.
 	//
 	// Set to zero to disable backups.
 	// When creating a read replica, you must enable automatic backups on the source
 	// database instance by setting the backup retention to a value other than zero.
-	BackupRetention awscdk.Duration `json:"backupRetention"`
+	BackupRetention awscdk.Duration `json:"backupRetention" yaml:"backupRetention"`
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs.
-	CloudwatchLogsExports *[]*string `json:"cloudwatchLogsExports"`
+	CloudwatchLogsExports *[]*string `json:"cloudwatchLogsExports" yaml:"cloudwatchLogsExports"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// When updating
 	// this property, unsetting it doesn't remove the log retention policy. To
 	// remove the retention policy, set the value to `Infinity`.
-	CloudwatchLogsRetention awslogs.RetentionDays `json:"cloudwatchLogsRetention"`
+	CloudwatchLogsRetention awslogs.RetentionDays `json:"cloudwatchLogsRetention" yaml:"cloudwatchLogsRetention"`
 	// The IAM role for the Lambda function associated with the custom resource that sets the retention policy.
-	CloudwatchLogsRetentionRole awsiam.IRole `json:"cloudwatchLogsRetentionRole"`
+	CloudwatchLogsRetentionRole awsiam.IRole `json:"cloudwatchLogsRetentionRole" yaml:"cloudwatchLogsRetentionRole"`
 	// Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance.
-	CopyTagsToSnapshot *bool `json:"copyTagsToSnapshot"`
+	CopyTagsToSnapshot *bool `json:"copyTagsToSnapshot" yaml:"copyTagsToSnapshot"`
 	// Indicates whether automated backups should be deleted or retained when you delete a DB instance.
-	DeleteAutomatedBackups *bool `json:"deleteAutomatedBackups"`
+	DeleteAutomatedBackups *bool `json:"deleteAutomatedBackups" yaml:"deleteAutomatedBackups"`
 	// Indicates whether the DB instance should have deletion protection enabled.
-	DeletionProtection *bool `json:"deletionProtection"`
+	DeletionProtection *bool `json:"deletionProtection" yaml:"deletionProtection"`
 	// The Active Directory directory ID to create the DB instance in.
-	Domain *string `json:"domain"`
+	Domain *string `json:"domain" yaml:"domain"`
 	// The IAM role to be used when making API calls to the Directory Service.
 	//
 	// The role needs the AWS-managed policy
 	// AmazonRDSDirectoryServiceAccess or equivalent.
-	DomainRole awsiam.IRole `json:"domainRole"`
+	DomainRole awsiam.IRole `json:"domainRole" yaml:"domainRole"`
 	// Whether to enable Performance Insights for the DB instance.
-	EnablePerformanceInsights *bool `json:"enablePerformanceInsights"`
+	EnablePerformanceInsights *bool `json:"enablePerformanceInsights" yaml:"enablePerformanceInsights"`
 	// Whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts.
-	IamAuthentication *bool `json:"iamAuthentication"`
+	IamAuthentication *bool `json:"iamAuthentication" yaml:"iamAuthentication"`
 	// A name for the DB instance.
 	//
 	// If you specify a name, AWS CloudFormation
 	// converts it to lowercase.
-	InstanceIdentifier *string `json:"instanceIdentifier"`
+	InstanceIdentifier *string `json:"instanceIdentifier" yaml:"instanceIdentifier"`
 	// The number of I/O operations per second (IOPS) that the database provisions.
 	//
 	// The value must be equal to or greater than 1000.
-	Iops *float64 `json:"iops"`
+	Iops *float64 `json:"iops" yaml:"iops"`
 	// Upper limit to which RDS can scale the storage in GiB(Gibibyte).
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling
 	//
-	MaxAllocatedStorage *float64 `json:"maxAllocatedStorage"`
+	MaxAllocatedStorage *float64 `json:"maxAllocatedStorage" yaml:"maxAllocatedStorage"`
 	// The interval, in seconds, between points when Amazon RDS collects enhanced monitoring metrics for the DB instance.
-	MonitoringInterval awscdk.Duration `json:"monitoringInterval"`
+	MonitoringInterval awscdk.Duration `json:"monitoringInterval" yaml:"monitoringInterval"`
 	// Role that will be used to manage DB instance monitoring.
-	MonitoringRole awsiam.IRole `json:"monitoringRole"`
+	MonitoringRole awsiam.IRole `json:"monitoringRole" yaml:"monitoringRole"`
 	// Specifies if the database instance is a multiple Availability Zone deployment.
-	MultiAz *bool `json:"multiAz"`
+	MultiAz *bool `json:"multiAz" yaml:"multiAz"`
 	// The option group to associate with the instance.
-	OptionGroup IOptionGroup `json:"optionGroup"`
+	OptionGroup IOptionGroup `json:"optionGroup" yaml:"optionGroup"`
 	// The DB parameter group to associate with the instance.
-	ParameterGroup IParameterGroup `json:"parameterGroup"`
+	ParameterGroup IParameterGroup `json:"parameterGroup" yaml:"parameterGroup"`
 	// The AWS KMS key for encryption of Performance Insights data.
-	PerformanceInsightEncryptionKey awskms.IKey `json:"performanceInsightEncryptionKey"`
+	PerformanceInsightEncryptionKey awskms.IKey `json:"performanceInsightEncryptionKey" yaml:"performanceInsightEncryptionKey"`
 	// The amount of time, in days, to retain Performance Insights data.
-	PerformanceInsightRetention PerformanceInsightRetention `json:"performanceInsightRetention"`
+	PerformanceInsightRetention PerformanceInsightRetention `json:"performanceInsightRetention" yaml:"performanceInsightRetention"`
 	// The port for the instance.
-	Port *float64 `json:"port"`
+	Port *float64 `json:"port" yaml:"port"`
 	// The daily time range during which automated backups are performed.
 	//
 	// Constraints:
@@ -16921,18 +16921,18 @@ type DatabaseInstanceReadReplicaProps struct {
 	// - Must be in Universal Coordinated Time (UTC).
 	// - Must not conflict with the preferred maintenance window.
 	// - Must be at least 30 minutes.
-	PreferredBackupWindow *string `json:"preferredBackupWindow"`
+	PreferredBackupWindow *string `json:"preferredBackupWindow" yaml:"preferredBackupWindow"`
 	// The weekly time range (in UTC) during which system maintenance can occur.
 	//
 	// Format: `ddd:hh24:mi-ddd:hh24:mi`
 	// Constraint: Minimum 30-minute window
-	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow"`
+	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
 	// The number of CPU cores and the number of threads per core.
-	ProcessorFeatures *ProcessorFeatures `json:"processorFeatures"`
+	ProcessorFeatures *ProcessorFeatures `json:"processorFeatures" yaml:"processorFeatures"`
 	// Indicates whether the DB instance is an internet-facing instance.
-	PubliclyAccessible *bool `json:"publiclyAccessible"`
+	PubliclyAccessible *bool `json:"publiclyAccessible" yaml:"publiclyAccessible"`
 	// The CloudFormation policy to apply when the instance is removed from the stack or replaced during an update.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 	// S3 buckets that you want to load data into.
 	//
 	// This property must not be used if `s3ExportRole` is used.
@@ -16940,7 +16940,7 @@ type DatabaseInstanceReadReplicaProps struct {
 	// For Microsoft SQL Server:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-s3-integration.html
 	//
-	S3ExportBuckets *[]awss3.IBucket `json:"s3ExportBuckets"`
+	S3ExportBuckets *[]awss3.IBucket `json:"s3ExportBuckets" yaml:"s3ExportBuckets"`
 	// Role that will be associated with this DB instance to enable S3 export.
 	//
 	// This property must not be used if `s3ExportBuckets` is used.
@@ -16948,7 +16948,7 @@ type DatabaseInstanceReadReplicaProps struct {
 	// For Microsoft SQL Server:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-s3-integration.html
 	//
-	S3ExportRole awsiam.IRole `json:"s3ExportRole"`
+	S3ExportRole awsiam.IRole `json:"s3ExportRole" yaml:"s3ExportRole"`
 	// S3 buckets that you want to load data from.
 	//
 	// This feature is only supported by the Microsoft SQL Server, Oracle, and PostgreSQL engines.
@@ -16958,7 +16958,7 @@ type DatabaseInstanceReadReplicaProps struct {
 	// For Microsoft SQL Server:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL.Procedural.Importing.html
 	//
-	S3ImportBuckets *[]awss3.IBucket `json:"s3ImportBuckets"`
+	S3ImportBuckets *[]awss3.IBucket `json:"s3ImportBuckets" yaml:"s3ImportBuckets"`
 	// Role that will be associated with this DB instance to enable S3 import.
 	//
 	// This feature is only supported by the Microsoft SQL Server, Oracle, and PostgreSQL engines.
@@ -16968,30 +16968,30 @@ type DatabaseInstanceReadReplicaProps struct {
 	// For Microsoft SQL Server:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL.Procedural.Importing.html
 	//
-	S3ImportRole awsiam.IRole `json:"s3ImportRole"`
+	S3ImportRole awsiam.IRole `json:"s3ImportRole" yaml:"s3ImportRole"`
 	// The security groups to assign to the DB instance.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// The storage type.
 	//
 	// Storage types supported are gp2, io1, standard.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#Concepts.Storage.GeneralSSD
 	//
-	StorageType StorageType `json:"storageType"`
+	StorageType StorageType `json:"storageType" yaml:"storageType"`
 	// Existing subnet group for the instance.
-	SubnetGroup ISubnetGroup `json:"subnetGroup"`
+	SubnetGroup ISubnetGroup `json:"subnetGroup" yaml:"subnetGroup"`
 	// The type of subnets to add to the created DB subnet group.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 	// The name of the compute and memory capacity classes.
-	InstanceType awsec2.InstanceType `json:"instanceType"`
+	InstanceType awsec2.InstanceType `json:"instanceType" yaml:"instanceType"`
 	// The source database instance.
 	//
 	// Each DB instance can have a limited number of read replicas. For more
 	// information, see https://docs.aws.amazon.com/AmazonRDS/latest/DeveloperGuide/USER_ReadRepl.html.
-	SourceDatabaseInstance IDatabaseInstance `json:"sourceDatabaseInstance"`
+	SourceDatabaseInstance IDatabaseInstance `json:"sourceDatabaseInstance" yaml:"sourceDatabaseInstance"`
 	// Indicates whether the DB instance is encrypted.
-	StorageEncrypted *bool `json:"storageEncrypted"`
+	StorageEncrypted *bool `json:"storageEncrypted" yaml:"storageEncrypted"`
 	// The KMS key that's used to encrypt the DB instance.
-	StorageEncryptionKey awskms.IKey `json:"storageEncryptionKey"`
+	StorageEncryptionKey awskms.IKey `json:"storageEncryptionKey" yaml:"storageEncryptionKey"`
 }
 
 // Construction properties for a DatabaseInstanceSource.
@@ -17000,73 +17000,73 @@ type DatabaseInstanceReadReplicaProps struct {
 //
 type DatabaseInstanceSourceProps struct {
 	// The VPC network where the DB subnet group should be created.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// Indicates that minor engine upgrades are applied automatically to the DB instance during the maintenance window.
-	AutoMinorVersionUpgrade *bool `json:"autoMinorVersionUpgrade"`
+	AutoMinorVersionUpgrade *bool `json:"autoMinorVersionUpgrade" yaml:"autoMinorVersionUpgrade"`
 	// The name of the Availability Zone where the DB instance will be located.
-	AvailabilityZone *string `json:"availabilityZone"`
+	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
 	// The number of days during which automatic DB snapshots are retained.
 	//
 	// Set to zero to disable backups.
 	// When creating a read replica, you must enable automatic backups on the source
 	// database instance by setting the backup retention to a value other than zero.
-	BackupRetention awscdk.Duration `json:"backupRetention"`
+	BackupRetention awscdk.Duration `json:"backupRetention" yaml:"backupRetention"`
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs.
-	CloudwatchLogsExports *[]*string `json:"cloudwatchLogsExports"`
+	CloudwatchLogsExports *[]*string `json:"cloudwatchLogsExports" yaml:"cloudwatchLogsExports"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// When updating
 	// this property, unsetting it doesn't remove the log retention policy. To
 	// remove the retention policy, set the value to `Infinity`.
-	CloudwatchLogsRetention awslogs.RetentionDays `json:"cloudwatchLogsRetention"`
+	CloudwatchLogsRetention awslogs.RetentionDays `json:"cloudwatchLogsRetention" yaml:"cloudwatchLogsRetention"`
 	// The IAM role for the Lambda function associated with the custom resource that sets the retention policy.
-	CloudwatchLogsRetentionRole awsiam.IRole `json:"cloudwatchLogsRetentionRole"`
+	CloudwatchLogsRetentionRole awsiam.IRole `json:"cloudwatchLogsRetentionRole" yaml:"cloudwatchLogsRetentionRole"`
 	// Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance.
-	CopyTagsToSnapshot *bool `json:"copyTagsToSnapshot"`
+	CopyTagsToSnapshot *bool `json:"copyTagsToSnapshot" yaml:"copyTagsToSnapshot"`
 	// Indicates whether automated backups should be deleted or retained when you delete a DB instance.
-	DeleteAutomatedBackups *bool `json:"deleteAutomatedBackups"`
+	DeleteAutomatedBackups *bool `json:"deleteAutomatedBackups" yaml:"deleteAutomatedBackups"`
 	// Indicates whether the DB instance should have deletion protection enabled.
-	DeletionProtection *bool `json:"deletionProtection"`
+	DeletionProtection *bool `json:"deletionProtection" yaml:"deletionProtection"`
 	// The Active Directory directory ID to create the DB instance in.
-	Domain *string `json:"domain"`
+	Domain *string `json:"domain" yaml:"domain"`
 	// The IAM role to be used when making API calls to the Directory Service.
 	//
 	// The role needs the AWS-managed policy
 	// AmazonRDSDirectoryServiceAccess or equivalent.
-	DomainRole awsiam.IRole `json:"domainRole"`
+	DomainRole awsiam.IRole `json:"domainRole" yaml:"domainRole"`
 	// Whether to enable Performance Insights for the DB instance.
-	EnablePerformanceInsights *bool `json:"enablePerformanceInsights"`
+	EnablePerformanceInsights *bool `json:"enablePerformanceInsights" yaml:"enablePerformanceInsights"`
 	// Whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts.
-	IamAuthentication *bool `json:"iamAuthentication"`
+	IamAuthentication *bool `json:"iamAuthentication" yaml:"iamAuthentication"`
 	// A name for the DB instance.
 	//
 	// If you specify a name, AWS CloudFormation
 	// converts it to lowercase.
-	InstanceIdentifier *string `json:"instanceIdentifier"`
+	InstanceIdentifier *string `json:"instanceIdentifier" yaml:"instanceIdentifier"`
 	// The number of I/O operations per second (IOPS) that the database provisions.
 	//
 	// The value must be equal to or greater than 1000.
-	Iops *float64 `json:"iops"`
+	Iops *float64 `json:"iops" yaml:"iops"`
 	// Upper limit to which RDS can scale the storage in GiB(Gibibyte).
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling
 	//
-	MaxAllocatedStorage *float64 `json:"maxAllocatedStorage"`
+	MaxAllocatedStorage *float64 `json:"maxAllocatedStorage" yaml:"maxAllocatedStorage"`
 	// The interval, in seconds, between points when Amazon RDS collects enhanced monitoring metrics for the DB instance.
-	MonitoringInterval awscdk.Duration `json:"monitoringInterval"`
+	MonitoringInterval awscdk.Duration `json:"monitoringInterval" yaml:"monitoringInterval"`
 	// Role that will be used to manage DB instance monitoring.
-	MonitoringRole awsiam.IRole `json:"monitoringRole"`
+	MonitoringRole awsiam.IRole `json:"monitoringRole" yaml:"monitoringRole"`
 	// Specifies if the database instance is a multiple Availability Zone deployment.
-	MultiAz *bool `json:"multiAz"`
+	MultiAz *bool `json:"multiAz" yaml:"multiAz"`
 	// The option group to associate with the instance.
-	OptionGroup IOptionGroup `json:"optionGroup"`
+	OptionGroup IOptionGroup `json:"optionGroup" yaml:"optionGroup"`
 	// The DB parameter group to associate with the instance.
-	ParameterGroup IParameterGroup `json:"parameterGroup"`
+	ParameterGroup IParameterGroup `json:"parameterGroup" yaml:"parameterGroup"`
 	// The AWS KMS key for encryption of Performance Insights data.
-	PerformanceInsightEncryptionKey awskms.IKey `json:"performanceInsightEncryptionKey"`
+	PerformanceInsightEncryptionKey awskms.IKey `json:"performanceInsightEncryptionKey" yaml:"performanceInsightEncryptionKey"`
 	// The amount of time, in days, to retain Performance Insights data.
-	PerformanceInsightRetention PerformanceInsightRetention `json:"performanceInsightRetention"`
+	PerformanceInsightRetention PerformanceInsightRetention `json:"performanceInsightRetention" yaml:"performanceInsightRetention"`
 	// The port for the instance.
-	Port *float64 `json:"port"`
+	Port *float64 `json:"port" yaml:"port"`
 	// The daily time range during which automated backups are performed.
 	//
 	// Constraints:
@@ -17074,18 +17074,18 @@ type DatabaseInstanceSourceProps struct {
 	// - Must be in Universal Coordinated Time (UTC).
 	// - Must not conflict with the preferred maintenance window.
 	// - Must be at least 30 minutes.
-	PreferredBackupWindow *string `json:"preferredBackupWindow"`
+	PreferredBackupWindow *string `json:"preferredBackupWindow" yaml:"preferredBackupWindow"`
 	// The weekly time range (in UTC) during which system maintenance can occur.
 	//
 	// Format: `ddd:hh24:mi-ddd:hh24:mi`
 	// Constraint: Minimum 30-minute window
-	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow"`
+	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
 	// The number of CPU cores and the number of threads per core.
-	ProcessorFeatures *ProcessorFeatures `json:"processorFeatures"`
+	ProcessorFeatures *ProcessorFeatures `json:"processorFeatures" yaml:"processorFeatures"`
 	// Indicates whether the DB instance is an internet-facing instance.
-	PubliclyAccessible *bool `json:"publiclyAccessible"`
+	PubliclyAccessible *bool `json:"publiclyAccessible" yaml:"publiclyAccessible"`
 	// The CloudFormation policy to apply when the instance is removed from the stack or replaced during an update.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 	// S3 buckets that you want to load data into.
 	//
 	// This property must not be used if `s3ExportRole` is used.
@@ -17093,7 +17093,7 @@ type DatabaseInstanceSourceProps struct {
 	// For Microsoft SQL Server:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-s3-integration.html
 	//
-	S3ExportBuckets *[]awss3.IBucket `json:"s3ExportBuckets"`
+	S3ExportBuckets *[]awss3.IBucket `json:"s3ExportBuckets" yaml:"s3ExportBuckets"`
 	// Role that will be associated with this DB instance to enable S3 export.
 	//
 	// This property must not be used if `s3ExportBuckets` is used.
@@ -17101,7 +17101,7 @@ type DatabaseInstanceSourceProps struct {
 	// For Microsoft SQL Server:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-s3-integration.html
 	//
-	S3ExportRole awsiam.IRole `json:"s3ExportRole"`
+	S3ExportRole awsiam.IRole `json:"s3ExportRole" yaml:"s3ExportRole"`
 	// S3 buckets that you want to load data from.
 	//
 	// This feature is only supported by the Microsoft SQL Server, Oracle, and PostgreSQL engines.
@@ -17111,7 +17111,7 @@ type DatabaseInstanceSourceProps struct {
 	// For Microsoft SQL Server:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL.Procedural.Importing.html
 	//
-	S3ImportBuckets *[]awss3.IBucket `json:"s3ImportBuckets"`
+	S3ImportBuckets *[]awss3.IBucket `json:"s3ImportBuckets" yaml:"s3ImportBuckets"`
 	// Role that will be associated with this DB instance to enable S3 import.
 	//
 	// This feature is only supported by the Microsoft SQL Server, Oracle, and PostgreSQL engines.
@@ -17121,35 +17121,35 @@ type DatabaseInstanceSourceProps struct {
 	// For Microsoft SQL Server:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL.Procedural.Importing.html
 	//
-	S3ImportRole awsiam.IRole `json:"s3ImportRole"`
+	S3ImportRole awsiam.IRole `json:"s3ImportRole" yaml:"s3ImportRole"`
 	// The security groups to assign to the DB instance.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// The storage type.
 	//
 	// Storage types supported are gp2, io1, standard.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#Concepts.Storage.GeneralSSD
 	//
-	StorageType StorageType `json:"storageType"`
+	StorageType StorageType `json:"storageType" yaml:"storageType"`
 	// Existing subnet group for the instance.
-	SubnetGroup ISubnetGroup `json:"subnetGroup"`
+	SubnetGroup ISubnetGroup `json:"subnetGroup" yaml:"subnetGroup"`
 	// The type of subnets to add to the created DB subnet group.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 	// The database engine.
-	Engine IInstanceEngine `json:"engine"`
+	Engine IInstanceEngine `json:"engine" yaml:"engine"`
 	// The allocated storage size, specified in gigabytes (GB).
-	AllocatedStorage *float64 `json:"allocatedStorage"`
+	AllocatedStorage *float64 `json:"allocatedStorage" yaml:"allocatedStorage"`
 	// Whether to allow major version upgrades.
-	AllowMajorVersionUpgrade *bool `json:"allowMajorVersionUpgrade"`
+	AllowMajorVersionUpgrade *bool `json:"allowMajorVersionUpgrade" yaml:"allowMajorVersionUpgrade"`
 	// The name of the database.
-	DatabaseName *string `json:"databaseName"`
+	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
 	// The name of the compute and memory capacity for the instance.
-	InstanceType awsec2.InstanceType `json:"instanceType"`
+	InstanceType awsec2.InstanceType `json:"instanceType" yaml:"instanceType"`
 	// The license model.
-	LicenseModel LicenseModel `json:"licenseModel"`
+	LicenseModel LicenseModel `json:"licenseModel" yaml:"licenseModel"`
 	// The time zone of the instance.
 	//
 	// This is currently supported only by Microsoft Sql Server.
-	Timezone *string `json:"timezone"`
+	Timezone *string `json:"timezone" yaml:"timezone"`
 }
 
 // RDS Database Proxy.
@@ -17457,13 +17457,13 @@ func (d *jsiiProxy_DatabaseProxy) ToString() *string {
 //
 type DatabaseProxyAttributes struct {
 	// DB Proxy ARN.
-	DbProxyArn *string `json:"dbProxyArn"`
+	DbProxyArn *string `json:"dbProxyArn" yaml:"dbProxyArn"`
 	// DB Proxy Name.
-	DbProxyName *string `json:"dbProxyName"`
+	DbProxyName *string `json:"dbProxyName" yaml:"dbProxyName"`
 	// Endpoint.
-	Endpoint *string `json:"endpoint"`
+	Endpoint *string `json:"endpoint" yaml:"endpoint"`
 	// The security groups of the instance.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 }
 
 // Options for a new DatabaseProxy.
@@ -17475,35 +17475,35 @@ type DatabaseProxyOptions struct {
 	//
 	// These secrets are stored within Amazon Secrets Manager.
 	// One or more secrets are required.
-	Secrets *[]awssecretsmanager.ISecret `json:"secrets"`
+	Secrets *[]awssecretsmanager.ISecret `json:"secrets" yaml:"secrets"`
 	// The VPC to associate with the new proxy.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// The duration for a proxy to wait for a connection to become available in the connection pool.
 	//
 	// Only applies when the proxy has opened its maximum number of connections and all connections are busy with client
 	// sessions.
 	//
 	// Value must be between 1 second and 1 hour, or `Duration.seconds(0)` to represent unlimited.
-	BorrowTimeout awscdk.Duration `json:"borrowTimeout"`
+	BorrowTimeout awscdk.Duration `json:"borrowTimeout" yaml:"borrowTimeout"`
 	// The identifier for the proxy.
 	//
 	// This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
 	// An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens;
 	// it can't end with a hyphen or contain two consecutive hyphens.
-	DbProxyName *string `json:"dbProxyName"`
+	DbProxyName *string `json:"dbProxyName" yaml:"dbProxyName"`
 	// Whether the proxy includes detailed information about SQL statements in its logs.
 	//
 	// This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections.
 	// The debug information includes the text of SQL statements that you submit through the proxy.
 	// Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive
 	// information that appears in the logs.
-	DebugLogging *bool `json:"debugLogging"`
+	DebugLogging *bool `json:"debugLogging" yaml:"debugLogging"`
 	// Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy.
-	IamAuth *bool `json:"iamAuth"`
+	IamAuth *bool `json:"iamAuth" yaml:"iamAuth"`
 	// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.
 	//
 	// You can set this value higher or lower than the connection timeout limit for the associated database.
-	IdleClientTimeout awscdk.Duration `json:"idleClientTimeout"`
+	IdleClientTimeout awscdk.Duration `json:"idleClientTimeout" yaml:"idleClientTimeout"`
 	// One or more SQL statements for the proxy to run when opening each new database connection.
 	//
 	// Typically used with SET statements to make sure that each connection has identical settings such as time zone
@@ -17512,14 +17512,14 @@ type DatabaseProxyOptions struct {
 	// You can also include multiple variables in a single SET statement, such as SET x=1, y=2.
 	//
 	// not currently supported for PostgreSQL.
-	InitQuery *string `json:"initQuery"`
+	InitQuery *string `json:"initQuery" yaml:"initQuery"`
 	// The maximum size of the connection pool for each target in a target group.
 	//
 	// For Aurora MySQL, it is expressed as a percentage of the max_connections setting for the RDS DB instance or Aurora DB
 	// cluster used by the target group.
 	//
 	// 1-100
-	MaxConnectionsPercent *float64 `json:"maxConnectionsPercent"`
+	MaxConnectionsPercent *float64 `json:"maxConnectionsPercent" yaml:"maxConnectionsPercent"`
 	// Controls how actively the proxy closes idle database connections in the connection pool.
 	//
 	// A high value enables the proxy to leave a high percentage of idle connections open.
@@ -17529,21 +17529,21 @@ type DatabaseProxyOptions struct {
 	// or Aurora DB cluster used by the target group.
 	//
 	// between 0 and MaxConnectionsPercent
-	MaxIdleConnectionsPercent *float64 `json:"maxIdleConnectionsPercent"`
+	MaxIdleConnectionsPercent *float64 `json:"maxIdleConnectionsPercent" yaml:"maxIdleConnectionsPercent"`
 	// A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
 	//
 	// By enabling this setting, you can enforce encrypted TLS connections to the proxy.
-	RequireTLS *bool `json:"requireTLS"`
+	RequireTLS *bool `json:"requireTLS" yaml:"requireTLS"`
 	// IAM role that the proxy uses to access secrets in AWS Secrets Manager.
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 	// One or more VPC security groups to associate with the new proxy.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection.
 	//
 	// Including an item in the list exempts that class of SQL operations from the pinning behavior.
-	SessionPinningFilters *[]SessionPinningFilter `json:"sessionPinningFilters"`
+	SessionPinningFilters *[]SessionPinningFilter `json:"sessionPinningFilters" yaml:"sessionPinningFilters"`
 	// The subnets used by the proxy.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 
 // Construction properties for a DatabaseProxy.
@@ -17555,35 +17555,35 @@ type DatabaseProxyProps struct {
 	//
 	// These secrets are stored within Amazon Secrets Manager.
 	// One or more secrets are required.
-	Secrets *[]awssecretsmanager.ISecret `json:"secrets"`
+	Secrets *[]awssecretsmanager.ISecret `json:"secrets" yaml:"secrets"`
 	// The VPC to associate with the new proxy.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// The duration for a proxy to wait for a connection to become available in the connection pool.
 	//
 	// Only applies when the proxy has opened its maximum number of connections and all connections are busy with client
 	// sessions.
 	//
 	// Value must be between 1 second and 1 hour, or `Duration.seconds(0)` to represent unlimited.
-	BorrowTimeout awscdk.Duration `json:"borrowTimeout"`
+	BorrowTimeout awscdk.Duration `json:"borrowTimeout" yaml:"borrowTimeout"`
 	// The identifier for the proxy.
 	//
 	// This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
 	// An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens;
 	// it can't end with a hyphen or contain two consecutive hyphens.
-	DbProxyName *string `json:"dbProxyName"`
+	DbProxyName *string `json:"dbProxyName" yaml:"dbProxyName"`
 	// Whether the proxy includes detailed information about SQL statements in its logs.
 	//
 	// This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections.
 	// The debug information includes the text of SQL statements that you submit through the proxy.
 	// Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive
 	// information that appears in the logs.
-	DebugLogging *bool `json:"debugLogging"`
+	DebugLogging *bool `json:"debugLogging" yaml:"debugLogging"`
 	// Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy.
-	IamAuth *bool `json:"iamAuth"`
+	IamAuth *bool `json:"iamAuth" yaml:"iamAuth"`
 	// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.
 	//
 	// You can set this value higher or lower than the connection timeout limit for the associated database.
-	IdleClientTimeout awscdk.Duration `json:"idleClientTimeout"`
+	IdleClientTimeout awscdk.Duration `json:"idleClientTimeout" yaml:"idleClientTimeout"`
 	// One or more SQL statements for the proxy to run when opening each new database connection.
 	//
 	// Typically used with SET statements to make sure that each connection has identical settings such as time zone
@@ -17592,14 +17592,14 @@ type DatabaseProxyProps struct {
 	// You can also include multiple variables in a single SET statement, such as SET x=1, y=2.
 	//
 	// not currently supported for PostgreSQL.
-	InitQuery *string `json:"initQuery"`
+	InitQuery *string `json:"initQuery" yaml:"initQuery"`
 	// The maximum size of the connection pool for each target in a target group.
 	//
 	// For Aurora MySQL, it is expressed as a percentage of the max_connections setting for the RDS DB instance or Aurora DB
 	// cluster used by the target group.
 	//
 	// 1-100
-	MaxConnectionsPercent *float64 `json:"maxConnectionsPercent"`
+	MaxConnectionsPercent *float64 `json:"maxConnectionsPercent" yaml:"maxConnectionsPercent"`
 	// Controls how actively the proxy closes idle database connections in the connection pool.
 	//
 	// A high value enables the proxy to leave a high percentage of idle connections open.
@@ -17609,23 +17609,23 @@ type DatabaseProxyProps struct {
 	// or Aurora DB cluster used by the target group.
 	//
 	// between 0 and MaxConnectionsPercent
-	MaxIdleConnectionsPercent *float64 `json:"maxIdleConnectionsPercent"`
+	MaxIdleConnectionsPercent *float64 `json:"maxIdleConnectionsPercent" yaml:"maxIdleConnectionsPercent"`
 	// A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
 	//
 	// By enabling this setting, you can enforce encrypted TLS connections to the proxy.
-	RequireTLS *bool `json:"requireTLS"`
+	RequireTLS *bool `json:"requireTLS" yaml:"requireTLS"`
 	// IAM role that the proxy uses to access secrets in AWS Secrets Manager.
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 	// One or more VPC security groups to associate with the new proxy.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection.
 	//
 	// Including an item in the list exempts that class of SQL operations from the pinning behavior.
-	SessionPinningFilters *[]SessionPinningFilter `json:"sessionPinningFilters"`
+	SessionPinningFilters *[]SessionPinningFilter `json:"sessionPinningFilters" yaml:"sessionPinningFilters"`
 	// The subnets used by the proxy.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 	// DB proxy target: Instance or Cluster.
-	ProxyTarget ProxyTarget `json:"proxyTarget"`
+	ProxyTarget ProxyTarget `json:"proxyTarget" yaml:"proxyTarget"`
 }
 
 // A database secret.
@@ -18101,24 +18101,24 @@ func (d *jsiiProxy_DatabaseSecret) ToString() *string {
 //
 type DatabaseSecretProps struct {
 	// The username.
-	Username *string `json:"username"`
+	Username *string `json:"username" yaml:"username"`
 	// The KMS key to use to encrypt the secret.
-	EncryptionKey awskms.IKey `json:"encryptionKey"`
+	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
 	// Characters to not include in the generated password.
-	ExcludeCharacters *string `json:"excludeCharacters"`
+	ExcludeCharacters *string `json:"excludeCharacters" yaml:"excludeCharacters"`
 	// The master secret which will be used to rotate this secret.
-	MasterSecret awssecretsmanager.ISecret `json:"masterSecret"`
+	MasterSecret awssecretsmanager.ISecret `json:"masterSecret" yaml:"masterSecret"`
 	// Whether to replace this secret when the criteria for the password change.
 	//
 	// This is achieved by overriding the logical id of the AWS::SecretsManager::Secret
 	// with a hash of the options that influence the password generation. This
 	// way a new secret will be created when the password is regenerated and the
 	// cluster or instance consuming this secret will have its credentials updated.
-	ReplaceOnPasswordCriteriaChanges *bool `json:"replaceOnPasswordCriteriaChanges"`
+	ReplaceOnPasswordCriteriaChanges *bool `json:"replaceOnPasswordCriteriaChanges" yaml:"replaceOnPasswordCriteriaChanges"`
 	// A list of regions where to replicate this secret.
-	ReplicaRegions *[]*awssecretsmanager.ReplicaRegion `json:"replicaRegions"`
+	ReplicaRegions *[]*awssecretsmanager.ReplicaRegion `json:"replicaRegions" yaml:"replicaRegions"`
 	// A name for the secret.
-	SecretName *string `json:"secretName"`
+	SecretName *string `json:"secretName" yaml:"secretName"`
 }
 
 // Connection endpoint of a database cluster or instance.
@@ -18199,9 +18199,9 @@ func NewEndpoint_Override(e Endpoint, address *string, port *float64) {
 //
 type EngineVersion struct {
 	// The major version of the engine, for example, "5.6". Used in specifying the ParameterGroup family and OptionGroup version for this engine.
-	MajorVersion *string `json:"majorVersion"`
+	MajorVersion *string `json:"majorVersion" yaml:"majorVersion"`
 	// The full version string of the engine, for example, "5.6.mysql_aurora.1.22.1". It can be undefined, which means RDS should use whatever version it deems appropriate for the given engine type.
-	FullVersion *string `json:"fullVersion"`
+	FullVersion *string `json:"fullVersion" yaml:"fullVersion"`
 }
 
 // The interface representing a database cluster (as opposed to instance) engine.
@@ -19475,15 +19475,15 @@ func (j *jsiiProxy_ISubnetGroup) SubnetGroupName() *string {
 //
 type InstanceEngineBindOptions struct {
 	// The Active Directory directory ID to create the DB instance in.
-	Domain *string `json:"domain"`
+	Domain *string `json:"domain" yaml:"domain"`
 	// The option group of the database.
-	OptionGroup IOptionGroup `json:"optionGroup"`
+	OptionGroup IOptionGroup `json:"optionGroup" yaml:"optionGroup"`
 	// The role used for S3 exporting.
-	S3ExportRole awsiam.IRole `json:"s3ExportRole"`
+	S3ExportRole awsiam.IRole `json:"s3ExportRole" yaml:"s3ExportRole"`
 	// The role used for S3 importing.
-	S3ImportRole awsiam.IRole `json:"s3ImportRole"`
+	S3ImportRole awsiam.IRole `json:"s3ImportRole" yaml:"s3ImportRole"`
 	// The timezone of the database, set by the customer.
-	Timezone *string `json:"timezone"`
+	Timezone *string `json:"timezone" yaml:"timezone"`
 }
 
 // The type returned from the {@link IInstanceEngine.bind} method.
@@ -19494,9 +19494,9 @@ type InstanceEngineConfig struct {
 	// Features supported by the database engine.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DBEngineVersion.html
 	//
-	Features *InstanceEngineFeatures `json:"features"`
+	Features *InstanceEngineFeatures `json:"features" yaml:"features"`
 	// Option group of the database.
-	OptionGroup IOptionGroup `json:"optionGroup"`
+	OptionGroup IOptionGroup `json:"optionGroup" yaml:"optionGroup"`
 }
 
 // Represents Database Engine features.
@@ -19505,9 +19505,9 @@ type InstanceEngineConfig struct {
 //
 type InstanceEngineFeatures struct {
 	// Feature name for the DB instance that the IAM role to export to S3 bucket is to be associated with.
-	S3Export *string `json:"s3Export"`
+	S3Export *string `json:"s3Export" yaml:"s3Export"`
 	// Feature name for the DB instance that the IAM role to access the S3 bucket for import is to be associated with.
-	S3Import *string `json:"s3Import"`
+	S3Import *string `json:"s3Import" yaml:"s3Import"`
 }
 
 // Instance properties for database instances.
@@ -19518,29 +19518,29 @@ type InstanceProps struct {
 	// What subnets to run the RDS instances in.
 	//
 	// Must be at least 2 subnets in two different AZs.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// Whether to allow upgrade of major version for the DB instance.
-	AllowMajorVersionUpgrade *bool `json:"allowMajorVersionUpgrade"`
+	AllowMajorVersionUpgrade *bool `json:"allowMajorVersionUpgrade" yaml:"allowMajorVersionUpgrade"`
 	// Whether to enable automatic upgrade of minor version for the DB instance.
-	AutoMinorVersionUpgrade *bool `json:"autoMinorVersionUpgrade"`
+	AutoMinorVersionUpgrade *bool `json:"autoMinorVersionUpgrade" yaml:"autoMinorVersionUpgrade"`
 	// Whether to remove automated backups immediately after the DB instance is deleted for the DB instance.
-	DeleteAutomatedBackups *bool `json:"deleteAutomatedBackups"`
+	DeleteAutomatedBackups *bool `json:"deleteAutomatedBackups" yaml:"deleteAutomatedBackups"`
 	// Whether to enable Performance Insights for the DB instance.
-	EnablePerformanceInsights *bool `json:"enablePerformanceInsights"`
+	EnablePerformanceInsights *bool `json:"enablePerformanceInsights" yaml:"enablePerformanceInsights"`
 	// What type of instance to start for the replicas.
-	InstanceType awsec2.InstanceType `json:"instanceType"`
+	InstanceType awsec2.InstanceType `json:"instanceType" yaml:"instanceType"`
 	// The DB parameter group to associate with the instance.
-	ParameterGroup IParameterGroup `json:"parameterGroup"`
+	ParameterGroup IParameterGroup `json:"parameterGroup" yaml:"parameterGroup"`
 	// The AWS KMS key for encryption of Performance Insights data.
-	PerformanceInsightEncryptionKey awskms.IKey `json:"performanceInsightEncryptionKey"`
+	PerformanceInsightEncryptionKey awskms.IKey `json:"performanceInsightEncryptionKey" yaml:"performanceInsightEncryptionKey"`
 	// The amount of time, in days, to retain Performance Insights data.
-	PerformanceInsightRetention PerformanceInsightRetention `json:"performanceInsightRetention"`
+	PerformanceInsightRetention PerformanceInsightRetention `json:"performanceInsightRetention" yaml:"performanceInsightRetention"`
 	// Indicates whether the DB instance is an internet-facing instance.
-	PubliclyAccessible *bool `json:"publiclyAccessible"`
+	PubliclyAccessible *bool `json:"publiclyAccessible" yaml:"publiclyAccessible"`
 	// Security group.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// Where to place the instances within the VPC.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 
 // The license model.
@@ -19930,7 +19930,7 @@ func MariaDbEngineVersion_VER_10_5_9() MariaDbEngineVersion {
 //
 type MariaDbInstanceEngineProps struct {
 	// The exact version of the engine to use.
-	Version MariaDbEngineVersion `json:"version"`
+	Version MariaDbEngineVersion `json:"version" yaml:"version"`
 }
 
 // Properties for MySQL instance engines.
@@ -19941,7 +19941,7 @@ type MariaDbInstanceEngineProps struct {
 //
 type MySqlInstanceEngineProps struct {
 	// The exact version of the engine to use.
-	Version MysqlEngineVersion `json:"version"`
+	Version MysqlEngineVersion `json:"version" yaml:"version"`
 }
 
 // The versions for the MySQL instance engines (those returned by {@link DatabaseInstanceEngine.mysql}).
@@ -20298,25 +20298,25 @@ func MysqlEngineVersion_VER_8_0_26() MysqlEngineVersion {
 //
 type OptionConfiguration struct {
 	// The name of the option.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The port number that this option uses.
 	//
 	// If `port` is specified then `vpc`
 	// must also be specified.
-	Port *float64 `json:"port"`
+	Port *float64 `json:"port" yaml:"port"`
 	// Optional list of security groups to use for this option, if `vpc` is specified.
 	//
 	// If no groups are provided, a default one will be created.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// The settings for the option.
-	Settings *map[string]*string `json:"settings"`
+	Settings *map[string]*string `json:"settings" yaml:"settings"`
 	// The version for the option.
-	Version *string `json:"version"`
+	Version *string `json:"version" yaml:"version"`
 	// The VPC where a security group should be created for this option.
 	//
 	// If `vpc`
 	// is specified then `port` must also be specified.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 }
 
 // An option group.
@@ -20585,11 +20585,11 @@ func (o *jsiiProxy_OptionGroup) ToString() *string {
 //
 type OptionGroupProps struct {
 	// The configurations for this option group.
-	Configurations *[]*OptionConfiguration `json:"configurations"`
+	Configurations *[]*OptionConfiguration `json:"configurations" yaml:"configurations"`
 	// The database engine that this option group is associated with.
-	Engine IInstanceEngine `json:"engine"`
+	Engine IInstanceEngine `json:"engine" yaml:"engine"`
 	// A description of the option group.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 }
 
 // Properties for Oracle Enterprise Edition instance engines.
@@ -20600,7 +20600,7 @@ type OptionGroupProps struct {
 //
 type OracleEeInstanceEngineProps struct {
 	// The exact version of the engine to use.
-	Version OracleEngineVersion `json:"version"`
+	Version OracleEngineVersion `json:"version" yaml:"version"`
 }
 
 // The versions for the Oracle instance engines (those returned by {@link DatabaseInstanceEngine.oracleSe2} and {@link DatabaseInstanceEngine.oracleEe}).
@@ -21245,7 +21245,7 @@ func OracleEngineVersion_VER_19_0_0_0_2021_04_R1() OracleEngineVersion {
 //
 type OracleSe2InstanceEngineProps struct {
 	// The exact version of the engine to use.
-	Version OracleEngineVersion `json:"version"`
+	Version OracleEngineVersion `json:"version" yaml:"version"`
 }
 
 // A parameter group.
@@ -21530,7 +21530,7 @@ type ParameterGroupClusterBindOptions struct {
 //
 type ParameterGroupClusterConfig struct {
 	// The name of this parameter group.
-	ParameterGroupName *string `json:"parameterGroupName"`
+	ParameterGroupName *string `json:"parameterGroupName" yaml:"parameterGroupName"`
 }
 
 // Options for {@link IParameterGroup.bindToInstance}. Empty for now, but can be extended later.
@@ -21546,7 +21546,7 @@ type ParameterGroupInstanceBindOptions struct {
 //
 type ParameterGroupInstanceConfig struct {
 	// The name of this parameter group.
-	ParameterGroupName *string `json:"parameterGroupName"`
+	ParameterGroupName *string `json:"parameterGroupName" yaml:"parameterGroupName"`
 }
 
 // Properties for a parameter group.
@@ -21555,11 +21555,11 @@ type ParameterGroupInstanceConfig struct {
 //
 type ParameterGroupProps struct {
 	// The database engine for this parameter group.
-	Engine IEngine `json:"engine"`
+	Engine IEngine `json:"engine" yaml:"engine"`
 	// Description for this parameter group.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The parameters in this parameter group.
-	Parameters *map[string]*string `json:"parameters"`
+	Parameters *map[string]*string `json:"parameters" yaml:"parameters"`
 }
 
 // The retention period for Performance Insight.
@@ -21576,9 +21576,9 @@ const (
 //
 type PostgresEngineFeatures struct {
 	// Whether this version of the Postgres engine supports the S3 data export feature.
-	S3Export *bool `json:"s3Export"`
+	S3Export *bool `json:"s3Export" yaml:"s3Export"`
 	// Whether this version of the Postgres engine supports the S3 data import feature.
-	S3Import *bool `json:"s3Import"`
+	S3Import *bool `json:"s3Import" yaml:"s3Import"`
 }
 
 // The versions for the PostgreSQL instance engines (those returned by {@link DatabaseInstanceEngine.postgres}).
@@ -22113,7 +22113,7 @@ func PostgresEngineVersion_VER_13_4() PostgresEngineVersion {
 //
 type PostgresInstanceEngineProps struct {
 	// The exact version of the engine to use.
-	Version PostgresEngineVersion `json:"version"`
+	Version PostgresEngineVersion `json:"version" yaml:"version"`
 }
 
 // The processor features.
@@ -22122,9 +22122,9 @@ type PostgresInstanceEngineProps struct {
 //
 type ProcessorFeatures struct {
 	// The number of CPU core.
-	CoreCount *float64 `json:"coreCount"`
+	CoreCount *float64 `json:"coreCount" yaml:"coreCount"`
 	// The number of threads per core.
-	ThreadsPerCore *float64 `json:"threadsPerCore"`
+	ThreadsPerCore *float64 `json:"threadsPerCore" yaml:"threadsPerCore"`
 }
 
 // Proxy target: Instance or Cluster.
@@ -22195,15 +22195,15 @@ func (p *jsiiProxy_ProxyTarget) Bind(proxy DatabaseProxy) *ProxyTargetConfig {
 //
 type ProxyTargetConfig struct {
 	// The engine family of the database instance or cluster this proxy connects with.
-	EngineFamily *string `json:"engineFamily"`
+	EngineFamily *string `json:"engineFamily" yaml:"engineFamily"`
 	// The database clusters to which this proxy connects.
 	//
 	// Either this or `dbInstances` will be set and the other `undefined`.
-	DbClusters *[]IDatabaseCluster `json:"dbClusters"`
+	DbClusters *[]IDatabaseCluster `json:"dbClusters" yaml:"dbClusters"`
 	// The database instances to which this proxy connects.
 	//
 	// Either this or `dbClusters` will be set and the other `undefined`.
-	DbInstances *[]IDatabaseInstance `json:"dbInstances"`
+	DbInstances *[]IDatabaseInstance `json:"dbInstances" yaml:"dbInstances"`
 }
 
 // Options to add the multi user rotation.
@@ -22225,20 +22225,20 @@ type RotationMultiUserOptions struct {
 	//    "masterarn": <required: the arn of the master secret which will be used to create users/change passwords>
 	// }
 	// ```
-	Secret awssecretsmanager.ISecret `json:"secret"`
+	Secret awssecretsmanager.ISecret `json:"secret" yaml:"secret"`
 	// Specifies the number of days after the previous rotation before Secrets Manager triggers the next automatic rotation.
-	AutomaticallyAfter awscdk.Duration `json:"automaticallyAfter"`
+	AutomaticallyAfter awscdk.Duration `json:"automaticallyAfter" yaml:"automaticallyAfter"`
 	// The VPC interface endpoint to use for the Secrets Manager API.
 	//
 	// If you enable private DNS hostnames for your VPC private endpoint (the default), you don't
 	// need to specify an endpoint. The standard Secrets Manager DNS hostname the Secrets Manager
 	// CLI and SDKs use by default (https://secretsmanager.<region>.amazonaws.com) automatically
 	// resolves to your VPC endpoint.
-	Endpoint awsec2.IInterfaceVpcEndpoint `json:"endpoint"`
+	Endpoint awsec2.IInterfaceVpcEndpoint `json:"endpoint" yaml:"endpoint"`
 	// Specifies characters to not include in generated passwords.
-	ExcludeCharacters *string `json:"excludeCharacters"`
+	ExcludeCharacters *string `json:"excludeCharacters" yaml:"excludeCharacters"`
 	// Where to place the rotation Lambda function.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 
 // Options to add the multi user rotation.
@@ -22247,18 +22247,18 @@ type RotationMultiUserOptions struct {
 //
 type RotationSingleUserOptions struct {
 	// Specifies the number of days after the previous rotation before Secrets Manager triggers the next automatic rotation.
-	AutomaticallyAfter awscdk.Duration `json:"automaticallyAfter"`
+	AutomaticallyAfter awscdk.Duration `json:"automaticallyAfter" yaml:"automaticallyAfter"`
 	// The VPC interface endpoint to use for the Secrets Manager API.
 	//
 	// If you enable private DNS hostnames for your VPC private endpoint (the default), you don't
 	// need to specify an endpoint. The standard Secrets Manager DNS hostname the Secrets Manager
 	// CLI and SDKs use by default (https://secretsmanager.<region>.amazonaws.com) automatically
 	// resolves to your VPC endpoint.
-	Endpoint awsec2.IInterfaceVpcEndpoint `json:"endpoint"`
+	Endpoint awsec2.IInterfaceVpcEndpoint `json:"endpoint" yaml:"endpoint"`
 	// Specifies characters to not include in generated passwords.
-	ExcludeCharacters *string `json:"excludeCharacters"`
+	ExcludeCharacters *string `json:"excludeCharacters" yaml:"excludeCharacters"`
 	// Where to place the rotation Lambda function.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 
 // Create an Aurora Serverless Cluster.
@@ -22656,17 +22656,17 @@ func (s *jsiiProxy_ServerlessCluster) ToString() *string {
 //
 type ServerlessClusterAttributes struct {
 	// Identifier for the cluster.
-	ClusterIdentifier *string `json:"clusterIdentifier"`
+	ClusterIdentifier *string `json:"clusterIdentifier" yaml:"clusterIdentifier"`
 	// Cluster endpoint address.
-	ClusterEndpointAddress *string `json:"clusterEndpointAddress"`
+	ClusterEndpointAddress *string `json:"clusterEndpointAddress" yaml:"clusterEndpointAddress"`
 	// The database port.
-	Port *float64 `json:"port"`
+	Port *float64 `json:"port" yaml:"port"`
 	// Reader endpoint address.
-	ReaderEndpointAddress *string `json:"readerEndpointAddress"`
+	ReaderEndpointAddress *string `json:"readerEndpointAddress" yaml:"readerEndpointAddress"`
 	// The secret attached to the database cluster.
-	Secret awssecretsmanager.ISecret `json:"secret"`
+	Secret awssecretsmanager.ISecret `json:"secret" yaml:"secret"`
 	// The security groups of the database cluster.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 }
 
 // A Aurora Serverless Cluster restored from a snapshot.
@@ -23018,46 +23018,46 @@ func (s *jsiiProxy_ServerlessClusterFromSnapshot) ToString() *string {
 //
 type ServerlessClusterFromSnapshotProps struct {
 	// What kind of database to start.
-	Engine IClusterEngine `json:"engine"`
+	Engine IClusterEngine `json:"engine" yaml:"engine"`
 	// The identifier for the DB instance snapshot or DB cluster snapshot to restore from.
 	//
 	// You can use either the name or the Amazon Resource Name (ARN) to specify a DB cluster snapshot.
 	// However, you can use only the ARN to specify a DB instance snapshot.
-	SnapshotIdentifier *string `json:"snapshotIdentifier"`
+	SnapshotIdentifier *string `json:"snapshotIdentifier" yaml:"snapshotIdentifier"`
 	// The VPC that this Aurora Serverless cluster has been created in.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// The number of days during which automatic DB snapshots are retained.
 	//
 	// Automatic backup retention cannot be disabled on serverless clusters.
 	// Must be a value from 1 day to 35 days.
-	BackupRetention awscdk.Duration `json:"backupRetention"`
+	BackupRetention awscdk.Duration `json:"backupRetention" yaml:"backupRetention"`
 	// An optional identifier for the cluster.
-	ClusterIdentifier *string `json:"clusterIdentifier"`
+	ClusterIdentifier *string `json:"clusterIdentifier" yaml:"clusterIdentifier"`
 	// Master user credentials.
 	//
 	// Note - It is not possible to change the master username for a snapshot;
 	// however, it is possible to provide (or generate) a new password.
-	Credentials SnapshotCredentials `json:"credentials"`
+	Credentials SnapshotCredentials `json:"credentials" yaml:"credentials"`
 	// Name of a database which is automatically created inside the cluster.
-	DefaultDatabaseName *string `json:"defaultDatabaseName"`
+	DefaultDatabaseName *string `json:"defaultDatabaseName" yaml:"defaultDatabaseName"`
 	// Indicates whether the DB cluster should have deletion protection enabled.
-	DeletionProtection *bool `json:"deletionProtection"`
+	DeletionProtection *bool `json:"deletionProtection" yaml:"deletionProtection"`
 	// Whether to enable the Data API.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html
 	//
-	EnableDataApi *bool `json:"enableDataApi"`
+	EnableDataApi *bool `json:"enableDataApi" yaml:"enableDataApi"`
 	// Additional parameters to pass to the database engine.
-	ParameterGroup IParameterGroup `json:"parameterGroup"`
+	ParameterGroup IParameterGroup `json:"parameterGroup" yaml:"parameterGroup"`
 	// The removal policy to apply when the cluster and its instances are removed from the stack or replaced during an update.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 	// Scaling configuration of an Aurora Serverless database cluster.
-	Scaling *ServerlessScalingOptions `json:"scaling"`
+	Scaling *ServerlessScalingOptions `json:"scaling" yaml:"scaling"`
 	// Security group.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// Existing subnet group for the cluster.
-	SubnetGroup ISubnetGroup `json:"subnetGroup"`
+	SubnetGroup ISubnetGroup `json:"subnetGroup" yaml:"subnetGroup"`
 	// Where to place the instances within the VPC.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 
 // Properties for a new Aurora Serverless Cluster.
@@ -23066,40 +23066,40 @@ type ServerlessClusterFromSnapshotProps struct {
 //
 type ServerlessClusterProps struct {
 	// What kind of database to start.
-	Engine IClusterEngine `json:"engine"`
+	Engine IClusterEngine `json:"engine" yaml:"engine"`
 	// The VPC that this Aurora Serverless cluster has been created in.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// The number of days during which automatic DB snapshots are retained.
 	//
 	// Automatic backup retention cannot be disabled on serverless clusters.
 	// Must be a value from 1 day to 35 days.
-	BackupRetention awscdk.Duration `json:"backupRetention"`
+	BackupRetention awscdk.Duration `json:"backupRetention" yaml:"backupRetention"`
 	// An optional identifier for the cluster.
-	ClusterIdentifier *string `json:"clusterIdentifier"`
+	ClusterIdentifier *string `json:"clusterIdentifier" yaml:"clusterIdentifier"`
 	// Credentials for the administrative user.
-	Credentials Credentials `json:"credentials"`
+	Credentials Credentials `json:"credentials" yaml:"credentials"`
 	// Name of a database which is automatically created inside the cluster.
-	DefaultDatabaseName *string `json:"defaultDatabaseName"`
+	DefaultDatabaseName *string `json:"defaultDatabaseName" yaml:"defaultDatabaseName"`
 	// Indicates whether the DB cluster should have deletion protection enabled.
-	DeletionProtection *bool `json:"deletionProtection"`
+	DeletionProtection *bool `json:"deletionProtection" yaml:"deletionProtection"`
 	// Whether to enable the Data API.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html
 	//
-	EnableDataApi *bool `json:"enableDataApi"`
+	EnableDataApi *bool `json:"enableDataApi" yaml:"enableDataApi"`
 	// Additional parameters to pass to the database engine.
-	ParameterGroup IParameterGroup `json:"parameterGroup"`
+	ParameterGroup IParameterGroup `json:"parameterGroup" yaml:"parameterGroup"`
 	// The removal policy to apply when the cluster and its instances are removed from the stack or replaced during an update.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 	// Scaling configuration of an Aurora Serverless database cluster.
-	Scaling *ServerlessScalingOptions `json:"scaling"`
+	Scaling *ServerlessScalingOptions `json:"scaling" yaml:"scaling"`
 	// Security group.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// The KMS key for storage encryption.
-	StorageEncryptionKey awskms.IKey `json:"storageEncryptionKey"`
+	StorageEncryptionKey awskms.IKey `json:"storageEncryptionKey" yaml:"storageEncryptionKey"`
 	// Existing subnet group for the cluster.
-	SubnetGroup ISubnetGroup `json:"subnetGroup"`
+	SubnetGroup ISubnetGroup `json:"subnetGroup" yaml:"subnetGroup"`
 	// Where to place the instances within the VPC.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 
 // Options for configuring scaling on an Aurora Serverless cluster.
@@ -23117,11 +23117,11 @@ type ServerlessScalingOptions struct {
 	// is a request to connect to it.
 	//
 	// Set to 0 to disable
-	AutoPause awscdk.Duration `json:"autoPause"`
+	AutoPause awscdk.Duration `json:"autoPause" yaml:"autoPause"`
 	// The maximum capacity for an Aurora Serverless database cluster.
-	MaxCapacity AuroraCapacityUnit `json:"maxCapacity"`
+	MaxCapacity AuroraCapacityUnit `json:"maxCapacity" yaml:"maxCapacity"`
 	// The minimum capacity for an Aurora Serverless database cluster.
-	MinCapacity AuroraCapacityUnit `json:"minCapacity"`
+	MinCapacity AuroraCapacityUnit `json:"minCapacity" yaml:"minCapacity"`
 }
 
 // SessionPinningFilter.
@@ -23374,11 +23374,11 @@ func SnapshotCredentials_FromSecret(secret awssecretsmanager.Secret) SnapshotCre
 //
 type SnapshotCredentialsFromGeneratedPasswordOptions struct {
 	// KMS encryption key to encrypt the generated secret.
-	EncryptionKey awskms.IKey `json:"encryptionKey"`
+	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
 	// The characters to exclude from the generated password.
-	ExcludeCharacters *string `json:"excludeCharacters"`
+	ExcludeCharacters *string `json:"excludeCharacters" yaml:"excludeCharacters"`
 	// A list of regions where to replicate this secret.
-	ReplicaRegions *[]*awssecretsmanager.ReplicaRegion `json:"replicaRegions"`
+	ReplicaRegions *[]*awssecretsmanager.ReplicaRegion `json:"replicaRegions" yaml:"replicaRegions"`
 }
 
 // Properties for SQL Server Enterprise Edition instance engines.
@@ -23389,7 +23389,7 @@ type SnapshotCredentialsFromGeneratedPasswordOptions struct {
 //
 type SqlServerEeInstanceEngineProps struct {
 	// The exact version of the engine to use.
-	Version SqlServerEngineVersion `json:"version"`
+	Version SqlServerEngineVersion `json:"version" yaml:"version"`
 }
 
 // The versions for the SQL Server instance engines (those returned by {@link DatabaseInstanceEngine.sqlServerSe}, {@link DatabaseInstanceEngine.sqlServerEx}, {@link DatabaseInstanceEngine.sqlServerWeb} and {@link DatabaseInstanceEngine.sqlServerEe}).
@@ -23891,7 +23891,7 @@ func SqlServerEngineVersion_VER_15_00_4073_23_V1() SqlServerEngineVersion {
 //
 type SqlServerExInstanceEngineProps struct {
 	// The exact version of the engine to use.
-	Version SqlServerEngineVersion `json:"version"`
+	Version SqlServerEngineVersion `json:"version" yaml:"version"`
 }
 
 // Properties for SQL Server Standard Edition instance engines.
@@ -23902,7 +23902,7 @@ type SqlServerExInstanceEngineProps struct {
 //
 type SqlServerSeInstanceEngineProps struct {
 	// The exact version of the engine to use.
-	Version SqlServerEngineVersion `json:"version"`
+	Version SqlServerEngineVersion `json:"version" yaml:"version"`
 }
 
 // Properties for SQL Server Web Edition instance engines.
@@ -23913,7 +23913,7 @@ type SqlServerSeInstanceEngineProps struct {
 //
 type SqlServerWebInstanceEngineProps struct {
 	// The exact version of the engine to use.
-	Version SqlServerEngineVersion `json:"version"`
+	Version SqlServerEngineVersion `json:"version" yaml:"version"`
 }
 
 // The type of storage.
@@ -24163,14 +24163,14 @@ func (s *jsiiProxy_SubnetGroup) ToString() *string {
 //
 type SubnetGroupProps struct {
 	// Description of the subnet group.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The VPC to place the subnet group in.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// The removal policy to apply when the subnet group are removed from the stack or replaced during an update.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 	// The name of the subnet group.
-	SubnetGroupName *string `json:"subnetGroupName"`
+	SubnetGroupName *string `json:"subnetGroupName" yaml:"subnetGroupName"`
 	// Which subnets within the VPC to associate with this group.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 

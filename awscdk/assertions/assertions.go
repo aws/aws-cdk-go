@@ -374,9 +374,9 @@ func Match_SerializedJson(pattern interface{}) Matcher {
 //
 type MatchCapture struct {
 	// The instance of Capture class to which this capture is associated with.
-	Capture Capture `json:"capture"`
+	Capture Capture `json:"capture" yaml:"capture"`
 	// The value that was captured.
-	Value interface{} `json:"value"`
+	Value interface{} `json:"value" yaml:"value"`
 }
 
 // Match failure details.
@@ -385,15 +385,15 @@ type MatchCapture struct {
 //
 type MatchFailure struct {
 	// The matcher that had the failure.
-	Matcher Matcher `json:"matcher"`
+	Matcher Matcher `json:"matcher" yaml:"matcher"`
 	// Failure message.
-	Message *string `json:"message"`
+	Message *string `json:"message" yaml:"message"`
 	// The relative path in the target where the failure occurred.
 	//
 	// If the failure occurred at root of the match tree, set the path to an empty list.
 	// If it occurs in the 5th index of an array nested within the 'foo' key of an object,
 	// set the path as `['/foo', '[5]']`.
-	Path *[]*string `json:"path"`
+	Path *[]*string `json:"path" yaml:"path"`
 }
 
 // The result of `Match.test()`.

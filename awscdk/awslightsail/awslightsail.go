@@ -769,23 +769,23 @@ func (c *jsiiProxy_CfnDatabase) ValidateProperties(_properties interface{}) {
 //
 type CfnDatabase_RelationalDatabaseParameterProperty struct {
 	// The valid range of values for the parameter.
-	AllowedValues *string `json:"allowedValues"`
+	AllowedValues *string `json:"allowedValues" yaml:"allowedValues"`
 	// Indicates when parameter updates are applied.
 	//
 	// Can be `immediate` or `pending-reboot` .
-	ApplyMethod *string `json:"applyMethod"`
+	ApplyMethod *string `json:"applyMethod" yaml:"applyMethod"`
 	// Specifies the engine-specific parameter type.
-	ApplyType *string `json:"applyType"`
+	ApplyType *string `json:"applyType" yaml:"applyType"`
 	// The valid data type of the parameter.
-	DataType *string `json:"dataType"`
+	DataType *string `json:"dataType" yaml:"dataType"`
 	// A description of the parameter.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// A Boolean value indicating whether the parameter can be modified.
-	IsModifiable interface{} `json:"isModifiable"`
+	IsModifiable interface{} `json:"isModifiable" yaml:"isModifiable"`
 	// The name of the parameter.
-	ParameterName *string `json:"parameterName"`
+	ParameterName *string `json:"parameterName" yaml:"parameterName"`
 	// The value for the parameter.
-	ParameterValue *string `json:"parameterValue"`
+	ParameterValue *string `json:"parameterValue" yaml:"parameterValue"`
 }
 
 // Properties for defining a `CfnDatabase`.
@@ -818,7 +818,7 @@ type CfnDatabaseProps struct {
 	// - Can't be a word reserved by the specified database engine.
 	//
 	// For more information about reserved words in PostgreSQL, see the SQL Key Words articles for [PostgreSQL 9.6](https://docs.aws.amazon.com/https://www.postgresql.org/docs/9.6/sql-keywords-appendix.html) , [PostgreSQL 10](https://docs.aws.amazon.com/https://www.postgresql.org/docs/10/sql-keywords-appendix.html) , [PostgreSQL 11](https://docs.aws.amazon.com/https://www.postgresql.org/docs/11/sql-keywords-appendix.html) , and [PostgreSQL 12](https://docs.aws.amazon.com/https://www.postgresql.org/docs/12/sql-keywords-appendix.html) .
-	MasterDatabaseName *string `json:"masterDatabaseName"`
+	MasterDatabaseName *string `json:"masterDatabaseName" yaml:"masterDatabaseName"`
 	// The name for the primary user.
 	//
 	// *MySQL*
@@ -842,19 +842,19 @@ type CfnDatabaseProps struct {
 	// - Can't be a reserved word for the chosen database engine.
 	//
 	// For more information about reserved words in MySQL 5.6 or 5.7, see the Keywords and Reserved Words articles for [PostgreSQL 9.6](https://docs.aws.amazon.com/https://www.postgresql.org/docs/9.6/sql-keywords-appendix.html) , [PostgreSQL 10](https://docs.aws.amazon.com/https://www.postgresql.org/docs/10/sql-keywords-appendix.html) , [PostgreSQL 11](https://docs.aws.amazon.com/https://www.postgresql.org/docs/11/sql-keywords-appendix.html) , and [PostgreSQL 12](https://docs.aws.amazon.com/https://www.postgresql.org/docs/12/sql-keywords-appendix.html) .
-	MasterUsername *string `json:"masterUsername"`
+	MasterUsername *string `json:"masterUsername" yaml:"masterUsername"`
 	// The blueprint ID for the database (for example, `mysql_8_0` ).
-	RelationalDatabaseBlueprintId *string `json:"relationalDatabaseBlueprintId"`
+	RelationalDatabaseBlueprintId *string `json:"relationalDatabaseBlueprintId" yaml:"relationalDatabaseBlueprintId"`
 	// The bundle ID for the database (for example, `medium_1_0` ).
-	RelationalDatabaseBundleId *string `json:"relationalDatabaseBundleId"`
+	RelationalDatabaseBundleId *string `json:"relationalDatabaseBundleId" yaml:"relationalDatabaseBundleId"`
 	// The name of the instance.
-	RelationalDatabaseName *string `json:"relationalDatabaseName"`
+	RelationalDatabaseName *string `json:"relationalDatabaseName" yaml:"relationalDatabaseName"`
 	// The Availability Zone for the database.
-	AvailabilityZone *string `json:"availabilityZone"`
+	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
 	// A Boolean value indicating whether automated backup retention is enabled for the database.
-	BackupRetention interface{} `json:"backupRetention"`
+	BackupRetention interface{} `json:"backupRetention" yaml:"backupRetention"`
 	// The certificate associated with the database.
-	CaCertificateIdentifier *string `json:"caCertificateIdentifier"`
+	CaCertificateIdentifier *string `json:"caCertificateIdentifier" yaml:"caCertificateIdentifier"`
 	// The password for the primary user of the database.
 	//
 	// The password can include any printable ASCII character except the following: /, ", or @. It cannot contain spaces.
@@ -868,27 +868,27 @@ type CfnDatabaseProps struct {
 	// *PostgreSQL*
 	//
 	// Constraints: Must contain 8-128 characters.
-	MasterUserPassword *string `json:"masterUserPassword"`
+	MasterUserPassword *string `json:"masterUserPassword" yaml:"masterUserPassword"`
 	// The daily time range during which automated backups are created for the database (for example, `16:00-16:30` ).
-	PreferredBackupWindow *string `json:"preferredBackupWindow"`
+	PreferredBackupWindow *string `json:"preferredBackupWindow" yaml:"preferredBackupWindow"`
 	// The weekly time range during which system maintenance can occur for the database, formatted as follows: `ddd:hh24:mi-ddd:hh24:mi` .
 	//
 	// For example, `Tue:17:00-Tue:17:30` .
-	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow"`
+	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
 	// A Boolean value indicating whether the database is accessible to anyone on the internet.
-	PubliclyAccessible interface{} `json:"publiclyAccessible"`
+	PubliclyAccessible interface{} `json:"publiclyAccessible" yaml:"publiclyAccessible"`
 	// An array of parameters for the database.
-	RelationalDatabaseParameters interface{} `json:"relationalDatabaseParameters"`
+	RelationalDatabaseParameters interface{} `json:"relationalDatabaseParameters" yaml:"relationalDatabaseParameters"`
 	// A Boolean value indicating whether to change the primary user password to a new, strong password generated by Lightsail .
 	//
 	// > The `RotateMasterUserPassword` and `MasterUserPassword` parameters cannot be used together in the same template.
-	RotateMasterUserPassword interface{} `json:"rotateMasterUserPassword"`
+	RotateMasterUserPassword interface{} `json:"rotateMasterUserPassword" yaml:"rotateMasterUserPassword"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *AWS CloudFormation User Guide* .
 	//
 	// > The `Value` of `Tags` is optional for Lightsail resources.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Lightsail::Disk`.
@@ -1541,13 +1541,13 @@ type CfnDisk_AddOnProperty struct {
 	// The add-on type (for example, `AutoSnapshot` ).
 	//
 	// > `AutoSnapshot` is the only add-on that can be enabled for a disk.
-	AddOnType *string `json:"addOnType"`
+	AddOnType *string `json:"addOnType" yaml:"addOnType"`
 	// The parameters for the automatic snapshot add-on, such as the daily time when an automatic snapshot will be created.
-	AutoSnapshotAddOnRequest interface{} `json:"autoSnapshotAddOnRequest"`
+	AutoSnapshotAddOnRequest interface{} `json:"autoSnapshotAddOnRequest" yaml:"autoSnapshotAddOnRequest"`
 	// The status of the add-on.
 	//
 	// Valid Values: `Enabled` | `Disabled`
-	Status *string `json:"status"`
+	Status *string `json:"status" yaml:"status"`
 }
 
 // `AutoSnapshotAddOn` is a property of the [AddOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-disk-addon.html) property. It describes the automatic snapshot add-on for a disk.
@@ -1562,7 +1562,7 @@ type CfnDisk_AutoSnapshotAddOnProperty struct {
 	// - Must be in `HH:00` format, and in an hourly increment.
 	// - Specified in Coordinated Universal Time (UTC).
 	// - The snapshot will be automatically created between the time specified and up to 45 minutes after.
-	SnapshotTimeOfDay *string `json:"snapshotTimeOfDay"`
+	SnapshotTimeOfDay *string `json:"snapshotTimeOfDay" yaml:"snapshotTimeOfDay"`
 }
 
 // Properties for defining a `CfnDisk`.
@@ -1571,21 +1571,21 @@ type CfnDisk_AutoSnapshotAddOnProperty struct {
 //
 type CfnDiskProps struct {
 	// The name of the disk.
-	DiskName *string `json:"diskName"`
+	DiskName *string `json:"diskName" yaml:"diskName"`
 	// The size of the disk in GB.
-	SizeInGb *float64 `json:"sizeInGb"`
+	SizeInGb *float64 `json:"sizeInGb" yaml:"sizeInGb"`
 	// An array of add-ons for the disk.
 	//
 	// > If the disk has an add-on enabled when performing a delete disk request, the add-on is automatically disabled before the disk is deleted.
-	AddOns interface{} `json:"addOns"`
+	AddOns interface{} `json:"addOns" yaml:"addOns"`
 	// The AWS Region and Availability Zone location for the disk (for example, `us-east-1a` ).
-	AvailabilityZone *string `json:"availabilityZone"`
+	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *AWS CloudFormation User Guide* .
 	//
 	// > The `Value` of `Tags` is optional for Lightsail resources.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Lightsail::Instance`.
@@ -2404,13 +2404,13 @@ type CfnInstance_AddOnProperty struct {
 	// The add-on type (for example, `AutoSnapshot` ).
 	//
 	// > `AutoSnapshot` is the only add-on that can be enabled for an instance.
-	AddOnType *string `json:"addOnType"`
+	AddOnType *string `json:"addOnType" yaml:"addOnType"`
 	// The parameters for the automatic snapshot add-on, such as the daily time when an automatic snapshot will be created.
-	AutoSnapshotAddOnRequest interface{} `json:"autoSnapshotAddOnRequest"`
+	AutoSnapshotAddOnRequest interface{} `json:"autoSnapshotAddOnRequest" yaml:"autoSnapshotAddOnRequest"`
 	// The status of the add-on.
 	//
 	// Valid Values: `Enabled` | `Disabled`
-	Status *string `json:"status"`
+	Status *string `json:"status" yaml:"status"`
 }
 
 // `AutoSnapshotAddOn` is a property of the [AddOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-addon.html) property. It describes the automatic snapshot add-on for an instance.
@@ -2425,7 +2425,7 @@ type CfnInstance_AutoSnapshotAddOnProperty struct {
 	// - Must be in `HH:00` format, and in an hourly increment.
 	// - Specified in Coordinated Universal Time (UTC).
 	// - The snapshot will be automatically created between the time specified and up to 45 minutes after.
-	SnapshotTimeOfDay *string `json:"snapshotTimeOfDay"`
+	SnapshotTimeOfDay *string `json:"snapshotTimeOfDay" yaml:"snapshotTimeOfDay"`
 }
 
 // `Disk` is a property of the [Hardware](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-hardware.html) property. It describes a disk attached to an instance.
@@ -2434,21 +2434,21 @@ type CfnInstance_AutoSnapshotAddOnProperty struct {
 //
 type CfnInstance_DiskProperty struct {
 	// The unique name of the disk.
-	DiskName *string `json:"diskName"`
+	DiskName *string `json:"diskName" yaml:"diskName"`
 	// The disk path.
-	Path *string `json:"path"`
+	Path *string `json:"path" yaml:"path"`
 	// The resources to which the disk is attached.
-	AttachedTo *string `json:"attachedTo"`
+	AttachedTo *string `json:"attachedTo" yaml:"attachedTo"`
 	// (Deprecated) The attachment state of the disk.
 	//
 	// > In releases prior to November 14, 2017, this parameter returned `attached` for system disks in the API response. It is now deprecated, but still included in the response. Use `isAttached` instead.
-	AttachmentState *string `json:"attachmentState"`
+	AttachmentState *string `json:"attachmentState" yaml:"attachmentState"`
 	// The input/output operations per second (IOPS) of the disk.
-	Iops *float64 `json:"iops"`
+	Iops *float64 `json:"iops" yaml:"iops"`
 	// A Boolean value indicating whether this disk is a system disk (has an operating system loaded on it).
-	IsSystemDisk interface{} `json:"isSystemDisk"`
+	IsSystemDisk interface{} `json:"isSystemDisk" yaml:"isSystemDisk"`
 	// The size of the disk in GB.
-	SizeInGb *string `json:"sizeInGb"`
+	SizeInGb *string `json:"sizeInGb" yaml:"sizeInGb"`
 }
 
 // `Hardware` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the hardware properties for the instance, such as the vCPU count, attached disks, and amount of RAM.
@@ -2459,15 +2459,15 @@ type CfnInstance_HardwareProperty struct {
 	// The number of vCPUs the instance has.
 	//
 	// > The `CpuCount` property is read-only and should not be specified in a create instance or update instance request.
-	CpuCount *float64 `json:"cpuCount"`
+	CpuCount *float64 `json:"cpuCount" yaml:"cpuCount"`
 	// The disks attached to the instance.
 	//
 	// The instance restarts when performing an attach disk or detach disk request. This resets the public IP address of your instance if a static IP isn't attached to it.
-	Disks interface{} `json:"disks"`
+	Disks interface{} `json:"disks" yaml:"disks"`
 	// The amount of RAM in GB on the instance (for example, `1.0` ).
 	//
 	// > The `RamSizeInGb` property is read-only and should not be specified in a create instance or update instance request.
-	RamSizeInGb *float64 `json:"ramSizeInGb"`
+	RamSizeInGb *float64 `json:"ramSizeInGb" yaml:"ramSizeInGb"`
 }
 
 // `Location` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the location for an instance.
@@ -2476,9 +2476,9 @@ type CfnInstance_HardwareProperty struct {
 //
 type CfnInstance_LocationProperty struct {
 	// The Availability Zone for the instance.
-	AvailabilityZone *string `json:"availabilityZone"`
+	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
 	// The name of the AWS Region for the instance.
-	RegionName *string `json:"regionName"`
+	RegionName *string `json:"regionName" yaml:"regionName"`
 }
 
 // `MonthlyTransfer` is a property of the [Networking](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-networking.html) property. It describes the amount of allocated monthly data transfer (in GB) for an instance.
@@ -2487,7 +2487,7 @@ type CfnInstance_LocationProperty struct {
 //
 type CfnInstance_MonthlyTransferProperty struct {
 	// The amount of allocated monthly data transfer (in GB) for an instance.
-	GbPerMonthAllocated *string `json:"gbPerMonthAllocated"`
+	GbPerMonthAllocated *string `json:"gbPerMonthAllocated" yaml:"gbPerMonthAllocated"`
 }
 
 // `Networking` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the public ports and the monthly amount of data transfer allocated for the instance.
@@ -2496,9 +2496,9 @@ type CfnInstance_MonthlyTransferProperty struct {
 //
 type CfnInstance_NetworkingProperty struct {
 	// An array of ports to open on the instance.
-	Ports interface{} `json:"ports"`
+	Ports interface{} `json:"ports" yaml:"ports"`
 	// The monthly amount of data transfer, in GB, allocated for the instance.
-	MonthlyTransfer *float64 `json:"monthlyTransfer"`
+	MonthlyTransfer *float64 `json:"monthlyTransfer" yaml:"monthlyTransfer"`
 }
 
 // `Port` is a property of the [Networking](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-networking.html) property. It describes information about ports for an instance.
@@ -2509,17 +2509,17 @@ type CfnInstance_PortProperty struct {
 	// The access direction ( `inbound` or `outbound` ).
 	//
 	// > Lightsail currently supports only `inbound` access direction.
-	AccessDirection *string `json:"accessDirection"`
+	AccessDirection *string `json:"accessDirection" yaml:"accessDirection"`
 	// The location from which access is allowed.
 	//
 	// For example, `Anywhere (0.0.0.0/0)` , or `Custom` if a specific IP address or range of IP addresses is allowed.
-	AccessFrom *string `json:"accessFrom"`
+	AccessFrom *string `json:"accessFrom" yaml:"accessFrom"`
 	// The type of access ( `Public` or `Private` ).
-	AccessType *string `json:"accessType"`
+	AccessType *string `json:"accessType" yaml:"accessType"`
 	// An alias that defines access for a preconfigured range of IP addresses.
 	//
 	// The only alias currently supported is `lightsail-connect` , which allows IP addresses of the browser-based RDP/SSH client in the Lightsail console to connect to your instance.
-	CidrListAliases *[]*string `json:"cidrListAliases"`
+	CidrListAliases *[]*string `json:"cidrListAliases" yaml:"cidrListAliases"`
 	// The IPv4 address, or range of IPv4 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
 	//
 	// > The `ipv6Cidrs` parameter lists the IPv6 addresses that are allowed to connect to an instance.
@@ -2528,9 +2528,9 @@ type CfnInstance_PortProperty struct {
 	//
 	// - To allow the IP address `192.0.2.44` , specify `192.0.2.44` or `192.0.2.44/32` .
 	// - To allow the IP addresses `192.0.2.0` to `192.0.2.255` , specify `192.0.2.0/24` .
-	Cidrs *[]*string `json:"cidrs"`
+	Cidrs *[]*string `json:"cidrs" yaml:"cidrs"`
 	// The common name of the port information.
-	CommonName *string `json:"commonName"`
+	CommonName *string `json:"commonName" yaml:"commonName"`
 	// The first port in a range of open ports on an instance.
 	//
 	// Allowed ports:
@@ -2538,13 +2538,13 @@ type CfnInstance_PortProperty struct {
 	// - TCP and UDP - `0` to `65535`
 	// - ICMP - The ICMP type for IPv4 addresses. For example, specify `8` as the `fromPort` (ICMP type), and `-1` as the `toPort` (ICMP code), to enable ICMP Ping.
 	// - ICMPv6 - The ICMP type for IPv6 addresses. For example, specify `128` as the `fromPort` (ICMPv6 type), and `0` as `toPort` (ICMPv6 code).
-	FromPort *float64 `json:"fromPort"`
+	FromPort *float64 `json:"fromPort" yaml:"fromPort"`
 	// The IPv6 address, or range of IPv6 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
 	//
 	// Only devices with an IPv6 address can connect to an instance through IPv6; otherwise, IPv4 should be used.
 	//
 	// > The `cidrs` parameter lists the IPv4 addresses that are allowed to connect to an instance.
-	Ipv6Cidrs *[]*string `json:"ipv6Cidrs"`
+	Ipv6Cidrs *[]*string `json:"ipv6Cidrs" yaml:"ipv6Cidrs"`
 	// The IP protocol name.
 	//
 	// The name can be one of the following:
@@ -2553,7 +2553,7 @@ type CfnInstance_PortProperty struct {
 	// - `all` - All transport layer protocol types.
 	// - `udp` - With User Datagram Protocol (UDP), computer applications can send messages (or datagrams) to other hosts on an Internet Protocol (IP) network. Prior communications are not required to set up transmission channels or data paths. Applications that don't require reliable data stream service can use UDP, which provides a connectionless datagram service that emphasizes reduced latency over reliability. If you do require reliable data stream service, use TCP instead.
 	// - `icmp` - Internet Control Message Protocol (ICMP) is used to send error messages and operational information indicating success or failure when communicating with an instance. For example, an error is indicated when an instance could not be reached. When you specify `icmp` as the `protocol` , you must specify the ICMP type using the `fromPort` parameter, and ICMP code using the `toPort` parameter.
-	Protocol *string `json:"protocol"`
+	Protocol *string `json:"protocol" yaml:"protocol"`
 	// The last port in a range of open ports on an instance.
 	//
 	// Allowed ports:
@@ -2561,7 +2561,7 @@ type CfnInstance_PortProperty struct {
 	// - TCP and UDP - `0` to `65535`
 	// - ICMP - The ICMP code for IPv4 addresses. For example, specify `8` as the `fromPort` (ICMP type), and `-1` as the `toPort` (ICMP code), to enable ICMP Ping.
 	// - ICMPv6 - The ICMP code for IPv6 addresses. For example, specify `128` as the `fromPort` (ICMPv6 type), and `0` as `toPort` (ICMPv6 code).
-	ToPort *float64 `json:"toPort"`
+	ToPort *float64 `json:"toPort" yaml:"toPort"`
 }
 
 // `State` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the status code and the state (for example, `running` ) of an instance.
@@ -2570,9 +2570,9 @@ type CfnInstance_PortProperty struct {
 //
 type CfnInstance_StateProperty struct {
 	// The status code of the instance.
-	Code *float64 `json:"code"`
+	Code *float64 `json:"code" yaml:"code"`
 	// The state of the instance (for example, `running` or `pending` ).
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // Properties for defining a `CfnInstance`.
@@ -2581,39 +2581,39 @@ type CfnInstance_StateProperty struct {
 //
 type CfnInstanceProps struct {
 	// The blueprint ID for the instance (for example, `os_amlinux_2016_03` ).
-	BlueprintId *string `json:"blueprintId"`
+	BlueprintId *string `json:"blueprintId" yaml:"blueprintId"`
 	// The bundle ID for the instance (for example, `micro_1_0` ).
-	BundleId *string `json:"bundleId"`
+	BundleId *string `json:"bundleId" yaml:"bundleId"`
 	// The name of the instance.
-	InstanceName *string `json:"instanceName"`
+	InstanceName *string `json:"instanceName" yaml:"instanceName"`
 	// An array of add-ons for the instance.
 	//
 	// > If the instance has an add-on enabled when performing a delete instance request, the add-on is automatically disabled before the instance is deleted.
-	AddOns interface{} `json:"addOns"`
+	AddOns interface{} `json:"addOns" yaml:"addOns"`
 	// The Availability Zone for the instance.
-	AvailabilityZone *string `json:"availabilityZone"`
+	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
 	// The hardware properties for the instance, such as the vCPU count, attached disks, and amount of RAM.
 	//
 	// > The instance restarts when performing an attach disk or detach disk request. This resets the public IP address of your instance if a static IP isn't attached to it.
-	Hardware interface{} `json:"hardware"`
+	Hardware interface{} `json:"hardware" yaml:"hardware"`
 	// The name of the key pair to use for the instance.
 	//
 	// If no key pair name is specified, the Regional Lightsail default key pair is used.
-	KeyPairName *string `json:"keyPairName"`
+	KeyPairName *string `json:"keyPairName" yaml:"keyPairName"`
 	// The public ports and the monthly amount of data transfer allocated for the instance.
-	Networking interface{} `json:"networking"`
+	Networking interface{} `json:"networking" yaml:"networking"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *AWS CloudFormation User Guide* .
 	//
 	// > The `Value` of `Tags` is optional for Lightsail resources.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// The optional launch script for the instance.
 	//
 	// Specify a launch script to configure an instance with additional user data. For example, you might want to specify `apt-get -y update` as a launch script.
 	//
 	// > Depending on the blueprint of your instance, the command to get software on your instance varies. Amazon Linux and CentOS use `yum` , Debian and Ubuntu use `apt-get` , and FreeBSD uses `pkg` .
-	UserData *string `json:"userData"`
+	UserData *string `json:"userData" yaml:"userData"`
 }
 
 // A CloudFormation `AWS::Lightsail::StaticIp`.
@@ -3147,8 +3147,8 @@ func (c *jsiiProxy_CfnStaticIp) ValidateProperties(_properties interface{}) {
 //
 type CfnStaticIpProps struct {
 	// The name of the static IP.
-	StaticIpName *string `json:"staticIpName"`
+	StaticIpName *string `json:"staticIpName" yaml:"staticIpName"`
 	// The instance that the static IP is attached to.
-	AttachedTo *string `json:"attachedTo"`
+	AttachedTo *string `json:"attachedTo" yaml:"attachedTo"`
 }
 

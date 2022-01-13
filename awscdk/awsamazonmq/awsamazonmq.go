@@ -938,9 +938,9 @@ func (c *jsiiProxy_CfnBroker) ValidateProperties(_properties interface{}) {
 //
 type CfnBroker_ConfigurationIdProperty struct {
 	// The unique ID that Amazon MQ generates for the configuration.
-	Id *string `json:"id"`
+	Id *string `json:"id" yaml:"id"`
 	// The revision number of the configuration.
-	Revision *float64 `json:"revision"`
+	Revision *float64 `json:"revision" yaml:"revision"`
 }
 
 // Encryption options for the broker.
@@ -953,11 +953,11 @@ type CfnBroker_EncryptionOptionsProperty struct {
 	// Enables the use of an AWS owned CMK using AWS KMS (KMS).
 	//
 	// Set to `true` by default, if no value is provided, for example, for RabbitMQ brokers.
-	UseAwsOwnedKey interface{} `json:"useAwsOwnedKey"`
+	UseAwsOwnedKey interface{} `json:"useAwsOwnedKey" yaml:"useAwsOwnedKey"`
 	// The customer master key (CMK) to use for the A AWS KMS (KMS).
 	//
 	// This key is used to encrypt your data at rest. If not provided, Amazon MQ will use a default CMK to encrypt your data.
-	KmsKeyId *string `json:"kmsKeyId"`
+	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
 }
 
 // Optional. The metadata of the LDAP server used to authenticate and authorize connections to the broker.
@@ -970,47 +970,47 @@ type CfnBroker_LdapServerMetadataProperty struct {
 	// Specifies the location of the LDAP server such as AWS Directory Service for Microsoft Active Directory .
 	//
 	// Optional failover server.
-	Hosts *[]*string `json:"hosts"`
+	Hosts *[]*string `json:"hosts" yaml:"hosts"`
 	// The distinguished name of the node in the directory information tree (DIT) to search for roles or groups.
 	//
 	// For example, `ou=group` , `ou=corp` , `dc=corp` , `dc=example` , `dc=com` .
-	RoleBase *string `json:"roleBase"`
+	RoleBase *string `json:"roleBase" yaml:"roleBase"`
 	// The LDAP search filter used to find roles within the roleBase.
 	//
 	// The distinguished name of the user matched by userSearchMatching is substituted into the `{0}` placeholder in the search filter. The client's username is substituted into the `{1}` placeholder. For example, if you set this option to `(member=uid={1})` for the user janedoe, the search filter becomes `(member=uid=janedoe)` after string substitution. It matches all role entries that have a member attribute equal to `uid=janedoe` under the subtree selected by the `RoleBases` .
-	RoleSearchMatching *string `json:"roleSearchMatching"`
+	RoleSearchMatching *string `json:"roleSearchMatching" yaml:"roleSearchMatching"`
 	// Service account password.
 	//
 	// A service account is an account in your LDAP server that has access to initiate a connection. For example, `cn=admin` , `dc=corp` , `dc=example` , `dc=com` .
-	ServiceAccountPassword *string `json:"serviceAccountPassword"`
+	ServiceAccountPassword *string `json:"serviceAccountPassword" yaml:"serviceAccountPassword"`
 	// Service account username.
 	//
 	// A service account is an account in your LDAP server that has access to initiate a connection. For example, `cn=admin` , `ou=corp` , `dc=corp` , `dc=example` , `dc=com` .
-	ServiceAccountUsername *string `json:"serviceAccountUsername"`
+	ServiceAccountUsername *string `json:"serviceAccountUsername" yaml:"serviceAccountUsername"`
 	// Select a particular subtree of the directory information tree (DIT) to search for user entries.
 	//
 	// The subtree is specified by a DN, which specifies the base node of the subtree. For example, by setting this option to `ou=Users` , `ou=corp` , `dc=corp` , `dc=example` , `dc=com` , the search for user entries is restricted to the subtree beneath `ou=Users` , `ou=corp` , `dc=corp` , `dc=example` , `dc=com` .
-	UserBase *string `json:"userBase"`
+	UserBase *string `json:"userBase" yaml:"userBase"`
 	// The LDAP search filter used to find users within the `userBase` .
 	//
 	// The client's username is substituted into the `{0}` placeholder in the search filter. For example, if this option is set to `(uid={0})` and the received username is `janedoe` , the search filter becomes `(uid=janedoe)` after string substitution. It will result in matching an entry like `uid=janedoe` , `ou=Users` , `ou=corp` , `dc=corp` , `dc=example` , `dc=com` .
-	UserSearchMatching *string `json:"userSearchMatching"`
+	UserSearchMatching *string `json:"userSearchMatching" yaml:"userSearchMatching"`
 	// The group name attribute in a role entry whose value is the name of that role.
 	//
 	// For example, you can specify `cn` for a group entry's common name. If authentication succeeds, then the user is assigned the the value of the `cn` attribute for each role entry that they are a member of.
-	RoleName *string `json:"roleName"`
+	RoleName *string `json:"roleName" yaml:"roleName"`
 	// The directory search scope for the role.
 	//
 	// If set to true, scope is to search the entire subtree.
-	RoleSearchSubtree interface{} `json:"roleSearchSubtree"`
+	RoleSearchSubtree interface{} `json:"roleSearchSubtree" yaml:"roleSearchSubtree"`
 	// The name of the LDAP attribute in the user's directory entry for the user's group membership.
 	//
 	// In some cases, user roles may be identified by the value of an attribute in the user's directory entry. The `UserRoleName` option allows you to provide the name of this attribute.
-	UserRoleName *string `json:"userRoleName"`
+	UserRoleName *string `json:"userRoleName" yaml:"userRoleName"`
 	// The directory search scope for the user.
 	//
 	// If set to true, scope is to search the entire subtree.
-	UserSearchSubtree interface{} `json:"userSearchSubtree"`
+	UserSearchSubtree interface{} `json:"userSearchSubtree" yaml:"userSearchSubtree"`
 }
 
 // The list of information about logs to be enabled for the specified broker.
@@ -1021,9 +1021,9 @@ type CfnBroker_LogListProperty struct {
 	// Enables audit logging.
 	//
 	// Every user management action made using JMX or the ActiveMQ Web Console is logged. Does not apply to RabbitMQ brokers.
-	Audit interface{} `json:"audit"`
+	Audit interface{} `json:"audit" yaml:"audit"`
 	// Enables general logging.
-	General interface{} `json:"general"`
+	General interface{} `json:"general" yaml:"general"`
 }
 
 // The parameters that determine the `WeeklyStartTime` to apply pending updates or patches to the broker.
@@ -1032,11 +1032,11 @@ type CfnBroker_LogListProperty struct {
 //
 type CfnBroker_MaintenanceWindowProperty struct {
 	// The day of the week.
-	DayOfWeek *string `json:"dayOfWeek"`
+	DayOfWeek *string `json:"dayOfWeek" yaml:"dayOfWeek"`
 	// The time, in 24-hour format.
-	TimeOfDay *string `json:"timeOfDay"`
+	TimeOfDay *string `json:"timeOfDay" yaml:"timeOfDay"`
 	// The time zone, UTC by default, in either the Country/City format, or the UTC offset format.
-	TimeZone *string `json:"timeZone"`
+	TimeZone *string `json:"timeZone" yaml:"timeZone"`
 }
 
 // A key-value pair to associate with the broker.
@@ -1045,9 +1045,9 @@ type CfnBroker_MaintenanceWindowProperty struct {
 //
 type CfnBroker_TagsEntryProperty struct {
 	// The key in a key-value pair.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// The value in a key-value pair.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // The list of broker users (persons or applications) who can access queues and topics.
@@ -1060,21 +1060,21 @@ type CfnBroker_UserProperty struct {
 	// The password of the user.
 	//
 	// This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas, colons, or equal signs (,:=).
-	Password *string `json:"password"`
+	Password *string `json:"password" yaml:"password"`
 	// The username of the broker user.
 	//
 	// For Amazon MQ for ActiveMQ brokers, this value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). For Amazon MQ for RabbitMQ brokers, this value can contain only alphanumeric characters, dashes, periods, underscores (- . _). This value must not contain a tilde (~) character. Amazon MQ prohibts using guest as a valid usename. This value must be 2-100 characters long.
 	//
 	// > Do not add personally identifiable information (PII) or other confidential or sensitive information in broker usernames. Broker usernames are accessible to other AWS services, including CloudWatch Logs . Broker usernames are not intended to be used for private or sensitive data.
-	Username *string `json:"username"`
+	Username *string `json:"username" yaml:"username"`
 	// Enables access to the ActiveMQ web console for the ActiveMQ user.
 	//
 	// Does not apply to RabbitMQ brokers.
-	ConsoleAccess interface{} `json:"consoleAccess"`
+	ConsoleAccess interface{} `json:"consoleAccess" yaml:"consoleAccess"`
 	// The list of groups (20 maximum) to which the ActiveMQ user belongs.
 	//
 	// This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long. Does not apply to RabbitMQ brokers.
-	Groups *[]*string `json:"groups"`
+	Groups *[]*string `json:"groups" yaml:"groups"`
 }
 
 // Properties for defining a `CfnBroker`.
@@ -1085,69 +1085,69 @@ type CfnBrokerProps struct {
 	// Enables automatic upgrades to new minor versions for brokers, as new broker engine versions are released and supported by Amazon MQ.
 	//
 	// Automatic upgrades occur during the scheduled maintenance window of the broker or after a manual broker reboot.
-	AutoMinorVersionUpgrade interface{} `json:"autoMinorVersionUpgrade"`
+	AutoMinorVersionUpgrade interface{} `json:"autoMinorVersionUpgrade" yaml:"autoMinorVersionUpgrade"`
 	// The name of the broker.
 	//
 	// This value must be unique in your AWS account , 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain white spaces, brackets, wildcard characters, or special characters.
 	//
 	// > Do not add personally identifiable information (PII) or other confidential or sensitive information in broker names. Broker names are accessible to other AWS services, including C CloudWatch Logs . Broker names are not intended to be used for private or sensitive data.
-	BrokerName *string `json:"brokerName"`
+	BrokerName *string `json:"brokerName" yaml:"brokerName"`
 	// The deployment mode of the broker. Available values:.
 	//
 	// - `SINGLE_INSTANCE`
 	// - `ACTIVE_STANDBY_MULTI_AZ`
 	// - `CLUSTER_MULTI_AZ`
-	DeploymentMode *string `json:"deploymentMode"`
+	DeploymentMode *string `json:"deploymentMode" yaml:"deploymentMode"`
 	// The type of broker engine.
 	//
 	// Currently, Amazon MQ supports `ACTIVEMQ` and `RABBITMQ` .
-	EngineType *string `json:"engineType"`
+	EngineType *string `json:"engineType" yaml:"engineType"`
 	// The version of the broker engine.
 	//
 	// For a list of supported engine versions, see [Engine](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) in the *Amazon MQ Developer Guide* .
-	EngineVersion *string `json:"engineVersion"`
+	EngineVersion *string `json:"engineVersion" yaml:"engineVersion"`
 	// The broker's instance type.
-	HostInstanceType *string `json:"hostInstanceType"`
+	HostInstanceType *string `json:"hostInstanceType" yaml:"hostInstanceType"`
 	// Enables connections from applications outside of the VPC that hosts the broker's subnets.
-	PubliclyAccessible interface{} `json:"publiclyAccessible"`
+	PubliclyAccessible interface{} `json:"publiclyAccessible" yaml:"publiclyAccessible"`
 	// The list of broker users (persons or applications) who can access queues and topics.
 	//
 	// For Amazon MQ for RabbitMQ brokers, one and only one administrative user is accepted and created when a broker is first provisioned. All subsequent RabbitMQ users are created by via the RabbitMQ web console or by using the RabbitMQ management API.
-	Users interface{} `json:"users"`
+	Users interface{} `json:"users" yaml:"users"`
 	// Optional.
 	//
 	// The authentication strategy used to secure the broker. The default is `SIMPLE` .
-	AuthenticationStrategy *string `json:"authenticationStrategy"`
+	AuthenticationStrategy *string `json:"authenticationStrategy" yaml:"authenticationStrategy"`
 	// A list of information about the configuration.
 	//
 	// Does not apply to RabbitMQ brokers.
-	Configuration interface{} `json:"configuration"`
+	Configuration interface{} `json:"configuration" yaml:"configuration"`
 	// Encryption options for the broker.
 	//
 	// Does not apply to RabbitMQ brokers.
-	EncryptionOptions interface{} `json:"encryptionOptions"`
+	EncryptionOptions interface{} `json:"encryptionOptions" yaml:"encryptionOptions"`
 	// Optional.
 	//
 	// The metadata of the LDAP server used to authenticate and authorize connections to the broker. Does not apply to RabbitMQ brokers.
-	LdapServerMetadata interface{} `json:"ldapServerMetadata"`
+	LdapServerMetadata interface{} `json:"ldapServerMetadata" yaml:"ldapServerMetadata"`
 	// Enables Amazon CloudWatch logging for brokers.
-	Logs interface{} `json:"logs"`
+	Logs interface{} `json:"logs" yaml:"logs"`
 	// The scheduled time period relative to UTC during which Amazon MQ begins to apply pending updates or patches to the broker.
-	MaintenanceWindowStartTime interface{} `json:"maintenanceWindowStartTime"`
+	MaintenanceWindowStartTime interface{} `json:"maintenanceWindowStartTime" yaml:"maintenanceWindowStartTime"`
 	// The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.
-	SecurityGroups *[]*string `json:"securityGroups"`
+	SecurityGroups *[]*string `json:"securityGroups" yaml:"securityGroups"`
 	// The broker's storage type.
-	StorageType *string `json:"storageType"`
+	StorageType *string `json:"storageType" yaml:"storageType"`
 	// The list of groups that define which subnets and IP ranges the broker can use from different Availability Zones.
 	//
 	// If you specify more than one subnet, the subnets must be in different Availability Zones. Amazon MQ will not be able to create VPC endpoints for your broker with multiple subnets in the same Availability Zone. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ deployment (ACTIVEMQ) requires two subnets. A CLUSTER_MULTI_AZ deployment (RABBITMQ) has no subnet requirements when deployed with public accessibility, deployment without public accessibility requires at least one subnet.
 	//
 	// > If you specify subnets in a shared VPC for a RabbitMQ broker, the associated VPC to which the specified subnets belong must be owned by your AWS account . Amazon MQ will not be able to create VPC enpoints in VPCs that are not owned by your AWS account .
-	SubnetIds *[]*string `json:"subnetIds"`
+	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
 	// An array of key-value pairs.
 	//
 	// For more information, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *Billing and Cost Management User Guide* .
-	Tags *[]*CfnBroker_TagsEntryProperty `json:"tags"`
+	Tags *[]*CfnBroker_TagsEntryProperty `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::AmazonMQ::Configuration`.
@@ -1774,9 +1774,9 @@ func (c *jsiiProxy_CfnConfiguration) ValidateProperties(_properties interface{})
 //
 type CfnConfiguration_TagsEntryProperty struct {
 	// The key in a key-value pair.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// The value in a key-value pair.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // A CloudFormation `AWS::AmazonMQ::ConfigurationAssociation`.
@@ -2279,9 +2279,9 @@ func (c *jsiiProxy_CfnConfigurationAssociation) ValidateProperties(_properties i
 //
 type CfnConfigurationAssociation_ConfigurationIdProperty struct {
 	// The unique ID that Amazon MQ generates for the configuration.
-	Id *string `json:"id"`
+	Id *string `json:"id" yaml:"id"`
 	// The revision number of the configuration.
-	Revision *float64 `json:"revision"`
+	Revision *float64 `json:"revision" yaml:"revision"`
 }
 
 // Properties for defining a `CfnConfigurationAssociation`.
@@ -2290,9 +2290,9 @@ type CfnConfigurationAssociation_ConfigurationIdProperty struct {
 //
 type CfnConfigurationAssociationProps struct {
 	// The broker to associate with a configuration.
-	Broker *string `json:"broker"`
+	Broker *string `json:"broker" yaml:"broker"`
 	// The configuration to associate with a broker.
-	Configuration interface{} `json:"configuration"`
+	Configuration interface{} `json:"configuration" yaml:"configuration"`
 }
 
 // Properties for defining a `CfnConfiguration`.
@@ -2301,26 +2301,26 @@ type CfnConfigurationAssociationProps struct {
 //
 type CfnConfigurationProps struct {
 	// The base64-encoded XML configuration.
-	Data *string `json:"data"`
+	Data *string `json:"data" yaml:"data"`
 	// The type of broker engine.
 	//
 	// Note: Currently, Amazon MQ only supports ACTIVEMQ for creating and editing broker configurations.
-	EngineType *string `json:"engineType"`
+	EngineType *string `json:"engineType" yaml:"engineType"`
 	// The version of the broker engine.
 	//
 	// For a list of supported engine versions, see [](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html)
-	EngineVersion *string `json:"engineVersion"`
+	EngineVersion *string `json:"engineVersion" yaml:"engineVersion"`
 	// The name of the configuration.
 	//
 	// This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// Optional.
 	//
 	// The authentication strategy associated with the configuration. The default is `SIMPLE` .
-	AuthenticationStrategy *string `json:"authenticationStrategy"`
+	AuthenticationStrategy *string `json:"authenticationStrategy" yaml:"authenticationStrategy"`
 	// The description of the configuration.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Create tags when creating the configuration.
-	Tags *[]*CfnConfiguration_TagsEntryProperty `json:"tags"`
+	Tags *[]*CfnConfiguration_TagsEntryProperty `json:"tags" yaml:"tags"`
 }
 

@@ -533,15 +533,15 @@ func (c *jsiiProxy_CfnConnectionAlias) ValidateProperties(_properties interface{
 //
 type CfnConnectionAlias_ConnectionAliasAssociationProperty struct {
 	// The identifier of the AWS account that associated the connection alias with a directory.
-	AssociatedAccountId *string `json:"associatedAccountId"`
+	AssociatedAccountId *string `json:"associatedAccountId" yaml:"associatedAccountId"`
 	// The association status of the connection alias.
-	AssociationStatus *string `json:"associationStatus"`
+	AssociationStatus *string `json:"associationStatus" yaml:"associationStatus"`
 	// The identifier of the connection alias association.
 	//
 	// You use the connection identifier in the DNS TXT record when you're configuring your DNS routing policies.
-	ConnectionIdentifier *string `json:"connectionIdentifier"`
+	ConnectionIdentifier *string `json:"connectionIdentifier" yaml:"connectionIdentifier"`
 	// The identifier of the directory associated with a connection alias.
-	ResourceId *string `json:"resourceId"`
+	ResourceId *string `json:"resourceId" yaml:"resourceId"`
 }
 
 // Properties for defining a `CfnConnectionAlias`.
@@ -552,9 +552,9 @@ type CfnConnectionAliasProps struct {
 	// The connection string specified for the connection alias.
 	//
 	// The connection string must be in the form of a fully qualified domain name (FQDN), such as `www.example.com` .
-	ConnectionString *string `json:"connectionString"`
+	ConnectionString *string `json:"connectionString" yaml:"connectionString"`
 	// The tags to associate with the connection alias.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::WorkSpaces::Workspace`.
@@ -1170,23 +1170,23 @@ type CfnWorkspace_WorkspacePropertiesProperty struct {
 	// The compute type.
 	//
 	// For more information, see [Amazon WorkSpaces Bundles](https://docs.aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles) .
-	ComputeTypeName *string `json:"computeTypeName"`
+	ComputeTypeName *string `json:"computeTypeName" yaml:"computeTypeName"`
 	// The size of the root volume.
 	//
 	// For important information about how to modify the size of the root and user volumes, see [Modify a WorkSpace](https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html) .
-	RootVolumeSizeGib *float64 `json:"rootVolumeSizeGib"`
+	RootVolumeSizeGib *float64 `json:"rootVolumeSizeGib" yaml:"rootVolumeSizeGib"`
 	// The running mode.
 	//
 	// For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html) .
-	RunningMode *string `json:"runningMode"`
+	RunningMode *string `json:"runningMode" yaml:"runningMode"`
 	// The time after a user logs off when WorkSpaces are automatically stopped.
 	//
 	// Configured in 60-minute intervals.
-	RunningModeAutoStopTimeoutInMinutes *float64 `json:"runningModeAutoStopTimeoutInMinutes"`
+	RunningModeAutoStopTimeoutInMinutes *float64 `json:"runningModeAutoStopTimeoutInMinutes" yaml:"runningModeAutoStopTimeoutInMinutes"`
 	// The size of the user storage.
 	//
 	// For important information about how to modify the size of the root and user volumes, see [Modify a WorkSpace](https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html) .
-	UserVolumeSizeGib *float64 `json:"userVolumeSizeGib"`
+	UserVolumeSizeGib *float64 `json:"userVolumeSizeGib" yaml:"userVolumeSizeGib"`
 }
 
 // Properties for defining a `CfnWorkspace`.
@@ -1195,24 +1195,24 @@ type CfnWorkspace_WorkspacePropertiesProperty struct {
 //
 type CfnWorkspaceProps struct {
 	// The identifier of the bundle for the WorkSpace.
-	BundleId *string `json:"bundleId"`
+	BundleId *string `json:"bundleId" yaml:"bundleId"`
 	// The identifier of the AWS Directory Service directory for the WorkSpace.
-	DirectoryId *string `json:"directoryId"`
+	DirectoryId *string `json:"directoryId" yaml:"directoryId"`
 	// The user name of the user for the WorkSpace.
 	//
 	// This user name must exist in the AWS Directory Service directory for the WorkSpace.
-	UserName *string `json:"userName"`
+	UserName *string `json:"userName" yaml:"userName"`
 	// Indicates whether the data stored on the root volume is encrypted.
-	RootVolumeEncryptionEnabled interface{} `json:"rootVolumeEncryptionEnabled"`
+	RootVolumeEncryptionEnabled interface{} `json:"rootVolumeEncryptionEnabled" yaml:"rootVolumeEncryptionEnabled"`
 	// The tags for the WorkSpace.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// Indicates whether the data stored on the user volume is encrypted.
-	UserVolumeEncryptionEnabled interface{} `json:"userVolumeEncryptionEnabled"`
+	UserVolumeEncryptionEnabled interface{} `json:"userVolumeEncryptionEnabled" yaml:"userVolumeEncryptionEnabled"`
 	// The symmetric AWS KMS key used to encrypt data stored on your WorkSpace.
 	//
 	// Amazon WorkSpaces does not support asymmetric KMS keys.
-	VolumeEncryptionKey *string `json:"volumeEncryptionKey"`
+	VolumeEncryptionKey *string `json:"volumeEncryptionKey" yaml:"volumeEncryptionKey"`
 	// The WorkSpace properties.
-	WorkspaceProperties interface{} `json:"workspaceProperties"`
+	WorkspaceProperties interface{} `json:"workspaceProperties" yaml:"workspaceProperties"`
 }
 

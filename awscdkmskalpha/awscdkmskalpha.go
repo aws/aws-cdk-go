@@ -23,13 +23,13 @@ import (
 type BrokerLogging struct {
 	// The CloudWatch Logs group that is the destination for broker logs.
 	// Experimental.
-	CloudwatchLogGroup awslogs.ILogGroup `json:"cloudwatchLogGroup"`
+	CloudwatchLogGroup awslogs.ILogGroup `json:"cloudwatchLogGroup" yaml:"cloudwatchLogGroup"`
 	// The Kinesis Data Firehose delivery stream that is the destination for broker logs.
 	// Experimental.
-	FirehoseDeliveryStreamName *string `json:"firehoseDeliveryStreamName"`
+	FirehoseDeliveryStreamName *string `json:"firehoseDeliveryStreamName" yaml:"firehoseDeliveryStreamName"`
 	// Details of the Amazon S3 destination for broker logs.
 	// Experimental.
-	S3 *S3LoggingConfiguration `json:"s3"`
+	S3 *S3LoggingConfiguration `json:"s3" yaml:"s3"`
 }
 
 // Configuration properties for client authentication.
@@ -478,10 +478,10 @@ type ClusterConfigurationInfo struct {
 	//
 	// For example, arn:aws:kafka:us-east-1:123456789012:configuration/example-configuration-name/abcdabcd-1234-abcd-1234-abcd123e8e8e-1.
 	// Experimental.
-	Arn *string `json:"arn"`
+	Arn *string `json:"arn" yaml:"arn"`
 	// The revision of the Amazon MSK configuration to use.
 	// Experimental.
-	Revision *float64 `json:"revision"`
+	Revision *float64 `json:"revision" yaml:"revision"`
 }
 
 // The level of monitoring for the MSK cluster.
@@ -505,56 +505,56 @@ const (
 type ClusterProps struct {
 	// The physical name of the cluster.
 	// Experimental.
-	ClusterName *string `json:"clusterName"`
+	ClusterName *string `json:"clusterName" yaml:"clusterName"`
 	// The version of Apache Kafka.
 	// Experimental.
-	KafkaVersion KafkaVersion `json:"kafkaVersion"`
+	KafkaVersion KafkaVersion `json:"kafkaVersion" yaml:"kafkaVersion"`
 	// Defines the virtual networking environment for this cluster.
 	//
 	// Must have at least 2 subnets in two different AZs.
 	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// Configuration properties for client authentication.
 	//
 	// MSK supports using private TLS certificates or SASL/SCRAM to authenticate the identity of clients.
 	// Experimental.
-	ClientAuthentication ClientAuthentication `json:"clientAuthentication"`
+	ClientAuthentication ClientAuthentication `json:"clientAuthentication" yaml:"clientAuthentication"`
 	// The Amazon MSK configuration to use for the cluster.
 	// Experimental.
-	ConfigurationInfo *ClusterConfigurationInfo `json:"configurationInfo"`
+	ConfigurationInfo *ClusterConfigurationInfo `json:"configurationInfo" yaml:"configurationInfo"`
 	// Information about storage volumes attached to MSK broker nodes.
 	// Experimental.
-	EbsStorageInfo *EbsStorageInfo `json:"ebsStorageInfo"`
+	EbsStorageInfo *EbsStorageInfo `json:"ebsStorageInfo" yaml:"ebsStorageInfo"`
 	// Config details for encryption in transit.
 	// Experimental.
-	EncryptionInTransit *EncryptionInTransitConfig `json:"encryptionInTransit"`
+	EncryptionInTransit *EncryptionInTransitConfig `json:"encryptionInTransit" yaml:"encryptionInTransit"`
 	// The EC2 instance type that you want Amazon MSK to use when it creates your brokers.
 	// See: https://docs.aws.amazon.com/msk/latest/developerguide/msk-create-cluster.html#broker-instance-types
 	//
 	// Experimental.
-	InstanceType awsec2.InstanceType `json:"instanceType"`
+	InstanceType awsec2.InstanceType `json:"instanceType" yaml:"instanceType"`
 	// Configure your MSK cluster to send broker logs to different destination types.
 	// Experimental.
-	Logging *BrokerLogging `json:"logging"`
+	Logging *BrokerLogging `json:"logging" yaml:"logging"`
 	// Cluster monitoring configuration.
 	// Experimental.
-	Monitoring *MonitoringConfiguration `json:"monitoring"`
+	Monitoring *MonitoringConfiguration `json:"monitoring" yaml:"monitoring"`
 	// Number of Apache Kafka brokers deployed in each Availability Zone.
 	// Experimental.
-	NumberOfBrokerNodes *float64 `json:"numberOfBrokerNodes"`
+	NumberOfBrokerNodes *float64 `json:"numberOfBrokerNodes" yaml:"numberOfBrokerNodes"`
 	// What to do when this resource is deleted from a stack.
 	// Experimental.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 	// The AWS security groups to associate with the elastic network interfaces in order to specify who can connect to and communicate with the Amazon MSK cluster.
 	// Experimental.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// Where to place the nodes within the VPC.
 	//
 	// Amazon MSK distributes the broker nodes evenly across the subnets that you specify.
 	// The subnets that you specify must be in distinct Availability Zones.
 	// Client subnets can't be in Availability Zone us-east-1e.
 	// Experimental.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 
 // EBS volume information.
@@ -565,10 +565,10 @@ type ClusterProps struct {
 type EbsStorageInfo struct {
 	// The AWS KMS key for encrypting data at rest.
 	// Experimental.
-	EncryptionKey awskms.IKey `json:"encryptionKey"`
+	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
 	// The size in GiB of the EBS volume for the data drive on each broker node.
 	// Experimental.
-	VolumeSize *float64 `json:"volumeSize"`
+	VolumeSize *float64 `json:"volumeSize" yaml:"volumeSize"`
 }
 
 // The settings for encrypting data in transit.
@@ -581,10 +581,10 @@ type EbsStorageInfo struct {
 type EncryptionInTransitConfig struct {
 	// Indicates the encryption setting for data in transit between clients and brokers.
 	// Experimental.
-	ClientBroker ClientBrokerEncryption `json:"clientBroker"`
+	ClientBroker ClientBrokerEncryption `json:"clientBroker" yaml:"clientBroker"`
 	// Indicates that data communication among the broker nodes of the cluster is encrypted.
 	// Experimental.
-	EnableInCluster *bool `json:"enableInCluster"`
+	EnableInCluster *bool `json:"enableInCluster" yaml:"enableInCluster"`
 }
 
 // Represents a MSK Cluster.
@@ -878,15 +878,15 @@ func KafkaVersion_V2_8_1() KafkaVersion {
 type MonitoringConfiguration struct {
 	// Specifies the level of monitoring for the MSK cluster.
 	// Experimental.
-	ClusterMonitoringLevel ClusterMonitoringLevel `json:"clusterMonitoringLevel"`
+	ClusterMonitoringLevel ClusterMonitoringLevel `json:"clusterMonitoringLevel" yaml:"clusterMonitoringLevel"`
 	// Indicates whether you want to enable or disable the JMX Exporter.
 	// Experimental.
-	EnablePrometheusJmxExporter *bool `json:"enablePrometheusJmxExporter"`
+	EnablePrometheusJmxExporter *bool `json:"enablePrometheusJmxExporter" yaml:"enablePrometheusJmxExporter"`
 	// Indicates whether you want to enable or disable the Prometheus Node Exporter.
 	//
 	// You can use the Prometheus Node Exporter to get CPU and disk metrics for the broker nodes.
 	// Experimental.
-	EnablePrometheusNodeExporter *bool `json:"enablePrometheusNodeExporter"`
+	EnablePrometheusNodeExporter *bool `json:"enablePrometheusNodeExporter" yaml:"enablePrometheusNodeExporter"`
 }
 
 // Details of the Amazon S3 destination for broker logs.
@@ -897,10 +897,10 @@ type MonitoringConfiguration struct {
 type S3LoggingConfiguration struct {
 	// The S3 bucket that is the destination for broker logs.
 	// Experimental.
-	Bucket awss3.IBucket `json:"bucket"`
+	Bucket awss3.IBucket `json:"bucket" yaml:"bucket"`
 	// The S3 prefix that is the destination for broker logs.
 	// Experimental.
-	Prefix *string `json:"prefix"`
+	Prefix *string `json:"prefix" yaml:"prefix"`
 }
 
 // SASL authentication properties.
@@ -911,16 +911,16 @@ type S3LoggingConfiguration struct {
 type SaslAuthProps struct {
 	// Enable IAM access control.
 	// Experimental.
-	Iam *bool `json:"iam"`
+	Iam *bool `json:"iam" yaml:"iam"`
 	// KMS Key to encrypt SASL/SCRAM secrets.
 	//
 	// You must use a customer master key (CMK) when creating users in secrets manager.
 	// You cannot use a Secret with Amazon MSK that uses the default Secrets Manager encryption key.
 	// Experimental.
-	Key awskms.IKey `json:"key"`
+	Key awskms.IKey `json:"key" yaml:"key"`
 	// Enable SASL/SCRAM authentication.
 	// Experimental.
-	Scram *bool `json:"scram"`
+	Scram *bool `json:"scram" yaml:"scram"`
 }
 
 // TLS authentication properties.
@@ -931,6 +931,6 @@ type SaslAuthProps struct {
 type TlsAuthProps struct {
 	// List of ACM Certificate Authorities to enable TLS authentication.
 	// Experimental.
-	CertificateAuthorities *[]awsacmpca.ICertificateAuthority `json:"certificateAuthorities"`
+	CertificateAuthorities *[]awsacmpca.ICertificateAuthority `json:"certificateAuthorities" yaml:"certificateAuthorities"`
 }
 

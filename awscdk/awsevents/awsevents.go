@@ -241,17 +241,17 @@ func (a *jsiiProxy_Archive) ToString() *string {
 //
 type ArchiveProps struct {
 	// An event pattern to use to filter events sent to the archive.
-	EventPattern *EventPattern `json:"eventPattern"`
+	EventPattern *EventPattern `json:"eventPattern" yaml:"eventPattern"`
 	// The name of the archive.
-	ArchiveName *string `json:"archiveName"`
+	ArchiveName *string `json:"archiveName" yaml:"archiveName"`
 	// A description for the archive.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The number of days to retain events for.
 	//
 	// Default value is 0. If set to 0, events are retained indefinitely.
-	Retention awscdk.Duration `json:"retention"`
+	Retention awscdk.Duration `json:"retention" yaml:"retention"`
 	// The event source associated with the archive.
-	SourceEventBus IEventBus `json:"sourceEventBus"`
+	SourceEventBus IEventBus `json:"sourceEventBus" yaml:"sourceEventBus"`
 }
 
 // The event archive base properties.
@@ -260,15 +260,15 @@ type ArchiveProps struct {
 //
 type BaseArchiveProps struct {
 	// An event pattern to use to filter events sent to the archive.
-	EventPattern *EventPattern `json:"eventPattern"`
+	EventPattern *EventPattern `json:"eventPattern" yaml:"eventPattern"`
 	// The name of the archive.
-	ArchiveName *string `json:"archiveName"`
+	ArchiveName *string `json:"archiveName" yaml:"archiveName"`
 	// A description for the archive.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The number of days to retain events for.
 	//
 	// Default value is 0. If set to 0, events are retained indefinitely.
-	Retention awscdk.Duration `json:"retention"`
+	Retention awscdk.Duration `json:"retention" yaml:"retention"`
 }
 
 // A CloudFormation `AWS::Events::ApiDestination`.
@@ -873,17 +873,17 @@ type CfnApiDestinationProps struct {
 	// The ARN of the connection to use for the API destination.
 	//
 	// The destination endpoint must support the authorization type specified for the connection.
-	ConnectionArn *string `json:"connectionArn"`
+	ConnectionArn *string `json:"connectionArn" yaml:"connectionArn"`
 	// The method to use for the request to the HTTP invocation endpoint.
-	HttpMethod *string `json:"httpMethod"`
+	HttpMethod *string `json:"httpMethod" yaml:"httpMethod"`
 	// The URL to the HTTP invocation endpoint for the API destination.
-	InvocationEndpoint *string `json:"invocationEndpoint"`
+	InvocationEndpoint *string `json:"invocationEndpoint" yaml:"invocationEndpoint"`
 	// A description for the API destination to create.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The maximum number of requests per second to send to the HTTP invocation endpoint.
-	InvocationRateLimitPerSecond *float64 `json:"invocationRateLimitPerSecond"`
+	InvocationRateLimitPerSecond *float64 `json:"invocationRateLimitPerSecond" yaml:"invocationRateLimitPerSecond"`
 	// The name for the API destination to create.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // A CloudFormation `AWS::Events::Archive`.
@@ -1466,17 +1466,17 @@ func (c *jsiiProxy_CfnArchive) ValidateProperties(_properties interface{}) {
 //
 type CfnArchiveProps struct {
 	// The ARN of the event bus that sends events to the archive.
-	SourceArn *string `json:"sourceArn"`
+	SourceArn *string `json:"sourceArn" yaml:"sourceArn"`
 	// The name for the archive to create.
-	ArchiveName *string `json:"archiveName"`
+	ArchiveName *string `json:"archiveName" yaml:"archiveName"`
 	// A description for the archive.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// An event pattern to use to filter events sent to the archive.
-	EventPattern interface{} `json:"eventPattern"`
+	EventPattern interface{} `json:"eventPattern" yaml:"eventPattern"`
 	// The number of days to retain events for.
 	//
 	// Default value is 0. If set to 0, events are retained indefinitely
-	RetentionDays *float64 `json:"retentionDays"`
+	RetentionDays *float64 `json:"retentionDays" yaml:"retentionDays"`
 }
 
 // A CloudFormation `AWS::Events::Connection`.
@@ -2039,13 +2039,13 @@ func (c *jsiiProxy_CfnConnection) ValidateProperties(_properties interface{}) {
 //
 type CfnConnectionProps struct {
 	// The type of authorization to use for the connection.
-	AuthorizationType *string `json:"authorizationType"`
+	AuthorizationType *string `json:"authorizationType" yaml:"authorizationType"`
 	// A `CreateConnectionAuthRequestParameters` object that contains the authorization parameters to use to authorize with the endpoint.
-	AuthParameters interface{} `json:"authParameters"`
+	AuthParameters interface{} `json:"authParameters" yaml:"authParameters"`
 	// A description for the connection to create.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The name for the connection to create.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // A CloudFormation `AWS::Events::EventBus`.
@@ -3165,15 +3165,15 @@ type CfnEventBusPolicy_ConditionProperty struct {
 	// Specifies the key for the condition.
 	//
 	// Currently the only supported key is `aws:PrincipalOrgID` .
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// Specifies the type of condition.
 	//
 	// Currently the only supported value is `StringEquals` .
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// Specifies the value for the key.
 	//
 	// Currently, this must be the ID of the organization.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // Properties for defining a `CfnEventBusPolicy`.
@@ -3186,9 +3186,9 @@ type CfnEventBusPolicyProps struct {
 	// If you later want to revoke the permission for this external account, specify this `StatementId` when you run [RemovePermission](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_RemovePermission.html) .
 	//
 	// > Each `StatementId` must be unique.
-	StatementId *string `json:"statementId"`
+	StatementId *string `json:"statementId" yaml:"statementId"`
 	// The action that you are enabling the other account to perform.
-	Action *string `json:"action"`
+	Action *string `json:"action" yaml:"action"`
 	// This parameter enables you to limit the permission to accounts that fulfill a certain condition, such as being a member of a certain AWS organization.
 	//
 	// For more information about AWS Organizations, see [What Is AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html) in the *AWS Organizations User Guide* .
@@ -3196,21 +3196,21 @@ type CfnEventBusPolicyProps struct {
 	// If you specify `Condition` with an AWS organization ID, and specify "*" as the value for `Principal` , you grant permission to all the accounts in the named organization.
 	//
 	// The `Condition` is a JSON string which must contain `Type` , `Key` , and `Value` fields.
-	Condition interface{} `json:"condition"`
+	Condition interface{} `json:"condition" yaml:"condition"`
 	// The name of the event bus associated with the rule.
 	//
 	// If you omit this, the default event bus is used.
-	EventBusName *string `json:"eventBusName"`
+	EventBusName *string `json:"eventBusName" yaml:"eventBusName"`
 	// The 12-digit AWS account ID that you are permitting to put events to your default event bus.
 	//
 	// Specify "*" to permit any account to put events to your default event bus.
 	//
 	// If you specify "*" without specifying `Condition` , avoid creating rules that may match undesirable events. To create more secure rules, make sure that the event pattern for each rule contains an `account` field with a specific account ID from which to receive events. Rules with an account field do not match any events sent from other accounts.
-	Principal *string `json:"principal"`
+	Principal *string `json:"principal" yaml:"principal"`
 	// A JSON string that describes the permission policy statement.
 	//
 	// You can include a `Policy` parameter in the request instead of using the `StatementId` , `Action` , `Principal` , or `Condition` parameters.
-	Statement interface{} `json:"statement"`
+	Statement interface{} `json:"statement" yaml:"statement"`
 }
 
 // Properties for defining a `CfnEventBus`.
@@ -3223,9 +3223,9 @@ type CfnEventBusProps struct {
 	// Event bus names cannot contain the / character. You can't use the name `default` for a custom event bus, as this name is already used for your account's default event bus.
 	//
 	// If this is a partner event bus, the name must exactly match the name of the partner event source that this event bus is matched to.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
-	EventSourceName *string `json:"eventSourceName"`
+	EventSourceName *string `json:"eventSourceName" yaml:"eventSourceName"`
 }
 
 // A CloudFormation `AWS::Events::Rule`.
@@ -3877,15 +3877,15 @@ type CfnRule_AwsVpcConfigurationProperty struct {
 	// Specifies the subnets associated with the task.
 	//
 	// These subnets must all be in the same VPC. You can specify as many as 16 subnets.
-	Subnets *[]*string `json:"subnets"`
+	Subnets *[]*string `json:"subnets" yaml:"subnets"`
 	// Specifies whether the task's elastic network interface receives a public IP address.
 	//
 	// You can specify `ENABLED` only when `LaunchType` in `EcsParameters` is set to `FARGATE` .
-	AssignPublicIp *string `json:"assignPublicIp"`
+	AssignPublicIp *string `json:"assignPublicIp" yaml:"assignPublicIp"`
 	// Specifies the security groups associated with the task.
 	//
 	// These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.
-	SecurityGroups *[]*string `json:"securityGroups"`
+	SecurityGroups *[]*string `json:"securityGroups" yaml:"securityGroups"`
 }
 
 // The array properties for the submitted job, such as the size of the array.
@@ -3898,7 +3898,7 @@ type CfnRule_BatchArrayPropertiesProperty struct {
 	// The size of the array, if this is an array batch job.
 	//
 	// Valid values are integers between 2 and 10,000.
-	Size *float64 `json:"size"`
+	Size *float64 `json:"size" yaml:"size"`
 }
 
 // The custom parameters to be used when the target is an AWS Batch job.
@@ -3909,17 +3909,17 @@ type CfnRule_BatchParametersProperty struct {
 	// The ARN or name of the job definition to use if the event target is an AWS Batch job.
 	//
 	// This job definition must already exist.
-	JobDefinition *string `json:"jobDefinition"`
+	JobDefinition *string `json:"jobDefinition" yaml:"jobDefinition"`
 	// The name to use for this execution of the job, if the target is an AWS Batch job.
-	JobName *string `json:"jobName"`
+	JobName *string `json:"jobName" yaml:"jobName"`
 	// The array properties for the submitted job, such as the size of the array.
 	//
 	// The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job.
-	ArrayProperties interface{} `json:"arrayProperties"`
+	ArrayProperties interface{} `json:"arrayProperties" yaml:"arrayProperties"`
 	// The retry strategy to use for failed jobs, if the target is an AWS Batch job.
 	//
 	// The retry strategy is the number of times to retry the failed job execution. Valid values are 1–10. When you specify a retry strategy here, it overrides the retry strategy defined in the job definition.
-	RetryStrategy interface{} `json:"retryStrategy"`
+	RetryStrategy interface{} `json:"retryStrategy" yaml:"retryStrategy"`
 }
 
 // The retry strategy to use for failed jobs, if the target is an AWS Batch job.
@@ -3932,7 +3932,7 @@ type CfnRule_BatchRetryStrategyProperty struct {
 	// The number of times to attempt to retry, if the job fails.
 	//
 	// Valid values are 1–10.
-	Attempts *float64 `json:"attempts"`
+	Attempts *float64 `json:"attempts" yaml:"attempts"`
 }
 
 // The details of a capacity provider strategy.
@@ -3943,15 +3943,15 @@ type CfnRule_BatchRetryStrategyProperty struct {
 //
 type CfnRule_CapacityProviderStrategyItemProperty struct {
 	// The short name of the capacity provider.
-	CapacityProvider *string `json:"capacityProvider"`
+	CapacityProvider *string `json:"capacityProvider" yaml:"capacityProvider"`
 	// The base value designates how many tasks, at a minimum, to run on the specified capacity provider.
 	//
 	// Only one capacity provider in a capacity provider strategy can have a base defined. If no value is specified, the default value of 0 is used.
-	Base *float64 `json:"base"`
+	Base *float64 `json:"base" yaml:"base"`
 	// The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider.
 	//
 	// The weight value is taken into consideration after the base value, if defined, is satisfied.
-	Weight *float64 `json:"weight"`
+	Weight *float64 `json:"weight" yaml:"weight"`
 }
 
 // A `DeadLetterConfig` object that contains information about a dead-letter queue configuration.
@@ -3960,7 +3960,7 @@ type CfnRule_CapacityProviderStrategyItemProperty struct {
 //
 type CfnRule_DeadLetterConfigProperty struct {
 	// The ARN of the SQS queue specified as the target for the dead-letter queue.
-	Arn *string `json:"arn"`
+	Arn *string `json:"arn" yaml:"arn"`
 }
 
 // The custom parameters to be used when the target is an Amazon ECS task.
@@ -3969,61 +3969,61 @@ type CfnRule_DeadLetterConfigProperty struct {
 //
 type CfnRule_EcsParametersProperty struct {
 	// The ARN of the task definition to use if the event target is an Amazon ECS task.
-	TaskDefinitionArn *string `json:"taskDefinitionArn"`
+	TaskDefinitionArn *string `json:"taskDefinitionArn" yaml:"taskDefinitionArn"`
 	// The capacity provider strategy to use for the task.
 	//
 	// If a `capacityProviderStrategy` is specified, the `launchType` parameter must be omitted. If no `capacityProviderStrategy` or launchType is specified, the `defaultCapacityProviderStrategy` for the cluster is used.
-	CapacityProviderStrategy interface{} `json:"capacityProviderStrategy"`
+	CapacityProviderStrategy interface{} `json:"capacityProviderStrategy" yaml:"capacityProviderStrategy"`
 	// Specifies whether to enable Amazon ECS managed tags for the task.
 	//
 	// For more information, see [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html) in the Amazon Elastic Container Service Developer Guide.
-	EnableEcsManagedTags interface{} `json:"enableEcsManagedTags"`
+	EnableEcsManagedTags interface{} `json:"enableEcsManagedTags" yaml:"enableEcsManagedTags"`
 	// Whether or not to enable the execute command functionality for the containers in this task.
 	//
 	// If true, this enables execute command functionality on all containers in the task.
-	EnableExecuteCommand interface{} `json:"enableExecuteCommand"`
+	EnableExecuteCommand interface{} `json:"enableExecuteCommand" yaml:"enableExecuteCommand"`
 	// Specifies an ECS task group for the task.
 	//
 	// The maximum length is 255 characters.
-	Group *string `json:"group"`
+	Group *string `json:"group" yaml:"group"`
 	// Specifies the launch type on which your task is running.
 	//
 	// The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The `FARGATE` value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. For more information, see [AWS Fargate on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS-Fargate.html) in the *Amazon Elastic Container Service Developer Guide* .
-	LaunchType *string `json:"launchType"`
+	LaunchType *string `json:"launchType" yaml:"launchType"`
 	// Use this structure if the Amazon ECS task uses the `awsvpc` network mode.
 	//
 	// This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if `LaunchType` is `FARGATE` because the `awsvpc` mode is required for Fargate tasks.
 	//
 	// If you specify `NetworkConfiguration` when the target ECS task does not use the `awsvpc` network mode, the task fails.
-	NetworkConfiguration interface{} `json:"networkConfiguration"`
+	NetworkConfiguration interface{} `json:"networkConfiguration" yaml:"networkConfiguration"`
 	// An array of placement constraint objects to use for the task.
 	//
 	// You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime).
-	PlacementConstraints interface{} `json:"placementConstraints"`
+	PlacementConstraints interface{} `json:"placementConstraints" yaml:"placementConstraints"`
 	// The placement strategy objects to use for the task.
 	//
 	// You can specify a maximum of five strategy rules per task.
-	PlacementStrategies interface{} `json:"placementStrategies"`
+	PlacementStrategies interface{} `json:"placementStrategies" yaml:"placementStrategies"`
 	// Specifies the platform version for the task.
 	//
 	// Specify only the numeric portion of the platform version, such as `1.1.0` .
 	//
 	// This structure is used only if `LaunchType` is `FARGATE` . For more information about valid platform versions, see [AWS Fargate Platform Versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html) in the *Amazon Elastic Container Service Developer Guide* .
-	PlatformVersion *string `json:"platformVersion"`
+	PlatformVersion *string `json:"platformVersion" yaml:"platformVersion"`
 	// Specifies whether to propagate the tags from the task definition to the task.
 	//
 	// If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the TagResource API action.
-	PropagateTags *string `json:"propagateTags"`
+	PropagateTags *string `json:"propagateTags" yaml:"propagateTags"`
 	// The reference ID to use for the task.
-	ReferenceId *string `json:"referenceId"`
+	ReferenceId *string `json:"referenceId" yaml:"referenceId"`
 	// The metadata that you apply to the task to help you categorize and organize them.
 	//
 	// Each tag consists of a key and an optional value, both of which you define. To learn more, see [RunTask](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html#ECS-RunTask-request-tags) in the Amazon ECS API Reference.
-	TagList interface{} `json:"tagList"`
+	TagList interface{} `json:"tagList" yaml:"tagList"`
 	// The number of tasks to create based on `TaskDefinition` .
 	//
 	// The default is 1.
-	TaskCount *float64 `json:"taskCount"`
+	TaskCount *float64 `json:"taskCount" yaml:"taskCount"`
 }
 
 // These are custom parameter to be used when the target is an API Gateway REST APIs or EventBridge ApiDestinations.
@@ -4034,11 +4034,11 @@ type CfnRule_EcsParametersProperty struct {
 //
 type CfnRule_HttpParametersProperty struct {
 	// The headers that need to be sent as part of request invoking the API Gateway REST API or EventBridge ApiDestination.
-	HeaderParameters interface{} `json:"headerParameters"`
+	HeaderParameters interface{} `json:"headerParameters" yaml:"headerParameters"`
 	// The path parameter values to be used to populate API Gateway REST API or EventBridge ApiDestination path wildcards ("*").
-	PathParameterValues *[]*string `json:"pathParameterValues"`
+	PathParameterValues *[]*string `json:"pathParameterValues" yaml:"pathParameterValues"`
 	// The query string keys/values that need to be sent as part of request invoking the API Gateway REST API or EventBridge ApiDestination.
-	QueryStringParameters interface{} `json:"queryStringParameters"`
+	QueryStringParameters interface{} `json:"queryStringParameters" yaml:"queryStringParameters"`
 }
 
 // Contains the parameters needed for you to provide custom input to a target based on one or more pieces of data extracted from the event.
@@ -4089,7 +4089,7 @@ type CfnRule_InputTransformerProperty struct {
 	// `"InputTemplate": '{"myInstance": <instance>,"myStatus": "<instance> is in state \"<status>\""}'`
 	//
 	// `}`
-	InputTemplate *string `json:"inputTemplate"`
+	InputTemplate *string `json:"inputTemplate" yaml:"inputTemplate"`
 	// Map of JSON paths to be extracted from the event.
 	//
 	// You can then insert these in the template in `InputTemplate` to produce the output you want to be sent to the target.
@@ -4097,7 +4097,7 @@ type CfnRule_InputTransformerProperty struct {
 	// `InputPathsMap` is an array key-value pairs, where each value is a valid JSON path. You can have as many as 100 key-value pairs. You must use JSON dot notation, not bracket notation.
 	//
 	// The keys cannot start with " AWS ."
-	InputPathsMap interface{} `json:"inputPathsMap"`
+	InputPathsMap interface{} `json:"inputPathsMap" yaml:"inputPathsMap"`
 }
 
 // This object enables you to specify a JSON path to extract from the event and use as the partition key for the Amazon Kinesis data stream, so that you can control the shard to which the event goes.
@@ -4110,7 +4110,7 @@ type CfnRule_KinesisParametersProperty struct {
 	// The JSON path to be extracted from the event and used as the partition key.
 	//
 	// For more information, see [Amazon Kinesis Streams Key Concepts](https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html#partition-key) in the *Amazon Kinesis Streams Developer Guide* .
-	PartitionKeyPath *string `json:"partitionKeyPath"`
+	PartitionKeyPath *string `json:"partitionKeyPath" yaml:"partitionKeyPath"`
 }
 
 // This structure specifies the network configuration for an ECS task.
@@ -4121,7 +4121,7 @@ type CfnRule_NetworkConfigurationProperty struct {
 	// Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used.
 	//
 	// This structure is relevant only for ECS tasks that use the `awsvpc` network mode.
-	AwsVpcConfiguration interface{} `json:"awsVpcConfiguration"`
+	AwsVpcConfiguration interface{} `json:"awsVpcConfiguration" yaml:"awsVpcConfiguration"`
 }
 
 // An object representing a constraint on task placement.
@@ -4134,11 +4134,11 @@ type CfnRule_PlacementConstraintProperty struct {
 	// A cluster query language expression to apply to the constraint.
 	//
 	// You cannot specify an expression if the constraint type is `distinctInstance` . To learn more, see [Cluster Query Language](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html) in the Amazon Elastic Container Service Developer Guide.
-	Expression *string `json:"expression"`
+	Expression *string `json:"expression" yaml:"expression"`
 	// The type of constraint.
 	//
 	// Use distinctInstance to ensure that each task in a particular group is running on a different container instance. Use memberOf to restrict the selection to a group of valid candidates.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 }
 
 // The task placement strategy for a task or service.
@@ -4151,11 +4151,11 @@ type CfnRule_PlacementStrategyProperty struct {
 	// The field to apply the placement strategy against.
 	//
 	// For the spread placement strategy, valid values are instanceId (or host, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as attribute:ecs.availability-zone. For the binpack placement strategy, valid values are cpu and memory. For the random placement strategy, this field is not used.
-	Field *string `json:"field"`
+	Field *string `json:"field" yaml:"field"`
 	// The type of placement strategy.
 	//
 	// The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task).
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 }
 
 // These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the Amazon Redshift Data API ExecuteStatement based on EventBridge events.
@@ -4166,23 +4166,23 @@ type CfnRule_RedshiftDataParametersProperty struct {
 	// The name of the database.
 	//
 	// Required when authenticating using temporary credentials.
-	Database *string `json:"database"`
+	Database *string `json:"database" yaml:"database"`
 	// The SQL statement text to run.
-	Sql *string `json:"sql"`
+	Sql *string `json:"sql" yaml:"sql"`
 	// The database user name.
 	//
 	// Required when authenticating using temporary credentials.
-	DbUser *string `json:"dbUser"`
+	DbUser *string `json:"dbUser" yaml:"dbUser"`
 	// The name or ARN of the secret that enables access to the database.
 	//
 	// Required when authenticating using AWS Secrets Manager.
-	SecretManagerArn *string `json:"secretManagerArn"`
+	SecretManagerArn *string `json:"secretManagerArn" yaml:"secretManagerArn"`
 	// The name of the SQL statement.
 	//
 	// You can name the SQL statement when you create it to identify the query.
-	StatementName *string `json:"statementName"`
+	StatementName *string `json:"statementName" yaml:"statementName"`
 	// Indicates whether to send an event back to EventBridge after the SQL statement runs.
-	WithEvent interface{} `json:"withEvent"`
+	WithEvent interface{} `json:"withEvent" yaml:"withEvent"`
 }
 
 // A `RetryPolicy` object that includes information about the retry policy settings.
@@ -4191,11 +4191,11 @@ type CfnRule_RedshiftDataParametersProperty struct {
 //
 type CfnRule_RetryPolicyProperty struct {
 	// The maximum amount of time, in seconds, to continue to make retry attempts.
-	MaximumEventAgeInSeconds *float64 `json:"maximumEventAgeInSeconds"`
+	MaximumEventAgeInSeconds *float64 `json:"maximumEventAgeInSeconds" yaml:"maximumEventAgeInSeconds"`
 	// The maximum number of retry attempts to make before the request fails.
 	//
 	// Retry attempts continue until either the maximum number of attempts is made or until the duration of the `MaximumEventAgeInSeconds` is met.
-	MaximumRetryAttempts *float64 `json:"maximumRetryAttempts"`
+	MaximumRetryAttempts *float64 `json:"maximumRetryAttempts" yaml:"maximumRetryAttempts"`
 }
 
 // This parameter contains the criteria (either InstanceIds or a tag) used to specify which EC2 instances are to be sent the command.
@@ -4204,7 +4204,7 @@ type CfnRule_RetryPolicyProperty struct {
 //
 type CfnRule_RunCommandParametersProperty struct {
 	// Currently, we support including only one RunCommandTarget block, which specifies either an array of InstanceIds or a tag.
-	RunCommandTargets interface{} `json:"runCommandTargets"`
+	RunCommandTargets interface{} `json:"runCommandTargets" yaml:"runCommandTargets"`
 }
 
 // Information about the EC2 instances that are to be sent the command, specified as key-value pairs.
@@ -4215,11 +4215,11 @@ type CfnRule_RunCommandParametersProperty struct {
 //
 type CfnRule_RunCommandTargetProperty struct {
 	// Can be either `tag:` *tag-key* or `InstanceIds` .
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// If `Key` is `tag:` *tag-key* , `Values` is a list of tag values.
 	//
 	// If `Key` is `InstanceIds` , `Values` is a list of Amazon EC2 instance IDs.
-	Values *[]*string `json:"values"`
+	Values *[]*string `json:"values" yaml:"values"`
 }
 
 // This structure includes the custom parameter to be used when the target is an SQS FIFO queue.
@@ -4228,7 +4228,7 @@ type CfnRule_RunCommandTargetProperty struct {
 //
 type CfnRule_SqsParametersProperty struct {
 	// The FIFO message group ID to use as the target.
-	MessageGroupId *string `json:"messageGroupId"`
+	MessageGroupId *string `json:"messageGroupId" yaml:"messageGroupId"`
 }
 
 // A key-value pair associated with an ECS Target of an EventBridge rule.
@@ -4243,9 +4243,9 @@ type CfnRule_TagProperty struct {
 	// A string you can use to assign a value.
 	//
 	// The combination of tag keys and values can help you organize and categorize your resources.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// The value for the specified tag key.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // Targets are the resources to be invoked when a rule is triggered.
@@ -4258,57 +4258,57 @@ type CfnRule_TagProperty struct {
 //
 type CfnRule_TargetProperty struct {
 	// The Amazon Resource Name (ARN) of the target.
-	Arn *string `json:"arn"`
+	Arn *string `json:"arn" yaml:"arn"`
 	// The ID of the target within the specified rule.
 	//
 	// Use this ID to reference the target when updating the rule. We recommend using a memorable and unique string.
-	Id *string `json:"id"`
+	Id *string `json:"id" yaml:"id"`
 	// If the event target is an AWS Batch job, this contains the job definition, job name, and other parameters.
 	//
 	// For more information, see [Jobs](https://docs.aws.amazon.com/batch/latest/userguide/jobs.html) in the *AWS Batch User Guide* .
-	BatchParameters interface{} `json:"batchParameters"`
+	BatchParameters interface{} `json:"batchParameters" yaml:"batchParameters"`
 	// The `DeadLetterConfig` that defines the target queue to send dead-letter queue events to.
-	DeadLetterConfig interface{} `json:"deadLetterConfig"`
+	DeadLetterConfig interface{} `json:"deadLetterConfig" yaml:"deadLetterConfig"`
 	// Contains the Amazon ECS task definition and task count to be used, if the event target is an Amazon ECS task.
 	//
 	// For more information about Amazon ECS tasks, see [Task Definitions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html) in the *Amazon EC2 Container Service Developer Guide* .
-	EcsParameters interface{} `json:"ecsParameters"`
+	EcsParameters interface{} `json:"ecsParameters" yaml:"ecsParameters"`
 	// Contains the HTTP parameters to use when the target is a API Gateway REST endpoint or EventBridge ApiDestination.
 	//
 	// If you specify an API Gateway REST API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you're using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence.
-	HttpParameters interface{} `json:"httpParameters"`
+	HttpParameters interface{} `json:"httpParameters" yaml:"httpParameters"`
 	// Valid JSON text passed to the target.
 	//
 	// In this case, nothing from the event itself is passed to the target. For more information, see [The JavaScript Object Notation (JSON) Data Interchange Format](https://docs.aws.amazon.com/http://www.rfc-editor.org/rfc/rfc7159.txt) .
-	Input *string `json:"input"`
+	Input *string `json:"input" yaml:"input"`
 	// The value of the JSONPath that is used for extracting part of the matched event when passing it to the target.
 	//
 	// You must use JSON dot notation, not bracket notation. For more information about JSON paths, see [JSONPath](https://docs.aws.amazon.com/http://goessner.net/articles/JsonPath/) .
-	InputPath *string `json:"inputPath"`
+	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// Settings to enable you to provide custom input to a target based on certain event data.
 	//
 	// You can extract one or more key-value pairs from the event and then use that data to send customized input to the target.
-	InputTransformer interface{} `json:"inputTransformer"`
+	InputTransformer interface{} `json:"inputTransformer" yaml:"inputTransformer"`
 	// The custom parameter you can use to control the shard assignment, when the target is a Kinesis data stream.
 	//
 	// If you do not include this parameter, the default is to use the `eventId` as the partition key.
-	KinesisParameters interface{} `json:"kinesisParameters"`
+	KinesisParameters interface{} `json:"kinesisParameters" yaml:"kinesisParameters"`
 	// Contains the Amazon Redshift Data API parameters to use when the target is a Amazon Redshift cluster.
 	//
 	// If you specify a Amazon Redshift Cluster as a Target, you can use this to specify parameters to invoke the Amazon Redshift Data API ExecuteStatement based on EventBridge events.
-	RedshiftDataParameters interface{} `json:"redshiftDataParameters"`
+	RedshiftDataParameters interface{} `json:"redshiftDataParameters" yaml:"redshiftDataParameters"`
 	// The `RetryPolicy` object that contains the retry policy configuration to use for the dead-letter queue.
-	RetryPolicy interface{} `json:"retryPolicy"`
+	RetryPolicy interface{} `json:"retryPolicy" yaml:"retryPolicy"`
 	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered.
 	//
 	// If one rule triggers multiple targets, you can use a different IAM role for each target.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// Parameters used when you are using the rule to invoke Amazon EC2 Run Command.
-	RunCommandParameters interface{} `json:"runCommandParameters"`
+	RunCommandParameters interface{} `json:"runCommandParameters" yaml:"runCommandParameters"`
 	// Contains the message group ID to use when the target is a FIFO queue.
 	//
 	// If you specify an SQS FIFO queue as a target, the queue must have content-based deduplication enabled.
-	SqsParameters interface{} `json:"sqsParameters"`
+	SqsParameters interface{} `json:"sqsParameters" yaml:"sqsParameters"`
 }
 
 // Properties for defining a `CfnRule`.
@@ -4317,27 +4317,27 @@ type CfnRule_TargetProperty struct {
 //
 type CfnRuleProps struct {
 	// The description of the rule.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The name or ARN of the event bus associated with the rule.
 	//
 	// If you omit this, the default event bus is used.
-	EventBusName *string `json:"eventBusName"`
+	EventBusName *string `json:"eventBusName" yaml:"eventBusName"`
 	// The event pattern of the rule.
 	//
 	// For more information, see [Events and Event Patterns](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) in the *Amazon EventBridge User Guide* .
-	EventPattern interface{} `json:"eventPattern"`
+	EventPattern interface{} `json:"eventPattern" yaml:"eventPattern"`
 	// The name of the rule.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The Amazon Resource Name (ARN) of the role that is used for target invocation.
 	//
 	// If you're setting an event bus in another account as the target and that account granted permission to your account through an organization instead of directly by the account ID, you must specify a `RoleArn` with proper permissions in the `Target` structure, instead of here in this parameter.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// The scheduling expression.
 	//
 	// For example, "cron(0 20 * * ? *)", "rate(5 minutes)". For more information, see [Creating an Amazon EventBridge rule that runs on a schedule](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule-schedule.html) .
-	ScheduleExpression *string `json:"scheduleExpression"`
+	ScheduleExpression *string `json:"scheduleExpression" yaml:"scheduleExpression"`
 	// The state of the rule.
-	State *string `json:"state"`
+	State *string `json:"state" yaml:"state"`
 	// Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.
 	//
 	// Targets are the resources that are invoked when a rule is triggered.
@@ -4400,7 +4400,7 @@ type CfnRuleProps struct {
 	// When you add targets to a rule and the associated rule triggers soon after, new or updated targets might not be immediately invoked. Allow a short period of time for changes to take effect.
 	//
 	// This action can partially fail if too many requests are made at the same time. If that happens, `FailedEntryCount` is non-zero in the response and each entry in `FailedEntries` provides the ID of the failed target and the error code.
-	Targets interface{} `json:"targets"`
+	Targets interface{} `json:"targets" yaml:"targets"`
 }
 
 // Options to configure a cron expression.
@@ -4414,17 +4414,17 @@ type CfnRuleProps struct {
 //
 type CronOptions struct {
 	// The day of the month to run this rule at.
-	Day *string `json:"day"`
+	Day *string `json:"day" yaml:"day"`
 	// The hour to run this rule at.
-	Hour *string `json:"hour"`
+	Hour *string `json:"hour" yaml:"hour"`
 	// The minute to run this rule at.
-	Minute *string `json:"minute"`
+	Minute *string `json:"minute" yaml:"minute"`
 	// The month to run this rule at.
-	Month *string `json:"month"`
+	Month *string `json:"month" yaml:"month"`
 	// The day of the week to run this rule at.
-	WeekDay *string `json:"weekDay"`
+	WeekDay *string `json:"weekDay" yaml:"weekDay"`
 	// The year to run this rule at.
-	Year *string `json:"year"`
+	Year *string `json:"year" yaml:"year"`
 }
 
 // Define an EventBridge EventBus.
@@ -4779,13 +4779,13 @@ func (e *jsiiProxy_EventBus) ToString() *string {
 //
 type EventBusAttributes struct {
 	// The ARN of this event bus resource.
-	EventBusArn *string `json:"eventBusArn"`
+	EventBusArn *string `json:"eventBusArn" yaml:"eventBusArn"`
 	// The physical ID of this event bus resource.
-	EventBusName *string `json:"eventBusName"`
+	EventBusName *string `json:"eventBusName" yaml:"eventBusName"`
 	// The JSON policy of this event bus resource.
-	EventBusPolicy *string `json:"eventBusPolicy"`
+	EventBusPolicy *string `json:"eventBusPolicy" yaml:"eventBusPolicy"`
 	// The partner event source to associate with this event bus resource.
-	EventSourceName *string `json:"eventSourceName"`
+	EventSourceName *string `json:"eventSourceName" yaml:"eventSourceName"`
 }
 
 // Properties to define an event bus.
@@ -4794,9 +4794,9 @@ type EventBusAttributes struct {
 //
 type EventBusProps struct {
 	// The name of the event bus you are creating Note: If 'eventSourceName' is passed in, you cannot set this.
-	EventBusName *string `json:"eventBusName"`
+	EventBusName *string `json:"eventBusName" yaml:"eventBusName"`
 	// The partner event source to associate with this event bus resource Note: If 'eventBusName' is passed in, you cannot set this.
-	EventSourceName *string `json:"eventSourceName"`
+	EventSourceName *string `json:"eventSourceName" yaml:"eventSourceName"`
 }
 
 // Represents a field in the event pattern.
@@ -5007,20 +5007,20 @@ func (e *jsiiProxy_EventField) ToString() *string {
 //
 type EventPattern struct {
 	// The 12-digit number identifying an AWS account.
-	Account *[]*string `json:"account"`
+	Account *[]*string `json:"account" yaml:"account"`
 	// A JSON object, whose content is at the discretion of the service originating the event.
-	Detail *map[string]interface{} `json:"detail"`
+	Detail *map[string]interface{} `json:"detail" yaml:"detail"`
 	// Identifies, in combination with the source field, the fields and values that appear in the detail field.
 	//
 	// Represents the "detail-type" event field.
-	DetailType *[]*string `json:"detailType"`
+	DetailType *[]*string `json:"detailType" yaml:"detailType"`
 	// A unique value is generated for every event.
 	//
 	// This can be helpful in
 	// tracing events as they move through rules to targets, and are processed.
-	Id *[]*string `json:"id"`
+	Id *[]*string `json:"id" yaml:"id"`
 	// Identifies the AWS region where the event originated.
-	Region *[]*string `json:"region"`
+	Region *[]*string `json:"region" yaml:"region"`
 	// This JSON array contains ARNs that identify resources that are involved in the event.
 	//
 	// Inclusion of these ARNs is at the discretion of the
@@ -5030,7 +5030,7 @@ type EventPattern struct {
 	// instance ARNs, Auto Scaling events include ARNs for both instances and
 	// Auto Scaling groups, but API calls with AWS CloudTrail do not include
 	// resource ARNs.
-	Resources *[]*string `json:"resources"`
+	Resources *[]*string `json:"resources" yaml:"resources"`
 	// Identifies the service that sourced the event.
 	//
 	// All events sourced from
@@ -5043,15 +5043,15 @@ type EventPattern struct {
 	// CloudFront is aws.cloudfront.
 	// See: http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces
 	//
-	Source *[]*string `json:"source"`
+	Source *[]*string `json:"source" yaml:"source"`
 	// The event timestamp, which can be specified by the service originating the event.
 	//
 	// If the event spans a time interval, the service might choose
 	// to report the start time, so this value can be noticeably before the time
 	// the event is actually received.
-	Time *[]*string `json:"time"`
+	Time *[]*string `json:"time" yaml:"time"`
 	// By default, this is set to 0 (zero) in all events.
-	Version *[]*string `json:"version"`
+	Version *[]*string `json:"version" yaml:"version"`
 }
 
 // Interface which all EventBus based classes MUST implement.
@@ -5211,7 +5211,7 @@ func (i *jsiiProxy_IRuleTarget) Bind(rule IRule, id *string) *RuleTargetConfig {
 //
 type OnEventOptions struct {
 	// A description of the rule's purpose.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Additional restrictions for the event to route to the specified target.
 	//
 	// The method that generates the rule probably imposes some type of event
@@ -5219,11 +5219,11 @@ type OnEventOptions struct {
 	// on top of that filtering.
 	// See: https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html
 	//
-	EventPattern *EventPattern `json:"eventPattern"`
+	EventPattern *EventPattern `json:"eventPattern" yaml:"eventPattern"`
 	// A name for the rule.
-	RuleName *string `json:"ruleName"`
+	RuleName *string `json:"ruleName" yaml:"ruleName"`
 	// The target to register for the event.
-	Target IRuleTarget `json:"target"`
+	Target IRuleTarget `json:"target" yaml:"target"`
 }
 
 // Defines an EventBridge Rule in this stack.
@@ -5542,11 +5542,11 @@ func (r *jsiiProxy_Rule) ValidateRule() *[]*string {
 //
 type RuleProps struct {
 	// A description of the rule's purpose.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Indicates whether the rule is enabled.
-	Enabled *bool `json:"enabled"`
+	Enabled *bool `json:"enabled" yaml:"enabled"`
 	// The event bus to associate with this rule.
-	EventBus IEventBus `json:"eventBus"`
+	EventBus IEventBus `json:"eventBus" yaml:"eventBus"`
 	// Describes which events EventBridge routes to the specified target.
 	//
 	// These routed events are matched events. For more information, see Events
@@ -5558,9 +5558,9 @@ type RuleProps struct {
 	// method `addEventPattern` can be used to add filter values to the event
 	// pattern.
 	//
-	EventPattern *EventPattern `json:"eventPattern"`
+	EventPattern *EventPattern `json:"eventPattern" yaml:"eventPattern"`
 	// A name for the rule.
-	RuleName *string `json:"ruleName"`
+	RuleName *string `json:"ruleName" yaml:"ruleName"`
 	// The schedule or rate (frequency) that determines when EventBridge runs the rule.
 	//
 	// For more information, see Schedule Expression Syntax for
@@ -5569,12 +5569,12 @@ type RuleProps struct {
 	//
 	// You must specify this property, the `eventPattern` property, or both.
 	//
-	Schedule Schedule `json:"schedule"`
+	Schedule Schedule `json:"schedule" yaml:"schedule"`
 	// Targets to invoke when this rule matches an event.
 	//
 	// Input will be the full matched event. If you wish to specify custom
 	// target input, use `addTarget(target[, inputOptions])`.
-	Targets *[]IRuleTarget `json:"targets"`
+	Targets *[]IRuleTarget `json:"targets" yaml:"targets"`
 }
 
 // Properties for an event rule target.
@@ -5583,30 +5583,30 @@ type RuleProps struct {
 //
 type RuleTargetConfig struct {
 	// The Amazon Resource Name (ARN) of the target.
-	Arn *string `json:"arn"`
+	Arn *string `json:"arn" yaml:"arn"`
 	// Parameters used when the rule invokes Amazon AWS Batch Job/Queue.
-	BatchParameters *CfnRule_BatchParametersProperty `json:"batchParameters"`
+	BatchParameters *CfnRule_BatchParametersProperty `json:"batchParameters" yaml:"batchParameters"`
 	// Contains information about a dead-letter queue configuration.
-	DeadLetterConfig *CfnRule_DeadLetterConfigProperty `json:"deadLetterConfig"`
+	DeadLetterConfig *CfnRule_DeadLetterConfigProperty `json:"deadLetterConfig" yaml:"deadLetterConfig"`
 	// The Amazon ECS task definition and task count to use, if the event target is an Amazon ECS task.
-	EcsParameters *CfnRule_EcsParametersProperty `json:"ecsParameters"`
+	EcsParameters *CfnRule_EcsParametersProperty `json:"ecsParameters" yaml:"ecsParameters"`
 	// Parameters used when the rule invoke api gateway.
-	HttpParameters *CfnRule_HttpParametersProperty `json:"httpParameters"`
+	HttpParameters *CfnRule_HttpParametersProperty `json:"httpParameters" yaml:"httpParameters"`
 	// What input to send to the event target.
-	Input RuleTargetInput `json:"input"`
+	Input RuleTargetInput `json:"input" yaml:"input"`
 	// Settings that control shard assignment, when the target is a Kinesis stream.
 	//
 	// If you don't include this parameter, eventId is used as the
 	// partition key.
-	KinesisParameters *CfnRule_KinesisParametersProperty `json:"kinesisParameters"`
+	KinesisParameters *CfnRule_KinesisParametersProperty `json:"kinesisParameters" yaml:"kinesisParameters"`
 	// A RetryPolicy object that includes information about the retry policy settings.
-	RetryPolicy *CfnRule_RetryPolicyProperty `json:"retryPolicy"`
+	RetryPolicy *CfnRule_RetryPolicyProperty `json:"retryPolicy" yaml:"retryPolicy"`
 	// Role to use to invoke this event target.
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 	// Parameters used when the rule invokes Amazon EC2 Systems Manager Run Command.
-	RunCommandParameters *CfnRule_RunCommandParametersProperty `json:"runCommandParameters"`
+	RunCommandParameters *CfnRule_RunCommandParametersProperty `json:"runCommandParameters" yaml:"runCommandParameters"`
 	// Parameters used when the FIFO sqs queue is used an event target by the rule.
-	SqsParameters *CfnRule_SqsParametersProperty `json:"sqsParameters"`
+	SqsParameters *CfnRule_SqsParametersProperty `json:"sqsParameters" yaml:"sqsParameters"`
 	// The resource that is backing this target.
 	//
 	// This is the resource that will actually have some action performed on it when used as a target
@@ -5616,7 +5616,7 @@ type RuleTargetConfig struct {
 	// including an additional stack containing the EventBusPolicy.
 	// See: https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html
 	//
-	TargetResource constructs.IConstruct `json:"targetResource"`
+	TargetResource constructs.IConstruct `json:"targetResource" yaml:"targetResource"`
 }
 
 // The input to send to the event target.
@@ -5738,13 +5738,13 @@ func (r *jsiiProxy_RuleTargetInput) Bind(rule IRule) *RuleTargetInputProperties 
 //
 type RuleTargetInputProperties struct {
 	// Literal input to the target service (must be valid JSON).
-	Input *string `json:"input"`
+	Input *string `json:"input" yaml:"input"`
 	// JsonPath to take input from the input event.
-	InputPath *string `json:"inputPath"`
+	InputPath *string `json:"inputPath" yaml:"inputPath"`
 	// Paths map to extract values from event and insert into `inputTemplate`.
-	InputPathsMap *map[string]*string `json:"inputPathsMap"`
+	InputPathsMap *map[string]*string `json:"inputPathsMap" yaml:"inputPathsMap"`
 	// Input template to insert paths map into.
-	InputTemplate *string `json:"inputTemplate"`
+	InputTemplate *string `json:"inputTemplate" yaml:"inputTemplate"`
 }
 
 // Schedule for scheduled event rules.

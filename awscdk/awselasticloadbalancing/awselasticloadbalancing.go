@@ -838,17 +838,17 @@ func (c *jsiiProxy_CfnLoadBalancer) ValidateProperties(_properties interface{}) 
 //
 type CfnLoadBalancer_AccessLoggingPolicyProperty struct {
 	// Specifies whether access logs are enabled for the load balancer.
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 	// The name of the Amazon S3 bucket where the access logs are stored.
-	S3BucketName *string `json:"s3BucketName"`
+	S3BucketName *string `json:"s3BucketName" yaml:"s3BucketName"`
 	// The interval for publishing the access logs. You can specify an interval of either 5 minutes or 60 minutes.
 	//
 	// Default: 60 minutes
-	EmitInterval *float64 `json:"emitInterval"`
+	EmitInterval *float64 `json:"emitInterval" yaml:"emitInterval"`
 	// The logical hierarchy you created for your Amazon S3 bucket, for example `my-bucket-prefix/prod` .
 	//
 	// If the prefix is not provided, the log is placed at the root level of the bucket.
-	S3BucketPrefix *string `json:"s3BucketPrefix"`
+	S3BucketPrefix *string `json:"s3BucketPrefix" yaml:"s3BucketPrefix"`
 }
 
 // Specifies a policy for application-controlled session stickiness for your Classic Load Balancer.
@@ -859,11 +859,11 @@ type CfnLoadBalancer_AccessLoggingPolicyProperty struct {
 //
 type CfnLoadBalancer_AppCookieStickinessPolicyProperty struct {
 	// The name of the application cookie used for stickiness.
-	CookieName *string `json:"cookieName"`
+	CookieName *string `json:"cookieName" yaml:"cookieName"`
 	// The mnemonic name for the policy being created.
 	//
 	// The name must be unique within a set of policies for this load balancer.
-	PolicyName *string `json:"policyName"`
+	PolicyName *string `json:"policyName" yaml:"policyName"`
 }
 
 // Specifies the connection draining settings for your Classic Load Balancer.
@@ -872,9 +872,9 @@ type CfnLoadBalancer_AppCookieStickinessPolicyProperty struct {
 //
 type CfnLoadBalancer_ConnectionDrainingPolicyProperty struct {
 	// Specifies whether connection draining is enabled for the load balancer.
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 	// The maximum time, in seconds, to keep the existing connections open before deregistering the instances.
-	Timeout *float64 `json:"timeout"`
+	Timeout *float64 `json:"timeout" yaml:"timeout"`
 }
 
 // Specifies the idle timeout value for your Classic Load Balancer.
@@ -883,7 +883,7 @@ type CfnLoadBalancer_ConnectionDrainingPolicyProperty struct {
 //
 type CfnLoadBalancer_ConnectionSettingsProperty struct {
 	// The time, in seconds, that the connection is allowed to be idle (no data has been sent over the connection) before it is closed by the load balancer.
-	IdleTimeout *float64 `json:"idleTimeout"`
+	IdleTimeout *float64 `json:"idleTimeout" yaml:"idleTimeout"`
 }
 
 // Specifies health check settings for your Classic Load Balancer.
@@ -892,9 +892,9 @@ type CfnLoadBalancer_ConnectionSettingsProperty struct {
 //
 type CfnLoadBalancer_HealthCheckProperty struct {
 	// The number of consecutive health checks successes required before moving the instance to the `Healthy` state.
-	HealthyThreshold *string `json:"healthyThreshold"`
+	HealthyThreshold *string `json:"healthyThreshold" yaml:"healthyThreshold"`
 	// The approximate interval, in seconds, between health checks of an individual instance.
-	Interval *string `json:"interval"`
+	Interval *string `json:"interval" yaml:"interval"`
 	// The instance being checked.
 	//
 	// The protocol is either TCP, HTTP, HTTPS, or SSL. The range of valid ports is one (1) through 65535.
@@ -906,13 +906,13 @@ type CfnLoadBalancer_HealthCheckProperty struct {
 	// For HTTP/HTTPS, you must include a ping path in the string. HTTP is specified as a HTTP:port;/;PathToPing; grouping, for example "HTTP:80/weather/us/wa/seattle". In this case, a HTTP GET request is issued to the instance on the given port and path. Any answer other than "200 OK" within the timeout period is considered unhealthy.
 	//
 	// The total length of the HTTP ping target must be 1024 16-bit Unicode characters or less.
-	Target *string `json:"target"`
+	Target *string `json:"target" yaml:"target"`
 	// The amount of time, in seconds, during which no response means a failed health check.
 	//
 	// This value must be less than the `Interval` value.
-	Timeout *string `json:"timeout"`
+	Timeout *string `json:"timeout" yaml:"timeout"`
 	// The number of consecutive health check failures required before moving the instance to the `Unhealthy` state.
-	UnhealthyThreshold *string `json:"unhealthyThreshold"`
+	UnhealthyThreshold *string `json:"unhealthyThreshold" yaml:"unhealthyThreshold"`
 }
 
 // Specifies a policy for duration-based session stickiness for your Classic Load Balancer.
@@ -925,11 +925,11 @@ type CfnLoadBalancer_LBCookieStickinessPolicyProperty struct {
 	// The time period, in seconds, after which the cookie should be considered stale.
 	//
 	// If this parameter is not specified, the stickiness session lasts for the duration of the browser session.
-	CookieExpirationPeriod *string `json:"cookieExpirationPeriod"`
+	CookieExpirationPeriod *string `json:"cookieExpirationPeriod" yaml:"cookieExpirationPeriod"`
 	// The name of the policy.
 	//
 	// This name must be unique within the set of policies for this load balancer.
-	PolicyName *string `json:"policyName"`
+	PolicyName *string `json:"policyName" yaml:"policyName"`
 }
 
 // Specifies a listener for your Classic Load Balancer.
@@ -938,13 +938,13 @@ type CfnLoadBalancer_LBCookieStickinessPolicyProperty struct {
 //
 type CfnLoadBalancer_ListenersProperty struct {
 	// The port on which the instance is listening.
-	InstancePort *string `json:"instancePort"`
+	InstancePort *string `json:"instancePort" yaml:"instancePort"`
 	// The port on which the load balancer is listening.
 	//
 	// On EC2-VPC, you can specify any port from the range 1-65535. On EC2-Classic, you can specify any port from the following list: 25, 80, 443, 465, 587, 1024-65535.
-	LoadBalancerPort *string `json:"loadBalancerPort"`
+	LoadBalancerPort *string `json:"loadBalancerPort" yaml:"loadBalancerPort"`
 	// The load balancer transport protocol to use for routing: HTTP, HTTPS, TCP, or SSL.
-	Protocol *string `json:"protocol"`
+	Protocol *string `json:"protocol" yaml:"protocol"`
 	// The protocol to use for routing traffic to instances: HTTP, HTTPS, TCP, or SSL.
 	//
 	// If the front-end protocol is TCP or SSL, the back-end protocol must be TCP or SSL. If the front-end protocol is HTTP or HTTPS, the back-end protocol must be HTTP or HTTPS.
@@ -952,11 +952,11 @@ type CfnLoadBalancer_ListenersProperty struct {
 	// If there is another listener with the same `InstancePort` whose `InstanceProtocol` is secure, (HTTPS or SSL), the listener's `InstanceProtocol` must also be secure.
 	//
 	// If there is another listener with the same `InstancePort` whose `InstanceProtocol` is HTTP or TCP, the listener's `InstanceProtocol` must be HTTP or TCP.
-	InstanceProtocol *string `json:"instanceProtocol"`
+	InstanceProtocol *string `json:"instanceProtocol" yaml:"instanceProtocol"`
 	// The names of the policies to associate with the listener.
-	PolicyNames *[]*string `json:"policyNames"`
+	PolicyNames *[]*string `json:"policyNames" yaml:"policyNames"`
 	// The Amazon Resource Name (ARN) of the server certificate.
-	SslCertificateId *string `json:"sslCertificateId"`
+	SslCertificateId *string `json:"sslCertificateId" yaml:"sslCertificateId"`
 }
 
 // Specifies policies for your Classic Load Balancer.
@@ -967,19 +967,19 @@ type CfnLoadBalancer_ListenersProperty struct {
 //
 type CfnLoadBalancer_PoliciesProperty struct {
 	// The policy attributes.
-	Attributes interface{} `json:"attributes"`
+	Attributes interface{} `json:"attributes" yaml:"attributes"`
 	// The name of the policy.
-	PolicyName *string `json:"policyName"`
+	PolicyName *string `json:"policyName" yaml:"policyName"`
 	// The name of the policy type.
-	PolicyType *string `json:"policyType"`
+	PolicyType *string `json:"policyType" yaml:"policyType"`
 	// The instance ports for the policy.
 	//
 	// Required only for some policy types.
-	InstancePorts *[]*string `json:"instancePorts"`
+	InstancePorts *[]*string `json:"instancePorts" yaml:"instancePorts"`
 	// The load balancer ports for the policy.
 	//
 	// Required only for some policy types.
-	LoadBalancerPorts *[]*string `json:"loadBalancerPorts"`
+	LoadBalancerPorts *[]*string `json:"loadBalancerPorts" yaml:"loadBalancerPorts"`
 }
 
 // Properties for defining a `CfnLoadBalancer`.
@@ -990,61 +990,61 @@ type CfnLoadBalancerProps struct {
 	// The listeners for the load balancer. You can specify at most one listener per port.
 	//
 	// If you update the properties for a listener, AWS CloudFormation deletes the existing listener and creates a new one with the specified properties. While the new listener is being created, clients cannot connect to the load balancer.
-	Listeners interface{} `json:"listeners"`
+	Listeners interface{} `json:"listeners" yaml:"listeners"`
 	// Information about where and how access logs are stored for the load balancer.
-	AccessLoggingPolicy interface{} `json:"accessLoggingPolicy"`
+	AccessLoggingPolicy interface{} `json:"accessLoggingPolicy" yaml:"accessLoggingPolicy"`
 	// Information about a policy for application-controlled session stickiness.
-	AppCookieStickinessPolicy interface{} `json:"appCookieStickinessPolicy"`
+	AppCookieStickinessPolicy interface{} `json:"appCookieStickinessPolicy" yaml:"appCookieStickinessPolicy"`
 	// The Availability Zones for the load balancer. For load balancers in a VPC, specify `Subnets` instead.
 	//
 	// Update requires replacement if you did not previously specify an Availability Zone or if you are removing all Availability Zones. Otherwise, update requires no interruption.
-	AvailabilityZones *[]*string `json:"availabilityZones"`
+	AvailabilityZones *[]*string `json:"availabilityZones" yaml:"availabilityZones"`
 	// If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance.
 	//
 	// For more information, see [Configure Connection Draining](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html) in the *Classic Load Balancers Guide* .
-	ConnectionDrainingPolicy interface{} `json:"connectionDrainingPolicy"`
+	ConnectionDrainingPolicy interface{} `json:"connectionDrainingPolicy" yaml:"connectionDrainingPolicy"`
 	// If enabled, the load balancer allows the connections to remain idle (no data is sent over the connection) for the specified duration.
 	//
 	// By default, Elastic Load Balancing maintains a 60-second idle connection timeout for both front-end and back-end connections of your load balancer. For more information, see [Configure Idle Connection Timeout](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html) in the *Classic Load Balancers Guide* .
-	ConnectionSettings interface{} `json:"connectionSettings"`
+	ConnectionSettings interface{} `json:"connectionSettings" yaml:"connectionSettings"`
 	// If enabled, the load balancer routes the request traffic evenly across all instances regardless of the Availability Zones.
 	//
 	// For more information, see [Configure Cross-Zone Load Balancing](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html) in the *Classic Load Balancers Guide* .
-	CrossZone interface{} `json:"crossZone"`
+	CrossZone interface{} `json:"crossZone" yaml:"crossZone"`
 	// The health check settings to use when evaluating the health of your EC2 instances.
 	//
 	// Update requires replacement if you did not previously specify health check settings or if you are removing the health check settings. Otherwise, update requires no interruption.
-	HealthCheck interface{} `json:"healthCheck"`
+	HealthCheck interface{} `json:"healthCheck" yaml:"healthCheck"`
 	// The IDs of the instances for the load balancer.
-	Instances *[]*string `json:"instances"`
+	Instances *[]*string `json:"instances" yaml:"instances"`
 	// Information about a policy for duration-based session stickiness.
-	LbCookieStickinessPolicy interface{} `json:"lbCookieStickinessPolicy"`
+	LbCookieStickinessPolicy interface{} `json:"lbCookieStickinessPolicy" yaml:"lbCookieStickinessPolicy"`
 	// The name of the load balancer.
 	//
 	// This name must be unique within your set of load balancers for the region.
 	//
 	// If you don't specify a name, AWS CloudFormation generates a unique physical ID for the load balancer. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) . If you specify a name, you cannot perform updates that require replacement of this resource, but you can perform other updates. To replace the resource, specify a new name.
-	LoadBalancerName *string `json:"loadBalancerName"`
+	LoadBalancerName *string `json:"loadBalancerName" yaml:"loadBalancerName"`
 	// The policies defined for your Classic Load Balancer.
 	//
 	// Specify only back-end server policies.
-	Policies interface{} `json:"policies"`
+	Policies interface{} `json:"policies" yaml:"policies"`
 	// The type of load balancer. Valid only for load balancers in a VPC.
 	//
 	// If `Scheme` is `internet-facing` , the load balancer has a public DNS name that resolves to a public IP address.
 	//
 	// If `Scheme` is `internal` , the load balancer has a public DNS name that resolves to a private IP address.
-	Scheme *string `json:"scheme"`
+	Scheme *string `json:"scheme" yaml:"scheme"`
 	// The security groups for the load balancer.
 	//
 	// Valid only for load balancers in a VPC.
-	SecurityGroups *[]*string `json:"securityGroups"`
+	SecurityGroups *[]*string `json:"securityGroups" yaml:"securityGroups"`
 	// The IDs of the subnets for the load balancer. You can specify at most one subnet per Availability Zone.
 	//
 	// Update requires replacement if you did not previously specify a subnet or if you are removing all subnets. Otherwise, update requires no interruption. To update to a different subnet in the current Availability Zone, you must first update to a subnet in a different Availability Zone, then update to the new subnet in the original Availability Zone.
-	Subnets *[]*string `json:"subnets"`
+	Subnets *[]*string `json:"subnets" yaml:"subnets"`
 	// The tags associated with a load balancer.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // Describe the health check to a load balancer.
@@ -1053,24 +1053,24 @@ type CfnLoadBalancerProps struct {
 //
 type HealthCheck struct {
 	// What port number to health check on.
-	Port *float64 `json:"port"`
+	Port *float64 `json:"port" yaml:"port"`
 	// After how many successful checks is an instance considered healthy.
-	HealthyThreshold *float64 `json:"healthyThreshold"`
+	HealthyThreshold *float64 `json:"healthyThreshold" yaml:"healthyThreshold"`
 	// Number of seconds between health checks.
-	Interval awscdk.Duration `json:"interval"`
+	Interval awscdk.Duration `json:"interval" yaml:"interval"`
 	// What path to use for HTTP or HTTPS health check (must return 200).
 	//
 	// For SSL and TCP health checks, accepting connections is enough to be considered
 	// healthy.
-	Path *string `json:"path"`
+	Path *string `json:"path" yaml:"path"`
 	// What protocol to use for health checking.
 	//
 	// The protocol is automatically determined from the port if it's not supplied.
-	Protocol LoadBalancingProtocol `json:"protocol"`
+	Protocol LoadBalancingProtocol `json:"protocol" yaml:"protocol"`
 	// Health check timeout.
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// After how many unsuccessful checks is an instance considered unhealthy.
-	UnhealthyThreshold *float64 `json:"unhealthyThreshold"`
+	UnhealthyThreshold *float64 `json:"unhealthyThreshold" yaml:"unhealthyThreshold"`
 }
 
 // Interface that is going to be implemented by constructs that you can load balance to.
@@ -1479,23 +1479,23 @@ func (l *jsiiProxy_LoadBalancer) ToString() *string {
 //
 type LoadBalancerListener struct {
 	// External listening port.
-	ExternalPort *float64 `json:"externalPort"`
+	ExternalPort *float64 `json:"externalPort" yaml:"externalPort"`
 	// Allow connections to the load balancer from the given set of connection peers.
 	//
 	// By default, connections will be allowed from anywhere. Set this to an empty list
 	// to deny connections, or supply a custom list of peers to allow connections from
 	// (IP ranges or security groups).
-	AllowConnectionsFrom *[]awsec2.IConnectable `json:"allowConnectionsFrom"`
+	AllowConnectionsFrom *[]awsec2.IConnectable `json:"allowConnectionsFrom" yaml:"allowConnectionsFrom"`
 	// What public protocol to use for load balancing.
 	//
 	// Either 'tcp', 'ssl', 'http' or 'https'.
 	//
 	// May be omitted if the external port is either 80 or 443.
-	ExternalProtocol LoadBalancingProtocol `json:"externalProtocol"`
+	ExternalProtocol LoadBalancingProtocol `json:"externalProtocol" yaml:"externalProtocol"`
 	// Instance listening port.
 	//
 	// Same as the externalPort if not specified.
-	InternalPort *float64 `json:"internalPort"`
+	InternalPort *float64 `json:"internalPort" yaml:"internalPort"`
 	// What public protocol to use for load balancing.
 	//
 	// Either 'tcp', 'ssl', 'http' or 'https'.
@@ -1505,11 +1505,11 @@ type LoadBalancerListener struct {
 	// The instance protocol is 'tcp' if the front-end protocol
 	// is 'tcp' or 'ssl', the instance protocol is 'http' if the
 	// front-end protocol is 'https'.
-	InternalProtocol LoadBalancingProtocol `json:"internalProtocol"`
+	InternalProtocol LoadBalancingProtocol `json:"internalProtocol" yaml:"internalProtocol"`
 	// SSL policy names.
-	PolicyNames *[]*string `json:"policyNames"`
+	PolicyNames *[]*string `json:"policyNames" yaml:"policyNames"`
 	// the ARN of the SSL certificate.
-	SslCertificateArn *string `json:"sslCertificateArn"`
+	SslCertificateArn *string `json:"sslCertificateArn" yaml:"sslCertificateArn"`
 }
 
 // Construction properties for a LoadBalancer.
@@ -1518,36 +1518,36 @@ type LoadBalancerListener struct {
 //
 type LoadBalancerProps struct {
 	// VPC network of the fleet instances.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// Enable Loadbalancer access logs Can be used to avoid manual work as aws console Required S3 bucket name , enabled flag Can add interval for pushing log Can set bucket prefix in order to provide folder name inside bucket.
-	AccessLoggingPolicy *CfnLoadBalancer_AccessLoggingPolicyProperty `json:"accessLoggingPolicy"`
+	AccessLoggingPolicy *CfnLoadBalancer_AccessLoggingPolicyProperty `json:"accessLoggingPolicy" yaml:"accessLoggingPolicy"`
 	// Whether cross zone load balancing is enabled.
 	//
 	// This controls whether the load balancer evenly distributes requests
 	// across each availability zone
-	CrossZone *bool `json:"crossZone"`
+	CrossZone *bool `json:"crossZone" yaml:"crossZone"`
 	// Health check settings for the load balancing targets.
 	//
 	// Not required but recommended.
-	HealthCheck *HealthCheck `json:"healthCheck"`
+	HealthCheck *HealthCheck `json:"healthCheck" yaml:"healthCheck"`
 	// Whether this is an internet-facing Load Balancer.
 	//
 	// This controls whether the LB has a public IP address assigned. It does
 	// not open up the Load Balancer's security groups to public internet access.
-	InternetFacing *bool `json:"internetFacing"`
+	InternetFacing *bool `json:"internetFacing" yaml:"internetFacing"`
 	// What listeners to set up for the load balancer.
 	//
 	// Can also be added by .addListener()
-	Listeners *[]*LoadBalancerListener `json:"listeners"`
+	Listeners *[]*LoadBalancerListener `json:"listeners" yaml:"listeners"`
 	// Which subnets to deploy the load balancer.
 	//
 	// Can be used to define a specific set of subnets to deploy the load balancer to.
 	// Useful multiple public or private subnets are covering the same availability zone.
-	SubnetSelection *awsec2.SubnetSelection `json:"subnetSelection"`
+	SubnetSelection *awsec2.SubnetSelection `json:"subnetSelection" yaml:"subnetSelection"`
 	// What targets to load balance to.
 	//
 	// Can also be added by .addTarget()
-	Targets *[]ILoadBalancerTarget `json:"targets"`
+	Targets *[]ILoadBalancerTarget `json:"targets" yaml:"targets"`
 }
 
 type LoadBalancingProtocol string

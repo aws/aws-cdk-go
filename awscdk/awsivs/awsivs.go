@@ -615,7 +615,7 @@ type CfnChannelProps struct {
 	// Whether the channel is authorized.
 	//
 	// *Default* : `false`
-	Authorized interface{} `json:"authorized"`
+	Authorized interface{} `json:"authorized" yaml:"authorized"`
 	// Channel latency mode. Valid values:.
 	//
 	// - `NORMAL` : Use NORMAL to broadcast and deliver live video up to Full HD.
@@ -624,19 +624,19 @@ type CfnChannelProps struct {
 	// > In the  console, `LOW` and `NORMAL` correspond to `Ultra-low` and `Standard` , respectively.
 	//
 	// *Default* : `LOW`
-	LatencyMode *string `json:"latencyMode"`
+	LatencyMode *string `json:"latencyMode" yaml:"latencyMode"`
 	// Channel name.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The ARN of a RecordingConfiguration resource.
 	//
 	// An empty string indicates that recording is disabled for the channel. A RecordingConfiguration ARN indicates that recording is enabled using the specified recording configuration. See the [RecordingConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html) resource for more information and an example.
 	//
 	// *Default* : "" (empty string, recording is disabled)
-	RecordingConfigurationArn *string `json:"recordingConfigurationArn"`
+	RecordingConfigurationArn *string `json:"recordingConfigurationArn" yaml:"recordingConfigurationArn"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// The channel type, which determines the allowable resolution and bitrate.
 	//
 	// *If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately.* Valid values:
@@ -645,7 +645,7 @@ type CfnChannelProps struct {
 	// - `BASIC` : delivers the original input to viewers. The viewer’s video-quality choice is limited to the original input. Resolution can be up to 480p and bitrate can be up to 1.5 Mbps.
 	//
 	// *Default* : `STANDARD`
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 }
 
 // A CloudFormation `AWS::IVS::PlaybackKeyPair`.
@@ -1179,15 +1179,15 @@ func (c *jsiiProxy_CfnPlaybackKeyPair) ValidateProperties(_properties interface{
 //
 type CfnPlaybackKeyPairProps struct {
 	// The public portion of a customer-generated key pair.
-	PublicKeyMaterial *string `json:"publicKeyMaterial"`
+	PublicKeyMaterial *string `json:"publicKeyMaterial" yaml:"publicKeyMaterial"`
 	// Playback-key-pair name.
 	//
 	// The value does not need to be unique.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::IVS::RecordingConfiguration`.
@@ -1725,7 +1725,7 @@ type CfnRecordingConfiguration_DestinationConfigurationProperty struct {
 	// An S3 destination configuration where recorded videos will be stored.
 	//
 	// See the [S3DestinationConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-s3destinationconfiguration.html) property type for more information.
-	S3 interface{} `json:"s3"`
+	S3 interface{} `json:"s3" yaml:"s3"`
 }
 
 // The S3DestinationConfiguration property type describes an S3 location where recorded videos will be stored.
@@ -1734,7 +1734,7 @@ type CfnRecordingConfiguration_DestinationConfigurationProperty struct {
 //
 type CfnRecordingConfiguration_S3DestinationConfigurationProperty struct {
 	// Location (S3 bucket name) where recorded videos will be stored.
-	BucketName *string `json:"bucketName"`
+	BucketName *string `json:"bucketName" yaml:"bucketName"`
 }
 
 // Properties for defining a `CfnRecordingConfiguration`.
@@ -1745,15 +1745,15 @@ type CfnRecordingConfigurationProps struct {
 	// A destination configuration contains information about where recorded video will be stored.
 	//
 	// See the [DestinationConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-destinationconfiguration.html) property type for more information.
-	DestinationConfiguration interface{} `json:"destinationConfiguration"`
+	DestinationConfiguration interface{} `json:"destinationConfiguration" yaml:"destinationConfiguration"`
 	// Recording-configuration name.
 	//
 	// The value does not need to be unique.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::IVS::StreamKey`.
@@ -2267,10 +2267,10 @@ func (c *jsiiProxy_CfnStreamKey) ValidateProperties(_properties interface{}) {
 //
 type CfnStreamKeyProps struct {
 	// Channel ARN for the stream.
-	ChannelArn *string `json:"channelArn"`
+	ChannelArn *string `json:"channelArn" yaml:"channelArn"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 

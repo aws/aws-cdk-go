@@ -542,11 +542,11 @@ type CfnChannel_ChannelStorageProperty struct {
 	// Used to store channel data in an S3 bucket that you manage.
 	//
 	// If customer managed storage is selected, the `retentionPeriod` parameter is ignored. You can't change the choice of S3 storage after the data store is created.
-	CustomerManagedS3 interface{} `json:"customerManagedS3"`
+	CustomerManagedS3 interface{} `json:"customerManagedS3" yaml:"customerManagedS3"`
 	// Used to store channel data in an S3 bucket managed by AWS IoT Analytics .
 	//
 	// You can't change the choice of S3 storage after the data store is created.
-	ServiceManagedS3 interface{} `json:"serviceManagedS3"`
+	ServiceManagedS3 interface{} `json:"serviceManagedS3" yaml:"serviceManagedS3"`
 }
 
 // Used to store channel data in an S3 bucket that you manage.
@@ -555,13 +555,13 @@ type CfnChannel_ChannelStorageProperty struct {
 //
 type CfnChannel_CustomerManagedS3Property struct {
 	// The name of the S3 bucket in which channel data is stored.
-	Bucket *string `json:"bucket"`
+	Bucket *string `json:"bucket" yaml:"bucket"`
 	// The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 resources.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// (Optional) The prefix used to create the keys of the channel data objects.
 	//
 	// Each object in an S3 bucket has a key that is its unique identifier within the bucket (each object in a bucket has exactly one key). The prefix must end with a forward slash (/).
-	KeyPrefix *string `json:"keyPrefix"`
+	KeyPrefix *string `json:"keyPrefix" yaml:"keyPrefix"`
 }
 
 // How long, in days, message data is kept.
@@ -572,9 +572,9 @@ type CfnChannel_RetentionPeriodProperty struct {
 	// The number of days that message data is kept.
 	//
 	// The `unlimited` parameter must be false.
-	NumberOfDays *float64 `json:"numberOfDays"`
+	NumberOfDays *float64 `json:"numberOfDays" yaml:"numberOfDays"`
 	// If true, message data is kept indefinitely.
-	Unlimited interface{} `json:"unlimited"`
+	Unlimited interface{} `json:"unlimited" yaml:"unlimited"`
 }
 
 // Used to store channel data in an S3 bucket managed by AWS IoT Analytics .
@@ -592,15 +592,15 @@ type CfnChannel_ServiceManagedS3Property struct {
 //
 type CfnChannelProps struct {
 	// The name of the channel.
-	ChannelName *string `json:"channelName"`
+	ChannelName *string `json:"channelName" yaml:"channelName"`
 	// Where channel data is stored.
-	ChannelStorage interface{} `json:"channelStorage"`
+	ChannelStorage interface{} `json:"channelStorage" yaml:"channelStorage"`
 	// How long, in days, message data is kept for the channel.
-	RetentionPeriod interface{} `json:"retentionPeriod"`
+	RetentionPeriod interface{} `json:"retentionPeriod" yaml:"retentionPeriod"`
 	// Metadata which can be used to manage the channel.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::IoTAnalytics::Dataset`.
@@ -1212,13 +1212,13 @@ func (c *jsiiProxy_CfnDataset) ValidateProperties(_properties interface{}) {
 //
 type CfnDataset_ActionProperty struct {
 	// The name of the data set action by which data set contents are automatically created.
-	ActionName *string `json:"actionName"`
+	ActionName *string `json:"actionName" yaml:"actionName"`
 	// Information which allows the system to run a containerized application in order to create the data set contents.
 	//
 	// The application must be in a Docker container along with any needed support libraries.
-	ContainerAction interface{} `json:"containerAction"`
+	ContainerAction interface{} `json:"containerAction" yaml:"containerAction"`
 	// An "SqlQueryDatasetAction" object that uses an SQL query to automatically create data set contents.
-	QueryAction interface{} `json:"queryAction"`
+	QueryAction interface{} `json:"queryAction" yaml:"queryAction"`
 }
 
 // Information needed to run the "containerAction" to produce data set contents.
@@ -1229,17 +1229,17 @@ type CfnDataset_ContainerActionProperty struct {
 	// The ARN of the role which gives permission to the system to access needed resources in order to run the "containerAction".
 	//
 	// This includes, at minimum, permission to retrieve the data set contents which are the input to the containerized application.
-	ExecutionRoleArn *string `json:"executionRoleArn"`
+	ExecutionRoleArn *string `json:"executionRoleArn" yaml:"executionRoleArn"`
 	// The ARN of the Docker container stored in your account.
 	//
 	// The Docker container contains an application and needed support libraries and is used to generate data set contents.
-	Image *string `json:"image"`
+	Image *string `json:"image" yaml:"image"`
 	// Configuration of the resource which executes the "containerAction".
-	ResourceConfiguration interface{} `json:"resourceConfiguration"`
+	ResourceConfiguration interface{} `json:"resourceConfiguration" yaml:"resourceConfiguration"`
 	// The values of variables used within the context of the execution of the containerized application (basically, parameters passed to the application).
 	//
 	// Each variable must have a name and a value given by one of "stringValue", "datasetContentVersionValue", or "outputFileUriValue".
-	Variables interface{} `json:"variables"`
+	Variables interface{} `json:"variables" yaml:"variables"`
 }
 
 // The destination to which dataset contents are delivered.
@@ -1248,9 +1248,9 @@ type CfnDataset_ContainerActionProperty struct {
 //
 type CfnDataset_DatasetContentDeliveryRuleDestinationProperty struct {
 	// Configuration information for delivery of dataset contents to AWS IoT Events .
-	IotEventsDestinationConfiguration interface{} `json:"iotEventsDestinationConfiguration"`
+	IotEventsDestinationConfiguration interface{} `json:"iotEventsDestinationConfiguration" yaml:"iotEventsDestinationConfiguration"`
 	// Configuration information for delivery of dataset contents to Amazon S3.
-	S3DestinationConfiguration interface{} `json:"s3DestinationConfiguration"`
+	S3DestinationConfiguration interface{} `json:"s3DestinationConfiguration" yaml:"s3DestinationConfiguration"`
 }
 
 // When dataset contents are created, they are delivered to destination specified here.
@@ -1259,9 +1259,9 @@ type CfnDataset_DatasetContentDeliveryRuleDestinationProperty struct {
 //
 type CfnDataset_DatasetContentDeliveryRuleProperty struct {
 	// The destination to which dataset contents are delivered.
-	Destination interface{} `json:"destination"`
+	Destination interface{} `json:"destination" yaml:"destination"`
 	// The name of the dataset content delivery rules entry.
-	EntryName *string `json:"entryName"`
+	EntryName *string `json:"entryName" yaml:"entryName"`
 }
 
 // The dataset whose latest contents are used as input to the notebook or application.
@@ -1270,7 +1270,7 @@ type CfnDataset_DatasetContentDeliveryRuleProperty struct {
 //
 type CfnDataset_DatasetContentVersionValueProperty struct {
 	// The name of the dataset whose latest contents are used as input to the notebook or application.
-	DatasetName *string `json:"datasetName"`
+	DatasetName *string `json:"datasetName" yaml:"datasetName"`
 }
 
 // Used to limit data to that which has arrived since the last execution of the action.
@@ -1281,11 +1281,11 @@ type CfnDataset_DeltaTimeProperty struct {
 	// The number of seconds of estimated in-flight lag time of message data.
 	//
 	// When you create dataset contents using message data from a specified timeframe, some message data might still be in flight when processing begins, and so do not arrive in time to be processed. Use this field to make allowances for the in flight time of your message data, so that data not processed from a previous timeframe is included with the next timeframe. Otherwise, missed message data would be excluded from processing during the next timeframe too, because its timestamp places it within the previous timeframe.
-	OffsetSeconds *float64 `json:"offsetSeconds"`
+	OffsetSeconds *float64 `json:"offsetSeconds" yaml:"offsetSeconds"`
 	// An expression by which the time of the message data might be determined.
 	//
 	// This can be the name of a timestamp field or a SQL expression that is used to derive the time the message data was generated.
-	TimeExpression *string `json:"timeExpression"`
+	TimeExpression *string `json:"timeExpression" yaml:"timeExpression"`
 }
 
 // A structure that contains the configuration information of a delta time session window.
@@ -1300,7 +1300,7 @@ type CfnDataset_DeltaTimeSessionWindowConfigurationProperty struct {
 	// You can use `timeoutInMinutes` so that AWS IoT Analytics can batch up late data notifications that have been generated since the last execution. AWS IoT Analytics sends one batch of notifications to Amazon CloudWatch Events at one time.
 	//
 	// For more information about how to write a timestamp expression, see [Date and Time Functions and Operators](https://docs.aws.amazon.com/https://prestodb.io/docs/0.172/functions/datetime.html) , in the *Presto 0.172 Documentation* .
-	TimeoutInMinutes *float64 `json:"timeoutInMinutes"`
+	TimeoutInMinutes *float64 `json:"timeoutInMinutes" yaml:"timeoutInMinutes"`
 }
 
 // Information which is used to filter message data, to segregate it according to the time frame in which it arrives.
@@ -1309,7 +1309,7 @@ type CfnDataset_DeltaTimeSessionWindowConfigurationProperty struct {
 //
 type CfnDataset_FilterProperty struct {
 	// Used to limit data to that which has arrived since the last execution of the action.
-	DeltaTime interface{} `json:"deltaTime"`
+	DeltaTime interface{} `json:"deltaTime" yaml:"deltaTime"`
 }
 
 // Configuration information for coordination with AWS Glue , a fully managed extract, transform and load (ETL) service.
@@ -1320,11 +1320,11 @@ type CfnDataset_GlueConfigurationProperty struct {
 	// The name of the database in your AWS Glue Data Catalog in which the table is located.
 	//
 	// An AWS Glue Data Catalog database contains metadata tables.
-	DatabaseName *string `json:"databaseName"`
+	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
 	// The name of the table in your AWS Glue Data Catalog that is used to perform the ETL operations.
 	//
 	// An AWS Glue Data Catalog table contains partitioned data and descriptions of data sources and targets.
-	TableName *string `json:"tableName"`
+	TableName *string `json:"tableName" yaml:"tableName"`
 }
 
 // Configuration information for delivery of dataset contents to AWS IoT Events .
@@ -1333,9 +1333,9 @@ type CfnDataset_GlueConfigurationProperty struct {
 //
 type CfnDataset_IotEventsDestinationConfigurationProperty struct {
 	// The name of the AWS IoT Events input to which dataset contents are delivered.
-	InputName *string `json:"inputName"`
+	InputName *string `json:"inputName" yaml:"inputName"`
 	// The ARN of the role that grants AWS IoT Analytics permission to deliver dataset contents to an AWS IoT Events input.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 }
 
 // The information needed to configure a delta time session window.
@@ -1344,7 +1344,7 @@ type CfnDataset_IotEventsDestinationConfigurationProperty struct {
 //
 type CfnDataset_LateDataRuleConfigurationProperty struct {
 	// The information needed to configure a delta time session window.
-	DeltaTimeSessionWindowConfiguration interface{} `json:"deltaTimeSessionWindowConfiguration"`
+	DeltaTimeSessionWindowConfiguration interface{} `json:"deltaTimeSessionWindowConfiguration" yaml:"deltaTimeSessionWindowConfiguration"`
 }
 
 // A structure that contains the name and configuration information of a late data rule.
@@ -1353,9 +1353,9 @@ type CfnDataset_LateDataRuleConfigurationProperty struct {
 //
 type CfnDataset_LateDataRuleProperty struct {
 	// The information needed to configure the late data rule.
-	RuleConfiguration interface{} `json:"ruleConfiguration"`
+	RuleConfiguration interface{} `json:"ruleConfiguration" yaml:"ruleConfiguration"`
 	// The name of the late data rule.
-	RuleName *string `json:"ruleName"`
+	RuleName *string `json:"ruleName" yaml:"ruleName"`
 }
 
 // The value of the variable as a structure that specifies an output file URI.
@@ -1364,7 +1364,7 @@ type CfnDataset_LateDataRuleProperty struct {
 //
 type CfnDataset_OutputFileUriValueProperty struct {
 	// The URI of the location where dataset contents are stored, usually the URI of a file in an S3 bucket.
-	FileName *string `json:"fileName"`
+	FileName *string `json:"fileName" yaml:"fileName"`
 }
 
 // An "SqlQueryDatasetAction" object that uses an SQL query to automatically create data set contents.
@@ -1373,9 +1373,9 @@ type CfnDataset_OutputFileUriValueProperty struct {
 //
 type CfnDataset_QueryActionProperty struct {
 	// An "SqlQueryDatasetAction" object that uses an SQL query to automatically create data set contents.
-	SqlQuery *string `json:"sqlQuery"`
+	SqlQuery *string `json:"sqlQuery" yaml:"sqlQuery"`
 	// Pre-filters applied to message data.
-	Filters interface{} `json:"filters"`
+	Filters interface{} `json:"filters" yaml:"filters"`
 }
 
 // The configuration of the resource used to execute the `containerAction` .
@@ -1386,9 +1386,9 @@ type CfnDataset_ResourceConfigurationProperty struct {
 	// The type of the compute resource used to execute the `containerAction` .
 	//
 	// Possible values are: `ACU_1` (vCPU=4, memory=16 GiB) or `ACU_2` (vCPU=8, memory=32 GiB).
-	ComputeType *string `json:"computeType"`
+	ComputeType *string `json:"computeType" yaml:"computeType"`
 	// The size, in GB, of the persistent storage available to the resource instance used to execute the `containerAction` (min: 1, max: 50).
-	VolumeSizeInGb *float64 `json:"volumeSizeInGb"`
+	VolumeSizeInGb *float64 `json:"volumeSizeInGb" yaml:"volumeSizeInGb"`
 }
 
 // How long, in days, message data is kept.
@@ -1399,9 +1399,9 @@ type CfnDataset_RetentionPeriodProperty struct {
 	// The number of days that message data is kept.
 	//
 	// The `unlimited` parameter must be false.
-	NumberOfDays *float64 `json:"numberOfDays"`
+	NumberOfDays *float64 `json:"numberOfDays" yaml:"numberOfDays"`
 	// If true, message data is kept indefinitely.
-	Unlimited interface{} `json:"unlimited"`
+	Unlimited interface{} `json:"unlimited" yaml:"unlimited"`
 }
 
 // Configuration information for delivery of dataset contents to Amazon Simple Storage Service (Amazon S3).
@@ -1410,7 +1410,7 @@ type CfnDataset_RetentionPeriodProperty struct {
 //
 type CfnDataset_S3DestinationConfigurationProperty struct {
 	// The name of the S3 bucket to which dataset contents are delivered.
-	Bucket *string `json:"bucket"`
+	Bucket *string `json:"bucket" yaml:"bucket"`
 	// The key of the dataset contents object in an S3 bucket.
 	//
 	// Each object has a key that is a unique identifier. Each object has exactly one key.
@@ -1424,11 +1424,11 @@ type CfnDataset_S3DestinationConfigurationProperty struct {
 	// The following example creates a unique key for a CSV file: `dataset/mydataset/!{iotanalytics:scheduleTime}/!{iotanalytics:versionId}.csv`
 	//
 	// > If you don't use `!{iotanalytics:versionId}` to specify the key, you might get duplicate keys. For example, you might have two dataset contents with the same `scheduleTime` but different `versionId` s. This means that one dataset content overwrites the other.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 and AWS Glue resources.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// Configuration information for coordination with AWS Glue , a fully managed extract, transform and load (ETL) service.
-	GlueConfiguration interface{} `json:"glueConfiguration"`
+	GlueConfiguration interface{} `json:"glueConfiguration" yaml:"glueConfiguration"`
 }
 
 // The schedule for when to trigger an update.
@@ -1439,7 +1439,7 @@ type CfnDataset_ScheduleProperty struct {
 	// The expression that defines when to trigger an update.
 	//
 	// For more information, see [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html) in the Amazon CloudWatch documentation.
-	ScheduleExpression *string `json:"scheduleExpression"`
+	ScheduleExpression *string `json:"scheduleExpression" yaml:"scheduleExpression"`
 }
 
 // The "DatasetTrigger" that specifies when the data set is automatically updated.
@@ -1448,9 +1448,9 @@ type CfnDataset_ScheduleProperty struct {
 //
 type CfnDataset_TriggerProperty struct {
 	// The "Schedule" when the trigger is initiated.
-	Schedule interface{} `json:"schedule"`
+	Schedule interface{} `json:"schedule" yaml:"schedule"`
 	// Information about the data set whose content generation triggers the new data set content generation.
-	TriggeringDataset interface{} `json:"triggeringDataset"`
+	TriggeringDataset interface{} `json:"triggeringDataset" yaml:"triggeringDataset"`
 }
 
 // Information about the dataset whose content generation triggers the new dataset content generation.
@@ -1459,7 +1459,7 @@ type CfnDataset_TriggerProperty struct {
 //
 type CfnDataset_TriggeringDatasetProperty struct {
 	// The name of the data set whose content generation triggers the new data set content generation.
-	DatasetName *string `json:"datasetName"`
+	DatasetName *string `json:"datasetName" yaml:"datasetName"`
 }
 
 // An instance of a variable to be passed to the `containerAction` execution.
@@ -1470,15 +1470,15 @@ type CfnDataset_TriggeringDatasetProperty struct {
 //
 type CfnDataset_VariableProperty struct {
 	// The name of the variable.
-	VariableName *string `json:"variableName"`
+	VariableName *string `json:"variableName" yaml:"variableName"`
 	// The value of the variable as a structure that specifies a dataset content version.
-	DatasetContentVersionValue interface{} `json:"datasetContentVersionValue"`
+	DatasetContentVersionValue interface{} `json:"datasetContentVersionValue" yaml:"datasetContentVersionValue"`
 	// The value of the variable as a double (numeric).
-	DoubleValue *float64 `json:"doubleValue"`
+	DoubleValue *float64 `json:"doubleValue" yaml:"doubleValue"`
 	// The value of the variable as a structure that specifies an output file URI.
-	OutputFileUriValue interface{} `json:"outputFileUriValue"`
+	OutputFileUriValue interface{} `json:"outputFileUriValue" yaml:"outputFileUriValue"`
 	// The value of the variable as a string.
-	StringValue *string `json:"stringValue"`
+	StringValue *string `json:"stringValue" yaml:"stringValue"`
 }
 
 // Information about the versioning of dataset contents.
@@ -1489,9 +1489,9 @@ type CfnDataset_VersioningConfigurationProperty struct {
 	// How many versions of dataset contents are kept.
 	//
 	// The `unlimited` parameter must be `false` .
-	MaxVersions *float64 `json:"maxVersions"`
+	MaxVersions *float64 `json:"maxVersions" yaml:"maxVersions"`
 	// If true, unlimited versions of dataset contents are kept.
-	Unlimited interface{} `json:"unlimited"`
+	Unlimited interface{} `json:"unlimited" yaml:"unlimited"`
 }
 
 // Properties for defining a `CfnDataset`.
@@ -1500,29 +1500,29 @@ type CfnDataset_VersioningConfigurationProperty struct {
 //
 type CfnDatasetProps struct {
 	// The `DatasetAction` objects that automatically create the dataset contents.
-	Actions interface{} `json:"actions"`
+	Actions interface{} `json:"actions" yaml:"actions"`
 	// When dataset contents are created they are delivered to destinations specified here.
-	ContentDeliveryRules interface{} `json:"contentDeliveryRules"`
+	ContentDeliveryRules interface{} `json:"contentDeliveryRules" yaml:"contentDeliveryRules"`
 	// The name of the dataset.
-	DatasetName *string `json:"datasetName"`
+	DatasetName *string `json:"datasetName" yaml:"datasetName"`
 	// A list of data rules that send notifications to CloudWatch, when data arrives late.
 	//
 	// To specify `lateDataRules` , the dataset must use a [DeltaTimer](https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html) filter.
-	LateDataRules interface{} `json:"lateDataRules"`
+	LateDataRules interface{} `json:"lateDataRules" yaml:"lateDataRules"`
 	// Optional.
 	//
 	// How long, in days, message data is kept for the dataset.
-	RetentionPeriod interface{} `json:"retentionPeriod"`
+	RetentionPeriod interface{} `json:"retentionPeriod" yaml:"retentionPeriod"`
 	// Metadata which can be used to manage the data set.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// The `DatasetTrigger` objects that specify when the dataset is automatically updated.
-	Triggers interface{} `json:"triggers"`
+	Triggers interface{} `json:"triggers" yaml:"triggers"`
 	// Optional.
 	//
 	// How many versions of dataset contents are kept. If not specified or set to null, only the latest version plus the latest succeeded version (if they are different) are kept for the time period specified by the `retentionPeriod` parameter. For more information, see [Keeping Multiple Versions of AWS IoT Analytics datasets](https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions) in the *AWS IoT Analytics User Guide* .
-	VersioningConfiguration interface{} `json:"versioningConfiguration"`
+	VersioningConfiguration interface{} `json:"versioningConfiguration" yaml:"versioningConfiguration"`
 }
 
 // A CloudFormation `AWS::IoTAnalytics::Datastore`.
@@ -2094,11 +2094,11 @@ func (c *jsiiProxy_CfnDatastore) ValidateProperties(_properties interface{}) {
 //
 type CfnDatastore_ColumnProperty struct {
 	// The name of the column.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The type of data.
 	//
 	// For more information about the supported data types, see [Common data types](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html) in the *AWS Glue Developer Guide* .
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 }
 
 // S3-customer-managed;
@@ -2109,13 +2109,13 @@ type CfnDatastore_ColumnProperty struct {
 //
 type CfnDatastore_CustomerManagedS3Property struct {
 	// The name of the Amazon S3 bucket where your data is stored.
-	Bucket *string `json:"bucket"`
+	Bucket *string `json:"bucket" yaml:"bucket"`
 	// The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 resources.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// (Optional) The prefix used to create the keys of the data store data objects.
 	//
 	// Each object in an Amazon S3 bucket has a key that is its unique identifier in the bucket. Each object in a bucket has exactly one key. The prefix must end with a forward slash (/).
-	KeyPrefix *string `json:"keyPrefix"`
+	KeyPrefix *string `json:"keyPrefix" yaml:"keyPrefix"`
 }
 
 // Amazon S3 -customer-managed;
@@ -2126,11 +2126,11 @@ type CfnDatastore_CustomerManagedS3Property struct {
 //
 type CfnDatastore_CustomerManagedS3StorageProperty struct {
 	// The name of the Amazon S3 bucket where your data is stored.
-	Bucket *string `json:"bucket"`
+	Bucket *string `json:"bucket" yaml:"bucket"`
 	// (Optional) The prefix used to create the keys of the data store data objects.
 	//
 	// Each object in an Amazon S3 bucket has a key that is its unique identifier in the bucket. Each object in a bucket has exactly one key. The prefix must end with a forward slash (/).
-	KeyPrefix *string `json:"keyPrefix"`
+	KeyPrefix *string `json:"keyPrefix" yaml:"keyPrefix"`
 }
 
 // A single dimension to partition a data store.
@@ -2141,9 +2141,9 @@ type CfnDatastore_CustomerManagedS3StorageProperty struct {
 //
 type CfnDatastore_DatastorePartitionProperty struct {
 	// A partition dimension defined by an attribute.
-	Partition interface{} `json:"partition"`
+	Partition interface{} `json:"partition" yaml:"partition"`
 	// A partition dimension defined by a timestamp attribute.
-	TimestampPartition interface{} `json:"timestampPartition"`
+	TimestampPartition interface{} `json:"timestampPartition" yaml:"timestampPartition"`
 }
 
 // Information about the partition dimensions in a data store.
@@ -2152,7 +2152,7 @@ type CfnDatastore_DatastorePartitionProperty struct {
 //
 type CfnDatastore_DatastorePartitionsProperty struct {
 	// A list of partition dimensions in a data store.
-	Partitions interface{} `json:"partitions"`
+	Partitions interface{} `json:"partitions" yaml:"partitions"`
 }
 
 // Where data store data is stored.
@@ -2163,15 +2163,15 @@ type CfnDatastore_DatastoreStorageProperty struct {
 	// Use this to store data store data in an S3 bucket that you manage.
 	//
 	// The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
-	CustomerManagedS3 interface{} `json:"customerManagedS3"`
+	CustomerManagedS3 interface{} `json:"customerManagedS3" yaml:"customerManagedS3"`
 	// Use this to store data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage.
 	//
 	// You can't change the choice of Amazon S3 storage after your data store is created.
-	IotSiteWiseMultiLayerStorage interface{} `json:"iotSiteWiseMultiLayerStorage"`
+	IotSiteWiseMultiLayerStorage interface{} `json:"iotSiteWiseMultiLayerStorage" yaml:"iotSiteWiseMultiLayerStorage"`
 	// Use this to store data store data in an S3 bucket managed by the AWS IoT Analytics service.
 	//
 	// The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
-	ServiceManagedS3 interface{} `json:"serviceManagedS3"`
+	ServiceManagedS3 interface{} `json:"serviceManagedS3" yaml:"serviceManagedS3"`
 }
 
 // Contains the configuration information of file formats. AWS IoT Analytics data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
@@ -2184,9 +2184,9 @@ type CfnDatastore_DatastoreStorageProperty struct {
 //
 type CfnDatastore_FileFormatConfigurationProperty struct {
 	// Contains the configuration information of the JSON format.
-	JsonConfiguration interface{} `json:"jsonConfiguration"`
+	JsonConfiguration interface{} `json:"jsonConfiguration" yaml:"jsonConfiguration"`
 	// Contains the configuration information of the Parquet format.
-	ParquetConfiguration interface{} `json:"parquetConfiguration"`
+	ParquetConfiguration interface{} `json:"parquetConfiguration" yaml:"parquetConfiguration"`
 }
 
 // Stores data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage.
@@ -2197,7 +2197,7 @@ type CfnDatastore_FileFormatConfigurationProperty struct {
 //
 type CfnDatastore_IotSiteWiseMultiLayerStorageProperty struct {
 	// Stores data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage.
-	CustomerManagedS3Storage interface{} `json:"customerManagedS3Storage"`
+	CustomerManagedS3Storage interface{} `json:"customerManagedS3Storage" yaml:"customerManagedS3Storage"`
 }
 
 // Contains the configuration information of the JSON format.
@@ -2213,7 +2213,7 @@ type CfnDatastore_JsonConfigurationProperty struct {
 //
 type CfnDatastore_ParquetConfigurationProperty struct {
 	// Information needed to define a schema.
-	SchemaDefinition interface{} `json:"schemaDefinition"`
+	SchemaDefinition interface{} `json:"schemaDefinition" yaml:"schemaDefinition"`
 }
 
 // A single dimension to partition a data store.
@@ -2224,7 +2224,7 @@ type CfnDatastore_ParquetConfigurationProperty struct {
 //
 type CfnDatastore_PartitionProperty struct {
 	// The name of the attribute that defines a partition dimension.
-	AttributeName *string `json:"attributeName"`
+	AttributeName *string `json:"attributeName" yaml:"attributeName"`
 }
 
 // How long, in days, message data is kept.
@@ -2235,9 +2235,9 @@ type CfnDatastore_RetentionPeriodProperty struct {
 	// The number of days that message data is kept.
 	//
 	// The `unlimited` parameter must be false.
-	NumberOfDays *float64 `json:"numberOfDays"`
+	NumberOfDays *float64 `json:"numberOfDays" yaml:"numberOfDays"`
 	// If true, message data is kept indefinitely.
-	Unlimited interface{} `json:"unlimited"`
+	Unlimited interface{} `json:"unlimited" yaml:"unlimited"`
 }
 
 // Information needed to define a schema.
@@ -2248,7 +2248,7 @@ type CfnDatastore_SchemaDefinitionProperty struct {
 	// Specifies one or more columns that store your data.
 	//
 	// Each schema can have up to 100 columns. Each column can have up to 100 nested types.
-	Columns interface{} `json:"columns"`
+	Columns interface{} `json:"columns" yaml:"columns"`
 }
 
 // Used to store data in an Amazon S3 bucket managed by AWS IoT Analytics .
@@ -2266,11 +2266,11 @@ type CfnDatastore_ServiceManagedS3Property struct {
 //
 type CfnDatastore_TimestampPartitionProperty struct {
 	// The attribute name of the partition defined by a timestamp.
-	AttributeName *string `json:"attributeName"`
+	AttributeName *string `json:"attributeName" yaml:"attributeName"`
 	// The timestamp format of a partition defined by a timestamp.
 	//
 	// The default format is seconds since epoch (January 1, 1970 at midnight UTC time).
-	TimestampFormat *string `json:"timestampFormat"`
+	TimestampFormat *string `json:"timestampFormat" yaml:"timestampFormat"`
 }
 
 // Properties for defining a `CfnDatastore`.
@@ -2279,25 +2279,25 @@ type CfnDatastore_TimestampPartitionProperty struct {
 //
 type CfnDatastoreProps struct {
 	// The name of the data store.
-	DatastoreName *string `json:"datastoreName"`
+	DatastoreName *string `json:"datastoreName" yaml:"datastoreName"`
 	// Information about the partition dimensions in a data store.
-	DatastorePartitions interface{} `json:"datastorePartitions"`
+	DatastorePartitions interface{} `json:"datastorePartitions" yaml:"datastorePartitions"`
 	// Where data store data is stored.
-	DatastoreStorage interface{} `json:"datastoreStorage"`
+	DatastoreStorage interface{} `json:"datastoreStorage" yaml:"datastoreStorage"`
 	// Contains the configuration information of file formats. AWS IoT Analytics data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
 	//
 	// The default file format is JSON. You can specify only one format.
 	//
 	// You can't change the file format after you create the data store.
-	FileFormatConfiguration interface{} `json:"fileFormatConfiguration"`
+	FileFormatConfiguration interface{} `json:"fileFormatConfiguration" yaml:"fileFormatConfiguration"`
 	// How long, in days, message data is kept for the data store.
 	//
 	// When `customerManagedS3` storage is selected, this parameter is ignored.
-	RetentionPeriod interface{} `json:"retentionPeriod"`
+	RetentionPeriod interface{} `json:"retentionPeriod" yaml:"retentionPeriod"`
 	// Metadata which can be used to manage the data store.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::IoTAnalytics::Pipeline`.
@@ -2820,25 +2820,25 @@ func (c *jsiiProxy_CfnPipeline) ValidateProperties(_properties interface{}) {
 //
 type CfnPipeline_ActivityProperty struct {
 	// Adds other attributes based on existing attributes in the message.
-	AddAttributes interface{} `json:"addAttributes"`
+	AddAttributes interface{} `json:"addAttributes" yaml:"addAttributes"`
 	// Determines the source of the messages to be processed.
-	Channel interface{} `json:"channel"`
+	Channel interface{} `json:"channel" yaml:"channel"`
 	// Specifies where to store the processed message data.
-	Datastore interface{} `json:"datastore"`
+	Datastore interface{} `json:"datastore" yaml:"datastore"`
 	// Adds data from the AWS IoT device registry to your message.
-	DeviceRegistryEnrich interface{} `json:"deviceRegistryEnrich"`
+	DeviceRegistryEnrich interface{} `json:"deviceRegistryEnrich" yaml:"deviceRegistryEnrich"`
 	// Adds information from the AWS IoT Device Shadows service to a message.
-	DeviceShadowEnrich interface{} `json:"deviceShadowEnrich"`
+	DeviceShadowEnrich interface{} `json:"deviceShadowEnrich" yaml:"deviceShadowEnrich"`
 	// Filters a message based on its attributes.
-	Filter interface{} `json:"filter"`
+	Filter interface{} `json:"filter" yaml:"filter"`
 	// Runs a Lambda function to modify the message.
-	Lambda interface{} `json:"lambda"`
+	Lambda interface{} `json:"lambda" yaml:"lambda"`
 	// Computes an arithmetic expression using the message's attributes and adds it to the message.
-	Math interface{} `json:"math"`
+	Math interface{} `json:"math" yaml:"math"`
 	// Removes attributes from a message.
-	RemoveAttributes interface{} `json:"removeAttributes"`
+	RemoveAttributes interface{} `json:"removeAttributes" yaml:"removeAttributes"`
 	// Creates a new message using only the specified attributes from the original message.
-	SelectAttributes interface{} `json:"selectAttributes"`
+	SelectAttributes interface{} `json:"selectAttributes" yaml:"selectAttributes"`
 }
 
 // An activity that adds other attributes based on existing attributes in the message.
@@ -2849,11 +2849,11 @@ type CfnPipeline_AddAttributesProperty struct {
 	// A list of 1-50 "AttributeNameMapping" objects that map an existing attribute to a new attribute.
 	//
 	// > The existing attributes remain in the message, so if you want to remove the originals, use "RemoveAttributeActivity".
-	Attributes interface{} `json:"attributes"`
+	Attributes interface{} `json:"attributes" yaml:"attributes"`
 	// The name of the 'addAttributes' activity.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The next activity in the pipeline.
-	Next *string `json:"next"`
+	Next *string `json:"next" yaml:"next"`
 }
 
 // Determines the source of the messages to be processed.
@@ -2862,11 +2862,11 @@ type CfnPipeline_AddAttributesProperty struct {
 //
 type CfnPipeline_ChannelProperty struct {
 	// The name of the channel from which the messages are processed.
-	ChannelName *string `json:"channelName"`
+	ChannelName *string `json:"channelName" yaml:"channelName"`
 	// The name of the 'channel' activity.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The next activity in the pipeline.
-	Next *string `json:"next"`
+	Next *string `json:"next" yaml:"next"`
 }
 
 // The datastore activity that specifies where to store the processed data.
@@ -2875,9 +2875,9 @@ type CfnPipeline_ChannelProperty struct {
 //
 type CfnPipeline_DatastoreProperty struct {
 	// The name of the data store where processed messages are stored.
-	DatastoreName *string `json:"datastoreName"`
+	DatastoreName *string `json:"datastoreName" yaml:"datastoreName"`
 	// The name of the datastore activity.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // An activity that adds data from the AWS IoT device registry to your message.
@@ -2886,15 +2886,15 @@ type CfnPipeline_DatastoreProperty struct {
 //
 type CfnPipeline_DeviceRegistryEnrichProperty struct {
 	// The name of the attribute that is added to the message.
-	Attribute *string `json:"attribute"`
+	Attribute *string `json:"attribute" yaml:"attribute"`
 	// The name of the 'deviceRegistryEnrich' activity.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The next activity in the pipeline.
-	Next *string `json:"next"`
+	Next *string `json:"next" yaml:"next"`
 	// The ARN of the role that allows access to the device's registry information.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// The name of the IoT device whose registry information is added to the message.
-	ThingName *string `json:"thingName"`
+	ThingName *string `json:"thingName" yaml:"thingName"`
 }
 
 // An activity that adds information from the AWS IoT Device Shadows service to a message.
@@ -2903,15 +2903,15 @@ type CfnPipeline_DeviceRegistryEnrichProperty struct {
 //
 type CfnPipeline_DeviceShadowEnrichProperty struct {
 	// The name of the attribute that is added to the message.
-	Attribute *string `json:"attribute"`
+	Attribute *string `json:"attribute" yaml:"attribute"`
 	// The name of the 'deviceShadowEnrich' activity.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The next activity in the pipeline.
-	Next *string `json:"next"`
+	Next *string `json:"next" yaml:"next"`
 	// The ARN of the role that allows access to the device's shadow.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// The name of the IoT device whose shadow information is added to the message.
-	ThingName *string `json:"thingName"`
+	ThingName *string `json:"thingName" yaml:"thingName"`
 }
 
 // An activity that filters a message based on its attributes.
@@ -2920,11 +2920,11 @@ type CfnPipeline_DeviceShadowEnrichProperty struct {
 //
 type CfnPipeline_FilterProperty struct {
 	// An expression that looks like an SQL WHERE clause that must return a Boolean value.
-	Filter *string `json:"filter"`
+	Filter *string `json:"filter" yaml:"filter"`
 	// The name of the 'filter' activity.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The next activity in the pipeline.
-	Next *string `json:"next"`
+	Next *string `json:"next" yaml:"next"`
 }
 
 // An activity that runs a Lambda function to modify the message.
@@ -2935,13 +2935,13 @@ type CfnPipeline_LambdaProperty struct {
 	// The number of messages passed to the Lambda function for processing.
 	//
 	// The AWS Lambda function must be able to process all of these messages within five minutes, which is the maximum timeout duration for Lambda functions.
-	BatchSize *float64 `json:"batchSize"`
+	BatchSize *float64 `json:"batchSize" yaml:"batchSize"`
 	// The name of the Lambda function that is run on the message.
-	LambdaName *string `json:"lambdaName"`
+	LambdaName *string `json:"lambdaName" yaml:"lambdaName"`
 	// The name of the 'lambda' activity.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The next activity in the pipeline.
-	Next *string `json:"next"`
+	Next *string `json:"next" yaml:"next"`
 }
 
 // An activity that computes an arithmetic expression using the message's attributes.
@@ -2950,13 +2950,13 @@ type CfnPipeline_LambdaProperty struct {
 //
 type CfnPipeline_MathProperty struct {
 	// The name of the attribute that contains the result of the math operation.
-	Attribute *string `json:"attribute"`
+	Attribute *string `json:"attribute" yaml:"attribute"`
 	// An expression that uses one or more existing attributes and must return an integer value.
-	Math *string `json:"math"`
+	Math *string `json:"math" yaml:"math"`
 	// The name of the 'math' activity.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The next activity in the pipeline.
-	Next *string `json:"next"`
+	Next *string `json:"next" yaml:"next"`
 }
 
 // An activity that removes attributes from a message.
@@ -2965,11 +2965,11 @@ type CfnPipeline_MathProperty struct {
 //
 type CfnPipeline_RemoveAttributesProperty struct {
 	// A list of 1-50 attributes to remove from the message.
-	Attributes *[]*string `json:"attributes"`
+	Attributes *[]*string `json:"attributes" yaml:"attributes"`
 	// The name of the 'removeAttributes' activity.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The next activity in the pipeline.
-	Next *string `json:"next"`
+	Next *string `json:"next" yaml:"next"`
 }
 
 // Creates a new message using only the specified attributes from the original message.
@@ -2978,11 +2978,11 @@ type CfnPipeline_RemoveAttributesProperty struct {
 //
 type CfnPipeline_SelectAttributesProperty struct {
 	// A list of the attributes to select from the message.
-	Attributes *[]*string `json:"attributes"`
+	Attributes *[]*string `json:"attributes" yaml:"attributes"`
 	// The name of the 'selectAttributes' activity.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The next activity in the pipeline.
-	Next *string `json:"next"`
+	Next *string `json:"next" yaml:"next"`
 }
 
 // Properties for defining a `CfnPipeline`.
@@ -2997,12 +2997,12 @@ type CfnPipelineProps struct {
 	// The list can be 2-25 *PipelineActivity* objects and must contain both a `channel` and a `datastore` activity. Each entry in the list must contain only one activity, for example:
 	//
 	// `pipelineActivities = [ { "channel": { ... } }, { "lambda": { ... } }, ... ]`
-	PipelineActivities interface{} `json:"pipelineActivities"`
+	PipelineActivities interface{} `json:"pipelineActivities" yaml:"pipelineActivities"`
 	// The name of the pipeline.
-	PipelineName *string `json:"pipelineName"`
+	PipelineName *string `json:"pipelineName" yaml:"pipelineName"`
 	// Metadata which can be used to manage the pipeline.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 

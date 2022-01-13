@@ -670,11 +670,11 @@ type CfnApplication_ApiGatewayProxyInputProperty struct {
 	// If no value is specified in the request, the value is set to `REGIONAL` by default.
 	//
 	// If the value is set to `PRIVATE` in the request, this creates a private API endpoint that is isolated from the public internet. The private endpoint can only be accessed by using Amazon Virtual Private Cloud ( Amazon VPC ) endpoints for Amazon API Gateway that have been granted access.
-	EndpointType *string `json:"endpointType"`
+	EndpointType *string `json:"endpointType" yaml:"endpointType"`
 	// The name of the API Gateway stage.
 	//
 	// The name defaults to `prod` .
-	StageName *string `json:"stageName"`
+	StageName *string `json:"stageName" yaml:"stageName"`
 }
 
 // Properties for defining a `CfnApplication`.
@@ -683,17 +683,17 @@ type CfnApplication_ApiGatewayProxyInputProperty struct {
 //
 type CfnApplicationProps struct {
 	// The endpoint URL of the Amazon API Gateway proxy.
-	ApiGatewayProxy interface{} `json:"apiGatewayProxy"`
+	ApiGatewayProxy interface{} `json:"apiGatewayProxy" yaml:"apiGatewayProxy"`
 	// The unique identifier of the environment.
-	EnvironmentIdentifier *string `json:"environmentIdentifier"`
+	EnvironmentIdentifier *string `json:"environmentIdentifier" yaml:"environmentIdentifier"`
 	// The name of the application.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The proxy type of the proxy created within the application.
-	ProxyType *string `json:"proxyType"`
+	ProxyType *string `json:"proxyType" yaml:"proxyType"`
 	// The tags assigned to the application.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// The ID of the virtual private cloud (VPC).
-	VpcId *string `json:"vpcId"`
+	VpcId *string `json:"vpcId" yaml:"vpcId"`
 }
 
 // A CloudFormation `AWS::RefactorSpaces::Environment`.
@@ -1258,13 +1258,13 @@ func (c *jsiiProxy_CfnEnvironment) ValidateProperties(_properties interface{}) {
 //
 type CfnEnvironmentProps struct {
 	// A description of the environment.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The name of the environment.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The network fabric type of the environment.
-	NetworkFabricType *string `json:"networkFabricType"`
+	NetworkFabricType *string `json:"networkFabricType" yaml:"networkFabricType"`
 	// The tags assigned to the environment.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::RefactorSpaces::Route`.
@@ -1879,19 +1879,19 @@ func (c *jsiiProxy_CfnRoute) ValidateProperties(_properties interface{}) {
 //
 type CfnRoute_UriPathRouteInputProperty struct {
 	// Indicates whether traffic is forwarded to this route’s service after the route is created.
-	ActivationState *string `json:"activationState"`
+	ActivationState *string `json:"activationState" yaml:"activationState"`
 	// Indicates whether to match all subpaths of the given source path.
 	//
 	// If this value is `false` , requests must match the source path exactly before they are forwarded to this route's service.
-	IncludeChildPaths interface{} `json:"includeChildPaths"`
+	IncludeChildPaths interface{} `json:"includeChildPaths" yaml:"includeChildPaths"`
 	// A list of HTTP methods to match.
 	//
 	// An empty list matches all values. If a method is present, only HTTP requests using that method are forwarded to this route’s service.
-	Methods *[]*string `json:"methods"`
+	Methods *[]*string `json:"methods" yaml:"methods"`
 	// The path to use to match traffic.
 	//
 	// Paths must start with `/` and are relative to the base of the application.
-	SourcePath *string `json:"sourcePath"`
+	SourcePath *string `json:"sourcePath" yaml:"sourcePath"`
 }
 
 // Properties for defining a `CfnRoute`.
@@ -1900,17 +1900,17 @@ type CfnRoute_UriPathRouteInputProperty struct {
 //
 type CfnRouteProps struct {
 	// The unique identifier of the application.
-	ApplicationIdentifier *string `json:"applicationIdentifier"`
+	ApplicationIdentifier *string `json:"applicationIdentifier" yaml:"applicationIdentifier"`
 	// The unique identifier of the environment.
-	EnvironmentIdentifier *string `json:"environmentIdentifier"`
+	EnvironmentIdentifier *string `json:"environmentIdentifier" yaml:"environmentIdentifier"`
 	// The unique identifier of the service.
-	ServiceIdentifier *string `json:"serviceIdentifier"`
+	ServiceIdentifier *string `json:"serviceIdentifier" yaml:"serviceIdentifier"`
 	// The route type of the route.
-	RouteType *string `json:"routeType"`
+	RouteType *string `json:"routeType" yaml:"routeType"`
 	// The tags assigned to the route.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// The configuration for the URI path route type.
-	UriPathRoute interface{} `json:"uriPathRoute"`
+	UriPathRoute interface{} `json:"uriPathRoute" yaml:"uriPathRoute"`
 }
 
 // A CloudFormation `AWS::RefactorSpaces::Service`.
@@ -2566,7 +2566,7 @@ func (c *jsiiProxy_CfnService) ValidateProperties(_properties interface{}) {
 //
 type CfnService_LambdaEndpointInputProperty struct {
 	// The Amazon Resource Name (ARN) of the Lambda endpoint.
-	Arn *string `json:"arn"`
+	Arn *string `json:"arn" yaml:"arn"`
 }
 
 // The configuration for the URL endpoint type.
@@ -2577,11 +2577,11 @@ type CfnService_UrlEndpointInputProperty struct {
 	// The URL to route traffic to.
 	//
 	// The URL must be an [rfc3986-formatted URL](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc3986) . If the host is a domain name, the name must be resolvable over the public internet. If the scheme is `https` , the top level domain of the host must be listed in the [IANA root zone database](https://docs.aws.amazon.com/https://www.iana.org/domains/root/db) .
-	Url *string `json:"url"`
+	Url *string `json:"url" yaml:"url"`
 	// The health check URL of the URL endpoint type.
 	//
 	// If the URL is a public endpoint, the `HealthUrl` must also be a public endpoint. If the URL is a private endpoint inside a virtual private cloud (VPC), the health URL must also be a private endpoint, and the host must be the same as the URL.
-	HealthUrl *string `json:"healthUrl"`
+	HealthUrl *string `json:"healthUrl" yaml:"healthUrl"`
 }
 
 // Properties for defining a `CfnService`.
@@ -2590,22 +2590,22 @@ type CfnService_UrlEndpointInputProperty struct {
 //
 type CfnServiceProps struct {
 	// The unique identifier of the application.
-	ApplicationIdentifier *string `json:"applicationIdentifier"`
+	ApplicationIdentifier *string `json:"applicationIdentifier" yaml:"applicationIdentifier"`
 	// The unique identifier of the environment.
-	EnvironmentIdentifier *string `json:"environmentIdentifier"`
+	EnvironmentIdentifier *string `json:"environmentIdentifier" yaml:"environmentIdentifier"`
 	// A description of the service.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The endpoint type of the service.
-	EndpointType *string `json:"endpointType"`
+	EndpointType *string `json:"endpointType" yaml:"endpointType"`
 	// A summary of the configuration for the AWS Lambda endpoint type.
-	LambdaEndpoint interface{} `json:"lambdaEndpoint"`
+	LambdaEndpoint interface{} `json:"lambdaEndpoint" yaml:"lambdaEndpoint"`
 	// The name of the service.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The tags assigned to the service.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// The summary of the configuration for the URL endpoint type.
-	UrlEndpoint interface{} `json:"urlEndpoint"`
+	UrlEndpoint interface{} `json:"urlEndpoint" yaml:"urlEndpoint"`
 	// The ID of the virtual private cloud (VPC).
-	VpcId *string `json:"vpcId"`
+	VpcId *string `json:"vpcId" yaml:"vpcId"`
 }
 

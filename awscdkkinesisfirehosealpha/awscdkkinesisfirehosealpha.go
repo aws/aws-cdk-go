@@ -25,7 +25,7 @@ import (
 type DataProcessorBindOptions struct {
 	// The IAM role assumed by Kinesis Data Firehose to write to the destination that this DataProcessor will bind to.
 	// Experimental.
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 }
 
 // The full configuration of a data processor.
@@ -36,7 +36,7 @@ type DataProcessorBindOptions struct {
 type DataProcessorConfig struct {
 	// The key-value pair that identifies the underlying processor resource.
 	// Experimental.
-	ProcessorIdentifier *DataProcessorIdentifier `json:"processorIdentifier"`
+	ProcessorIdentifier *DataProcessorIdentifier `json:"processorIdentifier" yaml:"processorIdentifier"`
 	// The type of the underlying processor resource.
 	//
 	// Must be an accepted value in `CfnDeliveryStream.ProcessorProperty.Type`.
@@ -46,7 +46,7 @@ type DataProcessorConfig struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processor.html#cfn-kinesisfirehose-deliverystream-processor-type
 	//
 	// Experimental.
-	ProcessorType *string `json:"processorType"`
+	ProcessorType *string `json:"processorType" yaml:"processorType"`
 }
 
 // The key-value pair that identifies the underlying processor resource.
@@ -61,10 +61,10 @@ type DataProcessorIdentifier struct {
 	//
 	// Must be an accepted value in `CfnDeliveryStream.ProcessoryParameterProperty.ParameterName`.
 	// Experimental.
-	ParameterName *string `json:"parameterName"`
+	ParameterName *string `json:"parameterName" yaml:"parameterName"`
 	// The identifier of the underlying processor resource.
 	// Experimental.
-	ParameterValue *string `json:"parameterValue"`
+	ParameterValue *string `json:"parameterValue" yaml:"parameterValue"`
 }
 
 // Configure the data processor.
@@ -77,13 +77,13 @@ type DataProcessorProps struct {
 	//
 	// s
 	// Experimental.
-	BufferInterval awscdk.Duration `json:"bufferInterval"`
+	BufferInterval awscdk.Duration `json:"bufferInterval" yaml:"bufferInterval"`
 	// The amount of incoming data Kinesis Data Firehose will buffer before calling the processor.
 	// Experimental.
-	BufferSize awscdk.Size `json:"bufferSize"`
+	BufferSize awscdk.Size `json:"bufferSize" yaml:"bufferSize"`
 	// The number of times Kinesis Data Firehose will retry the processor invocation after a failure due to network timeout or invocation limits.
 	// Experimental.
-	Retries *float64 `json:"retries"`
+	Retries *float64 `json:"retries" yaml:"retries"`
 }
 
 // Create a Kinesis Data Firehose delivery stream.
@@ -550,17 +550,17 @@ type DeliveryStreamAttributes struct {
 	//
 	// At least one of deliveryStreamArn and deliveryStreamName must be provided.
 	// Experimental.
-	DeliveryStreamArn *string `json:"deliveryStreamArn"`
+	DeliveryStreamArn *string `json:"deliveryStreamArn" yaml:"deliveryStreamArn"`
 	// The name of the delivery stream.
 	//
 	// At least one of deliveryStreamName and deliveryStreamArn  must be provided.
 	// Experimental.
-	DeliveryStreamName *string `json:"deliveryStreamName"`
+	DeliveryStreamName *string `json:"deliveryStreamName" yaml:"deliveryStreamName"`
 	// The IAM role associated with this delivery stream.
 	//
 	// Assumed by Kinesis Data Firehose to read from sources and encrypt data server-side.
 	// Experimental.
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 }
 
 // Properties for a new delivery stream.
@@ -573,24 +573,24 @@ type DeliveryStreamProps struct {
 	//
 	// Only a singleton array is supported at this time.
 	// Experimental.
-	Destinations *[]IDestination `json:"destinations"`
+	Destinations *[]IDestination `json:"destinations" yaml:"destinations"`
 	// A name for the delivery stream.
 	// Experimental.
-	DeliveryStreamName *string `json:"deliveryStreamName"`
+	DeliveryStreamName *string `json:"deliveryStreamName" yaml:"deliveryStreamName"`
 	// Indicates the type of customer master key (CMK) to use for server-side encryption, if any.
 	// Experimental.
-	Encryption StreamEncryption `json:"encryption"`
+	Encryption StreamEncryption `json:"encryption" yaml:"encryption"`
 	// Customer managed key to server-side encrypt data in the stream.
 	// Experimental.
-	EncryptionKey awskms.IKey `json:"encryptionKey"`
+	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
 	// The IAM role associated with this delivery stream.
 	//
 	// Assumed by Kinesis Data Firehose to read from sources and encrypt data server-side.
 	// Experimental.
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 	// The Kinesis data stream to use as a source for this delivery stream.
 	// Experimental.
-	SourceStream awskinesis.IStream `json:"sourceStream"`
+	SourceStream awskinesis.IStream `json:"sourceStream" yaml:"sourceStream"`
 }
 
 // Options when binding a destination to a delivery stream.
@@ -609,10 +609,10 @@ type DestinationBindOptions struct {
 type DestinationConfig struct {
 	// Any resources that were created by the destination when binding it to the stack that must be deployed before the delivery stream is deployed.
 	// Experimental.
-	Dependables *[]constructs.IDependable `json:"dependables"`
+	Dependables *[]constructs.IDependable `json:"dependables" yaml:"dependables"`
 	// S3 destination configuration properties.
 	// Experimental.
-	ExtendedS3DestinationConfiguration *awskinesisfirehose.CfnDeliveryStream_ExtendedS3DestinationConfigurationProperty `json:"extendedS3DestinationConfiguration"`
+	ExtendedS3DestinationConfiguration *awskinesisfirehose.CfnDeliveryStream_ExtendedS3DestinationConfigurationProperty `json:"extendedS3DestinationConfiguration" yaml:"extendedS3DestinationConfiguration"`
 }
 
 // A data processor that Kinesis Data Firehose will call to transform records before delivering data.

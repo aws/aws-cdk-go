@@ -405,9 +405,9 @@ type AliasAttributes struct {
 	// Specifies the alias name.
 	//
 	// This value must begin with alias/ followed by a name (i.e. alias/ExampleAlias)
-	AliasName *string `json:"aliasName"`
+	AliasName *string `json:"aliasName" yaml:"aliasName"`
 	// The customer master key (CMK) to which the Alias refers.
-	AliasTargetKey IKey `json:"aliasTargetKey"`
+	AliasTargetKey IKey `json:"aliasTargetKey" yaml:"aliasTargetKey"`
 }
 
 // Construction properties for a KMS Key Alias object.
@@ -420,15 +420,15 @@ type AliasProps struct {
 	// The name must start with alias followed by a
 	// forward slash, such as alias/. You can't specify aliases that begin with
 	// alias/AWS. These aliases are reserved.
-	AliasName *string `json:"aliasName"`
+	AliasName *string `json:"aliasName" yaml:"aliasName"`
 	// The ID of the key for which you are creating the alias.
 	//
 	// Specify the key's
 	// globally unique identifier or Amazon Resource Name (ARN). You can't
 	// specify another alias.
-	TargetKey IKey `json:"targetKey"`
+	TargetKey IKey `json:"targetKey" yaml:"targetKey"`
 	// Policy to apply when the alias is removed from this stack.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 }
 
 // A CloudFormation `AWS::KMS::Alias`.
@@ -950,7 +950,7 @@ type CfnAliasProps struct {
 	// *Minimum* : `1`
 	//
 	// *Maximum* : `256`
-	AliasName *string `json:"aliasName"`
+	AliasName *string `json:"aliasName" yaml:"aliasName"`
 	// Associates the alias with the specified [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) . The KMS key must be in the same AWS account and Region.
 	//
 	// A valid key ID is required. If you supply a null or empty string value, this operation returns an error.
@@ -965,7 +965,7 @@ type CfnAliasProps struct {
 	// - Key ARN: `arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
 	//
 	// To get the key ID and key ARN for a KMS key, use [ListKeys](https://docs.aws.amazon.com/kms/latest/APIReference/API_ListKeys.html) or [DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html) .
-	TargetKeyId *string `json:"targetKeyId"`
+	TargetKeyId *string `json:"targetKeyId" yaml:"targetKeyId"`
 }
 
 // A CloudFormation `AWS::KMS::Key`.
@@ -1639,11 +1639,11 @@ type CfnKeyProps struct {
 	// *Minimum* : `1`
 	//
 	// *Maximum* : `32768`
-	KeyPolicy interface{} `json:"keyPolicy"`
+	KeyPolicy interface{} `json:"keyPolicy" yaml:"keyPolicy"`
 	// A description of the KMS key.
 	//
 	// Use a description that helps you to distinguish this KMS key from others in the account, such as its intended use.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Specifies whether the KMS key is enabled. Disabled KMS keys cannot be used in cryptographic operations.
 	//
 	// When `Enabled` is `true` , the *key state* of the KMS key is `Enabled` . When `Enabled` is `false` , the key state of the KMS key is `Disabled` . The default value is `true` .
@@ -1651,7 +1651,7 @@ type CfnKeyProps struct {
 	// The actual key state of the KMS key might be affected by actions taken outside of CloudFormation, such as running the [EnableKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_EnableKey.html) , [DisableKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DisableKey.html) , or [ScheduleKeyDeletion](https://docs.aws.amazon.com/kms/latest/APIReference/API_ScheduleKeyDeletion.html) operations.
 	//
 	// For information about the key states of a KMS key, see [Key state: Effect on your KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in the *AWS Key Management Service Developer Guide* .
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 	// Enables automatic rotation of the key material for the specified KMS key.
 	//
 	// By default, automatic key rotation is not enabled.
@@ -1659,7 +1659,7 @@ type CfnKeyProps struct {
 	// AWS KMS does not support automatic key rotation on asymmetric KMS keys. For asymmetric KMS keys, omit the `EnableKeyRotation` property or set it to `false` .
 	//
 	// When you enable automatic rotation, AWS KMS automatically creates new key material for the KMS key 365 days after the enable (or reenable) date and every 365 days thereafter. AWS KMS retains all key material until you delete the KMS key. For detailed information about automatic key rotation, see [Rotating KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) in the *AWS Key Management Service Developer Guide* .
-	EnableKeyRotation interface{} `json:"enableKeyRotation"`
+	EnableKeyRotation interface{} `json:"enableKeyRotation" yaml:"enableKeyRotation"`
 	// Specifies the type of KMS key to create.
 	//
 	// The default value, `SYMMETRIC_DEFAULT` , creates a KMS key with a 256-bit symmetric key for encryption and decryption. For help choosing a key spec for your KMS key, see [How to choose Your KMS key configuration](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html) in the *AWS Key Management Service Developer Guide* .
@@ -1686,7 +1686,7 @@ type CfnKeyProps struct {
 	// - Other asymmetric elliptic curve key pairs
 	//
 	// - `ECC_SECG_P256K1` (secp256k1), commonly used for cryptocurrencies.
-	KeySpec *string `json:"keySpec"`
+	KeySpec *string `json:"keySpec" yaml:"keySpec"`
 	// Determines the [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. The default value is `ENCRYPT_DECRYPT` . This property is required only for asymmetric KMS keys. You can't change the `KeyUsage` value after the KMS key is created.
 	//
 	// > If you change the `KeyUsage` of an existing KMS key, the existing KMS key is scheduled for deletion and a new KMS key is created with the specified `KeyUsage` value. While the scheduled deletion is pending, you can't use the existing KMS key. Unless you [cancel the scheduled deletion](https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html#deleting-keys-scheduling-key-deletion) of the KMS key outside of CloudFormation, all data encrypted under the existing KMS key becomes unrecoverable when the KMS key is deleted.
@@ -1696,7 +1696,7 @@ type CfnKeyProps struct {
 	// - For symmetric KMS keys, omit the property or specify `ENCRYPT_DECRYPT` .
 	// - For asymmetric KMS keys with RSA key material, specify `ENCRYPT_DECRYPT` or `SIGN_VERIFY` .
 	// - For asymmetric KMS keys with ECC key material, specify `SIGN_VERIFY` .
-	KeyUsage *string `json:"keyUsage"`
+	KeyUsage *string `json:"keyUsage" yaml:"keyUsage"`
 	// Creates a multi-Region primary key that you can replicate in other AWS Regions .
 	//
 	// > If you change the `MultiRegion` property of an existing KMS key, the existing KMS key is scheduled for deletion and a new KMS key is created with the specified `Multi-Region` value. While the scheduled deletion is pending, you can't use the existing KMS key. Unless you [cancel the scheduled deletion](https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html#deleting-keys-scheduling-key-deletion) of the KMS key outside of CloudFormation, all data encrypted under the existing KMS key becomes unrecoverable when the KMS key is deleted.
@@ -1708,7 +1708,7 @@ type CfnKeyProps struct {
 	// You can create a symmetric or asymmetric multi-Region key, and you can create a multi-Region key with imported key material. However, you cannot create a multi-Region key in a custom key store.
 	//
 	// To create a replica of this primary key in a different AWS Region , create an [AWS::KMS::ReplicaKey](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html) resource in a CloudFormation stack in the replica Region. Specify the key ARN of this primary key.
-	MultiRegion interface{} `json:"multiRegion"`
+	MultiRegion interface{} `json:"multiRegion" yaml:"multiRegion"`
 	// Specifies the number of days in the waiting period before AWS KMS deletes a KMS key that has been removed from a CloudFormation stack.
 	//
 	// Enter a value between 7 and 30 days. The default value is 30 days.
@@ -1724,13 +1724,13 @@ type CfnKeyProps struct {
 	// *Minimum* : 7
 	//
 	// *Maximum* : 30
-	PendingWindowInDays *float64 `json:"pendingWindowInDays"`
+	PendingWindowInDays *float64 `json:"pendingWindowInDays" yaml:"pendingWindowInDays"`
 	// Assigns one or more tags to the replica key.
 	//
 	// > Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see [Using ABAC in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/abac.html) in the *AWS Key Management Service Developer Guide* .
 	//
 	// For information about tags in AWS KMS , see [Tagging keys](https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html) in the *AWS Key Management Service Developer Guide* . For information about tags in CloudFormation, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::KMS::ReplicaKey`.
@@ -2344,7 +2344,7 @@ type CfnReplicaKeyProps struct {
 	// *Minimum* : `1`
 	//
 	// *Maximum* : `32768`
-	KeyPolicy interface{} `json:"keyPolicy"`
+	KeyPolicy interface{} `json:"keyPolicy" yaml:"keyPolicy"`
 	// Specifies the multi-Region primary key to replicate.
 	//
 	// The primary key must be in a different AWS Region of the same AWS partition. You can create only one replica of a given primary key in each AWS Region .
@@ -2354,13 +2354,13 @@ type CfnReplicaKeyProps struct {
 	// > However, if you inadvertently delete a replica key, you can decrypt ciphertext encrypted by that replica key by using any related multi-Region key. If necessary, you can recreate the replica in the same Region after the previous one is completely deleted. For details, see [Deleting multi-Region keys](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-delete.html) in the *AWS Key Management Service Developer Guide*
 	//
 	// Specify the key ARN of an existing multi-Region primary key. For example, `arn:aws:kms:us-east-2:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab` .
-	PrimaryKeyArn *string `json:"primaryKeyArn"`
+	PrimaryKeyArn *string `json:"primaryKeyArn" yaml:"primaryKeyArn"`
 	// A description of the KMS key.
 	//
 	// The default value is an empty string (no description).
 	//
 	// The description is not a shared property of multi-Region keys. You can specify the same description or a different description for each key in a set of related multi-Region keys. AWS Key Management Service does not synchronize this property.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Specifies whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations.
 	//
 	// When `Enabled` is `true` , the *key state* of the KMS key is `Enabled` . When `Enabled` is `false` , the key state of the KMS key is `Disabled` . The default value is `true` .
@@ -2368,7 +2368,7 @@ type CfnReplicaKeyProps struct {
 	// The actual key state of the replica might be affected by actions taken outside of CloudFormation, such as running the [EnableKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_EnableKey.html) , [DisableKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DisableKey.html) , or [ScheduleKeyDeletion](https://docs.aws.amazon.com/kms/latest/APIReference/API_ScheduleKeyDeletion.html) operations. Also, while the replica key is being created, its key state is `Creating` . When the process is complete, the key state of the replica key changes to `Enabled` .
 	//
 	// For information about the key states of a KMS key, see [Key state: Effect on your KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in the *AWS Key Management Service Developer Guide* .
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 	// Specifies the number of days in the waiting period before AWS KMS deletes a replica key that has been removed from a CloudFormation stack.
 	//
 	// Enter a value between 7 and 30 days. The default value is 30 days.
@@ -2384,7 +2384,7 @@ type CfnReplicaKeyProps struct {
 	// *Minimum* : 7
 	//
 	// *Maximum* : 30
-	PendingWindowInDays *float64 `json:"pendingWindowInDays"`
+	PendingWindowInDays *float64 `json:"pendingWindowInDays" yaml:"pendingWindowInDays"`
 	// Assigns one or more tags to the replica key.
 	//
 	// > Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see [Using ABAC in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/abac.html) in the *AWS Key Management Service Developer Guide* .
@@ -2394,7 +2394,7 @@ type CfnReplicaKeyProps struct {
 	// Each tag consists of a tag key and a tag value. Both the tag key and the tag value are required, but the tag value can be an empty (null) string. You cannot have more than one tag on a KMS key with the same tag key. If you specify an existing tag key with a different tag value, AWS KMS replaces the current tag value with the specified one.
 	//
 	// When you assign tags to an AWS resource, AWS generates a cost allocation report with usage and costs aggregated by tags. Tags can also be used to control access to a KMS key. For details, see [Tagging keys](https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A KMS Key alias.
@@ -3007,7 +3007,7 @@ func (k *jsiiProxy_Key) ToString() *string {
 //
 type KeyLookupOptions struct {
 	// The alias name of the Key.
-	AliasName *string `json:"aliasName"`
+	AliasName *string `json:"aliasName" yaml:"aliasName"`
 }
 
 // Construction properties for a KMS Key object.
@@ -3021,30 +3021,30 @@ type KeyProps struct {
 	// to use the key in cryptographic operations (e.g., encrypt, decrypt).
 	//
 	// These principals will be added to the default key policy (if none specified), or to the specified policy (if provided).
-	Admins *[]awsiam.IPrincipal `json:"admins"`
+	Admins *[]awsiam.IPrincipal `json:"admins" yaml:"admins"`
 	// Initial alias to add to the key.
 	//
 	// More aliases can be added later by calling `addAlias`.
-	Alias *string `json:"alias"`
+	Alias *string `json:"alias" yaml:"alias"`
 	// A description of the key.
 	//
 	// Use a description that helps your users decide
 	// whether the key is appropriate for a particular task.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Indicates whether the key is available for use.
-	Enabled *bool `json:"enabled"`
+	Enabled *bool `json:"enabled" yaml:"enabled"`
 	// Indicates whether AWS KMS rotates the key.
-	EnableKeyRotation *bool `json:"enableKeyRotation"`
+	EnableKeyRotation *bool `json:"enableKeyRotation" yaml:"enableKeyRotation"`
 	// The cryptographic configuration of the key. The valid value depends on usage of the key.
 	//
 	// IMPORTANT: If you change this property of an existing key, the existing key is scheduled for deletion
 	// and a new key is created with the specified value.
-	KeySpec KeySpec `json:"keySpec"`
+	KeySpec KeySpec `json:"keySpec" yaml:"keySpec"`
 	// The cryptographic operations for which the key can be used.
 	//
 	// IMPORTANT: If you change this property of an existing key, the existing key is scheduled for deletion
 	// and a new key is created with the specified value.
-	KeyUsage KeyUsage `json:"keyUsage"`
+	KeyUsage KeyUsage `json:"keyUsage" yaml:"keyUsage"`
 	// Specifies the number of days in the waiting period before AWS KMS deletes a CMK that has been removed from a CloudFormation stack.
 	//
 	// When you remove a customer master key (CMK) from a CloudFormation stack, AWS KMS schedules the CMK for deletion
@@ -3055,18 +3055,18 @@ type KeyProps struct {
 	// Enter a value between 7 and 30 days.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-pendingwindowindays
 	//
-	PendingWindow awscdk.Duration `json:"pendingWindow"`
+	PendingWindow awscdk.Duration `json:"pendingWindow" yaml:"pendingWindow"`
 	// Custom policy document to attach to the KMS key.
 	//
 	// NOTE - If the `@aws-cdk/aws-kms:defaultKeyPolicies` feature flag is set (the default for new projects),
 	// this policy will *override* the default key policy and become the only key policy for the key. If the
 	// feature flag is not set, this policy will be appended to the default key policy.
-	Policy awsiam.PolicyDocument `json:"policy"`
+	Policy awsiam.PolicyDocument `json:"policy" yaml:"policy"`
 	// Whether the encryption key should be retained when it is removed from the Stack.
 	//
 	// This is useful when one wants to
 	// retain access to data that was encrypted with a key that is being retired.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 }
 
 // The key spec, represents the cryptographic configuration of keys.

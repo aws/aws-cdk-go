@@ -302,18 +302,18 @@ type ChannelProps struct {
 	// a PlaybackKeyPair has been uploaded to your account as this is used to
 	// validate the signed JWT that is required for authorization
 	// Experimental.
-	Authorized *bool `json:"authorized"`
+	Authorized *bool `json:"authorized" yaml:"authorized"`
 	// Channel latency mode.
 	// Experimental.
-	LatencyMode LatencyMode `json:"latencyMode"`
+	LatencyMode LatencyMode `json:"latencyMode" yaml:"latencyMode"`
 	// Channel name.
 	// Experimental.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The channel type, which determines the allowable resolution and bitrate.
 	//
 	// If you exceed the allowable resolution or bitrate, the stream will disconnect immediately
 	// Experimental.
-	Type ChannelType `json:"type"`
+	Type ChannelType `json:"type" yaml:"type"`
 }
 
 // The channel type, which determines the allowable resolution and bitrate.
@@ -674,12 +674,12 @@ func (p *jsiiProxy_PlaybackKeyPair) ToString() *string {
 type PlaybackKeyPairProps struct {
 	// The public portion of a customer-generated key pair.
 	// Experimental.
-	PublicKeyMaterial *string `json:"publicKeyMaterial"`
+	PublicKeyMaterial *string `json:"publicKeyMaterial" yaml:"publicKeyMaterial"`
 	// An arbitrary string (a nickname) assigned to a playback key pair that helps the customer identify that resource.
 	//
 	// The value does not need to be unique.
 	// Experimental.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // A new IVS Stream Key.
@@ -926,6 +926,6 @@ func (s *jsiiProxy_StreamKey) ToString() *string {
 type StreamKeyProps struct {
 	// Channel ARN for the stream.
 	// Experimental.
-	Channel IChannel `json:"channel"`
+	Channel IChannel `json:"channel" yaml:"channel"`
 }
 

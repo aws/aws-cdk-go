@@ -311,10 +311,10 @@ func (a *jsiiProxy_Application) ToString() *string {
 type ApplicationProps struct {
 	// Enforces a particular physical application name.
 	// Experimental.
-	ApplicationName *string `json:"applicationName"`
+	ApplicationName *string `json:"applicationName" yaml:"applicationName"`
 	// Description for application.
 	// Experimental.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 }
 
 // A Service Catalog AppRegistry Attribute Group.
@@ -578,15 +578,15 @@ func (a *jsiiProxy_AttributeGroup) ToString() *string {
 type AttributeGroupProps struct {
 	// Enforces a particular physical attribute group name.
 	// Experimental.
-	AttributeGroupName *string `json:"attributeGroupName"`
+	AttributeGroupName *string `json:"attributeGroupName" yaml:"attributeGroupName"`
 	// A JSON of nested key-value pairs that represent the attributes in the group.
 	//
 	// Attributes maybe an empty JSON '{}', but must be explicitly stated.
 	// Experimental.
-	Attributes *map[string]interface{} `json:"attributes"`
+	Attributes *map[string]interface{} `json:"attributes" yaml:"attributes"`
 	// Description for attribute group.
 	// Experimental.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 }
 
 // A Service Catalog AppRegistry Application.

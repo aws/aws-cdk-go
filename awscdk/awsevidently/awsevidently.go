@@ -653,23 +653,23 @@ type CfnExperiment_MetricGoalObjectProperty struct {
 	// `INCREASE` means that a variation with a higher number for this metric is performing better.
 	//
 	// `DECREASE` means that a variation with a lower number for this metric is performing better.
-	DesiredChange *string `json:"desiredChange"`
+	DesiredChange *string `json:"desiredChange" yaml:"desiredChange"`
 	// The entity, such as a user or session, that does an action that causes a metric value to be recorded.
 	//
 	// An example is `userDetails.userID` .
-	EntityIdKey *string `json:"entityIdKey"`
+	EntityIdKey *string `json:"entityIdKey" yaml:"entityIdKey"`
 	// The EventBridge event pattern that defines how the metric is recorded.
 	//
 	// For more information about EventBridge event patterns, see [Amazon EventBridge event patterns](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html) .
-	EventPattern *string `json:"eventPattern"`
+	EventPattern *string `json:"eventPattern" yaml:"eventPattern"`
 	// A name for the metric.
 	//
 	// It can include up to 255 characters.
-	MetricName *string `json:"metricName"`
+	MetricName *string `json:"metricName" yaml:"metricName"`
 	// A label for the units that the metric is measuring.
-	ValueKey *string `json:"valueKey"`
+	ValueKey *string `json:"valueKey" yaml:"valueKey"`
 	// A label for the units that the metric is measuring.
-	UnitLabel *string `json:"unitLabel"`
+	UnitLabel *string `json:"unitLabel" yaml:"unitLabel"`
 }
 
 // A structure that contains the configuration of which variation to use as the "control" version.
@@ -680,11 +680,11 @@ type CfnExperiment_MetricGoalObjectProperty struct {
 //
 type CfnExperiment_OnlineAbConfigObjectProperty struct {
 	// The name of the variation that is to be the default variation that the other variations are compared to.
-	ControlTreatmentName *string `json:"controlTreatmentName"`
+	ControlTreatmentName *string `json:"controlTreatmentName" yaml:"controlTreatmentName"`
 	// A set of key-value pairs.
 	//
 	// The keys are treatment names, and the values are the portion of experiment traffic to be assigned to that treatment. Specify the traffic portion in thousandths of a percent, so 20,000 for a variation would allocate 20% of the experiment traffic to that variation.
-	TreatmentWeights interface{} `json:"treatmentWeights"`
+	TreatmentWeights interface{} `json:"treatmentWeights" yaml:"treatmentWeights"`
 }
 
 // A structure that defines one treatment in an experiment.
@@ -695,15 +695,15 @@ type CfnExperiment_OnlineAbConfigObjectProperty struct {
 //
 type CfnExperiment_TreatmentObjectProperty struct {
 	// The name of the feature for this experiment.
-	Feature *string `json:"feature"`
+	Feature *string `json:"feature" yaml:"feature"`
 	// A name for this treatment.
 	//
 	// It can include up to 127 characters.
-	TreatmentName *string `json:"treatmentName"`
+	TreatmentName *string `json:"treatmentName" yaml:"treatmentName"`
 	// The name of the variation to use for this treatment.
-	Variation *string `json:"variation"`
+	Variation *string `json:"variation" yaml:"variation"`
 	// The description of the treatment.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 }
 
 // This structure defines how much experiment traffic to allocate to one treatment used in the experiment.
@@ -714,9 +714,9 @@ type CfnExperiment_TreatmentToWeightProperty struct {
 	// The portion of experiment traffic to allocate to this treatment.
 	//
 	// Specify the traffic portion in thousandths of a percent, so 20,000 allocated to a treatment would allocate 20% of the experiment traffic to that treatment.
-	SplitWeight *float64 `json:"splitWeight"`
+	SplitWeight *float64 `json:"splitWeight" yaml:"splitWeight"`
 	// The name of the treatment.
-	Treatment *string `json:"treatment"`
+	Treatment *string `json:"treatment" yaml:"treatment"`
 }
 
 // Properties for defining a `CfnExperiment`.
@@ -727,29 +727,29 @@ type CfnExperimentProps struct {
 	// An array of structures that defines the metrics used for the experiment, and whether a higher or lower value for each metric is the goal.
 	//
 	// You can use up to three metrics in an experiment.
-	MetricGoals interface{} `json:"metricGoals"`
+	MetricGoals interface{} `json:"metricGoals" yaml:"metricGoals"`
 	// A name for the new experiment.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// A structure that contains the configuration of which variation to use as the "control" version.
 	//
 	// The "control" version is used for comparison with other variations. This structure also specifies how much experiment traffic is allocated to each variation.
-	OnlineAbConfig interface{} `json:"onlineAbConfig"`
+	OnlineAbConfig interface{} `json:"onlineAbConfig" yaml:"onlineAbConfig"`
 	// The name or the ARN of the project where this experiment is to be created.
-	Project *string `json:"project"`
+	Project *string `json:"project" yaml:"project"`
 	// An array of structures that describe the configuration of each feature variation used in the experiment.
-	Treatments interface{} `json:"treatments"`
+	Treatments interface{} `json:"treatments" yaml:"treatments"`
 	// An optional description of the experiment.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// When Evidently assigns a particular user session to an experiment, it must use a randomization ID to determine which variation the user session is served.
 	//
 	// This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the experiment name as the `randomizationSalt` .
-	RandomizationSalt *string `json:"randomizationSalt"`
+	RandomizationSalt *string `json:"randomizationSalt" yaml:"randomizationSalt"`
 	// The portion of the available audience that you want to allocate to this experiment, in thousandths of a percent.
 	//
 	// The available audience is the total audience minus the audience that you have allocated to overrides or current launches of this feature.
 	//
 	// This is represented in thousandths of a percent. For example, specify 10,000 to allocate 10% of the available audience.
-	SamplingRate *float64 `json:"samplingRate"`
+	SamplingRate *float64 `json:"samplingRate" yaml:"samplingRate"`
 	// Assigns one or more tags (key-value pairs) to the experiment.
 	//
 	// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
@@ -759,7 +759,7 @@ type CfnExperimentProps struct {
 	// You can associate as many as 50 tags with an experiment.
 	//
 	// For more information, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Evidently::Feature`.
@@ -1384,9 +1384,9 @@ func (c *jsiiProxy_CfnFeature) ValidateProperties(_properties interface{}) {
 //
 type CfnFeature_EntityOverrideProperty struct {
 	// The entity ID to be served the variation specified in `Variation` .
-	EntityId *string `json:"entityId"`
+	EntityId *string `json:"entityId" yaml:"entityId"`
 	// The name of the variation to serve to the user session that matches the `EntityId` .
-	Variation *string `json:"variation"`
+	Variation *string `json:"variation" yaml:"variation"`
 }
 
 // This structure contains the name and variation value of one variation of a feature.
@@ -1397,17 +1397,17 @@ type CfnFeature_EntityOverrideProperty struct {
 //
 type CfnFeature_VariationObjectProperty struct {
 	// The value assigned to this variation, if the variation type is boolean.
-	BooleanValue interface{} `json:"booleanValue"`
+	BooleanValue interface{} `json:"booleanValue" yaml:"booleanValue"`
 	// The value assigned to this variation, if the variation type is a double.
-	DoubleValue *float64 `json:"doubleValue"`
+	DoubleValue *float64 `json:"doubleValue" yaml:"doubleValue"`
 	// The value assigned to this variation, if the variation type is a long.
-	LongValue *float64 `json:"longValue"`
+	LongValue *float64 `json:"longValue" yaml:"longValue"`
 	// The value assigned to this variation, if the variation type is a string.
-	StringValue *string `json:"stringValue"`
+	StringValue *string `json:"stringValue" yaml:"stringValue"`
 	// A name for the variation.
 	//
 	// It can include up to 127 characters.
-	VariationName *string `json:"variationName"`
+	VariationName *string `json:"variationName" yaml:"variationName"`
 }
 
 // Properties for defining a `CfnFeature`.
@@ -1418,13 +1418,13 @@ type CfnFeatureProps struct {
 	// The name for the feature.
 	//
 	// It can include up to 127 characters.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The name or ARN of the project that is to contain the new feature.
-	Project *string `json:"project"`
+	Project *string `json:"project" yaml:"project"`
 	// An array of structures that contain the configuration of the feature's different variations.
 	//
 	// Each `VariationObject` in the `Variations` array for a feature must have the same type of value ( `BooleanValue` , `DoubleValue` , `LongValue` or `StringValue` ).
-	Variations interface{} `json:"variations"`
+	Variations interface{} `json:"variations" yaml:"variations"`
 	// The name of the variation to use as the default variation.
 	//
 	// The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature.
@@ -1432,17 +1432,17 @@ type CfnFeatureProps struct {
 	// This variation must also be listed in the `Variations` structure.
 	//
 	// If you omit `DefaultVariation` , the first variation listed in the `Variations` structure is used as the default variation.
-	DefaultVariation *string `json:"defaultVariation"`
+	DefaultVariation *string `json:"defaultVariation" yaml:"defaultVariation"`
 	// An optional description of the feature.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Specify users that should always be served a specific variation of a feature.
 	//
 	// Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
-	EntityOverrides interface{} `json:"entityOverrides"`
+	EntityOverrides interface{} `json:"entityOverrides" yaml:"entityOverrides"`
 	// Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments.
 	//
 	// Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
-	EvaluationStrategy *string `json:"evaluationStrategy"`
+	EvaluationStrategy *string `json:"evaluationStrategy" yaml:"evaluationStrategy"`
 	// Assigns one or more tags (key-value pairs) to the feature.
 	//
 	// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
@@ -1452,7 +1452,7 @@ type CfnFeatureProps struct {
 	// You can associate as many as 50 tags with a feature.
 	//
 	// For more information, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Evidently::Launch`.
@@ -2079,11 +2079,11 @@ type CfnLaunch_GroupToWeightProperty struct {
 	// The name of the launch group.
 	//
 	// It can include up to 127 characters.
-	GroupName *string `json:"groupName"`
+	GroupName *string `json:"groupName" yaml:"groupName"`
 	// The portion of launch traffic to allocate to this launch group.
 	//
 	// This is represented in thousandths of a percent. For example, specify 20,000 to allocate 20% of the launch audience to this launch group.
-	SplitWeight *float64 `json:"splitWeight"`
+	SplitWeight *float64 `json:"splitWeight" yaml:"splitWeight"`
 }
 
 // A structure that defines one launch group in a launch.
@@ -2094,15 +2094,15 @@ type CfnLaunch_GroupToWeightProperty struct {
 //
 type CfnLaunch_LaunchGroupObjectProperty struct {
 	// The feature that this launch is using.
-	Feature *string `json:"feature"`
+	Feature *string `json:"feature" yaml:"feature"`
 	// A name for this launch group.
 	//
 	// It can include up to 127 characters.
-	GroupName *string `json:"groupName"`
+	GroupName *string `json:"groupName" yaml:"groupName"`
 	// The feature variation to use for this launch group.
-	Variation *string `json:"variation"`
+	Variation *string `json:"variation" yaml:"variation"`
 	// A description of the launch group.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 }
 
 // This structure defines a metric that you want to use to evaluate the variations during a launch or experiment.
@@ -2113,19 +2113,19 @@ type CfnLaunch_MetricDefinitionObjectProperty struct {
 	// The entity, such as a user or session, that does an action that causes a metric value to be recorded.
 	//
 	// An example is `userDetails.userID` .
-	EntityIdKey *string `json:"entityIdKey"`
+	EntityIdKey *string `json:"entityIdKey" yaml:"entityIdKey"`
 	// The EventBridge event pattern that defines how the metric is recorded.
 	//
 	// For more information about EventBridge event patterns, see [Amazon EventBridge event patterns](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html) .
-	EventPattern *string `json:"eventPattern"`
+	EventPattern *string `json:"eventPattern" yaml:"eventPattern"`
 	// A name for the metric.
 	//
 	// It can include up to 255 characters.
-	MetricName *string `json:"metricName"`
+	MetricName *string `json:"metricName" yaml:"metricName"`
 	// The value that is tracked to produce the metric.
-	ValueKey *string `json:"valueKey"`
+	ValueKey *string `json:"valueKey" yaml:"valueKey"`
 	// A label for the units that the metric is measuring.
-	UnitLabel *string `json:"unitLabel"`
+	UnitLabel *string `json:"unitLabel" yaml:"unitLabel"`
 }
 
 // A structure that defines when each step of the launch is to start, and how much launch traffic is to be allocated to each variation during each step.
@@ -2134,11 +2134,11 @@ type CfnLaunch_MetricDefinitionObjectProperty struct {
 //
 type CfnLaunch_StepConfigProperty struct {
 	// An array of structures that define how much launch traffic to allocate to each launch group during this step of the launch.
-	GroupWeights interface{} `json:"groupWeights"`
+	GroupWeights interface{} `json:"groupWeights" yaml:"groupWeights"`
 	// The date and time to start this step of the launch.
 	//
 	// Use UTC format, `yyyy-MM-ddTHH:mm:ssZ` . For example, `2025-11-25T23:59:59Z`
-	StartTime *string `json:"startTime"`
+	StartTime *string `json:"startTime" yaml:"startTime"`
 }
 
 // Properties for defining a `CfnLaunch`.
@@ -2149,25 +2149,25 @@ type CfnLaunchProps struct {
 	// An array of structures that contains the feature and variations that are to be used for the launch.
 	//
 	// You can up to five launch groups in a launch.
-	Groups interface{} `json:"groups"`
+	Groups interface{} `json:"groups" yaml:"groups"`
 	// The name for the launch.
 	//
 	// It can include up to 127 characters.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The name or ARN of the project that you want to create the launch in.
-	Project *string `json:"project"`
+	Project *string `json:"project" yaml:"project"`
 	// An array of structures that define the traffic allocation percentages among the feature variations during each step of the launch.
-	ScheduledSplitsConfig interface{} `json:"scheduledSplitsConfig"`
+	ScheduledSplitsConfig interface{} `json:"scheduledSplitsConfig" yaml:"scheduledSplitsConfig"`
 	// An optional description for the launch.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// An array of structures that define the metrics that will be used to monitor the launch performance.
 	//
 	// You can have up to three metric monitors in the array.
-	MetricMonitors interface{} `json:"metricMonitors"`
+	MetricMonitors interface{} `json:"metricMonitors" yaml:"metricMonitors"`
 	// When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served.
 	//
 	// This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the launch name as the `randomizationsSalt` .
-	RandomizationSalt *string `json:"randomizationSalt"`
+	RandomizationSalt *string `json:"randomizationSalt" yaml:"randomizationSalt"`
 	// Assigns one or more tags (key-value pairs) to the launch.
 	//
 	// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
@@ -2177,7 +2177,7 @@ type CfnLaunchProps struct {
 	// You can associate as many as 50 tags with a launch.
 	//
 	// For more information, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Evidently::Project`.
@@ -2720,9 +2720,9 @@ func (c *jsiiProxy_CfnProject) ValidateProperties(_properties interface{}) {
 //
 type CfnProject_DataDeliveryObjectProperty struct {
 	// If the project stores evaluation events in CloudWatch Logs , this structure stores the log group name.
-	LogGroup *string `json:"logGroup"`
+	LogGroup *string `json:"logGroup" yaml:"logGroup"`
 	// If the project stores evaluation events in an Amazon S3 bucket, this structure stores the bucket name and bucket prefix.
-	S3 interface{} `json:"s3"`
+	S3 interface{} `json:"s3" yaml:"s3"`
 }
 
 // If the project stores evaluation events in an Amazon S3 bucket, this structure stores the bucket name and bucket prefix.
@@ -2731,9 +2731,9 @@ type CfnProject_DataDeliveryObjectProperty struct {
 //
 type CfnProject_S3DestinationProperty struct {
 	// The name of the bucket in which Evidently stores evaluation events.
-	BucketName *string `json:"bucketName"`
+	BucketName *string `json:"bucketName" yaml:"bucketName"`
 	// The bucket prefix in which Evidently stores evaluation events.
-	Prefix *string `json:"prefix"`
+	Prefix *string `json:"prefix" yaml:"prefix"`
 }
 
 // Properties for defining a `CfnProject`.
@@ -2744,15 +2744,15 @@ type CfnProjectProps struct {
 	// The name for the project.
 	//
 	// It can include up to 127 characters.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// A structure that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so.
 	//
 	// If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view.
 	//
 	// You can't specify both `CloudWatchLogs` and `S3Destination` in the same operation.
-	DataDelivery interface{} `json:"dataDelivery"`
+	DataDelivery interface{} `json:"dataDelivery" yaml:"dataDelivery"`
 	// An optional description of the project.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Assigns one or more tags (key-value pairs) to the project.
 	//
 	// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
@@ -2762,6 +2762,6 @@ type CfnProjectProps struct {
 	// You can associate as many as 50 tags with a project.
 	//
 	// For more information, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 

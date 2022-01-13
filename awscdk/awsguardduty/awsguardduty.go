@@ -527,7 +527,7 @@ func (c *jsiiProxy_CfnDetector) ValidateProperties(_properties interface{}) {
 //
 type CfnDetector_CFNDataSourceConfigurationsProperty struct {
 	// Describes whether S3 data event logs are enabled as a data source.
-	S3Logs interface{} `json:"s3Logs"`
+	S3Logs interface{} `json:"s3Logs" yaml:"s3Logs"`
 }
 
 // Describes whether S3 data event logs will be enabled as a data source when the detector is created.
@@ -536,7 +536,7 @@ type CfnDetector_CFNDataSourceConfigurationsProperty struct {
 //
 type CfnDetector_CFNS3LogsConfigurationProperty struct {
 	// The status of S3 data event logs as a data source.
-	Enable interface{} `json:"enable"`
+	Enable interface{} `json:"enable" yaml:"enable"`
 }
 
 // Properties for defining a `CfnDetector`.
@@ -545,11 +545,11 @@ type CfnDetector_CFNS3LogsConfigurationProperty struct {
 //
 type CfnDetectorProps struct {
 	// Specifies whether the detector is to be enabled on creation.
-	Enable interface{} `json:"enable"`
+	Enable interface{} `json:"enable" yaml:"enable"`
 	// Describes which data sources will be enabled for the detector.
-	DataSources interface{} `json:"dataSources"`
+	DataSources interface{} `json:"dataSources" yaml:"dataSources"`
 	// Specifies how frequently updated findings are exported.
-	FindingPublishingFrequency *string `json:"findingPublishingFrequency"`
+	FindingPublishingFrequency *string `json:"findingPublishingFrequency" yaml:"findingPublishingFrequency"`
 }
 
 // A CloudFormation `AWS::GuardDuty::Filter`.
@@ -1130,15 +1130,15 @@ func (c *jsiiProxy_CfnFilter) ValidateProperties(_properties interface{}) {
 //
 type CfnFilter_ConditionProperty struct {
 	// Represents the equal condition to apply to a single field when querying for findings.
-	Eq *[]*string `json:"eq"`
+	Eq *[]*string `json:"eq" yaml:"eq"`
 	// Represents the greater than or equal condition to apply to a single field when querying for findings.
-	Gte *float64 `json:"gte"`
+	Gte *float64 `json:"gte" yaml:"gte"`
 	// Represents the less than condition to apply to a single field when querying for findings.
-	Lt *float64 `json:"lt"`
+	Lt *float64 `json:"lt" yaml:"lt"`
 	// Represents the less than or equal condition to apply to a single field when querying for findings.
-	Lte *float64 `json:"lte"`
+	Lte *float64 `json:"lte" yaml:"lte"`
 	// Represents the not equal condition to apply to a single field when querying for findings.
-	Neq *[]*string `json:"neq"`
+	Neq *[]*string `json:"neq" yaml:"neq"`
 }
 
 // Represents a map of finding properties that match specified conditions and values when querying findings.
@@ -1205,9 +1205,9 @@ type CfnFilter_FindingCriteriaProperty struct {
 	// - updatedAt
 	//
 	// Type: ISO 8601 string format: YYYY-MM-DDTHH:MM:SS.SSSZ or YYYY-MM-DDTHH:MM:SSZ depending on whether the value contains milliseconds.
-	Criterion interface{} `json:"criterion"`
+	Criterion interface{} `json:"criterion" yaml:"criterion"`
 	// Specifies the condition to be applied to a single field when filtering through findings.
-	ItemType interface{} `json:"itemType"`
+	ItemType interface{} `json:"itemType" yaml:"itemType"`
 }
 
 // Properties for defining a `CfnFilter`.
@@ -1216,23 +1216,23 @@ type CfnFilter_FindingCriteriaProperty struct {
 //
 type CfnFilterProps struct {
 	// Specifies the action that is to be applied to the findings that match the filter.
-	Action *string `json:"action"`
+	Action *string `json:"action" yaml:"action"`
 	// The description of the filter.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
-	DetectorId *string `json:"detectorId"`
+	DetectorId *string `json:"detectorId" yaml:"detectorId"`
 	// Represents the criteria to be used in the filter for querying findings.
-	FindingCriteria interface{} `json:"findingCriteria"`
+	FindingCriteria interface{} `json:"findingCriteria" yaml:"findingCriteria"`
 	// The name of the filter.
 	//
 	// Minimum length of 3. Maximum length of 64. Valid characters include alphanumeric characters, dot (.), underscore (_), and dash (-). Spaces are not allowed.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// Specifies the position of the filter in the list of current filters.
 	//
 	// Also specifies the order in which this filter is applied to the findings.
 	//
 	// > By default filters may not be created in the same order as they are ranked. To ensure filters are created in the correct order you can use the optional `DependsOn` attribute with the following syntax: `"DependsOn":[ "ObjectName" ]` . You can find more information on using this attribute [here](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) .
-	Rank *float64 `json:"rank"`
+	Rank *float64 `json:"rank" yaml:"rank"`
 }
 
 // A CloudFormation `AWS::GuardDuty::IPSet`.
@@ -1793,17 +1793,17 @@ func (c *jsiiProxy_CfnIPSet) ValidateProperties(_properties interface{}) {
 //
 type CfnIPSetProps struct {
 	// Indicates whether or not  uses the `IPSet` .
-	Activate interface{} `json:"activate"`
+	Activate interface{} `json:"activate" yaml:"activate"`
 	// The unique ID of the detector of the GuardDuty account that you want to create an IPSet for.
-	DetectorId *string `json:"detectorId"`
+	DetectorId *string `json:"detectorId" yaml:"detectorId"`
 	// The format of the file that contains the IPSet.
-	Format *string `json:"format"`
+	Format *string `json:"format" yaml:"format"`
 	// The URI of the file that contains the IPSet.
-	Location *string `json:"location"`
+	Location *string `json:"location" yaml:"location"`
 	// The user-friendly name to identify the IPSet.
 	//
 	// Allowed characters are alphanumerics, spaces, hyphens (-), and underscores (_).
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // A CloudFormation `AWS::GuardDuty::Master`.
@@ -2324,13 +2324,13 @@ func (c *jsiiProxy_CfnMaster) ValidateProperties(_properties interface{}) {
 //
 type CfnMasterProps struct {
 	// The unique ID of the detector of the GuardDuty member account.
-	DetectorId *string `json:"detectorId"`
+	DetectorId *string `json:"detectorId" yaml:"detectorId"`
 	// The AWS account ID of the account designated as the  administrator account.
-	MasterId *string `json:"masterId"`
+	MasterId *string `json:"masterId" yaml:"masterId"`
 	// The ID of the invitation that is sent to the account designated as a member account.
 	//
 	// You can find the invitation ID by using the ListInvitation action of the  API.
-	InvitationId *string `json:"invitationId"`
+	InvitationId *string `json:"invitationId" yaml:"invitationId"`
 }
 
 // A CloudFormation `AWS::GuardDuty::Member`.
@@ -2911,19 +2911,19 @@ func (c *jsiiProxy_CfnMember) ValidateProperties(_properties interface{}) {
 //
 type CfnMemberProps struct {
 	// The ID of the detector associated with the  service to add the member to.
-	DetectorId *string `json:"detectorId"`
+	DetectorId *string `json:"detectorId" yaml:"detectorId"`
 	// The email address associated with the member account.
-	Email *string `json:"email"`
+	Email *string `json:"email" yaml:"email"`
 	// The AWS account ID of the account to designate as a member.
-	MemberId *string `json:"memberId"`
+	MemberId *string `json:"memberId" yaml:"memberId"`
 	// Specifies whether or not to disable email notification for the member account that you invite.
-	DisableEmailNotification interface{} `json:"disableEmailNotification"`
+	DisableEmailNotification interface{} `json:"disableEmailNotification" yaml:"disableEmailNotification"`
 	// The invitation message that you want to send to the accounts that you're inviting to GuardDuty as members.
-	Message *string `json:"message"`
+	Message *string `json:"message" yaml:"message"`
 	// You can use the `Status` property to update the status of the relationship between the member account and its administrator account.
 	//
 	// Valid values are `Created` and `Invited` when using an `AWS::GuardDuty::Member` resource. If the value for this property is not provided or set to `Created` , a member account is created but not invited. If the value of this property is set to `Invited` , a member account is created and invited.
-	Status *string `json:"status"`
+	Status *string `json:"status" yaml:"status"`
 }
 
 // A CloudFormation `AWS::GuardDuty::ThreatIntelSet`.
@@ -3484,14 +3484,14 @@ func (c *jsiiProxy_CfnThreatIntelSet) ValidateProperties(_properties interface{}
 //
 type CfnThreatIntelSetProps struct {
 	// A Boolean value that indicates whether GuardDuty is to start using the uploaded ThreatIntelSet.
-	Activate interface{} `json:"activate"`
+	Activate interface{} `json:"activate" yaml:"activate"`
 	// The unique ID of the detector of the GuardDuty account that you want to create a threatIntelSet for.
-	DetectorId *string `json:"detectorId"`
+	DetectorId *string `json:"detectorId" yaml:"detectorId"`
 	// The format of the file that contains the ThreatIntelSet.
-	Format *string `json:"format"`
+	Format *string `json:"format" yaml:"format"`
 	// The URI of the file that contains the ThreatIntelSet.
-	Location *string `json:"location"`
+	Location *string `json:"location" yaml:"location"`
 	// A user-friendly ThreatIntelSet name displayed in all findings that are generated by activity that involves IP addresses included in this ThreatIntelSet.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 

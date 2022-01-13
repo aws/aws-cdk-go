@@ -248,11 +248,27 @@ func init() {
 		reflect.TypeOf((*HttpIntegrationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-apigatewayv2-alpha.HttpIntegrationSubtype",
+		reflect.TypeOf((*HttpIntegrationSubtype)(nil)).Elem(),
+		map[string]interface{}{
+			"EVENTBRIDGE_PUT_EVENTS": HttpIntegrationSubtype_EVENTBRIDGE_PUT_EVENTS,
+			"SQS_SEND_MESSAGE": HttpIntegrationSubtype_SQS_SEND_MESSAGE,
+			"SQS_RECEIVE_MESSAGE": HttpIntegrationSubtype_SQS_RECEIVE_MESSAGE,
+			"SQS_DELETE_MESSAGE": HttpIntegrationSubtype_SQS_DELETE_MESSAGE,
+			"SQS_PURGE_QUEUE": HttpIntegrationSubtype_SQS_PURGE_QUEUE,
+			"APPCONFIG_GET_CONFIGURATION": HttpIntegrationSubtype_APPCONFIG_GET_CONFIGURATION,
+			"KINESIS_PUT_RECORD": HttpIntegrationSubtype_KINESIS_PUT_RECORD,
+			"STEPFUNCTIONS_START_EXECUTION": HttpIntegrationSubtype_STEPFUNCTIONS_START_EXECUTION,
+			"STEPFUNCTIONS_START_SYNC_EXECUTION": HttpIntegrationSubtype_STEPFUNCTIONS_START_SYNC_EXECUTION,
+			"STEPFUNCTIONS_STOP_EXECUTION": HttpIntegrationSubtype_STEPFUNCTIONS_STOP_EXECUTION,
+		},
+	)
+	_jsii_.RegisterEnum(
 		"@aws-cdk/aws-apigatewayv2-alpha.HttpIntegrationType",
 		reflect.TypeOf((*HttpIntegrationType)(nil)).Elem(),
 		map[string]interface{}{
-			"LAMBDA_PROXY": HttpIntegrationType_LAMBDA_PROXY,
 			"HTTP_PROXY": HttpIntegrationType_HTTP_PROXY,
+			"AWS_PROXY": HttpIntegrationType_AWS_PROXY,
 		},
 	)
 	_jsii_.RegisterEnum(
@@ -754,6 +770,16 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-apigatewayv2-alpha.IntegrationCredentials",
+		reflect.TypeOf((*IntegrationCredentials)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "credentialsArn", GoGetter: "CredentialsArn"},
+		},
+		func() interface{} {
+			return &jsiiProxy_IntegrationCredentials{}
+		},
+	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-apigatewayv2-alpha.MTLSConfig",
 		reflect.TypeOf((*MTLSConfig)(nil)).Elem(),
@@ -958,6 +984,7 @@ func init() {
 		reflect.TypeOf((*WebSocketIntegrationType)(nil)).Elem(),
 		map[string]interface{}{
 			"AWS_PROXY": WebSocketIntegrationType_AWS_PROXY,
+			"MOCK": WebSocketIntegrationType_MOCK,
 		},
 	)
 	_jsii_.RegisterClass(

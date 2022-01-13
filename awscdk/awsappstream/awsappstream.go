@@ -600,9 +600,9 @@ func (c *jsiiProxy_CfnAppBlock) ValidateProperties(_properties interface{}) {
 //
 type CfnAppBlock_S3LocationProperty struct {
 	// The S3 bucket of the app block.
-	S3Bucket *string `json:"s3Bucket"`
+	S3Bucket *string `json:"s3Bucket" yaml:"s3Bucket"`
 	// The S3 key of the S3 object of the virtual hard disk.
-	S3Key *string `json:"s3Key"`
+	S3Key *string `json:"s3Key" yaml:"s3Key"`
 }
 
 // The details of the script.
@@ -611,13 +611,13 @@ type CfnAppBlock_S3LocationProperty struct {
 //
 type CfnAppBlock_ScriptDetailsProperty struct {
 	// The run path for the script.
-	ExecutablePath *string `json:"executablePath"`
+	ExecutablePath *string `json:"executablePath" yaml:"executablePath"`
 	// The S3 object location of the script.
-	ScriptS3Location interface{} `json:"scriptS3Location"`
+	ScriptS3Location interface{} `json:"scriptS3Location" yaml:"scriptS3Location"`
 	// The run timeout, in seconds, for the script.
-	TimeoutInSeconds *float64 `json:"timeoutInSeconds"`
+	TimeoutInSeconds *float64 `json:"timeoutInSeconds" yaml:"timeoutInSeconds"`
 	// The parameters used in the run path for the script.
-	ExecutableParameters *string `json:"executableParameters"`
+	ExecutableParameters *string `json:"executableParameters" yaml:"executableParameters"`
 }
 
 // Properties for defining a `CfnAppBlock`.
@@ -628,17 +628,17 @@ type CfnAppBlockProps struct {
 	// The name of the app block.
 	//
 	// *Pattern* : `^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$`
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The setup script details of the app block.
-	SetupScriptDetails interface{} `json:"setupScriptDetails"`
+	SetupScriptDetails interface{} `json:"setupScriptDetails" yaml:"setupScriptDetails"`
 	// The source S3 location of the app block.
-	SourceS3Location interface{} `json:"sourceS3Location"`
+	SourceS3Location interface{} `json:"sourceS3Location" yaml:"sourceS3Location"`
 	// The description of the app block.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The display name of the app block.
-	DisplayName *string `json:"displayName"`
+	DisplayName *string `json:"displayName" yaml:"displayName"`
 	// The tags of the app block.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::AppStream::Application`.
@@ -1352,9 +1352,9 @@ func (c *jsiiProxy_CfnApplication) ValidateProperties(_properties interface{}) {
 //
 type CfnApplication_S3LocationProperty struct {
 	// The S3 bucket of the S3 object.
-	S3Bucket *string `json:"s3Bucket"`
+	S3Bucket *string `json:"s3Bucket" yaml:"s3Bucket"`
 	// The S3 key of the S3 object.
-	S3Key *string `json:"s3Key"`
+	S3Key *string `json:"s3Key" yaml:"s3Key"`
 }
 
 // A CloudFormation `AWS::AppStream::ApplicationFleetAssociation`.
@@ -1855,9 +1855,9 @@ func (c *jsiiProxy_CfnApplicationFleetAssociation) ValidateProperties(_propertie
 //
 type CfnApplicationFleetAssociationProps struct {
 	// The ARN of the application.
-	ApplicationArn *string `json:"applicationArn"`
+	ApplicationArn *string `json:"applicationArn" yaml:"applicationArn"`
 	// The name of the fleet.
-	FleetName *string `json:"fleetName"`
+	FleetName *string `json:"fleetName" yaml:"fleetName"`
 }
 
 // Properties for defining a `CfnApplication`.
@@ -1866,39 +1866,39 @@ type CfnApplicationFleetAssociationProps struct {
 //
 type CfnApplicationProps struct {
 	// The app block ARN with which the application should be associated.
-	AppBlockArn *string `json:"appBlockArn"`
+	AppBlockArn *string `json:"appBlockArn" yaml:"appBlockArn"`
 	// The icon S3 location of the application.
-	IconS3Location interface{} `json:"iconS3Location"`
+	IconS3Location interface{} `json:"iconS3Location" yaml:"iconS3Location"`
 	// The instance families the application supports.
 	//
 	// *Allowed Values* : `GENERAL_PURPOSE` | `GRAPHICS_G4`
-	InstanceFamilies *[]*string `json:"instanceFamilies"`
+	InstanceFamilies *[]*string `json:"instanceFamilies" yaml:"instanceFamilies"`
 	// The launch path of the application.
-	LaunchPath *string `json:"launchPath"`
+	LaunchPath *string `json:"launchPath" yaml:"launchPath"`
 	// The name of the application.
 	//
 	// This name is visible to users when a name is not specified in the DisplayName property.
 	//
 	// *Pattern* : `^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$`
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The platforms the application supports.
 	//
 	// *Allowed Values* : `WINDOWS_SERVER_2019` | `AMAZON_LINUX2`
-	Platforms *[]*string `json:"platforms"`
+	Platforms *[]*string `json:"platforms" yaml:"platforms"`
 	// A list of attributes to delete from an application.
-	AttributesToDelete *[]*string `json:"attributesToDelete"`
+	AttributesToDelete *[]*string `json:"attributesToDelete" yaml:"attributesToDelete"`
 	// The description of the application.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The display name of the application.
 	//
 	// This name is visible to users in the application catalog.
-	DisplayName *string `json:"displayName"`
+	DisplayName *string `json:"displayName" yaml:"displayName"`
 	// The launch parameters of the application.
-	LaunchParameters *string `json:"launchParameters"`
+	LaunchParameters *string `json:"launchParameters" yaml:"launchParameters"`
 	// The tags of the application.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// The working directory of the application.
-	WorkingDirectory *string `json:"workingDirectory"`
+	WorkingDirectory *string `json:"workingDirectory" yaml:"workingDirectory"`
 }
 
 // A CloudFormation `AWS::AppStream::DirectoryConfig`.
@@ -2421,9 +2421,9 @@ type CfnDirectoryConfig_ServiceAccountCredentialsProperty struct {
 	// The user name of the account.
 	//
 	// This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.
-	AccountName *string `json:"accountName"`
+	AccountName *string `json:"accountName" yaml:"accountName"`
 	// The password for the account.
-	AccountPassword *string `json:"accountPassword"`
+	AccountPassword *string `json:"accountPassword" yaml:"accountPassword"`
 }
 
 // Properties for defining a `CfnDirectoryConfig`.
@@ -2432,13 +2432,13 @@ type CfnDirectoryConfig_ServiceAccountCredentialsProperty struct {
 //
 type CfnDirectoryConfigProps struct {
 	// The fully qualified name of the directory (for example, corp.example.com).
-	DirectoryName *string `json:"directoryName"`
+	DirectoryName *string `json:"directoryName" yaml:"directoryName"`
 	// The distinguished names of the organizational units for computer accounts.
-	OrganizationalUnitDistinguishedNames *[]*string `json:"organizationalUnitDistinguishedNames"`
+	OrganizationalUnitDistinguishedNames *[]*string `json:"organizationalUnitDistinguishedNames" yaml:"organizationalUnitDistinguishedNames"`
 	// The credentials for the service account used by the streaming instance to connect to the directory.
 	//
 	// Do not use this parameter directly. Use `ServiceAccountCredentials` as an input parameter with `noEcho` as shown in the [Parameters](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html) . For best practices information, see [Do Not Embed Credentials in Your Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/best-practices.html#creds) .
-	ServiceAccountCredentials interface{} `json:"serviceAccountCredentials"`
+	ServiceAccountCredentials interface{} `json:"serviceAccountCredentials" yaml:"serviceAccountCredentials"`
 }
 
 // A CloudFormation `AWS::AppStream::Fleet`.
@@ -3290,7 +3290,7 @@ func (c *jsiiProxy_CfnFleet) ValidateProperties(_properties interface{}) {
 //
 type CfnFleet_ComputeCapacityProperty struct {
 	// The desired number of streaming instances.
-	DesiredInstances *float64 `json:"desiredInstances"`
+	DesiredInstances *float64 `json:"desiredInstances" yaml:"desiredInstances"`
 }
 
 // The name of the directory and organizational unit (OU) to use to join a fleet to a Microsoft Active Directory domain.
@@ -3299,9 +3299,9 @@ type CfnFleet_ComputeCapacityProperty struct {
 //
 type CfnFleet_DomainJoinInfoProperty struct {
 	// The fully qualified name of the directory (for example, corp.example.com).
-	DirectoryName *string `json:"directoryName"`
+	DirectoryName *string `json:"directoryName" yaml:"directoryName"`
 	// The distinguished name of the organizational unit for computer accounts.
-	OrganizationalUnitDistinguishedName *string `json:"organizationalUnitDistinguishedName"`
+	OrganizationalUnitDistinguishedName *string `json:"organizationalUnitDistinguishedName" yaml:"organizationalUnitDistinguishedName"`
 }
 
 // The VPC configuration information for the fleet.
@@ -3310,11 +3310,11 @@ type CfnFleet_DomainJoinInfoProperty struct {
 //
 type CfnFleet_VpcConfigProperty struct {
 	// The identifiers of the security groups for the fleet.
-	SecurityGroupIds *[]*string `json:"securityGroupIds"`
+	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
 	// The identifiers of the subnets to which a network interface is attached from the fleet instance.
 	//
 	// Fleet instances can use one or two subnets.
-	SubnetIds *[]*string `json:"subnetIds"`
+	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
 }
 
 // Properties for defining a `CfnFleet`.
@@ -3362,29 +3362,29 @@ type CfnFleetProps struct {
 	//
 	// - stream.standard.small
 	// - stream.standard.medium
-	InstanceType *string `json:"instanceType"`
+	InstanceType *string `json:"instanceType" yaml:"instanceType"`
 	// A unique name for the fleet.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The desired capacity for the fleet.
 	//
 	// This is not allowed for Elastic fleets.
-	ComputeCapacity interface{} `json:"computeCapacity"`
+	ComputeCapacity interface{} `json:"computeCapacity" yaml:"computeCapacity"`
 	// The description to display.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The amount of time that a streaming session remains active after users disconnect.
 	//
 	// If users try to reconnect to the streaming session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new streaming instance.
 	//
 	// Specify a value between 60 and 360000.
-	DisconnectTimeoutInSeconds *float64 `json:"disconnectTimeoutInSeconds"`
+	DisconnectTimeoutInSeconds *float64 `json:"disconnectTimeoutInSeconds" yaml:"disconnectTimeoutInSeconds"`
 	// The fleet name to display.
-	DisplayName *string `json:"displayName"`
+	DisplayName *string `json:"displayName" yaml:"displayName"`
 	// The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain.
 	//
 	// This is not allowed for Elastic fleets.
-	DomainJoinInfo interface{} `json:"domainJoinInfo"`
+	DomainJoinInfo interface{} `json:"domainJoinInfo" yaml:"domainJoinInfo"`
 	// Enables or disables default internet access for the fleet.
-	EnableDefaultInternetAccess interface{} `json:"enableDefaultInternetAccess"`
+	EnableDefaultInternetAccess interface{} `json:"enableDefaultInternetAccess" yaml:"enableDefaultInternetAccess"`
 	// The fleet type.
 	//
 	// - **ALWAYS_ON** - Provides users with instant-on access to their apps. You are charged for all running instances in your fleet, even if no users are streaming apps.
@@ -3392,13 +3392,13 @@ type CfnFleetProps struct {
 	// - **ELASTIC** - The pool of streaming instances is managed by Amazon AppStream 2.0. When a user selects their application or desktop to launch, they will start streaming after the app block has been downloaded and mounted to a streaming instance.
 	//
 	// *Allowed Values* : `ALWAYS_ON` | `ELASTIC` | `ON_DEMAND`
-	FleetType *string `json:"fleetType"`
+	FleetType *string `json:"fleetType" yaml:"fleetType"`
 	// The ARN of the IAM role that is applied to the fleet.
 	//
 	// To assume a role, the fleet instance calls the AWS Security Token Service `AssumeRole` API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the *appstream_machine_role* credential profile on the instance.
 	//
 	// For more information, see [Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances](https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html) in the *Amazon AppStream 2.0 Administration Guide* .
-	IamRoleArn *string `json:"iamRoleArn"`
+	IamRoleArn *string `json:"iamRoleArn" yaml:"iamRoleArn"`
 	// The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `DisconnectTimeoutInSeconds` time interval begins.
 	//
 	// Users are notified before they are disconnected due to inactivity. If they try to reconnect to the streaming session before the time interval specified in `DisconnectTimeoutInSeconds` elapses, they are connected to their previous session. Users are considered idle when they stop providing keyboard or mouse input during their streaming session. File uploads and downloads, audio in, audio out, and pixels changing do not qualify as user activity. If users continue to be idle after the time interval in `IdleDisconnectTimeoutInSeconds` elapses, they are disconnected.
@@ -3406,41 +3406,41 @@ type CfnFleetProps struct {
 	// To prevent users from being disconnected due to inactivity, specify a value of 0. Otherwise, specify a value between 60 and 3600.
 	//
 	// If you enable this feature, we recommend that you specify a value that corresponds exactly to a whole number of minutes (for example, 60, 120, and 180). If you don't do this, the value is rounded to the nearest minute. For example, if you specify a value of 70, users are disconnected after 1 minute of inactivity. If you specify a value that is at the midpoint between two different minutes, the value is rounded up. For example, if you specify a value of 90, users are disconnected after 2 minutes of inactivity.
-	IdleDisconnectTimeoutInSeconds *float64 `json:"idleDisconnectTimeoutInSeconds"`
+	IdleDisconnectTimeoutInSeconds *float64 `json:"idleDisconnectTimeoutInSeconds" yaml:"idleDisconnectTimeoutInSeconds"`
 	// The ARN of the public, private, or shared image to use.
-	ImageArn *string `json:"imageArn"`
+	ImageArn *string `json:"imageArn" yaml:"imageArn"`
 	// The name of the image used to create the fleet.
-	ImageName *string `json:"imageName"`
+	ImageName *string `json:"imageName" yaml:"imageName"`
 	// The maximum number of concurrent sessions that can be run on an Elastic fleet.
 	//
 	// This setting is required for Elastic fleets, but is not used for other fleet types.
-	MaxConcurrentSessions *float64 `json:"maxConcurrentSessions"`
+	MaxConcurrentSessions *float64 `json:"maxConcurrentSessions" yaml:"maxConcurrentSessions"`
 	// The maximum amount of time that a streaming session can remain active, in seconds.
 	//
 	// If users are still connected to a streaming instance five minutes before this limit is reached, they are prompted to save any open documents before being disconnected. After this time elapses, the instance is terminated and replaced by a new instance.
 	//
 	// Specify a value between 600 and 360000.
-	MaxUserDurationInSeconds *float64 `json:"maxUserDurationInSeconds"`
+	MaxUserDurationInSeconds *float64 `json:"maxUserDurationInSeconds" yaml:"maxUserDurationInSeconds"`
 	// The platform of the fleet.
 	//
 	// Platform is a required setting for Elastic fleets, and is not used for other fleet types.
 	//
 	// *Allowed Values* : `WINDOWS_SERVER_2019` | `AMAZON_LINUX2`
-	Platform *string `json:"platform"`
+	Platform *string `json:"platform" yaml:"platform"`
 	// The AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays.
 	//
 	// The default value is `APP` .
-	StreamView *string `json:"streamView"`
+	StreamView *string `json:"streamView" yaml:"streamView"`
 	// An array of key-value pairs.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// The USB device filter strings that specify which USB devices a user can redirect to the fleet streaming session, when using the Windows native client.
 	//
 	// This is allowed but not required for Elastic fleets.
-	UsbDeviceFilterStrings *[]*string `json:"usbDeviceFilterStrings"`
+	UsbDeviceFilterStrings *[]*string `json:"usbDeviceFilterStrings" yaml:"usbDeviceFilterStrings"`
 	// The VPC configuration for the fleet.
 	//
 	// This is required for Elastic fleets, but not required for other fleet types.
-	VpcConfig interface{} `json:"vpcConfig"`
+	VpcConfig interface{} `json:"vpcConfig" yaml:"vpcConfig"`
 }
 
 // A CloudFormation `AWS::AppStream::ImageBuilder`.
@@ -4165,9 +4165,9 @@ func (c *jsiiProxy_CfnImageBuilder) ValidateProperties(_properties interface{}) 
 //
 type CfnImageBuilder_AccessEndpointProperty struct {
 	// The type of interface endpoint.
-	EndpointType *string `json:"endpointType"`
+	EndpointType *string `json:"endpointType" yaml:"endpointType"`
 	// The identifier (ID) of the VPC in which the interface endpoint is used.
-	VpceId *string `json:"vpceId"`
+	VpceId *string `json:"vpceId" yaml:"vpceId"`
 }
 
 // The name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain.
@@ -4176,9 +4176,9 @@ type CfnImageBuilder_AccessEndpointProperty struct {
 //
 type CfnImageBuilder_DomainJoinInfoProperty struct {
 	// The fully qualified name of the directory (for example, corp.example.com).
-	DirectoryName *string `json:"directoryName"`
+	DirectoryName *string `json:"directoryName" yaml:"directoryName"`
 	// The distinguished name of the organizational unit for computer accounts.
-	OrganizationalUnitDistinguishedName *string `json:"organizationalUnitDistinguishedName"`
+	OrganizationalUnitDistinguishedName *string `json:"organizationalUnitDistinguishedName" yaml:"organizationalUnitDistinguishedName"`
 }
 
 // The VPC configuration for the image builder.
@@ -4187,11 +4187,11 @@ type CfnImageBuilder_DomainJoinInfoProperty struct {
 //
 type CfnImageBuilder_VpcConfigProperty struct {
 	// The identifiers of the security groups for the image builder.
-	SecurityGroupIds *[]*string `json:"securityGroupIds"`
+	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
 	// The identifier of the subnet to which a network interface is attached from the image builder instance.
 	//
 	// An image builder instance can use one subnet.
-	SubnetIds *[]*string `json:"subnetIds"`
+	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
 }
 
 // Properties for defining a `CfnImageBuilder`.
@@ -4234,39 +4234,39 @@ type CfnImageBuilderProps struct {
 	// - stream.graphics-pro.4xlarge
 	// - stream.graphics-pro.8xlarge
 	// - stream.graphics-pro.16xlarge
-	InstanceType *string `json:"instanceType"`
+	InstanceType *string `json:"instanceType" yaml:"instanceType"`
 	// A unique name for the image builder.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The list of virtual private cloud (VPC) interface endpoint objects.
 	//
 	// Administrators can connect to the image builder only through the specified endpoints.
-	AccessEndpoints interface{} `json:"accessEndpoints"`
+	AccessEndpoints interface{} `json:"accessEndpoints" yaml:"accessEndpoints"`
 	// The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST].
-	AppstreamAgentVersion *string `json:"appstreamAgentVersion"`
+	AppstreamAgentVersion *string `json:"appstreamAgentVersion" yaml:"appstreamAgentVersion"`
 	// The description to display.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The image builder name to display.
-	DisplayName *string `json:"displayName"`
+	DisplayName *string `json:"displayName" yaml:"displayName"`
 	// The name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain.
-	DomainJoinInfo interface{} `json:"domainJoinInfo"`
+	DomainJoinInfo interface{} `json:"domainJoinInfo" yaml:"domainJoinInfo"`
 	// Enables or disables default internet access for the image builder.
-	EnableDefaultInternetAccess interface{} `json:"enableDefaultInternetAccess"`
+	EnableDefaultInternetAccess interface{} `json:"enableDefaultInternetAccess" yaml:"enableDefaultInternetAccess"`
 	// The ARN of the IAM role that is applied to the image builder.
 	//
 	// To assume a role, the image builder calls the AWS Security Token Service `AssumeRole` API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the *appstream_machine_role* credential profile on the instance.
 	//
 	// For more information, see [Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances](https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html) in the *Amazon AppStream 2.0 Administration Guide* .
-	IamRoleArn *string `json:"iamRoleArn"`
+	IamRoleArn *string `json:"iamRoleArn" yaml:"iamRoleArn"`
 	// The ARN of the public, private, or shared image to use.
-	ImageArn *string `json:"imageArn"`
+	ImageArn *string `json:"imageArn" yaml:"imageArn"`
 	// The name of the image used to create the image builder.
-	ImageName *string `json:"imageName"`
+	ImageName *string `json:"imageName" yaml:"imageName"`
 	// An array of key-value pairs.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// The VPC configuration for the image builder.
 	//
 	// You can specify only one subnet.
-	VpcConfig interface{} `json:"vpcConfig"`
+	VpcConfig interface{} `json:"vpcConfig" yaml:"vpcConfig"`
 }
 
 // A CloudFormation `AWS::AppStream::Stack`.
@@ -4978,9 +4978,9 @@ func (c *jsiiProxy_CfnStack) ValidateProperties(_properties interface{}) {
 //
 type CfnStack_AccessEndpointProperty struct {
 	// The type of interface endpoint.
-	EndpointType *string `json:"endpointType"`
+	EndpointType *string `json:"endpointType" yaml:"endpointType"`
 	// The identifier (ID) of the VPC in which the interface endpoint is used.
-	VpceId *string `json:"vpceId"`
+	VpceId *string `json:"vpceId" yaml:"vpceId"`
 }
 
 // The persistent application settings for users of a stack.
@@ -4989,11 +4989,11 @@ type CfnStack_AccessEndpointProperty struct {
 //
 type CfnStack_ApplicationSettingsProperty struct {
 	// Enables or disables persistent application settings for users during their streaming sessions.
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 	// The path prefix for the S3 bucket where users’ persistent application settings are stored.
 	//
 	// You can allow the same persistent application settings to be used across multiple stacks by specifying the same settings group for each stack.
-	SettingsGroup *string `json:"settingsGroup"`
+	SettingsGroup *string `json:"settingsGroup" yaml:"settingsGroup"`
 }
 
 // A connector that enables persistent storage for users.
@@ -5002,11 +5002,11 @@ type CfnStack_ApplicationSettingsProperty struct {
 //
 type CfnStack_StorageConnectorProperty struct {
 	// The type of storage connector.
-	ConnectorType *string `json:"connectorType"`
+	ConnectorType *string `json:"connectorType" yaml:"connectorType"`
 	// The names of the domains for the account.
-	Domains *[]*string `json:"domains"`
+	Domains *[]*string `json:"domains" yaml:"domains"`
 	// The ARN of the storage connector.
-	ResourceIdentifier *string `json:"resourceIdentifier"`
+	ResourceIdentifier *string `json:"resourceIdentifier" yaml:"resourceIdentifier"`
 }
 
 // Specifies an action and whether the action is enabled or disabled for users during their streaming sessions.
@@ -5015,9 +5015,9 @@ type CfnStack_StorageConnectorProperty struct {
 //
 type CfnStack_UserSettingProperty struct {
 	// The action that is enabled or disabled.
-	Action *string `json:"action"`
+	Action *string `json:"action" yaml:"action"`
 	// Indicates whether the action is enabled or disabled.
-	Permission *string `json:"permission"`
+	Permission *string `json:"permission" yaml:"permission"`
 }
 
 // A CloudFormation `AWS::AppStream::StackFleetAssociation`.
@@ -5520,11 +5520,11 @@ type CfnStackFleetAssociationProps struct {
 	// The name of the fleet.
 	//
 	// To associate a fleet with a stack, you must specify a dependency on the fleet resource. For more information, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) .
-	FleetName *string `json:"fleetName"`
+	FleetName *string `json:"fleetName" yaml:"fleetName"`
 	// The name of the stack.
 	//
 	// To associate a fleet with a stack, you must specify a dependency on the stack resource. For more information, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) .
-	StackName *string `json:"stackName"`
+	StackName *string `json:"stackName" yaml:"stackName"`
 }
 
 // Properties for defining a `CfnStack`.
@@ -5535,39 +5535,39 @@ type CfnStackProps struct {
 	// The list of virtual private cloud (VPC) interface endpoint objects.
 	//
 	// Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
-	AccessEndpoints interface{} `json:"accessEndpoints"`
+	AccessEndpoints interface{} `json:"accessEndpoints" yaml:"accessEndpoints"`
 	// The persistent application settings for users of the stack.
 	//
 	// When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.
-	ApplicationSettings interface{} `json:"applicationSettings"`
+	ApplicationSettings interface{} `json:"applicationSettings" yaml:"applicationSettings"`
 	// The stack attributes to delete.
-	AttributesToDelete *[]*string `json:"attributesToDelete"`
+	AttributesToDelete *[]*string `json:"attributesToDelete" yaml:"attributesToDelete"`
 	// *This parameter has been deprecated.*.
 	//
 	// Deletes the storage connectors currently enabled for the stack.
-	DeleteStorageConnectors interface{} `json:"deleteStorageConnectors"`
+	DeleteStorageConnectors interface{} `json:"deleteStorageConnectors" yaml:"deleteStorageConnectors"`
 	// The description to display.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The stack name to display.
-	DisplayName *string `json:"displayName"`
+	DisplayName *string `json:"displayName" yaml:"displayName"`
 	// The domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
-	EmbedHostDomains *[]*string `json:"embedHostDomains"`
+	EmbedHostDomains *[]*string `json:"embedHostDomains" yaml:"embedHostDomains"`
 	// The URL that users are redirected to after they click the Send Feedback link.
 	//
 	// If no URL is specified, no Send Feedback link is displayed.
-	FeedbackUrl *string `json:"feedbackUrl"`
+	FeedbackUrl *string `json:"feedbackUrl" yaml:"feedbackUrl"`
 	// The name of the stack.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The URL that users are redirected to after their streaming session ends.
-	RedirectUrl *string `json:"redirectUrl"`
+	RedirectUrl *string `json:"redirectUrl" yaml:"redirectUrl"`
 	// The storage connectors to enable.
-	StorageConnectors interface{} `json:"storageConnectors"`
+	StorageConnectors interface{} `json:"storageConnectors" yaml:"storageConnectors"`
 	// An array of key-value pairs.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// The actions that are enabled or disabled for users during their streaming sessions.
 	//
 	// By default, these actions are enabled.
-	UserSettings interface{} `json:"userSettings"`
+	UserSettings interface{} `json:"userSettings" yaml:"userSettings"`
 }
 
 // A CloudFormation `AWS::AppStream::StackUserAssociation`.
@@ -6110,15 +6110,15 @@ type CfnStackUserAssociationProps struct {
 	// The authentication type for the user who is associated with the stack.
 	//
 	// You must specify USERPOOL.
-	AuthenticationType *string `json:"authenticationType"`
+	AuthenticationType *string `json:"authenticationType" yaml:"authenticationType"`
 	// The name of the stack that is associated with the user.
-	StackName *string `json:"stackName"`
+	StackName *string `json:"stackName" yaml:"stackName"`
 	// The email address of the user who is associated with the stack.
 	//
 	// > Users' email addresses are case-sensitive.
-	UserName *string `json:"userName"`
+	UserName *string `json:"userName" yaml:"userName"`
 	// Specifies whether a welcome email is sent to a user after the user is created in the user pool.
-	SendEmailNotification interface{} `json:"sendEmailNotification"`
+	SendEmailNotification interface{} `json:"sendEmailNotification" yaml:"sendEmailNotification"`
 }
 
 // A CloudFormation `AWS::AppStream::User`.
@@ -6681,20 +6681,20 @@ type CfnUserProps struct {
 	// The authentication type for the user.
 	//
 	// You must specify USERPOOL.
-	AuthenticationType *string `json:"authenticationType"`
+	AuthenticationType *string `json:"authenticationType" yaml:"authenticationType"`
 	// The email address of the user.
 	//
 	// Users' email addresses are case-sensitive. During login, if they specify an email address that doesn't use the same capitalization as the email address specified when their user pool account was created, a "user does not exist" error message displays.
-	UserName *string `json:"userName"`
+	UserName *string `json:"userName" yaml:"userName"`
 	// The first name, or given name, of the user.
-	FirstName *string `json:"firstName"`
+	FirstName *string `json:"firstName" yaml:"firstName"`
 	// The last name, or surname, of the user.
-	LastName *string `json:"lastName"`
+	LastName *string `json:"lastName" yaml:"lastName"`
 	// The action to take for the welcome email that is sent to a user after the user is created in the user pool.
 	//
 	// If you specify SUPPRESS, no email is sent. If you specify RESEND, do not specify the first name or last name of the user. If the value is null, the email is sent.
 	//
 	// > The temporary password in the welcome email is valid for only 7 days. If users don’t set their passwords within 7 days, you must send them a new welcome email.
-	MessageAction *string `json:"messageAction"`
+	MessageAction *string `json:"messageAction" yaml:"messageAction"`
 }
 

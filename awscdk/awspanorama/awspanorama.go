@@ -748,7 +748,7 @@ func (c *jsiiProxy_CfnApplicationInstance) ValidateProperties(_properties interf
 //
 type CfnApplicationInstance_ManifestOverridesPayloadProperty struct {
 	// The overrides document.
-	PayloadData *string `json:"payloadData"`
+	PayloadData *string `json:"payloadData" yaml:"payloadData"`
 }
 
 // A application verion's manifest file.
@@ -759,7 +759,7 @@ type CfnApplicationInstance_ManifestOverridesPayloadProperty struct {
 //
 type CfnApplicationInstance_ManifestPayloadProperty struct {
 	// The application manifest.
-	PayloadData *string `json:"payloadData"`
+	PayloadData *string `json:"payloadData" yaml:"payloadData"`
 }
 
 // Properties for defining a `CfnApplicationInstance`.
@@ -768,25 +768,25 @@ type CfnApplicationInstance_ManifestPayloadProperty struct {
 //
 type CfnApplicationInstanceProps struct {
 	// The device's ID.
-	DefaultRuntimeContextDevice *string `json:"defaultRuntimeContextDevice"`
+	DefaultRuntimeContextDevice *string `json:"defaultRuntimeContextDevice" yaml:"defaultRuntimeContextDevice"`
 	// The application's manifest document.
-	ManifestPayload interface{} `json:"manifestPayload"`
+	ManifestPayload interface{} `json:"manifestPayload" yaml:"manifestPayload"`
 	// The ID of an application instance to replace with the new instance.
-	ApplicationInstanceIdToReplace *string `json:"applicationInstanceIdToReplace"`
+	ApplicationInstanceIdToReplace *string `json:"applicationInstanceIdToReplace" yaml:"applicationInstanceIdToReplace"`
 	// A description for the application instance.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// A device's ID.
-	DeviceId *string `json:"deviceId"`
+	DeviceId *string `json:"deviceId" yaml:"deviceId"`
 	// Setting overrides for the application manifest.
-	ManifestOverridesPayload interface{} `json:"manifestOverridesPayload"`
+	ManifestOverridesPayload interface{} `json:"manifestOverridesPayload" yaml:"manifestOverridesPayload"`
 	// A name for the application instance.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The ARN of a runtime role for the application instance.
-	RuntimeRoleArn *string `json:"runtimeRoleArn"`
+	RuntimeRoleArn *string `json:"runtimeRoleArn" yaml:"runtimeRoleArn"`
 	// Only include instances with a specific status.
-	StatusFilter *string `json:"statusFilter"`
+	StatusFilter *string `json:"statusFilter" yaml:"statusFilter"`
 	// Tags for the application instance.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Panorama::Package`.
@@ -1311,9 +1311,9 @@ func (c *jsiiProxy_CfnPackage) ValidateProperties(_properties interface{}) {
 //
 type CfnPackageProps struct {
 	// A name for the package.
-	PackageName *string `json:"packageName"`
+	PackageName *string `json:"packageName" yaml:"packageName"`
 	// Tags for the package.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Panorama::PackageVersion`.
@@ -1960,16 +1960,16 @@ func (c *jsiiProxy_CfnPackageVersion) ValidateProperties(_properties interface{}
 //
 type CfnPackageVersionProps struct {
 	// A package ID.
-	PackageId *string `json:"packageId"`
+	PackageId *string `json:"packageId" yaml:"packageId"`
 	// A package version.
-	PackageVersion *string `json:"packageVersion"`
+	PackageVersion *string `json:"packageVersion" yaml:"packageVersion"`
 	// A patch version.
-	PatchVersion *string `json:"patchVersion"`
+	PatchVersion *string `json:"patchVersion" yaml:"patchVersion"`
 	// Whether to mark the new version as the latest version.
-	MarkLatest interface{} `json:"markLatest"`
+	MarkLatest interface{} `json:"markLatest" yaml:"markLatest"`
 	// An owner account.
-	OwnerAccount *string `json:"ownerAccount"`
+	OwnerAccount *string `json:"ownerAccount" yaml:"ownerAccount"`
 	// If the version was marked latest, the new version to maker as latest.
-	UpdatedLatestPatchVersion *string `json:"updatedLatestPatchVersion"`
+	UpdatedLatestPatchVersion *string `json:"updatedLatestPatchVersion" yaml:"updatedLatestPatchVersion"`
 }
 

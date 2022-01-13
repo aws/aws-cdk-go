@@ -571,9 +571,9 @@ func (c *jsiiProxy_CfnDiscoverer) ValidateProperties(_properties interface{}) {
 //
 type CfnDiscoverer_TagsEntryProperty struct {
 	// They key of a key-value pair.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// They value of a key-value pair.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // Properties for defining a `CfnDiscoverer`.
@@ -582,13 +582,13 @@ type CfnDiscoverer_TagsEntryProperty struct {
 //
 type CfnDiscovererProps struct {
 	// The ARN of the event bus.
-	SourceArn *string `json:"sourceArn"`
+	SourceArn *string `json:"sourceArn" yaml:"sourceArn"`
 	// Allows for the discovery of the event schemas that are sent to the event bus from another account.
-	CrossAccount interface{} `json:"crossAccount"`
+	CrossAccount interface{} `json:"crossAccount" yaml:"crossAccount"`
 	// A description for the discoverer.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Tags associated with the resource.
-	Tags *[]*CfnDiscoverer_TagsEntryProperty `json:"tags"`
+	Tags *[]*CfnDiscoverer_TagsEntryProperty `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::EventSchemas::Registry`.
@@ -1122,9 +1122,9 @@ func (c *jsiiProxy_CfnRegistry) ValidateProperties(_properties interface{}) {
 //
 type CfnRegistry_TagsEntryProperty struct {
 	// They key of a key-value pair.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// They value of a key-value pair.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // A CloudFormation `AWS::EventSchemas::RegistryPolicy`.
@@ -1656,11 +1656,11 @@ func (c *jsiiProxy_CfnRegistryPolicy) ValidateProperties(_properties interface{}
 //
 type CfnRegistryPolicyProps struct {
 	// A resource-based policy.
-	Policy interface{} `json:"policy"`
+	Policy interface{} `json:"policy" yaml:"policy"`
 	// The name of the registry.
-	RegistryName *string `json:"registryName"`
+	RegistryName *string `json:"registryName" yaml:"registryName"`
 	// The revision ID of the policy.
-	RevisionId *string `json:"revisionId"`
+	RevisionId *string `json:"revisionId" yaml:"revisionId"`
 }
 
 // Properties for defining a `CfnRegistry`.
@@ -1669,11 +1669,11 @@ type CfnRegistryPolicyProps struct {
 //
 type CfnRegistryProps struct {
 	// A description of the registry to be created.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The name of the schema registry.
-	RegistryName *string `json:"registryName"`
+	RegistryName *string `json:"registryName" yaml:"registryName"`
 	// Tags to associate with the registry.
-	Tags *[]*CfnRegistry_TagsEntryProperty `json:"tags"`
+	Tags *[]*CfnRegistry_TagsEntryProperty `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::EventSchemas::Schema`.
@@ -2278,9 +2278,9 @@ func (c *jsiiProxy_CfnSchema) ValidateProperties(_properties interface{}) {
 //
 type CfnSchema_TagsEntryProperty struct {
 	// They key of a key-value pair.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// They value of a key-value pair.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // Properties for defining a `CfnSchema`.
@@ -2289,16 +2289,16 @@ type CfnSchema_TagsEntryProperty struct {
 //
 type CfnSchemaProps struct {
 	// The source of the schema definition.
-	Content *string `json:"content"`
+	Content *string `json:"content" yaml:"content"`
 	// The name of the schema registry.
-	RegistryName *string `json:"registryName"`
+	RegistryName *string `json:"registryName" yaml:"registryName"`
 	// The type of schema.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// A description of the schema.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The name of the schema.
-	SchemaName *string `json:"schemaName"`
+	SchemaName *string `json:"schemaName" yaml:"schemaName"`
 	// Tags associated with the schema.
-	Tags *[]*CfnSchema_TagsEntryProperty `json:"tags"`
+	Tags *[]*CfnSchema_TagsEntryProperty `json:"tags" yaml:"tags"`
 }
 

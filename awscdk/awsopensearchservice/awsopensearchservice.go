@@ -24,17 +24,17 @@ type AdvancedSecurityOptions struct {
 	// ARN for the master user.
 	//
 	// Only specify this or masterUserName, but not both.
-	MasterUserArn *string `json:"masterUserArn"`
+	MasterUserArn *string `json:"masterUserArn" yaml:"masterUserArn"`
 	// Username for the master user.
 	//
 	// Only specify this or masterUserArn, but not both.
-	MasterUserName *string `json:"masterUserName"`
+	MasterUserName *string `json:"masterUserName" yaml:"masterUserName"`
 	// Password for the master user.
 	//
 	// You can use `SecretValue.plainText` to specify a password in plain text or
 	// use `secretsmanager.Secret.fromSecretAttributes` to reference a secret in
 	// Secrets Manager.
-	MasterUserPassword awscdk.SecretValue `json:"masterUserPassword"`
+	MasterUserPassword awscdk.SecretValue `json:"masterUserPassword" yaml:"masterUserPassword"`
 }
 
 // Configures the capacity of the cluster such as the instance type and the number of instances.
@@ -43,17 +43,17 @@ type AdvancedSecurityOptions struct {
 //
 type CapacityConfig struct {
 	// The instance type for your data nodes, such as `m3.medium.search`. For valid values, see [Supported Instance Types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html) in the Amazon OpenSearch Service Developer Guide.
-	DataNodeInstanceType *string `json:"dataNodeInstanceType"`
+	DataNodeInstanceType *string `json:"dataNodeInstanceType" yaml:"dataNodeInstanceType"`
 	// The number of data nodes (instances) to use in the Amazon OpenSearch Service domain.
-	DataNodes *float64 `json:"dataNodes"`
+	DataNodes *float64 `json:"dataNodes" yaml:"dataNodes"`
 	// The hardware configuration of the computer that hosts the dedicated master node, such as `m3.medium.search`. For valid values, see [Supported Instance Types] (https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html) in the Amazon OpenSearch Service Developer Guide.
-	MasterNodeInstanceType *string `json:"masterNodeInstanceType"`
+	MasterNodeInstanceType *string `json:"masterNodeInstanceType" yaml:"masterNodeInstanceType"`
 	// The number of instances to use for the master node.
-	MasterNodes *float64 `json:"masterNodes"`
+	MasterNodes *float64 `json:"masterNodes" yaml:"masterNodes"`
 	// The instance type for your UltraWarm node, such as `ultrawarm1.medium.search`. For valid values, see [UltraWarm Storage Limits] (https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html#limits-ultrawarm) in the Amazon OpenSearch Service Developer Guide.
-	WarmInstanceType *string `json:"warmInstanceType"`
+	WarmInstanceType *string `json:"warmInstanceType" yaml:"warmInstanceType"`
 	// The number of UltraWarm nodes (instances) to use in the Amazon OpenSearch Service domain.
-	WarmNodes *float64 `json:"warmNodes"`
+	WarmNodes *float64 `json:"warmNodes" yaml:"warmNodes"`
 }
 
 // A CloudFormation `AWS::OpenSearchService::Domain`.
@@ -842,11 +842,11 @@ type CfnDomain_AdvancedSecurityOptionsInputProperty struct {
 	// True to enable fine-grained access control.
 	//
 	// You must also enable encryption of data at rest and node-to-node encryption. See [Fine-grained access control in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html) .
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 	// True to enable the internal user database.
-	InternalUserDatabaseEnabled interface{} `json:"internalUserDatabaseEnabled"`
+	InternalUserDatabaseEnabled interface{} `json:"internalUserDatabaseEnabled" yaml:"internalUserDatabaseEnabled"`
 	// Specifies information about the master user.
-	MasterUserOptions interface{} `json:"masterUserOptions"`
+	MasterUserOptions interface{} `json:"masterUserOptions" yaml:"masterUserOptions"`
 }
 
 // The cluster configuration for the OpenSearch Service domain.
@@ -859,33 +859,33 @@ type CfnDomain_ClusterConfigProperty struct {
 	// The number of instances to use for the master node.
 	//
 	// If you specify this property, you must specify `true` for the `DedicatedMasterEnabled` property.
-	DedicatedMasterCount *float64 `json:"dedicatedMasterCount"`
+	DedicatedMasterCount *float64 `json:"dedicatedMasterCount" yaml:"dedicatedMasterCount"`
 	// Indicates whether to use a dedicated master node for the OpenSearch Service domain.
 	//
 	// A dedicated master node is a cluster node that performs cluster management tasks, but doesn't hold data or respond to data upload requests. Dedicated master nodes offload cluster management tasks to increase the stability of your search clusters. See [Dedicated master nodes in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-dedicatedmasternodes.html) .
-	DedicatedMasterEnabled interface{} `json:"dedicatedMasterEnabled"`
+	DedicatedMasterEnabled interface{} `json:"dedicatedMasterEnabled" yaml:"dedicatedMasterEnabled"`
 	// The hardware configuration of the computer that hosts the dedicated master node, such as `m3.medium.search` . If you specify this property, you must specify `true` for the `DedicatedMasterEnabled` property. For valid values, see [Supported instance types in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html) .
-	DedicatedMasterType *string `json:"dedicatedMasterType"`
+	DedicatedMasterType *string `json:"dedicatedMasterType" yaml:"dedicatedMasterType"`
 	// The number of data nodes (instances) to use in the OpenSearch Service domain.
-	InstanceCount *float64 `json:"instanceCount"`
+	InstanceCount *float64 `json:"instanceCount" yaml:"instanceCount"`
 	// The instance type for your data nodes, such as `m3.medium.search` . For valid values, see [Supported instance types in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html) .
-	InstanceType *string `json:"instanceType"`
+	InstanceType *string `json:"instanceType" yaml:"instanceType"`
 	// The number of warm nodes in the cluster.
-	WarmCount *float64 `json:"warmCount"`
+	WarmCount *float64 `json:"warmCount" yaml:"warmCount"`
 	// Whether to enable UltraWarm storage for the cluster.
 	//
 	// See [UltraWarm storage for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ultrawarm.html) .
-	WarmEnabled interface{} `json:"warmEnabled"`
+	WarmEnabled interface{} `json:"warmEnabled" yaml:"warmEnabled"`
 	// The instance type for the cluster's warm nodes.
-	WarmType *string `json:"warmType"`
+	WarmType *string `json:"warmType" yaml:"warmType"`
 	// Specifies zone awareness configuration options.
 	//
 	// Only use if `ZoneAwarenessEnabled` is `true` .
-	ZoneAwarenessConfig interface{} `json:"zoneAwarenessConfig"`
+	ZoneAwarenessConfig interface{} `json:"zoneAwarenessConfig" yaml:"zoneAwarenessConfig"`
 	// Indicates whether to enable zone awareness for the OpenSearch Service domain.
 	//
 	// When you enable zone awareness, OpenSearch Service allocates the nodes and replica index shards that belong to a cluster across two Availability Zones (AZs) in the same region to prevent data loss and minimize downtime in the event of node or data center failure. Don't enable zone awareness if your cluster has no replica index shards or is a single-node cluster. For more information, see [Configuring a multi-AZ domain in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html) .
-	ZoneAwarenessEnabled interface{} `json:"zoneAwarenessEnabled"`
+	ZoneAwarenessEnabled interface{} `json:"zoneAwarenessEnabled" yaml:"zoneAwarenessEnabled"`
 }
 
 // Configures OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
@@ -896,13 +896,13 @@ type CfnDomain_CognitoOptionsProperty struct {
 	// Whether to enable or disable Amazon Cognito authentication for OpenSearch Dashboards.
 	//
 	// See [Amazon Cognito authentication for OpenSearch Dashboards](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html) .
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 	// The Amazon Cognito identity pool ID that you want OpenSearch Service to use for OpenSearch Dashboards authentication.
-	IdentityPoolId *string `json:"identityPoolId"`
+	IdentityPoolId *string `json:"identityPoolId" yaml:"identityPoolId"`
 	// The `AmazonESCognitoAccess` role that allows OpenSearch Service to configure your user pool and identity pool.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// The Amazon Cognito user pool ID that you want OpenSearch Service to use for OpenSearch Dashboards authentication.
-	UserPoolId *string `json:"userPoolId"`
+	UserPoolId *string `json:"userPoolId" yaml:"userPoolId"`
 }
 
 // Specifies additional options for the domain endpoint, such as whether to require HTTPS for all traffic or whether to use a custom endpoint rather than the default endpoint.
@@ -911,20 +911,20 @@ type CfnDomain_CognitoOptionsProperty struct {
 //
 type CfnDomain_DomainEndpointOptionsProperty struct {
 	// The fully qualified URL for your custom endpoint.
-	CustomEndpoint *string `json:"customEndpoint"`
+	CustomEndpoint *string `json:"customEndpoint" yaml:"customEndpoint"`
 	// The AWS Certificate Manager ARN for your domain's SSL/TLS certificate.
-	CustomEndpointCertificateArn *string `json:"customEndpointCertificateArn"`
+	CustomEndpointCertificateArn *string `json:"customEndpointCertificateArn" yaml:"customEndpointCertificateArn"`
 	// True to enable a custom endpoint for the domain.
 	//
 	// If enabled, you must also provide values for `CustomEndpoint` and `CustomEndpointCertificateArn` .
-	CustomEndpointEnabled interface{} `json:"customEndpointEnabled"`
+	CustomEndpointEnabled interface{} `json:"customEndpointEnabled" yaml:"customEndpointEnabled"`
 	// True to require that all traffic to the domain arrive over HTTPS.
-	EnforceHttps interface{} `json:"enforceHttps"`
+	EnforceHttps interface{} `json:"enforceHttps" yaml:"enforceHttps"`
 	// The minimum TLS version required for traffic to the domain. Valid values are TLS 1.0 (default) or 1.2:.
 	//
 	// - `Policy-Min-TLS-1-0-2019-07`
 	// - `Policy-Min-TLS-1-2-2019-07`
-	TlsSecurityPolicy *string `json:"tlsSecurityPolicy"`
+	TlsSecurityPolicy *string `json:"tlsSecurityPolicy" yaml:"tlsSecurityPolicy"`
 }
 
 // The configurations of Amazon Elastic Block Store (Amazon EBS) volumes that are attached to data nodes in the OpenSearch Service domain.
@@ -935,19 +935,19 @@ type CfnDomain_DomainEndpointOptionsProperty struct {
 //
 type CfnDomain_EBSOptionsProperty struct {
 	// Specifies whether Amazon EBS volumes are attached to data nodes in the OpenSearch Service domain.
-	EbsEnabled interface{} `json:"ebsEnabled"`
+	EbsEnabled interface{} `json:"ebsEnabled" yaml:"ebsEnabled"`
 	// The number of I/O operations per second (IOPS) that the volume supports.
 	//
 	// This property applies only to the Provisioned IOPS (SSD) EBS volume type.
-	Iops *float64 `json:"iops"`
+	Iops *float64 `json:"iops" yaml:"iops"`
 	// The size (in GiB) of the EBS volume for each data node.
 	//
 	// The minimum and maximum size of an EBS volume depends on the EBS volume type and the instance type to which it is attached. For more information, see [EBS volume size limits](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html#ebsresource) in the *Amazon OpenSearch Service Developer Guide* .
-	VolumeSize *float64 `json:"volumeSize"`
+	VolumeSize *float64 `json:"volumeSize" yaml:"volumeSize"`
 	// The EBS volume type to use with the OpenSearch Service domain, such as standard, gp2, or io1.
 	//
 	// For more information about each type, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) in the *Amazon EC2 User Guide for Linux Instances* .
-	VolumeType *string `json:"volumeType"`
+	VolumeType *string `json:"volumeType" yaml:"volumeType"`
 }
 
 // Whether the domain should encrypt data at rest, and if so, the AWS Key Management Service key to use.
@@ -956,11 +956,11 @@ type CfnDomain_EBSOptionsProperty struct {
 //
 type CfnDomain_EncryptionAtRestOptionsProperty struct {
 	// Specify `true` to enable encryption at rest.
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 	// The KMS key ID.
 	//
 	// Takes the form `1a2a3a4-1a2a-3a4a-5a6a-1a2a3a4a5a6a` .
-	KmsKeyId *string `json:"kmsKeyId"`
+	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
 }
 
 // Specifies whether the OpenSearch Service domain publishes the OpenSearch application, search slow logs, or index slow logs to Amazon CloudWatch.
@@ -973,11 +973,11 @@ type CfnDomain_EncryptionAtRestOptionsProperty struct {
 //
 type CfnDomain_LogPublishingOptionProperty struct {
 	// Specifies the CloudWatch log group to publish to.
-	CloudWatchLogsLogGroupArn *string `json:"cloudWatchLogsLogGroupArn"`
+	CloudWatchLogsLogGroupArn *string `json:"cloudWatchLogsLogGroupArn" yaml:"cloudWatchLogsLogGroupArn"`
 	// If `true` , enables the publishing of logs to CloudWatch.
 	//
 	// Default: `false` .
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 }
 
 // Specifies information about the master user.
@@ -988,15 +988,15 @@ type CfnDomain_MasterUserOptionsProperty struct {
 	// ARN for the master user.
 	//
 	// Only specify if `InternalUserDatabaseEnabled` is false in `AdvancedSecurityOptions` .
-	MasterUserArn *string `json:"masterUserArn"`
+	MasterUserArn *string `json:"masterUserArn" yaml:"masterUserArn"`
 	// Username for the master user.
 	//
 	// Only specify if `InternalUserDatabaseEnabled` is true in `AdvancedSecurityOptions` .
-	MasterUserName *string `json:"masterUserName"`
+	MasterUserName *string `json:"masterUserName" yaml:"masterUserName"`
 	// Password for the master user.
 	//
 	// Only specify if `InternalUserDatabaseEnabled` is true in `AdvancedSecurityOptions` .
-	MasterUserPassword *string `json:"masterUserPassword"`
+	MasterUserPassword *string `json:"masterUserPassword" yaml:"masterUserPassword"`
 }
 
 // Specifies options for node-to-node encryption.
@@ -1005,7 +1005,7 @@ type CfnDomain_MasterUserOptionsProperty struct {
 //
 type CfnDomain_NodeToNodeEncryptionOptionsProperty struct {
 	// Specifies to enable or disable node-to-node encryption on the domain.
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 }
 
 // *DEPRECATED* .
@@ -1020,7 +1020,7 @@ type CfnDomain_SnapshotOptionsProperty struct {
 	// The hour in UTC during which the service takes an automated daily snapshot of the indices in the OpenSearch Service domain.
 	//
 	// For example, if you specify 0, OpenSearch Service takes an automated snapshot everyday between midnight and 1 am. You can specify a value between 0 and 23.
-	AutomatedSnapshotStartHour *float64 `json:"automatedSnapshotStartHour"`
+	AutomatedSnapshotStartHour *float64 `json:"automatedSnapshotStartHour" yaml:"automatedSnapshotStartHour"`
 }
 
 // The virtual private cloud (VPC) configuration for the OpenSearch Service domain.
@@ -1033,11 +1033,11 @@ type CfnDomain_VPCOptionsProperty struct {
 	// The list of security group IDs that are associated with the VPC endpoints for the domain.
 	//
 	// If you don't provide a security group ID, OpenSearch Service uses the default security group for the VPC. To learn more, see [Security groups for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide* .
-	SecurityGroupIds *[]*string `json:"securityGroupIds"`
+	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
 	// Provide one subnet ID for each Availability Zone that your domain uses.
 	//
 	// For example, you must specify three subnet IDs for a three Availability Zone domain. To learn more, see [VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) in the *Amazon VPC User Guide* .
-	SubnetIds *[]*string `json:"subnetIds"`
+	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
 }
 
 // Specifies zone awareness configuration options.
@@ -1050,7 +1050,7 @@ type CfnDomain_ZoneAwarenessConfigProperty struct {
 	// If you enabled multiple Availability Zones (AZs), the number of AZs that you want the domain to use.
 	//
 	// Valid values are `2` and `3` . Default is 2.
-	AvailabilityZoneCount *float64 `json:"availabilityZoneCount"`
+	AvailabilityZoneCount *float64 `json:"availabilityZoneCount" yaml:"availabilityZoneCount"`
 }
 
 // Properties for defining a `CfnDomain`.
@@ -1061,57 +1061,57 @@ type CfnDomainProps struct {
 	// An AWS Identity and Access Management ( IAM ) policy document that specifies who can access the OpenSearch Service domain and their permissions.
 	//
 	// For more information, see [Configuring access policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ac.html#ac-creating) in the *Amazon OpenSearch Service Developer Guide* .
-	AccessPolicies interface{} `json:"accessPolicies"`
+	AccessPolicies interface{} `json:"accessPolicies" yaml:"accessPolicies"`
 	// Additional options to specify for the OpenSearch Service domain.
 	//
 	// For more information, see [Advanced cluster parameters](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options) in the *Amazon OpenSearch Service Developer Guide* .
-	AdvancedOptions interface{} `json:"advancedOptions"`
+	AdvancedOptions interface{} `json:"advancedOptions" yaml:"advancedOptions"`
 	// Specifies options for fine-grained access control.
-	AdvancedSecurityOptions interface{} `json:"advancedSecurityOptions"`
+	AdvancedSecurityOptions interface{} `json:"advancedSecurityOptions" yaml:"advancedSecurityOptions"`
 	// `ClusterConfig` is a property of the AWS::OpenSearchService::Domain resource that configures an Amazon OpenSearch Service cluster.
-	ClusterConfig interface{} `json:"clusterConfig"`
+	ClusterConfig interface{} `json:"clusterConfig" yaml:"clusterConfig"`
 	// Configures OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
-	CognitoOptions interface{} `json:"cognitoOptions"`
+	CognitoOptions interface{} `json:"cognitoOptions" yaml:"cognitoOptions"`
 	// Specifies additional options for the domain endpoint, such as whether to require HTTPS for all traffic or whether to use a custom endpoint rather than the default endpoint.
-	DomainEndpointOptions interface{} `json:"domainEndpointOptions"`
+	DomainEndpointOptions interface{} `json:"domainEndpointOptions" yaml:"domainEndpointOptions"`
 	// A name for the OpenSearch Service domain.
 	//
 	// For valid values, see the [DomainName](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/configuration-api.html#configuration-api-datatypes-domainname) data type in the *Amazon OpenSearch Service Developer Guide* . If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the domain name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
 	//
 	// > If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
-	DomainName *string `json:"domainName"`
+	DomainName *string `json:"domainName" yaml:"domainName"`
 	// The configurations of Amazon Elastic Block Store (Amazon EBS) volumes that are attached to data nodes in the OpenSearch Service domain.
 	//
 	// For more information, see [EBS volume size limits](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html#ebsresource) in the *Amazon OpenSearch Service Developer Guide* .
-	EbsOptions interface{} `json:"ebsOptions"`
+	EbsOptions interface{} `json:"ebsOptions" yaml:"ebsOptions"`
 	// Whether the domain should encrypt data at rest, and if so, the AWS KMS key to use.
 	//
 	// See [Encryption of data at rest for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html) .
-	EncryptionAtRestOptions interface{} `json:"encryptionAtRestOptions"`
+	EncryptionAtRestOptions interface{} `json:"encryptionAtRestOptions" yaml:"encryptionAtRestOptions"`
 	// The version of OpenSearch to use.
 	//
 	// The value must be in the format `OpenSearch_X.Y` or `Elasticsearch_X.Y` . If not specified, the latest version of OpenSearch is used. For information about the versions that OpenSearch Service supports, see [Supported versions of OpenSearch and Elasticsearch](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/what-is.html#choosing-version) in the *Amazon OpenSearch Service Developer Guide* .
 	//
 	// If you set the [EnableVersionUpgrade](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-upgradeopensearchdomain) update policy to `true` , you can update `EngineVersion` without interruption. When `EnableVersionUpgrade` is set to `false` , or is not specified, updating `EngineVersion` results in [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
-	EngineVersion *string `json:"engineVersion"`
+	EngineVersion *string `json:"engineVersion" yaml:"engineVersion"`
 	// An object with one or more of the following keys: `SEARCH_SLOW_LOGS` , `ES_APPLICATION_LOGS` , `INDEX_SLOW_LOGS` , `AUDIT_LOGS` , depending on the types of logs you want to publish.
 	//
 	// Each key needs a valid `LogPublishingOption` value. For the full syntax, see the [examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#aws-resource-opensearchservice-domain--examples) .
-	LogPublishingOptions interface{} `json:"logPublishingOptions"`
+	LogPublishingOptions interface{} `json:"logPublishingOptions" yaml:"logPublishingOptions"`
 	// Specifies whether node-to-node encryption is enabled.
 	//
 	// See [Node-to-node encryption for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ntn.html) .
-	NodeToNodeEncryptionOptions interface{} `json:"nodeToNodeEncryptionOptions"`
+	NodeToNodeEncryptionOptions interface{} `json:"nodeToNodeEncryptionOptions" yaml:"nodeToNodeEncryptionOptions"`
 	// *DEPRECATED* .
 	//
 	// The automated snapshot configuration for the OpenSearch Service domain indices.
-	SnapshotOptions interface{} `json:"snapshotOptions"`
+	SnapshotOptions interface{} `json:"snapshotOptions" yaml:"snapshotOptions"`
 	// An arbitrary set of tags (key–value pairs) to associate with the OpenSearch Service domain.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// The virtual private cloud (VPC) configuration for the OpenSearch Service domain.
 	//
 	// For more information, see [Launching your Amazon OpenSearch Service domains within a VPC](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html) in the *Amazon OpenSearch Service Developer Guide* .
-	VpcOptions interface{} `json:"vpcOptions"`
+	VpcOptions interface{} `json:"vpcOptions" yaml:"vpcOptions"`
 }
 
 // Configures Amazon OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
@@ -1122,15 +1122,15 @@ type CfnDomainProps struct {
 //
 type CognitoOptions struct {
 	// The Amazon Cognito identity pool ID that you want Amazon OpenSearch Service to use for OpenSearch Dashboards authentication.
-	IdentityPoolId *string `json:"identityPoolId"`
+	IdentityPoolId *string `json:"identityPoolId" yaml:"identityPoolId"`
 	// A role that allows Amazon OpenSearch Service to configure your user pool and identity pool.
 	//
 	// It must have the `AmazonESCognitoAccess` policy attached to it.
 	// See: https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html#cognito-auth-prereq
 	//
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 	// The Amazon Cognito user pool ID that you want Amazon OpenSearch Service to use for OpenSearch Dashboards authentication.
-	UserPoolId *string `json:"userPoolId"`
+	UserPoolId *string `json:"userPoolId" yaml:"userPoolId"`
 }
 
 // Configures a custom domain endpoint for the Amazon OpenSearch Service domain.
@@ -1139,11 +1139,11 @@ type CognitoOptions struct {
 //
 type CustomEndpointOptions struct {
 	// The custom domain name to assign.
-	DomainName *string `json:"domainName"`
+	DomainName *string `json:"domainName" yaml:"domainName"`
 	// The certificate to use.
-	Certificate awscertificatemanager.ICertificate `json:"certificate"`
+	Certificate awscertificatemanager.ICertificate `json:"certificate" yaml:"certificate"`
 	// The hosted zone in Route53 to create the CNAME record in.
-	HostedZone awsroute53.IHostedZone `json:"hostedZone"`
+	HostedZone awsroute53.IHostedZone `json:"hostedZone" yaml:"hostedZone"`
 }
 
 // Provides an Amazon OpenSearch Service domain.
@@ -1876,9 +1876,9 @@ func (d *jsiiProxy_Domain) ToString() *string {
 //
 type DomainAttributes struct {
 	// The ARN of the Amazon OpenSearch Service domain.
-	DomainArn *string `json:"domainArn"`
+	DomainArn *string `json:"domainArn" yaml:"domainArn"`
 	// The domain endpoint of the Amazon OpenSearch Service domain.
-	DomainEndpoint *string `json:"domainEndpoint"`
+	DomainEndpoint *string `json:"domainEndpoint" yaml:"domainEndpoint"`
 }
 
 // Properties for an Amazon OpenSearch Service domain.
@@ -1887,60 +1887,60 @@ type DomainAttributes struct {
 //
 type DomainProps struct {
 	// The Elasticsearch/OpenSearch version that your domain will leverage.
-	Version EngineVersion `json:"version"`
+	Version EngineVersion `json:"version" yaml:"version"`
 	// Domain access policies.
-	AccessPolicies *[]awsiam.PolicyStatement `json:"accessPolicies"`
+	AccessPolicies *[]awsiam.PolicyStatement `json:"accessPolicies" yaml:"accessPolicies"`
 	// Additional options to specify for the Amazon OpenSearch Service domain.
 	// See: https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options
 	//
-	AdvancedOptions *map[string]*string `json:"advancedOptions"`
+	AdvancedOptions *map[string]*string `json:"advancedOptions" yaml:"advancedOptions"`
 	// The hour in UTC during which the service takes an automated daily snapshot of the indices in the Amazon OpenSearch Service domain.
 	//
 	// Only applies for Elasticsearch versions
 	// below 5.3.
-	AutomatedSnapshotStartHour *float64 `json:"automatedSnapshotStartHour"`
+	AutomatedSnapshotStartHour *float64 `json:"automatedSnapshotStartHour" yaml:"automatedSnapshotStartHour"`
 	// The cluster capacity configuration for the Amazon OpenSearch Service domain.
-	Capacity *CapacityConfig `json:"capacity"`
+	Capacity *CapacityConfig `json:"capacity" yaml:"capacity"`
 	// Configures Amazon OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
-	CognitoDashboardsAuth *CognitoOptions `json:"cognitoDashboardsAuth"`
+	CognitoDashboardsAuth *CognitoOptions `json:"cognitoDashboardsAuth" yaml:"cognitoDashboardsAuth"`
 	// To configure a custom domain configure these options.
 	//
 	// If you specify a Route53 hosted zone it will create a CNAME record and use DNS validation for the certificate
-	CustomEndpoint *CustomEndpointOptions `json:"customEndpoint"`
+	CustomEndpoint *CustomEndpointOptions `json:"customEndpoint" yaml:"customEndpoint"`
 	// Enforces a particular physical domain name.
-	DomainName *string `json:"domainName"`
+	DomainName *string `json:"domainName" yaml:"domainName"`
 	// The configurations of Amazon Elastic Block Store (Amazon EBS) volumes that are attached to data nodes in the Amazon OpenSearch Service domain.
-	Ebs *EbsOptions `json:"ebs"`
+	Ebs *EbsOptions `json:"ebs" yaml:"ebs"`
 	// To upgrade an Amazon OpenSearch Service domain to a new version, rather than replacing the entire domain resource, use the EnableVersionUpgrade update policy.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-upgradeopensearchdomain
 	//
-	EnableVersionUpgrade *bool `json:"enableVersionUpgrade"`
+	EnableVersionUpgrade *bool `json:"enableVersionUpgrade" yaml:"enableVersionUpgrade"`
 	// Encryption at rest options for the cluster.
-	EncryptionAtRest *EncryptionAtRestOptions `json:"encryptionAtRest"`
+	EncryptionAtRest *EncryptionAtRestOptions `json:"encryptionAtRest" yaml:"encryptionAtRest"`
 	// True to require that all traffic to the domain arrive over HTTPS.
-	EnforceHttps *bool `json:"enforceHttps"`
+	EnforceHttps *bool `json:"enforceHttps" yaml:"enforceHttps"`
 	// Specifies options for fine-grained access control.
 	//
 	// Requires Elasticsearch version 6.7 or later or OpenSearch version 1.0 or later. Enabling fine-grained access control
 	// also requires encryption of data at rest and node-to-node encryption, along with
 	// enforced HTTPS.
-	FineGrainedAccessControl *AdvancedSecurityOptions `json:"fineGrainedAccessControl"`
+	FineGrainedAccessControl *AdvancedSecurityOptions `json:"fineGrainedAccessControl" yaml:"fineGrainedAccessControl"`
 	// Configuration log publishing configuration options.
-	Logging *LoggingOptions `json:"logging"`
+	Logging *LoggingOptions `json:"logging" yaml:"logging"`
 	// Specify true to enable node to node encryption.
 	//
 	// Requires Elasticsearch version 6.0 or later or OpenSearch version 1.0 or later.
-	NodeToNodeEncryption *bool `json:"nodeToNodeEncryption"`
+	NodeToNodeEncryption *bool `json:"nodeToNodeEncryption" yaml:"nodeToNodeEncryption"`
 	// Policy to apply when the domain is removed from the stack.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 	// The list of security groups that are associated with the VPC endpoints for the domain.
 	//
 	// Only used if `vpc` is specified.
 	// See: https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html
 	//
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// The minimum TLS version required for traffic to the domain.
-	TlsSecurityPolicy TLSSecurityPolicy `json:"tlsSecurityPolicy"`
+	TlsSecurityPolicy TLSSecurityPolicy `json:"tlsSecurityPolicy" yaml:"tlsSecurityPolicy"`
 	// Configures the domain so that unsigned basic auth is enabled.
 	//
 	// If no master user is provided a default master user
@@ -1951,11 +1951,11 @@ type DomainProps struct {
 	// access, enable node to node encryption, encryption at rest. If conflicting
 	// settings are encountered (like disabling encryption at rest) enabling this
 	// setting will cause a failure.
-	UseUnsignedBasicAuth *bool `json:"useUnsignedBasicAuth"`
+	UseUnsignedBasicAuth *bool `json:"useUnsignedBasicAuth" yaml:"useUnsignedBasicAuth"`
 	// Place the domain inside this VPC.
 	// See: https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html
 	//
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// The specific vpc subnets the domain will be placed in.
 	//
 	// You must provide one subnet for each Availability Zone
@@ -1965,9 +1965,9 @@ type DomainProps struct {
 	// Only used if `vpc` is specified.
 	// See: https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html
 	//
-	VpcSubnets *[]*awsec2.SubnetSelection `json:"vpcSubnets"`
+	VpcSubnets *[]*awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 	// The cluster zone awareness configuration for the Amazon OpenSearch Service domain.
-	ZoneAwareness *ZoneAwarenessConfig `json:"zoneAwareness"`
+	ZoneAwareness *ZoneAwarenessConfig `json:"zoneAwareness" yaml:"zoneAwareness"`
 }
 
 // The configurations of Amazon Elastic Block Store (Amazon EBS) volumes that are attached to data nodes in the Amazon OpenSearch Service domain.
@@ -1981,12 +1981,12 @@ type DomainProps struct {
 //
 type EbsOptions struct {
 	// Specifies whether Amazon EBS volumes are attached to data nodes in the Amazon OpenSearch Service domain.
-	Enabled *bool `json:"enabled"`
+	Enabled *bool `json:"enabled" yaml:"enabled"`
 	// The number of I/O operations per second (IOPS) that the volume supports.
 	//
 	// This property applies only to the Provisioned IOPS (SSD) EBS
 	// volume type.
-	Iops *float64 `json:"iops"`
+	Iops *float64 `json:"iops" yaml:"iops"`
 	// The size (in GiB) of the EBS volume for each data node.
 	//
 	// The minimum and
@@ -1995,9 +1995,9 @@ type EbsOptions struct {
 	// [EBS volume size limits]
 	// (https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html#ebsresource)
 	// in the Amazon OpenSearch Service Developer Guide.
-	VolumeSize *float64 `json:"volumeSize"`
+	VolumeSize *float64 `json:"volumeSize" yaml:"volumeSize"`
 	// The EBS volume type to use with the Amazon OpenSearch Service domain, such as standard, gp2, io1.
-	VolumeType awsec2.EbsDeviceVolumeType `json:"volumeType"`
+	VolumeType awsec2.EbsDeviceVolumeType `json:"volumeType" yaml:"volumeType"`
 }
 
 // Whether the domain should encrypt data at rest, and if so, the AWS Key Management Service (KMS) key to use.
@@ -2009,9 +2009,9 @@ type EbsOptions struct {
 //
 type EncryptionAtRestOptions struct {
 	// Specify true to enable encryption at rest.
-	Enabled *bool `json:"enabled"`
+	Enabled *bool `json:"enabled" yaml:"enabled"`
 	// Supply if using KMS key for encryption at rest.
-	KmsKey awskms.IKey `json:"kmsKey"`
+	KmsKey awskms.IKey `json:"kmsKey" yaml:"kmsKey"`
 }
 
 // OpenSearch version.
@@ -2731,27 +2731,27 @@ type LoggingOptions struct {
 	// Specify if Amazon OpenSearch Service application logging should be set up.
 	//
 	// Requires Elasticsearch version 5.1 or later or OpenSearch version 1.0 or later.
-	AppLogEnabled *bool `json:"appLogEnabled"`
+	AppLogEnabled *bool `json:"appLogEnabled" yaml:"appLogEnabled"`
 	// Log Amazon OpenSearch Service application logs to this log group.
-	AppLogGroup awslogs.ILogGroup `json:"appLogGroup"`
+	AppLogGroup awslogs.ILogGroup `json:"appLogGroup" yaml:"appLogGroup"`
 	// Specify if Amazon OpenSearch Service audit logging should be set up.
 	//
 	// Requires Elasticsearch version 6.7 or later or OpenSearch version 1.0 or later and fine grained access control to be enabled.
-	AuditLogEnabled *bool `json:"auditLogEnabled"`
+	AuditLogEnabled *bool `json:"auditLogEnabled" yaml:"auditLogEnabled"`
 	// Log Amazon OpenSearch Service audit logs to this log group.
-	AuditLogGroup awslogs.ILogGroup `json:"auditLogGroup"`
+	AuditLogGroup awslogs.ILogGroup `json:"auditLogGroup" yaml:"auditLogGroup"`
 	// Specify if slow index logging should be set up.
 	//
 	// Requires Elasticsearch version 5.1 or later or OpenSearch version 1.0 or later.
-	SlowIndexLogEnabled *bool `json:"slowIndexLogEnabled"`
+	SlowIndexLogEnabled *bool `json:"slowIndexLogEnabled" yaml:"slowIndexLogEnabled"`
 	// Log slow indices to this log group.
-	SlowIndexLogGroup awslogs.ILogGroup `json:"slowIndexLogGroup"`
+	SlowIndexLogGroup awslogs.ILogGroup `json:"slowIndexLogGroup" yaml:"slowIndexLogGroup"`
 	// Specify if slow search logging should be set up.
 	//
 	// Requires Elasticsearch version 5.1 or later or OpenSearch version 1.0 or later.
-	SlowSearchLogEnabled *bool `json:"slowSearchLogEnabled"`
+	SlowSearchLogEnabled *bool `json:"slowSearchLogEnabled" yaml:"slowSearchLogEnabled"`
 	// Log slow searches to this log group.
-	SlowSearchLogGroup awslogs.ILogGroup `json:"slowSearchLogGroup"`
+	SlowSearchLogGroup awslogs.ILogGroup `json:"slowSearchLogGroup" yaml:"slowSearchLogGroup"`
 }
 
 // The minimum TLS version required for traffic to the domain.
@@ -2770,7 +2770,7 @@ type ZoneAwarenessConfig struct {
 	// If you enabled multiple Availability Zones (AZs), the number of AZs that you want the domain to use.
 	//
 	// Valid values are 2 and 3.
-	AvailabilityZoneCount *float64 `json:"availabilityZoneCount"`
+	AvailabilityZoneCount *float64 `json:"availabilityZoneCount" yaml:"availabilityZoneCount"`
 	// Indicates whether to enable zone awareness for the Amazon OpenSearch Service domain.
 	//
 	// When you enable zone awareness, Amazon OpenSearch Service allocates the nodes and replica
@@ -2781,6 +2781,6 @@ type ZoneAwarenessConfig struct {
 	// see [Configuring a Multi-AZ Domain]
 	// (https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html)
 	// in the Amazon OpenSearch Service Developer Guide.
-	Enabled *bool `json:"enabled"`
+	Enabled *bool `json:"enabled" yaml:"enabled"`
 }
 

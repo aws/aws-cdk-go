@@ -529,15 +529,15 @@ func (c *jsiiProxy_CfnAccessPoint) ValidateProperties(_properties interface{}) {
 //
 type CfnAccessPoint_ObjectLambdaConfigurationProperty struct {
 	// Standard access point associated with the Object Lambda Access Point.
-	SupportingAccessPoint *string `json:"supportingAccessPoint"`
+	SupportingAccessPoint *string `json:"supportingAccessPoint" yaml:"supportingAccessPoint"`
 	// A container for transformation configurations for an Object Lambda Access Point.
-	TransformationConfigurations interface{} `json:"transformationConfigurations"`
+	TransformationConfigurations interface{} `json:"transformationConfigurations" yaml:"transformationConfigurations"`
 	// A container for allowed features.
 	//
 	// Valid inputs are `GetObject-Range` and `GetObject-PartNumber` .
-	AllowedFeatures *[]*string `json:"allowedFeatures"`
+	AllowedFeatures *[]*string `json:"allowedFeatures" yaml:"allowedFeatures"`
 	// A container for whether the CloudWatch metrics configuration is enabled.
-	CloudWatchMetricsEnabled interface{} `json:"cloudWatchMetricsEnabled"`
+	CloudWatchMetricsEnabled interface{} `json:"cloudWatchMetricsEnabled" yaml:"cloudWatchMetricsEnabled"`
 }
 
 // A configuration used when creating an Object Lambda Access Point transformation.
@@ -548,11 +548,11 @@ type CfnAccessPoint_TransformationConfigurationProperty struct {
 	// A container for the action of an Object Lambda Access Point configuration.
 	//
 	// Valid input is `GetObject` .
-	Actions *[]*string `json:"actions"`
+	Actions *[]*string `json:"actions" yaml:"actions"`
 	// A container for the content transformation of an Object Lambda Access Point configuration.
 	//
 	// Can include the FunctionArn and FunctionPayload. For more information, see [AwsLambdaTransformation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_AwsLambdaTransformation.html) in the *Amazon S3 API Reference* .
-	ContentTransformation interface{} `json:"contentTransformation"`
+	ContentTransformation interface{} `json:"contentTransformation" yaml:"contentTransformation"`
 }
 
 // A CloudFormation `AWS::S3ObjectLambda::AccessPointPolicy`.
@@ -1053,9 +1053,9 @@ func (c *jsiiProxy_CfnAccessPointPolicy) ValidateProperties(_properties interfac
 //
 type CfnAccessPointPolicyProps struct {
 	// An access point with an attached AWS Lambda function used to access transformed data from an Amazon S3 bucket.
-	ObjectLambdaAccessPoint *string `json:"objectLambdaAccessPoint"`
+	ObjectLambdaAccessPoint *string `json:"objectLambdaAccessPoint" yaml:"objectLambdaAccessPoint"`
 	// Object Lambda Access Point resource policy document.
-	PolicyDocument interface{} `json:"policyDocument"`
+	PolicyDocument interface{} `json:"policyDocument" yaml:"policyDocument"`
 }
 
 // Properties for defining a `CfnAccessPoint`.
@@ -1064,8 +1064,8 @@ type CfnAccessPointPolicyProps struct {
 //
 type CfnAccessPointProps struct {
 	// A configuration used when creating an Object Lambda Access Point.
-	ObjectLambdaConfiguration interface{} `json:"objectLambdaConfiguration"`
+	ObjectLambdaConfiguration interface{} `json:"objectLambdaConfiguration" yaml:"objectLambdaConfiguration"`
 	// The name of this access point.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 

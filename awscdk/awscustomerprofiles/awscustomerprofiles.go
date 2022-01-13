@@ -580,19 +580,19 @@ func (c *jsiiProxy_CfnDomain) ValidateProperties(_properties interface{}) {
 //
 type CfnDomainProps struct {
 	// The unique name of the domain.
-	DomainName *string `json:"domainName"`
+	DomainName *string `json:"domainName" yaml:"domainName"`
 	// The URL of the SQS dead letter queue, which is used for reporting errors associated with ingesting data from third party applications.
 	//
 	// You must set up a policy on the DeadLetterQueue for the SendMessage operation to enable Amazon Connect Customer Profiles to send messages to the DeadLetterQueue.
-	DeadLetterQueueUrl *string `json:"deadLetterQueueUrl"`
+	DeadLetterQueueUrl *string `json:"deadLetterQueueUrl" yaml:"deadLetterQueueUrl"`
 	// The default encryption key, which is an AWS managed key, is used when no specific type of encryption key is specified.
 	//
 	// It is used to encrypt all data before it is placed in permanent or semi-permanent storage.
-	DefaultEncryptionKey *string `json:"defaultEncryptionKey"`
+	DefaultEncryptionKey *string `json:"defaultEncryptionKey" yaml:"defaultEncryptionKey"`
 	// The default number of days until the data within the domain expires.
-	DefaultExpirationDays *float64 `json:"defaultExpirationDays"`
+	DefaultExpirationDays *float64 `json:"defaultExpirationDays" yaml:"defaultExpirationDays"`
 	// The tags used to organize, track, or control access for this resource.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::CustomerProfiles::Integration`.
@@ -1164,167 +1164,167 @@ func (c *jsiiProxy_CfnIntegration) ValidateProperties(_properties interface{}) {
 //
 type CfnIntegration_ConnectorOperatorProperty struct {
 	// `CfnIntegration.ConnectorOperatorProperty.Marketo`.
-	Marketo *string `json:"marketo"`
+	Marketo *string `json:"marketo" yaml:"marketo"`
 	// `CfnIntegration.ConnectorOperatorProperty.S3`.
-	S3 *string `json:"s3"`
+	S3 *string `json:"s3" yaml:"s3"`
 	// `CfnIntegration.ConnectorOperatorProperty.Salesforce`.
-	Salesforce *string `json:"salesforce"`
+	Salesforce *string `json:"salesforce" yaml:"salesforce"`
 	// `CfnIntegration.ConnectorOperatorProperty.ServiceNow`.
-	ServiceNow *string `json:"serviceNow"`
+	ServiceNow *string `json:"serviceNow" yaml:"serviceNow"`
 	// `CfnIntegration.ConnectorOperatorProperty.Zendesk`.
-	Zendesk *string `json:"zendesk"`
+	Zendesk *string `json:"zendesk" yaml:"zendesk"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnIntegration_FlowDefinitionProperty struct {
 	// `CfnIntegration.FlowDefinitionProperty.FlowName`.
-	FlowName *string `json:"flowName"`
+	FlowName *string `json:"flowName" yaml:"flowName"`
 	// `CfnIntegration.FlowDefinitionProperty.KmsArn`.
-	KmsArn *string `json:"kmsArn"`
+	KmsArn *string `json:"kmsArn" yaml:"kmsArn"`
 	// `CfnIntegration.FlowDefinitionProperty.SourceFlowConfig`.
-	SourceFlowConfig interface{} `json:"sourceFlowConfig"`
+	SourceFlowConfig interface{} `json:"sourceFlowConfig" yaml:"sourceFlowConfig"`
 	// `CfnIntegration.FlowDefinitionProperty.Tasks`.
-	Tasks interface{} `json:"tasks"`
+	Tasks interface{} `json:"tasks" yaml:"tasks"`
 	// `CfnIntegration.FlowDefinitionProperty.TriggerConfig`.
-	TriggerConfig interface{} `json:"triggerConfig"`
+	TriggerConfig interface{} `json:"triggerConfig" yaml:"triggerConfig"`
 	// `CfnIntegration.FlowDefinitionProperty.Description`.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnIntegration_IncrementalPullConfigProperty struct {
 	// `CfnIntegration.IncrementalPullConfigProperty.DatetimeTypeFieldName`.
-	DatetimeTypeFieldName *string `json:"datetimeTypeFieldName"`
+	DatetimeTypeFieldName *string `json:"datetimeTypeFieldName" yaml:"datetimeTypeFieldName"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnIntegration_MarketoSourcePropertiesProperty struct {
 	// `CfnIntegration.MarketoSourcePropertiesProperty.Object`.
-	Object *string `json:"object"`
+	Object *string `json:"object" yaml:"object"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnIntegration_S3SourcePropertiesProperty struct {
 	// `CfnIntegration.S3SourcePropertiesProperty.BucketName`.
-	BucketName *string `json:"bucketName"`
+	BucketName *string `json:"bucketName" yaml:"bucketName"`
 	// `CfnIntegration.S3SourcePropertiesProperty.BucketPrefix`.
-	BucketPrefix *string `json:"bucketPrefix"`
+	BucketPrefix *string `json:"bucketPrefix" yaml:"bucketPrefix"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnIntegration_SalesforceSourcePropertiesProperty struct {
 	// `CfnIntegration.SalesforceSourcePropertiesProperty.Object`.
-	Object *string `json:"object"`
+	Object *string `json:"object" yaml:"object"`
 	// `CfnIntegration.SalesforceSourcePropertiesProperty.EnableDynamicFieldUpdate`.
-	EnableDynamicFieldUpdate interface{} `json:"enableDynamicFieldUpdate"`
+	EnableDynamicFieldUpdate interface{} `json:"enableDynamicFieldUpdate" yaml:"enableDynamicFieldUpdate"`
 	// `CfnIntegration.SalesforceSourcePropertiesProperty.IncludeDeletedRecords`.
-	IncludeDeletedRecords interface{} `json:"includeDeletedRecords"`
+	IncludeDeletedRecords interface{} `json:"includeDeletedRecords" yaml:"includeDeletedRecords"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnIntegration_ScheduledTriggerPropertiesProperty struct {
 	// `CfnIntegration.ScheduledTriggerPropertiesProperty.ScheduleExpression`.
-	ScheduleExpression *string `json:"scheduleExpression"`
+	ScheduleExpression *string `json:"scheduleExpression" yaml:"scheduleExpression"`
 	// `CfnIntegration.ScheduledTriggerPropertiesProperty.DataPullMode`.
-	DataPullMode *string `json:"dataPullMode"`
+	DataPullMode *string `json:"dataPullMode" yaml:"dataPullMode"`
 	// `CfnIntegration.ScheduledTriggerPropertiesProperty.FirstExecutionFrom`.
-	FirstExecutionFrom *float64 `json:"firstExecutionFrom"`
+	FirstExecutionFrom *float64 `json:"firstExecutionFrom" yaml:"firstExecutionFrom"`
 	// `CfnIntegration.ScheduledTriggerPropertiesProperty.ScheduleEndTime`.
-	ScheduleEndTime *float64 `json:"scheduleEndTime"`
+	ScheduleEndTime *float64 `json:"scheduleEndTime" yaml:"scheduleEndTime"`
 	// `CfnIntegration.ScheduledTriggerPropertiesProperty.ScheduleOffset`.
-	ScheduleOffset *float64 `json:"scheduleOffset"`
+	ScheduleOffset *float64 `json:"scheduleOffset" yaml:"scheduleOffset"`
 	// `CfnIntegration.ScheduledTriggerPropertiesProperty.ScheduleStartTime`.
-	ScheduleStartTime *float64 `json:"scheduleStartTime"`
+	ScheduleStartTime *float64 `json:"scheduleStartTime" yaml:"scheduleStartTime"`
 	// `CfnIntegration.ScheduledTriggerPropertiesProperty.Timezone`.
-	Timezone *string `json:"timezone"`
+	Timezone *string `json:"timezone" yaml:"timezone"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnIntegration_ServiceNowSourcePropertiesProperty struct {
 	// `CfnIntegration.ServiceNowSourcePropertiesProperty.Object`.
-	Object *string `json:"object"`
+	Object *string `json:"object" yaml:"object"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnIntegration_SourceConnectorPropertiesProperty struct {
 	// `CfnIntegration.SourceConnectorPropertiesProperty.Marketo`.
-	Marketo interface{} `json:"marketo"`
+	Marketo interface{} `json:"marketo" yaml:"marketo"`
 	// `CfnIntegration.SourceConnectorPropertiesProperty.S3`.
-	S3 interface{} `json:"s3"`
+	S3 interface{} `json:"s3" yaml:"s3"`
 	// `CfnIntegration.SourceConnectorPropertiesProperty.Salesforce`.
-	Salesforce interface{} `json:"salesforce"`
+	Salesforce interface{} `json:"salesforce" yaml:"salesforce"`
 	// `CfnIntegration.SourceConnectorPropertiesProperty.ServiceNow`.
-	ServiceNow interface{} `json:"serviceNow"`
+	ServiceNow interface{} `json:"serviceNow" yaml:"serviceNow"`
 	// `CfnIntegration.SourceConnectorPropertiesProperty.Zendesk`.
-	Zendesk interface{} `json:"zendesk"`
+	Zendesk interface{} `json:"zendesk" yaml:"zendesk"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnIntegration_SourceFlowConfigProperty struct {
 	// `CfnIntegration.SourceFlowConfigProperty.ConnectorType`.
-	ConnectorType *string `json:"connectorType"`
+	ConnectorType *string `json:"connectorType" yaml:"connectorType"`
 	// `CfnIntegration.SourceFlowConfigProperty.SourceConnectorProperties`.
-	SourceConnectorProperties interface{} `json:"sourceConnectorProperties"`
+	SourceConnectorProperties interface{} `json:"sourceConnectorProperties" yaml:"sourceConnectorProperties"`
 	// `CfnIntegration.SourceFlowConfigProperty.ConnectorProfileName`.
-	ConnectorProfileName *string `json:"connectorProfileName"`
+	ConnectorProfileName *string `json:"connectorProfileName" yaml:"connectorProfileName"`
 	// `CfnIntegration.SourceFlowConfigProperty.IncrementalPullConfig`.
-	IncrementalPullConfig interface{} `json:"incrementalPullConfig"`
+	IncrementalPullConfig interface{} `json:"incrementalPullConfig" yaml:"incrementalPullConfig"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnIntegration_TaskPropertiesMapProperty struct {
 	// `CfnIntegration.TaskPropertiesMapProperty.OperatorPropertyKey`.
-	OperatorPropertyKey *string `json:"operatorPropertyKey"`
+	OperatorPropertyKey *string `json:"operatorPropertyKey" yaml:"operatorPropertyKey"`
 	// `CfnIntegration.TaskPropertiesMapProperty.Property`.
-	Property *string `json:"property"`
+	Property *string `json:"property" yaml:"property"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnIntegration_TaskProperty struct {
 	// `CfnIntegration.TaskProperty.SourceFields`.
-	SourceFields *[]*string `json:"sourceFields"`
+	SourceFields *[]*string `json:"sourceFields" yaml:"sourceFields"`
 	// `CfnIntegration.TaskProperty.TaskType`.
-	TaskType *string `json:"taskType"`
+	TaskType *string `json:"taskType" yaml:"taskType"`
 	// `CfnIntegration.TaskProperty.ConnectorOperator`.
-	ConnectorOperator interface{} `json:"connectorOperator"`
+	ConnectorOperator interface{} `json:"connectorOperator" yaml:"connectorOperator"`
 	// `CfnIntegration.TaskProperty.DestinationField`.
-	DestinationField *string `json:"destinationField"`
+	DestinationField *string `json:"destinationField" yaml:"destinationField"`
 	// `CfnIntegration.TaskProperty.TaskProperties`.
-	TaskProperties interface{} `json:"taskProperties"`
+	TaskProperties interface{} `json:"taskProperties" yaml:"taskProperties"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnIntegration_TriggerConfigProperty struct {
 	// `CfnIntegration.TriggerConfigProperty.TriggerType`.
-	TriggerType *string `json:"triggerType"`
+	TriggerType *string `json:"triggerType" yaml:"triggerType"`
 	// `CfnIntegration.TriggerConfigProperty.TriggerProperties`.
-	TriggerProperties interface{} `json:"triggerProperties"`
+	TriggerProperties interface{} `json:"triggerProperties" yaml:"triggerProperties"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnIntegration_TriggerPropertiesProperty struct {
 	// `CfnIntegration.TriggerPropertiesProperty.Scheduled`.
-	Scheduled interface{} `json:"scheduled"`
+	Scheduled interface{} `json:"scheduled" yaml:"scheduled"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnIntegration_ZendeskSourcePropertiesProperty struct {
 	// `CfnIntegration.ZendeskSourcePropertiesProperty.Object`.
-	Object *string `json:"object"`
+	Object *string `json:"object" yaml:"object"`
 }
 
 // Properties for defining a `CfnIntegration`.
@@ -1333,15 +1333,15 @@ type CfnIntegration_ZendeskSourcePropertiesProperty struct {
 //
 type CfnIntegrationProps struct {
 	// The unique name of the domain.
-	DomainName *string `json:"domainName"`
+	DomainName *string `json:"domainName" yaml:"domainName"`
 	// The name of the profile object type mapping to use.
-	ObjectTypeName *string `json:"objectTypeName"`
+	ObjectTypeName *string `json:"objectTypeName" yaml:"objectTypeName"`
 	// `AWS::CustomerProfiles::Integration.FlowDefinition`.
-	FlowDefinition interface{} `json:"flowDefinition"`
+	FlowDefinition interface{} `json:"flowDefinition" yaml:"flowDefinition"`
 	// The tags used to organize, track, or control access for this resource.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// The URI of the S3 bucket or any other type of data source.
-	Uri *string `json:"uri"`
+	Uri *string `json:"uri" yaml:"uri"`
 }
 
 // A CloudFormation `AWS::CustomerProfiles::ObjectType`.
@@ -2015,9 +2015,9 @@ func (c *jsiiProxy_CfnObjectType) ValidateProperties(_properties interface{}) {
 //
 type CfnObjectType_FieldMapProperty struct {
 	// Name of the field.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// Represents a field in a ProfileObjectType.
-	ObjectTypeField interface{} `json:"objectTypeField"`
+	ObjectTypeField interface{} `json:"objectTypeField" yaml:"objectTypeField"`
 }
 
 // A unique key map that can be used to map data to the profile.
@@ -2026,9 +2026,9 @@ type CfnObjectType_FieldMapProperty struct {
 //
 type CfnObjectType_KeyMapProperty struct {
 	// Name of the key.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// A list of ObjectTypeKey.
-	ObjectTypeKeyList interface{} `json:"objectTypeKeyList"`
+	ObjectTypeKeyList interface{} `json:"objectTypeKeyList" yaml:"objectTypeKeyList"`
 }
 
 // Represents a field in a ProfileObjectType.
@@ -2039,15 +2039,15 @@ type CfnObjectType_ObjectTypeFieldProperty struct {
 	// The content type of the field.
 	//
 	// Used for determining equality when searching.
-	ContentType *string `json:"contentType"`
+	ContentType *string `json:"contentType" yaml:"contentType"`
 	// A field of a ProfileObject.
 	//
 	// For example: _source.FirstName, where “_source” is a ProfileObjectType of a Zendesk user and “FirstName” is a field in that ObjectType.
-	Source *string `json:"source"`
+	Source *string `json:"source" yaml:"source"`
 	// The location of the data in the standard ProfileObject model.
 	//
 	// For example: _profile.Address.PostalCode.
-	Target *string `json:"target"`
+	Target *string `json:"target" yaml:"target"`
 }
 
 // An object that defines the Key element of a ProfileObject.
@@ -2058,11 +2058,11 @@ type CfnObjectType_ObjectTypeFieldProperty struct {
 //
 type CfnObjectType_ObjectTypeKeyProperty struct {
 	// The reference for the key name of the fields map.
-	FieldNames *[]*string `json:"fieldNames"`
+	FieldNames *[]*string `json:"fieldNames" yaml:"fieldNames"`
 	// The types of keys that a ProfileObject can have.
 	//
 	// Each ProfileObject can have only 1 UNIQUE key but multiple PROFILE keys. PROFILE means that this key can be used to tie an object to a PROFILE. UNIQUE means that it can be used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is only used to match a profile but is not persisted to be used for searching of the profile. A NEW_ONLY key is only used if the profile does not already exist before the object is ingested, otherwise it is only used for matching objects to profiles.
-	StandardIdentifiers *[]*string `json:"standardIdentifiers"`
+	StandardIdentifiers *[]*string `json:"standardIdentifiers" yaml:"standardIdentifiers"`
 }
 
 // Properties for defining a `CfnObjectType`.
@@ -2071,30 +2071,30 @@ type CfnObjectType_ObjectTypeKeyProperty struct {
 //
 type CfnObjectTypeProps struct {
 	// The unique name of the domain.
-	DomainName *string `json:"domainName"`
+	DomainName *string `json:"domainName" yaml:"domainName"`
 	// Indicates whether a profile should be created when data is received if one doesn’t exist for an object of this type.
 	//
 	// The default is `FALSE` . If the AllowProfileCreation flag is set to `FALSE` , then the service tries to fetch a standard profile and associate this object with the profile. If it is set to `TRUE` , and if no match is found, then the service creates a new standard profile.
-	AllowProfileCreation interface{} `json:"allowProfileCreation"`
+	AllowProfileCreation interface{} `json:"allowProfileCreation" yaml:"allowProfileCreation"`
 	// The description of the profile object type mapping.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The customer-provided key to encrypt the profile object that will be created in this profile object type mapping.
 	//
 	// If not specified the system will use the encryption key of the domain.
-	EncryptionKey *string `json:"encryptionKey"`
+	EncryptionKey *string `json:"encryptionKey" yaml:"encryptionKey"`
 	// The number of days until the data of this type expires.
-	ExpirationDays *float64 `json:"expirationDays"`
+	ExpirationDays *float64 `json:"expirationDays" yaml:"expirationDays"`
 	// A list of field definitions for the object type mapping.
-	Fields interface{} `json:"fields"`
+	Fields interface{} `json:"fields" yaml:"fields"`
 	// A list of keys that can be used to map data to the profile or search for the profile.
-	Keys interface{} `json:"keys"`
+	Keys interface{} `json:"keys" yaml:"keys"`
 	// The name of the profile object type.
-	ObjectTypeName *string `json:"objectTypeName"`
+	ObjectTypeName *string `json:"objectTypeName" yaml:"objectTypeName"`
 	// The tags used to organize, track, or control access for this resource.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// A unique identifier for the template mapping.
 	//
 	// This can be used instead of specifying the Keys and Fields properties directly.
-	TemplateId *string `json:"templateId"`
+	TemplateId *string `json:"templateId" yaml:"templateId"`
 }
 

@@ -611,15 +611,15 @@ func (c *jsiiProxy_CfnGeofenceCollection) ValidateProperties(_properties interfa
 //
 type CfnGeofenceCollectionProps struct {
 	// The name for the geofence collection.
-	CollectionName *string `json:"collectionName"`
+	CollectionName *string `json:"collectionName" yaml:"collectionName"`
 	// Specifies the pricing plan for the geofence collection.
 	//
 	// For additional details and restrictions on each pricing plan option, see the [Amazon Location Service pricing page](https://docs.aws.amazon.com/location/pricing/) .
-	PricingPlan *string `json:"pricingPlan"`
+	PricingPlan *string `json:"pricingPlan" yaml:"pricingPlan"`
 	// An optional description for the geofence collection.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// A key identifier for an [AWS KMS customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) . Enter a key ID, key ARN, alias name, or alias ARN.
-	KmsKeyId *string `json:"kmsKeyId"`
+	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
 	// Specifies the data provider for the geofence collection.
 	//
 	// - Required value for the following pricing plans: `MobileAssetTracking` | `MobileAssetManagement`
@@ -629,7 +629,7 @@ type CfnGeofenceCollectionProps struct {
 	// > Amazon Location Service only uses `PricingPlanDataSource` to calculate billing for your geofence collection. Your data will not be shared with the data provider, and will remain in your AWS account or region unless you move it.
 	//
 	// Valid Values: `Esri` | `Here`
-	PricingPlanDataSource *string `json:"pricingPlanDataSource"`
+	PricingPlanDataSource *string `json:"pricingPlanDataSource" yaml:"pricingPlanDataSource"`
 }
 
 // A CloudFormation `AWS::Location::Map`.
@@ -1229,7 +1229,7 @@ type CfnMap_MapConfigurationProperty struct {
 	// Valid styles: `VectorEsriStreets` , `VectorEsriTopographic` , `VectorEsriNavigation` , `VectorEsriDarkGrayCanvas` , `VectorEsriLightGrayCanvas` , `VectorHereBerlin` .
 	//
 	// > When using HERE as your data provider, and selecting the Style `VectorHereBerlin` , you may not use HERE Technologies maps for Asset Management. See the [AWS Service Terms](https://docs.aws.amazon.com/service-terms/) for Amazon Location Service.
-	Style *string `json:"style"`
+	Style *string `json:"style" yaml:"style"`
 }
 
 // Properties for defining a `CfnMap`.
@@ -1238,7 +1238,7 @@ type CfnMap_MapConfigurationProperty struct {
 //
 type CfnMapProps struct {
 	// Specifies the map style selected from an available data provider.
-	Configuration interface{} `json:"configuration"`
+	Configuration interface{} `json:"configuration" yaml:"configuration"`
 	// The name for the map resource.
 	//
 	// Requirements:
@@ -1246,13 +1246,13 @@ type CfnMapProps struct {
 	// - Must contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
 	// - Must be a unique map resource name.
 	// - No spaces allowed. For example, `ExampleMap` .
-	MapName *string `json:"mapName"`
+	MapName *string `json:"mapName" yaml:"mapName"`
 	// Specifies the pricing plan for your map resource.
 	//
 	// For additional details and restrictions on each pricing plan option, see the [Amazon Location Service pricing page](https://docs.aws.amazon.com/location/pricing/) .
-	PricingPlan *string `json:"pricingPlan"`
+	PricingPlan *string `json:"pricingPlan" yaml:"pricingPlan"`
 	// An optional description for the map resource.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 }
 
 // A CloudFormation `AWS::Location::PlaceIndex`.
@@ -1866,7 +1866,7 @@ type CfnPlaceIndex_DataSourceConfigurationProperty struct {
 	// > Place index resources using HERE as a data provider can't be configured to store results for locations in Japan when choosing `Storage` for the `IntendedUse` parameter.
 	//
 	// Default value: `SingleUse`
-	IntendedUse *string `json:"intendedUse"`
+	IntendedUse *string `json:"intendedUse" yaml:"intendedUse"`
 }
 
 // Properties for defining a `CfnPlaceIndex`.
@@ -1886,7 +1886,7 @@ type CfnPlaceIndexProps struct {
 	// > Place index resources using HERE as a data provider can't be used to [store](https://docs.aws.amazon.com/location-places/latest/APIReference/API_DataSourceConfiguration.html) results for locations in Japan. For more information, see the [AWS Service Terms](https://docs.aws.amazon.com/service-terms/) for Amazon Location Service.
 	//
 	// For additional details on data providers, see the [Amazon Location Service data providers page](https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html) .
-	DataSource *string `json:"dataSource"`
+	DataSource *string `json:"dataSource" yaml:"dataSource"`
 	// The name of the place index resource.
 	//
 	// Requirements:
@@ -1894,15 +1894,15 @@ type CfnPlaceIndexProps struct {
 	// - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
 	// - Must be a unique place index resource name.
 	// - No spaces allowed. For example, `ExamplePlaceIndex` .
-	IndexName *string `json:"indexName"`
+	IndexName *string `json:"indexName" yaml:"indexName"`
 	// Specifies the pricing plan for your place index resource.
 	//
 	// For additional details and restrictions on each pricing plan option, see the [Amazon Location Service pricing page](https://docs.aws.amazon.com/location/pricing/) .
-	PricingPlan *string `json:"pricingPlan"`
+	PricingPlan *string `json:"pricingPlan" yaml:"pricingPlan"`
 	// Specifies the data storage option for requesting Places.
-	DataSourceConfiguration interface{} `json:"dataSourceConfiguration"`
+	DataSourceConfiguration interface{} `json:"dataSourceConfiguration" yaml:"dataSourceConfiguration"`
 	// The optional description for the place index resource.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 }
 
 // A CloudFormation `AWS::Location::RouteCalculator`.
@@ -2495,7 +2495,7 @@ type CfnRouteCalculatorProps struct {
 	// - Can use alphanumeric characters (A–Z, a–z, 0–9) , hyphens (-), periods (.), and underscores (_).
 	// - Must be a unique route calculator resource name.
 	// - No spaces allowed. For example, `ExampleRouteCalculator` .
-	CalculatorName *string `json:"calculatorName"`
+	CalculatorName *string `json:"calculatorName" yaml:"calculatorName"`
 	// Specifies the data provider of traffic and road network data.
 	//
 	// > This field is case-sensitive. Enter the valid values as shown. For example, entering `HERE` returns an error.
@@ -2506,13 +2506,13 @@ type CfnRouteCalculatorProps struct {
 	// - `Here`
 	//
 	// For more information about data providers, see the [Amazon Location Service data providers page](https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html) .
-	DataSource *string `json:"dataSource"`
+	DataSource *string `json:"dataSource" yaml:"dataSource"`
 	// Specifies the pricing plan for your route calculator resource.
 	//
 	// For additional details and restrictions on each pricing plan option, see the [Amazon Location Service pricing page](https://docs.aws.amazon.com/location/pricing/) .
-	PricingPlan *string `json:"pricingPlan"`
+	PricingPlan *string `json:"pricingPlan" yaml:"pricingPlan"`
 	// The optional description for the route calculator resource.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 }
 
 // A CloudFormation `AWS::Location::Tracker`.
@@ -3633,7 +3633,7 @@ type CfnTrackerConsumerProps struct {
 	// The Amazon Resource Name (ARN) for the geofence collection that consumes the tracker resource updates.
 	//
 	// - Format example: `arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer`
-	ConsumerArn *string `json:"consumerArn"`
+	ConsumerArn *string `json:"consumerArn" yaml:"consumerArn"`
 	// The name for the tracker resource.
 	//
 	// Requirements:
@@ -3641,7 +3641,7 @@ type CfnTrackerConsumerProps struct {
 	// - Contain only alphanumeric characters (A-Z, a-z, 0-9) , hyphens (-), periods (.), and underscores (_).
 	// - Must be a unique tracker resource name.
 	// - No spaces allowed. For example, `ExampleTracker` .
-	TrackerName *string `json:"trackerName"`
+	TrackerName *string `json:"trackerName" yaml:"trackerName"`
 }
 
 // Properties for defining a `CfnTracker`.
@@ -3652,7 +3652,7 @@ type CfnTrackerProps struct {
 	// Specifies the pricing plan for the tracker resource.
 	//
 	// For additional details and restrictions on each pricing plan option, see the [Amazon Location Service pricing page](https://docs.aws.amazon.com/location/pricing/) .
-	PricingPlan *string `json:"pricingPlan"`
+	PricingPlan *string `json:"pricingPlan" yaml:"pricingPlan"`
 	// The name for the tracker resource.
 	//
 	// Requirements:
@@ -3660,11 +3660,11 @@ type CfnTrackerProps struct {
 	// - Contain only alphanumeric characters (A-Z, a-z, 0-9) , hyphens (-), periods (.), and underscores (_).
 	// - Must be a unique tracker resource name.
 	// - No spaces allowed. For example, `ExampleTracker` .
-	TrackerName *string `json:"trackerName"`
+	TrackerName *string `json:"trackerName" yaml:"trackerName"`
 	// An optional description for the tracker resource.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// A key identifier for an [AWS KMS customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) . Enter a key ID, key ARN, alias name, or alias ARN.
-	KmsKeyId *string `json:"kmsKeyId"`
+	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
 	// Specifies the position filtering for the tracker resource.
 	//
 	// Valid values:
@@ -3673,7 +3673,7 @@ type CfnTrackerProps struct {
 	// - `DistanceBased` - If the device has moved less than 30 m (98.4 ft), location updates are ignored. Location updates within this area are neither evaluated against linked geofence collections, nor stored. This helps control costs by reducing the number of geofence evaluations and historical device positions to paginate through. Distance-based filtering can also reduce the effects of GPS noise when displaying device trajectories on a map.
 	//
 	// This field is optional. If not specified, the default value is `TimeBased` .
-	PositionFiltering *string `json:"positionFiltering"`
+	PositionFiltering *string `json:"positionFiltering" yaml:"positionFiltering"`
 	// Specifies the data provider for the tracker resource.
 	//
 	// - Required value for the following pricing plans: `MobileAssetTracking` | `MobileAssetManagement`
@@ -3683,6 +3683,6 @@ type CfnTrackerProps struct {
 	// > Amazon Location Service only uses `PricingPlanDataSource` to calculate billing for your tracker resource. Your data will not be shared with the data provider, and will remain in your AWS account or region unless you move it.
 	//
 	// Valid Values: `Esri` | `Here`
-	PricingPlanDataSource *string `json:"pricingPlanDataSource"`
+	PricingPlanDataSource *string `json:"pricingPlanDataSource" yaml:"pricingPlanDataSource"`
 }
 

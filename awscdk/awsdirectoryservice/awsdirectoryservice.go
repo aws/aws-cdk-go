@@ -631,9 +631,9 @@ type CfnMicrosoftAD_VpcSettingsProperty struct {
 	// The identifiers of the subnets for the directory servers.
 	//
 	// The two subnets must be in different Availability Zones. AWS Directory Service specifies a directory server and a DNS server in each of these subnets.
-	SubnetIds *[]*string `json:"subnetIds"`
+	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
 	// The identifier of the VPC in which to create the directory.
-	VpcId *string `json:"vpcId"`
+	VpcId *string `json:"vpcId" yaml:"vpcId"`
 }
 
 // Properties for defining a `CfnMicrosoftAD`.
@@ -642,31 +642,31 @@ type CfnMicrosoftAD_VpcSettingsProperty struct {
 //
 type CfnMicrosoftADProps struct {
 	// The fully qualified domain name for the AWS Managed Microsoft AD directory, such as `corp.example.com` . This name will resolve inside your VPC only. It does not need to be publicly resolvable.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The password for the default administrative user named `Admin` .
 	//
 	// If you need to change the password for the administrator account, see the [ResetUserPassword](https://docs.aws.amazon.com/directoryservice/latest/devguide/API_ResetUserPassword.html) API call in the *AWS Directory Service API Reference* .
-	Password *string `json:"password"`
+	Password *string `json:"password" yaml:"password"`
 	// Specifies the VPC settings of the Microsoft AD directory server in AWS .
-	VpcSettings interface{} `json:"vpcSettings"`
+	VpcSettings interface{} `json:"vpcSettings" yaml:"vpcSettings"`
 	// Specifies an alias for a directory and assigns the alias to the directory.
 	//
 	// The alias is used to construct the access URL for the directory, such as `http://<alias>.awsapps.com` . By default, AWS CloudFormation does not create an alias.
 	//
 	// > After an alias has been created, it cannot be deleted or reused, so this operation should only be used when absolutely necessary.
-	CreateAlias interface{} `json:"createAlias"`
+	CreateAlias interface{} `json:"createAlias" yaml:"createAlias"`
 	// AWS Managed Microsoft AD is available in two editions: `Standard` and `Enterprise` .
 	//
 	// `Enterprise` is the default.
-	Edition *string `json:"edition"`
+	Edition *string `json:"edition" yaml:"edition"`
 	// Whether to enable single sign-on for a Microsoft Active Directory in AWS .
 	//
 	// Single sign-on allows users in your directory to access certain AWS services from a computer joined to the directory without having to enter their credentials separately. If you don't specify a value, AWS CloudFormation disables single sign-on by default.
-	EnableSso interface{} `json:"enableSso"`
+	EnableSso interface{} `json:"enableSso" yaml:"enableSso"`
 	// The NetBIOS name for your domain, such as `CORP` .
 	//
 	// If you don't specify a NetBIOS name, it will default to the first part of your directory DNS. For example, `CORP` for the directory DNS `corp.example.com` .
-	ShortName *string `json:"shortName"`
+	ShortName *string `json:"shortName" yaml:"shortName"`
 }
 
 // A CloudFormation `AWS::DirectoryService::SimpleAD`.
@@ -1311,9 +1311,9 @@ type CfnSimpleAD_VpcSettingsProperty struct {
 	// The identifiers of the subnets for the directory servers.
 	//
 	// The two subnets must be in different Availability Zones. AWS Directory Service specifies a directory server and a DNS server in each of these subnets.
-	SubnetIds *[]*string `json:"subnetIds"`
+	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
 	// The identifier of the VPC in which to create the directory.
-	VpcId *string `json:"vpcId"`
+	VpcId *string `json:"vpcId" yaml:"vpcId"`
 }
 
 // Properties for defining a `CfnSimpleAD`.
@@ -1322,32 +1322,32 @@ type CfnSimpleAD_VpcSettingsProperty struct {
 //
 type CfnSimpleADProps struct {
 	// The fully qualified name for the directory, such as `corp.example.com` .
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The password for the directory administrator.
 	//
 	// The directory creation process creates a directory administrator account with the user name `Administrator` and this password.
 	//
 	// If you need to change the password for the administrator account, see the [ResetUserPassword](https://docs.aws.amazon.com/directoryservice/latest/devguide/API_ResetUserPassword.html) API call in the *AWS Directory Service API Reference* .
-	Password *string `json:"password"`
+	Password *string `json:"password" yaml:"password"`
 	// The size of the directory.
 	//
 	// For valid values, see [CreateDirectory](https://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateDirectory.html) in the *AWS Directory Service API Reference* .
-	Size *string `json:"size"`
+	Size *string `json:"size" yaml:"size"`
 	// A [DirectoryVpcSettings](https://docs.aws.amazon.com/directoryservice/latest/devguide/API_DirectoryVpcSettings.html) object that contains additional information for the operation.
-	VpcSettings interface{} `json:"vpcSettings"`
+	VpcSettings interface{} `json:"vpcSettings" yaml:"vpcSettings"`
 	// If set to `true` , specifies an alias for a directory and assigns the alias to the directory.
 	//
 	// The alias is used to construct the access URL for the directory, such as `http://<alias>.awsapps.com` . By default, this property is set to `false` .
 	//
 	// > After an alias has been created, it cannot be deleted or reused, so this operation should only be used when absolutely necessary.
-	CreateAlias interface{} `json:"createAlias"`
+	CreateAlias interface{} `json:"createAlias" yaml:"createAlias"`
 	// A description for the directory.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Whether to enable single sign-on for a directory.
 	//
 	// If you don't specify a value, AWS CloudFormation disables single sign-on by default.
-	EnableSso interface{} `json:"enableSso"`
+	EnableSso interface{} `json:"enableSso" yaml:"enableSso"`
 	// The NetBIOS name of the directory, such as `CORP` .
-	ShortName *string `json:"shortName"`
+	ShortName *string `json:"shortName" yaml:"shortName"`
 }
 

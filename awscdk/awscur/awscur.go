@@ -707,36 +707,36 @@ func (c *jsiiProxy_CfnReportDefinition) ValidateProperties(_properties interface
 //
 type CfnReportDefinitionProps struct {
 	// The compression format that Amazon Web Services uses for the report.
-	Compression *string `json:"compression"`
+	Compression *string `json:"compression" yaml:"compression"`
 	// The format that Amazon Web Services saves the report in.
-	Format *string `json:"format"`
+	Format *string `json:"format" yaml:"format"`
 	// Whether you want Amazon Web Services to update your reports after they have been finalized if Amazon Web Services detects charges related to previous months.
 	//
 	// These charges can include refunds, credits, or support fees.
-	RefreshClosedReports interface{} `json:"refreshClosedReports"`
+	RefreshClosedReports interface{} `json:"refreshClosedReports" yaml:"refreshClosedReports"`
 	// The name of the report that you want to create.
 	//
 	// The name must be unique, is case sensitive, and can't include spaces.
-	ReportName *string `json:"reportName"`
+	ReportName *string `json:"reportName" yaml:"reportName"`
 	// Whether you want Amazon Web Services to overwrite the previous version of each report or to deliver the report in addition to the previous versions.
-	ReportVersioning *string `json:"reportVersioning"`
+	ReportVersioning *string `json:"reportVersioning" yaml:"reportVersioning"`
 	// The S3 bucket where Amazon Web Services delivers the report.
-	S3Bucket *string `json:"s3Bucket"`
+	S3Bucket *string `json:"s3Bucket" yaml:"s3Bucket"`
 	// The prefix that Amazon Web Services adds to the report name when Amazon Web Services delivers the report.
 	//
 	// Your prefix can't include spaces.
-	S3Prefix *string `json:"s3Prefix"`
+	S3Prefix *string `json:"s3Prefix" yaml:"s3Prefix"`
 	// The Region of the S3 bucket that Amazon Web Services delivers the report into.
-	S3Region *string `json:"s3Region"`
+	S3Region *string `json:"s3Region" yaml:"s3Region"`
 	// The granularity of the line items in the report.
-	TimeUnit *string `json:"timeUnit"`
+	TimeUnit *string `json:"timeUnit" yaml:"timeUnit"`
 	// A list of manifests that you want Amazon Web Services to create for this report.
-	AdditionalArtifacts *[]*string `json:"additionalArtifacts"`
+	AdditionalArtifacts *[]*string `json:"additionalArtifacts" yaml:"additionalArtifacts"`
 	// A list of strings that indicate additional content that Amazon Web Services includes in the report, such as individual resource IDs.
-	AdditionalSchemaElements *[]*string `json:"additionalSchemaElements"`
+	AdditionalSchemaElements *[]*string `json:"additionalSchemaElements" yaml:"additionalSchemaElements"`
 	// The Amazon Resource Name (ARN) of the billing view.
 	//
 	// You can get this value by using the billing view service public APIs.
-	BillingViewArn *string `json:"billingViewArn"`
+	BillingViewArn *string `json:"billingViewArn" yaml:"billingViewArn"`
 }
 

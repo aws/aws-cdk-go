@@ -269,13 +269,13 @@ func (a *jsiiProxy_AliasTargetInstance) UniqueInstanceId() *string {
 //
 type AliasTargetInstanceProps struct {
 	// Custom attributes of the instance.
-	CustomAttributes *map[string]*string `json:"customAttributes"`
+	CustomAttributes *map[string]*string `json:"customAttributes" yaml:"customAttributes"`
 	// The id of the instance resource.
-	InstanceId *string `json:"instanceId"`
+	InstanceId *string `json:"instanceId" yaml:"instanceId"`
 	// DNS name of the target.
-	DnsName *string `json:"dnsName"`
+	DnsName *string `json:"dnsName" yaml:"dnsName"`
 	// The Cloudmap service this resource is registered to.
-	Service IService `json:"service"`
+	Service IService `json:"service" yaml:"service"`
 }
 
 // Used when the resource that's associated with the service instance is accessible using values other than an IP address or a domain name (CNAME), i.e. for non-ip-instances.
@@ -284,18 +284,18 @@ type AliasTargetInstanceProps struct {
 //
 type BaseInstanceProps struct {
 	// Custom attributes of the instance.
-	CustomAttributes *map[string]*string `json:"customAttributes"`
+	CustomAttributes *map[string]*string `json:"customAttributes" yaml:"customAttributes"`
 	// The id of the instance resource.
-	InstanceId *string `json:"instanceId"`
+	InstanceId *string `json:"instanceId" yaml:"instanceId"`
 }
 
 // TODO: EXAMPLE
 //
 type BaseNamespaceProps struct {
 	// A name for the Namespace.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// A description of the Namespace.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 }
 
 // Basic props needed to create a service in a given namespace.
@@ -309,18 +309,18 @@ type BaseServiceProps struct {
 	//
 	// Only one of healthCheckConfig or healthCheckCustomConfig can be specified.
 	// See: https://docs.aws.amazon.com/cloud-map/latest/api/API_HealthCheckCustomConfig.html
-	CustomHealthCheck *HealthCheckCustomConfig `json:"customHealthCheck"`
+	CustomHealthCheck *HealthCheckCustomConfig `json:"customHealthCheck" yaml:"customHealthCheck"`
 	// A description of the service.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Settings for an optional health check.
 	//
 	// If you specify health check settings, AWS Cloud Map associates the health
 	// check with the records that you specify in DnsConfig. Only one of healthCheckConfig or healthCheckCustomConfig can
 	// be specified. Not valid for PrivateDnsNamespaces. If you use healthCheck, you can only register IP instances to
 	// this service.
-	HealthCheck *HealthCheckConfig `json:"healthCheck"`
+	HealthCheck *HealthCheckConfig `json:"healthCheck" yaml:"healthCheck"`
 	// A name for the Service.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // A CloudFormation `AWS::ServiceDiscovery::HttpNamespace`.
@@ -856,13 +856,13 @@ func (c *jsiiProxy_CfnHttpNamespace) ValidateProperties(_properties interface{})
 //
 type CfnHttpNamespaceProps struct {
 	// The name that you want to assign to this namespace.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// A description for the namespace.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The tags for the namespace.
 	//
 	// Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::ServiceDiscovery::Instance`.
@@ -1414,9 +1414,9 @@ type CfnInstanceProps struct {
 	// If the service includes `HealthCheckConfig` , the port on the endpoint that you want Route 53 to send requests to.
 	//
 	// This value is required if you specified settings for an `SRV` record or a Route 53 health check when you created the service.
-	InstanceAttributes interface{} `json:"instanceAttributes"`
+	InstanceAttributes interface{} `json:"instanceAttributes" yaml:"instanceAttributes"`
 	// The ID of the service that you want to use for settings for the instance.
-	ServiceId *string `json:"serviceId"`
+	ServiceId *string `json:"serviceId" yaml:"serviceId"`
 	// An identifier that you want to associate with the instance. Note the following:.
 	//
 	// - If the service that's specified by `ServiceId` includes settings for an `SRV` record, the value of `InstanceId` is automatically included as part of the value for the `SRV` record. For more information, see [DnsRecord > Type](https://docs.aws.amazon.com/cloud-map/latest/api/API_DnsRecord.html#cloudmap-Type-DnsRecord-Type) .
@@ -1425,7 +1425,7 @@ type CfnInstanceProps struct {
 	// - If you specify an existing `InstanceId` and `ServiceId` , AWS Cloud Map updates the existing DNS records, if any. If there's also an existing health check, AWS Cloud Map deletes the old health check and creates a new one.
 	//
 	// > The health check isn't deleted immediately, so it will still appear for a while if you submit a `ListHealthChecks` request, for example.
-	InstanceId *string `json:"instanceId"`
+	InstanceId *string `json:"instanceId" yaml:"instanceId"`
 }
 
 // A CloudFormation `AWS::ServiceDiscovery::PrivateDnsNamespace`.
@@ -1999,7 +1999,7 @@ func (c *jsiiProxy_CfnPrivateDnsNamespace) ValidateProperties(_properties interf
 //
 type CfnPrivateDnsNamespace_PrivateDnsPropertiesMutableProperty struct {
 	// Fields for the Start of Authority (SOA) record for the hosted zone for the private DNS namespace.
-	Soa interface{} `json:"soa"`
+	Soa interface{} `json:"soa" yaml:"soa"`
 }
 
 // Properties for the private DNS namespace.
@@ -2008,7 +2008,7 @@ type CfnPrivateDnsNamespace_PrivateDnsPropertiesMutableProperty struct {
 //
 type CfnPrivateDnsNamespace_PropertiesProperty struct {
 	// DNS properties for the private DNS namespace.
-	DnsProperties interface{} `json:"dnsProperties"`
+	DnsProperties interface{} `json:"dnsProperties" yaml:"dnsProperties"`
 }
 
 // Start of Authority (SOA) properties for a public or private DNS namespace.
@@ -2017,7 +2017,7 @@ type CfnPrivateDnsNamespace_PropertiesProperty struct {
 //
 type CfnPrivateDnsNamespace_SOAProperty struct {
 	// The time to live (TTL) for purposes of negative caching.
-	Ttl *float64 `json:"ttl"`
+	Ttl *float64 `json:"ttl" yaml:"ttl"`
 }
 
 // Properties for defining a `CfnPrivateDnsNamespace`.
@@ -2028,17 +2028,17 @@ type CfnPrivateDnsNamespaceProps struct {
 	// The name that you want to assign to this namespace.
 	//
 	// When you create a private DNS namespace, AWS Cloud Map automatically creates an Amazon Route 53 private hosted zone that has the same name as the namespace.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The ID of the Amazon VPC that you want to associate the namespace with.
-	Vpc *string `json:"vpc"`
+	Vpc *string `json:"vpc" yaml:"vpc"`
 	// A description for the namespace.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Properties for the private DNS namespace.
-	Properties interface{} `json:"properties"`
+	Properties interface{} `json:"properties" yaml:"properties"`
 	// The tags for the namespace.
 	//
 	// Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::ServiceDiscovery::PublicDnsNamespace`.
@@ -2594,7 +2594,7 @@ func (c *jsiiProxy_CfnPublicDnsNamespace) ValidateProperties(_properties interfa
 //
 type CfnPublicDnsNamespace_PropertiesProperty struct {
 	// DNS properties for the public DNS namespace.
-	DnsProperties interface{} `json:"dnsProperties"`
+	DnsProperties interface{} `json:"dnsProperties" yaml:"dnsProperties"`
 }
 
 // DNS properties for the public DNS namespace.
@@ -2603,7 +2603,7 @@ type CfnPublicDnsNamespace_PropertiesProperty struct {
 //
 type CfnPublicDnsNamespace_PublicDnsPropertiesMutableProperty struct {
 	// Start of Authority (SOA) record for the hosted zone for the public DNS namespace.
-	Soa interface{} `json:"soa"`
+	Soa interface{} `json:"soa" yaml:"soa"`
 }
 
 // Start of Authority (SOA) properties for a public or private DNS namespace.
@@ -2612,7 +2612,7 @@ type CfnPublicDnsNamespace_PublicDnsPropertiesMutableProperty struct {
 //
 type CfnPublicDnsNamespace_SOAProperty struct {
 	// The time to live (TTL) for purposes of negative caching.
-	Ttl *float64 `json:"ttl"`
+	Ttl *float64 `json:"ttl" yaml:"ttl"`
 }
 
 // Properties for defining a `CfnPublicDnsNamespace`.
@@ -2621,15 +2621,15 @@ type CfnPublicDnsNamespace_SOAProperty struct {
 //
 type CfnPublicDnsNamespaceProps struct {
 	// The name that you want to assign to this namespace.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// A description for the namespace.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Properties for the public DNS namespace.
-	Properties interface{} `json:"properties"`
+	Properties interface{} `json:"properties" yaml:"properties"`
 	// The tags for the namespace.
 	//
 	// Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::ServiceDiscovery::Service`.
@@ -3283,11 +3283,11 @@ func (c *jsiiProxy_CfnService) ValidateProperties(_properties interface{}) {
 //
 type CfnService_DnsConfigProperty struct {
 	// An array that contains one `DnsRecord` object for each Route 53 DNS record that you want AWS Cloud Map to create when you register an instance.
-	DnsRecords interface{} `json:"dnsRecords"`
+	DnsRecords interface{} `json:"dnsRecords" yaml:"dnsRecords"`
 	// The ID of the namespace to use for DNS configuration.
 	//
 	// > You must specify a value for `NamespaceId` either for `DnsConfig` or for the [service properties](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html) . Don't specify a value in both places.
-	NamespaceId *string `json:"namespaceId"`
+	NamespaceId *string `json:"namespaceId" yaml:"namespaceId"`
 	// The routing policy that you want to apply to all Route 53 DNS records that AWS Cloud Map creates when you register an instance and specify this service.
 	//
 	// > If you want to use this service to register instances that create alias records, specify `WEIGHTED` for the routing policy.
@@ -3308,7 +3308,7 @@ type CfnService_DnsConfigProperty struct {
 	// If you don't define a health check for the service, Route 53 assumes that all instances are healthy and returns the applicable value for one randomly selected instance.
 	//
 	// For more information about the weighted routing policy, see [Weighted Routing](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted) in the *Route 53 Developer Guide* .
-	RoutingPolicy *string `json:"routingPolicy"`
+	RoutingPolicy *string `json:"routingPolicy" yaml:"routingPolicy"`
 }
 
 // A complex type that contains information about the Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.
@@ -3319,7 +3319,7 @@ type CfnService_DnsRecordProperty struct {
 	// The amount of time, in seconds, that you want DNS resolvers to cache the settings for this record.
 	//
 	// > Alias records don't include a TTL because Route 53 uses the TTL for the AWS resource that an alias record routes traffic to. If you include the `AWS_ALIAS_DNS_NAME` attribute when you submit a [RegisterInstance](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html) request, the `TTL` value is ignored. Always specify a TTL for the service; you can use a service to register instances that create either alias or non-alias records.
-	Ttl *float64 `json:"ttl"`
+	Ttl *float64 `json:"ttl" yaml:"ttl"`
 	// The type of the resource, which indicates the type of value that Route 53 returns in response to DNS queries.
 	//
 	// You can specify values for `Type` in the following combinations:
@@ -3362,7 +3362,7 @@ type CfnService_DnsRecordProperty struct {
 	// `test.backend.example.com`
 	//
 	// If you specify settings for an `SRV` record and if you specify values for `AWS_INSTANCE_IPV4` , `AWS_INSTANCE_IPV6` , or both in the `RegisterInstance` request, AWS Cloud Map automatically creates `A` and/or `AAAA` records that have the same name as the value of `service-hostname` in the `SRV` record. You can ignore these records.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 }
 
 // *Public DNS and HTTP namespaces only.* A complex type that contains settings for an optional health check. If you specify settings for a health check, AWS Cloud Map associates the health check with the records that you specify in `DnsConfig` .
@@ -3401,17 +3401,17 @@ type CfnService_HealthCheckConfigProperty struct {
 	// If you specify `TCP` for `Type` , don't specify a value for `ResourcePath` .
 	//
 	// For more information, see [How Route 53 Determines Whether an Endpoint Is Healthy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html) in the *Route 53 Developer Guide* .
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// The number of consecutive health checks that an endpoint must pass or fail for Route 53 to change the current status of the endpoint from unhealthy to healthy or the other way around.
 	//
 	// For more information, see [How Route 53 Determines Whether an Endpoint Is Healthy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html) in the *Route 53 Developer Guide* .
-	FailureThreshold *float64 `json:"failureThreshold"`
+	FailureThreshold *float64 `json:"failureThreshold" yaml:"failureThreshold"`
 	// The path that you want Route 53 to request when performing health checks.
 	//
 	// The path can be any value that your endpoint returns an HTTP status code of a 2xx or 3xx format for when the endpoint is healthy. An example file is `/docs/route53-health-check.html` . Route 53 automatically adds the DNS name for the service. If you don't specify a value for `ResourcePath` , the default value is `/` .
 	//
 	// If you specify `TCP` for `Type` , you must *not* specify a value for `ResourcePath` .
-	ResourcePath *string `json:"resourcePath"`
+	ResourcePath *string `json:"resourcePath" yaml:"resourcePath"`
 }
 
 // A complex type that contains information about an optional custom health check.
@@ -3447,7 +3447,7 @@ type CfnService_HealthCheckCustomConfigProperty struct {
 	// The number of 30-second intervals that you want AWS Cloud Map to wait after receiving an `UpdateInstanceCustomHealthStatus` request before it changes the health status of a service instance.
 	//
 	// Sending a second or subsequent `UpdateInstanceCustomHealthStatus` request with the same value before 30 seconds has passed doesn't accelerate the change. AWS Cloud Map still waits `30` seconds after the first request to make the change.
-	FailureThreshold *float64 `json:"failureThreshold"`
+	FailureThreshold *float64 `json:"failureThreshold" yaml:"failureThreshold"`
 }
 
 // Properties for defining a `CfnService`.
@@ -3456,31 +3456,31 @@ type CfnService_HealthCheckCustomConfigProperty struct {
 //
 type CfnServiceProps struct {
 	// The description of the service.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// A complex type that contains information about the Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.
-	DnsConfig interface{} `json:"dnsConfig"`
+	DnsConfig interface{} `json:"dnsConfig" yaml:"dnsConfig"`
 	// *Public DNS and HTTP namespaces only.* A complex type that contains settings for an optional health check. If you specify settings for a health check, AWS Cloud Map associates the health check with the records that you specify in `DnsConfig` .
 	//
 	// For information about the charges for health checks, see [Amazon Route 53 Pricing](https://docs.aws.amazon.com/route53/pricing/) .
-	HealthCheckConfig interface{} `json:"healthCheckConfig"`
+	HealthCheckConfig interface{} `json:"healthCheckConfig" yaml:"healthCheckConfig"`
 	// A complex type that contains information about an optional custom health check.
 	//
 	// > If you specify a health check configuration, you can specify either `HealthCheckCustomConfig` or `HealthCheckConfig` but not both.
-	HealthCheckCustomConfig interface{} `json:"healthCheckCustomConfig"`
+	HealthCheckCustomConfig interface{} `json:"healthCheckCustomConfig" yaml:"healthCheckCustomConfig"`
 	// The name of the service.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The ID of the namespace that was used to create the service.
 	//
 	// > You must specify a value for `NamespaceId` either for the service properties or for [DnsConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsconfig.html) . Don't specify a value in both places.
-	NamespaceId *string `json:"namespaceId"`
+	NamespaceId *string `json:"namespaceId" yaml:"namespaceId"`
 	// The tags for the service.
 	//
 	// Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation.
 	//
 	// No DNS records is registered for the service instances. The only valid value is `HTTP` .
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 }
 
 // Instance that is accessible using a domain name (CNAME).
@@ -3738,24 +3738,24 @@ func (c *jsiiProxy_CnameInstance) UniqueInstanceId() *string {
 //
 type CnameInstanceBaseProps struct {
 	// Custom attributes of the instance.
-	CustomAttributes *map[string]*string `json:"customAttributes"`
+	CustomAttributes *map[string]*string `json:"customAttributes" yaml:"customAttributes"`
 	// The id of the instance resource.
-	InstanceId *string `json:"instanceId"`
+	InstanceId *string `json:"instanceId" yaml:"instanceId"`
 	// If the service configuration includes a CNAME record, the domain name that you want Route 53 to return in response to DNS queries, for example, example.com. This value is required if the service specified by ServiceId includes settings for an CNAME record.
-	InstanceCname *string `json:"instanceCname"`
+	InstanceCname *string `json:"instanceCname" yaml:"instanceCname"`
 }
 
 // TODO: EXAMPLE
 //
 type CnameInstanceProps struct {
 	// Custom attributes of the instance.
-	CustomAttributes *map[string]*string `json:"customAttributes"`
+	CustomAttributes *map[string]*string `json:"customAttributes" yaml:"customAttributes"`
 	// The id of the instance resource.
-	InstanceId *string `json:"instanceId"`
+	InstanceId *string `json:"instanceId" yaml:"instanceId"`
 	// If the service configuration includes a CNAME record, the domain name that you want Route 53 to return in response to DNS queries, for example, example.com. This value is required if the service specified by ServiceId includes settings for an CNAME record.
-	InstanceCname *string `json:"instanceCname"`
+	InstanceCname *string `json:"instanceCname" yaml:"instanceCname"`
 	// The Cloudmap service this resource is registered to.
-	Service IService `json:"service"`
+	Service IService `json:"service" yaml:"service"`
 }
 
 // TODO: EXAMPLE
@@ -3782,32 +3782,32 @@ type DnsServiceProps struct {
 	//
 	// Only one of healthCheckConfig or healthCheckCustomConfig can be specified.
 	// See: https://docs.aws.amazon.com/cloud-map/latest/api/API_HealthCheckCustomConfig.html
-	CustomHealthCheck *HealthCheckCustomConfig `json:"customHealthCheck"`
+	CustomHealthCheck *HealthCheckCustomConfig `json:"customHealthCheck" yaml:"customHealthCheck"`
 	// A description of the service.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Settings for an optional health check.
 	//
 	// If you specify health check settings, AWS Cloud Map associates the health
 	// check with the records that you specify in DnsConfig. Only one of healthCheckConfig or healthCheckCustomConfig can
 	// be specified. Not valid for PrivateDnsNamespaces. If you use healthCheck, you can only register IP instances to
 	// this service.
-	HealthCheck *HealthCheckConfig `json:"healthCheck"`
+	HealthCheck *HealthCheckConfig `json:"healthCheck" yaml:"healthCheck"`
 	// A name for the Service.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The DNS type of the record that you want AWS Cloud Map to create.
 	//
 	// Supported record types
 	// include A, AAAA, A and AAAA (A_AAAA), CNAME, and SRV.
-	DnsRecordType DnsRecordType `json:"dnsRecordType"`
+	DnsRecordType DnsRecordType `json:"dnsRecordType" yaml:"dnsRecordType"`
 	// The amount of time, in seconds, that you want DNS resolvers to cache the settings for this record.
-	DnsTtl awscdk.Duration `json:"dnsTtl"`
+	DnsTtl awscdk.Duration `json:"dnsTtl" yaml:"dnsTtl"`
 	// Whether or not this service will have an Elastic LoadBalancer registered to it as an AliasTargetInstance.
 	//
 	// Setting this to `true` correctly configures the `routingPolicy`
 	// and performs some additional validation.
-	LoadBalancer *bool `json:"loadBalancer"`
+	LoadBalancer *bool `json:"loadBalancer" yaml:"loadBalancer"`
 	// The routing policy that you want to apply to all DNS records that AWS Cloud Map creates when you register an instance and specify this service.
-	RoutingPolicy RoutingPolicy `json:"routingPolicy"`
+	RoutingPolicy RoutingPolicy `json:"routingPolicy" yaml:"routingPolicy"`
 }
 
 // Settings for an optional Amazon Route 53 health check.
@@ -3819,15 +3819,15 @@ type DnsServiceProps struct {
 //
 type HealthCheckConfig struct {
 	// The number of consecutive health checks that an endpoint must pass or fail for Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa.
-	FailureThreshold *float64 `json:"failureThreshold"`
+	FailureThreshold *float64 `json:"failureThreshold" yaml:"failureThreshold"`
 	// The path that you want Route 53 to request when performing health checks.
 	//
 	// Do not use when health check type is TCP.
-	ResourcePath *string `json:"resourcePath"`
+	ResourcePath *string `json:"resourcePath" yaml:"resourcePath"`
 	// The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy.
 	//
 	// Cannot be modified once created. Supported values are HTTP, HTTPS, and TCP.
-	Type HealthCheckType `json:"type"`
+	Type HealthCheckType `json:"type" yaml:"type"`
 }
 
 // Specifies information about an optional custom health check.
@@ -3836,7 +3836,7 @@ type HealthCheckConfig struct {
 //
 type HealthCheckCustomConfig struct {
 	// The number of 30-second intervals that you want Cloud Map to wait after receiving an UpdateInstanceCustomHealthStatus request before it changes the health status of a service instance.
-	FailureThreshold *float64 `json:"failureThreshold"`
+	FailureThreshold *float64 `json:"failureThreshold" yaml:"failureThreshold"`
 }
 
 type HealthCheckType string
@@ -4163,20 +4163,20 @@ func (h *jsiiProxy_HttpNamespace) ToString() *string {
 //
 type HttpNamespaceAttributes struct {
 	// Namespace ARN for the Namespace.
-	NamespaceArn *string `json:"namespaceArn"`
+	NamespaceArn *string `json:"namespaceArn" yaml:"namespaceArn"`
 	// Namespace Id for the Namespace.
-	NamespaceId *string `json:"namespaceId"`
+	NamespaceId *string `json:"namespaceId" yaml:"namespaceId"`
 	// A name for the Namespace.
-	NamespaceName *string `json:"namespaceName"`
+	NamespaceName *string `json:"namespaceName" yaml:"namespaceName"`
 }
 
 // TODO: EXAMPLE
 //
 type HttpNamespaceProps struct {
 	// A name for the Namespace.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// A description of the Namespace.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 }
 
 type IHttpNamespace interface {
@@ -4878,40 +4878,40 @@ func (i *jsiiProxy_IpInstance) UniqueInstanceId() *string {
 //
 type IpInstanceBaseProps struct {
 	// Custom attributes of the instance.
-	CustomAttributes *map[string]*string `json:"customAttributes"`
+	CustomAttributes *map[string]*string `json:"customAttributes" yaml:"customAttributes"`
 	// The id of the instance resource.
-	InstanceId *string `json:"instanceId"`
+	InstanceId *string `json:"instanceId" yaml:"instanceId"`
 	// If the service that you specify contains a template for an A record, the IPv4 address that you want AWS Cloud Map to use for the value of the A record.
-	Ipv4 *string `json:"ipv4"`
+	Ipv4 *string `json:"ipv4" yaml:"ipv4"`
 	// If the service that you specify contains a template for an AAAA record, the IPv6 address that you want AWS Cloud Map to use for the value of the AAAA record.
-	Ipv6 *string `json:"ipv6"`
+	Ipv6 *string `json:"ipv6" yaml:"ipv6"`
 	// The port on the endpoint that you want AWS Cloud Map to perform health checks on.
 	//
 	// This value is also used for
 	// the port value in an SRV record if the service that you specify includes an SRV record. You can also specify a
 	// default port that is applied to all instances in the Service configuration.
-	Port *float64 `json:"port"`
+	Port *float64 `json:"port" yaml:"port"`
 }
 
 // TODO: EXAMPLE
 //
 type IpInstanceProps struct {
 	// Custom attributes of the instance.
-	CustomAttributes *map[string]*string `json:"customAttributes"`
+	CustomAttributes *map[string]*string `json:"customAttributes" yaml:"customAttributes"`
 	// The id of the instance resource.
-	InstanceId *string `json:"instanceId"`
+	InstanceId *string `json:"instanceId" yaml:"instanceId"`
 	// If the service that you specify contains a template for an A record, the IPv4 address that you want AWS Cloud Map to use for the value of the A record.
-	Ipv4 *string `json:"ipv4"`
+	Ipv4 *string `json:"ipv4" yaml:"ipv4"`
 	// If the service that you specify contains a template for an AAAA record, the IPv6 address that you want AWS Cloud Map to use for the value of the AAAA record.
-	Ipv6 *string `json:"ipv6"`
+	Ipv6 *string `json:"ipv6" yaml:"ipv6"`
 	// The port on the endpoint that you want AWS Cloud Map to perform health checks on.
 	//
 	// This value is also used for
 	// the port value in an SRV record if the service that you specify includes an SRV record. You can also specify a
 	// default port that is applied to all instances in the Service configuration.
-	Port *float64 `json:"port"`
+	Port *float64 `json:"port" yaml:"port"`
 	// The Cloudmap service this resource is registered to.
-	Service IService `json:"service"`
+	Service IService `json:"service" yaml:"service"`
 }
 
 type NamespaceType string
@@ -5168,20 +5168,20 @@ func (n *jsiiProxy_NonIpInstance) UniqueInstanceId() *string {
 //
 type NonIpInstanceBaseProps struct {
 	// Custom attributes of the instance.
-	CustomAttributes *map[string]*string `json:"customAttributes"`
+	CustomAttributes *map[string]*string `json:"customAttributes" yaml:"customAttributes"`
 	// The id of the instance resource.
-	InstanceId *string `json:"instanceId"`
+	InstanceId *string `json:"instanceId" yaml:"instanceId"`
 }
 
 // TODO: EXAMPLE
 //
 type NonIpInstanceProps struct {
 	// Custom attributes of the instance.
-	CustomAttributes *map[string]*string `json:"customAttributes"`
+	CustomAttributes *map[string]*string `json:"customAttributes" yaml:"customAttributes"`
 	// The id of the instance resource.
-	InstanceId *string `json:"instanceId"`
+	InstanceId *string `json:"instanceId" yaml:"instanceId"`
 	// The Cloudmap service this resource is registered to.
-	Service IService `json:"service"`
+	Service IService `json:"service" yaml:"service"`
 }
 
 // Define a Service Discovery HTTP Namespace.
@@ -5500,22 +5500,22 @@ func (p *jsiiProxy_PrivateDnsNamespace) ToString() *string {
 //
 type PrivateDnsNamespaceAttributes struct {
 	// Namespace ARN for the Namespace.
-	NamespaceArn *string `json:"namespaceArn"`
+	NamespaceArn *string `json:"namespaceArn" yaml:"namespaceArn"`
 	// Namespace Id for the Namespace.
-	NamespaceId *string `json:"namespaceId"`
+	NamespaceId *string `json:"namespaceId" yaml:"namespaceId"`
 	// A name for the Namespace.
-	NamespaceName *string `json:"namespaceName"`
+	NamespaceName *string `json:"namespaceName" yaml:"namespaceName"`
 }
 
 // TODO: EXAMPLE
 //
 type PrivateDnsNamespaceProps struct {
 	// A name for the Namespace.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// A description of the Namespace.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The Amazon VPC that you want to associate the namespace with.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 }
 
 // Define a Public DNS Namespace.
@@ -5834,20 +5834,20 @@ func (p *jsiiProxy_PublicDnsNamespace) ToString() *string {
 //
 type PublicDnsNamespaceAttributes struct {
 	// Namespace ARN for the Namespace.
-	NamespaceArn *string `json:"namespaceArn"`
+	NamespaceArn *string `json:"namespaceArn" yaml:"namespaceArn"`
 	// Namespace Id for the Namespace.
-	NamespaceId *string `json:"namespaceId"`
+	NamespaceId *string `json:"namespaceId" yaml:"namespaceId"`
 	// A name for the Namespace.
-	NamespaceName *string `json:"namespaceName"`
+	NamespaceName *string `json:"namespaceName" yaml:"namespaceName"`
 }
 
 // TODO: EXAMPLE
 //
 type PublicDnsNamespaceProps struct {
 	// A name for the Namespace.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// A description of the Namespace.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 }
 
 type RoutingPolicy string
@@ -6206,12 +6206,12 @@ func (s *jsiiProxy_Service) ToString() *string {
 // TODO: EXAMPLE
 //
 type ServiceAttributes struct {
-	DnsRecordType DnsRecordType `json:"dnsRecordType"`
-	Namespace INamespace `json:"namespace"`
-	RoutingPolicy RoutingPolicy `json:"routingPolicy"`
-	ServiceArn *string `json:"serviceArn"`
-	ServiceId *string `json:"serviceId"`
-	ServiceName *string `json:"serviceName"`
+	DnsRecordType DnsRecordType `json:"dnsRecordType" yaml:"dnsRecordType"`
+	Namespace INamespace `json:"namespace" yaml:"namespace"`
+	RoutingPolicy RoutingPolicy `json:"routingPolicy" yaml:"routingPolicy"`
+	ServiceArn *string `json:"serviceArn" yaml:"serviceArn"`
+	ServiceId *string `json:"serviceId" yaml:"serviceId"`
+	ServiceName *string `json:"serviceName" yaml:"serviceName"`
 }
 
 // TODO: EXAMPLE
@@ -6221,33 +6221,33 @@ type ServiceProps struct {
 	//
 	// Only one of healthCheckConfig or healthCheckCustomConfig can be specified.
 	// See: https://docs.aws.amazon.com/cloud-map/latest/api/API_HealthCheckCustomConfig.html
-	CustomHealthCheck *HealthCheckCustomConfig `json:"customHealthCheck"`
+	CustomHealthCheck *HealthCheckCustomConfig `json:"customHealthCheck" yaml:"customHealthCheck"`
 	// A description of the service.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Settings for an optional health check.
 	//
 	// If you specify health check settings, AWS Cloud Map associates the health
 	// check with the records that you specify in DnsConfig. Only one of healthCheckConfig or healthCheckCustomConfig can
 	// be specified. Not valid for PrivateDnsNamespaces. If you use healthCheck, you can only register IP instances to
 	// this service.
-	HealthCheck *HealthCheckConfig `json:"healthCheck"`
+	HealthCheck *HealthCheckConfig `json:"healthCheck" yaml:"healthCheck"`
 	// A name for the Service.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The DNS type of the record that you want AWS Cloud Map to create.
 	//
 	// Supported record types
 	// include A, AAAA, A and AAAA (A_AAAA), CNAME, and SRV.
-	DnsRecordType DnsRecordType `json:"dnsRecordType"`
+	DnsRecordType DnsRecordType `json:"dnsRecordType" yaml:"dnsRecordType"`
 	// The amount of time, in seconds, that you want DNS resolvers to cache the settings for this record.
-	DnsTtl awscdk.Duration `json:"dnsTtl"`
+	DnsTtl awscdk.Duration `json:"dnsTtl" yaml:"dnsTtl"`
 	// Whether or not this service will have an Elastic LoadBalancer registered to it as an AliasTargetInstance.
 	//
 	// Setting this to `true` correctly configures the `routingPolicy`
 	// and performs some additional validation.
-	LoadBalancer *bool `json:"loadBalancer"`
+	LoadBalancer *bool `json:"loadBalancer" yaml:"loadBalancer"`
 	// The routing policy that you want to apply to all DNS records that AWS Cloud Map creates when you register an instance and specify this service.
-	RoutingPolicy RoutingPolicy `json:"routingPolicy"`
+	RoutingPolicy RoutingPolicy `json:"routingPolicy" yaml:"routingPolicy"`
 	// The namespace that you want to use for DNS configuration.
-	Namespace INamespace `json:"namespace"`
+	Namespace INamespace `json:"namespace" yaml:"namespace"`
 }
 

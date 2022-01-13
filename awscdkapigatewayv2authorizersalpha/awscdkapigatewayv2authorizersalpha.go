@@ -136,13 +136,13 @@ type HttpJwtAuthorizerProps struct {
 	//
 	// A valid JWT must provide an aud that matches at least one entry in this list.
 	// Experimental.
-	JwtAudience *[]*string `json:"jwtAudience"`
+	JwtAudience *[]*string `json:"jwtAudience" yaml:"jwtAudience"`
 	// The name of the authorizer.
 	// Experimental.
-	AuthorizerName *string `json:"authorizerName"`
+	AuthorizerName *string `json:"authorizerName" yaml:"authorizerName"`
 	// The identity source for which authorization is requested.
 	// Experimental.
-	IdentitySource *[]*string `json:"identitySource"`
+	IdentitySource *[]*string `json:"identitySource" yaml:"identitySource"`
 }
 
 // Authorize Http Api routes via a lambda function.
@@ -211,10 +211,10 @@ func (h *jsiiProxy_HttpLambdaAuthorizer) Bind(options *awscdkapigatewayv2alpha.H
 type HttpLambdaAuthorizerProps struct {
 	// Friendly authorizer name.
 	// Experimental.
-	AuthorizerName *string `json:"authorizerName"`
+	AuthorizerName *string `json:"authorizerName" yaml:"authorizerName"`
 	// The identity source for which authorization is requested.
 	// Experimental.
-	IdentitySource *[]*string `json:"identitySource"`
+	IdentitySource *[]*string `json:"identitySource" yaml:"identitySource"`
 	// The types of responses the lambda can return.
 	//
 	// If HttpLambdaResponseType.SIMPLE is included then
@@ -222,13 +222,13 @@ type HttpLambdaAuthorizerProps struct {
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html#http-api-lambda-authorizer.payload-format-response
 	//
 	// Experimental.
-	ResponseTypes *[]HttpLambdaResponseType `json:"responseTypes"`
+	ResponseTypes *[]HttpLambdaResponseType `json:"responseTypes" yaml:"responseTypes"`
 	// How long APIGateway should cache the results.
 	//
 	// Max 1 hour.
 	// Disable caching by setting this to `Duration.seconds(0)`.
 	// Experimental.
-	ResultsCacheTtl awscdk.Duration `json:"resultsCacheTtl"`
+	ResultsCacheTtl awscdk.Duration `json:"resultsCacheTtl" yaml:"resultsCacheTtl"`
 }
 
 // Specifies the type responses the lambda returns.
@@ -306,16 +306,16 @@ func (h *jsiiProxy_HttpUserPoolAuthorizer) Bind(options *awscdkapigatewayv2alpha
 type HttpUserPoolAuthorizerProps struct {
 	// Friendly name of the authorizer.
 	// Experimental.
-	AuthorizerName *string `json:"authorizerName"`
+	AuthorizerName *string `json:"authorizerName" yaml:"authorizerName"`
 	// The identity source for which authorization is requested.
 	// Experimental.
-	IdentitySource *[]*string `json:"identitySource"`
+	IdentitySource *[]*string `json:"identitySource" yaml:"identitySource"`
 	// The user pool clients that should be used to authorize requests with the user pool.
 	// Experimental.
-	UserPoolClients *[]awscognito.IUserPoolClient `json:"userPoolClients"`
+	UserPoolClients *[]awscognito.IUserPoolClient `json:"userPoolClients" yaml:"userPoolClients"`
 	// The AWS region in which the user pool is present.
 	// Experimental.
-	UserPoolRegion *string `json:"userPoolRegion"`
+	UserPoolRegion *string `json:"userPoolRegion" yaml:"userPoolRegion"`
 }
 
 // Authorize WebSocket Api routes via a lambda function.
@@ -382,13 +382,13 @@ func (w *jsiiProxy_WebSocketLambdaAuthorizer) Bind(options *awscdkapigatewayv2al
 type WebSocketLambdaAuthorizerProps struct {
 	// The name of the authorizer.
 	// Experimental.
-	AuthorizerName *string `json:"authorizerName"`
+	AuthorizerName *string `json:"authorizerName" yaml:"authorizerName"`
 	// The identity source for which authorization is requested.
 	//
 	// Request parameter match `'route.request.querystring|header.[a-zA-z0-9._-]+'`.
 	// Staged variable match `'stageVariables.[a-zA-Z0-9._-]+'`.
 	// Context parameter match `'context.[a-zA-Z0-9._-]+'`.
 	// Experimental.
-	IdentitySource *[]*string `json:"identitySource"`
+	IdentitySource *[]*string `json:"identitySource" yaml:"identitySource"`
 }
 

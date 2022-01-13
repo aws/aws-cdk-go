@@ -19,7 +19,7 @@ import (
 //
 type AttachedSecretOptions struct {
 	// The target to attach the secret to.
-	Target ISecretAttachmentTarget `json:"target"`
+	Target ISecretAttachmentTarget `json:"target" yaml:"target"`
 }
 
 // The type of service or database that's being associated with the secret.
@@ -558,15 +558,15 @@ type CfnResourcePolicyProps struct {
 	// A JSON-formatted string for an AWS resource-based policy.
 	//
 	// For example policies, see [Permissions policy examples](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_examples.html) .
-	ResourcePolicy interface{} `json:"resourcePolicy"`
+	ResourcePolicy interface{} `json:"resourcePolicy" yaml:"resourcePolicy"`
 	// The ARN or name of the secret to attach the resource-based policy.
 	//
 	// For an ARN, we recommend that you specify a complete ARN rather than a partial ARN.
-	SecretId *string `json:"secretId"`
+	SecretId *string `json:"secretId" yaml:"secretId"`
 	// Specifies whether to block resource-based policies that allow broad access to the secret.
 	//
 	// By default, Secrets Manager blocks policies that allow broad access, for example those that use a wildcard for the principal.
-	BlockPublicPolicy interface{} `json:"blockPublicPolicy"`
+	BlockPublicPolicy interface{} `json:"blockPublicPolicy" yaml:"blockPublicPolicy"`
 }
 
 // A CloudFormation `AWS::SecretsManager::RotationSchedule`.
@@ -1128,31 +1128,31 @@ type CfnRotationSchedule_HostedRotationLambdaProperty struct {
 	// - RedshiftMultiUser
 	// - MongoDBSingleUser
 	// - MongoDBMultiUser
-	RotationType *string `json:"rotationType"`
+	RotationType *string `json:"rotationType" yaml:"rotationType"`
 	// The ARN of the KMS key that Secrets Manager uses to encrypt the secret.
 	//
 	// If you don't specify this value, then Secrets Manager uses the key `aws/secretsmanager` . If `aws/secretsmanager` doesn't yet exist, then Secrets Manager creates it for you automatically the first time it encrypts the secret value.
-	KmsKeyArn *string `json:"kmsKeyArn"`
+	KmsKeyArn *string `json:"kmsKeyArn" yaml:"kmsKeyArn"`
 	// The ARN of the secret that contains elevated credentials.
 	//
 	// The Lambda rotation function uses this secret for the [Alternating users rotation strategy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets_strategies.html#rotating-secrets-two-users) .
-	MasterSecretArn *string `json:"masterSecretArn"`
+	MasterSecretArn *string `json:"masterSecretArn" yaml:"masterSecretArn"`
 	// The ARN of the KMS key that Secrets Manager uses to encrypt the elevated secret if you use the [alternating users strategy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets_strategies.html#rotating-secrets-two-users) . If you don't specify this value and you use the alternating users strategy, then Secrets Manager uses the key `aws/secretsmanager` . If `aws/secretsmanager` doesn't yet exist, then Secrets Manager creates it for you automatically the first time it encrypts the secret value.
-	MasterSecretKmsKeyArn *string `json:"masterSecretKmsKeyArn"`
+	MasterSecretKmsKeyArn *string `json:"masterSecretKmsKeyArn" yaml:"masterSecretKmsKeyArn"`
 	// The name of the Lambda rotation function.
-	RotationLambdaName *string `json:"rotationLambdaName"`
+	RotationLambdaName *string `json:"rotationLambdaName" yaml:"rotationLambdaName"`
 	// `CfnRotationSchedule.HostedRotationLambdaProperty.SuperuserSecretArn`.
-	SuperuserSecretArn *string `json:"superuserSecretArn"`
+	SuperuserSecretArn *string `json:"superuserSecretArn" yaml:"superuserSecretArn"`
 	// `CfnRotationSchedule.HostedRotationLambdaProperty.SuperuserSecretKmsKeyArn`.
-	SuperuserSecretKmsKeyArn *string `json:"superuserSecretKmsKeyArn"`
+	SuperuserSecretKmsKeyArn *string `json:"superuserSecretKmsKeyArn" yaml:"superuserSecretKmsKeyArn"`
 	// A comma-separated list of security group IDs applied to the target database.
 	//
 	// The templates applies the same security groups as on the Lambda rotation function that is created as part of this stack.
-	VpcSecurityGroupIds *string `json:"vpcSecurityGroupIds"`
+	VpcSecurityGroupIds *string `json:"vpcSecurityGroupIds" yaml:"vpcSecurityGroupIds"`
 	// A comma separated list of VPC subnet IDs of the target database network.
 	//
 	// The Lambda rotation function is in the same subnet group.
-	VpcSubnetIds *string `json:"vpcSubnetIds"`
+	VpcSubnetIds *string `json:"vpcSubnetIds" yaml:"vpcSubnetIds"`
 }
 
 // A structure that defines the rotation configuration for the secret.
@@ -1163,7 +1163,7 @@ type CfnRotationSchedule_RotationRulesProperty struct {
 	// Specifies the number of days between automatic scheduled rotations of the secret.
 	//
 	// Secrets Manager schedules the next rotation when the previous one is complete. Secrets Manager schedules the date by adding the rotation interval (number of days) to the actual date of the last rotation. The service chooses the hour within that 24-hour date window randomly. The minute is also chosen somewhat randomly, but weighted towards the top of the hour and influenced by a variety of factors that help distribute load.
-	AutomaticallyAfterDays *float64 `json:"automaticallyAfterDays"`
+	AutomaticallyAfterDays *float64 `json:"automaticallyAfterDays" yaml:"automaticallyAfterDays"`
 }
 
 // Properties for defining a `CfnRotationSchedule`.
@@ -1174,19 +1174,19 @@ type CfnRotationScheduleProps struct {
 	// The ARN or name of the secret to rotate.
 	//
 	// To reference a secret also created in this template, use the [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html) function with the secret's logical ID.
-	SecretId *string `json:"secretId"`
+	SecretId *string `json:"secretId" yaml:"secretId"`
 	// To use these values, you must specify `Transform: AWS::SecretsManager-2020-07-23` at the beginning of the CloudFormation template.
 	//
 	// When you enter valid values for `RotationSchedule.HostedRotationLambda` , Secrets Manager launches a Lambda that performs rotation on the secret specified in the `secret-id` property. The template creates a Lambda as part of a nested stack within the current stack.
-	HostedRotationLambda interface{} `json:"hostedRotationLambda"`
+	HostedRotationLambda interface{} `json:"hostedRotationLambda" yaml:"hostedRotationLambda"`
 	// The ARN of the Lambda function that can rotate the secret.
 	//
 	// If you don't specify this parameter, then the secret must already have the ARN of a Lambda function configured.
 	//
 	// To reference a Lambda function also created in this template, use the [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html) function with the function's logical ID.
-	RotationLambdaArn *string `json:"rotationLambdaArn"`
+	RotationLambdaArn *string `json:"rotationLambdaArn" yaml:"rotationLambdaArn"`
 	// A structure that defines the rotation configuration for this secret.
-	RotationRules interface{} `json:"rotationRules"`
+	RotationRules interface{} `json:"rotationRules" yaml:"rotationRules"`
 }
 
 // A CloudFormation `AWS::SecretsManager::Secret`.
@@ -1790,41 +1790,41 @@ func (c *jsiiProxy_CfnSecret) ValidateProperties(_properties interface{}) {
 //
 type CfnSecret_GenerateSecretStringProperty struct {
 	// A string of the characters that you don't want in the password.
-	ExcludeCharacters *string `json:"excludeCharacters"`
+	ExcludeCharacters *string `json:"excludeCharacters" yaml:"excludeCharacters"`
 	// Specifies whether to exclude lowercase letters from the password.
 	//
 	// If you don't include this switch, the password can contain lowercase letters.
-	ExcludeLowercase interface{} `json:"excludeLowercase"`
+	ExcludeLowercase interface{} `json:"excludeLowercase" yaml:"excludeLowercase"`
 	// Specifies whether to exclude numbers from the password.
 	//
 	// If you don't include this switch, the password can contain numbers.
-	ExcludeNumbers interface{} `json:"excludeNumbers"`
+	ExcludeNumbers interface{} `json:"excludeNumbers" yaml:"excludeNumbers"`
 	// Specifies whether to exclude the following punctuation characters from the password: `!
 	//
 	// " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~` . If you don't include this switch, the password can contain punctuation.
-	ExcludePunctuation interface{} `json:"excludePunctuation"`
+	ExcludePunctuation interface{} `json:"excludePunctuation" yaml:"excludePunctuation"`
 	// Specifies whether to exclude uppercase letters from the password.
 	//
 	// If you don't include this switch, the password can contain uppercase letters.
-	ExcludeUppercase interface{} `json:"excludeUppercase"`
+	ExcludeUppercase interface{} `json:"excludeUppercase" yaml:"excludeUppercase"`
 	// The JSON key name for the key/value pair, where the value is the generated password.
 	//
 	// This pair is added to the JSON structure specified by the `SecretStringTemplate` parameter. If you specify this parameter, then you must also specify `SecretStringTemplate` .
-	GenerateStringKey *string `json:"generateStringKey"`
+	GenerateStringKey *string `json:"generateStringKey" yaml:"generateStringKey"`
 	// Specifies whether to include the space character.
 	//
 	// If you include this switch, the password can contain space characters.
-	IncludeSpace interface{} `json:"includeSpace"`
+	IncludeSpace interface{} `json:"includeSpace" yaml:"includeSpace"`
 	// The length of the password.
 	//
 	// If you don't include this parameter, the default length is 32 characters.
-	PasswordLength *float64 `json:"passwordLength"`
+	PasswordLength *float64 `json:"passwordLength" yaml:"passwordLength"`
 	// Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
 	//
 	// If you don't include this switch, the password contains at least one of every character type.
-	RequireEachIncludedType interface{} `json:"requireEachIncludedType"`
+	RequireEachIncludedType interface{} `json:"requireEachIncludedType" yaml:"requireEachIncludedType"`
 	// A template that the generated string must match.
-	SecretStringTemplate *string `json:"secretStringTemplate"`
+	SecretStringTemplate *string `json:"secretStringTemplate" yaml:"secretStringTemplate"`
 }
 
 // A custom type that specifies a `Region` and the `KmsKeyId` for a replica secret.
@@ -1833,11 +1833,11 @@ type CfnSecret_GenerateSecretStringProperty struct {
 //
 type CfnSecret_ReplicaRegionProperty struct {
 	// `CfnSecret.ReplicaRegionProperty.Region`.
-	Region *string `json:"region"`
+	Region *string `json:"region" yaml:"region"`
 	// The ARN, key ID, or alias of the KMS key to encrypt the secret.
 	//
 	// If you don't include this field, Secrets Manager uses `aws/secretsmanager` .
-	KmsKeyId *string `json:"kmsKeyId"`
+	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
 }
 
 // Properties for defining a `CfnSecret`.
@@ -1846,13 +1846,13 @@ type CfnSecret_ReplicaRegionProperty struct {
 //
 type CfnSecretProps struct {
 	// The description of the secret.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// A structure that specifies how to generate a password to encrypt and store in the secret.
 	//
 	// Either `GenerateSecretString` or `SecretString` must have a value, but not both. They cannot both be empty.
 	//
 	// We recommend that you specify the maximum length and include every character type that the system you are generating a password for can support.
-	GenerateSecretString interface{} `json:"generateSecretString"`
+	GenerateSecretString interface{} `json:"generateSecretString" yaml:"generateSecretString"`
 	// The ARN, key ID, or alias of the AWS KMS key that Secrets Manager uses to encrypt the secret value in the secret.
 	//
 	// To use a AWS KMS key in a different account, use the key ARN or the alias ARN.
@@ -1860,21 +1860,21 @@ type CfnSecretProps struct {
 	// If you don't specify this value, then Secrets Manager uses the key `aws/secretsmanager` . If that key doesn't yet exist, then Secrets Manager creates it for you automatically the first time it encrypts the secret value.
 	//
 	// If the secret is in a different AWS account from the credentials calling the API, then you can't use `aws/secretsmanager` to encrypt the secret, and you must create and use a customer managed AWS KMS key.
-	KmsKeyId *string `json:"kmsKeyId"`
+	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
 	// The name of the new secret.
 	//
 	// The secret name can contain ASCII letters, numbers, and the following characters: /_+=.@-
 	//
 	// Do not end your secret name with a hyphen followed by six characters. If you do so, you risk confusion and unexpected results when searching for a secret by partial ARN. Secrets Manager automatically adds a hyphen and six random characters after the secret name at the end of the ARN.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// A custom type that specifies a `Region` and the `KmsKeyId` for a replica secret.
-	ReplicaRegions interface{} `json:"replicaRegions"`
+	ReplicaRegions interface{} `json:"replicaRegions" yaml:"replicaRegions"`
 	// The text to encrypt and store in the secret.
 	//
 	// We recommend you use a JSON structure of key/value pairs for your secret value.
 	//
 	// Either `GenerateSecretString` or `SecretString` must have a value, but not both. They cannot both be empty. We recommend that you use the `GenerateSecretString` property to generate a random password.
-	SecretString *string `json:"secretString"`
+	SecretString *string `json:"secretString" yaml:"secretString"`
 	// A list of tags to attach to the secret.
 	//
 	// Each tag is a key and value pair of strings in a JSON text string, for example:
@@ -1895,7 +1895,7 @@ type CfnSecretProps struct {
 	// - Tag keys and values are case sensitive.
 	// - Do not use the `aws:` prefix in your tag names or values because AWS reserves it for AWS use. You can't edit or delete tag names or values with this prefix. Tags with this prefix do not count against your tags per secret limit.
 	// - If you use your tagging schema across multiple services and resources, other services might have restrictions on allowed characters. Generally allowed characters: letters, spaces, and numbers representable in UTF-8, plus the following special characters: + - = . _ : / @.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::SecretsManager::SecretTargetAttachment`.
@@ -2422,9 +2422,9 @@ type CfnSecretTargetAttachmentProps struct {
 	// The ARN or name of the secret.
 	//
 	// To reference a secret also created in this template, use the see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html) function with the secret's logical ID.
-	SecretId *string `json:"secretId"`
+	SecretId *string `json:"secretId" yaml:"secretId"`
 	// The ARN of the database or cluster.
-	TargetId *string `json:"targetId"`
+	TargetId *string `json:"targetId" yaml:"targetId"`
 	// A string that defines the type of service or database associated with the secret.
 	//
 	// This value instructs Secrets Manager how to update the secret with the details of the service or database. This value must be one of the following:
@@ -2434,7 +2434,7 @@ type CfnSecretTargetAttachmentProps struct {
 	// - AWS::Redshift::Cluster
 	// - AWS::DocDB::DBInstance
 	// - AWS::DocDB::DBCluster
-	TargetType *string `json:"targetType"`
+	TargetType *string `json:"targetType" yaml:"targetType"`
 }
 
 // A hosted rotation.
@@ -3128,15 +3128,15 @@ func (j *jsiiProxy_ISecretTargetAttachment) SecretTargetAttachmentSecretArn() *s
 //
 type MultiUserHostedRotationOptions struct {
 	// A name for the Lambda created to rotate the secret.
-	FunctionName *string `json:"functionName"`
+	FunctionName *string `json:"functionName" yaml:"functionName"`
 	// A list of security groups for the Lambda created to rotate the secret.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// The VPC where the Lambda rotation function will run.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// The type of subnets in the VPC where the Lambda rotation function will run.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 	// The master secret for a multi user rotation scheme.
-	MasterSecret ISecret `json:"masterSecret"`
+	MasterSecret ISecret `json:"masterSecret" yaml:"masterSecret"`
 }
 
 // Secret replica region.
@@ -3145,9 +3145,9 @@ type MultiUserHostedRotationOptions struct {
 //
 type ReplicaRegion struct {
 	// The name of the region.
-	Region *string `json:"region"`
+	Region *string `json:"region" yaml:"region"`
 	// The customer-managed encryption key to use for encrypting the secret value.
-	EncryptionKey awskms.IKey `json:"encryptionKey"`
+	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
 }
 
 // Resource Policy for SecretsManager Secrets.
@@ -3381,7 +3381,7 @@ func (r *jsiiProxy_ResourcePolicy) ToString() *string {
 //
 type ResourcePolicyProps struct {
 	// The secret to attach a resource-based permissions policy.
-	Secret ISecret `json:"secret"`
+	Secret ISecret `json:"secret" yaml:"secret"`
 }
 
 // A rotation schedule.
@@ -3593,11 +3593,11 @@ func (r *jsiiProxy_RotationSchedule) ToString() *string {
 //
 type RotationScheduleOptions struct {
 	// Specifies the number of days after the previous rotation before Secrets Manager triggers the next automatic rotation.
-	AutomaticallyAfter awscdk.Duration `json:"automaticallyAfter"`
+	AutomaticallyAfter awscdk.Duration `json:"automaticallyAfter" yaml:"automaticallyAfter"`
 	// Hosted rotation.
-	HostedRotation HostedRotation `json:"hostedRotation"`
+	HostedRotation HostedRotation `json:"hostedRotation" yaml:"hostedRotation"`
 	// A Lambda function that can rotate the secret.
-	RotationLambda awslambda.IFunction `json:"rotationLambda"`
+	RotationLambda awslambda.IFunction `json:"rotationLambda" yaml:"rotationLambda"`
 }
 
 // Construction properties for a RotationSchedule.
@@ -3606,11 +3606,11 @@ type RotationScheduleOptions struct {
 //
 type RotationScheduleProps struct {
 	// Specifies the number of days after the previous rotation before Secrets Manager triggers the next automatic rotation.
-	AutomaticallyAfter awscdk.Duration `json:"automaticallyAfter"`
+	AutomaticallyAfter awscdk.Duration `json:"automaticallyAfter" yaml:"automaticallyAfter"`
 	// Hosted rotation.
-	HostedRotation HostedRotation `json:"hostedRotation"`
+	HostedRotation HostedRotation `json:"hostedRotation" yaml:"hostedRotation"`
 	// A Lambda function that can rotate the secret.
-	RotationLambda awslambda.IFunction `json:"rotationLambda"`
+	RotationLambda awslambda.IFunction `json:"rotationLambda" yaml:"rotationLambda"`
 	// The secret to rotate.
 	//
 	// If hosted rotation is used, this must be a JSON string with the following format:
@@ -3629,7 +3629,7 @@ type RotationScheduleProps struct {
 	//
 	// This is typically the case for a secret referenced from an `AWS::SecretsManager::SecretTargetAttachment`
 	// or an `ISecret` returned by the `attach()` method of `Secret`.
-	Secret ISecret `json:"secret"`
+	Secret ISecret `json:"secret" yaml:"secret"`
 }
 
 // Creates a new secret in AWS SecretsManager.
@@ -4107,9 +4107,9 @@ func (s *jsiiProxy_Secret) ToString() *string {
 //
 type SecretAttachmentTargetProps struct {
 	// The id of the target to attach the secret to.
-	TargetId *string `json:"targetId"`
+	TargetId *string `json:"targetId" yaml:"targetId"`
 	// The type of the target to attach the secret to.
-	TargetType AttachmentTargetType `json:"targetType"`
+	TargetType AttachmentTargetType `json:"targetType" yaml:"targetType"`
 }
 
 // Attributes required to import an existing secret into the Stack.
@@ -4120,17 +4120,17 @@ type SecretAttachmentTargetProps struct {
 //
 type SecretAttributes struct {
 	// The encryption key that is used to encrypt the secret, unless the default SecretsManager key is used.
-	EncryptionKey awskms.IKey `json:"encryptionKey"`
+	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
 	// The complete ARN of the secret in SecretsManager.
 	//
 	// This is the ARN including the Secrets Manager 6-character suffix.
 	// Cannot be used with `secretArn` or `secretPartialArn`.
-	SecretCompleteArn *string `json:"secretCompleteArn"`
+	SecretCompleteArn *string `json:"secretCompleteArn" yaml:"secretCompleteArn"`
 	// The partial ARN of the secret in SecretsManager.
 	//
 	// This is the ARN without the Secrets Manager 6-character suffix.
 	// Cannot be used with `secretArn` or `secretCompleteArn`.
-	SecretPartialArn *string `json:"secretPartialArn"`
+	SecretPartialArn *string `json:"secretPartialArn" yaml:"secretPartialArn"`
 }
 
 // The properties required to create a new secret in AWS Secrets Manager.
@@ -4139,22 +4139,22 @@ type SecretAttributes struct {
 //
 type SecretProps struct {
 	// An optional, human-friendly description of the secret.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The customer-managed encryption key to use for encrypting the secret value.
-	EncryptionKey awskms.IKey `json:"encryptionKey"`
+	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
 	// Configuration for how to generate a secret value.
 	//
 	// Only one of `secretString` and `generateSecretString` can be provided.
-	GenerateSecretString *SecretStringGenerator `json:"generateSecretString"`
+	GenerateSecretString *SecretStringGenerator `json:"generateSecretString" yaml:"generateSecretString"`
 	// Policy to apply when the secret is removed from this stack.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 	// A list of regions where to replicate this secret.
-	ReplicaRegions *[]*ReplicaRegion `json:"replicaRegions"`
+	ReplicaRegions *[]*ReplicaRegion `json:"replicaRegions" yaml:"replicaRegions"`
 	// A name for the secret.
 	//
 	// Note that deleting secrets from SecretsManager does not happen immediately, but after a 7 to
 	// 30 days blackout period. During that period, it is not possible to create another secret that shares the same name.
-	SecretName *string `json:"secretName"`
+	SecretName *string `json:"secretName" yaml:"secretName"`
 	// Initial value for the secret.
 	//
 	// **NOTE:** *It is **highly** encouraged to leave this field undefined and allow SecretsManager to create the secret value.
@@ -4167,7 +4167,7 @@ type SecretProps struct {
 	// May be a simple string value, or a string representation of a JSON structure.
 	//
 	// Only one of `secretString` and `generateSecretString` can be provided.
-	SecretStringBeta1 SecretStringValueBeta1 `json:"secretStringBeta1"`
+	SecretStringBeta1 SecretStringValueBeta1 `json:"secretStringBeta1" yaml:"secretStringBeta1"`
 }
 
 // Secret rotation for a service or database.
@@ -4495,7 +4495,7 @@ func (s *jsiiProxy_SecretRotationApplication) SemanticVersionForPartition(partit
 //
 type SecretRotationApplicationOptions struct {
 	// Whether the rotation application uses the mutli user scheme.
-	IsMultiUser *bool `json:"isMultiUser"`
+	IsMultiUser *bool `json:"isMultiUser" yaml:"isMultiUser"`
 }
 
 // Construction properties for a SecretRotation.
@@ -4504,7 +4504,7 @@ type SecretRotationApplicationOptions struct {
 //
 type SecretRotationProps struct {
 	// The serverless application for the rotation.
-	Application SecretRotationApplication `json:"application"`
+	Application SecretRotationApplication `json:"application" yaml:"application"`
 	// The secret to rotate. It must be a JSON string with the following format:.
 	//
 	// ```
@@ -4523,28 +4523,28 @@ type SecretRotationProps struct {
 	// or an `ISecret` returned by the `attach()` method of `Secret`.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secrettargetattachment.html
 	//
-	Secret ISecret `json:"secret"`
+	Secret ISecret `json:"secret" yaml:"secret"`
 	// The target service or database.
-	Target awsec2.IConnectable `json:"target"`
+	Target awsec2.IConnectable `json:"target" yaml:"target"`
 	// The VPC where the Lambda rotation function will run.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// Specifies the number of days after the previous rotation before Secrets Manager triggers the next automatic rotation.
-	AutomaticallyAfter awscdk.Duration `json:"automaticallyAfter"`
+	AutomaticallyAfter awscdk.Duration `json:"automaticallyAfter" yaml:"automaticallyAfter"`
 	// The VPC interface endpoint to use for the Secrets Manager API.
 	//
 	// If you enable private DNS hostnames for your VPC private endpoint (the default), you don't
 	// need to specify an endpoint. The standard Secrets Manager DNS hostname the Secrets Manager
 	// CLI and SDKs use by default (https://secretsmanager.<region>.amazonaws.com) automatically
 	// resolves to your VPC endpoint.
-	Endpoint awsec2.IInterfaceVpcEndpoint `json:"endpoint"`
+	Endpoint awsec2.IInterfaceVpcEndpoint `json:"endpoint" yaml:"endpoint"`
 	// Characters which should not appear in the generated password.
-	ExcludeCharacters *string `json:"excludeCharacters"`
+	ExcludeCharacters *string `json:"excludeCharacters" yaml:"excludeCharacters"`
 	// The master secret for a multi user rotation scheme.
-	MasterSecret ISecret `json:"masterSecret"`
+	MasterSecret ISecret `json:"masterSecret" yaml:"masterSecret"`
 	// The security group for the Lambda rotation function.
-	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
+	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup" yaml:"securityGroup"`
 	// The type of subnets in the VPC where the Lambda rotation function will run.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 
 // Configuration to generate secrets such as passwords automatically.
@@ -4556,33 +4556,33 @@ type SecretStringGenerator struct {
 	//
 	// The string can be a minimum
 	// of ``0`` and a maximum of ``4096`` characters long.
-	ExcludeCharacters *string `json:"excludeCharacters"`
+	ExcludeCharacters *string `json:"excludeCharacters" yaml:"excludeCharacters"`
 	// Specifies that the generated password shouldn't include lowercase letters.
-	ExcludeLowercase *bool `json:"excludeLowercase"`
+	ExcludeLowercase *bool `json:"excludeLowercase" yaml:"excludeLowercase"`
 	// Specifies that the generated password shouldn't include digits.
-	ExcludeNumbers *bool `json:"excludeNumbers"`
+	ExcludeNumbers *bool `json:"excludeNumbers" yaml:"excludeNumbers"`
 	// Specifies that the generated password shouldn't include punctuation characters.
-	ExcludePunctuation *bool `json:"excludePunctuation"`
+	ExcludePunctuation *bool `json:"excludePunctuation" yaml:"excludePunctuation"`
 	// Specifies that the generated password shouldn't include uppercase letters.
-	ExcludeUppercase *bool `json:"excludeUppercase"`
+	ExcludeUppercase *bool `json:"excludeUppercase" yaml:"excludeUppercase"`
 	// The JSON key name that's used to add the generated password to the JSON structure specified by the ``secretStringTemplate`` parameter.
 	//
 	// If you specify ``generateStringKey`` then ``secretStringTemplate``
 	// must be also be specified.
-	GenerateStringKey *string `json:"generateStringKey"`
+	GenerateStringKey *string `json:"generateStringKey" yaml:"generateStringKey"`
 	// Specifies that the generated password can include the space character.
-	IncludeSpace *bool `json:"includeSpace"`
+	IncludeSpace *bool `json:"includeSpace" yaml:"includeSpace"`
 	// The desired length of the generated password.
-	PasswordLength *float64 `json:"passwordLength"`
+	PasswordLength *float64 `json:"passwordLength" yaml:"passwordLength"`
 	// Specifies whether the generated password must include at least one of every allowed character type.
-	RequireEachIncludedType *bool `json:"requireEachIncludedType"`
+	RequireEachIncludedType *bool `json:"requireEachIncludedType" yaml:"requireEachIncludedType"`
 	// A properly structured JSON string that the generated password can be added to.
 	//
 	// The ``generateStringKey`` is
 	// combined with the generated random string and inserted into the JSON structure that's specified by this parameter.
 	// The merged JSON string is returned as the completed SecretString of the secret. If you specify ``secretStringTemplate``
 	// then ``generateStringKey`` must be also be specified.
-	SecretStringTemplate *string `json:"secretStringTemplate"`
+	SecretStringTemplate *string `json:"secretStringTemplate" yaml:"secretStringTemplate"`
 }
 
 // An experimental class used to specify an initial secret value for a Secret.
@@ -5099,9 +5099,9 @@ func (s *jsiiProxy_SecretTargetAttachment) ToString() *string {
 //
 type SecretTargetAttachmentProps struct {
 	// The target to attach the secret to.
-	Target ISecretAttachmentTarget `json:"target"`
+	Target ISecretAttachmentTarget `json:"target" yaml:"target"`
 	// The secret to attach to the target.
-	Secret ISecret `json:"secret"`
+	Secret ISecret `json:"secret" yaml:"secret"`
 }
 
 // Single user hosted rotation options.
@@ -5110,12 +5110,12 @@ type SecretTargetAttachmentProps struct {
 //
 type SingleUserHostedRotationOptions struct {
 	// A name for the Lambda created to rotate the secret.
-	FunctionName *string `json:"functionName"`
+	FunctionName *string `json:"functionName" yaml:"functionName"`
 	// A list of security groups for the Lambda created to rotate the secret.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// The VPC where the Lambda rotation function will run.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// The type of subnets in the VPC where the Lambda rotation function will run.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 

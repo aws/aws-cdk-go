@@ -246,17 +246,17 @@ type AccessKeyProps struct {
 	// Changing this value will result in the access key being deleted and a new
 	// access key (with a different ID and secret value) being assigned to the new
 	// user.
-	User IUser `json:"user"`
+	User IUser `json:"user" yaml:"user"`
 	// A CloudFormation-specific value that signifies the access key should be replaced/rotated.
 	//
 	// This value can only be incremented. Incrementing this
 	// value will cause CloudFormation to replace the Access Key resource.
-	Serial *float64 `json:"serial"`
+	Serial *float64 `json:"serial" yaml:"serial"`
 	// The status of the access key.
 	//
 	// An Active access key is allowed to be used
 	// to make API calls; An Inactive key cannot.
-	Status AccessKeyStatus `json:"status"`
+	Status AccessKeyStatus `json:"status" yaml:"status"`
 }
 
 // Valid statuses for an IAM Access Key.
@@ -705,9 +705,9 @@ func (a *jsiiProxy_AccountRootPrincipal) WithSessionTags() PrincipalBase {
 //
 type AddToPrincipalPolicyResult struct {
 	// Whether the statement was added to the identity's policies.
-	StatementAdded *bool `json:"statementAdded"`
+	StatementAdded *bool `json:"statementAdded" yaml:"statementAdded"`
 	// Dependable which allows depending on the policy change being applied.
-	PolicyDependable constructs.IDependable `json:"policyDependable"`
+	PolicyDependable constructs.IDependable `json:"policyDependable" yaml:"policyDependable"`
 }
 
 // Result of calling addToResourcePolicy.
@@ -716,9 +716,9 @@ type AddToPrincipalPolicyResult struct {
 //
 type AddToResourcePolicyResult struct {
 	// Whether the statement was added.
-	StatementAdded *bool `json:"statementAdded"`
+	StatementAdded *bool `json:"statementAdded" yaml:"statementAdded"`
 	// Dependable which allows depending on the policy change being applied.
-	PolicyDependable constructs.IDependable `json:"policyDependable"`
+	PolicyDependable constructs.IDependable `json:"policyDependable" yaml:"policyDependable"`
 }
 
 // A principal representing all AWS identities in all accounts.
@@ -1893,15 +1893,15 @@ type CfnAccessKeyProps struct {
 	// The name of the IAM user that the new key will belong to.
 	//
 	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-	UserName *string `json:"userName"`
+	UserName *string `json:"userName" yaml:"userName"`
 	// This value is specific to CloudFormation and can only be *incremented* .
 	//
 	// Incrementing this value notifies CloudFormation that you want to rotate your access key. When you update your stack, CloudFormation will replace the existing access key with a new key.
-	Serial *float64 `json:"serial"`
+	Serial *float64 `json:"serial" yaml:"serial"`
 	// The status of the access key.
 	//
 	// `Active` means that the key is valid for API calls, while `Inactive` means it is not.
-	Status *string `json:"status"`
+	Status *string `json:"status" yaml:"status"`
 }
 
 // A CloudFormation `AWS::IAM::Group`.
@@ -2459,9 +2459,9 @@ func (c *jsiiProxy_CfnGroup) ValidateProperties(_properties interface{}) {
 //
 type CfnGroup_PolicyProperty struct {
 	// The policy document.
-	PolicyDocument interface{} `json:"policyDocument"`
+	PolicyDocument interface{} `json:"policyDocument" yaml:"policyDocument"`
 	// The friendly name (not ARN) identifying the policy.
-	PolicyName *string `json:"policyName"`
+	PolicyName *string `json:"policyName" yaml:"policyName"`
 }
 
 // Properties for defining a `CfnGroup`.
@@ -2478,17 +2478,17 @@ type CfnGroupProps struct {
 	// If you specify a name, you must specify the `CAPABILITY_NAMED_IAM` value to acknowledge your template's capabilities. For more information, see [Acknowledging IAM Resources in AWS CloudFormation Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities) .
 	//
 	// > Naming an IAM resource can cause an unrecoverable error if you reuse the same template in multiple Regions. To prevent this, we recommend using `Fn::Join` and `AWS::Region` to create a Region-specific name, as in the following example: `{"Fn::Join": ["", [{"Ref": "AWS::Region"}, {"Ref": "MyResourceName"}]]}` .
-	GroupName *string `json:"groupName"`
+	GroupName *string `json:"groupName" yaml:"groupName"`
 	// The Amazon Resource Name (ARN) of the IAM policy you want to attach.
 	//
 	// For more information about ARNs, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *AWS General Reference* .
-	ManagedPolicyArns *[]*string `json:"managedPolicyArns"`
+	ManagedPolicyArns *[]*string `json:"managedPolicyArns" yaml:"managedPolicyArns"`
 	// The path to the group. For more information about paths, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide* .
 	//
 	// This parameter is optional. If it is not included, it defaults to a slash (/).
 	//
 	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! ( `\ u0021` ) through the DEL character ( `\ u007F` ), including most punctuation characters, digits, and upper and lowercased letters.
-	Path *string `json:"path"`
+	Path *string `json:"path" yaml:"path"`
 	// Adds or updates an inline policy document that is embedded in the specified IAM group.
 	//
 	// To view AWS::IAM::Group snippets, see [Declaring an IAM Group Resource](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-iam-group) .
@@ -2496,7 +2496,7 @@ type CfnGroupProps struct {
 	// > The name of each inline policy for a role, user, or group must be unique. If you don't choose unique names, updates to the IAM identity will fail.
 	//
 	// For information about limits on the number of inline policies that you can embed in a group, see [Limitations on IAM Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html) in the *IAM User Guide* .
-	Policies interface{} `json:"policies"`
+	Policies interface{} `json:"policies" yaml:"policies"`
 }
 
 // A CloudFormation `AWS::IAM::InstanceProfile`.
@@ -3032,11 +3032,11 @@ type CfnInstanceProfileProps struct {
 	// The name of the role to associate with the instance profile.
 	//
 	// Only one role can be assigned to an EC2 instance at a time, and all applications on the instance share the same role and permissions.
-	Roles *[]*string `json:"roles"`
+	Roles *[]*string `json:"roles" yaml:"roles"`
 	// The name of the instance profile to create.
 	//
 	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-	InstanceProfileName *string `json:"instanceProfileName"`
+	InstanceProfileName *string `json:"instanceProfileName" yaml:"instanceProfileName"`
 	// The path to the instance profile.
 	//
 	// For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide* .
@@ -3044,7 +3044,7 @@ type CfnInstanceProfileProps struct {
 	// This parameter is optional. If it is not included, it defaults to a slash (/).
 	//
 	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! ( `\ u0021` ) through the DEL character ( `\ u007F` ), including most punctuation characters, digits, and upper and lowercased letters.
-	Path *string `json:"path"`
+	Path *string `json:"path" yaml:"path"`
 }
 
 // A CloudFormation `AWS::IAM::ManagedPolicy`.
@@ -3663,17 +3663,17 @@ type CfnManagedPolicyProps struct {
 	// - Any printable ASCII character ranging from the space character ( `\ u0020` ) through the end of the ASCII character range
 	// - The printable characters in the Basic Latin and Latin-1 Supplement character set (through `\ u00FF` )
 	// - The special characters tab ( `\ u0009` ), line feed ( `\ u000A` ), and carriage return ( `\ u000D` )
-	PolicyDocument interface{} `json:"policyDocument"`
+	PolicyDocument interface{} `json:"policyDocument" yaml:"policyDocument"`
 	// A friendly description of the policy.
 	//
 	// Typically used to store information about the permissions defined in the policy. For example, "Grants access to production DynamoDB tables."
 	//
 	// The policy description is immutable. After a value is assigned, it cannot be changed.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The name (friendly name, not ARN) of the group to attach the policy to.
 	//
 	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-	Groups *[]*string `json:"groups"`
+	Groups *[]*string `json:"groups" yaml:"groups"`
 	// The friendly name of the policy.
 	//
 	// > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
@@ -3681,7 +3681,7 @@ type CfnManagedPolicyProps struct {
 	// If you specify a name, you must specify the `CAPABILITY_NAMED_IAM` value to acknowledge your template's capabilities. For more information, see [Acknowledging IAM Resources in AWS CloudFormation Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities) .
 	//
 	// > Naming an IAM resource can cause an unrecoverable error if you reuse the same template in multiple Regions. To prevent this, we recommend using `Fn::Join` and `AWS::Region` to create a Region-specific name, as in the following example: `{"Fn::Join": ["", [{"Ref": "AWS::Region"}, {"Ref": "MyResourceName"}]]}` .
-	ManagedPolicyName *string `json:"managedPolicyName"`
+	ManagedPolicyName *string `json:"managedPolicyName" yaml:"managedPolicyName"`
 	// The path for the policy.
 	//
 	// For more information about paths, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide* .
@@ -3691,17 +3691,17 @@ type CfnManagedPolicyProps struct {
 	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! ( `\ u0021` ) through the DEL character ( `\ u007F` ), including most punctuation characters, digits, and upper and lowercased letters.
 	//
 	// > You cannot use an asterisk (*) in the path name.
-	Path *string `json:"path"`
+	Path *string `json:"path" yaml:"path"`
 	// The name (friendly name, not ARN) of the role to attach the policy to.
 	//
 	// This parameter allows (per its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 	//
 	// > If an external policy (such as `AWS::IAM::Policy` or `AWS::IAM::ManagedPolicy` ) has a `Ref` to a role and if a resource (such as `AWS::ECS::Service` ) also has a `Ref` to the same role, add a `DependsOn` attribute to the resource to make the resource depend on the external policy. This dependency ensures that the role's policy is available throughout the resource's lifecycle. For example, when you delete a stack with an `AWS::ECS::Service` resource, the `DependsOn` attribute ensures that AWS CloudFormation deletes the `AWS::ECS::Service` resource before deleting its role's policy.
-	Roles *[]*string `json:"roles"`
+	Roles *[]*string `json:"roles" yaml:"roles"`
 	// The name (friendly name, not ARN) of the IAM user to attach the policy to.
 	//
 	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-	Users *[]*string `json:"users"`
+	Users *[]*string `json:"users" yaml:"users"`
 }
 
 // A CloudFormation `AWS::IAM::OIDCProvider`.
@@ -4258,19 +4258,19 @@ type CfnOIDCProviderProps struct {
 	// A list of certificate thumbprints that are associated with the specified IAM OIDC provider resource object.
 	//
 	// For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
-	ThumbprintList *[]*string `json:"thumbprintList"`
+	ThumbprintList *[]*string `json:"thumbprintList" yaml:"thumbprintList"`
 	// A list of client IDs (also known as audiences) that are associated with the specified IAM OIDC provider resource object.
 	//
 	// For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
-	ClientIdList *[]*string `json:"clientIdList"`
+	ClientIdList *[]*string `json:"clientIdList" yaml:"clientIdList"`
 	// A list of tags that are attached to the specified IAM OIDC provider.
 	//
 	// The returned list of tags is sorted by tag key. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// The URL that the IAM OIDC provider resource object is associated with.
 	//
 	// For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
-	Url *string `json:"url"`
+	Url *string `json:"url" yaml:"url"`
 }
 
 // A CloudFormation `AWS::IAM::Policy`.
@@ -4845,25 +4845,25 @@ type CfnPolicyProps struct {
 	// - Any printable ASCII character ranging from the space character ( `\ u0020` ) through the end of the ASCII character range
 	// - The printable characters in the Basic Latin and Latin-1 Supplement character set (through `\ u00FF` )
 	// - The special characters tab ( `\ u0009` ), line feed ( `\ u000A` ), and carriage return ( `\ u000D` )
-	PolicyDocument interface{} `json:"policyDocument"`
+	PolicyDocument interface{} `json:"policyDocument" yaml:"policyDocument"`
 	// The name of the policy document.
 	//
 	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-	PolicyName *string `json:"policyName"`
+	PolicyName *string `json:"policyName" yaml:"policyName"`
 	// The name of the group to associate the policy with.
 	//
 	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-.
-	Groups *[]*string `json:"groups"`
+	Groups *[]*string `json:"groups" yaml:"groups"`
 	// The name of the role to associate the policy with.
 	//
 	// This parameter allows (per its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 	//
 	// > If an external policy (such as `AWS::IAM::Policy` or `AWS::IAM::ManagedPolicy` ) has a `Ref` to a role and if a resource (such as `AWS::ECS::Service` ) also has a `Ref` to the same role, add a `DependsOn` attribute to the resource to make the resource depend on the external policy. This dependency ensures that the role's policy is available throughout the resource's lifecycle. For example, when you delete a stack with an `AWS::ECS::Service` resource, the `DependsOn` attribute ensures that AWS CloudFormation deletes the `AWS::ECS::Service` resource before deleting its role's policy.
-	Roles *[]*string `json:"roles"`
+	Roles *[]*string `json:"roles" yaml:"roles"`
 	// The name of the user to associate the policy with.
 	//
 	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-	Users *[]*string `json:"users"`
+	Users *[]*string `json:"users" yaml:"users"`
 }
 
 // A CloudFormation `AWS::IAM::Role`.
@@ -5521,9 +5521,9 @@ func (c *jsiiProxy_CfnRole) ValidateProperties(_properties interface{}) {
 //
 type CfnRole_PolicyProperty struct {
 	// The policy document.
-	PolicyDocument interface{} `json:"policyDocument"`
+	PolicyDocument interface{} `json:"policyDocument" yaml:"policyDocument"`
 	// The friendly name (not ARN) identifying the policy.
-	PolicyName *string `json:"policyName"`
+	PolicyName *string `json:"policyName" yaml:"policyName"`
 }
 
 // Properties for defining a `CfnRole`.
@@ -5534,29 +5534,29 @@ type CfnRoleProps struct {
 	// The trust policy that is associated with this role.
 	//
 	// Trust policies define which entities can assume the role. You can associate only one trust policy with a role. For an example of a policy that can be used to assume a role, see [Template Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#aws-resource-iam-role--examples) . For more information about the elements that you can use in an IAM policy, see [IAM Policy Elements Reference](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html) in the *IAM User Guide* .
-	AssumeRolePolicyDocument interface{} `json:"assumeRolePolicyDocument"`
+	AssumeRolePolicyDocument interface{} `json:"assumeRolePolicyDocument" yaml:"assumeRolePolicyDocument"`
 	// A description of the role that you provide.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to attach to the role.
 	//
 	// For more information about ARNs, see [Amazon Resource Names (ARNs) and AWS Service Namespaces](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *AWS General Reference* .
-	ManagedPolicyArns *[]*string `json:"managedPolicyArns"`
+	ManagedPolicyArns *[]*string `json:"managedPolicyArns" yaml:"managedPolicyArns"`
 	// The maximum session duration (in seconds) that you want to set for the specified role.
 	//
 	// If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
 	//
 	// Anyone who assumes the role from the or API can use the `DurationSeconds` API parameter or the `duration-seconds` CLI parameter to request a longer session. The `MaxSessionDuration` setting determines the maximum duration that can be requested using the `DurationSeconds` parameter. If users don't specify a value for the `DurationSeconds` parameter, their security credentials are valid for one hour by default. This applies when you use the `AssumeRole*` API operations or the `assume-role*` CLI operations but does not apply when you use those operations to create a console URL. For more information, see [Using IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html) in the *IAM User Guide* .
-	MaxSessionDuration *float64 `json:"maxSessionDuration"`
+	MaxSessionDuration *float64 `json:"maxSessionDuration" yaml:"maxSessionDuration"`
 	// The path to the role. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide* .
 	//
 	// This parameter is optional. If it is not included, it defaults to a slash (/).
 	//
 	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! ( `\ u0021` ) through the DEL character ( `\ u007F` ), including most punctuation characters, digits, and upper and lowercased letters.
-	Path *string `json:"path"`
+	Path *string `json:"path" yaml:"path"`
 	// The ARN of the policy used to set the permissions boundary for the role.
 	//
 	// For more information about permissions boundaries, see [Permissions boundaries for IAM identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) in the *IAM User Guide* .
-	PermissionsBoundary *string `json:"permissionsBoundary"`
+	PermissionsBoundary *string `json:"permissionsBoundary" yaml:"permissionsBoundary"`
 	// Adds or updates an inline policy document that is embedded in the specified IAM role.
 	//
 	// When you embed an inline policy in a role, the inline policy is used as part of the role's access (permissions) policy. The role's trust policy is created at the same time as the role. You can update a role's trust policy later. For more information about IAM roles, go to [Using Roles to Delegate Permissions and Federate Identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html) .
@@ -5566,7 +5566,7 @@ type CfnRoleProps struct {
 	// For information about limits on the number of inline policies that you can embed with a role, see [Limitations on IAM Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html) in the *IAM User Guide* .
 	//
 	// > If an external policy (such as `AWS::IAM::Policy` or `AWS::IAM::ManagedPolicy` ) has a `Ref` to a role and if a resource (such as `AWS::ECS::Service` ) also has a `Ref` to the same role, add a `DependsOn` attribute to the resource to make the resource depend on the external policy. This dependency ensures that the role's policy is available throughout the resource's lifecycle. For example, when you delete a stack with an `AWS::ECS::Service` resource, the `DependsOn` attribute ensures that AWS CloudFormation deletes the `AWS::ECS::Service` resource before deleting its role's policy.
-	Policies interface{} `json:"policies"`
+	Policies interface{} `json:"policies" yaml:"policies"`
 	// A name for the IAM role, up to 64 characters in length.
 	//
 	// For valid values, see the `RoleName` parameter for the [`CreateRole`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html) action in the *IAM User Guide* .
@@ -5578,11 +5578,11 @@ type CfnRoleProps struct {
 	// If you specify a name, you must specify the `CAPABILITY_NAMED_IAM` value to acknowledge your template's capabilities. For more information, see [Acknowledging IAM Resources in AWS CloudFormation Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities) .
 	//
 	// > Naming an IAM resource can cause an unrecoverable error if you reuse the same template in multiple Regions. To prevent this, we recommend using `Fn::Join` and `AWS::Region` to create a Region-specific name, as in the following example: `{"Fn::Join": ["", [{"Ref": "AWS::Region"}, {"Ref": "MyResourceName"}]]}` .
-	RoleName *string `json:"roleName"`
+	RoleName *string `json:"roleName" yaml:"roleName"`
 	// A list of tags that are attached to the role.
 	//
 	// For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::IAM::SAMLProvider`.
@@ -6115,17 +6115,17 @@ type CfnSAMLProviderProps struct {
 	// An XML document generated by an identity provider (IdP) that supports SAML 2.0. The document includes the issuer's name, expiration information, and keys that can be used to validate the SAML authentication response (assertions) that are received from the IdP. You must generate the metadata document using the identity management software that is used as your organization's IdP.
 	//
 	// For more information, see [About SAML 2.0-based federation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html) in the *IAM User Guide*
-	SamlMetadataDocument *string `json:"samlMetadataDocument"`
+	SamlMetadataDocument *string `json:"samlMetadataDocument" yaml:"samlMetadataDocument"`
 	// The name of the provider to create.
 	//
 	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// A list of tags that you want to attach to the new IAM SAML provider.
 	//
 	// Each tag consists of a key name and an associated value. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
 	//
 	// > If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::IAM::ServerCertificate`.
@@ -6716,9 +6716,9 @@ func (c *jsiiProxy_CfnServerCertificate) ValidateProperties(_properties interfac
 //
 type CfnServerCertificateProps struct {
 	// The contents of the public key certificate.
-	CertificateBody *string `json:"certificateBody"`
+	CertificateBody *string `json:"certificateBody" yaml:"certificateBody"`
 	// The contents of the public key certificate chain.
-	CertificateChain *string `json:"certificateChain"`
+	CertificateChain *string `json:"certificateChain" yaml:"certificateChain"`
 	// The path for the server certificate.
 	//
 	// For more information about paths, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide* .
@@ -6726,7 +6726,7 @@ type CfnServerCertificateProps struct {
 	// This parameter is optional. If it is not included, it defaults to a slash (/). This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! ( `\ u0021` ) through the DEL character ( `\ u007F` ), including most punctuation characters, digits, and upper and lowercased letters.
 	//
 	// > If you are uploading a server certificate specifically for use with Amazon CloudFront distributions, you must specify a path using the `path` parameter. The path must begin with `/cloudfront` and must include a trailing slash (for example, `/cloudfront/test/` ).
-	Path *string `json:"path"`
+	Path *string `json:"path" yaml:"path"`
 	// The contents of the private key in PEM-encoded format.
 	//
 	// The [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) used to validate this parameter is a string of characters consisting of the following:
@@ -6734,17 +6734,17 @@ type CfnServerCertificateProps struct {
 	// - Any printable ASCII character ranging from the space character ( `\ u0020` ) through the end of the ASCII character range
 	// - The printable characters in the Basic Latin and Latin-1 Supplement character set (through `\ u00FF` )
 	// - The special characters tab ( `\ u0009` ), line feed ( `\ u000A` ), and carriage return ( `\ u000D` )
-	PrivateKey *string `json:"privateKey"`
+	PrivateKey *string `json:"privateKey" yaml:"privateKey"`
 	// The name for the server certificate.
 	//
 	// Do not include the path in this value. The name of the certificate cannot contain any spaces.
 	//
 	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-	ServerCertificateName *string `json:"serverCertificateName"`
+	ServerCertificateName *string `json:"serverCertificateName" yaml:"serverCertificateName"`
 	// A list of tags that are attached to the server certificate.
 	//
 	// For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::IAM::ServiceLinkedRole`.
@@ -7271,15 +7271,15 @@ type CfnServiceLinkedRoleProps struct {
 	// You use a string similar to a URL but without the http:// in front. For example: `elasticbeanstalk.amazonaws.com` .
 	//
 	// Service principals are unique and case-sensitive. To find the exact service principal for your service-linked role, see [AWS services that work with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html) in the *IAM User Guide* . Look for the services that have *Yes* in the *Service-Linked Role* column. Choose the *Yes* link to view the service-linked role documentation for that service.
-	AwsServiceName *string `json:"awsServiceName"`
+	AwsServiceName *string `json:"awsServiceName" yaml:"awsServiceName"`
 	// A string that you provide, which is combined with the service-provided prefix to form the complete role name.
 	//
 	// If you make multiple requests for the same service, then you must supply a different `CustomSuffix` for each request. Otherwise the request fails with a duplicate role name error. For example, you could add `-1` or `-debug` to the suffix.
 	//
 	// Some services do not support the `CustomSuffix` parameter. If you provide an optional suffix and the operation fails, try the operation again without the suffix.
-	CustomSuffix *string `json:"customSuffix"`
+	CustomSuffix *string `json:"customSuffix" yaml:"customSuffix"`
 	// The description of the role.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 }
 
 // A CloudFormation `AWS::IAM::User`.
@@ -7906,9 +7906,9 @@ func (c *jsiiProxy_CfnUser) ValidateProperties(_properties interface{}) {
 //
 type CfnUser_LoginProfileProperty struct {
 	// The user's password.
-	Password *string `json:"password"`
+	Password *string `json:"password" yaml:"password"`
 	// Specifies whether the user is required to set a new password on next sign-in.
-	PasswordResetRequired interface{} `json:"passwordResetRequired"`
+	PasswordResetRequired interface{} `json:"passwordResetRequired" yaml:"passwordResetRequired"`
 }
 
 // Contains information about an attached policy.
@@ -7921,9 +7921,9 @@ type CfnUser_LoginProfileProperty struct {
 //
 type CfnUser_PolicyProperty struct {
 	// The policy document.
-	PolicyDocument interface{} `json:"policyDocument"`
+	PolicyDocument interface{} `json:"policyDocument" yaml:"policyDocument"`
 	// The friendly name (not ARN) identifying the policy.
-	PolicyName *string `json:"policyName"`
+	PolicyName *string `json:"policyName" yaml:"policyName"`
 }
 
 // Properties for defining a `CfnUser`.
@@ -7932,7 +7932,7 @@ type CfnUser_PolicyProperty struct {
 //
 type CfnUserProps struct {
 	// A list of group names to which you want to add the user.
-	Groups *[]*string `json:"groups"`
+	Groups *[]*string `json:"groups" yaml:"groups"`
 	// Creates a password for the specified IAM user.
 	//
 	// A password allows an IAM user to access AWS services through the AWS Management Console .
@@ -7940,11 +7940,11 @@ type CfnUserProps struct {
 	// You can use the AWS CLI , the AWS API, or the *Users* page in the IAM console to create a password for any IAM user. Use [ChangePassword](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ChangePassword.html) to update your own existing password in the *My Security Credentials* page in the AWS Management Console .
 	//
 	// For more information about managing passwords, see [Managing passwords](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html) in the *IAM User Guide* .
-	LoginProfile interface{} `json:"loginProfile"`
+	LoginProfile interface{} `json:"loginProfile" yaml:"loginProfile"`
 	// A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to attach to the user.
 	//
 	// For more information about ARNs, see [Amazon Resource Names (ARNs) and AWS Service Namespaces](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *AWS General Reference* .
-	ManagedPolicyArns *[]*string `json:"managedPolicyArns"`
+	ManagedPolicyArns *[]*string `json:"managedPolicyArns" yaml:"managedPolicyArns"`
 	// The path for the user name.
 	//
 	// For more information about paths, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide* .
@@ -7952,9 +7952,9 @@ type CfnUserProps struct {
 	// This parameter is optional. If it is not included, it defaults to a slash (/).
 	//
 	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! ( `\ u0021` ) through the DEL character ( `\ u007F` ), including most punctuation characters, digits, and upper and lowercased letters.
-	Path *string `json:"path"`
+	Path *string `json:"path" yaml:"path"`
 	// The ARN of the policy that is used to set the permissions boundary for the user.
-	PermissionsBoundary *string `json:"permissionsBoundary"`
+	PermissionsBoundary *string `json:"permissionsBoundary" yaml:"permissionsBoundary"`
 	// Adds or updates an inline policy document that is embedded in the specified IAM user.
 	//
 	// To view AWS::IAM::User snippets, see [Declaring an IAM User Resource](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-iam-user) .
@@ -7962,13 +7962,13 @@ type CfnUserProps struct {
 	// > The name of each policy for a role, user, or group must be unique. If you don't choose unique names, updates to the IAM identity will fail.
 	//
 	// For information about limits on the number of inline policies that you can embed in a user, see [Limitations on IAM Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html) in the *IAM User Guide* .
-	Policies interface{} `json:"policies"`
+	Policies interface{} `json:"policies" yaml:"policies"`
 	// A list of tags that you want to attach to the new user.
 	//
 	// Each tag consists of a key name and an associated value. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
 	//
 	// > If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// The name of the user to create. Do not include the path in this value.
 	//
 	// This parameter allows (per its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-. The user name must be unique within the account. User names are not distinguished by case. For example, you cannot create users named both "John" and "john".
@@ -7978,7 +7978,7 @@ type CfnUserProps struct {
 	// If you specify a name, you must specify the `CAPABILITY_NAMED_IAM` value to acknowledge your template's capabilities. For more information, see [Acknowledging IAM Resources in AWS CloudFormation Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities) .
 	//
 	// > Naming an IAM resource can cause an unrecoverable error if you reuse the same template in multiple Regions. To prevent this, we recommend using `Fn::Join` and `AWS::Region` to create a Region-specific name, as in the following example: `{"Fn::Join": ["", [{"Ref": "AWS::Region"}, {"Ref": "MyResourceName"}]]}` .
-	UserName *string `json:"userName"`
+	UserName *string `json:"userName" yaml:"userName"`
 }
 
 // A CloudFormation `AWS::IAM::UserToGroupAddition`.
@@ -8481,9 +8481,9 @@ type CfnUserToGroupAdditionProps struct {
 	// The name of the group to update.
 	//
 	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-	GroupName *string `json:"groupName"`
+	GroupName *string `json:"groupName" yaml:"groupName"`
 	// A list of the names of the users that you want to add to the group.
-	Users *[]*string `json:"users"`
+	Users *[]*string `json:"users" yaml:"users"`
 }
 
 // A CloudFormation `AWS::IAM::VirtualMFADevice`.
@@ -9030,7 +9030,7 @@ func (c *jsiiProxy_CfnVirtualMFADevice) ValidateProperties(_properties interface
 //
 type CfnVirtualMFADeviceProps struct {
 	// The IAM user associated with this virtual MFA device.
-	Users *[]*string `json:"users"`
+	Users *[]*string `json:"users" yaml:"users"`
 	// The path for the virtual MFA device.
 	//
 	// For more information about paths, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide* .
@@ -9038,17 +9038,17 @@ type CfnVirtualMFADeviceProps struct {
 	// This parameter is optional. If it is not included, it defaults to a slash (/).
 	//
 	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! ( `\ u0021` ) through the DEL character ( `\ u007F` ), including most punctuation characters, digits, and upper and lowercased letters.
-	Path *string `json:"path"`
+	Path *string `json:"path" yaml:"path"`
 	// A list of tags that you want to attach to the new IAM virtual MFA device.
 	//
 	// Each tag consists of a key name and an associated value. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
 	//
 	// > If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
 	//
 	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-	VirtualMfaDeviceName *string `json:"virtualMfaDeviceName"`
+	VirtualMfaDeviceName *string `json:"virtualMfaDeviceName" yaml:"virtualMfaDeviceName"`
 }
 
 // Basic options for a grant operation.
@@ -9057,11 +9057,11 @@ type CfnVirtualMFADeviceProps struct {
 //
 type CommonGrantOptions struct {
 	// The actions to grant.
-	Actions *[]*string `json:"actions"`
+	Actions *[]*string `json:"actions" yaml:"actions"`
 	// The principal to grant to.
-	Grantee IGrantable `json:"grantee"`
+	Grantee IGrantable `json:"grantee" yaml:"grantee"`
 	// The resource ARNs to grant to.
-	ResourceArns *[]*string `json:"resourceArns"`
+	ResourceArns *[]*string `json:"resourceArns" yaml:"resourceArns"`
 }
 
 // Composite dependable.
@@ -9590,9 +9590,9 @@ type FromRoleArnOptions struct {
 	// It is your own responsibility to make sure the role has the required permissions.
 	//
 	// If this is `true`, any grant permissions will be added to the resource instead.
-	AddGrantsToResources *bool `json:"addGrantsToResources"`
+	AddGrantsToResources *bool `json:"addGrantsToResources" yaml:"addGrantsToResources"`
 	// Whether the imported role can be modified by attaching policy resources to it.
-	Mutable *bool `json:"mutable"`
+	Mutable *bool `json:"mutable" yaml:"mutable"`
 }
 
 // Result of a grant() operation.
@@ -9765,21 +9765,21 @@ func (g *jsiiProxy_Grant) AssertSuccess() {
 //
 type GrantOnPrincipalAndResourceOptions struct {
 	// The actions to grant.
-	Actions *[]*string `json:"actions"`
+	Actions *[]*string `json:"actions" yaml:"actions"`
 	// The principal to grant to.
-	Grantee IGrantable `json:"grantee"`
+	Grantee IGrantable `json:"grantee" yaml:"grantee"`
 	// The resource ARNs to grant to.
-	ResourceArns *[]*string `json:"resourceArns"`
+	ResourceArns *[]*string `json:"resourceArns" yaml:"resourceArns"`
 	// The resource with a resource policy.
 	//
 	// The statement will always be added to the resource policy.
-	Resource IResourceWithPolicy `json:"resource"`
+	Resource IResourceWithPolicy `json:"resource" yaml:"resource"`
 	// The principal to use in the statement for the resource policy.
-	ResourcePolicyPrincipal IPrincipal `json:"resourcePolicyPrincipal"`
+	ResourcePolicyPrincipal IPrincipal `json:"resourcePolicyPrincipal" yaml:"resourcePolicyPrincipal"`
 	// When referring to the resource in a resource policy, use this as ARN.
 	//
 	// (Depending on the resource type, this needs to be '*' in a resource policy).
-	ResourceSelfArns *[]*string `json:"resourceSelfArns"`
+	ResourceSelfArns *[]*string `json:"resourceSelfArns" yaml:"resourceSelfArns"`
 }
 
 // Options for a grant operation that only applies to principals.
@@ -9788,13 +9788,13 @@ type GrantOnPrincipalAndResourceOptions struct {
 //
 type GrantOnPrincipalOptions struct {
 	// The actions to grant.
-	Actions *[]*string `json:"actions"`
+	Actions *[]*string `json:"actions" yaml:"actions"`
 	// The principal to grant to.
-	Grantee IGrantable `json:"grantee"`
+	Grantee IGrantable `json:"grantee" yaml:"grantee"`
 	// The resource ARNs to grant to.
-	ResourceArns *[]*string `json:"resourceArns"`
+	ResourceArns *[]*string `json:"resourceArns" yaml:"resourceArns"`
 	// Construct to report warnings on in case grant could not be registered.
-	Scope constructs.IConstruct `json:"scope"`
+	Scope constructs.IConstruct `json:"scope" yaml:"scope"`
 }
 
 // Options for a grant operation.
@@ -9803,20 +9803,20 @@ type GrantOnPrincipalOptions struct {
 //
 type GrantWithResourceOptions struct {
 	// The actions to grant.
-	Actions *[]*string `json:"actions"`
+	Actions *[]*string `json:"actions" yaml:"actions"`
 	// The principal to grant to.
-	Grantee IGrantable `json:"grantee"`
+	Grantee IGrantable `json:"grantee" yaml:"grantee"`
 	// The resource ARNs to grant to.
-	ResourceArns *[]*string `json:"resourceArns"`
+	ResourceArns *[]*string `json:"resourceArns" yaml:"resourceArns"`
 	// The resource with a resource policy.
 	//
 	// The statement will be added to the resource policy if it couldn't be
 	// added to the principal policy.
-	Resource IResourceWithPolicy `json:"resource"`
+	Resource IResourceWithPolicy `json:"resource" yaml:"resource"`
 	// When referring to the resource in a resource policy, use this as ARN.
 	//
 	// (Depending on the resource type, this needs to be '*' in a resource policy).
-	ResourceSelfArns *[]*string `json:"resourceSelfArns"`
+	ResourceSelfArns *[]*string `json:"resourceSelfArns" yaml:"resourceSelfArns"`
 }
 
 // An IAM Group (collection of IAM users) lets you specify permissions for multiple users, which can make it easier to manage permissions for those users.
@@ -10210,18 +10210,18 @@ type GroupProps struct {
 	// If you specify a name, you must specify the CAPABILITY_NAMED_IAM value to
 	// acknowledge your template's capabilities. For more information, see
 	// Acknowledging IAM Resources in AWS CloudFormation Templates.
-	GroupName *string `json:"groupName"`
+	GroupName *string `json:"groupName" yaml:"groupName"`
 	// A list of managed policies associated with this role.
 	//
 	// You can add managed policies later using
 	// `addManagedPolicy(ManagedPolicy.fromAwsManagedPolicyName(policyName))`.
-	ManagedPolicies *[]IManagedPolicy `json:"managedPolicies"`
+	ManagedPolicies *[]IManagedPolicy `json:"managedPolicies" yaml:"managedPolicies"`
 	// The path to the group.
 	//
 	// For more information about paths, see [IAM
 	// Identifiers](http://docs.aws.amazon.com/IAM/latest/UserGuide/index.html?Using_Identifiers.html)
 	// in the IAM User Guide.
-	Path *string `json:"path"`
+	Path *string `json:"path" yaml:"path"`
 }
 
 // Represents an IAM Access Key.
@@ -11176,28 +11176,28 @@ type LazyRoleProps struct {
 	//
 	// You can later modify the assume role policy document by accessing it via
 	// the `assumeRolePolicy` property.
-	AssumedBy IPrincipal `json:"assumedBy"`
+	AssumedBy IPrincipal `json:"assumedBy" yaml:"assumedBy"`
 	// A description of the role.
 	//
 	// It can be up to 1000 characters long.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// List of IDs that the role assumer needs to provide one of when assuming this role.
 	//
 	// If the configured and provided external IDs do not match, the
 	// AssumeRole operation will fail.
-	ExternalIds *[]*string `json:"externalIds"`
+	ExternalIds *[]*string `json:"externalIds" yaml:"externalIds"`
 	// A list of named policies to inline into this role.
 	//
 	// These policies will be
 	// created with the role, whereas those added by ``addToPolicy`` are added
 	// using a separate CloudFormation resource (allowing a way around circular
 	// dependencies that could otherwise be introduced).
-	InlinePolicies *map[string]PolicyDocument `json:"inlinePolicies"`
+	InlinePolicies *map[string]PolicyDocument `json:"inlinePolicies" yaml:"inlinePolicies"`
 	// A list of managed policies associated with this role.
 	//
 	// You can add managed policies later using
 	// `addManagedPolicy(ManagedPolicy.fromAwsManagedPolicyName(policyName))`.
-	ManagedPolicies *[]IManagedPolicy `json:"managedPolicies"`
+	ManagedPolicies *[]IManagedPolicy `json:"managedPolicies" yaml:"managedPolicies"`
 	// The maximum session duration that you want to set for the specified role.
 	//
 	// This setting can have a value from 1 hour (3600sec) to 12 (43200sec) hours.
@@ -11212,12 +11212,12 @@ type LazyRoleProps struct {
 	// security credentials are valid for one hour by default. This applies when
 	// you use the AssumeRole* API operations or the assume-role* CLI operations
 	// but does not apply when you use those operations to create a console URL.
-	MaxSessionDuration awscdk.Duration `json:"maxSessionDuration"`
+	MaxSessionDuration awscdk.Duration `json:"maxSessionDuration" yaml:"maxSessionDuration"`
 	// The path associated with this role.
 	//
 	// For information about IAM paths, see
 	// Friendly Names and Paths in IAM User Guide.
-	Path *string `json:"path"`
+	Path *string `json:"path" yaml:"path"`
 	// AWS supports permissions boundaries for IAM entities (users or roles).
 	//
 	// A permissions boundary is an advanced feature for using a managed policy
@@ -11225,7 +11225,7 @@ type LazyRoleProps struct {
 	// an IAM entity. An entity's permissions boundary allows it to perform only
 	// the actions that are allowed by both its identity-based policies and its
 	// permissions boundaries.
-	PermissionsBoundary IManagedPolicy `json:"permissionsBoundary"`
+	PermissionsBoundary IManagedPolicy `json:"permissionsBoundary" yaml:"permissionsBoundary"`
 	// A name for the IAM role.
 	//
 	// For valid values, see the RoleName parameter for
@@ -11238,7 +11238,7 @@ type LazyRoleProps struct {
 	// If you specify a name, you must specify the CAPABILITY_NAMED_IAM value to
 	// acknowledge your template's capabilities. For more information, see
 	// Acknowledging IAM Resources in AWS CloudFormation Templates.
-	RoleName *string `json:"roleName"`
+	RoleName *string `json:"roleName" yaml:"roleName"`
 }
 
 // Managed policy.
@@ -11624,23 +11624,23 @@ type ManagedPolicyProps struct {
 	// Typically used to store information about the
 	// permissions defined in the policy. For example, "Grants access to production DynamoDB tables."
 	// The policy description is immutable. After a value is assigned, it cannot be changed.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Initial PolicyDocument to use for this ManagedPolicy.
 	//
 	// If omited, any
 	// `PolicyStatement` provided in the `statements` property will be applied
 	// against the empty default `PolicyDocument`.
-	Document PolicyDocument `json:"document"`
+	Document PolicyDocument `json:"document" yaml:"document"`
 	// Groups to attach this policy to.
 	//
 	// You can also use `attachToGroup(group)` to attach this policy to a group.
-	Groups *[]IGroup `json:"groups"`
+	Groups *[]IGroup `json:"groups" yaml:"groups"`
 	// The name of the managed policy.
 	//
 	// If you specify multiple policies for an entity,
 	// specify unique names. For example, if you specify a list of policies for
 	// an IAM role, each policy must have a unique name.
-	ManagedPolicyName *string `json:"managedPolicyName"`
+	ManagedPolicyName *string `json:"managedPolicyName" yaml:"managedPolicyName"`
 	// The path for the policy.
 	//
 	// This parameter allows (through its regex pattern) a string of characters
@@ -11649,19 +11649,19 @@ type ManagedPolicyProps struct {
 	// including most punctuation characters, digits, and upper and lowercased letters.
 	//
 	// For more information about paths, see IAM Identifiers in the IAM User Guide.
-	Path *string `json:"path"`
+	Path *string `json:"path" yaml:"path"`
 	// Roles to attach this policy to.
 	//
 	// You can also use `attachToRole(role)` to attach this policy to a role.
-	Roles *[]IRole `json:"roles"`
+	Roles *[]IRole `json:"roles" yaml:"roles"`
 	// Initial set of permissions to add to this policy document.
 	//
 	// You can also use `addPermission(statement)` to add permissions later.
-	Statements *[]PolicyStatement `json:"statements"`
+	Statements *[]PolicyStatement `json:"statements" yaml:"statements"`
 	// Users to attach this policy to.
 	//
 	// You can also use `attachToUser(user)` to attach this policy to a user.
-	Users *[]IUser `json:"users"`
+	Users *[]IUser `json:"users" yaml:"users"`
 }
 
 // A principal that represents a federated identity provider as from a OpenID Connect provider.
@@ -12149,7 +12149,7 @@ type OpenIdConnectProviderProps struct {
 	// You cannot register the same provider multiple times in a single AWS
 	// account. If you try to submit a URL that has already been used for an
 	// OpenID Connect provider in the AWS account, you will get an error.
-	Url *string `json:"url"`
+	Url *string `json:"url" yaml:"url"`
 	// A list of client IDs (also known as audiences).
 	//
 	// When a mobile or web app
@@ -12162,7 +12162,7 @@ type OpenIdConnectProviderProps struct {
 	// cannot register more than 100 client IDs with a single IAM OIDC provider.
 	//
 	// Client IDs are up to 255 characters long.
-	ClientIds *[]*string `json:"clientIds"`
+	ClientIds *[]*string `json:"clientIds" yaml:"clientIds"`
 	// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificates.
 	//
 	// Typically this list includes only one entry. However, IAM lets you have up
@@ -12179,7 +12179,7 @@ type OpenIdConnectProviderProps struct {
 	// https://keys.server.example.com/openid-connect. In that case, the
 	// thumbprint string would be the hex-encoded SHA-1 hash value of the
 	// certificate used by https://keys.server.example.com.
-	Thumbprints *[]*string `json:"thumbprints"`
+	Thumbprints *[]*string `json:"thumbprints" yaml:"thumbprints"`
 }
 
 // A principal that represents an AWS Organization.
@@ -12944,9 +12944,9 @@ func (p *jsiiProxy_PolicyDocument) ValidateForResourcePolicy() *[]*string {
 //
 type PolicyDocumentProps struct {
 	// Automatically assign Statement Ids to all statements.
-	AssignSids *bool `json:"assignSids"`
+	AssignSids *bool `json:"assignSids" yaml:"assignSids"`
 	// Initial statements to add to the policy document.
-	Statements *[]PolicyStatement `json:"statements"`
+	Statements *[]PolicyStatement `json:"statements" yaml:"statements"`
 }
 
 // Properties for defining an IAM inline policy document.
@@ -12959,7 +12959,7 @@ type PolicyProps struct {
 	// If omited, any
 	// `PolicyStatement` provided in the `statements` property will be applied
 	// against the empty default `PolicyDocument`.
-	Document PolicyDocument `json:"document"`
+	Document PolicyDocument `json:"document" yaml:"document"`
 	// Force creation of an `AWS::IAM::Policy`.
 	//
 	// Unless set to `true`, this `Policy` construct will not materialize to an
@@ -12970,29 +12970,29 @@ type PolicyProps struct {
 	//
 	// In cases where you know the policy must be created and it is actually
 	// an error if no statements have been added to it, you can set this to `true`.
-	Force *bool `json:"force"`
+	Force *bool `json:"force" yaml:"force"`
 	// Groups to attach this policy to.
 	//
 	// You can also use `attachToGroup(group)` to attach this policy to a group.
-	Groups *[]IGroup `json:"groups"`
+	Groups *[]IGroup `json:"groups" yaml:"groups"`
 	// The name of the policy.
 	//
 	// If you specify multiple policies for an entity,
 	// specify unique names. For example, if you specify a list of policies for
 	// an IAM role, each policy must have a unique name.
-	PolicyName *string `json:"policyName"`
+	PolicyName *string `json:"policyName" yaml:"policyName"`
 	// Roles to attach this policy to.
 	//
 	// You can also use `attachToRole(role)` to attach this policy to a role.
-	Roles *[]IRole `json:"roles"`
+	Roles *[]IRole `json:"roles" yaml:"roles"`
 	// Initial set of permissions to add to this policy document.
 	//
 	// You can also use `addStatements(...statement)` to add permissions later.
-	Statements *[]PolicyStatement `json:"statements"`
+	Statements *[]PolicyStatement `json:"statements" yaml:"statements"`
 	// Users to attach this policy to.
 	//
 	// You can also use `attachToUser(user)` to attach this policy to a user.
-	Users *[]IUser `json:"users"`
+	Users *[]IUser `json:"users" yaml:"users"`
 }
 
 // Represents a statement in an IAM policy document.
@@ -13428,28 +13428,28 @@ func (p *jsiiProxy_PolicyStatement) ValidateForResourcePolicy() *[]*string {
 //
 type PolicyStatementProps struct {
 	// List of actions to add to the statement.
-	Actions *[]*string `json:"actions"`
+	Actions *[]*string `json:"actions" yaml:"actions"`
 	// Conditions to add to the statement.
-	Conditions *map[string]interface{} `json:"conditions"`
+	Conditions *map[string]interface{} `json:"conditions" yaml:"conditions"`
 	// Whether to allow or deny the actions in this statement.
-	Effect Effect `json:"effect"`
+	Effect Effect `json:"effect" yaml:"effect"`
 	// List of not actions to add to the statement.
-	NotActions *[]*string `json:"notActions"`
+	NotActions *[]*string `json:"notActions" yaml:"notActions"`
 	// List of not principals to add to the statement.
-	NotPrincipals *[]IPrincipal `json:"notPrincipals"`
+	NotPrincipals *[]IPrincipal `json:"notPrincipals" yaml:"notPrincipals"`
 	// NotResource ARNs to add to the statement.
-	NotResources *[]*string `json:"notResources"`
+	NotResources *[]*string `json:"notResources" yaml:"notResources"`
 	// List of principals to add to the statement.
-	Principals *[]IPrincipal `json:"principals"`
+	Principals *[]IPrincipal `json:"principals" yaml:"principals"`
 	// Resource ARNs to add to the statement.
-	Resources *[]*string `json:"resources"`
+	Resources *[]*string `json:"resources" yaml:"resources"`
 	// The Sid (statement ID) is an optional identifier that you provide for the policy statement.
 	//
 	// You can assign a Sid value to each statement in a
 	// statement array. In services that let you specify an ID element, such as
 	// SQS and SNS, the Sid value is just a sub-ID of the policy document's ID. In
 	// IAM, the Sid value must be unique within a JSON policy.
-	Sid *string `json:"sid"`
+	Sid *string `json:"sid" yaml:"sid"`
 }
 
 // Base class for policy principals.
@@ -14383,28 +14383,28 @@ type RoleProps struct {
 	//
 	// You can later modify the assume role policy document by accessing it via
 	// the `assumeRolePolicy` property.
-	AssumedBy IPrincipal `json:"assumedBy"`
+	AssumedBy IPrincipal `json:"assumedBy" yaml:"assumedBy"`
 	// A description of the role.
 	//
 	// It can be up to 1000 characters long.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// List of IDs that the role assumer needs to provide one of when assuming this role.
 	//
 	// If the configured and provided external IDs do not match, the
 	// AssumeRole operation will fail.
-	ExternalIds *[]*string `json:"externalIds"`
+	ExternalIds *[]*string `json:"externalIds" yaml:"externalIds"`
 	// A list of named policies to inline into this role.
 	//
 	// These policies will be
 	// created with the role, whereas those added by ``addToPolicy`` are added
 	// using a separate CloudFormation resource (allowing a way around circular
 	// dependencies that could otherwise be introduced).
-	InlinePolicies *map[string]PolicyDocument `json:"inlinePolicies"`
+	InlinePolicies *map[string]PolicyDocument `json:"inlinePolicies" yaml:"inlinePolicies"`
 	// A list of managed policies associated with this role.
 	//
 	// You can add managed policies later using
 	// `addManagedPolicy(ManagedPolicy.fromAwsManagedPolicyName(policyName))`.
-	ManagedPolicies *[]IManagedPolicy `json:"managedPolicies"`
+	ManagedPolicies *[]IManagedPolicy `json:"managedPolicies" yaml:"managedPolicies"`
 	// The maximum session duration that you want to set for the specified role.
 	//
 	// This setting can have a value from 1 hour (3600sec) to 12 (43200sec) hours.
@@ -14419,12 +14419,12 @@ type RoleProps struct {
 	// security credentials are valid for one hour by default. This applies when
 	// you use the AssumeRole* API operations or the assume-role* CLI operations
 	// but does not apply when you use those operations to create a console URL.
-	MaxSessionDuration awscdk.Duration `json:"maxSessionDuration"`
+	MaxSessionDuration awscdk.Duration `json:"maxSessionDuration" yaml:"maxSessionDuration"`
 	// The path associated with this role.
 	//
 	// For information about IAM paths, see
 	// Friendly Names and Paths in IAM User Guide.
-	Path *string `json:"path"`
+	Path *string `json:"path" yaml:"path"`
 	// AWS supports permissions boundaries for IAM entities (users or roles).
 	//
 	// A permissions boundary is an advanced feature for using a managed policy
@@ -14432,7 +14432,7 @@ type RoleProps struct {
 	// an IAM entity. An entity's permissions boundary allows it to perform only
 	// the actions that are allowed by both its identity-based policies and its
 	// permissions boundaries.
-	PermissionsBoundary IManagedPolicy `json:"permissionsBoundary"`
+	PermissionsBoundary IManagedPolicy `json:"permissionsBoundary" yaml:"permissionsBoundary"`
 	// A name for the IAM role.
 	//
 	// For valid values, see the RoleName parameter for
@@ -14445,7 +14445,7 @@ type RoleProps struct {
 	// If you specify a name, you must specify the CAPABILITY_NAMED_IAM value to
 	// acknowledge your template's capabilities. For more information, see
 	// Acknowledging IAM Resources in AWS CloudFormation Templates.
-	RoleName *string `json:"roleName"`
+	RoleName *string `json:"roleName" yaml:"roleName"`
 }
 
 // Principal entity that represents a SAML federated identity provider for programmatic and AWS Management Console access.
@@ -15184,7 +15184,7 @@ func (s *jsiiProxy_SamlProvider) ToString() *string {
 //
 type SamlProviderProps struct {
 	// An XML document generated by an identity provider (IdP) that supports SAML 2.0. The document includes the issuer's name, expiration information, and keys that can be used to validate the SAML authentication response (assertions) that are received from the IdP. You must generate the metadata document using the identity management software that is used as your organization's IdP.
-	MetadataDocument SamlMetadataDocument `json:"metadataDocument"`
+	MetadataDocument SamlMetadataDocument `json:"metadataDocument" yaml:"metadataDocument"`
 	// The name of the provider to create.
 	//
 	// This parameter allows a string of characters consisting of upper and
@@ -15192,7 +15192,7 @@ type SamlProviderProps struct {
 	// any of the following characters: _+=,.@-
 	//
 	// Length must be between 1 and 128 characters.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // An IAM principal that represents an AWS service (i.e. sqs.amazonaws.com).
@@ -15406,10 +15406,10 @@ func (s *jsiiProxy_ServicePrincipal) WithSessionTags() PrincipalBase {
 //
 type ServicePrincipalOpts struct {
 	// Additional conditions to add to the Service Principal.
-	Conditions *map[string]interface{} `json:"conditions"`
+	Conditions *map[string]interface{} `json:"conditions" yaml:"conditions"`
 	// The region in which the service is operating.
 	// Deprecated: You should not need to set this. The stack's region is always correct.
-	Region *string `json:"region"`
+	Region *string `json:"region" yaml:"region"`
 }
 
 // Enables session tags on role assumptions from a principal.
@@ -15924,7 +15924,7 @@ func (u *jsiiProxy_UnknownPrincipal) AddToPrincipalPolicy(statement PolicyStatem
 //
 type UnknownPrincipalProps struct {
 	// The resource the role proxy is for.
-	Resource constructs.IConstruct `json:"resource"`
+	Resource constructs.IConstruct `json:"resource" yaml:"resource"`
 }
 
 // Define a new IAM user.
@@ -16335,7 +16335,7 @@ type UserAttributes struct {
 	// The ARN of the user.
 	//
 	// Format: arn:<partition>:iam::<account-id>:user/<user-name-with-path>
-	UserArn *string `json:"userArn"`
+	UserArn *string `json:"userArn" yaml:"userArn"`
 }
 
 // Properties for defining an IAM user.
@@ -16347,27 +16347,27 @@ type UserProps struct {
 	//
 	// You can also use `addToGroup` to add this
 	// user to a group.
-	Groups *[]IGroup `json:"groups"`
+	Groups *[]IGroup `json:"groups" yaml:"groups"`
 	// A list of managed policies associated with this role.
 	//
 	// You can add managed policies later using
 	// `addManagedPolicy(ManagedPolicy.fromAwsManagedPolicyName(policyName))`.
-	ManagedPolicies *[]IManagedPolicy `json:"managedPolicies"`
+	ManagedPolicies *[]IManagedPolicy `json:"managedPolicies" yaml:"managedPolicies"`
 	// The password for the user. This is required so the user can access the AWS Management Console.
 	//
 	// You can use `SecretValue.plainText` to specify a password in plain text or
 	// use `secretsmanager.Secret.fromSecretAttributes` to reference a secret in
 	// Secrets Manager.
-	Password awscdk.SecretValue `json:"password"`
+	Password awscdk.SecretValue `json:"password" yaml:"password"`
 	// Specifies whether the user is required to set a new password the next time the user logs in to the AWS Management Console.
 	//
 	// If this is set to 'true', you must also specify "initialPassword".
-	PasswordResetRequired *bool `json:"passwordResetRequired"`
+	PasswordResetRequired *bool `json:"passwordResetRequired" yaml:"passwordResetRequired"`
 	// The path for the user name.
 	//
 	// For more information about paths, see IAM
 	// Identifiers in the IAM User Guide.
-	Path *string `json:"path"`
+	Path *string `json:"path" yaml:"path"`
 	// AWS supports permissions boundaries for IAM entities (users or roles).
 	//
 	// A permissions boundary is an advanced feature for using a managed policy
@@ -16375,7 +16375,7 @@ type UserProps struct {
 	// an IAM entity. An entity's permissions boundary allows it to perform only
 	// the actions that are allowed by both its identity-based policies and its
 	// permissions boundaries.
-	PermissionsBoundary IManagedPolicy `json:"permissionsBoundary"`
+	PermissionsBoundary IManagedPolicy `json:"permissionsBoundary" yaml:"permissionsBoundary"`
 	// A name for the IAM user.
 	//
 	// For valid values, see the UserName parameter for
@@ -16390,7 +16390,7 @@ type UserProps struct {
 	// If you specify a name, you must specify the CAPABILITY_NAMED_IAM value to
 	// acknowledge your template's capabilities. For more information, see
 	// Acknowledging IAM Resources in AWS CloudFormation Templates.
-	UserName *string `json:"userName"`
+	UserName *string `json:"userName" yaml:"userName"`
 }
 
 // A principal that represents a federated identity provider as Web Identity such as Cognito, Amazon, Facebook, Google, etc.
@@ -16620,6 +16620,6 @@ type WithoutPolicyUpdatesOptions struct {
 	// It is your own responsibility to make sure the role has the required permissions.
 	//
 	// If this is `true`, any grant permissions will be added to the resource instead.
-	AddGrantsToResources *bool `json:"addGrantsToResources"`
+	AddGrantsToResources *bool `json:"addGrantsToResources" yaml:"addGrantsToResources"`
 }
 

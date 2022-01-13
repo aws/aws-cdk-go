@@ -346,16 +346,16 @@ func (c *jsiiProxy_Cluster) ToString() *string {
 type ClusterAttributes struct {
 	// Cluster endpoint address.
 	// Experimental.
-	ClusterEndpointAddress *string `json:"clusterEndpointAddress"`
+	ClusterEndpointAddress *string `json:"clusterEndpointAddress" yaml:"clusterEndpointAddress"`
 	// Cluster endpoint port.
 	// Experimental.
-	ClusterEndpointPort *float64 `json:"clusterEndpointPort"`
+	ClusterEndpointPort *float64 `json:"clusterEndpointPort" yaml:"clusterEndpointPort"`
 	// Identifier for the cluster.
 	// Experimental.
-	ClusterName *string `json:"clusterName"`
+	ClusterName *string `json:"clusterName" yaml:"clusterName"`
 	// The security groups of the redshift cluster.
 	// Experimental.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 }
 
 // A cluster parameter group.
@@ -608,10 +608,10 @@ func (c *jsiiProxy_ClusterParameterGroup) ToString() *string {
 type ClusterParameterGroupProps struct {
 	// The parameters in this parameter group.
 	// Experimental.
-	Parameters *map[string]*string `json:"parameters"`
+	Parameters *map[string]*string `json:"parameters" yaml:"parameters"`
 	// Description for this parameter group.
 	// Experimental.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 }
 
 // Properties for a new database cluster.
@@ -622,74 +622,74 @@ type ClusterParameterGroupProps struct {
 type ClusterProps struct {
 	// Username and password for the administrative user.
 	// Experimental.
-	MasterUser *Login `json:"masterUser"`
+	MasterUser *Login `json:"masterUser" yaml:"masterUser"`
 	// The VPC to place the cluster in.
 	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// An optional identifier for the cluster.
 	// Experimental.
-	ClusterName *string `json:"clusterName"`
+	ClusterName *string `json:"clusterName" yaml:"clusterName"`
 	// Settings for the individual instances that are launched.
 	// Experimental.
-	ClusterType ClusterType `json:"clusterType"`
+	ClusterType ClusterType `json:"clusterType" yaml:"clusterType"`
 	// Name of a database which is automatically created inside the cluster.
 	// Experimental.
-	DefaultDatabaseName *string `json:"defaultDatabaseName"`
+	DefaultDatabaseName *string `json:"defaultDatabaseName" yaml:"defaultDatabaseName"`
 	// Whether to enable encryption of data at rest in the cluster.
 	// Experimental.
-	Encrypted *bool `json:"encrypted"`
+	Encrypted *bool `json:"encrypted" yaml:"encrypted"`
 	// The KMS key to use for encryption of data at rest.
 	// Experimental.
-	EncryptionKey awskms.IKey `json:"encryptionKey"`
+	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
 	// Bucket to send logs to.
 	//
 	// Logging information includes queries and connection attempts, for the specified Amazon Redshift cluster.
 	// Experimental.
-	LoggingBucket awss3.IBucket `json:"loggingBucket"`
+	LoggingBucket awss3.IBucket `json:"loggingBucket" yaml:"loggingBucket"`
 	// Prefix used for logging.
 	// Experimental.
-	LoggingKeyPrefix *string `json:"loggingKeyPrefix"`
+	LoggingKeyPrefix *string `json:"loggingKeyPrefix" yaml:"loggingKeyPrefix"`
 	// The node type to be provisioned for the cluster.
 	// Experimental.
-	NodeType NodeType `json:"nodeType"`
+	NodeType NodeType `json:"nodeType" yaml:"nodeType"`
 	// Number of compute nodes in the cluster. Only specify this property for multi-node clusters.
 	//
 	// Value must be at least 2 and no more than 100.
 	// Experimental.
-	NumberOfNodes *float64 `json:"numberOfNodes"`
+	NumberOfNodes *float64 `json:"numberOfNodes" yaml:"numberOfNodes"`
 	// Additional parameters to pass to the database engine https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html.
 	// Experimental.
-	ParameterGroup IClusterParameterGroup `json:"parameterGroup"`
+	ParameterGroup IClusterParameterGroup `json:"parameterGroup" yaml:"parameterGroup"`
 	// What port to listen on.
 	// Experimental.
-	Port *float64 `json:"port"`
+	Port *float64 `json:"port" yaml:"port"`
 	// A preferred maintenance window day/time range. Should be specified as a range ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC).
 	//
 	// Example: 'Sun:23:45-Mon:00:15'
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#Concepts.DBMaintenance
 	//
 	// Experimental.
-	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow"`
+	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
 	// Whether to make cluster publicly accessible.
 	// Experimental.
-	PubliclyAccessible *bool `json:"publiclyAccessible"`
+	PubliclyAccessible *bool `json:"publiclyAccessible" yaml:"publiclyAccessible"`
 	// The removal policy to apply when the cluster and its instances are removed from the stack or replaced during an update.
 	// Experimental.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 	// A list of AWS Identity and Access Management (IAM) role that can be used by the cluster to access other AWS services.
 	//
 	// Specify a maximum of 10 roles.
 	// Experimental.
-	Roles *[]awsiam.IRole `json:"roles"`
+	Roles *[]awsiam.IRole `json:"roles" yaml:"roles"`
 	// Security group.
 	// Experimental.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// A cluster subnet group to use with this cluster.
 	// Experimental.
-	SubnetGroup IClusterSubnetGroup `json:"subnetGroup"`
+	SubnetGroup IClusterSubnetGroup `json:"subnetGroup" yaml:"subnetGroup"`
 	// Where to place the instances within the VPC.
 	// Experimental.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 
 // Class for creating a Redshift cluster subnet group.
@@ -942,16 +942,16 @@ func (c *jsiiProxy_ClusterSubnetGroup) ToString() *string {
 type ClusterSubnetGroupProps struct {
 	// Description of the subnet group.
 	// Experimental.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The VPC to place the subnet group in.
 	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// The removal policy to apply when the subnet group are removed from the stack or replaced during an update.
 	// Experimental.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 	// Which subnets within the VPC to associate with this group.
 	// Experimental.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 
 // What cluster type to use.
@@ -973,16 +973,16 @@ const (
 type Column struct {
 	// The data type of the column.
 	// Experimental.
-	DataType *string `json:"dataType"`
+	DataType *string `json:"dataType" yaml:"dataType"`
 	// The name of the column.
 	// Experimental.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// Boolean value that indicates whether the column is to be configured as DISTKEY.
 	// Experimental.
-	DistKey *bool `json:"distKey"`
+	DistKey *bool `json:"distKey" yaml:"distKey"`
 	// Boolean value that indicates whether the column is to be configured as SORTKEY.
 	// Experimental.
-	SortKey *bool `json:"sortKey"`
+	SortKey *bool `json:"sortKey" yaml:"sortKey"`
 }
 
 // Properties for accessing a Redshift database.
@@ -993,15 +993,15 @@ type Column struct {
 type DatabaseOptions struct {
 	// The cluster containing the database.
 	// Experimental.
-	Cluster ICluster `json:"cluster"`
+	Cluster ICluster `json:"cluster" yaml:"cluster"`
 	// The name of the database.
 	// Experimental.
-	DatabaseName *string `json:"databaseName"`
+	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
 	// The secret containing credentials to a Redshift user with administrator privileges.
 	//
 	// Secret JSON schema: `{ username: string; password: string }`.
 	// Experimental.
-	AdminUser awssecretsmanager.ISecret `json:"adminUser"`
+	AdminUser awssecretsmanager.ISecret `json:"adminUser" yaml:"adminUser"`
 }
 
 // A database secret.
@@ -1500,10 +1500,10 @@ func (d *jsiiProxy_DatabaseSecret) ToString() *string {
 type DatabaseSecretProps struct {
 	// The username.
 	// Experimental.
-	Username *string `json:"username"`
+	Username *string `json:"username" yaml:"username"`
 	// The KMS key to use to encrypt the secret.
 	// Experimental.
-	EncryptionKey awskms.IKey `json:"encryptionKey"`
+	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
 }
 
 // Connection endpoint of a redshift cluster.
@@ -1899,15 +1899,15 @@ func (j *jsiiProxy_IUser) Username() *string {
 type Login struct {
 	// Username.
 	// Experimental.
-	MasterUsername *string `json:"masterUsername"`
+	MasterUsername *string `json:"masterUsername" yaml:"masterUsername"`
 	// KMS encryption key to encrypt the generated secret.
 	// Experimental.
-	EncryptionKey awskms.IKey `json:"encryptionKey"`
+	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
 	// Password.
 	//
 	// Do not put passwords in your CDK code directly.
 	// Experimental.
-	MasterPassword awscdk.SecretValue `json:"masterPassword"`
+	MasterPassword awscdk.SecretValue `json:"masterPassword" yaml:"masterPassword"`
 }
 
 // Possible Node Types to use in the cluster used for defining {@link ClusterProps.nodeType}.
@@ -1947,10 +1947,10 @@ type RotationMultiUserOptions struct {
 	// }
 	// ```
 	// Experimental.
-	Secret awssecretsmanager.ISecret `json:"secret"`
+	Secret awssecretsmanager.ISecret `json:"secret" yaml:"secret"`
 	// Specifies the number of days after the previous rotation before Secrets Manager triggers the next automatic rotation.
 	// Experimental.
-	AutomaticallyAfter awscdk.Duration `json:"automaticallyAfter"`
+	AutomaticallyAfter awscdk.Duration `json:"automaticallyAfter" yaml:"automaticallyAfter"`
 }
 
 // A table in a Redshift cluster.
@@ -2165,16 +2165,16 @@ const (
 type TableAttributes struct {
 	// The cluster where the table is located.
 	// Experimental.
-	Cluster ICluster `json:"cluster"`
+	Cluster ICluster `json:"cluster" yaml:"cluster"`
 	// The name of the database where the table is located.
 	// Experimental.
-	DatabaseName *string `json:"databaseName"`
+	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
 	// The columns of the table.
 	// Experimental.
-	TableColumns *[]*Column `json:"tableColumns"`
+	TableColumns *[]*Column `json:"tableColumns" yaml:"tableColumns"`
 	// Name of the table.
 	// Experimental.
-	TableName *string `json:"tableName"`
+	TableName *string `json:"tableName" yaml:"tableName"`
 }
 
 // The data distribution style of a table.
@@ -2199,30 +2199,30 @@ const (
 type TableProps struct {
 	// The cluster containing the database.
 	// Experimental.
-	Cluster ICluster `json:"cluster"`
+	Cluster ICluster `json:"cluster" yaml:"cluster"`
 	// The name of the database.
 	// Experimental.
-	DatabaseName *string `json:"databaseName"`
+	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
 	// The secret containing credentials to a Redshift user with administrator privileges.
 	//
 	// Secret JSON schema: `{ username: string; password: string }`.
 	// Experimental.
-	AdminUser awssecretsmanager.ISecret `json:"adminUser"`
+	AdminUser awssecretsmanager.ISecret `json:"adminUser" yaml:"adminUser"`
 	// The columns of the table.
 	// Experimental.
-	TableColumns *[]*Column `json:"tableColumns"`
+	TableColumns *[]*Column `json:"tableColumns" yaml:"tableColumns"`
 	// The distribution style of the table.
 	// Experimental.
-	DistStyle TableDistStyle `json:"distStyle"`
+	DistStyle TableDistStyle `json:"distStyle" yaml:"distStyle"`
 	// The policy to apply when this resource is removed from the application.
 	// Experimental.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 	// The sort style of the table.
 	// Experimental.
-	SortStyle TableSortStyle `json:"sortStyle"`
+	SortStyle TableSortStyle `json:"sortStyle" yaml:"sortStyle"`
 	// The name of the table.
 	// Experimental.
-	TableName *string `json:"tableName"`
+	TableName *string `json:"tableName" yaml:"tableName"`
 }
 
 // The sort style of a table.
@@ -2453,23 +2453,23 @@ func (u *jsiiProxy_User) ToString() *string {
 type UserAttributes struct {
 	// The cluster containing the database.
 	// Experimental.
-	Cluster ICluster `json:"cluster"`
+	Cluster ICluster `json:"cluster" yaml:"cluster"`
 	// The name of the database.
 	// Experimental.
-	DatabaseName *string `json:"databaseName"`
+	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
 	// The secret containing credentials to a Redshift user with administrator privileges.
 	//
 	// Secret JSON schema: `{ username: string; password: string }`.
 	// Experimental.
-	AdminUser awssecretsmanager.ISecret `json:"adminUser"`
+	AdminUser awssecretsmanager.ISecret `json:"adminUser" yaml:"adminUser"`
 	// The password of the user.
 	//
 	// Do not put passwords in CDK code directly.
 	// Experimental.
-	Password awscdk.SecretValue `json:"password"`
+	Password awscdk.SecretValue `json:"password" yaml:"password"`
 	// The name of the user.
 	// Experimental.
-	Username *string `json:"username"`
+	Username *string `json:"username" yaml:"username"`
 }
 
 // Properties for configuring a Redshift user.
@@ -2480,25 +2480,25 @@ type UserAttributes struct {
 type UserProps struct {
 	// The cluster containing the database.
 	// Experimental.
-	Cluster ICluster `json:"cluster"`
+	Cluster ICluster `json:"cluster" yaml:"cluster"`
 	// The name of the database.
 	// Experimental.
-	DatabaseName *string `json:"databaseName"`
+	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
 	// The secret containing credentials to a Redshift user with administrator privileges.
 	//
 	// Secret JSON schema: `{ username: string; password: string }`.
 	// Experimental.
-	AdminUser awssecretsmanager.ISecret `json:"adminUser"`
+	AdminUser awssecretsmanager.ISecret `json:"adminUser" yaml:"adminUser"`
 	// KMS key to encrypt the generated secret.
 	// Experimental.
-	EncryptionKey awskms.IKey `json:"encryptionKey"`
+	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
 	// The policy to apply when this resource is removed from the application.
 	// Experimental.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 	// The name of the user.
 	//
 	// For valid values, see: https://docs.aws.amazon.com/redshift/latest/dg/r_names.html
 	// Experimental.
-	Username *string `json:"username"`
+	Username *string `json:"username" yaml:"username"`
 }
 

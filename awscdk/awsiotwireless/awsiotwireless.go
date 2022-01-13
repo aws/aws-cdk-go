@@ -589,21 +589,21 @@ func (c *jsiiProxy_CfnDestination) ValidateProperties(_properties interface{}) {
 //
 type CfnDestinationProps struct {
 	// The rule name to send messages to.
-	Expression *string `json:"expression"`
+	Expression *string `json:"expression" yaml:"expression"`
 	// The type of value in `Expression` .
-	ExpressionType *string `json:"expressionType"`
+	ExpressionType *string `json:"expressionType" yaml:"expressionType"`
 	// The name of the new resource.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The ARN of the IAM Role that authorizes the destination.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// The description of the new resource.
 	//
 	// Maximum length is 2048 characters.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The tags are an array of key-value pairs to attach to the specified resource.
 	//
 	// Tags can have a minimum of 0 and a maximum of 50 items.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::IoTWireless::DeviceProfile`.
@@ -1137,33 +1137,33 @@ func (c *jsiiProxy_CfnDeviceProfile) ValidateProperties(_properties interface{})
 //
 type CfnDeviceProfile_LoRaWANDeviceProfileProperty struct {
 	// The ClassBTimeout value.
-	ClassBTimeout *float64 `json:"classBTimeout"`
+	ClassBTimeout *float64 `json:"classBTimeout" yaml:"classBTimeout"`
 	// The ClassCTimeout value.
-	ClassCTimeout *float64 `json:"classCTimeout"`
+	ClassCTimeout *float64 `json:"classCTimeout" yaml:"classCTimeout"`
 	// The MAC version (such as OTAA 1.1 or OTAA 1.0.3) to use with this device profile.
-	MacVersion *string `json:"macVersion"`
+	MacVersion *string `json:"macVersion" yaml:"macVersion"`
 	// The MaxDutyCycle value.
-	MaxDutyCycle *float64 `json:"maxDutyCycle"`
+	MaxDutyCycle *float64 `json:"maxDutyCycle" yaml:"maxDutyCycle"`
 	// The MaxEIRP value.
-	MaxEirp *float64 `json:"maxEirp"`
+	MaxEirp *float64 `json:"maxEirp" yaml:"maxEirp"`
 	// The PingSlotDR value.
-	PingSlotDr *float64 `json:"pingSlotDr"`
+	PingSlotDr *float64 `json:"pingSlotDr" yaml:"pingSlotDr"`
 	// The PingSlotFreq value.
-	PingSlotFreq *float64 `json:"pingSlotFreq"`
+	PingSlotFreq *float64 `json:"pingSlotFreq" yaml:"pingSlotFreq"`
 	// The PingSlotPeriod value.
-	PingSlotPeriod *float64 `json:"pingSlotPeriod"`
+	PingSlotPeriod *float64 `json:"pingSlotPeriod" yaml:"pingSlotPeriod"`
 	// The version of regional parameters.
-	RegParamsRevision *string `json:"regParamsRevision"`
+	RegParamsRevision *string `json:"regParamsRevision" yaml:"regParamsRevision"`
 	// The frequency band (RFRegion) value.
-	RfRegion *string `json:"rfRegion"`
+	RfRegion *string `json:"rfRegion" yaml:"rfRegion"`
 	// The Supports32BitFCnt value.
-	Supports32BitFCnt interface{} `json:"supports32BitFCnt"`
+	Supports32BitFCnt interface{} `json:"supports32BitFCnt" yaml:"supports32BitFCnt"`
 	// The SupportsClassB value.
-	SupportsClassB interface{} `json:"supportsClassB"`
+	SupportsClassB interface{} `json:"supportsClassB" yaml:"supportsClassB"`
 	// The SupportsClassC value.
-	SupportsClassC interface{} `json:"supportsClassC"`
+	SupportsClassC interface{} `json:"supportsClassC" yaml:"supportsClassC"`
 	// The SupportsJoin value.
-	SupportsJoin interface{} `json:"supportsJoin"`
+	SupportsJoin interface{} `json:"supportsJoin" yaml:"supportsJoin"`
 }
 
 // Properties for defining a `CfnDeviceProfile`.
@@ -1172,13 +1172,13 @@ type CfnDeviceProfile_LoRaWANDeviceProfileProperty struct {
 //
 type CfnDeviceProfileProps struct {
 	// LoRaWAN device profile object.
-	LoRaWan interface{} `json:"loRaWan"`
+	LoRaWan interface{} `json:"loRaWan" yaml:"loRaWan"`
 	// The name of the new resource.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The tags are an array of key-value pairs to attach to the specified resource.
 	//
 	// Tags can have a minimum of 0 and a maximum of 50 items.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::IoTWireless::FuotaTask`.
@@ -1874,9 +1874,9 @@ func (c *jsiiProxy_CfnFuotaTask) ValidateProperties(_properties interface{}) {
 //
 type CfnFuotaTask_LoRaWANProperty struct {
 	// The frequency band (RFRegion) value.
-	RfRegion *string `json:"rfRegion"`
+	RfRegion *string `json:"rfRegion" yaml:"rfRegion"`
 	// Start time of a FUOTA task.
-	StartTime *string `json:"startTime"`
+	StartTime *string `json:"startTime" yaml:"startTime"`
 }
 
 // Properties for defining a `CfnFuotaTask`.
@@ -1885,27 +1885,27 @@ type CfnFuotaTask_LoRaWANProperty struct {
 //
 type CfnFuotaTaskProps struct {
 	// The S3 URI points to a firmware update image that is to be used with a FUOTA task.
-	FirmwareUpdateImage *string `json:"firmwareUpdateImage"`
+	FirmwareUpdateImage *string `json:"firmwareUpdateImage" yaml:"firmwareUpdateImage"`
 	// The firmware update role that is to be used with a FUOTA task.
-	FirmwareUpdateRole *string `json:"firmwareUpdateRole"`
+	FirmwareUpdateRole *string `json:"firmwareUpdateRole" yaml:"firmwareUpdateRole"`
 	// The LoRaWAN information used with a FUOTA task.
-	LoRaWan interface{} `json:"loRaWan"`
+	LoRaWan interface{} `json:"loRaWan" yaml:"loRaWan"`
 	// The ID of the multicast group to associate with a FUOTA task.
-	AssociateMulticastGroup *string `json:"associateMulticastGroup"`
+	AssociateMulticastGroup *string `json:"associateMulticastGroup" yaml:"associateMulticastGroup"`
 	// The ID of the wireless device to associate with a multicast group.
-	AssociateWirelessDevice *string `json:"associateWirelessDevice"`
+	AssociateWirelessDevice *string `json:"associateWirelessDevice" yaml:"associateWirelessDevice"`
 	// The description of the new resource.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The ID of the multicast group to disassociate from a FUOTA task.
-	DisassociateMulticastGroup *string `json:"disassociateMulticastGroup"`
+	DisassociateMulticastGroup *string `json:"disassociateMulticastGroup" yaml:"disassociateMulticastGroup"`
 	// The ID of the wireless device to disassociate from a FUOTA task.
-	DisassociateWirelessDevice *string `json:"disassociateWirelessDevice"`
+	DisassociateWirelessDevice *string `json:"disassociateWirelessDevice" yaml:"disassociateWirelessDevice"`
 	// The name of a FUOTA task.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The tags are an array of key-value pairs to attach to the specified resource.
 	//
 	// Tags can have a minimum of 0 and a maximum of 50 items.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::IoTWireless::MulticastGroup`.
@@ -2534,13 +2534,13 @@ type CfnMulticastGroup_LoRaWANProperty struct {
 	// DlClass for LoRaWAN.
 	//
 	// Valid values are ClassB and ClassC.
-	DlClass *string `json:"dlClass"`
+	DlClass *string `json:"dlClass" yaml:"dlClass"`
 	// The frequency band (RFRegion) value.
-	RfRegion *string `json:"rfRegion"`
+	RfRegion *string `json:"rfRegion" yaml:"rfRegion"`
 	// Number of devices that are associated to the multicast group.
-	NumberOfDevicesInGroup *float64 `json:"numberOfDevicesInGroup"`
+	NumberOfDevicesInGroup *float64 `json:"numberOfDevicesInGroup" yaml:"numberOfDevicesInGroup"`
 	// Number of devices that are requested to be associated with the multicast group.
-	NumberOfDevicesRequested *float64 `json:"numberOfDevicesRequested"`
+	NumberOfDevicesRequested *float64 `json:"numberOfDevicesRequested" yaml:"numberOfDevicesRequested"`
 }
 
 // Properties for defining a `CfnMulticastGroup`.
@@ -2549,19 +2549,19 @@ type CfnMulticastGroup_LoRaWANProperty struct {
 //
 type CfnMulticastGroupProps struct {
 	// The LoRaWAN information that is to be used with the multicast group.
-	LoRaWan interface{} `json:"loRaWan"`
+	LoRaWan interface{} `json:"loRaWan" yaml:"loRaWan"`
 	// The ID of the wireless device to associate with a multicast group.
-	AssociateWirelessDevice *string `json:"associateWirelessDevice"`
+	AssociateWirelessDevice *string `json:"associateWirelessDevice" yaml:"associateWirelessDevice"`
 	// The description of the multicast group.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The ID of the wireless device to disassociate from a multicast group.
-	DisassociateWirelessDevice *string `json:"disassociateWirelessDevice"`
+	DisassociateWirelessDevice *string `json:"disassociateWirelessDevice" yaml:"disassociateWirelessDevice"`
 	// The name of the multicast group.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The tags are an array of key-value pairs to attach to the specified resource.
 	//
 	// Tags can have a minimum of 0 and a maximum of 50 items.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::IoTWireless::PartnerAccount`.
@@ -3166,7 +3166,7 @@ type CfnPartnerAccount_SidewalkAccountInfoProperty struct {
 	// The Sidewalk application server private key.
 	//
 	// The application server private key is a secret key, which you should handle in a similar way as you would an application password. You can protect the application server private key by storing the value in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
-	AppServerPrivateKey *string `json:"appServerPrivateKey"`
+	AppServerPrivateKey *string `json:"appServerPrivateKey" yaml:"appServerPrivateKey"`
 }
 
 // Sidewalk update.
@@ -3175,7 +3175,7 @@ type CfnPartnerAccount_SidewalkAccountInfoProperty struct {
 //
 type CfnPartnerAccount_SidewalkUpdateAccountProperty struct {
 	// The new Sidewalk application server private key.
-	AppServerPrivateKey *string `json:"appServerPrivateKey"`
+	AppServerPrivateKey *string `json:"appServerPrivateKey" yaml:"appServerPrivateKey"`
 }
 
 // Properties for defining a `CfnPartnerAccount`.
@@ -3184,21 +3184,21 @@ type CfnPartnerAccount_SidewalkUpdateAccountProperty struct {
 //
 type CfnPartnerAccountProps struct {
 	// `AWS::IoTWireless::PartnerAccount.AccountLinked`.
-	AccountLinked interface{} `json:"accountLinked"`
+	AccountLinked interface{} `json:"accountLinked" yaml:"accountLinked"`
 	// `AWS::IoTWireless::PartnerAccount.Fingerprint`.
-	Fingerprint *string `json:"fingerprint"`
+	Fingerprint *string `json:"fingerprint" yaml:"fingerprint"`
 	// The ID of the partner account to update.
-	PartnerAccountId *string `json:"partnerAccountId"`
+	PartnerAccountId *string `json:"partnerAccountId" yaml:"partnerAccountId"`
 	// `AWS::IoTWireless::PartnerAccount.PartnerType`.
-	PartnerType *string `json:"partnerType"`
+	PartnerType *string `json:"partnerType" yaml:"partnerType"`
 	// The Sidewalk account credentials.
-	Sidewalk interface{} `json:"sidewalk"`
+	Sidewalk interface{} `json:"sidewalk" yaml:"sidewalk"`
 	// `AWS::IoTWireless::PartnerAccount.SidewalkUpdate`.
-	SidewalkUpdate interface{} `json:"sidewalkUpdate"`
+	SidewalkUpdate interface{} `json:"sidewalkUpdate" yaml:"sidewalkUpdate"`
 	// The tags are an array of key-value pairs to attach to the specified resource.
 	//
 	// Tags can have a minimum of 0 and a maximum of 50 items.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::IoTWireless::ServiceProfile`.
@@ -3941,77 +3941,77 @@ func (c *jsiiProxy_CfnServiceProfile) ValidateProperties(_properties interface{}
 //
 type CfnServiceProfile_LoRaWANServiceProfileProperty struct {
 	// The AddGWMetaData value.
-	AddGwMetadata interface{} `json:"addGwMetadata"`
+	AddGwMetadata interface{} `json:"addGwMetadata" yaml:"addGwMetadata"`
 	// The ChannelMask value.
 	//
 	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
-	ChannelMask *string `json:"channelMask"`
+	ChannelMask *string `json:"channelMask" yaml:"channelMask"`
 	// The DevStatusReqFreq value.
 	//
 	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
-	DevStatusReqFreq *float64 `json:"devStatusReqFreq"`
+	DevStatusReqFreq *float64 `json:"devStatusReqFreq" yaml:"devStatusReqFreq"`
 	// The DLBucketSize value.
 	//
 	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
-	DlBucketSize *float64 `json:"dlBucketSize"`
+	DlBucketSize *float64 `json:"dlBucketSize" yaml:"dlBucketSize"`
 	// The DLRate value.
 	//
 	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
-	DlRate *float64 `json:"dlRate"`
+	DlRate *float64 `json:"dlRate" yaml:"dlRate"`
 	// The DLRatePolicy value.
 	//
 	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
-	DlRatePolicy *string `json:"dlRatePolicy"`
+	DlRatePolicy *string `json:"dlRatePolicy" yaml:"dlRatePolicy"`
 	// The DRMax value.
 	//
 	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
-	DrMax *float64 `json:"drMax"`
+	DrMax *float64 `json:"drMax" yaml:"drMax"`
 	// The DRMin value.
 	//
 	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
-	DrMin *float64 `json:"drMin"`
+	DrMin *float64 `json:"drMin" yaml:"drMin"`
 	// The HRAllowed value that describes whether handover roaming is allowed.
 	//
 	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
-	HrAllowed interface{} `json:"hrAllowed"`
+	HrAllowed interface{} `json:"hrAllowed" yaml:"hrAllowed"`
 	// The MinGwDiversity value.
 	//
 	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
-	MinGwDiversity *float64 `json:"minGwDiversity"`
+	MinGwDiversity *float64 `json:"minGwDiversity" yaml:"minGwDiversity"`
 	// The NwkGeoLoc value.
 	//
 	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
-	NwkGeoLoc interface{} `json:"nwkGeoLoc"`
+	NwkGeoLoc interface{} `json:"nwkGeoLoc" yaml:"nwkGeoLoc"`
 	// The PRAllowed value that describes whether passive roaming is allowed.
 	//
 	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
-	PrAllowed interface{} `json:"prAllowed"`
+	PrAllowed interface{} `json:"prAllowed" yaml:"prAllowed"`
 	// The RAAllowed value that describes whether roaming activation is allowed.
-	RaAllowed interface{} `json:"raAllowed"`
+	RaAllowed interface{} `json:"raAllowed" yaml:"raAllowed"`
 	// The ReportDevStatusBattery value.
 	//
 	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
-	ReportDevStatusBattery interface{} `json:"reportDevStatusBattery"`
+	ReportDevStatusBattery interface{} `json:"reportDevStatusBattery" yaml:"reportDevStatusBattery"`
 	// The ReportDevStatusMargin value.
 	//
 	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
-	ReportDevStatusMargin interface{} `json:"reportDevStatusMargin"`
+	ReportDevStatusMargin interface{} `json:"reportDevStatusMargin" yaml:"reportDevStatusMargin"`
 	// The TargetPer value.
 	//
 	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
-	TargetPer *float64 `json:"targetPer"`
+	TargetPer *float64 `json:"targetPer" yaml:"targetPer"`
 	// The UlBucketSize value.
 	//
 	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
-	UlBucketSize *float64 `json:"ulBucketSize"`
+	UlBucketSize *float64 `json:"ulBucketSize" yaml:"ulBucketSize"`
 	// The ULRate value.
 	//
 	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
-	UlRate *float64 `json:"ulRate"`
+	UlRate *float64 `json:"ulRate" yaml:"ulRate"`
 	// The ULRatePolicy value.
 	//
 	// This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
-	UlRatePolicy *string `json:"ulRatePolicy"`
+	UlRatePolicy *string `json:"ulRatePolicy" yaml:"ulRatePolicy"`
 }
 
 // Properties for defining a `CfnServiceProfile`.
@@ -4020,13 +4020,13 @@ type CfnServiceProfile_LoRaWANServiceProfileProperty struct {
 //
 type CfnServiceProfileProps struct {
 	// LoRaWAN service profile object.
-	LoRaWan interface{} `json:"loRaWan"`
+	LoRaWan interface{} `json:"loRaWan" yaml:"loRaWan"`
 	// The name of the new resource.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The tags are an array of key-value pairs to attach to the specified resource.
 	//
 	// Tags can have a minimum of 0 and a maximum of 50 items.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::IoTWireless::TaskDefinition`.
@@ -4620,11 +4620,11 @@ func (c *jsiiProxy_CfnTaskDefinition) ValidateProperties(_properties interface{}
 //
 type CfnTaskDefinition_LoRaWANGatewayVersionProperty struct {
 	// The model number of the wireless gateway.
-	Model *string `json:"model"`
+	Model *string `json:"model" yaml:"model"`
 	// The version of the wireless gateway firmware.
-	PackageVersion *string `json:"packageVersion"`
+	PackageVersion *string `json:"packageVersion" yaml:"packageVersion"`
 	// The basic station version of the wireless gateway.
-	Station *string `json:"station"`
+	Station *string `json:"station" yaml:"station"`
 }
 
 // The signature used to verify the update firmware.
@@ -4633,13 +4633,13 @@ type CfnTaskDefinition_LoRaWANGatewayVersionProperty struct {
 //
 type CfnTaskDefinition_LoRaWANUpdateGatewayTaskCreateProperty struct {
 	// The version of the gateways that should receive the update.
-	CurrentVersion interface{} `json:"currentVersion"`
+	CurrentVersion interface{} `json:"currentVersion" yaml:"currentVersion"`
 	// The CRC of the signature private key to check.
-	SigKeyCrc *float64 `json:"sigKeyCrc"`
+	SigKeyCrc *float64 `json:"sigKeyCrc" yaml:"sigKeyCrc"`
 	// The signature used to verify the update firmware.
-	UpdateSignature *string `json:"updateSignature"`
+	UpdateSignature *string `json:"updateSignature" yaml:"updateSignature"`
 	// The firmware version to update the gateway to.
-	UpdateVersion interface{} `json:"updateVersion"`
+	UpdateVersion interface{} `json:"updateVersion" yaml:"updateVersion"`
 }
 
 // LoRaWANUpdateGatewayTaskEntry object.
@@ -4648,9 +4648,9 @@ type CfnTaskDefinition_LoRaWANUpdateGatewayTaskCreateProperty struct {
 //
 type CfnTaskDefinition_LoRaWANUpdateGatewayTaskEntryProperty struct {
 	// The version of the gateways that should receive the update.
-	CurrentVersion interface{} `json:"currentVersion"`
+	CurrentVersion interface{} `json:"currentVersion" yaml:"currentVersion"`
 	// The firmware version to update the gateway to.
-	UpdateVersion interface{} `json:"updateVersion"`
+	UpdateVersion interface{} `json:"updateVersion" yaml:"updateVersion"`
 }
 
 // UpdateWirelessGatewayTaskCreate object.
@@ -4659,11 +4659,11 @@ type CfnTaskDefinition_LoRaWANUpdateGatewayTaskEntryProperty struct {
 //
 type CfnTaskDefinition_UpdateWirelessGatewayTaskCreateProperty struct {
 	// The properties that relate to the LoRaWAN wireless gateway.
-	LoRaWan interface{} `json:"loRaWan"`
+	LoRaWan interface{} `json:"loRaWan" yaml:"loRaWan"`
 	// The IAM role used to read data from the S3 bucket.
-	UpdateDataRole *string `json:"updateDataRole"`
+	UpdateDataRole *string `json:"updateDataRole" yaml:"updateDataRole"`
 	// The link to the S3 bucket.
-	UpdateDataSource *string `json:"updateDataSource"`
+	UpdateDataSource *string `json:"updateDataSource" yaml:"updateDataSource"`
 }
 
 // Properties for defining a `CfnTaskDefinition`.
@@ -4674,19 +4674,19 @@ type CfnTaskDefinitionProps struct {
 	// Whether to automatically create tasks using this task definition for all gateways with the specified current version.
 	//
 	// If `false` , the task must me created by calling `CreateWirelessGatewayTask` .
-	AutoCreateTasks interface{} `json:"autoCreateTasks"`
+	AutoCreateTasks interface{} `json:"autoCreateTasks" yaml:"autoCreateTasks"`
 	// `AWS::IoTWireless::TaskDefinition.LoRaWANUpdateGatewayTaskEntry`.
-	LoRaWanUpdateGatewayTaskEntry interface{} `json:"loRaWanUpdateGatewayTaskEntry"`
+	LoRaWanUpdateGatewayTaskEntry interface{} `json:"loRaWanUpdateGatewayTaskEntry" yaml:"loRaWanUpdateGatewayTaskEntry"`
 	// The name of the new resource.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The tags are an array of key-value pairs to attach to the specified resource.
 	//
 	// Tags can have a minimum of 0 and a maximum of 50 items.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// `AWS::IoTWireless::TaskDefinition.TaskDefinitionType`.
-	TaskDefinitionType *string `json:"taskDefinitionType"`
+	TaskDefinitionType *string `json:"taskDefinitionType" yaml:"taskDefinitionType"`
 	// Information about the gateways to update.
-	Update interface{} `json:"update"`
+	Update interface{} `json:"update" yaml:"update"`
 }
 
 // A CloudFormation `AWS::IoTWireless::WirelessDevice`.
@@ -5331,9 +5331,9 @@ func (c *jsiiProxy_CfnWirelessDevice) ValidateProperties(_properties interface{}
 //
 type CfnWirelessDevice_AbpV10xProperty struct {
 	// The DevAddr value.
-	DevAddr *string `json:"devAddr"`
+	DevAddr *string `json:"devAddr" yaml:"devAddr"`
 	// Session keys for ABP v1.0.x.
-	SessionKeys interface{} `json:"sessionKeys"`
+	SessionKeys interface{} `json:"sessionKeys" yaml:"sessionKeys"`
 }
 
 // ABP device object for create APIs for v1.1.
@@ -5342,9 +5342,9 @@ type CfnWirelessDevice_AbpV10xProperty struct {
 //
 type CfnWirelessDevice_AbpV11Property struct {
 	// The DevAddr value.
-	DevAddr *string `json:"devAddr"`
+	DevAddr *string `json:"devAddr" yaml:"devAddr"`
 	// Session keys for ABP v1.1.
-	SessionKeys interface{} `json:"sessionKeys"`
+	SessionKeys interface{} `json:"sessionKeys" yaml:"sessionKeys"`
 }
 
 // LoRaWAN object for create functions.
@@ -5353,19 +5353,19 @@ type CfnWirelessDevice_AbpV11Property struct {
 //
 type CfnWirelessDevice_LoRaWANDeviceProperty struct {
 	// LoRaWAN object for create APIs.
-	AbpV10X interface{} `json:"abpV10X"`
+	AbpV10X interface{} `json:"abpV10X" yaml:"abpV10X"`
 	// ABP device object for create APIs for v1.1.
-	AbpV11 interface{} `json:"abpV11"`
+	AbpV11 interface{} `json:"abpV11" yaml:"abpV11"`
 	// The DevEUI value.
-	DevEui *string `json:"devEui"`
+	DevEui *string `json:"devEui" yaml:"devEui"`
 	// The ID of the device profile for the new wireless device.
-	DeviceProfileId *string `json:"deviceProfileId"`
+	DeviceProfileId *string `json:"deviceProfileId" yaml:"deviceProfileId"`
 	// OTAA device object for create APIs for v1.0.x.
-	OtaaV10X interface{} `json:"otaaV10X"`
+	OtaaV10X interface{} `json:"otaaV10X" yaml:"otaaV10X"`
 	// OTAA device object for v1.1 for create APIs.
-	OtaaV11 interface{} `json:"otaaV11"`
+	OtaaV11 interface{} `json:"otaaV11" yaml:"otaaV11"`
 	// The ID of the service profile.
-	ServiceProfileId *string `json:"serviceProfileId"`
+	ServiceProfileId *string `json:"serviceProfileId" yaml:"serviceProfileId"`
 }
 
 // OTAA device object for create APIs for v1.0.x.
@@ -5374,11 +5374,11 @@ type CfnWirelessDevice_LoRaWANDeviceProperty struct {
 //
 type CfnWirelessDevice_OtaaV10xProperty struct {
 	// The AppEUI value, with pattern of `[a-fA-F0-9]{16}` .
-	AppEui *string `json:"appEui"`
+	AppEui *string `json:"appEui" yaml:"appEui"`
 	// The AppKey is a secret key, which you should handle in a similar way as you would an application password.
 	//
 	// You can protect the AppKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
-	AppKey *string `json:"appKey"`
+	AppKey *string `json:"appKey" yaml:"appKey"`
 }
 
 // OTAA device object for v1.1 for create APIs.
@@ -5389,13 +5389,13 @@ type CfnWirelessDevice_OtaaV11Property struct {
 	// The AppKey is a secret key, which you should handle in a similar way as you would an application password.
 	//
 	// You can protect the AppKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
-	AppKey *string `json:"appKey"`
+	AppKey *string `json:"appKey" yaml:"appKey"`
 	// The JoinEUI value.
-	JoinEui *string `json:"joinEui"`
+	JoinEui *string `json:"joinEui" yaml:"joinEui"`
 	// The NwkKey is a secret key, which you should handle in a similar way as you would an application password.
 	//
 	// You can protect the NwkKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
-	NwkKey *string `json:"nwkKey"`
+	NwkKey *string `json:"nwkKey" yaml:"nwkKey"`
 }
 
 // LoRaWAN object for create APIs.
@@ -5406,11 +5406,11 @@ type CfnWirelessDevice_SessionKeysAbpV10xProperty struct {
 	// The AppSKey is a secret key, which you should handle in a similar way as you would an application password.
 	//
 	// You can protect the AppSKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
-	AppSKey *string `json:"appSKey"`
+	AppSKey *string `json:"appSKey" yaml:"appSKey"`
 	// The NwkSKey is a secret key, which you should handle in a similar way as you would an application password.
 	//
 	// You can protect the NwkSKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
-	NwkSKey *string `json:"nwkSKey"`
+	NwkSKey *string `json:"nwkSKey" yaml:"nwkSKey"`
 }
 
 // Session keys for ABP v1.1.
@@ -5421,19 +5421,19 @@ type CfnWirelessDevice_SessionKeysAbpV11Property struct {
 	// The AppSKey is a secret key, which you should handle in a similar way as you would an application password.
 	//
 	// You can protect the AppSKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
-	AppSKey *string `json:"appSKey"`
+	AppSKey *string `json:"appSKey" yaml:"appSKey"`
 	// The FNwkSIntKey is a secret key, which you should handle in a similar way as you would an application password.
 	//
 	// You can protect the FNwkSIntKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
-	FNwkSIntKey *string `json:"fNwkSIntKey"`
+	FNwkSIntKey *string `json:"fNwkSIntKey" yaml:"fNwkSIntKey"`
 	// The NwkSEncKey is a secret key, which you should handle in a similar way as you would an application password.
 	//
 	// You can protect the NwkSEncKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
-	NwkSEncKey *string `json:"nwkSEncKey"`
+	NwkSEncKey *string `json:"nwkSEncKey" yaml:"nwkSEncKey"`
 	// The SNwkSIntKey is a secret key, which you should handle in a similar way as you would an application password.
 	//
 	// You can protect the SNwkSIntKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
-	SNwkSIntKey *string `json:"sNwkSIntKey"`
+	SNwkSIntKey *string `json:"sNwkSIntKey" yaml:"sNwkSIntKey"`
 }
 
 // Properties for defining a `CfnWirelessDevice`.
@@ -5444,27 +5444,27 @@ type CfnWirelessDeviceProps struct {
 	// The name of the destination to assign to the new wireless device.
 	//
 	// Can have only have alphanumeric, - (hyphen) and _ (underscore) characters and it can't have any spaces.
-	DestinationName *string `json:"destinationName"`
+	DestinationName *string `json:"destinationName" yaml:"destinationName"`
 	// The wireless device type.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// The description of the new resource.
 	//
 	// Maximum length is 2048.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The date and time when the most recent uplink was received.
-	LastUplinkReceivedAt *string `json:"lastUplinkReceivedAt"`
+	LastUplinkReceivedAt *string `json:"lastUplinkReceivedAt" yaml:"lastUplinkReceivedAt"`
 	// The device configuration information to use to create the wireless device.
 	//
 	// Must be at least one of OtaaV10x, OtaaV11, AbpV11, or AbpV10x.
-	LoRaWan interface{} `json:"loRaWan"`
+	LoRaWan interface{} `json:"loRaWan" yaml:"loRaWan"`
 	// The name of the new resource.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The tags are an array of key-value pairs to attach to the specified resource.
 	//
 	// Tags can have a minimum of 0 and a maximum of 50 items.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// The ARN of the thing to associate with the wireless device.
-	ThingArn *string `json:"thingArn"`
+	ThingArn *string `json:"thingArn" yaml:"thingArn"`
 }
 
 // A CloudFormation `AWS::IoTWireless::WirelessGateway`.
@@ -6069,9 +6069,9 @@ func (c *jsiiProxy_CfnWirelessGateway) ValidateProperties(_properties interface{
 //
 type CfnWirelessGateway_LoRaWANGatewayProperty struct {
 	// The gateway's EUI value.
-	GatewayEui *string `json:"gatewayEui"`
+	GatewayEui *string `json:"gatewayEui" yaml:"gatewayEui"`
 	// The frequency band (RFRegion) value.
-	RfRegion *string `json:"rfRegion"`
+	RfRegion *string `json:"rfRegion" yaml:"rfRegion"`
 }
 
 // Properties for defining a `CfnWirelessGateway`.
@@ -6080,20 +6080,20 @@ type CfnWirelessGateway_LoRaWANGatewayProperty struct {
 //
 type CfnWirelessGatewayProps struct {
 	// The gateway configuration information to use to create the wireless gateway.
-	LoRaWan interface{} `json:"loRaWan"`
+	LoRaWan interface{} `json:"loRaWan" yaml:"loRaWan"`
 	// The description of the new resource.
 	//
 	// The maximum length is 2048 characters.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The date and time when the most recent uplink was received.
-	LastUplinkReceivedAt *string `json:"lastUplinkReceivedAt"`
+	LastUplinkReceivedAt *string `json:"lastUplinkReceivedAt" yaml:"lastUplinkReceivedAt"`
 	// The name of the new resource.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The tags are an array of key-value pairs to attach to the specified resource.
 	//
 	// Tags can have a minimum of 0 and a maximum of 50 items.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// The ARN of the thing to associate with the wireless gateway.
-	ThingArn *string `json:"thingArn"`
+	ThingArn *string `json:"thingArn" yaml:"thingArn"`
 }
 

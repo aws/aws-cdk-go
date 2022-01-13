@@ -682,11 +682,11 @@ func (c *jsiiProxy_CfnAssessment) ValidateProperties(_properties interface{}) {
 //
 type CfnAssessment_AWSAccountProperty struct {
 	// The email address that's associated with the AWS account .
-	EmailAddress *string `json:"emailAddress"`
+	EmailAddress *string `json:"emailAddress" yaml:"emailAddress"`
 	// The identifier for the AWS account .
-	Id *string `json:"id"`
+	Id *string `json:"id" yaml:"id"`
 	// The name of the AWS account .
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // The `AWSService` property type specifies an AWS service such as Amazon S3 , AWS CloudTrail , and so on.
@@ -695,7 +695,7 @@ type CfnAssessment_AWSAccountProperty struct {
 //
 type CfnAssessment_AWSServiceProperty struct {
 	// The name of the AWS service .
-	ServiceName *string `json:"serviceName"`
+	ServiceName *string `json:"serviceName" yaml:"serviceName"`
 }
 
 // The `AssessmentReportsDestination` property type specifies the location in which AWS Audit Manager saves assessment reports for the given assessment.
@@ -704,9 +704,9 @@ type CfnAssessment_AWSServiceProperty struct {
 //
 type CfnAssessment_AssessmentReportsDestinationProperty struct {
 	// The destination of the assessment report.
-	Destination *string `json:"destination"`
+	Destination *string `json:"destination" yaml:"destination"`
 	// The destination type, such as Amazon S3.
-	DestinationType *string `json:"destinationType"`
+	DestinationType *string `json:"destinationType" yaml:"destinationType"`
 }
 
 // The `Delegation` property type specifies the assignment of a control set to a delegate for review.
@@ -715,13 +715,13 @@ type CfnAssessment_AssessmentReportsDestinationProperty struct {
 //
 type CfnAssessment_DelegationProperty struct {
 	// The identifier for the assessment that's associated with the delegation.
-	AssessmentId *string `json:"assessmentId"`
+	AssessmentId *string `json:"assessmentId" yaml:"assessmentId"`
 	// The name of the assessment that's associated with the delegation.
-	AssessmentName *string `json:"assessmentName"`
+	AssessmentName *string `json:"assessmentName" yaml:"assessmentName"`
 	// The comment that's related to the delegation.
-	Comment *string `json:"comment"`
+	Comment *string `json:"comment" yaml:"comment"`
 	// The identifier for the control set that's associated with the delegation.
-	ControlSetId *string `json:"controlSetId"`
+	ControlSetId *string `json:"controlSetId" yaml:"controlSetId"`
 	// The IAM user or role that created the delegation.
 	//
 	// *Minimum* : `1`
@@ -729,15 +729,15 @@ type CfnAssessment_DelegationProperty struct {
 	// *Maximum* : `100`
 	//
 	// *Pattern* : `^[a-zA-Z0-9-_()\\[\\]\\s]+$`
-	CreatedBy *string `json:"createdBy"`
+	CreatedBy *string `json:"createdBy" yaml:"createdBy"`
 	// Specifies when the delegation was created.
-	CreationTime *float64 `json:"creationTime"`
+	CreationTime *float64 `json:"creationTime" yaml:"creationTime"`
 	// The unique identifier for the delegation.
-	Id *string `json:"id"`
+	Id *string `json:"id" yaml:"id"`
 	// Specifies when the delegation was last updated.
-	LastUpdated *float64 `json:"lastUpdated"`
+	LastUpdated *float64 `json:"lastUpdated" yaml:"lastUpdated"`
 	// The Amazon Resource Name (ARN) of the IAM role.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// The type of customer persona.
 	//
 	// > In `CreateAssessment` , `roleType` can only be `PROCESS_OWNER` .
@@ -745,9 +745,9 @@ type CfnAssessment_DelegationProperty struct {
 	// > In `UpdateSettings` , `roleType` can only be `PROCESS_OWNER` .
 	// >
 	// > In `BatchCreateDelegationByAssessment` , `roleType` can only be `RESOURCE_OWNER` .
-	RoleType *string `json:"roleType"`
+	RoleType *string `json:"roleType" yaml:"roleType"`
 	// The status of the delegation.
-	Status *string `json:"status"`
+	Status *string `json:"status" yaml:"status"`
 }
 
 // The `Role` property type specifies the wrapper that contains AWS Audit Manager role information, such as the role type and IAM Amazon Resource Name (ARN).
@@ -756,7 +756,7 @@ type CfnAssessment_DelegationProperty struct {
 //
 type CfnAssessment_RoleProperty struct {
 	// The Amazon Resource Name (ARN) of the IAM role.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// The type of customer persona.
 	//
 	// > In `CreateAssessment` , `roleType` can only be `PROCESS_OWNER` .
@@ -764,7 +764,7 @@ type CfnAssessment_RoleProperty struct {
 	// > In `UpdateSettings` , `roleType` can only be `PROCESS_OWNER` .
 	// >
 	// > In `BatchCreateDelegationByAssessment` , `roleType` can only be `RESOURCE_OWNER` .
-	RoleType *string `json:"roleType"`
+	RoleType *string `json:"roleType" yaml:"roleType"`
 }
 
 // The `Scope` property type specifies the wrapper that contains the AWS accounts and services in scope for the assessment.
@@ -773,9 +773,9 @@ type CfnAssessment_RoleProperty struct {
 //
 type CfnAssessment_ScopeProperty struct {
 	// The AWS accounts that are included in the scope of the assessment.
-	AwsAccounts interface{} `json:"awsAccounts"`
+	AwsAccounts interface{} `json:"awsAccounts" yaml:"awsAccounts"`
 	// The AWS services that are included in the scope of the assessment.
-	AwsServices interface{} `json:"awsServices"`
+	AwsServices interface{} `json:"awsServices" yaml:"awsServices"`
 }
 
 // Properties for defining a `CfnAssessment`.
@@ -784,22 +784,22 @@ type CfnAssessment_ScopeProperty struct {
 //
 type CfnAssessmentProps struct {
 	// The destination that evidence reports are stored in for the assessment.
-	AssessmentReportsDestination interface{} `json:"assessmentReportsDestination"`
+	AssessmentReportsDestination interface{} `json:"assessmentReportsDestination" yaml:"assessmentReportsDestination"`
 	// The AWS account that's associated with the assessment.
-	AwsAccount interface{} `json:"awsAccount"`
+	AwsAccount interface{} `json:"awsAccount" yaml:"awsAccount"`
 	// The description of the assessment.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The unique identifier for the framework.
-	FrameworkId *string `json:"frameworkId"`
+	FrameworkId *string `json:"frameworkId" yaml:"frameworkId"`
 	// The name of the assessment.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The roles that are associated with the assessment.
-	Roles interface{} `json:"roles"`
+	Roles interface{} `json:"roles" yaml:"roles"`
 	// The wrapper of AWS accounts and services that are in scope for the assessment.
-	Scope interface{} `json:"scope"`
+	Scope interface{} `json:"scope" yaml:"scope"`
 	// The overall status of the assessment.
-	Status *string `json:"status"`
+	Status *string `json:"status" yaml:"status"`
 	// The tags that are associated with the assessment.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 

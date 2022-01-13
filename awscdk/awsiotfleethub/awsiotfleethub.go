@@ -626,16 +626,16 @@ func (c *jsiiProxy_CfnApplication) ValidateProperties(_properties interface{}) {
 //
 type CfnApplicationProps struct {
 	// The name of the web application.
-	ApplicationName *string `json:"applicationName"`
+	ApplicationName *string `json:"applicationName" yaml:"applicationName"`
 	// The ARN of the role that the web application assumes when it interacts with AWS IoT Core .
 	//
 	// > The name of the role must be in the form `FleetHub_random_string` .
 	//
 	// Pattern: `^arn:[!-~]+$`
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// An optional description of the web application.
-	ApplicationDescription *string `json:"applicationDescription"`
+	ApplicationDescription *string `json:"applicationDescription" yaml:"applicationDescription"`
 	// A set of key/value pairs that you can use to manage the web application resource.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 

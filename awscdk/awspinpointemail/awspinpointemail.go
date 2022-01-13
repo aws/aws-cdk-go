@@ -587,7 +587,7 @@ func (c *jsiiProxy_CfnConfigurationSet) ValidateProperties(_properties interface
 //
 type CfnConfigurationSet_DeliveryOptionsProperty struct {
 	// The name of the dedicated IP pool that you want to associate with the configuration set.
-	SendingPoolName *string `json:"sendingPoolName"`
+	SendingPoolName *string `json:"sendingPoolName" yaml:"sendingPoolName"`
 }
 
 // Enable or disable collection of reputation metrics for emails that you send using this configuration set in the current AWS Region.
@@ -598,7 +598,7 @@ type CfnConfigurationSet_ReputationOptionsProperty struct {
 	// If `true` , tracking of reputation metrics is enabled for the configuration set.
 	//
 	// If `false` , tracking of reputation metrics is disabled for the configuration set.
-	ReputationMetricsEnabled interface{} `json:"reputationMetricsEnabled"`
+	ReputationMetricsEnabled interface{} `json:"reputationMetricsEnabled" yaml:"reputationMetricsEnabled"`
 }
 
 // Used to enable or disable email sending for messages that use this configuration set in the current AWS Region.
@@ -609,7 +609,7 @@ type CfnConfigurationSet_SendingOptionsProperty struct {
 	// If `true` , email sending is enabled for the configuration set.
 	//
 	// If `false` , email sending is disabled for the configuration set.
-	SendingEnabled interface{} `json:"sendingEnabled"`
+	SendingEnabled interface{} `json:"sendingEnabled" yaml:"sendingEnabled"`
 }
 
 // An object that defines the tags (keys and values) that you want to associate with the configuration set.
@@ -622,11 +622,11 @@ type CfnConfigurationSet_TagsProperty struct {
 	// The maximum length of a tag key is 128 characters. The minimum length is 1 character.
 	//
 	// If you specify tags for the configuration set, then this value is required.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// The optional part of a key-value pair that defines a tag.
 	//
 	// The maximum length of a tag value is 256 characters. The minimum length is 0 characters. If you don’t want a resource to have a specific tag value, don’t specify a value for this parameter. Amazon Pinpoint will set the value to an empty string.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // An object that defines the tracking options for a configuration set.
@@ -639,7 +639,7 @@ type CfnConfigurationSet_TagsProperty struct {
 //
 type CfnConfigurationSet_TrackingOptionsProperty struct {
 	// The domain that you want to use for tracking open and click events.
-	CustomRedirectDomain *string `json:"customRedirectDomain"`
+	CustomRedirectDomain *string `json:"customRedirectDomain" yaml:"customRedirectDomain"`
 }
 
 // A CloudFormation `AWS::PinpointEmail::ConfigurationSetEventDestination`.
@@ -1164,7 +1164,7 @@ func (c *jsiiProxy_CfnConfigurationSetEventDestination) ValidateProperties(_prop
 //
 type CfnConfigurationSetEventDestination_CloudWatchDestinationProperty struct {
 	// An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch.
-	DimensionConfigurations interface{} `json:"dimensionConfigurations"`
+	DimensionConfigurations interface{} `json:"dimensionConfigurations" yaml:"dimensionConfigurations"`
 }
 
 // An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch.
@@ -1178,20 +1178,20 @@ type CfnConfigurationSetEventDestination_DimensionConfigurationProperty struct {
 	//
 	// - It can only contain ASCII letters (a–z, A–Z), numbers (0–9), underscores (_), or dashes (-).
 	// - It can contain no more than 256 characters.
-	DefaultDimensionValue *string `json:"defaultDimensionValue"`
+	DefaultDimensionValue *string `json:"defaultDimensionValue" yaml:"defaultDimensionValue"`
 	// The name of an Amazon CloudWatch dimension associated with an email sending metric.
 	//
 	// The name has to meet the following criteria:
 	//
 	// - It can only contain ASCII letters (a–z, A–Z), numbers (0–9), underscores (_), or dashes (-).
 	// - It can contain no more than 256 characters.
-	DimensionName *string `json:"dimensionName"`
+	DimensionName *string `json:"dimensionName" yaml:"dimensionName"`
 	// The location where Amazon Pinpoint finds the value of a dimension to publish to Amazon CloudWatch.
 	//
 	// Acceptable values: `MESSAGE_TAG` , `EMAIL_HEADER` , and `LINK_TAG` .
 	//
 	// If you want Amazon Pinpoint to use the message tags that you specify using an `X-SES-MESSAGE-TAGS` header or a parameter to the `SendEmail` API, choose `MESSAGE_TAG` . If you want Amazon Pinpoint to use your own email headers, choose `EMAIL_HEADER` . If you want Amazon Pinpoint to use tags that are specified in your links, choose `LINK_TAG` .
-	DimensionValueSource *string `json:"dimensionValueSource"`
+	DimensionValueSource *string `json:"dimensionValueSource" yaml:"dimensionValueSource"`
 }
 
 // In Amazon Pinpoint, *events* include message sends, deliveries, opens, clicks, bounces, and complaints.
@@ -1204,29 +1204,29 @@ type CfnConfigurationSetEventDestination_EventDestinationProperty struct {
 	// The types of events that Amazon Pinpoint sends to the specified event destinations.
 	//
 	// Acceptable values: `SEND` , `REJECT` , `BOUNCE` , `COMPLAINT` , `DELIVERY` , `OPEN` , `CLICK` , and `RENDERING_FAILURE` .
-	MatchingEventTypes *[]*string `json:"matchingEventTypes"`
+	MatchingEventTypes *[]*string `json:"matchingEventTypes" yaml:"matchingEventTypes"`
 	// An object that defines an Amazon CloudWatch destination for email events.
 	//
 	// You can use Amazon CloudWatch to monitor and gain insights on your email sending metrics.
-	CloudWatchDestination interface{} `json:"cloudWatchDestination"`
+	CloudWatchDestination interface{} `json:"cloudWatchDestination" yaml:"cloudWatchDestination"`
 	// If `true` , the event destination is enabled.
 	//
 	// When the event destination is enabled, the specified event types are sent to the destinations in this `EventDestinationDefinition` .
 	//
 	// If `false` , the event destination is disabled. When the event destination is disabled, events aren't sent to the specified destinations.
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 	// An object that defines an Amazon Kinesis Data Firehose destination for email events.
 	//
 	// You can use Amazon Kinesis Data Firehose to stream data to other services, such as Amazon S3 and Amazon Redshift.
-	KinesisFirehoseDestination interface{} `json:"kinesisFirehoseDestination"`
+	KinesisFirehoseDestination interface{} `json:"kinesisFirehoseDestination" yaml:"kinesisFirehoseDestination"`
 	// An object that defines a Amazon Pinpoint destination for email events.
 	//
 	// You can use Amazon Pinpoint events to create attributes in Amazon Pinpoint projects. You can use these attributes to create segments for your campaigns.
-	PinpointDestination interface{} `json:"pinpointDestination"`
+	PinpointDestination interface{} `json:"pinpointDestination" yaml:"pinpointDestination"`
 	// An object that defines an Amazon SNS destination for email events.
 	//
 	// You can use Amazon SNS to send notification when certain email events occur.
-	SnsDestination interface{} `json:"snsDestination"`
+	SnsDestination interface{} `json:"snsDestination" yaml:"snsDestination"`
 }
 
 // An object that defines an Amazon Kinesis Data Firehose destination for email events.
@@ -1237,9 +1237,9 @@ type CfnConfigurationSetEventDestination_EventDestinationProperty struct {
 //
 type CfnConfigurationSetEventDestination_KinesisFirehoseDestinationProperty struct {
 	// The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose stream that Amazon Pinpoint sends email events to.
-	DeliveryStreamArn *string `json:"deliveryStreamArn"`
+	DeliveryStreamArn *string `json:"deliveryStreamArn" yaml:"deliveryStreamArn"`
 	// The Amazon Resource Name (ARN) of the IAM role that Amazon Pinpoint uses when sending email events to the Amazon Kinesis Data Firehose stream.
-	IamRoleArn *string `json:"iamRoleArn"`
+	IamRoleArn *string `json:"iamRoleArn" yaml:"iamRoleArn"`
 }
 
 // An object that defines a Amazon Pinpoint destination for email events.
@@ -1250,7 +1250,7 @@ type CfnConfigurationSetEventDestination_KinesisFirehoseDestinationProperty stru
 //
 type CfnConfigurationSetEventDestination_PinpointDestinationProperty struct {
 	// The Amazon Resource Name (ARN) of the Amazon Pinpoint project that you want to send email events to.
-	ApplicationArn *string `json:"applicationArn"`
+	ApplicationArn *string `json:"applicationArn" yaml:"applicationArn"`
 }
 
 // An object that defines an Amazon SNS destination for email events.
@@ -1263,7 +1263,7 @@ type CfnConfigurationSetEventDestination_SnsDestinationProperty struct {
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic that you want to publish email events to.
 	//
 	// For more information about Amazon SNS topics, see the [Amazon SNS Developer Guide](https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html) .
-	TopicArn *string `json:"topicArn"`
+	TopicArn *string `json:"topicArn" yaml:"topicArn"`
 }
 
 // Properties for defining a `CfnConfigurationSetEventDestination`.
@@ -1272,11 +1272,11 @@ type CfnConfigurationSetEventDestination_SnsDestinationProperty struct {
 //
 type CfnConfigurationSetEventDestinationProps struct {
 	// The name of the configuration set that contains the event destination that you want to modify.
-	ConfigurationSetName *string `json:"configurationSetName"`
+	ConfigurationSetName *string `json:"configurationSetName" yaml:"configurationSetName"`
 	// The name of the event destination that you want to modify.
-	EventDestinationName *string `json:"eventDestinationName"`
+	EventDestinationName *string `json:"eventDestinationName" yaml:"eventDestinationName"`
 	// An object that defines the event destination.
-	EventDestination interface{} `json:"eventDestination"`
+	EventDestination interface{} `json:"eventDestination" yaml:"eventDestination"`
 }
 
 // Properties for defining a `CfnConfigurationSet`.
@@ -1285,17 +1285,17 @@ type CfnConfigurationSetEventDestinationProps struct {
 //
 type CfnConfigurationSetProps struct {
 	// The name of the configuration set.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
-	DeliveryOptions interface{} `json:"deliveryOptions"`
+	DeliveryOptions interface{} `json:"deliveryOptions" yaml:"deliveryOptions"`
 	// An object that defines whether or not Amazon Pinpoint collects reputation metrics for the emails that you send that use the configuration set.
-	ReputationOptions interface{} `json:"reputationOptions"`
+	ReputationOptions interface{} `json:"reputationOptions" yaml:"reputationOptions"`
 	// An object that defines whether or not Amazon Pinpoint can send email that you send using the configuration set.
-	SendingOptions interface{} `json:"sendingOptions"`
+	SendingOptions interface{} `json:"sendingOptions" yaml:"sendingOptions"`
 	// An object that defines the tags (keys and values) that you want to associate with the configuration set.
-	Tags *[]*CfnConfigurationSet_TagsProperty `json:"tags"`
+	Tags *[]*CfnConfigurationSet_TagsProperty `json:"tags" yaml:"tags"`
 	// An object that defines the open and click tracking options for emails that you send using the configuration set.
-	TrackingOptions interface{} `json:"trackingOptions"`
+	TrackingOptions interface{} `json:"trackingOptions" yaml:"trackingOptions"`
 }
 
 // A CloudFormation `AWS::PinpointEmail::DedicatedIpPool`.
@@ -1800,11 +1800,11 @@ type CfnDedicatedIpPool_TagsProperty struct {
 	// The maximum length of a tag key is 128 characters. The minimum length is 1 character.
 	//
 	// If you specify tags for the dedicated IP pool, then this value is required.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// The optional part of a key-value pair that defines a tag.
 	//
 	// The maximum length of a tag value is 256 characters. The minimum length is 0 characters. If you don’t want a resource to have a specific tag value, don’t specify a value for this parameter. Amazon Pinpoint will set the value to an empty string.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // Properties for defining a `CfnDedicatedIpPool`.
@@ -1813,9 +1813,9 @@ type CfnDedicatedIpPool_TagsProperty struct {
 //
 type CfnDedicatedIpPoolProps struct {
 	// The name of the dedicated IP pool.
-	PoolName *string `json:"poolName"`
+	PoolName *string `json:"poolName" yaml:"poolName"`
 	// An object that defines the tags (keys and values) that you want to associate with the dedicated IP pool.
-	Tags *[]*CfnDedicatedIpPool_TagsProperty `json:"tags"`
+	Tags *[]*CfnDedicatedIpPool_TagsProperty `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::PinpointEmail::Identity`.
@@ -2452,9 +2452,9 @@ type CfnIdentity_MailFromAttributesProperty struct {
 	// When you set this value to `UseDefaultValue` , Amazon Pinpoint uses *amazonses.com* as the MAIL FROM domain. When you set this value to `RejectMessage` , Amazon Pinpoint returns a `MailFromDomainNotVerified` error, and doesn't attempt to deliver the email.
 	//
 	// These behaviors are taken when the custom MAIL FROM domain configuration is in the `Pending` , `Failed` , and `TemporaryFailure` states.
-	BehaviorOnMxFailure *string `json:"behaviorOnMxFailure"`
+	BehaviorOnMxFailure *string `json:"behaviorOnMxFailure" yaml:"behaviorOnMxFailure"`
 	// The name of a domain that an email identity uses as a custom MAIL FROM domain.
-	MailFromDomain *string `json:"mailFromDomain"`
+	MailFromDomain *string `json:"mailFromDomain" yaml:"mailFromDomain"`
 }
 
 // An object that defines the tags (keys and values) that you want to associate with the identity.
@@ -2467,11 +2467,11 @@ type CfnIdentity_TagsProperty struct {
 	// The maximum length of a tag key is 128 characters. The minimum length is 1 character.
 	//
 	// If you specify tags for the identity, then this value is required.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// The optional part of a key-value pair that defines a tag.
 	//
 	// The maximum length of a tag value is 256 characters. The minimum length is 0 characters. If you don’t want a resource to have a specific tag value, don’t specify a value for this parameter. Amazon Pinpoint will set the value to an empty string.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // Properties for defining a `CfnIdentity`.
@@ -2480,11 +2480,11 @@ type CfnIdentity_TagsProperty struct {
 //
 type CfnIdentityProps struct {
 	// The address or domain of the identity, such as *sender@example.com* or *example.co.uk* .
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// For domain identities, this attribute is used to enable or disable DomainKeys Identified Mail (DKIM) signing for the domain.
 	//
 	// If the value is `true` , then the messages that you send from the domain are signed using both the DKIM keys for your domain, as well as the keys for the `amazonses.com` domain. If the value is `false` , then the messages that you send are only signed using the DKIM keys for the `amazonses.com` domain.
-	DkimSigningEnabled interface{} `json:"dkimSigningEnabled"`
+	DkimSigningEnabled interface{} `json:"dkimSigningEnabled" yaml:"dkimSigningEnabled"`
 	// Used to enable or disable feedback forwarding for an identity.
 	//
 	// This setting determines what happens when an identity is used to send an email that results in a bounce or complaint event.
@@ -2492,10 +2492,10 @@ type CfnIdentityProps struct {
 	// When you enable feedback forwarding, Amazon Pinpoint sends you email notifications when bounce or complaint events occur. Amazon Pinpoint sends this notification to the address that you specified in the Return-Path header of the original email.
 	//
 	// When you disable feedback forwarding, Amazon Pinpoint sends notifications through other mechanisms, such as by notifying an Amazon SNS topic. You're required to have a method of tracking bounces and complaints. If you haven't set up another mechanism for receiving bounce or complaint notifications, Amazon Pinpoint sends an email notification when these events occur (even if this setting is disabled).
-	FeedbackForwardingEnabled interface{} `json:"feedbackForwardingEnabled"`
+	FeedbackForwardingEnabled interface{} `json:"feedbackForwardingEnabled" yaml:"feedbackForwardingEnabled"`
 	// Used to enable or disable the custom Mail-From domain configuration for an email identity.
-	MailFromAttributes interface{} `json:"mailFromAttributes"`
+	MailFromAttributes interface{} `json:"mailFromAttributes" yaml:"mailFromAttributes"`
 	// An object that defines the tags (keys and values) that you want to associate with the email identity.
-	Tags *[]*CfnIdentity_TagsProperty `json:"tags"`
+	Tags *[]*CfnIdentity_TagsProperty `json:"tags" yaml:"tags"`
 }
 

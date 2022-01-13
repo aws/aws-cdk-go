@@ -115,4 +115,16 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-apigatewayv2-integrations-alpha.WebSocketMockIntegration",
+		reflect.TypeOf((*WebSocketMockIntegration)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			j := jsiiProxy_WebSocketMockIntegration{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkapigatewayv2alphaWebSocketRouteIntegration)
+			return &j
+		},
+	)
 }

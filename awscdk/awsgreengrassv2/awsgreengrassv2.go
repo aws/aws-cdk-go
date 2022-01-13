@@ -578,11 +578,11 @@ type CfnComponentVersion_ComponentDependencyRequirementProperty struct {
 	// - `HARD` – The component restarts if the dependency changes state.
 	//
 	// Default: `HARD`
-	DependencyType *string `json:"dependencyType"`
+	DependencyType *string `json:"dependencyType" yaml:"dependencyType"`
 	// The component version requirement for the component dependency.
 	//
 	// AWS IoT Greengrass uses semantic version constraints. For more information, see [Semantic Versioning](https://docs.aws.amazon.com/https://semver.org/) .
-	VersionRequirement *string `json:"versionRequirement"`
+	VersionRequirement *string `json:"versionRequirement" yaml:"versionRequirement"`
 }
 
 // Contains information about a platform that a component supports.
@@ -593,11 +593,11 @@ type CfnComponentVersion_ComponentPlatformProperty struct {
 	// A dictionary of attributes for the platform.
 	//
 	// The  software defines the `os` and `platform` by default. You can specify additional platform attributes for a core device when you deploy the Greengrass nucleus component. For more information, see the [Greengrass nucleus component](https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html) in the *AWS IoT Greengrass V2 Developer Guide* .
-	Attributes interface{} `json:"attributes"`
+	Attributes interface{} `json:"attributes" yaml:"attributes"`
 	// The friendly name of the platform. This name helps you identify the platform.
 	//
 	// If you omit this parameter, AWS IoT Greengrass creates a friendly name from the `os` and `architecture` of the platform.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // Contains information about a container in which AWS Lambda functions run on Greengrass core devices.
@@ -606,17 +606,17 @@ type CfnComponentVersion_ComponentPlatformProperty struct {
 //
 type CfnComponentVersion_LambdaContainerParamsProperty struct {
 	// The list of system devices that the container can access.
-	Devices interface{} `json:"devices"`
+	Devices interface{} `json:"devices" yaml:"devices"`
 	// The memory size of the container, expressed in kilobytes.
 	//
 	// Default: `16384` (16 MB)
-	MemorySizeInKb *float64 `json:"memorySizeInKb"`
+	MemorySizeInKb *float64 `json:"memorySizeInKb" yaml:"memorySizeInKb"`
 	// Whether or not the container can read information from the device's `/sys` folder.
 	//
 	// Default: `false`
-	MountRoSysfs interface{} `json:"mountRoSysfs"`
+	MountRoSysfs interface{} `json:"mountRoSysfs" yaml:"mountRoSysfs"`
 	// The list of volumes that the container can access.
-	Volumes interface{} `json:"volumes"`
+	Volumes interface{} `json:"volumes" yaml:"volumes"`
 }
 
 // Contains information about a device that Linux processes in a container can access.
@@ -627,13 +627,13 @@ type CfnComponentVersion_LambdaDeviceMountProperty struct {
 	// Whether or not to add the component's system user as an owner of the device.
 	//
 	// Default: `false`
-	AddGroupOwner interface{} `json:"addGroupOwner"`
+	AddGroupOwner interface{} `json:"addGroupOwner" yaml:"addGroupOwner"`
 	// The mount path for the device in the file system.
-	Path *string `json:"path"`
+	Path *string `json:"path" yaml:"path"`
 	// The permission to access the device: read/only ( `ro` ) or read/write ( `rw` ).
 	//
 	// Default: `ro`
-	Permission *string `json:"permission"`
+	Permission *string `json:"permission" yaml:"permission"`
 }
 
 // Contains information about an event source for an AWS Lambda function.
@@ -644,12 +644,12 @@ type CfnComponentVersion_LambdaDeviceMountProperty struct {
 //
 type CfnComponentVersion_LambdaEventSourceProperty struct {
 	// The topic to which to subscribe to receive event messages.
-	Topic *string `json:"topic"`
+	Topic *string `json:"topic" yaml:"topic"`
 	// The type of event source. Choose from the following options:.
 	//
 	// - `PUB_SUB` – Subscribe to local publish/subscribe messages. This event source type doesn't support MQTT wildcards ( `+` and `#` ) in the event source topic.
 	// - `IOT_CORE` – Subscribe to AWS IoT Core MQTT messages. This event source type supports MQTT wildcards ( `+` and `#` ) in the event source topic.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 }
 
 // Contains parameters for a Lambda function that runs on AWS IoT Greengrass .
@@ -658,38 +658,38 @@ type CfnComponentVersion_LambdaEventSourceProperty struct {
 //
 type CfnComponentVersion_LambdaExecutionParametersProperty struct {
 	// The map of environment variables that are available to the Lambda function when it runs.
-	EnvironmentVariables interface{} `json:"environmentVariables"`
+	EnvironmentVariables interface{} `json:"environmentVariables" yaml:"environmentVariables"`
 	// The list of event sources to which to subscribe to receive work messages.
 	//
 	// The Lambda function runs when it receives a message from an event source. You can subscribe this function to local publish/subscribe messages and AWS IoT Core MQTT messages.
-	EventSources interface{} `json:"eventSources"`
+	EventSources interface{} `json:"eventSources" yaml:"eventSources"`
 	// The list of arguments to pass to the Lambda function when it runs.
-	ExecArgs *[]*string `json:"execArgs"`
+	ExecArgs *[]*string `json:"execArgs" yaml:"execArgs"`
 	// The encoding type that the Lambda function supports.
 	//
 	// Default: `json`
-	InputPayloadEncodingType *string `json:"inputPayloadEncodingType"`
+	InputPayloadEncodingType *string `json:"inputPayloadEncodingType" yaml:"inputPayloadEncodingType"`
 	// The parameters for the Linux process that contains the Lambda function.
-	LinuxProcessParams interface{} `json:"linuxProcessParams"`
+	LinuxProcessParams interface{} `json:"linuxProcessParams" yaml:"linuxProcessParams"`
 	// The maximum amount of time in seconds that a non-pinned Lambda function can idle before the  software stops its process.
-	MaxIdleTimeInSeconds *float64 `json:"maxIdleTimeInSeconds"`
+	MaxIdleTimeInSeconds *float64 `json:"maxIdleTimeInSeconds" yaml:"maxIdleTimeInSeconds"`
 	// The maximum number of instances that a non-pinned Lambda function can run at the same time.
-	MaxInstancesCount *float64 `json:"maxInstancesCount"`
+	MaxInstancesCount *float64 `json:"maxInstancesCount" yaml:"maxInstancesCount"`
 	// The maximum size of the message queue for the Lambda function component.
 	//
 	// The Greengrass core device stores messages in a FIFO (first-in-first-out) queue until it can run the Lambda function to consume each message.
-	MaxQueueSize *float64 `json:"maxQueueSize"`
+	MaxQueueSize *float64 `json:"maxQueueSize" yaml:"maxQueueSize"`
 	// Whether or not the Lambda function is pinned, or long-lived.
 	//
 	// - A pinned Lambda function starts when the  starts and keeps running in its own container.
 	// - A non-pinned Lambda function starts only when it receives a work item and exists after it idles for `maxIdleTimeInSeconds` . If the function has multiple work items, the  software creates multiple instances of the function.
 	//
 	// Default: `true`
-	Pinned interface{} `json:"pinned"`
+	Pinned interface{} `json:"pinned" yaml:"pinned"`
 	// The interval in seconds at which a pinned (also known as long-lived) Lambda function component sends status updates to the Lambda manager component.
-	StatusTimeoutInSeconds *float64 `json:"statusTimeoutInSeconds"`
+	StatusTimeoutInSeconds *float64 `json:"statusTimeoutInSeconds" yaml:"statusTimeoutInSeconds"`
 	// The maximum amount of time in seconds that the Lambda function can process a work item.
-	TimeoutInSeconds *float64 `json:"timeoutInSeconds"`
+	TimeoutInSeconds *float64 `json:"timeoutInSeconds" yaml:"timeoutInSeconds"`
 }
 
 // Contains information about an AWS Lambda function to import to create a component.
@@ -698,23 +698,23 @@ type CfnComponentVersion_LambdaExecutionParametersProperty struct {
 //
 type CfnComponentVersion_LambdaFunctionRecipeSourceProperty struct {
 	// The component versions on which this Lambda function component depends.
-	ComponentDependencies interface{} `json:"componentDependencies"`
+	ComponentDependencies interface{} `json:"componentDependencies" yaml:"componentDependencies"`
 	// The system and runtime parameters for the Lambda function as it runs on the Greengrass core device.
-	ComponentLambdaParameters interface{} `json:"componentLambdaParameters"`
+	ComponentLambdaParameters interface{} `json:"componentLambdaParameters" yaml:"componentLambdaParameters"`
 	// The name of the component.
 	//
 	// Defaults to the name of the Lambda function.
-	ComponentName *string `json:"componentName"`
+	ComponentName *string `json:"componentName" yaml:"componentName"`
 	// The platforms that the component version supports.
-	ComponentPlatforms interface{} `json:"componentPlatforms"`
+	ComponentPlatforms interface{} `json:"componentPlatforms" yaml:"componentPlatforms"`
 	// The version of the component.
 	//
 	// Defaults to the version of the Lambda function as a semantic version. For example, if your function version is `3` , the component version becomes `3.0.0` .
-	ComponentVersion *string `json:"componentVersion"`
+	ComponentVersion *string `json:"componentVersion" yaml:"componentVersion"`
 	// The ARN of the Lambda function.
 	//
 	// The ARN must include the version of the function to import. You can't use version aliases like `$LATEST` .
-	LambdaArn *string `json:"lambdaArn"`
+	LambdaArn *string `json:"lambdaArn" yaml:"lambdaArn"`
 }
 
 // Contains parameters for a Linux process that contains an AWS Lambda function.
@@ -723,13 +723,13 @@ type CfnComponentVersion_LambdaFunctionRecipeSourceProperty struct {
 //
 type CfnComponentVersion_LambdaLinuxProcessParamsProperty struct {
 	// The parameters for the container in which the Lambda function runs.
-	ContainerParams interface{} `json:"containerParams"`
+	ContainerParams interface{} `json:"containerParams" yaml:"containerParams"`
 	// The isolation mode for the process that contains the Lambda function.
 	//
 	// The process can run in an isolated runtime environment inside the AWS IoT Greengrass container, or as a regular process outside any container.
 	//
 	// Default: `GreengrassContainer`
-	IsolationMode *string `json:"isolationMode"`
+	IsolationMode *string `json:"isolationMode" yaml:"isolationMode"`
 }
 
 // Contains information about a volume that Linux processes in a container can access.
@@ -742,15 +742,15 @@ type CfnComponentVersion_LambdaVolumeMountProperty struct {
 	// Whether or not to add the AWS IoT Greengrass user group as an owner of the volume.
 	//
 	// Default: `false`
-	AddGroupOwner interface{} `json:"addGroupOwner"`
+	AddGroupOwner interface{} `json:"addGroupOwner" yaml:"addGroupOwner"`
 	// The path to the logical volume in the file system.
-	DestinationPath *string `json:"destinationPath"`
+	DestinationPath *string `json:"destinationPath" yaml:"destinationPath"`
 	// The permission to access the volume: read/only ( `ro` ) or read/write ( `rw` ).
 	//
 	// Default: `ro`
-	Permission *string `json:"permission"`
+	Permission *string `json:"permission" yaml:"permission"`
 	// The path to the physical volume in the file system.
-	SourcePath *string `json:"sourcePath"`
+	SourcePath *string `json:"sourcePath" yaml:"sourcePath"`
 }
 
 // Properties for defining a `CfnComponentVersion`.
@@ -763,11 +763,11 @@ type CfnComponentVersionProps struct {
 	// The recipe defines the component's metadata, parameters, dependencies, lifecycle, artifacts, and platform compatibility.
 	//
 	// You must specify either `InlineRecipe` or `LambdaFunction` .
-	InlineRecipe *string `json:"inlineRecipe"`
+	InlineRecipe *string `json:"inlineRecipe" yaml:"inlineRecipe"`
 	// The parameters to create a component from a Lambda function.
 	//
 	// You must specify either `InlineRecipe` or `LambdaFunction` .
-	LambdaFunction interface{} `json:"lambdaFunction"`
+	LambdaFunction interface{} `json:"lambdaFunction" yaml:"lambdaFunction"`
 	// Application-specific metadata to attach to the component version.
 	//
 	// You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .
@@ -778,6 +778,6 @@ type CfnComponentVersionProps struct {
 	// "Tags": { "KeyName0": "value", "KeyName1": "value", "KeyName2": "value"
 	// }
 	// ```
-	Tags *map[string]*string `json:"tags"`
+	Tags *map[string]*string `json:"tags" yaml:"tags"`
 }
 

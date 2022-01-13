@@ -582,7 +582,7 @@ type CfnAssistant_ServerSideEncryptionConfigurationProperty struct {
 	// The KMS key .
 	//
 	// For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) .
-	KmsKeyId *string `json:"kmsKeyId"`
+	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
 }
 
 // A CloudFormation `AWS::Wisdom::AssistantAssociation`.
@@ -1147,7 +1147,7 @@ func (c *jsiiProxy_CfnAssistantAssociation) ValidateProperties(_properties inter
 //
 type CfnAssistantAssociation_AssociationDataProperty struct {
 	// The identifier of the knowledge base.
-	KnowledgeBaseId *string `json:"knowledgeBaseId"`
+	KnowledgeBaseId *string `json:"knowledgeBaseId" yaml:"knowledgeBaseId"`
 }
 
 // Properties for defining a `CfnAssistantAssociation`.
@@ -1156,13 +1156,13 @@ type CfnAssistantAssociation_AssociationDataProperty struct {
 //
 type CfnAssistantAssociationProps struct {
 	// The identifier of the Wisdom assistant.
-	AssistantId *string `json:"assistantId"`
+	AssistantId *string `json:"assistantId" yaml:"assistantId"`
 	// The identifier of the associated resource.
-	Association interface{} `json:"association"`
+	Association interface{} `json:"association" yaml:"association"`
 	// The type of association.
-	AssociationType *string `json:"associationType"`
+	AssociationType *string `json:"associationType" yaml:"associationType"`
 	// The tags used to organize, track, or control access for this resource.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // Properties for defining a `CfnAssistant`.
@@ -1171,15 +1171,15 @@ type CfnAssistantAssociationProps struct {
 //
 type CfnAssistantProps struct {
 	// The name of the assistant.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The type of assistant.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// The description of the assistant.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The KMS key used for encryption.
-	ServerSideEncryptionConfiguration interface{} `json:"serverSideEncryptionConfiguration"`
+	ServerSideEncryptionConfiguration interface{} `json:"serverSideEncryptionConfiguration" yaml:"serverSideEncryptionConfiguration"`
 	// The tags used to organize, track, or control access for this resource.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Wisdom::KnowledgeBase`.
@@ -1793,14 +1793,14 @@ func (c *jsiiProxy_CfnKnowledgeBase) ValidateProperties(_properties interface{})
 //
 type CfnKnowledgeBase_AppIntegrationsConfigurationProperty struct {
 	// The Amazon Resource Name (ARN) of the AppIntegrations DataIntegration to use for ingesting content.
-	AppIntegrationArn *string `json:"appIntegrationArn"`
+	AppIntegrationArn *string `json:"appIntegrationArn" yaml:"appIntegrationArn"`
 	// The fields from the source that are made available to your agents in Wisdom.
 	//
 	// - For [Salesforce](https://docs.aws.amazon.com/https://developer.salesforce.com/docs/atlas.en-us.knowledge_dev.meta/knowledge_dev/sforce_api_objects_knowledge__kav.htm) , you must include at least `Id` , `ArticleNumber` , `VersionNumber` , `Title` , `PublishStatus` , and `IsDeleted` .
 	// - For [ServiceNow](https://docs.aws.amazon.com/https://developer.servicenow.com/dev.do#!/reference/api/rome/rest/knowledge-management-api) , you must include at least `number` , `short_description` , `sys_mod_count` , `workflow_state` , and `active` .
 	//
 	// Make sure to include additional fields. These fields are indexed and used to source recommendations.
-	ObjectFields *[]*string `json:"objectFields"`
+	ObjectFields *[]*string `json:"objectFields" yaml:"objectFields"`
 }
 
 // Information about how to render the content.
@@ -1816,7 +1816,7 @@ type CfnKnowledgeBase_RenderingConfigurationProperty struct {
 	// - ServiceNow: `number` , `short_description` , `sys_mod_count` , `workflow_state` , or `active`
 	//
 	// The variable is replaced with the actual value for a piece of content when calling [GetContent](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetContent.html) .
-	TemplateUri *string `json:"templateUri"`
+	TemplateUri *string `json:"templateUri" yaml:"templateUri"`
 }
 
 // The KMS key used for encryption.
@@ -1827,7 +1827,7 @@ type CfnKnowledgeBase_ServerSideEncryptionConfigurationProperty struct {
 	// The KMS key .
 	//
 	// For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) .
-	KmsKeyId *string `json:"kmsKeyId"`
+	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
 }
 
 // Configuration information about the external data source.
@@ -1836,7 +1836,7 @@ type CfnKnowledgeBase_ServerSideEncryptionConfigurationProperty struct {
 //
 type CfnKnowledgeBase_SourceConfigurationProperty struct {
 	// Configuration information for Amazon AppIntegrations to automatically ingest content.
-	AppIntegrations interface{} `json:"appIntegrations"`
+	AppIntegrations interface{} `json:"appIntegrations" yaml:"appIntegrations"`
 }
 
 // Properties for defining a `CfnKnowledgeBase`.
@@ -1847,20 +1847,20 @@ type CfnKnowledgeBaseProps struct {
 	// The type of knowledge base.
 	//
 	// Only CUSTOM knowledge bases allow you to upload your own content. EXTERNAL knowledge bases support integrations with third-party systems whose content is synchronized automatically.
-	KnowledgeBaseType *string `json:"knowledgeBaseType"`
+	KnowledgeBaseType *string `json:"knowledgeBaseType" yaml:"knowledgeBaseType"`
 	// The name of the knowledge base.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The description.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Information about how to render the content.
-	RenderingConfiguration interface{} `json:"renderingConfiguration"`
+	RenderingConfiguration interface{} `json:"renderingConfiguration" yaml:"renderingConfiguration"`
 	// The KMS key used for encryption.
-	ServerSideEncryptionConfiguration interface{} `json:"serverSideEncryptionConfiguration"`
+	ServerSideEncryptionConfiguration interface{} `json:"serverSideEncryptionConfiguration" yaml:"serverSideEncryptionConfiguration"`
 	// The source of the knowledge base content.
 	//
 	// Only set this argument for EXTERNAL knowledge bases.
-	SourceConfiguration interface{} `json:"sourceConfiguration"`
+	SourceConfiguration interface{} `json:"sourceConfiguration" yaml:"sourceConfiguration"`
 	// The tags used to organize, track, or control access for this resource.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 

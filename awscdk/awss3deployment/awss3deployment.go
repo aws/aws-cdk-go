@@ -104,44 +104,44 @@ func (b *jsiiProxy_BucketDeployment) ToString() *string {
 //
 type BucketDeploymentProps struct {
 	// The S3 bucket to sync the contents of the zip file to.
-	DestinationBucket awss3.IBucket `json:"destinationBucket"`
+	DestinationBucket awss3.IBucket `json:"destinationBucket" yaml:"destinationBucket"`
 	// The sources from which to deploy the contents of this bucket.
-	Sources *[]ISource `json:"sources"`
+	Sources *[]ISource `json:"sources" yaml:"sources"`
 	// System-defined x-amz-acl metadata to be set on all objects in the deployment.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl
 	//
-	AccessControl awss3.BucketAccessControl `json:"accessControl"`
+	AccessControl awss3.BucketAccessControl `json:"accessControl" yaml:"accessControl"`
 	// System-defined cache-control metadata to be set on all objects in the deployment.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#SysMetadata
 	//
-	CacheControl *[]CacheControl `json:"cacheControl"`
+	CacheControl *[]CacheControl `json:"cacheControl" yaml:"cacheControl"`
 	// System-defined cache-disposition metadata to be set on all objects in the deployment.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#SysMetadata
 	//
-	ContentDisposition *string `json:"contentDisposition"`
+	ContentDisposition *string `json:"contentDisposition" yaml:"contentDisposition"`
 	// System-defined content-encoding metadata to be set on all objects in the deployment.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#SysMetadata
 	//
-	ContentEncoding *string `json:"contentEncoding"`
+	ContentEncoding *string `json:"contentEncoding" yaml:"contentEncoding"`
 	// System-defined content-language metadata to be set on all objects in the deployment.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#SysMetadata
 	//
-	ContentLanguage *string `json:"contentLanguage"`
+	ContentLanguage *string `json:"contentLanguage" yaml:"contentLanguage"`
 	// System-defined content-type metadata to be set on all objects in the deployment.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#SysMetadata
 	//
-	ContentType *string `json:"contentType"`
+	ContentType *string `json:"contentType" yaml:"contentType"`
 	// Key prefix in the destination bucket.
 	//
 	// Must be <=104 characters
-	DestinationKeyPrefix *string `json:"destinationKeyPrefix"`
+	DestinationKeyPrefix *string `json:"destinationKeyPrefix" yaml:"destinationKeyPrefix"`
 	// The CloudFront distribution using the destination bucket as an origin.
 	//
 	// Files in the distribution's edge caches will be invalidated after
 	// files are uploaded to the destination bucket.
-	Distribution awscloudfront.IDistribution `json:"distribution"`
+	Distribution awscloudfront.IDistribution `json:"distribution" yaml:"distribution"`
 	// The file paths to invalidate in the CloudFront distribution.
-	DistributionPaths *[]*string `json:"distributionPaths"`
+	DistributionPaths *[]*string `json:"distributionPaths" yaml:"distributionPaths"`
 	// If this is set, matching files or objects will be excluded from the deployment's sync command.
 	//
 	// This can be used to exclude a file from being pruned in the destination bucket.
@@ -151,77 +151,77 @@ type BucketDeploymentProps struct {
 	// `AssetOptions` when defining your source.
 	// See: https://docs.aws.amazon.com/cli/latest/reference/s3/index.html#use-of-exclude-and-include-filters
 	//
-	Exclude *[]*string `json:"exclude"`
+	Exclude *[]*string `json:"exclude" yaml:"exclude"`
 	// System-defined expires metadata to be set on all objects in the deployment.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#SysMetadata
 	//
-	Expires awscdk.Expiration `json:"expires"`
+	Expires awscdk.Expiration `json:"expires" yaml:"expires"`
 	// If this is set, matching files or objects will be included with the deployment's sync command.
 	//
 	// Since all files from the deployment package are included by default, this property
 	// is usually leveraged alongside an `exclude` filter.
 	// See: https://docs.aws.amazon.com/cli/latest/reference/s3/index.html#use-of-exclude-and-include-filters
 	//
-	Include *[]*string `json:"include"`
+	Include *[]*string `json:"include" yaml:"include"`
 	// The number of days that the lambda function's log events are kept in CloudWatch Logs.
-	LogRetention awslogs.RetentionDays `json:"logRetention"`
+	LogRetention awslogs.RetentionDays `json:"logRetention" yaml:"logRetention"`
 	// The amount of memory (in MiB) to allocate to the AWS Lambda function which replicates the files from the CDK bucket to the destination bucket.
 	//
 	// If you are deploying large files, you will need to increase this number
 	// accordingly.
-	MemoryLimit *float64 `json:"memoryLimit"`
+	MemoryLimit *float64 `json:"memoryLimit" yaml:"memoryLimit"`
 	// User-defined object metadata to be set on all objects in the deployment.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#UserMetadata
 	//
-	Metadata *UserDefinedObjectMetadata `json:"metadata"`
+	Metadata *UserDefinedObjectMetadata `json:"metadata" yaml:"metadata"`
 	// If this is set to false, files in the destination bucket that do not exist in the asset, will NOT be deleted during deployment (create/update).
 	// See: https://docs.aws.amazon.com/cli/latest/reference/s3/sync.html
 	//
-	Prune *bool `json:"prune"`
+	Prune *bool `json:"prune" yaml:"prune"`
 	// If this is set to "false", the destination files will be deleted when the resource is deleted or the destination is updated.
 	//
 	// NOTICE: Configuring this to "false" might have operational implications. Please
 	// visit to the package documentation referred below to make sure you fully understand those implications.
 	// See: https://github.com/aws/aws-cdk/tree/master/packages/%40aws-cdk/aws-s3-deployment#retain-on-delete
 	//
-	RetainOnDelete *bool `json:"retainOnDelete"`
+	RetainOnDelete *bool `json:"retainOnDelete" yaml:"retainOnDelete"`
 	// Execution role associated with this function.
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 	// System-defined x-amz-server-side-encryption metadata to be set on all objects in the deployment.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#SysMetadata
 	//
-	ServerSideEncryption ServerSideEncryption `json:"serverSideEncryption"`
+	ServerSideEncryption ServerSideEncryption `json:"serverSideEncryption" yaml:"serverSideEncryption"`
 	// System-defined x-amz-server-side-encryption-aws-kms-key-id metadata to be set on all objects in the deployment.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#SysMetadata
 	//
-	ServerSideEncryptionAwsKmsKeyId *string `json:"serverSideEncryptionAwsKmsKeyId"`
+	ServerSideEncryptionAwsKmsKeyId *string `json:"serverSideEncryptionAwsKmsKeyId" yaml:"serverSideEncryptionAwsKmsKeyId"`
 	// System-defined x-amz-server-side-encryption-customer-algorithm metadata to be set on all objects in the deployment.
 	//
 	// Warning: This is not a useful parameter until this bug is fixed: https://github.com/aws/aws-cdk/issues/6080
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html#sse-c-how-to-programmatically-intro
 	//
-	ServerSideEncryptionCustomerAlgorithm *string `json:"serverSideEncryptionCustomerAlgorithm"`
+	ServerSideEncryptionCustomerAlgorithm *string `json:"serverSideEncryptionCustomerAlgorithm" yaml:"serverSideEncryptionCustomerAlgorithm"`
 	// System-defined x-amz-storage-class metadata to be set on all objects in the deployment.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#SysMetadata
 	//
-	StorageClass StorageClass `json:"storageClass"`
+	StorageClass StorageClass `json:"storageClass" yaml:"storageClass"`
 	// Mount an EFS file system.
 	//
 	// Enable this if your assets are large and you encounter disk space errors.
 	// Enabling this option will require a VPC to be specified.
-	UseEfs *bool `json:"useEfs"`
+	UseEfs *bool `json:"useEfs" yaml:"useEfs"`
 	// The VPC network to place the deployment lambda handler in.
 	//
 	// This is required if `useEfs` is set.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// Where in the VPC to place the deployment lambda handler.
 	//
 	// Only used if 'vpc' is supplied.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 	// System-defined x-amz-website-redirect-location metadata to be set on all objects in the deployment.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#SysMetadata
 	//
-	WebsiteRedirectLocation *string `json:"websiteRedirectLocation"`
+	WebsiteRedirectLocation *string `json:"websiteRedirectLocation" yaml:"websiteRedirectLocation"`
 }
 
 // Used for HTTP cache-control header, which influences downstream caches.
@@ -400,7 +400,7 @@ func CacheControl_SMaxAge(t awscdk.Duration) CacheControl {
 //
 type DeploymentSourceContext struct {
 	// The role for the handler.
-	HandlerRole awsiam.IRole `json:"handlerRole"`
+	HandlerRole awsiam.IRole `json:"handlerRole" yaml:"handlerRole"`
 }
 
 // Represents a source for bucket deployments.
@@ -501,9 +501,9 @@ func Source_Bucket(bucket awss3.IBucket, zipObjectKey *string) ISource {
 //
 type SourceConfig struct {
 	// The source bucket to deploy from.
-	Bucket awss3.IBucket `json:"bucket"`
+	Bucket awss3.IBucket `json:"bucket" yaml:"bucket"`
 	// An S3 object key in the source bucket that points to a zip file.
-	ZipObjectKey *string `json:"zipObjectKey"`
+	ZipObjectKey *string `json:"zipObjectKey" yaml:"zipObjectKey"`
 }
 
 // Storage class used for storing the object.

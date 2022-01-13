@@ -7,23 +7,23 @@ import (
 // TODO: EXAMPLE
 //
 type Alarms struct {
-	LowerAlarmIntervalIndex *float64 `json:"lowerAlarmIntervalIndex"`
-	UpperAlarmIntervalIndex *float64 `json:"upperAlarmIntervalIndex"`
+	LowerAlarmIntervalIndex *float64 `json:"lowerAlarmIntervalIndex" yaml:"lowerAlarmIntervalIndex"`
+	UpperAlarmIntervalIndex *float64 `json:"upperAlarmIntervalIndex" yaml:"upperAlarmIntervalIndex"`
 }
 
 // TODO: EXAMPLE
 //
 type ArbitraryIntervals struct {
-	Absolute *bool `json:"absolute"`
-	Intervals *[]*ScalingInterval `json:"intervals"`
+	Absolute *bool `json:"absolute" yaml:"absolute"`
+	Intervals *[]*ScalingInterval `json:"intervals" yaml:"intervals"`
 }
 
 // TODO: EXAMPLE
 //
 type CompleteScalingInterval struct {
-	Lower *float64 `json:"lower"`
-	Upper *float64 `json:"upper"`
-	Change *float64 `json:"change"`
+	Lower *float64 `json:"lower" yaml:"lower"`
+	Upper *float64 `json:"upper" yaml:"upper"`
+	Change *float64 `json:"change" yaml:"change"`
 }
 
 type IRandomGenerator interface {
@@ -77,14 +77,14 @@ type ScalingInterval struct {
 	//    capacity to itself. The number can be in the range [-100..100].
 	// - ExactCapacity: set the capacity to this number. The number must
 	//    be positive.
-	Change *float64 `json:"change"`
+	Change *float64 `json:"change" yaml:"change"`
 	// The lower bound of the interval.
 	//
 	// The scaling adjustment will be applied if the metric is higher than this value.
-	Lower *float64 `json:"lower"`
+	Lower *float64 `json:"lower" yaml:"lower"`
 	// The upper bound of the interval.
 	//
 	// The scaling adjustment will be applied if the metric is lower than this value.
-	Upper *float64 `json:"upper"`
+	Upper *float64 `json:"upper" yaml:"upper"`
 }
 

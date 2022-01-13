@@ -629,7 +629,7 @@ func (c *jsiiProxy_CfnGitHubRepository) ValidateProperties(_properties interface
 //
 type CfnGitHubRepository_CodeProperty struct {
 	// Information about the Amazon S3 bucket that contains a ZIP file of code to be committed to the repository.
-	S3 interface{} `json:"s3"`
+	S3 interface{} `json:"s3" yaml:"s3"`
 }
 
 // The `S3` property type specifies information about the Amazon S3 bucket that contains the code to be committed to the new repository.
@@ -640,11 +640,11 @@ type CfnGitHubRepository_CodeProperty struct {
 //
 type CfnGitHubRepository_S3Property struct {
 	// The name of the Amazon S3 bucket that contains the ZIP file with the content to be committed to the new repository.
-	Bucket *string `json:"bucket"`
+	Bucket *string `json:"bucket" yaml:"bucket"`
 	// The S3 object key or file name for the ZIP file.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// The object version of the ZIP file, if versioning is enabled for the Amazon S3 bucket.
-	ObjectVersion *string `json:"objectVersion"`
+	ObjectVersion *string `json:"objectVersion" yaml:"objectVersion"`
 }
 
 // Properties for defining a `CfnGitHubRepository`.
@@ -653,28 +653,28 @@ type CfnGitHubRepository_S3Property struct {
 //
 type CfnGitHubRepositoryProps struct {
 	// The name of the repository you want to create in GitHub with AWS CloudFormation stack creation.
-	RepositoryName *string `json:"repositoryName"`
+	RepositoryName *string `json:"repositoryName" yaml:"repositoryName"`
 	// The GitHub user name for the owner of the GitHub repository to be created.
 	//
 	// If this repository should be owned by a GitHub organization, provide its name.
-	RepositoryOwner *string `json:"repositoryOwner"`
+	RepositoryOwner *string `json:"repositoryOwner" yaml:"repositoryOwner"`
 	// Information about code to be committed to a repository after it is created in an AWS CloudFormation stack.
-	Code interface{} `json:"code"`
+	Code interface{} `json:"code" yaml:"code"`
 	// `AWS::CodeStar::GitHubRepository.ConnectionArn`.
-	ConnectionArn *string `json:"connectionArn"`
+	ConnectionArn *string `json:"connectionArn" yaml:"connectionArn"`
 	// Indicates whether to enable issues for the GitHub repository.
 	//
 	// You can use GitHub issues to track information and bugs for your repository.
-	EnableIssues interface{} `json:"enableIssues"`
+	EnableIssues interface{} `json:"enableIssues" yaml:"enableIssues"`
 	// Indicates whether the GitHub repository is a private repository.
 	//
 	// If so, you choose who can see and commit to this repository.
-	IsPrivate interface{} `json:"isPrivate"`
+	IsPrivate interface{} `json:"isPrivate" yaml:"isPrivate"`
 	// The GitHub user's personal access token for the GitHub repository.
-	RepositoryAccessToken *string `json:"repositoryAccessToken"`
+	RepositoryAccessToken *string `json:"repositoryAccessToken" yaml:"repositoryAccessToken"`
 	// A comment or description about the new repository.
 	//
 	// This description is displayed in GitHub after the repository is created.
-	RepositoryDescription *string `json:"repositoryDescription"`
+	RepositoryDescription *string `json:"repositoryDescription" yaml:"repositoryDescription"`
 }
 

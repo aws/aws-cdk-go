@@ -531,11 +531,11 @@ type CfnDatabaseProps struct {
 	// The name of the Timestream database.
 	//
 	// *Length Constraints* : Minimum length of 3 bytes. Maximum length of 256 bytes.
-	DatabaseName *string `json:"databaseName"`
+	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
 	// The identifier of the AWS KMS key used to encrypt the data stored in the database.
-	KmsKeyId *string `json:"kmsKeyId"`
+	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
 	// The tags to add to the database.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Timestream::ScheduledQuery`.
@@ -1286,9 +1286,9 @@ func (c *jsiiProxy_CfnScheduledQuery) ValidateProperties(_properties interface{}
 //
 type CfnScheduledQuery_DimensionMappingProperty struct {
 	// Type for the dimension.
-	DimensionValueType *string `json:"dimensionValueType"`
+	DimensionValueType *string `json:"dimensionValueType" yaml:"dimensionValueType"`
 	// Column name from query result.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // Configuration required for error reporting.
@@ -1297,7 +1297,7 @@ type CfnScheduledQuery_DimensionMappingProperty struct {
 //
 type CfnScheduledQuery_ErrorReportConfigurationProperty struct {
 	// The S3 configuration for the error reports.
-	S3Configuration interface{} `json:"s3Configuration"`
+	S3Configuration interface{} `json:"s3Configuration" yaml:"s3Configuration"`
 }
 
 // MixedMeasureMappings are mappings that can be used to ingest data into a mixture of narrow and multi measures in the derived table.
@@ -1308,21 +1308,21 @@ type CfnScheduledQuery_MixedMeasureMappingProperty struct {
 	// Type of the value that is to be read from sourceColumn.
 	//
 	// If the mapping is for MULTI, use MeasureValueType.MULTI.
-	MeasureValueType *string `json:"measureValueType"`
+	MeasureValueType *string `json:"measureValueType" yaml:"measureValueType"`
 	// Refers to the value of measure_name in a result row.
 	//
 	// This field is required if MeasureNameColumn is provided.
-	MeasureName *string `json:"measureName"`
+	MeasureName *string `json:"measureName" yaml:"measureName"`
 	// Required when measureValueType is MULTI.
 	//
 	// Attribute mappings for MULTI value measures.
-	MultiMeasureAttributeMappings interface{} `json:"multiMeasureAttributeMappings"`
+	MultiMeasureAttributeMappings interface{} `json:"multiMeasureAttributeMappings" yaml:"multiMeasureAttributeMappings"`
 	// This field refers to the source column from which measure-value is to be read for result materialization.
-	SourceColumn *string `json:"sourceColumn"`
+	SourceColumn *string `json:"sourceColumn" yaml:"sourceColumn"`
 	// Target measure name to be used.
 	//
 	// If not provided, the target measure name by default would be measure-name if provided, or sourceColumn otherwise.
-	TargetMeasureName *string `json:"targetMeasureName"`
+	TargetMeasureName *string `json:"targetMeasureName" yaml:"targetMeasureName"`
 }
 
 // Attribute mapping for MULTI value measures.
@@ -1331,13 +1331,13 @@ type CfnScheduledQuery_MixedMeasureMappingProperty struct {
 //
 type CfnScheduledQuery_MultiMeasureAttributeMappingProperty struct {
 	// Type of the attribute to be read from the source column.
-	MeasureValueType *string `json:"measureValueType"`
+	MeasureValueType *string `json:"measureValueType" yaml:"measureValueType"`
 	// Source column from where the attribute value is to be read.
-	SourceColumn *string `json:"sourceColumn"`
+	SourceColumn *string `json:"sourceColumn" yaml:"sourceColumn"`
 	// Custom name to be used for attribute name in derived table.
 	//
 	// If not provided, source column name would be used.
-	TargetMultiMeasureAttributeName *string `json:"targetMultiMeasureAttributeName"`
+	TargetMultiMeasureAttributeName *string `json:"targetMultiMeasureAttributeName" yaml:"targetMultiMeasureAttributeName"`
 }
 
 // Only one of MixedMeasureMappings or MultiMeasureMappings is to be provided.
@@ -1350,11 +1350,11 @@ type CfnScheduledQuery_MultiMeasureMappingsProperty struct {
 	// Required.
 	//
 	// Attribute mappings to be used for mapping query results to ingest data for multi-measure attributes.
-	MultiMeasureAttributeMappings interface{} `json:"multiMeasureAttributeMappings"`
+	MultiMeasureAttributeMappings interface{} `json:"multiMeasureAttributeMappings" yaml:"multiMeasureAttributeMappings"`
 	// The name of the target multi-measure name in the derived table.
 	//
 	// This input is required when measureNameColumn is not provided. If MeasureNameColumn is provided, then value from that column will be used as multi-measure name.
-	TargetMultiMeasureName *string `json:"targetMultiMeasureName"`
+	TargetMultiMeasureName *string `json:"targetMultiMeasureName" yaml:"targetMultiMeasureName"`
 }
 
 // Notification configuration for a scheduled query.
@@ -1365,7 +1365,7 @@ type CfnScheduledQuery_MultiMeasureMappingsProperty struct {
 //
 type CfnScheduledQuery_NotificationConfigurationProperty struct {
 	// Details on SNS configuration.
-	SnsConfiguration interface{} `json:"snsConfiguration"`
+	SnsConfiguration interface{} `json:"snsConfiguration" yaml:"snsConfiguration"`
 }
 
 // Details on S3 location for error reports that result from running a query.
@@ -1374,15 +1374,15 @@ type CfnScheduledQuery_NotificationConfigurationProperty struct {
 //
 type CfnScheduledQuery_S3ConfigurationProperty struct {
 	// Name of the S3 bucket under which error reports will be created.
-	BucketName *string `json:"bucketName"`
+	BucketName *string `json:"bucketName" yaml:"bucketName"`
 	// Encryption at rest options for the error reports.
 	//
 	// If no encryption option is specified, Timestream will choose SSE_S3 as default.
-	EncryptionOption *string `json:"encryptionOption"`
+	EncryptionOption *string `json:"encryptionOption" yaml:"encryptionOption"`
 	// Prefix for the error report key.
 	//
 	// Timestream by default adds the following prefix to the error report path.
-	ObjectKeyPrefix *string `json:"objectKeyPrefix"`
+	ObjectKeyPrefix *string `json:"objectKeyPrefix" yaml:"objectKeyPrefix"`
 }
 
 // Configuration of the schedule of the query.
@@ -1393,7 +1393,7 @@ type CfnScheduledQuery_ScheduleConfigurationProperty struct {
 	// An expression that denotes when to trigger the scheduled query run.
 	//
 	// This can be a cron expression or a rate expression.
-	ScheduleExpression *string `json:"scheduleExpression"`
+	ScheduleExpression *string `json:"scheduleExpression" yaml:"scheduleExpression"`
 }
 
 // Details on SNS that are required to send the notification.
@@ -1402,7 +1402,7 @@ type CfnScheduledQuery_ScheduleConfigurationProperty struct {
 //
 type CfnScheduledQuery_SnsConfigurationProperty struct {
 	// SNS topic ARN that the scheduled query status notifications will be sent to.
-	TopicArn *string `json:"topicArn"`
+	TopicArn *string `json:"topicArn" yaml:"topicArn"`
 }
 
 // Configuration used for writing the output of a query.
@@ -1411,7 +1411,7 @@ type CfnScheduledQuery_SnsConfigurationProperty struct {
 //
 type CfnScheduledQuery_TargetConfigurationProperty struct {
 	// Configuration needed to write data into the Timestream database and table.
-	TimestreamConfiguration interface{} `json:"timestreamConfiguration"`
+	TimestreamConfiguration interface{} `json:"timestreamConfiguration" yaml:"timestreamConfiguration"`
 }
 
 // Configuration to write data into Timestream database and table.
@@ -1422,23 +1422,23 @@ type CfnScheduledQuery_TargetConfigurationProperty struct {
 //
 type CfnScheduledQuery_TimestreamConfigurationProperty struct {
 	// Name of Timestream database to which the query result will be written.
-	DatabaseName *string `json:"databaseName"`
+	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
 	// This is to allow mapping column(s) from the query result to the dimension in the destination table.
-	DimensionMappings interface{} `json:"dimensionMappings"`
+	DimensionMappings interface{} `json:"dimensionMappings" yaml:"dimensionMappings"`
 	// Name of Timestream table that the query result will be written to.
 	//
 	// The table should be within the same database that is provided in Timestream configuration.
-	TableName *string `json:"tableName"`
+	TableName *string `json:"tableName" yaml:"tableName"`
 	// Column from query result that should be used as the time column in destination table.
 	//
 	// Column type for this should be TIMESTAMP.
-	TimeColumn *string `json:"timeColumn"`
+	TimeColumn *string `json:"timeColumn" yaml:"timeColumn"`
 	// Name of the measure column.
-	MeasureNameColumn *string `json:"measureNameColumn"`
+	MeasureNameColumn *string `json:"measureNameColumn" yaml:"measureNameColumn"`
 	// Specifies how to map measures to multi-measure records.
-	MixedMeasureMappings interface{} `json:"mixedMeasureMappings"`
+	MixedMeasureMappings interface{} `json:"mixedMeasureMappings" yaml:"mixedMeasureMappings"`
 	// Multi-measure mappings.
-	MultiMeasureMappings interface{} `json:"multiMeasureMappings"`
+	MultiMeasureMappings interface{} `json:"multiMeasureMappings" yaml:"multiMeasureMappings"`
 }
 
 // Properties for defining a `CfnScheduledQuery`.
@@ -1449,42 +1449,42 @@ type CfnScheduledQueryProps struct {
 	// Configuration for error reporting.
 	//
 	// Error reports will be generated when a problem is encountered when writing the query results.
-	ErrorReportConfiguration interface{} `json:"errorReportConfiguration"`
+	ErrorReportConfiguration interface{} `json:"errorReportConfiguration" yaml:"errorReportConfiguration"`
 	// Notification configuration for the scheduled query.
 	//
 	// A notification is sent by Timestream when a query run finishes, when the state is updated or when you delete it.
-	NotificationConfiguration interface{} `json:"notificationConfiguration"`
+	NotificationConfiguration interface{} `json:"notificationConfiguration" yaml:"notificationConfiguration"`
 	// The query string to run.
 	//
 	// Parameter names can be specified in the query string `@` character followed by an identifier. The named Parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run.
 	//
 	// The timestamp calculated according to the ScheduleConfiguration parameter, will be the value of `@scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
-	QueryString *string `json:"queryString"`
+	QueryString *string `json:"queryString" yaml:"queryString"`
 	// Schedule configuration.
-	ScheduleConfiguration interface{} `json:"scheduleConfiguration"`
+	ScheduleConfiguration interface{} `json:"scheduleConfiguration" yaml:"scheduleConfiguration"`
 	// The ARN for the IAM role that Timestream will assume when running the scheduled query.
-	ScheduledQueryExecutionRoleArn *string `json:"scheduledQueryExecutionRoleArn"`
+	ScheduledQueryExecutionRoleArn *string `json:"scheduledQueryExecutionRoleArn" yaml:"scheduledQueryExecutionRoleArn"`
 	// Using a ClientToken makes the call to CreateScheduledQuery idempotent, in other words, making the same request repeatedly will produce the same result.
 	//
 	// Making multiple identical CreateScheduledQuery requests has the same effect as making a single request.
 	//
 	// - If CreateScheduledQuery is called without a `ClientToken` , the Query SDK generates a `ClientToken` on your behalf.
 	// - After 8 hours, any request with the same `ClientToken` is treated as a new request.
-	ClientToken *string `json:"clientToken"`
+	ClientToken *string `json:"clientToken" yaml:"clientToken"`
 	// The Amazon KMS key used to encrypt the scheduled query resource, at-rest.
 	//
 	// If the Amazon KMS key is not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with *alias/*
 	//
 	// If ErrorReportConfiguration uses `SSE_KMS` as encryption type, the same KmsKeyId is used to encrypt the error report at rest.
-	KmsKeyId *string `json:"kmsKeyId"`
+	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
 	// A name for the query.
 	//
 	// Scheduled query names must be unique within each Region.
-	ScheduledQueryName *string `json:"scheduledQueryName"`
+	ScheduledQueryName *string `json:"scheduledQueryName" yaml:"scheduledQueryName"`
 	// A list of key-value pairs to label the scheduled query.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// Scheduled query target store configuration.
-	TargetConfiguration interface{} `json:"targetConfiguration"`
+	TargetConfiguration interface{} `json:"targetConfiguration" yaml:"targetConfiguration"`
 }
 
 // A CloudFormation `AWS::Timestream::Table`.
@@ -2040,7 +2040,7 @@ type CfnTableProps struct {
 	// The name of the Timestream database that contains this table.
 	//
 	// *Length Constraints* : Minimum length of 3 bytes. Maximum length of 256 bytes.
-	DatabaseName *string `json:"databaseName"`
+	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
 	// The retention duration for the memory store and magnetic store. This object has the following attributes:.
 	//
 	// - *MemoryStoreRetentionPeriodInHours* : Retention duration for memory store, in hours.
@@ -2061,12 +2061,12 @@ type CfnTableProps struct {
 	// DependsOn: TestDatabase
 	// Properties: TableName: "TestTable" DatabaseName: "TestDatabase" RetentionProperties: MemoryStoreRetentionPeriodInHours: "24" MagneticStoreRetentionPeriodInDays: "7"
 	// ```
-	RetentionProperties interface{} `json:"retentionProperties"`
+	RetentionProperties interface{} `json:"retentionProperties" yaml:"retentionProperties"`
 	// The name of the Timestream table.
 	//
 	// *Length Constraints* : Minimum length of 3 bytes. Maximum length of 256 bytes.
-	TableName *string `json:"tableName"`
+	TableName *string `json:"tableName" yaml:"tableName"`
 	// The tags to add to the table.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 

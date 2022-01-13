@@ -29,17 +29,17 @@ type AdjustmentTier struct {
 	// StepScalingPolicy.
 	//
 	// Can be positive or negative.
-	Adjustment *float64 `json:"adjustment"`
+	Adjustment *float64 `json:"adjustment" yaml:"adjustment"`
 	// Lower bound where this scaling tier applies.
 	//
 	// The scaling tier applies if the difference between the metric
 	// value and its alarm threshold is higher than this value.
-	LowerBound *float64 `json:"lowerBound"`
+	LowerBound *float64 `json:"lowerBound" yaml:"lowerBound"`
 	// Upper bound where this scaling tier applies.
 	//
 	// The scaling tier applies if the difference between the metric
 	// value and its alarm threshold is lower than this value.
-	UpperBound *float64 `json:"upperBound"`
+	UpperBound *float64 `json:"upperBound" yaml:"upperBound"`
 }
 
 // How adjustment numbers are interpreted.
@@ -60,7 +60,7 @@ const (
 //
 type ApplyCloudFormationInitOptions struct {
 	// ConfigSet to activate.
-	ConfigSets *[]*string `json:"configSets"`
+	ConfigSets *[]*string `json:"configSets" yaml:"configSets"`
 	// Force instance replacement by embedding a config fingerprint.
 	//
 	// If `true` (the default), a hash of the config will be embedded into the
@@ -73,21 +73,21 @@ type ApplyCloudFormationInitOptions struct {
 	// config update introduces errors, you will not notice until after the
 	// CloudFormation deployment successfully finishes and the next instance
 	// fails to launch.
-	EmbedFingerprint *bool `json:"embedFingerprint"`
+	EmbedFingerprint *bool `json:"embedFingerprint" yaml:"embedFingerprint"`
 	// Don't fail the instance creation when cfn-init fails.
 	//
 	// You can use this to prevent CloudFormation from rolling back when
 	// instances fail to start up, to help in debugging.
-	IgnoreFailures *bool `json:"ignoreFailures"`
+	IgnoreFailures *bool `json:"ignoreFailures" yaml:"ignoreFailures"`
 	// Include --role argument when running cfn-init and cfn-signal commands.
 	//
 	// This will be the IAM instance profile attached to the EC2 instance
-	IncludeRole *bool `json:"includeRole"`
+	IncludeRole *bool `json:"includeRole" yaml:"includeRole"`
 	// Include --url argument when running cfn-init and cfn-signal commands.
 	//
 	// This will be the cloudformation endpoint in the deployed region
 	// e.g. https://cloudformation.us-east-1.amazonaws.com
-	IncludeUrl *bool `json:"includeUrl"`
+	IncludeUrl *bool `json:"includeUrl" yaml:"includeUrl"`
 	// Print the results of running cfn-init to the Instance System Log.
 	//
 	// By default, the output of running cfn-init is written to a log file
@@ -97,7 +97,7 @@ type ApplyCloudFormationInitOptions struct {
 	// (Be aware that the system log is refreshed at certain points in
 	// time of the instance life cycle, and successful execution may
 	// not always show up).
-	PrintLog *bool `json:"printLog"`
+	PrintLog *bool `json:"printLog" yaml:"printLog"`
 }
 
 // A Fleet represents a managed set of EC2 instances.
@@ -725,13 +725,13 @@ func (a *jsiiProxy_AutoScalingGroup) ToString() *string {
 //
 type AutoScalingGroupProps struct {
 	// Whether the instances can initiate connections to anywhere by default.
-	AllowAllOutbound *bool `json:"allowAllOutbound"`
+	AllowAllOutbound *bool `json:"allowAllOutbound" yaml:"allowAllOutbound"`
 	// Whether instances in the Auto Scaling Group should have public IP addresses associated with them.
-	AssociatePublicIpAddress *bool `json:"associatePublicIpAddress"`
+	AssociatePublicIpAddress *bool `json:"associatePublicIpAddress" yaml:"associatePublicIpAddress"`
 	// The name of the Auto Scaling group.
 	//
 	// This name must be unique per Region per account.
-	AutoScalingGroupName *string `json:"autoScalingGroupName"`
+	AutoScalingGroupName *string `json:"autoScalingGroupName" yaml:"autoScalingGroupName"`
 	// Specifies how block devices are exposed to the instance. You can specify virtual devices and EBS volumes.
 	//
 	// Each instance that is launched has an associated root device volume,
@@ -740,23 +740,23 @@ type AutoScalingGroupProps struct {
 	// instance store volumes to attach to an instance when it is launched.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html
 	//
-	BlockDevices *[]*BlockDevice `json:"blockDevices"`
+	BlockDevices *[]*BlockDevice `json:"blockDevices" yaml:"blockDevices"`
 	// Default scaling cooldown for this AutoScalingGroup.
-	Cooldown awscdk.Duration `json:"cooldown"`
+	Cooldown awscdk.Duration `json:"cooldown" yaml:"cooldown"`
 	// Initial amount of instances in the fleet.
 	//
 	// If this is set to a number, every deployment will reset the amount of
 	// instances to this number. It is recommended to leave this value blank.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-desiredcapacity
 	//
-	DesiredCapacity *float64 `json:"desiredCapacity"`
+	DesiredCapacity *float64 `json:"desiredCapacity" yaml:"desiredCapacity"`
 	// Enable monitoring for group metrics, these metrics describe the group rather than any of its instances.
 	//
 	// To report all group metrics use `GroupMetrics.all()`
 	// Group metrics are reported in a granularity of 1 minute at no additional charge.
-	GroupMetrics *[]GroupMetrics `json:"groupMetrics"`
+	GroupMetrics *[]GroupMetrics `json:"groupMetrics" yaml:"groupMetrics"`
 	// Configuration for health checks.
-	HealthCheck HealthCheck `json:"healthCheck"`
+	HealthCheck HealthCheck `json:"healthCheck" yaml:"healthCheck"`
 	// If the ASG has scheduled actions, don't reset unchanged group sizes.
 	//
 	// Only used if the ASG has scheduled actions (which may scale your ASG up
@@ -764,18 +764,18 @@ type AutoScalingGroupProps struct {
 	// will only be reset if it has been changed in the CDK app. If false, the
 	// sizes will always be changed back to what they were in the CDK app
 	// on deployment.
-	IgnoreUnmodifiedSizeProperties *bool `json:"ignoreUnmodifiedSizeProperties"`
+	IgnoreUnmodifiedSizeProperties *bool `json:"ignoreUnmodifiedSizeProperties" yaml:"ignoreUnmodifiedSizeProperties"`
 	// Controls whether instances in this group are launched with detailed or basic monitoring.
 	//
 	// When detailed monitoring is enabled, Amazon CloudWatch generates metrics every minute and your account
 	// is charged a fee. When you disable detailed monitoring, CloudWatch generates metrics every 5 minutes.
 	// See: https://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-monitoring.html#enable-as-instance-metrics
 	//
-	InstanceMonitoring Monitoring `json:"instanceMonitoring"`
+	InstanceMonitoring Monitoring `json:"instanceMonitoring" yaml:"instanceMonitoring"`
 	// Name of SSH keypair to grant access to instances.
-	KeyName *string `json:"keyName"`
+	KeyName *string `json:"keyName" yaml:"keyName"`
 	// Maximum number of instances in the fleet.
-	MaxCapacity *float64 `json:"maxCapacity"`
+	MaxCapacity *float64 `json:"maxCapacity" yaml:"maxCapacity"`
 	// The maximum amount of time that an instance can be in service.
 	//
 	// The maximum duration applies
@@ -786,9 +786,9 @@ type AutoScalingGroupProps struct {
 	// leave this property undefined.
 	// See: https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html
 	//
-	MaxInstanceLifetime awscdk.Duration `json:"maxInstanceLifetime"`
+	MaxInstanceLifetime awscdk.Duration `json:"maxInstanceLifetime" yaml:"maxInstanceLifetime"`
 	// Minimum number of instances in the fleet.
-	MinCapacity *float64 `json:"minCapacity"`
+	MinCapacity *float64 `json:"minCapacity" yaml:"minCapacity"`
 	// Whether newly-launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in.
 	//
 	// By default, Auto Scaling can terminate an instance at any time after launch
@@ -799,11 +799,11 @@ type AutoScalingGroupProps struct {
 	//
 	// This flag must be enabled if the Auto Scaling Group will be associated with
 	// an ECS Capacity Provider with managed termination protection.
-	NewInstancesProtectedFromScaleIn *bool `json:"newInstancesProtectedFromScaleIn"`
+	NewInstancesProtectedFromScaleIn *bool `json:"newInstancesProtectedFromScaleIn" yaml:"newInstancesProtectedFromScaleIn"`
 	// Configure autoscaling group to send notifications about fleet changes to an SNS topic(s).
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-notificationconfigurations
 	//
-	Notifications *[]*NotificationConfiguration `json:"notifications"`
+	Notifications *[]*NotificationConfiguration `json:"notifications" yaml:"notifications"`
 	// Configure waiting for signals during deployment.
 	//
 	// Use this to pause the CloudFormation deployment to wait for the instances
@@ -821,18 +821,18 @@ type AutoScalingGroupProps struct {
 	// command in the Auto Scaling rolling updates sample template:
 	//
 	// https://github.com/awslabs/aws-cloudformation-templates/blob/master/aws/services/AutoScaling/AutoScalingRollingUpdates.yaml
-	Signals Signals `json:"signals"`
+	Signals Signals `json:"signals" yaml:"signals"`
 	// The maximum hourly price (in USD) to be paid for any Spot Instance launched to fulfill the request.
 	//
 	// Spot Instances are
 	// launched when the price you specify exceeds the current Spot market price.
-	SpotPrice *string `json:"spotPrice"`
+	SpotPrice *string `json:"spotPrice" yaml:"spotPrice"`
 	// A policy or a list of policies that are used to select the instances to terminate.
 	//
 	// The policies are executed in the order that you list them.
 	// See: https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html
 	//
-	TerminationPolicies *[]TerminationPolicy `json:"terminationPolicies"`
+	TerminationPolicies *[]TerminationPolicy `json:"terminationPolicies" yaml:"terminationPolicies"`
 	// What to do when an AutoScalingGroup's instance configuration is changed.
 	//
 	// This is applied when any of the settings on the ASG are changed that
@@ -840,40 +840,40 @@ type AutoScalingGroupProps struct {
 	// scripts, etc.). It indicates how the existing instances should be
 	// replaced with new instances matching the new config. By default, nothing
 	// is done and only new instances are launched with the new config.
-	UpdatePolicy UpdatePolicy `json:"updatePolicy"`
+	UpdatePolicy UpdatePolicy `json:"updatePolicy" yaml:"updatePolicy"`
 	// Where to place instances within the VPC.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 	// Type of instance to launch.
-	InstanceType awsec2.InstanceType `json:"instanceType"`
+	InstanceType awsec2.InstanceType `json:"instanceType" yaml:"instanceType"`
 	// AMI to launch.
-	MachineImage awsec2.IMachineImage `json:"machineImage"`
+	MachineImage awsec2.IMachineImage `json:"machineImage" yaml:"machineImage"`
 	// VPC to launch these instances in.
-	Vpc awsec2.IVpc `json:"vpc"`
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// Apply the given CloudFormation Init configuration to the instances in the AutoScalingGroup at startup.
 	//
 	// If you specify `init`, you must also specify `signals` to configure
 	// the number of instances to wait for and the timeout for waiting for the
 	// init process.
-	Init awsec2.CloudFormationInit `json:"init"`
+	Init awsec2.CloudFormationInit `json:"init" yaml:"init"`
 	// Use the given options for applying CloudFormation Init.
 	//
 	// Describes the configsets to use and the timeout to wait
-	InitOptions *ApplyCloudFormationInitOptions `json:"initOptions"`
+	InitOptions *ApplyCloudFormationInitOptions `json:"initOptions" yaml:"initOptions"`
 	// Whether IMDSv2 should be required on launched instances.
-	RequireImdsv2 *bool `json:"requireImdsv2"`
+	RequireImdsv2 *bool `json:"requireImdsv2" yaml:"requireImdsv2"`
 	// An IAM role to associate with the instance profile assigned to this Auto Scaling Group.
 	//
 	// The role must be assumable by the service principal `ec2.amazonaws.com`:
 	//
 	// TODO: EXAMPLE
 	//
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 	// Security group to launch the instances in.
-	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
+	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup" yaml:"securityGroup"`
 	// Specific UserData to use.
 	//
 	// The UserData may still be mutated after creation.
-	UserData awsec2.UserData `json:"userData"`
+	UserData awsec2.UserData `json:"userData" yaml:"userData"`
 }
 
 // Aspect that makes IMDSv2 required on instances deployed by AutoScalingGroups.
@@ -944,16 +944,16 @@ func (a *jsiiProxy_AutoScalingGroupRequireImdsv2Aspect) Warn(node constructs.ICo
 //
 type BaseTargetTrackingProps struct {
 	// Period after a scaling completes before another scaling activity can start.
-	Cooldown awscdk.Duration `json:"cooldown"`
+	Cooldown awscdk.Duration `json:"cooldown" yaml:"cooldown"`
 	// Indicates whether scale in by the target tracking policy is disabled.
 	//
 	// If the value is true, scale in is disabled and the target tracking policy
 	// won't remove capacity from the autoscaling group. Otherwise, scale in is
 	// enabled and the target tracking policy can remove capacity from the
 	// group.
-	DisableScaleIn *bool `json:"disableScaleIn"`
+	DisableScaleIn *bool `json:"disableScaleIn" yaml:"disableScaleIn"`
 	// Estimated time until a newly launched instance can send metrics to CloudWatch.
-	EstimatedInstanceWarmup awscdk.Duration `json:"estimatedInstanceWarmup"`
+	EstimatedInstanceWarmup awscdk.Duration `json:"estimatedInstanceWarmup" yaml:"estimatedInstanceWarmup"`
 }
 
 // Basic properties for a lifecycle hook.
@@ -962,21 +962,21 @@ type BaseTargetTrackingProps struct {
 //
 type BasicLifecycleHookProps struct {
 	// The state of the Amazon EC2 instance to which you want to attach the lifecycle hook.
-	LifecycleTransition LifecycleTransition `json:"lifecycleTransition"`
+	LifecycleTransition LifecycleTransition `json:"lifecycleTransition" yaml:"lifecycleTransition"`
 	// The action the Auto Scaling group takes when the lifecycle hook timeout elapses or if an unexpected failure occurs.
-	DefaultResult DefaultResult `json:"defaultResult"`
+	DefaultResult DefaultResult `json:"defaultResult" yaml:"defaultResult"`
 	// Maximum time between calls to RecordLifecycleActionHeartbeat for the hook.
 	//
 	// If the lifecycle hook times out, perform the action in DefaultResult.
-	HeartbeatTimeout awscdk.Duration `json:"heartbeatTimeout"`
+	HeartbeatTimeout awscdk.Duration `json:"heartbeatTimeout" yaml:"heartbeatTimeout"`
 	// Name of the lifecycle hook.
-	LifecycleHookName *string `json:"lifecycleHookName"`
+	LifecycleHookName *string `json:"lifecycleHookName" yaml:"lifecycleHookName"`
 	// Additional data to pass to the lifecycle hook target.
-	NotificationMetadata *string `json:"notificationMetadata"`
+	NotificationMetadata *string `json:"notificationMetadata" yaml:"notificationMetadata"`
 	// The target of the lifecycle hook.
-	NotificationTarget ILifecycleHookTarget `json:"notificationTarget"`
+	NotificationTarget ILifecycleHookTarget `json:"notificationTarget" yaml:"notificationTarget"`
 	// The role that allows publishing to the notification target.
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 }
 
 // Properties for a scheduled scaling action.
@@ -989,29 +989,29 @@ type BasicScheduledActionProps struct {
 	// Supports cron expressions.
 	//
 	// For more information about cron expressions, see https://en.wikipedia.org/wiki/Cron.
-	Schedule Schedule `json:"schedule"`
+	Schedule Schedule `json:"schedule" yaml:"schedule"`
 	// The new desired capacity.
 	//
 	// At the scheduled time, set the desired capacity to the given capacity.
 	//
 	// At least one of maxCapacity, minCapacity, or desiredCapacity must be supplied.
-	DesiredCapacity *float64 `json:"desiredCapacity"`
+	DesiredCapacity *float64 `json:"desiredCapacity" yaml:"desiredCapacity"`
 	// When this scheduled action expires.
-	EndTime *time.Time `json:"endTime"`
+	EndTime *time.Time `json:"endTime" yaml:"endTime"`
 	// The new maximum capacity.
 	//
 	// At the scheduled time, set the maximum capacity to the given capacity.
 	//
 	// At least one of maxCapacity, minCapacity, or desiredCapacity must be supplied.
-	MaxCapacity *float64 `json:"maxCapacity"`
+	MaxCapacity *float64 `json:"maxCapacity" yaml:"maxCapacity"`
 	// The new minimum capacity.
 	//
 	// At the scheduled time, set the minimum capacity to the given capacity.
 	//
 	// At least one of maxCapacity, minCapacity, or desiredCapacity must be supplied.
-	MinCapacity *float64 `json:"minCapacity"`
+	MinCapacity *float64 `json:"minCapacity" yaml:"minCapacity"`
 	// When this scheduled action becomes active.
-	StartTime *time.Time `json:"startTime"`
+	StartTime *time.Time `json:"startTime" yaml:"startTime"`
 	// Specifies the time zone for a cron expression.
 	//
 	// If a time zone is not provided, UTC is used by default.
@@ -1019,38 +1019,38 @@ type BasicScheduledActionProps struct {
 	// Valid values are the canonical names of the IANA time zones, derived from the IANA Time Zone Database (such as Etc/GMT+9 or Pacific/Tahiti).
 	//
 	// For more information, see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones.
-	TimeZone *string `json:"timeZone"`
+	TimeZone *string `json:"timeZone" yaml:"timeZone"`
 }
 
 // TODO: EXAMPLE
 //
 type BasicStepScalingPolicyProps struct {
 	// Metric to scale on.
-	Metric awscloudwatch.IMetric `json:"metric"`
+	Metric awscloudwatch.IMetric `json:"metric" yaml:"metric"`
 	// The intervals for scaling.
 	//
 	// Maps a range of metric values to a particular scaling behavior.
-	ScalingSteps *[]*ScalingInterval `json:"scalingSteps"`
+	ScalingSteps *[]*ScalingInterval `json:"scalingSteps" yaml:"scalingSteps"`
 	// How the adjustment numbers inside 'intervals' are interpreted.
-	AdjustmentType AdjustmentType `json:"adjustmentType"`
+	AdjustmentType AdjustmentType `json:"adjustmentType" yaml:"adjustmentType"`
 	// Grace period after scaling activity.
-	Cooldown awscdk.Duration `json:"cooldown"`
+	Cooldown awscdk.Duration `json:"cooldown" yaml:"cooldown"`
 	// Estimated time until a newly launched instance can send metrics to CloudWatch.
-	EstimatedInstanceWarmup awscdk.Duration `json:"estimatedInstanceWarmup"`
+	EstimatedInstanceWarmup awscdk.Duration `json:"estimatedInstanceWarmup" yaml:"estimatedInstanceWarmup"`
 	// How many evaluation periods of the metric to wait before triggering a scaling action.
 	//
 	// Raising this value can be used to smooth out the metric, at the expense
 	// of slower response times.
-	EvaluationPeriods *float64 `json:"evaluationPeriods"`
+	EvaluationPeriods *float64 `json:"evaluationPeriods" yaml:"evaluationPeriods"`
 	// Aggregation to apply to all data points over the evaluation periods.
 	//
 	// Only has meaning if `evaluationPeriods != 1`.
-	MetricAggregationType MetricAggregationType `json:"metricAggregationType"`
+	MetricAggregationType MetricAggregationType `json:"metricAggregationType" yaml:"metricAggregationType"`
 	// Minimum absolute number to adjust capacity with as result of percentage scaling.
 	//
 	// Only when using AdjustmentType = PercentChangeInCapacity, this number controls
 	// the minimum absolute effect size.
-	MinAdjustmentMagnitude *float64 `json:"minAdjustmentMagnitude"`
+	MinAdjustmentMagnitude *float64 `json:"minAdjustmentMagnitude" yaml:"minAdjustmentMagnitude"`
 }
 
 // Properties for a Target Tracking policy that include the metric but exclude the target.
@@ -1059,39 +1059,39 @@ type BasicStepScalingPolicyProps struct {
 //
 type BasicTargetTrackingScalingPolicyProps struct {
 	// Period after a scaling completes before another scaling activity can start.
-	Cooldown awscdk.Duration `json:"cooldown"`
+	Cooldown awscdk.Duration `json:"cooldown" yaml:"cooldown"`
 	// Indicates whether scale in by the target tracking policy is disabled.
 	//
 	// If the value is true, scale in is disabled and the target tracking policy
 	// won't remove capacity from the autoscaling group. Otherwise, scale in is
 	// enabled and the target tracking policy can remove capacity from the
 	// group.
-	DisableScaleIn *bool `json:"disableScaleIn"`
+	DisableScaleIn *bool `json:"disableScaleIn" yaml:"disableScaleIn"`
 	// Estimated time until a newly launched instance can send metrics to CloudWatch.
-	EstimatedInstanceWarmup awscdk.Duration `json:"estimatedInstanceWarmup"`
+	EstimatedInstanceWarmup awscdk.Duration `json:"estimatedInstanceWarmup" yaml:"estimatedInstanceWarmup"`
 	// The target value for the metric.
-	TargetValue *float64 `json:"targetValue"`
+	TargetValue *float64 `json:"targetValue" yaml:"targetValue"`
 	// A custom metric for application autoscaling.
 	//
 	// The metric must track utilization. Scaling out will happen if the metric is higher than
 	// the target value, scaling in will happen in the metric is lower than the target value.
 	//
 	// Exactly one of customMetric or predefinedMetric must be specified.
-	CustomMetric awscloudwatch.IMetric `json:"customMetric"`
+	CustomMetric awscloudwatch.IMetric `json:"customMetric" yaml:"customMetric"`
 	// A predefined metric for application autoscaling.
 	//
 	// The metric must track utilization. Scaling out will happen if the metric is higher than
 	// the target value, scaling in will happen in the metric is lower than the target value.
 	//
 	// Exactly one of customMetric or predefinedMetric must be specified.
-	PredefinedMetric PredefinedMetric `json:"predefinedMetric"`
+	PredefinedMetric PredefinedMetric `json:"predefinedMetric" yaml:"predefinedMetric"`
 	// The resource label associated with the predefined metric.
 	//
 	// Should be supplied if the predefined metric is ALBRequestCountPerTarget, and the
 	// format should be:
 	//
 	// app/<load-balancer-name>/<load-balancer-id>/targetgroup/<target-group-name>/<target-group-id>
-	ResourceLabel *string `json:"resourceLabel"`
+	ResourceLabel *string `json:"resourceLabel" yaml:"resourceLabel"`
 }
 
 // Options needed to bind a target to a lifecycle hook.
@@ -1104,11 +1104,11 @@ type BindHookTargetOptions struct {
 	// The lifecycle hook to attach to.
 	//
 	// [disable-awslint:ref-via-interface]
-	LifecycleHook LifecycleHook `json:"lifecycleHook"`
+	LifecycleHook LifecycleHook `json:"lifecycleHook" yaml:"lifecycleHook"`
 	// The role to use when attaching to the lifecycle hook.
 	//
 	// [disable-awslint:ref-via-interface]
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 }
 
 // Block device.
@@ -1121,11 +1121,11 @@ type BlockDevice struct {
 	// Supply a value like `/dev/sdh`, `xvdh`.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html
 	//
-	DeviceName *string `json:"deviceName"`
+	DeviceName *string `json:"deviceName" yaml:"deviceName"`
 	// Defines the block device volume, to be either an Amazon EBS volume or an ephemeral instance store volume.
 	//
 	// Supply a value like `BlockDeviceVolume.ebs(15)`, `BlockDeviceVolume.ephemeral(0)`.
-	Volume BlockDeviceVolume `json:"volume"`
+	Volume BlockDeviceVolume `json:"volume" yaml:"volume"`
 }
 
 // Describes a block device mapping for an EC2 instance or Auto Scaling group.
@@ -2246,9 +2246,9 @@ func (c *jsiiProxy_CfnAutoScalingGroup) ValidateProperties(_properties interface
 //
 type CfnAutoScalingGroup_AcceleratorCountRequestProperty struct {
 	// The maximum value.
-	Max *float64 `json:"max"`
+	Max *float64 `json:"max" yaml:"max"`
 	// The minimum value.
-	Min *float64 `json:"min"`
+	Min *float64 `json:"min" yaml:"min"`
 }
 
 // `AcceleratorTotalMemoryMiBRequest` is a property of the `InstanceRequirements` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum total memory size for the accelerators for an instance type, in MiB.
@@ -2257,9 +2257,9 @@ type CfnAutoScalingGroup_AcceleratorCountRequestProperty struct {
 //
 type CfnAutoScalingGroup_AcceleratorTotalMemoryMiBRequestProperty struct {
 	// The memory maximum in MiB.
-	Max *float64 `json:"max"`
+	Max *float64 `json:"max" yaml:"max"`
 	// The memory minimum in MiB.
-	Min *float64 `json:"min"`
+	Min *float64 `json:"min" yaml:"min"`
 }
 
 // `BaselineEbsBandwidthMbpsRequest` is a property of the `InstanceRequirements` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum baseline bandwidth performance for an instance type, in Mbps.
@@ -2268,9 +2268,9 @@ type CfnAutoScalingGroup_AcceleratorTotalMemoryMiBRequestProperty struct {
 //
 type CfnAutoScalingGroup_BaselineEbsBandwidthMbpsRequestProperty struct {
 	// The maximum value in Mbps.
-	Max *float64 `json:"max"`
+	Max *float64 `json:"max" yaml:"max"`
 	// The minimum value in Mbps.
-	Min *float64 `json:"min"`
+	Min *float64 `json:"min" yaml:"min"`
 }
 
 // `InstanceRequirements` specifies a set of requirements for the types of instances that can be launched by an `AWS::AutoScaling::AutoScalingGroup` resource.
@@ -2291,7 +2291,7 @@ type CfnAutoScalingGroup_InstanceRequirementsProperty struct {
 	// To exclude accelerator-enabled instance types, set `Max` to `0` .
 	//
 	// Default: No minimum or maximum
-	AcceleratorCount interface{} `json:"acceleratorCount"`
+	AcceleratorCount interface{} `json:"acceleratorCount" yaml:"acceleratorCount"`
 	// Indicates whether instance types must have accelerators by specific manufacturers.
 	//
 	// - For instance types with NVIDIA devices, specify `nvidia` .
@@ -2300,7 +2300,7 @@ type CfnAutoScalingGroup_InstanceRequirementsProperty struct {
 	// - For instance types with Xilinx devices, specify `xilinx` .
 	//
 	// Default: Any manufacturer
-	AcceleratorManufacturers *[]*string `json:"acceleratorManufacturers"`
+	AcceleratorManufacturers *[]*string `json:"acceleratorManufacturers" yaml:"acceleratorManufacturers"`
 	// Lists the accelerators that must be on an instance type.
 	//
 	// - For instance types with NVIDIA A100 GPUs, specify `a100` .
@@ -2312,11 +2312,11 @@ type CfnAutoScalingGroup_InstanceRequirementsProperty struct {
 	// - For instance types with Xilinx VU9P FPGAs, specify `vu9p` .
 	//
 	// Default: Any accelerator
-	AcceleratorNames *[]*string `json:"acceleratorNames"`
+	AcceleratorNames *[]*string `json:"acceleratorNames" yaml:"acceleratorNames"`
 	// The minimum and maximum total memory size for the accelerators on an instance type, in MiB.
 	//
 	// Default: No minimum or maximum
-	AcceleratorTotalMemoryMiB interface{} `json:"acceleratorTotalMemoryMiB"`
+	AcceleratorTotalMemoryMiB interface{} `json:"acceleratorTotalMemoryMiB" yaml:"acceleratorTotalMemoryMiB"`
 	// Lists the accelerator types that must be on an instance type.
 	//
 	// - For instance types with GPU accelerators, specify `gpu` .
@@ -2324,23 +2324,23 @@ type CfnAutoScalingGroup_InstanceRequirementsProperty struct {
 	// - For instance types with inference accelerators, specify `inference` .
 	//
 	// Default: Any accelerator type
-	AcceleratorTypes *[]*string `json:"acceleratorTypes"`
+	AcceleratorTypes *[]*string `json:"acceleratorTypes" yaml:"acceleratorTypes"`
 	// Indicates whether bare metal instance types are included, excluded, or required.
 	//
 	// Default: `excluded`
-	BareMetal *string `json:"bareMetal"`
+	BareMetal *string `json:"bareMetal" yaml:"bareMetal"`
 	// The minimum and maximum baseline bandwidth performance for an instance type, in Mbps.
 	//
 	// For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide for Linux Instances* .
 	//
 	// Default: No minimum or maximum
-	BaselineEbsBandwidthMbps interface{} `json:"baselineEbsBandwidthMbps"`
+	BaselineEbsBandwidthMbps interface{} `json:"baselineEbsBandwidthMbps" yaml:"baselineEbsBandwidthMbps"`
 	// Indicates whether burstable performance instance types are included, excluded, or required.
 	//
 	// For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) in the *Amazon EC2 User Guide for Linux Instances* .
 	//
 	// Default: `excluded`
-	BurstablePerformance *string `json:"burstablePerformance"`
+	BurstablePerformance *string `json:"burstablePerformance" yaml:"burstablePerformance"`
 	// Lists which specific CPU manufacturers to include.
 	//
 	// - For instance types with Intel CPUs, specify `intel` .
@@ -2350,7 +2350,7 @@ type CfnAutoScalingGroup_InstanceRequirementsProperty struct {
 	// > Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
 	//
 	// Default: Any manufacturer
-	CpuManufacturers *[]*string `json:"cpuManufacturers"`
+	CpuManufacturers *[]*string `json:"cpuManufacturers" yaml:"cpuManufacturers"`
 	// Lists which instance types to exclude.
 	//
 	// You can use strings with one or more wild cards, represented by an asterisk ( `*` ). The following are examples: `c5*` , `m5a.*` , `r*` , `*3*` .
@@ -2358,59 +2358,59 @@ type CfnAutoScalingGroup_InstanceRequirementsProperty struct {
 	// For example, if you specify `c5*` , you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*` , you are excluding all the M5a instance types, but not the M5n instance types.
 	//
 	// Default: No excluded instance types
-	ExcludedInstanceTypes *[]*string `json:"excludedInstanceTypes"`
+	ExcludedInstanceTypes *[]*string `json:"excludedInstanceTypes" yaml:"excludedInstanceTypes"`
 	// Indicates whether current or previous generation instance types are included.
 	//
 	// - For current generation instance types, specify `current` . The current generation includes EC2 instance types currently recommended for use. This typically includes the latest two to three generations in each instance family. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide for Linux Instances* .
 	// - For previous generation instance types, specify `previous` .
 	//
 	// Default: Any current or previous generation
-	InstanceGenerations *[]*string `json:"instanceGenerations"`
+	InstanceGenerations *[]*string `json:"instanceGenerations" yaml:"instanceGenerations"`
 	// Indicates whether instance types with instance store volumes are included, excluded, or required.
 	//
 	// For more information, see [Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) in the *Amazon EC2 User Guide for Linux Instances* .
 	//
 	// Default: `included`
-	LocalStorage *string `json:"localStorage"`
+	LocalStorage *string `json:"localStorage" yaml:"localStorage"`
 	// Indicates the type of local storage that is required.
 	//
 	// - For instance types with hard disk drive (HDD) storage, specify `hdd` .
 	// - For instance types with solid state drive (SSD) storage, specify `sdd` .
 	//
 	// Default: Any local storage type
-	LocalStorageTypes *[]*string `json:"localStorageTypes"`
+	LocalStorageTypes *[]*string `json:"localStorageTypes" yaml:"localStorageTypes"`
 	// The minimum and maximum amount of memory per vCPU for an instance type, in GiB.
 	//
 	// Default: No minimum or maximum
-	MemoryGiBPerVCpu interface{} `json:"memoryGiBPerVCpu"`
+	MemoryGiBPerVCpu interface{} `json:"memoryGiBPerVCpu" yaml:"memoryGiBPerVCpu"`
 	// The minimum and maximum instance memory size for an instance type, in MiB.
-	MemoryMiB interface{} `json:"memoryMiB"`
+	MemoryMiB interface{} `json:"memoryMiB" yaml:"memoryMiB"`
 	// The minimum and maximum number of network interfaces for an instance type.
 	//
 	// Default: No minimum or maximum
-	NetworkInterfaceCount interface{} `json:"networkInterfaceCount"`
+	NetworkInterfaceCount interface{} `json:"networkInterfaceCount" yaml:"networkInterfaceCount"`
 	// The price protection threshold for On-Demand Instances.
 	//
 	// This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as `999999` .
 	//
 	// Default: `20`
-	OnDemandMaxPricePercentageOverLowestPrice *float64 `json:"onDemandMaxPricePercentageOverLowestPrice"`
+	OnDemandMaxPricePercentageOverLowestPrice *float64 `json:"onDemandMaxPricePercentageOverLowestPrice" yaml:"onDemandMaxPricePercentageOverLowestPrice"`
 	// Indicates whether instance types must provide On-Demand Instance hibernation support.
 	//
 	// Default: `false`
-	RequireHibernateSupport interface{} `json:"requireHibernateSupport"`
+	RequireHibernateSupport interface{} `json:"requireHibernateSupport" yaml:"requireHibernateSupport"`
 	// The price protection threshold for Spot Instances.
 	//
 	// This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as `999999` .
 	//
 	// Default: `100`
-	SpotMaxPricePercentageOverLowestPrice *float64 `json:"spotMaxPricePercentageOverLowestPrice"`
+	SpotMaxPricePercentageOverLowestPrice *float64 `json:"spotMaxPricePercentageOverLowestPrice" yaml:"spotMaxPricePercentageOverLowestPrice"`
 	// The minimum and maximum total local storage size for an instance type, in GB.
 	//
 	// Default: No minimum or maximum
-	TotalLocalStorageGb interface{} `json:"totalLocalStorageGb"`
+	TotalLocalStorageGb interface{} `json:"totalLocalStorageGb" yaml:"totalLocalStorageGb"`
 	// The minimum and maximum number of vCPUs for an instance type.
-	VCpuCount interface{} `json:"vCpuCount"`
+	VCpuCount interface{} `json:"vCpuCount" yaml:"vCpuCount"`
 }
 
 // `InstancesDistribution` is a property of the [AWS::AutoScaling::AutoScalingGroup MixedInstancesPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-mixedinstancespolicy.html) property type that describes an instances distribution for an Auto Scaling group. All properties have a default value, which is the value that is used or assumed when the property is not specified.
@@ -2429,7 +2429,7 @@ type CfnAutoScalingGroup_InstancesDistributionProperty struct {
 	// If you specify `prioritized` , Amazon EC2 Auto Scaling uses the priority that you assigned to each launch template override, launching the highest priority first. If all your On-Demand capacity cannot be fulfilled using your highest priority instance, then Amazon EC2 Auto Scaling launches the remaining capacity using the second priority instance type, and so on.
 	//
 	// Default: `lowest-price` for Auto Scaling groups that specify the `InstanceRequirements` property in the overrides and `prioritized` for Auto Scaling groups that don't.
-	OnDemandAllocationStrategy *string `json:"onDemandAllocationStrategy"`
+	OnDemandAllocationStrategy *string `json:"onDemandAllocationStrategy" yaml:"onDemandAllocationStrategy"`
 	// The minimum amount of the Auto Scaling group's capacity that must be fulfilled by On-Demand Instances.
 	//
 	// This base portion is launched first as your group scales.
@@ -2439,7 +2439,7 @@ type CfnAutoScalingGroup_InstancesDistributionProperty struct {
 	// Default: `0`
 	//
 	// > An update to this setting means a gradual replacement of instances to adjust the current On-Demand Instance levels. When replacing instances, Amazon EC2 Auto Scaling launches new instances before terminating the previous ones.
-	OnDemandBaseCapacity *float64 `json:"onDemandBaseCapacity"`
+	OnDemandBaseCapacity *float64 `json:"onDemandBaseCapacity" yaml:"onDemandBaseCapacity"`
 	// Controls the percentages of On-Demand Instances and Spot Instances for your additional capacity beyond `OnDemandBaseCapacity` .
 	//
 	// Expressed as a number (for example, 20 specifies 20% On-Demand Instances, 80% Spot Instances). If set to 100, only On-Demand Instances are used.
@@ -2447,7 +2447,7 @@ type CfnAutoScalingGroup_InstancesDistributionProperty struct {
 	// Default: `100`
 	//
 	// > An update to this setting means a gradual replacement of instances to adjust the current On-Demand and Spot Instance levels for your additional capacity higher than the base capacity. When replacing instances, Amazon EC2 Auto Scaling launches new instances before terminating the previous ones.
-	OnDemandPercentageAboveBaseCapacity *float64 `json:"onDemandPercentageAboveBaseCapacity"`
+	OnDemandPercentageAboveBaseCapacity *float64 `json:"onDemandPercentageAboveBaseCapacity" yaml:"onDemandPercentageAboveBaseCapacity"`
 	// If the allocation strategy is `lowest-price` , the Auto Scaling group launches instances using the Spot pools with the lowest price, and evenly allocates your instances across the number of Spot pools that you specify.
 	//
 	// If the allocation strategy is `capacity-optimized` (recommended), the Auto Scaling group launches instances using Spot pools that are optimally chosen based on the available Spot capacity. Alternatively, you can use `capacity-optimized-prioritized` and set the order of instance types in the list of launch template overrides from highest to lowest priority (from first to last in the list). Amazon EC2 Auto Scaling honors the instance type priorities on a best-effort basis but optimizes for capacity first.
@@ -2455,13 +2455,13 @@ type CfnAutoScalingGroup_InstancesDistributionProperty struct {
 	// Default: `lowest-price`
 	//
 	// Valid values: `lowest-price` | `capacity-optimized` | `capacity-optimized-prioritized`
-	SpotAllocationStrategy *string `json:"spotAllocationStrategy"`
+	SpotAllocationStrategy *string `json:"spotAllocationStrategy" yaml:"spotAllocationStrategy"`
 	// The number of Spot Instance pools to use to allocate your Spot capacity.
 	//
 	// The Spot pools are determined from the different instance types in the overrides. Valid only when the Spot allocation strategy is `lowest-price` . Value must be in the range of 1–20.
 	//
 	// Default: `2`
-	SpotInstancePools *float64 `json:"spotInstancePools"`
+	SpotInstancePools *float64 `json:"spotInstancePools" yaml:"spotInstancePools"`
 	// The maximum price per unit hour that you are willing to pay for a Spot Instance.
 	//
 	// If you leave the value at its default (empty), Amazon EC2 Auto Scaling uses the On-Demand price as the maximum Spot price. To remove a value that you previously set, include the property but specify an empty string ("") for the value.
@@ -2469,7 +2469,7 @@ type CfnAutoScalingGroup_InstancesDistributionProperty struct {
 	// > If your maximum price is lower than the Spot price for the instance types that you selected, your Spot Instances are not launched.
 	//
 	// Valid Range: Minimum value of 0.001
-	SpotMaxPrice *string `json:"spotMaxPrice"`
+	SpotMaxPrice *string `json:"spotMaxPrice" yaml:"spotMaxPrice"`
 }
 
 // `LaunchTemplateOverrides` is a property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) property type that describes an override for a launch template.
@@ -2484,19 +2484,19 @@ type CfnAutoScalingGroup_LaunchTemplateOverridesProperty struct {
 	// When you specify instance requirements, Amazon EC2 Auto Scaling finds instance types that satisfy your requirements, and then uses your On-Demand and Spot allocation strategies to launch instances from these instance types, in the same way as when you specify a list of specific instance types.
 	//
 	// > `InstanceRequirements` are incompatible with the `InstanceType` property. If you specify both of these properties, Amazon EC2 Auto Scaling will return a `ValidationException` exception.
-	InstanceRequirements interface{} `json:"instanceRequirements"`
+	InstanceRequirements interface{} `json:"instanceRequirements" yaml:"instanceRequirements"`
 	// The instance type, such as `m3.xlarge` . You must use an instance type that is supported in your requested Region and Availability Zones. For more information, see [Available instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes) in the *Amazon EC2 User Guide for Linux Instances.*.
-	InstanceType *string `json:"instanceType"`
+	InstanceType *string `json:"instanceType" yaml:"instanceType"`
 	// Provides the launch template to be used when launching the instance type specified in `InstanceType` .
 	//
 	// For example, some instance types might require a launch template with a different AMI. If not provided, Amazon EC2 Auto Scaling uses the launch template that's defined for your mixed instances policy. For more information, see [Specifying a different launch template for an instance type](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups-launch-template-overrides.html) in the *Amazon EC2 Auto Scaling User Guide* .
-	LaunchTemplateSpecification interface{} `json:"launchTemplateSpecification"`
+	LaunchTemplateSpecification interface{} `json:"launchTemplateSpecification" yaml:"launchTemplateSpecification"`
 	// The number of capacity units provided by the instance type specified in `InstanceType` in terms of virtual CPUs, memory, storage, throughput, or other relative performance characteristic.
 	//
 	// When a Spot or On-Demand Instance is provisioned, the capacity units count toward the desired capacity. Amazon EC2 Auto Scaling provisions instances until the desired capacity is totally fulfilled, even if this results in an overage. For example, if there are 2 units remaining to fulfill capacity, and Amazon EC2 Auto Scaling can only provision an instance with a `WeightedCapacity` of 5 units, the instance is provisioned, and the desired capacity is exceeded by 3 units. For more information, see [Instance weighting for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups-instance-weighting.html) in the *Amazon EC2 Auto Scaling User Guide* . Value must be in the range of 1-999.
 	//
 	// > Every Auto Scaling group has three size parameters ( `DesiredCapacity` , `MaxSize` , and `MinSize` ). Usually, you set these sizes based on a specific number of instances. However, if you configure a mixed instances policy that defines weights for the instance types, you must specify these sizes with the same units that you use for weighting instances.
-	WeightedCapacity *string `json:"weightedCapacity"`
+	WeightedCapacity *string `json:"weightedCapacity" yaml:"weightedCapacity"`
 }
 
 // `LaunchTemplate` is a property of the [AWS::AutoScaling::AutoScalingGroup MixedInstancesPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-mixedinstancespolicy.html) property type that describes a launch template and overrides. The overrides are used to override the instance type specified by the launch template with multiple instance types that can be used to launch On-Demand Instances and Spot Instances.
@@ -2505,13 +2505,13 @@ type CfnAutoScalingGroup_LaunchTemplateOverridesProperty struct {
 //
 type CfnAutoScalingGroup_LaunchTemplateProperty struct {
 	// The launch template to use.
-	LaunchTemplateSpecification interface{} `json:"launchTemplateSpecification"`
+	LaunchTemplateSpecification interface{} `json:"launchTemplateSpecification" yaml:"launchTemplateSpecification"`
 	// Any properties that you specify override the same properties in the launch template.
 	//
 	// If not provided, Amazon EC2 Auto Scaling uses the instance type or instance requirements specified in the launch template when it launches an instance.
 	//
 	// The overrides can include either one or more instance types or a set of instance requirements, but not both.
-	Overrides interface{} `json:"overrides"`
+	Overrides interface{} `json:"overrides" yaml:"overrides"`
 }
 
 // `LaunchTemplateSpecification` specifies a launch template and version for the `LaunchTemplate` property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html) resource. It is also a property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) and [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property types.
@@ -2528,11 +2528,11 @@ type CfnAutoScalingGroup_LaunchTemplateSpecificationProperty struct {
 	// CloudFormation does not support specifying $Latest, or $Default for the template version number. However, you can specify `LatestVersionNumber` or `DefaultVersionNumber` using the `Fn::GetAtt` function.
 	//
 	// > For an example of using the `Fn::GetAtt` function, see the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#aws-properties-as-group--examples) section of the `AWS::AutoScaling::AutoScalingGroup` documentation.
-	Version *string `json:"version"`
+	Version *string `json:"version" yaml:"version"`
 	// The ID of the [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html) . You must specify either a `LaunchTemplateName` or a `LaunchTemplateId` .
-	LaunchTemplateId *string `json:"launchTemplateId"`
+	LaunchTemplateId *string `json:"launchTemplateId" yaml:"launchTemplateId"`
 	// The name of the [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html) . You must specify either a `LaunchTemplateName` or a `LaunchTemplateId` .
-	LaunchTemplateName *string `json:"launchTemplateName"`
+	LaunchTemplateName *string `json:"launchTemplateName" yaml:"launchTemplateName"`
 }
 
 // `LifecycleHookSpecification` specifies a lifecycle hook for the `LifecycleHookSpecificationList` property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html) resource. A lifecycle hook specifies actions to perform when Amazon EC2 Auto Scaling launches or terminates instances.
@@ -2543,32 +2543,32 @@ type CfnAutoScalingGroup_LaunchTemplateSpecificationProperty struct {
 //
 type CfnAutoScalingGroup_LifecycleHookSpecificationProperty struct {
 	// The name of the lifecycle hook.
-	LifecycleHookName *string `json:"lifecycleHookName"`
+	LifecycleHookName *string `json:"lifecycleHookName" yaml:"lifecycleHookName"`
 	// The state of the EC2 instance to attach the lifecycle hook to. The valid values are:.
 	//
 	// - autoscaling:EC2_INSTANCE_LAUNCHING
 	// - autoscaling:EC2_INSTANCE_TERMINATING
-	LifecycleTransition *string `json:"lifecycleTransition"`
+	LifecycleTransition *string `json:"lifecycleTransition" yaml:"lifecycleTransition"`
 	// The action the Auto Scaling group takes when the lifecycle hook timeout elapses or if an unexpected failure occurs.
 	//
 	// The valid values are `CONTINUE` and `ABANDON` (default).
 	//
 	// For more information, see [Adding lifecycle hooks](https://docs.aws.amazon.com/autoscaling/ec2/userguide/adding-lifecycle-hooks.html) in the *Amazon EC2 Auto Scaling User Guide* .
-	DefaultResult *string `json:"defaultResult"`
+	DefaultResult *string `json:"defaultResult" yaml:"defaultResult"`
 	// The maximum time, in seconds, that can elapse before the lifecycle hook times out.
 	//
 	// If the lifecycle hook times out, Amazon EC2 Auto Scaling performs the default action.
-	HeartbeatTimeout *float64 `json:"heartbeatTimeout"`
+	HeartbeatTimeout *float64 `json:"heartbeatTimeout" yaml:"heartbeatTimeout"`
 	// Additional information that you want to include any time Amazon EC2 Auto Scaling sends a message to the notification target.
-	NotificationMetadata *string `json:"notificationMetadata"`
+	NotificationMetadata *string `json:"notificationMetadata" yaml:"notificationMetadata"`
 	// The Amazon Resource Name (ARN) of the notification target that Amazon EC2 Auto Scaling uses to notify you when an instance is in the transition state for the lifecycle hook.
 	//
 	// You can specify an Amazon SQS queue or an Amazon SNS topic.
-	NotificationTargetArn *string `json:"notificationTargetArn"`
+	NotificationTargetArn *string `json:"notificationTargetArn" yaml:"notificationTargetArn"`
 	// The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target, for example, an Amazon SNS topic or an Amazon SQS queue.
 	//
 	// For information about creating this role, see [Configuring a notification target for a lifecycle hook](https://docs.aws.amazon.com/autoscaling/ec2/userguide/configuring-lifecycle-hook-notifications.html) in the *Amazon EC2 Auto Scaling User Guide* .
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 }
 
 // `MemoryGiBPerVCpuRequest` is a property of the `InstanceRequirements` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum amount of memory per vCPU for an instance type, in GiB.
@@ -2577,9 +2577,9 @@ type CfnAutoScalingGroup_LifecycleHookSpecificationProperty struct {
 //
 type CfnAutoScalingGroup_MemoryGiBPerVCpuRequestProperty struct {
 	// The memory maximum in GiB.
-	Max *float64 `json:"max"`
+	Max *float64 `json:"max" yaml:"max"`
 	// The memory minimum in GiB.
-	Min *float64 `json:"min"`
+	Min *float64 `json:"min" yaml:"min"`
 }
 
 // `MemoryMiBRequest` is a property of the `InstanceRequirements` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum instance memory size for an instance type, in MiB.
@@ -2588,9 +2588,9 @@ type CfnAutoScalingGroup_MemoryGiBPerVCpuRequestProperty struct {
 //
 type CfnAutoScalingGroup_MemoryMiBRequestProperty struct {
 	// The memory maximum in MiB.
-	Max *float64 `json:"max"`
+	Max *float64 `json:"max" yaml:"max"`
 	// The memory minimum in MiB.
-	Min *float64 `json:"min"`
+	Min *float64 `json:"min" yaml:"min"`
 }
 
 // `MetricsCollection` is a property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html) resource that describes the group metrics that an Amazon EC2 Auto Scaling group sends to Amazon CloudWatch. These metrics describe the group rather than any of its instances.
@@ -2603,7 +2603,7 @@ type CfnAutoScalingGroup_MetricsCollectionProperty struct {
 	// The frequency at which Amazon EC2 Auto Scaling sends aggregated data to CloudWatch.
 	//
 	// *Allowed Values* : `1Minute`
-	Granularity *string `json:"granularity"`
+	Granularity *string `json:"granularity" yaml:"granularity"`
 	// Specifies which group-level metrics to start collecting.
 	//
 	// *Allowed Values* :
@@ -2630,7 +2630,7 @@ type CfnAutoScalingGroup_MetricsCollectionProperty struct {
 	// - `GroupAndWarmPoolTotalCapacity`
 	//
 	// If you specify `Granularity` and don't specify any metrics, all metrics are enabled.
-	Metrics *[]*string `json:"metrics"`
+	Metrics *[]*string `json:"metrics" yaml:"metrics"`
 }
 
 // `MixedInstancesPolicy` is a property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html) resource. It allows you to configure a group that diversifies across On-Demand Instances and Spot Instances of multiple instance types. For more information, see [Auto Scaling groups with multiple instance types and purchase options](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html) in the *Amazon EC2 Auto Scaling User Guide* .
@@ -2641,11 +2641,11 @@ type CfnAutoScalingGroup_MetricsCollectionProperty struct {
 //
 type CfnAutoScalingGroup_MixedInstancesPolicyProperty struct {
 	// Specifies the launch template to use and optionally the instance types (overrides) that are used to provision EC2 instances to fulfill On-Demand and Spot capacities.
-	LaunchTemplate interface{} `json:"launchTemplate"`
+	LaunchTemplate interface{} `json:"launchTemplate" yaml:"launchTemplate"`
 	// The instances distribution to use.
 	//
 	// If you leave this property unspecified, the value for each property in `InstancesDistribution` uses a default value.
-	InstancesDistribution interface{} `json:"instancesDistribution"`
+	InstancesDistribution interface{} `json:"instancesDistribution" yaml:"instancesDistribution"`
 }
 
 // `NetworkInterfaceCountRequest` is a property of the `InstanceRequirements` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum number of network interfaces for an instance type.
@@ -2654,9 +2654,9 @@ type CfnAutoScalingGroup_MixedInstancesPolicyProperty struct {
 //
 type CfnAutoScalingGroup_NetworkInterfaceCountRequestProperty struct {
 	// The maximum number of network interfaces.
-	Max *float64 `json:"max"`
+	Max *float64 `json:"max" yaml:"max"`
 	// The minimum number of network interfaces.
-	Min *float64 `json:"min"`
+	Min *float64 `json:"min" yaml:"min"`
 }
 
 // `NotificationConfiguration` specifies a notification configuration for the `NotificationConfigurations` property of [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html) . `NotificationConfiguration` specifies the events that the Amazon EC2 Auto Scaling group sends notifications for.
@@ -2669,7 +2669,7 @@ type CfnAutoScalingGroup_NetworkInterfaceCountRequestProperty struct {
 //
 type CfnAutoScalingGroup_NotificationConfigurationProperty struct {
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic.
-	TopicArn *string `json:"topicArn"`
+	TopicArn *string `json:"topicArn" yaml:"topicArn"`
 	// A list of event types that trigger a notification. Event types can include any of the following types.
 	//
 	// *Allowed Values* :
@@ -2679,7 +2679,7 @@ type CfnAutoScalingGroup_NotificationConfigurationProperty struct {
 	// - `autoscaling:EC2_INSTANCE_TERMINATE`
 	// - `autoscaling:EC2_INSTANCE_TERMINATE_ERROR`
 	// - `autoscaling:TEST_NOTIFICATION`
-	NotificationTypes *[]*string `json:"notificationTypes"`
+	NotificationTypes *[]*string `json:"notificationTypes" yaml:"notificationTypes"`
 }
 
 // `TagProperty` specifies a tag for the `Tags` property of [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html) . `TagProperty` adds tags to all associated instances in an Auto Scaling group.
@@ -2696,13 +2696,13 @@ type CfnAutoScalingGroup_NotificationConfigurationProperty struct {
 //
 type CfnAutoScalingGroup_TagPropertyProperty struct {
 	// The tag key.
-	Key *string `json:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// Set to `true` if you want CloudFormation to copy the tag to EC2 instances that are launched as part of the Auto Scaling group.
 	//
 	// Set to `false` if you want the tag attached only to the Auto Scaling group and not copied to any instances launched as part of the Auto Scaling group.
-	PropagateAtLaunch interface{} `json:"propagateAtLaunch"`
+	PropagateAtLaunch interface{} `json:"propagateAtLaunch" yaml:"propagateAtLaunch"`
 	// The tag value.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // `TotalLocalStorageGBRequest` is a property of the `InstanceRequirements` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum total local storage size for an instance type, in GB.
@@ -2711,9 +2711,9 @@ type CfnAutoScalingGroup_TagPropertyProperty struct {
 //
 type CfnAutoScalingGroup_TotalLocalStorageGBRequestProperty struct {
 	// The storage maximum in GB.
-	Max *float64 `json:"max"`
+	Max *float64 `json:"max" yaml:"max"`
 	// The storage minimum in GB.
-	Min *float64 `json:"min"`
+	Min *float64 `json:"min" yaml:"min"`
 }
 
 // `VCpuCountRequest` is a property of the `InstanceRequirements` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum number of vCPUs for an instance type.
@@ -2722,9 +2722,9 @@ type CfnAutoScalingGroup_TotalLocalStorageGBRequestProperty struct {
 //
 type CfnAutoScalingGroup_VCpuCountRequestProperty struct {
 	// The maximum number of vCPUs.
-	Max *float64 `json:"max"`
+	Max *float64 `json:"max" yaml:"max"`
 	// The minimum number of vCPUs.
-	Min *float64 `json:"min"`
+	Min *float64 `json:"min" yaml:"min"`
 }
 
 // Properties for defining a `CfnAutoScalingGroup`.
@@ -2735,27 +2735,27 @@ type CfnAutoScalingGroupProps struct {
 	// The maximum size of the group.
 	//
 	// > With a mixed instances policy that uses instance weighting, Amazon EC2 Auto Scaling may need to go above `MaxSize` to meet your capacity requirements. In this event, Amazon EC2 Auto Scaling will never go above `MaxSize` by more than your largest instance weight (weights that define how many units each instance contributes to the desired capacity of the group).
-	MaxSize *string `json:"maxSize"`
+	MaxSize *string `json:"maxSize" yaml:"maxSize"`
 	// The minimum size of the group.
-	MinSize *string `json:"minSize"`
+	MinSize *string `json:"minSize" yaml:"minSize"`
 	// The name of the Auto Scaling group.
 	//
 	// This name must be unique per Region per account.
-	AutoScalingGroupName *string `json:"autoScalingGroupName"`
+	AutoScalingGroupName *string `json:"autoScalingGroupName" yaml:"autoScalingGroupName"`
 	// A list of Availability Zones where instances in the Auto Scaling group can be created.
 	//
 	// You must specify one of the following properties: `VPCZoneIdentifier` or `AvailabilityZones` . If your account supports EC2-Classic and VPC, this property is required to create an Auto Scaling group that launches instances into EC2-Classic.
-	AvailabilityZones *[]*string `json:"availabilityZones"`
+	AvailabilityZones *[]*string `json:"availabilityZones" yaml:"availabilityZones"`
 	// Indicates whether Capacity Rebalancing is enabled.
 	//
 	// For more information, see [Amazon EC2 Auto Scaling Capacity Rebalancing](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html) in the *Amazon EC2 Auto Scaling User Guide* .
-	CapacityRebalance interface{} `json:"capacityRebalance"`
+	CapacityRebalance interface{} `json:"capacityRebalance" yaml:"capacityRebalance"`
 	// Reserved.
-	Context *string `json:"context"`
+	Context *string `json:"context" yaml:"context"`
 	// The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
 	//
 	// The default value is `300` . This setting applies when using simple scaling policies, but not when using other scaling policies or scheduled scaling. For more information, see [Scaling cooldowns for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html) in the *Amazon EC2 Auto Scaling User Guide* .
-	Cooldown *string `json:"cooldown"`
+	Cooldown *string `json:"cooldown" yaml:"cooldown"`
 	// The desired capacity is the initial capacity of the Auto Scaling group at the time of its creation and the capacity it attempts to maintain.
 	//
 	// It can scale beyond this capacity if you configure automatic scaling.
@@ -2763,7 +2763,7 @@ type CfnAutoScalingGroupProps struct {
 	// The number must be greater than or equal to the minimum size of the group and less than or equal to the maximum size of the group. If you do not specify a desired capacity when creating the stack, the default is the minimum size of the group.
 	//
 	// CloudFormation marks the Auto Scaling group as successful (by setting its status to CREATE_COMPLETE) when the desired capacity is reached. However, if a maximum Spot price is set in the launch template or launch configuration that you specified, then desired capacity is not used as a criteria for success. Whether your request is fulfilled depends on Spot Instance capacity and your maximum price.
-	DesiredCapacity *string `json:"desiredCapacity"`
+	DesiredCapacity *string `json:"desiredCapacity" yaml:"desiredCapacity"`
 	// The unit of measurement for the value specified for desired capacity.
 	//
 	// Amazon EC2 Auto Scaling supports `DesiredCapacityType` for attribute-based instance type selection only. For more information, see [Creating an Auto Scaling group using attribute-based instance type selection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html) in the *Amazon EC2 Auto Scaling User Guide* .
@@ -2771,17 +2771,17 @@ type CfnAutoScalingGroupProps struct {
 	// By default, Amazon EC2 Auto Scaling specifies `units` , which translates into number of instances.
 	//
 	// Valid values: `units` | `vcpu` | `memory-mib`
-	DesiredCapacityType *string `json:"desiredCapacityType"`
+	DesiredCapacityType *string `json:"desiredCapacityType" yaml:"desiredCapacityType"`
 	// The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service.
 	//
 	// The default value is `0` . For more information, see [Health checks for Auto Scaling instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html) in the *Amazon EC2 Auto Scaling User Guide* .
 	//
 	// If you are adding an `ELB` health check, you must specify this property.
-	HealthCheckGracePeriod *float64 `json:"healthCheckGracePeriod"`
+	HealthCheckGracePeriod *float64 `json:"healthCheckGracePeriod" yaml:"healthCheckGracePeriod"`
 	// The service to use for the health checks.
 	//
 	// The valid values are `EC2` (default) and `ELB` . If you configure an Auto Scaling group to use load balancer (ELB) health checks, it considers the instance unhealthy if it fails either the EC2 status checks or the load balancer health checks. For more information, see [Health checks for Auto Scaling instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html) in the *Amazon EC2 Auto Scaling User Guide* .
-	HealthCheckType *string `json:"healthCheckType"`
+	HealthCheckType *string `json:"healthCheckType" yaml:"healthCheckType"`
 	// The ID of the instance used to base the launch configuration on.
 	//
 	// If specified, Amazon EC2 Auto Scaling uses the configuration values from the specified instance to create a new launch configuration. For more information, see [Creating an Auto Scaling group using an EC2 instance](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-from-instance.html) in the *Amazon EC2 Auto Scaling User Guide* .
@@ -2789,29 +2789,29 @@ type CfnAutoScalingGroupProps struct {
 	// To get the instance ID, use the EC2 [DescribeInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html) API operation.
 	//
 	// If you specify `LaunchTemplate` , `MixedInstancesPolicy` , or `LaunchConfigurationName` , don't specify `InstanceId` .
-	InstanceId *string `json:"instanceId"`
+	InstanceId *string `json:"instanceId" yaml:"instanceId"`
 	// The name of the [launch configuration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html) to use to launch instances.
 	//
 	// If you specify `LaunchTemplate` , `MixedInstancesPolicy` , or `InstanceId` , don't specify `LaunchConfigurationName` .
-	LaunchConfigurationName *string `json:"launchConfigurationName"`
+	LaunchConfigurationName *string `json:"launchConfigurationName" yaml:"launchConfigurationName"`
 	// Properties used to specify the [launch template](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html) and version to use to launch instances. You can alternatively associate a launch template to the Auto Scaling group by specifying a `MixedInstancesPolicy` .
 	//
 	// If you omit this property, you must specify `MixedInstancesPolicy` , `LaunchConfigurationName` , or `InstanceId` .
-	LaunchTemplate interface{} `json:"launchTemplate"`
+	LaunchTemplate interface{} `json:"launchTemplate" yaml:"launchTemplate"`
 	// One or more lifecycle hooks for the group, which specify actions to perform when Amazon EC2 Auto Scaling launches or terminates instances.
-	LifecycleHookSpecificationList interface{} `json:"lifecycleHookSpecificationList"`
+	LifecycleHookSpecificationList interface{} `json:"lifecycleHookSpecificationList" yaml:"lifecycleHookSpecificationList"`
 	// A list of Classic Load Balancers associated with this Auto Scaling group.
 	//
 	// For Application Load Balancers, Network Load Balancers, and Gateway Load Balancers, specify the `TargetGroupARNs` property instead.
-	LoadBalancerNames *[]*string `json:"loadBalancerNames"`
+	LoadBalancerNames *[]*string `json:"loadBalancerNames" yaml:"loadBalancerNames"`
 	// The maximum amount of time, in seconds, that an instance can be in service.
 	//
 	// The default is null. If specified, the value must be either 0 or a number equal to or greater than 86,400 seconds (1 day). For more information, see [Replacing Auto Scaling instances based on maximum instance lifetime](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html) in the *Amazon EC2 Auto Scaling User Guide* .
-	MaxInstanceLifetime *float64 `json:"maxInstanceLifetime"`
+	MaxInstanceLifetime *float64 `json:"maxInstanceLifetime" yaml:"maxInstanceLifetime"`
 	// Enables the monitoring of group metrics of an Auto Scaling group.
 	//
 	// By default, these metrics are disabled.
-	MetricsCollection interface{} `json:"metricsCollection"`
+	MetricsCollection interface{} `json:"metricsCollection" yaml:"metricsCollection"`
 	// An embedded object that specifies a mixed instances policy.
 	//
 	// The policy includes properties that not only define the distribution of On-Demand Instances and Spot Instances, the maximum price to pay for Spot Instances (optional), and how the Auto Scaling group allocates instance types to fulfill On-Demand and Spot capacities, but also the properties that specify the instance configuration information—the launch template and instance types. The policy can also include a weight for each instance type and different launch templates for individual instance types.
@@ -2819,33 +2819,33 @@ type CfnAutoScalingGroupProps struct {
 	// For more information, see [Auto Scaling groups with multiple instance types and purchase options](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html) in the *Amazon EC2 Auto Scaling User Guide* .
 	//
 	// If you specify `LaunchTemplate` , `InstanceId` , or `LaunchConfigurationName` , don't specify `MixedInstancesPolicy` .
-	MixedInstancesPolicy interface{} `json:"mixedInstancesPolicy"`
+	MixedInstancesPolicy interface{} `json:"mixedInstancesPolicy" yaml:"mixedInstancesPolicy"`
 	// Indicates whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in.
 	//
 	// For more information about preventing instances from terminating on scale in, see [Instance Protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection) in the *Amazon EC2 Auto Scaling User Guide* .
-	NewInstancesProtectedFromScaleIn interface{} `json:"newInstancesProtectedFromScaleIn"`
+	NewInstancesProtectedFromScaleIn interface{} `json:"newInstancesProtectedFromScaleIn" yaml:"newInstancesProtectedFromScaleIn"`
 	// Configures an Auto Scaling group to send notifications when specified events take place.
-	NotificationConfigurations interface{} `json:"notificationConfigurations"`
+	NotificationConfigurations interface{} `json:"notificationConfigurations" yaml:"notificationConfigurations"`
 	// The name of the placement group into which you want to launch your instances.
 	//
 	// A placement group is a logical grouping of instances within a single Availability Zone. For more information, see [Placement Groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the *Amazon EC2 User Guide for Linux Instances* .
-	PlacementGroup *string `json:"placementGroup"`
+	PlacementGroup *string `json:"placementGroup" yaml:"placementGroup"`
 	// The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf.
 	//
 	// By default, Amazon EC2 Auto Scaling uses a service-linked role named `AWSServiceRoleForAutoScaling` , which it creates if it does not exist. For more information, see [Service-linked roles for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html) in the *Amazon EC2 Auto Scaling User Guide* .
-	ServiceLinkedRoleArn *string `json:"serviceLinkedRoleArn"`
+	ServiceLinkedRoleArn *string `json:"serviceLinkedRoleArn" yaml:"serviceLinkedRoleArn"`
 	// One or more tags.
 	//
 	// You can tag your Auto Scaling group and propagate the tags to the Amazon EC2 instances it launches. For more information, see [Tagging Auto Scaling groups and instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-tagging.html) in the *Amazon EC2 Auto Scaling User Guide* .
-	Tags *[]*CfnAutoScalingGroup_TagPropertyProperty `json:"tags"`
+	Tags *[]*CfnAutoScalingGroup_TagPropertyProperty `json:"tags" yaml:"tags"`
 	// One or more Amazon Resource Names (ARN) of load balancer target groups to associate with the Auto Scaling group.
 	//
 	// Instances are registered as targets in a target group, and traffic is routed to the target group. For more information, see [Elastic Load Balancing and Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html) in the *Amazon EC2 Auto Scaling User Guide* .
-	TargetGroupArns *[]*string `json:"targetGroupArns"`
+	TargetGroupArns *[]*string `json:"targetGroupArns" yaml:"targetGroupArns"`
 	// A policy or a list of policies that are used to select the instances to terminate.
 	//
 	// The policies are executed in the order that you list them. The termination policies supported by Amazon EC2 Auto Scaling: `OldestInstance` , `OldestLaunchConfiguration` , `NewestInstance` , `ClosestToNextInstanceHour` , `Default` , `OldestLaunchTemplate` , and `AllocationStrategy` . For more information, see [Controlling which Auto Scaling instances terminate during scale in](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html) in the *Amazon EC2 Auto Scaling User Guide* .
-	TerminationPolicies *[]*string `json:"terminationPolicies"`
+	TerminationPolicies *[]*string `json:"terminationPolicies" yaml:"terminationPolicies"`
 	// A list of subnet IDs for a virtual private cloud (VPC) where instances in the Auto Scaling group can be created.
 	//
 	// If you specify `VPCZoneIdentifier` with `AvailabilityZones` , the subnets that you specify for this property must reside in those Availability Zones.
@@ -2853,7 +2853,7 @@ type CfnAutoScalingGroupProps struct {
 	// If this resource specifies public subnets and is also in a VPC that is defined in the same stack template, you must use the [DependsOn attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) to declare a dependency on the [VPC-gateway attachment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc-gateway-attachment.html) .
 	//
 	// > When you update `VPCZoneIdentifier` , this retains the same Auto Scaling group and replaces old instances with new ones, according to the specified subnets. You can optionally specify how CloudFormation handles these updates by using an [UpdatePolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html) .
-	VpcZoneIdentifier *[]*string `json:"vpcZoneIdentifier"`
+	VpcZoneIdentifier *[]*string `json:"vpcZoneIdentifier" yaml:"vpcZoneIdentifier"`
 }
 
 // A CloudFormation `AWS::AutoScaling::LaunchConfiguration`.
@@ -3706,23 +3706,23 @@ type CfnLaunchConfiguration_BlockDeviceMappingProperty struct {
 	// The device name exposed to the EC2 instance (for example, `/dev/sdh` or `xvdh` ).
 	//
 	// For more information, see [Device naming on Linux instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html) in the *Amazon EC2 User Guide for Linux Instances* .
-	DeviceName *string `json:"deviceName"`
+	DeviceName *string `json:"deviceName" yaml:"deviceName"`
 	// Parameters used to automatically set up EBS volumes when an instance is launched.
 	//
 	// You can specify either `VirtualName` or `Ebs` , but not both.
-	Ebs interface{} `json:"ebs"`
+	Ebs interface{} `json:"ebs" yaml:"ebs"`
 	// Setting this value to `true` suppresses the specified device included in the block device mapping of the AMI.
 	//
 	// If `NoDevice` is `true` for the root device, instances might fail the EC2 health check. In that case, Amazon EC2 Auto Scaling launches replacement instances.
 	//
 	// If you specify `NoDevice` , you cannot specify `Ebs` .
-	NoDevice interface{} `json:"noDevice"`
+	NoDevice interface{} `json:"noDevice" yaml:"noDevice"`
 	// The name of the virtual device.
 	//
 	// The name must be in the form ephemeral *X* where *X* is a number starting from zero (0), for example, `ephemeral0` .
 	//
 	// You can specify either `VirtualName` or `Ebs` , but not both.
-	VirtualName *string `json:"virtualName"`
+	VirtualName *string `json:"virtualName" yaml:"virtualName"`
 }
 
 // `BlockDevice` is a property of the `EBS` property of the [AWS::AutoScaling::LaunchConfiguration BlockDeviceMapping](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig-blockdev-mapping.html) property type that describes an Amazon EBS volume.
@@ -3733,7 +3733,7 @@ type CfnLaunchConfiguration_BlockDeviceProperty struct {
 	// Indicates whether the volume is deleted on instance termination.
 	//
 	// For Amazon EC2 Auto Scaling, the default value is `true` .
-	DeleteOnTermination interface{} `json:"deleteOnTermination"`
+	DeleteOnTermination interface{} `json:"deleteOnTermination" yaml:"deleteOnTermination"`
 	// Specifies whether the volume should be encrypted.
 	//
 	// Encrypted EBS volumes can only be attached to instances that support Amazon EBS encryption. For more information, see [Supported instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances) . If your AMI uses encrypted volumes, you can also only launch it on supported instance types.
@@ -3743,7 +3743,7 @@ type CfnLaunchConfiguration_BlockDeviceProperty struct {
 	// > If you enable encryption by default, the EBS volumes that you create are always encrypted, either using the AWS managed KMS key or a customer-managed KMS key, regardless of whether the snapshot was encrypted.
 	// >
 	// > For more information, see [Using AWS KMS keys to encrypt Amazon EBS volumes](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-data-protection.html#encryption) in the *Amazon EC2 Auto Scaling User Guide* .
-	Encrypted interface{} `json:"encrypted"`
+	Encrypted interface{} `json:"encrypted" yaml:"encrypted"`
 	// The number of input/output (I/O) operations per second (IOPS) to provision for the volume.
 	//
 	// For `gp3` and `io1` volumes, this represents the number of IOPS that are provisioned for the volume. For `gp2` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
@@ -3756,13 +3756,13 @@ type CfnLaunchConfiguration_BlockDeviceProperty struct {
 	// For `io1` volumes, we guarantee 64,000 IOPS only for [Instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances) . Other instance families guarantee performance up to 32,000 IOPS.
 	//
 	// `Iops` is supported when the volume type is `gp3` or `io1` and required only when the volume type is `io1` . (Not used with `standard` , `gp2` , `st1` , or `sc1` volumes.)
-	Iops *float64 `json:"iops"`
+	Iops *float64 `json:"iops" yaml:"iops"`
 	// The snapshot ID of the volume to use.
 	//
 	// You must specify either a `VolumeSize` or a `SnapshotId` .
-	SnapshotId *string `json:"snapshotId"`
+	SnapshotId *string `json:"snapshotId" yaml:"snapshotId"`
 	// The throughput (MiBps) to provision for a `gp3` volume.
-	Throughput *float64 `json:"throughput"`
+	Throughput *float64 `json:"throughput" yaml:"throughput"`
 	// The volume size, in GiBs. The following are the supported volumes sizes for each volume type:.
 	//
 	// - `gp2` and `gp3` : 1-16,384
@@ -3771,13 +3771,13 @@ type CfnLaunchConfiguration_BlockDeviceProperty struct {
 	// - `standard` : 1-1,024
 	//
 	// You must specify either a `SnapshotId` or a `VolumeSize` . If you specify both `SnapshotId` and `VolumeSize` , the volume size must be equal or greater than the size of the snapshot.
-	VolumeSize *float64 `json:"volumeSize"`
+	VolumeSize *float64 `json:"volumeSize" yaml:"volumeSize"`
 	// The volume type.
 	//
 	// For more information, see [Amazon EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) in the *Amazon EC2 User Guide for Linux Instances* .
 	//
 	// Valid Values: `standard` | `io1` | `gp2` | `st1` | `sc1` | `gp3`
-	VolumeType *string `json:"volumeType"`
+	VolumeType *string `json:"volumeType" yaml:"volumeType"`
 }
 
 // `MetadataOptions` is a property of [AWS::AutoScaling::LaunchConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html) that describes metadata options for the instances.
@@ -3792,13 +3792,13 @@ type CfnLaunchConfiguration_MetadataOptionsProperty struct {
 	// If the parameter is not specified, the default state is `enabled` .
 	//
 	// > If you specify a value of `disabled` , you will not be able to access your instance metadata.
-	HttpEndpoint *string `json:"httpEndpoint"`
+	HttpEndpoint *string `json:"httpEndpoint" yaml:"httpEndpoint"`
 	// The desired HTTP PUT response hop limit for instance metadata requests.
 	//
 	// The larger the number, the further instance metadata requests can travel.
 	//
 	// Default: 1
-	HttpPutResponseHopLimit *float64 `json:"httpPutResponseHopLimit"`
+	HttpPutResponseHopLimit *float64 `json:"httpPutResponseHopLimit" yaml:"httpPutResponseHopLimit"`
 	// The state of token usage for your instance metadata requests.
 	//
 	// If the parameter is not specified in the request, the default state is `optional` .
@@ -3806,7 +3806,7 @@ type CfnLaunchConfiguration_MetadataOptionsProperty struct {
 	// If the state is `optional` , you can choose to retrieve instance metadata with or without a signed token header on your request. If you retrieve the IAM role credentials without a token, the version 1.0 role credentials are returned. If you retrieve the IAM role credentials using a valid signed token, the version 2.0 role credentials are returned.
 	//
 	// If the state is `required` , you must send a signed token header with any instance metadata retrieval requests. In this state, retrieving the IAM role credentials always returns the version 2.0 credentials; the version 1.0 credentials are not available.
-	HttpTokens *string `json:"httpTokens"`
+	HttpTokens *string `json:"httpTokens" yaml:"httpTokens"`
 }
 
 // Properties for defining a `CfnLaunchConfiguration`.
@@ -3817,11 +3817,11 @@ type CfnLaunchConfigurationProps struct {
 	// Provides the unique ID of the Amazon Machine Image (AMI) that was assigned during registration.
 	//
 	// For more information, see [Finding a Linux AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html) in the *Amazon EC2 User Guide for Linux Instances* .
-	ImageId *string `json:"imageId"`
+	ImageId *string `json:"imageId" yaml:"imageId"`
 	// Specifies the instance type of the EC2 instance.
 	//
 	// For information about available instance types, see [Available instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes) in the *Amazon EC2 User Guide for Linux Instances* .
-	InstanceType *string `json:"instanceType"`
+	InstanceType *string `json:"instanceType" yaml:"instanceType"`
 	// For Auto Scaling groups that are running in a virtual private cloud (VPC), specifies whether to assign a public IP address to the group's instances.
 	//
 	// If you specify `true` , each instance in the Auto Scaling group receives a unique public IP address. For more information, see [Launching Auto Scaling instances in a VPC](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html) in the *Amazon EC2 Auto Scaling User Guide* .
@@ -3829,59 +3829,59 @@ type CfnLaunchConfigurationProps struct {
 	// If an instance receives a public IP address and is also in a VPC that is defined in the same stack template, you must use the [DependsOn attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) to declare a dependency on the [VPC-gateway attachment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc-gateway-attachment.html) .
 	//
 	// > If the instance is launched into a default subnet, the default is to assign a public IP address, unless you disabled the option to assign a public IP address on the subnet. If the instance is launched into a nondefault subnet, the default is not to assign a public IP address, unless you enabled the option to assign a public IP address on the subnet.
-	AssociatePublicIpAddress interface{} `json:"associatePublicIpAddress"`
+	AssociatePublicIpAddress interface{} `json:"associatePublicIpAddress" yaml:"associatePublicIpAddress"`
 	// Specifies how block devices are exposed to the instance.
 	//
 	// You can specify virtual devices and EBS volumes.
-	BlockDeviceMappings interface{} `json:"blockDeviceMappings"`
+	BlockDeviceMappings interface{} `json:"blockDeviceMappings" yaml:"blockDeviceMappings"`
 	// The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.
 	//
 	// For more information, see [ClassicLink](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) in the *Amazon EC2 User Guide for Linux Instances* and [Linking EC2-Classic instances to a VPC](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink) in the *Amazon EC2 Auto Scaling User Guide* .
 	//
 	// This property can only be used if you are launching EC2-Classic instances.
-	ClassicLinkVpcId *string `json:"classicLinkVpcId"`
+	ClassicLinkVpcId *string `json:"classicLinkVpcId" yaml:"classicLinkVpcId"`
 	// The IDs of one or more security groups for the VPC that you specified in the `ClassicLinkVPCId` property.
 	//
 	// If you specify the `ClassicLinkVPCId` property, you must specify this property.
-	ClassicLinkVpcSecurityGroups *[]*string `json:"classicLinkVpcSecurityGroups"`
+	ClassicLinkVpcSecurityGroups *[]*string `json:"classicLinkVpcSecurityGroups" yaml:"classicLinkVpcSecurityGroups"`
 	// Specifies whether the launch configuration is optimized for EBS I/O ( `true` ) or not ( `false` ).
 	//
 	// This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. Additional fees are incurred when you enable EBS optimization for an instance type that is not EBS-optimized by default. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) in the *Amazon EC2 User Guide for Linux Instances* .
 	//
 	// The default value is `false` .
-	EbsOptimized interface{} `json:"ebsOptimized"`
+	EbsOptimized interface{} `json:"ebsOptimized" yaml:"ebsOptimized"`
 	// Provides the name or the Amazon Resource Name (ARN) of the instance profile associated with the IAM role for the instance.
 	//
 	// The instance profile contains the IAM role.
 	//
 	// For more information, see [IAM role for applications that run on Amazon EC2 instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/us-iam-role.html) in the *Amazon EC2 Auto Scaling User Guide* .
-	IamInstanceProfile *string `json:"iamInstanceProfile"`
+	IamInstanceProfile *string `json:"iamInstanceProfile" yaml:"iamInstanceProfile"`
 	// The ID of the Amazon EC2 instance you want to use to create the launch configuration.
 	//
 	// Use this property if you want the launch configuration to use settings from an existing Amazon EC2 instance. When you use an instance to create a launch configuration, all properties are derived from the instance with the exception of `BlockDeviceMapping` and `AssociatePublicIpAddress` . You can override any properties from the instance by specifying them in the launch configuration.
-	InstanceId *string `json:"instanceId"`
+	InstanceId *string `json:"instanceId" yaml:"instanceId"`
 	// Controls whether instances in this group are launched with detailed ( `true` ) or basic ( `false` ) monitoring.
 	//
 	// The default value is `true` (enabled).
 	//
 	// > When detailed monitoring is enabled, Amazon CloudWatch generates metrics every minute and your account is charged a fee. When you disable detailed monitoring, CloudWatch generates metrics every 5 minutes. For more information, see [Configure monitoring for Auto Scaling instances](https://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-monitoring.html#enable-as-instance-metrics) in the *Amazon EC2 Auto Scaling User Guide* .
-	InstanceMonitoring interface{} `json:"instanceMonitoring"`
+	InstanceMonitoring interface{} `json:"instanceMonitoring" yaml:"instanceMonitoring"`
 	// Provides the ID of the kernel associated with the EC2 AMI.
 	//
 	// > We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see [User provided kernels](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html) in the *Amazon EC2 User Guide for Linux Instances* .
-	KernelId *string `json:"kernelId"`
+	KernelId *string `json:"kernelId" yaml:"kernelId"`
 	// Provides the name of the EC2 key pair.
 	//
 	// > If you do not specify a key pair, you can't connect to the instance unless you choose an AMI that is configured to allow users another way to log in. For information on creating a key pair, see [Amazon EC2 key pairs and Linux instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html) in the *Amazon EC2 User Guide for Linux Instances* .
-	KeyName *string `json:"keyName"`
+	KeyName *string `json:"keyName" yaml:"keyName"`
 	// The name of the launch configuration.
 	//
 	// This name must be unique per Region per account.
-	LaunchConfigurationName *string `json:"launchConfigurationName"`
+	LaunchConfigurationName *string `json:"launchConfigurationName" yaml:"launchConfigurationName"`
 	// The metadata options for the instances.
 	//
 	// For more information, see [Configuring the Instance Metadata Options](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html#launch-configurations-imds) in the *Amazon EC2 Auto Scaling User Guide* .
-	MetadataOptions interface{} `json:"metadataOptions"`
+	MetadataOptions interface{} `json:"metadataOptions" yaml:"metadataOptions"`
 	// The tenancy of the instance, either `default` or `dedicated` .
 	//
 	// An instance with `dedicated` tenancy runs on isolated, single-tenant hardware and can only be launched into a VPC. You must set the value of this property to `dedicated` if want to launch dedicated instances in a shared tenancy VPC (a VPC with the instance placement tenancy attribute set to default).
@@ -3889,17 +3889,17 @@ type CfnLaunchConfigurationProps struct {
 	// If you specify this property, you must specify at least one subnet in the `VPCZoneIdentifier` property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html) resource.
 	//
 	// For more information, see [Configuring instance tenancy with Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-dedicated-instances.html) in the *Amazon EC2 Auto Scaling User Guide* .
-	PlacementTenancy *string `json:"placementTenancy"`
+	PlacementTenancy *string `json:"placementTenancy" yaml:"placementTenancy"`
 	// The ID of the RAM disk to select.
 	//
 	// > We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see [User provided kernels](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html) in the *Amazon EC2 User Guide for Linux Instances* .
-	RamDiskId *string `json:"ramDiskId"`
+	RamDiskId *string `json:"ramDiskId" yaml:"ramDiskId"`
 	// A list that contains the security groups to assign to the instances in the Auto Scaling group.
 	//
 	// The list can contain both the IDs of existing security groups and references to [SecurityGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group.html) resources created in the template.
 	//
 	// For more information, see [Security groups for your VPC](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html) in the *Amazon Virtual Private Cloud User Guide* .
-	SecurityGroups *[]*string `json:"securityGroups"`
+	SecurityGroups *[]*string `json:"securityGroups" yaml:"securityGroups"`
 	// The maximum hourly price you are willing to pay for any Spot Instances launched to fulfill the request.
 	//
 	// Spot Instances are launched when the price you specify exceeds the current Spot price. For more information, see [Requesting Spot Instances for fault-tolerant and flexible applications](https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-configuration-requesting-spot-instances.html) in the *Amazon EC2 Auto Scaling User Guide* .
@@ -3907,11 +3907,11 @@ type CfnLaunchConfigurationProps struct {
 	// > When you change your maximum price by creating a new launch configuration, running instances will continue to run as long as the maximum price for those running instances is higher than the current Spot price.
 	//
 	// Valid Range: Minimum value of 0.001
-	SpotPrice *string `json:"spotPrice"`
+	SpotPrice *string `json:"spotPrice" yaml:"spotPrice"`
 	// The Base64-encoded user data to make available to the launched EC2 instances.
 	//
 	// For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon EC2 User Guide for Linux Instances* .
-	UserData *string `json:"userData"`
+	UserData *string `json:"userData" yaml:"userData"`
 }
 
 // A CloudFormation `AWS::AutoScaling::LifecycleHook`.
@@ -4536,34 +4536,34 @@ func (c *jsiiProxy_CfnLifecycleHook) ValidateProperties(_properties interface{})
 //
 type CfnLifecycleHookProps struct {
 	// The name of the Auto Scaling group for the lifecycle hook.
-	AutoScalingGroupName *string `json:"autoScalingGroupName"`
+	AutoScalingGroupName *string `json:"autoScalingGroupName" yaml:"autoScalingGroupName"`
 	// The instance state to which you want to attach the lifecycle hook. The valid values are:.
 	//
 	// - autoscaling:EC2_INSTANCE_LAUNCHING
 	// - autoscaling:EC2_INSTANCE_TERMINATING
-	LifecycleTransition *string `json:"lifecycleTransition"`
+	LifecycleTransition *string `json:"lifecycleTransition" yaml:"lifecycleTransition"`
 	// The action the Auto Scaling group takes when the lifecycle hook timeout elapses or if an unexpected failure occurs.
 	//
 	// The valid values are `CONTINUE` and `ABANDON` (default).
 	//
 	// For more information, see [Adding lifecycle hooks](https://docs.aws.amazon.com/autoscaling/ec2/userguide/adding-lifecycle-hooks.html) in the *Amazon EC2 Auto Scaling User Guide* .
-	DefaultResult *string `json:"defaultResult"`
+	DefaultResult *string `json:"defaultResult" yaml:"defaultResult"`
 	// The maximum time, in seconds, that can elapse before the lifecycle hook times out.
 	//
 	// The range is from `30` to `7200` seconds. The default value is `3600` seconds (1 hour). If the lifecycle hook times out, Amazon EC2 Auto Scaling performs the action that you specified in the `DefaultResult` property.
-	HeartbeatTimeout *float64 `json:"heartbeatTimeout"`
+	HeartbeatTimeout *float64 `json:"heartbeatTimeout" yaml:"heartbeatTimeout"`
 	// The name of the lifecycle hook.
-	LifecycleHookName *string `json:"lifecycleHookName"`
+	LifecycleHookName *string `json:"lifecycleHookName" yaml:"lifecycleHookName"`
 	// Additional information that is included any time Amazon EC2 Auto Scaling sends a message to the notification target.
-	NotificationMetadata *string `json:"notificationMetadata"`
+	NotificationMetadata *string `json:"notificationMetadata" yaml:"notificationMetadata"`
 	// The Amazon Resource Name (ARN) of the notification target that Amazon EC2 Auto Scaling uses to notify you when an instance is in the transition state for the lifecycle hook.
 	//
 	// You can specify an Amazon SQS queue or an Amazon SNS topic. The notification message includes the following information: lifecycle action token, user account ID, Auto Scaling group name, lifecycle hook name, instance ID, lifecycle transition, and notification metadata.
-	NotificationTargetArn *string `json:"notificationTargetArn"`
+	NotificationTargetArn *string `json:"notificationTargetArn" yaml:"notificationTargetArn"`
 	// The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target, for example, an Amazon SNS topic or an Amazon SQS queue.
 	//
 	// For information about creating this role, see [Configuring a notification target for a lifecycle hook](https://docs.aws.amazon.com/autoscaling/ec2/userguide/configuring-lifecycle-hook-notifications.html) in the *Amazon EC2 Auto Scaling User Guide* .
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 }
 
 // A CloudFormation `AWS::AutoScaling::ScalingPolicy`.
@@ -5257,19 +5257,19 @@ type CfnScalingPolicy_CustomizedMetricSpecificationProperty struct {
 	// The name of the metric.
 	//
 	// To get the exact metric name, namespace, and dimensions, inspect the [Metric](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html) object that is returned by a call to [ListMetrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html) .
-	MetricName *string `json:"metricName"`
+	MetricName *string `json:"metricName" yaml:"metricName"`
 	// The namespace of the metric.
-	Namespace *string `json:"namespace"`
+	Namespace *string `json:"namespace" yaml:"namespace"`
 	// The statistic of the metric.
-	Statistic *string `json:"statistic"`
+	Statistic *string `json:"statistic" yaml:"statistic"`
 	// The dimensions of the metric.
 	//
 	// Conditional: If you published your metric with dimensions, you must specify the same dimensions in your scaling policy.
-	Dimensions interface{} `json:"dimensions"`
+	Dimensions interface{} `json:"dimensions" yaml:"dimensions"`
 	// The unit of the metric.
 	//
 	// For a complete list of the units that CloudWatch supports, see the [MetricDatum](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html) data type in the *Amazon CloudWatch API Reference* .
-	Unit *string `json:"unit"`
+	Unit *string `json:"unit" yaml:"unit"`
 }
 
 // `MetricDimension` specifies a name/value pair that is part of the identity of a CloudWatch metric for the `Dimensions` property of the [AWS::AutoScaling::ScalingPolicy CustomizedMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-customizedmetricspecification.html) property type. Duplicate dimensions are not allowed.
@@ -5278,9 +5278,9 @@ type CfnScalingPolicy_CustomizedMetricSpecificationProperty struct {
 //
 type CfnScalingPolicy_MetricDimensionProperty struct {
 	// The name of the dimension.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The value of the dimension.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // Contains predefined metric specification information for a target tracking scaling policy for Amazon EC2 Auto Scaling.
@@ -5296,7 +5296,7 @@ type CfnScalingPolicy_PredefinedMetricSpecificationProperty struct {
 	// - `ASGAverageNetworkIn` - Average number of bytes received on all network interfaces by the Auto Scaling group.
 	// - `ASGAverageNetworkOut` - Average number of bytes sent out on all network interfaces by the Auto Scaling group.
 	// - `ALBRequestCountPerTarget` - Number of requests completed per target in an Application Load Balancer target group.
-	PredefinedMetricType *string `json:"predefinedMetricType"`
+	PredefinedMetricType *string `json:"predefinedMetricType" yaml:"predefinedMetricType"`
 	// Identifies the resource associated with the metric type.
 	//
 	// You can't specify a resource label unless the metric type is `ALBRequestCountPerTarget` and there is a target group attached to the Auto Scaling group.
@@ -5305,7 +5305,7 @@ type CfnScalingPolicy_PredefinedMetricSpecificationProperty struct {
 	//
 	// - `app/ *load-balancer-name* / *load-balancer-id*` is the final portion of the load balancer ARN, and
 	// - `targetgroup/ *target-group-name* / *target-group-id*` is the final portion of the target group ARN.
-	ResourceLabel *string `json:"resourceLabel"`
+	ResourceLabel *string `json:"resourceLabel" yaml:"resourceLabel"`
 }
 
 // `PredictiveScalingConfiguration` is a property of the [AWS::AutoScaling::ScalingPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-policy.html) resource that specifies a predictive scaling policy for Amazon EC2 Auto Scaling.
@@ -5318,7 +5318,7 @@ type CfnScalingPolicy_PredictiveScalingConfigurationProperty struct {
 	// An array that contains information about the metrics and target utilization to use for predictive scaling.
 	//
 	// > Adding more than one predictive scaling metric specification to the array is currently not supported.
-	MetricSpecifications interface{} `json:"metricSpecifications"`
+	MetricSpecifications interface{} `json:"metricSpecifications" yaml:"metricSpecifications"`
 	// Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity of the Auto Scaling group.
 	//
 	// Defaults to `HonorMaxCapacity` if not specified.
@@ -5327,7 +5327,7 @@ type CfnScalingPolicy_PredictiveScalingConfigurationProperty struct {
 	//
 	// - `HonorMaxCapacity` - Amazon EC2 Auto Scaling cannot scale out capacity higher than the maximum capacity. The maximum capacity is enforced as a hard limit.
 	// - `IncreaseMaxCapacity` - Amazon EC2 Auto Scaling can scale out capacity higher than the maximum capacity when the forecast capacity is close to or exceeds the maximum capacity. The upper limit is determined by the forecasted capacity and the value for `MaxCapacityBuffer` .
-	MaxCapacityBreachBehavior *string `json:"maxCapacityBreachBehavior"`
+	MaxCapacityBreachBehavior *string `json:"maxCapacityBreachBehavior" yaml:"maxCapacityBreachBehavior"`
 	// The size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity.
 	//
 	// The value is specified as a percentage relative to the forecast capacity. For example, if the buffer is 10, this means a 10 percent buffer, such that if the forecast capacity is 50, and the maximum capacity is 40, then the effective maximum capacity is 55.
@@ -5335,17 +5335,17 @@ type CfnScalingPolicy_PredictiveScalingConfigurationProperty struct {
 	// If set to 0, Amazon EC2 Auto Scaling may scale capacity higher than the maximum capacity to equal but not exceed forecast capacity.
 	//
 	// Required if the `MaxCapacityBreachBehavior` property is set to `IncreaseMaxCapacity` , and cannot be used otherwise.
-	MaxCapacityBuffer *float64 `json:"maxCapacityBuffer"`
+	MaxCapacityBuffer *float64 `json:"maxCapacityBuffer" yaml:"maxCapacityBuffer"`
 	// The predictive scaling mode.
 	//
 	// Defaults to `ForecastOnly` if not specified.
-	Mode *string `json:"mode"`
+	Mode *string `json:"mode" yaml:"mode"`
 	// The amount of time, in seconds, by which the instance launch time can be advanced.
 	//
 	// For example, the forecast says to add capacity at 10:00 AM, and you choose to pre-launch instances by 5 minutes. In that case, the instances will be launched at 9:55 AM. The intention is to give resources time to be provisioned. It can take a few minutes to launch an EC2 instance. The actual amount of time required depends on several factors, such as the size of the instance and whether there are startup scripts to complete.
 	//
 	// The value must be less than the forecast interval duration of 3600 seconds (60 minutes). Defaults to 300 seconds if not specified.
-	SchedulingBufferTime *float64 `json:"schedulingBufferTime"`
+	SchedulingBufferTime *float64 `json:"schedulingBufferTime" yaml:"schedulingBufferTime"`
 }
 
 // A structure that specifies a metric specification for the `MetricSpecifications` property of the [AWS::AutoScaling::ScalingPolicy PredictiveScalingConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingconfiguration.html) property type.
@@ -5358,19 +5358,19 @@ type CfnScalingPolicy_PredictiveScalingMetricSpecificationProperty struct {
 	// Specifies the target utilization.
 	//
 	// > Some metrics are based on a count instead of a percentage, such as the request count for an Application Load Balancer or the number of messages in an SQS queue. If the scaling policy specifies one of these metrics, specify the target utilization as the optimal average request or message count per instance during any one-minute interval.
-	TargetValue *float64 `json:"targetValue"`
+	TargetValue *float64 `json:"targetValue" yaml:"targetValue"`
 	// The load metric specification.
 	//
 	// If you specify `PredefinedMetricPairSpecification` , don't specify this property.
-	PredefinedLoadMetricSpecification interface{} `json:"predefinedLoadMetricSpecification"`
+	PredefinedLoadMetricSpecification interface{} `json:"predefinedLoadMetricSpecification" yaml:"predefinedLoadMetricSpecification"`
 	// The metric pair specification from which Amazon EC2 Auto Scaling determines the appropriate scaling metric and load metric to use.
 	//
 	// > With predictive scaling, you must specify either a metric pair, or a load metric and a scaling metric individually. Specifying a metric pair instead of individual metrics provides a simpler way to configure metrics for a scaling policy. You choose the metric pair, and the policy automatically knows the correct sum and average statistics to use for the load metric and the scaling metric.
-	PredefinedMetricPairSpecification interface{} `json:"predefinedMetricPairSpecification"`
+	PredefinedMetricPairSpecification interface{} `json:"predefinedMetricPairSpecification" yaml:"predefinedMetricPairSpecification"`
 	// The scaling metric specification.
 	//
 	// If you specify `PredefinedMetricPairSpecification` , don't specify this property.
-	PredefinedScalingMetricSpecification interface{} `json:"predefinedScalingMetricSpecification"`
+	PredefinedScalingMetricSpecification interface{} `json:"predefinedScalingMetricSpecification" yaml:"predefinedScalingMetricSpecification"`
 }
 
 // Contains load metric information for the `PredefinedLoadMetricSpecification` property of the [AWS::AutoScaling::ScalingPolicy PredictiveScalingMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html) property type.
@@ -5381,7 +5381,7 @@ type CfnScalingPolicy_PredictiveScalingMetricSpecificationProperty struct {
 //
 type CfnScalingPolicy_PredictiveScalingPredefinedLoadMetricProperty struct {
 	// The metric type.
-	PredefinedMetricType *string `json:"predefinedMetricType"`
+	PredefinedMetricType *string `json:"predefinedMetricType" yaml:"predefinedMetricType"`
 	// A label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
 	//
 	// You can't specify a resource label unless the target group is attached to the Auto Scaling group.
@@ -5396,7 +5396,7 @@ type CfnScalingPolicy_PredictiveScalingPredefinedLoadMetricProperty struct {
 	// - targetgroup/<target-group-name>/<target-group-id> is the final portion of the target group ARN.
 	//
 	// To find the ARN for an Application Load Balancer, use the [DescribeLoadBalancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html) API operation. To find the ARN for the target group, use the [DescribeTargetGroups](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html) API operation.
-	ResourceLabel *string `json:"resourceLabel"`
+	ResourceLabel *string `json:"resourceLabel" yaml:"resourceLabel"`
 }
 
 // Contains metric pair information for the `PredefinedMetricPairSpecification` property of the [AWS::AutoScaling::ScalingPolicy PredictiveScalingMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html) property type.
@@ -5409,7 +5409,7 @@ type CfnScalingPolicy_PredictiveScalingPredefinedMetricPairProperty struct {
 	// Indicates which metrics to use.
 	//
 	// There are two different types of metrics for each metric type: one is a load metric and one is a scaling metric. For example, if the metric type is `ASGCPUUtilization` , the Auto Scaling group's total CPU metric is used as the load metric, and the average CPU metric is used for the scaling metric.
-	PredefinedMetricType *string `json:"predefinedMetricType"`
+	PredefinedMetricType *string `json:"predefinedMetricType" yaml:"predefinedMetricType"`
 	// A label that uniquely identifies a specific Application Load Balancer target group from which to determine the total and average request count served by your Auto Scaling group.
 	//
 	// You can't specify a resource label unless the target group is attached to the Auto Scaling group.
@@ -5424,7 +5424,7 @@ type CfnScalingPolicy_PredictiveScalingPredefinedMetricPairProperty struct {
 	// - targetgroup/<target-group-name>/<target-group-id> is the final portion of the target group ARN.
 	//
 	// To find the ARN for an Application Load Balancer, use the [DescribeLoadBalancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html) API operation. To find the ARN for the target group, use the [DescribeTargetGroups](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html) API operation.
-	ResourceLabel *string `json:"resourceLabel"`
+	ResourceLabel *string `json:"resourceLabel" yaml:"resourceLabel"`
 }
 
 // Contains scaling metric information for the `PredefinedScalingMetricSpecification` property of the [AWS::AutoScaling::ScalingPolicy PredictiveScalingMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html) property type.
@@ -5435,7 +5435,7 @@ type CfnScalingPolicy_PredictiveScalingPredefinedMetricPairProperty struct {
 //
 type CfnScalingPolicy_PredictiveScalingPredefinedScalingMetricProperty struct {
 	// The metric type.
-	PredefinedMetricType *string `json:"predefinedMetricType"`
+	PredefinedMetricType *string `json:"predefinedMetricType" yaml:"predefinedMetricType"`
 	// A label that uniquely identifies a specific Application Load Balancer target group from which to determine the average request count served by your Auto Scaling group.
 	//
 	// You can't specify a resource label unless the target group is attached to the Auto Scaling group.
@@ -5450,7 +5450,7 @@ type CfnScalingPolicy_PredictiveScalingPredefinedScalingMetricProperty struct {
 	// - targetgroup/<target-group-name>/<target-group-id> is the final portion of the target group ARN.
 	//
 	// To find the ARN for an Application Load Balancer, use the [DescribeLoadBalancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html) API operation. To find the ARN for the target group, use the [DescribeTargetGroups](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html) API operation.
-	ResourceLabel *string `json:"resourceLabel"`
+	ResourceLabel *string `json:"resourceLabel" yaml:"resourceLabel"`
 }
 
 // `StepAdjustment` specifies a step adjustment for the `StepAdjustments` property of the [AWS::AutoScaling::ScalingPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-policy.html) resource.
@@ -5477,15 +5477,15 @@ type CfnScalingPolicy_StepAdjustmentProperty struct {
 	// The amount by which to scale.
 	//
 	// The adjustment is based on the value that you specified in the `AdjustmentType` property (either an absolute number or a percentage). A positive value adds to the current capacity and a negative number subtracts from the current capacity.
-	ScalingAdjustment *float64 `json:"scalingAdjustment"`
+	ScalingAdjustment *float64 `json:"scalingAdjustment" yaml:"scalingAdjustment"`
 	// The lower bound for the difference between the alarm threshold and the CloudWatch metric.
 	//
 	// If the metric value is above the breach threshold, the lower bound is inclusive (the metric must be greater than or equal to the threshold plus the lower bound). Otherwise, it is exclusive (the metric must be greater than the threshold plus the lower bound). A null value indicates negative infinity.
-	MetricIntervalLowerBound *float64 `json:"metricIntervalLowerBound"`
+	MetricIntervalLowerBound *float64 `json:"metricIntervalLowerBound" yaml:"metricIntervalLowerBound"`
 	// The upper bound for the difference between the alarm threshold and the CloudWatch metric.
 	//
 	// If the metric value is above the breach threshold, the upper bound is exclusive (the metric must be less than the threshold plus the upper bound). Otherwise, it is inclusive (the metric must be less than or equal to the threshold plus the upper bound). A null value indicates positive infinity.
-	MetricIntervalUpperBound *float64 `json:"metricIntervalUpperBound"`
+	MetricIntervalUpperBound *float64 `json:"metricIntervalUpperBound" yaml:"metricIntervalUpperBound"`
 }
 
 // `TargetTrackingConfiguration` is a property of the [AWS::AutoScaling::ScalingPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-policy.html) resource that specifies a target tracking scaling policy configuration for Amazon EC2 Auto Scaling.
@@ -5496,19 +5496,19 @@ type CfnScalingPolicy_StepAdjustmentProperty struct {
 //
 type CfnScalingPolicy_TargetTrackingConfigurationProperty struct {
 	// The target value for the metric.
-	TargetValue *float64 `json:"targetValue"`
+	TargetValue *float64 `json:"targetValue" yaml:"targetValue"`
 	// A customized metric.
 	//
 	// You must specify either a predefined metric or a customized metric.
-	CustomizedMetricSpecification interface{} `json:"customizedMetricSpecification"`
+	CustomizedMetricSpecification interface{} `json:"customizedMetricSpecification" yaml:"customizedMetricSpecification"`
 	// Indicates whether scaling in by the target tracking scaling policy is disabled.
 	//
 	// If scaling in is disabled, the target tracking scaling policy doesn't remove instances from the Auto Scaling group. Otherwise, the target tracking scaling policy can remove instances from the Auto Scaling group. The default is `false` .
-	DisableScaleIn interface{} `json:"disableScaleIn"`
+	DisableScaleIn interface{} `json:"disableScaleIn" yaml:"disableScaleIn"`
 	// A predefined metric.
 	//
 	// You must specify either a predefined metric or a customized metric.
-	PredefinedMetricSpecification interface{} `json:"predefinedMetricSpecification"`
+	PredefinedMetricSpecification interface{} `json:"predefinedMetricSpecification" yaml:"predefinedMetricSpecification"`
 }
 
 // Properties for defining a `CfnScalingPolicy`.
@@ -5517,29 +5517,29 @@ type CfnScalingPolicy_TargetTrackingConfigurationProperty struct {
 //
 type CfnScalingPolicyProps struct {
 	// The name of the Auto Scaling group.
-	AutoScalingGroupName *string `json:"autoScalingGroupName"`
+	AutoScalingGroupName *string `json:"autoScalingGroupName" yaml:"autoScalingGroupName"`
 	// Specifies how the scaling adjustment is interpreted. The valid values are `ChangeInCapacity` , `ExactCapacity` , and `PercentChangeInCapacity` .
 	//
 	// Required if the policy type is `StepScaling` or `SimpleScaling` . For more information, see [Scaling adjustment types](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment) in the *Amazon EC2 Auto Scaling User Guide* .
-	AdjustmentType *string `json:"adjustmentType"`
+	AdjustmentType *string `json:"adjustmentType" yaml:"adjustmentType"`
 	// The duration of the policy's cooldown period, in seconds.
 	//
 	// When a cooldown period is specified here, it overrides the default cooldown period defined for the Auto Scaling group.
 	//
 	// Valid only if the policy type is `SimpleScaling` . For more information, see [Scaling cooldowns for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html) in the *Amazon EC2 Auto Scaling User Guide* .
-	Cooldown *string `json:"cooldown"`
+	Cooldown *string `json:"cooldown" yaml:"cooldown"`
 	// The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics.
 	//
 	// If not provided, the default is to use the value from the default cooldown period for the Auto Scaling group.
 	//
 	// Valid only if the policy type is `TargetTrackingScaling` or `StepScaling` .
-	EstimatedInstanceWarmup *float64 `json:"estimatedInstanceWarmup"`
+	EstimatedInstanceWarmup *float64 `json:"estimatedInstanceWarmup" yaml:"estimatedInstanceWarmup"`
 	// The aggregation type for the CloudWatch metrics.
 	//
 	// The valid values are `Minimum` , `Maximum` , and `Average` . If the aggregation type is null, the value is treated as `Average` .
 	//
 	// Valid only if the policy type is `StepScaling` .
-	MetricAggregationType *string `json:"metricAggregationType"`
+	MetricAggregationType *string `json:"metricAggregationType" yaml:"metricAggregationType"`
 	// The minimum value to scale by when the adjustment type is `PercentChangeInCapacity` .
 	//
 	// For example, suppose that you create a step scaling policy to scale out an Auto Scaling group by 25 percent and you specify a `MinAdjustmentMagnitude` of 2. If the group has 4 instances and the scaling policy is performed, 25 percent of 4 is 1. However, because you specified a `MinAdjustmentMagnitude` of 2, Amazon EC2 Auto Scaling scales out the group by 2 instances.
@@ -5547,7 +5547,7 @@ type CfnScalingPolicyProps struct {
 	// Valid only if the policy type is `StepScaling` or `SimpleScaling` . For more information, see [Scaling adjustment types](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment) in the *Amazon EC2 Auto Scaling User Guide* .
 	//
 	// > Some Auto Scaling groups use instance weights. In this case, set the `MinAdjustmentMagnitude` to a value that is at least as large as your largest instance weight.
-	MinAdjustmentMagnitude *float64 `json:"minAdjustmentMagnitude"`
+	MinAdjustmentMagnitude *float64 `json:"minAdjustmentMagnitude" yaml:"minAdjustmentMagnitude"`
 	// One of the following policy types:.
 	//
 	// - `TargetTrackingScaling`
@@ -5556,21 +5556,21 @@ type CfnScalingPolicyProps struct {
 	// - `PredictiveScaling`
 	//
 	// For more information, see [Target tracking scaling policies](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-target-tracking.html) and [Step and simple scaling policies](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html) in the *Amazon EC2 Auto Scaling User Guide* .
-	PolicyType *string `json:"policyType"`
+	PolicyType *string `json:"policyType" yaml:"policyType"`
 	// A predictive scaling policy.
 	//
 	// Includes support for predefined metrics only.
-	PredictiveScalingConfiguration interface{} `json:"predictiveScalingConfiguration"`
+	PredictiveScalingConfiguration interface{} `json:"predictiveScalingConfiguration" yaml:"predictiveScalingConfiguration"`
 	// The amount by which to scale, based on the specified adjustment type.
 	//
 	// A positive value adds to the current capacity while a negative number removes from the current capacity. For exact capacity, you must specify a positive value.
 	//
 	// Required if the policy type is `SimpleScaling` . (Not used with any other policy type.)
-	ScalingAdjustment *float64 `json:"scalingAdjustment"`
+	ScalingAdjustment *float64 `json:"scalingAdjustment" yaml:"scalingAdjustment"`
 	// A set of adjustments that enable you to scale based on the size of the alarm breach.
 	//
 	// Required if the policy type is `StepScaling` . (Not used with any other policy type.)
-	StepAdjustments interface{} `json:"stepAdjustments"`
+	StepAdjustments interface{} `json:"stepAdjustments" yaml:"stepAdjustments"`
 	// A target tracking scaling policy. Includes support for predefined or customized metrics.
 	//
 	// The following predefined metrics are available:
@@ -5581,7 +5581,7 @@ type CfnScalingPolicyProps struct {
 	// - `ALBRequestCountPerTarget`
 	//
 	// If you specify `ALBRequestCountPerTarget` for the metric, you must specify the `ResourceLabel` property with the `PredefinedMetricSpecification` .
-	TargetTrackingConfiguration interface{} `json:"targetTrackingConfiguration"`
+	TargetTrackingConfiguration interface{} `json:"targetTrackingConfiguration" yaml:"targetTrackingConfiguration"`
 }
 
 // A CloudFormation `AWS::AutoScaling::ScheduledAction`.
@@ -6206,25 +6206,25 @@ func (c *jsiiProxy_CfnScheduledAction) ValidateProperties(_properties interface{
 //
 type CfnScheduledActionProps struct {
 	// The name of the Auto Scaling group.
-	AutoScalingGroupName *string `json:"autoScalingGroupName"`
+	AutoScalingGroupName *string `json:"autoScalingGroupName" yaml:"autoScalingGroupName"`
 	// The desired capacity is the initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain.
 	//
 	// It can scale beyond this capacity if you add more scaling conditions.
 	//
 	// You must specify at least one of the following properties: `MaxSize` , `MinSize` , or `DesiredCapacity` .
-	DesiredCapacity *float64 `json:"desiredCapacity"`
+	DesiredCapacity *float64 `json:"desiredCapacity" yaml:"desiredCapacity"`
 	// The date and time for the recurring schedule to end, in UTC.
 	//
 	// For example, `"2021-06-01T00:00:00Z"` .
-	EndTime *string `json:"endTime"`
+	EndTime *string `json:"endTime" yaml:"endTime"`
 	// The maximum size of the Auto Scaling group.
 	//
 	// You must specify at least one of the following properties: `MaxSize` , `MinSize` , or `DesiredCapacity` .
-	MaxSize *float64 `json:"maxSize"`
+	MaxSize *float64 `json:"maxSize" yaml:"maxSize"`
 	// The minimum size of the Auto Scaling group.
 	//
 	// You must specify at least one of the following properties: `MaxSize` , `MinSize` , or `DesiredCapacity` .
-	MinSize *float64 `json:"minSize"`
+	MinSize *float64 `json:"minSize" yaml:"minSize"`
 	// The recurring schedule for this action.
 	//
 	// This format consists of five fields separated by white spaces: [Minute] [Hour] [Day_of_Month] [Month_of_Year] [Day_of_Week]. For more information about this format, see [Crontab](https://docs.aws.amazon.com/http://crontab.org) .
@@ -6232,17 +6232,17 @@ type CfnScheduledActionProps struct {
 	// When `StartTime` and `EndTime` are specified with `Recurrence` , they form the boundaries of when the recurring action starts and stops.
 	//
 	// Cron expressions use Universal Coordinated Time (UTC) by default.
-	Recurrence *string `json:"recurrence"`
+	Recurrence *string `json:"recurrence" yaml:"recurrence"`
 	// The date and time for this action to start, in YYYY-MM-DDThh:mm:ssZ format in UTC/GMT only. For example, `"2021-06-01T00:00:00Z"` .
 	//
 	// If you specify `Recurrence` and `StartTime` , Amazon EC2 Auto Scaling performs the action at this time, and then performs the action based on the specified recurrence.
-	StartTime *string `json:"startTime"`
+	StartTime *string `json:"startTime" yaml:"startTime"`
 	// Specifies the time zone for a cron expression.
 	//
 	// If a time zone is not provided, UTC is used by default.
 	//
 	// Valid values are the canonical names of the IANA time zones, derived from the IANA Time Zone Database (such as `Etc/GMT+9` or `Pacific/Tahiti` ). For more information, see [https://en.wikipedia.org/wiki/List_of_tz_database_time_zones](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) .
-	TimeZone *string `json:"timeZone"`
+	TimeZone *string `json:"timeZone" yaml:"timeZone"`
 }
 
 // A CloudFormation `AWS::AutoScaling::WarmPool`.
@@ -6789,7 +6789,7 @@ func (c *jsiiProxy_CfnWarmPool) ValidateProperties(_properties interface{}) {
 //
 type CfnWarmPoolProps struct {
 	// The name of the Auto Scaling group.
-	AutoScalingGroupName *string `json:"autoScalingGroupName"`
+	AutoScalingGroupName *string `json:"autoScalingGroupName" yaml:"autoScalingGroupName"`
 	// Specifies the maximum number of instances that are allowed to be in the warm pool or in any state except `Terminated` for the Auto Scaling group.
 	//
 	// This is an optional property. Specify it only if you do not want the warm pool size to be determined by the difference between the group's maximum capacity and its desired capacity.
@@ -6799,15 +6799,15 @@ type CfnWarmPoolProps struct {
 	// > The size of the warm pool is dynamic. Only when `MaxGroupPreparedCapacity` and `MinSize` are set to the same value does the warm pool have an absolute size.
 	//
 	// If the desired capacity of the Auto Scaling group is higher than the `MaxGroupPreparedCapacity` , the capacity of the warm pool is 0, unless you specify a value for `MinSize` . To remove a value that you previously set, include the property but specify -1 for the value.
-	MaxGroupPreparedCapacity *float64 `json:"maxGroupPreparedCapacity"`
+	MaxGroupPreparedCapacity *float64 `json:"maxGroupPreparedCapacity" yaml:"maxGroupPreparedCapacity"`
 	// Specifies the minimum number of instances to maintain in the warm pool.
 	//
 	// This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
-	MinSize *float64 `json:"minSize"`
+	MinSize *float64 `json:"minSize" yaml:"minSize"`
 	// Sets the instance state to transition to after the lifecycle actions are complete.
 	//
 	// Default is `Stopped` .
-	PoolState *string `json:"poolState"`
+	PoolState *string `json:"poolState" yaml:"poolState"`
 }
 
 // Basic properties of an AutoScalingGroup, except the exact machines to run and where they should run.
@@ -6819,13 +6819,13 @@ type CfnWarmPoolProps struct {
 //
 type CommonAutoScalingGroupProps struct {
 	// Whether the instances can initiate connections to anywhere by default.
-	AllowAllOutbound *bool `json:"allowAllOutbound"`
+	AllowAllOutbound *bool `json:"allowAllOutbound" yaml:"allowAllOutbound"`
 	// Whether instances in the Auto Scaling Group should have public IP addresses associated with them.
-	AssociatePublicIpAddress *bool `json:"associatePublicIpAddress"`
+	AssociatePublicIpAddress *bool `json:"associatePublicIpAddress" yaml:"associatePublicIpAddress"`
 	// The name of the Auto Scaling group.
 	//
 	// This name must be unique per Region per account.
-	AutoScalingGroupName *string `json:"autoScalingGroupName"`
+	AutoScalingGroupName *string `json:"autoScalingGroupName" yaml:"autoScalingGroupName"`
 	// Specifies how block devices are exposed to the instance. You can specify virtual devices and EBS volumes.
 	//
 	// Each instance that is launched has an associated root device volume,
@@ -6834,23 +6834,23 @@ type CommonAutoScalingGroupProps struct {
 	// instance store volumes to attach to an instance when it is launched.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html
 	//
-	BlockDevices *[]*BlockDevice `json:"blockDevices"`
+	BlockDevices *[]*BlockDevice `json:"blockDevices" yaml:"blockDevices"`
 	// Default scaling cooldown for this AutoScalingGroup.
-	Cooldown awscdk.Duration `json:"cooldown"`
+	Cooldown awscdk.Duration `json:"cooldown" yaml:"cooldown"`
 	// Initial amount of instances in the fleet.
 	//
 	// If this is set to a number, every deployment will reset the amount of
 	// instances to this number. It is recommended to leave this value blank.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-desiredcapacity
 	//
-	DesiredCapacity *float64 `json:"desiredCapacity"`
+	DesiredCapacity *float64 `json:"desiredCapacity" yaml:"desiredCapacity"`
 	// Enable monitoring for group metrics, these metrics describe the group rather than any of its instances.
 	//
 	// To report all group metrics use `GroupMetrics.all()`
 	// Group metrics are reported in a granularity of 1 minute at no additional charge.
-	GroupMetrics *[]GroupMetrics `json:"groupMetrics"`
+	GroupMetrics *[]GroupMetrics `json:"groupMetrics" yaml:"groupMetrics"`
 	// Configuration for health checks.
-	HealthCheck HealthCheck `json:"healthCheck"`
+	HealthCheck HealthCheck `json:"healthCheck" yaml:"healthCheck"`
 	// If the ASG has scheduled actions, don't reset unchanged group sizes.
 	//
 	// Only used if the ASG has scheduled actions (which may scale your ASG up
@@ -6858,18 +6858,18 @@ type CommonAutoScalingGroupProps struct {
 	// will only be reset if it has been changed in the CDK app. If false, the
 	// sizes will always be changed back to what they were in the CDK app
 	// on deployment.
-	IgnoreUnmodifiedSizeProperties *bool `json:"ignoreUnmodifiedSizeProperties"`
+	IgnoreUnmodifiedSizeProperties *bool `json:"ignoreUnmodifiedSizeProperties" yaml:"ignoreUnmodifiedSizeProperties"`
 	// Controls whether instances in this group are launched with detailed or basic monitoring.
 	//
 	// When detailed monitoring is enabled, Amazon CloudWatch generates metrics every minute and your account
 	// is charged a fee. When you disable detailed monitoring, CloudWatch generates metrics every 5 minutes.
 	// See: https://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-monitoring.html#enable-as-instance-metrics
 	//
-	InstanceMonitoring Monitoring `json:"instanceMonitoring"`
+	InstanceMonitoring Monitoring `json:"instanceMonitoring" yaml:"instanceMonitoring"`
 	// Name of SSH keypair to grant access to instances.
-	KeyName *string `json:"keyName"`
+	KeyName *string `json:"keyName" yaml:"keyName"`
 	// Maximum number of instances in the fleet.
-	MaxCapacity *float64 `json:"maxCapacity"`
+	MaxCapacity *float64 `json:"maxCapacity" yaml:"maxCapacity"`
 	// The maximum amount of time that an instance can be in service.
 	//
 	// The maximum duration applies
@@ -6880,9 +6880,9 @@ type CommonAutoScalingGroupProps struct {
 	// leave this property undefined.
 	// See: https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html
 	//
-	MaxInstanceLifetime awscdk.Duration `json:"maxInstanceLifetime"`
+	MaxInstanceLifetime awscdk.Duration `json:"maxInstanceLifetime" yaml:"maxInstanceLifetime"`
 	// Minimum number of instances in the fleet.
-	MinCapacity *float64 `json:"minCapacity"`
+	MinCapacity *float64 `json:"minCapacity" yaml:"minCapacity"`
 	// Whether newly-launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in.
 	//
 	// By default, Auto Scaling can terminate an instance at any time after launch
@@ -6893,11 +6893,11 @@ type CommonAutoScalingGroupProps struct {
 	//
 	// This flag must be enabled if the Auto Scaling Group will be associated with
 	// an ECS Capacity Provider with managed termination protection.
-	NewInstancesProtectedFromScaleIn *bool `json:"newInstancesProtectedFromScaleIn"`
+	NewInstancesProtectedFromScaleIn *bool `json:"newInstancesProtectedFromScaleIn" yaml:"newInstancesProtectedFromScaleIn"`
 	// Configure autoscaling group to send notifications about fleet changes to an SNS topic(s).
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-notificationconfigurations
 	//
-	Notifications *[]*NotificationConfiguration `json:"notifications"`
+	Notifications *[]*NotificationConfiguration `json:"notifications" yaml:"notifications"`
 	// Configure waiting for signals during deployment.
 	//
 	// Use this to pause the CloudFormation deployment to wait for the instances
@@ -6915,18 +6915,18 @@ type CommonAutoScalingGroupProps struct {
 	// command in the Auto Scaling rolling updates sample template:
 	//
 	// https://github.com/awslabs/aws-cloudformation-templates/blob/master/aws/services/AutoScaling/AutoScalingRollingUpdates.yaml
-	Signals Signals `json:"signals"`
+	Signals Signals `json:"signals" yaml:"signals"`
 	// The maximum hourly price (in USD) to be paid for any Spot Instance launched to fulfill the request.
 	//
 	// Spot Instances are
 	// launched when the price you specify exceeds the current Spot market price.
-	SpotPrice *string `json:"spotPrice"`
+	SpotPrice *string `json:"spotPrice" yaml:"spotPrice"`
 	// A policy or a list of policies that are used to select the instances to terminate.
 	//
 	// The policies are executed in the order that you list them.
 	// See: https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html
 	//
-	TerminationPolicies *[]TerminationPolicy `json:"terminationPolicies"`
+	TerminationPolicies *[]TerminationPolicy `json:"terminationPolicies" yaml:"terminationPolicies"`
 	// What to do when an AutoScalingGroup's instance configuration is changed.
 	//
 	// This is applied when any of the settings on the ASG are changed that
@@ -6934,9 +6934,9 @@ type CommonAutoScalingGroupProps struct {
 	// scripts, etc.). It indicates how the existing instances should be
 	// replaced with new instances matching the new config. By default, nothing
 	// is done and only new instances are launched with the new config.
-	UpdatePolicy UpdatePolicy `json:"updatePolicy"`
+	UpdatePolicy UpdatePolicy `json:"updatePolicy" yaml:"updatePolicy"`
 	// Where to place instances within the VPC.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 
 // Properties for enabling scaling based on CPU utilization.
@@ -6945,18 +6945,18 @@ type CommonAutoScalingGroupProps struct {
 //
 type CpuUtilizationScalingProps struct {
 	// Period after a scaling completes before another scaling activity can start.
-	Cooldown awscdk.Duration `json:"cooldown"`
+	Cooldown awscdk.Duration `json:"cooldown" yaml:"cooldown"`
 	// Indicates whether scale in by the target tracking policy is disabled.
 	//
 	// If the value is true, scale in is disabled and the target tracking policy
 	// won't remove capacity from the autoscaling group. Otherwise, scale in is
 	// enabled and the target tracking policy can remove capacity from the
 	// group.
-	DisableScaleIn *bool `json:"disableScaleIn"`
+	DisableScaleIn *bool `json:"disableScaleIn" yaml:"disableScaleIn"`
 	// Estimated time until a newly launched instance can send metrics to CloudWatch.
-	EstimatedInstanceWarmup awscdk.Duration `json:"estimatedInstanceWarmup"`
+	EstimatedInstanceWarmup awscdk.Duration `json:"estimatedInstanceWarmup" yaml:"estimatedInstanceWarmup"`
 	// Target average CPU utilization across the task.
-	TargetUtilizationPercent *float64 `json:"targetUtilizationPercent"`
+	TargetUtilizationPercent *float64 `json:"targetUtilizationPercent" yaml:"targetUtilizationPercent"`
 }
 
 // Options to configure a cron expression.
@@ -6970,15 +6970,15 @@ type CpuUtilizationScalingProps struct {
 //
 type CronOptions struct {
 	// The day of the month to run this rule at.
-	Day *string `json:"day"`
+	Day *string `json:"day" yaml:"day"`
 	// The hour to run this rule at.
-	Hour *string `json:"hour"`
+	Hour *string `json:"hour" yaml:"hour"`
 	// The minute to run this rule at.
-	Minute *string `json:"minute"`
+	Minute *string `json:"minute" yaml:"minute"`
 	// The month to run this rule at.
-	Month *string `json:"month"`
+	Month *string `json:"month" yaml:"month"`
 	// The day of the week to run this rule at.
-	WeekDay *string `json:"weekDay"`
+	WeekDay *string `json:"weekDay" yaml:"weekDay"`
 }
 
 type DefaultResult string
@@ -6994,7 +6994,7 @@ const (
 //
 type EbsDeviceOptions struct {
 	// Indicates whether to delete the volume when the instance is terminated.
-	DeleteOnTermination *bool `json:"deleteOnTermination"`
+	DeleteOnTermination *bool `json:"deleteOnTermination" yaml:"deleteOnTermination"`
 	// The number of I/O operations per second (IOPS) to provision for the volume.
 	//
 	// Must only be set for {@link volumeType}: {@link EbsDeviceVolumeType.IO1}
@@ -7003,17 +7003,17 @@ type EbsDeviceOptions struct {
 	// you need at least 100 GiB storage on the volume.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
 	//
-	Iops *float64 `json:"iops"`
+	Iops *float64 `json:"iops" yaml:"iops"`
 	// The EBS volume type.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
 	//
-	VolumeType EbsDeviceVolumeType `json:"volumeType"`
+	VolumeType EbsDeviceVolumeType `json:"volumeType" yaml:"volumeType"`
 	// Specifies whether the EBS volume is encrypted.
 	//
 	// Encrypted EBS volumes can only be attached to instances that support Amazon EBS encryption
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances
 	//
-	Encrypted *bool `json:"encrypted"`
+	Encrypted *bool `json:"encrypted" yaml:"encrypted"`
 }
 
 // Base block device options for an EBS volume.
@@ -7022,7 +7022,7 @@ type EbsDeviceOptions struct {
 //
 type EbsDeviceOptionsBase struct {
 	// Indicates whether to delete the volume when the instance is terminated.
-	DeleteOnTermination *bool `json:"deleteOnTermination"`
+	DeleteOnTermination *bool `json:"deleteOnTermination" yaml:"deleteOnTermination"`
 	// The number of I/O operations per second (IOPS) to provision for the volume.
 	//
 	// Must only be set for {@link volumeType}: {@link EbsDeviceVolumeType.IO1}
@@ -7031,11 +7031,11 @@ type EbsDeviceOptionsBase struct {
 	// you need at least 100 GiB storage on the volume.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
 	//
-	Iops *float64 `json:"iops"`
+	Iops *float64 `json:"iops" yaml:"iops"`
 	// The EBS volume type.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
 	//
-	VolumeType EbsDeviceVolumeType `json:"volumeType"`
+	VolumeType EbsDeviceVolumeType `json:"volumeType" yaml:"volumeType"`
 }
 
 // Properties of an EBS block device.
@@ -7044,7 +7044,7 @@ type EbsDeviceOptionsBase struct {
 //
 type EbsDeviceProps struct {
 	// Indicates whether to delete the volume when the instance is terminated.
-	DeleteOnTermination *bool `json:"deleteOnTermination"`
+	DeleteOnTermination *bool `json:"deleteOnTermination" yaml:"deleteOnTermination"`
 	// The number of I/O operations per second (IOPS) to provision for the volume.
 	//
 	// Must only be set for {@link volumeType}: {@link EbsDeviceVolumeType.IO1}
@@ -7053,17 +7053,17 @@ type EbsDeviceProps struct {
 	// you need at least 100 GiB storage on the volume.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
 	//
-	Iops *float64 `json:"iops"`
+	Iops *float64 `json:"iops" yaml:"iops"`
 	// The EBS volume type.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
 	//
-	VolumeType EbsDeviceVolumeType `json:"volumeType"`
+	VolumeType EbsDeviceVolumeType `json:"volumeType" yaml:"volumeType"`
 	// The volume size, in Gibibytes (GiB).
 	//
 	// If you specify volumeSize, it must be equal or greater than the size of the snapshot.
-	VolumeSize *float64 `json:"volumeSize"`
+	VolumeSize *float64 `json:"volumeSize" yaml:"volumeSize"`
 	// The snapshot ID of the volume to use.
-	SnapshotId *string `json:"snapshotId"`
+	SnapshotId *string `json:"snapshotId" yaml:"snapshotId"`
 }
 
 // Block device options for an EBS volume created from a snapshot.
@@ -7072,7 +7072,7 @@ type EbsDeviceProps struct {
 //
 type EbsDeviceSnapshotOptions struct {
 	// Indicates whether to delete the volume when the instance is terminated.
-	DeleteOnTermination *bool `json:"deleteOnTermination"`
+	DeleteOnTermination *bool `json:"deleteOnTermination" yaml:"deleteOnTermination"`
 	// The number of I/O operations per second (IOPS) to provision for the volume.
 	//
 	// Must only be set for {@link volumeType}: {@link EbsDeviceVolumeType.IO1}
@@ -7081,15 +7081,15 @@ type EbsDeviceSnapshotOptions struct {
 	// you need at least 100 GiB storage on the volume.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
 	//
-	Iops *float64 `json:"iops"`
+	Iops *float64 `json:"iops" yaml:"iops"`
 	// The EBS volume type.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
 	//
-	VolumeType EbsDeviceVolumeType `json:"volumeType"`
+	VolumeType EbsDeviceVolumeType `json:"volumeType" yaml:"volumeType"`
 	// The volume size, in Gibibytes (GiB).
 	//
 	// If you specify volumeSize, it must be equal or greater than the size of the snapshot.
-	VolumeSize *float64 `json:"volumeSize"`
+	VolumeSize *float64 `json:"volumeSize" yaml:"volumeSize"`
 }
 
 // Supported EBS volume types for blockDevices.
@@ -7110,7 +7110,7 @@ const (
 //
 type Ec2HealthCheckOptions struct {
 	// Specified the time Auto Scaling waits before checking the health status of an EC2 instance that has come into service.
-	Grace awscdk.Duration `json:"grace"`
+	Grace awscdk.Duration `json:"grace" yaml:"grace"`
 }
 
 // ELB Heath check options.
@@ -7121,7 +7121,7 @@ type ElbHealthCheckOptions struct {
 	// Specified the time Auto Scaling waits before checking the health status of an EC2 instance that has come into service.
 	//
 	// This option is required for ELB health checks.
-	Grace awscdk.Duration `json:"grace"`
+	Grace awscdk.Duration `json:"grace" yaml:"grace"`
 }
 
 // Group metrics that an Auto Scaling group sends to Amazon CloudWatch.
@@ -7891,23 +7891,23 @@ func (l *jsiiProxy_LifecycleHook) ToString() *string {
 //
 type LifecycleHookProps struct {
 	// The state of the Amazon EC2 instance to which you want to attach the lifecycle hook.
-	LifecycleTransition LifecycleTransition `json:"lifecycleTransition"`
+	LifecycleTransition LifecycleTransition `json:"lifecycleTransition" yaml:"lifecycleTransition"`
 	// The action the Auto Scaling group takes when the lifecycle hook timeout elapses or if an unexpected failure occurs.
-	DefaultResult DefaultResult `json:"defaultResult"`
+	DefaultResult DefaultResult `json:"defaultResult" yaml:"defaultResult"`
 	// Maximum time between calls to RecordLifecycleActionHeartbeat for the hook.
 	//
 	// If the lifecycle hook times out, perform the action in DefaultResult.
-	HeartbeatTimeout awscdk.Duration `json:"heartbeatTimeout"`
+	HeartbeatTimeout awscdk.Duration `json:"heartbeatTimeout" yaml:"heartbeatTimeout"`
 	// Name of the lifecycle hook.
-	LifecycleHookName *string `json:"lifecycleHookName"`
+	LifecycleHookName *string `json:"lifecycleHookName" yaml:"lifecycleHookName"`
 	// Additional data to pass to the lifecycle hook target.
-	NotificationMetadata *string `json:"notificationMetadata"`
+	NotificationMetadata *string `json:"notificationMetadata" yaml:"notificationMetadata"`
 	// The target of the lifecycle hook.
-	NotificationTarget ILifecycleHookTarget `json:"notificationTarget"`
+	NotificationTarget ILifecycleHookTarget `json:"notificationTarget" yaml:"notificationTarget"`
 	// The role that allows publishing to the notification target.
-	Role awsiam.IRole `json:"role"`
+	Role awsiam.IRole `json:"role" yaml:"role"`
 	// The AutoScalingGroup to add the lifecycle hook to.
-	AutoScalingGroup IAutoScalingGroup `json:"autoScalingGroup"`
+	AutoScalingGroup IAutoScalingGroup `json:"autoScalingGroup" yaml:"autoScalingGroup"`
 }
 
 // Result of binding a lifecycle hook to a target.
@@ -7916,9 +7916,9 @@ type LifecycleHookProps struct {
 //
 type LifecycleHookTargetConfig struct {
 	// The IRole that was used to bind the lifecycle hook to the target.
-	CreatedRole awsiam.IRole `json:"createdRole"`
+	CreatedRole awsiam.IRole `json:"createdRole" yaml:"createdRole"`
 	// The targetArn that the lifecycle hook was bound to.
-	NotificationTargetArn *string `json:"notificationTargetArn"`
+	NotificationTargetArn *string `json:"notificationTargetArn" yaml:"notificationTargetArn"`
 }
 
 // What instance transition to attach the hook to.
@@ -7944,24 +7944,24 @@ const (
 //
 type MetricTargetTrackingProps struct {
 	// Period after a scaling completes before another scaling activity can start.
-	Cooldown awscdk.Duration `json:"cooldown"`
+	Cooldown awscdk.Duration `json:"cooldown" yaml:"cooldown"`
 	// Indicates whether scale in by the target tracking policy is disabled.
 	//
 	// If the value is true, scale in is disabled and the target tracking policy
 	// won't remove capacity from the autoscaling group. Otherwise, scale in is
 	// enabled and the target tracking policy can remove capacity from the
 	// group.
-	DisableScaleIn *bool `json:"disableScaleIn"`
+	DisableScaleIn *bool `json:"disableScaleIn" yaml:"disableScaleIn"`
 	// Estimated time until a newly launched instance can send metrics to CloudWatch.
-	EstimatedInstanceWarmup awscdk.Duration `json:"estimatedInstanceWarmup"`
+	EstimatedInstanceWarmup awscdk.Duration `json:"estimatedInstanceWarmup" yaml:"estimatedInstanceWarmup"`
 	// Metric to track.
 	//
 	// The metric must represent a utilization, so that if it's higher than the
 	// target value, your ASG should scale out, and if it's lower it should
 	// scale in.
-	Metric awscloudwatch.IMetric `json:"metric"`
+	Metric awscloudwatch.IMetric `json:"metric" yaml:"metric"`
 	// Value to keep the metric around.
-	TargetValue *float64 `json:"targetValue"`
+	TargetValue *float64 `json:"targetValue" yaml:"targetValue"`
 }
 
 // The monitoring mode for instances launched in an autoscaling group.
@@ -7978,18 +7978,18 @@ const (
 //
 type NetworkUtilizationScalingProps struct {
 	// Period after a scaling completes before another scaling activity can start.
-	Cooldown awscdk.Duration `json:"cooldown"`
+	Cooldown awscdk.Duration `json:"cooldown" yaml:"cooldown"`
 	// Indicates whether scale in by the target tracking policy is disabled.
 	//
 	// If the value is true, scale in is disabled and the target tracking policy
 	// won't remove capacity from the autoscaling group. Otherwise, scale in is
 	// enabled and the target tracking policy can remove capacity from the
 	// group.
-	DisableScaleIn *bool `json:"disableScaleIn"`
+	DisableScaleIn *bool `json:"disableScaleIn" yaml:"disableScaleIn"`
 	// Estimated time until a newly launched instance can send metrics to CloudWatch.
-	EstimatedInstanceWarmup awscdk.Duration `json:"estimatedInstanceWarmup"`
+	EstimatedInstanceWarmup awscdk.Duration `json:"estimatedInstanceWarmup" yaml:"estimatedInstanceWarmup"`
 	// Target average bytes/seconds on each instance.
-	TargetBytesPerSecond *float64 `json:"targetBytesPerSecond"`
+	TargetBytesPerSecond *float64 `json:"targetBytesPerSecond" yaml:"targetBytesPerSecond"`
 }
 
 // AutoScalingGroup fleet change notifications configurations.
@@ -8000,9 +8000,9 @@ type NetworkUtilizationScalingProps struct {
 //
 type NotificationConfiguration struct {
 	// SNS topic to send notifications about fleet scaling events.
-	Topic awssns.ITopic `json:"topic"`
+	Topic awssns.ITopic `json:"topic" yaml:"topic"`
 	// Which fleet scaling events triggers a notification.
-	ScalingEvents ScalingEvents `json:"scalingEvents"`
+	ScalingEvents ScalingEvents `json:"scalingEvents" yaml:"scalingEvents"`
 }
 
 // One of the predefined autoscaling metrics.
@@ -8021,9 +8021,9 @@ const (
 //
 type RenderSignalsOptions struct {
 	// The desiredCapacity of the ASG.
-	DesiredCapacity *float64 `json:"desiredCapacity"`
+	DesiredCapacity *float64 `json:"desiredCapacity" yaml:"desiredCapacity"`
 	// The minSize of the ASG.
-	MinCapacity *float64 `json:"minCapacity"`
+	MinCapacity *float64 `json:"minCapacity" yaml:"minCapacity"`
 }
 
 // Properties for enabling scaling based on request/second.
@@ -8032,18 +8032,18 @@ type RenderSignalsOptions struct {
 //
 type RequestCountScalingProps struct {
 	// Period after a scaling completes before another scaling activity can start.
-	Cooldown awscdk.Duration `json:"cooldown"`
+	Cooldown awscdk.Duration `json:"cooldown" yaml:"cooldown"`
 	// Indicates whether scale in by the target tracking policy is disabled.
 	//
 	// If the value is true, scale in is disabled and the target tracking policy
 	// won't remove capacity from the autoscaling group. Otherwise, scale in is
 	// enabled and the target tracking policy can remove capacity from the
 	// group.
-	DisableScaleIn *bool `json:"disableScaleIn"`
+	DisableScaleIn *bool `json:"disableScaleIn" yaml:"disableScaleIn"`
 	// Estimated time until a newly launched instance can send metrics to CloudWatch.
-	EstimatedInstanceWarmup awscdk.Duration `json:"estimatedInstanceWarmup"`
+	EstimatedInstanceWarmup awscdk.Duration `json:"estimatedInstanceWarmup" yaml:"estimatedInstanceWarmup"`
 	// Target average requests/minute on each instance.
-	TargetRequestsPerMinute *float64 `json:"targetRequestsPerMinute"`
+	TargetRequestsPerMinute *float64 `json:"targetRequestsPerMinute" yaml:"targetRequestsPerMinute"`
 }
 
 // Options for customizing the rolling update.
@@ -8054,22 +8054,22 @@ type RollingUpdateOptions struct {
 	// The maximum number of instances that AWS CloudFormation updates at once.
 	//
 	// This number affects the speed of the replacement.
-	MaxBatchSize *float64 `json:"maxBatchSize"`
+	MaxBatchSize *float64 `json:"maxBatchSize" yaml:"maxBatchSize"`
 	// The minimum number of instances that must be in service before more instances are replaced.
 	//
 	// This number affects the speed of the replacement.
-	MinInstancesInService *float64 `json:"minInstancesInService"`
+	MinInstancesInService *float64 `json:"minInstancesInService" yaml:"minInstancesInService"`
 	// The percentage of instances that must signal success for the update to succeed.
-	MinSuccessPercentage *float64 `json:"minSuccessPercentage"`
+	MinSuccessPercentage *float64 `json:"minSuccessPercentage" yaml:"minSuccessPercentage"`
 	// The pause time after making a change to a batch of instances.
-	PauseTime awscdk.Duration `json:"pauseTime"`
+	PauseTime awscdk.Duration `json:"pauseTime" yaml:"pauseTime"`
 	// Specifies the Auto Scaling processes to suspend during a stack update.
 	//
 	// Suspending processes prevents Auto Scaling from interfering with a stack
 	// update.
-	SuspendProcesses *[]ScalingProcess `json:"suspendProcesses"`
+	SuspendProcesses *[]ScalingProcess `json:"suspendProcesses" yaml:"suspendProcesses"`
 	// Specifies whether the Auto Scaling group waits on signals from new instances during an update.
-	WaitOnResourceSignals *bool `json:"waitOnResourceSignals"`
+	WaitOnResourceSignals *bool `json:"waitOnResourceSignals" yaml:"waitOnResourceSignals"`
 }
 
 // Fleet scaling events.
@@ -8188,15 +8188,15 @@ type ScalingInterval struct {
 	//    capacity to itself. The number can be in the range [-100..100].
 	// - ExactCapacity: set the capacity to this number. The number must
 	//    be positive.
-	Change *float64 `json:"change"`
+	Change *float64 `json:"change" yaml:"change"`
 	// The lower bound of the interval.
 	//
 	// The scaling adjustment will be applied if the metric is higher than this value.
-	Lower *float64 `json:"lower"`
+	Lower *float64 `json:"lower" yaml:"lower"`
 	// The upper bound of the interval.
 	//
 	// The scaling adjustment will be applied if the metric is lower than this value.
-	Upper *float64 `json:"upper"`
+	Upper *float64 `json:"upper" yaml:"upper"`
 }
 
 type ScalingProcess string
@@ -8493,29 +8493,29 @@ type ScheduledActionProps struct {
 	// Supports cron expressions.
 	//
 	// For more information about cron expressions, see https://en.wikipedia.org/wiki/Cron.
-	Schedule Schedule `json:"schedule"`
+	Schedule Schedule `json:"schedule" yaml:"schedule"`
 	// The new desired capacity.
 	//
 	// At the scheduled time, set the desired capacity to the given capacity.
 	//
 	// At least one of maxCapacity, minCapacity, or desiredCapacity must be supplied.
-	DesiredCapacity *float64 `json:"desiredCapacity"`
+	DesiredCapacity *float64 `json:"desiredCapacity" yaml:"desiredCapacity"`
 	// When this scheduled action expires.
-	EndTime *time.Time `json:"endTime"`
+	EndTime *time.Time `json:"endTime" yaml:"endTime"`
 	// The new maximum capacity.
 	//
 	// At the scheduled time, set the maximum capacity to the given capacity.
 	//
 	// At least one of maxCapacity, minCapacity, or desiredCapacity must be supplied.
-	MaxCapacity *float64 `json:"maxCapacity"`
+	MaxCapacity *float64 `json:"maxCapacity" yaml:"maxCapacity"`
 	// The new minimum capacity.
 	//
 	// At the scheduled time, set the minimum capacity to the given capacity.
 	//
 	// At least one of maxCapacity, minCapacity, or desiredCapacity must be supplied.
-	MinCapacity *float64 `json:"minCapacity"`
+	MinCapacity *float64 `json:"minCapacity" yaml:"minCapacity"`
 	// When this scheduled action becomes active.
-	StartTime *time.Time `json:"startTime"`
+	StartTime *time.Time `json:"startTime" yaml:"startTime"`
 	// Specifies the time zone for a cron expression.
 	//
 	// If a time zone is not provided, UTC is used by default.
@@ -8523,9 +8523,9 @@ type ScheduledActionProps struct {
 	// Valid values are the canonical names of the IANA time zones, derived from the IANA Time Zone Database (such as Etc/GMT+9 or Pacific/Tahiti).
 	//
 	// For more information, see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones.
-	TimeZone *string `json:"timeZone"`
+	TimeZone *string `json:"timeZone" yaml:"timeZone"`
 	// The AutoScalingGroup to apply the scheduled actions to.
-	AutoScalingGroup IAutoScalingGroup `json:"autoScalingGroup"`
+	AutoScalingGroup IAutoScalingGroup `json:"autoScalingGroup" yaml:"autoScalingGroup"`
 }
 
 // Configure whether the AutoScalingGroup waits for signals.
@@ -8657,12 +8657,12 @@ type SignalsOptions struct {
 	//
 	// If this number is less than 100, a percentage of signals may be failure
 	// signals while still succeeding the creation or update in CloudFormation.
-	MinSuccessPercentage *float64 `json:"minSuccessPercentage"`
+	MinSuccessPercentage *float64 `json:"minSuccessPercentage" yaml:"minSuccessPercentage"`
 	// How long to wait for the signals to be sent.
 	//
 	// This should reflect how long it takes your instances to start up
 	// (including instance start time and instance initialization time).
-	Timeout awscdk.Duration `json:"timeout"`
+	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 }
 
 // Define a step scaling action.
@@ -8781,20 +8781,20 @@ func (s *jsiiProxy_StepScalingAction) ToString() *string {
 //
 type StepScalingActionProps struct {
 	// The auto scaling group.
-	AutoScalingGroup IAutoScalingGroup `json:"autoScalingGroup"`
+	AutoScalingGroup IAutoScalingGroup `json:"autoScalingGroup" yaml:"autoScalingGroup"`
 	// How the adjustment numbers are interpreted.
-	AdjustmentType AdjustmentType `json:"adjustmentType"`
+	AdjustmentType AdjustmentType `json:"adjustmentType" yaml:"adjustmentType"`
 	// Period after a scaling completes before another scaling activity can start.
-	Cooldown awscdk.Duration `json:"cooldown"`
+	Cooldown awscdk.Duration `json:"cooldown" yaml:"cooldown"`
 	// Estimated time until a newly launched instance can send metrics to CloudWatch.
-	EstimatedInstanceWarmup awscdk.Duration `json:"estimatedInstanceWarmup"`
+	EstimatedInstanceWarmup awscdk.Duration `json:"estimatedInstanceWarmup" yaml:"estimatedInstanceWarmup"`
 	// The aggregation type for the CloudWatch metrics.
-	MetricAggregationType MetricAggregationType `json:"metricAggregationType"`
+	MetricAggregationType MetricAggregationType `json:"metricAggregationType" yaml:"metricAggregationType"`
 	// Minimum absolute number to adjust capacity with as result of percentage scaling.
 	//
 	// Only when using AdjustmentType = PercentChangeInCapacity, this number controls
 	// the minimum absolute effect size.
-	MinAdjustmentMagnitude *float64 `json:"minAdjustmentMagnitude"`
+	MinAdjustmentMagnitude *float64 `json:"minAdjustmentMagnitude" yaml:"minAdjustmentMagnitude"`
 }
 
 // Define a acaling strategy which scales depending on absolute values of some metric.
@@ -8932,33 +8932,33 @@ func (s *jsiiProxy_StepScalingPolicy) ToString() *string {
 //
 type StepScalingPolicyProps struct {
 	// Metric to scale on.
-	Metric awscloudwatch.IMetric `json:"metric"`
+	Metric awscloudwatch.IMetric `json:"metric" yaml:"metric"`
 	// The intervals for scaling.
 	//
 	// Maps a range of metric values to a particular scaling behavior.
-	ScalingSteps *[]*ScalingInterval `json:"scalingSteps"`
+	ScalingSteps *[]*ScalingInterval `json:"scalingSteps" yaml:"scalingSteps"`
 	// How the adjustment numbers inside 'intervals' are interpreted.
-	AdjustmentType AdjustmentType `json:"adjustmentType"`
+	AdjustmentType AdjustmentType `json:"adjustmentType" yaml:"adjustmentType"`
 	// Grace period after scaling activity.
-	Cooldown awscdk.Duration `json:"cooldown"`
+	Cooldown awscdk.Duration `json:"cooldown" yaml:"cooldown"`
 	// Estimated time until a newly launched instance can send metrics to CloudWatch.
-	EstimatedInstanceWarmup awscdk.Duration `json:"estimatedInstanceWarmup"`
+	EstimatedInstanceWarmup awscdk.Duration `json:"estimatedInstanceWarmup" yaml:"estimatedInstanceWarmup"`
 	// How many evaluation periods of the metric to wait before triggering a scaling action.
 	//
 	// Raising this value can be used to smooth out the metric, at the expense
 	// of slower response times.
-	EvaluationPeriods *float64 `json:"evaluationPeriods"`
+	EvaluationPeriods *float64 `json:"evaluationPeriods" yaml:"evaluationPeriods"`
 	// Aggregation to apply to all data points over the evaluation periods.
 	//
 	// Only has meaning if `evaluationPeriods != 1`.
-	MetricAggregationType MetricAggregationType `json:"metricAggregationType"`
+	MetricAggregationType MetricAggregationType `json:"metricAggregationType" yaml:"metricAggregationType"`
 	// Minimum absolute number to adjust capacity with as result of percentage scaling.
 	//
 	// Only when using AdjustmentType = PercentChangeInCapacity, this number controls
 	// the minimum absolute effect size.
-	MinAdjustmentMagnitude *float64 `json:"minAdjustmentMagnitude"`
+	MinAdjustmentMagnitude *float64 `json:"minAdjustmentMagnitude" yaml:"minAdjustmentMagnitude"`
 	// The auto scaling group.
-	AutoScalingGroup IAutoScalingGroup `json:"autoScalingGroup"`
+	AutoScalingGroup IAutoScalingGroup `json:"autoScalingGroup" yaml:"autoScalingGroup"`
 }
 
 // TODO: EXAMPLE
@@ -9061,40 +9061,40 @@ func (t *jsiiProxy_TargetTrackingScalingPolicy) ToString() *string {
 //
 type TargetTrackingScalingPolicyProps struct {
 	// Period after a scaling completes before another scaling activity can start.
-	Cooldown awscdk.Duration `json:"cooldown"`
+	Cooldown awscdk.Duration `json:"cooldown" yaml:"cooldown"`
 	// Indicates whether scale in by the target tracking policy is disabled.
 	//
 	// If the value is true, scale in is disabled and the target tracking policy
 	// won't remove capacity from the autoscaling group. Otherwise, scale in is
 	// enabled and the target tracking policy can remove capacity from the
 	// group.
-	DisableScaleIn *bool `json:"disableScaleIn"`
+	DisableScaleIn *bool `json:"disableScaleIn" yaml:"disableScaleIn"`
 	// Estimated time until a newly launched instance can send metrics to CloudWatch.
-	EstimatedInstanceWarmup awscdk.Duration `json:"estimatedInstanceWarmup"`
+	EstimatedInstanceWarmup awscdk.Duration `json:"estimatedInstanceWarmup" yaml:"estimatedInstanceWarmup"`
 	// The target value for the metric.
-	TargetValue *float64 `json:"targetValue"`
+	TargetValue *float64 `json:"targetValue" yaml:"targetValue"`
 	// A custom metric for application autoscaling.
 	//
 	// The metric must track utilization. Scaling out will happen if the metric is higher than
 	// the target value, scaling in will happen in the metric is lower than the target value.
 	//
 	// Exactly one of customMetric or predefinedMetric must be specified.
-	CustomMetric awscloudwatch.IMetric `json:"customMetric"`
+	CustomMetric awscloudwatch.IMetric `json:"customMetric" yaml:"customMetric"`
 	// A predefined metric for application autoscaling.
 	//
 	// The metric must track utilization. Scaling out will happen if the metric is higher than
 	// the target value, scaling in will happen in the metric is lower than the target value.
 	//
 	// Exactly one of customMetric or predefinedMetric must be specified.
-	PredefinedMetric PredefinedMetric `json:"predefinedMetric"`
+	PredefinedMetric PredefinedMetric `json:"predefinedMetric" yaml:"predefinedMetric"`
 	// The resource label associated with the predefined metric.
 	//
 	// Should be supplied if the predefined metric is ALBRequestCountPerTarget, and the
 	// format should be:
 	//
 	// app/<load-balancer-name>/<load-balancer-id>/targetgroup/<target-group-name>/<target-group-id>
-	ResourceLabel *string `json:"resourceLabel"`
-	AutoScalingGroup IAutoScalingGroup `json:"autoScalingGroup"`
+	ResourceLabel *string `json:"resourceLabel" yaml:"resourceLabel"`
+	AutoScalingGroup IAutoScalingGroup `json:"autoScalingGroup" yaml:"autoScalingGroup"`
 }
 
 // Specifies the termination criteria to apply before Amazon EC2 Auto Scaling chooses an instance for termination.

@@ -575,12 +575,12 @@ type CfnConnectionProps struct {
 	// The name of the connection.
 	//
 	// Connection names must be unique in an AWS user account.
-	ConnectionName *string `json:"connectionName"`
+	ConnectionName *string `json:"connectionName" yaml:"connectionName"`
 	// The Amazon Resource Name (ARN) of the host associated with the connection.
-	HostArn *string `json:"hostArn"`
+	HostArn *string `json:"hostArn" yaml:"hostArn"`
 	// The name of the external provider where your third-party code repository is configured.
-	ProviderType *string `json:"providerType"`
+	ProviderType *string `json:"providerType" yaml:"providerType"`
 	// Specifies the tags applied to the resource.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 

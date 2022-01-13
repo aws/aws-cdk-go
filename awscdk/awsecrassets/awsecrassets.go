@@ -171,15 +171,15 @@ func (d *jsiiProxy_DockerImageAsset) ToString() *string {
 //
 type DockerImageAssetInvalidationOptions struct {
 	// Use `buildArgs` while calculating the asset hash.
-	BuildArgs *bool `json:"buildArgs"`
+	BuildArgs *bool `json:"buildArgs" yaml:"buildArgs"`
 	// Use `extraHash` while calculating the asset hash.
-	ExtraHash *bool `json:"extraHash"`
+	ExtraHash *bool `json:"extraHash" yaml:"extraHash"`
 	// Use `file` while calculating the asset hash.
-	File *bool `json:"file"`
+	File *bool `json:"file" yaml:"file"`
 	// Use `repositoryName` while calculating the asset hash.
-	RepositoryName *bool `json:"repositoryName"`
+	RepositoryName *bool `json:"repositoryName" yaml:"repositoryName"`
 	// Use `target` while calculating the asset hash.
-	Target *bool `json:"target"`
+	Target *bool `json:"target" yaml:"target"`
 }
 
 // Options for DockerImageAsset.
@@ -188,25 +188,25 @@ type DockerImageAssetInvalidationOptions struct {
 //
 type DockerImageAssetOptions struct {
 	// Glob patterns to exclude from the copy.
-	Exclude *[]*string `json:"exclude"`
+	Exclude *[]*string `json:"exclude" yaml:"exclude"`
 	// A strategy for how to handle symlinks.
-	FollowSymlinks awscdk.SymlinkFollowMode `json:"followSymlinks"`
+	FollowSymlinks awscdk.SymlinkFollowMode `json:"followSymlinks" yaml:"followSymlinks"`
 	// The ignore behavior to use for exclude patterns.
-	IgnoreMode awscdk.IgnoreMode `json:"ignoreMode"`
+	IgnoreMode awscdk.IgnoreMode `json:"ignoreMode" yaml:"ignoreMode"`
 	// Extra information to encode into the fingerprint (e.g. build instructions and other inputs).
-	ExtraHash *string `json:"extraHash"`
+	ExtraHash *string `json:"extraHash" yaml:"extraHash"`
 	// Build args to pass to the `docker build` command.
 	//
 	// Since Docker build arguments are resolved before deployment, keys and
 	// values cannot refer to unresolved tokens (such as `lambda.functionArn` or
 	// `queue.queueUrl`).
-	BuildArgs *map[string]*string `json:"buildArgs"`
+	BuildArgs *map[string]*string `json:"buildArgs" yaml:"buildArgs"`
 	// Path to the Dockerfile (relative to the directory).
-	File *string `json:"file"`
+	File *string `json:"file" yaml:"file"`
 	// Options to control which parameters are used to invalidate the asset hash.
-	Invalidation *DockerImageAssetInvalidationOptions `json:"invalidation"`
+	Invalidation *DockerImageAssetInvalidationOptions `json:"invalidation" yaml:"invalidation"`
 	// Docker target to build to.
-	Target *string `json:"target"`
+	Target *string `json:"target" yaml:"target"`
 }
 
 // Props for DockerImageAssets.
@@ -215,29 +215,29 @@ type DockerImageAssetOptions struct {
 //
 type DockerImageAssetProps struct {
 	// Glob patterns to exclude from the copy.
-	Exclude *[]*string `json:"exclude"`
+	Exclude *[]*string `json:"exclude" yaml:"exclude"`
 	// A strategy for how to handle symlinks.
-	FollowSymlinks awscdk.SymlinkFollowMode `json:"followSymlinks"`
+	FollowSymlinks awscdk.SymlinkFollowMode `json:"followSymlinks" yaml:"followSymlinks"`
 	// The ignore behavior to use for exclude patterns.
-	IgnoreMode awscdk.IgnoreMode `json:"ignoreMode"`
+	IgnoreMode awscdk.IgnoreMode `json:"ignoreMode" yaml:"ignoreMode"`
 	// Extra information to encode into the fingerprint (e.g. build instructions and other inputs).
-	ExtraHash *string `json:"extraHash"`
+	ExtraHash *string `json:"extraHash" yaml:"extraHash"`
 	// Build args to pass to the `docker build` command.
 	//
 	// Since Docker build arguments are resolved before deployment, keys and
 	// values cannot refer to unresolved tokens (such as `lambda.functionArn` or
 	// `queue.queueUrl`).
-	BuildArgs *map[string]*string `json:"buildArgs"`
+	BuildArgs *map[string]*string `json:"buildArgs" yaml:"buildArgs"`
 	// Path to the Dockerfile (relative to the directory).
-	File *string `json:"file"`
+	File *string `json:"file" yaml:"file"`
 	// Options to control which parameters are used to invalidate the asset hash.
-	Invalidation *DockerImageAssetInvalidationOptions `json:"invalidation"`
+	Invalidation *DockerImageAssetInvalidationOptions `json:"invalidation" yaml:"invalidation"`
 	// Docker target to build to.
-	Target *string `json:"target"`
+	Target *string `json:"target" yaml:"target"`
 	// The directory where the Dockerfile is stored.
 	//
 	// Any directory inside with a name that matches the CDK output folder (cdk.out by default) will be excluded from the asset
-	Directory *string `json:"directory"`
+	Directory *string `json:"directory" yaml:"directory"`
 }
 
 // An asset that represents a Docker image.
@@ -386,6 +386,6 @@ type TarballImageAssetProps struct {
 	// It is recommended to to use the script running directory (e.g. `__dirname`
 	// in Node.js projects or dirname of `__file__` in Python) if your tarball
 	// is located as a resource inside your project.
-	TarballFile *string `json:"tarballFile"`
+	TarballFile *string `json:"tarballFile" yaml:"tarballFile"`
 }
 

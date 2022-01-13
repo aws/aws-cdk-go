@@ -20,9 +20,9 @@ import (
 //
 type Attribute struct {
 	// The name of an attribute.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The data type of an attribute.
-	Type AttributeType `json:"type"`
+	Type AttributeType `json:"type" yaml:"type"`
 }
 
 // Data types for attributes within a table.
@@ -810,13 +810,13 @@ func (c *jsiiProxy_CfnGlobalTable) ValidateProperties(_properties interface{}) {
 //
 type CfnGlobalTable_AttributeDefinitionProperty struct {
 	// A name for the attribute.
-	AttributeName *string `json:"attributeName"`
+	AttributeName *string `json:"attributeName" yaml:"attributeName"`
 	// The data type for the attribute, where:.
 	//
 	// - `S` - the attribute is of type String
 	// - `N` - the attribute is of type Number
 	// - `B` - the attribute is of type Binary
-	AttributeType *string `json:"attributeType"`
+	AttributeType *string `json:"attributeType" yaml:"attributeType"`
 }
 
 // Configures a scalable target and an autoscaling policy for a table or global secondary index's read or write capacity.
@@ -825,11 +825,11 @@ type CfnGlobalTable_AttributeDefinitionProperty struct {
 //
 type CfnGlobalTable_CapacityAutoScalingSettingsProperty struct {
 	// The maximum provisioned capacity units for the global table.
-	MaxCapacity *float64 `json:"maxCapacity"`
+	MaxCapacity *float64 `json:"maxCapacity" yaml:"maxCapacity"`
 	// The minimum provisioned capacity units for the global table.
-	MinCapacity *float64 `json:"minCapacity"`
+	MinCapacity *float64 `json:"minCapacity" yaml:"minCapacity"`
 	// Defines a target tracking scaling policy.
-	TargetTrackingScalingPolicyConfiguration interface{} `json:"targetTrackingScalingPolicyConfiguration"`
+	TargetTrackingScalingPolicyConfiguration interface{} `json:"targetTrackingScalingPolicyConfiguration" yaml:"targetTrackingScalingPolicyConfiguration"`
 	// When switching billing mode from `PAY_PER_REQUEST` to `PROVISIONED` , DynamoDB requires you to specify read and write capacity unit values for the table and for each global secondary index.
 	//
 	// These values will be applied to all replicas. The table will use these provisioned values until CloudFormation creates the autoscaling policies you configured in your template. CloudFormation cannot determine what capacity the table and its global secondary indexes will require in this time period, since they are application-dependent.
@@ -837,7 +837,7 @@ type CfnGlobalTable_CapacityAutoScalingSettingsProperty struct {
 	// If you want to switch a table's billing mode from `PAY_PER_REQUEST` to `PROVISIONED` , you must specify a value for this property for each autoscaled resource. If you specify different values for the same resource in different regions, CloudFormation will use the highest value found in either the `SeedCapacity` or `ReadCapacityUnits` properties. For example, if your global secondary index `myGSI` has a `SeedCapacity` of 10 in us-east-1 and a fixed `ReadCapacityUnits` of 20 in eu-west-1, CloudFormation will initially set the read capacity for `myGSI` to 20. Note that if you disable `ScaleIn` for `myGSI` in us-east-1, its read capacity units might not be set back to 10.
 	//
 	// You must also specify a value for `SeedCapacity` when you plan to switch a table's billing mode from `PROVISIONED` to `PAY_PER_REQUEST` , because CloudFormation might need to roll back the operation (reverting the billing mode to `PROVISIONED` ) and this cannot succeed without specifying a value for `SeedCapacity` .
-	SeedCapacity *float64 `json:"seedCapacity"`
+	SeedCapacity *float64 `json:"seedCapacity" yaml:"seedCapacity"`
 }
 
 // Configures contributor insights settings for a replica or one of its indexes.
@@ -846,7 +846,7 @@ type CfnGlobalTable_CapacityAutoScalingSettingsProperty struct {
 //
 type CfnGlobalTable_ContributorInsightsSpecificationProperty struct {
 	// Indicates whether CloudWatch Contributor Insights are to be enabled (true) or disabled (false).
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 }
 
 // Allows you to specify a global secondary index for the global table.
@@ -859,21 +859,21 @@ type CfnGlobalTable_GlobalSecondaryIndexProperty struct {
 	// The name of the global secondary index.
 	//
 	// The name must be unique among all other indexes on this table.
-	IndexName *string `json:"indexName"`
+	IndexName *string `json:"indexName" yaml:"indexName"`
 	// The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:  - `HASH` - partition key - `RANGE` - sort key  > The partition key of an item is also known as its *hash attribute* .
 	//
 	// The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
 	// >
 	// > The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
-	KeySchema interface{} `json:"keySchema"`
+	KeySchema interface{} `json:"keySchema" yaml:"keySchema"`
 	// Represents attributes that are copied (projected) from the table into the global secondary index.
 	//
 	// These are in addition to the primary key attributes and index key attributes, which are automatically projected.
-	Projection interface{} `json:"projection"`
+	Projection interface{} `json:"projection" yaml:"projection"`
 	// Defines write capacity settings for the global secondary index.
 	//
 	// You must specify a value for this property if the table's `BillingMode` is `PROVISIONED` . All replicas will have the same write capacity settings for this global secondary index.
-	WriteProvisionedThroughputSettings interface{} `json:"writeProvisionedThroughputSettings"`
+	WriteProvisionedThroughputSettings interface{} `json:"writeProvisionedThroughputSettings" yaml:"writeProvisionedThroughputSettings"`
 }
 
 // Represents *a single element* of a key schema.
@@ -888,7 +888,7 @@ type CfnGlobalTable_GlobalSecondaryIndexProperty struct {
 //
 type CfnGlobalTable_KeySchemaProperty struct {
 	// The name of a key attribute.
-	AttributeName *string `json:"attributeName"`
+	AttributeName *string `json:"attributeName" yaml:"attributeName"`
 	// The role that this key attribute will assume:.
 	//
 	// - `HASH` - partition key
@@ -897,7 +897,7 @@ type CfnGlobalTable_KeySchemaProperty struct {
 	// > The partition key of an item is also known as its *hash attribute* . The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
 	// >
 	// > The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
-	KeyType *string `json:"keyType"`
+	KeyType *string `json:"keyType" yaml:"keyType"`
 }
 
 // Represents the properties of a local secondary index.
@@ -910,17 +910,17 @@ type CfnGlobalTable_LocalSecondaryIndexProperty struct {
 	// The name of the local secondary index.
 	//
 	// The name must be unique among all other indexes on this table.
-	IndexName *string `json:"indexName"`
+	IndexName *string `json:"indexName" yaml:"indexName"`
 	// The complete key schema for the local secondary index, consisting of one or more pairs of attribute names and key types:  - `HASH` - partition key - `RANGE` - sort key  > The partition key of an item is also known as its *hash attribute* .
 	//
 	// The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
 	// >
 	// > The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
-	KeySchema interface{} `json:"keySchema"`
+	KeySchema interface{} `json:"keySchema" yaml:"keySchema"`
 	// Represents attributes that are copied (projected) from the table into the local secondary index.
 	//
 	// These are in addition to the primary key attributes and index key attributes, which are automatically projected.
-	Projection interface{} `json:"projection"`
+	Projection interface{} `json:"projection" yaml:"projection"`
 }
 
 // Represents the settings used to enable point in time recovery.
@@ -929,7 +929,7 @@ type CfnGlobalTable_LocalSecondaryIndexProperty struct {
 //
 type CfnGlobalTable_PointInTimeRecoverySpecificationProperty struct {
 	// Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.
-	PointInTimeRecoveryEnabled interface{} `json:"pointInTimeRecoveryEnabled"`
+	PointInTimeRecoveryEnabled interface{} `json:"pointInTimeRecoveryEnabled" yaml:"pointInTimeRecoveryEnabled"`
 }
 
 // Represents attributes that are copied (projected) from the table into an index.
@@ -942,13 +942,13 @@ type CfnGlobalTable_ProjectionProperty struct {
 	// Represents the non-key attribute names which will be projected into the index.
 	//
 	// For local secondary indexes, the total count of `NonKeyAttributes` summed across all of the local secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.
-	NonKeyAttributes *[]*string `json:"nonKeyAttributes"`
+	NonKeyAttributes *[]*string `json:"nonKeyAttributes" yaml:"nonKeyAttributes"`
 	// The set of attributes that are projected into the index:.
 	//
 	// - `KEYS_ONLY` - Only the index and primary keys are projected into the index.
 	// - `INCLUDE` - In addition to the attributes described in `KEYS_ONLY` , the secondary index will include other non-key attributes that you specify.
 	// - `ALL` - All of the table attributes are projected into the index.
-	ProjectionType *string `json:"projectionType"`
+	ProjectionType *string `json:"projectionType" yaml:"projectionType"`
 }
 
 // Allows you to specify the read capacity settings for a replica table or a replica global secondary index when the `BillingMode` is set to `PROVISIONED` .
@@ -959,9 +959,9 @@ type CfnGlobalTable_ProjectionProperty struct {
 //
 type CfnGlobalTable_ReadProvisionedThroughputSettingsProperty struct {
 	// Specifies auto scaling settings for the replica table or global secondary index.
-	ReadCapacityAutoScalingSettings interface{} `json:"readCapacityAutoScalingSettings"`
+	ReadCapacityAutoScalingSettings interface{} `json:"readCapacityAutoScalingSettings" yaml:"readCapacityAutoScalingSettings"`
 	// Specifies a fixed read capacity for the replica table or global secondary index.
-	ReadCapacityUnits *float64 `json:"readCapacityUnits"`
+	ReadCapacityUnits *float64 `json:"readCapacityUnits" yaml:"readCapacityUnits"`
 }
 
 // Represents the properties of a global secondary index that can be set on a per-replica basis.
@@ -972,13 +972,13 @@ type CfnGlobalTable_ReplicaGlobalSecondaryIndexSpecificationProperty struct {
 	// The name of the global secondary index.
 	//
 	// The name must be unique among all other indexes on this table.
-	IndexName *string `json:"indexName"`
+	IndexName *string `json:"indexName" yaml:"indexName"`
 	// Updates the status for contributor insights for a specific table or index.
 	//
 	// CloudWatch Contributor Insights for DynamoDB graphs display the partition key and (if applicable) sort key of frequently accessed items and frequently throttled items in plaintext. If you require the use of AWS Key Management Service (KMS) to encrypt this table’s partition key and sort key data with an AWS managed key or customer managed key, you should not enable CloudWatch Contributor Insights for DynamoDB for this table.
-	ContributorInsightsSpecification interface{} `json:"contributorInsightsSpecification"`
+	ContributorInsightsSpecification interface{} `json:"contributorInsightsSpecification" yaml:"contributorInsightsSpecification"`
 	// Allows you to specify the read capacity settings for a replica global secondary index when the `BillingMode` is set to `PROVISIONED` .
-	ReadProvisionedThroughputSettings interface{} `json:"readProvisionedThroughputSettings"`
+	ReadProvisionedThroughputSettings interface{} `json:"readProvisionedThroughputSettings" yaml:"readProvisionedThroughputSettings"`
 }
 
 // Allows you to specify a KMS key identifier to be used for server-side encryption.
@@ -991,7 +991,7 @@ type CfnGlobalTable_ReplicaSSESpecificationProperty struct {
 	// The AWS KMS key that should be used for the AWS KMS encryption.
 	//
 	// To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB key `alias/aws/dynamodb` .
-	KmsMasterKeyId *string `json:"kmsMasterKeyId"`
+	KmsMasterKeyId *string `json:"kmsMasterKeyId" yaml:"kmsMasterKeyId"`
 }
 
 // Defines settings specific to a single replica of a global table.
@@ -1000,27 +1000,27 @@ type CfnGlobalTable_ReplicaSSESpecificationProperty struct {
 //
 type CfnGlobalTable_ReplicaSpecificationProperty struct {
 	// The region in which this replica exists.
-	Region *string `json:"region"`
+	Region *string `json:"region" yaml:"region"`
 	// The settings used to enable or disable CloudWatch Contributor Insights for the specified replica.
 	//
 	// When not specified, defaults to contributor insights disabled for the replica.
-	ContributorInsightsSpecification interface{} `json:"contributorInsightsSpecification"`
+	ContributorInsightsSpecification interface{} `json:"contributorInsightsSpecification" yaml:"contributorInsightsSpecification"`
 	// Defines additional settings for the global secondary indexes of this replica.
-	GlobalSecondaryIndexes interface{} `json:"globalSecondaryIndexes"`
+	GlobalSecondaryIndexes interface{} `json:"globalSecondaryIndexes" yaml:"globalSecondaryIndexes"`
 	// The settings used to enable point in time recovery.
 	//
 	// When not specified, defaults to point in time recovery disabled for the replica.
-	PointInTimeRecoverySpecification interface{} `json:"pointInTimeRecoverySpecification"`
+	PointInTimeRecoverySpecification interface{} `json:"pointInTimeRecoverySpecification" yaml:"pointInTimeRecoverySpecification"`
 	// Defines read capacity settings for the replica table.
-	ReadProvisionedThroughputSettings interface{} `json:"readProvisionedThroughputSettings"`
+	ReadProvisionedThroughputSettings interface{} `json:"readProvisionedThroughputSettings" yaml:"readProvisionedThroughputSettings"`
 	// Allows you to specify a customer-managed key for the replica.
 	//
 	// When using customer-managed keys for server-side encryption, this property must have a value in all replicas.
-	SseSpecification interface{} `json:"sseSpecification"`
+	SseSpecification interface{} `json:"sseSpecification" yaml:"sseSpecification"`
 	// An array of key-value pairs to apply to this replica.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // Represents the settings used to enable server-side encryption.
@@ -1031,11 +1031,11 @@ type CfnGlobalTable_SSESpecificationProperty struct {
 	// Indicates whether server-side encryption is performed using an AWS managed key or an AWS owned key.
 	//
 	// If disabled (false) or not specified, server-side encryption uses an AWS owned key. If enabled (true), the server-side encryption type is set to KMS and an AWS managed key is used ( AWS KMS charges apply). If you choose to use KMS encryption, you can also use customer managed KMS keys by specifying them in the `ReplicaSpecification.SSESpecification` object. You cannot mix AWS managed and customer managed KMS keys.
-	SseEnabled interface{} `json:"sseEnabled"`
+	SseEnabled interface{} `json:"sseEnabled" yaml:"sseEnabled"`
 	// Server-side encryption type. The only supported value is:.
 	//
 	// - `KMS` - Server-side encryption that uses AWS Key Management Service . The key is stored in your account and is managed by AWS KMS ( AWS KMS charges apply).
-	SseType *string `json:"sseType"`
+	SseType *string `json:"sseType" yaml:"sseType"`
 }
 
 // Represents the DynamoDB Streams configuration for a table in DynamoDB.
@@ -1053,7 +1053,7 @@ type CfnGlobalTable_StreamSpecificationProperty struct {
 	// - `NEW_IMAGE` - The entire item, as it appears after it was modified, is written to the stream.
 	// - `OLD_IMAGE` - The entire item, as it appeared before it was modified, is written to the stream.
 	// - `NEW_AND_OLD_IMAGES` - Both the new and the old item images of the item are written to the stream.
-	StreamViewType *string `json:"streamViewType"`
+	StreamViewType *string `json:"streamViewType" yaml:"streamViewType"`
 }
 
 // Defines a target tracking scaling policy.
@@ -1062,15 +1062,15 @@ type CfnGlobalTable_StreamSpecificationProperty struct {
 //
 type CfnGlobalTable_TargetTrackingScalingPolicyConfigurationProperty struct {
 	// Defines a target value for the scaling policy.
-	TargetValue *float64 `json:"targetValue"`
+	TargetValue *float64 `json:"targetValue" yaml:"targetValue"`
 	// Indicates whether scale in by the target tracking scaling policy is disabled.
 	//
 	// The default value is `false` .
-	DisableScaleIn interface{} `json:"disableScaleIn"`
+	DisableScaleIn interface{} `json:"disableScaleIn" yaml:"disableScaleIn"`
 	// The amount of time, in seconds, after a scale-in activity completes before another scale-in activity can start.
-	ScaleInCooldown *float64 `json:"scaleInCooldown"`
+	ScaleInCooldown *float64 `json:"scaleInCooldown" yaml:"scaleInCooldown"`
 	// The amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start.
-	ScaleOutCooldown *float64 `json:"scaleOutCooldown"`
+	ScaleOutCooldown *float64 `json:"scaleOutCooldown" yaml:"scaleOutCooldown"`
 }
 
 // Represents the settings used to enable or disable Time to Live (TTL) for the specified table.
@@ -1081,11 +1081,11 @@ type CfnGlobalTable_TargetTrackingScalingPolicyConfigurationProperty struct {
 //
 type CfnGlobalTable_TimeToLiveSpecificationProperty struct {
 	// Indicates whether TTL is to be enabled (true) or disabled (false) on the table.
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 	// The name of the attribute used to store the expiration time for items in the table.
 	//
 	// Currently, you cannot directly change the attribute name used to evaluate time to live. In order to do so, you must first disable time to live, and then re-enable it with the new attribute name. It can take up to one hour for changes to time to live to take effect. If you attempt to modify time to live within that time window, your stack operation might be delayed.
-	AttributeName *string `json:"attributeName"`
+	AttributeName *string `json:"attributeName" yaml:"attributeName"`
 }
 
 // Specifies an auto scaling policy for write capacity.
@@ -1096,7 +1096,7 @@ type CfnGlobalTable_TimeToLiveSpecificationProperty struct {
 //
 type CfnGlobalTable_WriteProvisionedThroughputSettingsProperty struct {
 	// Specifies auto scaling settings for the replica table or global secondary index.
-	WriteCapacityAutoScalingSettings interface{} `json:"writeCapacityAutoScalingSettings"`
+	WriteCapacityAutoScalingSettings interface{} `json:"writeCapacityAutoScalingSettings" yaml:"writeCapacityAutoScalingSettings"`
 }
 
 // Properties for defining a `CfnGlobalTable`.
@@ -1105,11 +1105,11 @@ type CfnGlobalTable_WriteProvisionedThroughputSettingsProperty struct {
 //
 type CfnGlobalTableProps struct {
 	// A list of attributes that describe the key schema for the global table and indexes.
-	AttributeDefinitions interface{} `json:"attributeDefinitions"`
+	AttributeDefinitions interface{} `json:"attributeDefinitions" yaml:"attributeDefinitions"`
 	// Specifies the attributes that make up the primary key for the table.
 	//
 	// The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
-	KeySchema interface{} `json:"keySchema"`
+	KeySchema interface{} `json:"keySchema" yaml:"keySchema"`
 	// Specifies the list of replicas for your global table.
 	//
 	// The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.
@@ -1119,46 +1119,46 @@ type CfnGlobalTableProps struct {
 	// > If you add or delete a replica during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new replica, you might need to manually delete the replica.
 	//
 	// You can create a new global table with up to two replicas. You can add or remove replicas after table creation, but you can only add or remove a single replica in each update.
-	Replicas interface{} `json:"replicas"`
+	Replicas interface{} `json:"replicas" yaml:"replicas"`
 	// Specifies how you are charged for read and write throughput and how you manage capacity. Valid values are:.
 	//
 	// - `PAY_PER_REQUEST`
 	// - `PROVISIONED`
 	//
 	// All replicas in your global table will have the same billing mode. If you use `PROVISIONED` billing mode, you must provide an auto scaling configuration via the `WriteProvisionedThroughputSettings` property. The default value of this property is `PROVISIONED` .
-	BillingMode *string `json:"billingMode"`
+	BillingMode *string `json:"billingMode" yaml:"billingMode"`
 	// Global secondary indexes to be created on the global table.
 	//
 	// You can create up to 20 global secondary indexes. Each replica in your global table will have the same global secondary index settings. You can only create or delete one global secondary index in a single stack operation.
 	//
 	// Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
-	GlobalSecondaryIndexes interface{} `json:"globalSecondaryIndexes"`
+	GlobalSecondaryIndexes interface{} `json:"globalSecondaryIndexes" yaml:"globalSecondaryIndexes"`
 	// Local secondary indexes to be created on the table.
 	//
 	// You can create up to five local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes. Each replica in your global table will have the same local secondary index settings.
-	LocalSecondaryIndexes interface{} `json:"localSecondaryIndexes"`
+	LocalSecondaryIndexes interface{} `json:"localSecondaryIndexes" yaml:"localSecondaryIndexes"`
 	// Specifies the settings to enable server-side encryption.
 	//
 	// These settings will be applied to all replicas. If you plan to use customer-managed KMS keys, you must provide a key for each replica using the `ReplicaSpecification.ReplicaSSESpecification` property.
-	SseSpecification interface{} `json:"sseSpecification"`
+	SseSpecification interface{} `json:"sseSpecification" yaml:"sseSpecification"`
 	// Specifies the streams settings on your global table.
 	//
 	// You must provide a value for this property if your global table contains more than one replica. You can only change the streams settings if your global table has only one replica.
-	StreamSpecification interface{} `json:"streamSpecification"`
+	StreamSpecification interface{} `json:"streamSpecification" yaml:"streamSpecification"`
 	// A name for the global table.
 	//
 	// If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID as the table name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
 	//
 	// > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
-	TableName *string `json:"tableName"`
+	TableName *string `json:"tableName" yaml:"tableName"`
 	// Specifies the Time to Live (TTL) settings for the table. This setting will be applied to all replicas.
 	//
 	// > For detailed information about the TTL feature of DynamoDB, see [Expiring Items with Time to Live](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html) in the Amazon DynamoDB Developer Guide.
-	TimeToLiveSpecification interface{} `json:"timeToLiveSpecification"`
+	TimeToLiveSpecification interface{} `json:"timeToLiveSpecification" yaml:"timeToLiveSpecification"`
 	// Specifies an auto scaling policy for write capacity.
 	//
 	// This policy will be applied to all replicas. This setting must be specified if `BillingMode` is set to `PROVISIONED` .
-	WriteProvisionedThroughputSettings interface{} `json:"writeProvisionedThroughputSettings"`
+	WriteProvisionedThroughputSettings interface{} `json:"writeProvisionedThroughputSettings" yaml:"writeProvisionedThroughputSettings"`
 }
 
 // A CloudFormation `AWS::DynamoDB::Table`.
@@ -1936,13 +1936,13 @@ func (c *jsiiProxy_CfnTable) ValidateProperties(_properties interface{}) {
 //
 type CfnTable_AttributeDefinitionProperty struct {
 	// A name for the attribute.
-	AttributeName *string `json:"attributeName"`
+	AttributeName *string `json:"attributeName" yaml:"attributeName"`
 	// The data type for the attribute, where:.
 	//
 	// - `S` - the attribute is of type String
 	// - `N` - the attribute is of type Number
 	// - `B` - the attribute is of type Binary
-	AttributeType *string `json:"attributeType"`
+	AttributeType *string `json:"attributeType" yaml:"attributeType"`
 }
 
 // The settings used to enable or disable CloudWatch Contributor Insights.
@@ -1951,7 +1951,7 @@ type CfnTable_AttributeDefinitionProperty struct {
 //
 type CfnTable_ContributorInsightsSpecificationProperty struct {
 	// Indicates whether CloudWatch Contributor Insights are to be enabled (true) or disabled (false).
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 }
 
 // Represents the properties of a global secondary index.
@@ -1962,23 +1962,23 @@ type CfnTable_GlobalSecondaryIndexProperty struct {
 	// The name of the global secondary index.
 	//
 	// The name must be unique among all other indexes on this table.
-	IndexName *string `json:"indexName"`
+	IndexName *string `json:"indexName" yaml:"indexName"`
 	// The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:  - `HASH` - partition key - `RANGE` - sort key  > The partition key of an item is also known as its *hash attribute* .
 	//
 	// The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
 	// >
 	// > The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
-	KeySchema interface{} `json:"keySchema"`
+	KeySchema interface{} `json:"keySchema" yaml:"keySchema"`
 	// Represents attributes that are copied (projected) from the table into the global secondary index.
 	//
 	// These are in addition to the primary key attributes and index key attributes, which are automatically projected.
-	Projection interface{} `json:"projection"`
+	Projection interface{} `json:"projection" yaml:"projection"`
 	// The settings used to enable or disable CloudWatch Contributor Insights for the specified global secondary index.
-	ContributorInsightsSpecification interface{} `json:"contributorInsightsSpecification"`
+	ContributorInsightsSpecification interface{} `json:"contributorInsightsSpecification" yaml:"contributorInsightsSpecification"`
 	// Represents the provisioned throughput settings for the specified global secondary index.
 	//
 	// For current minimum and maximum provisioned throughput values, see [Service, Account, and Table Quotas](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the *Amazon DynamoDB Developer Guide* .
-	ProvisionedThroughput interface{} `json:"provisionedThroughput"`
+	ProvisionedThroughput interface{} `json:"provisionedThroughput" yaml:"provisionedThroughput"`
 }
 
 // Represents *a single element* of a key schema.
@@ -1993,7 +1993,7 @@ type CfnTable_GlobalSecondaryIndexProperty struct {
 //
 type CfnTable_KeySchemaProperty struct {
 	// The name of a key attribute.
-	AttributeName *string `json:"attributeName"`
+	AttributeName *string `json:"attributeName" yaml:"attributeName"`
 	// The role that this key attribute will assume:.
 	//
 	// - `HASH` - partition key
@@ -2002,7 +2002,7 @@ type CfnTable_KeySchemaProperty struct {
 	// > The partition key of an item is also known as its *hash attribute* . The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
 	// >
 	// > The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
-	KeyType *string `json:"keyType"`
+	KeyType *string `json:"keyType" yaml:"keyType"`
 }
 
 // The Kinesis Data Streams configuration for the specified table.
@@ -2013,7 +2013,7 @@ type CfnTable_KinesisStreamSpecificationProperty struct {
 	// The ARN for a specific Kinesis data stream.
 	//
 	// Length Constraints: Minimum length of 37. Maximum length of 1024.
-	StreamArn *string `json:"streamArn"`
+	StreamArn *string `json:"streamArn" yaml:"streamArn"`
 }
 
 // Represents the properties of a local secondary index.
@@ -2026,17 +2026,17 @@ type CfnTable_LocalSecondaryIndexProperty struct {
 	// The name of the local secondary index.
 	//
 	// The name must be unique among all other indexes on this table.
-	IndexName *string `json:"indexName"`
+	IndexName *string `json:"indexName" yaml:"indexName"`
 	// The complete key schema for the local secondary index, consisting of one or more pairs of attribute names and key types:  - `HASH` - partition key - `RANGE` - sort key  > The partition key of an item is also known as its *hash attribute* .
 	//
 	// The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
 	// >
 	// > The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
-	KeySchema interface{} `json:"keySchema"`
+	KeySchema interface{} `json:"keySchema" yaml:"keySchema"`
 	// Represents attributes that are copied (projected) from the table into the local secondary index.
 	//
 	// These are in addition to the primary key attributes and index key attributes, which are automatically projected.
-	Projection interface{} `json:"projection"`
+	Projection interface{} `json:"projection" yaml:"projection"`
 }
 
 // The settings used to enable point in time recovery.
@@ -2045,7 +2045,7 @@ type CfnTable_LocalSecondaryIndexProperty struct {
 //
 type CfnTable_PointInTimeRecoverySpecificationProperty struct {
 	// Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.
-	PointInTimeRecoveryEnabled interface{} `json:"pointInTimeRecoveryEnabled"`
+	PointInTimeRecoveryEnabled interface{} `json:"pointInTimeRecoveryEnabled" yaml:"pointInTimeRecoveryEnabled"`
 }
 
 // Represents attributes that are copied (projected) from the table into an index.
@@ -2058,13 +2058,13 @@ type CfnTable_ProjectionProperty struct {
 	// Represents the non-key attribute names which will be projected into the index.
 	//
 	// For local secondary indexes, the total count of `NonKeyAttributes` summed across all of the local secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.
-	NonKeyAttributes *[]*string `json:"nonKeyAttributes"`
+	NonKeyAttributes *[]*string `json:"nonKeyAttributes" yaml:"nonKeyAttributes"`
 	// The set of attributes that are projected into the index:.
 	//
 	// - `KEYS_ONLY` - Only the index and primary keys are projected into the index.
 	// - `INCLUDE` - In addition to the attributes described in `KEYS_ONLY` , the secondary index will include other non-key attributes that you specify.
 	// - `ALL` - All of the table attributes are projected into the index.
-	ProjectionType *string `json:"projectionType"`
+	ProjectionType *string `json:"projectionType" yaml:"projectionType"`
 }
 
 // Throughput for the specified table, which consists of values for `ReadCapacityUnits` and `WriteCapacityUnits` .
@@ -2077,13 +2077,13 @@ type CfnTable_ProvisionedThroughputProperty struct {
 	// For more information, see [Specifying Read and Write Requirements](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput) in the *Amazon DynamoDB Developer Guide* .
 	//
 	// If read/write capacity mode is `PAY_PER_REQUEST` the value is set to 0.
-	ReadCapacityUnits *float64 `json:"readCapacityUnits"`
+	ReadCapacityUnits *float64 `json:"readCapacityUnits" yaml:"readCapacityUnits"`
 	// The maximum number of writes consumed per second before DynamoDB returns a `ThrottlingException` .
 	//
 	// For more information, see [Specifying Read and Write Requirements](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput) in the *Amazon DynamoDB Developer Guide* .
 	//
 	// If read/write capacity mode is `PAY_PER_REQUEST` the value is set to 0.
-	WriteCapacityUnits *float64 `json:"writeCapacityUnits"`
+	WriteCapacityUnits *float64 `json:"writeCapacityUnits" yaml:"writeCapacityUnits"`
 }
 
 // Represents the settings used to enable server-side encryption.
@@ -2094,15 +2094,15 @@ type CfnTable_SSESpecificationProperty struct {
 	// Indicates whether server-side encryption is done using an AWS managed key or an AWS owned key.
 	//
 	// If enabled (true), server-side encryption type is set to `KMS` and an AWS managed key is used ( AWS KMS charges apply). If disabled (false) or not specified, server-side encryption is set to AWS owned key.
-	SseEnabled interface{} `json:"sseEnabled"`
+	SseEnabled interface{} `json:"sseEnabled" yaml:"sseEnabled"`
 	// The AWS KMS key that should be used for the AWS KMS encryption.
 	//
 	// To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB key `alias/aws/dynamodb` .
-	KmsMasterKeyId *string `json:"kmsMasterKeyId"`
+	KmsMasterKeyId *string `json:"kmsMasterKeyId" yaml:"kmsMasterKeyId"`
 	// Server-side encryption type. The only supported value is:.
 	//
 	// - `KMS` - Server-side encryption that uses AWS Key Management Service . The key is stored in your account and is managed by AWS KMS ( AWS KMS charges apply).
-	SseType *string `json:"sseType"`
+	SseType *string `json:"sseType" yaml:"sseType"`
 }
 
 // Represents the DynamoDB Streams configuration for a table in DynamoDB.
@@ -2118,7 +2118,7 @@ type CfnTable_StreamSpecificationProperty struct {
 	// - `NEW_IMAGE` - The entire item, as it appears after it was modified, is written to the stream.
 	// - `OLD_IMAGE` - The entire item, as it appeared before it was modified, is written to the stream.
 	// - `NEW_AND_OLD_IMAGES` - Both the new and the old item images of the item are written to the stream.
-	StreamViewType *string `json:"streamViewType"`
+	StreamViewType *string `json:"streamViewType" yaml:"streamViewType"`
 }
 
 // Represents the settings used to enable or disable Time to Live (TTL) for the specified table.
@@ -2129,9 +2129,9 @@ type CfnTable_TimeToLiveSpecificationProperty struct {
 	// The name of the TTL attribute used to store the expiration time for items in the table.
 	//
 	// > To update this property, you must first disable TTL then enable TTL with the new attribute name.
-	AttributeName *string `json:"attributeName"`
+	AttributeName *string `json:"attributeName" yaml:"attributeName"`
 	// Indicates whether TTL is to be enabled (true) or disabled (false) on the table.
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 }
 
 // Properties for defining a `CfnTable`.
@@ -2142,13 +2142,13 @@ type CfnTableProps struct {
 	// Specifies the attributes that make up the primary key for the table.
 	//
 	// The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
-	KeySchema interface{} `json:"keySchema"`
+	KeySchema interface{} `json:"keySchema" yaml:"keySchema"`
 	// A list of attributes that describe the key schema for the table and indexes.
 	//
 	// This property is required to create a DynamoDB table.
 	//
 	// Update requires: [Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt) . Replacement if you edit an existing AttributeDefinition.
-	AttributeDefinitions interface{} `json:"attributeDefinitions"`
+	AttributeDefinitions interface{} `json:"attributeDefinitions" yaml:"attributeDefinitions"`
 	// Specify how you are charged for read and write throughput and how you manage capacity.
 	//
 	// Valid values include:
@@ -2157,9 +2157,9 @@ type CfnTableProps struct {
 	// - `PAY_PER_REQUEST` - We recommend using `PAY_PER_REQUEST` for unpredictable workloads. `PAY_PER_REQUEST` sets the billing mode to [On-Demand Mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand) .
 	//
 	// If not specified, the default is `PROVISIONED` .
-	BillingMode *string `json:"billingMode"`
+	BillingMode *string `json:"billingMode" yaml:"billingMode"`
 	// The settings used to enable or disable CloudWatch Contributor Insights for the specified table.
-	ContributorInsightsSpecification interface{} `json:"contributorInsightsSpecification"`
+	ContributorInsightsSpecification interface{} `json:"contributorInsightsSpecification" yaml:"contributorInsightsSpecification"`
 	// Global secondary indexes to be created on the table. You can create up to 20 global secondary indexes.
 	//
 	// > If you update a table to include a new global secondary index, AWS CloudFormation initiates the index creation and then proceeds with the stack update. AWS CloudFormation doesn't wait for the index to complete creation because the backfilling phase can take a long time, depending on the size of the table. You can't use the index or update the table until the index's status is `ACTIVE` . You can track its status by using the DynamoDB [DescribeTable](https://docs.aws.amazon.com/cli/latest/reference/dynamodb/describe-table.html) command.
@@ -2170,43 +2170,43 @@ type CfnTableProps struct {
 	// >
 	// > - If you update either the contributor insights specification or the provisioned throughput values of global secondary indexes, you can update the table without interruption.
 	// > - You can delete or add one global secondary index without interruption. If you do both in the same update (for example, by changing the index's logical ID), the update fails.
-	GlobalSecondaryIndexes interface{} `json:"globalSecondaryIndexes"`
+	GlobalSecondaryIndexes interface{} `json:"globalSecondaryIndexes" yaml:"globalSecondaryIndexes"`
 	// The Kinesis Data Streams configuration for the specified table.
-	KinesisStreamSpecification interface{} `json:"kinesisStreamSpecification"`
+	KinesisStreamSpecification interface{} `json:"kinesisStreamSpecification" yaml:"kinesisStreamSpecification"`
 	// Local secondary indexes to be created on the table.
 	//
 	// You can create up to 5 local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes.
-	LocalSecondaryIndexes interface{} `json:"localSecondaryIndexes"`
+	LocalSecondaryIndexes interface{} `json:"localSecondaryIndexes" yaml:"localSecondaryIndexes"`
 	// The settings used to enable point in time recovery.
-	PointInTimeRecoverySpecification interface{} `json:"pointInTimeRecoverySpecification"`
+	PointInTimeRecoverySpecification interface{} `json:"pointInTimeRecoverySpecification" yaml:"pointInTimeRecoverySpecification"`
 	// Throughput for the specified table, which consists of values for `ReadCapacityUnits` and `WriteCapacityUnits` .
 	//
 	// For more information about the contents of a provisioned throughput structure, see [Amazon DynamoDB Table ProvisionedThroughput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-provisionedthroughput.html) .
 	//
 	// If you set `BillingMode` as `PROVISIONED` , you must specify this property. If you set `BillingMode` as `PAY_PER_REQUEST` , you cannot specify this property.
-	ProvisionedThroughput interface{} `json:"provisionedThroughput"`
+	ProvisionedThroughput interface{} `json:"provisionedThroughput" yaml:"provisionedThroughput"`
 	// Specifies the settings to enable server-side encryption.
-	SseSpecification interface{} `json:"sseSpecification"`
+	SseSpecification interface{} `json:"sseSpecification" yaml:"sseSpecification"`
 	// The settings for the DynamoDB table stream, which capture changes to items stored in the table.
-	StreamSpecification interface{} `json:"streamSpecification"`
+	StreamSpecification interface{} `json:"streamSpecification" yaml:"streamSpecification"`
 	// The table class of the new table.
 	//
 	// Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS` .
-	TableClass *string `json:"tableClass"`
+	TableClass *string `json:"tableClass" yaml:"tableClass"`
 	// A name for the table.
 	//
 	// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the table name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
 	//
 	// > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
-	TableName *string `json:"tableName"`
+	TableName *string `json:"tableName" yaml:"tableName"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// Specifies the Time to Live (TTL) settings for the table.
 	//
 	// > For detailed information about the TTL feature of DynamoDB, see [Expiring Items with Time to Live](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html) in the Amazon DynamoDB Developer Guide.
-	TimeToLiveSpecification interface{} `json:"timeToLiveSpecification"`
+	TimeToLiveSpecification interface{} `json:"timeToLiveSpecification" yaml:"timeToLiveSpecification"`
 }
 
 // Properties for enabling DynamoDB capacity scaling.
@@ -2215,9 +2215,9 @@ type CfnTableProps struct {
 //
 type EnableScalingProps struct {
 	// Maximum capacity to scale to.
-	MaxCapacity *float64 `json:"maxCapacity"`
+	MaxCapacity *float64 `json:"maxCapacity" yaml:"maxCapacity"`
 	// Minimum capacity to scale to.
-	MinCapacity *float64 `json:"minCapacity"`
+	MinCapacity *float64 `json:"minCapacity" yaml:"minCapacity"`
 }
 
 // Properties for a global secondary index.
@@ -2226,23 +2226,23 @@ type EnableScalingProps struct {
 //
 type GlobalSecondaryIndexProps struct {
 	// The name of the secondary index.
-	IndexName *string `json:"indexName"`
+	IndexName *string `json:"indexName" yaml:"indexName"`
 	// The non-key attributes that are projected into the secondary index.
-	NonKeyAttributes *[]*string `json:"nonKeyAttributes"`
+	NonKeyAttributes *[]*string `json:"nonKeyAttributes" yaml:"nonKeyAttributes"`
 	// The set of attributes that are projected into the secondary index.
-	ProjectionType ProjectionType `json:"projectionType"`
+	ProjectionType ProjectionType `json:"projectionType" yaml:"projectionType"`
 	// Partition key attribute definition.
-	PartitionKey *Attribute `json:"partitionKey"`
+	PartitionKey *Attribute `json:"partitionKey" yaml:"partitionKey"`
 	// Sort key attribute definition.
-	SortKey *Attribute `json:"sortKey"`
+	SortKey *Attribute `json:"sortKey" yaml:"sortKey"`
 	// The read capacity for the global secondary index.
 	//
 	// Can only be provided if table billingMode is Provisioned or undefined.
-	ReadCapacity *float64 `json:"readCapacity"`
+	ReadCapacity *float64 `json:"readCapacity" yaml:"readCapacity"`
 	// The write capacity for the global secondary index.
 	//
 	// Can only be provided if table billingMode is Provisioned or undefined.
-	WriteCapacity *float64 `json:"writeCapacity"`
+	WriteCapacity *float64 `json:"writeCapacity" yaml:"writeCapacity"`
 }
 
 // Interface for scalable attributes.
@@ -2612,13 +2612,13 @@ func (j *jsiiProxy_ITable) TableStreamArn() *string {
 //
 type LocalSecondaryIndexProps struct {
 	// The name of the secondary index.
-	IndexName *string `json:"indexName"`
+	IndexName *string `json:"indexName" yaml:"indexName"`
 	// The non-key attributes that are projected into the secondary index.
-	NonKeyAttributes *[]*string `json:"nonKeyAttributes"`
+	NonKeyAttributes *[]*string `json:"nonKeyAttributes" yaml:"nonKeyAttributes"`
 	// The set of attributes that are projected into the secondary index.
-	ProjectionType ProjectionType `json:"projectionType"`
+	ProjectionType ProjectionType `json:"projectionType" yaml:"projectionType"`
 	// The attribute of a sort key for the local secondary index.
-	SortKey *Attribute `json:"sortKey"`
+	SortKey *Attribute `json:"sortKey" yaml:"sortKey"`
 }
 
 // Supported DynamoDB table operations.
@@ -2658,9 +2658,9 @@ const (
 //
 type SchemaOptions struct {
 	// Partition key attribute definition.
-	PartitionKey *Attribute `json:"partitionKey"`
+	PartitionKey *Attribute `json:"partitionKey" yaml:"partitionKey"`
 	// Sort key attribute definition.
-	SortKey *Attribute `json:"sortKey"`
+	SortKey *Attribute `json:"sortKey" yaml:"sortKey"`
 }
 
 // Properties for a secondary index.
@@ -2669,11 +2669,11 @@ type SchemaOptions struct {
 //
 type SecondaryIndexProps struct {
 	// The name of the secondary index.
-	IndexName *string `json:"indexName"`
+	IndexName *string `json:"indexName" yaml:"indexName"`
 	// The non-key attributes that are projected into the secondary index.
-	NonKeyAttributes *[]*string `json:"nonKeyAttributes"`
+	NonKeyAttributes *[]*string `json:"nonKeyAttributes" yaml:"nonKeyAttributes"`
 	// The set of attributes that are projected into the secondary index.
-	ProjectionType ProjectionType `json:"projectionType"`
+	ProjectionType ProjectionType `json:"projectionType" yaml:"projectionType"`
 }
 
 // When an item in the table is modified, StreamViewType determines what information is written to the stream for this table.
@@ -2694,17 +2694,17 @@ const (
 //
 type SystemErrorsForOperationsMetricOptions struct {
 	// Account which this metric comes from.
-	Account *string `json:"account"`
+	Account *string `json:"account" yaml:"account"`
 	// The hex color code, prefixed with '#' (e.g. '#00ff00'), to use when this metric is rendered on a graph. The `Color` class has a set of standard colors that can be used here.
-	Color *string `json:"color"`
+	Color *string `json:"color" yaml:"color"`
 	// Dimensions of the metric.
-	DimensionsMap *map[string]*string `json:"dimensionsMap"`
+	DimensionsMap *map[string]*string `json:"dimensionsMap" yaml:"dimensionsMap"`
 	// Label for this metric when added to a Graph in a Dashboard.
-	Label *string `json:"label"`
+	Label *string `json:"label" yaml:"label"`
 	// The period over which the specified statistic is applied.
-	Period awscdk.Duration `json:"period"`
+	Period awscdk.Duration `json:"period" yaml:"period"`
 	// Region which this metric comes from.
-	Region *string `json:"region"`
+	Region *string `json:"region" yaml:"region"`
 	// What function to use for aggregating.
 	//
 	// Can be one of the following:
@@ -2715,7 +2715,7 @@ type SystemErrorsForOperationsMetricOptions struct {
 	// - "Sum" | "sum"
 	// - "SampleCount | "n"
 	// - "pNN.NN"
-	Statistic *string `json:"statistic"`
+	Statistic *string `json:"statistic" yaml:"statistic"`
 	// Unit used to filter the metric stream.
 	//
 	// Only refer to datums emitted to the metric stream with the given unit and
@@ -2726,9 +2726,9 @@ type SystemErrorsForOperationsMetricOptions struct {
 	// which is recommended in nearly all cases.
 	//
 	// CloudWatch does not honor this property for graphs.
-	Unit awscloudwatch.Unit `json:"unit"`
+	Unit awscloudwatch.Unit `json:"unit" yaml:"unit"`
 	// The operations to apply the metric to.
-	Operations *[]Operation `json:"operations"`
+	Operations *[]Operation `json:"operations" yaml:"operations"`
 }
 
 // Provides a DynamoDB table.
@@ -3480,31 +3480,31 @@ func (t *jsiiProxy_Table) ToString() *string {
 //
 type TableAttributes struct {
 	// KMS encryption key, if this table uses a customer-managed encryption key.
-	EncryptionKey awskms.IKey `json:"encryptionKey"`
+	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
 	// The name of the global indexes set for this Table.
 	//
 	// Note that you need to set either this property,
 	// or {@link localIndexes},
 	// if you want methods like grantReadData()
 	// to grant permissions for indexes as well as the table itself.
-	GlobalIndexes *[]*string `json:"globalIndexes"`
+	GlobalIndexes *[]*string `json:"globalIndexes" yaml:"globalIndexes"`
 	// The name of the local indexes set for this Table.
 	//
 	// Note that you need to set either this property,
 	// or {@link globalIndexes},
 	// if you want methods like grantReadData()
 	// to grant permissions for indexes as well as the table itself.
-	LocalIndexes *[]*string `json:"localIndexes"`
+	LocalIndexes *[]*string `json:"localIndexes" yaml:"localIndexes"`
 	// The ARN of the dynamodb table.
 	//
 	// One of this, or {@link tableName}, is required.
-	TableArn *string `json:"tableArn"`
+	TableArn *string `json:"tableArn" yaml:"tableArn"`
 	// The table name of the dynamodb table.
 	//
 	// One of this, or {@link tableArn}, is required.
-	TableName *string `json:"tableName"`
+	TableName *string `json:"tableName" yaml:"tableName"`
 	// The ARN of the table's stream.
-	TableStreamArn *string `json:"tableStreamArn"`
+	TableStreamArn *string `json:"tableStreamArn" yaml:"tableStreamArn"`
 }
 
 // What kind of server-side encryption to apply to this table.
@@ -3527,40 +3527,40 @@ const (
 //
 type TableOptions struct {
 	// Partition key attribute definition.
-	PartitionKey *Attribute `json:"partitionKey"`
+	PartitionKey *Attribute `json:"partitionKey" yaml:"partitionKey"`
 	// Sort key attribute definition.
-	SortKey *Attribute `json:"sortKey"`
+	SortKey *Attribute `json:"sortKey" yaml:"sortKey"`
 	// Specify how you are charged for read and write throughput and how you manage capacity.
-	BillingMode BillingMode `json:"billingMode"`
+	BillingMode BillingMode `json:"billingMode" yaml:"billingMode"`
 	// Whether CloudWatch contributor insights is enabled.
-	ContributorInsightsEnabled *bool `json:"contributorInsightsEnabled"`
+	ContributorInsightsEnabled *bool `json:"contributorInsightsEnabled" yaml:"contributorInsightsEnabled"`
 	// Whether server-side encryption with an AWS managed customer master key is enabled.
 	//
 	// This property cannot be set if `serverSideEncryption` is set.
-	Encryption TableEncryption `json:"encryption"`
+	Encryption TableEncryption `json:"encryption" yaml:"encryption"`
 	// External KMS key to use for table encryption.
 	//
 	// This property can only be set if `encryption` is set to `TableEncryption.CUSTOMER_MANAGED`.
-	EncryptionKey awskms.IKey `json:"encryptionKey"`
+	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
 	// Whether point-in-time recovery is enabled.
-	PointInTimeRecovery *bool `json:"pointInTimeRecovery"`
+	PointInTimeRecovery *bool `json:"pointInTimeRecovery" yaml:"pointInTimeRecovery"`
 	// The read capacity for the table.
 	//
 	// Careful if you add Global Secondary Indexes, as
 	// those will share the table's provisioned throughput.
 	//
 	// Can only be provided if billingMode is Provisioned.
-	ReadCapacity *float64 `json:"readCapacity"`
+	ReadCapacity *float64 `json:"readCapacity" yaml:"readCapacity"`
 	// The removal policy to apply to the DynamoDB Table.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 	// Regions where replica tables will be created.
-	ReplicationRegions *[]*string `json:"replicationRegions"`
+	ReplicationRegions *[]*string `json:"replicationRegions" yaml:"replicationRegions"`
 	// The timeout for a table replication operation in a single region.
-	ReplicationTimeout awscdk.Duration `json:"replicationTimeout"`
+	ReplicationTimeout awscdk.Duration `json:"replicationTimeout" yaml:"replicationTimeout"`
 	// When an item in the table is modified, StreamViewType determines what information is written to the stream for this table.
-	Stream StreamViewType `json:"stream"`
+	Stream StreamViewType `json:"stream" yaml:"stream"`
 	// The name of TTL attribute.
-	TimeToLiveAttribute *string `json:"timeToLiveAttribute"`
+	TimeToLiveAttribute *string `json:"timeToLiveAttribute" yaml:"timeToLiveAttribute"`
 	// Indicates whether CloudFormation stack waits for replication to finish.
 	//
 	// If set to false, the CloudFormation resource will mark the resource as
@@ -3573,14 +3573,14 @@ type TableOptions struct {
 	// finish before starting new replicationRegion.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-replicas
 	//
-	WaitForReplicationToFinish *bool `json:"waitForReplicationToFinish"`
+	WaitForReplicationToFinish *bool `json:"waitForReplicationToFinish" yaml:"waitForReplicationToFinish"`
 	// The write capacity for the table.
 	//
 	// Careful if you add Global Secondary Indexes, as
 	// those will share the table's provisioned throughput.
 	//
 	// Can only be provided if billingMode is Provisioned.
-	WriteCapacity *float64 `json:"writeCapacity"`
+	WriteCapacity *float64 `json:"writeCapacity" yaml:"writeCapacity"`
 }
 
 // Properties for a DynamoDB Table.
@@ -3589,40 +3589,40 @@ type TableOptions struct {
 //
 type TableProps struct {
 	// Partition key attribute definition.
-	PartitionKey *Attribute `json:"partitionKey"`
+	PartitionKey *Attribute `json:"partitionKey" yaml:"partitionKey"`
 	// Sort key attribute definition.
-	SortKey *Attribute `json:"sortKey"`
+	SortKey *Attribute `json:"sortKey" yaml:"sortKey"`
 	// Specify how you are charged for read and write throughput and how you manage capacity.
-	BillingMode BillingMode `json:"billingMode"`
+	BillingMode BillingMode `json:"billingMode" yaml:"billingMode"`
 	// Whether CloudWatch contributor insights is enabled.
-	ContributorInsightsEnabled *bool `json:"contributorInsightsEnabled"`
+	ContributorInsightsEnabled *bool `json:"contributorInsightsEnabled" yaml:"contributorInsightsEnabled"`
 	// Whether server-side encryption with an AWS managed customer master key is enabled.
 	//
 	// This property cannot be set if `serverSideEncryption` is set.
-	Encryption TableEncryption `json:"encryption"`
+	Encryption TableEncryption `json:"encryption" yaml:"encryption"`
 	// External KMS key to use for table encryption.
 	//
 	// This property can only be set if `encryption` is set to `TableEncryption.CUSTOMER_MANAGED`.
-	EncryptionKey awskms.IKey `json:"encryptionKey"`
+	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
 	// Whether point-in-time recovery is enabled.
-	PointInTimeRecovery *bool `json:"pointInTimeRecovery"`
+	PointInTimeRecovery *bool `json:"pointInTimeRecovery" yaml:"pointInTimeRecovery"`
 	// The read capacity for the table.
 	//
 	// Careful if you add Global Secondary Indexes, as
 	// those will share the table's provisioned throughput.
 	//
 	// Can only be provided if billingMode is Provisioned.
-	ReadCapacity *float64 `json:"readCapacity"`
+	ReadCapacity *float64 `json:"readCapacity" yaml:"readCapacity"`
 	// The removal policy to apply to the DynamoDB Table.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 	// Regions where replica tables will be created.
-	ReplicationRegions *[]*string `json:"replicationRegions"`
+	ReplicationRegions *[]*string `json:"replicationRegions" yaml:"replicationRegions"`
 	// The timeout for a table replication operation in a single region.
-	ReplicationTimeout awscdk.Duration `json:"replicationTimeout"`
+	ReplicationTimeout awscdk.Duration `json:"replicationTimeout" yaml:"replicationTimeout"`
 	// When an item in the table is modified, StreamViewType determines what information is written to the stream for this table.
-	Stream StreamViewType `json:"stream"`
+	Stream StreamViewType `json:"stream" yaml:"stream"`
 	// The name of TTL attribute.
-	TimeToLiveAttribute *string `json:"timeToLiveAttribute"`
+	TimeToLiveAttribute *string `json:"timeToLiveAttribute" yaml:"timeToLiveAttribute"`
 	// Indicates whether CloudFormation stack waits for replication to finish.
 	//
 	// If set to false, the CloudFormation resource will mark the resource as
@@ -3635,18 +3635,18 @@ type TableProps struct {
 	// finish before starting new replicationRegion.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-replicas
 	//
-	WaitForReplicationToFinish *bool `json:"waitForReplicationToFinish"`
+	WaitForReplicationToFinish *bool `json:"waitForReplicationToFinish" yaml:"waitForReplicationToFinish"`
 	// The write capacity for the table.
 	//
 	// Careful if you add Global Secondary Indexes, as
 	// those will share the table's provisioned throughput.
 	//
 	// Can only be provided if billingMode is Provisioned.
-	WriteCapacity *float64 `json:"writeCapacity"`
+	WriteCapacity *float64 `json:"writeCapacity" yaml:"writeCapacity"`
 	// Kinesis Data Stream to capture item-level changes for the table.
-	KinesisStream awskinesis.IStream `json:"kinesisStream"`
+	KinesisStream awskinesis.IStream `json:"kinesisStream" yaml:"kinesisStream"`
 	// Enforces a particular physical table name.
-	TableName *string `json:"tableName"`
+	TableName *string `json:"tableName" yaml:"tableName"`
 }
 
 // Properties for enabling DynamoDB utilization tracking.
@@ -3660,14 +3660,14 @@ type UtilizationScalingProps struct {
 	// won't remove capacity from the scalable resource. Otherwise, scale in is
 	// enabled and the target tracking policy can remove capacity from the
 	// scalable resource.
-	DisableScaleIn *bool `json:"disableScaleIn"`
+	DisableScaleIn *bool `json:"disableScaleIn" yaml:"disableScaleIn"`
 	// A name for the scaling policy.
-	PolicyName *string `json:"policyName"`
+	PolicyName *string `json:"policyName" yaml:"policyName"`
 	// Period after a scale in activity completes before another scale in activity can start.
-	ScaleInCooldown awscdk.Duration `json:"scaleInCooldown"`
+	ScaleInCooldown awscdk.Duration `json:"scaleInCooldown" yaml:"scaleInCooldown"`
 	// Period after a scale out activity completes before another scale out activity can start.
-	ScaleOutCooldown awscdk.Duration `json:"scaleOutCooldown"`
+	ScaleOutCooldown awscdk.Duration `json:"scaleOutCooldown" yaml:"scaleOutCooldown"`
 	// Target utilization percentage for the attribute.
-	TargetUtilizationPercent *float64 `json:"targetUtilizationPercent"`
+	TargetUtilizationPercent *float64 `json:"targetUtilizationPercent" yaml:"targetUtilizationPercent"`
 }
 

@@ -578,9 +578,9 @@ func (c *jsiiProxy_CfnAlert) ValidateProperties(_properties interface{}) {
 //
 type CfnAlert_ActionProperty struct {
 	// A configuration for an AWS Lambda channel.
-	LambdaConfiguration interface{} `json:"lambdaConfiguration"`
+	LambdaConfiguration interface{} `json:"lambdaConfiguration" yaml:"lambdaConfiguration"`
 	// A configuration for an Amazon SNS channel.
-	SnsConfiguration interface{} `json:"snsConfiguration"`
+	SnsConfiguration interface{} `json:"snsConfiguration" yaml:"snsConfiguration"`
 }
 
 // Contains information about a Lambda configuration.
@@ -589,9 +589,9 @@ type CfnAlert_ActionProperty struct {
 //
 type CfnAlert_LambdaConfigurationProperty struct {
 	// The ARN of the Lambda function.
-	LambdaArn *string `json:"lambdaArn"`
+	LambdaArn *string `json:"lambdaArn" yaml:"lambdaArn"`
 	// The ARN of an IAM role that has permission to invoke the Lambda function.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 }
 
 // Contains information about the SNS topic to which you want to send your alerts and the IAM role that has access to that topic.
@@ -600,9 +600,9 @@ type CfnAlert_LambdaConfigurationProperty struct {
 //
 type CfnAlert_SNSConfigurationProperty struct {
 	// The ARN of the IAM role that has access to the target SNS topic.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// The ARN of the target SNS topic.
-	SnsTopicArn *string `json:"snsTopicArn"`
+	SnsTopicArn *string `json:"snsTopicArn" yaml:"snsTopicArn"`
 }
 
 // Properties for defining a `CfnAlert`.
@@ -611,15 +611,15 @@ type CfnAlert_SNSConfigurationProperty struct {
 //
 type CfnAlertProps struct {
 	// Action that will be triggered when there is an alert.
-	Action interface{} `json:"action"`
+	Action interface{} `json:"action" yaml:"action"`
 	// An integer from 0 to 100 specifying the alert sensitivity threshold.
-	AlertSensitivityThreshold *float64 `json:"alertSensitivityThreshold"`
+	AlertSensitivityThreshold *float64 `json:"alertSensitivityThreshold" yaml:"alertSensitivityThreshold"`
 	// The ARN of the detector to which the alert is attached.
-	AnomalyDetectorArn *string `json:"anomalyDetectorArn"`
+	AnomalyDetectorArn *string `json:"anomalyDetectorArn" yaml:"anomalyDetectorArn"`
 	// A description of the alert.
-	AlertDescription *string `json:"alertDescription"`
+	AlertDescription *string `json:"alertDescription" yaml:"alertDescription"`
 	// The name of the alert.
-	AlertName *string `json:"alertName"`
+	AlertName *string `json:"alertName" yaml:"alertName"`
 }
 
 // A CloudFormation `AWS::LookoutMetrics::AnomalyDetector`.
@@ -1191,7 +1191,7 @@ func (c *jsiiProxy_CfnAnomalyDetector) ValidateProperties(_properties interface{
 //
 type CfnAnomalyDetector_AnomalyDetectorConfigProperty struct {
 	// The frequency at which the detector analyzes its source data.
-	AnomalyDetectorFrequency *string `json:"anomalyDetectorFrequency"`
+	AnomalyDetectorFrequency *string `json:"anomalyDetectorFrequency" yaml:"anomalyDetectorFrequency"`
 }
 
 // Details about an Amazon AppFlow flow datasource.
@@ -1200,9 +1200,9 @@ type CfnAnomalyDetector_AnomalyDetectorConfigProperty struct {
 //
 type CfnAnomalyDetector_AppFlowConfigProperty struct {
 	// name of the flow.
-	FlowName *string `json:"flowName"`
+	FlowName *string `json:"flowName" yaml:"flowName"`
 	// An IAM role that gives Amazon Lookout for Metrics permission to access the flow.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 }
 
 // Details about an Amazon CloudWatch datasource.
@@ -1211,7 +1211,7 @@ type CfnAnomalyDetector_AppFlowConfigProperty struct {
 //
 type CfnAnomalyDetector_CloudwatchConfigProperty struct {
 	// An IAM role that gives Amazon Lookout for Metrics permission to access data in Amazon CloudWatch.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 }
 
 // Contains information about how a source CSV data file should be analyzed.
@@ -1220,17 +1220,17 @@ type CfnAnomalyDetector_CloudwatchConfigProperty struct {
 //
 type CfnAnomalyDetector_CsvFormatDescriptorProperty struct {
 	// The character set in which the source CSV file is written.
-	Charset *string `json:"charset"`
+	Charset *string `json:"charset" yaml:"charset"`
 	// Whether or not the source CSV file contains a header.
-	ContainsHeader interface{} `json:"containsHeader"`
+	ContainsHeader interface{} `json:"containsHeader" yaml:"containsHeader"`
 	// The character used to delimit the source CSV file.
-	Delimiter *string `json:"delimiter"`
+	Delimiter *string `json:"delimiter" yaml:"delimiter"`
 	// The level of compression of the source CSV file.
-	FileCompression *string `json:"fileCompression"`
+	FileCompression *string `json:"fileCompression" yaml:"fileCompression"`
 	// A list of the source CSV file's headers, if any.
-	HeaderList *[]*string `json:"headerList"`
+	HeaderList *[]*string `json:"headerList" yaml:"headerList"`
 	// The character used as a quote character.
-	QuoteSymbol *string `json:"quoteSymbol"`
+	QuoteSymbol *string `json:"quoteSymbol" yaml:"quoteSymbol"`
 }
 
 // Contains information about a source file's formatting.
@@ -1239,9 +1239,9 @@ type CfnAnomalyDetector_CsvFormatDescriptorProperty struct {
 //
 type CfnAnomalyDetector_FileFormatDescriptorProperty struct {
 	// Contains information about how a source CSV data file should be analyzed.
-	CsvFormatDescriptor interface{} `json:"csvFormatDescriptor"`
+	CsvFormatDescriptor interface{} `json:"csvFormatDescriptor" yaml:"csvFormatDescriptor"`
 	// Contains information about how a source JSON data file should be analyzed.
-	JsonFormatDescriptor interface{} `json:"jsonFormatDescriptor"`
+	JsonFormatDescriptor interface{} `json:"jsonFormatDescriptor" yaml:"jsonFormatDescriptor"`
 }
 
 // Contains information about how a source JSON data file should be analyzed.
@@ -1250,9 +1250,9 @@ type CfnAnomalyDetector_FileFormatDescriptorProperty struct {
 //
 type CfnAnomalyDetector_JsonFormatDescriptorProperty struct {
 	// The character set in which the source JSON file is written.
-	Charset *string `json:"charset"`
+	Charset *string `json:"charset" yaml:"charset"`
 	// The level of compression of the source CSV file.
-	FileCompression *string `json:"fileCompression"`
+	FileCompression *string `json:"fileCompression" yaml:"fileCompression"`
 }
 
 // A calculation made by contrasting a measure and a dimension from your source data.
@@ -1261,11 +1261,11 @@ type CfnAnomalyDetector_JsonFormatDescriptorProperty struct {
 //
 type CfnAnomalyDetector_MetricProperty struct {
 	// The function with which the metric is calculated.
-	AggregationFunction *string `json:"aggregationFunction"`
+	AggregationFunction *string `json:"aggregationFunction" yaml:"aggregationFunction"`
 	// The name of the metric.
-	MetricName *string `json:"metricName"`
+	MetricName *string `json:"metricName" yaml:"metricName"`
 	// The namespace for the metric.
-	Namespace *string `json:"namespace"`
+	Namespace *string `json:"namespace" yaml:"namespace"`
 }
 
 // Contains information about a dataset.
@@ -1274,25 +1274,25 @@ type CfnAnomalyDetector_MetricProperty struct {
 //
 type CfnAnomalyDetector_MetricSetProperty struct {
 	// A list of metrics that the dataset will contain.
-	MetricList interface{} `json:"metricList"`
+	MetricList interface{} `json:"metricList" yaml:"metricList"`
 	// The name of the dataset.
-	MetricSetName *string `json:"metricSetName"`
+	MetricSetName *string `json:"metricSetName" yaml:"metricSetName"`
 	// Contains information about how the source data should be interpreted.
-	MetricSource interface{} `json:"metricSource"`
+	MetricSource interface{} `json:"metricSource" yaml:"metricSource"`
 	// A list of the fields you want to treat as dimensions.
-	DimensionList *[]*string `json:"dimensionList"`
+	DimensionList *[]*string `json:"dimensionList" yaml:"dimensionList"`
 	// A description of the dataset you are creating.
-	MetricSetDescription *string `json:"metricSetDescription"`
+	MetricSetDescription *string `json:"metricSetDescription" yaml:"metricSetDescription"`
 	// The frequency with which the source data will be analyzed for anomalies.
-	MetricSetFrequency *string `json:"metricSetFrequency"`
+	MetricSetFrequency *string `json:"metricSetFrequency" yaml:"metricSetFrequency"`
 	// After an interval ends, the amount of seconds that the detector waits before importing data.
 	//
 	// Offset is only supported for S3 and Redshift datasources.
-	Offset *float64 `json:"offset"`
+	Offset *float64 `json:"offset" yaml:"offset"`
 	// Contains information about the column used for tracking time in your source data.
-	TimestampColumn interface{} `json:"timestampColumn"`
+	TimestampColumn interface{} `json:"timestampColumn" yaml:"timestampColumn"`
 	// The time zone in which your source data was recorded.
-	Timezone *string `json:"timezone"`
+	Timezone *string `json:"timezone" yaml:"timezone"`
 }
 
 // Contains information about how the source data should be interpreted.
@@ -1301,15 +1301,15 @@ type CfnAnomalyDetector_MetricSetProperty struct {
 //
 type CfnAnomalyDetector_MetricSourceProperty struct {
 	// An object containing information about the AppFlow configuration.
-	AppFlowConfig interface{} `json:"appFlowConfig"`
+	AppFlowConfig interface{} `json:"appFlowConfig" yaml:"appFlowConfig"`
 	// An object containing information about the Amazon CloudWatch monitoring configuration.
-	CloudwatchConfig interface{} `json:"cloudwatchConfig"`
+	CloudwatchConfig interface{} `json:"cloudwatchConfig" yaml:"cloudwatchConfig"`
 	// An object containing information about the Amazon Relational Database Service (RDS) configuration.
-	RdsSourceConfig interface{} `json:"rdsSourceConfig"`
+	RdsSourceConfig interface{} `json:"rdsSourceConfig" yaml:"rdsSourceConfig"`
 	// An object containing information about the Amazon Redshift database configuration.
-	RedshiftSourceConfig interface{} `json:"redshiftSourceConfig"`
+	RedshiftSourceConfig interface{} `json:"redshiftSourceConfig" yaml:"redshiftSourceConfig"`
 	// Contains information about the configuration of the S3 bucket that contains source files.
-	S3SourceConfig interface{} `json:"s3SourceConfig"`
+	S3SourceConfig interface{} `json:"s3SourceConfig" yaml:"s3SourceConfig"`
 }
 
 // Contains information about the Amazon Relational Database Service (RDS) configuration.
@@ -1318,21 +1318,21 @@ type CfnAnomalyDetector_MetricSourceProperty struct {
 //
 type CfnAnomalyDetector_RDSSourceConfigProperty struct {
 	// The host name of the database.
-	DatabaseHost *string `json:"databaseHost"`
+	DatabaseHost *string `json:"databaseHost" yaml:"databaseHost"`
 	// The name of the RDS database.
-	DatabaseName *string `json:"databaseName"`
+	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
 	// The port number where the database can be accessed.
-	DatabasePort *float64 `json:"databasePort"`
+	DatabasePort *float64 `json:"databasePort" yaml:"databasePort"`
 	// A string identifying the database instance.
-	DbInstanceIdentifier *string `json:"dbInstanceIdentifier"`
+	DbInstanceIdentifier *string `json:"dbInstanceIdentifier" yaml:"dbInstanceIdentifier"`
 	// The Amazon Resource Name (ARN) of the role.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// The Amazon Resource Name (ARN) of the AWS Secrets Manager role.
-	SecretManagerArn *string `json:"secretManagerArn"`
+	SecretManagerArn *string `json:"secretManagerArn" yaml:"secretManagerArn"`
 	// The name of the table in the database.
-	TableName *string `json:"tableName"`
+	TableName *string `json:"tableName" yaml:"tableName"`
 	// An object containing information about the Amazon Virtual Private Cloud (VPC) configuration.
-	VpcConfiguration interface{} `json:"vpcConfiguration"`
+	VpcConfiguration interface{} `json:"vpcConfiguration" yaml:"vpcConfiguration"`
 }
 
 // Provides information about the Amazon Redshift database configuration.
@@ -1341,21 +1341,21 @@ type CfnAnomalyDetector_RDSSourceConfigProperty struct {
 //
 type CfnAnomalyDetector_RedshiftSourceConfigProperty struct {
 	// A string identifying the Redshift cluster.
-	ClusterIdentifier *string `json:"clusterIdentifier"`
+	ClusterIdentifier *string `json:"clusterIdentifier" yaml:"clusterIdentifier"`
 	// The name of the database host.
-	DatabaseHost *string `json:"databaseHost"`
+	DatabaseHost *string `json:"databaseHost" yaml:"databaseHost"`
 	// The Redshift database name.
-	DatabaseName *string `json:"databaseName"`
+	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
 	// The port number where the database can be accessed.
-	DatabasePort *float64 `json:"databasePort"`
+	DatabasePort *float64 `json:"databasePort" yaml:"databasePort"`
 	// The Amazon Resource Name (ARN) of the role providing access to the database.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// The Amazon Resource Name (ARN) of the AWS Secrets Manager role.
-	SecretManagerArn *string `json:"secretManagerArn"`
+	SecretManagerArn *string `json:"secretManagerArn" yaml:"secretManagerArn"`
 	// The table name of the Redshift database.
-	TableName *string `json:"tableName"`
+	TableName *string `json:"tableName" yaml:"tableName"`
 	// Contains information about the Amazon Virtual Private Cloud (VPC) configuration.
-	VpcConfiguration interface{} `json:"vpcConfiguration"`
+	VpcConfiguration interface{} `json:"vpcConfiguration" yaml:"vpcConfiguration"`
 }
 
 // Contains information about the configuration of the S3 bucket that contains source files.
@@ -1364,13 +1364,13 @@ type CfnAnomalyDetector_RedshiftSourceConfigProperty struct {
 //
 type CfnAnomalyDetector_S3SourceConfigProperty struct {
 	// Contains information about a source file's formatting.
-	FileFormatDescriptor interface{} `json:"fileFormatDescriptor"`
+	FileFormatDescriptor interface{} `json:"fileFormatDescriptor" yaml:"fileFormatDescriptor"`
 	// The ARN of an IAM role that has read and write access permissions to the source S3 bucket.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// A list of paths to the historical data files.
-	HistoricalDataPathList *[]*string `json:"historicalDataPathList"`
+	HistoricalDataPathList *[]*string `json:"historicalDataPathList" yaml:"historicalDataPathList"`
 	// A list of templated paths to the source files.
-	TemplatedPathList *[]*string `json:"templatedPathList"`
+	TemplatedPathList *[]*string `json:"templatedPathList" yaml:"templatedPathList"`
 }
 
 // Contains information about the column used to track time in a source data file.
@@ -1379,9 +1379,9 @@ type CfnAnomalyDetector_S3SourceConfigProperty struct {
 //
 type CfnAnomalyDetector_TimestampColumnProperty struct {
 	// The format of the timestamp column.
-	ColumnFormat *string `json:"columnFormat"`
+	ColumnFormat *string `json:"columnFormat" yaml:"columnFormat"`
 	// The name of the timestamp column.
-	ColumnName *string `json:"columnName"`
+	ColumnName *string `json:"columnName" yaml:"columnName"`
 }
 
 // Contains configuration information about the Amazon Virtual Private Cloud (VPC).
@@ -1390,9 +1390,9 @@ type CfnAnomalyDetector_TimestampColumnProperty struct {
 //
 type CfnAnomalyDetector_VpcConfigurationProperty struct {
 	// An array of strings containing the list of security groups.
-	SecurityGroupIdList *[]*string `json:"securityGroupIdList"`
+	SecurityGroupIdList *[]*string `json:"securityGroupIdList" yaml:"securityGroupIdList"`
 	// An array of strings containing the Amazon VPC subnet IDs (e.g., `subnet-0bb1c79de3EXAMPLE` .
-	SubnetIdList *[]*string `json:"subnetIdList"`
+	SubnetIdList *[]*string `json:"subnetIdList" yaml:"subnetIdList"`
 }
 
 // Properties for defining a `CfnAnomalyDetector`.
@@ -1401,14 +1401,14 @@ type CfnAnomalyDetector_VpcConfigurationProperty struct {
 //
 type CfnAnomalyDetectorProps struct {
 	// Contains information about the configuration of the anomaly detector.
-	AnomalyDetectorConfig interface{} `json:"anomalyDetectorConfig"`
+	AnomalyDetectorConfig interface{} `json:"anomalyDetectorConfig" yaml:"anomalyDetectorConfig"`
 	// The detector's dataset.
-	MetricSetList interface{} `json:"metricSetList"`
+	MetricSetList interface{} `json:"metricSetList" yaml:"metricSetList"`
 	// A description of the detector.
-	AnomalyDetectorDescription *string `json:"anomalyDetectorDescription"`
+	AnomalyDetectorDescription *string `json:"anomalyDetectorDescription" yaml:"anomalyDetectorDescription"`
 	// The name of the detector.
-	AnomalyDetectorName *string `json:"anomalyDetectorName"`
+	AnomalyDetectorName *string `json:"anomalyDetectorName" yaml:"anomalyDetectorName"`
 	// The ARN of the KMS key to use to encrypt your data.
-	KmsKeyArn *string `json:"kmsKeyArn"`
+	KmsKeyArn *string `json:"kmsKeyArn" yaml:"kmsKeyArn"`
 }
 

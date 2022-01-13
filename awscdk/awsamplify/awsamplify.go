@@ -782,21 +782,21 @@ func (c *jsiiProxy_CfnApp) ValidateProperties(_properties interface{}) {
 //
 type CfnApp_AutoBranchCreationConfigProperty struct {
 	// Automated branch creation glob patterns for the Amplify app.
-	AutoBranchCreationPatterns *[]*string `json:"autoBranchCreationPatterns"`
+	AutoBranchCreationPatterns *[]*string `json:"autoBranchCreationPatterns" yaml:"autoBranchCreationPatterns"`
 	// Sets password protection for your auto created branch.
-	BasicAuthConfig interface{} `json:"basicAuthConfig"`
+	BasicAuthConfig interface{} `json:"basicAuthConfig" yaml:"basicAuthConfig"`
 	// The build specification (build spec) for the autocreated branch.
 	//
 	// *Length Constraints:* Minimum length of 1. Maximum length of 25000.
-	BuildSpec *string `json:"buildSpec"`
+	BuildSpec *string `json:"buildSpec" yaml:"buildSpec"`
 	// Enables automated branch creation for the Amplify app.
-	EnableAutoBranchCreation interface{} `json:"enableAutoBranchCreation"`
+	EnableAutoBranchCreation interface{} `json:"enableAutoBranchCreation" yaml:"enableAutoBranchCreation"`
 	// Enables auto building for the auto created branch.
-	EnableAutoBuild interface{} `json:"enableAutoBuild"`
+	EnableAutoBuild interface{} `json:"enableAutoBuild" yaml:"enableAutoBuild"`
 	// Enables performance mode for the branch.
 	//
 	// Performance mode optimizes for faster hosting performance by keeping content cached at the edge for a longer interval. When performance mode is enabled, hosting configuration or code changes can take up to 10 minutes to roll out.
-	EnablePerformanceMode interface{} `json:"enablePerformanceMode"`
+	EnablePerformanceMode interface{} `json:"enablePerformanceMode" yaml:"enablePerformanceMode"`
 	// Sets whether pull request previews are enabled for each branch that Amplify Console automatically creates for your app.
 	//
 	// Amplify Console creates previews by deploying your app to a unique URL whenever a pull request is opened for the branch. Development and QA teams can use this preview to test the pull request before it's merged into a production or integration branch.
@@ -804,9 +804,9 @@ type CfnApp_AutoBranchCreationConfigProperty struct {
 	// To provide backend support for your preview, the Amplify Console automatically provisions a temporary backend environment that it deletes when the pull request is closed. If you want to specify a dedicated backend environment for your previews, use the `PullRequestEnvironmentName` property.
 	//
 	// For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Console User Guide* .
-	EnablePullRequestPreview interface{} `json:"enablePullRequestPreview"`
+	EnablePullRequestPreview interface{} `json:"enablePullRequestPreview" yaml:"enablePullRequestPreview"`
 	// Environment variables for the auto created branch.
-	EnvironmentVariables interface{} `json:"environmentVariables"`
+	EnvironmentVariables interface{} `json:"environmentVariables" yaml:"environmentVariables"`
 	// If pull request previews are enabled, you can use this property to specify a dedicated backend environment for your previews.
 	//
 	// For example, you could specify an environment named `prod` , `test` , or `dev` that you initialized with the Amplify CLI.
@@ -820,9 +820,9 @@ type CfnApp_AutoBranchCreationConfigProperty struct {
 	// *Length Constraints:* Maximum length of 20.
 	//
 	// *Pattern:* (?s).*
-	PullRequestEnvironmentName *string `json:"pullRequestEnvironmentName"`
+	PullRequestEnvironmentName *string `json:"pullRequestEnvironmentName" yaml:"pullRequestEnvironmentName"`
 	// Stage for the auto created branch.
-	Stage *string `json:"stage"`
+	Stage *string `json:"stage" yaml:"stage"`
 }
 
 // Use the BasicAuthConfig property type to set password protection at an app level to all your branches.
@@ -831,15 +831,15 @@ type CfnApp_AutoBranchCreationConfigProperty struct {
 //
 type CfnApp_BasicAuthConfigProperty struct {
 	// Enables basic authorization for the Amplify app's branches.
-	EnableBasicAuth interface{} `json:"enableBasicAuth"`
+	EnableBasicAuth interface{} `json:"enableBasicAuth" yaml:"enableBasicAuth"`
 	// The password for basic authorization.
 	//
 	// *Length Constraints:* Minimum length of 1. Maximum length of 255.
-	Password *string `json:"password"`
+	Password *string `json:"password" yaml:"password"`
 	// The user name for basic authorization.
 	//
 	// *Length Constraints:* Minimum length of 1. Maximum length of 255.
-	Username *string `json:"username"`
+	Username *string `json:"username" yaml:"username"`
 }
 
 // The CustomRule property type allows you to specify redirects, rewrites, and reverse proxies.
@@ -854,19 +854,19 @@ type CfnApp_CustomRuleProperty struct {
 	// *Length Constraints:* Minimum length of 1. Maximum length of 2048.
 	//
 	// *Pattern:* (?s).+
-	Source *string `json:"source"`
+	Source *string `json:"source" yaml:"source"`
 	// The target pattern for a URL rewrite or redirect rule.
 	//
 	// *Length Constraints:* Minimum length of 1. Maximum length of 2048.
 	//
 	// *Pattern:* (?s).+
-	Target *string `json:"target"`
+	Target *string `json:"target" yaml:"target"`
 	// The condition for a URL rewrite or redirect rule, such as a country code.
 	//
 	// *Length Constraints:* Minimum length of 0. Maximum length of 2048.
 	//
 	// *Pattern:* (?s).*
-	Condition *string `json:"condition"`
+	Condition *string `json:"condition" yaml:"condition"`
 	// The status code for a URL rewrite or redirect rule.
 	//
 	// - **200** - Represents a 200 rewrite rule.
@@ -878,7 +878,7 @@ type CfnApp_CustomRuleProperty struct {
 	// *Length Constraints:* Minimum length of 3. Maximum length of 7.
 	//
 	// *Pattern:* .{3,7}
-	Status *string `json:"status"`
+	Status *string `json:"status" yaml:"status"`
 }
 
 // Environment variables are key-value pairs that are available at build time.
@@ -893,13 +893,13 @@ type CfnApp_EnvironmentVariableProperty struct {
 	// *Length Constraints:* Maximum length of 255.
 	//
 	// *Pattern:* (?s).*
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The environment variable value.
 	//
 	// *Length Constraints:* Maximum length of 5500.
 	//
 	// *Pattern:* (?s).*
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // Properties for defining a `CfnApp`.
@@ -912,47 +912,47 @@ type CfnAppProps struct {
 	// *Length Constraints:* Minimum length of 1. Maximum length of 255.
 	//
 	// *Pattern:* (?s).+
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// Personal Access token for 3rd party source control system for an Amplify app, used to create webhook and read-only deploy key.
 	//
 	// Token is not stored.
 	//
 	// *Length Constraints:* Minimum length of 1. Maximum length of 255.
-	AccessToken *string `json:"accessToken"`
+	AccessToken *string `json:"accessToken" yaml:"accessToken"`
 	// Sets the configuration for your automatic branch creation.
-	AutoBranchCreationConfig interface{} `json:"autoBranchCreationConfig"`
+	AutoBranchCreationConfig interface{} `json:"autoBranchCreationConfig" yaml:"autoBranchCreationConfig"`
 	// The credentials for basic authorization for an Amplify app.
-	BasicAuthConfig interface{} `json:"basicAuthConfig"`
+	BasicAuthConfig interface{} `json:"basicAuthConfig" yaml:"basicAuthConfig"`
 	// The build specification (build spec) for an Amplify app.
 	//
 	// *Length Constraints:* Minimum length of 1. Maximum length of 25000.
 	//
 	// *Pattern:* (?s).+
-	BuildSpec *string `json:"buildSpec"`
+	BuildSpec *string `json:"buildSpec" yaml:"buildSpec"`
 	// The custom HTTP headers for an Amplify app.
 	//
 	// *Length Constraints:* Minimum length of 0. Maximum length of 25000.
 	//
 	// *Pattern:* (?s).*
-	CustomHeaders *string `json:"customHeaders"`
+	CustomHeaders *string `json:"customHeaders" yaml:"customHeaders"`
 	// The custom rewrite and redirect rules for an Amplify app.
-	CustomRules interface{} `json:"customRules"`
+	CustomRules interface{} `json:"customRules" yaml:"customRules"`
 	// The description for an Amplify app.
 	//
 	// *Length Constraints:* Maximum length of 1000.
 	//
 	// *Pattern:* (?s).*
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Automatically disconnect a branch in the Amplify Console when you delete a branch from your Git repository.
-	EnableBranchAutoDeletion interface{} `json:"enableBranchAutoDeletion"`
+	EnableBranchAutoDeletion interface{} `json:"enableBranchAutoDeletion" yaml:"enableBranchAutoDeletion"`
 	// The environment variables map for an Amplify app.
-	EnvironmentVariables interface{} `json:"environmentVariables"`
+	EnvironmentVariables interface{} `json:"environmentVariables" yaml:"environmentVariables"`
 	// The AWS Identity and Access Management (IAM) service role for the Amazon Resource Name (ARN) of the Amplify app.
 	//
 	// *Length Constraints:* Minimum length of 0. Maximum length of 1000.
 	//
 	// *Pattern:* (?s).*
-	IamServiceRole *string `json:"iamServiceRole"`
+	IamServiceRole *string `json:"iamServiceRole" yaml:"iamServiceRole"`
 	// The OAuth token for a third-party source control system for an Amplify app.
 	//
 	// The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
@@ -960,13 +960,13 @@ type CfnAppProps struct {
 	// *Length Constraints:* Maximum length of 1000.
 	//
 	// *Pattern:* (?s).*
-	OauthToken *string `json:"oauthToken"`
+	OauthToken *string `json:"oauthToken" yaml:"oauthToken"`
 	// The repository for an Amplify app.
 	//
 	// *Pattern:* (?s).*
-	Repository *string `json:"repository"`
+	Repository *string `json:"repository" yaml:"repository"`
 	// The tag for an Amplify app.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Amplify::Branch`.
@@ -1682,13 +1682,13 @@ type CfnBranch_BasicAuthConfigProperty struct {
 	// The password for basic authorization.
 	//
 	// *Length Constraints:* Minimum length of 1. Maximum length of 255.
-	Password *string `json:"password"`
+	Password *string `json:"password" yaml:"password"`
 	// The user name for basic authorization.
 	//
 	// *Length Constraints:* Minimum length of 1. Maximum length of 255.
-	Username *string `json:"username"`
+	Username *string `json:"username" yaml:"username"`
 	// Enables basic authorization for the branch.
-	EnableBasicAuth interface{} `json:"enableBasicAuth"`
+	EnableBasicAuth interface{} `json:"enableBasicAuth" yaml:"enableBasicAuth"`
 }
 
 // The EnvironmentVariable property type sets environment variables for a specific branch.
@@ -1703,13 +1703,13 @@ type CfnBranch_EnvironmentVariableProperty struct {
 	// *Length Constraints:* Maximum length of 255.
 	//
 	// *Pattern:* (?s).*
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The environment variable value.
 	//
 	// *Length Constraints:* Maximum length of 5500.
 	//
 	// *Pattern:* (?s).*
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // Properties for defining a `CfnBranch`.
@@ -1722,33 +1722,33 @@ type CfnBranchProps struct {
 	// *Length Constraints:* Minimum length of 1. Maximum length of 20.
 	//
 	// *Pattern:* d[a-z0-9]+
-	AppId *string `json:"appId"`
+	AppId *string `json:"appId" yaml:"appId"`
 	// The name for the branch.
 	//
 	// *Length Constraints:* Minimum length of 1. Maximum length of 255.
 	//
 	// *Pattern:* (?s).+
-	BranchName *string `json:"branchName"`
+	BranchName *string `json:"branchName" yaml:"branchName"`
 	// The basic authorization credentials for a branch of an Amplify app.
-	BasicAuthConfig interface{} `json:"basicAuthConfig"`
+	BasicAuthConfig interface{} `json:"basicAuthConfig" yaml:"basicAuthConfig"`
 	// The build specification (build spec) for the branch.
 	//
 	// *Length Constraints:* Minimum length of 1. Maximum length of 25000.
 	//
 	// *Pattern:* (?s).+
-	BuildSpec *string `json:"buildSpec"`
+	BuildSpec *string `json:"buildSpec" yaml:"buildSpec"`
 	// The description for the branch that is part of an Amplify app.
 	//
 	// *Length Constraints:* Maximum length of 1000.
 	//
 	// *Pattern:* (?s).*
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Enables auto building for the branch.
-	EnableAutoBuild interface{} `json:"enableAutoBuild"`
+	EnableAutoBuild interface{} `json:"enableAutoBuild" yaml:"enableAutoBuild"`
 	// Enables performance mode for the branch.
 	//
 	// Performance mode optimizes for faster hosting performance by keeping content cached at the edge for a longer interval. When performance mode is enabled, hosting configuration or code changes can take up to 10 minutes to roll out.
-	EnablePerformanceMode interface{} `json:"enablePerformanceMode"`
+	EnablePerformanceMode interface{} `json:"enablePerformanceMode" yaml:"enablePerformanceMode"`
 	// Sets whether the Amplify Console creates a preview for each pull request that is made for this branch.
 	//
 	// If this property is enabled, the Amplify Console deploys your app to a unique preview URL after each pull request is opened. Development and QA teams can use this preview to test the pull request before it's merged into a production or integration branch.
@@ -1756,9 +1756,9 @@ type CfnBranchProps struct {
 	// To provide backend support for your preview, the Amplify Console automatically provisions a temporary backend environment that it deletes when the pull request is closed. If you want to specify a dedicated backend environment for your previews, use the `PullRequestEnvironmentName` property.
 	//
 	// For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Console User Guide* .
-	EnablePullRequestPreview interface{} `json:"enablePullRequestPreview"`
+	EnablePullRequestPreview interface{} `json:"enablePullRequestPreview" yaml:"enablePullRequestPreview"`
 	// The environment variables for the branch.
-	EnvironmentVariables interface{} `json:"environmentVariables"`
+	EnvironmentVariables interface{} `json:"environmentVariables" yaml:"environmentVariables"`
 	// If pull request previews are enabled for this branch, you can use this property to specify a dedicated backend environment for your previews.
 	//
 	// For example, you could specify an environment named `prod` , `test` , or `dev` that you initialized with the Amplify CLI and mapped to this branch.
@@ -1772,13 +1772,13 @@ type CfnBranchProps struct {
 	// *Length Constraints:* Maximum length of 20.
 	//
 	// *Pattern:* (?s).*
-	PullRequestEnvironmentName *string `json:"pullRequestEnvironmentName"`
+	PullRequestEnvironmentName *string `json:"pullRequestEnvironmentName" yaml:"pullRequestEnvironmentName"`
 	// Describes the current stage for the branch.
 	//
 	// *Valid Values:* PRODUCTION | BETA | DEVELOPMENT | EXPERIMENTAL | PULL_REQUEST
-	Stage *string `json:"stage"`
+	Stage *string `json:"stage" yaml:"stage"`
 	// The tag for the branch.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Amplify::Domain`.
@@ -2451,13 +2451,13 @@ type CfnDomain_SubDomainSettingProperty struct {
 	// *Length Constraints:* Minimum length of 1. Maximum length of 255.
 	//
 	// *Pattern:* (?s).+
-	BranchName *string `json:"branchName"`
+	BranchName *string `json:"branchName" yaml:"branchName"`
 	// The prefix setting for the subdomain.
 	//
 	// *Length Constraints:* Maximum length of 255.
 	//
 	// *Pattern:* (?s).*
-	Prefix *string `json:"prefix"`
+	Prefix *string `json:"prefix" yaml:"prefix"`
 }
 
 // Properties for defining a `CfnDomain`.
@@ -2470,24 +2470,24 @@ type CfnDomainProps struct {
 	// *Length Constraints:* Minimum length of 1. Maximum length of 20.
 	//
 	// *Pattern:* d[a-z0-9]+
-	AppId *string `json:"appId"`
+	AppId *string `json:"appId" yaml:"appId"`
 	// The domain name for the domain association.
 	//
 	// *Length Constraints:* Maximum length of 255.
 	//
 	// *Pattern:* ^(((?!-)[A-Za-z0-9-]{0,62}[A-Za-z0-9])\.)+((?!-)[A-Za-z0-9-]{1,62}[A-Za-z0-9])(\.)?$
-	DomainName *string `json:"domainName"`
+	DomainName *string `json:"domainName" yaml:"domainName"`
 	// The setting for the subdomain.
-	SubDomainSettings interface{} `json:"subDomainSettings"`
+	SubDomainSettings interface{} `json:"subDomainSettings" yaml:"subDomainSettings"`
 	// Sets the branch patterns for automatic subdomain creation.
-	AutoSubDomainCreationPatterns *[]*string `json:"autoSubDomainCreationPatterns"`
+	AutoSubDomainCreationPatterns *[]*string `json:"autoSubDomainCreationPatterns" yaml:"autoSubDomainCreationPatterns"`
 	// The required AWS Identity and Access Management (IAM) service role for the Amazon Resource Name (ARN) for automatically creating subdomains.
 	//
 	// *Length Constraints:* Maximum length of 1000.
 	//
 	// *Pattern:* ^$|^arn:aws:iam::\d{12}:role.+
-	AutoSubDomainIamRole *string `json:"autoSubDomainIamRole"`
+	AutoSubDomainIamRole *string `json:"autoSubDomainIamRole" yaml:"autoSubDomainIamRole"`
 	// Enables the automated creation of subdomains for branches.
-	EnableAutoSubDomain interface{} `json:"enableAutoSubDomain"`
+	EnableAutoSubDomain interface{} `json:"enableAutoSubDomain" yaml:"enableAutoSubDomain"`
 }
 

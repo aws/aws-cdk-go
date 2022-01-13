@@ -594,59 +594,59 @@ func (c *jsiiProxy_CfnComputeEnvironment) ValidateProperties(_properties interfa
 //
 type CfnComputeEnvironment_ComputeResourcesProperty struct {
 	// `CfnComputeEnvironment.ComputeResourcesProperty.MaxvCpus`.
-	MaxvCpus *float64 `json:"maxvCpus"`
+	MaxvCpus *float64 `json:"maxvCpus" yaml:"maxvCpus"`
 	// `CfnComputeEnvironment.ComputeResourcesProperty.Subnets`.
-	Subnets *[]*string `json:"subnets"`
+	Subnets *[]*string `json:"subnets" yaml:"subnets"`
 	// `CfnComputeEnvironment.ComputeResourcesProperty.Type`.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// `CfnComputeEnvironment.ComputeResourcesProperty.AllocationStrategy`.
-	AllocationStrategy *string `json:"allocationStrategy"`
+	AllocationStrategy *string `json:"allocationStrategy" yaml:"allocationStrategy"`
 	// `CfnComputeEnvironment.ComputeResourcesProperty.BidPercentage`.
-	BidPercentage *float64 `json:"bidPercentage"`
+	BidPercentage *float64 `json:"bidPercentage" yaml:"bidPercentage"`
 	// `CfnComputeEnvironment.ComputeResourcesProperty.DesiredvCpus`.
-	DesiredvCpus *float64 `json:"desiredvCpus"`
+	DesiredvCpus *float64 `json:"desiredvCpus" yaml:"desiredvCpus"`
 	// `CfnComputeEnvironment.ComputeResourcesProperty.Ec2Configuration`.
-	Ec2Configuration interface{} `json:"ec2Configuration"`
+	Ec2Configuration interface{} `json:"ec2Configuration" yaml:"ec2Configuration"`
 	// `CfnComputeEnvironment.ComputeResourcesProperty.Ec2KeyPair`.
-	Ec2KeyPair *string `json:"ec2KeyPair"`
+	Ec2KeyPair *string `json:"ec2KeyPair" yaml:"ec2KeyPair"`
 	// `CfnComputeEnvironment.ComputeResourcesProperty.ImageId`.
-	ImageId *string `json:"imageId"`
+	ImageId *string `json:"imageId" yaml:"imageId"`
 	// `CfnComputeEnvironment.ComputeResourcesProperty.InstanceRole`.
-	InstanceRole *string `json:"instanceRole"`
+	InstanceRole *string `json:"instanceRole" yaml:"instanceRole"`
 	// `CfnComputeEnvironment.ComputeResourcesProperty.InstanceTypes`.
-	InstanceTypes *[]*string `json:"instanceTypes"`
+	InstanceTypes *[]*string `json:"instanceTypes" yaml:"instanceTypes"`
 	// `CfnComputeEnvironment.ComputeResourcesProperty.LaunchTemplate`.
-	LaunchTemplate interface{} `json:"launchTemplate"`
+	LaunchTemplate interface{} `json:"launchTemplate" yaml:"launchTemplate"`
 	// `CfnComputeEnvironment.ComputeResourcesProperty.MinvCpus`.
-	MinvCpus *float64 `json:"minvCpus"`
+	MinvCpus *float64 `json:"minvCpus" yaml:"minvCpus"`
 	// `CfnComputeEnvironment.ComputeResourcesProperty.PlacementGroup`.
-	PlacementGroup *string `json:"placementGroup"`
+	PlacementGroup *string `json:"placementGroup" yaml:"placementGroup"`
 	// `CfnComputeEnvironment.ComputeResourcesProperty.SecurityGroupIds`.
-	SecurityGroupIds *[]*string `json:"securityGroupIds"`
+	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
 	// `CfnComputeEnvironment.ComputeResourcesProperty.SpotIamFleetRole`.
-	SpotIamFleetRole *string `json:"spotIamFleetRole"`
+	SpotIamFleetRole *string `json:"spotIamFleetRole" yaml:"spotIamFleetRole"`
 	// `CfnComputeEnvironment.ComputeResourcesProperty.Tags`.
-	Tags interface{} `json:"tags"`
+	Tags interface{} `json:"tags" yaml:"tags"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnComputeEnvironment_Ec2ConfigurationObjectProperty struct {
 	// `CfnComputeEnvironment.Ec2ConfigurationObjectProperty.ImageType`.
-	ImageType *string `json:"imageType"`
+	ImageType *string `json:"imageType" yaml:"imageType"`
 	// `CfnComputeEnvironment.Ec2ConfigurationObjectProperty.ImageIdOverride`.
-	ImageIdOverride *string `json:"imageIdOverride"`
+	ImageIdOverride *string `json:"imageIdOverride" yaml:"imageIdOverride"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnComputeEnvironment_LaunchTemplateSpecificationProperty struct {
 	// `CfnComputeEnvironment.LaunchTemplateSpecificationProperty.LaunchTemplateId`.
-	LaunchTemplateId *string `json:"launchTemplateId"`
+	LaunchTemplateId *string `json:"launchTemplateId" yaml:"launchTemplateId"`
 	// `CfnComputeEnvironment.LaunchTemplateSpecificationProperty.LaunchTemplateName`.
-	LaunchTemplateName *string `json:"launchTemplateName"`
+	LaunchTemplateName *string `json:"launchTemplateName" yaml:"launchTemplateName"`
 	// `CfnComputeEnvironment.LaunchTemplateSpecificationProperty.Version`.
-	Version *string `json:"version"`
+	Version *string `json:"version" yaml:"version"`
 }
 
 // Properties for defining a `CfnComputeEnvironment`.
@@ -655,19 +655,19 @@ type CfnComputeEnvironment_LaunchTemplateSpecificationProperty struct {
 //
 type CfnComputeEnvironmentProps struct {
 	// `AWS::Batch::ComputeEnvironment.Type`.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// `AWS::Batch::ComputeEnvironment.ComputeEnvironmentName`.
-	ComputeEnvironmentName *string `json:"computeEnvironmentName"`
+	ComputeEnvironmentName *string `json:"computeEnvironmentName" yaml:"computeEnvironmentName"`
 	// `AWS::Batch::ComputeEnvironment.ComputeResources`.
-	ComputeResources interface{} `json:"computeResources"`
+	ComputeResources interface{} `json:"computeResources" yaml:"computeResources"`
 	// `AWS::Batch::ComputeEnvironment.ServiceRole`.
-	ServiceRole *string `json:"serviceRole"`
+	ServiceRole *string `json:"serviceRole" yaml:"serviceRole"`
 	// `AWS::Batch::ComputeEnvironment.State`.
-	State *string `json:"state"`
+	State *string `json:"state" yaml:"state"`
 	// `AWS::Batch::ComputeEnvironment.Tags`.
-	Tags interface{} `json:"tags"`
+	Tags interface{} `json:"tags" yaml:"tags"`
 	// `AWS::Batch::ComputeEnvironment.UnmanagedvCpus`.
-	UnmanagedvCpus *float64 `json:"unmanagedvCpus"`
+	UnmanagedvCpus *float64 `json:"unmanagedvCpus" yaml:"unmanagedvCpus"`
 }
 
 // A CloudFormation `AWS::Batch::JobDefinition`.
@@ -1335,249 +1335,249 @@ func (c *jsiiProxy_CfnJobDefinition) ValidateProperties(_properties interface{})
 //
 type CfnJobDefinition_AuthorizationConfigProperty struct {
 	// `CfnJobDefinition.AuthorizationConfigProperty.AccessPointId`.
-	AccessPointId *string `json:"accessPointId"`
+	AccessPointId *string `json:"accessPointId" yaml:"accessPointId"`
 	// `CfnJobDefinition.AuthorizationConfigProperty.Iam`.
-	Iam *string `json:"iam"`
+	Iam *string `json:"iam" yaml:"iam"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnJobDefinition_ContainerPropertiesProperty struct {
 	// `CfnJobDefinition.ContainerPropertiesProperty.Image`.
-	Image *string `json:"image"`
+	Image *string `json:"image" yaml:"image"`
 	// `CfnJobDefinition.ContainerPropertiesProperty.Command`.
-	Command *[]*string `json:"command"`
+	Command *[]*string `json:"command" yaml:"command"`
 	// `CfnJobDefinition.ContainerPropertiesProperty.Environment`.
-	Environment interface{} `json:"environment"`
+	Environment interface{} `json:"environment" yaml:"environment"`
 	// `CfnJobDefinition.ContainerPropertiesProperty.ExecutionRoleArn`.
-	ExecutionRoleArn *string `json:"executionRoleArn"`
+	ExecutionRoleArn *string `json:"executionRoleArn" yaml:"executionRoleArn"`
 	// `CfnJobDefinition.ContainerPropertiesProperty.FargatePlatformConfiguration`.
-	FargatePlatformConfiguration interface{} `json:"fargatePlatformConfiguration"`
+	FargatePlatformConfiguration interface{} `json:"fargatePlatformConfiguration" yaml:"fargatePlatformConfiguration"`
 	// `CfnJobDefinition.ContainerPropertiesProperty.InstanceType`.
-	InstanceType *string `json:"instanceType"`
+	InstanceType *string `json:"instanceType" yaml:"instanceType"`
 	// `CfnJobDefinition.ContainerPropertiesProperty.JobRoleArn`.
-	JobRoleArn *string `json:"jobRoleArn"`
+	JobRoleArn *string `json:"jobRoleArn" yaml:"jobRoleArn"`
 	// `CfnJobDefinition.ContainerPropertiesProperty.LinuxParameters`.
-	LinuxParameters interface{} `json:"linuxParameters"`
+	LinuxParameters interface{} `json:"linuxParameters" yaml:"linuxParameters"`
 	// `CfnJobDefinition.ContainerPropertiesProperty.LogConfiguration`.
-	LogConfiguration interface{} `json:"logConfiguration"`
+	LogConfiguration interface{} `json:"logConfiguration" yaml:"logConfiguration"`
 	// `CfnJobDefinition.ContainerPropertiesProperty.Memory`.
-	Memory *float64 `json:"memory"`
+	Memory *float64 `json:"memory" yaml:"memory"`
 	// `CfnJobDefinition.ContainerPropertiesProperty.MountPoints`.
-	MountPoints interface{} `json:"mountPoints"`
+	MountPoints interface{} `json:"mountPoints" yaml:"mountPoints"`
 	// `CfnJobDefinition.ContainerPropertiesProperty.NetworkConfiguration`.
-	NetworkConfiguration interface{} `json:"networkConfiguration"`
+	NetworkConfiguration interface{} `json:"networkConfiguration" yaml:"networkConfiguration"`
 	// `CfnJobDefinition.ContainerPropertiesProperty.Privileged`.
-	Privileged interface{} `json:"privileged"`
+	Privileged interface{} `json:"privileged" yaml:"privileged"`
 	// `CfnJobDefinition.ContainerPropertiesProperty.ReadonlyRootFilesystem`.
-	ReadonlyRootFilesystem interface{} `json:"readonlyRootFilesystem"`
+	ReadonlyRootFilesystem interface{} `json:"readonlyRootFilesystem" yaml:"readonlyRootFilesystem"`
 	// `CfnJobDefinition.ContainerPropertiesProperty.ResourceRequirements`.
-	ResourceRequirements interface{} `json:"resourceRequirements"`
+	ResourceRequirements interface{} `json:"resourceRequirements" yaml:"resourceRequirements"`
 	// `CfnJobDefinition.ContainerPropertiesProperty.Secrets`.
-	Secrets interface{} `json:"secrets"`
+	Secrets interface{} `json:"secrets" yaml:"secrets"`
 	// `CfnJobDefinition.ContainerPropertiesProperty.Ulimits`.
-	Ulimits interface{} `json:"ulimits"`
+	Ulimits interface{} `json:"ulimits" yaml:"ulimits"`
 	// `CfnJobDefinition.ContainerPropertiesProperty.User`.
-	User *string `json:"user"`
+	User *string `json:"user" yaml:"user"`
 	// `CfnJobDefinition.ContainerPropertiesProperty.Vcpus`.
-	Vcpus *float64 `json:"vcpus"`
+	Vcpus *float64 `json:"vcpus" yaml:"vcpus"`
 	// `CfnJobDefinition.ContainerPropertiesProperty.Volumes`.
-	Volumes interface{} `json:"volumes"`
+	Volumes interface{} `json:"volumes" yaml:"volumes"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnJobDefinition_DeviceProperty struct {
 	// `CfnJobDefinition.DeviceProperty.ContainerPath`.
-	ContainerPath *string `json:"containerPath"`
+	ContainerPath *string `json:"containerPath" yaml:"containerPath"`
 	// `CfnJobDefinition.DeviceProperty.HostPath`.
-	HostPath *string `json:"hostPath"`
+	HostPath *string `json:"hostPath" yaml:"hostPath"`
 	// `CfnJobDefinition.DeviceProperty.Permissions`.
-	Permissions *[]*string `json:"permissions"`
+	Permissions *[]*string `json:"permissions" yaml:"permissions"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnJobDefinition_EfsVolumeConfigurationProperty struct {
 	// `CfnJobDefinition.EfsVolumeConfigurationProperty.FileSystemId`.
-	FileSystemId *string `json:"fileSystemId"`
+	FileSystemId *string `json:"fileSystemId" yaml:"fileSystemId"`
 	// `CfnJobDefinition.EfsVolumeConfigurationProperty.AuthorizationConfig`.
-	AuthorizationConfig interface{} `json:"authorizationConfig"`
+	AuthorizationConfig interface{} `json:"authorizationConfig" yaml:"authorizationConfig"`
 	// `CfnJobDefinition.EfsVolumeConfigurationProperty.RootDirectory`.
-	RootDirectory *string `json:"rootDirectory"`
+	RootDirectory *string `json:"rootDirectory" yaml:"rootDirectory"`
 	// `CfnJobDefinition.EfsVolumeConfigurationProperty.TransitEncryption`.
-	TransitEncryption *string `json:"transitEncryption"`
+	TransitEncryption *string `json:"transitEncryption" yaml:"transitEncryption"`
 	// `CfnJobDefinition.EfsVolumeConfigurationProperty.TransitEncryptionPort`.
-	TransitEncryptionPort *float64 `json:"transitEncryptionPort"`
+	TransitEncryptionPort *float64 `json:"transitEncryptionPort" yaml:"transitEncryptionPort"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnJobDefinition_EnvironmentProperty struct {
 	// `CfnJobDefinition.EnvironmentProperty.Name`.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// `CfnJobDefinition.EnvironmentProperty.Value`.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnJobDefinition_EvaluateOnExitProperty struct {
 	// `CfnJobDefinition.EvaluateOnExitProperty.Action`.
-	Action *string `json:"action"`
+	Action *string `json:"action" yaml:"action"`
 	// `CfnJobDefinition.EvaluateOnExitProperty.OnExitCode`.
-	OnExitCode *string `json:"onExitCode"`
+	OnExitCode *string `json:"onExitCode" yaml:"onExitCode"`
 	// `CfnJobDefinition.EvaluateOnExitProperty.OnReason`.
-	OnReason *string `json:"onReason"`
+	OnReason *string `json:"onReason" yaml:"onReason"`
 	// `CfnJobDefinition.EvaluateOnExitProperty.OnStatusReason`.
-	OnStatusReason *string `json:"onStatusReason"`
+	OnStatusReason *string `json:"onStatusReason" yaml:"onStatusReason"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnJobDefinition_FargatePlatformConfigurationProperty struct {
 	// `CfnJobDefinition.FargatePlatformConfigurationProperty.PlatformVersion`.
-	PlatformVersion *string `json:"platformVersion"`
+	PlatformVersion *string `json:"platformVersion" yaml:"platformVersion"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnJobDefinition_LinuxParametersProperty struct {
 	// `CfnJobDefinition.LinuxParametersProperty.Devices`.
-	Devices interface{} `json:"devices"`
+	Devices interface{} `json:"devices" yaml:"devices"`
 	// `CfnJobDefinition.LinuxParametersProperty.InitProcessEnabled`.
-	InitProcessEnabled interface{} `json:"initProcessEnabled"`
+	InitProcessEnabled interface{} `json:"initProcessEnabled" yaml:"initProcessEnabled"`
 	// `CfnJobDefinition.LinuxParametersProperty.MaxSwap`.
-	MaxSwap *float64 `json:"maxSwap"`
+	MaxSwap *float64 `json:"maxSwap" yaml:"maxSwap"`
 	// `CfnJobDefinition.LinuxParametersProperty.SharedMemorySize`.
-	SharedMemorySize *float64 `json:"sharedMemorySize"`
+	SharedMemorySize *float64 `json:"sharedMemorySize" yaml:"sharedMemorySize"`
 	// `CfnJobDefinition.LinuxParametersProperty.Swappiness`.
-	Swappiness *float64 `json:"swappiness"`
+	Swappiness *float64 `json:"swappiness" yaml:"swappiness"`
 	// `CfnJobDefinition.LinuxParametersProperty.Tmpfs`.
-	Tmpfs interface{} `json:"tmpfs"`
+	Tmpfs interface{} `json:"tmpfs" yaml:"tmpfs"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnJobDefinition_LogConfigurationProperty struct {
 	// `CfnJobDefinition.LogConfigurationProperty.LogDriver`.
-	LogDriver *string `json:"logDriver"`
+	LogDriver *string `json:"logDriver" yaml:"logDriver"`
 	// `CfnJobDefinition.LogConfigurationProperty.Options`.
-	Options interface{} `json:"options"`
+	Options interface{} `json:"options" yaml:"options"`
 	// `CfnJobDefinition.LogConfigurationProperty.SecretOptions`.
-	SecretOptions interface{} `json:"secretOptions"`
+	SecretOptions interface{} `json:"secretOptions" yaml:"secretOptions"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnJobDefinition_MountPointsProperty struct {
 	// `CfnJobDefinition.MountPointsProperty.ContainerPath`.
-	ContainerPath *string `json:"containerPath"`
+	ContainerPath *string `json:"containerPath" yaml:"containerPath"`
 	// `CfnJobDefinition.MountPointsProperty.ReadOnly`.
-	ReadOnly interface{} `json:"readOnly"`
+	ReadOnly interface{} `json:"readOnly" yaml:"readOnly"`
 	// `CfnJobDefinition.MountPointsProperty.SourceVolume`.
-	SourceVolume *string `json:"sourceVolume"`
+	SourceVolume *string `json:"sourceVolume" yaml:"sourceVolume"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnJobDefinition_NetworkConfigurationProperty struct {
 	// `CfnJobDefinition.NetworkConfigurationProperty.AssignPublicIp`.
-	AssignPublicIp *string `json:"assignPublicIp"`
+	AssignPublicIp *string `json:"assignPublicIp" yaml:"assignPublicIp"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnJobDefinition_NodePropertiesProperty struct {
 	// `CfnJobDefinition.NodePropertiesProperty.MainNode`.
-	MainNode *float64 `json:"mainNode"`
+	MainNode *float64 `json:"mainNode" yaml:"mainNode"`
 	// `CfnJobDefinition.NodePropertiesProperty.NodeRangeProperties`.
-	NodeRangeProperties interface{} `json:"nodeRangeProperties"`
+	NodeRangeProperties interface{} `json:"nodeRangeProperties" yaml:"nodeRangeProperties"`
 	// `CfnJobDefinition.NodePropertiesProperty.NumNodes`.
-	NumNodes *float64 `json:"numNodes"`
+	NumNodes *float64 `json:"numNodes" yaml:"numNodes"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnJobDefinition_NodeRangePropertyProperty struct {
 	// `CfnJobDefinition.NodeRangePropertyProperty.TargetNodes`.
-	TargetNodes *string `json:"targetNodes"`
+	TargetNodes *string `json:"targetNodes" yaml:"targetNodes"`
 	// `CfnJobDefinition.NodeRangePropertyProperty.Container`.
-	Container interface{} `json:"container"`
+	Container interface{} `json:"container" yaml:"container"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnJobDefinition_ResourceRequirementProperty struct {
 	// `CfnJobDefinition.ResourceRequirementProperty.Type`.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// `CfnJobDefinition.ResourceRequirementProperty.Value`.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnJobDefinition_RetryStrategyProperty struct {
 	// `CfnJobDefinition.RetryStrategyProperty.Attempts`.
-	Attempts *float64 `json:"attempts"`
+	Attempts *float64 `json:"attempts" yaml:"attempts"`
 	// `CfnJobDefinition.RetryStrategyProperty.EvaluateOnExit`.
-	EvaluateOnExit interface{} `json:"evaluateOnExit"`
+	EvaluateOnExit interface{} `json:"evaluateOnExit" yaml:"evaluateOnExit"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnJobDefinition_SecretProperty struct {
 	// `CfnJobDefinition.SecretProperty.Name`.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// `CfnJobDefinition.SecretProperty.ValueFrom`.
-	ValueFrom *string `json:"valueFrom"`
+	ValueFrom *string `json:"valueFrom" yaml:"valueFrom"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnJobDefinition_TimeoutProperty struct {
 	// `CfnJobDefinition.TimeoutProperty.AttemptDurationSeconds`.
-	AttemptDurationSeconds *float64 `json:"attemptDurationSeconds"`
+	AttemptDurationSeconds *float64 `json:"attemptDurationSeconds" yaml:"attemptDurationSeconds"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnJobDefinition_TmpfsProperty struct {
 	// `CfnJobDefinition.TmpfsProperty.ContainerPath`.
-	ContainerPath *string `json:"containerPath"`
+	ContainerPath *string `json:"containerPath" yaml:"containerPath"`
 	// `CfnJobDefinition.TmpfsProperty.Size`.
-	Size *float64 `json:"size"`
+	Size *float64 `json:"size" yaml:"size"`
 	// `CfnJobDefinition.TmpfsProperty.MountOptions`.
-	MountOptions *[]*string `json:"mountOptions"`
+	MountOptions *[]*string `json:"mountOptions" yaml:"mountOptions"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnJobDefinition_UlimitProperty struct {
 	// `CfnJobDefinition.UlimitProperty.HardLimit`.
-	HardLimit *float64 `json:"hardLimit"`
+	HardLimit *float64 `json:"hardLimit" yaml:"hardLimit"`
 	// `CfnJobDefinition.UlimitProperty.Name`.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// `CfnJobDefinition.UlimitProperty.SoftLimit`.
-	SoftLimit *float64 `json:"softLimit"`
+	SoftLimit *float64 `json:"softLimit" yaml:"softLimit"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnJobDefinition_VolumesHostProperty struct {
 	// `CfnJobDefinition.VolumesHostProperty.SourcePath`.
-	SourcePath *string `json:"sourcePath"`
+	SourcePath *string `json:"sourcePath" yaml:"sourcePath"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnJobDefinition_VolumesProperty struct {
 	// `CfnJobDefinition.VolumesProperty.EfsVolumeConfiguration`.
-	EfsVolumeConfiguration interface{} `json:"efsVolumeConfiguration"`
+	EfsVolumeConfiguration interface{} `json:"efsVolumeConfiguration" yaml:"efsVolumeConfiguration"`
 	// `CfnJobDefinition.VolumesProperty.Host`.
-	Host interface{} `json:"host"`
+	Host interface{} `json:"host" yaml:"host"`
 	// `CfnJobDefinition.VolumesProperty.Name`.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 }
 
 // Properties for defining a `CfnJobDefinition`.
@@ -1586,27 +1586,27 @@ type CfnJobDefinition_VolumesProperty struct {
 //
 type CfnJobDefinitionProps struct {
 	// `AWS::Batch::JobDefinition.Type`.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// `AWS::Batch::JobDefinition.ContainerProperties`.
-	ContainerProperties interface{} `json:"containerProperties"`
+	ContainerProperties interface{} `json:"containerProperties" yaml:"containerProperties"`
 	// `AWS::Batch::JobDefinition.JobDefinitionName`.
-	JobDefinitionName *string `json:"jobDefinitionName"`
+	JobDefinitionName *string `json:"jobDefinitionName" yaml:"jobDefinitionName"`
 	// `AWS::Batch::JobDefinition.NodeProperties`.
-	NodeProperties interface{} `json:"nodeProperties"`
+	NodeProperties interface{} `json:"nodeProperties" yaml:"nodeProperties"`
 	// `AWS::Batch::JobDefinition.Parameters`.
-	Parameters interface{} `json:"parameters"`
+	Parameters interface{} `json:"parameters" yaml:"parameters"`
 	// `AWS::Batch::JobDefinition.PlatformCapabilities`.
-	PlatformCapabilities *[]*string `json:"platformCapabilities"`
+	PlatformCapabilities *[]*string `json:"platformCapabilities" yaml:"platformCapabilities"`
 	// `AWS::Batch::JobDefinition.PropagateTags`.
-	PropagateTags interface{} `json:"propagateTags"`
+	PropagateTags interface{} `json:"propagateTags" yaml:"propagateTags"`
 	// `AWS::Batch::JobDefinition.RetryStrategy`.
-	RetryStrategy interface{} `json:"retryStrategy"`
+	RetryStrategy interface{} `json:"retryStrategy" yaml:"retryStrategy"`
 	// `AWS::Batch::JobDefinition.SchedulingPriority`.
-	SchedulingPriority *float64 `json:"schedulingPriority"`
+	SchedulingPriority *float64 `json:"schedulingPriority" yaml:"schedulingPriority"`
 	// `AWS::Batch::JobDefinition.Tags`.
-	Tags interface{} `json:"tags"`
+	Tags interface{} `json:"tags" yaml:"tags"`
 	// `AWS::Batch::JobDefinition.Timeout`.
-	Timeout interface{} `json:"timeout"`
+	Timeout interface{} `json:"timeout" yaml:"timeout"`
 }
 
 // A CloudFormation `AWS::Batch::JobQueue`.
@@ -2174,9 +2174,9 @@ func (c *jsiiProxy_CfnJobQueue) ValidateProperties(_properties interface{}) {
 //
 type CfnJobQueue_ComputeEnvironmentOrderProperty struct {
 	// `CfnJobQueue.ComputeEnvironmentOrderProperty.ComputeEnvironment`.
-	ComputeEnvironment *string `json:"computeEnvironment"`
+	ComputeEnvironment *string `json:"computeEnvironment" yaml:"computeEnvironment"`
 	// `CfnJobQueue.ComputeEnvironmentOrderProperty.Order`.
-	Order *float64 `json:"order"`
+	Order *float64 `json:"order" yaml:"order"`
 }
 
 // Properties for defining a `CfnJobQueue`.
@@ -2185,17 +2185,17 @@ type CfnJobQueue_ComputeEnvironmentOrderProperty struct {
 //
 type CfnJobQueueProps struct {
 	// `AWS::Batch::JobQueue.ComputeEnvironmentOrder`.
-	ComputeEnvironmentOrder interface{} `json:"computeEnvironmentOrder"`
+	ComputeEnvironmentOrder interface{} `json:"computeEnvironmentOrder" yaml:"computeEnvironmentOrder"`
 	// `AWS::Batch::JobQueue.Priority`.
-	Priority *float64 `json:"priority"`
+	Priority *float64 `json:"priority" yaml:"priority"`
 	// `AWS::Batch::JobQueue.JobQueueName`.
-	JobQueueName *string `json:"jobQueueName"`
+	JobQueueName *string `json:"jobQueueName" yaml:"jobQueueName"`
 	// `AWS::Batch::JobQueue.SchedulingPolicyArn`.
-	SchedulingPolicyArn *string `json:"schedulingPolicyArn"`
+	SchedulingPolicyArn *string `json:"schedulingPolicyArn" yaml:"schedulingPolicyArn"`
 	// `AWS::Batch::JobQueue.State`.
-	State *string `json:"state"`
+	State *string `json:"state" yaml:"state"`
 	// `AWS::Batch::JobQueue.Tags`.
-	Tags interface{} `json:"tags"`
+	Tags interface{} `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Batch::SchedulingPolicy`.
@@ -2714,20 +2714,20 @@ func (c *jsiiProxy_CfnSchedulingPolicy) ValidateProperties(_properties interface
 //
 type CfnSchedulingPolicy_FairsharePolicyProperty struct {
 	// `CfnSchedulingPolicy.FairsharePolicyProperty.ComputeReservation`.
-	ComputeReservation *float64 `json:"computeReservation"`
+	ComputeReservation *float64 `json:"computeReservation" yaml:"computeReservation"`
 	// `CfnSchedulingPolicy.FairsharePolicyProperty.ShareDecaySeconds`.
-	ShareDecaySeconds *float64 `json:"shareDecaySeconds"`
+	ShareDecaySeconds *float64 `json:"shareDecaySeconds" yaml:"shareDecaySeconds"`
 	// `CfnSchedulingPolicy.FairsharePolicyProperty.ShareDistribution`.
-	ShareDistribution interface{} `json:"shareDistribution"`
+	ShareDistribution interface{} `json:"shareDistribution" yaml:"shareDistribution"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnSchedulingPolicy_ShareAttributesProperty struct {
 	// `CfnSchedulingPolicy.ShareAttributesProperty.ShareIdentifier`.
-	ShareIdentifier *string `json:"shareIdentifier"`
+	ShareIdentifier *string `json:"shareIdentifier" yaml:"shareIdentifier"`
 	// `CfnSchedulingPolicy.ShareAttributesProperty.WeightFactor`.
-	WeightFactor *float64 `json:"weightFactor"`
+	WeightFactor *float64 `json:"weightFactor" yaml:"weightFactor"`
 }
 
 // Properties for defining a `CfnSchedulingPolicy`.
@@ -2736,10 +2736,10 @@ type CfnSchedulingPolicy_ShareAttributesProperty struct {
 //
 type CfnSchedulingPolicyProps struct {
 	// `AWS::Batch::SchedulingPolicy.FairsharePolicy`.
-	FairsharePolicy interface{} `json:"fairsharePolicy"`
+	FairsharePolicy interface{} `json:"fairsharePolicy" yaml:"fairsharePolicy"`
 	// `AWS::Batch::SchedulingPolicy.Name`.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// `AWS::Batch::SchedulingPolicy.Tags`.
-	Tags *map[string]*string `json:"tags"`
+	Tags *map[string]*string `json:"tags" yaml:"tags"`
 }
 

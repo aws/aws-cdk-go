@@ -132,7 +132,7 @@ type LambdaDestinationOptions struct {
 	// function will be invoked with the error object returned by source function.
 	//
 	// See the README of this module to see a full explanation of this option.
-	ResponseOnly *bool `json:"responseOnly"`
+	ResponseOnly *bool `json:"responseOnly" yaml:"responseOnly"`
 }
 
 // Use a SNS topic as a Lambda destination.

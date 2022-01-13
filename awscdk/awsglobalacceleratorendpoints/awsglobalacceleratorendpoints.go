@@ -86,11 +86,11 @@ type ApplicationLoadBalancerEndpointOptions struct {
 	//
 	// Client IP address preservation is supported only in specific AWS Regions.
 	// See the GlobalAccelerator Developer Guide for a list.
-	PreserveClientIp *bool `json:"preserveClientIp"`
+	PreserveClientIp *bool `json:"preserveClientIp" yaml:"preserveClientIp"`
 	// Endpoint weight across all endpoints in the group.
 	//
 	// Must be a value between 0 and 255.
-	Weight *float64 `json:"weight"`
+	Weight *float64 `json:"weight" yaml:"weight"`
 }
 
 // Use an EC2 Instance as a Global Accelerator Endpoint.
@@ -165,7 +165,7 @@ type CfnEipEndpointProps struct {
 	// Endpoint weight across all endpoints in the group.
 	//
 	// Must be a value between 0 and 255.
-	Weight *float64 `json:"weight"`
+	Weight *float64 `json:"weight" yaml:"weight"`
 }
 
 // Use an EC2 Instance as a Global Accelerator Endpoint.
@@ -244,11 +244,11 @@ type InstanceEndpointProps struct {
 	//
 	// Client IP address preservation is supported only in specific AWS Regions.
 	// See the GlobalAccelerator Developer Guide for a list.
-	PreserveClientIp *bool `json:"preserveClientIp"`
+	PreserveClientIp *bool `json:"preserveClientIp" yaml:"preserveClientIp"`
 	// Endpoint weight across all endpoints in the group.
 	//
 	// Must be a value between 0 and 255.
-	Weight *float64 `json:"weight"`
+	Weight *float64 `json:"weight" yaml:"weight"`
 }
 
 // Use a Network Load Balancer as a Global Accelerator Endpoint.
@@ -323,6 +323,6 @@ type NetworkLoadBalancerEndpointProps struct {
 	// Endpoint weight across all endpoints in the group.
 	//
 	// Must be a value between 0 and 255.
-	Weight *float64 `json:"weight"`
+	Weight *float64 `json:"weight" yaml:"weight"`
 }
 

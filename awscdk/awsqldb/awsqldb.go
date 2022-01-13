@@ -571,13 +571,13 @@ type CfnLedgerProps struct {
 	// By default, this mode denies all user requests to run any PartiQL commands on any tables in this ledger. To allow PartiQL commands to run, you must create IAM permissions policies for specific table resources and PartiQL actions, in addition to the `SendCommand` API permission for the ledger. For information, see [Getting started with the standard permissions mode](https://docs.aws.amazon.com/qldb/latest/developerguide/getting-started-standard-mode.html) in the *Amazon QLDB Developer Guide* .
 	//
 	// > We strongly recommend using the `STANDARD` permissions mode to maximize the security of your ledger data.
-	PermissionsMode *string `json:"permissionsMode"`
+	PermissionsMode *string `json:"permissionsMode" yaml:"permissionsMode"`
 	// The flag that prevents a ledger from being deleted by any user.
 	//
 	// If not provided on ledger creation, this feature is enabled ( `true` ) by default.
 	//
 	// If deletion protection is enabled, you must first disable it before you can delete the ledger. You can disable it by calling the `UpdateLedger` operation to set the flag to `false` .
-	DeletionProtection interface{} `json:"deletionProtection"`
+	DeletionProtection interface{} `json:"deletionProtection" yaml:"deletionProtection"`
 	// The key in AWS Key Management Service ( AWS KMS ) to use for encryption of data at rest in the ledger.
 	//
 	// For more information, see [Encryption at rest](https://docs.aws.amazon.com/qldb/latest/developerguide/encryption-at-rest.html) in the *Amazon QLDB Developer Guide* .
@@ -600,17 +600,17 @@ type CfnLedgerProps struct {
 	// - Alias ARN: `arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias`
 	//
 	// For more information, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
-	KmsKey *string `json:"kmsKey"`
+	KmsKey *string `json:"kmsKey" yaml:"kmsKey"`
 	// The name of the ledger that you want to create.
 	//
 	// The name must be unique among all of the ledgers in your AWS account in the current Region.
 	//
 	// Naming constraints for ledger names are defined in [Quotas in Amazon QLDB](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming) in the *Amazon QLDB Developer Guide* .
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::QLDB::Stream`.
@@ -1228,9 +1228,9 @@ type CfnStream_KinesisConfigurationProperty struct {
 	// Enables QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call.
 	//
 	// *This option is enabled by default.* Record aggregation has important implications for processing records and requires de-aggregation in your stream consumer. To learn more, see [KPL Key Concepts](https://docs.aws.amazon.com/streams/latest/dev/kinesis-kpl-concepts.html) and [Consumer De-aggregation](https://docs.aws.amazon.com/streams/latest/dev/kinesis-kpl-consumer-deaggregation.html) in the *Amazon Kinesis Data Streams Developer Guide* .
-	AggregationEnabled interface{} `json:"aggregationEnabled"`
+	AggregationEnabled interface{} `json:"aggregationEnabled" yaml:"aggregationEnabled"`
 	// The Amazon Resource Name (ARN) of the Kinesis Data Streams resource.
-	StreamArn *string `json:"streamArn"`
+	StreamArn *string `json:"streamArn" yaml:"streamArn"`
 }
 
 // Properties for defining a `CfnStream`.
@@ -1245,30 +1245,30 @@ type CfnStreamProps struct {
 	// The `InclusiveStartTime` cannot be in the future and must be before `ExclusiveEndTime` .
 	//
 	// If you provide an `InclusiveStartTime` that is before the ledger's `CreationDateTime` , QLDB effectively defaults it to the ledger's `CreationDateTime` .
-	InclusiveStartTime *string `json:"inclusiveStartTime"`
+	InclusiveStartTime *string `json:"inclusiveStartTime" yaml:"inclusiveStartTime"`
 	// The configuration settings of the Kinesis Data Streams destination for your stream request.
-	KinesisConfiguration interface{} `json:"kinesisConfiguration"`
+	KinesisConfiguration interface{} `json:"kinesisConfiguration" yaml:"kinesisConfiguration"`
 	// The name of the ledger.
-	LedgerName *string `json:"ledgerName"`
+	LedgerName *string `json:"ledgerName" yaml:"ledgerName"`
 	// The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
 	//
 	// To pass a role to QLDB when requesting a journal stream, you must have permissions to perform the `iam:PassRole` action on the IAM role resource. This is required for all journal stream requests.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// The name that you want to assign to the QLDB journal stream.
 	//
 	// User-defined names can help identify and indicate the purpose of a stream.
 	//
 	// Your stream name must be unique among other *active* streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in [Quotas in Amazon QLDB](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming) in the *Amazon QLDB Developer Guide* .
-	StreamName *string `json:"streamName"`
+	StreamName *string `json:"streamName" yaml:"streamName"`
 	// The exclusive date and time that specifies when the stream ends.
 	//
 	// If you don't define this parameter, the stream runs indefinitely until you cancel it.
 	//
 	// The `ExclusiveEndTime` must be in `ISO 8601` date and time format and in Universal Coordinated Time (UTC). For example: `2019-06-13T21:36:34Z` .
-	ExclusiveEndTime *string `json:"exclusiveEndTime"`
+	ExclusiveEndTime *string `json:"exclusiveEndTime" yaml:"exclusiveEndTime"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 

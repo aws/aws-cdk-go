@@ -578,19 +578,19 @@ type CfnPublicRepositoryProps struct {
 	// The details about the repository that are publicly visible in the Amazon ECR Public Gallery.
 	//
 	// For more information, see [Amazon ECR Public repository catalog data](https://docs.aws.amazon.com/AmazonECR/latest/public/public-repository-catalog-data.html) in the *Amazon ECR Public User Guide* .
-	RepositoryCatalogData interface{} `json:"repositoryCatalogData"`
+	RepositoryCatalogData interface{} `json:"repositoryCatalogData" yaml:"repositoryCatalogData"`
 	// The name to use for the public repository.
 	//
 	// The repository name may be specified on its own (such as `nginx-web-app` ) or it can be prepended with a namespace to group the repository into a category (such as `project-a/nginx-web-app` ). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the repository name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
 	//
 	// > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
-	RepositoryName *string `json:"repositoryName"`
+	RepositoryName *string `json:"repositoryName" yaml:"repositoryName"`
 	// The JSON repository policy text to apply to the public repository.
 	//
 	// For more information, see [Amazon ECR Public repository policies](https://docs.aws.amazon.com/AmazonECR/latest/public/public-repository-policies.html) in the *Amazon ECR Public User Guide* .
-	RepositoryPolicyText interface{} `json:"repositoryPolicyText"`
+	RepositoryPolicyText interface{} `json:"repositoryPolicyText" yaml:"repositoryPolicyText"`
 	// An array of key-value pairs to apply to this resource.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::ECR::RegistryPolicy`.
@@ -1084,7 +1084,7 @@ func (c *jsiiProxy_CfnRegistryPolicy) ValidateProperties(_properties interface{}
 //
 type CfnRegistryPolicyProps struct {
 	// The JSON policy text for your registry.
-	PolicyText interface{} `json:"policyText"`
+	PolicyText interface{} `json:"policyText" yaml:"policyText"`
 }
 
 // A CloudFormation `AWS::ECR::ReplicationConfiguration`.
@@ -1578,7 +1578,7 @@ func (c *jsiiProxy_CfnReplicationConfiguration) ValidateProperties(_properties i
 //
 type CfnReplicationConfiguration_ReplicationConfigurationProperty struct {
 	// An array of objects representing the replication destinations and repository filters for a replication configuration.
-	Rules interface{} `json:"rules"`
+	Rules interface{} `json:"rules" yaml:"rules"`
 }
 
 // An array of objects representing the destination for a replication rule.
@@ -1587,11 +1587,11 @@ type CfnReplicationConfiguration_ReplicationConfigurationProperty struct {
 //
 type CfnReplicationConfiguration_ReplicationDestinationProperty struct {
 	// The Region to replicate to.
-	Region *string `json:"region"`
+	Region *string `json:"region" yaml:"region"`
 	// The AWS account ID of the Amazon ECR private registry to replicate to.
 	//
 	// When configuring cross-Region replication within your own registry, specify your own account ID.
-	RegistryId *string `json:"registryId"`
+	RegistryId *string `json:"registryId" yaml:"registryId"`
 }
 
 // An array of objects representing the replication destinations and repository filters for a replication configuration.
@@ -1600,11 +1600,11 @@ type CfnReplicationConfiguration_ReplicationDestinationProperty struct {
 //
 type CfnReplicationConfiguration_ReplicationRuleProperty struct {
 	// An array of objects representing the destination for a replication rule.
-	Destinations interface{} `json:"destinations"`
+	Destinations interface{} `json:"destinations" yaml:"destinations"`
 	// An array of objects representing the filters for a replication rule.
 	//
 	// Specifying a repository filter for a replication rule provides a method for controlling which repositories in a private registry are replicated.
-	RepositoryFilters interface{} `json:"repositoryFilters"`
+	RepositoryFilters interface{} `json:"repositoryFilters" yaml:"repositoryFilters"`
 }
 
 // The filter settings used with image replication.
@@ -1617,11 +1617,11 @@ type CfnReplicationConfiguration_RepositoryFilterProperty struct {
 	// The repository filter details.
 	//
 	// When the `PREFIX_MATCH` filter type is specified, this value is required and should be the repository name prefix to configure replication for.
-	Filter *string `json:"filter"`
+	Filter *string `json:"filter" yaml:"filter"`
 	// The repository filter type.
 	//
 	// The only supported value is `PREFIX_MATCH` , which is a repository name prefix specified with the `filter` parameter.
-	FilterType *string `json:"filterType"`
+	FilterType *string `json:"filterType" yaml:"filterType"`
 }
 
 // Properties for defining a `CfnReplicationConfiguration`.
@@ -1630,7 +1630,7 @@ type CfnReplicationConfiguration_RepositoryFilterProperty struct {
 //
 type CfnReplicationConfigurationProps struct {
 	// The replication configuration for a registry.
-	ReplicationConfiguration interface{} `json:"replicationConfiguration"`
+	ReplicationConfiguration interface{} `json:"replicationConfiguration" yaml:"replicationConfiguration"`
 }
 
 // A CloudFormation `AWS::ECR::Repository`.
@@ -2252,11 +2252,11 @@ type CfnRepository_EncryptionConfigurationProperty struct {
 	// If you use the `KMS` encryption type, the contents of the repository will be encrypted using server-side encryption with AWS Key Management Service key stored in AWS KMS . When you use AWS KMS to encrypt your data, you can either use the default AWS managed AWS KMS key for Amazon ECR, or specify your own AWS KMS key, which you already created. For more information, see [Protecting data using server-side encryption with an AWS KMS key stored in AWS Key Management Service (SSE-KMS)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html) in the *Amazon Simple Storage Service Console Developer Guide* .
 	//
 	// If you use the `AES256` encryption type, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts the images in the repository using an AES-256 encryption algorithm. For more information, see [Protecting data using server-side encryption with Amazon S3-managed encryption keys (SSE-S3)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html) in the *Amazon Simple Storage Service Console Developer Guide* .
-	EncryptionType *string `json:"encryptionType"`
+	EncryptionType *string `json:"encryptionType" yaml:"encryptionType"`
 	// If you use the `KMS` encryption type, specify the AWS KMS key to use for encryption.
 	//
 	// The alias, key ID, or full ARN of the AWS KMS key can be specified. The key must exist in the same Region as the repository. If no key is specified, the default AWS managed AWS KMS key for Amazon ECR will be used.
-	KmsKey *string `json:"kmsKey"`
+	KmsKey *string `json:"kmsKey" yaml:"kmsKey"`
 }
 
 // The image scanning configuration for a repository.
@@ -2267,7 +2267,7 @@ type CfnRepository_ImageScanningConfigurationProperty struct {
 	// The setting that determines whether images are scanned after being pushed to a repository.
 	//
 	// If set to `true` , images will be scanned after being pushed. If this parameter is not specified, it will default to `false` and images will not be scanned unless a scan is manually started.
-	ScanOnPush interface{} `json:"scanOnPush"`
+	ScanOnPush interface{} `json:"scanOnPush" yaml:"scanOnPush"`
 }
 
 // The `LifecyclePolicy` property type specifies a lifecycle policy.
@@ -2278,11 +2278,11 @@ type CfnRepository_ImageScanningConfigurationProperty struct {
 //
 type CfnRepository_LifecyclePolicyProperty struct {
 	// The JSON repository policy text to apply to the repository.
-	LifecyclePolicyText *string `json:"lifecyclePolicyText"`
+	LifecyclePolicyText *string `json:"lifecyclePolicyText" yaml:"lifecyclePolicyText"`
 	// The AWS account ID associated with the registry that contains the repository.
 	//
 	// If you do not specify a registry, the default registry is assumed.
-	RegistryId *string `json:"registryId"`
+	RegistryId *string `json:"registryId" yaml:"registryId"`
 }
 
 // Properties for defining a `CfnRepository`.
@@ -2293,31 +2293,31 @@ type CfnRepositoryProps struct {
 	// The encryption configuration for the repository.
 	//
 	// This determines how the contents of your repository are encrypted at rest.
-	EncryptionConfiguration interface{} `json:"encryptionConfiguration"`
+	EncryptionConfiguration interface{} `json:"encryptionConfiguration" yaml:"encryptionConfiguration"`
 	// The image scanning configuration for the repository.
 	//
 	// This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
-	ImageScanningConfiguration interface{} `json:"imageScanningConfiguration"`
+	ImageScanningConfiguration interface{} `json:"imageScanningConfiguration" yaml:"imageScanningConfiguration"`
 	// The tag mutability setting for the repository.
 	//
 	// If this parameter is omitted, the default setting of `MUTABLE` will be used which will allow image tags to be overwritten. If `IMMUTABLE` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
-	ImageTagMutability *string `json:"imageTagMutability"`
+	ImageTagMutability *string `json:"imageTagMutability" yaml:"imageTagMutability"`
 	// Creates or updates a lifecycle policy.
 	//
 	// For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html) .
-	LifecyclePolicy interface{} `json:"lifecyclePolicy"`
+	LifecyclePolicy interface{} `json:"lifecyclePolicy" yaml:"lifecyclePolicy"`
 	// The name to use for the repository.
 	//
 	// The repository name may be specified on its own (such as `nginx-web-app` ) or it can be prepended with a namespace to group the repository into a category (such as `project-a/nginx-web-app` ). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the repository name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
 	//
 	// > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
-	RepositoryName *string `json:"repositoryName"`
+	RepositoryName *string `json:"repositoryName" yaml:"repositoryName"`
 	// The JSON repository policy text to apply to the repository.
 	//
 	// For more information, see [Amazon ECR repository policies](https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policy-examples.html) in the *Amazon Elastic Container Registry User Guide* .
-	RepositoryPolicyText interface{} `json:"repositoryPolicyText"`
+	RepositoryPolicyText interface{} `json:"repositoryPolicyText" yaml:"repositoryPolicyText"`
 	// An array of key-value pairs to apply to this resource.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // Represents an ECR repository.
@@ -2542,15 +2542,15 @@ func (j *jsiiProxy_IRepository) RepositoryUri() *string {
 //
 type LifecycleRule struct {
 	// Describes the purpose of the rule.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The maximum age of images to retain. The value must represent a number of days.
 	//
 	// Specify exactly one of maxImageCount and maxImageAge.
-	MaxImageAge awscdk.Duration `json:"maxImageAge"`
+	MaxImageAge awscdk.Duration `json:"maxImageAge" yaml:"maxImageAge"`
 	// The maximum number of images to retain.
 	//
 	// Specify exactly one of maxImageCount and maxImageAge.
-	MaxImageCount *float64 `json:"maxImageCount"`
+	MaxImageCount *float64 `json:"maxImageCount" yaml:"maxImageCount"`
 	// Controls the order in which rules are evaluated (low to high).
 	//
 	// All rules must have a unique priority, where lower numbers have
@@ -2561,16 +2561,16 @@ type LifecycleRule struct {
 	//
 	// All rules without a specified priority will have incrementing priorities
 	// automatically assigned to them, higher than any rules that DO have priorities.
-	RulePriority *float64 `json:"rulePriority"`
+	RulePriority *float64 `json:"rulePriority" yaml:"rulePriority"`
 	// Select images that have ALL the given prefixes in their tag.
 	//
 	// Only if tagStatus == TagStatus.Tagged
-	TagPrefixList *[]*string `json:"tagPrefixList"`
+	TagPrefixList *[]*string `json:"tagPrefixList" yaml:"tagPrefixList"`
 	// Select images based on tags.
 	//
 	// Only one rule is allowed to select untagged images, and it must
 	// have the highest rulePriority.
-	TagStatus TagStatus `json:"tagStatus"`
+	TagStatus TagStatus `json:"tagStatus" yaml:"tagStatus"`
 }
 
 // Options for the onCloudTrailImagePushed method.
@@ -2579,7 +2579,7 @@ type LifecycleRule struct {
 //
 type OnCloudTrailImagePushedOptions struct {
 	// A description of the rule's purpose.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Additional restrictions for the event to route to the specified target.
 	//
 	// The method that generates the rule probably imposes some type of event
@@ -2587,13 +2587,13 @@ type OnCloudTrailImagePushedOptions struct {
 	// on top of that filtering.
 	// See: https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html
 	//
-	EventPattern *awsevents.EventPattern `json:"eventPattern"`
+	EventPattern *awsevents.EventPattern `json:"eventPattern" yaml:"eventPattern"`
 	// A name for the rule.
-	RuleName *string `json:"ruleName"`
+	RuleName *string `json:"ruleName" yaml:"ruleName"`
 	// The target to register for the event.
-	Target awsevents.IRuleTarget `json:"target"`
+	Target awsevents.IRuleTarget `json:"target" yaml:"target"`
 	// Only watch changes to this image tag.
-	ImageTag *string `json:"imageTag"`
+	ImageTag *string `json:"imageTag" yaml:"imageTag"`
 }
 
 // Options for the OnImageScanCompleted method.
@@ -2602,7 +2602,7 @@ type OnCloudTrailImagePushedOptions struct {
 //
 type OnImageScanCompletedOptions struct {
 	// A description of the rule's purpose.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// Additional restrictions for the event to route to the specified target.
 	//
 	// The method that generates the rule probably imposes some type of event
@@ -2610,15 +2610,15 @@ type OnImageScanCompletedOptions struct {
 	// on top of that filtering.
 	// See: https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html
 	//
-	EventPattern *awsevents.EventPattern `json:"eventPattern"`
+	EventPattern *awsevents.EventPattern `json:"eventPattern" yaml:"eventPattern"`
 	// A name for the rule.
-	RuleName *string `json:"ruleName"`
+	RuleName *string `json:"ruleName" yaml:"ruleName"`
 	// The target to register for the event.
-	Target awsevents.IRuleTarget `json:"target"`
+	Target awsevents.IRuleTarget `json:"target" yaml:"target"`
 	// Only watch changes to the image tags spedified.
 	//
 	// Leave it undefined to watch the full repository.
-	ImageTags *[]*string `json:"imageTags"`
+	ImageTags *[]*string `json:"imageTags" yaml:"imageTags"`
 }
 
 // Authorization token to access the global public ECR Gallery via Docker CLI.
@@ -3128,8 +3128,8 @@ func (r *jsiiProxy_Repository) ToString() *string {
 // TODO: EXAMPLE
 //
 type RepositoryAttributes struct {
-	RepositoryArn *string `json:"repositoryArn"`
-	RepositoryName *string `json:"repositoryName"`
+	RepositoryArn *string `json:"repositoryArn" yaml:"repositoryArn"`
+	RepositoryName *string `json:"repositoryName" yaml:"repositoryName"`
 }
 
 // Base class for ECR repository.
@@ -3527,21 +3527,21 @@ func (r *jsiiProxy_RepositoryBase) ToString() *string {
 //
 type RepositoryProps struct {
 	// Enable the scan on push when creating the repository.
-	ImageScanOnPush *bool `json:"imageScanOnPush"`
+	ImageScanOnPush *bool `json:"imageScanOnPush" yaml:"imageScanOnPush"`
 	// The tag mutability setting for the repository.
 	//
 	// If this parameter is omitted, the default setting of MUTABLE will be used which will allow image tags to be overwritten.
-	ImageTagMutability TagMutability `json:"imageTagMutability"`
+	ImageTagMutability TagMutability `json:"imageTagMutability" yaml:"imageTagMutability"`
 	// The AWS account ID associated with the registry that contains the repository.
 	// See: https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_PutLifecyclePolicy.html
 	//
-	LifecycleRegistryId *string `json:"lifecycleRegistryId"`
+	LifecycleRegistryId *string `json:"lifecycleRegistryId" yaml:"lifecycleRegistryId"`
 	// Life cycle rules to apply to this registry.
-	LifecycleRules *[]*LifecycleRule `json:"lifecycleRules"`
+	LifecycleRules *[]*LifecycleRule `json:"lifecycleRules" yaml:"lifecycleRules"`
 	// Determine what happens to the repository when the resource/stack is deleted.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 	// Name for this repository.
-	RepositoryName *string `json:"repositoryName"`
+	RepositoryName *string `json:"repositoryName" yaml:"repositoryName"`
 }
 
 // The tag mutability setting for your repository.

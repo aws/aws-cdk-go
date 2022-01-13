@@ -40,41 +40,41 @@ const (
 //
 type AttributeMapping struct {
 	// The user's postal address is a required attribute.
-	Address ProviderAttribute `json:"address"`
+	Address ProviderAttribute `json:"address" yaml:"address"`
 	// The user's birthday.
-	Birthdate ProviderAttribute `json:"birthdate"`
+	Birthdate ProviderAttribute `json:"birthdate" yaml:"birthdate"`
 	// Specify custom attribute mapping here and mapping for any standard attributes not supported yet.
-	Custom *map[string]ProviderAttribute `json:"custom"`
+	Custom *map[string]ProviderAttribute `json:"custom" yaml:"custom"`
 	// The user's e-mail address.
-	Email ProviderAttribute `json:"email"`
+	Email ProviderAttribute `json:"email" yaml:"email"`
 	// The surname or last name of user.
-	FamilyName ProviderAttribute `json:"familyName"`
+	FamilyName ProviderAttribute `json:"familyName" yaml:"familyName"`
 	// The user's full name in displayable form.
-	Fullname ProviderAttribute `json:"fullname"`
+	Fullname ProviderAttribute `json:"fullname" yaml:"fullname"`
 	// The user's gender.
-	Gender ProviderAttribute `json:"gender"`
+	Gender ProviderAttribute `json:"gender" yaml:"gender"`
 	// The user's first name or give name.
-	GivenName ProviderAttribute `json:"givenName"`
+	GivenName ProviderAttribute `json:"givenName" yaml:"givenName"`
 	// Time, the user's information was last updated.
-	LastUpdateTime ProviderAttribute `json:"lastUpdateTime"`
+	LastUpdateTime ProviderAttribute `json:"lastUpdateTime" yaml:"lastUpdateTime"`
 	// The user's locale.
-	Locale ProviderAttribute `json:"locale"`
+	Locale ProviderAttribute `json:"locale" yaml:"locale"`
 	// The user's middle name.
-	MiddleName ProviderAttribute `json:"middleName"`
+	MiddleName ProviderAttribute `json:"middleName" yaml:"middleName"`
 	// The user's nickname or casual name.
-	Nickname ProviderAttribute `json:"nickname"`
+	Nickname ProviderAttribute `json:"nickname" yaml:"nickname"`
 	// The user's telephone number.
-	PhoneNumber ProviderAttribute `json:"phoneNumber"`
+	PhoneNumber ProviderAttribute `json:"phoneNumber" yaml:"phoneNumber"`
 	// The user's preferred username.
-	PreferredUsername ProviderAttribute `json:"preferredUsername"`
+	PreferredUsername ProviderAttribute `json:"preferredUsername" yaml:"preferredUsername"`
 	// The URL to the user's profile page.
-	ProfilePage ProviderAttribute `json:"profilePage"`
+	ProfilePage ProviderAttribute `json:"profilePage" yaml:"profilePage"`
 	// The URL to the user's profile picture.
-	ProfilePicture ProviderAttribute `json:"profilePicture"`
+	ProfilePicture ProviderAttribute `json:"profilePicture" yaml:"profilePicture"`
 	// The user's time zone.
-	Timezone ProviderAttribute `json:"timezone"`
+	Timezone ProviderAttribute `json:"timezone" yaml:"timezone"`
 	// The URL to the user's web page or blog.
-	Website ProviderAttribute `json:"website"`
+	Website ProviderAttribute `json:"website" yaml:"website"`
 }
 
 // Types of authentication flow.
@@ -85,13 +85,13 @@ type AttributeMapping struct {
 //
 type AuthFlow struct {
 	// Enable admin based user password authentication flow.
-	AdminUserPassword *bool `json:"adminUserPassword"`
+	AdminUserPassword *bool `json:"adminUserPassword" yaml:"adminUserPassword"`
 	// Enable custom authentication flow.
-	Custom *bool `json:"custom"`
+	Custom *bool `json:"custom" yaml:"custom"`
 	// Enable auth using username & password.
-	UserPassword *bool `json:"userPassword"`
+	UserPassword *bool `json:"userPassword" yaml:"userPassword"`
 	// Enable SRP based authentication.
-	UserSrp *bool `json:"userSrp"`
+	UserSrp *bool `json:"userSrp" yaml:"userSrp"`
 }
 
 // Attributes that can be automatically verified for users in a user pool.
@@ -103,9 +103,9 @@ type AutoVerifiedAttrs struct {
 	//
 	// Note: If both `email` and `phone` is set, Cognito only verifies the phone number. To also verify email, see here -
 	// https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html
-	Email *bool `json:"email"`
+	Email *bool `json:"email" yaml:"email"`
 	// Whether the phone number of the user should be auto verified at sign up.
-	Phone *bool `json:"phone"`
+	Phone *bool `json:"phone" yaml:"phone"`
 }
 
 // The Boolean custom attribute type.
@@ -851,17 +851,17 @@ func (c *jsiiProxy_CfnIdentityPool) ValidateProperties(_properties interface{}) 
 //
 type CfnIdentityPool_CognitoIdentityProviderProperty struct {
 	// The client ID for the Amazon Cognito user pool.
-	ClientId *string `json:"clientId"`
+	ClientId *string `json:"clientId" yaml:"clientId"`
 	// The provider name for an Amazon Cognito user pool.
 	//
 	// For example: `cognito-idp.us-east-2.amazonaws.com/us-east-2_123456789` .
-	ProviderName *string `json:"providerName"`
+	ProviderName *string `json:"providerName" yaml:"providerName"`
 	// TRUE if server-side token validation is enabled for the identity provider’s token.
 	//
 	// After you set the `ServerSideTokenCheck` to TRUE for an identity pool, that identity pool checks with the integrated user pools to make sure the user has not been globally signed out or deleted before the identity pool provides an OIDC token or AWS credentials for the user.
 	//
 	// If the user is signed out or deleted, the identity pool returns a 400 Not Authorized error.
-	ServerSideTokenCheck interface{} `json:"serverSideTokenCheck"`
+	ServerSideTokenCheck interface{} `json:"serverSideTokenCheck" yaml:"serverSideTokenCheck"`
 }
 
 // `CognitoStreams` is a property of the [AWS::Cognito::IdentityPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html) resource that defines configuration options for Amazon Cognito streams.
@@ -872,15 +872,15 @@ type CfnIdentityPool_CognitoStreamsProperty struct {
 	// The Amazon Resource Name (ARN) of the role Amazon Cognito can assume to publish to the stream.
 	//
 	// This role must grant access to Amazon Cognito (cognito-sync) to invoke `PutRecord` on your Amazon Cognito stream.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// Status of the Amazon Cognito streams.
 	//
 	// Valid values are: `ENABLED` or `DISABLED` .
-	StreamingStatus *string `json:"streamingStatus"`
+	StreamingStatus *string `json:"streamingStatus" yaml:"streamingStatus"`
 	// The name of the Amazon Cognito stream to receive updates.
 	//
 	// This stream must be in the developer's account and in the same Region as the identity pool.
-	StreamName *string `json:"streamName"`
+	StreamName *string `json:"streamName" yaml:"streamName"`
 }
 
 // `PushSync` is a property of the [AWS::Cognito::IdentityPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html) resource that defines the configuration options to be applied to an Amazon Cognito identity pool.
@@ -889,9 +889,9 @@ type CfnIdentityPool_CognitoStreamsProperty struct {
 //
 type CfnIdentityPool_PushSyncProperty struct {
 	// The ARNs of the Amazon SNS platform applications that could be used by clients.
-	ApplicationArns *[]*string `json:"applicationArns"`
+	ApplicationArns *[]*string `json:"applicationArns" yaml:"applicationArns"`
 	// An IAM role configured to allow Amazon Cognito to call Amazon SNS on behalf of the developer.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 }
 
 // Properties for defining a `CfnIdentityPool`.
@@ -900,15 +900,15 @@ type CfnIdentityPool_PushSyncProperty struct {
 //
 type CfnIdentityPoolProps struct {
 	// Specifies whether the identity pool supports unauthenticated logins.
-	AllowUnauthenticatedIdentities interface{} `json:"allowUnauthenticatedIdentities"`
+	AllowUnauthenticatedIdentities interface{} `json:"allowUnauthenticatedIdentities" yaml:"allowUnauthenticatedIdentities"`
 	// Enables the Basic (Classic) authentication flow.
-	AllowClassicFlow interface{} `json:"allowClassicFlow"`
+	AllowClassicFlow interface{} `json:"allowClassicFlow" yaml:"allowClassicFlow"`
 	// The events to configure.
-	CognitoEvents interface{} `json:"cognitoEvents"`
+	CognitoEvents interface{} `json:"cognitoEvents" yaml:"cognitoEvents"`
 	// The Amazon Cognito user pools and their client IDs.
-	CognitoIdentityProviders interface{} `json:"cognitoIdentityProviders"`
+	CognitoIdentityProviders interface{} `json:"cognitoIdentityProviders" yaml:"cognitoIdentityProviders"`
 	// Configuration options for configuring Amazon Cognito streams.
-	CognitoStreams interface{} `json:"cognitoStreams"`
+	CognitoStreams interface{} `json:"cognitoStreams" yaml:"cognitoStreams"`
 	// The "domain" Amazon Cognito uses when referencing your users.
 	//
 	// This name acts as a placeholder that allows your backend and the Amazon Cognito service to communicate about the developer provider. For the `DeveloperProviderName` , you can use letters and periods (.), underscores (_), and dashes (-).
@@ -916,7 +916,7 @@ type CfnIdentityPoolProps struct {
 	// *Minimum length* : 1
 	//
 	// *Maximum length* : 100
-	DeveloperProviderName *string `json:"developerProviderName"`
+	DeveloperProviderName *string `json:"developerProviderName" yaml:"developerProviderName"`
 	// The name of your Amazon Cognito identity pool.
 	//
 	// *Minimum length* : 1
@@ -924,15 +924,15 @@ type CfnIdentityPoolProps struct {
 	// *Maximum length* : 128
 	//
 	// *Pattern* : `[\w\s+=,.@-]+`
-	IdentityPoolName *string `json:"identityPoolName"`
+	IdentityPoolName *string `json:"identityPoolName" yaml:"identityPoolName"`
 	// The Amazon Resource Names (ARNs) of the OpenID connect providers.
-	OpenIdConnectProviderArns *[]*string `json:"openIdConnectProviderArns"`
+	OpenIdConnectProviderArns *[]*string `json:"openIdConnectProviderArns" yaml:"openIdConnectProviderArns"`
 	// The configuration options to be applied to the identity pool.
-	PushSync interface{} `json:"pushSync"`
+	PushSync interface{} `json:"pushSync" yaml:"pushSync"`
 	// The Amazon Resource Names (ARNs) of the Security Assertion Markup Language (SAML) providers.
-	SamlProviderArns *[]*string `json:"samlProviderArns"`
+	SamlProviderArns *[]*string `json:"samlProviderArns" yaml:"samlProviderArns"`
 	// Key-value pairs that map provider names to provider app IDs.
-	SupportedLoginProviders interface{} `json:"supportedLoginProviders"`
+	SupportedLoginProviders interface{} `json:"supportedLoginProviders" yaml:"supportedLoginProviders"`
 }
 
 // A CloudFormation `AWS::Cognito::IdentityPoolRoleAttachment`.
@@ -1455,17 +1455,17 @@ type CfnIdentityPoolRoleAttachment_MappingRuleProperty struct {
 	// The claim name that must be present in the token.
 	//
 	// For example: "isAdmin" or "paid".
-	Claim *string `json:"claim"`
+	Claim *string `json:"claim" yaml:"claim"`
 	// The match condition that specifies how closely the claim value in the IdP token must match `Value` .
 	//
 	// Valid values are: `Equals` , `Contains` , `StartsWith` , and `NotEqual` .
-	MatchType *string `json:"matchType"`
+	MatchType *string `json:"matchType" yaml:"matchType"`
 	// The Amazon Resource Name (ARN) of the role.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// A brief string that the claim must match.
 	//
 	// For example, "paid" or "yes".
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // `RoleMapping` is a property of the [AWS::Cognito::IdentityPoolRoleAttachment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolroleattachment.html) resource that defines the role-mapping attributes of an Amazon Cognito identity pool.
@@ -1478,23 +1478,23 @@ type CfnIdentityPoolRoleAttachment_RoleMappingProperty struct {
 	// `Token` uses `cognito:roles` and `cognito:preferred_role` claims from the Amazon Cognito identity provider token to map groups to roles. `Rules` attempts to match claims from the token to map to a role.
 	//
 	// Valid values are `Token` or `Rules` .
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 	// Specifies the action to be taken if either no rules match the claim value for the Rules type, or there is no `cognito:preferred_role` claim and there are multiple `cognito:roles` matches for the Token type.
 	//
 	// If you specify Token or Rules as the Type, AmbiguousRoleResolution is required.
 	//
 	// Valid values are `AuthenticatedRole` or `Deny` .
-	AmbiguousRoleResolution *string `json:"ambiguousRoleResolution"`
+	AmbiguousRoleResolution *string `json:"ambiguousRoleResolution" yaml:"ambiguousRoleResolution"`
 	// Identifier for the identity provider for which the role is mapped.
 	//
 	// For example: `graph.facebook.com` or `cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id (http://cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id)` . This is the identity provider that is used by the user for authentication.
 	//
 	// If the identity provider property isn't provided, the key of the entry in the `RoleMappings` map is used as the identity provider.
-	IdentityProvider *string `json:"identityProvider"`
+	IdentityProvider *string `json:"identityProvider" yaml:"identityProvider"`
 	// The rules to be used for mapping users to roles.
 	//
 	// If you specify "Rules" as the role-mapping type, RulesConfiguration is required.
-	RulesConfiguration interface{} `json:"rulesConfiguration"`
+	RulesConfiguration interface{} `json:"rulesConfiguration" yaml:"rulesConfiguration"`
 }
 
 // `RulesConfigurationType` is a subproperty of the [RoleMapping](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rolemapping.html) property that defines the rules to be used for mapping users to roles.
@@ -1505,7 +1505,7 @@ type CfnIdentityPoolRoleAttachment_RulesConfigurationTypeProperty struct {
 	// The rules.
 	//
 	// You can specify up to 25 rules per identity provider.
-	Rules interface{} `json:"rules"`
+	Rules interface{} `json:"rules" yaml:"rules"`
 }
 
 // Properties for defining a `CfnIdentityPoolRoleAttachment`.
@@ -1514,7 +1514,7 @@ type CfnIdentityPoolRoleAttachment_RulesConfigurationTypeProperty struct {
 //
 type CfnIdentityPoolRoleAttachmentProps struct {
 	// An identity pool ID in the format `REGION:GUID` .
-	IdentityPoolId *string `json:"identityPoolId"`
+	IdentityPoolId *string `json:"identityPoolId" yaml:"identityPoolId"`
 	// How users for a specific identity provider are mapped to roles.
 	//
 	// This is a string to the `RoleMapping` object map. The string identifies the identity provider. For example: `graph.facebook.com` or `cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id` .
@@ -1522,11 +1522,11 @@ type CfnIdentityPoolRoleAttachmentProps struct {
 	// If the `IdentityProvider` field isn't provided in this object, the string is used as the identity provider name.
 	//
 	// For more information, see the [RoleMapping property](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rolemapping.html) .
-	RoleMappings interface{} `json:"roleMappings"`
+	RoleMappings interface{} `json:"roleMappings" yaml:"roleMappings"`
 	// The map of the roles associated with this pool.
 	//
 	// For a given role, the key is either "authenticated" or "unauthenticated". The value is the role ARN.
-	Roles interface{} `json:"roles"`
+	Roles interface{} `json:"roles" yaml:"roles"`
 }
 
 // A CloudFormation `AWS::Cognito::UserPool`.
@@ -2453,7 +2453,7 @@ func (c *jsiiProxy_CfnUserPool) ValidateProperties(_properties interface{}) {
 //
 type CfnUserPool_AccountRecoverySettingProperty struct {
 	// The list of `RecoveryOptionTypes` .
-	RecoveryMechanisms interface{} `json:"recoveryMechanisms"`
+	RecoveryMechanisms interface{} `json:"recoveryMechanisms" yaml:"recoveryMechanisms"`
 }
 
 // The configuration for `AdminCreateUser` requests.
@@ -2464,35 +2464,35 @@ type CfnUserPool_AdminCreateUserConfigProperty struct {
 	// Set to `True` if only the administrator is allowed to create user profiles.
 	//
 	// Set to `False` if users can sign themselves up via an app.
-	AllowAdminCreateUserOnly interface{} `json:"allowAdminCreateUserOnly"`
+	AllowAdminCreateUserOnly interface{} `json:"allowAdminCreateUserOnly" yaml:"allowAdminCreateUserOnly"`
 	// The message template to be used for the welcome message to new users.
 	//
 	// See also [Customizing User Invitation Messages](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization) .
-	InviteMessageTemplate interface{} `json:"inviteMessageTemplate"`
+	InviteMessageTemplate interface{} `json:"inviteMessageTemplate" yaml:"inviteMessageTemplate"`
 	// The user account expiration limit, in days, after which the account is no longer usable.
 	//
 	// To reset the account after that time limit, you must call `AdminCreateUser` again, specifying `"RESEND"` for the `MessageAction` parameter. The default value for this parameter is 7.
 	//
 	// > If you set a value for `TemporaryPasswordValidityDays` in `PasswordPolicy` , that value will be used, and `UnusedAccountValidityDays` will be no longer be an available parameter for that user pool.
-	UnusedAccountValidityDays *float64 `json:"unusedAccountValidityDays"`
+	UnusedAccountValidityDays *float64 `json:"unusedAccountValidityDays" yaml:"unusedAccountValidityDays"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnUserPool_CustomEmailSenderProperty struct {
 	// `CfnUserPool.CustomEmailSenderProperty.LambdaArn`.
-	LambdaArn *string `json:"lambdaArn"`
+	LambdaArn *string `json:"lambdaArn" yaml:"lambdaArn"`
 	// `CfnUserPool.CustomEmailSenderProperty.LambdaVersion`.
-	LambdaVersion *string `json:"lambdaVersion"`
+	LambdaVersion *string `json:"lambdaVersion" yaml:"lambdaVersion"`
 }
 
 // TODO: EXAMPLE
 //
 type CfnUserPool_CustomSMSSenderProperty struct {
 	// `CfnUserPool.CustomSMSSenderProperty.LambdaArn`.
-	LambdaArn *string `json:"lambdaArn"`
+	LambdaArn *string `json:"lambdaArn" yaml:"lambdaArn"`
 	// `CfnUserPool.CustomSMSSenderProperty.LambdaVersion`.
-	LambdaVersion *string `json:"lambdaVersion"`
+	LambdaVersion *string `json:"lambdaVersion" yaml:"lambdaVersion"`
 }
 
 // The device tracking configuration for a user pool. A user pool with device tracking deactivated returns a null value.
@@ -2505,11 +2505,11 @@ type CfnUserPool_DeviceConfigurationProperty struct {
 	// When true, device authentication can replace SMS and time-based one-time password (TOTP) factors for multi-factor authentication (MFA).
 	//
 	// > Users that sign in with devices that have not been confirmed or remembered will still have to provide a second factor, whether or not ChallengeRequiredOnNewDevice is true, when your user pool requires MFA.
-	ChallengeRequiredOnNewDevice interface{} `json:"challengeRequiredOnNewDevice"`
+	ChallengeRequiredOnNewDevice interface{} `json:"challengeRequiredOnNewDevice" yaml:"challengeRequiredOnNewDevice"`
 	// When true, users can opt in to remembering their device.
 	//
 	// Your app code must use callback functions to return the user's choice.
-	DeviceOnlyRememberedOnUserPrompt interface{} `json:"deviceOnlyRememberedOnUserPrompt"`
+	DeviceOnlyRememberedOnUserPrompt interface{} `json:"deviceOnlyRememberedOnUserPrompt" yaml:"deviceOnlyRememberedOnUserPrompt"`
 }
 
 // The email configuration.
@@ -2523,7 +2523,7 @@ type CfnUserPool_EmailConfigurationProperty struct {
 	//
 	// - Event publishing – Amazon SES can track the number of send, delivery, open, click, bounce, and complaint events for each email sent. Use event publishing to send information about these events to other AWS services such as SNS and CloudWatch.
 	// - IP pool management – When leasing dedicated IP addresses with Amazon SES, you can create groups of IP addresses, called dedicated IP pools. You can then associate the dedicated IP pools with configuration sets.
-	ConfigurationSet *string `json:"configurationSet"`
+	ConfigurationSet *string `json:"configurationSet" yaml:"configurationSet"`
 	// Specifies whether Amazon Cognito emails your users by using its built-in email functionality or your Amazon Simple Email Service email configuration.
 	//
 	// Specify one of the following values:
@@ -2551,20 +2551,20 @@ type CfnUserPool_EmailConfigurationProperty struct {
 	// If you use this option, you must provide the ARN of an Amazon SES verified email address for the `SourceArn` parameter.
 	//
 	// Before Amazon Cognito can email your users, it requires additional permissions to call Amazon SES on your behalf. When you update your user pool with this option, Amazon Cognito creates a *service-linked role* , which is a type of role, in your AWS account . This role contains the permissions that allow to access Amazon SES and send email messages with your address. For more information about the service-linked role that Amazon Cognito creates, see [Using Service-Linked Roles for Amazon Cognito](https://docs.aws.amazon.com/cognito/latest/developerguide/using-service-linked-roles.html) in the *Amazon Cognito Developer Guide* .
-	EmailSendingAccount *string `json:"emailSendingAccount"`
+	EmailSendingAccount *string `json:"emailSendingAccount" yaml:"emailSendingAccount"`
 	// Identifies either the sender's email address or the sender's name with their email address.
 	//
 	// For example, `testuser@example.com` or `Test User <testuser@example.com>` . This address appears before the body of the email.
-	From *string `json:"from"`
+	From *string `json:"from" yaml:"from"`
 	// The destination to which the receiver of the email should reply.
-	ReplyToEmailAddress *string `json:"replyToEmailAddress"`
+	ReplyToEmailAddress *string `json:"replyToEmailAddress" yaml:"replyToEmailAddress"`
 	// The ARN of a verified email address in Amazon SES.
 	//
 	// Amazon Cognito uses this email address in one of the following ways, depending on the value that you specify for the `EmailSendingAccount` parameter:
 	//
 	// - If you specify `COGNITO_DEFAULT` , Amazon Cognito uses this address as the custom FROM address when it emails your users using its built-in email account.
 	// - If you specify `DEVELOPER` , Amazon Cognito emails your users with this address by calling Amazon SES on your behalf.
-	SourceArn *string `json:"sourceArn"`
+	SourceArn *string `json:"sourceArn" yaml:"sourceArn"`
 }
 
 // The message template to be used for the welcome message to new users.
@@ -2577,13 +2577,13 @@ type CfnUserPool_InviteMessageTemplateProperty struct {
 	// The message template for email messages.
 	//
 	// EmailMessage is allowed only if [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is DEVELOPER.
-	EmailMessage *string `json:"emailMessage"`
+	EmailMessage *string `json:"emailMessage" yaml:"emailMessage"`
 	// The subject line for email messages.
 	//
 	// EmailSubject is allowed only if [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is DEVELOPER.
-	EmailSubject *string `json:"emailSubject"`
+	EmailSubject *string `json:"emailSubject" yaml:"emailSubject"`
 	// The message template for SMS messages.
-	SmsMessage *string `json:"smsMessage"`
+	SmsMessage *string `json:"smsMessage" yaml:"smsMessage"`
 }
 
 // Specifies the configuration for AWS Lambda triggers.
@@ -2592,31 +2592,31 @@ type CfnUserPool_InviteMessageTemplateProperty struct {
 //
 type CfnUserPool_LambdaConfigProperty struct {
 	// Creates an authentication challenge.
-	CreateAuthChallenge *string `json:"createAuthChallenge"`
+	CreateAuthChallenge *string `json:"createAuthChallenge" yaml:"createAuthChallenge"`
 	// `CfnUserPool.LambdaConfigProperty.CustomEmailSender`.
-	CustomEmailSender interface{} `json:"customEmailSender"`
+	CustomEmailSender interface{} `json:"customEmailSender" yaml:"customEmailSender"`
 	// A custom Message AWS Lambda trigger.
-	CustomMessage *string `json:"customMessage"`
+	CustomMessage *string `json:"customMessage" yaml:"customMessage"`
 	// `CfnUserPool.LambdaConfigProperty.CustomSMSSender`.
-	CustomSmsSender interface{} `json:"customSmsSender"`
+	CustomSmsSender interface{} `json:"customSmsSender" yaml:"customSmsSender"`
 	// Defines the authentication challenge.
-	DefineAuthChallenge *string `json:"defineAuthChallenge"`
+	DefineAuthChallenge *string `json:"defineAuthChallenge" yaml:"defineAuthChallenge"`
 	// `CfnUserPool.LambdaConfigProperty.KMSKeyID`.
-	KmsKeyId *string `json:"kmsKeyId"`
+	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
 	// A post-authentication AWS Lambda trigger.
-	PostAuthentication *string `json:"postAuthentication"`
+	PostAuthentication *string `json:"postAuthentication" yaml:"postAuthentication"`
 	// A post-confirmation AWS Lambda trigger.
-	PostConfirmation *string `json:"postConfirmation"`
+	PostConfirmation *string `json:"postConfirmation" yaml:"postConfirmation"`
 	// A pre-authentication AWS Lambda trigger.
-	PreAuthentication *string `json:"preAuthentication"`
+	PreAuthentication *string `json:"preAuthentication" yaml:"preAuthentication"`
 	// A pre-registration AWS Lambda trigger.
-	PreSignUp *string `json:"preSignUp"`
+	PreSignUp *string `json:"preSignUp" yaml:"preSignUp"`
 	// A Lambda trigger that is invoked before token generation.
-	PreTokenGeneration *string `json:"preTokenGeneration"`
+	PreTokenGeneration *string `json:"preTokenGeneration" yaml:"preTokenGeneration"`
 	// The user migration Lambda config type.
-	UserMigration *string `json:"userMigration"`
+	UserMigration *string `json:"userMigration" yaml:"userMigration"`
 	// Verifies the authentication challenge response.
-	VerifyAuthChallengeResponse *string `json:"verifyAuthChallengeResponse"`
+	VerifyAuthChallengeResponse *string `json:"verifyAuthChallengeResponse" yaml:"verifyAuthChallengeResponse"`
 }
 
 // The minimum and maximum values of an attribute that is of the number data type.
@@ -2625,9 +2625,9 @@ type CfnUserPool_LambdaConfigProperty struct {
 //
 type CfnUserPool_NumberAttributeConstraintsProperty struct {
 	// The maximum value of an attribute that is of the number data type.
-	MaxValue *string `json:"maxValue"`
+	MaxValue *string `json:"maxValue" yaml:"maxValue"`
 	// The minimum value of an attribute that is of the number data type.
-	MinValue *string `json:"minValue"`
+	MinValue *string `json:"minValue" yaml:"minValue"`
 }
 
 // The password policy type.
@@ -2638,21 +2638,21 @@ type CfnUserPool_PasswordPolicyProperty struct {
 	// The minimum length of the password in the policy that you have set.
 	//
 	// This value can't be less than 6.
-	MinimumLength *float64 `json:"minimumLength"`
+	MinimumLength *float64 `json:"minimumLength" yaml:"minimumLength"`
 	// In the password policy that you have set, refers to whether you have required users to use at least one lowercase letter in their password.
-	RequireLowercase interface{} `json:"requireLowercase"`
+	RequireLowercase interface{} `json:"requireLowercase" yaml:"requireLowercase"`
 	// In the password policy that you have set, refers to whether you have required users to use at least one number in their password.
-	RequireNumbers interface{} `json:"requireNumbers"`
+	RequireNumbers interface{} `json:"requireNumbers" yaml:"requireNumbers"`
 	// In the password policy that you have set, refers to whether you have required users to use at least one symbol in their password.
-	RequireSymbols interface{} `json:"requireSymbols"`
+	RequireSymbols interface{} `json:"requireSymbols" yaml:"requireSymbols"`
 	// In the password policy that you have set, refers to whether you have required users to use at least one uppercase letter in their password.
-	RequireUppercase interface{} `json:"requireUppercase"`
+	RequireUppercase interface{} `json:"requireUppercase" yaml:"requireUppercase"`
 	// The number of days a temporary password is valid in the password policy.
 	//
 	// If the user doesn't sign in during this time, an administrator must reset their password.
 	//
 	// > When you set `TemporaryPasswordValidityDays` for a user pool, you can no longer set the deprecated `UnusedAccountValidityDays` value for that user pool.
-	TemporaryPasswordValidityDays *float64 `json:"temporaryPasswordValidityDays"`
+	TemporaryPasswordValidityDays *float64 `json:"temporaryPasswordValidityDays" yaml:"temporaryPasswordValidityDays"`
 }
 
 // The policy associated with a user pool.
@@ -2661,7 +2661,7 @@ type CfnUserPool_PasswordPolicyProperty struct {
 //
 type CfnUserPool_PoliciesProperty struct {
 	// The password policy.
-	PasswordPolicy interface{} `json:"passwordPolicy"`
+	PasswordPolicy interface{} `json:"passwordPolicy" yaml:"passwordPolicy"`
 }
 
 // A map containing a priority as a key, and recovery method name as a value.
@@ -2670,9 +2670,9 @@ type CfnUserPool_PoliciesProperty struct {
 //
 type CfnUserPool_RecoveryOptionProperty struct {
 	// Specifies the recovery method for a user.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// A positive integer specifying priority of a method with 1 being the highest priority.
-	Priority *float64 `json:"priority"`
+	Priority *float64 `json:"priority" yaml:"priority"`
 }
 
 // Contains information about the schema attribute.
@@ -2681,25 +2681,25 @@ type CfnUserPool_RecoveryOptionProperty struct {
 //
 type CfnUserPool_SchemaAttributeProperty struct {
 	// The attribute data type.
-	AttributeDataType *string `json:"attributeDataType"`
+	AttributeDataType *string `json:"attributeDataType" yaml:"attributeDataType"`
 	// > We recommend that you use [WriteAttributes](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UserPoolClientType.html#CognitoUserPools-Type-UserPoolClientType-WriteAttributes) in the user pool client to control how attributes can be mutated for new use cases instead of using `DeveloperOnlyAttribute` .
 	//
 	// Specifies whether the attribute type is developer only. This attribute can only be modified by an administrator. Users will not be able to modify this attribute using their access token.
-	DeveloperOnlyAttribute interface{} `json:"developerOnlyAttribute"`
+	DeveloperOnlyAttribute interface{} `json:"developerOnlyAttribute" yaml:"developerOnlyAttribute"`
 	// Specifies whether the value of the attribute can be changed.
 	//
 	// For any user pool attribute that is mapped to an identity provider attribute, you must set this parameter to `true` . Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider. If an attribute is immutable, Amazon Cognito throws an error when it attempts to update the attribute. For more information, see [Specifying Identity Provider Attribute Mappings for Your User Pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html) .
-	Mutable interface{} `json:"mutable"`
+	Mutable interface{} `json:"mutable" yaml:"mutable"`
 	// A schema attribute of the name type.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// Specifies the constraints for an attribute of the number type.
-	NumberAttributeConstraints interface{} `json:"numberAttributeConstraints"`
+	NumberAttributeConstraints interface{} `json:"numberAttributeConstraints" yaml:"numberAttributeConstraints"`
 	// Specifies whether a user pool attribute is required.
 	//
 	// If the attribute is required and the user doesn't provide a value, registration or sign-in will fail.
-	Required interface{} `json:"required"`
+	Required interface{} `json:"required" yaml:"required"`
 	// Specifies the constraints for an attribute of the string type.
-	StringAttributeConstraints interface{} `json:"stringAttributeConstraints"`
+	StringAttributeConstraints interface{} `json:"stringAttributeConstraints" yaml:"stringAttributeConstraints"`
 }
 
 // The SMS configuration type that includes the settings the Cognito User Pool needs to call for the Amazon SNS service to send an SMS message from your AWS account .
@@ -2712,11 +2712,11 @@ type CfnUserPool_SmsConfigurationProperty struct {
 	// The external ID is a value.
 	//
 	// We recommend you use `ExternalId` to add security to your IAM role, which is used to call Amazon SNS to send SMS messages for your user pool. If you provide an `ExternalId` , the Cognito User Pool uses it when attempting to assume your IAM role. You can also set your roles trust policy to require the `ExternalID` . If you use the Cognito Management Console to create a role for SMS MFA, Cognito creates a role with the required permissions and a trust policy that uses `ExternalId` .
-	ExternalId *string `json:"externalId"`
+	ExternalId *string `json:"externalId" yaml:"externalId"`
 	// The Amazon Resource Name (ARN) of the Amazon SNS caller.
 	//
 	// This is the ARN of the IAM role in your AWS account that Amazon Cognito will use to send SMS messages. SMS messages are subject to a [spending limit](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html) .
-	SnsCallerArn *string `json:"snsCallerArn"`
+	SnsCallerArn *string `json:"snsCallerArn" yaml:"snsCallerArn"`
 }
 
 // The `StringAttributeConstraints` property type defines the string attribute constraints of an Amazon Cognito user pool.
@@ -2727,9 +2727,9 @@ type CfnUserPool_SmsConfigurationProperty struct {
 //
 type CfnUserPool_StringAttributeConstraintsProperty struct {
 	// The maximum length.
-	MaxLength *string `json:"maxLength"`
+	MaxLength *string `json:"maxLength" yaml:"maxLength"`
 	// The minimum length.
-	MinLength *string `json:"minLength"`
+	MinLength *string `json:"minLength" yaml:"minLength"`
 }
 
 // The user pool add-ons type.
@@ -2738,7 +2738,7 @@ type CfnUserPool_StringAttributeConstraintsProperty struct {
 //
 type CfnUserPool_UserPoolAddOnsProperty struct {
 	// The advanced security mode.
-	AdvancedSecurityMode *string `json:"advancedSecurityMode"`
+	AdvancedSecurityMode *string `json:"advancedSecurityMode" yaml:"advancedSecurityMode"`
 }
 
 // The `UsernameConfiguration` property type specifies case sensitivity on the username input for the selected sign-in option.
@@ -2752,7 +2752,7 @@ type CfnUserPool_UsernameConfigurationProperty struct {
 	//
 	// - *`True`* : Enables case sensitivity for all username input. When this option is set to `True` , users must sign in using the exact capitalization of their given username, such as “UserName”. This is the default value.
 	// - *`False`* : Enables case insensitivity for all username input. For example, when this option is set to `False` , users can sign in using either "username" or "Username". This option also enables both `preferred_username` and `email` alias to be case insensitive, in addition to the `username` attribute.
-	CaseSensitive interface{} `json:"caseSensitive"`
+	CaseSensitive interface{} `json:"caseSensitive" yaml:"caseSensitive"`
 }
 
 // The template for verification messages.
@@ -2761,25 +2761,25 @@ type CfnUserPool_UsernameConfigurationProperty struct {
 //
 type CfnUserPool_VerificationMessageTemplateProperty struct {
 	// The default email option.
-	DefaultEmailOption *string `json:"defaultEmailOption"`
+	DefaultEmailOption *string `json:"defaultEmailOption" yaml:"defaultEmailOption"`
 	// The email message template.
 	//
 	// EmailMessage is allowed only if [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is DEVELOPER.
-	EmailMessage *string `json:"emailMessage"`
+	EmailMessage *string `json:"emailMessage" yaml:"emailMessage"`
 	// The email message template for sending a confirmation link to the user.
 	//
 	// EmailMessageByLink is allowed only if [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is DEVELOPER.
-	EmailMessageByLink *string `json:"emailMessageByLink"`
+	EmailMessageByLink *string `json:"emailMessageByLink" yaml:"emailMessageByLink"`
 	// The subject line for the email message template.
 	//
 	// EmailSubject is allowed only if [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is DEVELOPER.
-	EmailSubject *string `json:"emailSubject"`
+	EmailSubject *string `json:"emailSubject" yaml:"emailSubject"`
 	// The subject line for the email message template for sending a confirmation link to the user.
 	//
 	// EmailSubjectByLink is allowed only [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is DEVELOPER.
-	EmailSubjectByLink *string `json:"emailSubjectByLink"`
+	EmailSubjectByLink *string `json:"emailSubjectByLink" yaml:"emailSubjectByLink"`
 	// The SMS message template.
-	SmsMessage *string `json:"smsMessage"`
+	SmsMessage *string `json:"smsMessage" yaml:"smsMessage"`
 }
 
 // A CloudFormation `AWS::Cognito::UserPoolClient`.
@@ -3664,15 +3664,15 @@ func (c *jsiiProxy_CfnUserPoolClient) ValidateProperties(_properties interface{}
 //
 type CfnUserPoolClient_AnalyticsConfigurationProperty struct {
 	// `CfnUserPoolClient.AnalyticsConfigurationProperty.ApplicationArn`.
-	ApplicationArn *string `json:"applicationArn"`
+	ApplicationArn *string `json:"applicationArn" yaml:"applicationArn"`
 	// The application ID for an Amazon Pinpoint application.
-	ApplicationId *string `json:"applicationId"`
+	ApplicationId *string `json:"applicationId" yaml:"applicationId"`
 	// The external ID.
-	ExternalId *string `json:"externalId"`
+	ExternalId *string `json:"externalId" yaml:"externalId"`
 	// The ARN of an AWS Identity and Access Management role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// If `UserDataShared` is `true` , Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
-	UserDataShared interface{} `json:"userDataShared"`
+	UserDataShared interface{} `json:"userDataShared" yaml:"userDataShared"`
 }
 
 // The units in which the validity times are represented in.
@@ -3683,11 +3683,11 @@ type CfnUserPoolClient_AnalyticsConfigurationProperty struct {
 //
 type CfnUserPoolClient_TokenValidityUnitsProperty struct {
 	// A time unit in “seconds”, “minutes”, “hours” or “days” for the value in AccessTokenValidity, defaults to hours.
-	AccessToken *string `json:"accessToken"`
+	AccessToken *string `json:"accessToken" yaml:"accessToken"`
 	// A time unit in “seconds”, “minutes”, “hours” or “days” for the value in IdTokenValidity, defaults to hours.
-	IdToken *string `json:"idToken"`
+	IdToken *string `json:"idToken" yaml:"idToken"`
 	// A time unit in “seconds”, “minutes”, “hours” or “days” for the value in RefreshTokenValidity, defaults to days.
-	RefreshToken *string `json:"refreshToken"`
+	RefreshToken *string `json:"refreshToken" yaml:"refreshToken"`
 }
 
 // Properties for defining a `CfnUserPoolClient`.
@@ -3696,9 +3696,9 @@ type CfnUserPoolClient_TokenValidityUnitsProperty struct {
 //
 type CfnUserPoolClientProps struct {
 	// The user pool ID for the user pool where you want to create a user pool client.
-	UserPoolId *string `json:"userPoolId"`
+	UserPoolId *string `json:"userPoolId" yaml:"userPoolId"`
 	// The time limit, after which the access token is no longer valid and cannot be used.
-	AccessTokenValidity *float64 `json:"accessTokenValidity"`
+	AccessTokenValidity *float64 `json:"accessTokenValidity" yaml:"accessTokenValidity"`
 	// The allowed OAuth flows.
 	//
 	// Set to `code` to initiate a code grant flow, which provides an authorization code as the response. This code can be exchanged for access tokens with the token endpoint.
@@ -3706,17 +3706,17 @@ type CfnUserPoolClientProps struct {
 	// Set to `implicit` to specify that the client should get the access token (and, optionally, ID token, based on scopes) directly.
 	//
 	// Set to `client_credentials` to specify that the client should get the access token (and, optionally, ID token, based on scopes) from the token endpoint using a combination of client and client_secret.
-	AllowedOAuthFlows *[]*string `json:"allowedOAuthFlows"`
+	AllowedOAuthFlows *[]*string `json:"allowedOAuthFlows" yaml:"allowedOAuthFlows"`
 	// Set to true if the client is allowed to follow the OAuth protocol when interacting with Amazon Cognito user pools.
-	AllowedOAuthFlowsUserPoolClient interface{} `json:"allowedOAuthFlowsUserPoolClient"`
+	AllowedOAuthFlowsUserPoolClient interface{} `json:"allowedOAuthFlowsUserPoolClient" yaml:"allowedOAuthFlowsUserPoolClient"`
 	// The allowed OAuth scopes.
 	//
 	// Possible values provided by OAuth are: `phone` , `email` , `openid` , and `profile` . Possible values provided by AWS are: `aws.cognito.signin.user.admin` . Custom scopes created in Resource Servers are also supported.
-	AllowedOAuthScopes *[]*string `json:"allowedOAuthScopes"`
+	AllowedOAuthScopes *[]*string `json:"allowedOAuthScopes" yaml:"allowedOAuthScopes"`
 	// The Amazon Pinpoint analytics configuration for collecting metrics for this user pool.
 	//
 	// > In AWS Regions where isn't available, User Pools only supports sending events to Amazon Pinpoint projects in AWS Region us-east-1. In Regions where is available, User Pools will support sending events to Amazon Pinpoint projects within that same Region.
-	AnalyticsConfiguration interface{} `json:"analyticsConfiguration"`
+	AnalyticsConfiguration interface{} `json:"analyticsConfiguration" yaml:"analyticsConfiguration"`
 	// A list of allowed redirect (callback) URLs for the identity providers.
 	//
 	// A redirect URI must:
@@ -3730,9 +3730,9 @@ type CfnUserPoolClientProps struct {
 	// Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.
 	//
 	// App callback URLs such as myapp://example are also supported.
-	CallbackUrLs *[]*string `json:"callbackUrLs"`
+	CallbackUrLs *[]*string `json:"callbackUrLs" yaml:"callbackUrLs"`
 	// The client name for the user pool client you would like to create.
-	ClientName *string `json:"clientName"`
+	ClientName *string `json:"clientName" yaml:"clientName"`
 	// The default redirect URI. Must be in the `CallbackURLs` list.
 	//
 	// A redirect URI must:
@@ -3746,11 +3746,11 @@ type CfnUserPoolClientProps struct {
 	// Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.
 	//
 	// App callback URLs such as myapp://example are also supported.
-	DefaultRedirectUri *string `json:"defaultRedirectUri"`
+	DefaultRedirectUri *string `json:"defaultRedirectUri" yaml:"defaultRedirectUri"`
 	// Activates or deactivates token revocation. For more information about revoking tokens, see [RevokeToken](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html) .
 	//
 	// If you don't include this parameter, token revocation is automatically activated for the new user pool client.
-	EnableTokenRevocation interface{} `json:"enableTokenRevocation"`
+	EnableTokenRevocation interface{} `json:"enableTokenRevocation" yaml:"enableTokenRevocation"`
 	// The authentication flows that are supported by the user pool clients.
 	//
 	// Flow names without the `ALLOW_` prefix are no longer supported, in favor of new names with the `ALLOW_` prefix. Note that values with `ALLOW_` prefix must be used only along with the `ALLOW_` prefix.
@@ -3762,33 +3762,33 @@ type CfnUserPoolClientProps struct {
 	// - `ALLOW_USER_PASSWORD_AUTH` : Enable user password-based authentication. In this flow, Amazon Cognito receives the password in the request instead of using the SRP protocol to verify passwords.
 	// - `ALLOW_USER_SRP_AUTH` : Enable SRP-based authentication.
 	// - `ALLOW_REFRESH_TOKEN_AUTH` : Enable authflow to refresh tokens.
-	ExplicitAuthFlows *[]*string `json:"explicitAuthFlows"`
+	ExplicitAuthFlows *[]*string `json:"explicitAuthFlows" yaml:"explicitAuthFlows"`
 	// Boolean to specify whether you want to generate a secret for the user pool client being created.
-	GenerateSecret interface{} `json:"generateSecret"`
+	GenerateSecret interface{} `json:"generateSecret" yaml:"generateSecret"`
 	// The time limit, after which the ID token is no longer valid and cannot be used.
-	IdTokenValidity *float64 `json:"idTokenValidity"`
+	IdTokenValidity *float64 `json:"idTokenValidity" yaml:"idTokenValidity"`
 	// A list of allowed logout URLs for the identity providers.
-	LogoutUrLs *[]*string `json:"logoutUrLs"`
+	LogoutUrLs *[]*string `json:"logoutUrLs" yaml:"logoutUrLs"`
 	// Use this setting to choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool.
 	//
 	// When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY` , those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
-	PreventUserExistenceErrors *string `json:"preventUserExistenceErrors"`
+	PreventUserExistenceErrors *string `json:"preventUserExistenceErrors" yaml:"preventUserExistenceErrors"`
 	// The read attributes.
-	ReadAttributes *[]*string `json:"readAttributes"`
+	ReadAttributes *[]*string `json:"readAttributes" yaml:"readAttributes"`
 	// The time limit, in days, after which the refresh token is no longer valid and can't be used.
-	RefreshTokenValidity *float64 `json:"refreshTokenValidity"`
+	RefreshTokenValidity *float64 `json:"refreshTokenValidity" yaml:"refreshTokenValidity"`
 	// A list of provider names for the identity providers that are supported on this client.
 	//
 	// The following are supported: `COGNITO` , `Facebook` , `SignInWithApple` , `Google` and `LoginWithAmazon` .
-	SupportedIdentityProviders *[]*string `json:"supportedIdentityProviders"`
+	SupportedIdentityProviders *[]*string `json:"supportedIdentityProviders" yaml:"supportedIdentityProviders"`
 	// The units in which the validity times are represented in.
 	//
 	// Default for RefreshToken is days, and default for ID and access tokens are hours.
-	TokenValidityUnits interface{} `json:"tokenValidityUnits"`
+	TokenValidityUnits interface{} `json:"tokenValidityUnits" yaml:"tokenValidityUnits"`
 	// The user pool attributes that the app client can write to.
 	//
 	// If your app client allows users to sign in through an identity provider, this array must include all attributes that are mapped to identity provider attributes. Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider. If your app client lacks write access to a mapped attribute, Amazon Cognito throws an error when it tries to update the attribute. For more information, see [Specifying Identity Provider Attribute Mappings for Your User Pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html) .
-	WriteAttributes *[]*string `json:"writeAttributes"`
+	WriteAttributes *[]*string `json:"writeAttributes" yaml:"writeAttributes"`
 }
 
 // A CloudFormation `AWS::Cognito::UserPoolDomain`.
@@ -4311,7 +4311,7 @@ type CfnUserPoolDomain_CustomDomainConfigTypeProperty struct {
 	// The Amazon Resource Name (ARN) of an AWS Certificate Manager SSL certificate.
 	//
 	// You use this certificate for the subdomain of your custom domain.
-	CertificateArn *string `json:"certificateArn"`
+	CertificateArn *string `json:"certificateArn" yaml:"certificateArn"`
 }
 
 // Properties for defining a `CfnUserPoolDomain`.
@@ -4324,13 +4324,13 @@ type CfnUserPoolDomainProps struct {
 	// For example: `auth.example.com` . If you're using a prefix domain, this field denotes the first part of the domain before `.auth.[region].amazoncognito.com` .
 	//
 	// This string can include only lowercase letters, numbers, and hyphens. Don't use a hyphen for the first or last character. Use periods to separate subdomain names.
-	Domain *string `json:"domain"`
+	Domain *string `json:"domain" yaml:"domain"`
 	// The user pool ID for the user pool where you want to associate a user pool domain.
-	UserPoolId *string `json:"userPoolId"`
+	UserPoolId *string `json:"userPoolId" yaml:"userPoolId"`
 	// The configuration for a custom domain that hosts the sign-up and sign-in pages for your application.
 	//
 	// Use this object to specify an SSL certificate that is managed by ACM.
-	CustomDomainConfig interface{} `json:"customDomainConfig"`
+	CustomDomainConfig interface{} `json:"customDomainConfig" yaml:"customDomainConfig"`
 }
 
 // A CloudFormation `AWS::Cognito::UserPoolGroup`.
@@ -4893,13 +4893,13 @@ func (c *jsiiProxy_CfnUserPoolGroup) ValidateProperties(_properties interface{})
 //
 type CfnUserPoolGroupProps struct {
 	// The user pool ID for the user pool.
-	UserPoolId *string `json:"userPoolId"`
+	UserPoolId *string `json:"userPoolId" yaml:"userPoolId"`
 	// A string containing the description of the group.
-	Description *string `json:"description"`
+	Description *string `json:"description" yaml:"description"`
 	// The name of the group.
 	//
 	// Must be unique.
-	GroupName *string `json:"groupName"`
+	GroupName *string `json:"groupName" yaml:"groupName"`
 	// A non-negative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool.
 	//
 	// Zero is the highest precedence value. Groups with lower `Precedence` values take precedence over groups with higher ornull `Precedence` values. If a user belongs to two or more groups, it is the group with the lowest precedence value whose role ARN is given in the user's tokens for the `cognito:roles` and `cognito:preferred_role` claims.
@@ -4907,9 +4907,9 @@ type CfnUserPoolGroupProps struct {
 	// Two groups can have the same `Precedence` value. If this happens, neither group takes precedence over the other. If two groups with the same `Precedence` have the same role ARN, that role is used in the `cognito:preferred_role` claim in tokens for users in each group. If the two groups have different role ARNs, the `cognito:preferred_role` claim isn't set in users' tokens.
 	//
 	// The default `Precedence` value is null.
-	Precedence *float64 `json:"precedence"`
+	Precedence *float64 `json:"precedence" yaml:"precedence"`
 	// The role Amazon Resource Name (ARN) for the group.
-	RoleArn *string `json:"roleArn"`
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 }
 
 // A CloudFormation `AWS::Cognito::UserPoolIdentityProvider`.
@@ -5490,15 +5490,15 @@ func (c *jsiiProxy_CfnUserPoolIdentityProvider) ValidateProperties(_properties i
 //
 type CfnUserPoolIdentityProviderProps struct {
 	// The identity provider name.
-	ProviderName *string `json:"providerName"`
+	ProviderName *string `json:"providerName" yaml:"providerName"`
 	// The identity provider type.
-	ProviderType *string `json:"providerType"`
+	ProviderType *string `json:"providerType" yaml:"providerType"`
 	// The user pool ID.
-	UserPoolId *string `json:"userPoolId"`
+	UserPoolId *string `json:"userPoolId" yaml:"userPoolId"`
 	// A mapping of identity provider attributes to standard and custom user pool attributes.
-	AttributeMapping interface{} `json:"attributeMapping"`
+	AttributeMapping interface{} `json:"attributeMapping" yaml:"attributeMapping"`
 	// A list of identity provider identifiers.
-	IdpIdentifiers *[]*string `json:"idpIdentifiers"`
+	IdpIdentifiers *[]*string `json:"idpIdentifiers" yaml:"idpIdentifiers"`
 	// The identity provider details. The following list describes the provider detail keys for each identity provider type.
 	//
 	// - For Google and Login with Amazon:
@@ -5535,7 +5535,7 @@ type CfnUserPoolIdentityProviderProps struct {
 	//
 	// - MetadataFile OR MetadataURL
 	// - IDPSignout (optional)
-	ProviderDetails interface{} `json:"providerDetails"`
+	ProviderDetails interface{} `json:"providerDetails" yaml:"providerDetails"`
 }
 
 // Properties for defining a `CfnUserPool`.
@@ -5546,29 +5546,29 @@ type CfnUserPoolProps struct {
 	// Use this setting to define which verified available method a user can use to recover their password when they call `ForgotPassword` .
 	//
 	// It allows you to define a preferred method when a user has more than one method available. With this setting, SMS does not qualify for a valid password recovery mechanism if the user also has SMS MFA enabled. In the absence of this setting, Cognito uses the legacy behavior to determine the recovery method where SMS is preferred over email.
-	AccountRecoverySetting interface{} `json:"accountRecoverySetting"`
+	AccountRecoverySetting interface{} `json:"accountRecoverySetting" yaml:"accountRecoverySetting"`
 	// The configuration for creating a new user profile.
-	AdminCreateUserConfig interface{} `json:"adminCreateUserConfig"`
+	AdminCreateUserConfig interface{} `json:"adminCreateUserConfig" yaml:"adminCreateUserConfig"`
 	// Attributes supported as an alias for this user pool. Possible values: *phone_number* , *email* , or *preferred_username* .
 	//
 	// > This user pool property cannot be updated.
-	AliasAttributes *[]*string `json:"aliasAttributes"`
+	AliasAttributes *[]*string `json:"aliasAttributes" yaml:"aliasAttributes"`
 	// The attributes to be auto-verified.
 	//
 	// Possible values: *email* , *phone_number* .
-	AutoVerifiedAttributes *[]*string `json:"autoVerifiedAttributes"`
+	AutoVerifiedAttributes *[]*string `json:"autoVerifiedAttributes" yaml:"autoVerifiedAttributes"`
 	// The device configuration.
-	DeviceConfiguration interface{} `json:"deviceConfiguration"`
+	DeviceConfiguration interface{} `json:"deviceConfiguration" yaml:"deviceConfiguration"`
 	// The email configuration.
-	EmailConfiguration interface{} `json:"emailConfiguration"`
+	EmailConfiguration interface{} `json:"emailConfiguration" yaml:"emailConfiguration"`
 	// A string representing the email verification message.
 	//
 	// EmailVerificationMessage is allowed only if [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is DEVELOPER.
-	EmailVerificationMessage *string `json:"emailVerificationMessage"`
+	EmailVerificationMessage *string `json:"emailVerificationMessage" yaml:"emailVerificationMessage"`
 	// A string representing the email verification subject.
 	//
 	// EmailVerificationSubject is allowed only if [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is DEVELOPER.
-	EmailVerificationSubject *string `json:"emailVerificationSubject"`
+	EmailVerificationSubject *string `json:"emailVerificationSubject" yaml:"emailVerificationSubject"`
 	// Enables MFA on a specified user pool.
 	//
 	// To disable all MFAs after it has been enabled, set MfaConfiguration to “OFF” and remove EnabledMfas. MFAs can only be all disabled if MfaConfiguration is OFF. Once SMS_MFA is enabled, SMS_MFA can only be disabled by setting MfaConfiguration to “OFF”. Can be one of the following values:
@@ -5577,7 +5577,7 @@ type CfnUserPoolProps struct {
 	// - `SOFTWARE_TOKEN_MFA` - Enables software token MFA for the user pool.
 	//
 	// Allowed values: `SMS_MFA` | `SOFTWARE_TOKEN_MFA`
-	EnabledMfas *[]*string `json:"enabledMfas"`
+	EnabledMfas *[]*string `json:"enabledMfas" yaml:"enabledMfas"`
 	// The Lambda trigger configuration information for the new user pool.
 	//
 	// > In a push model, event sources (such as Amazon S3 and custom applications) need permission to invoke a function. So you must make an extra call to add permission for these event sources to invoke your Lambda function.
@@ -5585,47 +5585,47 @@ type CfnUserPoolProps struct {
 	// > For more information on using the Lambda API to add permission, see [AddPermission](https://docs.aws.amazon.com/lambda/latest/dg/API_AddPermission.html) .
 	// >
 	// > For adding permission using the AWS CLI , see [add-permission](https://docs.aws.amazon.com/cli/latest/reference/lambda/add-permission.html) .
-	LambdaConfig interface{} `json:"lambdaConfig"`
+	LambdaConfig interface{} `json:"lambdaConfig" yaml:"lambdaConfig"`
 	// The multi-factor (MFA) configuration. Valid values include:.
 	//
 	// - `OFF` MFA won't be used for any users.
 	// - `ON` MFA is required for all users to sign in.
 	// - `OPTIONAL` MFA will be required only for individual users who have an MFA factor activated.
-	MfaConfiguration *string `json:"mfaConfiguration"`
+	MfaConfiguration *string `json:"mfaConfiguration" yaml:"mfaConfiguration"`
 	// The policy associated with a user pool.
-	Policies interface{} `json:"policies"`
+	Policies interface{} `json:"policies" yaml:"policies"`
 	// The schema attributes for the new user pool. These attributes can be standard or custom attributes.
 	//
 	// > During a user pool update, you can add new schema attributes but you cannot modify or delete an existing schema attribute.
-	Schema interface{} `json:"schema"`
+	Schema interface{} `json:"schema" yaml:"schema"`
 	// A string representing the SMS authentication message.
-	SmsAuthenticationMessage *string `json:"smsAuthenticationMessage"`
+	SmsAuthenticationMessage *string `json:"smsAuthenticationMessage" yaml:"smsAuthenticationMessage"`
 	// The SMS configuration.
-	SmsConfiguration interface{} `json:"smsConfiguration"`
+	SmsConfiguration interface{} `json:"smsConfiguration" yaml:"smsConfiguration"`
 	// A string representing the SMS verification message.
-	SmsVerificationMessage *string `json:"smsVerificationMessage"`
+	SmsVerificationMessage *string `json:"smsVerificationMessage" yaml:"smsVerificationMessage"`
 	// Determines whether email addresses or phone numbers can be specified as user names when a user signs up.
 	//
 	// Possible values: `phone_number` or `email` .
 	//
 	// This user pool property cannot be updated.
-	UsernameAttributes *[]*string `json:"usernameAttributes"`
+	UsernameAttributes *[]*string `json:"usernameAttributes" yaml:"usernameAttributes"`
 	// You can choose to set case sensitivity on the username input for the selected sign-in option.
 	//
 	// For example, when this is set to `False` , users will be able to sign in using either "username" or "Username". This configuration is immutable once it has been set.
-	UsernameConfiguration interface{} `json:"usernameConfiguration"`
+	UsernameConfiguration interface{} `json:"usernameConfiguration" yaml:"usernameConfiguration"`
 	// Enables advanced security risk detection.
 	//
 	// Set the key `AdvancedSecurityMode` to the value "AUDIT".
-	UserPoolAddOns interface{} `json:"userPoolAddOns"`
+	UserPoolAddOns interface{} `json:"userPoolAddOns" yaml:"userPoolAddOns"`
 	// A string used to name the user pool.
-	UserPoolName *string `json:"userPoolName"`
+	UserPoolName *string `json:"userPoolName" yaml:"userPoolName"`
 	// The tag keys and values to assign to the user pool.
 	//
 	// A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.
-	UserPoolTags interface{} `json:"userPoolTags"`
+	UserPoolTags interface{} `json:"userPoolTags" yaml:"userPoolTags"`
 	// The template for the verification message that the user sees when the app requests permission to access the user's information.
-	VerificationMessageTemplate interface{} `json:"verificationMessageTemplate"`
+	VerificationMessageTemplate interface{} `json:"verificationMessageTemplate" yaml:"verificationMessageTemplate"`
 }
 
 // A CloudFormation `AWS::Cognito::UserPoolResourceServer`.
@@ -6166,9 +6166,9 @@ func (c *jsiiProxy_CfnUserPoolResourceServer) ValidateProperties(_properties int
 //
 type CfnUserPoolResourceServer_ResourceServerScopeTypeProperty struct {
 	// A description of the scope.
-	ScopeDescription *string `json:"scopeDescription"`
+	ScopeDescription *string `json:"scopeDescription" yaml:"scopeDescription"`
 	// The name of the scope.
-	ScopeName *string `json:"scopeName"`
+	ScopeName *string `json:"scopeName" yaml:"scopeName"`
 }
 
 // Properties for defining a `CfnUserPoolResourceServer`.
@@ -6179,15 +6179,15 @@ type CfnUserPoolResourceServerProps struct {
 	// A unique resource server identifier for the resource server.
 	//
 	// This could be an HTTPS endpoint where the resource server is located. For example: `https://my-weather-api.example.com` .
-	Identifier *string `json:"identifier"`
+	Identifier *string `json:"identifier" yaml:"identifier"`
 	// A friendly name for the resource server.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The user pool ID for the user pool.
-	UserPoolId *string `json:"userPoolId"`
+	UserPoolId *string `json:"userPoolId" yaml:"userPoolId"`
 	// A list of scopes.
 	//
 	// Each scope is a map with keys `ScopeName` and `ScopeDescription` .
-	Scopes interface{} `json:"scopes"`
+	Scopes interface{} `json:"scopes" yaml:"scopes"`
 }
 
 // A CloudFormation `AWS::Cognito::UserPoolRiskConfigurationAttachment`.
@@ -6755,9 +6755,9 @@ type CfnUserPoolRiskConfigurationAttachment_AccountTakeoverActionTypeProperty st
 	// - `MFA_IF_CONFIGURED` Present an MFA challenge if user has configured it, else allow the request.
 	// - `MFA_REQUIRED` Present an MFA challenge if user has configured it, else block the request.
 	// - `NO_ACTION` Allow the user to sign in.
-	EventAction *string `json:"eventAction"`
+	EventAction *string `json:"eventAction" yaml:"eventAction"`
 	// Flag specifying whether to send a notification.
-	Notify interface{} `json:"notify"`
+	Notify interface{} `json:"notify" yaml:"notify"`
 }
 
 // Account takeover actions type.
@@ -6766,11 +6766,11 @@ type CfnUserPoolRiskConfigurationAttachment_AccountTakeoverActionTypeProperty st
 //
 type CfnUserPoolRiskConfigurationAttachment_AccountTakeoverActionsTypeProperty struct {
 	// Action to take for a high risk.
-	HighAction interface{} `json:"highAction"`
+	HighAction interface{} `json:"highAction" yaml:"highAction"`
 	// Action to take for a low risk.
-	LowAction interface{} `json:"lowAction"`
+	LowAction interface{} `json:"lowAction" yaml:"lowAction"`
 	// Action to take for a medium risk.
-	MediumAction interface{} `json:"mediumAction"`
+	MediumAction interface{} `json:"mediumAction" yaml:"mediumAction"`
 }
 
 // Configuration for mitigation actions and notification for different levels of risk detected for a potential account takeover.
@@ -6779,9 +6779,9 @@ type CfnUserPoolRiskConfigurationAttachment_AccountTakeoverActionsTypeProperty s
 //
 type CfnUserPoolRiskConfigurationAttachment_AccountTakeoverRiskConfigurationTypeProperty struct {
 	// Account takeover risk configuration actions.
-	Actions interface{} `json:"actions"`
+	Actions interface{} `json:"actions" yaml:"actions"`
 	// The notify configuration used to construct email notifications.
-	NotifyConfiguration interface{} `json:"notifyConfiguration"`
+	NotifyConfiguration interface{} `json:"notifyConfiguration" yaml:"notifyConfiguration"`
 }
 
 // The compromised credentials actions type.
@@ -6790,7 +6790,7 @@ type CfnUserPoolRiskConfigurationAttachment_AccountTakeoverRiskConfigurationType
 //
 type CfnUserPoolRiskConfigurationAttachment_CompromisedCredentialsActionsTypeProperty struct {
 	// The event action.
-	EventAction *string `json:"eventAction"`
+	EventAction *string `json:"eventAction" yaml:"eventAction"`
 }
 
 // The compromised credentials risk configuration type.
@@ -6799,11 +6799,11 @@ type CfnUserPoolRiskConfigurationAttachment_CompromisedCredentialsActionsTypePro
 //
 type CfnUserPoolRiskConfigurationAttachment_CompromisedCredentialsRiskConfigurationTypeProperty struct {
 	// The compromised credentials risk configuration actions.
-	Actions interface{} `json:"actions"`
+	Actions interface{} `json:"actions" yaml:"actions"`
 	// Perform the action for these events.
 	//
 	// The default is to perform all events if no event filter is specified.
-	EventFilter *[]*string `json:"eventFilter"`
+	EventFilter *[]*string `json:"eventFilter" yaml:"eventFilter"`
 }
 
 // The notify configuration type.
@@ -6814,19 +6814,19 @@ type CfnUserPoolRiskConfigurationAttachment_NotifyConfigurationTypeProperty stru
 	// The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy.
 	//
 	// This identity permits Amazon Cognito to send for the email address specified in the `From` parameter.
-	SourceArn *string `json:"sourceArn"`
+	SourceArn *string `json:"sourceArn" yaml:"sourceArn"`
 	// Email template used when a detected risk event is blocked.
-	BlockEmail interface{} `json:"blockEmail"`
+	BlockEmail interface{} `json:"blockEmail" yaml:"blockEmail"`
 	// The email address that is sending the email.
 	//
 	// The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
-	From *string `json:"from"`
+	From *string `json:"from" yaml:"from"`
 	// The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk.
-	MfaEmail interface{} `json:"mfaEmail"`
+	MfaEmail interface{} `json:"mfaEmail" yaml:"mfaEmail"`
 	// The email template used when a detected risk event is allowed.
-	NoActionEmail interface{} `json:"noActionEmail"`
+	NoActionEmail interface{} `json:"noActionEmail" yaml:"noActionEmail"`
 	// The destination to which the receiver of an email should reply to.
-	ReplyTo *string `json:"replyTo"`
+	ReplyTo *string `json:"replyTo" yaml:"replyTo"`
 }
 
 // The notify email type.
@@ -6835,11 +6835,11 @@ type CfnUserPoolRiskConfigurationAttachment_NotifyConfigurationTypeProperty stru
 //
 type CfnUserPoolRiskConfigurationAttachment_NotifyEmailTypeProperty struct {
 	// The email subject.
-	Subject *string `json:"subject"`
+	Subject *string `json:"subject" yaml:"subject"`
 	// The email HTML body.
-	HtmlBody *string `json:"htmlBody"`
+	HtmlBody *string `json:"htmlBody" yaml:"htmlBody"`
 	// The email text body.
-	TextBody *string `json:"textBody"`
+	TextBody *string `json:"textBody" yaml:"textBody"`
 }
 
 // The type of the configuration to override the risk decision.
@@ -6850,11 +6850,11 @@ type CfnUserPoolRiskConfigurationAttachment_RiskExceptionConfigurationTypeProper
 	// Overrides the risk decision to always block the pre-authentication requests.
 	//
 	// The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
-	BlockedIpRangeList *[]*string `json:"blockedIpRangeList"`
+	BlockedIpRangeList *[]*string `json:"blockedIpRangeList" yaml:"blockedIpRangeList"`
 	// Risk detection isn't performed on the IP addresses in this range list.
 	//
 	// The IP range is in CIDR notation.
-	SkippedIpRangeList *[]*string `json:"skippedIpRangeList"`
+	SkippedIpRangeList *[]*string `json:"skippedIpRangeList" yaml:"skippedIpRangeList"`
 }
 
 // Properties for defining a `CfnUserPoolRiskConfigurationAttachment`.
@@ -6865,15 +6865,15 @@ type CfnUserPoolRiskConfigurationAttachmentProps struct {
 	// The app client ID.
 	//
 	// You can specify the risk configuration for a single client (with a specific ClientId) or for all clients (by setting the ClientId to `ALL` ).
-	ClientId *string `json:"clientId"`
+	ClientId *string `json:"clientId" yaml:"clientId"`
 	// The user pool ID.
-	UserPoolId *string `json:"userPoolId"`
+	UserPoolId *string `json:"userPoolId" yaml:"userPoolId"`
 	// The account takeover risk configuration object, including the `NotifyConfiguration` object and `Actions` to take if there is an account takeover.
-	AccountTakeoverRiskConfiguration interface{} `json:"accountTakeoverRiskConfiguration"`
+	AccountTakeoverRiskConfiguration interface{} `json:"accountTakeoverRiskConfiguration" yaml:"accountTakeoverRiskConfiguration"`
 	// The compromised credentials risk configuration object, including the `EventFilter` and the `EventAction` .
-	CompromisedCredentialsRiskConfiguration interface{} `json:"compromisedCredentialsRiskConfiguration"`
+	CompromisedCredentialsRiskConfiguration interface{} `json:"compromisedCredentialsRiskConfiguration" yaml:"compromisedCredentialsRiskConfiguration"`
 	// The configuration to override the risk decision.
-	RiskExceptionConfiguration interface{} `json:"riskExceptionConfiguration"`
+	RiskExceptionConfiguration interface{} `json:"riskExceptionConfiguration" yaml:"riskExceptionConfiguration"`
 }
 
 // A CloudFormation `AWS::Cognito::UserPoolUICustomizationAttachment`.
@@ -7402,11 +7402,11 @@ type CfnUserPoolUICustomizationAttachmentProps struct {
 	// The client ID for the client app.
 	//
 	// You can specify the UI customization settings for a single client (with a specific clientId) or for all clients (by setting the clientId to `ALL` ).
-	ClientId *string `json:"clientId"`
+	ClientId *string `json:"clientId" yaml:"clientId"`
 	// The user pool ID for the user pool.
-	UserPoolId *string `json:"userPoolId"`
+	UserPoolId *string `json:"userPoolId" yaml:"userPoolId"`
 	// The CSS values in the UI customization.
-	Css *string `json:"css"`
+	Css *string `json:"css" yaml:"css"`
 }
 
 // A CloudFormation `AWS::Cognito::UserPoolUser`.
@@ -8027,9 +8027,9 @@ func (c *jsiiProxy_CfnUserPoolUser) ValidateProperties(_properties interface{}) 
 //
 type CfnUserPoolUser_AttributeTypeProperty struct {
 	// The name of the attribute.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The value of the attribute.
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // Properties for defining a `CfnUserPoolUser`.
@@ -8038,7 +8038,7 @@ type CfnUserPoolUser_AttributeTypeProperty struct {
 //
 type CfnUserPoolUserProps struct {
 	// The user pool ID for the user pool where the user will be created.
-	UserPoolId *string `json:"userPoolId"`
+	UserPoolId *string `json:"userPoolId" yaml:"userPoolId"`
 	// A map of custom key-value pairs that you can provide as input for the custom workflow that is invoked by the *pre sign-up* trigger.
 	//
 	// You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you create a `UserPoolUser` resource and include the `ClientMetadata` property, Amazon Cognito invokes the function that is assigned to the *pre sign-up* trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. This payload contains a `clientMetadata` attribute, which provides the data that you assigned to the ClientMetadata property. In your function code in AWS Lambda , you can process the `clientMetadata` value to enhance your workflow for your specific needs.
@@ -8050,11 +8050,11 @@ type CfnUserPoolUserProps struct {
 	// > - Amazon Cognito does not store the ClientMetadata value. This data is available only to AWS Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose.
 	// > - Amazon Cognito does not validate the ClientMetadata value.
 	// > - Amazon Cognito does not encrypt the the ClientMetadata value, so don't use it to provide sensitive information.
-	ClientMetadata interface{} `json:"clientMetadata"`
+	ClientMetadata interface{} `json:"clientMetadata" yaml:"clientMetadata"`
 	// Specify `"EMAIL"` if email will be used to send the welcome message.
 	//
 	// Specify `"SMS"` if the phone number will be used. The default value is `"SMS"` . You can specify more than one value.
-	DesiredDeliveryMediums *[]*string `json:"desiredDeliveryMediums"`
+	DesiredDeliveryMediums *[]*string `json:"desiredDeliveryMediums" yaml:"desiredDeliveryMediums"`
 	// This parameter is used only if the `phone_number_verified` or `email_verified` attribute is set to `True` .
 	//
 	// Otherwise, it is ignored.
@@ -8062,11 +8062,11 @@ type CfnUserPoolUserProps struct {
 	// If this parameter is set to `True` and the phone number or email address specified in the UserAttributes parameter already exists as an alias with a different user, the API call will migrate the alias from the previous user to the newly created user. The previous user will no longer be able to log in using that alias.
 	//
 	// If this parameter is set to `False` , the API throws an `AliasExistsException` error if the alias already exists. The default value is `False` .
-	ForceAliasCreation interface{} `json:"forceAliasCreation"`
+	ForceAliasCreation interface{} `json:"forceAliasCreation" yaml:"forceAliasCreation"`
 	// Set to `RESEND` to resend the invitation message to a user that already exists and reset the expiration limit on the user's account.
 	//
 	// Set to `SUPPRESS` to suppress sending the message. You can specify only one value.
-	MessageAction *string `json:"messageAction"`
+	MessageAction *string `json:"messageAction" yaml:"messageAction"`
 	// The user attributes and attribute values to be set for the user to be created.
 	//
 	// These are name-value pairs You can create a user without specifying any attributes other than `Username` . However, any attributes that you specify as required (in [](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) or in the *Attributes* tab of the console) must be supplied either by you (in your call to `AdminCreateUser` ) or by the user (when they sign up in response to your welcome message).
@@ -8079,11 +8079,11 @@ type CfnUserPoolUserProps struct {
 	//
 	// - *email* : The email address of the user to whom the message that contains the code and user name will be sent. Required if the `email_verified` attribute is set to `True` , or if `"EMAIL"` is specified in the `DesiredDeliveryMediums` parameter.
 	// - *phone_number* : The phone number of the user to whom the message that contains the code and user name will be sent. Required if the `phone_number_verified` attribute is set to `True` , or if `"SMS"` is specified in the `DesiredDeliveryMediums` parameter.
-	UserAttributes interface{} `json:"userAttributes"`
+	UserAttributes interface{} `json:"userAttributes" yaml:"userAttributes"`
 	// The username for the user.
 	//
 	// Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username can't be changed.
-	Username *string `json:"username"`
+	Username *string `json:"username" yaml:"username"`
 	// The user's validation data.
 	//
 	// This is an array of name-value pairs that contain user attributes and attribute values that you can use for custom validation, such as restricting the types of user accounts that can be registered. For example, you might choose to allow or disallow user sign-up based on the user's domain.
@@ -8091,7 +8091,7 @@ type CfnUserPoolUserProps struct {
 	// To configure custom validation, you must create a Pre Sign-up AWS Lambda trigger for the user pool as described in the Amazon Cognito Developer Guide. The Lambda trigger receives the validation data and uses it in the validation process.
 	//
 	// The user's validation data isn't persisted.
-	ValidationData interface{} `json:"validationData"`
+	ValidationData interface{} `json:"validationData" yaml:"validationData"`
 }
 
 // A CloudFormation `AWS::Cognito::UserPoolUserToGroupAttachment`.
@@ -8614,11 +8614,11 @@ func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) ValidateProperties(_propert
 //
 type CfnUserPoolUserToGroupAttachmentProps struct {
 	// The group name.
-	GroupName *string `json:"groupName"`
+	GroupName *string `json:"groupName" yaml:"groupName"`
 	// The username for the user.
-	Username *string `json:"username"`
+	Username *string `json:"username" yaml:"username"`
 	// The user pool ID for the user pool.
-	UserPoolId *string `json:"userPoolId"`
+	UserPoolId *string `json:"userPoolId" yaml:"userPoolId"`
 }
 
 // A set of attributes, useful to set Read and Write attributes.
@@ -8717,7 +8717,7 @@ func (c *jsiiProxy_ClientAttributes) WithStandardAttributes(attributes *Standard
 //
 type CognitoDomainOptions struct {
 	// The prefix to the Cognito hosted domain name that will be associated with the user pool.
-	DomainPrefix *string `json:"domainPrefix"`
+	DomainPrefix *string `json:"domainPrefix" yaml:"domainPrefix"`
 }
 
 // Configuration that will be fed into CloudFormation for any custom attribute type.
@@ -8728,17 +8728,17 @@ type CustomAttributeConfig struct {
 	// The data type of the custom attribute.
 	// See: https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SchemaAttributeType.html#CognitoUserPools-Type-SchemaAttributeType-AttributeDataType
 	//
-	DataType *string `json:"dataType"`
+	DataType *string `json:"dataType" yaml:"dataType"`
 	// Specifies whether the value of the attribute can be changed.
 	//
 	// For any user pool attribute that's mapped to an identity provider attribute, you must set this parameter to true.
 	// Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider.
 	// If an attribute is immutable, Amazon Cognito throws an error when it attempts to update the attribute.
-	Mutable *bool `json:"mutable"`
+	Mutable *bool `json:"mutable" yaml:"mutable"`
 	// The constraints for a custom attribute of the 'Number' data type.
-	NumberConstraints *NumberAttributeConstraints `json:"numberConstraints"`
+	NumberConstraints *NumberAttributeConstraints `json:"numberConstraints" yaml:"numberConstraints"`
 	// The constraints for a custom attribute of 'String' data type.
-	StringConstraints *StringAttributeConstraints `json:"stringConstraints"`
+	StringConstraints *StringAttributeConstraints `json:"stringConstraints" yaml:"stringConstraints"`
 }
 
 // Constraints that can be applied to a custom attribute of any type.
@@ -8751,7 +8751,7 @@ type CustomAttributeProps struct {
 	// For any user pool attribute that's mapped to an identity provider attribute, you must set this parameter to true.
 	// Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider.
 	// If an attribute is immutable, Amazon Cognito throws an error when it attempts to update the attribute.
-	Mutable *bool `json:"mutable"`
+	Mutable *bool `json:"mutable" yaml:"mutable"`
 }
 
 // Options while specifying custom domain.
@@ -8762,9 +8762,9 @@ type CustomAttributeProps struct {
 //
 type CustomDomainOptions struct {
 	// The certificate to associate with this domain.
-	Certificate awscertificatemanager.ICertificate `json:"certificate"`
+	Certificate awscertificatemanager.ICertificate `json:"certificate" yaml:"certificate"`
 	// The custom domain name that you would like to associate with this User Pool.
-	DomainName *string `json:"domainName"`
+	DomainName *string `json:"domainName" yaml:"domainName"`
 }
 
 // The DateTime custom attribute type.
@@ -8831,11 +8831,11 @@ type DeviceTracking struct {
 	// Only applicable to a new device.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html
 	//
-	ChallengeRequiredOnNewDevice *bool `json:"challengeRequiredOnNewDevice"`
+	ChallengeRequiredOnNewDevice *bool `json:"challengeRequiredOnNewDevice" yaml:"challengeRequiredOnNewDevice"`
 	// If true, a device is only remembered on user prompt.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html
 	//
-	DeviceOnlyRememberedOnUserPrompt *bool `json:"deviceOnlyRememberedOnUserPrompt"`
+	DeviceOnlyRememberedOnUserPrompt *bool `json:"deviceOnlyRememberedOnUserPrompt" yaml:"deviceOnlyRememberedOnUserPrompt"`
 }
 
 // Email settings for the user pool.
@@ -8844,11 +8844,11 @@ type DeviceTracking struct {
 //
 type EmailSettings struct {
 	// The 'from' address on the emails received by the user.
-	From *string `json:"from"`
+	From *string `json:"from" yaml:"from"`
 	// The 'replyTo' address on the emails received by the user as defined by IETF RFC-5322.
 	//
 	// When set, most email clients recognize to change 'to' line to this address when a reply is drafted.
-	ReplyTo *string `json:"replyTo"`
+	ReplyTo *string `json:"replyTo" yaml:"replyTo"`
 }
 
 // Represents a custom attribute type.
@@ -9097,11 +9097,11 @@ type MfaSecondFactor struct {
 	// The MFA token is a time-based one time password that is generated by a hardware or software token.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-mfa-totp.html
 	//
-	Otp *bool `json:"otp"`
+	Otp *bool `json:"otp" yaml:"otp"`
 	// The MFA token is sent to the user via SMS to their verified phone numbers.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-mfa-sms-text-message.html
 	//
-	Sms *bool `json:"sms"`
+	Sms *bool `json:"sms" yaml:"sms"`
 }
 
 // The Number custom attribute type.
@@ -9162,9 +9162,9 @@ func (n *jsiiProxy_NumberAttribute) Bind() *CustomAttributeConfig {
 //
 type NumberAttributeConstraints struct {
 	// Maximum value of this attribute.
-	Max *float64 `json:"max"`
+	Max *float64 `json:"max" yaml:"max"`
 	// Minimum value of this attribute.
-	Min *float64 `json:"min"`
+	Min *float64 `json:"min" yaml:"min"`
 }
 
 // Props for NumberAttr.
@@ -9173,15 +9173,15 @@ type NumberAttributeConstraints struct {
 //
 type NumberAttributeProps struct {
 	// Maximum value of this attribute.
-	Max *float64 `json:"max"`
+	Max *float64 `json:"max" yaml:"max"`
 	// Minimum value of this attribute.
-	Min *float64 `json:"min"`
+	Min *float64 `json:"min" yaml:"min"`
 	// Specifies whether the value of the attribute can be changed.
 	//
 	// For any user pool attribute that's mapped to an identity provider attribute, you must set this parameter to true.
 	// Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider.
 	// If an attribute is immutable, Amazon Cognito throws an error when it attempts to update the attribute.
-	Mutable *bool `json:"mutable"`
+	Mutable *bool `json:"mutable" yaml:"mutable"`
 }
 
 // Types of OAuth grant flows.
@@ -9192,11 +9192,11 @@ type NumberAttributeProps struct {
 //
 type OAuthFlows struct {
 	// Initiate an authorization code grant flow, which provides an authorization code as the response.
-	AuthorizationCodeGrant *bool `json:"authorizationCodeGrant"`
+	AuthorizationCodeGrant *bool `json:"authorizationCodeGrant" yaml:"authorizationCodeGrant"`
 	// Client should get the access token and ID token from the token endpoint using a combination of client and client_secret.
-	ClientCredentials *bool `json:"clientCredentials"`
+	ClientCredentials *bool `json:"clientCredentials" yaml:"clientCredentials"`
 	// The client should get the access token and ID token directly.
-	ImplicitCodeGrant *bool `json:"implicitCodeGrant"`
+	ImplicitCodeGrant *bool `json:"implicitCodeGrant" yaml:"implicitCodeGrant"`
 }
 
 // OAuth scopes that are allowed with this client.
@@ -9322,17 +9322,17 @@ func OAuthScope_PROFILE() OAuthScope {
 //
 type OAuthSettings struct {
 	// List of allowed redirect URLs for the identity providers.
-	CallbackUrls *[]*string `json:"callbackUrls"`
+	CallbackUrls *[]*string `json:"callbackUrls" yaml:"callbackUrls"`
 	// OAuth flows that are allowed with this client.
 	// See: - the 'Allowed OAuth Flows' section at https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-app-idp-settings.html
 	//
-	Flows *OAuthFlows `json:"flows"`
+	Flows *OAuthFlows `json:"flows" yaml:"flows"`
 	// List of allowed logout URLs for the identity providers.
-	LogoutUrls *[]*string `json:"logoutUrls"`
+	LogoutUrls *[]*string `json:"logoutUrls" yaml:"logoutUrls"`
 	// OAuth scopes that are allowed with this client.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-app-idp-settings.html
 	//
-	Scopes *[]OAuthScope `json:"scopes"`
+	Scopes *[]OAuthScope `json:"scopes" yaml:"scopes"`
 }
 
 // Password policy for User Pools.
@@ -9341,20 +9341,20 @@ type OAuthSettings struct {
 //
 type PasswordPolicy struct {
 	// Minimum length required for a user's password.
-	MinLength *float64 `json:"minLength"`
+	MinLength *float64 `json:"minLength" yaml:"minLength"`
 	// Whether the user is required to have digits in their password.
-	RequireDigits *bool `json:"requireDigits"`
+	RequireDigits *bool `json:"requireDigits" yaml:"requireDigits"`
 	// Whether the user is required to have lowercase characters in their password.
-	RequireLowercase *bool `json:"requireLowercase"`
+	RequireLowercase *bool `json:"requireLowercase" yaml:"requireLowercase"`
 	// Whether the user is required to have symbols in their password.
-	RequireSymbols *bool `json:"requireSymbols"`
+	RequireSymbols *bool `json:"requireSymbols" yaml:"requireSymbols"`
 	// Whether the user is required to have uppercase characters in their password.
-	RequireUppercase *bool `json:"requireUppercase"`
+	RequireUppercase *bool `json:"requireUppercase" yaml:"requireUppercase"`
 	// The length of time the temporary password generated by an admin is valid.
 	//
 	// This must be provided as whole days, like Duration.days(3) or Duration.hours(48).
 	// Fractional days, such as Duration.hours(20), will generate an error.
-	TempPasswordValidity awscdk.Duration `json:"tempPasswordValidity"`
+	TempPasswordValidity awscdk.Duration `json:"tempPasswordValidity" yaml:"tempPasswordValidity"`
 }
 
 // An attribute available from a third party identity provider.
@@ -9748,9 +9748,9 @@ func NewResourceServerScope_Override(r ResourceServerScope, props *ResourceServe
 //
 type ResourceServerScopeProps struct {
 	// A description of the scope.
-	ScopeDescription *string `json:"scopeDescription"`
+	ScopeDescription *string `json:"scopeDescription" yaml:"scopeDescription"`
 	// The name of the scope.
-	ScopeName *string `json:"scopeName"`
+	ScopeName *string `json:"scopeName" yaml:"scopeName"`
 }
 
 // The different ways in which users of this pool can sign up or sign in.
@@ -9759,15 +9759,15 @@ type ResourceServerScopeProps struct {
 //
 type SignInAliases struct {
 	// Whether a user is allowed to sign up or sign in with an email address.
-	Email *bool `json:"email"`
+	Email *bool `json:"email" yaml:"email"`
 	// Whether a user is allowed to sign up or sign in with a phone number.
-	Phone *bool `json:"phone"`
+	Phone *bool `json:"phone" yaml:"phone"`
 	// Whether a user is allowed to sign in with a secondary username, that can be set and modified after sign up.
 	//
 	// Can only be used in conjunction with `USERNAME`.
-	PreferredUsername *bool `json:"preferredUsername"`
+	PreferredUsername *bool `json:"preferredUsername" yaml:"preferredUsername"`
 	// Whether user is allowed to sign up or sign in with a username.
-	Username *bool `json:"username"`
+	Username *bool `json:"username" yaml:"username"`
 }
 
 // Options to customize the behaviour of `signInUrl()`.
@@ -9776,9 +9776,9 @@ type SignInAliases struct {
 //
 type SignInUrlOptions struct {
 	// Where to redirect to after sign in.
-	RedirectUri *string `json:"redirectUri"`
+	RedirectUri *string `json:"redirectUri" yaml:"redirectUri"`
 	// The path in the URI where the sign-in page is located.
-	SignInPath *string `json:"signInPath"`
+	SignInPath *string `json:"signInPath" yaml:"signInPath"`
 }
 
 // Standard attribute that can be marked as required or mutable.
@@ -9793,11 +9793,11 @@ type StandardAttribute struct {
 	// For any user pool attribute that's mapped to an identity provider attribute, this must be set to `true`.
 	// Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider.
 	// If an attribute is immutable, Amazon Cognito throws an error when it attempts to update the attribute.
-	Mutable *bool `json:"mutable"`
+	Mutable *bool `json:"mutable" yaml:"mutable"`
 	// Specifies whether the attribute is required upon user registration.
 	//
 	// If the attribute is required and the user does not provide a value, registration or sign-in will fail.
-	Required *bool `json:"required"`
+	Required *bool `json:"required" yaml:"required"`
 }
 
 // The set of standard attributes that can be marked as required or mutable.
@@ -9808,39 +9808,39 @@ type StandardAttribute struct {
 //
 type StandardAttributes struct {
 	// The user's postal address.
-	Address *StandardAttribute `json:"address"`
+	Address *StandardAttribute `json:"address" yaml:"address"`
 	// The user's birthday, represented as an ISO 8601:2004 format.
-	Birthdate *StandardAttribute `json:"birthdate"`
+	Birthdate *StandardAttribute `json:"birthdate" yaml:"birthdate"`
 	// The user's e-mail address, represented as an RFC 5322 [RFC5322] addr-spec.
-	Email *StandardAttribute `json:"email"`
+	Email *StandardAttribute `json:"email" yaml:"email"`
 	// The surname or last name of the user.
-	FamilyName *StandardAttribute `json:"familyName"`
+	FamilyName *StandardAttribute `json:"familyName" yaml:"familyName"`
 	// The user's full name in displayable form, including all name parts, titles and suffixes.
-	Fullname *StandardAttribute `json:"fullname"`
+	Fullname *StandardAttribute `json:"fullname" yaml:"fullname"`
 	// The user's gender.
-	Gender *StandardAttribute `json:"gender"`
+	Gender *StandardAttribute `json:"gender" yaml:"gender"`
 	// The user's first name or give name.
-	GivenName *StandardAttribute `json:"givenName"`
+	GivenName *StandardAttribute `json:"givenName" yaml:"givenName"`
 	// The time, the user's information was last updated.
-	LastUpdateTime *StandardAttribute `json:"lastUpdateTime"`
+	LastUpdateTime *StandardAttribute `json:"lastUpdateTime" yaml:"lastUpdateTime"`
 	// The user's locale, represented as a BCP47 [RFC5646] language tag.
-	Locale *StandardAttribute `json:"locale"`
+	Locale *StandardAttribute `json:"locale" yaml:"locale"`
 	// The user's middle name.
-	MiddleName *StandardAttribute `json:"middleName"`
+	MiddleName *StandardAttribute `json:"middleName" yaml:"middleName"`
 	// The user's nickname or casual name.
-	Nickname *StandardAttribute `json:"nickname"`
+	Nickname *StandardAttribute `json:"nickname" yaml:"nickname"`
 	// The user's telephone number.
-	PhoneNumber *StandardAttribute `json:"phoneNumber"`
+	PhoneNumber *StandardAttribute `json:"phoneNumber" yaml:"phoneNumber"`
 	// The user's preffered username, different from the immutable user name.
-	PreferredUsername *StandardAttribute `json:"preferredUsername"`
+	PreferredUsername *StandardAttribute `json:"preferredUsername" yaml:"preferredUsername"`
 	// The URL to the user's profile page.
-	ProfilePage *StandardAttribute `json:"profilePage"`
+	ProfilePage *StandardAttribute `json:"profilePage" yaml:"profilePage"`
 	// The URL to the user's profile picture.
-	ProfilePicture *StandardAttribute `json:"profilePicture"`
+	ProfilePicture *StandardAttribute `json:"profilePicture" yaml:"profilePicture"`
 	// The user's time zone.
-	Timezone *StandardAttribute `json:"timezone"`
+	Timezone *StandardAttribute `json:"timezone" yaml:"timezone"`
 	// The URL to the user's web page or blog.
-	Website *StandardAttribute `json:"website"`
+	Website *StandardAttribute `json:"website" yaml:"website"`
 }
 
 // This interface contains standard attributes recognized by Cognito from https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html including built-in attributes `email_verified` and `phone_number_verified`.
@@ -9849,43 +9849,43 @@ type StandardAttributes struct {
 //
 type StandardAttributesMask struct {
 	// The user's postal address.
-	Address *bool `json:"address"`
+	Address *bool `json:"address" yaml:"address"`
 	// The user's birthday, represented as an ISO 8601:2004 format.
-	Birthdate *bool `json:"birthdate"`
+	Birthdate *bool `json:"birthdate" yaml:"birthdate"`
 	// The user's e-mail address, represented as an RFC 5322 [RFC5322] addr-spec.
-	Email *bool `json:"email"`
+	Email *bool `json:"email" yaml:"email"`
 	// Whether the email address has been verified.
-	EmailVerified *bool `json:"emailVerified"`
+	EmailVerified *bool `json:"emailVerified" yaml:"emailVerified"`
 	// The surname or last name of the user.
-	FamilyName *bool `json:"familyName"`
+	FamilyName *bool `json:"familyName" yaml:"familyName"`
 	// The user's full name in displayable form, including all name parts, titles and suffixes.
-	Fullname *bool `json:"fullname"`
+	Fullname *bool `json:"fullname" yaml:"fullname"`
 	// The user's gender.
-	Gender *bool `json:"gender"`
+	Gender *bool `json:"gender" yaml:"gender"`
 	// The user's first name or give name.
-	GivenName *bool `json:"givenName"`
+	GivenName *bool `json:"givenName" yaml:"givenName"`
 	// The time, the user's information was last updated.
-	LastUpdateTime *bool `json:"lastUpdateTime"`
+	LastUpdateTime *bool `json:"lastUpdateTime" yaml:"lastUpdateTime"`
 	// The user's locale, represented as a BCP47 [RFC5646] language tag.
-	Locale *bool `json:"locale"`
+	Locale *bool `json:"locale" yaml:"locale"`
 	// The user's middle name.
-	MiddleName *bool `json:"middleName"`
+	MiddleName *bool `json:"middleName" yaml:"middleName"`
 	// The user's nickname or casual name.
-	Nickname *bool `json:"nickname"`
+	Nickname *bool `json:"nickname" yaml:"nickname"`
 	// The user's telephone number.
-	PhoneNumber *bool `json:"phoneNumber"`
+	PhoneNumber *bool `json:"phoneNumber" yaml:"phoneNumber"`
 	// Whether the phone number has been verified.
-	PhoneNumberVerified *bool `json:"phoneNumberVerified"`
+	PhoneNumberVerified *bool `json:"phoneNumberVerified" yaml:"phoneNumberVerified"`
 	// The user's preffered username, different from the immutable user name.
-	PreferredUsername *bool `json:"preferredUsername"`
+	PreferredUsername *bool `json:"preferredUsername" yaml:"preferredUsername"`
 	// The URL to the user's profile page.
-	ProfilePage *bool `json:"profilePage"`
+	ProfilePage *bool `json:"profilePage" yaml:"profilePage"`
 	// The URL to the user's profile picture.
-	ProfilePicture *bool `json:"profilePicture"`
+	ProfilePicture *bool `json:"profilePicture" yaml:"profilePicture"`
 	// The user's time zone.
-	Timezone *bool `json:"timezone"`
+	Timezone *bool `json:"timezone" yaml:"timezone"`
 	// The URL to the user's web page or blog.
-	Website *bool `json:"website"`
+	Website *bool `json:"website" yaml:"website"`
 }
 
 // The String custom attribute type.
@@ -9946,9 +9946,9 @@ func (s *jsiiProxy_StringAttribute) Bind() *CustomAttributeConfig {
 //
 type StringAttributeConstraints struct {
 	// Maximum length of this attribute.
-	MaxLen *float64 `json:"maxLen"`
+	MaxLen *float64 `json:"maxLen" yaml:"maxLen"`
 	// Minimum length of this attribute.
-	MinLen *float64 `json:"minLen"`
+	MinLen *float64 `json:"minLen" yaml:"minLen"`
 }
 
 // Props for constructing a StringAttr.
@@ -9957,15 +9957,15 @@ type StringAttributeConstraints struct {
 //
 type StringAttributeProps struct {
 	// Maximum length of this attribute.
-	MaxLen *float64 `json:"maxLen"`
+	MaxLen *float64 `json:"maxLen" yaml:"maxLen"`
 	// Minimum length of this attribute.
-	MinLen *float64 `json:"minLen"`
+	MinLen *float64 `json:"minLen" yaml:"minLen"`
 	// Specifies whether the value of the attribute can be changed.
 	//
 	// For any user pool attribute that's mapped to an identity provider attribute, you must set this parameter to true.
 	// Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider.
 	// If an attribute is immutable, Amazon Cognito throws an error when it attempts to update the attribute.
-	Mutable *bool `json:"mutable"`
+	Mutable *bool `json:"mutable" yaml:"mutable"`
 }
 
 // User pool configuration when administrators sign users up.
@@ -9974,11 +9974,11 @@ type StringAttributeProps struct {
 //
 type UserInvitationConfig struct {
 	// The template to the email body that is sent to the user when an administrator signs them up to the user pool.
-	EmailBody *string `json:"emailBody"`
+	EmailBody *string `json:"emailBody" yaml:"emailBody"`
 	// The template to the email subject that is sent to the user when an administrator signs them up to the user pool.
-	EmailSubject *string `json:"emailSubject"`
+	EmailSubject *string `json:"emailSubject" yaml:"emailSubject"`
 	// The template to the SMS message that is sent to the user when an administrator signs them up to the user pool.
-	SmsMessage *string `json:"smsMessage"`
+	SmsMessage *string `json:"smsMessage" yaml:"smsMessage"`
 }
 
 // Define a Cognito User Pool.
@@ -10699,51 +10699,51 @@ type UserPoolClientOptions struct {
 	// Values between 5 minutes and 1 day are valid. The duration can not be longer than the refresh token validity.
 	// See: https://docs.aws.amazon.com/en_us/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-with-identity-providers.html#amazon-cognito-user-pools-using-the-access-token
 	//
-	AccessTokenValidity awscdk.Duration `json:"accessTokenValidity"`
+	AccessTokenValidity awscdk.Duration `json:"accessTokenValidity" yaml:"accessTokenValidity"`
 	// The set of OAuth authentication flows to enable on the client.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow.html
 	//
-	AuthFlows *AuthFlow `json:"authFlows"`
+	AuthFlows *AuthFlow `json:"authFlows" yaml:"authFlows"`
 	// Turns off all OAuth interactions for this client.
-	DisableOAuth *bool `json:"disableOAuth"`
+	DisableOAuth *bool `json:"disableOAuth" yaml:"disableOAuth"`
 	// Enable token revocation for this client.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/token-revocation.html#enable-token-revocation
 	//
-	EnableTokenRevocation *bool `json:"enableTokenRevocation"`
+	EnableTokenRevocation *bool `json:"enableTokenRevocation" yaml:"enableTokenRevocation"`
 	// Whether to generate a client secret.
-	GenerateSecret *bool `json:"generateSecret"`
+	GenerateSecret *bool `json:"generateSecret" yaml:"generateSecret"`
 	// Validity of the ID token.
 	//
 	// Values between 5 minutes and 1 day are valid. The duration can not be longer than the refresh token validity.
 	// See: https://docs.aws.amazon.com/en_us/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-with-identity-providers.html#amazon-cognito-user-pools-using-the-id-token
 	//
-	IdTokenValidity awscdk.Duration `json:"idTokenValidity"`
+	IdTokenValidity awscdk.Duration `json:"idTokenValidity" yaml:"idTokenValidity"`
 	// OAuth settings for this client to interact with the app.
 	//
 	// An error is thrown when this is specified and `disableOAuth` is set.
-	OAuth *OAuthSettings `json:"oAuth"`
+	OAuth *OAuthSettings `json:"oAuth" yaml:"oAuth"`
 	// Whether Cognito returns a UserNotFoundException exception when the user does not exist in the user pool (false), or whether it returns another type of error that doesn't reveal the user's absence.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-managing-errors.html
 	//
-	PreventUserExistenceErrors *bool `json:"preventUserExistenceErrors"`
+	PreventUserExistenceErrors *bool `json:"preventUserExistenceErrors" yaml:"preventUserExistenceErrors"`
 	// The set of attributes this client will be able to read.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-attribute-permissions-and-scopes
 	//
-	ReadAttributes ClientAttributes `json:"readAttributes"`
+	ReadAttributes ClientAttributes `json:"readAttributes" yaml:"readAttributes"`
 	// Validity of the refresh token.
 	//
 	// Values between 60 minutes and 10 years are valid.
 	// See: https://docs.aws.amazon.com/en_us/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-with-identity-providers.html#amazon-cognito-user-pools-using-the-refresh-token
 	//
-	RefreshTokenValidity awscdk.Duration `json:"refreshTokenValidity"`
+	RefreshTokenValidity awscdk.Duration `json:"refreshTokenValidity" yaml:"refreshTokenValidity"`
 	// The list of identity providers that users should be able to use to sign in using this client.
-	SupportedIdentityProviders *[]UserPoolClientIdentityProvider `json:"supportedIdentityProviders"`
+	SupportedIdentityProviders *[]UserPoolClientIdentityProvider `json:"supportedIdentityProviders" yaml:"supportedIdentityProviders"`
 	// Name of the application client.
-	UserPoolClientName *string `json:"userPoolClientName"`
+	UserPoolClientName *string `json:"userPoolClientName" yaml:"userPoolClientName"`
 	// The set of attributes this client will be able to write.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-attribute-permissions-and-scopes
 	//
-	WriteAttributes ClientAttributes `json:"writeAttributes"`
+	WriteAttributes ClientAttributes `json:"writeAttributes" yaml:"writeAttributes"`
 }
 
 // Properties for the UserPoolClient construct.
@@ -10756,53 +10756,53 @@ type UserPoolClientProps struct {
 	// Values between 5 minutes and 1 day are valid. The duration can not be longer than the refresh token validity.
 	// See: https://docs.aws.amazon.com/en_us/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-with-identity-providers.html#amazon-cognito-user-pools-using-the-access-token
 	//
-	AccessTokenValidity awscdk.Duration `json:"accessTokenValidity"`
+	AccessTokenValidity awscdk.Duration `json:"accessTokenValidity" yaml:"accessTokenValidity"`
 	// The set of OAuth authentication flows to enable on the client.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow.html
 	//
-	AuthFlows *AuthFlow `json:"authFlows"`
+	AuthFlows *AuthFlow `json:"authFlows" yaml:"authFlows"`
 	// Turns off all OAuth interactions for this client.
-	DisableOAuth *bool `json:"disableOAuth"`
+	DisableOAuth *bool `json:"disableOAuth" yaml:"disableOAuth"`
 	// Enable token revocation for this client.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/token-revocation.html#enable-token-revocation
 	//
-	EnableTokenRevocation *bool `json:"enableTokenRevocation"`
+	EnableTokenRevocation *bool `json:"enableTokenRevocation" yaml:"enableTokenRevocation"`
 	// Whether to generate a client secret.
-	GenerateSecret *bool `json:"generateSecret"`
+	GenerateSecret *bool `json:"generateSecret" yaml:"generateSecret"`
 	// Validity of the ID token.
 	//
 	// Values between 5 minutes and 1 day are valid. The duration can not be longer than the refresh token validity.
 	// See: https://docs.aws.amazon.com/en_us/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-with-identity-providers.html#amazon-cognito-user-pools-using-the-id-token
 	//
-	IdTokenValidity awscdk.Duration `json:"idTokenValidity"`
+	IdTokenValidity awscdk.Duration `json:"idTokenValidity" yaml:"idTokenValidity"`
 	// OAuth settings for this client to interact with the app.
 	//
 	// An error is thrown when this is specified and `disableOAuth` is set.
-	OAuth *OAuthSettings `json:"oAuth"`
+	OAuth *OAuthSettings `json:"oAuth" yaml:"oAuth"`
 	// Whether Cognito returns a UserNotFoundException exception when the user does not exist in the user pool (false), or whether it returns another type of error that doesn't reveal the user's absence.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-managing-errors.html
 	//
-	PreventUserExistenceErrors *bool `json:"preventUserExistenceErrors"`
+	PreventUserExistenceErrors *bool `json:"preventUserExistenceErrors" yaml:"preventUserExistenceErrors"`
 	// The set of attributes this client will be able to read.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-attribute-permissions-and-scopes
 	//
-	ReadAttributes ClientAttributes `json:"readAttributes"`
+	ReadAttributes ClientAttributes `json:"readAttributes" yaml:"readAttributes"`
 	// Validity of the refresh token.
 	//
 	// Values between 60 minutes and 10 years are valid.
 	// See: https://docs.aws.amazon.com/en_us/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-with-identity-providers.html#amazon-cognito-user-pools-using-the-refresh-token
 	//
-	RefreshTokenValidity awscdk.Duration `json:"refreshTokenValidity"`
+	RefreshTokenValidity awscdk.Duration `json:"refreshTokenValidity" yaml:"refreshTokenValidity"`
 	// The list of identity providers that users should be able to use to sign in using this client.
-	SupportedIdentityProviders *[]UserPoolClientIdentityProvider `json:"supportedIdentityProviders"`
+	SupportedIdentityProviders *[]UserPoolClientIdentityProvider `json:"supportedIdentityProviders" yaml:"supportedIdentityProviders"`
 	// Name of the application client.
-	UserPoolClientName *string `json:"userPoolClientName"`
+	UserPoolClientName *string `json:"userPoolClientName" yaml:"userPoolClientName"`
 	// The set of attributes this client will be able to write.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-attribute-permissions-and-scopes
 	//
-	WriteAttributes ClientAttributes `json:"writeAttributes"`
+	WriteAttributes ClientAttributes `json:"writeAttributes" yaml:"writeAttributes"`
 	// The UserPool resource this client will have access to.
-	UserPool IUserPool `json:"userPool"`
+	UserPool IUserPool `json:"userPool" yaml:"userPool"`
 }
 
 // Define a user pool domain.
@@ -11086,11 +11086,11 @@ type UserPoolDomainOptions struct {
 	// Associate a cognito prefix domain with your user pool Either `customDomain` or `cognitoDomain` must be specified.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-assign-domain-prefix.html
 	//
-	CognitoDomain *CognitoDomainOptions `json:"cognitoDomain"`
+	CognitoDomain *CognitoDomainOptions `json:"cognitoDomain" yaml:"cognitoDomain"`
 	// Associate a custom domain with your user pool Either `customDomain` or `cognitoDomain` must be specified.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html
 	//
-	CustomDomain *CustomDomainOptions `json:"customDomain"`
+	CustomDomain *CustomDomainOptions `json:"customDomain" yaml:"customDomain"`
 }
 
 // Props for UserPoolDomain construct.
@@ -11101,13 +11101,13 @@ type UserPoolDomainProps struct {
 	// Associate a cognito prefix domain with your user pool Either `customDomain` or `cognitoDomain` must be specified.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-assign-domain-prefix.html
 	//
-	CognitoDomain *CognitoDomainOptions `json:"cognitoDomain"`
+	CognitoDomain *CognitoDomainOptions `json:"cognitoDomain" yaml:"cognitoDomain"`
 	// Associate a custom domain with your user pool Either `customDomain` or `cognitoDomain` must be specified.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html
 	//
-	CustomDomain *CustomDomainOptions `json:"customDomain"`
+	CustomDomain *CustomDomainOptions `json:"customDomain" yaml:"customDomain"`
 	// The user pool to which this domain should be associated.
-	UserPool IUserPool `json:"userPool"`
+	UserPool IUserPool `json:"userPool" yaml:"userPool"`
 }
 
 // Configure how Cognito sends emails.
@@ -11425,21 +11425,21 @@ func (u *jsiiProxy_UserPoolIdentityProviderAmazon) ToString() *string {
 //
 type UserPoolIdentityProviderAmazonProps struct {
 	// The user pool to which this construct provides identities.
-	UserPool IUserPool `json:"userPool"`
+	UserPool IUserPool `json:"userPool" yaml:"userPool"`
 	// Mapping attributes from the identity provider to standard and custom attributes of the user pool.
-	AttributeMapping *AttributeMapping `json:"attributeMapping"`
+	AttributeMapping *AttributeMapping `json:"attributeMapping" yaml:"attributeMapping"`
 	// The client id recognized by 'Login with Amazon' APIs.
 	// See: https://developer.amazon.com/docs/login-with-amazon/security-profile.html#client-identifier
 	//
-	ClientId *string `json:"clientId"`
+	ClientId *string `json:"clientId" yaml:"clientId"`
 	// The client secret to be accompanied with clientId for 'Login with Amazon' APIs to authenticate the client.
 	// See: https://developer.amazon.com/docs/login-with-amazon/security-profile.html#client-identifier
 	//
-	ClientSecret *string `json:"clientSecret"`
+	ClientSecret *string `json:"clientSecret" yaml:"clientSecret"`
 	// The types of user profile data to obtain for the Amazon profile.
 	// See: https://developer.amazon.com/docs/login-with-amazon/customer-profile.html
 	//
-	Scopes *[]*string `json:"scopes"`
+	Scopes *[]*string `json:"scopes" yaml:"scopes"`
 }
 
 // Represents a identity provider that integrates with 'Apple'.
@@ -11678,23 +11678,23 @@ func (u *jsiiProxy_UserPoolIdentityProviderApple) ToString() *string {
 //
 type UserPoolIdentityProviderAppleProps struct {
 	// The user pool to which this construct provides identities.
-	UserPool IUserPool `json:"userPool"`
+	UserPool IUserPool `json:"userPool" yaml:"userPool"`
 	// Mapping attributes from the identity provider to standard and custom attributes of the user pool.
-	AttributeMapping *AttributeMapping `json:"attributeMapping"`
+	AttributeMapping *AttributeMapping `json:"attributeMapping" yaml:"attributeMapping"`
 	// The client id recognized by Apple APIs.
 	// See: https://developer.apple.com/documentation/sign_in_with_apple/clientconfigi/3230948-clientid
 	//
-	ClientId *string `json:"clientId"`
+	ClientId *string `json:"clientId" yaml:"clientId"`
 	// The keyId (of the same key, which content has to be later supplied as `privateKey`) for Apple APIs to authenticate the client.
-	KeyId *string `json:"keyId"`
+	KeyId *string `json:"keyId" yaml:"keyId"`
 	// The privateKey content for Apple APIs to authenticate the client.
-	PrivateKey *string `json:"privateKey"`
+	PrivateKey *string `json:"privateKey" yaml:"privateKey"`
 	// The teamId for Apple APIs to authenticate the client.
-	TeamId *string `json:"teamId"`
+	TeamId *string `json:"teamId" yaml:"teamId"`
 	// The list of apple permissions to obtain for getting access to the apple profile.
 	// See: https://developer.apple.com/documentation/sign_in_with_apple/clientconfigi/3230955-scope
 	//
-	Scopes *[]*string `json:"scopes"`
+	Scopes *[]*string `json:"scopes" yaml:"scopes"`
 }
 
 // Represents a identity provider that integrates with 'Facebook Login'.
@@ -11933,21 +11933,21 @@ func (u *jsiiProxy_UserPoolIdentityProviderFacebook) ToString() *string {
 //
 type UserPoolIdentityProviderFacebookProps struct {
 	// The user pool to which this construct provides identities.
-	UserPool IUserPool `json:"userPool"`
+	UserPool IUserPool `json:"userPool" yaml:"userPool"`
 	// Mapping attributes from the identity provider to standard and custom attributes of the user pool.
-	AttributeMapping *AttributeMapping `json:"attributeMapping"`
+	AttributeMapping *AttributeMapping `json:"attributeMapping" yaml:"attributeMapping"`
 	// The client id recognized by Facebook APIs.
-	ClientId *string `json:"clientId"`
+	ClientId *string `json:"clientId" yaml:"clientId"`
 	// The client secret to be accompanied with clientUd for Facebook to authenticate the client.
 	// See: https://developers.facebook.com/docs/facebook-login/security#appsecret
 	//
-	ClientSecret *string `json:"clientSecret"`
+	ClientSecret *string `json:"clientSecret" yaml:"clientSecret"`
 	// The Facebook API version to use.
-	ApiVersion *string `json:"apiVersion"`
+	ApiVersion *string `json:"apiVersion" yaml:"apiVersion"`
 	// The list of facebook permissions to obtain for getting access to the Facebook profile.
 	// See: https://developers.facebook.com/docs/facebook-login/permissions
 	//
-	Scopes *[]*string `json:"scopes"`
+	Scopes *[]*string `json:"scopes" yaml:"scopes"`
 }
 
 // Represents a identity provider that integrates with 'Google'.
@@ -12186,21 +12186,21 @@ func (u *jsiiProxy_UserPoolIdentityProviderGoogle) ToString() *string {
 //
 type UserPoolIdentityProviderGoogleProps struct {
 	// The user pool to which this construct provides identities.
-	UserPool IUserPool `json:"userPool"`
+	UserPool IUserPool `json:"userPool" yaml:"userPool"`
 	// Mapping attributes from the identity provider to standard and custom attributes of the user pool.
-	AttributeMapping *AttributeMapping `json:"attributeMapping"`
+	AttributeMapping *AttributeMapping `json:"attributeMapping" yaml:"attributeMapping"`
 	// The client id recognized by Google APIs.
 	// See: https://developers.google.com/identity/sign-in/web/sign-in#specify_your_apps_client_id
 	//
-	ClientId *string `json:"clientId"`
+	ClientId *string `json:"clientId" yaml:"clientId"`
 	// The client secret to be accompanied with clientId for Google APIs to authenticate the client.
 	// See: https://developers.google.com/identity/sign-in/web/sign-in
 	//
-	ClientSecret *string `json:"clientSecret"`
+	ClientSecret *string `json:"clientSecret" yaml:"clientSecret"`
 	// The list of google permissions to obtain for getting access to the google profile.
 	// See: https://developers.google.com/identity/sign-in/web/sign-in
 	//
-	Scopes *[]*string `json:"scopes"`
+	Scopes *[]*string `json:"scopes" yaml:"scopes"`
 }
 
 // Properties to create a new instance of UserPoolIdentityProvider.
@@ -12209,9 +12209,9 @@ type UserPoolIdentityProviderGoogleProps struct {
 //
 type UserPoolIdentityProviderProps struct {
 	// The user pool to which this construct provides identities.
-	UserPool IUserPool `json:"userPool"`
+	UserPool IUserPool `json:"userPool" yaml:"userPool"`
 	// Mapping attributes from the identity provider to standard and custom attributes of the user pool.
-	AttributeMapping *AttributeMapping `json:"attributeMapping"`
+	AttributeMapping *AttributeMapping `json:"attributeMapping" yaml:"attributeMapping"`
 }
 
 // User pool operations to which lambda triggers can be attached.
@@ -12392,47 +12392,47 @@ func UserPoolOperation_VERIFY_AUTH_CHALLENGE_RESPONSE() UserPoolOperation {
 //
 type UserPoolProps struct {
 	// How will a user be able to recover their account?
-	AccountRecovery AccountRecovery `json:"accountRecovery"`
+	AccountRecovery AccountRecovery `json:"accountRecovery" yaml:"accountRecovery"`
 	// Attributes which Cognito will look to verify automatically upon user sign up.
 	//
 	// EMAIL and PHONE are the only available options.
-	AutoVerify *AutoVerifiedAttrs `json:"autoVerify"`
+	AutoVerify *AutoVerifiedAttrs `json:"autoVerify" yaml:"autoVerify"`
 	// Define a set of custom attributes that can be configured for each user in the user pool.
-	CustomAttributes *map[string]ICustomAttribute `json:"customAttributes"`
+	CustomAttributes *map[string]ICustomAttribute `json:"customAttributes" yaml:"customAttributes"`
 	// This key will be used to encrypt temporary passwords and authorization codes that Amazon Cognito generates.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-custom-sender-triggers.html
 	//
-	CustomSenderKmsKey awskms.IKey `json:"customSenderKmsKey"`
+	CustomSenderKmsKey awskms.IKey `json:"customSenderKmsKey" yaml:"customSenderKmsKey"`
 	// Device tracking settings.
-	DeviceTracking *DeviceTracking `json:"deviceTracking"`
+	DeviceTracking *DeviceTracking `json:"deviceTracking" yaml:"deviceTracking"`
 	// Email settings for a user pool.
-	Email UserPoolEmail `json:"email"`
+	Email UserPoolEmail `json:"email" yaml:"email"`
 	// Setting this would explicitly enable or disable SMS role creation.
 	//
 	// When left unspecified, CDK will determine based on other properties if a role is needed or not.
-	EnableSmsRole *bool `json:"enableSmsRole"`
+	EnableSmsRole *bool `json:"enableSmsRole" yaml:"enableSmsRole"`
 	// Lambda functions to use for supported Cognito triggers.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html
 	//
-	LambdaTriggers *UserPoolTriggers `json:"lambdaTriggers"`
+	LambdaTriggers *UserPoolTriggers `json:"lambdaTriggers" yaml:"lambdaTriggers"`
 	// Configure whether users of this user pool can or are required use MFA to sign in.
-	Mfa Mfa `json:"mfa"`
+	Mfa Mfa `json:"mfa" yaml:"mfa"`
 	// The SMS message template sent during MFA verification.
 	//
 	// Use '{####}' in the template where Cognito should insert the verification code.
-	MfaMessage *string `json:"mfaMessage"`
+	MfaMessage *string `json:"mfaMessage" yaml:"mfaMessage"`
 	// Configure the MFA types that users can use in this user pool.
 	//
 	// Ignored if `mfa` is set to `OFF`.
-	MfaSecondFactor *MfaSecondFactor `json:"mfaSecondFactor"`
+	MfaSecondFactor *MfaSecondFactor `json:"mfaSecondFactor" yaml:"mfaSecondFactor"`
 	// Password policy for this user pool.
-	PasswordPolicy *PasswordPolicy `json:"passwordPolicy"`
+	PasswordPolicy *PasswordPolicy `json:"passwordPolicy" yaml:"passwordPolicy"`
 	// Policy to apply when the user pool is removed from the stack.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 	// Whether self sign up should be enabled.
 	//
 	// This can be further configured via the `selfSignUp` property.
-	SelfSignUpEnabled *bool `json:"selfSignUpEnabled"`
+	SelfSignUpEnabled *bool `json:"selfSignUpEnabled" yaml:"selfSignUpEnabled"`
 	// Methods in which a user registers or signs in to a user pool.
 	//
 	// Allows either username with aliases OR sign in with email, phone, or both.
@@ -12443,31 +12443,31 @@ type UserPoolProps struct {
 	// To match with 'Option 1' in the above link, with a verified email, this property should be set to
 	// `{ username: true, email: true }`. To match with 'Option 2' in the above link with both a verified email and phone
 	// number, this property should be set to `{ email: true, phone: true }`.
-	SignInAliases *SignInAliases `json:"signInAliases"`
+	SignInAliases *SignInAliases `json:"signInAliases" yaml:"signInAliases"`
 	// Whether sign-in aliases should be evaluated with case sensitivity.
 	//
 	// For example, when this option is set to false, users will be able to sign in using either `MyUsername` or `myusername`.
-	SignInCaseSensitive *bool `json:"signInCaseSensitive"`
+	SignInCaseSensitive *bool `json:"signInCaseSensitive" yaml:"signInCaseSensitive"`
 	// The IAM role that Cognito will assume while sending SMS messages.
-	SmsRole awsiam.IRole `json:"smsRole"`
+	SmsRole awsiam.IRole `json:"smsRole" yaml:"smsRole"`
 	// The 'ExternalId' that Cognito service must using when assuming the `smsRole`, if the role is restricted with an 'sts:ExternalId' conditional.
 	//
 	// Learn more about ExternalId here - https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html
 	//
 	// This property will be ignored if `smsRole` is not specified.
-	SmsRoleExternalId *string `json:"smsRoleExternalId"`
+	SmsRoleExternalId *string `json:"smsRoleExternalId" yaml:"smsRoleExternalId"`
 	// The set of attributes that are required for every user in the user pool.
 	//
 	// Read more on attributes here - https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html
-	StandardAttributes *StandardAttributes `json:"standardAttributes"`
+	StandardAttributes *StandardAttributes `json:"standardAttributes" yaml:"standardAttributes"`
 	// Configuration around admins signing up users into a user pool.
-	UserInvitation *UserInvitationConfig `json:"userInvitation"`
+	UserInvitation *UserInvitationConfig `json:"userInvitation" yaml:"userInvitation"`
 	// Name of the user pool.
-	UserPoolName *string `json:"userPoolName"`
+	UserPoolName *string `json:"userPoolName" yaml:"userPoolName"`
 	// Configuration around users signing themselves up to the user pool.
 	//
 	// Enable or disable self sign-up via the `selfSignUpEnabled` property.
-	UserVerification *UserVerificationConfig `json:"userVerification"`
+	UserVerification *UserVerificationConfig `json:"userVerification" yaml:"userVerification"`
 }
 
 // Defines a User Pool OAuth2.0 Resource Server.
@@ -12708,11 +12708,11 @@ func (u *jsiiProxy_UserPoolResourceServer) ToString() *string {
 //
 type UserPoolResourceServerOptions struct {
 	// A unique resource server identifier for the resource server.
-	Identifier *string `json:"identifier"`
+	Identifier *string `json:"identifier" yaml:"identifier"`
 	// Oauth scopes.
-	Scopes *[]ResourceServerScope `json:"scopes"`
+	Scopes *[]ResourceServerScope `json:"scopes" yaml:"scopes"`
 	// A friendly name for the resource server.
-	UserPoolResourceServerName *string `json:"userPoolResourceServerName"`
+	UserPoolResourceServerName *string `json:"userPoolResourceServerName" yaml:"userPoolResourceServerName"`
 }
 
 // Properties for the UserPoolResourceServer construct.
@@ -12721,13 +12721,13 @@ type UserPoolResourceServerOptions struct {
 //
 type UserPoolResourceServerProps struct {
 	// A unique resource server identifier for the resource server.
-	Identifier *string `json:"identifier"`
+	Identifier *string `json:"identifier" yaml:"identifier"`
 	// Oauth scopes.
-	Scopes *[]ResourceServerScope `json:"scopes"`
+	Scopes *[]ResourceServerScope `json:"scopes" yaml:"scopes"`
 	// A friendly name for the resource server.
-	UserPoolResourceServerName *string `json:"userPoolResourceServerName"`
+	UserPoolResourceServerName *string `json:"userPoolResourceServerName" yaml:"userPoolResourceServerName"`
 	// The user pool to add this resource server to.
-	UserPool IUserPool `json:"userPool"`
+	UserPool IUserPool `json:"userPool" yaml:"userPool"`
 }
 
 // Configuration for Cognito sending emails via Amazon SES.
@@ -12742,15 +12742,15 @@ type UserPoolSESOptions struct {
 	// send emails.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-email.html
 	//
-	FromEmail *string `json:"fromEmail"`
+	FromEmail *string `json:"fromEmail" yaml:"fromEmail"`
 	// The name of a configuration set in Amazon SES that should be applied to emails sent via Cognito.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-emailconfiguration.html#cfn-cognito-userpool-emailconfiguration-configurationset
 	//
-	ConfigurationSetName *string `json:"configurationSetName"`
+	ConfigurationSetName *string `json:"configurationSetName" yaml:"configurationSetName"`
 	// An optional name that should be used as the sender's name along with the email.
-	FromName *string `json:"fromName"`
+	FromName *string `json:"fromName" yaml:"fromName"`
 	// The destination to which the receiver of the email should reploy to.
-	ReplyTo *string `json:"replyTo"`
+	ReplyTo *string `json:"replyTo" yaml:"replyTo"`
 	// Required if the UserPool region is different than the SES region.
 	//
 	// If sending emails with a Amazon SES verified email address,
@@ -12759,7 +12759,7 @@ type UserPoolSESOptions struct {
 	// region here.
 	//
 	// Must be 'us-east-1', 'us-west-2', or 'eu-west-1'
-	SesRegion *string `json:"sesRegion"`
+	SesRegion *string `json:"sesRegion" yaml:"sesRegion"`
 }
 
 // Triggers for a user pool.
@@ -12772,51 +12772,51 @@ type UserPoolTriggers struct {
 	// Creates an authentication challenge.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-create-auth-challenge.html
 	//
-	CreateAuthChallenge awslambda.IFunction `json:"createAuthChallenge"`
+	CreateAuthChallenge awslambda.IFunction `json:"createAuthChallenge" yaml:"createAuthChallenge"`
 	// Amazon Cognito invokes this trigger to send email notifications to users.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-custom-email-sender.html
 	//
-	CustomEmailSender awslambda.IFunction `json:"customEmailSender"`
+	CustomEmailSender awslambda.IFunction `json:"customEmailSender" yaml:"customEmailSender"`
 	// A custom Message AWS Lambda trigger.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-custom-message.html
 	//
-	CustomMessage awslambda.IFunction `json:"customMessage"`
+	CustomMessage awslambda.IFunction `json:"customMessage" yaml:"customMessage"`
 	// Amazon Cognito invokes this trigger to send SMS notifications to users.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-custom-sms-sender.html
 	//
-	CustomSmsSender awslambda.IFunction `json:"customSmsSender"`
+	CustomSmsSender awslambda.IFunction `json:"customSmsSender" yaml:"customSmsSender"`
 	// Defines the authentication challenge.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-define-auth-challenge.html
 	//
-	DefineAuthChallenge awslambda.IFunction `json:"defineAuthChallenge"`
+	DefineAuthChallenge awslambda.IFunction `json:"defineAuthChallenge" yaml:"defineAuthChallenge"`
 	// A post-authentication AWS Lambda trigger.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-post-authentication.html
 	//
-	PostAuthentication awslambda.IFunction `json:"postAuthentication"`
+	PostAuthentication awslambda.IFunction `json:"postAuthentication" yaml:"postAuthentication"`
 	// A post-confirmation AWS Lambda trigger.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-post-confirmation.html
 	//
-	PostConfirmation awslambda.IFunction `json:"postConfirmation"`
+	PostConfirmation awslambda.IFunction `json:"postConfirmation" yaml:"postConfirmation"`
 	// A pre-authentication AWS Lambda trigger.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-authentication.html
 	//
-	PreAuthentication awslambda.IFunction `json:"preAuthentication"`
+	PreAuthentication awslambda.IFunction `json:"preAuthentication" yaml:"preAuthentication"`
 	// A pre-registration AWS Lambda trigger.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html
 	//
-	PreSignUp awslambda.IFunction `json:"preSignUp"`
+	PreSignUp awslambda.IFunction `json:"preSignUp" yaml:"preSignUp"`
 	// A pre-token-generation AWS Lambda trigger.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-token-generation.html
 	//
-	PreTokenGeneration awslambda.IFunction `json:"preTokenGeneration"`
+	PreTokenGeneration awslambda.IFunction `json:"preTokenGeneration" yaml:"preTokenGeneration"`
 	// A user-migration AWS Lambda trigger.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-migrate-user.html
 	//
-	UserMigration awslambda.IFunction `json:"userMigration"`
+	UserMigration awslambda.IFunction `json:"userMigration" yaml:"userMigration"`
 	// Verifies the authentication challenge response.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-verify-auth-challenge-response.html
 	//
-	VerifyAuthChallengeResponse awslambda.IFunction `json:"verifyAuthChallengeResponse"`
+	VerifyAuthChallengeResponse awslambda.IFunction `json:"verifyAuthChallengeResponse" yaml:"verifyAuthChallengeResponse"`
 }
 
 // User pool configuration for user self sign up.
@@ -12828,21 +12828,21 @@ type UserVerificationConfig struct {
 	//
 	// See https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-templates.html to
 	// learn more about message templates.
-	EmailBody *string `json:"emailBody"`
+	EmailBody *string `json:"emailBody" yaml:"emailBody"`
 	// Emails can be verified either using a code or a link.
 	//
 	// Learn more at https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-email-verification-message-customization.html
-	EmailStyle VerificationEmailStyle `json:"emailStyle"`
+	EmailStyle VerificationEmailStyle `json:"emailStyle" yaml:"emailStyle"`
 	// The email subject template for the verification email sent to the user upon sign up.
 	//
 	// See https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-templates.html to
 	// learn more about message templates.
-	EmailSubject *string `json:"emailSubject"`
+	EmailSubject *string `json:"emailSubject" yaml:"emailSubject"`
 	// The message template for the verification SMS sent to the user upon sign up.
 	//
 	// See https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-templates.html to
 	// learn more about message templates.
-	SmsMessage *string `json:"smsMessage"`
+	SmsMessage *string `json:"smsMessage" yaml:"smsMessage"`
 }
 
 // The email verification style.

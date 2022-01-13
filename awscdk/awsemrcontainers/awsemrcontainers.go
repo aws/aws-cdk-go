@@ -540,7 +540,7 @@ func (c *jsiiProxy_CfnVirtualCluster) ValidateProperties(_properties interface{}
 //
 type CfnVirtualCluster_ContainerInfoProperty struct {
 	// The information about the EKS cluster.
-	EksInfo interface{} `json:"eksInfo"`
+	EksInfo interface{} `json:"eksInfo" yaml:"eksInfo"`
 }
 
 // The information about the container provider.
@@ -555,13 +555,13 @@ type CfnVirtualCluster_ContainerProviderProperty struct {
 	// *Maximum* : 100
 	//
 	// *Pattern* : `^[0-9A-Za-z][A-Za-z0-9\-_]*`
-	Id *string `json:"id"`
+	Id *string `json:"id" yaml:"id"`
 	// The information about the container cluster.
-	Info interface{} `json:"info"`
+	Info interface{} `json:"info" yaml:"info"`
 	// The type of the container provider.
 	//
 	// EKS is the only supported type as of now.
-	Type *string `json:"type"`
+	Type *string `json:"type" yaml:"type"`
 }
 
 // The information about the EKS cluster.
@@ -576,7 +576,7 @@ type CfnVirtualCluster_EksInfoProperty struct {
 	// *Maximum* : 63
 	//
 	// *Pattern* : `[a-z0-9]([-a-z0-9]*[a-z0-9])?`
-	Namespace *string `json:"namespace"`
+	Namespace *string `json:"namespace" yaml:"namespace"`
 }
 
 // Properties for defining a `CfnVirtualCluster`.
@@ -585,12 +585,12 @@ type CfnVirtualCluster_EksInfoProperty struct {
 //
 type CfnVirtualClusterProps struct {
 	// The container provider of the virtual cluster.
-	ContainerProvider interface{} `json:"containerProvider"`
+	ContainerProvider interface{} `json:"containerProvider" yaml:"containerProvider"`
 	// The name of the virtual cluster.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 

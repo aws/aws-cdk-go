@@ -614,27 +614,27 @@ type CfnAgentProps struct {
 	// The redirect URL returned in the response provides you the activation key for your agent in the query string parameter `activationKey` . It might also include other activation-related parameters; however, these are merely defaults. The arguments you pass to this API call determine the actual configuration of your agent.
 	//
 	// For more information, see [Creating and activating an agent](https://docs.aws.amazon.com/datasync/latest/userguide/activating-agent.html) in the *AWS DataSync User Guide.*
-	ActivationKey *string `json:"activationKey"`
+	ActivationKey *string `json:"activationKey" yaml:"activationKey"`
 	// The name you configured for your agent.
 	//
 	// This value is a text reference that is used to identify the agent in the console.
-	AgentName *string `json:"agentName"`
+	AgentName *string `json:"agentName" yaml:"agentName"`
 	// The Amazon Resource Names (ARNs) of the security groups used to protect your data transfer task subnets.
 	//
 	// See [SecurityGroupArns](https://docs.aws.amazon.com/datasync/latest/userguide/API_Ec2Config.html#DataSync-Type-Ec2Config-SecurityGroupArns) .
 	//
 	// *Pattern* : `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):ec2:[a-z\-0-9]*:[0-9]{12}:security-group/.*$`
-	SecurityGroupArns *[]*string `json:"securityGroupArns"`
+	SecurityGroupArns *[]*string `json:"securityGroupArns" yaml:"securityGroupArns"`
 	// The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
 	//
 	// The agent that runs a task must be private. When you start a task that is associated with an agent created in a VPC, or one that has access to an IP address in a VPC, then the task is also private. In this case, DataSync creates four network interfaces for each task in your subnet. For a data transfer to work, the agent must be able to route to all these four network interfaces.
-	SubnetArns *[]*string `json:"subnetArns"`
+	SubnetArns *[]*string `json:"subnetArns" yaml:"subnetArns"`
 	// The key-value pair that represents the tag that you want to associate with the agent.
 	//
 	// The value can be an empty string. This value helps you manage, filter, and search for your agents.
 	//
 	// > Valid characters for key and value are letters, spaces, and numbers representable in UTF-8 format, and the following special characters: + - = . _ : / @.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// The ID of the virtual private cloud (VPC) endpoint that the agent has access to.
 	//
 	// This is the client-side VPC endpoint, powered by AWS PrivateLink . If you don't have an AWS PrivateLink VPC endpoint, see [AWS PrivateLink and VPC endpoints](https://docs.aws.amazon.com//vpc/latest/userguide/endpoint-services-overview.html) in the *Amazon VPC User Guide* .
@@ -642,7 +642,7 @@ type CfnAgentProps struct {
 	// For more information about activating your agent in a private network based on a VPC, see [Using AWS DataSync in a Virtual Private Cloud](https://docs.aws.amazon.com/datasync/latest/userguide/datasync-in-vpc.html) in the *AWS DataSync User Guide.*
 	//
 	// A VPC endpoint ID looks like this: `vpce-01234d5aff67890e1` .
-	VpcEndpointId *string `json:"vpcEndpointId"`
+	VpcEndpointId *string `json:"vpcEndpointId" yaml:"vpcEndpointId"`
 }
 
 // A CloudFormation `AWS::DataSync::LocationEFS`.
@@ -1200,9 +1200,9 @@ type CfnLocationEFS_Ec2ConfigProperty struct {
 	// The Amazon Resource Names (ARNs) of the security groups that are configured for the Amazon EC2 resource.
 	//
 	// *Pattern* : `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):ec2:[a-z\-0-9]*:[0-9]{12}:security-group/.*$`
-	SecurityGroupArns *[]*string `json:"securityGroupArns"`
+	SecurityGroupArns *[]*string `json:"securityGroupArns" yaml:"securityGroupArns"`
 	// The Amazon Resource Name (ARN) of the subnet that DataSync uses to access the target EFS file system.
-	SubnetArn *string `json:"subnetArn"`
+	SubnetArn *string `json:"subnetArn" yaml:"subnetArn"`
 }
 
 // Properties for defining a `CfnLocationEFS`.
@@ -1220,19 +1220,19 @@ type CfnLocationEFSProps struct {
 	// - Security group S (provided to DataSync to access EFS) should have a rule that enables outbound connections to the NFS port on one of the file system’s mount targets. You can enable outbound connections either by IP address (CIDR range) or security group.
 	//
 	// For information about security groups and mount targets, see [Security Groups for Amazon EC2 Instances and Mount Targets](https://docs.aws.amazon.com/efs/latest/ug/security-considerations.html#network-access) in the *Amazon EFS User Guide.*
-	Ec2Config interface{} `json:"ec2Config"`
+	Ec2Config interface{} `json:"ec2Config" yaml:"ec2Config"`
 	// The Amazon Resource Name (ARN) for the Amazon EFS file system.
-	EfsFilesystemArn *string `json:"efsFilesystemArn"`
+	EfsFilesystemArn *string `json:"efsFilesystemArn" yaml:"efsFilesystemArn"`
 	// A subdirectory in the location’s path.
 	//
 	// This subdirectory in the EFS file system is used to read data from the EFS source location or write data to the EFS destination. By default, AWS DataSync uses the root directory.
 	//
 	// > `Subdirectory` must be specified with forward slashes. For example, `/path/to/folder` .
-	Subdirectory *string `json:"subdirectory"`
+	Subdirectory *string `json:"subdirectory" yaml:"subdirectory"`
 	// The key-value pair that represents a tag that you want to add to the resource.
 	//
 	// The value can be an empty string. This value helps you manage, filter, and search for your resources. We recommend that you create a name tag for your location.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::DataSync::LocationFSxWindows`.
@@ -1846,29 +1846,29 @@ func (c *jsiiProxy_CfnLocationFSxWindows) ValidateProperties(_properties interfa
 //
 type CfnLocationFSxWindowsProps struct {
 	// The Amazon Resource Name (ARN) for the FSx for Windows File Server file system.
-	FsxFilesystemArn *string `json:"fsxFilesystemArn"`
+	FsxFilesystemArn *string `json:"fsxFilesystemArn" yaml:"fsxFilesystemArn"`
 	// The password of the user who has the permissions to access files and folders in the FSx for Windows File Server file system.
-	Password *string `json:"password"`
+	Password *string `json:"password" yaml:"password"`
 	// The Amazon Resource Names (ARNs) of the security groups that are used to configure the FSx for Windows File Server file system.
 	//
 	// *Pattern* : `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):ec2:[a-z\-0-9]*:[0-9]{12}:security-group/.*$`
 	//
 	// *Length Constraints* : Maximum length of 128.
-	SecurityGroupArns *[]*string `json:"securityGroupArns"`
+	SecurityGroupArns *[]*string `json:"securityGroupArns" yaml:"securityGroupArns"`
 	// The user who has the permissions to access files and folders in the FSx for Windows File Server file system.
 	//
 	// For information about choosing a user name that ensures sufficient permissions to files, folders, and metadata, see [user](https://docs.aws.amazon.com/datasync/latest/userguide/create-fsx-location.html#FSxWuser) .
-	User *string `json:"user"`
+	User *string `json:"user" yaml:"user"`
 	// The name of the Windows domain that the FSx for Windows File Server belongs to.
-	Domain *string `json:"domain"`
+	Domain *string `json:"domain" yaml:"domain"`
 	// A subdirectory in the location's path.
 	//
 	// This subdirectory in the Amazon FSx for Windows File Server file system is used to read data from the Amazon FSx for Windows File Server source location or write data to the FSx for Windows File Server destination.
-	Subdirectory *string `json:"subdirectory"`
+	Subdirectory *string `json:"subdirectory" yaml:"subdirectory"`
 	// The key-value pair that represents a tag that you want to add to the resource.
 	//
 	// The value can be an empty string. This value helps you manage, filter, and search for your resources. We recommend that you create a name tag for your location.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::DataSync::LocationHDFS`.
@@ -2606,9 +2606,9 @@ type CfnLocationHDFS_NameNodeProperty struct {
 	// The hostname of the NameNode in the HDFS cluster.
 	//
 	// This value is the IP address or Domain Name Service (DNS) name of the NameNode. An agent that's installed on-premises uses this hostname to communicate with the NameNode in the network.
-	Hostname *string `json:"hostname"`
+	Hostname *string `json:"hostname" yaml:"hostname"`
 	// The port that the NameNode uses to listen to client requests.
-	Port *float64 `json:"port"`
+	Port *float64 `json:"port" yaml:"port"`
 }
 
 // The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer privacy settings configured on the Hadoop Distributed File System (HDFS) cluster.
@@ -2619,11 +2619,11 @@ type CfnLocationHDFS_QopConfigurationProperty struct {
 	// The data transfer protection setting configured on the HDFS cluster.
 	//
 	// This setting corresponds to your `dfs.data.transfer.protection` setting in the `hdfs-site.xml` file on your Hadoop cluster.
-	DataTransferProtection *string `json:"dataTransferProtection"`
+	DataTransferProtection *string `json:"dataTransferProtection" yaml:"dataTransferProtection"`
 	// The Remote Procedure Call (RPC) protection setting configured on the HDFS cluster.
 	//
 	// This setting corresponds to your `hadoop.rpc.protection` setting in your `core-site.xml` file on your Hadoop cluster.
-	RpcProtection *string `json:"rpcProtection"`
+	RpcProtection *string `json:"rpcProtection" yaml:"rpcProtection"`
 }
 
 // Properties for defining a `CfnLocationHDFS`.
@@ -2632,49 +2632,49 @@ type CfnLocationHDFS_QopConfigurationProperty struct {
 //
 type CfnLocationHDFSProps struct {
 	// The Amazon Resource Names (ARNs) of the agents that are used to connect to the HDFS cluster.
-	AgentArns *[]*string `json:"agentArns"`
+	AgentArns *[]*string `json:"agentArns" yaml:"agentArns"`
 	// The type of authentication used to determine the identity of the user.
-	AuthenticationType *string `json:"authenticationType"`
+	AuthenticationType *string `json:"authenticationType" yaml:"authenticationType"`
 	// The NameNode that manages the HDFS namespace.
 	//
 	// The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode.
-	NameNodes interface{} `json:"nameNodes"`
+	NameNodes interface{} `json:"nameNodes" yaml:"nameNodes"`
 	// The size of data blocks to write into the HDFS cluster.
 	//
 	// The block size must be a multiple of 512 bytes. The default block size is 128 mebibytes (MiB).
-	BlockSize *float64 `json:"blockSize"`
+	BlockSize *float64 `json:"blockSize" yaml:"blockSize"`
 	// The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys.
 	//
 	// Provide the base64-encoded file text. If `KERBEROS` is specified for `AuthType` , this value is required.
-	KerberosKeytab *string `json:"kerberosKeytab"`
+	KerberosKeytab *string `json:"kerberosKeytab" yaml:"kerberosKeytab"`
 	// The `krb5.conf` file that contains the Kerberos configuration information. You can load the `krb5.conf` by providing a string of the file's contents or an Amazon S3 presigned URL of the file. If `KERBEROS` is specified for `AuthType` , this value is required.
-	KerberosKrb5Conf *string `json:"kerberosKrb5Conf"`
+	KerberosKrb5Conf *string `json:"kerberosKrb5Conf" yaml:"kerberosKrb5Conf"`
 	// The Kerberos principal with access to the files and folders on the HDFS cluster.
 	//
 	// > If `KERBEROS` is specified for `AuthenticationType` , this parameter is required.
-	KerberosPrincipal *string `json:"kerberosPrincipal"`
+	KerberosPrincipal *string `json:"kerberosPrincipal" yaml:"kerberosPrincipal"`
 	// The URI of the HDFS cluster's Key Management Server (KMS).
-	KmsKeyProviderUri *string `json:"kmsKeyProviderUri"`
+	KmsKeyProviderUri *string `json:"kmsKeyProviderUri" yaml:"kmsKeyProviderUri"`
 	// The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster.
 	//
 	// If `QopConfiguration` isn't specified, `RpcProtection` and `DataTransferProtection` default to `PRIVACY` . If you set `RpcProtection` or `DataTransferProtection` , the other parameter assumes the same value.
-	QopConfiguration interface{} `json:"qopConfiguration"`
+	QopConfiguration interface{} `json:"qopConfiguration" yaml:"qopConfiguration"`
 	// The number of DataNodes to replicate the data to when writing to the HDFS cluster.
 	//
 	// By default, data is replicated to three DataNodes.
-	ReplicationFactor *float64 `json:"replicationFactor"`
+	ReplicationFactor *float64 `json:"replicationFactor" yaml:"replicationFactor"`
 	// The user name used to identify the client on the host operating system.
 	//
 	// > If `SIMPLE` is specified for `AuthenticationType` , this parameter is required.
-	SimpleUser *string `json:"simpleUser"`
+	SimpleUser *string `json:"simpleUser" yaml:"simpleUser"`
 	// A subdirectory in the HDFS cluster.
 	//
 	// This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to `/` .
-	Subdirectory *string `json:"subdirectory"`
+	Subdirectory *string `json:"subdirectory" yaml:"subdirectory"`
 	// The key-value pair that represents the tag that you want to add to the location.
 	//
 	// The value can be an empty string. We recommend using tags to name your resources.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::DataSync::LocationNFS`.
@@ -3256,7 +3256,7 @@ type CfnLocationNFS_MountOptionsProperty struct {
 	// - *[NFSv3](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc1813)* - stateless protocol version that allows for asynchronous writes on the server.
 	// - *[NFSv4.0](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc3530)* - stateful, firewall-friendly protocol version that supports delegations and pseudo file systems.
 	// - *[NFSv4.1](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc5661)* - stateful protocol version that supports sessions, directory delegations, and parallel data processing. Version 4.1 also includes all features available in version 4.0.
-	Version *string `json:"version"`
+	Version *string `json:"version" yaml:"version"`
 }
 
 // A list of Amazon Resource Names (ARNs) of agents to use for a Network File System (NFS) location.
@@ -3265,7 +3265,7 @@ type CfnLocationNFS_MountOptionsProperty struct {
 //
 type CfnLocationNFS_OnPremConfigProperty struct {
 	// ARNs of the agents to use for an NFS location.
-	AgentArns *[]*string `json:"agentArns"`
+	AgentArns *[]*string `json:"agentArns" yaml:"agentArns"`
 }
 
 // Properties for defining a `CfnLocationNFS`.
@@ -3276,7 +3276,7 @@ type CfnLocationNFSProps struct {
 	// Contains a list of Amazon Resource Names (ARNs) of agents that are used to connect to an NFS server.
 	//
 	// If you are copying data to or from your AWS Snowcone device, see [NFS Server on AWS Snowcone](https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone) for more information.
-	OnPremConfig interface{} `json:"onPremConfig"`
+	OnPremConfig interface{} `json:"onPremConfig" yaml:"onPremConfig"`
 	// The name of the NFS server.
 	//
 	// This value is the IP address or Domain Name Service (DNS) name of the NFS server. An agent that is installed on-premises uses this host name to mount the NFS server in a network.
@@ -3284,7 +3284,7 @@ type CfnLocationNFSProps struct {
 	// If you are copying data to or from your AWS Snowcone device, see [NFS Server on AWS Snowcone](https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone) for more information.
 	//
 	// > This name must either be DNS-compliant or must be an IP version 4 (IPv4) address.
-	ServerHostname *string `json:"serverHostname"`
+	ServerHostname *string `json:"serverHostname" yaml:"serverHostname"`
 	// The subdirectory in the NFS file system that is used to read data from the NFS source location or write data to the NFS destination.
 	//
 	// The NFS path should be a path that's exported by the NFS server, or a subdirectory of that path. The path should be such that it can be mounted by other NFS clients in your network.
@@ -3296,13 +3296,13 @@ type CfnLocationNFSProps struct {
 	// If you are copying data to or from your AWS Snowcone device, see [NFS Server on AWS Snowcone](https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone) for more information.
 	//
 	// For information about NFS export configuration, see [18.7. The /etc/exports Configuration File](https://docs.aws.amazon.com/http://web.mit.edu/rhel-doc/5/RHEL-5-manual/Deployment_Guide-en-US/s1-nfs-server-config-exports.html) in the Red Hat Enterprise Linux documentation.
-	Subdirectory *string `json:"subdirectory"`
+	Subdirectory *string `json:"subdirectory" yaml:"subdirectory"`
 	// The NFS mount options that DataSync can use to mount your NFS share.
-	MountOptions interface{} `json:"mountOptions"`
+	MountOptions interface{} `json:"mountOptions" yaml:"mountOptions"`
 	// The key-value pair that represents the tag that you want to add to the location.
 	//
 	// The value can be an empty string. We recommend using tags to name your resources.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::DataSync::LocationObjectStorage`.
@@ -3956,35 +3956,35 @@ func (c *jsiiProxy_CfnLocationObjectStorage) ValidateProperties(_properties inte
 //
 type CfnLocationObjectStorageProps struct {
 	// The Amazon Resource Name (ARN) of the agents associated with the self-managed object storage server location.
-	AgentArns *[]*string `json:"agentArns"`
+	AgentArns *[]*string `json:"agentArns" yaml:"agentArns"`
 	// The bucket on the self-managed object storage server that is used to read data from.
-	BucketName *string `json:"bucketName"`
+	BucketName *string `json:"bucketName" yaml:"bucketName"`
 	// The name of the self-managed object storage server.
 	//
 	// This value is the IP address or Domain Name Service (DNS) name of the object storage server. An agent uses this host name to mount the object storage server in a network.
-	ServerHostname *string `json:"serverHostname"`
+	ServerHostname *string `json:"serverHostname" yaml:"serverHostname"`
 	// Optional.
 	//
 	// The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `AccessKey` and `SecretKey` to provide the user name and password, respectively.
-	AccessKey *string `json:"accessKey"`
+	AccessKey *string `json:"accessKey" yaml:"accessKey"`
 	// Optional.
 	//
 	// The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `AccessKey` and `SecretKey` to provide the user name and password, respectively.
-	SecretKey *string `json:"secretKey"`
+	SecretKey *string `json:"secretKey" yaml:"secretKey"`
 	// The port that your self-managed object storage server accepts inbound network traffic on.
 	//
 	// The server port is set by default to TCP 80 (HTTP) or TCP 443 (HTTPS). You can specify a custom port if your self-managed object storage server requires one.
-	ServerPort *float64 `json:"serverPort"`
+	ServerPort *float64 `json:"serverPort" yaml:"serverPort"`
 	// The protocol that the object storage server uses to communicate.
 	//
 	// Valid values are HTTP or HTTPS.
-	ServerProtocol *string `json:"serverProtocol"`
+	ServerProtocol *string `json:"serverProtocol" yaml:"serverProtocol"`
 	// The subdirectory in the self-managed object storage server that is used to read data from.
-	Subdirectory *string `json:"subdirectory"`
+	Subdirectory *string `json:"subdirectory" yaml:"subdirectory"`
 	// The key-value pair that represents the tag that you want to add to the location.
 	//
 	// The value can be an empty string. We recommend using tags to name your resources.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::DataSync::LocationS3`.
@@ -4564,7 +4564,7 @@ type CfnLocationS3_S3ConfigProperty struct {
 	// The Amazon S3 bucket to access.
 	//
 	// This bucket is used as a parameter in the [CreateLocationS3](https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateLocationS3.html) operation.
-	BucketAccessRoleArn *string `json:"bucketAccessRoleArn"`
+	BucketAccessRoleArn *string `json:"bucketAccessRoleArn" yaml:"bucketAccessRoleArn"`
 }
 
 // Properties for defining a `CfnLocationS3`.
@@ -4573,25 +4573,25 @@ type CfnLocationS3_S3ConfigProperty struct {
 //
 type CfnLocationS3Props struct {
 	// The ARN of the Amazon S3 bucket.
-	S3BucketArn *string `json:"s3BucketArn"`
+	S3BucketArn *string `json:"s3BucketArn" yaml:"s3BucketArn"`
 	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that is used to access an Amazon S3 bucket.
 	//
 	// For detailed information about using such a role, see [Creating a Location for Amazon S3](https://docs.aws.amazon.com/datasync/latest/userguide/working-with-locations.html#create-s3-location) in the *AWS DataSync User Guide* .
-	S3Config interface{} `json:"s3Config"`
+	S3Config interface{} `json:"s3Config" yaml:"s3Config"`
 	// The Amazon S3 storage class that you want to store your files in when this location is used as a task destination.
 	//
 	// For buckets in AWS Regions , the storage class defaults to S3 Standard.
 	//
 	// For more information about S3 storage classes, see [Amazon S3 Storage Classes](https://docs.aws.amazon.com/s3/storage-classes/) . Some storage classes have behaviors that can affect your S3 storage costs. For detailed information, see [Considerations When Working with Amazon S3 Storage Classes in DataSync](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes) .
-	S3StorageClass *string `json:"s3StorageClass"`
+	S3StorageClass *string `json:"s3StorageClass" yaml:"s3StorageClass"`
 	// A subdirectory in the Amazon S3 bucket.
 	//
 	// This subdirectory in Amazon S3 is used to read data from the S3 source location or write data to the S3 destination.
-	Subdirectory *string `json:"subdirectory"`
+	Subdirectory *string `json:"subdirectory" yaml:"subdirectory"`
 	// The key-value pair that represents the tag that you want to add to the location.
 	//
 	// The value can be an empty string. We recommend using tags to name your resources.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::DataSync::LocationSMB`.
@@ -5227,7 +5227,7 @@ type CfnLocationSMB_MountOptionsProperty struct {
 	// The specific SMB version that you want DataSync to use to mount your SMB share.
 	//
 	// If you don't specify a version, DataSync defaults to `AUTOMATIC` . That is, DataSync automatically selects a version based on negotiation with the SMB server.
-	Version *string `json:"version"`
+	Version *string `json:"version" yaml:"version"`
 }
 
 // Properties for defining a `CfnLocationSMB`.
@@ -5236,15 +5236,15 @@ type CfnLocationSMB_MountOptionsProperty struct {
 //
 type CfnLocationSMBProps struct {
 	// The Amazon Resource Names (ARNs) of agents to use for a Server Message Block (SMB) location.
-	AgentArns *[]*string `json:"agentArns"`
+	AgentArns *[]*string `json:"agentArns" yaml:"agentArns"`
 	// The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
-	Password *string `json:"password"`
+	Password *string `json:"password" yaml:"password"`
 	// The name of the SMB server.
 	//
 	// This value is the IP address or Domain Name Service (DNS) name of the SMB server. An agent that is installed on-premises uses this hostname to mount the SMB server in a network.
 	//
 	// > This name must either be DNS-compliant or must be an IP version 4 (IPv4) address.
-	ServerHostname *string `json:"serverHostname"`
+	ServerHostname *string `json:"serverHostname" yaml:"serverHostname"`
 	// The subdirectory in the SMB file system that is used to read data from the SMB source location or write data to the SMB destination.
 	//
 	// The SMB path should be a path that's exported by the SMB server, or a subdirectory of that path. The path should be such that it can be mounted by other SMB clients in your network.
@@ -5252,19 +5252,19 @@ type CfnLocationSMBProps struct {
 	// > `Subdirectory` must be specified with forward slashes. For example, `/path/to/folder` .
 	//
 	// To transfer all the data in the folder you specified, DataSync must have permissions to mount the SMB share, as well as to access all the data in that share. To ensure this, either make sure that the user name and password specified belongs to the user who can mount the share, and who has the appropriate permissions for all of the files and directories that you want DataSync to access, or use credentials of a member of the Backup Operators group to mount the share. Doing either one enables the agent to access the data. For the agent to access directories, you must additionally enable all execute access.
-	Subdirectory *string `json:"subdirectory"`
+	Subdirectory *string `json:"subdirectory" yaml:"subdirectory"`
 	// The user who can mount the share and has the permissions to access files and folders in the SMB share.
 	//
 	// For information about choosing a user name that ensures sufficient permissions to files, folders, and metadata, see [user](https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#SMBuser) .
-	User *string `json:"user"`
+	User *string `json:"user" yaml:"user"`
 	// The name of the Windows domain that the SMB server belongs to.
-	Domain *string `json:"domain"`
+	Domain *string `json:"domain" yaml:"domain"`
 	// The mount options used by DataSync to access the SMB server.
-	MountOptions interface{} `json:"mountOptions"`
+	MountOptions interface{} `json:"mountOptions" yaml:"mountOptions"`
 	// The key-value pair that represents the tag that you want to add to the location.
 	//
 	// The value can be an empty string. We recommend using tags to name your resources.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::DataSync::Task`.
@@ -5964,11 +5964,11 @@ type CfnTask_FilterRuleProperty struct {
 	// The type of filter rule to apply.
 	//
 	// AWS DataSync only supports the SIMPLE_PATTERN rule type.
-	FilterType *string `json:"filterType"`
+	FilterType *string `json:"filterType" yaml:"filterType"`
 	// A single filter string that consists of the patterns to include or exclude.
 	//
 	// The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`
-	Value *string `json:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // Represents the options that are available to control the behavior of a [StartTaskExecution](https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html) operation. This behavior includes preserving metadata, such as user ID (UID), group ID (GID), and file permissions; overwriting files in the destination; data integrity verification; and so on.
@@ -5991,11 +5991,11 @@ type CfnTask_OptionsProperty struct {
 	// > If `Atime` is set to `BEST_EFFORT` , `Mtime` must be set to `PRESERVE` .
 	// >
 	// > If `Atime` is set to `NONE` , `Mtime` must also be `NONE` .
-	Atime *string `json:"atime"`
+	Atime *string `json:"atime" yaml:"atime"`
 	// A value that limits the bandwidth used by AWS DataSync .
 	//
 	// For example, if you want AWS DataSync to use a maximum of 1 MB, set this value to `1048576` (=1024*1024).
-	BytesPerSecond *float64 `json:"bytesPerSecond"`
+	BytesPerSecond *float64 `json:"bytesPerSecond" yaml:"bytesPerSecond"`
 	// The group ID (GID) of the file's owners.
 	//
 	// Default value: `INT_VALUE`
@@ -6005,11 +6005,11 @@ type CfnTask_OptionsProperty struct {
 	// `NAME` : Currently not supported.
 	//
 	// `NONE` : Ignore the UID and GID.
-	Gid *string `json:"gid"`
+	Gid *string `json:"gid" yaml:"gid"`
 	// A value that determines the type of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide.
 	//
 	// For more information about providing a log group for DataSync, see [CloudWatchLogGroupArn](https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateTask.html#DataSync-CreateTask-request-CloudWatchLogGroupArn) . If set to `OFF` , no logs are published. `BASIC` publishes logs on errors for individual files transferred, and `TRANSFER` publishes logs for every file or object that is transferred and integrity checked.
-	LogLevel *string `json:"logLevel"`
+	LogLevel *string `json:"logLevel" yaml:"logLevel"`
 	// A value that indicates the last time that a file was modified (that is, a file was written to) before the PREPARING phase.
 	//
 	// This option is required for cases when you need to run the same task more than one time.
@@ -6023,13 +6023,13 @@ type CfnTask_OptionsProperty struct {
 	// > If `Mtime` is set to `PRESERVE` , `Atime` must be set to `BEST_EFFORT` .
 	// >
 	// > If `Mtime` is set to `NONE` , `Atime` must also be set to `NONE` .
-	Mtime *string `json:"mtime"`
+	Mtime *string `json:"mtime" yaml:"mtime"`
 	// A value that determines whether files at the destination should be overwritten or preserved when copying files.
 	//
 	// If set to `NEVER` a destination file will not be replaced by a source file, even if the destination file differs from the source file. If you modify files in the destination and you sync the files, you can use this value to protect against overwriting those changes.
 	//
 	// Some storage classes have specific behaviors that can affect your S3 storage cost. For detailed information, see [Considerations when working with Amazon S3 storage classes in DataSync](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes) in the *AWS DataSync User Guide* .
-	OverwriteMode *string `json:"overwriteMode"`
+	OverwriteMode *string `json:"overwriteMode" yaml:"overwriteMode"`
 	// A value that determines which users or groups can access a file for a specific purpose, such as reading, writing, or execution of the file.
 	//
 	// This option should be set only for Network File System (NFS), Amazon EFS, and Amazon S3 locations. For more information about what metadata is copied by DataSync, see [Metadata Copied by DataSync](https://docs.aws.amazon.com/datasync/latest/userguide/special-files.html#metadata-copied) .
@@ -6041,7 +6041,7 @@ type CfnTask_OptionsProperty struct {
 	// `NONE` : Ignore permissions.
 	//
 	// > AWS DataSync can preserve extant permissions of a source location.
-	PosixPermissions *string `json:"posixPermissions"`
+	PosixPermissions *string `json:"posixPermissions" yaml:"posixPermissions"`
 	// A value that specifies whether files in the destination that don't exist in the source file system are preserved.
 	//
 	// This option can affect your storage costs. If your task deletes objects, you might incur minimum storage duration charges for certain storage classes. For detailed information, see [Considerations when working with Amazon S3 storage classes in DataSync](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes) in the *AWS DataSync User Guide* .
@@ -6051,7 +6051,7 @@ type CfnTask_OptionsProperty struct {
 	// `PRESERVE` : Ignore destination files that aren't present in the source (recommended).
 	//
 	// `REMOVE` : Delete destination files that aren't present in the source.
-	PreserveDeletedFiles *string `json:"preserveDeletedFiles"`
+	PreserveDeletedFiles *string `json:"preserveDeletedFiles" yaml:"preserveDeletedFiles"`
 	// A value that determines whether AWS DataSync should preserve the metadata of block and character devices in the source file system, and re-create the files with that device name and metadata on the destination.
 	//
 	// DataSync does not copy the contents of such devices, only the name and metadata.
@@ -6063,7 +6063,7 @@ type CfnTask_OptionsProperty struct {
 	// `NONE` : Ignore special devices (recommended).
 	//
 	// `PRESERVE` : Preserve character and block device metadata. This option isn't currently supported for Amazon EFS.
-	PreserveDevices *string `json:"preserveDevices"`
+	PreserveDevices *string `json:"preserveDevices" yaml:"preserveDevices"`
 	// A value that determines which components of the SMB security descriptor are copied from source to destination objects.
 	//
 	// This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. For more information about how DataSync handles metadata, see [How DataSync Handles Metadata and Special Files](https://docs.aws.amazon.com/datasync/latest/userguide/special-files.html) .
@@ -6086,19 +6086,19 @@ type CfnTask_OptionsProperty struct {
 	// Copying SACLs requires granting additional permissions to the Windows user that DataSync uses to access your SMB location. For information about choosing a user that ensures sufficient permissions to files, folders, and metadata, see [user](https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#SMBuser) .
 	//
 	// `NONE` : None of the SMB security descriptor components are copied. Destination objects are owned by the user that was provided for accessing the destination location. DACLs and SACLs are set based on the destination server’s configuration.
-	SecurityDescriptorCopyFlags *string `json:"securityDescriptorCopyFlags"`
+	SecurityDescriptorCopyFlags *string `json:"securityDescriptorCopyFlags" yaml:"securityDescriptorCopyFlags"`
 	// A value that determines whether tasks should be queued before executing the tasks.
 	//
 	// If set to `ENABLED` , the tasks will be queued. The default is `ENABLED` .
 	//
 	// If you use the same agent to run multiple tasks, you can enable the tasks to run in series. For more information, see [Queueing task executions](https://docs.aws.amazon.com/datasync/latest/userguide/run-task.html#queue-task-execution) .
-	TaskQueueing *string `json:"taskQueueing"`
+	TaskQueueing *string `json:"taskQueueing" yaml:"taskQueueing"`
 	// A value that determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing it to the destination location.
 	//
 	// `CHANGED` : DataSync copies only data or metadata that is new or different from the source location to the destination location.
 	//
 	// `ALL` : DataSync copies all source location content to the destination, without comparing it to existing content on the destination.
-	TransferMode *string `json:"transferMode"`
+	TransferMode *string `json:"transferMode" yaml:"transferMode"`
 	// The user ID (UID) of the file's owner.
 	//
 	// Default value: `INT_VALUE`
@@ -6108,7 +6108,7 @@ type CfnTask_OptionsProperty struct {
 	// `NAME` : Currently not supported
 	//
 	// `NONE` : Ignore the UID and GID.
-	Uid *string `json:"uid"`
+	Uid *string `json:"uid" yaml:"uid"`
 	// A value that determines whether a data integrity verification is performed at the end of a task execution after all data and metadata have been transferred.
 	//
 	// For more information, see [Configure task settings](https://docs.aws.amazon.com/datasync/latest/userguide/create-task.html) .
@@ -6120,7 +6120,7 @@ type CfnTask_OptionsProperty struct {
 	// `POINT_IN_TIME_CONSISTENT` : Scan the entire source and entire destination at the end of the transfer to verify that the source and destination are fully synchronized. This option isn't supported when transferring to S3 Glacier or S3 Glacier Deep Archive storage classes.
 	//
 	// `NONE` : No additional verification is done at the end of the transfer, but all data transmissions are integrity-checked with checksum verification during the transfer.
-	VerifyMode *string `json:"verifyMode"`
+	VerifyMode *string `json:"verifyMode" yaml:"verifyMode"`
 }
 
 // Specifies the schedule you want your task to use for repeated executions.
@@ -6131,7 +6131,7 @@ type CfnTask_OptionsProperty struct {
 //
 type CfnTask_TaskScheduleProperty struct {
 	// A cron expression that specifies when AWS DataSync initiates a scheduled transfer from a source to a destination location.
-	ScheduleExpression *string `json:"scheduleExpression"`
+	ScheduleExpression *string `json:"scheduleExpression" yaml:"scheduleExpression"`
 }
 
 // Properties for defining a `CfnTask`.
@@ -6140,40 +6140,40 @@ type CfnTask_TaskScheduleProperty struct {
 //
 type CfnTaskProps struct {
 	// The Amazon Resource Name (ARN) of an AWS storage resource's location.
-	DestinationLocationArn *string `json:"destinationLocationArn"`
+	DestinationLocationArn *string `json:"destinationLocationArn" yaml:"destinationLocationArn"`
 	// The Amazon Resource Name (ARN) of the source location for the task.
-	SourceLocationArn *string `json:"sourceLocationArn"`
+	SourceLocationArn *string `json:"sourceLocationArn" yaml:"sourceLocationArn"`
 	// The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that is used to monitor and log events in the task.
 	//
 	// For more information about how to use CloudWatch Logs with DataSync, see [Monitoring Your Task](https://docs.aws.amazon.com/datasync/latest/userguide/monitor-datasync.html#cloudwatchlogs) in the *AWS DataSync User Guide.*
 	//
 	// For more information about these groups, see [Working with Log Groups and Log Streams](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html) in the *Amazon CloudWatch Logs User Guide* .
-	CloudWatchLogGroupArn *string `json:"cloudWatchLogGroupArn"`
+	CloudWatchLogGroupArn *string `json:"cloudWatchLogGroupArn" yaml:"cloudWatchLogGroupArn"`
 	// A list of filter rules that determines which files to exclude from a task.
 	//
 	// The list should contain a single filter string that consists of the patterns to exclude. The patterns are delimited by "|" (that is, a pipe), for example, `"/folder1|/folder2"` .
-	Excludes interface{} `json:"excludes"`
+	Excludes interface{} `json:"excludes" yaml:"excludes"`
 	// A list of filter rules that determines which files to include when running a task.
 	//
 	// The pattern contains a single filter string that consists of the patterns to include. The patterns are delimited by "|" (that is, a pipe), for example, `"/folder1|/folder2"` .
-	Includes interface{} `json:"includes"`
+	Includes interface{} `json:"includes" yaml:"includes"`
 	// The name of a task.
 	//
 	// This value is a text reference that is used to identify the task in the console.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The set of configuration options that control the behavior of a single execution of the task that occurs when you call `StartTaskExecution` .
 	//
 	// You can configure these options to preserve metadata such as user ID (UID) and group ID (GID), file permissions, data integrity verification, and so on.
 	//
 	// For each individual task execution, you can override these options by specifying the `OverrideOptions` before starting the task execution. For more information, see the [StartTaskExecution](https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html) operation.
-	Options interface{} `json:"options"`
+	Options interface{} `json:"options" yaml:"options"`
 	// Specifies a schedule used to periodically transfer files from a source to a destination location.
 	//
 	// The schedule should be specified in UTC time. For more information, see [Scheduling your task](https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html) .
-	Schedule interface{} `json:"schedule"`
+	Schedule interface{} `json:"schedule" yaml:"schedule"`
 	// The key-value pair that represents the tag that you want to add to the resource.
 	//
 	// The value can be an empty string.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 

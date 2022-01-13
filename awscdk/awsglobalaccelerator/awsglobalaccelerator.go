@@ -274,9 +274,9 @@ func (a *jsiiProxy_Accelerator) ToString() *string {
 //
 type AcceleratorAttributes struct {
 	// The ARN of the accelerator.
-	AcceleratorArn *string `json:"acceleratorArn"`
+	AcceleratorArn *string `json:"acceleratorArn" yaml:"acceleratorArn"`
 	// The DNS name of the accelerator.
-	DnsName *string `json:"dnsName"`
+	DnsName *string `json:"dnsName" yaml:"dnsName"`
 }
 
 // Construct properties of the Accelerator.
@@ -285,9 +285,9 @@ type AcceleratorAttributes struct {
 //
 type AcceleratorProps struct {
 	// The name of the accelerator.
-	AcceleratorName *string `json:"acceleratorName"`
+	AcceleratorName *string `json:"acceleratorName" yaml:"acceleratorName"`
 	// Indicates whether the accelerator is enabled.
-	Enabled *bool `json:"enabled"`
+	Enabled *bool `json:"enabled" yaml:"enabled"`
 }
 
 // A CloudFormation `AWS::GlobalAccelerator::Accelerator`.
@@ -863,11 +863,11 @@ type CfnAcceleratorProps struct {
 	// The name of the accelerator.
 	//
 	// The name must contain only alphanumeric characters or hyphens (-), and must not begin or end with a hyphen.
-	Name *string `json:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// Indicates whether the accelerator is enabled. The value is true or false. The default value is true.
 	//
 	// If the value is set to true, the accelerator cannot be deleted. If set to false, accelerator can be deleted.
-	Enabled interface{} `json:"enabled"`
+	Enabled interface{} `json:"enabled" yaml:"enabled"`
 	// Optionally, if you've added your own IP address pool to Global Accelerator (BYOIP), you can choose IP addresses from your own pool to use for the accelerator's static IP addresses when you create an accelerator.
 	//
 	// You can specify one or two addresses, separated by a comma. Do not include the /32 suffix.
@@ -877,13 +877,13 @@ type CfnAcceleratorProps struct {
 	// Note that you can't update IP addresses for an existing accelerator. To change them, you must create a new accelerator with the new addresses.
 	//
 	// For more information, see [Bring Your Own IP Addresses (BYOIP)](https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html) in the *AWS Global Accelerator Developer Guide* .
-	IpAddresses *[]*string `json:"ipAddresses"`
+	IpAddresses *[]*string `json:"ipAddresses" yaml:"ipAddresses"`
 	// The value for the address type must be IPv4.
-	IpAddressType *string `json:"ipAddressType"`
+	IpAddressType *string `json:"ipAddressType" yaml:"ipAddressType"`
 	// Create tags for an accelerator.
 	//
 	// For more information, see [Tagging](https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html) in the *AWS Global Accelerator Developer Guide* .
-	Tags *[]*awscdk.CfnTag `json:"tags"`
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::GlobalAccelerator::EndpointGroup`.
@@ -1561,7 +1561,7 @@ type CfnEndpointGroup_EndpointConfigurationProperty struct {
 	// If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID. For Amazon EC2 instances, this is the EC2 instance ID. A resource must be valid and active when you add it as an endpoint.
 	//
 	// An Application Load Balancer can be either internal or internet-facing.
-	EndpointId *string `json:"endpointId"`
+	EndpointId *string `json:"endpointId" yaml:"endpointId"`
 	// Indicates whether client IP address preservation is enabled for an Application Load Balancer endpoint.
 	//
 	// The value is true or false. The default value is true for new accelerators.
@@ -1569,11 +1569,11 @@ type CfnEndpointGroup_EndpointConfigurationProperty struct {
 	// If the value is set to true, the client's IP address is preserved in the `X-Forwarded-For` request header as traffic travels to applications on the Application Load Balancer endpoint fronted by the accelerator.
 	//
 	// For more information, see [Preserve Client IP Addresses](https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html) in the *AWS Global Accelerator Developer Guide* .
-	ClientIpPreservationEnabled interface{} `json:"clientIpPreservationEnabled"`
+	ClientIpPreservationEnabled interface{} `json:"clientIpPreservationEnabled" yaml:"clientIpPreservationEnabled"`
 	// The weight associated with the endpoint.
 	//
 	// When you add weights to endpoints, you configure Global Accelerator to route traffic based on proportions that you specify. For example, you might specify endpoint weights of 4, 5, 5, and 6 (sum=20). The result is that 4/20 of your traffic, on average, is routed to the first endpoint, 5/20 is routed both to the second and third endpoints, and 6/20 is routed to the last endpoint. For more information, see [Endpoint Weights](https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints-endpoint-weights.html) in the *AWS Global Accelerator Developer Guide* .
-	Weight *float64 `json:"weight"`
+	Weight *float64 `json:"weight" yaml:"weight"`
 }
 
 // Override specific listener ports used to route traffic to endpoints that are part of an endpoint group.
@@ -1588,11 +1588,11 @@ type CfnEndpointGroup_PortOverrideProperty struct {
 	// The endpoint port that you want a listener port to be mapped to.
 	//
 	// This is the port on the endpoint, such as the Application Load Balancer or Amazon EC2 instance.
-	EndpointPort *float64 `json:"endpointPort"`
+	EndpointPort *float64 `json:"endpointPort" yaml:"endpointPort"`
 	// The listener port that you want to map to a specific endpoint port.
 	//
 	// This is the port that user traffic arrives to the Global Accelerator on.
-	ListenerPort *float64 `json:"listenerPort"`
+	ListenerPort *float64 `json:"listenerPort" yaml:"listenerPort"`
 }
 
 // Properties for defining a `CfnEndpointGroup`.
@@ -1601,35 +1601,35 @@ type CfnEndpointGroup_PortOverrideProperty struct {
 //
 type CfnEndpointGroupProps struct {
 	// The AWS Regions where the endpoint group is located.
-	EndpointGroupRegion *string `json:"endpointGroupRegion"`
+	EndpointGroupRegion *string `json:"endpointGroupRegion" yaml:"endpointGroupRegion"`
 	// The Amazon Resource Name (ARN) of the listener.
-	ListenerArn *string `json:"listenerArn"`
+	ListenerArn *string `json:"listenerArn" yaml:"listenerArn"`
 	// The list of endpoint objects.
-	EndpointConfigurations interface{} `json:"endpointConfigurations"`
+	EndpointConfigurations interface{} `json:"endpointConfigurations" yaml:"endpointConfigurations"`
 	// The time—10 seconds or 30 seconds—between health checks for each endpoint.
 	//
 	// The default value is 30.
-	HealthCheckIntervalSeconds *float64 `json:"healthCheckIntervalSeconds"`
+	HealthCheckIntervalSeconds *float64 `json:"healthCheckIntervalSeconds" yaml:"healthCheckIntervalSeconds"`
 	// If the protocol is HTTP/S, then this value provides the ping path that Global Accelerator uses for the destination on the endpoints for health checks.
 	//
 	// The default is slash (/).
-	HealthCheckPath *string `json:"healthCheckPath"`
+	HealthCheckPath *string `json:"healthCheckPath" yaml:"healthCheckPath"`
 	// The port that Global Accelerator uses to perform health checks on endpoints that are part of this endpoint group.
 	//
 	// The default port is the port for the listener that this endpoint group is associated with. If the listener port is a list, Global Accelerator uses the first specified port in the list of ports.
-	HealthCheckPort *float64 `json:"healthCheckPort"`
+	HealthCheckPort *float64 `json:"healthCheckPort" yaml:"healthCheckPort"`
 	// The protocol that Global Accelerator uses to perform health checks on endpoints that are part of this endpoint group.
 	//
 	// The default value is TCP.
-	HealthCheckProtocol *string `json:"healthCheckProtocol"`
+	HealthCheckProtocol *string `json:"healthCheckProtocol" yaml:"healthCheckProtocol"`
 	// Allows you to override the destination ports used to route traffic to an endpoint.
 	//
 	// Using a port override lets you to map a list of external destination ports (that your users send traffic to) to a list of internal destination ports that you want an application endpoint to receive traffic on.
-	PortOverrides interface{} `json:"portOverrides"`
+	PortOverrides interface{} `json:"portOverrides" yaml:"portOverrides"`
 	// The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy.
 	//
 	// The default value is 3.
-	ThresholdCount *float64 `json:"thresholdCount"`
+	ThresholdCount *float64 `json:"thresholdCount" yaml:"thresholdCount"`
 	// The percentage of traffic to send to an AWS Regions .
 	//
 	// Additional traffic is distributed to other endpoint groups for this listener.
@@ -1637,7 +1637,7 @@ type CfnEndpointGroupProps struct {
 	// Use this action to increase (dial up) or decrease (dial down) traffic to a specific Region. The percentage is applied to the traffic that would otherwise have been routed to the Region based on optimal routing.
 	//
 	// The default value is 100.
-	TrafficDialPercentage *float64 `json:"trafficDialPercentage"`
+	TrafficDialPercentage *float64 `json:"trafficDialPercentage" yaml:"trafficDialPercentage"`
 }
 
 // A CloudFormation `AWS::GlobalAccelerator::Listener`.
@@ -2189,9 +2189,9 @@ func (c *jsiiProxy_CfnListener) ValidateProperties(_properties interface{}) {
 //
 type CfnListener_PortRangeProperty struct {
 	// The first port in the range of ports, inclusive.
-	FromPort *float64 `json:"fromPort"`
+	FromPort *float64 `json:"fromPort" yaml:"fromPort"`
 	// The last port in the range of ports, inclusive.
-	ToPort *float64 `json:"toPort"`
+	ToPort *float64 `json:"toPort" yaml:"toPort"`
 }
 
 // Properties for defining a `CfnListener`.
@@ -2200,11 +2200,11 @@ type CfnListener_PortRangeProperty struct {
 //
 type CfnListenerProps struct {
 	// The Amazon Resource Name (ARN) of your accelerator.
-	AcceleratorArn *string `json:"acceleratorArn"`
+	AcceleratorArn *string `json:"acceleratorArn" yaml:"acceleratorArn"`
 	// The list of port ranges for the connections from clients to the accelerator.
-	PortRanges interface{} `json:"portRanges"`
+	PortRanges interface{} `json:"portRanges" yaml:"portRanges"`
 	// The protocol for the connections from clients to the accelerator.
-	Protocol *string `json:"protocol"`
+	Protocol *string `json:"protocol" yaml:"protocol"`
 	// Client affinity lets you direct all requests from a user to the same endpoint, if you have stateful applications, regardless of the port and protocol of the client request.
 	//
 	// Client affinity gives you control over whether to always route each client to the same specific endpoint.
@@ -2214,7 +2214,7 @@ type CfnListenerProps struct {
 	// If you want a given client to always be routed to the same endpoint, set client affinity to `SOURCE_IP` instead. When you use the `SOURCE_IP` setting, Global Accelerator uses the "two-tuple" (2-tuple) properties— source (client) IP address and destination IP address—to select the hash value.
 	//
 	// The default value is `NONE` .
-	ClientAffinity *string `json:"clientAffinity"`
+	ClientAffinity *string `json:"clientAffinity" yaml:"clientAffinity"`
 }
 
 // Client affinity gives you control over whether to always route each client to the same specific endpoint.
@@ -2530,34 +2530,34 @@ func (e *jsiiProxy_EndpointGroup) ToString() *string {
 //
 type EndpointGroupOptions struct {
 	// Name of the endpoint group.
-	EndpointGroupName *string `json:"endpointGroupName"`
+	EndpointGroupName *string `json:"endpointGroupName" yaml:"endpointGroupName"`
 	// Initial list of endpoints for this group.
-	Endpoints *[]IEndpoint `json:"endpoints"`
+	Endpoints *[]IEndpoint `json:"endpoints" yaml:"endpoints"`
 	// The time between health checks for each endpoint.
 	//
 	// Must be either 10 or 30 seconds.
-	HealthCheckInterval awscdk.Duration `json:"healthCheckInterval"`
+	HealthCheckInterval awscdk.Duration `json:"healthCheckInterval" yaml:"healthCheckInterval"`
 	// The ping path for health checks (if the protocol is HTTP(S)).
-	HealthCheckPath *string `json:"healthCheckPath"`
+	HealthCheckPath *string `json:"healthCheckPath" yaml:"healthCheckPath"`
 	// The port used to perform health checks.
-	HealthCheckPort *float64 `json:"healthCheckPort"`
+	HealthCheckPort *float64 `json:"healthCheckPort" yaml:"healthCheckPort"`
 	// The protocol used to perform health checks.
-	HealthCheckProtocol HealthCheckProtocol `json:"healthCheckProtocol"`
+	HealthCheckProtocol HealthCheckProtocol `json:"healthCheckProtocol" yaml:"healthCheckProtocol"`
 	// The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy.
-	HealthCheckThreshold *float64 `json:"healthCheckThreshold"`
+	HealthCheckThreshold *float64 `json:"healthCheckThreshold" yaml:"healthCheckThreshold"`
 	// Override the destination ports used to route traffic to an endpoint.
 	//
 	// Unless overridden, the port used to hit the endpoint will be the same as the port
 	// that traffic arrives on at the listener.
-	PortOverrides *[]*PortOverride `json:"portOverrides"`
+	PortOverrides *[]*PortOverride `json:"portOverrides" yaml:"portOverrides"`
 	// The AWS Region where the endpoint group is located.
-	Region *string `json:"region"`
+	Region *string `json:"region" yaml:"region"`
 	// The percentage of traffic to send to this AWS Region.
 	//
 	// The percentage is applied to the traffic that would otherwise have been
 	// routed to the Region based on optimal routing. Additional traffic is
 	// distributed to other endpoint groups for this listener.
-	TrafficDialPercentage *float64 `json:"trafficDialPercentage"`
+	TrafficDialPercentage *float64 `json:"trafficDialPercentage" yaml:"trafficDialPercentage"`
 }
 
 // Property of the EndpointGroup.
@@ -2566,36 +2566,36 @@ type EndpointGroupOptions struct {
 //
 type EndpointGroupProps struct {
 	// Name of the endpoint group.
-	EndpointGroupName *string `json:"endpointGroupName"`
+	EndpointGroupName *string `json:"endpointGroupName" yaml:"endpointGroupName"`
 	// Initial list of endpoints for this group.
-	Endpoints *[]IEndpoint `json:"endpoints"`
+	Endpoints *[]IEndpoint `json:"endpoints" yaml:"endpoints"`
 	// The time between health checks for each endpoint.
 	//
 	// Must be either 10 or 30 seconds.
-	HealthCheckInterval awscdk.Duration `json:"healthCheckInterval"`
+	HealthCheckInterval awscdk.Duration `json:"healthCheckInterval" yaml:"healthCheckInterval"`
 	// The ping path for health checks (if the protocol is HTTP(S)).
-	HealthCheckPath *string `json:"healthCheckPath"`
+	HealthCheckPath *string `json:"healthCheckPath" yaml:"healthCheckPath"`
 	// The port used to perform health checks.
-	HealthCheckPort *float64 `json:"healthCheckPort"`
+	HealthCheckPort *float64 `json:"healthCheckPort" yaml:"healthCheckPort"`
 	// The protocol used to perform health checks.
-	HealthCheckProtocol HealthCheckProtocol `json:"healthCheckProtocol"`
+	HealthCheckProtocol HealthCheckProtocol `json:"healthCheckProtocol" yaml:"healthCheckProtocol"`
 	// The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy.
-	HealthCheckThreshold *float64 `json:"healthCheckThreshold"`
+	HealthCheckThreshold *float64 `json:"healthCheckThreshold" yaml:"healthCheckThreshold"`
 	// Override the destination ports used to route traffic to an endpoint.
 	//
 	// Unless overridden, the port used to hit the endpoint will be the same as the port
 	// that traffic arrives on at the listener.
-	PortOverrides *[]*PortOverride `json:"portOverrides"`
+	PortOverrides *[]*PortOverride `json:"portOverrides" yaml:"portOverrides"`
 	// The AWS Region where the endpoint group is located.
-	Region *string `json:"region"`
+	Region *string `json:"region" yaml:"region"`
 	// The percentage of traffic to send to this AWS Region.
 	//
 	// The percentage is applied to the traffic that would otherwise have been
 	// routed to the Region based on optimal routing. Additional traffic is
 	// distributed to other endpoint groups for this listener.
-	TrafficDialPercentage *float64 `json:"trafficDialPercentage"`
+	TrafficDialPercentage *float64 `json:"trafficDialPercentage" yaml:"trafficDialPercentage"`
 	// The Amazon Resource Name (ARN) of the listener.
-	Listener IListener `json:"listener"`
+	Listener IListener `json:"listener" yaml:"listener"`
 }
 
 // The protocol for the connections from clients to the accelerator.
@@ -2989,7 +2989,7 @@ func (l *jsiiProxy_Listener) ToString() *string {
 //
 type ListenerOptions struct {
 	// The list of port ranges for the connections from clients to the accelerator.
-	PortRanges *[]*PortRange `json:"portRanges"`
+	PortRanges *[]*PortRange `json:"portRanges" yaml:"portRanges"`
 	// Client affinity to direct all requests from a user to the same endpoint.
 	//
 	// If you have stateful applications, client affinity lets you direct all
@@ -2998,11 +2998,11 @@ type ListenerOptions struct {
 	// By default, each connection from each client is routed to seperate
 	// endpoints. Set client affinity to SOURCE_IP to route all connections from
 	// a single client to the same endpoint.
-	ClientAffinity ClientAffinity `json:"clientAffinity"`
+	ClientAffinity ClientAffinity `json:"clientAffinity" yaml:"clientAffinity"`
 	// Name of the listener.
-	ListenerName *string `json:"listenerName"`
+	ListenerName *string `json:"listenerName" yaml:"listenerName"`
 	// The protocol for the connections from clients to the accelerator.
-	Protocol ConnectionProtocol `json:"protocol"`
+	Protocol ConnectionProtocol `json:"protocol" yaml:"protocol"`
 }
 
 // Construct properties for Listener.
@@ -3011,7 +3011,7 @@ type ListenerOptions struct {
 //
 type ListenerProps struct {
 	// The list of port ranges for the connections from clients to the accelerator.
-	PortRanges *[]*PortRange `json:"portRanges"`
+	PortRanges *[]*PortRange `json:"portRanges" yaml:"portRanges"`
 	// Client affinity to direct all requests from a user to the same endpoint.
 	//
 	// If you have stateful applications, client affinity lets you direct all
@@ -3020,13 +3020,13 @@ type ListenerProps struct {
 	// By default, each connection from each client is routed to seperate
 	// endpoints. Set client affinity to SOURCE_IP to route all connections from
 	// a single client to the same endpoint.
-	ClientAffinity ClientAffinity `json:"clientAffinity"`
+	ClientAffinity ClientAffinity `json:"clientAffinity" yaml:"clientAffinity"`
 	// Name of the listener.
-	ListenerName *string `json:"listenerName"`
+	ListenerName *string `json:"listenerName" yaml:"listenerName"`
 	// The protocol for the connections from clients to the accelerator.
-	Protocol ConnectionProtocol `json:"protocol"`
+	Protocol ConnectionProtocol `json:"protocol" yaml:"protocol"`
 	// The accelerator for this listener.
-	Accelerator IAccelerator `json:"accelerator"`
+	Accelerator IAccelerator `json:"accelerator" yaml:"accelerator"`
 }
 
 // Override specific listener ports used to route traffic to endpoints that are part of an endpoint group.
@@ -3037,11 +3037,11 @@ type PortOverride struct {
 	// The endpoint port that you want a listener port to be mapped to.
 	//
 	// This is the port on the endpoint, such as the Application Load Balancer or Amazon EC2 instance.
-	EndpointPort *float64 `json:"endpointPort"`
+	EndpointPort *float64 `json:"endpointPort" yaml:"endpointPort"`
 	// The listener port that you want to map to a specific endpoint port.
 	//
 	// This is the port that user traffic arrives to the Global Accelerator on.
-	ListenerPort *float64 `json:"listenerPort"`
+	ListenerPort *float64 `json:"listenerPort" yaml:"listenerPort"`
 }
 
 // The list of port ranges for the connections from clients to the accelerator.
@@ -3050,9 +3050,9 @@ type PortOverride struct {
 //
 type PortRange struct {
 	// The first port in the range of ports, inclusive.
-	FromPort *float64 `json:"fromPort"`
+	FromPort *float64 `json:"fromPort" yaml:"fromPort"`
 	// The last port in the range of ports, inclusive.
-	ToPort *float64 `json:"toPort"`
+	ToPort *float64 `json:"toPort" yaml:"toPort"`
 }
 
 // Untyped endpoint implementation.
@@ -3131,7 +3131,7 @@ type RawEndpointProps struct {
 	// Identifier of the endpoint.
 	//
 	// Load balancer ARN, instance ID or EIP allocation ID.
-	EndpointId *string `json:"endpointId"`
+	EndpointId *string `json:"endpointId" yaml:"endpointId"`
 	// Forward the client IP address.
 	//
 	// GlobalAccelerator will create Network Interfaces in your VPC in order
@@ -3141,12 +3141,12 @@ type RawEndpointProps struct {
 	//
 	// Client IP address preservation is supported only in specific AWS Regions.
 	// See the GlobalAccelerator Developer Guide for a list.
-	PreserveClientIp *bool `json:"preserveClientIp"`
+	PreserveClientIp *bool `json:"preserveClientIp" yaml:"preserveClientIp"`
 	// The region where this endpoint is located.
-	Region *string `json:"region"`
+	Region *string `json:"region" yaml:"region"`
 	// Endpoint weight across all endpoints in the group.
 	//
 	// Must be a value between 0 and 255.
-	Weight *float64 `json:"weight"`
+	Weight *float64 `json:"weight" yaml:"weight"`
 }
 
