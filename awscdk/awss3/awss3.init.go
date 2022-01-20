@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_s3.BlockPublicAccess",
+		"monocdk.aws_s3.BlockPublicAccess",
 		reflect.TypeOf((*BlockPublicAccess)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "blockPublicAcls", GoGetter: "BlockPublicAcls"},
@@ -21,11 +21,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.BlockPublicAccessOptions",
+		"monocdk.aws_s3.BlockPublicAccessOptions",
 		reflect.TypeOf((*BlockPublicAccessOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_s3.Bucket",
+		"monocdk.aws_s3.Bucket",
 		reflect.TypeOf((*Bucket)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addCorsRule", GoMethod: "AddCorsRule"},
@@ -47,7 +47,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "bucketWebsiteDomainName", GoGetter: "BucketWebsiteDomainName"},
 			_jsii_.MemberProperty{JsiiProperty: "bucketWebsiteUrl", GoGetter: "BucketWebsiteUrl"},
 			_jsii_.MemberProperty{JsiiProperty: "disallowPublicAccess", GoGetter: "DisallowPublicAccess"},
-			_jsii_.MemberMethod{JsiiMethod: "enableEventBridgeNotification", GoMethod: "EnableEventBridgeNotification"},
 			_jsii_.MemberProperty{JsiiProperty: "encryptionKey", GoGetter: "EncryptionKey"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
@@ -65,13 +64,19 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "onCloudTrailEvent", GoMethod: "OnCloudTrailEvent"},
 			_jsii_.MemberMethod{JsiiMethod: "onCloudTrailPutObject", GoMethod: "OnCloudTrailPutObject"},
 			_jsii_.MemberMethod{JsiiMethod: "onCloudTrailWriteObject", GoMethod: "OnCloudTrailWriteObject"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "policy", GoGetter: "Policy"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "s3UrlForObject", GoMethod: "S3UrlForObject"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberMethod{JsiiMethod: "transferAccelerationUrlForObject", GoMethod: "TransferAccelerationUrlForObject"},
 			_jsii_.MemberMethod{JsiiMethod: "urlForObject", GoMethod: "UrlForObject"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "virtualHostedUrlForObject", GoMethod: "VirtualHostedUrlForObject"},
 		},
 		func() interface{} {
@@ -81,7 +86,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_s3.BucketAccessControl",
+		"monocdk.aws_s3.BucketAccessControl",
 		reflect.TypeOf((*BucketAccessControl)(nil)).Elem(),
 		map[string]interface{}{
 			"PRIVATE": BucketAccessControl_PRIVATE,
@@ -95,11 +100,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.BucketAttributes",
+		"monocdk.aws_s3.BucketAttributes",
 		reflect.TypeOf((*BucketAttributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_s3.BucketBase",
+		"monocdk.aws_s3.BucketBase",
 		reflect.TypeOf((*BucketBase)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addEventNotification", GoMethod: "AddEventNotification"},
@@ -117,7 +122,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "bucketWebsiteDomainName", GoGetter: "BucketWebsiteDomainName"},
 			_jsii_.MemberProperty{JsiiProperty: "bucketWebsiteUrl", GoGetter: "BucketWebsiteUrl"},
 			_jsii_.MemberProperty{JsiiProperty: "disallowPublicAccess", GoGetter: "DisallowPublicAccess"},
-			_jsii_.MemberMethod{JsiiMethod: "enableEventBridgeNotification", GoMethod: "EnableEventBridgeNotification"},
 			_jsii_.MemberProperty{JsiiProperty: "encryptionKey", GoGetter: "EncryptionKey"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
@@ -135,13 +139,19 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "onCloudTrailEvent", GoMethod: "OnCloudTrailEvent"},
 			_jsii_.MemberMethod{JsiiMethod: "onCloudTrailPutObject", GoMethod: "OnCloudTrailPutObject"},
 			_jsii_.MemberMethod{JsiiMethod: "onCloudTrailWriteObject", GoMethod: "OnCloudTrailWriteObject"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "policy", GoGetter: "Policy"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "s3UrlForObject", GoMethod: "S3UrlForObject"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberMethod{JsiiMethod: "transferAccelerationUrlForObject", GoMethod: "TransferAccelerationUrlForObject"},
 			_jsii_.MemberMethod{JsiiMethod: "urlForObject", GoMethod: "UrlForObject"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "virtualHostedUrlForObject", GoMethod: "VirtualHostedUrlForObject"},
 		},
 		func() interface{} {
@@ -152,7 +162,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_s3.BucketEncryption",
+		"monocdk.aws_s3.BucketEncryption",
 		reflect.TypeOf((*BucketEncryption)(nil)).Elem(),
 		map[string]interface{}{
 			"UNENCRYPTED": BucketEncryption_UNENCRYPTED,
@@ -162,15 +172,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.BucketMetrics",
+		"monocdk.aws_s3.BucketMetrics",
 		reflect.TypeOf((*BucketMetrics)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.BucketNotificationDestinationConfig",
+		"monocdk.aws_s3.BucketNotificationDestinationConfig",
 		reflect.TypeOf((*BucketNotificationDestinationConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_s3.BucketNotificationDestinationType",
+		"monocdk.aws_s3.BucketNotificationDestinationType",
 		reflect.TypeOf((*BucketNotificationDestinationType)(nil)).Elem(),
 		map[string]interface{}{
 			"LAMBDA": BucketNotificationDestinationType_LAMBDA,
@@ -179,7 +189,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_s3.BucketPolicy",
+		"monocdk.aws_s3.BucketPolicy",
 		reflect.TypeOf((*BucketPolicy)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -189,9 +199,15 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_BucketPolicy{}
@@ -200,15 +216,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.BucketPolicyProps",
+		"monocdk.aws_s3.BucketPolicyProps",
 		reflect.TypeOf((*BucketPolicyProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.BucketProps",
+		"monocdk.aws_s3.BucketProps",
 		reflect.TypeOf((*BucketProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_s3.CfnAccessPoint",
+		"monocdk.aws_s3.CfnAccessPoint",
 		reflect.TypeOf((*CfnAccessPoint)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -233,16 +249,22 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "policy", GoGetter: "Policy"},
 			_jsii_.MemberProperty{JsiiProperty: "policyStatus", GoGetter: "PolicyStatus"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "publicAccessBlockConfiguration", GoGetter: "PublicAccessBlockConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcConfiguration", GoGetter: "VpcConfiguration"},
 		},
@@ -254,19 +276,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnAccessPoint.PublicAccessBlockConfigurationProperty",
+		"monocdk.aws_s3.CfnAccessPoint.PublicAccessBlockConfigurationProperty",
 		reflect.TypeOf((*CfnAccessPoint_PublicAccessBlockConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnAccessPoint.VpcConfigurationProperty",
+		"monocdk.aws_s3.CfnAccessPoint.VpcConfigurationProperty",
 		reflect.TypeOf((*CfnAccessPoint_VpcConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnAccessPointProps",
+		"monocdk.aws_s3.CfnAccessPointProps",
 		reflect.TypeOf((*CfnAccessPointProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_s3.CfnBucket",
+		"monocdk.aws_s3.CfnBucket",
 		reflect.TypeOf((*CfnBucket)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "accelerateConfiguration", GoGetter: "AccelerateConfiguration"},
@@ -304,17 +326,23 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "notificationConfiguration", GoGetter: "NotificationConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "objectLockConfiguration", GoGetter: "ObjectLockConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "objectLockEnabled", GoGetter: "ObjectLockEnabled"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "ownershipControls", GoGetter: "OwnershipControls"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "publicAccessBlockConfiguration", GoGetter: "PublicAccessBlockConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "replicationConfiguration", GoGetter: "ReplicationConfiguration"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "versioningConfiguration", GoGetter: "VersioningConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "websiteConfiguration", GoGetter: "WebsiteConfiguration"},
@@ -327,231 +355,231 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.AbortIncompleteMultipartUploadProperty",
+		"monocdk.aws_s3.CfnBucket.AbortIncompleteMultipartUploadProperty",
 		reflect.TypeOf((*CfnBucket_AbortIncompleteMultipartUploadProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.AccelerateConfigurationProperty",
+		"monocdk.aws_s3.CfnBucket.AccelerateConfigurationProperty",
 		reflect.TypeOf((*CfnBucket_AccelerateConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.AccessControlTranslationProperty",
+		"monocdk.aws_s3.CfnBucket.AccessControlTranslationProperty",
 		reflect.TypeOf((*CfnBucket_AccessControlTranslationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.AnalyticsConfigurationProperty",
+		"monocdk.aws_s3.CfnBucket.AnalyticsConfigurationProperty",
 		reflect.TypeOf((*CfnBucket_AnalyticsConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.BucketEncryptionProperty",
+		"monocdk.aws_s3.CfnBucket.BucketEncryptionProperty",
 		reflect.TypeOf((*CfnBucket_BucketEncryptionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.CorsConfigurationProperty",
+		"monocdk.aws_s3.CfnBucket.CorsConfigurationProperty",
 		reflect.TypeOf((*CfnBucket_CorsConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.CorsRuleProperty",
+		"monocdk.aws_s3.CfnBucket.CorsRuleProperty",
 		reflect.TypeOf((*CfnBucket_CorsRuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.DataExportProperty",
+		"monocdk.aws_s3.CfnBucket.DataExportProperty",
 		reflect.TypeOf((*CfnBucket_DataExportProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.DefaultRetentionProperty",
+		"monocdk.aws_s3.CfnBucket.DefaultRetentionProperty",
 		reflect.TypeOf((*CfnBucket_DefaultRetentionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.DeleteMarkerReplicationProperty",
+		"monocdk.aws_s3.CfnBucket.DeleteMarkerReplicationProperty",
 		reflect.TypeOf((*CfnBucket_DeleteMarkerReplicationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.DestinationProperty",
+		"monocdk.aws_s3.CfnBucket.DestinationProperty",
 		reflect.TypeOf((*CfnBucket_DestinationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.EncryptionConfigurationProperty",
+		"monocdk.aws_s3.CfnBucket.EncryptionConfigurationProperty",
 		reflect.TypeOf((*CfnBucket_EncryptionConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.EventBridgeConfigurationProperty",
+		"monocdk.aws_s3.CfnBucket.EventBridgeConfigurationProperty",
 		reflect.TypeOf((*CfnBucket_EventBridgeConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.FilterRuleProperty",
+		"monocdk.aws_s3.CfnBucket.FilterRuleProperty",
 		reflect.TypeOf((*CfnBucket_FilterRuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.IntelligentTieringConfigurationProperty",
+		"monocdk.aws_s3.CfnBucket.IntelligentTieringConfigurationProperty",
 		reflect.TypeOf((*CfnBucket_IntelligentTieringConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.InventoryConfigurationProperty",
+		"monocdk.aws_s3.CfnBucket.InventoryConfigurationProperty",
 		reflect.TypeOf((*CfnBucket_InventoryConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.LambdaConfigurationProperty",
+		"monocdk.aws_s3.CfnBucket.LambdaConfigurationProperty",
 		reflect.TypeOf((*CfnBucket_LambdaConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.LifecycleConfigurationProperty",
+		"monocdk.aws_s3.CfnBucket.LifecycleConfigurationProperty",
 		reflect.TypeOf((*CfnBucket_LifecycleConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.LoggingConfigurationProperty",
+		"monocdk.aws_s3.CfnBucket.LoggingConfigurationProperty",
 		reflect.TypeOf((*CfnBucket_LoggingConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.MetricsConfigurationProperty",
+		"monocdk.aws_s3.CfnBucket.MetricsConfigurationProperty",
 		reflect.TypeOf((*CfnBucket_MetricsConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.MetricsProperty",
+		"monocdk.aws_s3.CfnBucket.MetricsProperty",
 		reflect.TypeOf((*CfnBucket_MetricsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.NoncurrentVersionExpirationProperty",
+		"monocdk.aws_s3.CfnBucket.NoncurrentVersionExpirationProperty",
 		reflect.TypeOf((*CfnBucket_NoncurrentVersionExpirationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.NoncurrentVersionTransitionProperty",
+		"monocdk.aws_s3.CfnBucket.NoncurrentVersionTransitionProperty",
 		reflect.TypeOf((*CfnBucket_NoncurrentVersionTransitionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.NotificationConfigurationProperty",
+		"monocdk.aws_s3.CfnBucket.NotificationConfigurationProperty",
 		reflect.TypeOf((*CfnBucket_NotificationConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.NotificationFilterProperty",
+		"monocdk.aws_s3.CfnBucket.NotificationFilterProperty",
 		reflect.TypeOf((*CfnBucket_NotificationFilterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.ObjectLockConfigurationProperty",
+		"monocdk.aws_s3.CfnBucket.ObjectLockConfigurationProperty",
 		reflect.TypeOf((*CfnBucket_ObjectLockConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.ObjectLockRuleProperty",
+		"monocdk.aws_s3.CfnBucket.ObjectLockRuleProperty",
 		reflect.TypeOf((*CfnBucket_ObjectLockRuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.OwnershipControlsProperty",
+		"monocdk.aws_s3.CfnBucket.OwnershipControlsProperty",
 		reflect.TypeOf((*CfnBucket_OwnershipControlsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.OwnershipControlsRuleProperty",
+		"monocdk.aws_s3.CfnBucket.OwnershipControlsRuleProperty",
 		reflect.TypeOf((*CfnBucket_OwnershipControlsRuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.PublicAccessBlockConfigurationProperty",
+		"monocdk.aws_s3.CfnBucket.PublicAccessBlockConfigurationProperty",
 		reflect.TypeOf((*CfnBucket_PublicAccessBlockConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.QueueConfigurationProperty",
+		"monocdk.aws_s3.CfnBucket.QueueConfigurationProperty",
 		reflect.TypeOf((*CfnBucket_QueueConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.RedirectAllRequestsToProperty",
+		"monocdk.aws_s3.CfnBucket.RedirectAllRequestsToProperty",
 		reflect.TypeOf((*CfnBucket_RedirectAllRequestsToProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.RedirectRuleProperty",
+		"monocdk.aws_s3.CfnBucket.RedirectRuleProperty",
 		reflect.TypeOf((*CfnBucket_RedirectRuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.ReplicaModificationsProperty",
+		"monocdk.aws_s3.CfnBucket.ReplicaModificationsProperty",
 		reflect.TypeOf((*CfnBucket_ReplicaModificationsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.ReplicationConfigurationProperty",
+		"monocdk.aws_s3.CfnBucket.ReplicationConfigurationProperty",
 		reflect.TypeOf((*CfnBucket_ReplicationConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.ReplicationDestinationProperty",
+		"monocdk.aws_s3.CfnBucket.ReplicationDestinationProperty",
 		reflect.TypeOf((*CfnBucket_ReplicationDestinationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.ReplicationRuleAndOperatorProperty",
+		"monocdk.aws_s3.CfnBucket.ReplicationRuleAndOperatorProperty",
 		reflect.TypeOf((*CfnBucket_ReplicationRuleAndOperatorProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.ReplicationRuleFilterProperty",
+		"monocdk.aws_s3.CfnBucket.ReplicationRuleFilterProperty",
 		reflect.TypeOf((*CfnBucket_ReplicationRuleFilterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.ReplicationRuleProperty",
+		"monocdk.aws_s3.CfnBucket.ReplicationRuleProperty",
 		reflect.TypeOf((*CfnBucket_ReplicationRuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.ReplicationTimeProperty",
+		"monocdk.aws_s3.CfnBucket.ReplicationTimeProperty",
 		reflect.TypeOf((*CfnBucket_ReplicationTimeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.ReplicationTimeValueProperty",
+		"monocdk.aws_s3.CfnBucket.ReplicationTimeValueProperty",
 		reflect.TypeOf((*CfnBucket_ReplicationTimeValueProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.RoutingRuleConditionProperty",
+		"monocdk.aws_s3.CfnBucket.RoutingRuleConditionProperty",
 		reflect.TypeOf((*CfnBucket_RoutingRuleConditionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.RoutingRuleProperty",
+		"monocdk.aws_s3.CfnBucket.RoutingRuleProperty",
 		reflect.TypeOf((*CfnBucket_RoutingRuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.RuleProperty",
+		"monocdk.aws_s3.CfnBucket.RuleProperty",
 		reflect.TypeOf((*CfnBucket_RuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.S3KeyFilterProperty",
+		"monocdk.aws_s3.CfnBucket.S3KeyFilterProperty",
 		reflect.TypeOf((*CfnBucket_S3KeyFilterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.ServerSideEncryptionByDefaultProperty",
+		"monocdk.aws_s3.CfnBucket.ServerSideEncryptionByDefaultProperty",
 		reflect.TypeOf((*CfnBucket_ServerSideEncryptionByDefaultProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.ServerSideEncryptionRuleProperty",
+		"monocdk.aws_s3.CfnBucket.ServerSideEncryptionRuleProperty",
 		reflect.TypeOf((*CfnBucket_ServerSideEncryptionRuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.SourceSelectionCriteriaProperty",
+		"monocdk.aws_s3.CfnBucket.SourceSelectionCriteriaProperty",
 		reflect.TypeOf((*CfnBucket_SourceSelectionCriteriaProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.SseKmsEncryptedObjectsProperty",
+		"monocdk.aws_s3.CfnBucket.SseKmsEncryptedObjectsProperty",
 		reflect.TypeOf((*CfnBucket_SseKmsEncryptedObjectsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.StorageClassAnalysisProperty",
+		"monocdk.aws_s3.CfnBucket.StorageClassAnalysisProperty",
 		reflect.TypeOf((*CfnBucket_StorageClassAnalysisProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.TagFilterProperty",
+		"monocdk.aws_s3.CfnBucket.TagFilterProperty",
 		reflect.TypeOf((*CfnBucket_TagFilterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.TieringProperty",
+		"monocdk.aws_s3.CfnBucket.TieringProperty",
 		reflect.TypeOf((*CfnBucket_TieringProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.TopicConfigurationProperty",
+		"monocdk.aws_s3.CfnBucket.TopicConfigurationProperty",
 		reflect.TypeOf((*CfnBucket_TopicConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.TransitionProperty",
+		"monocdk.aws_s3.CfnBucket.TransitionProperty",
 		reflect.TypeOf((*CfnBucket_TransitionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.VersioningConfigurationProperty",
+		"monocdk.aws_s3.CfnBucket.VersioningConfigurationProperty",
 		reflect.TypeOf((*CfnBucket_VersioningConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucket.WebsiteConfigurationProperty",
+		"monocdk.aws_s3.CfnBucket.WebsiteConfigurationProperty",
 		reflect.TypeOf((*CfnBucket_WebsiteConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_s3.CfnBucketPolicy",
+		"monocdk.aws_s3.CfnBucketPolicy",
 		reflect.TypeOf((*CfnBucketPolicy)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -571,14 +599,20 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "policyDocument", GoGetter: "PolicyDocument"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -589,15 +623,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucketPolicyProps",
+		"monocdk.aws_s3.CfnBucketPolicyProps",
 		reflect.TypeOf((*CfnBucketPolicyProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnBucketProps",
+		"monocdk.aws_s3.CfnBucketProps",
 		reflect.TypeOf((*CfnBucketProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_s3.CfnMultiRegionAccessPoint",
+		"monocdk.aws_s3.CfnMultiRegionAccessPoint",
 		reflect.TypeOf((*CfnMultiRegionAccessPoint)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -619,15 +653,21 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "publicAccessBlockConfiguration", GoGetter: "PublicAccessBlockConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberProperty{JsiiProperty: "regions", GoGetter: "Regions"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -638,15 +678,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnMultiRegionAccessPoint.PublicAccessBlockConfigurationProperty",
+		"monocdk.aws_s3.CfnMultiRegionAccessPoint.PublicAccessBlockConfigurationProperty",
 		reflect.TypeOf((*CfnMultiRegionAccessPoint_PublicAccessBlockConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnMultiRegionAccessPoint.RegionProperty",
+		"monocdk.aws_s3.CfnMultiRegionAccessPoint.RegionProperty",
 		reflect.TypeOf((*CfnMultiRegionAccessPoint_RegionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_s3.CfnMultiRegionAccessPointPolicy",
+		"monocdk.aws_s3.CfnMultiRegionAccessPointPolicy",
 		reflect.TypeOf((*CfnMultiRegionAccessPointPolicy)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -666,14 +706,20 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "mrapName", GoGetter: "MrapName"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "policy", GoGetter: "Policy"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -684,15 +730,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnMultiRegionAccessPointPolicyProps",
+		"monocdk.aws_s3.CfnMultiRegionAccessPointPolicyProps",
 		reflect.TypeOf((*CfnMultiRegionAccessPointPolicyProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnMultiRegionAccessPointProps",
+		"monocdk.aws_s3.CfnMultiRegionAccessPointProps",
 		reflect.TypeOf((*CfnMultiRegionAccessPointProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_s3.CfnStorageLens",
+		"monocdk.aws_s3.CfnStorageLens",
 		reflect.TypeOf((*CfnStorageLens)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -712,15 +758,21 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "storageLensConfiguration", GoGetter: "StorageLensConfiguration"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -731,67 +783,67 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnStorageLens.AccountLevelProperty",
+		"monocdk.aws_s3.CfnStorageLens.AccountLevelProperty",
 		reflect.TypeOf((*CfnStorageLens_AccountLevelProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnStorageLens.ActivityMetricsProperty",
+		"monocdk.aws_s3.CfnStorageLens.ActivityMetricsProperty",
 		reflect.TypeOf((*CfnStorageLens_ActivityMetricsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnStorageLens.AwsOrgProperty",
+		"monocdk.aws_s3.CfnStorageLens.AwsOrgProperty",
 		reflect.TypeOf((*CfnStorageLens_AwsOrgProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnStorageLens.BucketLevelProperty",
+		"monocdk.aws_s3.CfnStorageLens.BucketLevelProperty",
 		reflect.TypeOf((*CfnStorageLens_BucketLevelProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnStorageLens.BucketsAndRegionsProperty",
+		"monocdk.aws_s3.CfnStorageLens.BucketsAndRegionsProperty",
 		reflect.TypeOf((*CfnStorageLens_BucketsAndRegionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnStorageLens.CloudWatchMetricsProperty",
+		"monocdk.aws_s3.CfnStorageLens.CloudWatchMetricsProperty",
 		reflect.TypeOf((*CfnStorageLens_CloudWatchMetricsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnStorageLens.DataExportProperty",
+		"monocdk.aws_s3.CfnStorageLens.DataExportProperty",
 		reflect.TypeOf((*CfnStorageLens_DataExportProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnStorageLens.EncryptionProperty",
+		"monocdk.aws_s3.CfnStorageLens.EncryptionProperty",
 		reflect.TypeOf((*CfnStorageLens_EncryptionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnStorageLens.PrefixLevelProperty",
+		"monocdk.aws_s3.CfnStorageLens.PrefixLevelProperty",
 		reflect.TypeOf((*CfnStorageLens_PrefixLevelProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnStorageLens.PrefixLevelStorageMetricsProperty",
+		"monocdk.aws_s3.CfnStorageLens.PrefixLevelStorageMetricsProperty",
 		reflect.TypeOf((*CfnStorageLens_PrefixLevelStorageMetricsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnStorageLens.S3BucketDestinationProperty",
+		"monocdk.aws_s3.CfnStorageLens.S3BucketDestinationProperty",
 		reflect.TypeOf((*CfnStorageLens_S3BucketDestinationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnStorageLens.SelectionCriteriaProperty",
+		"monocdk.aws_s3.CfnStorageLens.SelectionCriteriaProperty",
 		reflect.TypeOf((*CfnStorageLens_SelectionCriteriaProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnStorageLens.StorageLensConfigurationProperty",
+		"monocdk.aws_s3.CfnStorageLens.StorageLensConfigurationProperty",
 		reflect.TypeOf((*CfnStorageLens_StorageLensConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CfnStorageLensProps",
+		"monocdk.aws_s3.CfnStorageLensProps",
 		reflect.TypeOf((*CfnStorageLensProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.CorsRule",
+		"monocdk.aws_s3.CorsRule",
 		reflect.TypeOf((*CorsRule)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_s3.EventType",
+		"monocdk.aws_s3.EventType",
 		reflect.TypeOf((*EventType)(nil)).Elem(),
 		map[string]interface{}{
 			"OBJECT_CREATED": EventType_OBJECT_CREATED,
@@ -821,7 +873,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_s3.HttpMethods",
+		"monocdk.aws_s3.HttpMethods",
 		reflect.TypeOf((*HttpMethods)(nil)).Elem(),
 		map[string]interface{}{
 			"GET": HttpMethods_GET,
@@ -832,7 +884,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_s3.IBucket",
+		"monocdk.aws_s3.IBucket",
 		reflect.TypeOf((*IBucket)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addEventNotification", GoMethod: "AddEventNotification"},
@@ -876,7 +928,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_s3.IBucketNotificationDestination",
+		"monocdk.aws_s3.IBucketNotificationDestination",
 		reflect.TypeOf((*IBucketNotificationDestination)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -886,19 +938,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.IntelligentTieringConfiguration",
+		"monocdk.aws_s3.IntelligentTieringConfiguration",
 		reflect.TypeOf((*IntelligentTieringConfiguration)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.Inventory",
+		"monocdk.aws_s3.Inventory",
 		reflect.TypeOf((*Inventory)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.InventoryDestination",
+		"monocdk.aws_s3.InventoryDestination",
 		reflect.TypeOf((*InventoryDestination)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_s3.InventoryFormat",
+		"monocdk.aws_s3.InventoryFormat",
 		reflect.TypeOf((*InventoryFormat)(nil)).Elem(),
 		map[string]interface{}{
 			"CSV": InventoryFormat_CSV,
@@ -907,7 +959,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_s3.InventoryFrequency",
+		"monocdk.aws_s3.InventoryFrequency",
 		reflect.TypeOf((*InventoryFrequency)(nil)).Elem(),
 		map[string]interface{}{
 			"DAILY": InventoryFrequency_DAILY,
@@ -915,7 +967,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_s3.InventoryObjectVersion",
+		"monocdk.aws_s3.InventoryObjectVersion",
 		reflect.TypeOf((*InventoryObjectVersion)(nil)).Elem(),
 		map[string]interface{}{
 			"ALL": InventoryObjectVersion_ALL,
@@ -923,23 +975,23 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.LifecycleRule",
+		"monocdk.aws_s3.LifecycleRule",
 		reflect.TypeOf((*LifecycleRule)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.Location",
+		"monocdk.aws_s3.Location",
 		reflect.TypeOf((*Location)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.NoncurrentVersionTransition",
+		"monocdk.aws_s3.NoncurrentVersionTransition",
 		reflect.TypeOf((*NoncurrentVersionTransition)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.NotificationKeyFilter",
+		"monocdk.aws_s3.NotificationKeyFilter",
 		reflect.TypeOf((*NotificationKeyFilter)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_s3.ObjectOwnership",
+		"monocdk.aws_s3.ObjectOwnership",
 		reflect.TypeOf((*ObjectOwnership)(nil)).Elem(),
 		map[string]interface{}{
 			"BUCKET_OWNER_ENFORCED": ObjectOwnership_BUCKET_OWNER_ENFORCED,
@@ -948,11 +1000,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.OnCloudTrailBucketEventOptions",
+		"monocdk.aws_s3.OnCloudTrailBucketEventOptions",
 		reflect.TypeOf((*OnCloudTrailBucketEventOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_s3.RedirectProtocol",
+		"monocdk.aws_s3.RedirectProtocol",
 		reflect.TypeOf((*RedirectProtocol)(nil)).Elem(),
 		map[string]interface{}{
 			"HTTP": RedirectProtocol_HTTP,
@@ -960,11 +1012,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.RedirectTarget",
+		"monocdk.aws_s3.RedirectTarget",
 		reflect.TypeOf((*RedirectTarget)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_s3.ReplaceKey",
+		"monocdk.aws_s3.ReplaceKey",
 		reflect.TypeOf((*ReplaceKey)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "prefixWithKey", GoGetter: "PrefixWithKey"},
@@ -975,15 +1027,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.RoutingRule",
+		"monocdk.aws_s3.RoutingRule",
 		reflect.TypeOf((*RoutingRule)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.RoutingRuleCondition",
+		"monocdk.aws_s3.RoutingRuleCondition",
 		reflect.TypeOf((*RoutingRuleCondition)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_s3.StorageClass",
+		"monocdk.aws_s3.StorageClass",
 		reflect.TypeOf((*StorageClass)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
@@ -994,19 +1046,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.Tag",
+		"monocdk.aws_s3.Tag",
 		reflect.TypeOf((*Tag)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.TransferAccelerationUrlOptions",
+		"monocdk.aws_s3.TransferAccelerationUrlOptions",
 		reflect.TypeOf((*TransferAccelerationUrlOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.Transition",
+		"monocdk.aws_s3.Transition",
 		reflect.TypeOf((*Transition)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3.VirtualHostedStyleUrlOptions",
+		"monocdk.aws_s3.VirtualHostedStyleUrlOptions",
 		reflect.TypeOf((*VirtualHostedStyleUrlOptions)(nil)).Elem(),
 	)
 }
