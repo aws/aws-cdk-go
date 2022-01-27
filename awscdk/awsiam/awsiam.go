@@ -1,24 +1,25 @@
 package awsiam
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // Define a new IAM Access Key.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type AccessKey interface {
 	awscdk.Resource
 	IAccessKey
 	AccessKeyId() *string
 	Env() *awscdk.ResourceEnvironment
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	SecretAccessKey() awscdk.SecretValue
 	Stack() awscdk.Stack
@@ -26,7 +27,13 @@ type AccessKey interface {
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for AccessKey
@@ -55,8 +62,8 @@ func (j *jsiiProxy_AccessKey) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_AccessKey) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_AccessKey) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -96,13 +103,14 @@ func (j *jsiiProxy_AccessKey) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewAccessKey(scope constructs.Construct, id *string, props *AccessKeyProps) AccessKey {
 	_init_.Initialize()
 
 	j := jsiiProxy_AccessKey{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.AccessKey",
+		"monocdk.aws_iam.AccessKey",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -110,27 +118,26 @@ func NewAccessKey(scope constructs.Construct, id *string, props *AccessKeyProps)
 	return &j
 }
 
+// Experimental.
 func NewAccessKey_Override(a AccessKey, scope constructs.Construct, id *string, props *AccessKeyProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.AccessKey",
+		"monocdk.aws_iam.AccessKey",
 		[]interface{}{scope, id, props},
 		a,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func AccessKey_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.AccessKey",
+		"monocdk.aws_iam.AccessKey",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -140,13 +147,14 @@ func AccessKey_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func AccessKey_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func AccessKey_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.AccessKey",
+		"monocdk.aws_iam.AccessKey",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -164,6 +172,7 @@ func AccessKey_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (a *jsiiProxy_AccessKey) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		a,
@@ -172,6 +181,7 @@ func (a *jsiiProxy_AccessKey) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
+// Experimental.
 func (a *jsiiProxy_AccessKey) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -191,6 +201,7 @@ func (a *jsiiProxy_AccessKey) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
+// Experimental.
 func (a *jsiiProxy_AccessKey) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -209,6 +220,7 @@ func (a *jsiiProxy_AccessKey) GetResourceArnAttribute(arnAttr *string, arnCompon
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
+// Experimental.
 func (a *jsiiProxy_AccessKey) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -222,7 +234,88 @@ func (a *jsiiProxy_AccessKey) GetResourceNameAttribute(nameAttr *string) *string
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (a *jsiiProxy_AccessKey) OnPrepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (a *jsiiProxy_AccessKey) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (a *jsiiProxy_AccessKey) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (a *jsiiProxy_AccessKey) Prepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (a *jsiiProxy_AccessKey) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (a *jsiiProxy_AccessKey) ToString() *string {
 	var returns *string
 
@@ -236,30 +329,55 @@ func (a *jsiiProxy_AccessKey) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (a *jsiiProxy_AccessKey) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Properties for defining an IAM access key.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type AccessKeyProps struct {
 	// The IAM user this key will belong to.
 	//
 	// Changing this value will result in the access key being deleted and a new
 	// access key (with a different ID and secret value) being assigned to the new
 	// user.
+	// Experimental.
 	User IUser `json:"user" yaml:"user"`
 	// A CloudFormation-specific value that signifies the access key should be replaced/rotated.
 	//
 	// This value can only be incremented. Incrementing this
 	// value will cause CloudFormation to replace the Access Key resource.
+	// Experimental.
 	Serial *float64 `json:"serial" yaml:"serial"`
 	// The status of the access key.
 	//
 	// An Active access key is allowed to be used
 	// to make API calls; An Inactive key cannot.
+	// Experimental.
 	Status AccessKeyStatus `json:"status" yaml:"status"`
 }
 
 // Valid statuses for an IAM Access Key.
+// Experimental.
 type AccessKeyStatus string
 
 const (
@@ -271,6 +389,7 @@ const (
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type AccountPrincipal interface {
 	ArnPrincipal
 	AccountId() interface{}
@@ -354,13 +473,14 @@ func (j *jsiiProxy_AccountPrincipal) PrincipalAccount() *string {
 }
 
 
+// Experimental.
 func NewAccountPrincipal(accountId interface{}) AccountPrincipal {
 	_init_.Initialize()
 
 	j := jsiiProxy_AccountPrincipal{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.AccountPrincipal",
+		"monocdk.aws_iam.AccountPrincipal",
 		[]interface{}{accountId},
 		&j,
 	)
@@ -368,11 +488,12 @@ func NewAccountPrincipal(accountId interface{}) AccountPrincipal {
 	return &j
 }
 
+// Experimental.
 func NewAccountPrincipal_Override(a AccountPrincipal, accountId interface{}) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.AccountPrincipal",
+		"monocdk.aws_iam.AccountPrincipal",
 		[]interface{}{accountId},
 		a,
 	)
@@ -382,6 +503,7 @@ func NewAccountPrincipal_Override(a AccountPrincipal, accountId interface{}) {
 //
 // Add the statements to the AssumeRolePolicyDocument necessary to give this principal
 // permissions to assume the given role.
+// Experimental.
 func (a *jsiiProxy_AccountPrincipal) AddToAssumeRolePolicy(document PolicyDocument) {
 	_jsii_.InvokeVoid(
 		a,
@@ -391,6 +513,7 @@ func (a *jsiiProxy_AccountPrincipal) AddToAssumeRolePolicy(document PolicyDocume
 }
 
 // Add to the policy of this principal.
+// Experimental.
 func (a *jsiiProxy_AccountPrincipal) AddToPolicy(statement PolicyStatement) *bool {
 	var returns *bool
 
@@ -405,6 +528,7 @@ func (a *jsiiProxy_AccountPrincipal) AddToPolicy(statement PolicyStatement) *boo
 }
 
 // Add to the policy of this principal.
+// Experimental.
 func (a *jsiiProxy_AccountPrincipal) AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult {
 	var returns *AddToPrincipalPolicyResult
 
@@ -421,6 +545,7 @@ func (a *jsiiProxy_AccountPrincipal) AddToPrincipalPolicy(_statement PolicyState
 // JSON-ify the principal.
 //
 // Used when JSON.stringify() is called
+// Experimental.
 func (a *jsiiProxy_AccountPrincipal) ToJSON() *map[string]*[]*string {
 	var returns *map[string]*[]*string
 
@@ -435,6 +560,7 @@ func (a *jsiiProxy_AccountPrincipal) ToJSON() *map[string]*[]*string {
 }
 
 // Returns a string representation of an object.
+// Experimental.
 func (a *jsiiProxy_AccountPrincipal) ToString() *string {
 	var returns *string
 
@@ -454,6 +580,7 @@ func (a *jsiiProxy_AccountPrincipal) ToString() *string {
 // conditions parameter, the value from the conditions parameter will be used.
 //
 // Returns: a new PrincipalWithConditions object.
+// Experimental.
 func (a *jsiiProxy_AccountPrincipal) WithConditions(conditions *map[string]interface{}) PrincipalBase {
 	var returns PrincipalBase
 
@@ -470,6 +597,7 @@ func (a *jsiiProxy_AccountPrincipal) WithConditions(conditions *map[string]inter
 // Returns a new principal using this principal as the base, with session tags enabled.
 //
 // Returns: a new SessionTagsPrincipal object.
+// Experimental.
 func (a *jsiiProxy_AccountPrincipal) WithSessionTags() PrincipalBase {
 	var returns PrincipalBase
 
@@ -487,6 +615,7 @@ func (a *jsiiProxy_AccountPrincipal) WithSessionTags() PrincipalBase {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type AccountRootPrincipal interface {
 	AccountPrincipal
 	AccountId() interface{}
@@ -570,13 +699,14 @@ func (j *jsiiProxy_AccountRootPrincipal) PrincipalAccount() *string {
 }
 
 
+// Experimental.
 func NewAccountRootPrincipal() AccountRootPrincipal {
 	_init_.Initialize()
 
 	j := jsiiProxy_AccountRootPrincipal{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.AccountRootPrincipal",
+		"monocdk.aws_iam.AccountRootPrincipal",
 		nil, // no parameters
 		&j,
 	)
@@ -584,11 +714,12 @@ func NewAccountRootPrincipal() AccountRootPrincipal {
 	return &j
 }
 
+// Experimental.
 func NewAccountRootPrincipal_Override(a AccountRootPrincipal) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.AccountRootPrincipal",
+		"monocdk.aws_iam.AccountRootPrincipal",
 		nil, // no parameters
 		a,
 	)
@@ -598,6 +729,7 @@ func NewAccountRootPrincipal_Override(a AccountRootPrincipal) {
 //
 // Add the statements to the AssumeRolePolicyDocument necessary to give this principal
 // permissions to assume the given role.
+// Experimental.
 func (a *jsiiProxy_AccountRootPrincipal) AddToAssumeRolePolicy(document PolicyDocument) {
 	_jsii_.InvokeVoid(
 		a,
@@ -607,6 +739,7 @@ func (a *jsiiProxy_AccountRootPrincipal) AddToAssumeRolePolicy(document PolicyDo
 }
 
 // Add to the policy of this principal.
+// Experimental.
 func (a *jsiiProxy_AccountRootPrincipal) AddToPolicy(statement PolicyStatement) *bool {
 	var returns *bool
 
@@ -621,6 +754,7 @@ func (a *jsiiProxy_AccountRootPrincipal) AddToPolicy(statement PolicyStatement) 
 }
 
 // Add to the policy of this principal.
+// Experimental.
 func (a *jsiiProxy_AccountRootPrincipal) AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult {
 	var returns *AddToPrincipalPolicyResult
 
@@ -637,6 +771,7 @@ func (a *jsiiProxy_AccountRootPrincipal) AddToPrincipalPolicy(_statement PolicyS
 // JSON-ify the principal.
 //
 // Used when JSON.stringify() is called
+// Experimental.
 func (a *jsiiProxy_AccountRootPrincipal) ToJSON() *map[string]*[]*string {
 	var returns *map[string]*[]*string
 
@@ -651,6 +786,7 @@ func (a *jsiiProxy_AccountRootPrincipal) ToJSON() *map[string]*[]*string {
 }
 
 // Returns a string representation of an object.
+// Experimental.
 func (a *jsiiProxy_AccountRootPrincipal) ToString() *string {
 	var returns *string
 
@@ -670,6 +806,7 @@ func (a *jsiiProxy_AccountRootPrincipal) ToString() *string {
 // conditions parameter, the value from the conditions parameter will be used.
 //
 // Returns: a new PrincipalWithConditions object.
+// Experimental.
 func (a *jsiiProxy_AccountRootPrincipal) WithConditions(conditions *map[string]interface{}) PrincipalBase {
 	var returns PrincipalBase
 
@@ -686,6 +823,7 @@ func (a *jsiiProxy_AccountRootPrincipal) WithConditions(conditions *map[string]i
 // Returns a new principal using this principal as the base, with session tags enabled.
 //
 // Returns: a new SessionTagsPrincipal object.
+// Experimental.
 func (a *jsiiProxy_AccountRootPrincipal) WithSessionTags() PrincipalBase {
 	var returns PrincipalBase
 
@@ -703,22 +841,28 @@ func (a *jsiiProxy_AccountRootPrincipal) WithSessionTags() PrincipalBase {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type AddToPrincipalPolicyResult struct {
 	// Whether the statement was added to the identity's policies.
+	// Experimental.
 	StatementAdded *bool `json:"statementAdded" yaml:"statementAdded"`
 	// Dependable which allows depending on the policy change being applied.
-	PolicyDependable constructs.IDependable `json:"policyDependable" yaml:"policyDependable"`
+	// Experimental.
+	PolicyDependable awscdk.IDependable `json:"policyDependable" yaml:"policyDependable"`
 }
 
 // Result of calling addToResourcePolicy.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type AddToResourcePolicyResult struct {
 	// Whether the statement was added.
+	// Experimental.
 	StatementAdded *bool `json:"statementAdded" yaml:"statementAdded"`
 	// Dependable which allows depending on the policy change being applied.
-	PolicyDependable constructs.IDependable `json:"policyDependable" yaml:"policyDependable"`
+	// Experimental.
+	PolicyDependable awscdk.IDependable `json:"policyDependable" yaml:"policyDependable"`
 }
 
 // A principal representing all AWS identities in all accounts.
@@ -732,6 +876,7 @@ type AddToResourcePolicyResult struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type AnyPrincipal interface {
 	ArnPrincipal
 	Arn() *string
@@ -804,13 +949,14 @@ func (j *jsiiProxy_AnyPrincipal) PrincipalAccount() *string {
 }
 
 
+// Experimental.
 func NewAnyPrincipal() AnyPrincipal {
 	_init_.Initialize()
 
 	j := jsiiProxy_AnyPrincipal{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.AnyPrincipal",
+		"monocdk.aws_iam.AnyPrincipal",
 		nil, // no parameters
 		&j,
 	)
@@ -818,11 +964,12 @@ func NewAnyPrincipal() AnyPrincipal {
 	return &j
 }
 
+// Experimental.
 func NewAnyPrincipal_Override(a AnyPrincipal) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.AnyPrincipal",
+		"monocdk.aws_iam.AnyPrincipal",
 		nil, // no parameters
 		a,
 	)
@@ -832,6 +979,7 @@ func NewAnyPrincipal_Override(a AnyPrincipal) {
 //
 // Add the statements to the AssumeRolePolicyDocument necessary to give this principal
 // permissions to assume the given role.
+// Experimental.
 func (a *jsiiProxy_AnyPrincipal) AddToAssumeRolePolicy(document PolicyDocument) {
 	_jsii_.InvokeVoid(
 		a,
@@ -841,6 +989,7 @@ func (a *jsiiProxy_AnyPrincipal) AddToAssumeRolePolicy(document PolicyDocument) 
 }
 
 // Add to the policy of this principal.
+// Experimental.
 func (a *jsiiProxy_AnyPrincipal) AddToPolicy(statement PolicyStatement) *bool {
 	var returns *bool
 
@@ -855,6 +1004,7 @@ func (a *jsiiProxy_AnyPrincipal) AddToPolicy(statement PolicyStatement) *bool {
 }
 
 // Add to the policy of this principal.
+// Experimental.
 func (a *jsiiProxy_AnyPrincipal) AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult {
 	var returns *AddToPrincipalPolicyResult
 
@@ -871,6 +1021,7 @@ func (a *jsiiProxy_AnyPrincipal) AddToPrincipalPolicy(_statement PolicyStatement
 // JSON-ify the principal.
 //
 // Used when JSON.stringify() is called
+// Experimental.
 func (a *jsiiProxy_AnyPrincipal) ToJSON() *map[string]*[]*string {
 	var returns *map[string]*[]*string
 
@@ -885,6 +1036,7 @@ func (a *jsiiProxy_AnyPrincipal) ToJSON() *map[string]*[]*string {
 }
 
 // Returns a string representation of an object.
+// Experimental.
 func (a *jsiiProxy_AnyPrincipal) ToString() *string {
 	var returns *string
 
@@ -904,6 +1056,7 @@ func (a *jsiiProxy_AnyPrincipal) ToString() *string {
 // conditions parameter, the value from the conditions parameter will be used.
 //
 // Returns: a new PrincipalWithConditions object.
+// Experimental.
 func (a *jsiiProxy_AnyPrincipal) WithConditions(conditions *map[string]interface{}) PrincipalBase {
 	var returns PrincipalBase
 
@@ -920,7 +1073,223 @@ func (a *jsiiProxy_AnyPrincipal) WithConditions(conditions *map[string]interface
 // Returns a new principal using this principal as the base, with session tags enabled.
 //
 // Returns: a new SessionTagsPrincipal object.
+// Experimental.
 func (a *jsiiProxy_AnyPrincipal) WithSessionTags() PrincipalBase {
+	var returns PrincipalBase
+
+	_jsii_.Invoke(
+		a,
+		"withSessionTags",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// A principal representing all identities in all accounts.
+//
+// TODO: EXAMPLE
+//
+// Deprecated: use `AnyPrincipal`
+type Anyone interface {
+	AnyPrincipal
+	Arn() *string
+	AssumeRoleAction() *string
+	GrantPrincipal() IPrincipal
+	PolicyFragment() PrincipalPolicyFragment
+	PrincipalAccount() *string
+	AddToAssumeRolePolicy(document PolicyDocument)
+	AddToPolicy(statement PolicyStatement) *bool
+	AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult
+	ToJSON() *map[string]*[]*string
+	ToString() *string
+	WithConditions(conditions *map[string]interface{}) PrincipalBase
+	WithSessionTags() PrincipalBase
+}
+
+// The jsii proxy struct for Anyone
+type jsiiProxy_Anyone struct {
+	jsiiProxy_AnyPrincipal
+}
+
+func (j *jsiiProxy_Anyone) Arn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"arn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Anyone) AssumeRoleAction() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"assumeRoleAction",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Anyone) GrantPrincipal() IPrincipal {
+	var returns IPrincipal
+	_jsii_.Get(
+		j,
+		"grantPrincipal",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Anyone) PolicyFragment() PrincipalPolicyFragment {
+	var returns PrincipalPolicyFragment
+	_jsii_.Get(
+		j,
+		"policyFragment",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Anyone) PrincipalAccount() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"principalAccount",
+		&returns,
+	)
+	return returns
+}
+
+
+// Deprecated: use `AnyPrincipal`
+func NewAnyone() Anyone {
+	_init_.Initialize()
+
+	j := jsiiProxy_Anyone{}
+
+	_jsii_.Create(
+		"monocdk.aws_iam.Anyone",
+		nil, // no parameters
+		&j,
+	)
+
+	return &j
+}
+
+// Deprecated: use `AnyPrincipal`
+func NewAnyone_Override(a Anyone) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_iam.Anyone",
+		nil, // no parameters
+		a,
+	)
+}
+
+// Add the princpial to the AssumeRolePolicyDocument.
+//
+// Add the statements to the AssumeRolePolicyDocument necessary to give this principal
+// permissions to assume the given role.
+// Deprecated: use `AnyPrincipal`
+func (a *jsiiProxy_Anyone) AddToAssumeRolePolicy(document PolicyDocument) {
+	_jsii_.InvokeVoid(
+		a,
+		"addToAssumeRolePolicy",
+		[]interface{}{document},
+	)
+}
+
+// Add to the policy of this principal.
+// Deprecated: use `AnyPrincipal`
+func (a *jsiiProxy_Anyone) AddToPolicy(statement PolicyStatement) *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		a,
+		"addToPolicy",
+		[]interface{}{statement},
+		&returns,
+	)
+
+	return returns
+}
+
+// Add to the policy of this principal.
+// Deprecated: use `AnyPrincipal`
+func (a *jsiiProxy_Anyone) AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult {
+	var returns *AddToPrincipalPolicyResult
+
+	_jsii_.Invoke(
+		a,
+		"addToPrincipalPolicy",
+		[]interface{}{_statement},
+		&returns,
+	)
+
+	return returns
+}
+
+// JSON-ify the principal.
+//
+// Used when JSON.stringify() is called
+// Deprecated: use `AnyPrincipal`
+func (a *jsiiProxy_Anyone) ToJSON() *map[string]*[]*string {
+	var returns *map[string]*[]*string
+
+	_jsii_.Invoke(
+		a,
+		"toJSON",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns a string representation of an object.
+// Deprecated: use `AnyPrincipal`
+func (a *jsiiProxy_Anyone) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		a,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns a new PrincipalWithConditions using this principal as the base, with the passed conditions added.
+//
+// When there is a value for the same operator and key in both the principal and the
+// conditions parameter, the value from the conditions parameter will be used.
+//
+// Returns: a new PrincipalWithConditions object.
+// Deprecated: use `AnyPrincipal`
+func (a *jsiiProxy_Anyone) WithConditions(conditions *map[string]interface{}) PrincipalBase {
+	var returns PrincipalBase
+
+	_jsii_.Invoke(
+		a,
+		"withConditions",
+		[]interface{}{conditions},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns a new principal using this principal as the base, with session tags enabled.
+//
+// Returns: a new SessionTagsPrincipal object.
+// Deprecated: use `AnyPrincipal`
+func (a *jsiiProxy_Anyone) WithSessionTags() PrincipalBase {
 	var returns PrincipalBase
 
 	_jsii_.Invoke(
@@ -942,6 +1311,7 @@ func (a *jsiiProxy_AnyPrincipal) WithSessionTags() PrincipalBase {
 //
 // See: https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html
 //
+// Experimental.
 type ArnPrincipal interface {
 	PrincipalBase
 	Arn() *string
@@ -1014,13 +1384,14 @@ func (j *jsiiProxy_ArnPrincipal) PrincipalAccount() *string {
 }
 
 
+// Experimental.
 func NewArnPrincipal(arn *string) ArnPrincipal {
 	_init_.Initialize()
 
 	j := jsiiProxy_ArnPrincipal{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.ArnPrincipal",
+		"monocdk.aws_iam.ArnPrincipal",
 		[]interface{}{arn},
 		&j,
 	)
@@ -1028,11 +1399,12 @@ func NewArnPrincipal(arn *string) ArnPrincipal {
 	return &j
 }
 
+// Experimental.
 func NewArnPrincipal_Override(a ArnPrincipal, arn *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.ArnPrincipal",
+		"monocdk.aws_iam.ArnPrincipal",
 		[]interface{}{arn},
 		a,
 	)
@@ -1042,6 +1414,7 @@ func NewArnPrincipal_Override(a ArnPrincipal, arn *string) {
 //
 // Add the statements to the AssumeRolePolicyDocument necessary to give this principal
 // permissions to assume the given role.
+// Experimental.
 func (a *jsiiProxy_ArnPrincipal) AddToAssumeRolePolicy(document PolicyDocument) {
 	_jsii_.InvokeVoid(
 		a,
@@ -1051,6 +1424,7 @@ func (a *jsiiProxy_ArnPrincipal) AddToAssumeRolePolicy(document PolicyDocument) 
 }
 
 // Add to the policy of this principal.
+// Experimental.
 func (a *jsiiProxy_ArnPrincipal) AddToPolicy(statement PolicyStatement) *bool {
 	var returns *bool
 
@@ -1065,6 +1439,7 @@ func (a *jsiiProxy_ArnPrincipal) AddToPolicy(statement PolicyStatement) *bool {
 }
 
 // Add to the policy of this principal.
+// Experimental.
 func (a *jsiiProxy_ArnPrincipal) AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult {
 	var returns *AddToPrincipalPolicyResult
 
@@ -1081,6 +1456,7 @@ func (a *jsiiProxy_ArnPrincipal) AddToPrincipalPolicy(_statement PolicyStatement
 // JSON-ify the principal.
 //
 // Used when JSON.stringify() is called
+// Experimental.
 func (a *jsiiProxy_ArnPrincipal) ToJSON() *map[string]*[]*string {
 	var returns *map[string]*[]*string
 
@@ -1095,6 +1471,7 @@ func (a *jsiiProxy_ArnPrincipal) ToJSON() *map[string]*[]*string {
 }
 
 // Returns a string representation of an object.
+// Experimental.
 func (a *jsiiProxy_ArnPrincipal) ToString() *string {
 	var returns *string
 
@@ -1114,6 +1491,7 @@ func (a *jsiiProxy_ArnPrincipal) ToString() *string {
 // conditions parameter, the value from the conditions parameter will be used.
 //
 // Returns: a new PrincipalWithConditions object.
+// Experimental.
 func (a *jsiiProxy_ArnPrincipal) WithConditions(conditions *map[string]interface{}) PrincipalBase {
 	var returns PrincipalBase
 
@@ -1130,6 +1508,7 @@ func (a *jsiiProxy_ArnPrincipal) WithConditions(conditions *map[string]interface
 // Returns a new principal using this principal as the base, with session tags enabled.
 //
 // Returns: a new SessionTagsPrincipal object.
+// Experimental.
 func (a *jsiiProxy_ArnPrincipal) WithSessionTags() PrincipalBase {
 	var returns PrincipalBase
 
@@ -1155,6 +1534,7 @@ func (a *jsiiProxy_ArnPrincipal) WithSessionTags() PrincipalBase {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type CanonicalUserPrincipal interface {
 	PrincipalBase
 	AssumeRoleAction() *string
@@ -1227,13 +1607,14 @@ func (j *jsiiProxy_CanonicalUserPrincipal) PrincipalAccount() *string {
 }
 
 
+// Experimental.
 func NewCanonicalUserPrincipal(canonicalUserId *string) CanonicalUserPrincipal {
 	_init_.Initialize()
 
 	j := jsiiProxy_CanonicalUserPrincipal{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.CanonicalUserPrincipal",
+		"monocdk.aws_iam.CanonicalUserPrincipal",
 		[]interface{}{canonicalUserId},
 		&j,
 	)
@@ -1241,11 +1622,12 @@ func NewCanonicalUserPrincipal(canonicalUserId *string) CanonicalUserPrincipal {
 	return &j
 }
 
+// Experimental.
 func NewCanonicalUserPrincipal_Override(c CanonicalUserPrincipal, canonicalUserId *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.CanonicalUserPrincipal",
+		"monocdk.aws_iam.CanonicalUserPrincipal",
 		[]interface{}{canonicalUserId},
 		c,
 	)
@@ -1255,6 +1637,7 @@ func NewCanonicalUserPrincipal_Override(c CanonicalUserPrincipal, canonicalUserI
 //
 // Add the statements to the AssumeRolePolicyDocument necessary to give this principal
 // permissions to assume the given role.
+// Experimental.
 func (c *jsiiProxy_CanonicalUserPrincipal) AddToAssumeRolePolicy(document PolicyDocument) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1264,6 +1647,7 @@ func (c *jsiiProxy_CanonicalUserPrincipal) AddToAssumeRolePolicy(document Policy
 }
 
 // Add to the policy of this principal.
+// Experimental.
 func (c *jsiiProxy_CanonicalUserPrincipal) AddToPolicy(statement PolicyStatement) *bool {
 	var returns *bool
 
@@ -1278,6 +1662,7 @@ func (c *jsiiProxy_CanonicalUserPrincipal) AddToPolicy(statement PolicyStatement
 }
 
 // Add to the policy of this principal.
+// Experimental.
 func (c *jsiiProxy_CanonicalUserPrincipal) AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult {
 	var returns *AddToPrincipalPolicyResult
 
@@ -1294,6 +1679,7 @@ func (c *jsiiProxy_CanonicalUserPrincipal) AddToPrincipalPolicy(_statement Polic
 // JSON-ify the principal.
 //
 // Used when JSON.stringify() is called
+// Experimental.
 func (c *jsiiProxy_CanonicalUserPrincipal) ToJSON() *map[string]*[]*string {
 	var returns *map[string]*[]*string
 
@@ -1308,6 +1694,7 @@ func (c *jsiiProxy_CanonicalUserPrincipal) ToJSON() *map[string]*[]*string {
 }
 
 // Returns a string representation of an object.
+// Experimental.
 func (c *jsiiProxy_CanonicalUserPrincipal) ToString() *string {
 	var returns *string
 
@@ -1327,6 +1714,7 @@ func (c *jsiiProxy_CanonicalUserPrincipal) ToString() *string {
 // conditions parameter, the value from the conditions parameter will be used.
 //
 // Returns: a new PrincipalWithConditions object.
+// Experimental.
 func (c *jsiiProxy_CanonicalUserPrincipal) WithConditions(conditions *map[string]interface{}) PrincipalBase {
 	var returns PrincipalBase
 
@@ -1343,6 +1731,7 @@ func (c *jsiiProxy_CanonicalUserPrincipal) WithConditions(conditions *map[string
 // Returns a new principal using this principal as the base, with session tags enabled.
 //
 // Returns: a new SessionTagsPrincipal object.
+// Experimental.
 func (c *jsiiProxy_CanonicalUserPrincipal) WithSessionTags() PrincipalBase {
 	var returns PrincipalBase
 
@@ -1377,7 +1766,7 @@ type CfnAccessKey interface {
 	CfnResourceType() *string
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Serial() *float64
 	SetSerial(val *float64)
@@ -1397,10 +1786,16 @@ type CfnAccessKey interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1470,8 +1865,8 @@ func (j *jsiiProxy_CfnAccessKey) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAccessKey) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnAccessKey) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1542,13 +1937,13 @@ func (j *jsiiProxy_CfnAccessKey) UserName() *string {
 
 
 // Create a new `AWS::IAM::AccessKey`.
-func NewCfnAccessKey(scope constructs.Construct, id *string, props *CfnAccessKeyProps) CfnAccessKey {
+func NewCfnAccessKey(scope awscdk.Construct, id *string, props *CfnAccessKeyProps) CfnAccessKey {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnAccessKey{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.CfnAccessKey",
+		"monocdk.aws_iam.CfnAccessKey",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1557,11 +1952,11 @@ func NewCfnAccessKey(scope constructs.Construct, id *string, props *CfnAccessKey
 }
 
 // Create a new `AWS::IAM::AccessKey`.
-func NewCfnAccessKey_Override(c CfnAccessKey, scope constructs.Construct, id *string, props *CfnAccessKeyProps) {
+func NewCfnAccessKey_Override(c CfnAccessKey, scope awscdk.Construct, id *string, props *CfnAccessKeyProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.CfnAccessKey",
+		"monocdk.aws_iam.CfnAccessKey",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1597,13 +1992,14 @@ func (j *jsiiProxy_CfnAccessKey) SetUserName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnAccessKey_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.CfnAccessKey",
+		"monocdk.aws_iam.CfnAccessKey",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1613,13 +2009,14 @@ func CfnAccessKey_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnAccessKey_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.CfnAccessKey",
+		"monocdk.aws_iam.CfnAccessKey",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1628,17 +2025,15 @@ func CfnAccessKey_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnAccessKey_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.CfnAccessKey",
+		"monocdk.aws_iam.CfnAccessKey",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1651,7 +2046,7 @@ func CfnAccessKey_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_iam.CfnAccessKey",
+		"monocdk.aws_iam.CfnAccessKey",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1659,6 +2054,7 @@ func CfnAccessKey_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnAccessKey) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1671,6 +2067,7 @@ func (c *jsiiProxy_CfnAccessKey) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnAccessKey) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1686,6 +2083,7 @@ func (c *jsiiProxy_CfnAccessKey) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnAccessKey) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1731,6 +2129,7 @@ func (c *jsiiProxy_CfnAccessKey) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnAccessKey) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1740,6 +2139,7 @@ func (c *jsiiProxy_CfnAccessKey) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnAccessKey) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1751,6 +2151,7 @@ func (c *jsiiProxy_CfnAccessKey) AddPropertyDeletionOverride(propertyPath *strin
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnAccessKey) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1768,6 +2169,7 @@ func (c *jsiiProxy_CfnAccessKey) AddPropertyOverride(propertyPath *string, value
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnAccessKey) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1780,6 +2182,7 @@ func (c *jsiiProxy_CfnAccessKey) ApplyRemovalPolicy(policy awscdk.RemovalPolicy,
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnAccessKey) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1800,6 +2203,7 @@ func (c *jsiiProxy_CfnAccessKey) GetAtt(attributeName *string) awscdk.Reference 
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnAccessKey) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1822,12 +2226,80 @@ func (c *jsiiProxy_CfnAccessKey) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnAccessKey) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnAccessKey) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnAccessKey) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnAccessKey) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnAccessKey) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1848,6 +2320,7 @@ func (c *jsiiProxy_CfnAccessKey) RenderProperties(props *map[string]interface{})
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnAccessKey) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1861,9 +2334,23 @@ func (c *jsiiProxy_CfnAccessKey) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnAccessKey) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnAccessKey) ToString() *string {
 	var returns *string
 
@@ -1877,6 +2364,27 @@ func (c *jsiiProxy_CfnAccessKey) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnAccessKey) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnAccessKey) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1925,7 +2433,7 @@ type CfnGroup interface {
 	LogicalId() *string
 	ManagedPolicyArns() *[]*string
 	SetManagedPolicyArns(val *[]*string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Path() *string
 	SetPath(val *string)
 	Policies() interface{}
@@ -1943,10 +2451,16 @@ type CfnGroup interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -2036,8 +2550,8 @@ func (j *jsiiProxy_CfnGroup) ManagedPolicyArns() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGroup) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnGroup) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2098,13 +2612,13 @@ func (j *jsiiProxy_CfnGroup) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::IAM::Group`.
-func NewCfnGroup(scope constructs.Construct, id *string, props *CfnGroupProps) CfnGroup {
+func NewCfnGroup(scope awscdk.Construct, id *string, props *CfnGroupProps) CfnGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnGroup{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.CfnGroup",
+		"monocdk.aws_iam.CfnGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2113,11 +2627,11 @@ func NewCfnGroup(scope constructs.Construct, id *string, props *CfnGroupProps) C
 }
 
 // Create a new `AWS::IAM::Group`.
-func NewCfnGroup_Override(c CfnGroup, scope constructs.Construct, id *string, props *CfnGroupProps) {
+func NewCfnGroup_Override(c CfnGroup, scope awscdk.Construct, id *string, props *CfnGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.CfnGroup",
+		"monocdk.aws_iam.CfnGroup",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2161,13 +2675,14 @@ func (j *jsiiProxy_CfnGroup) SetPolicies(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnGroup_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.CfnGroup",
+		"monocdk.aws_iam.CfnGroup",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2177,13 +2692,14 @@ func CfnGroup_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.CfnGroup",
+		"monocdk.aws_iam.CfnGroup",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2192,17 +2708,15 @@ func CfnGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.CfnGroup",
+		"monocdk.aws_iam.CfnGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2215,7 +2729,7 @@ func CfnGroup_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_iam.CfnGroup",
+		"monocdk.aws_iam.CfnGroup",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2223,6 +2737,7 @@ func CfnGroup_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnGroup) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2235,6 +2750,7 @@ func (c *jsiiProxy_CfnGroup) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnGroup) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2250,6 +2766,7 @@ func (c *jsiiProxy_CfnGroup) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnGroup) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2295,6 +2812,7 @@ func (c *jsiiProxy_CfnGroup) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnGroup) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2304,6 +2822,7 @@ func (c *jsiiProxy_CfnGroup) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnGroup) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2315,6 +2834,7 @@ func (c *jsiiProxy_CfnGroup) AddPropertyDeletionOverride(propertyPath *string) {
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnGroup) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2332,6 +2852,7 @@ func (c *jsiiProxy_CfnGroup) AddPropertyOverride(propertyPath *string, value int
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2344,6 +2865,7 @@ func (c *jsiiProxy_CfnGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, opt
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnGroup) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2364,6 +2886,7 @@ func (c *jsiiProxy_CfnGroup) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnGroup) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2386,12 +2909,80 @@ func (c *jsiiProxy_CfnGroup) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnGroup) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnGroup) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnGroup) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnGroup) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2412,6 +3003,7 @@ func (c *jsiiProxy_CfnGroup) RenderProperties(props *map[string]interface{}) *ma
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnGroup) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2425,9 +3017,23 @@ func (c *jsiiProxy_CfnGroup) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnGroup) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnGroup) ToString() *string {
 	var returns *string
 
@@ -2441,6 +3047,27 @@ func (c *jsiiProxy_CfnGroup) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnGroup) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnGroup) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2518,7 +3145,7 @@ type CfnInstanceProfile interface {
 	InstanceProfileName() *string
 	SetInstanceProfileName(val *string)
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Path() *string
 	SetPath(val *string)
 	Ref() *string
@@ -2536,10 +3163,16 @@ type CfnInstanceProfile interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -2619,8 +3252,8 @@ func (j *jsiiProxy_CfnInstanceProfile) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInstanceProfile) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnInstanceProfile) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2681,13 +3314,13 @@ func (j *jsiiProxy_CfnInstanceProfile) UpdatedProperites() *map[string]interface
 
 
 // Create a new `AWS::IAM::InstanceProfile`.
-func NewCfnInstanceProfile(scope constructs.Construct, id *string, props *CfnInstanceProfileProps) CfnInstanceProfile {
+func NewCfnInstanceProfile(scope awscdk.Construct, id *string, props *CfnInstanceProfileProps) CfnInstanceProfile {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnInstanceProfile{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.CfnInstanceProfile",
+		"monocdk.aws_iam.CfnInstanceProfile",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2696,11 +3329,11 @@ func NewCfnInstanceProfile(scope constructs.Construct, id *string, props *CfnIns
 }
 
 // Create a new `AWS::IAM::InstanceProfile`.
-func NewCfnInstanceProfile_Override(c CfnInstanceProfile, scope constructs.Construct, id *string, props *CfnInstanceProfileProps) {
+func NewCfnInstanceProfile_Override(c CfnInstanceProfile, scope awscdk.Construct, id *string, props *CfnInstanceProfileProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.CfnInstanceProfile",
+		"monocdk.aws_iam.CfnInstanceProfile",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2736,13 +3369,14 @@ func (j *jsiiProxy_CfnInstanceProfile) SetRoles(val *[]*string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnInstanceProfile_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.CfnInstanceProfile",
+		"monocdk.aws_iam.CfnInstanceProfile",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2752,13 +3386,14 @@ func CfnInstanceProfile_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnInstanceProfile_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.CfnInstanceProfile",
+		"monocdk.aws_iam.CfnInstanceProfile",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2767,17 +3402,15 @@ func CfnInstanceProfile_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnInstanceProfile_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.CfnInstanceProfile",
+		"monocdk.aws_iam.CfnInstanceProfile",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2790,7 +3423,7 @@ func CfnInstanceProfile_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_iam.CfnInstanceProfile",
+		"monocdk.aws_iam.CfnInstanceProfile",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2798,6 +3431,7 @@ func CfnInstanceProfile_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnInstanceProfile) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2810,6 +3444,7 @@ func (c *jsiiProxy_CfnInstanceProfile) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnInstanceProfile) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2825,6 +3460,7 @@ func (c *jsiiProxy_CfnInstanceProfile) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnInstanceProfile) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2870,6 +3506,7 @@ func (c *jsiiProxy_CfnInstanceProfile) AddMetadata(key *string, value interface{
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnInstanceProfile) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2879,6 +3516,7 @@ func (c *jsiiProxy_CfnInstanceProfile) AddOverride(path *string, value interface
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnInstanceProfile) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2890,6 +3528,7 @@ func (c *jsiiProxy_CfnInstanceProfile) AddPropertyDeletionOverride(propertyPath 
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnInstanceProfile) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2907,6 +3546,7 @@ func (c *jsiiProxy_CfnInstanceProfile) AddPropertyOverride(propertyPath *string,
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnInstanceProfile) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2919,6 +3559,7 @@ func (c *jsiiProxy_CfnInstanceProfile) ApplyRemovalPolicy(policy awscdk.RemovalP
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnInstanceProfile) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2939,6 +3580,7 @@ func (c *jsiiProxy_CfnInstanceProfile) GetAtt(attributeName *string) awscdk.Refe
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnInstanceProfile) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2961,12 +3603,80 @@ func (c *jsiiProxy_CfnInstanceProfile) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnInstanceProfile) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnInstanceProfile) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnInstanceProfile) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnInstanceProfile) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnInstanceProfile) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2987,6 +3697,7 @@ func (c *jsiiProxy_CfnInstanceProfile) RenderProperties(props *map[string]interf
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnInstanceProfile) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -3000,9 +3711,23 @@ func (c *jsiiProxy_CfnInstanceProfile) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnInstanceProfile) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnInstanceProfile) ToString() *string {
 	var returns *string
 
@@ -3016,6 +3741,27 @@ func (c *jsiiProxy_CfnInstanceProfile) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnInstanceProfile) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnInstanceProfile) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3073,7 +3819,7 @@ type CfnManagedPolicy interface {
 	LogicalId() *string
 	ManagedPolicyName() *string
 	SetManagedPolicyName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Path() *string
 	SetPath(val *string)
 	PolicyDocument() interface{}
@@ -3095,10 +3841,16 @@ type CfnManagedPolicy interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -3188,8 +3940,8 @@ func (j *jsiiProxy_CfnManagedPolicy) ManagedPolicyName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnManagedPolicy) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnManagedPolicy) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -3270,13 +4022,13 @@ func (j *jsiiProxy_CfnManagedPolicy) Users() *[]*string {
 
 
 // Create a new `AWS::IAM::ManagedPolicy`.
-func NewCfnManagedPolicy(scope constructs.Construct, id *string, props *CfnManagedPolicyProps) CfnManagedPolicy {
+func NewCfnManagedPolicy(scope awscdk.Construct, id *string, props *CfnManagedPolicyProps) CfnManagedPolicy {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnManagedPolicy{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.CfnManagedPolicy",
+		"monocdk.aws_iam.CfnManagedPolicy",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3285,11 +4037,11 @@ func NewCfnManagedPolicy(scope constructs.Construct, id *string, props *CfnManag
 }
 
 // Create a new `AWS::IAM::ManagedPolicy`.
-func NewCfnManagedPolicy_Override(c CfnManagedPolicy, scope constructs.Construct, id *string, props *CfnManagedPolicyProps) {
+func NewCfnManagedPolicy_Override(c CfnManagedPolicy, scope awscdk.Construct, id *string, props *CfnManagedPolicyProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.CfnManagedPolicy",
+		"monocdk.aws_iam.CfnManagedPolicy",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -3357,13 +4109,14 @@ func (j *jsiiProxy_CfnManagedPolicy) SetUsers(val *[]*string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnManagedPolicy_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.CfnManagedPolicy",
+		"monocdk.aws_iam.CfnManagedPolicy",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -3373,13 +4126,14 @@ func CfnManagedPolicy_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnManagedPolicy_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.CfnManagedPolicy",
+		"monocdk.aws_iam.CfnManagedPolicy",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3388,17 +4142,15 @@ func CfnManagedPolicy_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnManagedPolicy_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.CfnManagedPolicy",
+		"monocdk.aws_iam.CfnManagedPolicy",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3411,7 +4163,7 @@ func CfnManagedPolicy_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_iam.CfnManagedPolicy",
+		"monocdk.aws_iam.CfnManagedPolicy",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -3419,6 +4171,7 @@ func CfnManagedPolicy_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnManagedPolicy) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3431,6 +4184,7 @@ func (c *jsiiProxy_CfnManagedPolicy) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnManagedPolicy) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3446,6 +4200,7 @@ func (c *jsiiProxy_CfnManagedPolicy) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnManagedPolicy) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3491,6 +4246,7 @@ func (c *jsiiProxy_CfnManagedPolicy) AddMetadata(key *string, value interface{})
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnManagedPolicy) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3500,6 +4256,7 @@ func (c *jsiiProxy_CfnManagedPolicy) AddOverride(path *string, value interface{}
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnManagedPolicy) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3511,6 +4268,7 @@ func (c *jsiiProxy_CfnManagedPolicy) AddPropertyDeletionOverride(propertyPath *s
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnManagedPolicy) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3528,6 +4286,7 @@ func (c *jsiiProxy_CfnManagedPolicy) AddPropertyOverride(propertyPath *string, v
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnManagedPolicy) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3540,6 +4299,7 @@ func (c *jsiiProxy_CfnManagedPolicy) ApplyRemovalPolicy(policy awscdk.RemovalPol
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnManagedPolicy) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -3560,6 +4320,7 @@ func (c *jsiiProxy_CfnManagedPolicy) GetAtt(attributeName *string) awscdk.Refere
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnManagedPolicy) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -3582,12 +4343,80 @@ func (c *jsiiProxy_CfnManagedPolicy) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnManagedPolicy) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnManagedPolicy) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnManagedPolicy) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnManagedPolicy) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnManagedPolicy) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -3608,6 +4437,7 @@ func (c *jsiiProxy_CfnManagedPolicy) RenderProperties(props *map[string]interfac
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnManagedPolicy) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -3621,9 +4451,23 @@ func (c *jsiiProxy_CfnManagedPolicy) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnManagedPolicy) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnManagedPolicy) ToString() *string {
 	var returns *string
 
@@ -3637,6 +4481,27 @@ func (c *jsiiProxy_CfnManagedPolicy) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnManagedPolicy) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnManagedPolicy) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3733,7 +4598,7 @@ type CfnOIDCProvider interface {
 	SetClientIdList(val *[]*string)
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	Tags() awscdk.TagManager
@@ -3752,10 +4617,16 @@ type CfnOIDCProvider interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -3835,8 +4706,8 @@ func (j *jsiiProxy_CfnOIDCProvider) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnOIDCProvider) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnOIDCProvider) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -3907,13 +4778,13 @@ func (j *jsiiProxy_CfnOIDCProvider) Url() *string {
 
 
 // Create a new `AWS::IAM::OIDCProvider`.
-func NewCfnOIDCProvider(scope constructs.Construct, id *string, props *CfnOIDCProviderProps) CfnOIDCProvider {
+func NewCfnOIDCProvider(scope awscdk.Construct, id *string, props *CfnOIDCProviderProps) CfnOIDCProvider {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnOIDCProvider{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.CfnOIDCProvider",
+		"monocdk.aws_iam.CfnOIDCProvider",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3922,11 +4793,11 @@ func NewCfnOIDCProvider(scope constructs.Construct, id *string, props *CfnOIDCPr
 }
 
 // Create a new `AWS::IAM::OIDCProvider`.
-func NewCfnOIDCProvider_Override(c CfnOIDCProvider, scope constructs.Construct, id *string, props *CfnOIDCProviderProps) {
+func NewCfnOIDCProvider_Override(c CfnOIDCProvider, scope awscdk.Construct, id *string, props *CfnOIDCProviderProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.CfnOIDCProvider",
+		"monocdk.aws_iam.CfnOIDCProvider",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -3962,13 +4833,14 @@ func (j *jsiiProxy_CfnOIDCProvider) SetUrl(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnOIDCProvider_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.CfnOIDCProvider",
+		"monocdk.aws_iam.CfnOIDCProvider",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -3978,13 +4850,14 @@ func CfnOIDCProvider_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnOIDCProvider_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.CfnOIDCProvider",
+		"monocdk.aws_iam.CfnOIDCProvider",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3993,17 +4866,15 @@ func CfnOIDCProvider_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnOIDCProvider_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.CfnOIDCProvider",
+		"monocdk.aws_iam.CfnOIDCProvider",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4016,7 +4887,7 @@ func CfnOIDCProvider_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_iam.CfnOIDCProvider",
+		"monocdk.aws_iam.CfnOIDCProvider",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -4024,6 +4895,7 @@ func CfnOIDCProvider_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnOIDCProvider) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4036,6 +4908,7 @@ func (c *jsiiProxy_CfnOIDCProvider) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnOIDCProvider) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4051,6 +4924,7 @@ func (c *jsiiProxy_CfnOIDCProvider) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnOIDCProvider) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4096,6 +4970,7 @@ func (c *jsiiProxy_CfnOIDCProvider) AddMetadata(key *string, value interface{}) 
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnOIDCProvider) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4105,6 +4980,7 @@ func (c *jsiiProxy_CfnOIDCProvider) AddOverride(path *string, value interface{})
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnOIDCProvider) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4116,6 +4992,7 @@ func (c *jsiiProxy_CfnOIDCProvider) AddPropertyDeletionOverride(propertyPath *st
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnOIDCProvider) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4133,6 +5010,7 @@ func (c *jsiiProxy_CfnOIDCProvider) AddPropertyOverride(propertyPath *string, va
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnOIDCProvider) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4145,6 +5023,7 @@ func (c *jsiiProxy_CfnOIDCProvider) ApplyRemovalPolicy(policy awscdk.RemovalPoli
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnOIDCProvider) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -4165,6 +5044,7 @@ func (c *jsiiProxy_CfnOIDCProvider) GetAtt(attributeName *string) awscdk.Referen
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnOIDCProvider) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -4187,12 +5067,80 @@ func (c *jsiiProxy_CfnOIDCProvider) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnOIDCProvider) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnOIDCProvider) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnOIDCProvider) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnOIDCProvider) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnOIDCProvider) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -4213,6 +5161,7 @@ func (c *jsiiProxy_CfnOIDCProvider) RenderProperties(props *map[string]interface
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnOIDCProvider) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -4226,9 +5175,23 @@ func (c *jsiiProxy_CfnOIDCProvider) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnOIDCProvider) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnOIDCProvider) ToString() *string {
 	var returns *string
 
@@ -4242,6 +5205,27 @@ func (c *jsiiProxy_CfnOIDCProvider) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnOIDCProvider) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnOIDCProvider) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4295,7 +5279,7 @@ type CfnPolicy interface {
 	Groups() *[]*string
 	SetGroups(val *[]*string)
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PolicyDocument() interface{}
 	SetPolicyDocument(val interface{})
 	PolicyName() *string
@@ -4317,10 +5301,16 @@ type CfnPolicy interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -4390,8 +5380,8 @@ func (j *jsiiProxy_CfnPolicy) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPolicy) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnPolicy) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -4472,13 +5462,13 @@ func (j *jsiiProxy_CfnPolicy) Users() *[]*string {
 
 
 // Create a new `AWS::IAM::Policy`.
-func NewCfnPolicy(scope constructs.Construct, id *string, props *CfnPolicyProps) CfnPolicy {
+func NewCfnPolicy(scope awscdk.Construct, id *string, props *CfnPolicyProps) CfnPolicy {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnPolicy{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.CfnPolicy",
+		"monocdk.aws_iam.CfnPolicy",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4487,11 +5477,11 @@ func NewCfnPolicy(scope constructs.Construct, id *string, props *CfnPolicyProps)
 }
 
 // Create a new `AWS::IAM::Policy`.
-func NewCfnPolicy_Override(c CfnPolicy, scope constructs.Construct, id *string, props *CfnPolicyProps) {
+func NewCfnPolicy_Override(c CfnPolicy, scope awscdk.Construct, id *string, props *CfnPolicyProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.CfnPolicy",
+		"monocdk.aws_iam.CfnPolicy",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -4543,13 +5533,14 @@ func (j *jsiiProxy_CfnPolicy) SetUsers(val *[]*string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnPolicy_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.CfnPolicy",
+		"monocdk.aws_iam.CfnPolicy",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -4559,13 +5550,14 @@ func CfnPolicy_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnPolicy_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.CfnPolicy",
+		"monocdk.aws_iam.CfnPolicy",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -4574,17 +5566,15 @@ func CfnPolicy_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnPolicy_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.CfnPolicy",
+		"monocdk.aws_iam.CfnPolicy",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4597,7 +5587,7 @@ func CfnPolicy_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_iam.CfnPolicy",
+		"monocdk.aws_iam.CfnPolicy",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -4605,6 +5595,7 @@ func CfnPolicy_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnPolicy) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4617,6 +5608,7 @@ func (c *jsiiProxy_CfnPolicy) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnPolicy) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4632,6 +5624,7 @@ func (c *jsiiProxy_CfnPolicy) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnPolicy) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4677,6 +5670,7 @@ func (c *jsiiProxy_CfnPolicy) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnPolicy) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4686,6 +5680,7 @@ func (c *jsiiProxy_CfnPolicy) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnPolicy) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4697,6 +5692,7 @@ func (c *jsiiProxy_CfnPolicy) AddPropertyDeletionOverride(propertyPath *string) 
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnPolicy) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4714,6 +5710,7 @@ func (c *jsiiProxy_CfnPolicy) AddPropertyOverride(propertyPath *string, value in
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnPolicy) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4726,6 +5723,7 @@ func (c *jsiiProxy_CfnPolicy) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, op
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnPolicy) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -4746,6 +5744,7 @@ func (c *jsiiProxy_CfnPolicy) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnPolicy) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -4768,12 +5767,80 @@ func (c *jsiiProxy_CfnPolicy) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnPolicy) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnPolicy) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnPolicy) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnPolicy) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnPolicy) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -4794,6 +5861,7 @@ func (c *jsiiProxy_CfnPolicy) RenderProperties(props *map[string]interface{}) *m
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnPolicy) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -4807,9 +5875,23 @@ func (c *jsiiProxy_CfnPolicy) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnPolicy) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnPolicy) ToString() *string {
 	var returns *string
 
@@ -4823,6 +5905,27 @@ func (c *jsiiProxy_CfnPolicy) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnPolicy) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnPolicy) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4890,7 +5993,7 @@ type CfnRole interface {
 	SetManagedPolicyArns(val *[]*string)
 	MaxSessionDuration() *float64
 	SetMaxSessionDuration(val *float64)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Path() *string
 	SetPath(val *string)
 	PermissionsBoundary() *string
@@ -4913,10 +6016,16 @@ type CfnRole interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -5036,8 +6145,8 @@ func (j *jsiiProxy_CfnRole) MaxSessionDuration() *float64 {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRole) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnRole) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -5128,13 +6237,13 @@ func (j *jsiiProxy_CfnRole) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::IAM::Role`.
-func NewCfnRole(scope constructs.Construct, id *string, props *CfnRoleProps) CfnRole {
+func NewCfnRole(scope awscdk.Construct, id *string, props *CfnRoleProps) CfnRole {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnRole{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.CfnRole",
+		"monocdk.aws_iam.CfnRole",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5143,11 +6252,11 @@ func NewCfnRole(scope constructs.Construct, id *string, props *CfnRoleProps) Cfn
 }
 
 // Create a new `AWS::IAM::Role`.
-func NewCfnRole_Override(c CfnRole, scope constructs.Construct, id *string, props *CfnRoleProps) {
+func NewCfnRole_Override(c CfnRole, scope awscdk.Construct, id *string, props *CfnRoleProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.CfnRole",
+		"monocdk.aws_iam.CfnRole",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -5223,13 +6332,14 @@ func (j *jsiiProxy_CfnRole) SetRoleName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnRole_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.CfnRole",
+		"monocdk.aws_iam.CfnRole",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -5239,13 +6349,14 @@ func CfnRole_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnRole_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.CfnRole",
+		"monocdk.aws_iam.CfnRole",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -5254,17 +6365,15 @@ func CfnRole_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnRole_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.CfnRole",
+		"monocdk.aws_iam.CfnRole",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -5277,7 +6386,7 @@ func CfnRole_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_iam.CfnRole",
+		"monocdk.aws_iam.CfnRole",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -5285,6 +6394,7 @@ func CfnRole_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnRole) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5297,6 +6407,7 @@ func (c *jsiiProxy_CfnRole) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnRole) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5312,6 +6423,7 @@ func (c *jsiiProxy_CfnRole) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnRole) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5357,6 +6469,7 @@ func (c *jsiiProxy_CfnRole) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnRole) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5366,6 +6479,7 @@ func (c *jsiiProxy_CfnRole) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnRole) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5377,6 +6491,7 @@ func (c *jsiiProxy_CfnRole) AddPropertyDeletionOverride(propertyPath *string) {
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnRole) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5394,6 +6509,7 @@ func (c *jsiiProxy_CfnRole) AddPropertyOverride(propertyPath *string, value inte
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnRole) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5406,6 +6522,7 @@ func (c *jsiiProxy_CfnRole) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, opti
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnRole) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -5426,6 +6543,7 @@ func (c *jsiiProxy_CfnRole) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnRole) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -5448,12 +6566,80 @@ func (c *jsiiProxy_CfnRole) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnRole) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnRole) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnRole) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnRole) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnRole) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -5474,6 +6660,7 @@ func (c *jsiiProxy_CfnRole) RenderProperties(props *map[string]interface{}) *map
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnRole) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -5487,9 +6674,23 @@ func (c *jsiiProxy_CfnRole) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnRole) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnRole) ToString() *string {
 	var returns *string
 
@@ -5503,6 +6704,27 @@ func (c *jsiiProxy_CfnRole) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnRole) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnRole) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5610,7 +6832,7 @@ type CfnSAMLProvider interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	SamlMetadataDocument() *string
 	SetSamlMetadataDocument(val *string)
@@ -5627,10 +6849,16 @@ type CfnSAMLProvider interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -5710,8 +6938,8 @@ func (j *jsiiProxy_CfnSAMLProvider) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSAMLProvider) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnSAMLProvider) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -5772,13 +7000,13 @@ func (j *jsiiProxy_CfnSAMLProvider) UpdatedProperites() *map[string]interface{} 
 
 
 // Create a new `AWS::IAM::SAMLProvider`.
-func NewCfnSAMLProvider(scope constructs.Construct, id *string, props *CfnSAMLProviderProps) CfnSAMLProvider {
+func NewCfnSAMLProvider(scope awscdk.Construct, id *string, props *CfnSAMLProviderProps) CfnSAMLProvider {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnSAMLProvider{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.CfnSAMLProvider",
+		"monocdk.aws_iam.CfnSAMLProvider",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5787,11 +7015,11 @@ func NewCfnSAMLProvider(scope constructs.Construct, id *string, props *CfnSAMLPr
 }
 
 // Create a new `AWS::IAM::SAMLProvider`.
-func NewCfnSAMLProvider_Override(c CfnSAMLProvider, scope constructs.Construct, id *string, props *CfnSAMLProviderProps) {
+func NewCfnSAMLProvider_Override(c CfnSAMLProvider, scope awscdk.Construct, id *string, props *CfnSAMLProviderProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.CfnSAMLProvider",
+		"monocdk.aws_iam.CfnSAMLProvider",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -5819,13 +7047,14 @@ func (j *jsiiProxy_CfnSAMLProvider) SetSamlMetadataDocument(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnSAMLProvider_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.CfnSAMLProvider",
+		"monocdk.aws_iam.CfnSAMLProvider",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -5835,13 +7064,14 @@ func CfnSAMLProvider_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnSAMLProvider_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.CfnSAMLProvider",
+		"monocdk.aws_iam.CfnSAMLProvider",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -5850,17 +7080,15 @@ func CfnSAMLProvider_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnSAMLProvider_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.CfnSAMLProvider",
+		"monocdk.aws_iam.CfnSAMLProvider",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -5873,7 +7101,7 @@ func CfnSAMLProvider_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_iam.CfnSAMLProvider",
+		"monocdk.aws_iam.CfnSAMLProvider",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -5881,6 +7109,7 @@ func CfnSAMLProvider_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnSAMLProvider) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5893,6 +7122,7 @@ func (c *jsiiProxy_CfnSAMLProvider) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnSAMLProvider) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5908,6 +7138,7 @@ func (c *jsiiProxy_CfnSAMLProvider) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnSAMLProvider) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5953,6 +7184,7 @@ func (c *jsiiProxy_CfnSAMLProvider) AddMetadata(key *string, value interface{}) 
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnSAMLProvider) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5962,6 +7194,7 @@ func (c *jsiiProxy_CfnSAMLProvider) AddOverride(path *string, value interface{})
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnSAMLProvider) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5973,6 +7206,7 @@ func (c *jsiiProxy_CfnSAMLProvider) AddPropertyDeletionOverride(propertyPath *st
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnSAMLProvider) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5990,6 +7224,7 @@ func (c *jsiiProxy_CfnSAMLProvider) AddPropertyOverride(propertyPath *string, va
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnSAMLProvider) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6002,6 +7237,7 @@ func (c *jsiiProxy_CfnSAMLProvider) ApplyRemovalPolicy(policy awscdk.RemovalPoli
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnSAMLProvider) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -6022,6 +7258,7 @@ func (c *jsiiProxy_CfnSAMLProvider) GetAtt(attributeName *string) awscdk.Referen
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnSAMLProvider) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -6044,12 +7281,80 @@ func (c *jsiiProxy_CfnSAMLProvider) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnSAMLProvider) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnSAMLProvider) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnSAMLProvider) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnSAMLProvider) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnSAMLProvider) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -6070,6 +7375,7 @@ func (c *jsiiProxy_CfnSAMLProvider) RenderProperties(props *map[string]interface
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnSAMLProvider) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -6083,9 +7389,23 @@ func (c *jsiiProxy_CfnSAMLProvider) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnSAMLProvider) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnSAMLProvider) ToString() *string {
 	var returns *string
 
@@ -6099,6 +7419,27 @@ func (c *jsiiProxy_CfnSAMLProvider) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnSAMLProvider) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnSAMLProvider) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6155,7 +7496,7 @@ type CfnServerCertificate interface {
 	CfnResourceType() *string
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Path() *string
 	SetPath(val *string)
 	PrivateKey() *string
@@ -6176,10 +7517,16 @@ type CfnServerCertificate interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -6269,8 +7616,8 @@ func (j *jsiiProxy_CfnServerCertificate) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnServerCertificate) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnServerCertificate) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -6351,13 +7698,13 @@ func (j *jsiiProxy_CfnServerCertificate) UpdatedProperites() *map[string]interfa
 
 
 // Create a new `AWS::IAM::ServerCertificate`.
-func NewCfnServerCertificate(scope constructs.Construct, id *string, props *CfnServerCertificateProps) CfnServerCertificate {
+func NewCfnServerCertificate(scope awscdk.Construct, id *string, props *CfnServerCertificateProps) CfnServerCertificate {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnServerCertificate{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.CfnServerCertificate",
+		"monocdk.aws_iam.CfnServerCertificate",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -6366,11 +7713,11 @@ func NewCfnServerCertificate(scope constructs.Construct, id *string, props *CfnS
 }
 
 // Create a new `AWS::IAM::ServerCertificate`.
-func NewCfnServerCertificate_Override(c CfnServerCertificate, scope constructs.Construct, id *string, props *CfnServerCertificateProps) {
+func NewCfnServerCertificate_Override(c CfnServerCertificate, scope awscdk.Construct, id *string, props *CfnServerCertificateProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.CfnServerCertificate",
+		"monocdk.aws_iam.CfnServerCertificate",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -6422,13 +7769,14 @@ func (j *jsiiProxy_CfnServerCertificate) SetServerCertificateName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnServerCertificate_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.CfnServerCertificate",
+		"monocdk.aws_iam.CfnServerCertificate",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -6438,13 +7786,14 @@ func CfnServerCertificate_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnServerCertificate_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.CfnServerCertificate",
+		"monocdk.aws_iam.CfnServerCertificate",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -6453,17 +7802,15 @@ func CfnServerCertificate_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnServerCertificate_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.CfnServerCertificate",
+		"monocdk.aws_iam.CfnServerCertificate",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -6476,7 +7823,7 @@ func CfnServerCertificate_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_iam.CfnServerCertificate",
+		"monocdk.aws_iam.CfnServerCertificate",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -6484,6 +7831,7 @@ func CfnServerCertificate_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnServerCertificate) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6496,6 +7844,7 @@ func (c *jsiiProxy_CfnServerCertificate) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnServerCertificate) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6511,6 +7860,7 @@ func (c *jsiiProxy_CfnServerCertificate) AddDependsOn(target awscdk.CfnResource)
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnServerCertificate) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6556,6 +7906,7 @@ func (c *jsiiProxy_CfnServerCertificate) AddMetadata(key *string, value interfac
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnServerCertificate) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6565,6 +7916,7 @@ func (c *jsiiProxy_CfnServerCertificate) AddOverride(path *string, value interfa
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnServerCertificate) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6576,6 +7928,7 @@ func (c *jsiiProxy_CfnServerCertificate) AddPropertyDeletionOverride(propertyPat
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnServerCertificate) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6593,6 +7946,7 @@ func (c *jsiiProxy_CfnServerCertificate) AddPropertyOverride(propertyPath *strin
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnServerCertificate) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6605,6 +7959,7 @@ func (c *jsiiProxy_CfnServerCertificate) ApplyRemovalPolicy(policy awscdk.Remova
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnServerCertificate) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -6625,6 +7980,7 @@ func (c *jsiiProxy_CfnServerCertificate) GetAtt(attributeName *string) awscdk.Re
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnServerCertificate) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -6647,12 +8003,80 @@ func (c *jsiiProxy_CfnServerCertificate) Inspect(inspector awscdk.TreeInspector)
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnServerCertificate) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnServerCertificate) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnServerCertificate) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnServerCertificate) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnServerCertificate) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -6673,6 +8097,7 @@ func (c *jsiiProxy_CfnServerCertificate) RenderProperties(props *map[string]inte
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnServerCertificate) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -6686,9 +8111,23 @@ func (c *jsiiProxy_CfnServerCertificate) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnServerCertificate) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnServerCertificate) ToString() *string {
 	var returns *string
 
@@ -6702,6 +8141,27 @@ func (c *jsiiProxy_CfnServerCertificate) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnServerCertificate) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnServerCertificate) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6769,7 +8229,7 @@ type CfnServiceLinkedRole interface {
 	Description() *string
 	SetDescription(val *string)
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	UpdatedProperites() *map[string]interface{}
@@ -6783,10 +8243,16 @@ type CfnServiceLinkedRole interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -6876,8 +8342,8 @@ func (j *jsiiProxy_CfnServiceLinkedRole) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnServiceLinkedRole) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnServiceLinkedRole) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -6918,13 +8384,13 @@ func (j *jsiiProxy_CfnServiceLinkedRole) UpdatedProperites() *map[string]interfa
 
 
 // Create a new `AWS::IAM::ServiceLinkedRole`.
-func NewCfnServiceLinkedRole(scope constructs.Construct, id *string, props *CfnServiceLinkedRoleProps) CfnServiceLinkedRole {
+func NewCfnServiceLinkedRole(scope awscdk.Construct, id *string, props *CfnServiceLinkedRoleProps) CfnServiceLinkedRole {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnServiceLinkedRole{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.CfnServiceLinkedRole",
+		"monocdk.aws_iam.CfnServiceLinkedRole",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -6933,11 +8399,11 @@ func NewCfnServiceLinkedRole(scope constructs.Construct, id *string, props *CfnS
 }
 
 // Create a new `AWS::IAM::ServiceLinkedRole`.
-func NewCfnServiceLinkedRole_Override(c CfnServiceLinkedRole, scope constructs.Construct, id *string, props *CfnServiceLinkedRoleProps) {
+func NewCfnServiceLinkedRole_Override(c CfnServiceLinkedRole, scope awscdk.Construct, id *string, props *CfnServiceLinkedRoleProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.CfnServiceLinkedRole",
+		"monocdk.aws_iam.CfnServiceLinkedRole",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -6973,13 +8439,14 @@ func (j *jsiiProxy_CfnServiceLinkedRole) SetDescription(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnServiceLinkedRole_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.CfnServiceLinkedRole",
+		"monocdk.aws_iam.CfnServiceLinkedRole",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -6989,13 +8456,14 @@ func CfnServiceLinkedRole_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnServiceLinkedRole_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.CfnServiceLinkedRole",
+		"monocdk.aws_iam.CfnServiceLinkedRole",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -7004,17 +8472,15 @@ func CfnServiceLinkedRole_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnServiceLinkedRole_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.CfnServiceLinkedRole",
+		"monocdk.aws_iam.CfnServiceLinkedRole",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -7027,7 +8493,7 @@ func CfnServiceLinkedRole_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_iam.CfnServiceLinkedRole",
+		"monocdk.aws_iam.CfnServiceLinkedRole",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -7035,6 +8501,7 @@ func CfnServiceLinkedRole_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnServiceLinkedRole) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7047,6 +8514,7 @@ func (c *jsiiProxy_CfnServiceLinkedRole) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnServiceLinkedRole) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7062,6 +8530,7 @@ func (c *jsiiProxy_CfnServiceLinkedRole) AddDependsOn(target awscdk.CfnResource)
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnServiceLinkedRole) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7107,6 +8576,7 @@ func (c *jsiiProxy_CfnServiceLinkedRole) AddMetadata(key *string, value interfac
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnServiceLinkedRole) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7116,6 +8586,7 @@ func (c *jsiiProxy_CfnServiceLinkedRole) AddOverride(path *string, value interfa
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnServiceLinkedRole) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7127,6 +8598,7 @@ func (c *jsiiProxy_CfnServiceLinkedRole) AddPropertyDeletionOverride(propertyPat
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnServiceLinkedRole) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7144,6 +8616,7 @@ func (c *jsiiProxy_CfnServiceLinkedRole) AddPropertyOverride(propertyPath *strin
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnServiceLinkedRole) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7156,6 +8629,7 @@ func (c *jsiiProxy_CfnServiceLinkedRole) ApplyRemovalPolicy(policy awscdk.Remova
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnServiceLinkedRole) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -7176,6 +8650,7 @@ func (c *jsiiProxy_CfnServiceLinkedRole) GetAtt(attributeName *string) awscdk.Re
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnServiceLinkedRole) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -7198,12 +8673,80 @@ func (c *jsiiProxy_CfnServiceLinkedRole) Inspect(inspector awscdk.TreeInspector)
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnServiceLinkedRole) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnServiceLinkedRole) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnServiceLinkedRole) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnServiceLinkedRole) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnServiceLinkedRole) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -7224,6 +8767,7 @@ func (c *jsiiProxy_CfnServiceLinkedRole) RenderProperties(props *map[string]inte
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnServiceLinkedRole) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -7237,9 +8781,23 @@ func (c *jsiiProxy_CfnServiceLinkedRole) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnServiceLinkedRole) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnServiceLinkedRole) ToString() *string {
 	var returns *string
 
@@ -7253,6 +8811,27 @@ func (c *jsiiProxy_CfnServiceLinkedRole) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnServiceLinkedRole) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnServiceLinkedRole) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7305,7 +8884,7 @@ type CfnUser interface {
 	SetLoginProfile(val interface{})
 	ManagedPolicyArns() *[]*string
 	SetManagedPolicyArns(val *[]*string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Path() *string
 	SetPath(val *string)
 	PermissionsBoundary() *string
@@ -7328,10 +8907,16 @@ type CfnUser interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -7431,8 +9016,8 @@ func (j *jsiiProxy_CfnUser) ManagedPolicyArns() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUser) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnUser) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -7523,13 +9108,13 @@ func (j *jsiiProxy_CfnUser) UserName() *string {
 
 
 // Create a new `AWS::IAM::User`.
-func NewCfnUser(scope constructs.Construct, id *string, props *CfnUserProps) CfnUser {
+func NewCfnUser(scope awscdk.Construct, id *string, props *CfnUserProps) CfnUser {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnUser{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.CfnUser",
+		"monocdk.aws_iam.CfnUser",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -7538,11 +9123,11 @@ func NewCfnUser(scope constructs.Construct, id *string, props *CfnUserProps) Cfn
 }
 
 // Create a new `AWS::IAM::User`.
-func NewCfnUser_Override(c CfnUser, scope constructs.Construct, id *string, props *CfnUserProps) {
+func NewCfnUser_Override(c CfnUser, scope awscdk.Construct, id *string, props *CfnUserProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.CfnUser",
+		"monocdk.aws_iam.CfnUser",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -7610,13 +9195,14 @@ func (j *jsiiProxy_CfnUser) SetUserName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnUser_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.CfnUser",
+		"monocdk.aws_iam.CfnUser",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -7626,13 +9212,14 @@ func CfnUser_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnUser_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.CfnUser",
+		"monocdk.aws_iam.CfnUser",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -7641,17 +9228,15 @@ func CfnUser_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnUser_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.CfnUser",
+		"monocdk.aws_iam.CfnUser",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -7664,7 +9249,7 @@ func CfnUser_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_iam.CfnUser",
+		"monocdk.aws_iam.CfnUser",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -7672,6 +9257,7 @@ func CfnUser_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnUser) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7684,6 +9270,7 @@ func (c *jsiiProxy_CfnUser) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnUser) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7699,6 +9286,7 @@ func (c *jsiiProxy_CfnUser) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnUser) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7744,6 +9332,7 @@ func (c *jsiiProxy_CfnUser) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnUser) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7753,6 +9342,7 @@ func (c *jsiiProxy_CfnUser) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnUser) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7764,6 +9354,7 @@ func (c *jsiiProxy_CfnUser) AddPropertyDeletionOverride(propertyPath *string) {
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnUser) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7781,6 +9372,7 @@ func (c *jsiiProxy_CfnUser) AddPropertyOverride(propertyPath *string, value inte
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnUser) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7793,6 +9385,7 @@ func (c *jsiiProxy_CfnUser) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, opti
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnUser) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -7813,6 +9406,7 @@ func (c *jsiiProxy_CfnUser) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnUser) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -7835,12 +9429,80 @@ func (c *jsiiProxy_CfnUser) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnUser) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnUser) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnUser) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnUser) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnUser) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -7861,6 +9523,7 @@ func (c *jsiiProxy_CfnUser) RenderProperties(props *map[string]interface{}) *map
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnUser) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -7874,9 +9537,23 @@ func (c *jsiiProxy_CfnUser) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnUser) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnUser) ToString() *string {
 	var returns *string
 
@@ -7890,6 +9567,27 @@ func (c *jsiiProxy_CfnUser) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnUser) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnUser) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7997,7 +9695,7 @@ type CfnUserToGroupAddition interface {
 	GroupName() *string
 	SetGroupName(val *string)
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	UpdatedProperites() *map[string]interface{}
@@ -8013,10 +9711,16 @@ type CfnUserToGroupAddition interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -8086,8 +9790,8 @@ func (j *jsiiProxy_CfnUserToGroupAddition) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserToGroupAddition) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnUserToGroupAddition) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -8138,13 +9842,13 @@ func (j *jsiiProxy_CfnUserToGroupAddition) Users() *[]*string {
 
 
 // Create a new `AWS::IAM::UserToGroupAddition`.
-func NewCfnUserToGroupAddition(scope constructs.Construct, id *string, props *CfnUserToGroupAdditionProps) CfnUserToGroupAddition {
+func NewCfnUserToGroupAddition(scope awscdk.Construct, id *string, props *CfnUserToGroupAdditionProps) CfnUserToGroupAddition {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnUserToGroupAddition{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.CfnUserToGroupAddition",
+		"monocdk.aws_iam.CfnUserToGroupAddition",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -8153,11 +9857,11 @@ func NewCfnUserToGroupAddition(scope constructs.Construct, id *string, props *Cf
 }
 
 // Create a new `AWS::IAM::UserToGroupAddition`.
-func NewCfnUserToGroupAddition_Override(c CfnUserToGroupAddition, scope constructs.Construct, id *string, props *CfnUserToGroupAdditionProps) {
+func NewCfnUserToGroupAddition_Override(c CfnUserToGroupAddition, scope awscdk.Construct, id *string, props *CfnUserToGroupAdditionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.CfnUserToGroupAddition",
+		"monocdk.aws_iam.CfnUserToGroupAddition",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -8185,13 +9889,14 @@ func (j *jsiiProxy_CfnUserToGroupAddition) SetUsers(val *[]*string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnUserToGroupAddition_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.CfnUserToGroupAddition",
+		"monocdk.aws_iam.CfnUserToGroupAddition",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -8201,13 +9906,14 @@ func CfnUserToGroupAddition_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnUserToGroupAddition_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.CfnUserToGroupAddition",
+		"monocdk.aws_iam.CfnUserToGroupAddition",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -8216,17 +9922,15 @@ func CfnUserToGroupAddition_IsCfnResource(construct constructs.IConstruct) *bool
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnUserToGroupAddition_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.CfnUserToGroupAddition",
+		"monocdk.aws_iam.CfnUserToGroupAddition",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -8239,7 +9943,7 @@ func CfnUserToGroupAddition_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_iam.CfnUserToGroupAddition",
+		"monocdk.aws_iam.CfnUserToGroupAddition",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -8247,6 +9951,7 @@ func CfnUserToGroupAddition_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnUserToGroupAddition) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8259,6 +9964,7 @@ func (c *jsiiProxy_CfnUserToGroupAddition) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnUserToGroupAddition) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8274,6 +9980,7 @@ func (c *jsiiProxy_CfnUserToGroupAddition) AddDependsOn(target awscdk.CfnResourc
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnUserToGroupAddition) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8319,6 +10026,7 @@ func (c *jsiiProxy_CfnUserToGroupAddition) AddMetadata(key *string, value interf
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnUserToGroupAddition) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8328,6 +10036,7 @@ func (c *jsiiProxy_CfnUserToGroupAddition) AddOverride(path *string, value inter
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnUserToGroupAddition) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8339,6 +10048,7 @@ func (c *jsiiProxy_CfnUserToGroupAddition) AddPropertyDeletionOverride(propertyP
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnUserToGroupAddition) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8356,6 +10066,7 @@ func (c *jsiiProxy_CfnUserToGroupAddition) AddPropertyOverride(propertyPath *str
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnUserToGroupAddition) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8368,6 +10079,7 @@ func (c *jsiiProxy_CfnUserToGroupAddition) ApplyRemovalPolicy(policy awscdk.Remo
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnUserToGroupAddition) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -8388,6 +10100,7 @@ func (c *jsiiProxy_CfnUserToGroupAddition) GetAtt(attributeName *string) awscdk.
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnUserToGroupAddition) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -8410,12 +10123,80 @@ func (c *jsiiProxy_CfnUserToGroupAddition) Inspect(inspector awscdk.TreeInspecto
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnUserToGroupAddition) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnUserToGroupAddition) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnUserToGroupAddition) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnUserToGroupAddition) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnUserToGroupAddition) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -8436,6 +10217,7 @@ func (c *jsiiProxy_CfnUserToGroupAddition) RenderProperties(props *map[string]in
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnUserToGroupAddition) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -8449,9 +10231,23 @@ func (c *jsiiProxy_CfnUserToGroupAddition) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnUserToGroupAddition) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnUserToGroupAddition) ToString() *string {
 	var returns *string
 
@@ -8465,6 +10261,27 @@ func (c *jsiiProxy_CfnUserToGroupAddition) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnUserToGroupAddition) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnUserToGroupAddition) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8505,7 +10322,7 @@ type CfnVirtualMFADevice interface {
 	CfnResourceType() *string
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Path() *string
 	SetPath(val *string)
 	Ref() *string
@@ -8526,10 +10343,16 @@ type CfnVirtualMFADevice interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -8599,8 +10422,8 @@ func (j *jsiiProxy_CfnVirtualMFADevice) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVirtualMFADevice) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnVirtualMFADevice) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -8681,13 +10504,13 @@ func (j *jsiiProxy_CfnVirtualMFADevice) VirtualMfaDeviceName() *string {
 
 
 // Create a new `AWS::IAM::VirtualMFADevice`.
-func NewCfnVirtualMFADevice(scope constructs.Construct, id *string, props *CfnVirtualMFADeviceProps) CfnVirtualMFADevice {
+func NewCfnVirtualMFADevice(scope awscdk.Construct, id *string, props *CfnVirtualMFADeviceProps) CfnVirtualMFADevice {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnVirtualMFADevice{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.CfnVirtualMFADevice",
+		"monocdk.aws_iam.CfnVirtualMFADevice",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -8696,11 +10519,11 @@ func NewCfnVirtualMFADevice(scope constructs.Construct, id *string, props *CfnVi
 }
 
 // Create a new `AWS::IAM::VirtualMFADevice`.
-func NewCfnVirtualMFADevice_Override(c CfnVirtualMFADevice, scope constructs.Construct, id *string, props *CfnVirtualMFADeviceProps) {
+func NewCfnVirtualMFADevice_Override(c CfnVirtualMFADevice, scope awscdk.Construct, id *string, props *CfnVirtualMFADeviceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.CfnVirtualMFADevice",
+		"monocdk.aws_iam.CfnVirtualMFADevice",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -8736,13 +10559,14 @@ func (j *jsiiProxy_CfnVirtualMFADevice) SetVirtualMfaDeviceName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnVirtualMFADevice_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.CfnVirtualMFADevice",
+		"monocdk.aws_iam.CfnVirtualMFADevice",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -8752,13 +10576,14 @@ func CfnVirtualMFADevice_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnVirtualMFADevice_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.CfnVirtualMFADevice",
+		"monocdk.aws_iam.CfnVirtualMFADevice",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -8767,17 +10592,15 @@ func CfnVirtualMFADevice_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnVirtualMFADevice_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.CfnVirtualMFADevice",
+		"monocdk.aws_iam.CfnVirtualMFADevice",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -8790,7 +10613,7 @@ func CfnVirtualMFADevice_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_iam.CfnVirtualMFADevice",
+		"monocdk.aws_iam.CfnVirtualMFADevice",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -8798,6 +10621,7 @@ func CfnVirtualMFADevice_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnVirtualMFADevice) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8810,6 +10634,7 @@ func (c *jsiiProxy_CfnVirtualMFADevice) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnVirtualMFADevice) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8825,6 +10650,7 @@ func (c *jsiiProxy_CfnVirtualMFADevice) AddDependsOn(target awscdk.CfnResource) 
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnVirtualMFADevice) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8870,6 +10696,7 @@ func (c *jsiiProxy_CfnVirtualMFADevice) AddMetadata(key *string, value interface
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnVirtualMFADevice) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8879,6 +10706,7 @@ func (c *jsiiProxy_CfnVirtualMFADevice) AddOverride(path *string, value interfac
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnVirtualMFADevice) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8890,6 +10718,7 @@ func (c *jsiiProxy_CfnVirtualMFADevice) AddPropertyDeletionOverride(propertyPath
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnVirtualMFADevice) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8907,6 +10736,7 @@ func (c *jsiiProxy_CfnVirtualMFADevice) AddPropertyOverride(propertyPath *string
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnVirtualMFADevice) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8919,6 +10749,7 @@ func (c *jsiiProxy_CfnVirtualMFADevice) ApplyRemovalPolicy(policy awscdk.Removal
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnVirtualMFADevice) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -8939,6 +10770,7 @@ func (c *jsiiProxy_CfnVirtualMFADevice) GetAtt(attributeName *string) awscdk.Ref
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnVirtualMFADevice) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -8961,12 +10793,80 @@ func (c *jsiiProxy_CfnVirtualMFADevice) Inspect(inspector awscdk.TreeInspector) 
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnVirtualMFADevice) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnVirtualMFADevice) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnVirtualMFADevice) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnVirtualMFADevice) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnVirtualMFADevice) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -8987,6 +10887,7 @@ func (c *jsiiProxy_CfnVirtualMFADevice) RenderProperties(props *map[string]inter
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnVirtualMFADevice) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -9000,9 +10901,23 @@ func (c *jsiiProxy_CfnVirtualMFADevice) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnVirtualMFADevice) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnVirtualMFADevice) ToString() *string {
 	var returns *string
 
@@ -9016,6 +10931,27 @@ func (c *jsiiProxy_CfnVirtualMFADevice) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnVirtualMFADevice) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnVirtualMFADevice) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -9055,12 +10991,16 @@ type CfnVirtualMFADeviceProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type CommonGrantOptions struct {
 	// The actions to grant.
+	// Experimental.
 	Actions *[]*string `json:"actions" yaml:"actions"`
 	// The principal to grant to.
+	// Experimental.
 	Grantee IGrantable `json:"grantee" yaml:"grantee"`
 	// The resource ARNs to grant to.
+	// Experimental.
 	ResourceArns *[]*string `json:"resourceArns" yaml:"resourceArns"`
 }
 
@@ -9072,16 +11012,18 @@ type CommonGrantOptions struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type CompositeDependable interface {
-	constructs.IDependable
+	awscdk.IDependable
 }
 
 // The jsii proxy struct for CompositeDependable
 type jsiiProxy_CompositeDependable struct {
-	internal.Type__constructsIDependable
+	internal.Type__awscdkIDependable
 }
 
-func NewCompositeDependable(dependables ...constructs.IDependable) CompositeDependable {
+// Experimental.
+func NewCompositeDependable(dependables ...awscdk.IDependable) CompositeDependable {
 	_init_.Initialize()
 
 	args := []interface{}{}
@@ -9092,7 +11034,7 @@ func NewCompositeDependable(dependables ...constructs.IDependable) CompositeDepe
 	j := jsiiProxy_CompositeDependable{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.CompositeDependable",
+		"monocdk.aws_iam.CompositeDependable",
 		args,
 		&j,
 	)
@@ -9100,7 +11042,8 @@ func NewCompositeDependable(dependables ...constructs.IDependable) CompositeDepe
 	return &j
 }
 
-func NewCompositeDependable_Override(c CompositeDependable, dependables ...constructs.IDependable) {
+// Experimental.
+func NewCompositeDependable_Override(c CompositeDependable, dependables ...awscdk.IDependable) {
 	_init_.Initialize()
 
 	args := []interface{}{}
@@ -9109,7 +11052,7 @@ func NewCompositeDependable_Override(c CompositeDependable, dependables ...const
 	}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.CompositeDependable",
+		"monocdk.aws_iam.CompositeDependable",
 		args,
 		c,
 	)
@@ -9122,6 +11065,7 @@ func NewCompositeDependable_Override(c CompositeDependable, dependables ...const
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type CompositePrincipal interface {
 	PrincipalBase
 	AssumeRoleAction() *string
@@ -9184,6 +11128,7 @@ func (j *jsiiProxy_CompositePrincipal) PrincipalAccount() *string {
 }
 
 
+// Experimental.
 func NewCompositePrincipal(principals ...IPrincipal) CompositePrincipal {
 	_init_.Initialize()
 
@@ -9195,7 +11140,7 @@ func NewCompositePrincipal(principals ...IPrincipal) CompositePrincipal {
 	j := jsiiProxy_CompositePrincipal{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.CompositePrincipal",
+		"monocdk.aws_iam.CompositePrincipal",
 		args,
 		&j,
 	)
@@ -9203,6 +11148,7 @@ func NewCompositePrincipal(principals ...IPrincipal) CompositePrincipal {
 	return &j
 }
 
+// Experimental.
 func NewCompositePrincipal_Override(c CompositePrincipal, principals ...IPrincipal) {
 	_init_.Initialize()
 
@@ -9212,7 +11158,7 @@ func NewCompositePrincipal_Override(c CompositePrincipal, principals ...IPrincip
 	}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.CompositePrincipal",
+		"monocdk.aws_iam.CompositePrincipal",
 		args,
 		c,
 	)
@@ -9222,6 +11168,7 @@ func NewCompositePrincipal_Override(c CompositePrincipal, principals ...IPrincip
 //
 // Composite principals cannot have
 // conditions.
+// Experimental.
 func (c *jsiiProxy_CompositePrincipal) AddPrincipals(principals ...IPrincipal) CompositePrincipal {
 	args := []interface{}{}
 	for _, a := range principals {
@@ -9244,6 +11191,7 @@ func (c *jsiiProxy_CompositePrincipal) AddPrincipals(principals ...IPrincipal) C
 //
 // Add the statements to the AssumeRolePolicyDocument necessary to give this principal
 // permissions to assume the given role.
+// Experimental.
 func (c *jsiiProxy_CompositePrincipal) AddToAssumeRolePolicy(doc PolicyDocument) {
 	_jsii_.InvokeVoid(
 		c,
@@ -9253,6 +11201,7 @@ func (c *jsiiProxy_CompositePrincipal) AddToAssumeRolePolicy(doc PolicyDocument)
 }
 
 // Add to the policy of this principal.
+// Experimental.
 func (c *jsiiProxy_CompositePrincipal) AddToPolicy(statement PolicyStatement) *bool {
 	var returns *bool
 
@@ -9267,6 +11216,7 @@ func (c *jsiiProxy_CompositePrincipal) AddToPolicy(statement PolicyStatement) *b
 }
 
 // Add to the policy of this principal.
+// Experimental.
 func (c *jsiiProxy_CompositePrincipal) AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult {
 	var returns *AddToPrincipalPolicyResult
 
@@ -9283,6 +11233,7 @@ func (c *jsiiProxy_CompositePrincipal) AddToPrincipalPolicy(_statement PolicySta
 // JSON-ify the principal.
 //
 // Used when JSON.stringify() is called
+// Experimental.
 func (c *jsiiProxy_CompositePrincipal) ToJSON() *map[string]*[]*string {
 	var returns *map[string]*[]*string
 
@@ -9297,6 +11248,7 @@ func (c *jsiiProxy_CompositePrincipal) ToJSON() *map[string]*[]*string {
 }
 
 // Returns a string representation of an object.
+// Experimental.
 func (c *jsiiProxy_CompositePrincipal) ToString() *string {
 	var returns *string
 
@@ -9316,6 +11268,7 @@ func (c *jsiiProxy_CompositePrincipal) ToString() *string {
 // conditions parameter, the value from the conditions parameter will be used.
 //
 // Returns: a new PrincipalWithConditions object.
+// Experimental.
 func (c *jsiiProxy_CompositePrincipal) WithConditions(conditions *map[string]interface{}) PrincipalBase {
 	var returns PrincipalBase
 
@@ -9332,6 +11285,7 @@ func (c *jsiiProxy_CompositePrincipal) WithConditions(conditions *map[string]int
 // Returns a new principal using this principal as the base, with session tags enabled.
 //
 // Returns: a new SessionTagsPrincipal object.
+// Experimental.
 func (c *jsiiProxy_CompositePrincipal) WithSessionTags() PrincipalBase {
 	var returns PrincipalBase
 
@@ -9351,6 +11305,7 @@ func (c *jsiiProxy_CompositePrincipal) WithSessionTags() PrincipalBase {
 //
 // See: https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_effect.html
 //
+// Experimental.
 type Effect string
 
 const (
@@ -9367,6 +11322,7 @@ const (
 //
 // See: https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#condition-keys-wif
 //
+// Experimental.
 type FederatedPrincipal interface {
 	PrincipalBase
 	AssumeRoleAction() *string
@@ -9450,13 +11406,14 @@ func (j *jsiiProxy_FederatedPrincipal) PrincipalAccount() *string {
 }
 
 
+// Experimental.
 func NewFederatedPrincipal(federated *string, conditions *map[string]interface{}, assumeRoleAction *string) FederatedPrincipal {
 	_init_.Initialize()
 
 	j := jsiiProxy_FederatedPrincipal{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.FederatedPrincipal",
+		"monocdk.aws_iam.FederatedPrincipal",
 		[]interface{}{federated, conditions, assumeRoleAction},
 		&j,
 	)
@@ -9464,11 +11421,12 @@ func NewFederatedPrincipal(federated *string, conditions *map[string]interface{}
 	return &j
 }
 
+// Experimental.
 func NewFederatedPrincipal_Override(f FederatedPrincipal, federated *string, conditions *map[string]interface{}, assumeRoleAction *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.FederatedPrincipal",
+		"monocdk.aws_iam.FederatedPrincipal",
 		[]interface{}{federated, conditions, assumeRoleAction},
 		f,
 	)
@@ -9478,6 +11436,7 @@ func NewFederatedPrincipal_Override(f FederatedPrincipal, federated *string, con
 //
 // Add the statements to the AssumeRolePolicyDocument necessary to give this principal
 // permissions to assume the given role.
+// Experimental.
 func (f *jsiiProxy_FederatedPrincipal) AddToAssumeRolePolicy(document PolicyDocument) {
 	_jsii_.InvokeVoid(
 		f,
@@ -9487,6 +11446,7 @@ func (f *jsiiProxy_FederatedPrincipal) AddToAssumeRolePolicy(document PolicyDocu
 }
 
 // Add to the policy of this principal.
+// Experimental.
 func (f *jsiiProxy_FederatedPrincipal) AddToPolicy(statement PolicyStatement) *bool {
 	var returns *bool
 
@@ -9501,6 +11461,7 @@ func (f *jsiiProxy_FederatedPrincipal) AddToPolicy(statement PolicyStatement) *b
 }
 
 // Add to the policy of this principal.
+// Experimental.
 func (f *jsiiProxy_FederatedPrincipal) AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult {
 	var returns *AddToPrincipalPolicyResult
 
@@ -9517,6 +11478,7 @@ func (f *jsiiProxy_FederatedPrincipal) AddToPrincipalPolicy(_statement PolicySta
 // JSON-ify the principal.
 //
 // Used when JSON.stringify() is called
+// Experimental.
 func (f *jsiiProxy_FederatedPrincipal) ToJSON() *map[string]*[]*string {
 	var returns *map[string]*[]*string
 
@@ -9531,6 +11493,7 @@ func (f *jsiiProxy_FederatedPrincipal) ToJSON() *map[string]*[]*string {
 }
 
 // Returns a string representation of an object.
+// Experimental.
 func (f *jsiiProxy_FederatedPrincipal) ToString() *string {
 	var returns *string
 
@@ -9550,6 +11513,7 @@ func (f *jsiiProxy_FederatedPrincipal) ToString() *string {
 // conditions parameter, the value from the conditions parameter will be used.
 //
 // Returns: a new PrincipalWithConditions object.
+// Experimental.
 func (f *jsiiProxy_FederatedPrincipal) WithConditions(conditions *map[string]interface{}) PrincipalBase {
 	var returns PrincipalBase
 
@@ -9566,6 +11530,7 @@ func (f *jsiiProxy_FederatedPrincipal) WithConditions(conditions *map[string]int
 // Returns a new principal using this principal as the base, with session tags enabled.
 //
 // Returns: a new SessionTagsPrincipal object.
+// Experimental.
 func (f *jsiiProxy_FederatedPrincipal) WithSessionTags() PrincipalBase {
 	var returns PrincipalBase
 
@@ -9583,6 +11548,7 @@ func (f *jsiiProxy_FederatedPrincipal) WithSessionTags() PrincipalBase {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type FromRoleArnOptions struct {
 	// For immutable roles: add grants to resources instead of dropping them.
 	//
@@ -9590,8 +11556,10 @@ type FromRoleArnOptions struct {
 	// It is your own responsibility to make sure the role has the required permissions.
 	//
 	// If this is `true`, any grant permissions will be added to the resource instead.
+	// Experimental.
 	AddGrantsToResources *bool `json:"addGrantsToResources" yaml:"addGrantsToResources"`
 	// Whether the imported role can be modified by attaching policy resources to it.
+	// Experimental.
 	Mutable *bool `json:"mutable" yaml:"mutable"`
 }
 
@@ -9602,18 +11570,19 @@ type FromRoleArnOptions struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type Grant interface {
-	constructs.IDependable
+	awscdk.IDependable
 	PrincipalStatement() PolicyStatement
 	ResourceStatement() PolicyStatement
 	Success() *bool
-	ApplyBefore(constructs ...constructs.IConstruct)
+	ApplyBefore(constructs ...awscdk.IConstruct)
 	AssertSuccess()
 }
 
 // The jsii proxy struct for Grant
 type jsiiProxy_Grant struct {
-	internal.Type__constructsIDependable
+	internal.Type__awscdkIDependable
 }
 
 func (j *jsiiProxy_Grant) PrincipalStatement() PolicyStatement {
@@ -9651,13 +11620,14 @@ func (j *jsiiProxy_Grant) Success() *bool {
 //
 // Absence of a principal leads to a warning, but failing to add
 // the permissions to a present principal is not an error.
+// Experimental.
 func Grant_AddToPrincipal(options *GrantOnPrincipalOptions) Grant {
 	_init_.Initialize()
 
 	var returns Grant
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.Grant",
+		"monocdk.aws_iam.Grant",
 		"addToPrincipal",
 		[]interface{}{options},
 		&returns,
@@ -9673,13 +11643,14 @@ func Grant_AddToPrincipal(options *GrantOnPrincipalOptions) Grant {
 // never fail.
 //
 // Statement will be the resource statement.
+// Experimental.
 func Grant_AddToPrincipalAndResource(options *GrantOnPrincipalAndResourceOptions) Grant {
 	_init_.Initialize()
 
 	var returns Grant
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.Grant",
+		"monocdk.aws_iam.Grant",
 		"addToPrincipalAndResource",
 		[]interface{}{options},
 		&returns,
@@ -9700,13 +11671,14 @@ func Grant_AddToPrincipalAndResource(options *GrantOnPrincipalAndResourceOptions
 // - Trying to grant permissions to an absent principal (possible in the
 //    case of imported resources) leads to a warning being added to the
 //    resource construct.
+// Experimental.
 func Grant_AddToPrincipalOrResource(options *GrantWithResourceOptions) Grant {
 	_init_.Initialize()
 
 	var returns Grant
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.Grant",
+		"monocdk.aws_iam.Grant",
 		"addToPrincipalOrResource",
 		[]interface{}{options},
 		&returns,
@@ -9719,13 +11691,14 @@ func Grant_AddToPrincipalOrResource(options *GrantWithResourceOptions) Grant {
 //
 // This can be used for e.g. imported resources where you may not be able to modify
 // the resource's policy or some underlying policy which you don't know about.
+// Experimental.
 func Grant_Drop(grantee IGrantable, _intent *string) Grant {
 	_init_.Initialize()
 
 	var returns Grant
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.Grant",
+		"monocdk.aws_iam.Grant",
 		"drop",
 		[]interface{}{grantee, _intent},
 		&returns,
@@ -9737,7 +11710,8 @@ func Grant_Drop(grantee IGrantable, _intent *string) Grant {
 // Make sure this grant is applied before the given constructs are deployed.
 //
 // The same as construct.node.addDependency(grant), but slightly nicer to read.
-func (g *jsiiProxy_Grant) ApplyBefore(constructs ...constructs.IConstruct) {
+// Experimental.
+func (g *jsiiProxy_Grant) ApplyBefore(constructs ...awscdk.IConstruct) {
 	args := []interface{}{}
 	for _, a := range constructs {
 		args = append(args, a)
@@ -9751,6 +11725,7 @@ func (g *jsiiProxy_Grant) ApplyBefore(constructs ...constructs.IConstruct) {
 }
 
 // Throw an error if this grant wasn't successful.
+// Experimental.
 func (g *jsiiProxy_Grant) AssertSuccess() {
 	_jsii_.InvokeVoid(
 		g,
@@ -9763,22 +11738,29 @@ func (g *jsiiProxy_Grant) AssertSuccess() {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type GrantOnPrincipalAndResourceOptions struct {
 	// The actions to grant.
+	// Experimental.
 	Actions *[]*string `json:"actions" yaml:"actions"`
 	// The principal to grant to.
+	// Experimental.
 	Grantee IGrantable `json:"grantee" yaml:"grantee"`
 	// The resource ARNs to grant to.
+	// Experimental.
 	ResourceArns *[]*string `json:"resourceArns" yaml:"resourceArns"`
 	// The resource with a resource policy.
 	//
 	// The statement will always be added to the resource policy.
+	// Experimental.
 	Resource IResourceWithPolicy `json:"resource" yaml:"resource"`
 	// The principal to use in the statement for the resource policy.
+	// Experimental.
 	ResourcePolicyPrincipal IPrincipal `json:"resourcePolicyPrincipal" yaml:"resourcePolicyPrincipal"`
 	// When referring to the resource in a resource policy, use this as ARN.
 	//
 	// (Depending on the resource type, this needs to be '*' in a resource policy).
+	// Experimental.
 	ResourceSelfArns *[]*string `json:"resourceSelfArns" yaml:"resourceSelfArns"`
 }
 
@@ -9786,36 +11768,47 @@ type GrantOnPrincipalAndResourceOptions struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type GrantOnPrincipalOptions struct {
 	// The actions to grant.
+	// Experimental.
 	Actions *[]*string `json:"actions" yaml:"actions"`
 	// The principal to grant to.
+	// Experimental.
 	Grantee IGrantable `json:"grantee" yaml:"grantee"`
 	// The resource ARNs to grant to.
+	// Experimental.
 	ResourceArns *[]*string `json:"resourceArns" yaml:"resourceArns"`
 	// Construct to report warnings on in case grant could not be registered.
-	Scope constructs.IConstruct `json:"scope" yaml:"scope"`
+	// Experimental.
+	Scope awscdk.IConstruct `json:"scope" yaml:"scope"`
 }
 
 // Options for a grant operation.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type GrantWithResourceOptions struct {
 	// The actions to grant.
+	// Experimental.
 	Actions *[]*string `json:"actions" yaml:"actions"`
 	// The principal to grant to.
+	// Experimental.
 	Grantee IGrantable `json:"grantee" yaml:"grantee"`
 	// The resource ARNs to grant to.
+	// Experimental.
 	ResourceArns *[]*string `json:"resourceArns" yaml:"resourceArns"`
 	// The resource with a resource policy.
 	//
 	// The statement will be added to the resource policy if it couldn't be
 	// added to the principal policy.
+	// Experimental.
 	Resource IResourceWithPolicy `json:"resource" yaml:"resource"`
 	// When referring to the resource in a resource policy, use this as ARN.
 	//
 	// (Depending on the resource type, this needs to be '*' in a resource policy).
+	// Experimental.
 	ResourceSelfArns *[]*string `json:"resourceSelfArns" yaml:"resourceSelfArns"`
 }
 
@@ -9825,6 +11818,7 @@ type GrantWithResourceOptions struct {
 //
 // See: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups.html
 //
+// Experimental.
 type Group interface {
 	awscdk.Resource
 	IGroup
@@ -9833,7 +11827,7 @@ type Group interface {
 	GrantPrincipal() IPrincipal
 	GroupArn() *string
 	GroupName() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	PolicyFragment() PrincipalPolicyFragment
 	PrincipalAccount() *string
@@ -9847,7 +11841,13 @@ type Group interface {
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for Group
@@ -9906,8 +11906,8 @@ func (j *jsiiProxy_Group) GroupName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_Group) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_Group) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -9957,13 +11957,14 @@ func (j *jsiiProxy_Group) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewGroup(scope constructs.Construct, id *string, props *GroupProps) Group {
 	_init_.Initialize()
 
 	j := jsiiProxy_Group{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.Group",
+		"monocdk.aws_iam.Group",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -9971,11 +11972,12 @@ func NewGroup(scope constructs.Construct, id *string, props *GroupProps) Group {
 	return &j
 }
 
+// Experimental.
 func NewGroup_Override(g Group, scope constructs.Construct, id *string, props *GroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.Group",
+		"monocdk.aws_iam.Group",
 		[]interface{}{scope, id, props},
 		g,
 	)
@@ -9991,13 +11993,14 @@ func NewGroup_Override(g Group, scope constructs.Construct, id *string, props *G
 // the correct calculation of the full path name as a CloudFormation
 // expression. In this scenario the Group ARN should be supplied without the
 // `path` in order to resolve the correct group resource.
+// Experimental.
 func Group_FromGroupArn(scope constructs.Construct, id *string, groupArn *string) IGroup {
 	_init_.Initialize()
 
 	var returns IGroup
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.Group",
+		"monocdk.aws_iam.Group",
 		"fromGroupArn",
 		[]interface{}{scope, id, groupArn},
 		&returns,
@@ -10009,13 +12012,14 @@ func Group_FromGroupArn(scope constructs.Construct, id *string, groupArn *string
 // Import an existing group by given name (with path).
 //
 // This method has same caveats of `fromGroupArn`
+// Experimental.
 func Group_FromGroupName(scope constructs.Construct, id *string, groupName *string) IGroup {
 	_init_.Initialize()
 
 	var returns IGroup
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.Group",
+		"monocdk.aws_iam.Group",
 		"fromGroupName",
 		[]interface{}{scope, id, groupName},
 		&returns,
@@ -10024,17 +12028,15 @@ func Group_FromGroupName(scope constructs.Construct, id *string, groupName *stri
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func Group_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.Group",
+		"monocdk.aws_iam.Group",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -10044,13 +12046,14 @@ func Group_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func Group_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func Group_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.Group",
+		"monocdk.aws_iam.Group",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -10060,6 +12063,7 @@ func Group_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Attaches a managed policy to this group.
+// Experimental.
 func (g *jsiiProxy_Group) AddManagedPolicy(policy IManagedPolicy) {
 	_jsii_.InvokeVoid(
 		g,
@@ -10069,6 +12073,7 @@ func (g *jsiiProxy_Group) AddManagedPolicy(policy IManagedPolicy) {
 }
 
 // Add to the policy of this principal.
+// Experimental.
 func (g *jsiiProxy_Group) AddToPolicy(statement PolicyStatement) *bool {
 	var returns *bool
 
@@ -10083,6 +12088,7 @@ func (g *jsiiProxy_Group) AddToPolicy(statement PolicyStatement) *bool {
 }
 
 // Adds an IAM statement to the default policy.
+// Experimental.
 func (g *jsiiProxy_Group) AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult {
 	var returns *AddToPrincipalPolicyResult
 
@@ -10097,6 +12103,7 @@ func (g *jsiiProxy_Group) AddToPrincipalPolicy(statement PolicyStatement) *AddTo
 }
 
 // Adds a user to this group.
+// Experimental.
 func (g *jsiiProxy_Group) AddUser(user IUser) {
 	_jsii_.InvokeVoid(
 		g,
@@ -10114,6 +12121,7 @@ func (g *jsiiProxy_Group) AddUser(user IUser) {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (g *jsiiProxy_Group) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		g,
@@ -10123,6 +12131,7 @@ func (g *jsiiProxy_Group) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 }
 
 // Attaches a policy to this group.
+// Experimental.
 func (g *jsiiProxy_Group) AttachInlinePolicy(policy Policy) {
 	_jsii_.InvokeVoid(
 		g,
@@ -10131,6 +12140,7 @@ func (g *jsiiProxy_Group) AttachInlinePolicy(policy Policy) {
 	)
 }
 
+// Experimental.
 func (g *jsiiProxy_Group) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -10150,6 +12160,7 @@ func (g *jsiiProxy_Group) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
+// Experimental.
 func (g *jsiiProxy_Group) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -10168,6 +12179,7 @@ func (g *jsiiProxy_Group) GetResourceArnAttribute(arnAttr *string, arnComponents
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
+// Experimental.
 func (g *jsiiProxy_Group) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -10181,7 +12193,88 @@ func (g *jsiiProxy_Group) GetResourceNameAttribute(nameAttr *string) *string {
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (g *jsiiProxy_Group) OnPrepare() {
+	_jsii_.InvokeVoid(
+		g,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (g *jsiiProxy_Group) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		g,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (g *jsiiProxy_Group) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		g,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (g *jsiiProxy_Group) Prepare() {
+	_jsii_.InvokeVoid(
+		g,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (g *jsiiProxy_Group) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		g,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (g *jsiiProxy_Group) ToString() *string {
 	var returns *string
 
@@ -10195,10 +12288,31 @@ func (g *jsiiProxy_Group) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (g *jsiiProxy_Group) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		g,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Properties for defining an IAM group.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type GroupProps struct {
 	// A name for the IAM group.
 	//
@@ -10210,28 +12324,34 @@ type GroupProps struct {
 	// If you specify a name, you must specify the CAPABILITY_NAMED_IAM value to
 	// acknowledge your template's capabilities. For more information, see
 	// Acknowledging IAM Resources in AWS CloudFormation Templates.
+	// Experimental.
 	GroupName *string `json:"groupName" yaml:"groupName"`
 	// A list of managed policies associated with this role.
 	//
 	// You can add managed policies later using
 	// `addManagedPolicy(ManagedPolicy.fromAwsManagedPolicyName(policyName))`.
+	// Experimental.
 	ManagedPolicies *[]IManagedPolicy `json:"managedPolicies" yaml:"managedPolicies"`
 	// The path to the group.
 	//
 	// For more information about paths, see [IAM
 	// Identifiers](http://docs.aws.amazon.com/IAM/latest/UserGuide/index.html?Using_Identifiers.html)
 	// in the IAM User Guide.
+	// Experimental.
 	Path *string `json:"path" yaml:"path"`
 }
 
 // Represents an IAM Access Key.
 // See: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html
 //
+// Experimental.
 type IAccessKey interface {
 	awscdk.IResource
 	// The Access Key ID.
+	// Experimental.
 	AccessKeyId() *string
 	// The Secret Access Key.
+	// Experimental.
 	SecretAccessKey() awscdk.SecretValue
 }
 
@@ -10267,12 +12387,14 @@ func (j *jsiiProxy_IAccessKey) SecretAccessKey() awscdk.SecretValue {
 //
 // If that control is necessary, they can implement `IAssumeRolePrincipal` to get full
 // access to a Role's AssumeRolePolicyDocument.
+// Experimental.
 type IAssumeRolePrincipal interface {
 	IPrincipal
 	// Add the princpial to the AssumeRolePolicyDocument.
 	//
 	// Add the statements to the AssumeRolePolicyDocument necessary to give this principal
 	// permissions to assume the given role.
+	// Experimental.
 	AddToAssumeRolePolicy(document PolicyDocument)
 }
 
@@ -10290,8 +12412,10 @@ func (i *jsiiProxy_IAssumeRolePrincipal) AddToAssumeRolePolicy(document PolicyDo
 }
 
 // Any object that has an associated principal that a permission can be granted to.
+// Experimental.
 type IGrantable interface {
 	// The principal to grant permissions to.
+	// Experimental.
 	GrantPrincipal() IPrincipal
 }
 
@@ -10313,11 +12437,14 @@ func (j *jsiiProxy_IGrantable) GrantPrincipal() IPrincipal {
 // Represents an IAM Group.
 // See: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups.html
 //
+// Experimental.
 type IGroup interface {
 	IIdentity
 	// Returns the IAM Group ARN.
+	// Experimental.
 	GroupArn() *string
 	// Returns the IAM Group Name.
+	// Experimental.
 	GroupName() *string
 }
 
@@ -10347,14 +12474,17 @@ func (j *jsiiProxy_IGroup) GroupName() *string {
 }
 
 // A construct that represents an IAM principal, such as a user, group or role.
+// Experimental.
 type IIdentity interface {
 	IPrincipal
 	awscdk.IResource
 	// Attaches a managed policy to this principal.
+	// Experimental.
 	AddManagedPolicy(policy IManagedPolicy)
 	// Attaches an inline policy to this principal.
 	//
 	// This is the same as calling `policy.addToXxx(principal)`.
+	// Experimental.
 	AttachInlinePolicy(policy Policy)
 }
 
@@ -10378,6 +12508,19 @@ func (i *jsiiProxy_IIdentity) AttachInlinePolicy(policy Policy) {
 		"attachInlinePolicy",
 		[]interface{}{policy},
 	)
+}
+
+func (i *jsiiProxy_IIdentity) AddToPolicy(statement PolicyStatement) *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		i,
+		"addToPolicy",
+		[]interface{}{statement},
+		&returns,
+	)
+
+	return returns
 }
 
 func (i *jsiiProxy_IIdentity) AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult {
@@ -10431,8 +12574,8 @@ func (j *jsiiProxy_IIdentity) GrantPrincipal() IPrincipal {
 	return returns
 }
 
-func (j *jsiiProxy_IIdentity) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_IIdentity) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -10472,8 +12615,10 @@ func (j *jsiiProxy_IIdentity) Stack() awscdk.Stack {
 }
 
 // A managed policy.
+// Experimental.
 type IManagedPolicy interface {
 	// The ARN of the managed policy.
+	// Experimental.
 	ManagedPolicyArn() *string
 }
 
@@ -10493,11 +12638,14 @@ func (j *jsiiProxy_IManagedPolicy) ManagedPolicyArn() *string {
 }
 
 // Represents an IAM OpenID Connect provider.
+// Experimental.
 type IOpenIdConnectProvider interface {
 	awscdk.IResource
 	// The Amazon Resource Name (ARN) of the IAM OpenID Connect provider.
+	// Experimental.
 	OpenIdConnectProviderArn() *string
 	// The issuer for OIDC Provider.
+	// Experimental.
 	OpenIdConnectProviderIssuer() *string
 }
 
@@ -10529,9 +12677,11 @@ func (j *jsiiProxy_IOpenIdConnectProvider) OpenIdConnectProviderIssuer() *string
 // Represents an IAM Policy.
 // See: https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage.html
 //
+// Experimental.
 type IPolicy interface {
 	awscdk.IResource
 	// The name of this policy.
+	// Experimental.
 	PolicyName() *string
 }
 
@@ -10565,13 +12715,23 @@ func (j *jsiiProxy_IPolicy) PolicyName() *string {
 // A single logical Principal may also map to a set of physical principals.
 // For example, `new OrganizationPrincipal('o-1234')` represents all
 // identities that are part of the given AWS Organization.
+// Experimental.
 type IPrincipal interface {
 	IGrantable
 	// Add to the policy of this principal.
+	//
+	// Returns: true if the statement was added, false if the principal in
+	// question does not have a policy document to add the statement to.
+	// Deprecated: Use `addToPrincipalPolicy` instead.
+	AddToPolicy(statement PolicyStatement) *bool
+	// Add to the policy of this principal.
+	// Experimental.
 	AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult
 	// When this Principal is used in an AssumeRole policy, the action to use.
+	// Experimental.
 	AssumeRoleAction() *string
 	// Return the policy fragment that identifies this principal in a Policy.
+	// Experimental.
 	PolicyFragment() PrincipalPolicyFragment
 	// The AWS account ID of this principal.
 	//
@@ -10579,12 +12739,26 @@ type IPrincipal interface {
 	// (for example, for service principals).
 	// Can be a Token - in that case,
 	// it's assumed to be AWS::AccountId.
+	// Experimental.
 	PrincipalAccount() *string
 }
 
 // The jsii proxy for IPrincipal
 type jsiiProxy_IPrincipal struct {
 	jsiiProxy_IGrantable
+}
+
+func (i *jsiiProxy_IPrincipal) AddToPolicy(statement PolicyStatement) *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		i,
+		"addToPolicy",
+		[]interface{}{statement},
+		&returns,
+	)
+
+	return returns
 }
 
 func (i *jsiiProxy_IPrincipal) AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult {
@@ -10631,9 +12805,11 @@ func (j *jsiiProxy_IPrincipal) PrincipalAccount() *string {
 }
 
 // A resource with a resource policy that can be added to.
+// Experimental.
 type IResourceWithPolicy interface {
 	awscdk.IResource
 	// Add a statement to the resource's resource policy.
+	// Experimental.
 	AddToResourcePolicy(statement PolicyStatement) *AddToResourcePolicyResult
 }
 
@@ -10656,15 +12832,20 @@ func (i *jsiiProxy_IResourceWithPolicy) AddToResourcePolicy(statement PolicyStat
 }
 
 // A Role object.
+// Experimental.
 type IRole interface {
 	IIdentity
 	// Grant the actions defined in actions to the identity Principal on this resource.
+	// Experimental.
 	Grant(grantee IPrincipal, actions ...*string) Grant
 	// Grant permissions to the given principal to pass this role.
+	// Experimental.
 	GrantPassRole(grantee IPrincipal) Grant
 	// Returns the ARN of this role.
+	// Experimental.
 	RoleArn() *string
 	// Returns the name of this role.
+	// Experimental.
 	RoleName() *string
 }
 
@@ -10725,9 +12906,11 @@ func (j *jsiiProxy_IRole) RoleName() *string {
 }
 
 // A SAML provider.
+// Experimental.
 type ISamlProvider interface {
 	awscdk.IResource
 	// The Amazon Resource Name (ARN) of the provider.
+	// Experimental.
 	SamlProviderArn() *string
 }
 
@@ -10749,13 +12932,17 @@ func (j *jsiiProxy_ISamlProvider) SamlProviderArn() *string {
 // Represents an IAM user.
 // See: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users.html
 //
+// Experimental.
 type IUser interface {
 	IIdentity
 	// Adds this user to a group.
+	// Experimental.
 	AddToGroup(group IGroup)
 	// The user's ARN.
+	// Experimental.
 	UserArn() *string
 	// The user's name.
+	// Experimental.
 	UserName() *string
 }
 
@@ -10802,13 +12989,14 @@ func (j *jsiiProxy_IUser) UserName() *string {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type LazyRole interface {
 	awscdk.Resource
 	IRole
 	AssumeRoleAction() *string
 	Env() *awscdk.ResourceEnvironment
 	GrantPrincipal() IPrincipal
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	PolicyFragment() PrincipalPolicyFragment
 	PrincipalAccount() *string
@@ -10826,7 +13014,13 @@ type LazyRole interface {
 	GetResourceNameAttribute(nameAttr *string) *string
 	Grant(identity IPrincipal, actions ...*string) Grant
 	GrantPassRole(identity IPrincipal) Grant
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for LazyRole
@@ -10865,8 +13059,8 @@ func (j *jsiiProxy_LazyRole) GrantPrincipal() IPrincipal {
 	return returns
 }
 
-func (j *jsiiProxy_LazyRole) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_LazyRole) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -10946,13 +13140,14 @@ func (j *jsiiProxy_LazyRole) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewLazyRole(scope constructs.Construct, id *string, props *LazyRoleProps) LazyRole {
 	_init_.Initialize()
 
 	j := jsiiProxy_LazyRole{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.LazyRole",
+		"monocdk.aws_iam.LazyRole",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -10960,27 +13155,26 @@ func NewLazyRole(scope constructs.Construct, id *string, props *LazyRoleProps) L
 	return &j
 }
 
+// Experimental.
 func NewLazyRole_Override(l LazyRole, scope constructs.Construct, id *string, props *LazyRoleProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.LazyRole",
+		"monocdk.aws_iam.LazyRole",
 		[]interface{}{scope, id, props},
 		l,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func LazyRole_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.LazyRole",
+		"monocdk.aws_iam.LazyRole",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -10990,13 +13184,14 @@ func LazyRole_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func LazyRole_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func LazyRole_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.LazyRole",
+		"monocdk.aws_iam.LazyRole",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -11006,6 +13201,7 @@ func LazyRole_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Attaches a managed policy to this role.
+// Experimental.
 func (l *jsiiProxy_LazyRole) AddManagedPolicy(policy IManagedPolicy) {
 	_jsii_.InvokeVoid(
 		l,
@@ -11015,6 +13211,7 @@ func (l *jsiiProxy_LazyRole) AddManagedPolicy(policy IManagedPolicy) {
 }
 
 // Add to the policy of this principal.
+// Experimental.
 func (l *jsiiProxy_LazyRole) AddToPolicy(statement PolicyStatement) *bool {
 	var returns *bool
 
@@ -11031,6 +13228,7 @@ func (l *jsiiProxy_LazyRole) AddToPolicy(statement PolicyStatement) *bool {
 // Adds a permission to the role's default policy document.
 //
 // If there is no default policy attached to this role, it will be created.
+// Experimental.
 func (l *jsiiProxy_LazyRole) AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult {
 	var returns *AddToPrincipalPolicyResult
 
@@ -11053,6 +13251,7 @@ func (l *jsiiProxy_LazyRole) AddToPrincipalPolicy(statement PolicyStatement) *Ad
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (l *jsiiProxy_LazyRole) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		l,
@@ -11062,6 +13261,7 @@ func (l *jsiiProxy_LazyRole) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 }
 
 // Attaches a policy to this role.
+// Experimental.
 func (l *jsiiProxy_LazyRole) AttachInlinePolicy(policy Policy) {
 	_jsii_.InvokeVoid(
 		l,
@@ -11070,6 +13270,7 @@ func (l *jsiiProxy_LazyRole) AttachInlinePolicy(policy Policy) {
 	)
 }
 
+// Experimental.
 func (l *jsiiProxy_LazyRole) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -11089,6 +13290,7 @@ func (l *jsiiProxy_LazyRole) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
+// Experimental.
 func (l *jsiiProxy_LazyRole) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -11107,6 +13309,7 @@ func (l *jsiiProxy_LazyRole) GetResourceArnAttribute(arnAttr *string, arnCompone
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
+// Experimental.
 func (l *jsiiProxy_LazyRole) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -11121,6 +13324,7 @@ func (l *jsiiProxy_LazyRole) GetResourceNameAttribute(nameAttr *string) *string 
 }
 
 // Grant the actions defined in actions to the identity Principal on this resource.
+// Experimental.
 func (l *jsiiProxy_LazyRole) Grant(identity IPrincipal, actions ...*string) Grant {
 	args := []interface{}{identity}
 	for _, a := range actions {
@@ -11140,6 +13344,7 @@ func (l *jsiiProxy_LazyRole) Grant(identity IPrincipal, actions ...*string) Gran
 }
 
 // Grant permissions to the given principal to pass this role.
+// Experimental.
 func (l *jsiiProxy_LazyRole) GrantPassRole(identity IPrincipal) Grant {
 	var returns Grant
 
@@ -11153,7 +13358,88 @@ func (l *jsiiProxy_LazyRole) GrantPassRole(identity IPrincipal) Grant {
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (l *jsiiProxy_LazyRole) OnPrepare() {
+	_jsii_.InvokeVoid(
+		l,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (l *jsiiProxy_LazyRole) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		l,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (l *jsiiProxy_LazyRole) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		l,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (l *jsiiProxy_LazyRole) Prepare() {
+	_jsii_.InvokeVoid(
+		l,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (l *jsiiProxy_LazyRole) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		l,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (l *jsiiProxy_LazyRole) ToString() *string {
 	var returns *string
 
@@ -11167,24 +13453,54 @@ func (l *jsiiProxy_LazyRole) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (l *jsiiProxy_LazyRole) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		l,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Properties for defining a LazyRole.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type LazyRoleProps struct {
 	// The IAM principal (i.e. `new ServicePrincipal('sns.amazonaws.com')`) which can assume this role.
 	//
 	// You can later modify the assume role policy document by accessing it via
 	// the `assumeRolePolicy` property.
+	// Experimental.
 	AssumedBy IPrincipal `json:"assumedBy" yaml:"assumedBy"`
 	// A description of the role.
 	//
 	// It can be up to 1000 characters long.
+	// Experimental.
 	Description *string `json:"description" yaml:"description"`
+	// ID that the role assumer needs to provide when assuming this role.
+	//
+	// If the configured and provided external IDs do not match, the
+	// AssumeRole operation will fail.
+	// Deprecated: see {@link externalIds}
+	ExternalId *string `json:"externalId" yaml:"externalId"`
 	// List of IDs that the role assumer needs to provide one of when assuming this role.
 	//
 	// If the configured and provided external IDs do not match, the
 	// AssumeRole operation will fail.
+	// Experimental.
 	ExternalIds *[]*string `json:"externalIds" yaml:"externalIds"`
 	// A list of named policies to inline into this role.
 	//
@@ -11192,11 +13508,13 @@ type LazyRoleProps struct {
 	// created with the role, whereas those added by ``addToPolicy`` are added
 	// using a separate CloudFormation resource (allowing a way around circular
 	// dependencies that could otherwise be introduced).
+	// Experimental.
 	InlinePolicies *map[string]PolicyDocument `json:"inlinePolicies" yaml:"inlinePolicies"`
 	// A list of managed policies associated with this role.
 	//
 	// You can add managed policies later using
 	// `addManagedPolicy(ManagedPolicy.fromAwsManagedPolicyName(policyName))`.
+	// Experimental.
 	ManagedPolicies *[]IManagedPolicy `json:"managedPolicies" yaml:"managedPolicies"`
 	// The maximum session duration that you want to set for the specified role.
 	//
@@ -11212,11 +13530,13 @@ type LazyRoleProps struct {
 	// security credentials are valid for one hour by default. This applies when
 	// you use the AssumeRole* API operations or the assume-role* CLI operations
 	// but does not apply when you use those operations to create a console URL.
+	// Experimental.
 	MaxSessionDuration awscdk.Duration `json:"maxSessionDuration" yaml:"maxSessionDuration"`
 	// The path associated with this role.
 	//
 	// For information about IAM paths, see
 	// Friendly Names and Paths in IAM User Guide.
+	// Experimental.
 	Path *string `json:"path" yaml:"path"`
 	// AWS supports permissions boundaries for IAM entities (users or roles).
 	//
@@ -11225,6 +13545,7 @@ type LazyRoleProps struct {
 	// an IAM entity. An entity's permissions boundary allows it to perform only
 	// the actions that are allowed by both its identity-based policies and its
 	// permissions boundaries.
+	// Experimental.
 	PermissionsBoundary IManagedPolicy `json:"permissionsBoundary" yaml:"permissionsBoundary"`
 	// A name for the IAM role.
 	//
@@ -11238,6 +13559,7 @@ type LazyRoleProps struct {
 	// If you specify a name, you must specify the CAPABILITY_NAMED_IAM value to
 	// acknowledge your template's capabilities. For more information, see
 	// Acknowledging IAM Resources in AWS CloudFormation Templates.
+	// Experimental.
 	RoleName *string `json:"roleName" yaml:"roleName"`
 }
 
@@ -11245,6 +13567,7 @@ type LazyRoleProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type ManagedPolicy interface {
 	awscdk.Resource
 	IManagedPolicy
@@ -11253,7 +13576,7 @@ type ManagedPolicy interface {
 	Env() *awscdk.ResourceEnvironment
 	ManagedPolicyArn() *string
 	ManagedPolicyName() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Path() *string
 	PhysicalName() *string
 	Stack() awscdk.Stack
@@ -11265,7 +13588,13 @@ type ManagedPolicy interface {
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for ManagedPolicy
@@ -11324,8 +13653,8 @@ func (j *jsiiProxy_ManagedPolicy) ManagedPolicyName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_ManagedPolicy) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_ManagedPolicy) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -11365,13 +13694,14 @@ func (j *jsiiProxy_ManagedPolicy) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewManagedPolicy(scope constructs.Construct, id *string, props *ManagedPolicyProps) ManagedPolicy {
 	_init_.Initialize()
 
 	j := jsiiProxy_ManagedPolicy{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.ManagedPolicy",
+		"monocdk.aws_iam.ManagedPolicy",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -11379,11 +13709,12 @@ func NewManagedPolicy(scope constructs.Construct, id *string, props *ManagedPoli
 	return &j
 }
 
+// Experimental.
 func NewManagedPolicy_Override(m ManagedPolicy, scope constructs.Construct, id *string, props *ManagedPolicyProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.ManagedPolicy",
+		"monocdk.aws_iam.ManagedPolicy",
 		[]interface{}{scope, id, props},
 		m,
 	)
@@ -11396,13 +13727,14 @@ func NewManagedPolicy_Override(m ManagedPolicy, scope constructs.Construct, id *
 // Some managed policy names start with "service-role/", some start with
 // "job-function/", and some don't start with anything. Include the
 // prefix when constructing this object.
+// Experimental.
 func ManagedPolicy_FromAwsManagedPolicyName(managedPolicyName *string) IManagedPolicy {
 	_init_.Initialize()
 
 	var returns IManagedPolicy
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.ManagedPolicy",
+		"monocdk.aws_iam.ManagedPolicy",
 		"fromAwsManagedPolicyName",
 		[]interface{}{managedPolicyName},
 		&returns,
@@ -11424,13 +13756,14 @@ func ManagedPolicy_FromAwsManagedPolicyName(managedPolicyName *string) IManagedP
 // the correct calculation of the full path name as a CloudFormation
 // expression. In this scenario the Managed Policy ARN should be supplied without the
 // `path` in order to resolve the correct managed policy resource.
+// Experimental.
 func ManagedPolicy_FromManagedPolicyArn(scope constructs.Construct, id *string, managedPolicyArn *string) IManagedPolicy {
 	_init_.Initialize()
 
 	var returns IManagedPolicy
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.ManagedPolicy",
+		"monocdk.aws_iam.ManagedPolicy",
 		"fromManagedPolicyArn",
 		[]interface{}{scope, id, managedPolicyArn},
 		&returns,
@@ -11442,13 +13775,14 @@ func ManagedPolicy_FromManagedPolicyArn(scope constructs.Construct, id *string, 
 // Import a customer managed policy from the managedPolicyName.
 //
 // For this managed policy, you only need to know the name to be able to use it.
+// Experimental.
 func ManagedPolicy_FromManagedPolicyName(scope constructs.Construct, id *string, managedPolicyName *string) IManagedPolicy {
 	_init_.Initialize()
 
 	var returns IManagedPolicy
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.ManagedPolicy",
+		"monocdk.aws_iam.ManagedPolicy",
 		"fromManagedPolicyName",
 		[]interface{}{scope, id, managedPolicyName},
 		&returns,
@@ -11457,17 +13791,15 @@ func ManagedPolicy_FromManagedPolicyName(scope constructs.Construct, id *string,
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func ManagedPolicy_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.ManagedPolicy",
+		"monocdk.aws_iam.ManagedPolicy",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -11477,13 +13809,14 @@ func ManagedPolicy_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func ManagedPolicy_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func ManagedPolicy_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.ManagedPolicy",
+		"monocdk.aws_iam.ManagedPolicy",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -11493,6 +13826,7 @@ func ManagedPolicy_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Adds a statement to the policy document.
+// Experimental.
 func (m *jsiiProxy_ManagedPolicy) AddStatements(statement ...PolicyStatement) {
 	args := []interface{}{}
 	for _, a := range statement {
@@ -11515,6 +13849,7 @@ func (m *jsiiProxy_ManagedPolicy) AddStatements(statement ...PolicyStatement) {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (m *jsiiProxy_ManagedPolicy) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		m,
@@ -11524,6 +13859,7 @@ func (m *jsiiProxy_ManagedPolicy) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 }
 
 // Attaches this policy to a group.
+// Experimental.
 func (m *jsiiProxy_ManagedPolicy) AttachToGroup(group IGroup) {
 	_jsii_.InvokeVoid(
 		m,
@@ -11533,6 +13869,7 @@ func (m *jsiiProxy_ManagedPolicy) AttachToGroup(group IGroup) {
 }
 
 // Attaches this policy to a role.
+// Experimental.
 func (m *jsiiProxy_ManagedPolicy) AttachToRole(role IRole) {
 	_jsii_.InvokeVoid(
 		m,
@@ -11542,6 +13879,7 @@ func (m *jsiiProxy_ManagedPolicy) AttachToRole(role IRole) {
 }
 
 // Attaches this policy to a user.
+// Experimental.
 func (m *jsiiProxy_ManagedPolicy) AttachToUser(user IUser) {
 	_jsii_.InvokeVoid(
 		m,
@@ -11550,6 +13888,7 @@ func (m *jsiiProxy_ManagedPolicy) AttachToUser(user IUser) {
 	)
 }
 
+// Experimental.
 func (m *jsiiProxy_ManagedPolicy) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -11569,6 +13908,7 @@ func (m *jsiiProxy_ManagedPolicy) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
+// Experimental.
 func (m *jsiiProxy_ManagedPolicy) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -11587,6 +13927,7 @@ func (m *jsiiProxy_ManagedPolicy) GetResourceArnAttribute(arnAttr *string, arnCo
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
+// Experimental.
 func (m *jsiiProxy_ManagedPolicy) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -11600,7 +13941,88 @@ func (m *jsiiProxy_ManagedPolicy) GetResourceNameAttribute(nameAttr *string) *st
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (m *jsiiProxy_ManagedPolicy) OnPrepare() {
+	_jsii_.InvokeVoid(
+		m,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (m *jsiiProxy_ManagedPolicy) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		m,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (m *jsiiProxy_ManagedPolicy) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		m,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (m *jsiiProxy_ManagedPolicy) Prepare() {
+	_jsii_.InvokeVoid(
+		m,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (m *jsiiProxy_ManagedPolicy) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		m,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (m *jsiiProxy_ManagedPolicy) ToString() *string {
 	var returns *string
 
@@ -11614,32 +14036,55 @@ func (m *jsiiProxy_ManagedPolicy) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+// Experimental.
+func (m *jsiiProxy_ManagedPolicy) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		m,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Properties for defining an IAM managed policy.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type ManagedPolicyProps struct {
 	// A description of the managed policy.
 	//
 	// Typically used to store information about the
 	// permissions defined in the policy. For example, "Grants access to production DynamoDB tables."
 	// The policy description is immutable. After a value is assigned, it cannot be changed.
+	// Experimental.
 	Description *string `json:"description" yaml:"description"`
 	// Initial PolicyDocument to use for this ManagedPolicy.
 	//
 	// If omited, any
 	// `PolicyStatement` provided in the `statements` property will be applied
 	// against the empty default `PolicyDocument`.
+	// Experimental.
 	Document PolicyDocument `json:"document" yaml:"document"`
 	// Groups to attach this policy to.
 	//
 	// You can also use `attachToGroup(group)` to attach this policy to a group.
+	// Experimental.
 	Groups *[]IGroup `json:"groups" yaml:"groups"`
 	// The name of the managed policy.
 	//
 	// If you specify multiple policies for an entity,
 	// specify unique names. For example, if you specify a list of policies for
 	// an IAM role, each policy must have a unique name.
+	// Experimental.
 	ManagedPolicyName *string `json:"managedPolicyName" yaml:"managedPolicyName"`
 	// The path for the policy.
 	//
@@ -11649,18 +14094,22 @@ type ManagedPolicyProps struct {
 	// including most punctuation characters, digits, and upper and lowercased letters.
 	//
 	// For more information about paths, see IAM Identifiers in the IAM User Guide.
+	// Experimental.
 	Path *string `json:"path" yaml:"path"`
 	// Roles to attach this policy to.
 	//
 	// You can also use `attachToRole(role)` to attach this policy to a role.
+	// Experimental.
 	Roles *[]IRole `json:"roles" yaml:"roles"`
 	// Initial set of permissions to add to this policy document.
 	//
 	// You can also use `addPermission(statement)` to add permissions later.
+	// Experimental.
 	Statements *[]PolicyStatement `json:"statements" yaml:"statements"`
 	// Users to attach this policy to.
 	//
 	// You can also use `attachToUser(user)` to attach this policy to a user.
+	// Experimental.
 	Users *[]IUser `json:"users" yaml:"users"`
 }
 
@@ -11668,6 +14117,7 @@ type ManagedPolicyProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type OpenIdConnectPrincipal interface {
 	WebIdentityPrincipal
 	AssumeRoleAction() *string
@@ -11751,13 +14201,14 @@ func (j *jsiiProxy_OpenIdConnectPrincipal) PrincipalAccount() *string {
 }
 
 
+// Experimental.
 func NewOpenIdConnectPrincipal(openIdConnectProvider IOpenIdConnectProvider, conditions *map[string]interface{}) OpenIdConnectPrincipal {
 	_init_.Initialize()
 
 	j := jsiiProxy_OpenIdConnectPrincipal{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.OpenIdConnectPrincipal",
+		"monocdk.aws_iam.OpenIdConnectPrincipal",
 		[]interface{}{openIdConnectProvider, conditions},
 		&j,
 	)
@@ -11765,11 +14216,12 @@ func NewOpenIdConnectPrincipal(openIdConnectProvider IOpenIdConnectProvider, con
 	return &j
 }
 
+// Experimental.
 func NewOpenIdConnectPrincipal_Override(o OpenIdConnectPrincipal, openIdConnectProvider IOpenIdConnectProvider, conditions *map[string]interface{}) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.OpenIdConnectPrincipal",
+		"monocdk.aws_iam.OpenIdConnectPrincipal",
 		[]interface{}{openIdConnectProvider, conditions},
 		o,
 	)
@@ -11779,6 +14231,7 @@ func NewOpenIdConnectPrincipal_Override(o OpenIdConnectPrincipal, openIdConnectP
 //
 // Add the statements to the AssumeRolePolicyDocument necessary to give this principal
 // permissions to assume the given role.
+// Experimental.
 func (o *jsiiProxy_OpenIdConnectPrincipal) AddToAssumeRolePolicy(document PolicyDocument) {
 	_jsii_.InvokeVoid(
 		o,
@@ -11788,6 +14241,7 @@ func (o *jsiiProxy_OpenIdConnectPrincipal) AddToAssumeRolePolicy(document Policy
 }
 
 // Add to the policy of this principal.
+// Experimental.
 func (o *jsiiProxy_OpenIdConnectPrincipal) AddToPolicy(statement PolicyStatement) *bool {
 	var returns *bool
 
@@ -11802,6 +14256,7 @@ func (o *jsiiProxy_OpenIdConnectPrincipal) AddToPolicy(statement PolicyStatement
 }
 
 // Add to the policy of this principal.
+// Experimental.
 func (o *jsiiProxy_OpenIdConnectPrincipal) AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult {
 	var returns *AddToPrincipalPolicyResult
 
@@ -11818,6 +14273,7 @@ func (o *jsiiProxy_OpenIdConnectPrincipal) AddToPrincipalPolicy(_statement Polic
 // JSON-ify the principal.
 //
 // Used when JSON.stringify() is called
+// Experimental.
 func (o *jsiiProxy_OpenIdConnectPrincipal) ToJSON() *map[string]*[]*string {
 	var returns *map[string]*[]*string
 
@@ -11832,6 +14288,7 @@ func (o *jsiiProxy_OpenIdConnectPrincipal) ToJSON() *map[string]*[]*string {
 }
 
 // Returns a string representation of an object.
+// Experimental.
 func (o *jsiiProxy_OpenIdConnectPrincipal) ToString() *string {
 	var returns *string
 
@@ -11851,6 +14308,7 @@ func (o *jsiiProxy_OpenIdConnectPrincipal) ToString() *string {
 // conditions parameter, the value from the conditions parameter will be used.
 //
 // Returns: a new PrincipalWithConditions object.
+// Experimental.
 func (o *jsiiProxy_OpenIdConnectPrincipal) WithConditions(conditions *map[string]interface{}) PrincipalBase {
 	var returns PrincipalBase
 
@@ -11867,6 +14325,7 @@ func (o *jsiiProxy_OpenIdConnectPrincipal) WithConditions(conditions *map[string
 // Returns a new principal using this principal as the base, with session tags enabled.
 //
 // Returns: a new SessionTagsPrincipal object.
+// Experimental.
 func (o *jsiiProxy_OpenIdConnectPrincipal) WithSessionTags() PrincipalBase {
 	var returns PrincipalBase
 
@@ -11892,11 +14351,12 @@ func (o *jsiiProxy_OpenIdConnectPrincipal) WithSessionTags() PrincipalBase {
 //
 // See: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_oidc.html
 //
+// Experimental.
 type OpenIdConnectProvider interface {
 	awscdk.Resource
 	IOpenIdConnectProvider
 	Env() *awscdk.ResourceEnvironment
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OpenIdConnectProviderArn() *string
 	OpenIdConnectProviderIssuer() *string
 	PhysicalName() *string
@@ -11905,7 +14365,13 @@ type OpenIdConnectProvider interface {
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for OpenIdConnectProvider
@@ -11924,8 +14390,8 @@ func (j *jsiiProxy_OpenIdConnectProvider) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_OpenIdConnectProvider) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_OpenIdConnectProvider) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -11976,13 +14442,14 @@ func (j *jsiiProxy_OpenIdConnectProvider) Stack() awscdk.Stack {
 
 
 // Defines an OpenID Connect provider.
+// Experimental.
 func NewOpenIdConnectProvider(scope constructs.Construct, id *string, props *OpenIdConnectProviderProps) OpenIdConnectProvider {
 	_init_.Initialize()
 
 	j := jsiiProxy_OpenIdConnectProvider{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.OpenIdConnectProvider",
+		"monocdk.aws_iam.OpenIdConnectProvider",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -11991,24 +14458,26 @@ func NewOpenIdConnectProvider(scope constructs.Construct, id *string, props *Ope
 }
 
 // Defines an OpenID Connect provider.
+// Experimental.
 func NewOpenIdConnectProvider_Override(o OpenIdConnectProvider, scope constructs.Construct, id *string, props *OpenIdConnectProviderProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.OpenIdConnectProvider",
+		"monocdk.aws_iam.OpenIdConnectProvider",
 		[]interface{}{scope, id, props},
 		o,
 	)
 }
 
 // Imports an Open ID connect provider from an ARN.
+// Experimental.
 func OpenIdConnectProvider_FromOpenIdConnectProviderArn(scope constructs.Construct, id *string, openIdConnectProviderArn *string) IOpenIdConnectProvider {
 	_init_.Initialize()
 
 	var returns IOpenIdConnectProvider
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.OpenIdConnectProvider",
+		"monocdk.aws_iam.OpenIdConnectProvider",
 		"fromOpenIdConnectProviderArn",
 		[]interface{}{scope, id, openIdConnectProviderArn},
 		&returns,
@@ -12017,17 +14486,15 @@ func OpenIdConnectProvider_FromOpenIdConnectProviderArn(scope constructs.Constru
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func OpenIdConnectProvider_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.OpenIdConnectProvider",
+		"monocdk.aws_iam.OpenIdConnectProvider",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -12037,13 +14504,14 @@ func OpenIdConnectProvider_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func OpenIdConnectProvider_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func OpenIdConnectProvider_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.OpenIdConnectProvider",
+		"monocdk.aws_iam.OpenIdConnectProvider",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -12061,6 +14529,7 @@ func OpenIdConnectProvider_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (o *jsiiProxy_OpenIdConnectProvider) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		o,
@@ -12069,6 +14538,7 @@ func (o *jsiiProxy_OpenIdConnectProvider) ApplyRemovalPolicy(policy awscdk.Remov
 	)
 }
 
+// Experimental.
 func (o *jsiiProxy_OpenIdConnectProvider) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -12088,6 +14558,7 @@ func (o *jsiiProxy_OpenIdConnectProvider) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
+// Experimental.
 func (o *jsiiProxy_OpenIdConnectProvider) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -12106,6 +14577,7 @@ func (o *jsiiProxy_OpenIdConnectProvider) GetResourceArnAttribute(arnAttr *strin
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
+// Experimental.
 func (o *jsiiProxy_OpenIdConnectProvider) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -12119,7 +14591,88 @@ func (o *jsiiProxy_OpenIdConnectProvider) GetResourceNameAttribute(nameAttr *str
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (o *jsiiProxy_OpenIdConnectProvider) OnPrepare() {
+	_jsii_.InvokeVoid(
+		o,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (o *jsiiProxy_OpenIdConnectProvider) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		o,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (o *jsiiProxy_OpenIdConnectProvider) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		o,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (o *jsiiProxy_OpenIdConnectProvider) Prepare() {
+	_jsii_.InvokeVoid(
+		o,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (o *jsiiProxy_OpenIdConnectProvider) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		o,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (o *jsiiProxy_OpenIdConnectProvider) ToString() *string {
 	var returns *string
 
@@ -12133,10 +14686,31 @@ func (o *jsiiProxy_OpenIdConnectProvider) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (o *jsiiProxy_OpenIdConnectProvider) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		o,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Initialization properties for `OpenIdConnectProvider`.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type OpenIdConnectProviderProps struct {
 	// The URL of the identity provider.
 	//
@@ -12149,6 +14723,7 @@ type OpenIdConnectProviderProps struct {
 	// You cannot register the same provider multiple times in a single AWS
 	// account. If you try to submit a URL that has already been used for an
 	// OpenID Connect provider in the AWS account, you will get an error.
+	// Experimental.
 	Url *string `json:"url" yaml:"url"`
 	// A list of client IDs (also known as audiences).
 	//
@@ -12162,6 +14737,7 @@ type OpenIdConnectProviderProps struct {
 	// cannot register more than 100 client IDs with a single IAM OIDC provider.
 	//
 	// Client IDs are up to 255 characters long.
+	// Experimental.
 	ClientIds *[]*string `json:"clientIds" yaml:"clientIds"`
 	// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificates.
 	//
@@ -12179,6 +14755,7 @@ type OpenIdConnectProviderProps struct {
 	// https://keys.server.example.com/openid-connect. In that case, the
 	// thumbprint string would be the hex-encoded SHA-1 hash value of the
 	// certificate used by https://keys.server.example.com.
+	// Experimental.
 	Thumbprints *[]*string `json:"thumbprints" yaml:"thumbprints"`
 }
 
@@ -12186,6 +14763,7 @@ type OpenIdConnectProviderProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type OrganizationPrincipal interface {
 	PrincipalBase
 	AssumeRoleAction() *string
@@ -12258,13 +14836,14 @@ func (j *jsiiProxy_OrganizationPrincipal) PrincipalAccount() *string {
 }
 
 
+// Experimental.
 func NewOrganizationPrincipal(organizationId *string) OrganizationPrincipal {
 	_init_.Initialize()
 
 	j := jsiiProxy_OrganizationPrincipal{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.OrganizationPrincipal",
+		"monocdk.aws_iam.OrganizationPrincipal",
 		[]interface{}{organizationId},
 		&j,
 	)
@@ -12272,11 +14851,12 @@ func NewOrganizationPrincipal(organizationId *string) OrganizationPrincipal {
 	return &j
 }
 
+// Experimental.
 func NewOrganizationPrincipal_Override(o OrganizationPrincipal, organizationId *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.OrganizationPrincipal",
+		"monocdk.aws_iam.OrganizationPrincipal",
 		[]interface{}{organizationId},
 		o,
 	)
@@ -12286,6 +14866,7 @@ func NewOrganizationPrincipal_Override(o OrganizationPrincipal, organizationId *
 //
 // Add the statements to the AssumeRolePolicyDocument necessary to give this principal
 // permissions to assume the given role.
+// Experimental.
 func (o *jsiiProxy_OrganizationPrincipal) AddToAssumeRolePolicy(document PolicyDocument) {
 	_jsii_.InvokeVoid(
 		o,
@@ -12295,6 +14876,7 @@ func (o *jsiiProxy_OrganizationPrincipal) AddToAssumeRolePolicy(document PolicyD
 }
 
 // Add to the policy of this principal.
+// Experimental.
 func (o *jsiiProxy_OrganizationPrincipal) AddToPolicy(statement PolicyStatement) *bool {
 	var returns *bool
 
@@ -12309,6 +14891,7 @@ func (o *jsiiProxy_OrganizationPrincipal) AddToPolicy(statement PolicyStatement)
 }
 
 // Add to the policy of this principal.
+// Experimental.
 func (o *jsiiProxy_OrganizationPrincipal) AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult {
 	var returns *AddToPrincipalPolicyResult
 
@@ -12325,6 +14908,7 @@ func (o *jsiiProxy_OrganizationPrincipal) AddToPrincipalPolicy(_statement Policy
 // JSON-ify the principal.
 //
 // Used when JSON.stringify() is called
+// Experimental.
 func (o *jsiiProxy_OrganizationPrincipal) ToJSON() *map[string]*[]*string {
 	var returns *map[string]*[]*string
 
@@ -12339,6 +14923,7 @@ func (o *jsiiProxy_OrganizationPrincipal) ToJSON() *map[string]*[]*string {
 }
 
 // Returns a string representation of an object.
+// Experimental.
 func (o *jsiiProxy_OrganizationPrincipal) ToString() *string {
 	var returns *string
 
@@ -12358,6 +14943,7 @@ func (o *jsiiProxy_OrganizationPrincipal) ToString() *string {
 // conditions parameter, the value from the conditions parameter will be used.
 //
 // Returns: a new PrincipalWithConditions object.
+// Experimental.
 func (o *jsiiProxy_OrganizationPrincipal) WithConditions(conditions *map[string]interface{}) PrincipalBase {
 	var returns PrincipalBase
 
@@ -12374,6 +14960,7 @@ func (o *jsiiProxy_OrganizationPrincipal) WithConditions(conditions *map[string]
 // Returns a new principal using this principal as the base, with session tags enabled.
 //
 // Returns: a new SessionTagsPrincipal object.
+// Experimental.
 func (o *jsiiProxy_OrganizationPrincipal) WithSessionTags() PrincipalBase {
 	var returns PrincipalBase
 
@@ -12396,6 +14983,7 @@ func (o *jsiiProxy_OrganizationPrincipal) WithSessionTags() PrincipalBase {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type PermissionsBoundary interface {
 	Apply(boundaryPolicy IManagedPolicy)
 	Clear()
@@ -12407,13 +14995,14 @@ type jsiiProxy_PermissionsBoundary struct {
 }
 
 // Access the Permissions Boundaries of a construct tree.
+// Experimental.
 func PermissionsBoundary_Of(scope constructs.IConstruct) PermissionsBoundary {
 	_init_.Initialize()
 
 	var returns PermissionsBoundary
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.PermissionsBoundary",
+		"monocdk.aws_iam.PermissionsBoundary",
 		"of",
 		[]interface{}{scope},
 		&returns,
@@ -12427,6 +15016,7 @@ func PermissionsBoundary_Of(scope constructs.IConstruct) PermissionsBoundary {
 // Will override any Permissions Boundaries configured previously; in case
 // a Permission Boundary is applied in multiple scopes, the Boundary applied
 // closest to the Role wins.
+// Experimental.
 func (p *jsiiProxy_PermissionsBoundary) Apply(boundaryPolicy IManagedPolicy) {
 	_jsii_.InvokeVoid(
 		p,
@@ -12436,6 +15026,7 @@ func (p *jsiiProxy_PermissionsBoundary) Apply(boundaryPolicy IManagedPolicy) {
 }
 
 // Remove previously applied Permissions Boundaries.
+// Experimental.
 func (p *jsiiProxy_PermissionsBoundary) Clear() {
 	_jsii_.InvokeVoid(
 		p,
@@ -12452,12 +15043,13 @@ func (p *jsiiProxy_PermissionsBoundary) Clear() {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type Policy interface {
 	awscdk.Resource
 	IPolicy
 	Document() PolicyDocument
 	Env() *awscdk.ResourceEnvironment
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	PolicyName() *string
 	Stack() awscdk.Stack
@@ -12469,7 +15061,13 @@ type Policy interface {
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for Policy
@@ -12498,8 +15096,8 @@ func (j *jsiiProxy_Policy) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_Policy) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_Policy) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -12539,13 +15137,14 @@ func (j *jsiiProxy_Policy) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewPolicy(scope constructs.Construct, id *string, props *PolicyProps) Policy {
 	_init_.Initialize()
 
 	j := jsiiProxy_Policy{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.Policy",
+		"monocdk.aws_iam.Policy",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -12553,24 +15152,26 @@ func NewPolicy(scope constructs.Construct, id *string, props *PolicyProps) Polic
 	return &j
 }
 
+// Experimental.
 func NewPolicy_Override(p Policy, scope constructs.Construct, id *string, props *PolicyProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.Policy",
+		"monocdk.aws_iam.Policy",
 		[]interface{}{scope, id, props},
 		p,
 	)
 }
 
 // Import a policy in this app based on its name.
+// Experimental.
 func Policy_FromPolicyName(scope constructs.Construct, id *string, policyName *string) IPolicy {
 	_init_.Initialize()
 
 	var returns IPolicy
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.Policy",
+		"monocdk.aws_iam.Policy",
 		"fromPolicyName",
 		[]interface{}{scope, id, policyName},
 		&returns,
@@ -12579,17 +15180,15 @@ func Policy_FromPolicyName(scope constructs.Construct, id *string, policyName *s
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func Policy_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.Policy",
+		"monocdk.aws_iam.Policy",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -12599,13 +15198,14 @@ func Policy_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func Policy_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func Policy_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.Policy",
+		"monocdk.aws_iam.Policy",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -12615,6 +15215,7 @@ func Policy_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Adds a statement to the policy document.
+// Experimental.
 func (p *jsiiProxy_Policy) AddStatements(statement ...PolicyStatement) {
 	args := []interface{}{}
 	for _, a := range statement {
@@ -12637,6 +15238,7 @@ func (p *jsiiProxy_Policy) AddStatements(statement ...PolicyStatement) {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (p *jsiiProxy_Policy) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		p,
@@ -12646,6 +15248,7 @@ func (p *jsiiProxy_Policy) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 }
 
 // Attaches this policy to a group.
+// Experimental.
 func (p *jsiiProxy_Policy) AttachToGroup(group IGroup) {
 	_jsii_.InvokeVoid(
 		p,
@@ -12655,6 +15258,7 @@ func (p *jsiiProxy_Policy) AttachToGroup(group IGroup) {
 }
 
 // Attaches this policy to a role.
+// Experimental.
 func (p *jsiiProxy_Policy) AttachToRole(role IRole) {
 	_jsii_.InvokeVoid(
 		p,
@@ -12664,6 +15268,7 @@ func (p *jsiiProxy_Policy) AttachToRole(role IRole) {
 }
 
 // Attaches this policy to a user.
+// Experimental.
 func (p *jsiiProxy_Policy) AttachToUser(user IUser) {
 	_jsii_.InvokeVoid(
 		p,
@@ -12672,6 +15277,7 @@ func (p *jsiiProxy_Policy) AttachToUser(user IUser) {
 	)
 }
 
+// Experimental.
 func (p *jsiiProxy_Policy) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -12691,6 +15297,7 @@ func (p *jsiiProxy_Policy) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
+// Experimental.
 func (p *jsiiProxy_Policy) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -12709,6 +15316,7 @@ func (p *jsiiProxy_Policy) GetResourceArnAttribute(arnAttr *string, arnComponent
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
+// Experimental.
 func (p *jsiiProxy_Policy) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -12722,7 +15330,88 @@ func (p *jsiiProxy_Policy) GetResourceNameAttribute(nameAttr *string) *string {
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (p *jsiiProxy_Policy) OnPrepare() {
+	_jsii_.InvokeVoid(
+		p,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (p *jsiiProxy_Policy) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		p,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (p *jsiiProxy_Policy) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		p,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (p *jsiiProxy_Policy) Prepare() {
+	_jsii_.InvokeVoid(
+		p,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (p *jsiiProxy_Policy) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		p,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (p *jsiiProxy_Policy) ToString() *string {
 	var returns *string
 
@@ -12736,10 +15425,29 @@ func (p *jsiiProxy_Policy) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+// Experimental.
+func (p *jsiiProxy_Policy) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		p,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // A PolicyDocument is a collection of statements.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type PolicyDocument interface {
 	awscdk.IResolvable
 	CreationStack() *[]*string
@@ -12790,13 +15498,14 @@ func (j *jsiiProxy_PolicyDocument) StatementCount() *float64 {
 }
 
 
+// Experimental.
 func NewPolicyDocument(props *PolicyDocumentProps) PolicyDocument {
 	_init_.Initialize()
 
 	j := jsiiProxy_PolicyDocument{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.PolicyDocument",
+		"monocdk.aws_iam.PolicyDocument",
 		[]interface{}{props},
 		&j,
 	)
@@ -12804,11 +15513,12 @@ func NewPolicyDocument(props *PolicyDocumentProps) PolicyDocument {
 	return &j
 }
 
+// Experimental.
 func NewPolicyDocument_Override(p PolicyDocument, props *PolicyDocumentProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.PolicyDocument",
+		"monocdk.aws_iam.PolicyDocument",
 		[]interface{}{props},
 		p,
 	)
@@ -12817,13 +15527,14 @@ func NewPolicyDocument_Override(p PolicyDocument, props *PolicyDocumentProps) {
 // Creates a new PolicyDocument based on the object provided.
 //
 // This will accept an object created from the `.toJSON()` call
+// Experimental.
 func PolicyDocument_FromJson(obj interface{}) PolicyDocument {
 	_init_.Initialize()
 
 	var returns PolicyDocument
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.PolicyDocument",
+		"monocdk.aws_iam.PolicyDocument",
 		"fromJson",
 		[]interface{}{obj},
 		&returns,
@@ -12833,6 +15544,7 @@ func PolicyDocument_FromJson(obj interface{}) PolicyDocument {
 }
 
 // Adds a statement to the policy document.
+// Experimental.
 func (p *jsiiProxy_PolicyDocument) AddStatements(statement ...PolicyStatement) {
 	args := []interface{}{}
 	for _, a := range statement {
@@ -12847,6 +15559,7 @@ func (p *jsiiProxy_PolicyDocument) AddStatements(statement ...PolicyStatement) {
 }
 
 // Produce the Token's value at resolution time.
+// Experimental.
 func (p *jsiiProxy_PolicyDocument) Resolve(context awscdk.IResolveContext) interface{} {
 	var returns interface{}
 
@@ -12863,6 +15576,7 @@ func (p *jsiiProxy_PolicyDocument) Resolve(context awscdk.IResolveContext) inter
 // JSON-ify the document.
 //
 // Used when JSON.stringify() is called
+// Experimental.
 func (p *jsiiProxy_PolicyDocument) ToJSON() interface{} {
 	var returns interface{}
 
@@ -12877,6 +15591,7 @@ func (p *jsiiProxy_PolicyDocument) ToJSON() interface{} {
 }
 
 // Encode the policy document as a string.
+// Experimental.
 func (p *jsiiProxy_PolicyDocument) ToString() *string {
 	var returns *string
 
@@ -12893,6 +15608,7 @@ func (p *jsiiProxy_PolicyDocument) ToString() *string {
 // Validate that all policy statements in the policy document satisfies the requirements for any policy.
 // See: https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json
 //
+// Experimental.
 func (p *jsiiProxy_PolicyDocument) ValidateForAnyPolicy() *[]*string {
 	var returns *[]*string
 
@@ -12909,6 +15625,7 @@ func (p *jsiiProxy_PolicyDocument) ValidateForAnyPolicy() *[]*string {
 // Validate that all policy statements in the policy document satisfies the requirements for an identity-based policy.
 // See: https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json
 //
+// Experimental.
 func (p *jsiiProxy_PolicyDocument) ValidateForIdentityPolicy() *[]*string {
 	var returns *[]*string
 
@@ -12925,6 +15642,7 @@ func (p *jsiiProxy_PolicyDocument) ValidateForIdentityPolicy() *[]*string {
 // Validate that all policy statements in the policy document satisfies the requirements for a resource-based policy.
 // See: https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json
 //
+// Experimental.
 func (p *jsiiProxy_PolicyDocument) ValidateForResourcePolicy() *[]*string {
 	var returns *[]*string
 
@@ -12942,10 +15660,13 @@ func (p *jsiiProxy_PolicyDocument) ValidateForResourcePolicy() *[]*string {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type PolicyDocumentProps struct {
 	// Automatically assign Statement Ids to all statements.
+	// Experimental.
 	AssignSids *bool `json:"assignSids" yaml:"assignSids"`
 	// Initial statements to add to the policy document.
+	// Experimental.
 	Statements *[]PolicyStatement `json:"statements" yaml:"statements"`
 }
 
@@ -12953,12 +15674,14 @@ type PolicyDocumentProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type PolicyProps struct {
 	// Initial PolicyDocument to use for this Policy.
 	//
 	// If omited, any
 	// `PolicyStatement` provided in the `statements` property will be applied
 	// against the empty default `PolicyDocument`.
+	// Experimental.
 	Document PolicyDocument `json:"document" yaml:"document"`
 	// Force creation of an `AWS::IAM::Policy`.
 	//
@@ -12970,28 +15693,34 @@ type PolicyProps struct {
 	//
 	// In cases where you know the policy must be created and it is actually
 	// an error if no statements have been added to it, you can set this to `true`.
+	// Experimental.
 	Force *bool `json:"force" yaml:"force"`
 	// Groups to attach this policy to.
 	//
 	// You can also use `attachToGroup(group)` to attach this policy to a group.
+	// Experimental.
 	Groups *[]IGroup `json:"groups" yaml:"groups"`
 	// The name of the policy.
 	//
 	// If you specify multiple policies for an entity,
 	// specify unique names. For example, if you specify a list of policies for
 	// an IAM role, each policy must have a unique name.
+	// Experimental.
 	PolicyName *string `json:"policyName" yaml:"policyName"`
 	// Roles to attach this policy to.
 	//
 	// You can also use `attachToRole(role)` to attach this policy to a role.
+	// Experimental.
 	Roles *[]IRole `json:"roles" yaml:"roles"`
 	// Initial set of permissions to add to this policy document.
 	//
 	// You can also use `addStatements(...statement)` to add permissions later.
+	// Experimental.
 	Statements *[]PolicyStatement `json:"statements" yaml:"statements"`
 	// Users to attach this policy to.
 	//
 	// You can also use `attachToUser(user)` to attach this policy to a user.
+	// Experimental.
 	Users *[]IUser `json:"users" yaml:"users"`
 }
 
@@ -12999,6 +15728,7 @@ type PolicyProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type PolicyStatement interface {
 	Effect() Effect
 	SetEffect(val Effect)
@@ -13077,13 +15807,14 @@ func (j *jsiiProxy_PolicyStatement) Sid() *string {
 }
 
 
+// Experimental.
 func NewPolicyStatement(props *PolicyStatementProps) PolicyStatement {
 	_init_.Initialize()
 
 	j := jsiiProxy_PolicyStatement{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.PolicyStatement",
+		"monocdk.aws_iam.PolicyStatement",
 		[]interface{}{props},
 		&j,
 	)
@@ -13091,11 +15822,12 @@ func NewPolicyStatement(props *PolicyStatementProps) PolicyStatement {
 	return &j
 }
 
+// Experimental.
 func NewPolicyStatement_Override(p PolicyStatement, props *PolicyStatementProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.PolicyStatement",
+		"monocdk.aws_iam.PolicyStatement",
 		[]interface{}{props},
 		p,
 	)
@@ -13120,13 +15852,14 @@ func (j *jsiiProxy_PolicyStatement) SetSid(val *string) {
 // Creates a new PolicyStatement based on the object provided.
 //
 // This will accept an object created from the `.toJSON()` call
+// Experimental.
 func PolicyStatement_FromJson(obj interface{}) PolicyStatement {
 	_init_.Initialize()
 
 	var returns PolicyStatement
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.PolicyStatement",
+		"monocdk.aws_iam.PolicyStatement",
 		"fromJson",
 		[]interface{}{obj},
 		&returns,
@@ -13136,6 +15869,7 @@ func PolicyStatement_FromJson(obj interface{}) PolicyStatement {
 }
 
 // Add a condition that limits to a given account.
+// Experimental.
 func (p *jsiiProxy_PolicyStatement) AddAccountCondition(accountId *string) {
 	_jsii_.InvokeVoid(
 		p,
@@ -13145,6 +15879,7 @@ func (p *jsiiProxy_PolicyStatement) AddAccountCondition(accountId *string) {
 }
 
 // Adds an AWS account root user principal to this policy statement.
+// Experimental.
 func (p *jsiiProxy_PolicyStatement) AddAccountRootPrincipal() {
 	_jsii_.InvokeVoid(
 		p,
@@ -13156,6 +15891,7 @@ func (p *jsiiProxy_PolicyStatement) AddAccountRootPrincipal() {
 // Specify allowed actions into the "Action" section of the policy statement.
 // See: https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_action.html
 //
+// Experimental.
 func (p *jsiiProxy_PolicyStatement) AddActions(actions ...*string) {
 	args := []interface{}{}
 	for _, a := range actions {
@@ -13170,6 +15906,7 @@ func (p *jsiiProxy_PolicyStatement) AddActions(actions ...*string) {
 }
 
 // Adds a ``"*"`` resource to this statement.
+// Experimental.
 func (p *jsiiProxy_PolicyStatement) AddAllResources() {
 	_jsii_.InvokeVoid(
 		p,
@@ -13179,6 +15916,7 @@ func (p *jsiiProxy_PolicyStatement) AddAllResources() {
 }
 
 // Adds all identities in all accounts ("*") to this policy statement.
+// Experimental.
 func (p *jsiiProxy_PolicyStatement) AddAnyPrincipal() {
 	_jsii_.InvokeVoid(
 		p,
@@ -13190,6 +15928,7 @@ func (p *jsiiProxy_PolicyStatement) AddAnyPrincipal() {
 // Specify a principal using the ARN  identifier of the principal.
 //
 // You cannot specify IAM groups and instance profiles as principals.
+// Experimental.
 func (p *jsiiProxy_PolicyStatement) AddArnPrincipal(arn *string) {
 	_jsii_.InvokeVoid(
 		p,
@@ -13199,6 +15938,7 @@ func (p *jsiiProxy_PolicyStatement) AddArnPrincipal(arn *string) {
 }
 
 // Specify AWS account ID as the principal entity to the "Principal" section of a policy statement.
+// Experimental.
 func (p *jsiiProxy_PolicyStatement) AddAwsAccountPrincipal(accountId *string) {
 	_jsii_.InvokeVoid(
 		p,
@@ -13208,6 +15948,7 @@ func (p *jsiiProxy_PolicyStatement) AddAwsAccountPrincipal(accountId *string) {
 }
 
 // Adds a canonical user ID principal to this policy document.
+// Experimental.
 func (p *jsiiProxy_PolicyStatement) AddCanonicalUserPrincipal(canonicalUserId *string) {
 	_jsii_.InvokeVoid(
 		p,
@@ -13217,6 +15958,7 @@ func (p *jsiiProxy_PolicyStatement) AddCanonicalUserPrincipal(canonicalUserId *s
 }
 
 // Add a condition to the Policy.
+// Experimental.
 func (p *jsiiProxy_PolicyStatement) AddCondition(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		p,
@@ -13226,6 +15968,7 @@ func (p *jsiiProxy_PolicyStatement) AddCondition(key *string, value interface{})
 }
 
 // Add multiple conditions to the Policy.
+// Experimental.
 func (p *jsiiProxy_PolicyStatement) AddConditions(conditions *map[string]interface{}) {
 	_jsii_.InvokeVoid(
 		p,
@@ -13235,6 +15978,7 @@ func (p *jsiiProxy_PolicyStatement) AddConditions(conditions *map[string]interfa
 }
 
 // Adds a federated identity provider such as Amazon Cognito to this policy statement.
+// Experimental.
 func (p *jsiiProxy_PolicyStatement) AddFederatedPrincipal(federated interface{}, conditions *map[string]interface{}) {
 	_jsii_.InvokeVoid(
 		p,
@@ -13246,6 +15990,7 @@ func (p *jsiiProxy_PolicyStatement) AddFederatedPrincipal(federated interface{},
 // Explicitly allow all actions except the specified list of actions into the "NotAction" section of the policy document.
 // See: https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_notaction.html
 //
+// Experimental.
 func (p *jsiiProxy_PolicyStatement) AddNotActions(notActions ...*string) {
 	args := []interface{}{}
 	for _, a := range notActions {
@@ -13262,6 +16007,7 @@ func (p *jsiiProxy_PolicyStatement) AddNotActions(notActions ...*string) {
 // Specify principals that is not allowed or denied access to the "NotPrincipal" section of a policy statement.
 // See: https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_notprincipal.html
 //
+// Experimental.
 func (p *jsiiProxy_PolicyStatement) AddNotPrincipals(notPrincipals ...IPrincipal) {
 	args := []interface{}{}
 	for _, a := range notPrincipals {
@@ -13280,6 +16026,7 @@ func (p *jsiiProxy_PolicyStatement) AddNotPrincipals(notPrincipals ...IPrincipal
 // All resources except the specified list will be matched.
 // See: https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_notresource.html
 //
+// Experimental.
 func (p *jsiiProxy_PolicyStatement) AddNotResources(arns ...*string) {
 	args := []interface{}{}
 	for _, a := range arns {
@@ -13296,6 +16043,7 @@ func (p *jsiiProxy_PolicyStatement) AddNotResources(arns ...*string) {
 // Adds principals to the "Principal" section of a policy statement.
 // See: https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html
 //
+// Experimental.
 func (p *jsiiProxy_PolicyStatement) AddPrincipals(principals ...IPrincipal) {
 	args := []interface{}{}
 	for _, a := range principals {
@@ -13312,6 +16060,7 @@ func (p *jsiiProxy_PolicyStatement) AddPrincipals(principals ...IPrincipal) {
 // Specify resources that this policy statement applies into the "Resource" section of this policy statement.
 // See: https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_resource.html
 //
+// Experimental.
 func (p *jsiiProxy_PolicyStatement) AddResources(arns ...*string) {
 	args := []interface{}{}
 	for _, a := range arns {
@@ -13326,6 +16075,7 @@ func (p *jsiiProxy_PolicyStatement) AddResources(arns ...*string) {
 }
 
 // Adds a service principal to this policy statement.
+// Experimental.
 func (p *jsiiProxy_PolicyStatement) AddServicePrincipal(service *string, opts *ServicePrincipalOpts) {
 	_jsii_.InvokeVoid(
 		p,
@@ -13337,6 +16087,7 @@ func (p *jsiiProxy_PolicyStatement) AddServicePrincipal(service *string, opts *S
 // JSON-ify the statement.
 //
 // Used when JSON.stringify() is called
+// Experimental.
 func (p *jsiiProxy_PolicyStatement) ToJSON() interface{} {
 	var returns interface{}
 
@@ -13353,6 +16104,7 @@ func (p *jsiiProxy_PolicyStatement) ToJSON() interface{} {
 // JSON-ify the policy statement.
 //
 // Used when JSON.stringify() is called
+// Experimental.
 func (p *jsiiProxy_PolicyStatement) ToStatementJson() interface{} {
 	var returns interface{}
 
@@ -13367,6 +16119,7 @@ func (p *jsiiProxy_PolicyStatement) ToStatementJson() interface{} {
 }
 
 // String representation of this policy statement.
+// Experimental.
 func (p *jsiiProxy_PolicyStatement) ToString() *string {
 	var returns *string
 
@@ -13381,6 +16134,7 @@ func (p *jsiiProxy_PolicyStatement) ToString() *string {
 }
 
 // Validate that the policy statement satisfies base requirements for a policy.
+// Experimental.
 func (p *jsiiProxy_PolicyStatement) ValidateForAnyPolicy() *[]*string {
 	var returns *[]*string
 
@@ -13395,6 +16149,7 @@ func (p *jsiiProxy_PolicyStatement) ValidateForAnyPolicy() *[]*string {
 }
 
 // Validate that the policy statement satisfies all requirements for an identity-based policy.
+// Experimental.
 func (p *jsiiProxy_PolicyStatement) ValidateForIdentityPolicy() *[]*string {
 	var returns *[]*string
 
@@ -13409,6 +16164,7 @@ func (p *jsiiProxy_PolicyStatement) ValidateForIdentityPolicy() *[]*string {
 }
 
 // Validate that the policy statement satisfies all requirements for a resource-based policy.
+// Experimental.
 func (p *jsiiProxy_PolicyStatement) ValidateForResourcePolicy() *[]*string {
 	var returns *[]*string
 
@@ -13426,22 +16182,31 @@ func (p *jsiiProxy_PolicyStatement) ValidateForResourcePolicy() *[]*string {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type PolicyStatementProps struct {
 	// List of actions to add to the statement.
+	// Experimental.
 	Actions *[]*string `json:"actions" yaml:"actions"`
 	// Conditions to add to the statement.
+	// Experimental.
 	Conditions *map[string]interface{} `json:"conditions" yaml:"conditions"`
 	// Whether to allow or deny the actions in this statement.
+	// Experimental.
 	Effect Effect `json:"effect" yaml:"effect"`
 	// List of not actions to add to the statement.
+	// Experimental.
 	NotActions *[]*string `json:"notActions" yaml:"notActions"`
 	// List of not principals to add to the statement.
+	// Experimental.
 	NotPrincipals *[]IPrincipal `json:"notPrincipals" yaml:"notPrincipals"`
 	// NotResource ARNs to add to the statement.
+	// Experimental.
 	NotResources *[]*string `json:"notResources" yaml:"notResources"`
 	// List of principals to add to the statement.
+	// Experimental.
 	Principals *[]IPrincipal `json:"principals" yaml:"principals"`
 	// Resource ARNs to add to the statement.
+	// Experimental.
 	Resources *[]*string `json:"resources" yaml:"resources"`
 	// The Sid (statement ID) is an optional identifier that you provide for the policy statement.
 	//
@@ -13449,6 +16214,7 @@ type PolicyStatementProps struct {
 	// statement array. In services that let you specify an ID element, such as
 	// SQS and SNS, the Sid value is just a sub-ID of the policy document's ID. In
 	// IAM, the Sid value must be unique within a JSON policy.
+	// Experimental.
 	Sid *string `json:"sid" yaml:"sid"`
 }
 
@@ -13456,6 +16222,7 @@ type PolicyStatementProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type PrincipalBase interface {
 	IAssumeRolePrincipal
 	AssumeRoleAction() *string
@@ -13517,11 +16284,12 @@ func (j *jsiiProxy_PrincipalBase) PrincipalAccount() *string {
 }
 
 
+// Experimental.
 func NewPrincipalBase_Override(p PrincipalBase) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.PrincipalBase",
+		"monocdk.aws_iam.PrincipalBase",
 		nil, // no parameters
 		p,
 	)
@@ -13531,6 +16299,7 @@ func NewPrincipalBase_Override(p PrincipalBase) {
 //
 // Add the statements to the AssumeRolePolicyDocument necessary to give this principal
 // permissions to assume the given role.
+// Experimental.
 func (p *jsiiProxy_PrincipalBase) AddToAssumeRolePolicy(document PolicyDocument) {
 	_jsii_.InvokeVoid(
 		p,
@@ -13540,6 +16309,7 @@ func (p *jsiiProxy_PrincipalBase) AddToAssumeRolePolicy(document PolicyDocument)
 }
 
 // Add to the policy of this principal.
+// Experimental.
 func (p *jsiiProxy_PrincipalBase) AddToPolicy(statement PolicyStatement) *bool {
 	var returns *bool
 
@@ -13554,6 +16324,7 @@ func (p *jsiiProxy_PrincipalBase) AddToPolicy(statement PolicyStatement) *bool {
 }
 
 // Add to the policy of this principal.
+// Experimental.
 func (p *jsiiProxy_PrincipalBase) AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult {
 	var returns *AddToPrincipalPolicyResult
 
@@ -13570,6 +16341,7 @@ func (p *jsiiProxy_PrincipalBase) AddToPrincipalPolicy(_statement PolicyStatemen
 // JSON-ify the principal.
 //
 // Used when JSON.stringify() is called
+// Experimental.
 func (p *jsiiProxy_PrincipalBase) ToJSON() *map[string]*[]*string {
 	var returns *map[string]*[]*string
 
@@ -13584,6 +16356,7 @@ func (p *jsiiProxy_PrincipalBase) ToJSON() *map[string]*[]*string {
 }
 
 // Returns a string representation of an object.
+// Experimental.
 func (p *jsiiProxy_PrincipalBase) ToString() *string {
 	var returns *string
 
@@ -13603,6 +16376,7 @@ func (p *jsiiProxy_PrincipalBase) ToString() *string {
 // conditions parameter, the value from the conditions parameter will be used.
 //
 // Returns: a new PrincipalWithConditions object.
+// Experimental.
 func (p *jsiiProxy_PrincipalBase) WithConditions(conditions *map[string]interface{}) PrincipalBase {
 	var returns PrincipalBase
 
@@ -13619,6 +16393,7 @@ func (p *jsiiProxy_PrincipalBase) WithConditions(conditions *map[string]interfac
 // Returns a new principal using this principal as the base, with session tags enabled.
 //
 // Returns: a new SessionTagsPrincipal object.
+// Experimental.
 func (p *jsiiProxy_PrincipalBase) WithSessionTags() PrincipalBase {
 	var returns PrincipalBase
 
@@ -13648,6 +16423,7 @@ func (p *jsiiProxy_PrincipalBase) WithSessionTags() PrincipalBase {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type PrincipalPolicyFragment interface {
 	Conditions() *map[string]interface{}
 	PrincipalJson() *map[string]*[]*string
@@ -13679,13 +16455,14 @@ func (j *jsiiProxy_PrincipalPolicyFragment) PrincipalJson() *map[string]*[]*stri
 }
 
 
+// Experimental.
 func NewPrincipalPolicyFragment(principalJson *map[string]*[]*string, conditions *map[string]interface{}) PrincipalPolicyFragment {
 	_init_.Initialize()
 
 	j := jsiiProxy_PrincipalPolicyFragment{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.PrincipalPolicyFragment",
+		"monocdk.aws_iam.PrincipalPolicyFragment",
 		[]interface{}{principalJson, conditions},
 		&j,
 	)
@@ -13693,11 +16470,12 @@ func NewPrincipalPolicyFragment(principalJson *map[string]*[]*string, conditions
 	return &j
 }
 
+// Experimental.
 func NewPrincipalPolicyFragment_Override(p PrincipalPolicyFragment, principalJson *map[string]*[]*string, conditions *map[string]interface{}) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.PrincipalPolicyFragment",
+		"monocdk.aws_iam.PrincipalPolicyFragment",
 		[]interface{}{principalJson, conditions},
 		p,
 	)
@@ -13710,6 +16488,7 @@ func NewPrincipalPolicyFragment_Override(p PrincipalPolicyFragment, principalJso
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type PrincipalWithConditions interface {
 	PrincipalBase
 	AssumeRoleAction() *string
@@ -13784,13 +16563,14 @@ func (j *jsiiProxy_PrincipalWithConditions) PrincipalAccount() *string {
 }
 
 
+// Experimental.
 func NewPrincipalWithConditions(principal IPrincipal, conditions *map[string]interface{}) PrincipalWithConditions {
 	_init_.Initialize()
 
 	j := jsiiProxy_PrincipalWithConditions{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.PrincipalWithConditions",
+		"monocdk.aws_iam.PrincipalWithConditions",
 		[]interface{}{principal, conditions},
 		&j,
 	)
@@ -13798,17 +16578,19 @@ func NewPrincipalWithConditions(principal IPrincipal, conditions *map[string]int
 	return &j
 }
 
+// Experimental.
 func NewPrincipalWithConditions_Override(p PrincipalWithConditions, principal IPrincipal, conditions *map[string]interface{}) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.PrincipalWithConditions",
+		"monocdk.aws_iam.PrincipalWithConditions",
 		[]interface{}{principal, conditions},
 		p,
 	)
 }
 
 // Add a condition to the principal.
+// Experimental.
 func (p *jsiiProxy_PrincipalWithConditions) AddCondition(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		p,
@@ -13821,6 +16603,7 @@ func (p *jsiiProxy_PrincipalWithConditions) AddCondition(key *string, value inte
 //
 // Values from the conditions parameter will overwrite existing values with the same operator
 // and key.
+// Experimental.
 func (p *jsiiProxy_PrincipalWithConditions) AddConditions(conditions *map[string]interface{}) {
 	_jsii_.InvokeVoid(
 		p,
@@ -13833,6 +16616,7 @@ func (p *jsiiProxy_PrincipalWithConditions) AddConditions(conditions *map[string
 //
 // Add the statements to the AssumeRolePolicyDocument necessary to give this principal
 // permissions to assume the given role.
+// Experimental.
 func (p *jsiiProxy_PrincipalWithConditions) AddToAssumeRolePolicy(document PolicyDocument) {
 	_jsii_.InvokeVoid(
 		p,
@@ -13842,6 +16626,7 @@ func (p *jsiiProxy_PrincipalWithConditions) AddToAssumeRolePolicy(document Polic
 }
 
 // Add to the policy of this principal.
+// Experimental.
 func (p *jsiiProxy_PrincipalWithConditions) AddToPolicy(statement PolicyStatement) *bool {
 	var returns *bool
 
@@ -13856,6 +16641,7 @@ func (p *jsiiProxy_PrincipalWithConditions) AddToPolicy(statement PolicyStatemen
 }
 
 // Add to the policy of this principal.
+// Experimental.
 func (p *jsiiProxy_PrincipalWithConditions) AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult {
 	var returns *AddToPrincipalPolicyResult
 
@@ -13872,6 +16658,7 @@ func (p *jsiiProxy_PrincipalWithConditions) AddToPrincipalPolicy(statement Polic
 // JSON-ify the principal.
 //
 // Used when JSON.stringify() is called
+// Experimental.
 func (p *jsiiProxy_PrincipalWithConditions) ToJSON() *map[string]*[]*string {
 	var returns *map[string]*[]*string
 
@@ -13886,6 +16673,7 @@ func (p *jsiiProxy_PrincipalWithConditions) ToJSON() *map[string]*[]*string {
 }
 
 // Returns a string representation of an object.
+// Experimental.
 func (p *jsiiProxy_PrincipalWithConditions) ToString() *string {
 	var returns *string
 
@@ -13905,6 +16693,7 @@ func (p *jsiiProxy_PrincipalWithConditions) ToString() *string {
 // conditions parameter, the value from the conditions parameter will be used.
 //
 // Returns: a new PrincipalWithConditions object.
+// Experimental.
 func (p *jsiiProxy_PrincipalWithConditions) WithConditions(conditions *map[string]interface{}) PrincipalBase {
 	var returns PrincipalBase
 
@@ -13921,6 +16710,7 @@ func (p *jsiiProxy_PrincipalWithConditions) WithConditions(conditions *map[strin
 // Returns a new principal using this principal as the base, with session tags enabled.
 //
 // Returns: a new SessionTagsPrincipal object.
+// Experimental.
 func (p *jsiiProxy_PrincipalWithConditions) WithSessionTags() PrincipalBase {
 	var returns PrincipalBase
 
@@ -13941,6 +16731,7 @@ func (p *jsiiProxy_PrincipalWithConditions) WithSessionTags() PrincipalBase {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type Role interface {
 	awscdk.Resource
 	IRole
@@ -13948,7 +16739,7 @@ type Role interface {
 	AssumeRolePolicy() PolicyDocument
 	Env() *awscdk.ResourceEnvironment
 	GrantPrincipal() IPrincipal
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PermissionsBoundary() IManagedPolicy
 	PhysicalName() *string
 	PolicyFragment() PrincipalPolicyFragment
@@ -13967,7 +16758,13 @@ type Role interface {
 	GetResourceNameAttribute(nameAttr *string) *string
 	Grant(grantee IPrincipal, actions ...*string) Grant
 	GrantPassRole(identity IPrincipal) Grant
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	WithoutPolicyUpdates(options *WithoutPolicyUpdatesOptions) IRole
 }
 
@@ -14017,8 +16814,8 @@ func (j *jsiiProxy_Role) GrantPrincipal() IPrincipal {
 	return returns
 }
 
-func (j *jsiiProxy_Role) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_Role) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -14108,13 +16905,14 @@ func (j *jsiiProxy_Role) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewRole(scope constructs.Construct, id *string, props *RoleProps) Role {
 	_init_.Initialize()
 
 	j := jsiiProxy_Role{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.Role",
+		"monocdk.aws_iam.Role",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -14122,11 +16920,12 @@ func NewRole(scope constructs.Construct, id *string, props *RoleProps) Role {
 	return &j
 }
 
+// Experimental.
 func NewRole_Override(r Role, scope constructs.Construct, id *string, props *RoleProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.Role",
+		"monocdk.aws_iam.Role",
 		[]interface{}{scope, id, props},
 		r,
 	)
@@ -14142,13 +16941,14 @@ func NewRole_Override(r Role, scope constructs.Construct, id *string, props *Rol
 // the correct calculation of the full path name as a CloudFormation
 // expression. In this scenario the Role ARN should be supplied without the
 // `path` in order to resolve the correct role resource.
+// Experimental.
 func Role_FromRoleArn(scope constructs.Construct, id *string, roleArn *string, options *FromRoleArnOptions) IRole {
 	_init_.Initialize()
 
 	var returns IRole
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.Role",
+		"monocdk.aws_iam.Role",
 		"fromRoleArn",
 		[]interface{}{scope, id, roleArn, options},
 		&returns,
@@ -14157,17 +16957,15 @@ func Role_FromRoleArn(scope constructs.Construct, id *string, roleArn *string, o
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func Role_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.Role",
+		"monocdk.aws_iam.Role",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -14177,13 +16975,14 @@ func Role_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func Role_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func Role_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.Role",
+		"monocdk.aws_iam.Role",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -14193,6 +16992,7 @@ func Role_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Attaches a managed policy to this role.
+// Experimental.
 func (r *jsiiProxy_Role) AddManagedPolicy(policy IManagedPolicy) {
 	_jsii_.InvokeVoid(
 		r,
@@ -14202,6 +17002,7 @@ func (r *jsiiProxy_Role) AddManagedPolicy(policy IManagedPolicy) {
 }
 
 // Add to the policy of this principal.
+// Experimental.
 func (r *jsiiProxy_Role) AddToPolicy(statement PolicyStatement) *bool {
 	var returns *bool
 
@@ -14218,6 +17019,7 @@ func (r *jsiiProxy_Role) AddToPolicy(statement PolicyStatement) *bool {
 // Adds a permission to the role's default policy document.
 //
 // If there is no default policy attached to this role, it will be created.
+// Experimental.
 func (r *jsiiProxy_Role) AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult {
 	var returns *AddToPrincipalPolicyResult
 
@@ -14240,6 +17042,7 @@ func (r *jsiiProxy_Role) AddToPrincipalPolicy(statement PolicyStatement) *AddToP
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (r *jsiiProxy_Role) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		r,
@@ -14249,6 +17052,7 @@ func (r *jsiiProxy_Role) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 }
 
 // Attaches a policy to this role.
+// Experimental.
 func (r *jsiiProxy_Role) AttachInlinePolicy(policy Policy) {
 	_jsii_.InvokeVoid(
 		r,
@@ -14257,6 +17061,7 @@ func (r *jsiiProxy_Role) AttachInlinePolicy(policy Policy) {
 	)
 }
 
+// Experimental.
 func (r *jsiiProxy_Role) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -14276,6 +17081,7 @@ func (r *jsiiProxy_Role) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
+// Experimental.
 func (r *jsiiProxy_Role) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -14294,6 +17100,7 @@ func (r *jsiiProxy_Role) GetResourceArnAttribute(arnAttr *string, arnComponents 
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
+// Experimental.
 func (r *jsiiProxy_Role) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -14308,6 +17115,7 @@ func (r *jsiiProxy_Role) GetResourceNameAttribute(nameAttr *string) *string {
 }
 
 // Grant the actions defined in actions to the identity Principal on this resource.
+// Experimental.
 func (r *jsiiProxy_Role) Grant(grantee IPrincipal, actions ...*string) Grant {
 	args := []interface{}{grantee}
 	for _, a := range actions {
@@ -14327,6 +17135,7 @@ func (r *jsiiProxy_Role) Grant(grantee IPrincipal, actions ...*string) Grant {
 }
 
 // Grant permissions to the given principal to pass this role.
+// Experimental.
 func (r *jsiiProxy_Role) GrantPassRole(identity IPrincipal) Grant {
 	var returns Grant
 
@@ -14340,13 +17149,112 @@ func (r *jsiiProxy_Role) GrantPassRole(identity IPrincipal) Grant {
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (r *jsiiProxy_Role) OnPrepare() {
+	_jsii_.InvokeVoid(
+		r,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (r *jsiiProxy_Role) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		r,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (r *jsiiProxy_Role) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		r,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (r *jsiiProxy_Role) Prepare() {
+	_jsii_.InvokeVoid(
+		r,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (r *jsiiProxy_Role) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		r,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (r *jsiiProxy_Role) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		r,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+// Experimental.
+func (r *jsiiProxy_Role) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		r,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -14361,6 +17269,7 @@ func (r *jsiiProxy_Role) ToString() *string {
 //
 // If you do, you are responsible for adding the correct statements to the
 // Role's policies yourself.
+// Experimental.
 func (r *jsiiProxy_Role) WithoutPolicyUpdates(options *WithoutPolicyUpdatesOptions) IRole {
 	var returns IRole
 
@@ -14378,20 +17287,30 @@ func (r *jsiiProxy_Role) WithoutPolicyUpdates(options *WithoutPolicyUpdatesOptio
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type RoleProps struct {
 	// The IAM principal (i.e. `new ServicePrincipal('sns.amazonaws.com')`) which can assume this role.
 	//
 	// You can later modify the assume role policy document by accessing it via
 	// the `assumeRolePolicy` property.
+	// Experimental.
 	AssumedBy IPrincipal `json:"assumedBy" yaml:"assumedBy"`
 	// A description of the role.
 	//
 	// It can be up to 1000 characters long.
+	// Experimental.
 	Description *string `json:"description" yaml:"description"`
+	// ID that the role assumer needs to provide when assuming this role.
+	//
+	// If the configured and provided external IDs do not match, the
+	// AssumeRole operation will fail.
+	// Deprecated: see {@link externalIds}
+	ExternalId *string `json:"externalId" yaml:"externalId"`
 	// List of IDs that the role assumer needs to provide one of when assuming this role.
 	//
 	// If the configured and provided external IDs do not match, the
 	// AssumeRole operation will fail.
+	// Experimental.
 	ExternalIds *[]*string `json:"externalIds" yaml:"externalIds"`
 	// A list of named policies to inline into this role.
 	//
@@ -14399,11 +17318,13 @@ type RoleProps struct {
 	// created with the role, whereas those added by ``addToPolicy`` are added
 	// using a separate CloudFormation resource (allowing a way around circular
 	// dependencies that could otherwise be introduced).
+	// Experimental.
 	InlinePolicies *map[string]PolicyDocument `json:"inlinePolicies" yaml:"inlinePolicies"`
 	// A list of managed policies associated with this role.
 	//
 	// You can add managed policies later using
 	// `addManagedPolicy(ManagedPolicy.fromAwsManagedPolicyName(policyName))`.
+	// Experimental.
 	ManagedPolicies *[]IManagedPolicy `json:"managedPolicies" yaml:"managedPolicies"`
 	// The maximum session duration that you want to set for the specified role.
 	//
@@ -14419,11 +17340,13 @@ type RoleProps struct {
 	// security credentials are valid for one hour by default. This applies when
 	// you use the AssumeRole* API operations or the assume-role* CLI operations
 	// but does not apply when you use those operations to create a console URL.
+	// Experimental.
 	MaxSessionDuration awscdk.Duration `json:"maxSessionDuration" yaml:"maxSessionDuration"`
 	// The path associated with this role.
 	//
 	// For information about IAM paths, see
 	// Friendly Names and Paths in IAM User Guide.
+	// Experimental.
 	Path *string `json:"path" yaml:"path"`
 	// AWS supports permissions boundaries for IAM entities (users or roles).
 	//
@@ -14432,6 +17355,7 @@ type RoleProps struct {
 	// an IAM entity. An entity's permissions boundary allows it to perform only
 	// the actions that are allowed by both its identity-based policies and its
 	// permissions boundaries.
+	// Experimental.
 	PermissionsBoundary IManagedPolicy `json:"permissionsBoundary" yaml:"permissionsBoundary"`
 	// A name for the IAM role.
 	//
@@ -14445,6 +17369,7 @@ type RoleProps struct {
 	// If you specify a name, you must specify the CAPABILITY_NAMED_IAM value to
 	// acknowledge your template's capabilities. For more information, see
 	// Acknowledging IAM Resources in AWS CloudFormation Templates.
+	// Experimental.
 	RoleName *string `json:"roleName" yaml:"roleName"`
 }
 
@@ -14452,6 +17377,7 @@ type RoleProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type SamlConsolePrincipal interface {
 	SamlPrincipal
 	AssumeRoleAction() *string
@@ -14535,13 +17461,14 @@ func (j *jsiiProxy_SamlConsolePrincipal) PrincipalAccount() *string {
 }
 
 
+// Experimental.
 func NewSamlConsolePrincipal(samlProvider ISamlProvider, conditions *map[string]interface{}) SamlConsolePrincipal {
 	_init_.Initialize()
 
 	j := jsiiProxy_SamlConsolePrincipal{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.SamlConsolePrincipal",
+		"monocdk.aws_iam.SamlConsolePrincipal",
 		[]interface{}{samlProvider, conditions},
 		&j,
 	)
@@ -14549,11 +17476,12 @@ func NewSamlConsolePrincipal(samlProvider ISamlProvider, conditions *map[string]
 	return &j
 }
 
+// Experimental.
 func NewSamlConsolePrincipal_Override(s SamlConsolePrincipal, samlProvider ISamlProvider, conditions *map[string]interface{}) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.SamlConsolePrincipal",
+		"monocdk.aws_iam.SamlConsolePrincipal",
 		[]interface{}{samlProvider, conditions},
 		s,
 	)
@@ -14563,6 +17491,7 @@ func NewSamlConsolePrincipal_Override(s SamlConsolePrincipal, samlProvider ISaml
 //
 // Add the statements to the AssumeRolePolicyDocument necessary to give this principal
 // permissions to assume the given role.
+// Experimental.
 func (s *jsiiProxy_SamlConsolePrincipal) AddToAssumeRolePolicy(document PolicyDocument) {
 	_jsii_.InvokeVoid(
 		s,
@@ -14572,6 +17501,7 @@ func (s *jsiiProxy_SamlConsolePrincipal) AddToAssumeRolePolicy(document PolicyDo
 }
 
 // Add to the policy of this principal.
+// Experimental.
 func (s *jsiiProxy_SamlConsolePrincipal) AddToPolicy(statement PolicyStatement) *bool {
 	var returns *bool
 
@@ -14586,6 +17516,7 @@ func (s *jsiiProxy_SamlConsolePrincipal) AddToPolicy(statement PolicyStatement) 
 }
 
 // Add to the policy of this principal.
+// Experimental.
 func (s *jsiiProxy_SamlConsolePrincipal) AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult {
 	var returns *AddToPrincipalPolicyResult
 
@@ -14602,6 +17533,7 @@ func (s *jsiiProxy_SamlConsolePrincipal) AddToPrincipalPolicy(_statement PolicyS
 // JSON-ify the principal.
 //
 // Used when JSON.stringify() is called
+// Experimental.
 func (s *jsiiProxy_SamlConsolePrincipal) ToJSON() *map[string]*[]*string {
 	var returns *map[string]*[]*string
 
@@ -14616,6 +17548,7 @@ func (s *jsiiProxy_SamlConsolePrincipal) ToJSON() *map[string]*[]*string {
 }
 
 // Returns a string representation of an object.
+// Experimental.
 func (s *jsiiProxy_SamlConsolePrincipal) ToString() *string {
 	var returns *string
 
@@ -14635,6 +17568,7 @@ func (s *jsiiProxy_SamlConsolePrincipal) ToString() *string {
 // conditions parameter, the value from the conditions parameter will be used.
 //
 // Returns: a new PrincipalWithConditions object.
+// Experimental.
 func (s *jsiiProxy_SamlConsolePrincipal) WithConditions(conditions *map[string]interface{}) PrincipalBase {
 	var returns PrincipalBase
 
@@ -14651,6 +17585,7 @@ func (s *jsiiProxy_SamlConsolePrincipal) WithConditions(conditions *map[string]i
 // Returns a new principal using this principal as the base, with session tags enabled.
 //
 // Returns: a new SessionTagsPrincipal object.
+// Experimental.
 func (s *jsiiProxy_SamlConsolePrincipal) WithSessionTags() PrincipalBase {
 	var returns PrincipalBase
 
@@ -14668,6 +17603,7 @@ func (s *jsiiProxy_SamlConsolePrincipal) WithSessionTags() PrincipalBase {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type SamlMetadataDocument interface {
 	Xml() *string
 }
@@ -14688,24 +17624,26 @@ func (j *jsiiProxy_SamlMetadataDocument) Xml() *string {
 }
 
 
+// Experimental.
 func NewSamlMetadataDocument_Override(s SamlMetadataDocument) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.SamlMetadataDocument",
+		"monocdk.aws_iam.SamlMetadataDocument",
 		nil, // no parameters
 		s,
 	)
 }
 
 // Create a SAML metadata document from a XML file.
+// Experimental.
 func SamlMetadataDocument_FromFile(path *string) SamlMetadataDocument {
 	_init_.Initialize()
 
 	var returns SamlMetadataDocument
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.SamlMetadataDocument",
+		"monocdk.aws_iam.SamlMetadataDocument",
 		"fromFile",
 		[]interface{}{path},
 		&returns,
@@ -14715,13 +17653,14 @@ func SamlMetadataDocument_FromFile(path *string) SamlMetadataDocument {
 }
 
 // Create a SAML metadata document from a XML string.
+// Experimental.
 func SamlMetadataDocument_FromXml(xml *string) SamlMetadataDocument {
 	_init_.Initialize()
 
 	var returns SamlMetadataDocument
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.SamlMetadataDocument",
+		"monocdk.aws_iam.SamlMetadataDocument",
 		"fromXml",
 		[]interface{}{xml},
 		&returns,
@@ -14734,6 +17673,7 @@ func SamlMetadataDocument_FromXml(xml *string) SamlMetadataDocument {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type SamlPrincipal interface {
 	FederatedPrincipal
 	AssumeRoleAction() *string
@@ -14817,13 +17757,14 @@ func (j *jsiiProxy_SamlPrincipal) PrincipalAccount() *string {
 }
 
 
+// Experimental.
 func NewSamlPrincipal(samlProvider ISamlProvider, conditions *map[string]interface{}) SamlPrincipal {
 	_init_.Initialize()
 
 	j := jsiiProxy_SamlPrincipal{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.SamlPrincipal",
+		"monocdk.aws_iam.SamlPrincipal",
 		[]interface{}{samlProvider, conditions},
 		&j,
 	)
@@ -14831,11 +17772,12 @@ func NewSamlPrincipal(samlProvider ISamlProvider, conditions *map[string]interfa
 	return &j
 }
 
+// Experimental.
 func NewSamlPrincipal_Override(s SamlPrincipal, samlProvider ISamlProvider, conditions *map[string]interface{}) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.SamlPrincipal",
+		"monocdk.aws_iam.SamlPrincipal",
 		[]interface{}{samlProvider, conditions},
 		s,
 	)
@@ -14845,6 +17787,7 @@ func NewSamlPrincipal_Override(s SamlPrincipal, samlProvider ISamlProvider, cond
 //
 // Add the statements to the AssumeRolePolicyDocument necessary to give this principal
 // permissions to assume the given role.
+// Experimental.
 func (s *jsiiProxy_SamlPrincipal) AddToAssumeRolePolicy(document PolicyDocument) {
 	_jsii_.InvokeVoid(
 		s,
@@ -14854,6 +17797,7 @@ func (s *jsiiProxy_SamlPrincipal) AddToAssumeRolePolicy(document PolicyDocument)
 }
 
 // Add to the policy of this principal.
+// Experimental.
 func (s *jsiiProxy_SamlPrincipal) AddToPolicy(statement PolicyStatement) *bool {
 	var returns *bool
 
@@ -14868,6 +17812,7 @@ func (s *jsiiProxy_SamlPrincipal) AddToPolicy(statement PolicyStatement) *bool {
 }
 
 // Add to the policy of this principal.
+// Experimental.
 func (s *jsiiProxy_SamlPrincipal) AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult {
 	var returns *AddToPrincipalPolicyResult
 
@@ -14884,6 +17829,7 @@ func (s *jsiiProxy_SamlPrincipal) AddToPrincipalPolicy(_statement PolicyStatemen
 // JSON-ify the principal.
 //
 // Used when JSON.stringify() is called
+// Experimental.
 func (s *jsiiProxy_SamlPrincipal) ToJSON() *map[string]*[]*string {
 	var returns *map[string]*[]*string
 
@@ -14898,6 +17844,7 @@ func (s *jsiiProxy_SamlPrincipal) ToJSON() *map[string]*[]*string {
 }
 
 // Returns a string representation of an object.
+// Experimental.
 func (s *jsiiProxy_SamlPrincipal) ToString() *string {
 	var returns *string
 
@@ -14917,6 +17864,7 @@ func (s *jsiiProxy_SamlPrincipal) ToString() *string {
 // conditions parameter, the value from the conditions parameter will be used.
 //
 // Returns: a new PrincipalWithConditions object.
+// Experimental.
 func (s *jsiiProxy_SamlPrincipal) WithConditions(conditions *map[string]interface{}) PrincipalBase {
 	var returns PrincipalBase
 
@@ -14933,6 +17881,7 @@ func (s *jsiiProxy_SamlPrincipal) WithConditions(conditions *map[string]interfac
 // Returns a new principal using this principal as the base, with session tags enabled.
 //
 // Returns: a new SessionTagsPrincipal object.
+// Experimental.
 func (s *jsiiProxy_SamlPrincipal) WithSessionTags() PrincipalBase {
 	var returns PrincipalBase
 
@@ -14950,11 +17899,12 @@ func (s *jsiiProxy_SamlPrincipal) WithSessionTags() PrincipalBase {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type SamlProvider interface {
 	awscdk.Resource
 	ISamlProvider
 	Env() *awscdk.ResourceEnvironment
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	SamlProviderArn() *string
 	Stack() awscdk.Stack
@@ -14962,7 +17912,13 @@ type SamlProvider interface {
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for SamlProvider
@@ -14981,8 +17937,8 @@ func (j *jsiiProxy_SamlProvider) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_SamlProvider) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_SamlProvider) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -15022,13 +17978,14 @@ func (j *jsiiProxy_SamlProvider) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewSamlProvider(scope constructs.Construct, id *string, props *SamlProviderProps) SamlProvider {
 	_init_.Initialize()
 
 	j := jsiiProxy_SamlProvider{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.SamlProvider",
+		"monocdk.aws_iam.SamlProvider",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -15036,24 +17993,26 @@ func NewSamlProvider(scope constructs.Construct, id *string, props *SamlProvider
 	return &j
 }
 
+// Experimental.
 func NewSamlProvider_Override(s SamlProvider, scope constructs.Construct, id *string, props *SamlProviderProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.SamlProvider",
+		"monocdk.aws_iam.SamlProvider",
 		[]interface{}{scope, id, props},
 		s,
 	)
 }
 
 // Import an existing provider.
+// Experimental.
 func SamlProvider_FromSamlProviderArn(scope constructs.Construct, id *string, samlProviderArn *string) ISamlProvider {
 	_init_.Initialize()
 
 	var returns ISamlProvider
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.SamlProvider",
+		"monocdk.aws_iam.SamlProvider",
 		"fromSamlProviderArn",
 		[]interface{}{scope, id, samlProviderArn},
 		&returns,
@@ -15062,17 +18021,15 @@ func SamlProvider_FromSamlProviderArn(scope constructs.Construct, id *string, sa
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func SamlProvider_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.SamlProvider",
+		"monocdk.aws_iam.SamlProvider",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -15082,13 +18039,14 @@ func SamlProvider_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func SamlProvider_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func SamlProvider_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.SamlProvider",
+		"monocdk.aws_iam.SamlProvider",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -15106,6 +18064,7 @@ func SamlProvider_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (s *jsiiProxy_SamlProvider) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		s,
@@ -15114,6 +18073,7 @@ func (s *jsiiProxy_SamlProvider) ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	)
 }
 
+// Experimental.
 func (s *jsiiProxy_SamlProvider) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -15133,6 +18093,7 @@ func (s *jsiiProxy_SamlProvider) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
+// Experimental.
 func (s *jsiiProxy_SamlProvider) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -15151,6 +18112,7 @@ func (s *jsiiProxy_SamlProvider) GetResourceArnAttribute(arnAttr *string, arnCom
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
+// Experimental.
 func (s *jsiiProxy_SamlProvider) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -15164,7 +18126,88 @@ func (s *jsiiProxy_SamlProvider) GetResourceNameAttribute(nameAttr *string) *str
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_SamlProvider) OnPrepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_SamlProvider) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (s *jsiiProxy_SamlProvider) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_SamlProvider) Prepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_SamlProvider) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (s *jsiiProxy_SamlProvider) ToString() *string {
 	var returns *string
 
@@ -15178,12 +18221,34 @@ func (s *jsiiProxy_SamlProvider) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (s *jsiiProxy_SamlProvider) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Properties for a SAML provider.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type SamlProviderProps struct {
 	// An XML document generated by an identity provider (IdP) that supports SAML 2.0. The document includes the issuer's name, expiration information, and keys that can be used to validate the SAML authentication response (assertions) that are received from the IdP. You must generate the metadata document using the identity management software that is used as your organization's IdP.
+	// Experimental.
 	MetadataDocument SamlMetadataDocument `json:"metadataDocument" yaml:"metadataDocument"`
 	// The name of the provider to create.
 	//
@@ -15192,6 +18257,7 @@ type SamlProviderProps struct {
 	// any of the following characters: _+=,.@-
 	//
 	// Length must be between 1 and 128 characters.
+	// Experimental.
 	Name *string `json:"name" yaml:"name"`
 }
 
@@ -15199,6 +18265,7 @@ type SamlProviderProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type ServicePrincipal interface {
 	PrincipalBase
 	AssumeRoleAction() *string
@@ -15271,13 +18338,14 @@ func (j *jsiiProxy_ServicePrincipal) Service() *string {
 }
 
 
+// Experimental.
 func NewServicePrincipal(service *string, opts *ServicePrincipalOpts) ServicePrincipal {
 	_init_.Initialize()
 
 	j := jsiiProxy_ServicePrincipal{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.ServicePrincipal",
+		"monocdk.aws_iam.ServicePrincipal",
 		[]interface{}{service, opts},
 		&j,
 	)
@@ -15285,11 +18353,12 @@ func NewServicePrincipal(service *string, opts *ServicePrincipalOpts) ServicePri
 	return &j
 }
 
+// Experimental.
 func NewServicePrincipal_Override(s ServicePrincipal, service *string, opts *ServicePrincipalOpts) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.ServicePrincipal",
+		"monocdk.aws_iam.ServicePrincipal",
 		[]interface{}{service, opts},
 		s,
 	)
@@ -15299,6 +18368,7 @@ func NewServicePrincipal_Override(s ServicePrincipal, service *string, opts *Ser
 //
 // Add the statements to the AssumeRolePolicyDocument necessary to give this principal
 // permissions to assume the given role.
+// Experimental.
 func (s *jsiiProxy_ServicePrincipal) AddToAssumeRolePolicy(document PolicyDocument) {
 	_jsii_.InvokeVoid(
 		s,
@@ -15308,6 +18378,7 @@ func (s *jsiiProxy_ServicePrincipal) AddToAssumeRolePolicy(document PolicyDocume
 }
 
 // Add to the policy of this principal.
+// Experimental.
 func (s *jsiiProxy_ServicePrincipal) AddToPolicy(statement PolicyStatement) *bool {
 	var returns *bool
 
@@ -15322,6 +18393,7 @@ func (s *jsiiProxy_ServicePrincipal) AddToPolicy(statement PolicyStatement) *boo
 }
 
 // Add to the policy of this principal.
+// Experimental.
 func (s *jsiiProxy_ServicePrincipal) AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult {
 	var returns *AddToPrincipalPolicyResult
 
@@ -15338,6 +18410,7 @@ func (s *jsiiProxy_ServicePrincipal) AddToPrincipalPolicy(_statement PolicyState
 // JSON-ify the principal.
 //
 // Used when JSON.stringify() is called
+// Experimental.
 func (s *jsiiProxy_ServicePrincipal) ToJSON() *map[string]*[]*string {
 	var returns *map[string]*[]*string
 
@@ -15352,6 +18425,7 @@ func (s *jsiiProxy_ServicePrincipal) ToJSON() *map[string]*[]*string {
 }
 
 // Returns a string representation of an object.
+// Experimental.
 func (s *jsiiProxy_ServicePrincipal) ToString() *string {
 	var returns *string
 
@@ -15371,6 +18445,7 @@ func (s *jsiiProxy_ServicePrincipal) ToString() *string {
 // conditions parameter, the value from the conditions parameter will be used.
 //
 // Returns: a new PrincipalWithConditions object.
+// Experimental.
 func (s *jsiiProxy_ServicePrincipal) WithConditions(conditions *map[string]interface{}) PrincipalBase {
 	var returns PrincipalBase
 
@@ -15387,6 +18462,7 @@ func (s *jsiiProxy_ServicePrincipal) WithConditions(conditions *map[string]inter
 // Returns a new principal using this principal as the base, with session tags enabled.
 //
 // Returns: a new SessionTagsPrincipal object.
+// Experimental.
 func (s *jsiiProxy_ServicePrincipal) WithSessionTags() PrincipalBase {
 	var returns PrincipalBase
 
@@ -15404,8 +18480,10 @@ func (s *jsiiProxy_ServicePrincipal) WithSessionTags() PrincipalBase {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type ServicePrincipalOpts struct {
 	// Additional conditions to add to the Service Principal.
+	// Experimental.
 	Conditions *map[string]interface{} `json:"conditions" yaml:"conditions"`
 	// The region in which the service is operating.
 	// Deprecated: You should not need to set this. The stack's region is always correct.
@@ -15419,6 +18497,7 @@ type ServicePrincipalOpts struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type SessionTagsPrincipal interface {
 	PrincipalBase
 	AssumeRoleAction() *string
@@ -15480,13 +18559,14 @@ func (j *jsiiProxy_SessionTagsPrincipal) PrincipalAccount() *string {
 }
 
 
+// Experimental.
 func NewSessionTagsPrincipal(principal IPrincipal) SessionTagsPrincipal {
 	_init_.Initialize()
 
 	j := jsiiProxy_SessionTagsPrincipal{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.SessionTagsPrincipal",
+		"monocdk.aws_iam.SessionTagsPrincipal",
 		[]interface{}{principal},
 		&j,
 	)
@@ -15494,11 +18574,12 @@ func NewSessionTagsPrincipal(principal IPrincipal) SessionTagsPrincipal {
 	return &j
 }
 
+// Experimental.
 func NewSessionTagsPrincipal_Override(s SessionTagsPrincipal, principal IPrincipal) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.SessionTagsPrincipal",
+		"monocdk.aws_iam.SessionTagsPrincipal",
 		[]interface{}{principal},
 		s,
 	)
@@ -15508,6 +18589,7 @@ func NewSessionTagsPrincipal_Override(s SessionTagsPrincipal, principal IPrincip
 //
 // Add the statements to the AssumeRolePolicyDocument necessary to give this principal
 // permissions to assume the given role.
+// Experimental.
 func (s *jsiiProxy_SessionTagsPrincipal) AddToAssumeRolePolicy(doc PolicyDocument) {
 	_jsii_.InvokeVoid(
 		s,
@@ -15517,6 +18599,7 @@ func (s *jsiiProxy_SessionTagsPrincipal) AddToAssumeRolePolicy(doc PolicyDocumen
 }
 
 // Add to the policy of this principal.
+// Experimental.
 func (s *jsiiProxy_SessionTagsPrincipal) AddToPolicy(statement PolicyStatement) *bool {
 	var returns *bool
 
@@ -15531,6 +18614,7 @@ func (s *jsiiProxy_SessionTagsPrincipal) AddToPolicy(statement PolicyStatement) 
 }
 
 // Add to the policy of this principal.
+// Experimental.
 func (s *jsiiProxy_SessionTagsPrincipal) AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult {
 	var returns *AddToPrincipalPolicyResult
 
@@ -15547,6 +18631,7 @@ func (s *jsiiProxy_SessionTagsPrincipal) AddToPrincipalPolicy(statement PolicySt
 // JSON-ify the principal.
 //
 // Used when JSON.stringify() is called
+// Experimental.
 func (s *jsiiProxy_SessionTagsPrincipal) ToJSON() *map[string]*[]*string {
 	var returns *map[string]*[]*string
 
@@ -15561,6 +18646,7 @@ func (s *jsiiProxy_SessionTagsPrincipal) ToJSON() *map[string]*[]*string {
 }
 
 // Returns a string representation of an object.
+// Experimental.
 func (s *jsiiProxy_SessionTagsPrincipal) ToString() *string {
 	var returns *string
 
@@ -15580,6 +18666,7 @@ func (s *jsiiProxy_SessionTagsPrincipal) ToString() *string {
 // conditions parameter, the value from the conditions parameter will be used.
 //
 // Returns: a new PrincipalWithConditions object.
+// Experimental.
 func (s *jsiiProxy_SessionTagsPrincipal) WithConditions(conditions *map[string]interface{}) PrincipalBase {
 	var returns PrincipalBase
 
@@ -15596,6 +18683,7 @@ func (s *jsiiProxy_SessionTagsPrincipal) WithConditions(conditions *map[string]i
 // Returns a new principal using this principal as the base, with session tags enabled.
 //
 // Returns: a new SessionTagsPrincipal object.
+// Experimental.
 func (s *jsiiProxy_SessionTagsPrincipal) WithSessionTags() PrincipalBase {
 	var returns PrincipalBase
 
@@ -15619,6 +18707,7 @@ func (s *jsiiProxy_SessionTagsPrincipal) WithSessionTags() PrincipalBase {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type StarPrincipal interface {
 	PrincipalBase
 	AssumeRoleAction() *string
@@ -15680,13 +18769,14 @@ func (j *jsiiProxy_StarPrincipal) PrincipalAccount() *string {
 }
 
 
+// Experimental.
 func NewStarPrincipal() StarPrincipal {
 	_init_.Initialize()
 
 	j := jsiiProxy_StarPrincipal{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.StarPrincipal",
+		"monocdk.aws_iam.StarPrincipal",
 		nil, // no parameters
 		&j,
 	)
@@ -15694,11 +18784,12 @@ func NewStarPrincipal() StarPrincipal {
 	return &j
 }
 
+// Experimental.
 func NewStarPrincipal_Override(s StarPrincipal) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.StarPrincipal",
+		"monocdk.aws_iam.StarPrincipal",
 		nil, // no parameters
 		s,
 	)
@@ -15708,6 +18799,7 @@ func NewStarPrincipal_Override(s StarPrincipal) {
 //
 // Add the statements to the AssumeRolePolicyDocument necessary to give this principal
 // permissions to assume the given role.
+// Experimental.
 func (s *jsiiProxy_StarPrincipal) AddToAssumeRolePolicy(document PolicyDocument) {
 	_jsii_.InvokeVoid(
 		s,
@@ -15717,6 +18809,7 @@ func (s *jsiiProxy_StarPrincipal) AddToAssumeRolePolicy(document PolicyDocument)
 }
 
 // Add to the policy of this principal.
+// Experimental.
 func (s *jsiiProxy_StarPrincipal) AddToPolicy(statement PolicyStatement) *bool {
 	var returns *bool
 
@@ -15731,6 +18824,7 @@ func (s *jsiiProxy_StarPrincipal) AddToPolicy(statement PolicyStatement) *bool {
 }
 
 // Add to the policy of this principal.
+// Experimental.
 func (s *jsiiProxy_StarPrincipal) AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult {
 	var returns *AddToPrincipalPolicyResult
 
@@ -15747,6 +18841,7 @@ func (s *jsiiProxy_StarPrincipal) AddToPrincipalPolicy(_statement PolicyStatemen
 // JSON-ify the principal.
 //
 // Used when JSON.stringify() is called
+// Experimental.
 func (s *jsiiProxy_StarPrincipal) ToJSON() *map[string]*[]*string {
 	var returns *map[string]*[]*string
 
@@ -15761,6 +18856,7 @@ func (s *jsiiProxy_StarPrincipal) ToJSON() *map[string]*[]*string {
 }
 
 // Returns a string representation of an object.
+// Experimental.
 func (s *jsiiProxy_StarPrincipal) ToString() *string {
 	var returns *string
 
@@ -15780,6 +18876,7 @@ func (s *jsiiProxy_StarPrincipal) ToString() *string {
 // conditions parameter, the value from the conditions parameter will be used.
 //
 // Returns: a new PrincipalWithConditions object.
+// Experimental.
 func (s *jsiiProxy_StarPrincipal) WithConditions(conditions *map[string]interface{}) PrincipalBase {
 	var returns PrincipalBase
 
@@ -15796,6 +18893,7 @@ func (s *jsiiProxy_StarPrincipal) WithConditions(conditions *map[string]interfac
 // Returns a new principal using this principal as the base, with session tags enabled.
 //
 // Returns: a new SessionTagsPrincipal object.
+// Experimental.
 func (s *jsiiProxy_StarPrincipal) WithSessionTags() PrincipalBase {
 	var returns PrincipalBase
 
@@ -15821,6 +18919,7 @@ func (s *jsiiProxy_StarPrincipal) WithSessionTags() PrincipalBase {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type UnknownPrincipal interface {
 	IPrincipal
 	AssumeRoleAction() *string
@@ -15866,13 +18965,14 @@ func (j *jsiiProxy_UnknownPrincipal) PolicyFragment() PrincipalPolicyFragment {
 }
 
 
+// Experimental.
 func NewUnknownPrincipal(props *UnknownPrincipalProps) UnknownPrincipal {
 	_init_.Initialize()
 
 	j := jsiiProxy_UnknownPrincipal{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.UnknownPrincipal",
+		"monocdk.aws_iam.UnknownPrincipal",
 		[]interface{}{props},
 		&j,
 	)
@@ -15880,17 +18980,19 @@ func NewUnknownPrincipal(props *UnknownPrincipalProps) UnknownPrincipal {
 	return &j
 }
 
+// Experimental.
 func NewUnknownPrincipal_Override(u UnknownPrincipal, props *UnknownPrincipalProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.UnknownPrincipal",
+		"monocdk.aws_iam.UnknownPrincipal",
 		[]interface{}{props},
 		u,
 	)
 }
 
 // Add to the policy of this principal.
+// Experimental.
 func (u *jsiiProxy_UnknownPrincipal) AddToPolicy(statement PolicyStatement) *bool {
 	var returns *bool
 
@@ -15905,6 +19007,7 @@ func (u *jsiiProxy_UnknownPrincipal) AddToPolicy(statement PolicyStatement) *boo
 }
 
 // Add to the policy of this principal.
+// Experimental.
 func (u *jsiiProxy_UnknownPrincipal) AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult {
 	var returns *AddToPrincipalPolicyResult
 
@@ -15922,8 +19025,10 @@ func (u *jsiiProxy_UnknownPrincipal) AddToPrincipalPolicy(statement PolicyStatem
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type UnknownPrincipalProps struct {
 	// The resource the role proxy is for.
+	// Experimental.
 	Resource constructs.IConstruct `json:"resource" yaml:"resource"`
 }
 
@@ -15931,6 +19036,7 @@ type UnknownPrincipalProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type User interface {
 	awscdk.Resource
 	IIdentity
@@ -15938,7 +19044,7 @@ type User interface {
 	AssumeRoleAction() *string
 	Env() *awscdk.ResourceEnvironment
 	GrantPrincipal() IPrincipal
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PermissionsBoundary() IManagedPolicy
 	PhysicalName() *string
 	PolicyFragment() PrincipalPolicyFragment
@@ -15955,7 +19061,13 @@ type User interface {
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for User
@@ -15995,8 +19107,8 @@ func (j *jsiiProxy_User) GrantPrincipal() IPrincipal {
 	return returns
 }
 
-func (j *jsiiProxy_User) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_User) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -16076,13 +19188,14 @@ func (j *jsiiProxy_User) UserName() *string {
 }
 
 
+// Experimental.
 func NewUser(scope constructs.Construct, id *string, props *UserProps) User {
 	_init_.Initialize()
 
 	j := jsiiProxy_User{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.User",
+		"monocdk.aws_iam.User",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -16090,11 +19203,12 @@ func NewUser(scope constructs.Construct, id *string, props *UserProps) User {
 	return &j
 }
 
+// Experimental.
 func NewUser_Override(u User, scope constructs.Construct, id *string, props *UserProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.User",
+		"monocdk.aws_iam.User",
 		[]interface{}{scope, id, props},
 		u,
 	)
@@ -16104,13 +19218,14 @@ func NewUser_Override(u User, scope constructs.Construct, id *string, props *Use
 //
 // If the ARN comes from a Token, the User cannot have a path; if so, any attempt
 // to reference its username will fail.
+// Experimental.
 func User_FromUserArn(scope constructs.Construct, id *string, userArn *string) IUser {
 	_init_.Initialize()
 
 	var returns IUser
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.User",
+		"monocdk.aws_iam.User",
 		"fromUserArn",
 		[]interface{}{scope, id, userArn},
 		&returns,
@@ -16123,13 +19238,14 @@ func User_FromUserArn(scope constructs.Construct, id *string, userArn *string) I
 //
 // If the ARN comes from a Token, the User cannot have a path; if so, any attempt
 // to reference its username will fail.
+// Experimental.
 func User_FromUserAttributes(scope constructs.Construct, id *string, attrs *UserAttributes) IUser {
 	_init_.Initialize()
 
 	var returns IUser
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.User",
+		"monocdk.aws_iam.User",
 		"fromUserAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -16139,13 +19255,14 @@ func User_FromUserAttributes(scope constructs.Construct, id *string, attrs *User
 }
 
 // Import an existing user given a username.
+// Experimental.
 func User_FromUserName(scope constructs.Construct, id *string, userName *string) IUser {
 	_init_.Initialize()
 
 	var returns IUser
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.User",
+		"monocdk.aws_iam.User",
 		"fromUserName",
 		[]interface{}{scope, id, userName},
 		&returns,
@@ -16154,17 +19271,15 @@ func User_FromUserName(scope constructs.Construct, id *string, userName *string)
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func User_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.User",
+		"monocdk.aws_iam.User",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -16174,13 +19289,14 @@ func User_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func User_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func User_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iam.User",
+		"monocdk.aws_iam.User",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -16190,6 +19306,7 @@ func User_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Attaches a managed policy to the user.
+// Experimental.
 func (u *jsiiProxy_User) AddManagedPolicy(policy IManagedPolicy) {
 	_jsii_.InvokeVoid(
 		u,
@@ -16199,6 +19316,7 @@ func (u *jsiiProxy_User) AddManagedPolicy(policy IManagedPolicy) {
 }
 
 // Adds this user to a group.
+// Experimental.
 func (u *jsiiProxy_User) AddToGroup(group IGroup) {
 	_jsii_.InvokeVoid(
 		u,
@@ -16208,6 +19326,7 @@ func (u *jsiiProxy_User) AddToGroup(group IGroup) {
 }
 
 // Add to the policy of this principal.
+// Experimental.
 func (u *jsiiProxy_User) AddToPolicy(statement PolicyStatement) *bool {
 	var returns *bool
 
@@ -16224,6 +19343,7 @@ func (u *jsiiProxy_User) AddToPolicy(statement PolicyStatement) *bool {
 // Adds an IAM statement to the default policy.
 //
 // Returns: true
+// Experimental.
 func (u *jsiiProxy_User) AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult {
 	var returns *AddToPrincipalPolicyResult
 
@@ -16246,6 +19366,7 @@ func (u *jsiiProxy_User) AddToPrincipalPolicy(statement PolicyStatement) *AddToP
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (u *jsiiProxy_User) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		u,
@@ -16255,6 +19376,7 @@ func (u *jsiiProxy_User) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 }
 
 // Attaches a policy to this user.
+// Experimental.
 func (u *jsiiProxy_User) AttachInlinePolicy(policy Policy) {
 	_jsii_.InvokeVoid(
 		u,
@@ -16263,6 +19385,7 @@ func (u *jsiiProxy_User) AttachInlinePolicy(policy Policy) {
 	)
 }
 
+// Experimental.
 func (u *jsiiProxy_User) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -16282,6 +19405,7 @@ func (u *jsiiProxy_User) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
+// Experimental.
 func (u *jsiiProxy_User) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -16300,6 +19424,7 @@ func (u *jsiiProxy_User) GetResourceArnAttribute(arnAttr *string, arnComponents 
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
+// Experimental.
 func (u *jsiiProxy_User) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -16313,7 +19438,88 @@ func (u *jsiiProxy_User) GetResourceNameAttribute(nameAttr *string) *string {
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (u *jsiiProxy_User) OnPrepare() {
+	_jsii_.InvokeVoid(
+		u,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (u *jsiiProxy_User) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		u,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (u *jsiiProxy_User) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		u,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (u *jsiiProxy_User) Prepare() {
+	_jsii_.InvokeVoid(
+		u,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (u *jsiiProxy_User) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		u,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (u *jsiiProxy_User) ToString() *string {
 	var returns *string
 
@@ -16327,14 +19533,36 @@ func (u *jsiiProxy_User) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (u *jsiiProxy_User) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		u,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Represents a user defined outside of this stack.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type UserAttributes struct {
 	// The ARN of the user.
 	//
 	// Format: arn:<partition>:iam::<account-id>:user/<user-name-with-path>
+	// Experimental.
 	UserArn *string `json:"userArn" yaml:"userArn"`
 }
 
@@ -16342,31 +19570,37 @@ type UserAttributes struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type UserProps struct {
 	// Groups to add this user to.
 	//
 	// You can also use `addToGroup` to add this
 	// user to a group.
+	// Experimental.
 	Groups *[]IGroup `json:"groups" yaml:"groups"`
 	// A list of managed policies associated with this role.
 	//
 	// You can add managed policies later using
 	// `addManagedPolicy(ManagedPolicy.fromAwsManagedPolicyName(policyName))`.
+	// Experimental.
 	ManagedPolicies *[]IManagedPolicy `json:"managedPolicies" yaml:"managedPolicies"`
 	// The password for the user. This is required so the user can access the AWS Management Console.
 	//
 	// You can use `SecretValue.plainText` to specify a password in plain text or
 	// use `secretsmanager.Secret.fromSecretAttributes` to reference a secret in
 	// Secrets Manager.
+	// Experimental.
 	Password awscdk.SecretValue `json:"password" yaml:"password"`
 	// Specifies whether the user is required to set a new password the next time the user logs in to the AWS Management Console.
 	//
 	// If this is set to 'true', you must also specify "initialPassword".
+	// Experimental.
 	PasswordResetRequired *bool `json:"passwordResetRequired" yaml:"passwordResetRequired"`
 	// The path for the user name.
 	//
 	// For more information about paths, see IAM
 	// Identifiers in the IAM User Guide.
+	// Experimental.
 	Path *string `json:"path" yaml:"path"`
 	// AWS supports permissions boundaries for IAM entities (users or roles).
 	//
@@ -16375,6 +19609,7 @@ type UserProps struct {
 	// an IAM entity. An entity's permissions boundary allows it to perform only
 	// the actions that are allowed by both its identity-based policies and its
 	// permissions boundaries.
+	// Experimental.
 	PermissionsBoundary IManagedPolicy `json:"permissionsBoundary" yaml:"permissionsBoundary"`
 	// A name for the IAM user.
 	//
@@ -16390,6 +19625,7 @@ type UserProps struct {
 	// If you specify a name, you must specify the CAPABILITY_NAMED_IAM value to
 	// acknowledge your template's capabilities. For more information, see
 	// Acknowledging IAM Resources in AWS CloudFormation Templates.
+	// Experimental.
 	UserName *string `json:"userName" yaml:"userName"`
 }
 
@@ -16397,6 +19633,7 @@ type UserProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type WebIdentityPrincipal interface {
 	FederatedPrincipal
 	AssumeRoleAction() *string
@@ -16480,13 +19717,14 @@ func (j *jsiiProxy_WebIdentityPrincipal) PrincipalAccount() *string {
 }
 
 
+// Experimental.
 func NewWebIdentityPrincipal(identityProvider *string, conditions *map[string]interface{}) WebIdentityPrincipal {
 	_init_.Initialize()
 
 	j := jsiiProxy_WebIdentityPrincipal{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.WebIdentityPrincipal",
+		"monocdk.aws_iam.WebIdentityPrincipal",
 		[]interface{}{identityProvider, conditions},
 		&j,
 	)
@@ -16494,11 +19732,12 @@ func NewWebIdentityPrincipal(identityProvider *string, conditions *map[string]in
 	return &j
 }
 
+// Experimental.
 func NewWebIdentityPrincipal_Override(w WebIdentityPrincipal, identityProvider *string, conditions *map[string]interface{}) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.WebIdentityPrincipal",
+		"monocdk.aws_iam.WebIdentityPrincipal",
 		[]interface{}{identityProvider, conditions},
 		w,
 	)
@@ -16508,6 +19747,7 @@ func NewWebIdentityPrincipal_Override(w WebIdentityPrincipal, identityProvider *
 //
 // Add the statements to the AssumeRolePolicyDocument necessary to give this principal
 // permissions to assume the given role.
+// Experimental.
 func (w *jsiiProxy_WebIdentityPrincipal) AddToAssumeRolePolicy(document PolicyDocument) {
 	_jsii_.InvokeVoid(
 		w,
@@ -16517,6 +19757,7 @@ func (w *jsiiProxy_WebIdentityPrincipal) AddToAssumeRolePolicy(document PolicyDo
 }
 
 // Add to the policy of this principal.
+// Experimental.
 func (w *jsiiProxy_WebIdentityPrincipal) AddToPolicy(statement PolicyStatement) *bool {
 	var returns *bool
 
@@ -16531,6 +19772,7 @@ func (w *jsiiProxy_WebIdentityPrincipal) AddToPolicy(statement PolicyStatement) 
 }
 
 // Add to the policy of this principal.
+// Experimental.
 func (w *jsiiProxy_WebIdentityPrincipal) AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult {
 	var returns *AddToPrincipalPolicyResult
 
@@ -16547,6 +19789,7 @@ func (w *jsiiProxy_WebIdentityPrincipal) AddToPrincipalPolicy(_statement PolicyS
 // JSON-ify the principal.
 //
 // Used when JSON.stringify() is called
+// Experimental.
 func (w *jsiiProxy_WebIdentityPrincipal) ToJSON() *map[string]*[]*string {
 	var returns *map[string]*[]*string
 
@@ -16561,6 +19804,7 @@ func (w *jsiiProxy_WebIdentityPrincipal) ToJSON() *map[string]*[]*string {
 }
 
 // Returns a string representation of an object.
+// Experimental.
 func (w *jsiiProxy_WebIdentityPrincipal) ToString() *string {
 	var returns *string
 
@@ -16580,6 +19824,7 @@ func (w *jsiiProxy_WebIdentityPrincipal) ToString() *string {
 // conditions parameter, the value from the conditions parameter will be used.
 //
 // Returns: a new PrincipalWithConditions object.
+// Experimental.
 func (w *jsiiProxy_WebIdentityPrincipal) WithConditions(conditions *map[string]interface{}) PrincipalBase {
 	var returns PrincipalBase
 
@@ -16596,6 +19841,7 @@ func (w *jsiiProxy_WebIdentityPrincipal) WithConditions(conditions *map[string]i
 // Returns a new principal using this principal as the base, with session tags enabled.
 //
 // Returns: a new SessionTagsPrincipal object.
+// Experimental.
 func (w *jsiiProxy_WebIdentityPrincipal) WithSessionTags() PrincipalBase {
 	var returns PrincipalBase
 
@@ -16613,6 +19859,7 @@ func (w *jsiiProxy_WebIdentityPrincipal) WithSessionTags() PrincipalBase {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type WithoutPolicyUpdatesOptions struct {
 	// Add grants to resources instead of dropping them.
 	//
@@ -16620,6 +19867,7 @@ type WithoutPolicyUpdatesOptions struct {
 	// It is your own responsibility to make sure the role has the required permissions.
 	//
 	// If this is `true`, any grant permissions will be added to the resource instead.
+	// Experimental.
 	AddGrantsToResources *bool `json:"addGrantsToResources" yaml:"addGrantsToResources"`
 }
 

@@ -8,7 +8,22 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.assertions.Capture",
+		"monocdk.assertions.Annotations",
+		reflect.TypeOf((*Annotations)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "findError", GoMethod: "FindError"},
+			_jsii_.MemberMethod{JsiiMethod: "findInfo", GoMethod: "FindInfo"},
+			_jsii_.MemberMethod{JsiiMethod: "findWarning", GoMethod: "FindWarning"},
+			_jsii_.MemberMethod{JsiiMethod: "hasError", GoMethod: "HasError"},
+			_jsii_.MemberMethod{JsiiMethod: "hasInfo", GoMethod: "HasInfo"},
+			_jsii_.MemberMethod{JsiiMethod: "hasWarning", GoMethod: "HasWarning"},
+		},
+		func() interface{} {
+			return &jsiiProxy_Annotations{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"monocdk.assertions.Capture",
 		reflect.TypeOf((*Capture)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "asArray", GoMethod: "AsArray"},
@@ -27,7 +42,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.assertions.Match",
+		"monocdk.assertions.Match",
 		reflect.TypeOf((*Match)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
@@ -35,15 +50,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.assertions.MatchCapture",
+		"monocdk.assertions.MatchCapture",
 		reflect.TypeOf((*MatchCapture)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.assertions.MatchFailure",
+		"monocdk.assertions.MatchFailure",
 		reflect.TypeOf((*MatchFailure)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.assertions.MatchResult",
+		"monocdk.assertions.MatchResult",
 		reflect.TypeOf((*MatchResult)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "compose", GoMethod: "Compose"},
@@ -61,7 +76,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.assertions.Matcher",
+		"monocdk.assertions.Matcher",
 		reflect.TypeOf((*Matcher)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
@@ -72,7 +87,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.assertions.Template",
+		"monocdk.assertions.Template",
 		reflect.TypeOf((*Template)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "findConditions", GoMethod: "FindConditions"},
