@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"monocdk.cloudformation_include.CfnInclude",
+		"aws-cdk-lib.cloudformation_include.CfnInclude",
 		reflect.TypeOf((*CfnInclude)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
@@ -23,15 +23,9 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "loadNestedStack", GoMethod: "LoadNestedStack"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnInclude{}
@@ -40,11 +34,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.cloudformation_include.CfnIncludeProps",
+		"aws-cdk-lib.cloudformation_include.CfnIncludeProps",
 		reflect.TypeOf((*CfnIncludeProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.cloudformation_include.IncludedNestedStack",
+		"aws-cdk-lib.cloudformation_include.IncludedNestedStack",
 		reflect.TypeOf((*IncludedNestedStack)(nil)).Elem(),
 	)
 }
