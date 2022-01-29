@@ -4940,6 +4940,9 @@ func (i *jsiiProxy_ISourceCodeProvider) Bind(app App) *SourceCodeProviderConfig 
 }
 
 // The status code for a URL rewrite or redirect rule.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type RedirectStatus string
 
@@ -4957,12 +4960,9 @@ const (
 //
 // Experimental.
 type SourceCodeProviderConfig struct {
-	// The repository for the application.
+	// The repository for the application. Must use the `HTTPS` protocol.
 	//
-	// Must use the `HTTPS` protocol.
-	//
-	// TODO: EXAMPLE
-	//
+	// For example, `https://github.com/aws/aws-cdk`.
 	// Experimental.
 	Repository *string `json:"repository" yaml:"repository"`
 	// Personal Access token for 3rd party source control system for an Amplify App, used to create webhook and read-only deploy key.

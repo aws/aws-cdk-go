@@ -181,6 +181,9 @@ func (e *jsiiProxy_Ec2Action) Bind(_scope awscdk.Construct, _alarm awscloudwatch
 }
 
 // Types of EC2 actions available.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Ec2InstanceAction string
 

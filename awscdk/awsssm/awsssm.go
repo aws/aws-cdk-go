@@ -984,6 +984,8 @@ type CfnAssociationProps struct {
 	// The severity level that is assigned to the association.
 	ComplianceSeverity *string `json:"complianceSeverity" yaml:"complianceSeverity"`
 	// The version of the SSM document to associate with the target.
+	//
+	// > `DocumentVersion` is not valid for documents owned by AWS , such as `AWS-RunPatchBaseline` or `AWS-UpdateSSMAgent` . If you specify `DocumentVersion` for an AWS document, the system returns the following error: "Error occurred during operation 'CreateAssociation'." (RequestToken: <token>, HandlerErrorCode: GeneralServiceException).
 	DocumentVersion *string `json:"documentVersion" yaml:"documentVersion"`
 	// The ID of the instance that the SSM document is associated with.
 	//

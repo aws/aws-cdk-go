@@ -5532,6 +5532,21 @@ type ClusterAttributes struct {
 	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 }
 
+// EKS cluster logging types.
+//
+// TODO: EXAMPLE
+//
+// Experimental.
+type ClusterLoggingTypes string
+
+const (
+	ClusterLoggingTypes_API ClusterLoggingTypes = "API"
+	ClusterLoggingTypes_AUDIT ClusterLoggingTypes = "AUDIT"
+	ClusterLoggingTypes_AUTHENTICATOR ClusterLoggingTypes = "AUTHENTICATOR"
+	ClusterLoggingTypes_CONTROLLER_MANAGER ClusterLoggingTypes = "CONTROLLER_MANAGER"
+	ClusterLoggingTypes_SCHEDULER ClusterLoggingTypes = "SCHEDULER"
+)
+
 // Options for EKS clusters.
 //
 // TODO: EXAMPLE
@@ -5806,6 +5821,9 @@ type ClusterProps struct {
 	//
 	// Experimental.
 	ServiceIpv4Cidr *string `json:"serviceIpv4Cidr" yaml:"serviceIpv4Cidr"`
+	// The cluster log types which you want to enable.
+	// Experimental.
+	ClusterLogging *[]ClusterLoggingTypes `json:"clusterLogging" yaml:"clusterLogging"`
 	// Number of instances to allocate as an initial capacity for this cluster.
 	//
 	// Instance type can be configured through `defaultCapacityInstanceType`,

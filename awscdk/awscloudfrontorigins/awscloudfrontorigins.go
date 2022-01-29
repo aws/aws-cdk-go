@@ -147,7 +147,10 @@ type HttpOriginProps struct {
 	ProtocolPolicy awscloudfront.OriginProtocolPolicy `json:"protocolPolicy" yaml:"protocolPolicy"`
 	// Specifies how long, in seconds, CloudFront waits for a response from the origin, also known as the origin response timeout.
 	//
-	// The valid range is from 1 to 60 seconds, inclusive.
+	// The valid range is from 1 to 180 seconds, inclusive.
+	//
+	// Note that values over 60 seconds are possible only after a limit increase request for the origin response timeout quota
+	// has been approved in the target account; otherwise, values over 60 seconds will produce an error at deploy time.
 	// Experimental.
 	ReadTimeout awscdk.Duration `json:"readTimeout" yaml:"readTimeout"`
 }
@@ -288,7 +291,10 @@ type LoadBalancerV2OriginProps struct {
 	ProtocolPolicy awscloudfront.OriginProtocolPolicy `json:"protocolPolicy" yaml:"protocolPolicy"`
 	// Specifies how long, in seconds, CloudFront waits for a response from the origin, also known as the origin response timeout.
 	//
-	// The valid range is from 1 to 60 seconds, inclusive.
+	// The valid range is from 1 to 180 seconds, inclusive.
+	//
+	// Note that values over 60 seconds are possible only after a limit increase request for the origin response timeout quota
+	// has been approved in the target account; otherwise, values over 60 seconds will produce an error at deploy time.
 	// Experimental.
 	ReadTimeout awscdk.Duration `json:"readTimeout" yaml:"readTimeout"`
 }

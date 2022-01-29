@@ -459,6 +459,17 @@ func init() {
 		"monocdk.aws_eks.ClusterAttributes",
 		reflect.TypeOf((*ClusterAttributes)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"monocdk.aws_eks.ClusterLoggingTypes",
+		reflect.TypeOf((*ClusterLoggingTypes)(nil)).Elem(),
+		map[string]interface{}{
+			"API": ClusterLoggingTypes_API,
+			"AUDIT": ClusterLoggingTypes_AUDIT,
+			"AUTHENTICATOR": ClusterLoggingTypes_AUTHENTICATOR,
+			"CONTROLLER_MANAGER": ClusterLoggingTypes_CONTROLLER_MANAGER,
+			"SCHEDULER": ClusterLoggingTypes_SCHEDULER,
+		},
+	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_eks.ClusterOptions",
 		reflect.TypeOf((*ClusterOptions)(nil)).Elem(),

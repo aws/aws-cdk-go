@@ -874,6 +874,8 @@ type CfnComponent_ComponentChildProperty struct {
 	// The name of the child component.
 	Name *string `json:"name" yaml:"name"`
 	// Describes the properties of the child component.
+	//
+	// You can't specify `tags` as a valid property for `properties` .
 	Properties interface{} `json:"properties" yaml:"properties"`
 	// The list of `ComponentChild` instances for this component.
 	Children interface{} `json:"children" yaml:"children"`
@@ -979,6 +981,8 @@ type CfnComponent_ComponentPropertyProperty struct {
 //
 type CfnComponent_ComponentVariantProperty struct {
 	// The properties of the component variant that can be overriden when customizing an instance of the component.
+	//
+	// You can't specify `tags` as a valid property for `overrides` .
 	Overrides interface{} `json:"overrides" yaml:"overrides"`
 	// The combination of variants that comprise this variant.
 	VariantValues interface{} `json:"variantValues" yaml:"variantValues"`
@@ -1020,12 +1024,14 @@ type CfnComponent_SortPropertyProperty struct {
 //
 type CfnComponentProps struct {
 	// The information to connect a component's properties to data at runtime.
+	//
+	// You can't specify `tags` as a valid property for `bindingProperties` .
 	BindingProperties interface{} `json:"bindingProperties" yaml:"bindingProperties"`
 	// A list of the component's `ComponentChild` instances.
 	Children interface{} `json:"children" yaml:"children"`
 	// The data binding configuration for the component's properties.
 	//
-	// Use this for a collection component.
+	// Use this for a collection component. You can't specify `tags` as a valid property for `collectionProperties` .
 	CollectionProperties interface{} `json:"collectionProperties" yaml:"collectionProperties"`
 	// The type of the component.
 	//
@@ -1034,8 +1040,12 @@ type CfnComponentProps struct {
 	// The name of the component.
 	Name *string `json:"name" yaml:"name"`
 	// Describes the component's properties that can be overriden in a customized instance of the component.
+	//
+	// You can't specify `tags` as a valid property for `overrides` .
 	Overrides interface{} `json:"overrides" yaml:"overrides"`
 	// Describes the component's properties.
+	//
+	// You can't specify `tags` as a valid property for `properties` .
 	Properties interface{} `json:"properties" yaml:"properties"`
 	// The unique ID of the component in its original source system, such as Figma.
 	SourceId *string `json:"sourceId" yaml:"sourceId"`

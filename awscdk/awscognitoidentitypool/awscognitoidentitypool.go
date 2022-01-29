@@ -1304,6 +1304,9 @@ type IdentityPoolTwitterLoginProvider struct {
 }
 
 // Types of matches allowed for Role Mapping.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type RoleMappingMatchType string
 

@@ -60,6 +60,9 @@ type BundlingOptions struct {
 	// This is not used if a custom image is provided.
 	// Experimental.
 	BuildArgs *map[string]*string `json:"buildArgs" yaml:"buildArgs"`
+	// Environment variables defined when bundling runs.
+	// Experimental.
+	Environment *map[string]*string `json:"environment" yaml:"environment"`
 	// Docker image to use for bundling.
 	//
 	// If no options are provided, the default bundling image

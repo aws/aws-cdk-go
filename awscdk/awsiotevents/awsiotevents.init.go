@@ -254,6 +254,14 @@ func init() {
 		"monocdk.aws_iotevents.Event",
 		reflect.TypeOf((*Event)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"monocdk.aws_iotevents.EventEvaluation",
+		reflect.TypeOf((*EventEvaluation)(nil)).Elem(),
+		map[string]interface{}{
+			"BATCH": EventEvaluation_BATCH,
+			"SERIAL": EventEvaluation_SERIAL,
+		},
+	)
 	_jsii_.RegisterClass(
 		"monocdk.aws_iotevents.Expression",
 		reflect.TypeOf((*Expression)(nil)).Elem(),
