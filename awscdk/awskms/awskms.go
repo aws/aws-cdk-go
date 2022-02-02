@@ -1,13 +1,13 @@
 package awskms
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awskms/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // Defines a display name for a customer master key (CMK) in AWS Key Management Service (AWS KMS).
@@ -21,6 +21,7 @@ import (
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type Alias interface {
 	awscdk.Resource
 	IAlias
@@ -29,7 +30,7 @@ type Alias interface {
 	Env() *awscdk.ResourceEnvironment
 	KeyArn() *string
 	KeyId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Stack() awscdk.Stack
 	AddAlias(alias *string) Alias
@@ -42,7 +43,13 @@ type Alias interface {
 	GrantDecrypt(grantee awsiam.IGrantable) awsiam.Grant
 	GrantEncrypt(grantee awsiam.IGrantable) awsiam.Grant
 	GrantEncryptDecrypt(grantee awsiam.IGrantable) awsiam.Grant
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for Alias
@@ -101,8 +108,8 @@ func (j *jsiiProxy_Alias) KeyId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_Alias) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_Alias) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -132,13 +139,14 @@ func (j *jsiiProxy_Alias) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewAlias(scope constructs.Construct, id *string, props *AliasProps) Alias {
 	_init_.Initialize()
 
 	j := jsiiProxy_Alias{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kms.Alias",
+		"monocdk.aws_kms.Alias",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -146,24 +154,26 @@ func NewAlias(scope constructs.Construct, id *string, props *AliasProps) Alias {
 	return &j
 }
 
+// Experimental.
 func NewAlias_Override(a Alias, scope constructs.Construct, id *string, props *AliasProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kms.Alias",
+		"monocdk.aws_kms.Alias",
 		[]interface{}{scope, id, props},
 		a,
 	)
 }
 
 // Import an existing KMS Alias defined outside the CDK app.
+// Experimental.
 func Alias_FromAliasAttributes(scope constructs.Construct, id *string, attrs *AliasAttributes) IAlias {
 	_init_.Initialize()
 
 	var returns IAlias
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kms.Alias",
+		"monocdk.aws_kms.Alias",
 		"fromAliasAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -177,13 +187,14 @@ func Alias_FromAliasAttributes(scope constructs.Construct, id *string, attrs *Al
 // This method should be used
 // instead of 'fromAliasAttributes' when the underlying KMS Key ARN is not available.
 // This Alias will not have a direct reference to the KMS Key, so addAlias and grant* methods are not supported.
+// Experimental.
 func Alias_FromAliasName(scope constructs.Construct, id *string, aliasName *string) IAlias {
 	_init_.Initialize()
 
 	var returns IAlias
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kms.Alias",
+		"monocdk.aws_kms.Alias",
 		"fromAliasName",
 		[]interface{}{scope, id, aliasName},
 		&returns,
@@ -192,17 +203,15 @@ func Alias_FromAliasName(scope constructs.Construct, id *string, aliasName *stri
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func Alias_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kms.Alias",
+		"monocdk.aws_kms.Alias",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -212,13 +221,14 @@ func Alias_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func Alias_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func Alias_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kms.Alias",
+		"monocdk.aws_kms.Alias",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -228,6 +238,7 @@ func Alias_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Defines a new alias for the key.
+// Experimental.
 func (a *jsiiProxy_Alias) AddAlias(alias *string) Alias {
 	var returns Alias
 
@@ -242,6 +253,7 @@ func (a *jsiiProxy_Alias) AddAlias(alias *string) Alias {
 }
 
 // Adds a statement to the KMS key resource policy.
+// Experimental.
 func (a *jsiiProxy_Alias) AddToResourcePolicy(statement awsiam.PolicyStatement, allowNoOp *bool) *awsiam.AddToResourcePolicyResult {
 	var returns *awsiam.AddToResourcePolicyResult
 
@@ -264,6 +276,7 @@ func (a *jsiiProxy_Alias) AddToResourcePolicy(statement awsiam.PolicyStatement, 
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (a *jsiiProxy_Alias) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		a,
@@ -272,6 +285,7 @@ func (a *jsiiProxy_Alias) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
+// Experimental.
 func (a *jsiiProxy_Alias) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -291,6 +305,7 @@ func (a *jsiiProxy_Alias) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
+// Experimental.
 func (a *jsiiProxy_Alias) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -309,6 +324,7 @@ func (a *jsiiProxy_Alias) GetResourceArnAttribute(arnAttr *string, arnComponents
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
+// Experimental.
 func (a *jsiiProxy_Alias) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -323,6 +339,7 @@ func (a *jsiiProxy_Alias) GetResourceNameAttribute(nameAttr *string) *string {
 }
 
 // Grant the indicated permissions on this key to the given principal.
+// Experimental.
 func (a *jsiiProxy_Alias) Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant {
 	args := []interface{}{grantee}
 	for _, a := range actions {
@@ -342,6 +359,7 @@ func (a *jsiiProxy_Alias) Grant(grantee awsiam.IGrantable, actions ...*string) a
 }
 
 // Grant decryption permissions using this key to the given principal.
+// Experimental.
 func (a *jsiiProxy_Alias) GrantDecrypt(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -356,6 +374,7 @@ func (a *jsiiProxy_Alias) GrantDecrypt(grantee awsiam.IGrantable) awsiam.Grant {
 }
 
 // Grant encryption permissions using this key to the given principal.
+// Experimental.
 func (a *jsiiProxy_Alias) GrantEncrypt(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -370,6 +389,7 @@ func (a *jsiiProxy_Alias) GrantEncrypt(grantee awsiam.IGrantable) awsiam.Grant {
 }
 
 // Grant encryption and decryption permissions using this key to the given principal.
+// Experimental.
 func (a *jsiiProxy_Alias) GrantEncryptDecrypt(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -383,7 +403,88 @@ func (a *jsiiProxy_Alias) GrantEncryptDecrypt(grantee awsiam.IGrantable) awsiam.
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (a *jsiiProxy_Alias) OnPrepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (a *jsiiProxy_Alias) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (a *jsiiProxy_Alias) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (a *jsiiProxy_Alias) Prepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (a *jsiiProxy_Alias) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (a *jsiiProxy_Alias) ToString() *string {
 	var returns *string
 
@@ -397,16 +498,39 @@ func (a *jsiiProxy_Alias) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (a *jsiiProxy_Alias) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Properties of a reference to an existing KMS Alias.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type AliasAttributes struct {
 	// Specifies the alias name.
 	//
 	// This value must begin with alias/ followed by a name (i.e. alias/ExampleAlias)
+	// Experimental.
 	AliasName *string `json:"aliasName" yaml:"aliasName"`
 	// The customer master key (CMK) to which the Alias refers.
+	// Experimental.
 	AliasTargetKey IKey `json:"aliasTargetKey" yaml:"aliasTargetKey"`
 }
 
@@ -414,20 +538,24 @@ type AliasAttributes struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type AliasProps struct {
 	// The name of the alias.
 	//
 	// The name must start with alias followed by a
 	// forward slash, such as alias/. You can't specify aliases that begin with
 	// alias/AWS. These aliases are reserved.
+	// Experimental.
 	AliasName *string `json:"aliasName" yaml:"aliasName"`
 	// The ID of the key for which you are creating the alias.
 	//
 	// Specify the key's
 	// globally unique identifier or Amazon Resource Name (ARN). You can't
 	// specify another alias.
+	// Experimental.
 	TargetKey IKey `json:"targetKey" yaml:"targetKey"`
 	// Policy to apply when the alias is removed from this stack.
+	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 }
 
@@ -458,7 +586,7 @@ type CfnAlias interface {
 	CfnResourceType() *string
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	TargetKeyId() *string
@@ -474,10 +602,16 @@ type CfnAlias interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -547,8 +681,8 @@ func (j *jsiiProxy_CfnAlias) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAlias) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnAlias) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -599,13 +733,13 @@ func (j *jsiiProxy_CfnAlias) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::KMS::Alias`.
-func NewCfnAlias(scope constructs.Construct, id *string, props *CfnAliasProps) CfnAlias {
+func NewCfnAlias(scope awscdk.Construct, id *string, props *CfnAliasProps) CfnAlias {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnAlias{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kms.CfnAlias",
+		"monocdk.aws_kms.CfnAlias",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -614,11 +748,11 @@ func NewCfnAlias(scope constructs.Construct, id *string, props *CfnAliasProps) C
 }
 
 // Create a new `AWS::KMS::Alias`.
-func NewCfnAlias_Override(c CfnAlias, scope constructs.Construct, id *string, props *CfnAliasProps) {
+func NewCfnAlias_Override(c CfnAlias, scope awscdk.Construct, id *string, props *CfnAliasProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kms.CfnAlias",
+		"monocdk.aws_kms.CfnAlias",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -646,13 +780,14 @@ func (j *jsiiProxy_CfnAlias) SetTargetKeyId(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnAlias_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kms.CfnAlias",
+		"monocdk.aws_kms.CfnAlias",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -662,13 +797,14 @@ func CfnAlias_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnAlias_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kms.CfnAlias",
+		"monocdk.aws_kms.CfnAlias",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -677,17 +813,15 @@ func CfnAlias_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnAlias_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kms.CfnAlias",
+		"monocdk.aws_kms.CfnAlias",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -700,7 +834,7 @@ func CfnAlias_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_kms.CfnAlias",
+		"monocdk.aws_kms.CfnAlias",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -708,6 +842,7 @@ func CfnAlias_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnAlias) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -720,6 +855,7 @@ func (c *jsiiProxy_CfnAlias) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnAlias) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -735,6 +871,7 @@ func (c *jsiiProxy_CfnAlias) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnAlias) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -780,6 +917,7 @@ func (c *jsiiProxy_CfnAlias) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnAlias) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -789,6 +927,7 @@ func (c *jsiiProxy_CfnAlias) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnAlias) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -800,6 +939,7 @@ func (c *jsiiProxy_CfnAlias) AddPropertyDeletionOverride(propertyPath *string) {
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnAlias) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -817,6 +957,7 @@ func (c *jsiiProxy_CfnAlias) AddPropertyOverride(propertyPath *string, value int
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnAlias) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -829,6 +970,7 @@ func (c *jsiiProxy_CfnAlias) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, opt
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnAlias) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -849,6 +991,7 @@ func (c *jsiiProxy_CfnAlias) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnAlias) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -871,12 +1014,80 @@ func (c *jsiiProxy_CfnAlias) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnAlias) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnAlias) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnAlias) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnAlias) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnAlias) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -897,6 +1108,7 @@ func (c *jsiiProxy_CfnAlias) RenderProperties(props *map[string]interface{}) *ma
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnAlias) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -910,9 +1122,23 @@ func (c *jsiiProxy_CfnAlias) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnAlias) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnAlias) ToString() *string {
 	var returns *string
 
@@ -926,6 +1152,27 @@ func (c *jsiiProxy_CfnAlias) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnAlias) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnAlias) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -972,7 +1219,9 @@ type CfnAliasProps struct {
 //
 // The `AWS::KMS::Key` resource specifies a [symmetric or asymmetric](https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html) [KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms_keys) in AWS Key Management Service ( AWS KMS ).
 //
-// You can use the `AWS::KMS::Key` resource to specify a multi-Region primary key (symmetric or asymmetric). To specify a replica key, use the [AWS::KMS::ReplicaKey](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html) resource. For information about multi-Region keys, see [Multi-Region keys](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html) in the *AWS Key Management Service Developer Guide* .
+// You can use the `AWS::KMS::Key` resource to specify a symmetric or asymmetric multi-Region primary key. To specify a replica key, use the [AWS::KMS::ReplicaKey](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html) resource. For information about multi-Region keys, see [Multi-Region keys](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html) in the *AWS Key Management Service Developer Guide* .
+//
+// You cannot use the `AWS::KMS::Key` resource to specify a KMS key with [imported key material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html) or a KMS key in a [custom key store](https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html) .
 //
 // > AWS KMS is replacing the term *customer master key (CMK)* with *AWS KMS key* and *KMS key* . The concept has not changed. To prevent breaking changes, AWS KMS is keeping some variations of this term.
 //
@@ -980,9 +1229,13 @@ type CfnAliasProps struct {
 //
 // You can use asymmetric KMS keys to encrypt and decrypt data or sign messages and verify signatures. To create an asymmetric key, you must specify an asymmetric `KeySpec` value and a `KeyUsage` value.
 //
-// > If you change the value of a `Replacement` property, such as `KeyUsage` or `KeySpec` , on an existing KMS key, the existing KMS key is [scheduled for deletion](https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html) and a new KMS key is created with the specified value.
+// > If you change the value of the `KeyUsage` , `KeySpec` , or `MultiRegion` property on an existing KMS key, the existing KMS key is [scheduled for deletion](https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html) and a new KMS key is created with the specified value.
 // >
 // > While scheduled for deletion, the existing KMS key becomes unusable. If you don't [cancel the scheduled deletion](https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html#deleting-keys-scheduling-key-deletion) of the existing KMS key outside of CloudFormation, all data encrypted under the existing KMS key becomes unrecoverable when the KMS key is deleted.
+//
+// *Regions*
+//
+// AWS KMS CloudFormation resources are supported in all Regions in which AWS CloudFormation is supported. However, in the  (ap-southeast-3), you cannot use a CloudFormation template to create or manage asymmetric KMS keys or multi-Region KMS keys (primary or replica).
 //
 // TODO: EXAMPLE
 //
@@ -1010,7 +1263,7 @@ type CfnKey interface {
 	LogicalId() *string
 	MultiRegion() interface{}
 	SetMultiRegion(val interface{})
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PendingWindowInDays() *float64
 	SetPendingWindowInDays(val *float64)
 	Ref() *string
@@ -1027,10 +1280,16 @@ type CfnKey interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1180,8 +1439,8 @@ func (j *jsiiProxy_CfnKey) MultiRegion() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnKey) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnKey) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1242,13 +1501,13 @@ func (j *jsiiProxy_CfnKey) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::KMS::Key`.
-func NewCfnKey(scope constructs.Construct, id *string, props *CfnKeyProps) CfnKey {
+func NewCfnKey(scope awscdk.Construct, id *string, props *CfnKeyProps) CfnKey {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnKey{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kms.CfnKey",
+		"monocdk.aws_kms.CfnKey",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1257,11 +1516,11 @@ func NewCfnKey(scope constructs.Construct, id *string, props *CfnKeyProps) CfnKe
 }
 
 // Create a new `AWS::KMS::Key`.
-func NewCfnKey_Override(c CfnKey, scope constructs.Construct, id *string, props *CfnKeyProps) {
+func NewCfnKey_Override(c CfnKey, scope awscdk.Construct, id *string, props *CfnKeyProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kms.CfnKey",
+		"monocdk.aws_kms.CfnKey",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1337,13 +1596,14 @@ func (j *jsiiProxy_CfnKey) SetPendingWindowInDays(val *float64) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnKey_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kms.CfnKey",
+		"monocdk.aws_kms.CfnKey",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1353,13 +1613,14 @@ func CfnKey_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnKey_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kms.CfnKey",
+		"monocdk.aws_kms.CfnKey",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1368,17 +1629,15 @@ func CfnKey_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnKey_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kms.CfnKey",
+		"monocdk.aws_kms.CfnKey",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1391,7 +1650,7 @@ func CfnKey_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_kms.CfnKey",
+		"monocdk.aws_kms.CfnKey",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1399,6 +1658,7 @@ func CfnKey_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnKey) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1411,6 +1671,7 @@ func (c *jsiiProxy_CfnKey) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnKey) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1426,6 +1687,7 @@ func (c *jsiiProxy_CfnKey) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnKey) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1471,6 +1733,7 @@ func (c *jsiiProxy_CfnKey) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnKey) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1480,6 +1743,7 @@ func (c *jsiiProxy_CfnKey) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnKey) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1491,6 +1755,7 @@ func (c *jsiiProxy_CfnKey) AddPropertyDeletionOverride(propertyPath *string) {
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnKey) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1508,6 +1773,7 @@ func (c *jsiiProxy_CfnKey) AddPropertyOverride(propertyPath *string, value inter
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnKey) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1520,6 +1786,7 @@ func (c *jsiiProxy_CfnKey) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, optio
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnKey) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1540,6 +1807,7 @@ func (c *jsiiProxy_CfnKey) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnKey) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1562,12 +1830,80 @@ func (c *jsiiProxy_CfnKey) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnKey) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnKey) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnKey) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnKey) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnKey) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1588,6 +1924,7 @@ func (c *jsiiProxy_CfnKey) RenderProperties(props *map[string]interface{}) *map[
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnKey) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1601,9 +1938,23 @@ func (c *jsiiProxy_CfnKey) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnKey) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnKey) ToString() *string {
 	var returns *string
 
@@ -1617,6 +1968,27 @@ func (c *jsiiProxy_CfnKey) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnKey) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnKey) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1747,6 +2119,10 @@ type CfnKeyProps struct {
 //
 // A primary key and its replicas have the same key ID and key material. They also have the same key spec, key usage, key material origin, and automatic key rotation status. These properties are known as *shared properties* . If they change, AWS KMS synchronizes the change to all related multi-Region keys. All other properties of a replica key can differ, including its key policy, tags, aliases, and key state. AWS KMS does not synchronize these properties.
 //
+// *Regions*
+//
+// AWS KMS CloudFormation resources are supported in all Regions in which AWS CloudFormation is supported. However, in the  (ap-southeast-3), you cannot use a CloudFormation template to create or manage multi-Region KMS keys (primary or replica).
+//
 // TODO: EXAMPLE
 //
 type CfnReplicaKey interface {
@@ -1765,7 +2141,7 @@ type CfnReplicaKey interface {
 	KeyPolicy() interface{}
 	SetKeyPolicy(val interface{})
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PendingWindowInDays() *float64
 	SetPendingWindowInDays(val *float64)
 	PrimaryKeyArn() *string
@@ -1784,10 +2160,16 @@ type CfnReplicaKey interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1897,8 +2279,8 @@ func (j *jsiiProxy_CfnReplicaKey) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnReplicaKey) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnReplicaKey) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1969,13 +2351,13 @@ func (j *jsiiProxy_CfnReplicaKey) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::KMS::ReplicaKey`.
-func NewCfnReplicaKey(scope constructs.Construct, id *string, props *CfnReplicaKeyProps) CfnReplicaKey {
+func NewCfnReplicaKey(scope awscdk.Construct, id *string, props *CfnReplicaKeyProps) CfnReplicaKey {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnReplicaKey{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kms.CfnReplicaKey",
+		"monocdk.aws_kms.CfnReplicaKey",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1984,11 +2366,11 @@ func NewCfnReplicaKey(scope constructs.Construct, id *string, props *CfnReplicaK
 }
 
 // Create a new `AWS::KMS::ReplicaKey`.
-func NewCfnReplicaKey_Override(c CfnReplicaKey, scope constructs.Construct, id *string, props *CfnReplicaKeyProps) {
+func NewCfnReplicaKey_Override(c CfnReplicaKey, scope awscdk.Construct, id *string, props *CfnReplicaKeyProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kms.CfnReplicaKey",
+		"monocdk.aws_kms.CfnReplicaKey",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2040,13 +2422,14 @@ func (j *jsiiProxy_CfnReplicaKey) SetPrimaryKeyArn(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnReplicaKey_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kms.CfnReplicaKey",
+		"monocdk.aws_kms.CfnReplicaKey",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2056,13 +2439,14 @@ func CfnReplicaKey_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnReplicaKey_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kms.CfnReplicaKey",
+		"monocdk.aws_kms.CfnReplicaKey",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2071,17 +2455,15 @@ func CfnReplicaKey_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnReplicaKey_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kms.CfnReplicaKey",
+		"monocdk.aws_kms.CfnReplicaKey",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2094,7 +2476,7 @@ func CfnReplicaKey_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_kms.CfnReplicaKey",
+		"monocdk.aws_kms.CfnReplicaKey",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2102,6 +2484,7 @@ func CfnReplicaKey_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnReplicaKey) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2114,6 +2497,7 @@ func (c *jsiiProxy_CfnReplicaKey) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnReplicaKey) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2129,6 +2513,7 @@ func (c *jsiiProxy_CfnReplicaKey) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnReplicaKey) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2174,6 +2559,7 @@ func (c *jsiiProxy_CfnReplicaKey) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnReplicaKey) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2183,6 +2569,7 @@ func (c *jsiiProxy_CfnReplicaKey) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnReplicaKey) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2194,6 +2581,7 @@ func (c *jsiiProxy_CfnReplicaKey) AddPropertyDeletionOverride(propertyPath *stri
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnReplicaKey) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2211,6 +2599,7 @@ func (c *jsiiProxy_CfnReplicaKey) AddPropertyOverride(propertyPath *string, valu
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnReplicaKey) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2223,6 +2612,7 @@ func (c *jsiiProxy_CfnReplicaKey) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnReplicaKey) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2243,6 +2633,7 @@ func (c *jsiiProxy_CfnReplicaKey) GetAtt(attributeName *string) awscdk.Reference
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnReplicaKey) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2265,12 +2656,80 @@ func (c *jsiiProxy_CfnReplicaKey) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnReplicaKey) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnReplicaKey) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnReplicaKey) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnReplicaKey) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnReplicaKey) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2291,6 +2750,7 @@ func (c *jsiiProxy_CfnReplicaKey) RenderProperties(props *map[string]interface{}
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnReplicaKey) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2304,9 +2764,23 @@ func (c *jsiiProxy_CfnReplicaKey) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnReplicaKey) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnReplicaKey) ToString() *string {
 	var returns *string
 
@@ -2320,6 +2794,27 @@ func (c *jsiiProxy_CfnReplicaKey) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnReplicaKey) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnReplicaKey) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2402,11 +2897,14 @@ type CfnReplicaKeyProps struct {
 // A KMS Key alias.
 //
 // An alias can be used in all places that expect a key.
+// Experimental.
 type IAlias interface {
 	IKey
 	// The name of the alias.
+	// Experimental.
 	AliasName() *string
 	// The Key to which the Alias refers.
+	// Experimental.
 	AliasTargetKey() IKey
 }
 
@@ -2436,23 +2934,32 @@ func (j *jsiiProxy_IAlias) AliasTargetKey() IKey {
 }
 
 // A KMS Key, either managed by this CDK app, or imported.
+// Experimental.
 type IKey interface {
 	awscdk.IResource
 	// Defines a new alias for the key.
+	// Experimental.
 	AddAlias(alias *string) Alias
 	// Adds a statement to the KMS key resource policy.
+	// Experimental.
 	AddToResourcePolicy(statement awsiam.PolicyStatement, allowNoOp *bool) *awsiam.AddToResourcePolicyResult
 	// Grant the indicated permissions on this key to the given principal.
+	// Experimental.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grant decryption permissions using this key to the given principal.
+	// Experimental.
 	GrantDecrypt(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant encryption permissions using this key to the given principal.
+	// Experimental.
 	GrantEncrypt(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant encryption and decryption permissions using this key to the given principal.
+	// Experimental.
 	GrantEncryptDecrypt(grantee awsiam.IGrantable) awsiam.Grant
 	// The ARN of the key.
+	// Experimental.
 	KeyArn() *string
 	// The ID of the key (the part that looks something like: 1234abcd-12ab-34cd-56ef-1234567890ab).
+	// Experimental.
 	KeyId() *string
 }
 
@@ -2568,13 +3075,14 @@ func (j *jsiiProxy_IKey) KeyId() *string {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type Key interface {
 	awscdk.Resource
 	IKey
 	Env() *awscdk.ResourceEnvironment
 	KeyArn() *string
 	KeyId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Policy() awsiam.PolicyDocument
 	Stack() awscdk.Stack
@@ -2590,7 +3098,13 @@ type Key interface {
 	GrantDecrypt(grantee awsiam.IGrantable) awsiam.Grant
 	GrantEncrypt(grantee awsiam.IGrantable) awsiam.Grant
 	GrantEncryptDecrypt(grantee awsiam.IGrantable) awsiam.Grant
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for Key
@@ -2629,8 +3143,8 @@ func (j *jsiiProxy_Key) KeyId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_Key) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_Key) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2680,13 +3194,14 @@ func (j *jsiiProxy_Key) TrustAccountIdentities() *bool {
 }
 
 
+// Experimental.
 func NewKey(scope constructs.Construct, id *string, props *KeyProps) Key {
 	_init_.Initialize()
 
 	j := jsiiProxy_Key{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kms.Key",
+		"monocdk.aws_kms.Key",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2694,11 +3209,12 @@ func NewKey(scope constructs.Construct, id *string, props *KeyProps) Key {
 	return &j
 }
 
+// Experimental.
 func NewKey_Override(k Key, scope constructs.Construct, id *string, props *KeyProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kms.Key",
+		"monocdk.aws_kms.Key",
 		[]interface{}{scope, id, props},
 		k,
 	)
@@ -2714,13 +3230,14 @@ func NewKey_Override(k Key, scope constructs.Construct, id *string, props *KeyPr
 // will actually be reflected in the resulting template,
 // as opposed to the object returned from {@link fromKeyArn()},
 // on which calling those methods would have no effect.
+// Experimental.
 func Key_FromCfnKey(cfnKey CfnKey) IKey {
 	_init_.Initialize()
 
 	var returns IKey
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kms.Key",
+		"monocdk.aws_kms.Key",
 		"fromCfnKey",
 		[]interface{}{cfnKey},
 		&returns,
@@ -2730,13 +3247,14 @@ func Key_FromCfnKey(cfnKey CfnKey) IKey {
 }
 
 // Import an externally defined KMS Key using its ARN.
+// Experimental.
 func Key_FromKeyArn(scope constructs.Construct, id *string, keyArn *string) IKey {
 	_init_.Initialize()
 
 	var returns IKey
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kms.Key",
+		"monocdk.aws_kms.Key",
 		"fromKeyArn",
 		[]interface{}{scope, id, keyArn},
 		&returns,
@@ -2762,13 +3280,14 @@ func Key_FromKeyArn(scope constructs.Construct, id *string, keyArn *string) IKey
 // will be used on future runs. To refresh the lookup, you will have to
 // evict the value from the cache using the `cdk context` command. See
 // https://docs.aws.amazon.com/cdk/latest/guide/context.html for more information.
+// Experimental.
 func Key_FromLookup(scope constructs.Construct, id *string, options *KeyLookupOptions) IKey {
 	_init_.Initialize()
 
 	var returns IKey
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kms.Key",
+		"monocdk.aws_kms.Key",
 		"fromLookup",
 		[]interface{}{scope, id, options},
 		&returns,
@@ -2777,17 +3296,15 @@ func Key_FromLookup(scope constructs.Construct, id *string, options *KeyLookupOp
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func Key_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kms.Key",
+		"monocdk.aws_kms.Key",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2797,13 +3314,14 @@ func Key_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func Key_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func Key_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kms.Key",
+		"monocdk.aws_kms.Key",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -2813,6 +3331,7 @@ func Key_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Defines a new alias for the key.
+// Experimental.
 func (k *jsiiProxy_Key) AddAlias(aliasName *string) Alias {
 	var returns Alias
 
@@ -2827,6 +3346,7 @@ func (k *jsiiProxy_Key) AddAlias(aliasName *string) Alias {
 }
 
 // Adds a statement to the KMS key resource policy.
+// Experimental.
 func (k *jsiiProxy_Key) AddToResourcePolicy(statement awsiam.PolicyStatement, allowNoOp *bool) *awsiam.AddToResourcePolicyResult {
 	var returns *awsiam.AddToResourcePolicyResult
 
@@ -2849,6 +3369,7 @@ func (k *jsiiProxy_Key) AddToResourcePolicy(statement awsiam.PolicyStatement, al
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (k *jsiiProxy_Key) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		k,
@@ -2857,6 +3378,7 @@ func (k *jsiiProxy_Key) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
+// Experimental.
 func (k *jsiiProxy_Key) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -2876,6 +3398,7 @@ func (k *jsiiProxy_Key) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
+// Experimental.
 func (k *jsiiProxy_Key) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -2894,6 +3417,7 @@ func (k *jsiiProxy_Key) GetResourceArnAttribute(arnAttr *string, arnComponents *
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
+// Experimental.
 func (k *jsiiProxy_Key) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -2912,6 +3436,7 @@ func (k *jsiiProxy_Key) GetResourceNameAttribute(nameAttr *string) *string {
 // This modifies both the principal's policy as well as the resource policy,
 // since the default CloudFormation setup for KMS keys is that the policy
 // must not be empty and so default grants won't work.
+// Experimental.
 func (k *jsiiProxy_Key) Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant {
 	args := []interface{}{grantee}
 	for _, a := range actions {
@@ -2934,6 +3459,7 @@ func (k *jsiiProxy_Key) Grant(grantee awsiam.IGrantable, actions ...*string) aws
 //
 // Key administrators have permissions to manage the key (e.g., change permissions, revoke), but do not have permissions
 // to use the key in cryptographic operations (e.g., encrypt, decrypt).
+// Experimental.
 func (k *jsiiProxy_Key) GrantAdmin(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -2948,6 +3474,7 @@ func (k *jsiiProxy_Key) GrantAdmin(grantee awsiam.IGrantable) awsiam.Grant {
 }
 
 // Grant decryption permissions using this key to the given principal.
+// Experimental.
 func (k *jsiiProxy_Key) GrantDecrypt(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -2962,6 +3489,7 @@ func (k *jsiiProxy_Key) GrantDecrypt(grantee awsiam.IGrantable) awsiam.Grant {
 }
 
 // Grant encryption permissions using this key to the given principal.
+// Experimental.
 func (k *jsiiProxy_Key) GrantEncrypt(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -2976,6 +3504,7 @@ func (k *jsiiProxy_Key) GrantEncrypt(grantee awsiam.IGrantable) awsiam.Grant {
 }
 
 // Grant encryption and decryption permissions using this key to the given principal.
+// Experimental.
 func (k *jsiiProxy_Key) GrantEncryptDecrypt(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -2989,7 +3518,88 @@ func (k *jsiiProxy_Key) GrantEncryptDecrypt(grantee awsiam.IGrantable) awsiam.Gr
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (k *jsiiProxy_Key) OnPrepare() {
+	_jsii_.InvokeVoid(
+		k,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (k *jsiiProxy_Key) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		k,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (k *jsiiProxy_Key) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		k,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (k *jsiiProxy_Key) Prepare() {
+	_jsii_.InvokeVoid(
+		k,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (k *jsiiProxy_Key) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		k,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (k *jsiiProxy_Key) ToString() *string {
 	var returns *string
 
@@ -3003,12 +3613,32 @@ func (k *jsiiProxy_Key) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+// Experimental.
+func (k *jsiiProxy_Key) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		k,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Properties for looking up an existing Key.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type KeyLookupOptions struct {
 	// The alias name of the Key.
+	// Experimental.
 	AliasName *string `json:"aliasName" yaml:"aliasName"`
 }
 
@@ -3016,6 +3646,7 @@ type KeyLookupOptions struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type KeyProps struct {
 	// A list of principals to add as key administrators to the key policy.
 	//
@@ -3023,29 +3654,36 @@ type KeyProps struct {
 	// to use the key in cryptographic operations (e.g., encrypt, decrypt).
 	//
 	// These principals will be added to the default key policy (if none specified), or to the specified policy (if provided).
+	// Experimental.
 	Admins *[]awsiam.IPrincipal `json:"admins" yaml:"admins"`
 	// Initial alias to add to the key.
 	//
 	// More aliases can be added later by calling `addAlias`.
+	// Experimental.
 	Alias *string `json:"alias" yaml:"alias"`
 	// A description of the key.
 	//
 	// Use a description that helps your users decide
 	// whether the key is appropriate for a particular task.
+	// Experimental.
 	Description *string `json:"description" yaml:"description"`
 	// Indicates whether the key is available for use.
+	// Experimental.
 	Enabled *bool `json:"enabled" yaml:"enabled"`
 	// Indicates whether AWS KMS rotates the key.
+	// Experimental.
 	EnableKeyRotation *bool `json:"enableKeyRotation" yaml:"enableKeyRotation"`
 	// The cryptographic configuration of the key. The valid value depends on usage of the key.
 	//
 	// IMPORTANT: If you change this property of an existing key, the existing key is scheduled for deletion
 	// and a new key is created with the specified value.
+	// Experimental.
 	KeySpec KeySpec `json:"keySpec" yaml:"keySpec"`
 	// The cryptographic operations for which the key can be used.
 	//
 	// IMPORTANT: If you change this property of an existing key, the existing key is scheduled for deletion
 	// and a new key is created with the specified value.
+	// Experimental.
 	KeyUsage KeyUsage `json:"keyUsage" yaml:"keyUsage"`
 	// Specifies the number of days in the waiting period before AWS KMS deletes a CMK that has been removed from a CloudFormation stack.
 	//
@@ -3057,24 +3695,41 @@ type KeyProps struct {
 	// Enter a value between 7 and 30 days.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-pendingwindowindays
 	//
+	// Experimental.
 	PendingWindow awscdk.Duration `json:"pendingWindow" yaml:"pendingWindow"`
 	// Custom policy document to attach to the KMS key.
 	//
 	// NOTE - If the `@aws-cdk/aws-kms:defaultKeyPolicies` feature flag is set (the default for new projects),
 	// this policy will *override* the default key policy and become the only key policy for the key. If the
 	// feature flag is not set, this policy will be appended to the default key policy.
+	// Experimental.
 	Policy awsiam.PolicyDocument `json:"policy" yaml:"policy"`
 	// Whether the encryption key should be retained when it is removed from the Stack.
 	//
 	// This is useful when one wants to
 	// retain access to data that was encrypted with a key that is being retired.
+	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
+	// Whether the key usage can be granted by IAM policies.
+	//
+	// Setting this to true adds a default statement which delegates key
+	// access control completely to the identity's IAM policy (similar
+	// to how it works for other AWS resources). This matches the default behavior
+	// when creating KMS keys via the API or console.
+	//
+	// If the `@aws-cdk/aws-kms:defaultKeyPolicies` feature flag is set (the default for new projects),
+	// this flag will always be treated as 'true' and does not need to be explicitly set.
+	// See: https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam
+	//
+	// Deprecated: redundant with the `@aws-cdk/aws-kms:defaultKeyPolicies` feature flag
+	TrustAccountIdentities *bool `json:"trustAccountIdentities" yaml:"trustAccountIdentities"`
 }
 
 // The key spec, represents the cryptographic configuration of keys.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type KeySpec string
 
 const (
@@ -3092,6 +3747,7 @@ const (
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type KeyUsage string
 
 const (
@@ -3103,6 +3759,7 @@ const (
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type ViaServicePrincipal interface {
 	awsiam.PrincipalBase
 	AssumeRoleAction() *string
@@ -3164,13 +3821,14 @@ func (j *jsiiProxy_ViaServicePrincipal) PrincipalAccount() *string {
 }
 
 
+// Experimental.
 func NewViaServicePrincipal(serviceName *string, basePrincipal awsiam.IPrincipal) ViaServicePrincipal {
 	_init_.Initialize()
 
 	j := jsiiProxy_ViaServicePrincipal{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kms.ViaServicePrincipal",
+		"monocdk.aws_kms.ViaServicePrincipal",
 		[]interface{}{serviceName, basePrincipal},
 		&j,
 	)
@@ -3178,11 +3836,12 @@ func NewViaServicePrincipal(serviceName *string, basePrincipal awsiam.IPrincipal
 	return &j
 }
 
+// Experimental.
 func NewViaServicePrincipal_Override(v ViaServicePrincipal, serviceName *string, basePrincipal awsiam.IPrincipal) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kms.ViaServicePrincipal",
+		"monocdk.aws_kms.ViaServicePrincipal",
 		[]interface{}{serviceName, basePrincipal},
 		v,
 	)
@@ -3192,6 +3851,7 @@ func NewViaServicePrincipal_Override(v ViaServicePrincipal, serviceName *string,
 //
 // Add the statements to the AssumeRolePolicyDocument necessary to give this principal
 // permissions to assume the given role.
+// Experimental.
 func (v *jsiiProxy_ViaServicePrincipal) AddToAssumeRolePolicy(document awsiam.PolicyDocument) {
 	_jsii_.InvokeVoid(
 		v,
@@ -3201,6 +3861,7 @@ func (v *jsiiProxy_ViaServicePrincipal) AddToAssumeRolePolicy(document awsiam.Po
 }
 
 // Add to the policy of this principal.
+// Experimental.
 func (v *jsiiProxy_ViaServicePrincipal) AddToPolicy(statement awsiam.PolicyStatement) *bool {
 	var returns *bool
 
@@ -3215,6 +3876,7 @@ func (v *jsiiProxy_ViaServicePrincipal) AddToPolicy(statement awsiam.PolicyState
 }
 
 // Add to the policy of this principal.
+// Experimental.
 func (v *jsiiProxy_ViaServicePrincipal) AddToPrincipalPolicy(_statement awsiam.PolicyStatement) *awsiam.AddToPrincipalPolicyResult {
 	var returns *awsiam.AddToPrincipalPolicyResult
 
@@ -3231,6 +3893,7 @@ func (v *jsiiProxy_ViaServicePrincipal) AddToPrincipalPolicy(_statement awsiam.P
 // JSON-ify the principal.
 //
 // Used when JSON.stringify() is called
+// Experimental.
 func (v *jsiiProxy_ViaServicePrincipal) ToJSON() *map[string]*[]*string {
 	var returns *map[string]*[]*string
 
@@ -3245,6 +3908,7 @@ func (v *jsiiProxy_ViaServicePrincipal) ToJSON() *map[string]*[]*string {
 }
 
 // Returns a string representation of an object.
+// Experimental.
 func (v *jsiiProxy_ViaServicePrincipal) ToString() *string {
 	var returns *string
 
@@ -3264,6 +3928,7 @@ func (v *jsiiProxy_ViaServicePrincipal) ToString() *string {
 // conditions parameter, the value from the conditions parameter will be used.
 //
 // Returns: a new PrincipalWithConditions object.
+// Experimental.
 func (v *jsiiProxy_ViaServicePrincipal) WithConditions(conditions *map[string]interface{}) awsiam.PrincipalBase {
 	var returns awsiam.PrincipalBase
 
@@ -3280,6 +3945,7 @@ func (v *jsiiProxy_ViaServicePrincipal) WithConditions(conditions *map[string]in
 // Returns a new principal using this principal as the base, with session tags enabled.
 //
 // Returns: a new SessionTagsPrincipal object.
+// Experimental.
 func (v *jsiiProxy_ViaServicePrincipal) WithSessionTags() awsiam.PrincipalBase {
 	var returns awsiam.PrincipalBase
 

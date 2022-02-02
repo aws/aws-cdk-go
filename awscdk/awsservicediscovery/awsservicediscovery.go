@@ -1,14 +1,14 @@
 package awsservicediscovery
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsservicediscovery/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancingv2"
+	"github.com/aws/aws-cdk-go/awscdk/awsservicediscovery/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // Instance that uses Route 53 Alias record type.
@@ -18,12 +18,13 @@ import (
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type AliasTargetInstance interface {
 	InstanceBase
 	DnsName() *string
 	Env() *awscdk.ResourceEnvironment
 	InstanceId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Service() IService
 	Stack() awscdk.Stack
@@ -31,8 +32,14 @@ type AliasTargetInstance interface {
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
 	UniqueInstanceId() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for AliasTargetInstance
@@ -70,8 +77,8 @@ func (j *jsiiProxy_AliasTargetInstance) InstanceId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_AliasTargetInstance) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_AliasTargetInstance) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -111,13 +118,14 @@ func (j *jsiiProxy_AliasTargetInstance) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewAliasTargetInstance(scope constructs.Construct, id *string, props *AliasTargetInstanceProps) AliasTargetInstance {
 	_init_.Initialize()
 
 	j := jsiiProxy_AliasTargetInstance{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_servicediscovery.AliasTargetInstance",
+		"monocdk.aws_servicediscovery.AliasTargetInstance",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -125,27 +133,26 @@ func NewAliasTargetInstance(scope constructs.Construct, id *string, props *Alias
 	return &j
 }
 
+// Experimental.
 func NewAliasTargetInstance_Override(a AliasTargetInstance, scope constructs.Construct, id *string, props *AliasTargetInstanceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_servicediscovery.AliasTargetInstance",
+		"monocdk.aws_servicediscovery.AliasTargetInstance",
 		[]interface{}{scope, id, props},
 		a,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func AliasTargetInstance_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_servicediscovery.AliasTargetInstance",
+		"monocdk.aws_servicediscovery.AliasTargetInstance",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -155,13 +162,14 @@ func AliasTargetInstance_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func AliasTargetInstance_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func AliasTargetInstance_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_servicediscovery.AliasTargetInstance",
+		"monocdk.aws_servicediscovery.AliasTargetInstance",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -179,6 +187,7 @@ func AliasTargetInstance_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (a *jsiiProxy_AliasTargetInstance) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		a,
@@ -187,6 +196,7 @@ func (a *jsiiProxy_AliasTargetInstance) ApplyRemovalPolicy(policy awscdk.Removal
 	)
 }
 
+// Experimental.
 func (a *jsiiProxy_AliasTargetInstance) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -206,6 +216,7 @@ func (a *jsiiProxy_AliasTargetInstance) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
+// Experimental.
 func (a *jsiiProxy_AliasTargetInstance) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -224,6 +235,7 @@ func (a *jsiiProxy_AliasTargetInstance) GetResourceArnAttribute(arnAttr *string,
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
+// Experimental.
 func (a *jsiiProxy_AliasTargetInstance) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -237,7 +249,88 @@ func (a *jsiiProxy_AliasTargetInstance) GetResourceNameAttribute(nameAttr *strin
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (a *jsiiProxy_AliasTargetInstance) OnPrepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (a *jsiiProxy_AliasTargetInstance) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (a *jsiiProxy_AliasTargetInstance) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (a *jsiiProxy_AliasTargetInstance) Prepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (a *jsiiProxy_AliasTargetInstance) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (a *jsiiProxy_AliasTargetInstance) ToString() *string {
 	var returns *string
 
@@ -252,6 +345,7 @@ func (a *jsiiProxy_AliasTargetInstance) ToString() *string {
 }
 
 // Generate a unique instance Id that is safe to pass to CloudMap.
+// Experimental.
 func (a *jsiiProxy_AliasTargetInstance) UniqueInstanceId() *string {
 	var returns *string
 
@@ -265,16 +359,41 @@ func (a *jsiiProxy_AliasTargetInstance) UniqueInstanceId() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (a *jsiiProxy_AliasTargetInstance) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // TODO: EXAMPLE
 //
+// Experimental.
 type AliasTargetInstanceProps struct {
 	// Custom attributes of the instance.
+	// Experimental.
 	CustomAttributes *map[string]*string `json:"customAttributes" yaml:"customAttributes"`
 	// The id of the instance resource.
+	// Experimental.
 	InstanceId *string `json:"instanceId" yaml:"instanceId"`
 	// DNS name of the target.
+	// Experimental.
 	DnsName *string `json:"dnsName" yaml:"dnsName"`
 	// The Cloudmap service this resource is registered to.
+	// Experimental.
 	Service IService `json:"service" yaml:"service"`
 }
 
@@ -282,19 +401,25 @@ type AliasTargetInstanceProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type BaseInstanceProps struct {
 	// Custom attributes of the instance.
+	// Experimental.
 	CustomAttributes *map[string]*string `json:"customAttributes" yaml:"customAttributes"`
 	// The id of the instance resource.
+	// Experimental.
 	InstanceId *string `json:"instanceId" yaml:"instanceId"`
 }
 
 // TODO: EXAMPLE
 //
+// Experimental.
 type BaseNamespaceProps struct {
 	// A name for the Namespace.
+	// Experimental.
 	Name *string `json:"name" yaml:"name"`
 	// A description of the Namespace.
+	// Experimental.
 	Description *string `json:"description" yaml:"description"`
 }
 
@@ -304,13 +429,16 @@ type BaseNamespaceProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type BaseServiceProps struct {
 	// Structure containing failure threshold for a custom health checker.
 	//
 	// Only one of healthCheckConfig or healthCheckCustomConfig can be specified.
 	// See: https://docs.aws.amazon.com/cloud-map/latest/api/API_HealthCheckCustomConfig.html
+	// Experimental.
 	CustomHealthCheck *HealthCheckCustomConfig `json:"customHealthCheck" yaml:"customHealthCheck"`
 	// A description of the service.
+	// Experimental.
 	Description *string `json:"description" yaml:"description"`
 	// Settings for an optional health check.
 	//
@@ -318,8 +446,10 @@ type BaseServiceProps struct {
 	// check with the records that you specify in DnsConfig. Only one of healthCheckConfig or healthCheckCustomConfig can
 	// be specified. Not valid for PrivateDnsNamespaces. If you use healthCheck, you can only register IP instances to
 	// this service.
+	// Experimental.
 	HealthCheck *HealthCheckConfig `json:"healthCheck" yaml:"healthCheck"`
 	// A name for the Service.
+	// Experimental.
 	Name *string `json:"name" yaml:"name"`
 }
 
@@ -345,7 +475,7 @@ type CfnHttpNamespace interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	Tags() awscdk.TagManager
@@ -360,10 +490,16 @@ type CfnHttpNamespace interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -463,8 +599,8 @@ func (j *jsiiProxy_CfnHttpNamespace) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnHttpNamespace) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnHttpNamespace) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -515,13 +651,13 @@ func (j *jsiiProxy_CfnHttpNamespace) UpdatedProperites() *map[string]interface{}
 
 
 // Create a new `AWS::ServiceDiscovery::HttpNamespace`.
-func NewCfnHttpNamespace(scope constructs.Construct, id *string, props *CfnHttpNamespaceProps) CfnHttpNamespace {
+func NewCfnHttpNamespace(scope awscdk.Construct, id *string, props *CfnHttpNamespaceProps) CfnHttpNamespace {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnHttpNamespace{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_servicediscovery.CfnHttpNamespace",
+		"monocdk.aws_servicediscovery.CfnHttpNamespace",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -530,11 +666,11 @@ func NewCfnHttpNamespace(scope constructs.Construct, id *string, props *CfnHttpN
 }
 
 // Create a new `AWS::ServiceDiscovery::HttpNamespace`.
-func NewCfnHttpNamespace_Override(c CfnHttpNamespace, scope constructs.Construct, id *string, props *CfnHttpNamespaceProps) {
+func NewCfnHttpNamespace_Override(c CfnHttpNamespace, scope awscdk.Construct, id *string, props *CfnHttpNamespaceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_servicediscovery.CfnHttpNamespace",
+		"monocdk.aws_servicediscovery.CfnHttpNamespace",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -562,13 +698,14 @@ func (j *jsiiProxy_CfnHttpNamespace) SetName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnHttpNamespace_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_servicediscovery.CfnHttpNamespace",
+		"monocdk.aws_servicediscovery.CfnHttpNamespace",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -578,13 +715,14 @@ func CfnHttpNamespace_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnHttpNamespace_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_servicediscovery.CfnHttpNamespace",
+		"monocdk.aws_servicediscovery.CfnHttpNamespace",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -593,17 +731,15 @@ func CfnHttpNamespace_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnHttpNamespace_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_servicediscovery.CfnHttpNamespace",
+		"monocdk.aws_servicediscovery.CfnHttpNamespace",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -616,7 +752,7 @@ func CfnHttpNamespace_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_servicediscovery.CfnHttpNamespace",
+		"monocdk.aws_servicediscovery.CfnHttpNamespace",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -624,6 +760,7 @@ func CfnHttpNamespace_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnHttpNamespace) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -636,6 +773,7 @@ func (c *jsiiProxy_CfnHttpNamespace) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnHttpNamespace) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -651,6 +789,7 @@ func (c *jsiiProxy_CfnHttpNamespace) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnHttpNamespace) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -696,6 +835,7 @@ func (c *jsiiProxy_CfnHttpNamespace) AddMetadata(key *string, value interface{})
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnHttpNamespace) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -705,6 +845,7 @@ func (c *jsiiProxy_CfnHttpNamespace) AddOverride(path *string, value interface{}
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnHttpNamespace) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -716,6 +857,7 @@ func (c *jsiiProxy_CfnHttpNamespace) AddPropertyDeletionOverride(propertyPath *s
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnHttpNamespace) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -733,6 +875,7 @@ func (c *jsiiProxy_CfnHttpNamespace) AddPropertyOverride(propertyPath *string, v
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnHttpNamespace) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -745,6 +888,7 @@ func (c *jsiiProxy_CfnHttpNamespace) ApplyRemovalPolicy(policy awscdk.RemovalPol
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnHttpNamespace) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -765,6 +909,7 @@ func (c *jsiiProxy_CfnHttpNamespace) GetAtt(attributeName *string) awscdk.Refere
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnHttpNamespace) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -787,12 +932,80 @@ func (c *jsiiProxy_CfnHttpNamespace) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnHttpNamespace) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnHttpNamespace) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnHttpNamespace) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnHttpNamespace) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnHttpNamespace) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -813,6 +1026,7 @@ func (c *jsiiProxy_CfnHttpNamespace) RenderProperties(props *map[string]interfac
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnHttpNamespace) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -826,9 +1040,23 @@ func (c *jsiiProxy_CfnHttpNamespace) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnHttpNamespace) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnHttpNamespace) ToString() *string {
 	var returns *string
 
@@ -842,6 +1070,27 @@ func (c *jsiiProxy_CfnHttpNamespace) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnHttpNamespace) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnHttpNamespace) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -883,7 +1132,7 @@ type CfnInstance interface {
 	InstanceId() *string
 	SetInstanceId(val *string)
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	ServiceId() *string
 	SetServiceId(val *string)
@@ -899,10 +1148,16 @@ type CfnInstance interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -982,8 +1237,8 @@ func (j *jsiiProxy_CfnInstance) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInstance) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnInstance) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1034,13 +1289,13 @@ func (j *jsiiProxy_CfnInstance) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::ServiceDiscovery::Instance`.
-func NewCfnInstance(scope constructs.Construct, id *string, props *CfnInstanceProps) CfnInstance {
+func NewCfnInstance(scope awscdk.Construct, id *string, props *CfnInstanceProps) CfnInstance {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnInstance{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_servicediscovery.CfnInstance",
+		"monocdk.aws_servicediscovery.CfnInstance",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1049,11 +1304,11 @@ func NewCfnInstance(scope constructs.Construct, id *string, props *CfnInstancePr
 }
 
 // Create a new `AWS::ServiceDiscovery::Instance`.
-func NewCfnInstance_Override(c CfnInstance, scope constructs.Construct, id *string, props *CfnInstanceProps) {
+func NewCfnInstance_Override(c CfnInstance, scope awscdk.Construct, id *string, props *CfnInstanceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_servicediscovery.CfnInstance",
+		"monocdk.aws_servicediscovery.CfnInstance",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1089,13 +1344,14 @@ func (j *jsiiProxy_CfnInstance) SetServiceId(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnInstance_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_servicediscovery.CfnInstance",
+		"monocdk.aws_servicediscovery.CfnInstance",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1105,13 +1361,14 @@ func CfnInstance_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnInstance_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_servicediscovery.CfnInstance",
+		"monocdk.aws_servicediscovery.CfnInstance",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1120,17 +1377,15 @@ func CfnInstance_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnInstance_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_servicediscovery.CfnInstance",
+		"monocdk.aws_servicediscovery.CfnInstance",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1143,7 +1398,7 @@ func CfnInstance_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_servicediscovery.CfnInstance",
+		"monocdk.aws_servicediscovery.CfnInstance",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1151,6 +1406,7 @@ func CfnInstance_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnInstance) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1163,6 +1419,7 @@ func (c *jsiiProxy_CfnInstance) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnInstance) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1178,6 +1435,7 @@ func (c *jsiiProxy_CfnInstance) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnInstance) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1223,6 +1481,7 @@ func (c *jsiiProxy_CfnInstance) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnInstance) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1232,6 +1491,7 @@ func (c *jsiiProxy_CfnInstance) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnInstance) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1243,6 +1503,7 @@ func (c *jsiiProxy_CfnInstance) AddPropertyDeletionOverride(propertyPath *string
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnInstance) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1260,6 +1521,7 @@ func (c *jsiiProxy_CfnInstance) AddPropertyOverride(propertyPath *string, value 
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnInstance) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1272,6 +1534,7 @@ func (c *jsiiProxy_CfnInstance) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, 
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnInstance) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1292,6 +1555,7 @@ func (c *jsiiProxy_CfnInstance) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnInstance) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1314,12 +1578,80 @@ func (c *jsiiProxy_CfnInstance) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnInstance) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnInstance) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnInstance) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnInstance) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnInstance) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1340,6 +1672,7 @@ func (c *jsiiProxy_CfnInstance) RenderProperties(props *map[string]interface{}) 
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnInstance) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1353,9 +1686,23 @@ func (c *jsiiProxy_CfnInstance) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnInstance) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnInstance) ToString() *string {
 	var returns *string
 
@@ -1369,6 +1716,27 @@ func (c *jsiiProxy_CfnInstance) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnInstance) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnInstance) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1449,7 +1817,7 @@ type CfnPrivateDnsNamespace interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Properties() interface{}
 	SetProperties(val interface{})
 	Ref() *string
@@ -1468,10 +1836,16 @@ type CfnPrivateDnsNamespace interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1581,8 +1955,8 @@ func (j *jsiiProxy_CfnPrivateDnsNamespace) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPrivateDnsNamespace) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnPrivateDnsNamespace) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1653,13 +2027,13 @@ func (j *jsiiProxy_CfnPrivateDnsNamespace) Vpc() *string {
 
 
 // Create a new `AWS::ServiceDiscovery::PrivateDnsNamespace`.
-func NewCfnPrivateDnsNamespace(scope constructs.Construct, id *string, props *CfnPrivateDnsNamespaceProps) CfnPrivateDnsNamespace {
+func NewCfnPrivateDnsNamespace(scope awscdk.Construct, id *string, props *CfnPrivateDnsNamespaceProps) CfnPrivateDnsNamespace {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnPrivateDnsNamespace{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_servicediscovery.CfnPrivateDnsNamespace",
+		"monocdk.aws_servicediscovery.CfnPrivateDnsNamespace",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1668,11 +2042,11 @@ func NewCfnPrivateDnsNamespace(scope constructs.Construct, id *string, props *Cf
 }
 
 // Create a new `AWS::ServiceDiscovery::PrivateDnsNamespace`.
-func NewCfnPrivateDnsNamespace_Override(c CfnPrivateDnsNamespace, scope constructs.Construct, id *string, props *CfnPrivateDnsNamespaceProps) {
+func NewCfnPrivateDnsNamespace_Override(c CfnPrivateDnsNamespace, scope awscdk.Construct, id *string, props *CfnPrivateDnsNamespaceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_servicediscovery.CfnPrivateDnsNamespace",
+		"monocdk.aws_servicediscovery.CfnPrivateDnsNamespace",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1716,13 +2090,14 @@ func (j *jsiiProxy_CfnPrivateDnsNamespace) SetVpc(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnPrivateDnsNamespace_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_servicediscovery.CfnPrivateDnsNamespace",
+		"monocdk.aws_servicediscovery.CfnPrivateDnsNamespace",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1732,13 +2107,14 @@ func CfnPrivateDnsNamespace_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnPrivateDnsNamespace_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_servicediscovery.CfnPrivateDnsNamespace",
+		"monocdk.aws_servicediscovery.CfnPrivateDnsNamespace",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1747,17 +2123,15 @@ func CfnPrivateDnsNamespace_IsCfnResource(construct constructs.IConstruct) *bool
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnPrivateDnsNamespace_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_servicediscovery.CfnPrivateDnsNamespace",
+		"monocdk.aws_servicediscovery.CfnPrivateDnsNamespace",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1770,7 +2144,7 @@ func CfnPrivateDnsNamespace_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_servicediscovery.CfnPrivateDnsNamespace",
+		"monocdk.aws_servicediscovery.CfnPrivateDnsNamespace",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1778,6 +2152,7 @@ func CfnPrivateDnsNamespace_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnPrivateDnsNamespace) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1790,6 +2165,7 @@ func (c *jsiiProxy_CfnPrivateDnsNamespace) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnPrivateDnsNamespace) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1805,6 +2181,7 @@ func (c *jsiiProxy_CfnPrivateDnsNamespace) AddDependsOn(target awscdk.CfnResourc
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnPrivateDnsNamespace) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1850,6 +2227,7 @@ func (c *jsiiProxy_CfnPrivateDnsNamespace) AddMetadata(key *string, value interf
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnPrivateDnsNamespace) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1859,6 +2237,7 @@ func (c *jsiiProxy_CfnPrivateDnsNamespace) AddOverride(path *string, value inter
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnPrivateDnsNamespace) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1870,6 +2249,7 @@ func (c *jsiiProxy_CfnPrivateDnsNamespace) AddPropertyDeletionOverride(propertyP
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnPrivateDnsNamespace) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1887,6 +2267,7 @@ func (c *jsiiProxy_CfnPrivateDnsNamespace) AddPropertyOverride(propertyPath *str
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnPrivateDnsNamespace) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1899,6 +2280,7 @@ func (c *jsiiProxy_CfnPrivateDnsNamespace) ApplyRemovalPolicy(policy awscdk.Remo
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnPrivateDnsNamespace) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1919,6 +2301,7 @@ func (c *jsiiProxy_CfnPrivateDnsNamespace) GetAtt(attributeName *string) awscdk.
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnPrivateDnsNamespace) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1941,12 +2324,80 @@ func (c *jsiiProxy_CfnPrivateDnsNamespace) Inspect(inspector awscdk.TreeInspecto
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnPrivateDnsNamespace) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnPrivateDnsNamespace) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnPrivateDnsNamespace) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnPrivateDnsNamespace) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnPrivateDnsNamespace) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1967,6 +2418,7 @@ func (c *jsiiProxy_CfnPrivateDnsNamespace) RenderProperties(props *map[string]in
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnPrivateDnsNamespace) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1980,9 +2432,23 @@ func (c *jsiiProxy_CfnPrivateDnsNamespace) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnPrivateDnsNamespace) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnPrivateDnsNamespace) ToString() *string {
 	var returns *string
 
@@ -1996,6 +2462,27 @@ func (c *jsiiProxy_CfnPrivateDnsNamespace) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnPrivateDnsNamespace) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnPrivateDnsNamespace) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2075,7 +2562,7 @@ type CfnPublicDnsNamespace interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Properties() interface{}
 	SetProperties(val interface{})
 	Ref() *string
@@ -2092,10 +2579,16 @@ type CfnPublicDnsNamespace interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -2205,8 +2698,8 @@ func (j *jsiiProxy_CfnPublicDnsNamespace) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPublicDnsNamespace) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnPublicDnsNamespace) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2267,13 +2760,13 @@ func (j *jsiiProxy_CfnPublicDnsNamespace) UpdatedProperites() *map[string]interf
 
 
 // Create a new `AWS::ServiceDiscovery::PublicDnsNamespace`.
-func NewCfnPublicDnsNamespace(scope constructs.Construct, id *string, props *CfnPublicDnsNamespaceProps) CfnPublicDnsNamespace {
+func NewCfnPublicDnsNamespace(scope awscdk.Construct, id *string, props *CfnPublicDnsNamespaceProps) CfnPublicDnsNamespace {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnPublicDnsNamespace{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_servicediscovery.CfnPublicDnsNamespace",
+		"monocdk.aws_servicediscovery.CfnPublicDnsNamespace",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2282,11 +2775,11 @@ func NewCfnPublicDnsNamespace(scope constructs.Construct, id *string, props *Cfn
 }
 
 // Create a new `AWS::ServiceDiscovery::PublicDnsNamespace`.
-func NewCfnPublicDnsNamespace_Override(c CfnPublicDnsNamespace, scope constructs.Construct, id *string, props *CfnPublicDnsNamespaceProps) {
+func NewCfnPublicDnsNamespace_Override(c CfnPublicDnsNamespace, scope awscdk.Construct, id *string, props *CfnPublicDnsNamespaceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_servicediscovery.CfnPublicDnsNamespace",
+		"monocdk.aws_servicediscovery.CfnPublicDnsNamespace",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2322,13 +2815,14 @@ func (j *jsiiProxy_CfnPublicDnsNamespace) SetProperties(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnPublicDnsNamespace_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_servicediscovery.CfnPublicDnsNamespace",
+		"monocdk.aws_servicediscovery.CfnPublicDnsNamespace",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2338,13 +2832,14 @@ func CfnPublicDnsNamespace_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnPublicDnsNamespace_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_servicediscovery.CfnPublicDnsNamespace",
+		"monocdk.aws_servicediscovery.CfnPublicDnsNamespace",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2353,17 +2848,15 @@ func CfnPublicDnsNamespace_IsCfnResource(construct constructs.IConstruct) *bool 
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnPublicDnsNamespace_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_servicediscovery.CfnPublicDnsNamespace",
+		"monocdk.aws_servicediscovery.CfnPublicDnsNamespace",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2376,7 +2869,7 @@ func CfnPublicDnsNamespace_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_servicediscovery.CfnPublicDnsNamespace",
+		"monocdk.aws_servicediscovery.CfnPublicDnsNamespace",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2384,6 +2877,7 @@ func CfnPublicDnsNamespace_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnPublicDnsNamespace) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2396,6 +2890,7 @@ func (c *jsiiProxy_CfnPublicDnsNamespace) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnPublicDnsNamespace) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2411,6 +2906,7 @@ func (c *jsiiProxy_CfnPublicDnsNamespace) AddDependsOn(target awscdk.CfnResource
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnPublicDnsNamespace) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2456,6 +2952,7 @@ func (c *jsiiProxy_CfnPublicDnsNamespace) AddMetadata(key *string, value interfa
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnPublicDnsNamespace) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2465,6 +2962,7 @@ func (c *jsiiProxy_CfnPublicDnsNamespace) AddOverride(path *string, value interf
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnPublicDnsNamespace) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2476,6 +2974,7 @@ func (c *jsiiProxy_CfnPublicDnsNamespace) AddPropertyDeletionOverride(propertyPa
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnPublicDnsNamespace) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2493,6 +2992,7 @@ func (c *jsiiProxy_CfnPublicDnsNamespace) AddPropertyOverride(propertyPath *stri
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnPublicDnsNamespace) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2505,6 +3005,7 @@ func (c *jsiiProxy_CfnPublicDnsNamespace) ApplyRemovalPolicy(policy awscdk.Remov
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnPublicDnsNamespace) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2525,6 +3026,7 @@ func (c *jsiiProxy_CfnPublicDnsNamespace) GetAtt(attributeName *string) awscdk.R
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnPublicDnsNamespace) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2547,12 +3049,80 @@ func (c *jsiiProxy_CfnPublicDnsNamespace) Inspect(inspector awscdk.TreeInspector
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnPublicDnsNamespace) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnPublicDnsNamespace) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnPublicDnsNamespace) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnPublicDnsNamespace) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnPublicDnsNamespace) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2573,6 +3143,7 @@ func (c *jsiiProxy_CfnPublicDnsNamespace) RenderProperties(props *map[string]int
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnPublicDnsNamespace) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2586,9 +3157,23 @@ func (c *jsiiProxy_CfnPublicDnsNamespace) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnPublicDnsNamespace) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnPublicDnsNamespace) ToString() *string {
 	var returns *string
 
@@ -2602,6 +3187,27 @@ func (c *jsiiProxy_CfnPublicDnsNamespace) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnPublicDnsNamespace) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnPublicDnsNamespace) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2692,7 +3298,7 @@ type CfnService interface {
 	SetName(val *string)
 	NamespaceId() *string
 	SetNamespaceId(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	Tags() awscdk.TagManager
@@ -2709,10 +3315,16 @@ type CfnService interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -2862,8 +3474,8 @@ func (j *jsiiProxy_CfnService) NamespaceId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnService) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnService) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2924,13 +3536,13 @@ func (j *jsiiProxy_CfnService) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::ServiceDiscovery::Service`.
-func NewCfnService(scope constructs.Construct, id *string, props *CfnServiceProps) CfnService {
+func NewCfnService(scope awscdk.Construct, id *string, props *CfnServiceProps) CfnService {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnService{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_servicediscovery.CfnService",
+		"monocdk.aws_servicediscovery.CfnService",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2939,11 +3551,11 @@ func NewCfnService(scope constructs.Construct, id *string, props *CfnServiceProp
 }
 
 // Create a new `AWS::ServiceDiscovery::Service`.
-func NewCfnService_Override(c CfnService, scope constructs.Construct, id *string, props *CfnServiceProps) {
+func NewCfnService_Override(c CfnService, scope awscdk.Construct, id *string, props *CfnServiceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_servicediscovery.CfnService",
+		"monocdk.aws_servicediscovery.CfnService",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -3011,13 +3623,14 @@ func (j *jsiiProxy_CfnService) SetType(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnService_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_servicediscovery.CfnService",
+		"monocdk.aws_servicediscovery.CfnService",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -3027,13 +3640,14 @@ func CfnService_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnService_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_servicediscovery.CfnService",
+		"monocdk.aws_servicediscovery.CfnService",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3042,17 +3656,15 @@ func CfnService_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnService_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_servicediscovery.CfnService",
+		"monocdk.aws_servicediscovery.CfnService",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3065,7 +3677,7 @@ func CfnService_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_servicediscovery.CfnService",
+		"monocdk.aws_servicediscovery.CfnService",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -3073,6 +3685,7 @@ func CfnService_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnService) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3085,6 +3698,7 @@ func (c *jsiiProxy_CfnService) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnService) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3100,6 +3714,7 @@ func (c *jsiiProxy_CfnService) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnService) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3145,6 +3760,7 @@ func (c *jsiiProxy_CfnService) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnService) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3154,6 +3770,7 @@ func (c *jsiiProxy_CfnService) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnService) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3165,6 +3782,7 @@ func (c *jsiiProxy_CfnService) AddPropertyDeletionOverride(propertyPath *string)
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnService) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3182,6 +3800,7 @@ func (c *jsiiProxy_CfnService) AddPropertyOverride(propertyPath *string, value i
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnService) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3194,6 +3813,7 @@ func (c *jsiiProxy_CfnService) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, o
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnService) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -3214,6 +3834,7 @@ func (c *jsiiProxy_CfnService) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnService) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -3236,12 +3857,80 @@ func (c *jsiiProxy_CfnService) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnService) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnService) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnService) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnService) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnService) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -3262,6 +3951,7 @@ func (c *jsiiProxy_CfnService) RenderProperties(props *map[string]interface{}) *
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnService) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -3275,9 +3965,23 @@ func (c *jsiiProxy_CfnService) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnService) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnService) ToString() *string {
 	var returns *string
 
@@ -3291,6 +3995,27 @@ func (c *jsiiProxy_CfnService) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnService) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnService) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3509,12 +4234,13 @@ type CfnServiceProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type CnameInstance interface {
 	InstanceBase
 	Cname() *string
 	Env() *awscdk.ResourceEnvironment
 	InstanceId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Service() IService
 	Stack() awscdk.Stack
@@ -3522,8 +4248,14 @@ type CnameInstance interface {
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
 	UniqueInstanceId() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for CnameInstance
@@ -3561,8 +4293,8 @@ func (j *jsiiProxy_CnameInstance) InstanceId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CnameInstance) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CnameInstance) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -3602,13 +4334,14 @@ func (j *jsiiProxy_CnameInstance) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewCnameInstance(scope constructs.Construct, id *string, props *CnameInstanceProps) CnameInstance {
 	_init_.Initialize()
 
 	j := jsiiProxy_CnameInstance{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_servicediscovery.CnameInstance",
+		"monocdk.aws_servicediscovery.CnameInstance",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3616,27 +4349,26 @@ func NewCnameInstance(scope constructs.Construct, id *string, props *CnameInstan
 	return &j
 }
 
+// Experimental.
 func NewCnameInstance_Override(c CnameInstance, scope constructs.Construct, id *string, props *CnameInstanceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_servicediscovery.CnameInstance",
+		"monocdk.aws_servicediscovery.CnameInstance",
 		[]interface{}{scope, id, props},
 		c,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CnameInstance_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_servicediscovery.CnameInstance",
+		"monocdk.aws_servicediscovery.CnameInstance",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3646,13 +4378,14 @@ func CnameInstance_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func CnameInstance_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func CnameInstance_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_servicediscovery.CnameInstance",
+		"monocdk.aws_servicediscovery.CnameInstance",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -3670,6 +4403,7 @@ func CnameInstance_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CnameInstance) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3678,6 +4412,7 @@ func (c *jsiiProxy_CnameInstance) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 	)
 }
 
+// Experimental.
 func (c *jsiiProxy_CnameInstance) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -3697,6 +4432,7 @@ func (c *jsiiProxy_CnameInstance) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
+// Experimental.
 func (c *jsiiProxy_CnameInstance) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -3715,6 +4451,7 @@ func (c *jsiiProxy_CnameInstance) GetResourceArnAttribute(arnAttr *string, arnCo
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
+// Experimental.
 func (c *jsiiProxy_CnameInstance) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -3728,7 +4465,88 @@ func (c *jsiiProxy_CnameInstance) GetResourceNameAttribute(nameAttr *string) *st
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CnameInstance) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CnameInstance) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CnameInstance) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CnameInstance) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CnameInstance) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (c *jsiiProxy_CnameInstance) ToString() *string {
 	var returns *string
 
@@ -3743,6 +4561,7 @@ func (c *jsiiProxy_CnameInstance) ToString() *string {
 }
 
 // Generate a unique instance Id that is safe to pass to CloudMap.
+// Experimental.
 func (c *jsiiProxy_CnameInstance) UniqueInstanceId() *string {
 	var returns *string
 
@@ -3756,32 +4575,62 @@ func (c *jsiiProxy_CnameInstance) UniqueInstanceId() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CnameInstance) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // TODO: EXAMPLE
 //
+// Experimental.
 type CnameInstanceBaseProps struct {
 	// Custom attributes of the instance.
+	// Experimental.
 	CustomAttributes *map[string]*string `json:"customAttributes" yaml:"customAttributes"`
 	// The id of the instance resource.
+	// Experimental.
 	InstanceId *string `json:"instanceId" yaml:"instanceId"`
 	// If the service configuration includes a CNAME record, the domain name that you want Route 53 to return in response to DNS queries, for example, example.com. This value is required if the service specified by ServiceId includes settings for an CNAME record.
+	// Experimental.
 	InstanceCname *string `json:"instanceCname" yaml:"instanceCname"`
 }
 
 // TODO: EXAMPLE
 //
+// Experimental.
 type CnameInstanceProps struct {
 	// Custom attributes of the instance.
+	// Experimental.
 	CustomAttributes *map[string]*string `json:"customAttributes" yaml:"customAttributes"`
 	// The id of the instance resource.
+	// Experimental.
 	InstanceId *string `json:"instanceId" yaml:"instanceId"`
 	// If the service configuration includes a CNAME record, the domain name that you want Route 53 to return in response to DNS queries, for example, example.com. This value is required if the service specified by ServiceId includes settings for an CNAME record.
+	// Experimental.
 	InstanceCname *string `json:"instanceCname" yaml:"instanceCname"`
 	// The Cloudmap service this resource is registered to.
+	// Experimental.
 	Service IService `json:"service" yaml:"service"`
 }
 
 // TODO: EXAMPLE
 //
+// Experimental.
 type DnsRecordType string
 
 const (
@@ -3799,13 +4648,16 @@ const (
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type DnsServiceProps struct {
 	// Structure containing failure threshold for a custom health checker.
 	//
 	// Only one of healthCheckConfig or healthCheckCustomConfig can be specified.
 	// See: https://docs.aws.amazon.com/cloud-map/latest/api/API_HealthCheckCustomConfig.html
+	// Experimental.
 	CustomHealthCheck *HealthCheckCustomConfig `json:"customHealthCheck" yaml:"customHealthCheck"`
 	// A description of the service.
+	// Experimental.
 	Description *string `json:"description" yaml:"description"`
 	// Settings for an optional health check.
 	//
@@ -3813,22 +4665,28 @@ type DnsServiceProps struct {
 	// check with the records that you specify in DnsConfig. Only one of healthCheckConfig or healthCheckCustomConfig can
 	// be specified. Not valid for PrivateDnsNamespaces. If you use healthCheck, you can only register IP instances to
 	// this service.
+	// Experimental.
 	HealthCheck *HealthCheckConfig `json:"healthCheck" yaml:"healthCheck"`
 	// A name for the Service.
+	// Experimental.
 	Name *string `json:"name" yaml:"name"`
 	// The DNS type of the record that you want AWS Cloud Map to create.
 	//
 	// Supported record types
 	// include A, AAAA, A and AAAA (A_AAAA), CNAME, and SRV.
+	// Experimental.
 	DnsRecordType DnsRecordType `json:"dnsRecordType" yaml:"dnsRecordType"`
 	// The amount of time, in seconds, that you want DNS resolvers to cache the settings for this record.
+	// Experimental.
 	DnsTtl awscdk.Duration `json:"dnsTtl" yaml:"dnsTtl"`
 	// Whether or not this service will have an Elastic LoadBalancer registered to it as an AliasTargetInstance.
 	//
 	// Setting this to `true` correctly configures the `routingPolicy`
 	// and performs some additional validation.
+	// Experimental.
 	LoadBalancer *bool `json:"loadBalancer" yaml:"loadBalancer"`
 	// The routing policy that you want to apply to all DNS records that AWS Cloud Map creates when you register an instance and specify this service.
+	// Experimental.
 	RoutingPolicy RoutingPolicy `json:"routingPolicy" yaml:"routingPolicy"`
 }
 
@@ -3839,16 +4697,20 @@ type DnsServiceProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type HealthCheckConfig struct {
 	// The number of consecutive health checks that an endpoint must pass or fail for Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa.
+	// Experimental.
 	FailureThreshold *float64 `json:"failureThreshold" yaml:"failureThreshold"`
 	// The path that you want Route 53 to request when performing health checks.
 	//
 	// Do not use when health check type is TCP.
+	// Experimental.
 	ResourcePath *string `json:"resourcePath" yaml:"resourcePath"`
 	// The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy.
 	//
 	// Cannot be modified once created. Supported values are HTTP, HTTPS, and TCP.
+	// Experimental.
 	Type HealthCheckType `json:"type" yaml:"type"`
 }
 
@@ -3856,11 +4718,14 @@ type HealthCheckConfig struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type HealthCheckCustomConfig struct {
 	// The number of 30-second intervals that you want Cloud Map to wait after receiving an UpdateInstanceCustomHealthStatus request before it changes the health status of a service instance.
+	// Experimental.
 	FailureThreshold *float64 `json:"failureThreshold" yaml:"failureThreshold"`
 }
 
+// Experimental.
 type HealthCheckType string
 
 const (
@@ -3873,6 +4738,7 @@ const (
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type HttpNamespace interface {
 	awscdk.Resource
 	IHttpNamespace
@@ -3883,7 +4749,7 @@ type HttpNamespace interface {
 	NamespaceArn() *string
 	NamespaceId() *string
 	NamespaceName() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Stack() awscdk.Stack
 	Type() NamespaceType
@@ -3892,7 +4758,13 @@ type HttpNamespace interface {
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for HttpNamespace
@@ -3971,8 +4843,8 @@ func (j *jsiiProxy_HttpNamespace) NamespaceName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_HttpNamespace) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_HttpNamespace) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -4012,13 +4884,14 @@ func (j *jsiiProxy_HttpNamespace) Type() NamespaceType {
 }
 
 
+// Experimental.
 func NewHttpNamespace(scope constructs.Construct, id *string, props *HttpNamespaceProps) HttpNamespace {
 	_init_.Initialize()
 
 	j := jsiiProxy_HttpNamespace{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_servicediscovery.HttpNamespace",
+		"monocdk.aws_servicediscovery.HttpNamespace",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4026,23 +4899,25 @@ func NewHttpNamespace(scope constructs.Construct, id *string, props *HttpNamespa
 	return &j
 }
 
+// Experimental.
 func NewHttpNamespace_Override(h HttpNamespace, scope constructs.Construct, id *string, props *HttpNamespaceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_servicediscovery.HttpNamespace",
+		"monocdk.aws_servicediscovery.HttpNamespace",
 		[]interface{}{scope, id, props},
 		h,
 	)
 }
 
+// Experimental.
 func HttpNamespace_FromHttpNamespaceAttributes(scope constructs.Construct, id *string, attrs *HttpNamespaceAttributes) IHttpNamespace {
 	_init_.Initialize()
 
 	var returns IHttpNamespace
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_servicediscovery.HttpNamespace",
+		"monocdk.aws_servicediscovery.HttpNamespace",
 		"fromHttpNamespaceAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -4051,17 +4926,15 @@ func HttpNamespace_FromHttpNamespaceAttributes(scope constructs.Construct, id *s
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func HttpNamespace_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_servicediscovery.HttpNamespace",
+		"monocdk.aws_servicediscovery.HttpNamespace",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4071,13 +4944,14 @@ func HttpNamespace_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func HttpNamespace_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func HttpNamespace_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_servicediscovery.HttpNamespace",
+		"monocdk.aws_servicediscovery.HttpNamespace",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -4095,6 +4969,7 @@ func HttpNamespace_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (h *jsiiProxy_HttpNamespace) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		h,
@@ -4104,6 +4979,7 @@ func (h *jsiiProxy_HttpNamespace) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 }
 
 // Creates a service within the namespace.
+// Experimental.
 func (h *jsiiProxy_HttpNamespace) CreateService(id *string, props *BaseServiceProps) Service {
 	var returns Service
 
@@ -4117,6 +4993,7 @@ func (h *jsiiProxy_HttpNamespace) CreateService(id *string, props *BaseServicePr
 	return returns
 }
 
+// Experimental.
 func (h *jsiiProxy_HttpNamespace) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -4136,6 +5013,7 @@ func (h *jsiiProxy_HttpNamespace) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
+// Experimental.
 func (h *jsiiProxy_HttpNamespace) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -4154,6 +5032,7 @@ func (h *jsiiProxy_HttpNamespace) GetResourceArnAttribute(arnAttr *string, arnCo
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
+// Experimental.
 func (h *jsiiProxy_HttpNamespace) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -4167,7 +5046,88 @@ func (h *jsiiProxy_HttpNamespace) GetResourceNameAttribute(nameAttr *string) *st
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (h *jsiiProxy_HttpNamespace) OnPrepare() {
+	_jsii_.InvokeVoid(
+		h,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (h *jsiiProxy_HttpNamespace) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		h,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (h *jsiiProxy_HttpNamespace) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		h,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (h *jsiiProxy_HttpNamespace) Prepare() {
+	_jsii_.InvokeVoid(
+		h,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (h *jsiiProxy_HttpNamespace) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		h,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (h *jsiiProxy_HttpNamespace) ToString() *string {
 	var returns *string
 
@@ -4181,26 +5141,54 @@ func (h *jsiiProxy_HttpNamespace) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (h *jsiiProxy_HttpNamespace) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		h,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // TODO: EXAMPLE
 //
+// Experimental.
 type HttpNamespaceAttributes struct {
 	// Namespace ARN for the Namespace.
+	// Experimental.
 	NamespaceArn *string `json:"namespaceArn" yaml:"namespaceArn"`
 	// Namespace Id for the Namespace.
+	// Experimental.
 	NamespaceId *string `json:"namespaceId" yaml:"namespaceId"`
 	// A name for the Namespace.
+	// Experimental.
 	NamespaceName *string `json:"namespaceName" yaml:"namespaceName"`
 }
 
 // TODO: EXAMPLE
 //
+// Experimental.
 type HttpNamespaceProps struct {
 	// A name for the Namespace.
+	// Experimental.
 	Name *string `json:"name" yaml:"name"`
 	// A description of the Namespace.
+	// Experimental.
 	Description *string `json:"description" yaml:"description"`
 }
 
+// Experimental.
 type IHttpNamespace interface {
 	INamespace
 }
@@ -4210,11 +5198,14 @@ type jsiiProxy_IHttpNamespace struct {
 	jsiiProxy_INamespace
 }
 
+// Experimental.
 type IInstance interface {
 	awscdk.IResource
 	// The id of the instance resource.
+	// Experimental.
 	InstanceId() *string
 	// The Cloudmap service this resource is registered to.
+	// Experimental.
 	Service() IService
 }
 
@@ -4243,15 +5234,20 @@ func (j *jsiiProxy_IInstance) Service() IService {
 	return returns
 }
 
+// Experimental.
 type INamespace interface {
 	awscdk.IResource
 	// Namespace ARN for the Namespace.
+	// Experimental.
 	NamespaceArn() *string
 	// Namespace Id for the Namespace.
+	// Experimental.
 	NamespaceId() *string
 	// A name for the Namespace.
+	// Experimental.
 	NamespaceName() *string
 	// Type of Namespace.
+	// Experimental.
 	Type() NamespaceType
 }
 
@@ -4300,6 +5296,7 @@ func (j *jsiiProxy_INamespace) Type() NamespaceType {
 	return returns
 }
 
+// Experimental.
 type IPrivateDnsNamespace interface {
 	INamespace
 }
@@ -4309,6 +5306,7 @@ type jsiiProxy_IPrivateDnsNamespace struct {
 	jsiiProxy_INamespace
 }
 
+// Experimental.
 type IPublicDnsNamespace interface {
 	INamespace
 }
@@ -4318,19 +5316,26 @@ type jsiiProxy_IPublicDnsNamespace struct {
 	jsiiProxy_INamespace
 }
 
+// Experimental.
 type IService interface {
 	awscdk.IResource
 	// The DnsRecordType used by the service.
+	// Experimental.
 	DnsRecordType() DnsRecordType
 	// The namespace for the Cloudmap Service.
+	// Experimental.
 	Namespace() INamespace
 	// The Routing Policy used by the service.
+	// Experimental.
 	RoutingPolicy() RoutingPolicy
 	// The Arn of the namespace that you want to use for DNS configuration.
+	// Experimental.
 	ServiceArn() *string
 	// The ID of the namespace that you want to use for DNS configuration.
+	// Experimental.
 	ServiceId() *string
 	// A name for the Cloudmap Service.
+	// Experimental.
 	ServiceName() *string
 }
 
@@ -4399,12 +5404,13 @@ func (j *jsiiProxy_IService) ServiceName() *string {
 	return returns
 }
 
+// Experimental.
 type InstanceBase interface {
 	awscdk.Resource
 	IInstance
 	Env() *awscdk.ResourceEnvironment
 	InstanceId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Service() IService
 	Stack() awscdk.Stack
@@ -4412,8 +5418,14 @@ type InstanceBase interface {
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
 	UniqueInstanceId() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for InstanceBase
@@ -4442,8 +5454,8 @@ func (j *jsiiProxy_InstanceBase) InstanceId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_InstanceBase) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_InstanceBase) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -4483,27 +5495,26 @@ func (j *jsiiProxy_InstanceBase) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewInstanceBase_Override(i InstanceBase, scope constructs.Construct, id *string, props *awscdk.ResourceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_servicediscovery.InstanceBase",
+		"monocdk.aws_servicediscovery.InstanceBase",
 		[]interface{}{scope, id, props},
 		i,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func InstanceBase_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_servicediscovery.InstanceBase",
+		"monocdk.aws_servicediscovery.InstanceBase",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4513,13 +5524,14 @@ func InstanceBase_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func InstanceBase_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func InstanceBase_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_servicediscovery.InstanceBase",
+		"monocdk.aws_servicediscovery.InstanceBase",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -4537,6 +5549,7 @@ func InstanceBase_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (i *jsiiProxy_InstanceBase) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		i,
@@ -4545,6 +5558,7 @@ func (i *jsiiProxy_InstanceBase) ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	)
 }
 
+// Experimental.
 func (i *jsiiProxy_InstanceBase) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -4564,6 +5578,7 @@ func (i *jsiiProxy_InstanceBase) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
+// Experimental.
 func (i *jsiiProxy_InstanceBase) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -4582,6 +5597,7 @@ func (i *jsiiProxy_InstanceBase) GetResourceArnAttribute(arnAttr *string, arnCom
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
+// Experimental.
 func (i *jsiiProxy_InstanceBase) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -4595,7 +5611,88 @@ func (i *jsiiProxy_InstanceBase) GetResourceNameAttribute(nameAttr *string) *str
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (i *jsiiProxy_InstanceBase) OnPrepare() {
+	_jsii_.InvokeVoid(
+		i,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (i *jsiiProxy_InstanceBase) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		i,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (i *jsiiProxy_InstanceBase) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		i,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (i *jsiiProxy_InstanceBase) Prepare() {
+	_jsii_.InvokeVoid(
+		i,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (i *jsiiProxy_InstanceBase) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		i,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (i *jsiiProxy_InstanceBase) ToString() *string {
 	var returns *string
 
@@ -4610,6 +5707,7 @@ func (i *jsiiProxy_InstanceBase) ToString() *string {
 }
 
 // Generate a unique instance Id that is safe to pass to CloudMap.
+// Experimental.
 func (i *jsiiProxy_InstanceBase) UniqueInstanceId() *string {
 	var returns *string
 
@@ -4623,17 +5721,38 @@ func (i *jsiiProxy_InstanceBase) UniqueInstanceId() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (i *jsiiProxy_InstanceBase) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		i,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Instance that is accessible using an IP address.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type IpInstance interface {
 	InstanceBase
 	Env() *awscdk.ResourceEnvironment
 	InstanceId() *string
 	Ipv4() *string
 	Ipv6() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Port() *float64
 	Service() IService
@@ -4642,8 +5761,14 @@ type IpInstance interface {
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
 	UniqueInstanceId() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for IpInstance
@@ -4691,8 +5816,8 @@ func (j *jsiiProxy_IpInstance) Ipv6() *string {
 	return returns
 }
 
-func (j *jsiiProxy_IpInstance) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_IpInstance) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -4742,13 +5867,14 @@ func (j *jsiiProxy_IpInstance) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewIpInstance(scope constructs.Construct, id *string, props *IpInstanceProps) IpInstance {
 	_init_.Initialize()
 
 	j := jsiiProxy_IpInstance{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_servicediscovery.IpInstance",
+		"monocdk.aws_servicediscovery.IpInstance",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4756,27 +5882,26 @@ func NewIpInstance(scope constructs.Construct, id *string, props *IpInstanceProp
 	return &j
 }
 
+// Experimental.
 func NewIpInstance_Override(i IpInstance, scope constructs.Construct, id *string, props *IpInstanceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_servicediscovery.IpInstance",
+		"monocdk.aws_servicediscovery.IpInstance",
 		[]interface{}{scope, id, props},
 		i,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func IpInstance_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_servicediscovery.IpInstance",
+		"monocdk.aws_servicediscovery.IpInstance",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4786,13 +5911,14 @@ func IpInstance_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func IpInstance_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func IpInstance_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_servicediscovery.IpInstance",
+		"monocdk.aws_servicediscovery.IpInstance",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -4810,6 +5936,7 @@ func IpInstance_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (i *jsiiProxy_IpInstance) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		i,
@@ -4818,6 +5945,7 @@ func (i *jsiiProxy_IpInstance) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
+// Experimental.
 func (i *jsiiProxy_IpInstance) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -4837,6 +5965,7 @@ func (i *jsiiProxy_IpInstance) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
+// Experimental.
 func (i *jsiiProxy_IpInstance) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -4855,6 +5984,7 @@ func (i *jsiiProxy_IpInstance) GetResourceArnAttribute(arnAttr *string, arnCompo
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
+// Experimental.
 func (i *jsiiProxy_IpInstance) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -4868,7 +5998,88 @@ func (i *jsiiProxy_IpInstance) GetResourceNameAttribute(nameAttr *string) *strin
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (i *jsiiProxy_IpInstance) OnPrepare() {
+	_jsii_.InvokeVoid(
+		i,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (i *jsiiProxy_IpInstance) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		i,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (i *jsiiProxy_IpInstance) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		i,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (i *jsiiProxy_IpInstance) Prepare() {
+	_jsii_.InvokeVoid(
+		i,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (i *jsiiProxy_IpInstance) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		i,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (i *jsiiProxy_IpInstance) ToString() *string {
 	var returns *string
 
@@ -4883,6 +6094,7 @@ func (i *jsiiProxy_IpInstance) ToString() *string {
 }
 
 // Generate a unique instance Id that is safe to pass to CloudMap.
+// Experimental.
 func (i *jsiiProxy_IpInstance) UniqueInstanceId() *string {
 	var returns *string
 
@@ -4896,46 +6108,80 @@ func (i *jsiiProxy_IpInstance) UniqueInstanceId() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (i *jsiiProxy_IpInstance) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		i,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // TODO: EXAMPLE
 //
+// Experimental.
 type IpInstanceBaseProps struct {
 	// Custom attributes of the instance.
+	// Experimental.
 	CustomAttributes *map[string]*string `json:"customAttributes" yaml:"customAttributes"`
 	// The id of the instance resource.
+	// Experimental.
 	InstanceId *string `json:"instanceId" yaml:"instanceId"`
 	// If the service that you specify contains a template for an A record, the IPv4 address that you want AWS Cloud Map to use for the value of the A record.
+	// Experimental.
 	Ipv4 *string `json:"ipv4" yaml:"ipv4"`
 	// If the service that you specify contains a template for an AAAA record, the IPv6 address that you want AWS Cloud Map to use for the value of the AAAA record.
+	// Experimental.
 	Ipv6 *string `json:"ipv6" yaml:"ipv6"`
 	// The port on the endpoint that you want AWS Cloud Map to perform health checks on.
 	//
 	// This value is also used for
 	// the port value in an SRV record if the service that you specify includes an SRV record. You can also specify a
 	// default port that is applied to all instances in the Service configuration.
+	// Experimental.
 	Port *float64 `json:"port" yaml:"port"`
 }
 
 // TODO: EXAMPLE
 //
+// Experimental.
 type IpInstanceProps struct {
 	// Custom attributes of the instance.
+	// Experimental.
 	CustomAttributes *map[string]*string `json:"customAttributes" yaml:"customAttributes"`
 	// The id of the instance resource.
+	// Experimental.
 	InstanceId *string `json:"instanceId" yaml:"instanceId"`
 	// If the service that you specify contains a template for an A record, the IPv4 address that you want AWS Cloud Map to use for the value of the A record.
+	// Experimental.
 	Ipv4 *string `json:"ipv4" yaml:"ipv4"`
 	// If the service that you specify contains a template for an AAAA record, the IPv6 address that you want AWS Cloud Map to use for the value of the AAAA record.
+	// Experimental.
 	Ipv6 *string `json:"ipv6" yaml:"ipv6"`
 	// The port on the endpoint that you want AWS Cloud Map to perform health checks on.
 	//
 	// This value is also used for
 	// the port value in an SRV record if the service that you specify includes an SRV record. You can also specify a
 	// default port that is applied to all instances in the Service configuration.
+	// Experimental.
 	Port *float64 `json:"port" yaml:"port"`
 	// The Cloudmap service this resource is registered to.
+	// Experimental.
 	Service IService `json:"service" yaml:"service"`
 }
 
+// Experimental.
 type NamespaceType string
 
 const (
@@ -4950,11 +6196,12 @@ const (
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type NonIpInstance interface {
 	InstanceBase
 	Env() *awscdk.ResourceEnvironment
 	InstanceId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Service() IService
 	Stack() awscdk.Stack
@@ -4962,8 +6209,14 @@ type NonIpInstance interface {
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
 	UniqueInstanceId() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for NonIpInstance
@@ -4991,8 +6244,8 @@ func (j *jsiiProxy_NonIpInstance) InstanceId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_NonIpInstance) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_NonIpInstance) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -5032,13 +6285,14 @@ func (j *jsiiProxy_NonIpInstance) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewNonIpInstance(scope constructs.Construct, id *string, props *NonIpInstanceProps) NonIpInstance {
 	_init_.Initialize()
 
 	j := jsiiProxy_NonIpInstance{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_servicediscovery.NonIpInstance",
+		"monocdk.aws_servicediscovery.NonIpInstance",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5046,27 +6300,26 @@ func NewNonIpInstance(scope constructs.Construct, id *string, props *NonIpInstan
 	return &j
 }
 
+// Experimental.
 func NewNonIpInstance_Override(n NonIpInstance, scope constructs.Construct, id *string, props *NonIpInstanceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_servicediscovery.NonIpInstance",
+		"monocdk.aws_servicediscovery.NonIpInstance",
 		[]interface{}{scope, id, props},
 		n,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func NonIpInstance_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_servicediscovery.NonIpInstance",
+		"monocdk.aws_servicediscovery.NonIpInstance",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -5076,13 +6329,14 @@ func NonIpInstance_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func NonIpInstance_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func NonIpInstance_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_servicediscovery.NonIpInstance",
+		"monocdk.aws_servicediscovery.NonIpInstance",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -5100,6 +6354,7 @@ func NonIpInstance_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (n *jsiiProxy_NonIpInstance) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		n,
@@ -5108,6 +6363,7 @@ func (n *jsiiProxy_NonIpInstance) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 	)
 }
 
+// Experimental.
 func (n *jsiiProxy_NonIpInstance) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -5127,6 +6383,7 @@ func (n *jsiiProxy_NonIpInstance) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
+// Experimental.
 func (n *jsiiProxy_NonIpInstance) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -5145,6 +6402,7 @@ func (n *jsiiProxy_NonIpInstance) GetResourceArnAttribute(arnAttr *string, arnCo
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
+// Experimental.
 func (n *jsiiProxy_NonIpInstance) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -5158,7 +6416,88 @@ func (n *jsiiProxy_NonIpInstance) GetResourceNameAttribute(nameAttr *string) *st
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (n *jsiiProxy_NonIpInstance) OnPrepare() {
+	_jsii_.InvokeVoid(
+		n,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (n *jsiiProxy_NonIpInstance) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		n,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (n *jsiiProxy_NonIpInstance) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		n,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (n *jsiiProxy_NonIpInstance) Prepare() {
+	_jsii_.InvokeVoid(
+		n,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (n *jsiiProxy_NonIpInstance) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		n,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (n *jsiiProxy_NonIpInstance) ToString() *string {
 	var returns *string
 
@@ -5173,6 +6512,7 @@ func (n *jsiiProxy_NonIpInstance) ToString() *string {
 }
 
 // Generate a unique instance Id that is safe to pass to CloudMap.
+// Experimental.
 func (n *jsiiProxy_NonIpInstance) UniqueInstanceId() *string {
 	var returns *string
 
@@ -5186,23 +6526,50 @@ func (n *jsiiProxy_NonIpInstance) UniqueInstanceId() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (n *jsiiProxy_NonIpInstance) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		n,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // TODO: EXAMPLE
 //
+// Experimental.
 type NonIpInstanceBaseProps struct {
 	// Custom attributes of the instance.
+	// Experimental.
 	CustomAttributes *map[string]*string `json:"customAttributes" yaml:"customAttributes"`
 	// The id of the instance resource.
+	// Experimental.
 	InstanceId *string `json:"instanceId" yaml:"instanceId"`
 }
 
 // TODO: EXAMPLE
 //
+// Experimental.
 type NonIpInstanceProps struct {
 	// Custom attributes of the instance.
+	// Experimental.
 	CustomAttributes *map[string]*string `json:"customAttributes" yaml:"customAttributes"`
 	// The id of the instance resource.
+	// Experimental.
 	InstanceId *string `json:"instanceId" yaml:"instanceId"`
 	// The Cloudmap service this resource is registered to.
+	// Experimental.
 	Service IService `json:"service" yaml:"service"`
 }
 
@@ -5210,6 +6577,7 @@ type NonIpInstanceProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type PrivateDnsNamespace interface {
 	awscdk.Resource
 	IPrivateDnsNamespace
@@ -5217,7 +6585,7 @@ type PrivateDnsNamespace interface {
 	NamespaceArn() *string
 	NamespaceId() *string
 	NamespaceName() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	PrivateDnsNamespaceArn() *string
 	PrivateDnsNamespaceId() *string
@@ -5229,7 +6597,13 @@ type PrivateDnsNamespace interface {
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for PrivateDnsNamespace
@@ -5278,8 +6652,8 @@ func (j *jsiiProxy_PrivateDnsNamespace) NamespaceName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_PrivateDnsNamespace) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_PrivateDnsNamespace) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -5349,13 +6723,14 @@ func (j *jsiiProxy_PrivateDnsNamespace) Type() NamespaceType {
 }
 
 
+// Experimental.
 func NewPrivateDnsNamespace(scope constructs.Construct, id *string, props *PrivateDnsNamespaceProps) PrivateDnsNamespace {
 	_init_.Initialize()
 
 	j := jsiiProxy_PrivateDnsNamespace{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_servicediscovery.PrivateDnsNamespace",
+		"monocdk.aws_servicediscovery.PrivateDnsNamespace",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5363,23 +6738,25 @@ func NewPrivateDnsNamespace(scope constructs.Construct, id *string, props *Priva
 	return &j
 }
 
+// Experimental.
 func NewPrivateDnsNamespace_Override(p PrivateDnsNamespace, scope constructs.Construct, id *string, props *PrivateDnsNamespaceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_servicediscovery.PrivateDnsNamespace",
+		"monocdk.aws_servicediscovery.PrivateDnsNamespace",
 		[]interface{}{scope, id, props},
 		p,
 	)
 }
 
+// Experimental.
 func PrivateDnsNamespace_FromPrivateDnsNamespaceAttributes(scope constructs.Construct, id *string, attrs *PrivateDnsNamespaceAttributes) IPrivateDnsNamespace {
 	_init_.Initialize()
 
 	var returns IPrivateDnsNamespace
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_servicediscovery.PrivateDnsNamespace",
+		"monocdk.aws_servicediscovery.PrivateDnsNamespace",
 		"fromPrivateDnsNamespaceAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -5388,17 +6765,15 @@ func PrivateDnsNamespace_FromPrivateDnsNamespaceAttributes(scope constructs.Cons
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func PrivateDnsNamespace_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_servicediscovery.PrivateDnsNamespace",
+		"monocdk.aws_servicediscovery.PrivateDnsNamespace",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -5408,13 +6783,14 @@ func PrivateDnsNamespace_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func PrivateDnsNamespace_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func PrivateDnsNamespace_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_servicediscovery.PrivateDnsNamespace",
+		"monocdk.aws_servicediscovery.PrivateDnsNamespace",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -5432,6 +6808,7 @@ func PrivateDnsNamespace_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (p *jsiiProxy_PrivateDnsNamespace) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		p,
@@ -5441,6 +6818,7 @@ func (p *jsiiProxy_PrivateDnsNamespace) ApplyRemovalPolicy(policy awscdk.Removal
 }
 
 // Creates a service within the namespace.
+// Experimental.
 func (p *jsiiProxy_PrivateDnsNamespace) CreateService(id *string, props *DnsServiceProps) Service {
 	var returns Service
 
@@ -5454,6 +6832,7 @@ func (p *jsiiProxy_PrivateDnsNamespace) CreateService(id *string, props *DnsServ
 	return returns
 }
 
+// Experimental.
 func (p *jsiiProxy_PrivateDnsNamespace) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -5473,6 +6852,7 @@ func (p *jsiiProxy_PrivateDnsNamespace) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
+// Experimental.
 func (p *jsiiProxy_PrivateDnsNamespace) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -5491,6 +6871,7 @@ func (p *jsiiProxy_PrivateDnsNamespace) GetResourceArnAttribute(arnAttr *string,
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
+// Experimental.
 func (p *jsiiProxy_PrivateDnsNamespace) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -5504,7 +6885,88 @@ func (p *jsiiProxy_PrivateDnsNamespace) GetResourceNameAttribute(nameAttr *strin
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (p *jsiiProxy_PrivateDnsNamespace) OnPrepare() {
+	_jsii_.InvokeVoid(
+		p,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (p *jsiiProxy_PrivateDnsNamespace) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		p,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (p *jsiiProxy_PrivateDnsNamespace) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		p,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (p *jsiiProxy_PrivateDnsNamespace) Prepare() {
+	_jsii_.InvokeVoid(
+		p,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (p *jsiiProxy_PrivateDnsNamespace) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		p,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (p *jsiiProxy_PrivateDnsNamespace) ToString() *string {
 	var returns *string
 
@@ -5518,25 +6980,53 @@ func (p *jsiiProxy_PrivateDnsNamespace) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (p *jsiiProxy_PrivateDnsNamespace) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		p,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // TODO: EXAMPLE
 //
+// Experimental.
 type PrivateDnsNamespaceAttributes struct {
 	// Namespace ARN for the Namespace.
+	// Experimental.
 	NamespaceArn *string `json:"namespaceArn" yaml:"namespaceArn"`
 	// Namespace Id for the Namespace.
+	// Experimental.
 	NamespaceId *string `json:"namespaceId" yaml:"namespaceId"`
 	// A name for the Namespace.
+	// Experimental.
 	NamespaceName *string `json:"namespaceName" yaml:"namespaceName"`
 }
 
 // TODO: EXAMPLE
 //
+// Experimental.
 type PrivateDnsNamespaceProps struct {
 	// A name for the Namespace.
+	// Experimental.
 	Name *string `json:"name" yaml:"name"`
 	// A description of the Namespace.
+	// Experimental.
 	Description *string `json:"description" yaml:"description"`
 	// The Amazon VPC that you want to associate the namespace with.
+	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 }
 
@@ -5544,6 +7034,7 @@ type PrivateDnsNamespaceProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type PublicDnsNamespace interface {
 	awscdk.Resource
 	IPublicDnsNamespace
@@ -5551,7 +7042,7 @@ type PublicDnsNamespace interface {
 	NamespaceArn() *string
 	NamespaceId() *string
 	NamespaceName() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	PublicDnsNamespaceArn() *string
 	PublicDnsNamespaceId() *string
@@ -5563,7 +7054,13 @@ type PublicDnsNamespace interface {
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for PublicDnsNamespace
@@ -5612,8 +7109,8 @@ func (j *jsiiProxy_PublicDnsNamespace) NamespaceName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_PublicDnsNamespace) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_PublicDnsNamespace) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -5683,13 +7180,14 @@ func (j *jsiiProxy_PublicDnsNamespace) Type() NamespaceType {
 }
 
 
+// Experimental.
 func NewPublicDnsNamespace(scope constructs.Construct, id *string, props *PublicDnsNamespaceProps) PublicDnsNamespace {
 	_init_.Initialize()
 
 	j := jsiiProxy_PublicDnsNamespace{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_servicediscovery.PublicDnsNamespace",
+		"monocdk.aws_servicediscovery.PublicDnsNamespace",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5697,23 +7195,25 @@ func NewPublicDnsNamespace(scope constructs.Construct, id *string, props *Public
 	return &j
 }
 
+// Experimental.
 func NewPublicDnsNamespace_Override(p PublicDnsNamespace, scope constructs.Construct, id *string, props *PublicDnsNamespaceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_servicediscovery.PublicDnsNamespace",
+		"monocdk.aws_servicediscovery.PublicDnsNamespace",
 		[]interface{}{scope, id, props},
 		p,
 	)
 }
 
+// Experimental.
 func PublicDnsNamespace_FromPublicDnsNamespaceAttributes(scope constructs.Construct, id *string, attrs *PublicDnsNamespaceAttributes) IPublicDnsNamespace {
 	_init_.Initialize()
 
 	var returns IPublicDnsNamespace
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_servicediscovery.PublicDnsNamespace",
+		"monocdk.aws_servicediscovery.PublicDnsNamespace",
 		"fromPublicDnsNamespaceAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -5722,17 +7222,15 @@ func PublicDnsNamespace_FromPublicDnsNamespaceAttributes(scope constructs.Constr
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func PublicDnsNamespace_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_servicediscovery.PublicDnsNamespace",
+		"monocdk.aws_servicediscovery.PublicDnsNamespace",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -5742,13 +7240,14 @@ func PublicDnsNamespace_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func PublicDnsNamespace_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func PublicDnsNamespace_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_servicediscovery.PublicDnsNamespace",
+		"monocdk.aws_servicediscovery.PublicDnsNamespace",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -5766,6 +7265,7 @@ func PublicDnsNamespace_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (p *jsiiProxy_PublicDnsNamespace) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		p,
@@ -5775,6 +7275,7 @@ func (p *jsiiProxy_PublicDnsNamespace) ApplyRemovalPolicy(policy awscdk.RemovalP
 }
 
 // Creates a service within the namespace.
+// Experimental.
 func (p *jsiiProxy_PublicDnsNamespace) CreateService(id *string, props *DnsServiceProps) Service {
 	var returns Service
 
@@ -5788,6 +7289,7 @@ func (p *jsiiProxy_PublicDnsNamespace) CreateService(id *string, props *DnsServi
 	return returns
 }
 
+// Experimental.
 func (p *jsiiProxy_PublicDnsNamespace) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -5807,6 +7309,7 @@ func (p *jsiiProxy_PublicDnsNamespace) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
+// Experimental.
 func (p *jsiiProxy_PublicDnsNamespace) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -5825,6 +7328,7 @@ func (p *jsiiProxy_PublicDnsNamespace) GetResourceArnAttribute(arnAttr *string, 
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
+// Experimental.
 func (p *jsiiProxy_PublicDnsNamespace) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -5838,7 +7342,88 @@ func (p *jsiiProxy_PublicDnsNamespace) GetResourceNameAttribute(nameAttr *string
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (p *jsiiProxy_PublicDnsNamespace) OnPrepare() {
+	_jsii_.InvokeVoid(
+		p,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (p *jsiiProxy_PublicDnsNamespace) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		p,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (p *jsiiProxy_PublicDnsNamespace) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		p,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (p *jsiiProxy_PublicDnsNamespace) Prepare() {
+	_jsii_.InvokeVoid(
+		p,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (p *jsiiProxy_PublicDnsNamespace) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		p,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (p *jsiiProxy_PublicDnsNamespace) ToString() *string {
 	var returns *string
 
@@ -5852,26 +7437,54 @@ func (p *jsiiProxy_PublicDnsNamespace) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (p *jsiiProxy_PublicDnsNamespace) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		p,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // TODO: EXAMPLE
 //
+// Experimental.
 type PublicDnsNamespaceAttributes struct {
 	// Namespace ARN for the Namespace.
+	// Experimental.
 	NamespaceArn *string `json:"namespaceArn" yaml:"namespaceArn"`
 	// Namespace Id for the Namespace.
+	// Experimental.
 	NamespaceId *string `json:"namespaceId" yaml:"namespaceId"`
 	// A name for the Namespace.
+	// Experimental.
 	NamespaceName *string `json:"namespaceName" yaml:"namespaceName"`
 }
 
 // TODO: EXAMPLE
 //
+// Experimental.
 type PublicDnsNamespaceProps struct {
 	// A name for the Namespace.
+	// Experimental.
 	Name *string `json:"name" yaml:"name"`
 	// A description of the Namespace.
+	// Experimental.
 	Description *string `json:"description" yaml:"description"`
 }
 
+// Experimental.
 type RoutingPolicy string
 
 const (
@@ -5883,13 +7496,14 @@ const (
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type Service interface {
 	awscdk.Resource
 	IService
 	DnsRecordType() DnsRecordType
 	Env() *awscdk.ResourceEnvironment
 	Namespace() INamespace
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	RoutingPolicy() RoutingPolicy
 	ServiceArn() *string
@@ -5900,11 +7514,17 @@ type Service interface {
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	RegisterCnameInstance(id *string, props *CnameInstanceBaseProps) IInstance
 	RegisterIpInstance(id *string, props *IpInstanceBaseProps) IInstance
 	RegisterLoadBalancer(id *string, loadBalancer awselasticloadbalancingv2.ILoadBalancerV2, customAttributes *map[string]*string) IInstance
 	RegisterNonIpInstance(id *string, props *NonIpInstanceBaseProps) IInstance
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for Service
@@ -5943,8 +7563,8 @@ func (j *jsiiProxy_Service) Namespace() INamespace {
 	return returns
 }
 
-func (j *jsiiProxy_Service) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_Service) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -6014,13 +7634,14 @@ func (j *jsiiProxy_Service) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewService(scope constructs.Construct, id *string, props *ServiceProps) Service {
 	_init_.Initialize()
 
 	j := jsiiProxy_Service{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_servicediscovery.Service",
+		"monocdk.aws_servicediscovery.Service",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -6028,23 +7649,25 @@ func NewService(scope constructs.Construct, id *string, props *ServiceProps) Ser
 	return &j
 }
 
+// Experimental.
 func NewService_Override(s Service, scope constructs.Construct, id *string, props *ServiceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_servicediscovery.Service",
+		"monocdk.aws_servicediscovery.Service",
 		[]interface{}{scope, id, props},
 		s,
 	)
 }
 
+// Experimental.
 func Service_FromServiceAttributes(scope constructs.Construct, id *string, attrs *ServiceAttributes) IService {
 	_init_.Initialize()
 
 	var returns IService
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_servicediscovery.Service",
+		"monocdk.aws_servicediscovery.Service",
 		"fromServiceAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -6053,17 +7676,15 @@ func Service_FromServiceAttributes(scope constructs.Construct, id *string, attrs
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func Service_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_servicediscovery.Service",
+		"monocdk.aws_servicediscovery.Service",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -6073,13 +7694,14 @@ func Service_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func Service_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func Service_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_servicediscovery.Service",
+		"monocdk.aws_servicediscovery.Service",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -6097,6 +7719,7 @@ func Service_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (s *jsiiProxy_Service) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		s,
@@ -6105,6 +7728,7 @@ func (s *jsiiProxy_Service) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
+// Experimental.
 func (s *jsiiProxy_Service) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -6124,6 +7748,7 @@ func (s *jsiiProxy_Service) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
+// Experimental.
 func (s *jsiiProxy_Service) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -6142,6 +7767,7 @@ func (s *jsiiProxy_Service) GetResourceArnAttribute(arnAttr *string, arnComponen
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
+// Experimental.
 func (s *jsiiProxy_Service) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -6155,7 +7781,75 @@ func (s *jsiiProxy_Service) GetResourceNameAttribute(nameAttr *string) *string {
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_Service) OnPrepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_Service) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (s *jsiiProxy_Service) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_Service) Prepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 // Registers a resource that is accessible using a CNAME.
+// Experimental.
 func (s *jsiiProxy_Service) RegisterCnameInstance(id *string, props *CnameInstanceBaseProps) IInstance {
 	var returns IInstance
 
@@ -6170,6 +7864,7 @@ func (s *jsiiProxy_Service) RegisterCnameInstance(id *string, props *CnameInstan
 }
 
 // Registers a resource that is accessible using an IP address.
+// Experimental.
 func (s *jsiiProxy_Service) RegisterIpInstance(id *string, props *IpInstanceBaseProps) IInstance {
 	var returns IInstance
 
@@ -6184,6 +7879,7 @@ func (s *jsiiProxy_Service) RegisterIpInstance(id *string, props *IpInstanceBase
 }
 
 // Registers an ELB as a new instance with unique name instanceId in this service.
+// Experimental.
 func (s *jsiiProxy_Service) RegisterLoadBalancer(id *string, loadBalancer awselasticloadbalancingv2.ILoadBalancerV2, customAttributes *map[string]*string) IInstance {
 	var returns IInstance
 
@@ -6198,6 +7894,7 @@ func (s *jsiiProxy_Service) RegisterLoadBalancer(id *string, loadBalancer awsela
 }
 
 // Registers a resource that is accessible using values other than an IP address or a domain name (CNAME).
+// Experimental.
 func (s *jsiiProxy_Service) RegisterNonIpInstance(id *string, props *NonIpInstanceBaseProps) IInstance {
 	var returns IInstance
 
@@ -6211,7 +7908,21 @@ func (s *jsiiProxy_Service) RegisterNonIpInstance(id *string, props *NonIpInstan
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_Service) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (s *jsiiProxy_Service) ToString() *string {
 	var returns *string
 
@@ -6225,26 +7936,56 @@ func (s *jsiiProxy_Service) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (s *jsiiProxy_Service) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // TODO: EXAMPLE
 //
+// Experimental.
 type ServiceAttributes struct {
+	// Experimental.
 	DnsRecordType DnsRecordType `json:"dnsRecordType" yaml:"dnsRecordType"`
+	// Experimental.
 	Namespace INamespace `json:"namespace" yaml:"namespace"`
+	// Experimental.
 	RoutingPolicy RoutingPolicy `json:"routingPolicy" yaml:"routingPolicy"`
+	// Experimental.
 	ServiceArn *string `json:"serviceArn" yaml:"serviceArn"`
+	// Experimental.
 	ServiceId *string `json:"serviceId" yaml:"serviceId"`
+	// Experimental.
 	ServiceName *string `json:"serviceName" yaml:"serviceName"`
 }
 
 // TODO: EXAMPLE
 //
+// Experimental.
 type ServiceProps struct {
 	// Structure containing failure threshold for a custom health checker.
 	//
 	// Only one of healthCheckConfig or healthCheckCustomConfig can be specified.
 	// See: https://docs.aws.amazon.com/cloud-map/latest/api/API_HealthCheckCustomConfig.html
+	// Experimental.
 	CustomHealthCheck *HealthCheckCustomConfig `json:"customHealthCheck" yaml:"customHealthCheck"`
 	// A description of the service.
+	// Experimental.
 	Description *string `json:"description" yaml:"description"`
 	// Settings for an optional health check.
 	//
@@ -6252,24 +7993,31 @@ type ServiceProps struct {
 	// check with the records that you specify in DnsConfig. Only one of healthCheckConfig or healthCheckCustomConfig can
 	// be specified. Not valid for PrivateDnsNamespaces. If you use healthCheck, you can only register IP instances to
 	// this service.
+	// Experimental.
 	HealthCheck *HealthCheckConfig `json:"healthCheck" yaml:"healthCheck"`
 	// A name for the Service.
+	// Experimental.
 	Name *string `json:"name" yaml:"name"`
 	// The DNS type of the record that you want AWS Cloud Map to create.
 	//
 	// Supported record types
 	// include A, AAAA, A and AAAA (A_AAAA), CNAME, and SRV.
+	// Experimental.
 	DnsRecordType DnsRecordType `json:"dnsRecordType" yaml:"dnsRecordType"`
 	// The amount of time, in seconds, that you want DNS resolvers to cache the settings for this record.
+	// Experimental.
 	DnsTtl awscdk.Duration `json:"dnsTtl" yaml:"dnsTtl"`
 	// Whether or not this service will have an Elastic LoadBalancer registered to it as an AliasTargetInstance.
 	//
 	// Setting this to `true` correctly configures the `routingPolicy`
 	// and performs some additional validation.
+	// Experimental.
 	LoadBalancer *bool `json:"loadBalancer" yaml:"loadBalancer"`
 	// The routing policy that you want to apply to all DNS records that AWS Cloud Map creates when you register an instance and specify this service.
+	// Experimental.
 	RoutingPolicy RoutingPolicy `json:"routingPolicy" yaml:"routingPolicy"`
 	// The namespace that you want to use for DNS configuration.
+	// Experimental.
 	Namespace INamespace `json:"namespace" yaml:"namespace"`
 }
 

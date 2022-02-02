@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_acmpca.CertificateAuthority",
+		"monocdk.aws_acmpca.CertificateAuthority",
 		reflect.TypeOf((*CertificateAuthority)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
@@ -16,7 +16,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_acmpca.CfnCertificate",
+		"monocdk.aws_acmpca.CfnCertificate",
 		reflect.TypeOf((*CfnCertificate)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -40,15 +40,21 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "signingAlgorithm", GoGetter: "SigningAlgorithm"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "templateArn", GoGetter: "TemplateArn"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "validity", GoGetter: "Validity"},
 			_jsii_.MemberProperty{JsiiProperty: "validityNotBefore", GoGetter: "ValidityNotBefore"},
@@ -61,55 +67,55 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_acmpca.CfnCertificate.ApiPassthroughProperty",
+		"monocdk.aws_acmpca.CfnCertificate.ApiPassthroughProperty",
 		reflect.TypeOf((*CfnCertificate_ApiPassthroughProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_acmpca.CfnCertificate.EdiPartyNameProperty",
+		"monocdk.aws_acmpca.CfnCertificate.EdiPartyNameProperty",
 		reflect.TypeOf((*CfnCertificate_EdiPartyNameProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_acmpca.CfnCertificate.ExtendedKeyUsageProperty",
+		"monocdk.aws_acmpca.CfnCertificate.ExtendedKeyUsageProperty",
 		reflect.TypeOf((*CfnCertificate_ExtendedKeyUsageProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_acmpca.CfnCertificate.ExtensionsProperty",
+		"monocdk.aws_acmpca.CfnCertificate.ExtensionsProperty",
 		reflect.TypeOf((*CfnCertificate_ExtensionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_acmpca.CfnCertificate.GeneralNameProperty",
+		"monocdk.aws_acmpca.CfnCertificate.GeneralNameProperty",
 		reflect.TypeOf((*CfnCertificate_GeneralNameProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_acmpca.CfnCertificate.KeyUsageProperty",
+		"monocdk.aws_acmpca.CfnCertificate.KeyUsageProperty",
 		reflect.TypeOf((*CfnCertificate_KeyUsageProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_acmpca.CfnCertificate.OtherNameProperty",
+		"monocdk.aws_acmpca.CfnCertificate.OtherNameProperty",
 		reflect.TypeOf((*CfnCertificate_OtherNameProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_acmpca.CfnCertificate.PolicyInformationProperty",
+		"monocdk.aws_acmpca.CfnCertificate.PolicyInformationProperty",
 		reflect.TypeOf((*CfnCertificate_PolicyInformationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_acmpca.CfnCertificate.PolicyQualifierInfoProperty",
+		"monocdk.aws_acmpca.CfnCertificate.PolicyQualifierInfoProperty",
 		reflect.TypeOf((*CfnCertificate_PolicyQualifierInfoProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_acmpca.CfnCertificate.QualifierProperty",
+		"monocdk.aws_acmpca.CfnCertificate.QualifierProperty",
 		reflect.TypeOf((*CfnCertificate_QualifierProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_acmpca.CfnCertificate.SubjectProperty",
+		"monocdk.aws_acmpca.CfnCertificate.SubjectProperty",
 		reflect.TypeOf((*CfnCertificate_SubjectProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_acmpca.CfnCertificate.ValidityProperty",
+		"monocdk.aws_acmpca.CfnCertificate.ValidityProperty",
 		reflect.TypeOf((*CfnCertificate_ValidityProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_acmpca.CfnCertificateAuthority",
+		"monocdk.aws_acmpca.CfnCertificateAuthority",
 		reflect.TypeOf((*CfnCertificateAuthority)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -133,7 +139,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "keyStorageSecurityStandard", GoGetter: "KeyStorageSecurityStandard"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "revocationConfiguration", GoGetter: "RevocationConfiguration"},
@@ -141,10 +151,12 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "signingAlgorithm", GoGetter: "SigningAlgorithm"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "subject", GoGetter: "Subject"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -155,51 +167,51 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_acmpca.CfnCertificateAuthority.AccessDescriptionProperty",
+		"monocdk.aws_acmpca.CfnCertificateAuthority.AccessDescriptionProperty",
 		reflect.TypeOf((*CfnCertificateAuthority_AccessDescriptionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_acmpca.CfnCertificateAuthority.AccessMethodProperty",
+		"monocdk.aws_acmpca.CfnCertificateAuthority.AccessMethodProperty",
 		reflect.TypeOf((*CfnCertificateAuthority_AccessMethodProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_acmpca.CfnCertificateAuthority.CrlConfigurationProperty",
+		"monocdk.aws_acmpca.CfnCertificateAuthority.CrlConfigurationProperty",
 		reflect.TypeOf((*CfnCertificateAuthority_CrlConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_acmpca.CfnCertificateAuthority.CsrExtensionsProperty",
+		"monocdk.aws_acmpca.CfnCertificateAuthority.CsrExtensionsProperty",
 		reflect.TypeOf((*CfnCertificateAuthority_CsrExtensionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_acmpca.CfnCertificateAuthority.EdiPartyNameProperty",
+		"monocdk.aws_acmpca.CfnCertificateAuthority.EdiPartyNameProperty",
 		reflect.TypeOf((*CfnCertificateAuthority_EdiPartyNameProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_acmpca.CfnCertificateAuthority.GeneralNameProperty",
+		"monocdk.aws_acmpca.CfnCertificateAuthority.GeneralNameProperty",
 		reflect.TypeOf((*CfnCertificateAuthority_GeneralNameProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_acmpca.CfnCertificateAuthority.KeyUsageProperty",
+		"monocdk.aws_acmpca.CfnCertificateAuthority.KeyUsageProperty",
 		reflect.TypeOf((*CfnCertificateAuthority_KeyUsageProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_acmpca.CfnCertificateAuthority.OcspConfigurationProperty",
+		"monocdk.aws_acmpca.CfnCertificateAuthority.OcspConfigurationProperty",
 		reflect.TypeOf((*CfnCertificateAuthority_OcspConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_acmpca.CfnCertificateAuthority.OtherNameProperty",
+		"monocdk.aws_acmpca.CfnCertificateAuthority.OtherNameProperty",
 		reflect.TypeOf((*CfnCertificateAuthority_OtherNameProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_acmpca.CfnCertificateAuthority.RevocationConfigurationProperty",
+		"monocdk.aws_acmpca.CfnCertificateAuthority.RevocationConfigurationProperty",
 		reflect.TypeOf((*CfnCertificateAuthority_RevocationConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_acmpca.CfnCertificateAuthority.SubjectProperty",
+		"monocdk.aws_acmpca.CfnCertificateAuthority.SubjectProperty",
 		reflect.TypeOf((*CfnCertificateAuthority_SubjectProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_acmpca.CfnCertificateAuthorityActivation",
+		"monocdk.aws_acmpca.CfnCertificateAuthorityActivation",
 		reflect.TypeOf((*CfnCertificateAuthorityActivation)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -222,14 +234,20 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "status", GoGetter: "Status"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -240,19 +258,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_acmpca.CfnCertificateAuthorityActivationProps",
+		"monocdk.aws_acmpca.CfnCertificateAuthorityActivationProps",
 		reflect.TypeOf((*CfnCertificateAuthorityActivationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_acmpca.CfnCertificateAuthorityProps",
+		"monocdk.aws_acmpca.CfnCertificateAuthorityProps",
 		reflect.TypeOf((*CfnCertificateAuthorityProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_acmpca.CfnCertificateProps",
+		"monocdk.aws_acmpca.CfnCertificateProps",
 		reflect.TypeOf((*CfnCertificateProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_acmpca.CfnPermission",
+		"monocdk.aws_acmpca.CfnPermission",
 		reflect.TypeOf((*CfnPermission)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "actions", GoGetter: "Actions"},
@@ -273,15 +291,21 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "principal", GoGetter: "Principal"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "sourceAccount", GoGetter: "SourceAccount"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -292,11 +316,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_acmpca.CfnPermissionProps",
+		"monocdk.aws_acmpca.CfnPermissionProps",
 		reflect.TypeOf((*CfnPermissionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_acmpca.ICertificateAuthority",
+		"monocdk.aws_acmpca.ICertificateAuthority",
 		reflect.TypeOf((*ICertificateAuthority)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
