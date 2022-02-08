@@ -8,11 +8,11 @@ import (
 
 func init() {
 	_jsii_.RegisterStruct(
-		"monocdk.aws_lambda_nodejs.BundlingOptions",
+		"aws-cdk-lib.aws_lambda_nodejs.BundlingOptions",
 		reflect.TypeOf((*BundlingOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_lambda_nodejs.Charset",
+		"aws-cdk-lib.aws_lambda_nodejs.Charset",
 		reflect.TypeOf((*Charset)(nil)).Elem(),
 		map[string]interface{}{
 			"ASCII": Charset_ASCII,
@@ -20,7 +20,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_lambda_nodejs.ICommandHooks",
+		"aws-cdk-lib.aws_lambda_nodejs.ICommandHooks",
 		reflect.TypeOf((*ICommandHooks)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "afterBundling", GoMethod: "AfterBundling"},
@@ -32,7 +32,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_lambda_nodejs.LogLevel",
+		"aws-cdk-lib.aws_lambda_nodejs.LogLevel",
 		reflect.TypeOf((*LogLevel)(nil)).Elem(),
 		map[string]interface{}{
 			"INFO": LogLevel_INFO,
@@ -42,7 +42,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_lambda_nodejs.NodejsFunction",
+		"aws-cdk-lib.aws_lambda_nodejs.NodejsFunction",
 		reflect.TypeOf((*NodejsFunction)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addEnvironment", GoMethod: "AddEnvironment"},
@@ -51,7 +51,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addLayers", GoMethod: "AddLayers"},
 			_jsii_.MemberMethod{JsiiMethod: "addPermission", GoMethod: "AddPermission"},
 			_jsii_.MemberMethod{JsiiMethod: "addToRolePolicy", GoMethod: "AddToRolePolicy"},
-			_jsii_.MemberMethod{JsiiMethod: "addVersion", GoMethod: "AddVersion"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "architecture", GoGetter: "Architecture"},
 			_jsii_.MemberProperty{JsiiProperty: "canCreatePermissions", GoGetter: "CanCreatePermissions"},
@@ -76,19 +75,13 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricInvocations", GoMethod: "MetricInvocations"},
 			_jsii_.MemberMethod{JsiiMethod: "metricThrottles", GoMethod: "MetricThrottles"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "permissionsNode", GoGetter: "PermissionsNode"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
 			_jsii_.MemberProperty{JsiiProperty: "runtime", GoGetter: "Runtime"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "timeout", GoGetter: "Timeout"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_NodejsFunction{}
@@ -97,11 +90,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_lambda_nodejs.NodejsFunctionProps",
+		"aws-cdk-lib.aws_lambda_nodejs.NodejsFunctionProps",
 		reflect.TypeOf((*NodejsFunctionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_lambda_nodejs.OutputFormat",
+		"aws-cdk-lib.aws_lambda_nodejs.OutputFormat",
 		reflect.TypeOf((*OutputFormat)(nil)).Elem(),
 		map[string]interface{}{
 			"CJS": OutputFormat_CJS,
@@ -109,7 +102,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_lambda_nodejs.SourceMapMode",
+		"aws-cdk-lib.aws_lambda_nodejs.SourceMapMode",
 		reflect.TypeOf((*SourceMapMode)(nil)).Elem(),
 		map[string]interface{}{
 			"DEFAULT": SourceMapMode_DEFAULT,
