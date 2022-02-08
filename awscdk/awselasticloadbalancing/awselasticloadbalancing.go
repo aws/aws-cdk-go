@@ -1,13 +1,13 @@
 package awselasticloadbalancing
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancing/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancing/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::ElasticLoadBalancing::LoadBalancer`.
@@ -55,7 +55,7 @@ type CfnLoadBalancer interface {
 	LoadBalancerName() *string
 	SetLoadBalancerName(val *string)
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Policies() interface{}
 	SetPolicies(val interface{})
 	Ref() *string
@@ -78,10 +78,16 @@ type CfnLoadBalancer interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -301,8 +307,8 @@ func (j *jsiiProxy_CfnLoadBalancer) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLoadBalancer) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnLoadBalancer) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -393,13 +399,13 @@ func (j *jsiiProxy_CfnLoadBalancer) UpdatedProperites() *map[string]interface{} 
 
 
 // Create a new `AWS::ElasticLoadBalancing::LoadBalancer`.
-func NewCfnLoadBalancer(scope constructs.Construct, id *string, props *CfnLoadBalancerProps) CfnLoadBalancer {
+func NewCfnLoadBalancer(scope awscdk.Construct, id *string, props *CfnLoadBalancerProps) CfnLoadBalancer {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnLoadBalancer{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancing.CfnLoadBalancer",
+		"monocdk.aws_elasticloadbalancing.CfnLoadBalancer",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -408,11 +414,11 @@ func NewCfnLoadBalancer(scope constructs.Construct, id *string, props *CfnLoadBa
 }
 
 // Create a new `AWS::ElasticLoadBalancing::LoadBalancer`.
-func NewCfnLoadBalancer_Override(c CfnLoadBalancer, scope constructs.Construct, id *string, props *CfnLoadBalancerProps) {
+func NewCfnLoadBalancer_Override(c CfnLoadBalancer, scope awscdk.Construct, id *string, props *CfnLoadBalancerProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancing.CfnLoadBalancer",
+		"monocdk.aws_elasticloadbalancing.CfnLoadBalancer",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -544,13 +550,14 @@ func (j *jsiiProxy_CfnLoadBalancer) SetSubnets(val *[]*string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnLoadBalancer_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancing.CfnLoadBalancer",
+		"monocdk.aws_elasticloadbalancing.CfnLoadBalancer",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -560,13 +567,14 @@ func CfnLoadBalancer_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnLoadBalancer_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancing.CfnLoadBalancer",
+		"monocdk.aws_elasticloadbalancing.CfnLoadBalancer",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -575,17 +583,15 @@ func CfnLoadBalancer_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnLoadBalancer_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancing.CfnLoadBalancer",
+		"monocdk.aws_elasticloadbalancing.CfnLoadBalancer",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -598,7 +604,7 @@ func CfnLoadBalancer_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_elasticloadbalancing.CfnLoadBalancer",
+		"monocdk.aws_elasticloadbalancing.CfnLoadBalancer",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -606,6 +612,7 @@ func CfnLoadBalancer_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnLoadBalancer) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -618,6 +625,7 @@ func (c *jsiiProxy_CfnLoadBalancer) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnLoadBalancer) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -633,6 +641,7 @@ func (c *jsiiProxy_CfnLoadBalancer) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnLoadBalancer) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -684,6 +693,7 @@ func (c *jsiiProxy_CfnLoadBalancer) AddMetadata(key *string, value interface{}) 
 // for CloudFormation. If you pass CDK classes or structs, they will be
 // rendered with lowercased key names, and CloudFormation will reject the
 // template.
+// Experimental.
 func (c *jsiiProxy_CfnLoadBalancer) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -693,6 +703,7 @@ func (c *jsiiProxy_CfnLoadBalancer) AddOverride(path *string, value interface{})
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnLoadBalancer) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -704,6 +715,7 @@ func (c *jsiiProxy_CfnLoadBalancer) AddPropertyDeletionOverride(propertyPath *st
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnLoadBalancer) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -721,6 +733,7 @@ func (c *jsiiProxy_CfnLoadBalancer) AddPropertyOverride(propertyPath *string, va
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnLoadBalancer) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -733,6 +746,7 @@ func (c *jsiiProxy_CfnLoadBalancer) ApplyRemovalPolicy(policy awscdk.RemovalPoli
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnLoadBalancer) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -753,6 +767,7 @@ func (c *jsiiProxy_CfnLoadBalancer) GetAtt(attributeName *string) awscdk.Referen
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnLoadBalancer) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -775,12 +790,80 @@ func (c *jsiiProxy_CfnLoadBalancer) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnLoadBalancer) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnLoadBalancer) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnLoadBalancer) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnLoadBalancer) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnLoadBalancer) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -801,6 +884,7 @@ func (c *jsiiProxy_CfnLoadBalancer) RenderProperties(props *map[string]interface
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnLoadBalancer) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -814,9 +898,23 @@ func (c *jsiiProxy_CfnLoadBalancer) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnLoadBalancer) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnLoadBalancer) ToString() *string {
 	var returns *string
 
@@ -830,6 +928,27 @@ func (c *jsiiProxy_CfnLoadBalancer) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnLoadBalancer) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnLoadBalancer) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1057,32 +1176,42 @@ type CfnLoadBalancerProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type HealthCheck struct {
 	// What port number to health check on.
+	// Experimental.
 	Port *float64 `json:"port" yaml:"port"`
 	// After how many successful checks is an instance considered healthy.
+	// Experimental.
 	HealthyThreshold *float64 `json:"healthyThreshold" yaml:"healthyThreshold"`
 	// Number of seconds between health checks.
+	// Experimental.
 	Interval awscdk.Duration `json:"interval" yaml:"interval"`
 	// What path to use for HTTP or HTTPS health check (must return 200).
 	//
 	// For SSL and TCP health checks, accepting connections is enough to be considered
 	// healthy.
+	// Experimental.
 	Path *string `json:"path" yaml:"path"`
 	// What protocol to use for health checking.
 	//
 	// The protocol is automatically determined from the port if it's not supplied.
+	// Experimental.
 	Protocol LoadBalancingProtocol `json:"protocol" yaml:"protocol"`
 	// Health check timeout.
+	// Experimental.
 	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 	// After how many unsuccessful checks is an instance considered unhealthy.
+	// Experimental.
 	UnhealthyThreshold *float64 `json:"unhealthyThreshold" yaml:"unhealthyThreshold"`
 }
 
 // Interface that is going to be implemented by constructs that you can load balance to.
+// Experimental.
 type ILoadBalancerTarget interface {
 	awsec2.IConnectable
 	// Attach load-balanced target to a classic ELB.
+	// Experimental.
 	AttachToClassicLB(loadBalancer LoadBalancer)
 }
 
@@ -1113,6 +1242,7 @@ func (i *jsiiProxy_ILoadBalancerTarget) AttachToClassicLB(loadBalancer LoadBalan
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type ListenerPort interface {
 	awsec2.IConnectable
 	Connections() awsec2.Connections
@@ -1134,13 +1264,14 @@ func (j *jsiiProxy_ListenerPort) Connections() awsec2.Connections {
 }
 
 
+// Experimental.
 func NewListenerPort(securityGroup awsec2.ISecurityGroup, defaultPort awsec2.Port) ListenerPort {
 	_init_.Initialize()
 
 	j := jsiiProxy_ListenerPort{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancing.ListenerPort",
+		"monocdk.aws_elasticloadbalancing.ListenerPort",
 		[]interface{}{securityGroup, defaultPort},
 		&j,
 	)
@@ -1148,11 +1279,12 @@ func NewListenerPort(securityGroup awsec2.ISecurityGroup, defaultPort awsec2.Por
 	return &j
 }
 
+// Experimental.
 func NewListenerPort_Override(l ListenerPort, securityGroup awsec2.ISecurityGroup, defaultPort awsec2.Port) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancing.ListenerPort",
+		"monocdk.aws_elasticloadbalancing.ListenerPort",
 		[]interface{}{securityGroup, defaultPort},
 		l,
 	)
@@ -1164,6 +1296,7 @@ func NewListenerPort_Override(l ListenerPort, securityGroup awsec2.ISecurityGrou
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type LoadBalancer interface {
 	awscdk.Resource
 	awsec2.IConnectable
@@ -1176,7 +1309,7 @@ type LoadBalancer interface {
 	LoadBalancerName() *string
 	LoadBalancerSourceSecurityGroupGroupName() *string
 	LoadBalancerSourceSecurityGroupOwnerAlias() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Stack() awscdk.Stack
 	AddListener(listener *LoadBalancerListener) ListenerPort
@@ -1185,7 +1318,13 @@ type LoadBalancer interface {
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for LoadBalancer
@@ -1284,8 +1423,8 @@ func (j *jsiiProxy_LoadBalancer) LoadBalancerSourceSecurityGroupOwnerAlias() *st
 	return returns
 }
 
-func (j *jsiiProxy_LoadBalancer) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_LoadBalancer) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1315,13 +1454,14 @@ func (j *jsiiProxy_LoadBalancer) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewLoadBalancer(scope constructs.Construct, id *string, props *LoadBalancerProps) LoadBalancer {
 	_init_.Initialize()
 
 	j := jsiiProxy_LoadBalancer{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancing.LoadBalancer",
+		"monocdk.aws_elasticloadbalancing.LoadBalancer",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1329,27 +1469,26 @@ func NewLoadBalancer(scope constructs.Construct, id *string, props *LoadBalancer
 	return &j
 }
 
+// Experimental.
 func NewLoadBalancer_Override(l LoadBalancer, scope constructs.Construct, id *string, props *LoadBalancerProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancing.LoadBalancer",
+		"monocdk.aws_elasticloadbalancing.LoadBalancer",
 		[]interface{}{scope, id, props},
 		l,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func LoadBalancer_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancing.LoadBalancer",
+		"monocdk.aws_elasticloadbalancing.LoadBalancer",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1359,13 +1498,14 @@ func LoadBalancer_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func LoadBalancer_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func LoadBalancer_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancing.LoadBalancer",
+		"monocdk.aws_elasticloadbalancing.LoadBalancer",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -1377,6 +1517,7 @@ func LoadBalancer_IsResource(construct constructs.IConstruct) *bool {
 // Add a backend to the load balancer.
 //
 // Returns: A ListenerPort object that controls connections to the listener port
+// Experimental.
 func (l *jsiiProxy_LoadBalancer) AddListener(listener *LoadBalancerListener) ListenerPort {
 	var returns ListenerPort
 
@@ -1390,6 +1531,7 @@ func (l *jsiiProxy_LoadBalancer) AddListener(listener *LoadBalancerListener) Lis
 	return returns
 }
 
+// Experimental.
 func (l *jsiiProxy_LoadBalancer) AddTarget(target ILoadBalancerTarget) {
 	_jsii_.InvokeVoid(
 		l,
@@ -1407,6 +1549,7 @@ func (l *jsiiProxy_LoadBalancer) AddTarget(target ILoadBalancerTarget) {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (l *jsiiProxy_LoadBalancer) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		l,
@@ -1415,6 +1558,7 @@ func (l *jsiiProxy_LoadBalancer) ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	)
 }
 
+// Experimental.
 func (l *jsiiProxy_LoadBalancer) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -1434,6 +1578,7 @@ func (l *jsiiProxy_LoadBalancer) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
+// Experimental.
 func (l *jsiiProxy_LoadBalancer) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -1452,6 +1597,7 @@ func (l *jsiiProxy_LoadBalancer) GetResourceArnAttribute(arnAttr *string, arnCom
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
+// Experimental.
 func (l *jsiiProxy_LoadBalancer) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -1465,7 +1611,88 @@ func (l *jsiiProxy_LoadBalancer) GetResourceNameAttribute(nameAttr *string) *str
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (l *jsiiProxy_LoadBalancer) OnPrepare() {
+	_jsii_.InvokeVoid(
+		l,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (l *jsiiProxy_LoadBalancer) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		l,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (l *jsiiProxy_LoadBalancer) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		l,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (l *jsiiProxy_LoadBalancer) Prepare() {
+	_jsii_.InvokeVoid(
+		l,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (l *jsiiProxy_LoadBalancer) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		l,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (l *jsiiProxy_LoadBalancer) ToString() *string {
 	var returns *string
 
@@ -1479,28 +1706,53 @@ func (l *jsiiProxy_LoadBalancer) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (l *jsiiProxy_LoadBalancer) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		l,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Add a backend to the load balancer.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type LoadBalancerListener struct {
 	// External listening port.
+	// Experimental.
 	ExternalPort *float64 `json:"externalPort" yaml:"externalPort"`
 	// Allow connections to the load balancer from the given set of connection peers.
 	//
 	// By default, connections will be allowed from anywhere. Set this to an empty list
 	// to deny connections, or supply a custom list of peers to allow connections from
 	// (IP ranges or security groups).
+	// Experimental.
 	AllowConnectionsFrom *[]awsec2.IConnectable `json:"allowConnectionsFrom" yaml:"allowConnectionsFrom"`
 	// What public protocol to use for load balancing.
 	//
 	// Either 'tcp', 'ssl', 'http' or 'https'.
 	//
 	// May be omitted if the external port is either 80 or 443.
+	// Experimental.
 	ExternalProtocol LoadBalancingProtocol `json:"externalProtocol" yaml:"externalProtocol"`
 	// Instance listening port.
 	//
 	// Same as the externalPort if not specified.
+	// Experimental.
 	InternalPort *float64 `json:"internalPort" yaml:"internalPort"`
 	// What public protocol to use for load balancing.
 	//
@@ -1511,51 +1763,67 @@ type LoadBalancerListener struct {
 	// The instance protocol is 'tcp' if the front-end protocol
 	// is 'tcp' or 'ssl', the instance protocol is 'http' if the
 	// front-end protocol is 'https'.
+	// Experimental.
 	InternalProtocol LoadBalancingProtocol `json:"internalProtocol" yaml:"internalProtocol"`
 	// SSL policy names.
+	// Experimental.
 	PolicyNames *[]*string `json:"policyNames" yaml:"policyNames"`
 	// the ARN of the SSL certificate.
+	// Experimental.
 	SslCertificateArn *string `json:"sslCertificateArn" yaml:"sslCertificateArn"`
+	// the ARN of the SSL certificate.
+	// Deprecated: - use sslCertificateArn instead
+	SslCertificateId *string `json:"sslCertificateId" yaml:"sslCertificateId"`
 }
 
 // Construction properties for a LoadBalancer.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type LoadBalancerProps struct {
 	// VPC network of the fleet instances.
+	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// Enable Loadbalancer access logs Can be used to avoid manual work as aws console Required S3 bucket name , enabled flag Can add interval for pushing log Can set bucket prefix in order to provide folder name inside bucket.
+	// Experimental.
 	AccessLoggingPolicy *CfnLoadBalancer_AccessLoggingPolicyProperty `json:"accessLoggingPolicy" yaml:"accessLoggingPolicy"`
 	// Whether cross zone load balancing is enabled.
 	//
 	// This controls whether the load balancer evenly distributes requests
 	// across each availability zone
+	// Experimental.
 	CrossZone *bool `json:"crossZone" yaml:"crossZone"`
 	// Health check settings for the load balancing targets.
 	//
 	// Not required but recommended.
+	// Experimental.
 	HealthCheck *HealthCheck `json:"healthCheck" yaml:"healthCheck"`
 	// Whether this is an internet-facing Load Balancer.
 	//
 	// This controls whether the LB has a public IP address assigned. It does
 	// not open up the Load Balancer's security groups to public internet access.
+	// Experimental.
 	InternetFacing *bool `json:"internetFacing" yaml:"internetFacing"`
 	// What listeners to set up for the load balancer.
 	//
 	// Can also be added by .addListener()
+	// Experimental.
 	Listeners *[]*LoadBalancerListener `json:"listeners" yaml:"listeners"`
 	// Which subnets to deploy the load balancer.
 	//
 	// Can be used to define a specific set of subnets to deploy the load balancer to.
 	// Useful multiple public or private subnets are covering the same availability zone.
+	// Experimental.
 	SubnetSelection *awsec2.SubnetSelection `json:"subnetSelection" yaml:"subnetSelection"`
 	// What targets to load balance to.
 	//
 	// Can also be added by .addTarget()
+	// Experimental.
 	Targets *[]ILoadBalancerTarget `json:"targets" yaml:"targets"`
 }
 
+// Experimental.
 type LoadBalancingProtocol string
 
 const (

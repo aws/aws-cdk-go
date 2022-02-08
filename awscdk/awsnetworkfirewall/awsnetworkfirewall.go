@@ -1,12 +1,12 @@
 package awsnetworkfirewall
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsnetworkfirewall/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsnetworkfirewall/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::NetworkFirewall::Firewall`.
@@ -38,7 +38,7 @@ type CfnFirewall interface {
 	FirewallPolicyChangeProtection() interface{}
 	SetFirewallPolicyChangeProtection(val interface{})
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	SubnetChangeProtection() interface{}
@@ -59,10 +59,16 @@ type CfnFirewall interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -202,8 +208,8 @@ func (j *jsiiProxy_CfnFirewall) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFirewall) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnFirewall) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -284,13 +290,13 @@ func (j *jsiiProxy_CfnFirewall) VpcId() *string {
 
 
 // Create a new `AWS::NetworkFirewall::Firewall`.
-func NewCfnFirewall(scope constructs.Construct, id *string, props *CfnFirewallProps) CfnFirewall {
+func NewCfnFirewall(scope awscdk.Construct, id *string, props *CfnFirewallProps) CfnFirewall {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnFirewall{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_networkfirewall.CfnFirewall",
+		"monocdk.aws_networkfirewall.CfnFirewall",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -299,11 +305,11 @@ func NewCfnFirewall(scope constructs.Construct, id *string, props *CfnFirewallPr
 }
 
 // Create a new `AWS::NetworkFirewall::Firewall`.
-func NewCfnFirewall_Override(c CfnFirewall, scope constructs.Construct, id *string, props *CfnFirewallProps) {
+func NewCfnFirewall_Override(c CfnFirewall, scope awscdk.Construct, id *string, props *CfnFirewallProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_networkfirewall.CfnFirewall",
+		"monocdk.aws_networkfirewall.CfnFirewall",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -379,13 +385,14 @@ func (j *jsiiProxy_CfnFirewall) SetVpcId(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnFirewall_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_networkfirewall.CfnFirewall",
+		"monocdk.aws_networkfirewall.CfnFirewall",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -395,13 +402,14 @@ func CfnFirewall_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnFirewall_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_networkfirewall.CfnFirewall",
+		"monocdk.aws_networkfirewall.CfnFirewall",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -410,17 +418,15 @@ func CfnFirewall_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnFirewall_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_networkfirewall.CfnFirewall",
+		"monocdk.aws_networkfirewall.CfnFirewall",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -433,7 +439,7 @@ func CfnFirewall_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_networkfirewall.CfnFirewall",
+		"monocdk.aws_networkfirewall.CfnFirewall",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -441,6 +447,7 @@ func CfnFirewall_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnFirewall) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -453,6 +460,7 @@ func (c *jsiiProxy_CfnFirewall) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnFirewall) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -468,6 +476,7 @@ func (c *jsiiProxy_CfnFirewall) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnFirewall) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -519,6 +528,7 @@ func (c *jsiiProxy_CfnFirewall) AddMetadata(key *string, value interface{}) {
 // for CloudFormation. If you pass CDK classes or structs, they will be
 // rendered with lowercased key names, and CloudFormation will reject the
 // template.
+// Experimental.
 func (c *jsiiProxy_CfnFirewall) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -528,6 +538,7 @@ func (c *jsiiProxy_CfnFirewall) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnFirewall) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -539,6 +550,7 @@ func (c *jsiiProxy_CfnFirewall) AddPropertyDeletionOverride(propertyPath *string
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnFirewall) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -556,6 +568,7 @@ func (c *jsiiProxy_CfnFirewall) AddPropertyOverride(propertyPath *string, value 
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnFirewall) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -568,6 +581,7 @@ func (c *jsiiProxy_CfnFirewall) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, 
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnFirewall) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -588,6 +602,7 @@ func (c *jsiiProxy_CfnFirewall) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnFirewall) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -610,12 +625,80 @@ func (c *jsiiProxy_CfnFirewall) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnFirewall) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnFirewall) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnFirewall) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnFirewall) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnFirewall) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -636,6 +719,7 @@ func (c *jsiiProxy_CfnFirewall) RenderProperties(props *map[string]interface{}) 
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnFirewall) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -649,9 +733,23 @@ func (c *jsiiProxy_CfnFirewall) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnFirewall) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnFirewall) ToString() *string {
 	var returns *string
 
@@ -665,6 +763,27 @@ func (c *jsiiProxy_CfnFirewall) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnFirewall) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnFirewall) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -706,7 +825,7 @@ type CfnFirewallPolicy interface {
 	FirewallPolicyName() *string
 	SetFirewallPolicyName(val *string)
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	Tags() awscdk.TagManager
@@ -721,10 +840,16 @@ type CfnFirewallPolicy interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -834,8 +959,8 @@ func (j *jsiiProxy_CfnFirewallPolicy) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFirewallPolicy) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnFirewallPolicy) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -886,13 +1011,13 @@ func (j *jsiiProxy_CfnFirewallPolicy) UpdatedProperites() *map[string]interface{
 
 
 // Create a new `AWS::NetworkFirewall::FirewallPolicy`.
-func NewCfnFirewallPolicy(scope constructs.Construct, id *string, props *CfnFirewallPolicyProps) CfnFirewallPolicy {
+func NewCfnFirewallPolicy(scope awscdk.Construct, id *string, props *CfnFirewallPolicyProps) CfnFirewallPolicy {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnFirewallPolicy{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_networkfirewall.CfnFirewallPolicy",
+		"monocdk.aws_networkfirewall.CfnFirewallPolicy",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -901,11 +1026,11 @@ func NewCfnFirewallPolicy(scope constructs.Construct, id *string, props *CfnFire
 }
 
 // Create a new `AWS::NetworkFirewall::FirewallPolicy`.
-func NewCfnFirewallPolicy_Override(c CfnFirewallPolicy, scope constructs.Construct, id *string, props *CfnFirewallPolicyProps) {
+func NewCfnFirewallPolicy_Override(c CfnFirewallPolicy, scope awscdk.Construct, id *string, props *CfnFirewallPolicyProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_networkfirewall.CfnFirewallPolicy",
+		"monocdk.aws_networkfirewall.CfnFirewallPolicy",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -941,13 +1066,14 @@ func (j *jsiiProxy_CfnFirewallPolicy) SetFirewallPolicyName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnFirewallPolicy_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_networkfirewall.CfnFirewallPolicy",
+		"monocdk.aws_networkfirewall.CfnFirewallPolicy",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -957,13 +1083,14 @@ func CfnFirewallPolicy_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnFirewallPolicy_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_networkfirewall.CfnFirewallPolicy",
+		"monocdk.aws_networkfirewall.CfnFirewallPolicy",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -972,17 +1099,15 @@ func CfnFirewallPolicy_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnFirewallPolicy_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_networkfirewall.CfnFirewallPolicy",
+		"monocdk.aws_networkfirewall.CfnFirewallPolicy",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -995,7 +1120,7 @@ func CfnFirewallPolicy_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_networkfirewall.CfnFirewallPolicy",
+		"monocdk.aws_networkfirewall.CfnFirewallPolicy",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1003,6 +1128,7 @@ func CfnFirewallPolicy_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnFirewallPolicy) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1015,6 +1141,7 @@ func (c *jsiiProxy_CfnFirewallPolicy) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnFirewallPolicy) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1030,6 +1157,7 @@ func (c *jsiiProxy_CfnFirewallPolicy) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnFirewallPolicy) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1081,6 +1209,7 @@ func (c *jsiiProxy_CfnFirewallPolicy) AddMetadata(key *string, value interface{}
 // for CloudFormation. If you pass CDK classes or structs, they will be
 // rendered with lowercased key names, and CloudFormation will reject the
 // template.
+// Experimental.
 func (c *jsiiProxy_CfnFirewallPolicy) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1090,6 +1219,7 @@ func (c *jsiiProxy_CfnFirewallPolicy) AddOverride(path *string, value interface{
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnFirewallPolicy) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1101,6 +1231,7 @@ func (c *jsiiProxy_CfnFirewallPolicy) AddPropertyDeletionOverride(propertyPath *
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnFirewallPolicy) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1118,6 +1249,7 @@ func (c *jsiiProxy_CfnFirewallPolicy) AddPropertyOverride(propertyPath *string, 
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnFirewallPolicy) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1130,6 +1262,7 @@ func (c *jsiiProxy_CfnFirewallPolicy) ApplyRemovalPolicy(policy awscdk.RemovalPo
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnFirewallPolicy) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1150,6 +1283,7 @@ func (c *jsiiProxy_CfnFirewallPolicy) GetAtt(attributeName *string) awscdk.Refer
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnFirewallPolicy) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1172,12 +1306,80 @@ func (c *jsiiProxy_CfnFirewallPolicy) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnFirewallPolicy) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnFirewallPolicy) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnFirewallPolicy) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnFirewallPolicy) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnFirewallPolicy) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1198,6 +1400,7 @@ func (c *jsiiProxy_CfnFirewallPolicy) RenderProperties(props *map[string]interfa
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnFirewallPolicy) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1211,9 +1414,23 @@ func (c *jsiiProxy_CfnFirewallPolicy) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnFirewallPolicy) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnFirewallPolicy) ToString() *string {
 	var returns *string
 
@@ -1227,6 +1444,27 @@ func (c *jsiiProxy_CfnFirewallPolicy) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnFirewallPolicy) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnFirewallPolicy) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1479,7 +1717,7 @@ type CfnLoggingConfiguration interface {
 	LoggingConfiguration() interface{}
 	SetLoggingConfiguration(val interface{})
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	UpdatedProperites() *map[string]interface{}
@@ -1493,10 +1731,16 @@ type CfnLoggingConfiguration interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1586,8 +1830,8 @@ func (j *jsiiProxy_CfnLoggingConfiguration) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLoggingConfiguration) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnLoggingConfiguration) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1628,13 +1872,13 @@ func (j *jsiiProxy_CfnLoggingConfiguration) UpdatedProperites() *map[string]inte
 
 
 // Create a new `AWS::NetworkFirewall::LoggingConfiguration`.
-func NewCfnLoggingConfiguration(scope constructs.Construct, id *string, props *CfnLoggingConfigurationProps) CfnLoggingConfiguration {
+func NewCfnLoggingConfiguration(scope awscdk.Construct, id *string, props *CfnLoggingConfigurationProps) CfnLoggingConfiguration {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnLoggingConfiguration{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_networkfirewall.CfnLoggingConfiguration",
+		"monocdk.aws_networkfirewall.CfnLoggingConfiguration",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1643,11 +1887,11 @@ func NewCfnLoggingConfiguration(scope constructs.Construct, id *string, props *C
 }
 
 // Create a new `AWS::NetworkFirewall::LoggingConfiguration`.
-func NewCfnLoggingConfiguration_Override(c CfnLoggingConfiguration, scope constructs.Construct, id *string, props *CfnLoggingConfigurationProps) {
+func NewCfnLoggingConfiguration_Override(c CfnLoggingConfiguration, scope awscdk.Construct, id *string, props *CfnLoggingConfigurationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_networkfirewall.CfnLoggingConfiguration",
+		"monocdk.aws_networkfirewall.CfnLoggingConfiguration",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1683,13 +1927,14 @@ func (j *jsiiProxy_CfnLoggingConfiguration) SetLoggingConfiguration(val interfac
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnLoggingConfiguration_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_networkfirewall.CfnLoggingConfiguration",
+		"monocdk.aws_networkfirewall.CfnLoggingConfiguration",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1699,13 +1944,14 @@ func CfnLoggingConfiguration_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnLoggingConfiguration_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_networkfirewall.CfnLoggingConfiguration",
+		"monocdk.aws_networkfirewall.CfnLoggingConfiguration",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1714,17 +1960,15 @@ func CfnLoggingConfiguration_IsCfnResource(construct constructs.IConstruct) *boo
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnLoggingConfiguration_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_networkfirewall.CfnLoggingConfiguration",
+		"monocdk.aws_networkfirewall.CfnLoggingConfiguration",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1737,7 +1981,7 @@ func CfnLoggingConfiguration_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_networkfirewall.CfnLoggingConfiguration",
+		"monocdk.aws_networkfirewall.CfnLoggingConfiguration",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1745,6 +1989,7 @@ func CfnLoggingConfiguration_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnLoggingConfiguration) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1757,6 +2002,7 @@ func (c *jsiiProxy_CfnLoggingConfiguration) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnLoggingConfiguration) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1772,6 +2018,7 @@ func (c *jsiiProxy_CfnLoggingConfiguration) AddDependsOn(target awscdk.CfnResour
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnLoggingConfiguration) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1823,6 +2070,7 @@ func (c *jsiiProxy_CfnLoggingConfiguration) AddMetadata(key *string, value inter
 // for CloudFormation. If you pass CDK classes or structs, they will be
 // rendered with lowercased key names, and CloudFormation will reject the
 // template.
+// Experimental.
 func (c *jsiiProxy_CfnLoggingConfiguration) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1832,6 +2080,7 @@ func (c *jsiiProxy_CfnLoggingConfiguration) AddOverride(path *string, value inte
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnLoggingConfiguration) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1843,6 +2092,7 @@ func (c *jsiiProxy_CfnLoggingConfiguration) AddPropertyDeletionOverride(property
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnLoggingConfiguration) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1860,6 +2110,7 @@ func (c *jsiiProxy_CfnLoggingConfiguration) AddPropertyOverride(propertyPath *st
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnLoggingConfiguration) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1872,6 +2123,7 @@ func (c *jsiiProxy_CfnLoggingConfiguration) ApplyRemovalPolicy(policy awscdk.Rem
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnLoggingConfiguration) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1892,6 +2144,7 @@ func (c *jsiiProxy_CfnLoggingConfiguration) GetAtt(attributeName *string) awscdk
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnLoggingConfiguration) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1914,12 +2167,80 @@ func (c *jsiiProxy_CfnLoggingConfiguration) Inspect(inspector awscdk.TreeInspect
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnLoggingConfiguration) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnLoggingConfiguration) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnLoggingConfiguration) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnLoggingConfiguration) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnLoggingConfiguration) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1940,6 +2261,7 @@ func (c *jsiiProxy_CfnLoggingConfiguration) RenderProperties(props *map[string]i
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnLoggingConfiguration) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1953,9 +2275,23 @@ func (c *jsiiProxy_CfnLoggingConfiguration) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnLoggingConfiguration) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnLoggingConfiguration) ToString() *string {
 	var returns *string
 
@@ -1969,6 +2305,27 @@ func (c *jsiiProxy_CfnLoggingConfiguration) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnLoggingConfiguration) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnLoggingConfiguration) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2056,7 +2413,7 @@ type CfnRuleGroup interface {
 	Description() *string
 	SetDescription(val *string)
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	RuleGroup() interface{}
 	SetRuleGroup(val interface{})
@@ -2077,10 +2434,16 @@ type CfnRuleGroup interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -2180,8 +2543,8 @@ func (j *jsiiProxy_CfnRuleGroup) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRuleGroup) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnRuleGroup) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2262,13 +2625,13 @@ func (j *jsiiProxy_CfnRuleGroup) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::NetworkFirewall::RuleGroup`.
-func NewCfnRuleGroup(scope constructs.Construct, id *string, props *CfnRuleGroupProps) CfnRuleGroup {
+func NewCfnRuleGroup(scope awscdk.Construct, id *string, props *CfnRuleGroupProps) CfnRuleGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnRuleGroup{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_networkfirewall.CfnRuleGroup",
+		"monocdk.aws_networkfirewall.CfnRuleGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2277,11 +2640,11 @@ func NewCfnRuleGroup(scope constructs.Construct, id *string, props *CfnRuleGroup
 }
 
 // Create a new `AWS::NetworkFirewall::RuleGroup`.
-func NewCfnRuleGroup_Override(c CfnRuleGroup, scope constructs.Construct, id *string, props *CfnRuleGroupProps) {
+func NewCfnRuleGroup_Override(c CfnRuleGroup, scope awscdk.Construct, id *string, props *CfnRuleGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_networkfirewall.CfnRuleGroup",
+		"monocdk.aws_networkfirewall.CfnRuleGroup",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2333,13 +2696,14 @@ func (j *jsiiProxy_CfnRuleGroup) SetType(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnRuleGroup_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_networkfirewall.CfnRuleGroup",
+		"monocdk.aws_networkfirewall.CfnRuleGroup",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2349,13 +2713,14 @@ func CfnRuleGroup_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnRuleGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_networkfirewall.CfnRuleGroup",
+		"monocdk.aws_networkfirewall.CfnRuleGroup",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2364,17 +2729,15 @@ func CfnRuleGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnRuleGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_networkfirewall.CfnRuleGroup",
+		"monocdk.aws_networkfirewall.CfnRuleGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2387,7 +2750,7 @@ func CfnRuleGroup_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_networkfirewall.CfnRuleGroup",
+		"monocdk.aws_networkfirewall.CfnRuleGroup",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2395,6 +2758,7 @@ func CfnRuleGroup_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnRuleGroup) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2407,6 +2771,7 @@ func (c *jsiiProxy_CfnRuleGroup) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnRuleGroup) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2422,6 +2787,7 @@ func (c *jsiiProxy_CfnRuleGroup) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnRuleGroup) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2473,6 +2839,7 @@ func (c *jsiiProxy_CfnRuleGroup) AddMetadata(key *string, value interface{}) {
 // for CloudFormation. If you pass CDK classes or structs, they will be
 // rendered with lowercased key names, and CloudFormation will reject the
 // template.
+// Experimental.
 func (c *jsiiProxy_CfnRuleGroup) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2482,6 +2849,7 @@ func (c *jsiiProxy_CfnRuleGroup) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnRuleGroup) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2493,6 +2861,7 @@ func (c *jsiiProxy_CfnRuleGroup) AddPropertyDeletionOverride(propertyPath *strin
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnRuleGroup) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2510,6 +2879,7 @@ func (c *jsiiProxy_CfnRuleGroup) AddPropertyOverride(propertyPath *string, value
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnRuleGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2522,6 +2892,7 @@ func (c *jsiiProxy_CfnRuleGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy,
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnRuleGroup) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2542,6 +2913,7 @@ func (c *jsiiProxy_CfnRuleGroup) GetAtt(attributeName *string) awscdk.Reference 
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnRuleGroup) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2564,12 +2936,80 @@ func (c *jsiiProxy_CfnRuleGroup) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnRuleGroup) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnRuleGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnRuleGroup) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnRuleGroup) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnRuleGroup) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2590,6 +3030,7 @@ func (c *jsiiProxy_CfnRuleGroup) RenderProperties(props *map[string]interface{})
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnRuleGroup) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2603,9 +3044,23 @@ func (c *jsiiProxy_CfnRuleGroup) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnRuleGroup) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnRuleGroup) ToString() *string {
 	var returns *string
 
@@ -2619,6 +3074,27 @@ func (c *jsiiProxy_CfnRuleGroup) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnRuleGroup) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnRuleGroup) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
