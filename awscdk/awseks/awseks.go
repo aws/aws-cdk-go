@@ -2835,6 +2835,7 @@ type CfnNodegroup interface {
 	SetAmiType(val *string)
 	AttrArn() *string
 	AttrClusterName() *string
+	AttrId() *string
 	AttrNodegroupName() *string
 	CapacityType() *string
 	SetCapacityType(val *string)
@@ -2926,6 +2927,16 @@ func (j *jsiiProxy_CfnNodegroup) AttrClusterName() *string {
 	_jsii_.Get(
 		j,
 		"attrClusterName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnNodegroup) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -3723,6 +3734,8 @@ type CfnNodegroup_ScalingConfigProperty struct {
 
 // A property that allows a node to repel a set of pods.
 //
+// For more information, see [Node taints on managed node groups](https://docs.aws.amazon.com/eks/latest/userguide/node-taints-managed-node-groups.html) .
+//
 // TODO: EXAMPLE
 //
 type CfnNodegroup_TaintProperty struct {
@@ -3758,7 +3771,7 @@ type CfnNodegroupProps struct {
 	ClusterName *string `json:"clusterName" yaml:"clusterName"`
 	// The Amazon Resource Name (ARN) of the IAM role to associate with your node group.
 	//
-	// The Amazon EKS worker node `kubelet` daemon makes calls to AWS APIs on your behalf. Nodes receive permissions for these API calls through an IAM instance profile and associated policies. Before you can launch nodes and register them into a cluster, you must create an IAM role for those nodes to use when they are launched. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/worker_node_IAM_role.html) in the **Amazon EKS User Guide** . If you specify `launchTemplate` , then don't specify [`IamInstanceProfile`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IamInstanceProfile.html) in your launch template, or the node group deployment will fail. For more information about using launch templates with Amazon EKS, see [Launch template support](https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html) in the *Amazon EKS User Guide* .
+	// The Amazon EKS worker node `kubelet` daemon makes calls to AWS APIs on your behalf. Nodes receive permissions for these API calls through an IAM instance profile and associated policies. Before you can launch nodes and register them into a cluster, you must create an IAM role for those nodes to use when they are launched. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html) in the **Amazon EKS User Guide** . If you specify `launchTemplate` , then don't specify [`IamInstanceProfile`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IamInstanceProfile.html) in your launch template, or the node group deployment will fail. For more information about using launch templates with Amazon EKS, see [Launch template support](https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html) in the *Amazon EKS User Guide* .
 	NodeRole *string `json:"nodeRole" yaml:"nodeRole"`
 	// The subnets to use for the Auto Scaling group that is created for your node group.
 	//
@@ -3806,7 +3819,7 @@ type CfnNodegroupProps struct {
 	Tags interface{} `json:"tags" yaml:"tags"`
 	// The Kubernetes taints to be applied to the nodes in the node group when they are created.
 	//
-	// Effect is one of `No_Schedule` , `Prefer_No_Schedule` , or `No_Execute` . Kubernetes taints can be used together with tolerations to control how workloads are scheduled to your nodes.
+	// Effect is one of `No_Schedule` , `Prefer_No_Schedule` , or `No_Execute` . Kubernetes taints can be used together with tolerations to control how workloads are scheduled to your nodes. For more information, see [Node taints on managed node groups](https://docs.aws.amazon.com/eks/latest/userguide/node-taints-managed-node-groups.html) .
 	Taints interface{} `json:"taints" yaml:"taints"`
 	// The node group update configuration.
 	UpdateConfig interface{} `json:"updateConfig" yaml:"updateConfig"`

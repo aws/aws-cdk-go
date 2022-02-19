@@ -13,6 +13,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambdanodejs/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -290,6 +291,7 @@ type NodejsFunction interface {
 	Connections() awsec2.Connections
 	CurrentVersion() awslambda.Version
 	DeadLetterQueue() awssqs.IQueue
+	DeadLetterTopic() awssns.ITopic
 	Env() *awscdk.ResourceEnvironment
 	FunctionArn() *string
 	FunctionName() *string
@@ -374,6 +376,16 @@ func (j *jsiiProxy_NodejsFunction) DeadLetterQueue() awssqs.IQueue {
 	_jsii_.Get(
 		j,
 		"deadLetterQueue",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_NodejsFunction) DeadLetterTopic() awssns.ITopic {
+	var returns awssns.ITopic
+	_jsii_.Get(
+		j,
+		"deadLetterTopic",
 		&returns,
 	)
 	return returns
@@ -1036,12 +1048,19 @@ type NodejsFunctionProps struct {
 	// Options for the `lambda.Version` resource automatically created by the `fn.currentVersion` method.
 	CurrentVersionOptions *awslambda.VersionOptions `json:"currentVersionOptions" yaml:"currentVersionOptions"`
 	// The SQS queue to use if DLQ is enabled.
+	//
+	// If SNS topic is desired, specify `deadLetterTopic` property instead.
 	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// Enabled DLQ.
 	//
 	// If `deadLetterQueue` is undefined,
 	// an SQS queue with default options will be defined for your Function.
 	DeadLetterQueueEnabled *bool `json:"deadLetterQueueEnabled" yaml:"deadLetterQueueEnabled"`
+	// The SNS topic to use as a DLQ.
+	//
+	// Note that if `deadLetterQueueEnabled` is set to `true`, an SQS queue will be created
+	// rather than an SNS topic. Using an SNS topic as a DLQ requires this property to be set explicitly.
+	DeadLetterTopic awssns.ITopic `json:"deadLetterTopic" yaml:"deadLetterTopic"`
 	// A description of the function.
 	Description *string `json:"description" yaml:"description"`
 	// Key-value pairs that Lambda caches and makes available for your Lambda functions.

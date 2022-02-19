@@ -1704,7 +1704,7 @@ type CfnRobotApplicationProps struct {
 	RobotSoftwareSuite interface{} `json:"robotSoftwareSuite" yaml:"robotSoftwareSuite"`
 	// The current revision id.
 	CurrentRevisionId *string `json:"currentRevisionId" yaml:"currentRevisionId"`
-	// `AWS::RoboMaker::RobotApplication.Environment`.
+	// The environment of the robot application.
 	Environment *string `json:"environment" yaml:"environment"`
 	// The name of the robot application.
 	Name *string `json:"name" yaml:"name"`

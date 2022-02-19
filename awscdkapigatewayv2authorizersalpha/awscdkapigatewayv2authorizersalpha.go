@@ -53,7 +53,7 @@ func NewHttpIamAuthorizer_Override(h HttpIamAuthorizer) {
 	)
 }
 
-// (experimental) Bind this authorizer to a specified Http route.
+// Bind this authorizer to a specified Http route.
 // Experimental.
 func (h *jsiiProxy_HttpIamAuthorizer) Bind(_options *awscdkapigatewayv2alpha.HttpRouteAuthorizerBindOptions) *awscdkapigatewayv2alpha.HttpRouteAuthorizerConfig {
 	var returns *awscdkapigatewayv2alpha.HttpRouteAuthorizerConfig
@@ -111,7 +111,7 @@ func NewHttpJwtAuthorizer_Override(h HttpJwtAuthorizer, id *string, jwtIssuer *s
 	)
 }
 
-// (experimental) Bind this authorizer to a specified Http route.
+// Bind this authorizer to a specified Http route.
 // Experimental.
 func (h *jsiiProxy_HttpJwtAuthorizer) Bind(options *awscdkapigatewayv2alpha.HttpRouteAuthorizerBindOptions) *awscdkapigatewayv2alpha.HttpRouteAuthorizerConfig {
 	var returns *awscdkapigatewayv2alpha.HttpRouteAuthorizerConfig
@@ -188,7 +188,7 @@ func NewHttpLambdaAuthorizer_Override(h HttpLambdaAuthorizer, id *string, handle
 	)
 }
 
-// (experimental) Bind this authorizer to a specified Http route.
+// Bind this authorizer to a specified Http route.
 // Experimental.
 func (h *jsiiProxy_HttpLambdaAuthorizer) Bind(options *awscdkapigatewayv2alpha.HttpRouteAuthorizerBindOptions) *awscdkapigatewayv2alpha.HttpRouteAuthorizerConfig {
 	var returns *awscdkapigatewayv2alpha.HttpRouteAuthorizerConfig
@@ -283,7 +283,7 @@ func NewHttpUserPoolAuthorizer_Override(h HttpUserPoolAuthorizer, id *string, po
 	)
 }
 
-// (experimental) Bind this authorizer to a specified Http route.
+// Bind this authorizer to a specified Http route.
 // Experimental.
 func (h *jsiiProxy_HttpUserPoolAuthorizer) Bind(options *awscdkapigatewayv2alpha.HttpRouteAuthorizerBindOptions) *awscdkapigatewayv2alpha.HttpRouteAuthorizerConfig {
 	var returns *awscdkapigatewayv2alpha.HttpRouteAuthorizerConfig
@@ -359,7 +359,7 @@ func NewWebSocketLambdaAuthorizer_Override(w WebSocketLambdaAuthorizer, id *stri
 	)
 }
 
-// (experimental) Bind this authorizer to a specified WebSocket route.
+// Bind this authorizer to a specified WebSocket route.
 // Experimental.
 func (w *jsiiProxy_WebSocketLambdaAuthorizer) Bind(options *awscdkapigatewayv2alpha.WebSocketRouteAuthorizerBindOptions) *awscdkapigatewayv2alpha.WebSocketRouteAuthorizerConfig {
 	var returns *awscdkapigatewayv2alpha.WebSocketRouteAuthorizerConfig

@@ -648,7 +648,16 @@ type CfnIPSetProps struct {
 //
 // Defines an association between logging destinations and a web ACL resource, for logging from AWS WAF . As part of the association, you can specify parts of the standard logging fields to keep out of the logs and you can specify filters so that you log only a subset of the logging records.
 //
-// For information about configuring web ACL logging destinations, see [Logging web ACL traffic information](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html) in the *AWS WAF Developer Guide* .
+// > You can define one logging destination per web ACL.
+//
+// You can access information about the traffic that AWS WAF inspects using the following steps:
+//
+// - Create your logging destination. You can use an Amazon CloudWatch Logs log group, an Amazon Simple Storage Service (Amazon S3) bucket, or an Amazon Kinesis Data Firehose. For information about configuring logging destinations and the permissions that are required for each, see [Logging web ACL traffic information](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html) in the *AWS WAF Developer Guide* .
+// - Associate your logging destination to your web ACL using a `PutLoggingConfiguration` request.
+//
+// When you successfully enable logging using a `PutLoggingConfiguration` request, AWS WAF creates an additional role or policy that is required to write logs to the logging destination. For an Amazon CloudWatch Logs log group, AWS WAF creates a resource policy on the log group. For an Amazon S3 bucket, AWS WAF creates a bucket policy. For an Amazon Kinesis Data Firehose, AWS WAF creates a service-linked role.
+//
+// For additional information about web ACL logging, see [Logging web ACL traffic information](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html) in the *AWS WAF Developer Guide* .
 //
 // TODO: EXAMPLE
 //
@@ -1195,9 +1204,9 @@ func (c *jsiiProxy_CfnLoggingConfiguration) ValidateProperties(_properties inter
 	)
 }
 
-// The parts of the request that you want to keep out of the logs.
+// The part of a web request that you want AWS WAF to inspect.
 //
-// For example, if you redact the `SingleHeader` field, the `HEADER` field in the firehose will be `xxx` .
+// Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of a web request, create a separate rule statement for each component.
 //
 // JSON specification for a `QueryString` field to match:
 //
@@ -1210,15 +1219,29 @@ func (c *jsiiProxy_CfnLoggingConfiguration) ValidateProperties(_properties inter
 // TODO: EXAMPLE
 //
 type CfnLoggingConfiguration_FieldToMatchProperty struct {
-	// Redact the JSON body from the logs.
+	// Inspect the request body as JSON.
+	//
+	// The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
+	//
+	// Note that only the first 8 KB (8192 bytes) of the request body are forwarded to AWS WAF for inspection by the underlying host service. If you don't need to inspect more than 8 KB, you can guarantee that you don't allow additional bytes in by combining a statement that inspects the body of the web request, such as `ByteMatchStatement` or `RegexPatternSetReferenceStatement` , with a `SizeConstraintStatement` that enforces an 8 KB size limit on the body of the request. AWS WAF doesn't support inspecting the entire contents of web requests whose bodies exceed the 8 KB limit.
 	JsonBody interface{} `json:"jsonBody" yaml:"jsonBody"`
-	// Redact the method from the logs.
+	// Inspect the HTTP method.
+	//
+	// The method indicates the type of operation that the request is asking the origin to perform.
 	Method interface{} `json:"method" yaml:"method"`
-	// Redact the query string from the logs.
+	// Inspect the query string.
+	//
+	// This is the part of a URL that appears after a `?` character, if any.
 	QueryString interface{} `json:"queryString" yaml:"queryString"`
-	// Redact the header from the logs.
+	// Inspect a single header.
+	//
+	// Provide the name of the header to inspect, for example, `User-Agent` or `Referer` . This setting isn't case sensitive.
+	//
+	// Example JSON: `"SingleHeader": { "Name": "haystack" }`
 	SingleHeader interface{} `json:"singleHeader" yaml:"singleHeader"`
-	// Redact the URI path from the logs.
+	// Inspect the request URI path.
+	//
+	// This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg` .
 	UriPath interface{} `json:"uriPath" yaml:"uriPath"`
 }
 
@@ -1227,7 +1250,9 @@ type CfnLoggingConfiguration_FieldToMatchProperty struct {
 // TODO: EXAMPLE
 //
 type CfnLoggingConfigurationProps struct {
-	// The Amazon Resource Names (ARNs) of the logging destinations that you want to associate with the web ACL.
+	// The logging destination configuration that you want to associate with the web ACL.
+	//
+	// > You can associate one logging destination to a web ACL.
 	LogDestinationConfigs *[]*string `json:"logDestinationConfigs" yaml:"logDestinationConfigs"`
 	// The Amazon Resource Name (ARN) of the web ACL that you want to associate with `LogDestinationConfigs` .
 	ResourceArn *string `json:"resourceArn" yaml:"resourceArn"`
@@ -1237,7 +1262,7 @@ type CfnLoggingConfigurationProps struct {
 	LoggingFilter interface{} `json:"loggingFilter" yaml:"loggingFilter"`
 	// The parts of the request that you want to keep out of the logs.
 	//
-	// For example, if you redact the `SingleHeader` field, the `HEADER` field in the firehose will be `xxx` .
+	// For example, if you redact the `SingleHeader` field, the `HEADER` field in the logs will be `xxx` .
 	//
 	// > You can specify only the following fields for redaction: `UriPath` , `QueryString` , `SingleHeader` , `Method` , and `JsonBody` .
 	RedactedFields interface{} `json:"redactedFields" yaml:"redactedFields"`
@@ -4230,6 +4255,13 @@ type CfnWebACL_ExcludedRuleProperty struct {
 	Name *string `json:"name" yaml:"name"`
 }
 
+// TODO: EXAMPLE
+//
+type CfnWebACL_FieldIdentifierProperty struct {
+	// `CfnWebACL.FieldIdentifierProperty.Identifier`.
+	Identifier *string `json:"identifier" yaml:"identifier"`
+}
+
 // The part of a web request that you want AWS WAF to inspect.
 //
 // Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of a web request, create a separate rule statement for each component.
@@ -4473,6 +4505,19 @@ type CfnWebACL_LabelProperty struct {
 	Name *string `json:"name" yaml:"name"`
 }
 
+// TODO: EXAMPLE
+//
+type CfnWebACL_ManagedRuleGroupConfigProperty struct {
+	// `CfnWebACL.ManagedRuleGroupConfigProperty.LoginPath`.
+	LoginPath *string `json:"loginPath" yaml:"loginPath"`
+	// `CfnWebACL.ManagedRuleGroupConfigProperty.PasswordField`.
+	PasswordField interface{} `json:"passwordField" yaml:"passwordField"`
+	// `CfnWebACL.ManagedRuleGroupConfigProperty.PayloadType`.
+	PayloadType *string `json:"payloadType" yaml:"payloadType"`
+	// `CfnWebACL.ManagedRuleGroupConfigProperty.UsernameField`.
+	UsernameField interface{} `json:"usernameField" yaml:"usernameField"`
+}
+
 // A rule statement used to run the rules that are defined in a managed rule group.
 //
 // To use this, provide the vendor name and the name of the rule group in this statement.
@@ -4494,6 +4539,8 @@ type CfnWebACL_ManagedRuleGroupStatementProperty struct {
 	//
 	// This effectively excludes the rule from acting on web requests.
 	ExcludedRules interface{} `json:"excludedRules" yaml:"excludedRules"`
+	// `CfnWebACL.ManagedRuleGroupStatementProperty.ManagedRuleGroupConfigs`.
+	ManagedRuleGroupConfigs interface{} `json:"managedRuleGroupConfigs" yaml:"managedRuleGroupConfigs"`
 	// Statement nested inside a managed rule group statement to narrow the scope of the requests that AWS WAF evaluates using the rule group.
 	//
 	// Requests that match the scope-down statement are evaluated using the rule group. Requests that don't match the scope-down statement are not a match for the managed rule group statement, without any further evaluation.

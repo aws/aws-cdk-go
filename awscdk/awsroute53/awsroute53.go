@@ -2083,6 +2083,16 @@ type CfnHealthCheckProps struct {
 //
 // The `CreateHostedZone` request requires the caller to have an `ec2:DescribeVpcs` permission.
 //
+// > When creating private hosted zones, the Amazon VPC must belong to the same partition where the hosted zone is created. A partition is a group of AWS Regions . Each AWS account is scoped to one partition.
+// >
+// > The following are the supported partitions:
+// >
+// > - `aws` - AWS Regions
+// > - `aws-cn` - China Regions
+// > - `aws-us-gov` - AWS GovCloud (US) Region
+// >
+// > For more information, see [Access Management](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *AWS General Reference* .
+//
 // TODO: EXAMPLE
 //
 type CfnHostedZone interface {

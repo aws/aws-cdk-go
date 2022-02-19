@@ -364,6 +364,9 @@ type AddRouteOptions struct {
 }
 
 // CPU type.
+//
+// TODO: EXAMPLE
+//
 type AmazonLinuxCpuType string
 
 const (
@@ -372,6 +375,9 @@ const (
 )
 
 // Amazon Linux edition.
+//
+// TODO: EXAMPLE
+//
 type AmazonLinuxEdition string
 
 const (
@@ -525,6 +531,8 @@ const (
 	AmazonLinuxKernel_KERNEL5_X AmazonLinuxKernel = "KERNEL5_X"
 )
 
+// TODO: EXAMPLE
+//
 type AmazonLinuxStorage string
 
 const (
@@ -534,6 +542,9 @@ const (
 )
 
 // Virtualization type for Amazon Linux.
+//
+// TODO: EXAMPLE
+//
 type AmazonLinuxVirt string
 
 const (
@@ -1015,6 +1026,8 @@ type BastionHostLinuxProps struct {
 	InstanceType InstanceType `json:"instanceType" yaml:"instanceType"`
 	// The machine image to use, assumed to have SSM Agent preinstalled.
 	MachineImage IMachineImage `json:"machineImage" yaml:"machineImage"`
+	// Whether IMDSv2 should be required on this instance.
+	RequireImdsv2 *bool `json:"requireImdsv2" yaml:"requireImdsv2"`
 	// Security Group to assign to this instance.
 	SecurityGroup ISecurityGroup `json:"securityGroup" yaml:"securityGroup"`
 	// Select the subnets to run the bastion host in.
@@ -7030,9 +7043,9 @@ type CfnDHCPOptionsProps struct {
 	//
 	// If you're using AmazonProvidedDNS in `us-east-1` , specify `ec2.internal` . If you're using AmazonProvidedDNS in another Region, specify *region* . `compute.internal` (for example, `ap-northeast-1.compute.internal` ). Otherwise, specify a domain name (for example, *MyCompany.com* ).
 	DomainName *string `json:"domainName" yaml:"domainName"`
-	// The IPv4 addresses of up to four domain name servers, or AmazonProvidedDNS.
+	// The IPv4 addresses of up to four domain name servers, or `AmazonProvidedDNS` .
 	//
-	// The default DHCP option set specifies `AmazonProvidedDNS` . If specifying more than one domain name server, specify the IP addresses in a single parameter, separated by commas. To have your instance to receive a custom DNS hostname as specified in `DomainName` , you must set this to a custom DNS server.
+	// The default is `AmazonProvidedDNS` . To have your instance receive a custom DNS hostname as specified in `DomainName` , you must set this property to a custom DNS server.
 	DomainNameServers *[]*string `json:"domainNameServers" yaml:"domainNameServers"`
 	// The IPv4 addresses of up to four NetBIOS name servers.
 	NetbiosNameServers *[]*string `json:"netbiosNameServers" yaml:"netbiosNameServers"`
@@ -8066,6 +8079,8 @@ type CfnEC2Fleet_InstanceRequirementsRequestProperty struct {
 	//
 	// This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html) .
 	//
+	// > If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
+	//
 	// Default: `20`
 	OnDemandMaxPricePercentageOverLowestPrice *float64 `json:"onDemandMaxPricePercentageOverLowestPrice" yaml:"onDemandMaxPricePercentageOverLowestPrice"`
 	// Indicates whether instance types must support hibernation for On-Demand Instances.
@@ -8083,6 +8098,8 @@ type CfnEC2Fleet_InstanceRequirementsRequestProperty struct {
 	// To turn off price protection, specify a high value, such as `999999` .
 	//
 	// This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html) .
+	//
+	// > If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
 	//
 	// Default: `100`
 	SpotMaxPricePercentageOverLowestPrice *float64 `json:"spotMaxPricePercentageOverLowestPrice" yaml:"spotMaxPricePercentageOverLowestPrice"`
@@ -15150,6 +15167,8 @@ type CfnInstance interface {
 	Node() constructs.Node
 	PlacementGroupName() *string
 	SetPlacementGroupName(val *string)
+	PrivateDnsNameOptions() interface{}
+	SetPrivateDnsNameOptions(val interface{})
 	PrivateIpAddress() *string
 	SetPrivateIpAddress(val *string)
 	PropagateTagsToVolumeOnCreation() interface{}
@@ -15579,6 +15598,16 @@ func (j *jsiiProxy_CfnInstance) PlacementGroupName() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnInstance) PrivateDnsNameOptions() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"privateDnsNameOptions",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnInstance) PrivateIpAddress() *string {
 	var returns *string
 	_jsii_.Get(
@@ -15968,6 +15997,14 @@ func (j *jsiiProxy_CfnInstance) SetPlacementGroupName(val *string) {
 	_jsii_.Set(
 		j,
 		"placementGroupName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnInstance) SetPrivateDnsNameOptions(val interface{}) {
+	_jsii_.Set(
+		j,
+		"privateDnsNameOptions",
 		val,
 	)
 }
@@ -16676,6 +16713,17 @@ type CfnInstance_NetworkInterfaceProperty struct {
 type CfnInstance_NoDeviceProperty struct {
 }
 
+// TODO: EXAMPLE
+//
+type CfnInstance_PrivateDnsNameOptionsProperty struct {
+	// `CfnInstance.PrivateDnsNameOptionsProperty.EnableResourceNameDnsAAAARecord`.
+	EnableResourceNameDnsAaaaRecord interface{} `json:"enableResourceNameDnsAaaaRecord" yaml:"enableResourceNameDnsAaaaRecord"`
+	// `CfnInstance.PrivateDnsNameOptionsProperty.EnableResourceNameDnsARecord`.
+	EnableResourceNameDnsARecord interface{} `json:"enableResourceNameDnsARecord" yaml:"enableResourceNameDnsARecord"`
+	// `CfnInstance.PrivateDnsNameOptionsProperty.HostnameType`.
+	HostnameType *string `json:"hostnameType" yaml:"hostnameType"`
+}
+
 // Specifies a secondary private IPv4 address for a network interface.
 //
 // `PrivateIpAddressSpecification` is a property of the [AWS::EC2::NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html) resource.
@@ -16846,6 +16894,8 @@ type CfnInstanceProps struct {
 	NetworkInterfaces interface{} `json:"networkInterfaces" yaml:"networkInterfaces"`
 	// The name of an existing placement group that you want to launch the instance into (cluster | partition | spread).
 	PlacementGroupName *string `json:"placementGroupName" yaml:"placementGroupName"`
+	// `AWS::EC2::Instance.PrivateDnsNameOptions`.
+	PrivateDnsNameOptions interface{} `json:"privateDnsNameOptions" yaml:"privateDnsNameOptions"`
 	// [EC2-VPC] The primary IPv4 address. You must specify a value from the IPv4 address range of the subnet.
 	//
 	// Only one private IP address can be designated as primary. You can't specify this option if you've specified the option to designate a private IP address as the primary IP address in a network interface specification. You cannot specify this option if you're launching more than one instance in the request.
@@ -18316,6 +18366,8 @@ type CfnLaunchTemplate_InstanceRequirementsProperty struct {
 	//
 	// This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html) .
 	//
+	// > If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
+	//
 	// Default: `20`
 	OnDemandMaxPricePercentageOverLowestPrice *float64 `json:"onDemandMaxPricePercentageOverLowestPrice" yaml:"onDemandMaxPricePercentageOverLowestPrice"`
 	// Indicates whether instance types must support hibernation for On-Demand Instances.
@@ -18333,6 +18385,8 @@ type CfnLaunchTemplate_InstanceRequirementsProperty struct {
 	// To turn off price protection, specify a high value, such as `999999` .
 	//
 	// This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html) .
+	//
+	// > If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
 	//
 	// Default: `100`
 	SpotMaxPricePercentageOverLowestPrice *float64 `json:"spotMaxPricePercentageOverLowestPrice" yaml:"spotMaxPricePercentageOverLowestPrice"`
@@ -18436,7 +18490,9 @@ type CfnLaunchTemplate_LaunchTemplateDataProperty struct {
 	NetworkInterfaces interface{} `json:"networkInterfaces" yaml:"networkInterfaces"`
 	// The placement for the instance.
 	Placement interface{} `json:"placement" yaml:"placement"`
-	// `CfnLaunchTemplate.LaunchTemplateDataProperty.PrivateDnsNameOptions`.
+	// The options for the instance hostname.
+	//
+	// The default values are inherited from the subnet.
 	PrivateDnsNameOptions interface{} `json:"privateDnsNameOptions" yaml:"privateDnsNameOptions"`
 	// The ID of the RAM disk.
 	//
@@ -18568,7 +18624,11 @@ type CfnLaunchTemplate_MetadataOptionsProperty struct {
 	//
 	// If the state is `required` , you must send a signed token header with any instance metadata retrieval requests. In this state, retrieving the IAM role credentials always returns the version 2.0 credentials; the version 1.0 credentials are not available.
 	HttpTokens *string `json:"httpTokens" yaml:"httpTokens"`
-	// `CfnLaunchTemplate.MetadataOptionsProperty.InstanceMetadataTags`.
+	// Set to `enabled` to allow access to instance tags from the instance metadata.
+	//
+	// Set to `disabled` to turn off access to instance tags from the instance metadata. For more information, see [Work with instance tags using the instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS) .
+	//
+	// Default: `disabled`
 	InstanceMetadataTags *string `json:"instanceMetadataTags" yaml:"instanceMetadataTags"`
 }
 
@@ -18684,14 +18744,18 @@ type CfnLaunchTemplate_PlacementProperty struct {
 	Tenancy *string `json:"tenancy" yaml:"tenancy"`
 }
 
+// Describes the options for instance hostnames.
+//
 // TODO: EXAMPLE
 //
 type CfnLaunchTemplate_PrivateDnsNameOptionsProperty struct {
-	// `CfnLaunchTemplate.PrivateDnsNameOptionsProperty.EnableResourceNameDnsAAAARecord`.
+	// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
 	EnableResourceNameDnsAaaaRecord interface{} `json:"enableResourceNameDnsAaaaRecord" yaml:"enableResourceNameDnsAaaaRecord"`
-	// `CfnLaunchTemplate.PrivateDnsNameOptionsProperty.EnableResourceNameDnsARecord`.
+	// Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
 	EnableResourceNameDnsARecord interface{} `json:"enableResourceNameDnsARecord" yaml:"enableResourceNameDnsARecord"`
-	// `CfnLaunchTemplate.PrivateDnsNameOptionsProperty.HostnameType`.
+	// The type of hostname for Amazon EC2 instances.
+	//
+	// For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID.
 	HostnameType *string `json:"hostnameType" yaml:"hostnameType"`
 }
 
@@ -26290,7 +26354,7 @@ type CfnNetworkInterfaceProps struct {
 	GroupSet *[]*string `json:"groupSet" yaml:"groupSet"`
 	// The type of network interface.
 	//
-	// The default is `interface` .
+	// The default is `interface` . The supported values are `efa` and `trunk` .
 	InterfaceType *string `json:"interfaceType" yaml:"interfaceType"`
 	// The number of IPv6 addresses to assign to a network interface.
 	//
@@ -31781,6 +31845,8 @@ type CfnSpotFleet_InstanceRequirementsRequestProperty struct {
 	//
 	// This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html) .
 	//
+	// > If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
+	//
 	// Default: `20`
 	OnDemandMaxPricePercentageOverLowestPrice *float64 `json:"onDemandMaxPricePercentageOverLowestPrice" yaml:"onDemandMaxPricePercentageOverLowestPrice"`
 	// Indicates whether instance types must support hibernation for On-Demand Instances.
@@ -31798,6 +31864,8 @@ type CfnSpotFleet_InstanceRequirementsRequestProperty struct {
 	// To turn off price protection, specify a high value, such as `999999` .
 	//
 	// This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html) .
+	//
+	// > If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
 	//
 	// Default: `100`
 	SpotMaxPricePercentageOverLowestPrice *float64 `json:"spotMaxPricePercentageOverLowestPrice" yaml:"spotMaxPricePercentageOverLowestPrice"`
@@ -31835,6 +31903,8 @@ type CfnSpotFleet_LaunchTemplateOverridesProperty struct {
 	InstanceRequirements interface{} `json:"instanceRequirements" yaml:"instanceRequirements"`
 	// The instance type.
 	InstanceType *string `json:"instanceType" yaml:"instanceType"`
+	// `CfnSpotFleet.LaunchTemplateOverridesProperty.Priority`.
+	Priority *float64 `json:"priority" yaml:"priority"`
 	// The maximum price per unit hour that you are willing to pay for a Spot Instance.
 	SpotPrice *string `json:"spotPrice" yaml:"spotPrice"`
 	// The ID of the subnet in which to launch the instances.
@@ -32236,20 +32306,28 @@ type CfnSubnet interface {
 	AttrVpcId() *string
 	AvailabilityZone() *string
 	SetAvailabilityZone(val *string)
+	AvailabilityZoneId() *string
+	SetAvailabilityZoneId(val *string)
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
 	CidrBlock() *string
 	SetCidrBlock(val *string)
 	CreationStack() *[]*string
+	EnableDns64() interface{}
+	SetEnableDns64(val interface{})
 	Ipv6CidrBlock() *string
 	SetIpv6CidrBlock(val *string)
+	Ipv6Native() interface{}
+	SetIpv6Native(val interface{})
 	LogicalId() *string
 	MapPublicIpOnLaunch() interface{}
 	SetMapPublicIpOnLaunch(val interface{})
 	Node() constructs.Node
 	OutpostArn() *string
 	SetOutpostArn(val *string)
+	PrivateDnsNameOptionsOnLaunch() interface{}
+	SetPrivateDnsNameOptionsOnLaunch(val interface{})
 	Ref() *string
 	Stack() awscdk.Stack
 	Tags() awscdk.TagManager
@@ -32349,6 +32427,16 @@ func (j *jsiiProxy_CfnSubnet) AvailabilityZone() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSubnet) AvailabilityZoneId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"availabilityZoneId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSubnet) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -32399,11 +32487,31 @@ func (j *jsiiProxy_CfnSubnet) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSubnet) EnableDns64() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"enableDns64",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSubnet) Ipv6CidrBlock() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"ipv6CidrBlock",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSubnet) Ipv6Native() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"ipv6Native",
 		&returns,
 	)
 	return returns
@@ -32444,6 +32552,16 @@ func (j *jsiiProxy_CfnSubnet) OutpostArn() *string {
 	_jsii_.Get(
 		j,
 		"outpostArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSubnet) PrivateDnsNameOptionsOnLaunch() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"privateDnsNameOptionsOnLaunch",
 		&returns,
 	)
 	return returns
@@ -32542,6 +32660,14 @@ func (j *jsiiProxy_CfnSubnet) SetAvailabilityZone(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnSubnet) SetAvailabilityZoneId(val *string) {
+	_jsii_.Set(
+		j,
+		"availabilityZoneId",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnSubnet) SetCidrBlock(val *string) {
 	_jsii_.Set(
 		j,
@@ -32550,10 +32676,26 @@ func (j *jsiiProxy_CfnSubnet) SetCidrBlock(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnSubnet) SetEnableDns64(val interface{}) {
+	_jsii_.Set(
+		j,
+		"enableDns64",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnSubnet) SetIpv6CidrBlock(val *string) {
 	_jsii_.Set(
 		j,
 		"ipv6CidrBlock",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSubnet) SetIpv6Native(val interface{}) {
+	_jsii_.Set(
+		j,
+		"ipv6Native",
 		val,
 	)
 }
@@ -32570,6 +32712,14 @@ func (j *jsiiProxy_CfnSubnet) SetOutpostArn(val *string) {
 	_jsii_.Set(
 		j,
 		"outpostArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSubnet) SetPrivateDnsNameOptionsOnLaunch(val interface{}) {
+	_jsii_.Set(
+		j,
+		"privateDnsNameOptionsOnLaunch",
 		val,
 	)
 }
@@ -32880,6 +33030,21 @@ func (c *jsiiProxy_CfnSubnet) ValidateProperties(_properties interface{}) {
 		"validateProperties",
 		[]interface{}{_properties},
 	)
+}
+
+// Describes the options for instance hostnames.
+//
+// TODO: EXAMPLE
+//
+type CfnSubnet_PrivateDnsNameOptionsOnLaunchProperty struct {
+	// Indicates whether to respond to DNS queries for instance hostname with DNS AAAA records.
+	EnableResourceNameDnsAaaaRecord interface{} `json:"enableResourceNameDnsAaaaRecord" yaml:"enableResourceNameDnsAaaaRecord"`
+	// Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+	EnableResourceNameDnsARecord interface{} `json:"enableResourceNameDnsARecord" yaml:"enableResourceNameDnsARecord"`
+	// The type of hostname for EC2 instances.
+	//
+	// For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID.
+	HostnameType *string `json:"hostnameType" yaml:"hostnameType"`
 }
 
 // A CloudFormation `AWS::EC2::SubnetCidrBlock`.
@@ -33938,16 +34103,30 @@ type CfnSubnetProps struct {
 	//
 	// If you update this property, you must also update the `CidrBlock` property.
 	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
+	// The AZ ID of the subnet.
+	AvailabilityZoneId *string `json:"availabilityZoneId" yaml:"availabilityZoneId"`
+	// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations.
+	//
+	// For more information, see [DNS64 and NAT64](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-nat64-dns64) in the *Amazon Virtual Private Cloud User Guide* .
+	EnableDns64 interface{} `json:"enableDns64" yaml:"enableDns64"`
 	// The IPv6 CIDR block.
 	//
 	// If you specify `AssignIpv6AddressOnCreation` , you must also specify `Ipv6CidrBlock` .
 	Ipv6CidrBlock *string `json:"ipv6CidrBlock" yaml:"ipv6CidrBlock"`
+	// Indicates whether this is an IPv6 only subnet.
+	//
+	// For more information, see [Subnet basics](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#subnet-basics) in the *Amazon Virtual Private Cloud User Guide* .
+	Ipv6Native interface{} `json:"ipv6Native" yaml:"ipv6Native"`
 	// Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is `false` .
 	//
 	// If you specify `MapPublicIpOnLaunch` , you cannot specify `AssignIpv6AddressOnCreation` .
 	MapPublicIpOnLaunch interface{} `json:"mapPublicIpOnLaunch" yaml:"mapPublicIpOnLaunch"`
 	// The Amazon Resource Name (ARN) of the Outpost.
 	OutpostArn *string `json:"outpostArn" yaml:"outpostArn"`
+	// The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled.
+	//
+	// For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *Amazon Elastic Compute Cloud User Guide* .
+	PrivateDnsNameOptionsOnLaunch interface{} `json:"privateDnsNameOptionsOnLaunch" yaml:"privateDnsNameOptionsOnLaunch"`
 	// Any tags assigned to the subnet.
 	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
@@ -44524,6 +44703,10 @@ type CfnVPC interface {
 	SetEnableDnsSupport(val interface{})
 	InstanceTenancy() *string
 	SetInstanceTenancy(val *string)
+	Ipv4IpamPoolId() *string
+	SetIpv4IpamPoolId(val *string)
+	Ipv4NetmaskLength() *float64
+	SetIpv4NetmaskLength(val *float64)
 	LogicalId() *string
 	Node() constructs.Node
 	Ref() *string
@@ -44683,6 +44866,26 @@ func (j *jsiiProxy_CfnVPC) InstanceTenancy() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVPC) Ipv4IpamPoolId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ipv4IpamPoolId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPC) Ipv4NetmaskLength() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"ipv4NetmaskLength",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVPC) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -44798,6 +45001,22 @@ func (j *jsiiProxy_CfnVPC) SetInstanceTenancy(val *string) {
 	_jsii_.Set(
 		j,
 		"instanceTenancy",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVPC) SetIpv4IpamPoolId(val *string) {
+	_jsii_.Set(
+		j,
+		"ipv4IpamPoolId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVPC) SetIpv4NetmaskLength(val *float64) {
+	_jsii_.Set(
+		j,
+		"ipv4NetmaskLength",
 		val,
 	)
 }
@@ -45121,8 +45340,16 @@ type CfnVPCCidrBlock interface {
 	CidrBlock() *string
 	SetCidrBlock(val *string)
 	CreationStack() *[]*string
+	Ipv4IpamPoolId() *string
+	SetIpv4IpamPoolId(val *string)
+	Ipv4NetmaskLength() *float64
+	SetIpv4NetmaskLength(val *float64)
 	Ipv6CidrBlock() *string
 	SetIpv6CidrBlock(val *string)
+	Ipv6IpamPoolId() *string
+	SetIpv6IpamPoolId(val *string)
+	Ipv6NetmaskLength() *float64
+	SetIpv6NetmaskLength(val *float64)
 	Ipv6Pool() *string
 	SetIpv6Pool(val *string)
 	LogicalId() *string
@@ -45215,11 +45442,51 @@ func (j *jsiiProxy_CfnVPCCidrBlock) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVPCCidrBlock) Ipv4IpamPoolId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ipv4IpamPoolId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPCCidrBlock) Ipv4NetmaskLength() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"ipv4NetmaskLength",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVPCCidrBlock) Ipv6CidrBlock() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"ipv6CidrBlock",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPCCidrBlock) Ipv6IpamPoolId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ipv6IpamPoolId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPCCidrBlock) Ipv6NetmaskLength() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"ipv6NetmaskLength",
 		&returns,
 	)
 	return returns
@@ -45338,10 +45605,42 @@ func (j *jsiiProxy_CfnVPCCidrBlock) SetCidrBlock(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnVPCCidrBlock) SetIpv4IpamPoolId(val *string) {
+	_jsii_.Set(
+		j,
+		"ipv4IpamPoolId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVPCCidrBlock) SetIpv4NetmaskLength(val *float64) {
+	_jsii_.Set(
+		j,
+		"ipv4NetmaskLength",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnVPCCidrBlock) SetIpv6CidrBlock(val *string) {
 	_jsii_.Set(
 		j,
 		"ipv6CidrBlock",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVPCCidrBlock) SetIpv6IpamPoolId(val *string) {
+	_jsii_.Set(
+		j,
+		"ipv6IpamPoolId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVPCCidrBlock) SetIpv6NetmaskLength(val *float64) {
+	_jsii_.Set(
+		j,
+		"ipv6NetmaskLength",
 		val,
 	)
 }
@@ -45675,10 +45974,26 @@ type CfnVPCCidrBlockProps struct {
 	AmazonProvidedIpv6CidrBlock interface{} `json:"amazonProvidedIpv6CidrBlock" yaml:"amazonProvidedIpv6CidrBlock"`
 	// An IPv4 CIDR block to associate with the VPC.
 	CidrBlock *string `json:"cidrBlock" yaml:"cidrBlock"`
+	// Associate a CIDR allocated from an IPv4 IPAM pool to a VPC.
+	//
+	// For more information about Amazon VPC IP Address Manager (IPAM), see [What is IPAM?](https://docs.aws.amazon.com//vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide* .
+	Ipv4IpamPoolId *string `json:"ipv4IpamPoolId" yaml:"ipv4IpamPoolId"`
+	// The netmask length of the IPv4 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool.
+	//
+	// For more information about IPAM, see [What is IPAM?](https://docs.aws.amazon.com//vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide* .
+	Ipv4NetmaskLength *float64 `json:"ipv4NetmaskLength" yaml:"ipv4NetmaskLength"`
 	// An IPv6 CIDR block from the IPv6 address pool. You must also specify `Ipv6Pool` in the request.
 	//
 	// To let Amazon choose the IPv6 CIDR block for you, omit this parameter.
 	Ipv6CidrBlock *string `json:"ipv6CidrBlock" yaml:"ipv6CidrBlock"`
+	// Associates a CIDR allocated from an IPv6 IPAM pool to a VPC.
+	//
+	// For more information about Amazon VPC IP Address Manager (IPAM), see [What is IPAM?](https://docs.aws.amazon.com//vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide* .
+	Ipv6IpamPoolId *string `json:"ipv6IpamPoolId" yaml:"ipv6IpamPoolId"`
+	// The netmask length of the IPv6 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool.
+	//
+	// For more information about IPAM, see [What is IPAM?](https://docs.aws.amazon.com//vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide* .
+	Ipv6NetmaskLength *float64 `json:"ipv6NetmaskLength" yaml:"ipv6NetmaskLength"`
 	// The ID of an IPv6 address pool from which to allocate the IPv6 CIDR block.
 	Ipv6Pool *string `json:"ipv6Pool" yaml:"ipv6Pool"`
 }
@@ -46207,15 +46522,13 @@ type CfnVPCDHCPOptionsAssociationProps struct {
 
 // A CloudFormation `AWS::EC2::VPCEndpoint`.
 //
-// Specifies a VPC endpoint for a service. An endpoint enables you to create a private connection between your VPC and the service. The service may be provided by AWS , an AWS Marketplace Partner, or another AWS account. For more information, see [VPC Endpoints](https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints.html) in the *AWS PrivateLink User Guide* .
+// Specifies a VPC endpoint for a service. An endpoint enables you to create a private connection between your VPC and the service. The service may be provided by AWS , an AWS Marketplace Partner, or another AWS account. For more information, see the [AWS PrivateLink User Guide](https://docs.aws.amazon.com/vpc/latest/privatelink/) .
 //
-// A `gateway` endpoint serves as a target for a route in your route table for traffic destined for the AWS service. You can specify an endpoint policy to attach to the endpoint, which controls access to the service from your VPC. You can also specify the VPC route tables that use the endpoint.
+// An interface endpoint establishes connections between the subnets in your VPC and an AWS service, your own service, or a service hosted by another AWS account . You can specify the subnets in which to create the endpoint and the security groups to associate with the endpoint network interface.
 //
-// For information about connectivity when you use a gateway endpoint to connect to an Amazon S3 bucket from an EC2 instance, see [Why can’t I connect to an S3 bucket using a gateway VPC endpoint](https://docs.aws.amazon.com/premiumsupport/knowledge-center/connect-s3-vpc-endpoint) .
+// A gateway endpoint serves as a target for a route in your route table for traffic destined for Amazon S3 or Amazon DynamoDB. You can specify an endpoint policy for the endpoint, which controls access to the service from your VPC. You can also specify the VPC route tables that use the endpoint. For information about connectivity to Amazon S3, see [Why can’t I connect to an S3 bucket using a gateway VPC endpoint?](https://docs.aws.amazon.com/premiumsupport/knowledge-center/connect-s3-vpc-endpoint)
 //
-// An `interface` endpoint is a network interface in your subnet that serves as an endpoint for communicating with the specified service. You can specify the subnets in which to create an endpoint, and the security groups to associate with the endpoint network interface.
-//
-// A `GatewayLoadBalancer` endpoint is a network interface in your subnet that serves an endpoint for communicating with a Gateway Load Balancer that you've configured as a VPC endpoint service.
+// A Gateway Load Balancer endpoint provides private connectivity between your VPC and virtual appliances from a service provider.
 //
 // TODO: EXAMPLE
 //
@@ -47428,31 +47741,37 @@ type CfnVPCEndpointConnectionNotificationProps struct {
 type CfnVPCEndpointProps struct {
 	// The service name.
 	//
-	// To get a list of available services, use the [DescribeVpcEndpointServices](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpointServices.html) request, or get the name from the service provider.
+	// To list the available services, use [DescribeVpcEndpointServices](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpointServices.html) . Otherwise, get the name from the service provider.
 	ServiceName *string `json:"serviceName" yaml:"serviceName"`
 	// The ID of the VPC in which the endpoint will be used.
 	VpcId *string `json:"vpcId" yaml:"vpcId"`
-	// (Interface and gateway endpoints) A policy to attach to the endpoint that controls access to the service.
+	// A policy that controls access to the service from the VPC.
 	//
-	// If this parameter is not specified, we attach a default policy that allows full access to the service.
+	// If this parameter is not specified, the default policy allows full access to the service. Endpoint policies are supported only for gateway and interface endpoints.
 	//
 	// For CloudFormation templates in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation converts YAML policies to JSON format before calling the API to create or modify the VPC endpoint.
 	PolicyDocument interface{} `json:"policyDocument" yaml:"policyDocument"`
-	// (Interface endpoint) Indicate whether to associate a private hosted zone with the specified VPC.
+	// Indicate whether to associate a private hosted zone with the specified VPC.
 	//
-	// The private hosted zone contains a record set for the default public DNS name for the service for the Region (for example, `kinesis.us-east-1.amazonaws.com` ) which resolves to the private IP addresses of the endpoint network interfaces in the VPC. This enables you to make requests to the default public DNS name for the service instead of the public DNS names that are automatically generated by the VPC endpoint service.
+	// The private hosted zone contains a record set for the default public DNS name for the service for the Region (for example, `kinesis.us-east-1.amazonaws.com` ), which resolves to the private IP addresses of the endpoint network interfaces in the VPC. This enables you to make requests to the default public DNS name for the service instead of the public DNS names that are automatically generated by the VPC endpoint service.
 	//
 	// To use a private hosted zone, you must set the following VPC attributes to `true` : `enableDnsHostnames` and `enableDnsSupport` .
 	//
+	// This property is supported only for interface endpoints.
+	//
 	// Default: `false`
 	PrivateDnsEnabled interface{} `json:"privateDnsEnabled" yaml:"privateDnsEnabled"`
-	// (Gateway endpoint) One or more route table IDs.
-	RouteTableIds *[]*string `json:"routeTableIds" yaml:"routeTableIds"`
-	// (Interface endpoint) The ID of one or more security groups to associate with the endpoint network interface.
-	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
-	// (Interface and Gateway Load Balancer endpoints) The ID of one or more subnets in which to create an endpoint network interface.
+	// The route table IDs.
 	//
-	// For a Gateway Load Balancer endpoint, you can specify one subnet only.
+	// Routing is supported only for gateway endpoints.
+	RouteTableIds *[]*string `json:"routeTableIds" yaml:"routeTableIds"`
+	// The IDs of the security groups to associate with the endpoint network interface.
+	//
+	// Security groups are supported only for interface endpoints.
+	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
+	// The ID of the subnets in which to create an endpoint network interface.
+	//
+	// You must specify this property for an interface endpoints or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
 	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
 	// The type of endpoint.
 	//
@@ -49694,6 +50013,14 @@ type CfnVPCProps struct {
 	//
 	// Updating `InstanceTenancy` requires no replacement only if you are updating its value from `"dedicated"` to `"default"` . Updating `InstanceTenancy` from `"default"` to `"dedicated"` requires replacement.
 	InstanceTenancy *string `json:"instanceTenancy" yaml:"instanceTenancy"`
+	// The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR.
+	//
+	// For more information, see [What is IPAM?](https://docs.aws.amazon.com//vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide* .
+	Ipv4IpamPoolId *string `json:"ipv4IpamPoolId" yaml:"ipv4IpamPoolId"`
+	// The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool.
+	//
+	// For more information about IPAM, see [What is IPAM?](https://docs.aws.amazon.com//vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide* .
+	Ipv4NetmaskLength *float64 `json:"ipv4NetmaskLength" yaml:"ipv4NetmaskLength"`
 	// The tags for the VPC.
 	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
@@ -62697,6 +63024,9 @@ type NetworkAclProps struct {
 }
 
 // The OS type of a particular image.
+//
+// TODO: EXAMPLE
+//
 type OperatingSystemType string
 
 const (
@@ -67783,6 +68113,8 @@ type VpcProps struct {
 	// ```
 	SubnetConfiguration *[]*SubnetConfiguration `json:"subnetConfiguration" yaml:"subnetConfiguration"`
 	// The VPC name.
+	//
+	// Since the VPC resource doesn't support providing a physical name, the value provided here will be recorded in the `Name` tag
 	VpcName *string `json:"vpcName" yaml:"vpcName"`
 	// VPN connections to this VPC.
 	VpnConnections *map[string]*VpnConnectionOptions `json:"vpnConnections" yaml:"vpnConnections"`
@@ -68549,6 +68881,9 @@ type WindowsImageProps struct {
 }
 
 // The Windows version to use for the WindowsImage.
+//
+// TODO: EXAMPLE
+//
 type WindowsVersion string
 
 const (

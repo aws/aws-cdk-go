@@ -2326,6 +2326,9 @@ type S3SourceOptions struct {
 
 // Run shell script commands in the pipeline.
 //
+// This is a generic step designed
+// to be deployment engine agnostic.
+//
 // TODO: EXAMPLE
 //
 type ShellStep interface {

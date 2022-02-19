@@ -4,6 +4,7 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesis"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
@@ -25,26 +26,26 @@ type jsiiProxy_KinesisDestination struct {
 	internal.Type__awslogsILogSubscriptionDestination
 }
 
-func NewKinesisDestination(stream awskinesis.IStream) KinesisDestination {
+func NewKinesisDestination(stream awskinesis.IStream, props *KinesisDestinationProps) KinesisDestination {
 	_init_.Initialize()
 
 	j := jsiiProxy_KinesisDestination{}
 
 	_jsii_.Create(
 		"aws-cdk-lib.aws_logs_destinations.KinesisDestination",
-		[]interface{}{stream},
+		[]interface{}{stream, props},
 		&j,
 	)
 
 	return &j
 }
 
-func NewKinesisDestination_Override(k KinesisDestination, stream awskinesis.IStream) {
+func NewKinesisDestination_Override(k KinesisDestination, stream awskinesis.IStream, props *KinesisDestinationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"aws-cdk-lib.aws_logs_destinations.KinesisDestination",
-		[]interface{}{stream},
+		[]interface{}{stream, props},
 		k,
 	)
 }
@@ -68,6 +69,15 @@ func (k *jsiiProxy_KinesisDestination) Bind(scope constructs.Construct, _sourceL
 	)
 
 	return returns
+}
+
+// Customize the Kinesis Logs Destination.
+//
+// TODO: EXAMPLE
+//
+type KinesisDestinationProps struct {
+	// The role to assume to write log events to the destination.
+	Role awsiam.IRole `json:"role" yaml:"role"`
 }
 
 // Use a Lambda Function as the destination for a log subscription.

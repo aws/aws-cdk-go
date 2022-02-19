@@ -666,6 +666,8 @@ type CfnAuthorizer interface {
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
 	CreationStack() *[]*string
+	EnableCachingForHttp() interface{}
+	SetEnableCachingForHttp(val interface{})
 	LogicalId() *string
 	Node() constructs.Node
 	Ref() *string
@@ -768,6 +770,16 @@ func (j *jsiiProxy_CfnAuthorizer) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAuthorizer) EnableCachingForHttp() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"enableCachingForHttp",
 		&returns,
 	)
 	return returns
@@ -912,6 +924,14 @@ func (j *jsiiProxy_CfnAuthorizer) SetAuthorizerName(val *string) {
 	_jsii_.Set(
 		j,
 		"authorizerName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAuthorizer) SetEnableCachingForHttp(val interface{}) {
+	_jsii_.Set(
+		j,
+		"enableCachingForHttp",
 		val,
 	)
 }
@@ -1257,6 +1277,8 @@ type CfnAuthorizerProps struct {
 	AuthorizerFunctionArn *string `json:"authorizerFunctionArn" yaml:"authorizerFunctionArn"`
 	// The authorizer name.
 	AuthorizerName *string `json:"authorizerName" yaml:"authorizerName"`
+	// `AWS::IoT::Authorizer.EnableCachingForHttp`.
+	EnableCachingForHttp interface{} `json:"enableCachingForHttp" yaml:"enableCachingForHttp"`
 	// Specifies whether AWS IoT validates the token signature in an authorization request.
 	SigningDisabled interface{} `json:"signingDisabled" yaml:"signingDisabled"`
 	// The status of the authorizer.
@@ -2427,17 +2449,17 @@ func (c *jsiiProxy_CfnCustomMetric) ValidateProperties(_properties interface{}) 
 // TODO: EXAMPLE
 //
 type CfnCustomMetricProps struct {
-	// The type of the custom metric.
+	// The type of the custom metric. Types include `string-list` , `ip-address-list` , `number-list` , and `number` .
 	//
-	// Types include `string-list` , `ip-address-list` , and `number-list` .
+	// > The type `number` only takes a single metric value as an input, but when you submit the metrics value in the DeviceMetrics report, you must pass it as an array with a single value.
 	MetricType *string `json:"metricType" yaml:"metricType"`
-	// Field that represents a friendly name in the console for the custom metric;
+	// The friendly name in the console for the custom metric.
 	//
-	// it doesn't have to be unique. Don't use this name as the metric identifier in the device metric report. Can be updated.
+	// This name doesn't have to be unique. Don't use this name as the metric identifier in the device metric report. You can update the friendly name after you define it.
 	DisplayName *string `json:"displayName" yaml:"displayName"`
 	// The name of the custom metric.
 	//
-	// This will be used in the metric report submitted from the device/thing. It shouldn't begin with `aws:` . Cannot be updated once it's defined.
+	// This will be used in the metric report submitted from the device/thing. The name can't begin with `aws:` . You can’t change the name after you define it.
 	MetricName *string `json:"metricName" yaml:"metricName"`
 	// Metadata that can be used to manage the custom metric.
 	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`

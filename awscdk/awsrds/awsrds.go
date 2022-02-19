@@ -605,6 +605,17 @@ func AuroraMysqlEngineVersion_VER_2_10_1() AuroraMysqlEngineVersion {
 	return returns
 }
 
+func AuroraMysqlEngineVersion_VER_2_10_2() AuroraMysqlEngineVersion {
+	_init_.Initialize()
+	var returns AuroraMysqlEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"VER_2_10_2",
+		&returns,
+	)
+	return returns
+}
+
 func AuroraMysqlEngineVersion_VER_3_01_0() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
@@ -4716,13 +4727,23 @@ type CfnDBInstanceProps struct {
 	//
 	// By default, minor engine upgrades are applied automatically.
 	AutoMinorVersionUpgrade interface{} `json:"autoMinorVersionUpgrade" yaml:"autoMinorVersionUpgrade"`
-	// The Availability Zone that the database instance will be created in.
+	// The Availability Zone (AZ) where the database will be created.
 	//
-	// Default: A random, system-chosen Availability Zone in the endpoint's region.
+	// For information on AWS Regions and Availability Zones, see [Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html) .
+	//
+	// *Amazon Aurora*
+	//
+	// Not applicable. Availability Zones are managed by the DB cluster.
+	//
+	// Default: A random, system-chosen Availability Zone in the endpoint's AWS Region.
 	//
 	// Example: `us-east-1d`
 	//
-	// Constraint: The AvailabilityZone parameter cannot be specified if the MultiAZ parameter is set to `true` . The specified Availability Zone must be in the same region as the current endpoint.
+	// Constraint: The `AvailabilityZone` parameter can't be specified if the DB instance is a Multi-AZ deployment. The specified Availability Zone must be in the same AWS Region as the current endpoint.
+	//
+	// > If you're creating a DB instance in an RDS on VMware environment, specify the identifier of the custom Availability Zone to create the DB instance in.
+	// >
+	// > For more information about RDS on VMware, see the [RDS on VMware User Guide.](https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html)
 	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
 	// The number of days for which automated backups are retained.
 	//
@@ -5865,7 +5886,7 @@ func (c *jsiiProxy_CfnDBParameterGroup) ValidateProperties(_properties interface
 // TODO: EXAMPLE
 //
 type CfnDBParameterGroupProps struct {
-	// Provides the customer-specified description for this DB Parameter Group.
+	// Provides the customer-specified description for this DB parameter group.
 	Description *string `json:"description" yaml:"description"`
 	// The DB parameter group family name.
 	//
@@ -8509,17 +8530,17 @@ func (c *jsiiProxy_CfnDBSecurityGroup) ValidateProperties(_properties interface{
 type CfnDBSecurityGroup_IngressProperty struct {
 	// The IP range to authorize.
 	Cidrip *string `json:"cidrip" yaml:"cidrip"`
-	// Id of the EC2 Security Group to authorize.
+	// Id of the EC2 security group to authorize.
 	//
-	// For VPC DB Security Groups, `EC2SecurityGroupId` must be provided. Otherwise, EC2SecurityGroupOwnerId and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
+	// For VPC DB security groups, `EC2SecurityGroupId` must be provided. Otherwise, `EC2SecurityGroupOwnerId` and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
 	Ec2SecurityGroupId *string `json:"ec2SecurityGroupId" yaml:"ec2SecurityGroupId"`
-	// Name of the EC2 Security Group to authorize.
+	// Name of the EC2 security group to authorize.
 	//
-	// For VPC DB Security Groups, `EC2SecurityGroupId` must be provided. Otherwise, EC2SecurityGroupOwnerId and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
+	// For VPC DB security groups, `EC2SecurityGroupId` must be provided. Otherwise, `EC2SecurityGroupOwnerId` and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
 	Ec2SecurityGroupName *string `json:"ec2SecurityGroupName" yaml:"ec2SecurityGroupName"`
-	// AWS Account Number of the owner of the EC2 Security Group specified in the EC2SecurityGroupName parameter.
+	// AWS account number of the owner of the EC2 security group specified in the `EC2SecurityGroupName` parameter.
 	//
-	// The AWS Access Key ID is not an acceptable value. For VPC DB Security Groups, `EC2SecurityGroupId` must be provided. Otherwise, EC2SecurityGroupOwnerId and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
+	// The AWS access key ID isn't an acceptable value. For VPC DB security groups, `EC2SecurityGroupId` must be provided. Otherwise, `EC2SecurityGroupOwnerId` and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
 	Ec2SecurityGroupOwnerId *string `json:"ec2SecurityGroupOwnerId" yaml:"ec2SecurityGroupOwnerId"`
 }
 
@@ -9090,21 +9111,21 @@ func (c *jsiiProxy_CfnDBSecurityGroupIngress) ValidateProperties(_properties int
 // TODO: EXAMPLE
 //
 type CfnDBSecurityGroupIngressProps struct {
-	// The name of the DB Security Group to add authorization to.
+	// The name of the DB security group to add authorization to.
 	DbSecurityGroupName *string `json:"dbSecurityGroupName" yaml:"dbSecurityGroupName"`
 	// The IP range to authorize.
 	Cidrip *string `json:"cidrip" yaml:"cidrip"`
-	// Id of the EC2 Security Group to authorize.
+	// Id of the EC2 security group to authorize.
 	//
-	// For VPC DB Security Groups, `EC2SecurityGroupId` must be provided. Otherwise, EC2SecurityGroupOwnerId and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
+	// For VPC DB security groups, `EC2SecurityGroupId` must be provided. Otherwise, `EC2SecurityGroupOwnerId` and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
 	Ec2SecurityGroupId *string `json:"ec2SecurityGroupId" yaml:"ec2SecurityGroupId"`
-	// Name of the EC2 Security Group to authorize.
+	// Name of the EC2 security group to authorize.
 	//
-	// For VPC DB Security Groups, `EC2SecurityGroupId` must be provided. Otherwise, EC2SecurityGroupOwnerId and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
+	// For VPC DB security groups, `EC2SecurityGroupId` must be provided. Otherwise, `EC2SecurityGroupOwnerId` and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
 	Ec2SecurityGroupName *string `json:"ec2SecurityGroupName" yaml:"ec2SecurityGroupName"`
-	// AWS Account Number of the owner of the EC2 Security Group specified in the EC2SecurityGroupName parameter.
+	// AWS account number of the owner of the EC2 security group specified in the `EC2SecurityGroupName` parameter.
 	//
-	// The AWS Access Key ID is not an acceptable value. For VPC DB Security Groups, `EC2SecurityGroupId` must be provided. Otherwise, EC2SecurityGroupOwnerId and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
+	// The AWS access key ID isn't an acceptable value. For VPC DB security groups, `EC2SecurityGroupId` must be provided. Otherwise, `EC2SecurityGroupOwnerId` and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
 	Ec2SecurityGroupOwnerId *string `json:"ec2SecurityGroupOwnerId" yaml:"ec2SecurityGroupOwnerId"`
 }
 
@@ -9115,7 +9136,7 @@ type CfnDBSecurityGroupIngressProps struct {
 type CfnDBSecurityGroupProps struct {
 	// Ingress rules to be applied to the DB security group.
 	DbSecurityGroupIngress interface{} `json:"dbSecurityGroupIngress" yaml:"dbSecurityGroupIngress"`
-	// Provides the description of the DB Security Group.
+	// Provides the description of the DB security group.
 	GroupDescription *string `json:"groupDescription" yaml:"groupDescription"`
 	// The identifier of an Amazon VPC. This property indicates the VPC that this DB security group belongs to.
 	//
@@ -9661,9 +9682,9 @@ func (c *jsiiProxy_CfnDBSubnetGroup) ValidateProperties(_properties interface{})
 // TODO: EXAMPLE
 //
 type CfnDBSubnetGroupProps struct {
-	// The description for the DB Subnet Group.
+	// The description for the DB subnet group.
 	DbSubnetGroupDescription *string `json:"dbSubnetGroupDescription" yaml:"dbSubnetGroupDescription"`
-	// The EC2 Subnet IDs for the DB Subnet Group.
+	// The EC2 Subnet IDs for the DB subnet group.
 	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
 	// The name for the DB subnet group. This value is stored as a lowercase string.
 	//
@@ -10242,13 +10263,13 @@ type CfnEventSubscriptionProps struct {
 	//
 	// The ARN is created by Amazon SNS when you create a topic and subscribe to it.
 	SnsTopicArn *string `json:"snsTopicArn" yaml:"snsTopicArn"`
-	// A Boolean value;
+	// A value that indicates whether to activate the subscription.
 	//
-	// set to *true* to activate the subscription, set to *false* to create the subscription but not active it.
+	// If the event notification subscription isn't activated, the subscription is created but not active.
 	Enabled interface{} `json:"enabled" yaml:"enabled"`
-	// A list of event categories for a SourceType that you want to subscribe to.
+	// A list of event categories for a particular source type ( `SourceType` ) that you want to subscribe to.
 	//
-	// You can see a list of the categories for a given SourceType in the [Events](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html) topic in the Amazon RDS User Guide or by using the *DescribeEventCategories* action.
+	// You can see a list of the categories for a given source type in the "Amazon RDS event categories and event messages" section of the [*Amazon RDS User Guide*](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.Messages.html) or the [*Amazon Aurora User Guide*](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Events.Messages.html) . You can also see this list by using the `DescribeEventCategories` operation.
 	EventCategories *[]*string `json:"eventCategories" yaml:"eventCategories"`
 	// The list of identifiers of the event sources for which events are returned.
 	//
@@ -13755,6 +13776,11 @@ type DatabaseClusterFromSnapshotProps struct {
 	MonitoringRole awsiam.IRole `json:"monitoringRole" yaml:"monitoringRole"`
 	// Additional parameters to pass to the database engine.
 	ParameterGroup IParameterGroup `json:"parameterGroup" yaml:"parameterGroup"`
+	// The parameters in the DBClusterParameterGroup to create automatically.
+	//
+	// You can only specify parameterGroup or parameters but not both.
+	// You need to use a versioned engine to auto-generate a DBClusterParameterGroup.
+	Parameters *map[string]*string `json:"parameters" yaml:"parameters"`
 	// What port to listen on.
 	Port *float64 `json:"port" yaml:"port"`
 	// A preferred maintenance window day/time range. Should be specified as a range ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC).
@@ -13861,6 +13887,11 @@ type DatabaseClusterProps struct {
 	MonitoringRole awsiam.IRole `json:"monitoringRole" yaml:"monitoringRole"`
 	// Additional parameters to pass to the database engine.
 	ParameterGroup IParameterGroup `json:"parameterGroup" yaml:"parameterGroup"`
+	// The parameters in the DBClusterParameterGroup to create automatically.
+	//
+	// You can only specify parameterGroup or parameters but not both.
+	// You need to use a versioned engine to auto-generate a DBClusterParameterGroup.
+	Parameters *map[string]*string `json:"parameters" yaml:"parameters"`
 	// What port to listen on.
 	Port *float64 `json:"port" yaml:"port"`
 	// A preferred maintenance window day/time range. Should be specified as a range ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC).
@@ -16058,6 +16089,11 @@ type DatabaseInstanceFromSnapshotProps struct {
 	InstanceType awsec2.InstanceType `json:"instanceType" yaml:"instanceType"`
 	// The license model.
 	LicenseModel LicenseModel `json:"licenseModel" yaml:"licenseModel"`
+	// The parameters in the DBParameterGroup to create automatically.
+	//
+	// You can only specify parameterGroup or parameters but not both.
+	// You need to use a versioned engine to auto-generate a DBParameterGroup.
+	Parameters *map[string]*string `json:"parameters" yaml:"parameters"`
 	// The time zone of the instance.
 	//
 	// This is currently supported only by Microsoft Sql Server.
@@ -16368,6 +16404,11 @@ type DatabaseInstanceProps struct {
 	InstanceType awsec2.InstanceType `json:"instanceType" yaml:"instanceType"`
 	// The license model.
 	LicenseModel LicenseModel `json:"licenseModel" yaml:"licenseModel"`
+	// The parameters in the DBParameterGroup to create automatically.
+	//
+	// You can only specify parameterGroup or parameters but not both.
+	// You need to use a versioned engine to auto-generate a DBParameterGroup.
+	Parameters *map[string]*string `json:"parameters" yaml:"parameters"`
 	// The time zone of the instance.
 	//
 	// This is currently supported only by Microsoft Sql Server.
@@ -17238,6 +17279,11 @@ type DatabaseInstanceSourceProps struct {
 	InstanceType awsec2.InstanceType `json:"instanceType" yaml:"instanceType"`
 	// The license model.
 	LicenseModel LicenseModel `json:"licenseModel" yaml:"licenseModel"`
+	// The parameters in the DBParameterGroup to create automatically.
+	//
+	// You can only specify parameterGroup or parameters but not both.
+	// You need to use a versioned engine to auto-generate a DBParameterGroup.
+	Parameters *map[string]*string `json:"parameters" yaml:"parameters"`
 	// The time zone of the instance.
 	//
 	// This is currently supported only by Microsoft Sql Server.
@@ -19623,6 +19669,11 @@ type InstanceProps struct {
 	InstanceType awsec2.InstanceType `json:"instanceType" yaml:"instanceType"`
 	// The DB parameter group to associate with the instance.
 	ParameterGroup IParameterGroup `json:"parameterGroup" yaml:"parameterGroup"`
+	// The parameters in the DBParameterGroup to create automatically.
+	//
+	// You can only specify parameterGroup or parameters but not both.
+	// You need to use a versioned engine to auto-generate a DBParameterGroup.
+	Parameters *map[string]*string `json:"parameters" yaml:"parameters"`
 	// The AWS KMS key for encryption of Performance Insights data.
 	PerformanceInsightEncryptionKey awskms.IKey `json:"performanceInsightEncryptionKey" yaml:"performanceInsightEncryptionKey"`
 	// The amount of time, in days, to retain Performance Insights data.
@@ -19636,6 +19687,9 @@ type InstanceProps struct {
 }
 
 // The license model.
+//
+// TODO: EXAMPLE
+//
 type LicenseModel string
 
 const (
@@ -24086,6 +24140,9 @@ type SqlServerWebInstanceEngineProps struct {
 }
 
 // The type of storage.
+//
+// TODO: EXAMPLE
+//
 type StorageType string
 
 const (

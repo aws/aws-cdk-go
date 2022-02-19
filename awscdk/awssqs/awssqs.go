@@ -34,6 +34,7 @@ type CfnQueue interface {
 	awscdk.IInspectable
 	AttrArn() *string
 	AttrQueueName() *string
+	AttrQueueUrl() *string
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
@@ -110,6 +111,16 @@ func (j *jsiiProxy_CfnQueue) AttrQueueName() *string {
 	_jsii_.Get(
 		j,
 		"attrQueueName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnQueue) AttrQueueUrl() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrQueueUrl",
 		&returns,
 	)
 	return returns

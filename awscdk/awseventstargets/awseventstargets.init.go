@@ -8,6 +8,22 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_events_targets.ApiDestination",
+		reflect.TypeOf((*ApiDestination)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ApiDestination{}
+			_jsii_.InitJsiiProxy(&j.Type__awseventsIRuleTarget)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_events_targets.ApiDestinationProps",
+		reflect.TypeOf((*ApiDestinationProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_events_targets.ApiGateway",
 		reflect.TypeOf((*ApiGateway)(nil)).Elem(),
 		[]_jsii_.Member{

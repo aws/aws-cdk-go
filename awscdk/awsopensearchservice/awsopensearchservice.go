@@ -969,11 +969,11 @@ type CfnDomain_EncryptionAtRestOptionsProperty struct {
 	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
 }
 
-// Specifies whether the OpenSearch Service domain publishes the OpenSearch application, search slow logs, or index slow logs to Amazon CloudWatch.
+// Specifies whether the OpenSearch Service domain publishes application, search slow logs, or index slow logs to Amazon CloudWatch.
 //
 // Each option must be an object of name `SEARCH_SLOW_LOGS` , `ES_APPLICATION_LOGS` , `INDEX_SLOW_LOGS` , or `AUDIT_LOGS` depending on the type of logs you want to publish. For the full syntax, see the [examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#aws-resource-opensearchservice-domain--examples) .
 //
-// If you enable a slow log, you still have to enable the *collection* of slow logs using the OpenSearch REST API. To learn more, see [Enabling log publishing ( AWS CLI)](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createdomain-configure-slow-logs.html#createdomain-configure-slow-logs-cli) .
+// Before you enable log publishing, you need to create a CloudWatch log group and provide OpenSearch Service the correct permissions to write to it. To learn more, see [Enabling log publishing ( AWS CloudFormation)](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createdomain-configure-slow-logs.html#createdomain-configure-slow-logs-cfn) .
 //
 // TODO: EXAMPLE
 //
@@ -1070,7 +1070,7 @@ type CfnDomainProps struct {
 	AccessPolicies interface{} `json:"accessPolicies" yaml:"accessPolicies"`
 	// Additional options to specify for the OpenSearch Service domain.
 	//
-	// For more information, see [Advanced cluster parameters](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options) in the *Amazon OpenSearch Service Developer Guide* .
+	// For more information, see [AdvancedOptions](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/configuration-api.html#configuration-api-datatypes-advancedoptions) in the OpenSearch Service configuration API reference.
 	AdvancedOptions interface{} `json:"advancedOptions" yaml:"advancedOptions"`
 	// Specifies options for fine-grained access control.
 	AdvancedSecurityOptions interface{} `json:"advancedSecurityOptions" yaml:"advancedSecurityOptions"`

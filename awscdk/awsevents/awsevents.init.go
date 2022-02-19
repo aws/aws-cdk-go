@@ -8,6 +8,34 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_events.ApiDestination",
+		reflect.TypeOf((*ApiDestination)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "apiDestinationArn", GoGetter: "ApiDestinationArn"},
+			_jsii_.MemberProperty{JsiiProperty: "apiDestinationName", GoGetter: "ApiDestinationName"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "connection", GoGetter: "Connection"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ApiDestination{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IApiDestination)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_events.ApiDestinationProps",
+		reflect.TypeOf((*ApiDestinationProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_events.Archive",
 		reflect.TypeOf((*Archive)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -32,6 +60,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_events.ArchiveProps",
 		reflect.TypeOf((*ArchiveProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_events.Authorization",
+		reflect.TypeOf((*Authorization)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_Authorization{}
+		},
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_events.BaseArchiveProps",
@@ -414,6 +450,38 @@ func init() {
 		"aws-cdk-lib.aws_events.CfnRuleProps",
 		reflect.TypeOf((*CfnRuleProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_events.Connection",
+		reflect.TypeOf((*Connection)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "connectionArn", GoGetter: "ConnectionArn"},
+			_jsii_.MemberProperty{JsiiProperty: "connectionName", GoGetter: "ConnectionName"},
+			_jsii_.MemberProperty{JsiiProperty: "connectionSecretArn", GoGetter: "ConnectionSecretArn"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_Connection{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IConnection)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_events.ConnectionAttributes",
+		reflect.TypeOf((*ConnectionAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_events.ConnectionProps",
+		reflect.TypeOf((*ConnectionProps)(nil)).Elem(),
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_events.CronOptions",
 		reflect.TypeOf((*CronOptions)(nil)).Elem(),
@@ -474,6 +542,62 @@ func init() {
 		"aws-cdk-lib.aws_events.EventPattern",
 		reflect.TypeOf((*EventPattern)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_events.HttpMethod",
+		reflect.TypeOf((*HttpMethod)(nil)).Elem(),
+		map[string]interface{}{
+			"POST": HttpMethod_POST,
+			"GET": HttpMethod_GET,
+			"HEAD": HttpMethod_HEAD,
+			"OPTIONS": HttpMethod_OPTIONS,
+			"PUT": HttpMethod_PUT,
+			"PATCH": HttpMethod_PATCH,
+			"DELETE": HttpMethod_DELETE,
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_events.HttpParameter",
+		reflect.TypeOf((*HttpParameter)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_HttpParameter{}
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_events.IApiDestination",
+		reflect.TypeOf((*IApiDestination)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "apiDestinationArn", GoGetter: "ApiDestinationArn"},
+			_jsii_.MemberProperty{JsiiProperty: "apiDestinationName", GoGetter: "ApiDestinationName"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IApiDestination{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_events.IConnection",
+		reflect.TypeOf((*IConnection)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "connectionArn", GoGetter: "ConnectionArn"},
+			_jsii_.MemberProperty{JsiiProperty: "connectionName", GoGetter: "ConnectionName"},
+			_jsii_.MemberProperty{JsiiProperty: "connectionSecretArn", GoGetter: "ConnectionSecretArn"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IConnection{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_events.IEventBus",
 		reflect.TypeOf((*IEventBus)(nil)).Elem(),
@@ -521,6 +645,10 @@ func init() {
 		func() interface{} {
 			return &jsiiProxy_IRuleTarget{}
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_events.OAuthAuthorizationProps",
+		reflect.TypeOf((*OAuthAuthorizationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_events.OnEventOptions",

@@ -21,6 +21,7 @@ import (
 //
 type BucketDeployment interface {
 	constructs.Construct
+	DeployedBucket() awss3.IBucket
 	Node() constructs.Node
 	ToString() *string
 }
@@ -28,6 +29,16 @@ type BucketDeployment interface {
 // The jsii proxy struct for BucketDeployment
 type jsiiProxy_BucketDeployment struct {
 	internal.Type__constructsConstruct
+}
+
+func (j *jsiiProxy_BucketDeployment) DeployedBucket() awss3.IBucket {
+	var returns awss3.IBucket
+	_jsii_.Get(
+		j,
+		"deployedBucket",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_BucketDeployment) Node() constructs.Node {

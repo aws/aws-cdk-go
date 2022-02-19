@@ -624,6 +624,8 @@ type CfnIntegration interface {
 	Node() constructs.Node
 	ObjectTypeName() *string
 	SetObjectTypeName(val *string)
+	ObjectTypeNames() interface{}
+	SetObjectTypeNames(val interface{})
 	Ref() *string
 	Stack() awscdk.Stack
 	Tags() awscdk.TagManager
@@ -763,6 +765,16 @@ func (j *jsiiProxy_CfnIntegration) ObjectTypeName() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnIntegration) ObjectTypeNames() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"objectTypeNames",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnIntegration) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -860,6 +872,14 @@ func (j *jsiiProxy_CfnIntegration) SetObjectTypeName(val *string) {
 	_jsii_.Set(
 		j,
 		"objectTypeName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnIntegration) SetObjectTypeNames(val interface{}) {
+	_jsii_.Set(
+		j,
+		"objectTypeNames",
 		val,
 	)
 }
@@ -1220,6 +1240,15 @@ type CfnIntegration_MarketoSourcePropertiesProperty struct {
 
 // TODO: EXAMPLE
 //
+type CfnIntegration_ObjectTypeMappingProperty struct {
+	// `CfnIntegration.ObjectTypeMappingProperty.Key`.
+	Key *string `json:"key" yaml:"key"`
+	// `CfnIntegration.ObjectTypeMappingProperty.Value`.
+	Value *string `json:"value" yaml:"value"`
+}
+
+// TODO: EXAMPLE
+//
 type CfnIntegration_S3SourcePropertiesProperty struct {
 	// `CfnIntegration.S3SourcePropertiesProperty.BucketName`.
 	BucketName *string `json:"bucketName" yaml:"bucketName"`
@@ -1346,10 +1375,12 @@ type CfnIntegration_ZendeskSourcePropertiesProperty struct {
 type CfnIntegrationProps struct {
 	// The unique name of the domain.
 	DomainName *string `json:"domainName" yaml:"domainName"`
-	// The name of the profile object type mapping to use.
-	ObjectTypeName *string `json:"objectTypeName" yaml:"objectTypeName"`
 	// `AWS::CustomerProfiles::Integration.FlowDefinition`.
 	FlowDefinition interface{} `json:"flowDefinition" yaml:"flowDefinition"`
+	// The name of the profile object type mapping to use.
+	ObjectTypeName *string `json:"objectTypeName" yaml:"objectTypeName"`
+	// `AWS::CustomerProfiles::Integration.ObjectTypeNames`.
+	ObjectTypeNames interface{} `json:"objectTypeNames" yaml:"objectTypeNames"`
 	// The tags used to organize, track, or control access for this resource.
 	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// The URI of the S3 bucket or any other type of data source.

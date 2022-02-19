@@ -10,6 +10,263 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
+// Define an EventBridge Api Destination.
+//
+// TODO: EXAMPLE
+//
+type ApiDestination interface {
+	awscdk.Resource
+	IApiDestination
+	ApiDestinationArn() *string
+	ApiDestinationName() *string
+	Connection() IConnection
+	Env() *awscdk.ResourceEnvironment
+	Node() constructs.Node
+	PhysicalName() *string
+	Stack() awscdk.Stack
+	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	GeneratePhysicalName() *string
+	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
+	GetResourceNameAttribute(nameAttr *string) *string
+	ToString() *string
+}
+
+// The jsii proxy struct for ApiDestination
+type jsiiProxy_ApiDestination struct {
+	internal.Type__awscdkResource
+	jsiiProxy_IApiDestination
+}
+
+func (j *jsiiProxy_ApiDestination) ApiDestinationArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"apiDestinationArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ApiDestination) ApiDestinationName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"apiDestinationName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ApiDestination) Connection() IConnection {
+	var returns IConnection
+	_jsii_.Get(
+		j,
+		"connection",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ApiDestination) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ApiDestination) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ApiDestination) PhysicalName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"physicalName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ApiDestination) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
+
+func NewApiDestination(scope constructs.Construct, id *string, props *ApiDestinationProps) ApiDestination {
+	_init_.Initialize()
+
+	j := jsiiProxy_ApiDestination{}
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_events.ApiDestination",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+func NewApiDestination_Override(a ApiDestination, scope constructs.Construct, id *string, props *ApiDestinationProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_events.ApiDestination",
+		[]interface{}{scope, id, props},
+		a,
+	)
+}
+
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func ApiDestination_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_events.ApiDestination",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a Resource.
+func ApiDestination_IsResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_events.ApiDestination",
+		"isResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Apply the given removal policy to this resource.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+func (a *jsiiProxy_ApiDestination) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		a,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
+func (a *jsiiProxy_ApiDestination) GeneratePhysicalName() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		a,
+		"generatePhysicalName",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
+//
+// Normally, this token will resolve to `arnAttr`, but if the resource is
+// referenced across environments, `arnComponents` will be used to synthesize
+// a concrete ARN with the resource's physical name. Make sure to reference
+// `this.physicalName` in `arnComponents`.
+func (a *jsiiProxy_ApiDestination) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		a,
+		"getResourceArnAttribute",
+		[]interface{}{arnAttr, arnComponents},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
+//
+// Normally, this token will resolve to `nameAttr`, but if the resource is
+// referenced across environments, it will be resolved to `this.physicalName`,
+// which will be a concrete name.
+func (a *jsiiProxy_ApiDestination) GetResourceNameAttribute(nameAttr *string) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		a,
+		"getResourceNameAttribute",
+		[]interface{}{nameAttr},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns a string representation of this construct.
+func (a *jsiiProxy_ApiDestination) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		a,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// The event API Destination properties.
+//
+// TODO: EXAMPLE
+//
+type ApiDestinationProps struct {
+	// The ARN of the connection to use for the API destination.
+	Connection IConnection `json:"connection" yaml:"connection"`
+	// The URL to the HTTP invocation endpoint for the API destination..
+	Endpoint *string `json:"endpoint" yaml:"endpoint"`
+	// The name for the API destination.
+	ApiDestinationName *string `json:"apiDestinationName" yaml:"apiDestinationName"`
+	// A description for the API destination.
+	Description *string `json:"description" yaml:"description"`
+	// The method to use for the request to the HTTP invocation endpoint.
+	HttpMethod HttpMethod `json:"httpMethod" yaml:"httpMethod"`
+	// The maximum number of requests per second to send to the HTTP invocation endpoint.
+	RateLimitPerSecond *float64 `json:"rateLimitPerSecond" yaml:"rateLimitPerSecond"`
+}
+
 // Define an EventBridge Archive.
 //
 // TODO: EXAMPLE
@@ -252,6 +509,79 @@ type ArchiveProps struct {
 	Retention awscdk.Duration `json:"retention" yaml:"retention"`
 	// The event source associated with the archive.
 	SourceEventBus IEventBus `json:"sourceEventBus" yaml:"sourceEventBus"`
+}
+
+// Authorization type for an API Destination Connection.
+//
+// TODO: EXAMPLE
+//
+type Authorization interface {
+}
+
+// The jsii proxy struct for Authorization
+type jsiiProxy_Authorization struct {
+	_ byte // padding
+}
+
+func NewAuthorization_Override(a Authorization) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_events.Authorization",
+		nil, // no parameters
+		a,
+	)
+}
+
+// Use API key authorization.
+//
+// API key authorization has two components: an API key name and an API key value.
+// What these are depends on the target of your connection.
+func Authorization_ApiKey(apiKeyName *string, apiKeyValue awscdk.SecretValue) Authorization {
+	_init_.Initialize()
+
+	var returns Authorization
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_events.Authorization",
+		"apiKey",
+		[]interface{}{apiKeyName, apiKeyValue},
+		&returns,
+	)
+
+	return returns
+}
+
+// Use username and password authorization.
+func Authorization_Basic(username *string, password awscdk.SecretValue) Authorization {
+	_init_.Initialize()
+
+	var returns Authorization
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_events.Authorization",
+		"basic",
+		[]interface{}{username, password},
+		&returns,
+	)
+
+	return returns
+}
+
+// Use OAuth authorization.
+func Authorization_Oauth(props *OAuthAuthorizationProps) Authorization {
+	_init_.Initialize()
+
+	var returns Authorization
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_events.Authorization",
+		"oauth",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
 }
 
 // The event archive base properties.
@@ -4289,19 +4619,23 @@ type CfnRule_RunCommandTargetProperty struct {
 	Values *[]*string `json:"values" yaml:"values"`
 }
 
+// Name/Value pair of a parameter to start execution of a SageMaker Model Building Pipeline.
+//
 // TODO: EXAMPLE
 //
 type CfnRule_SageMakerPipelineParameterProperty struct {
-	// `CfnRule.SageMakerPipelineParameterProperty.Name`.
+	// Name of parameter to start execution of a SageMaker Model Building Pipeline.
 	Name *string `json:"name" yaml:"name"`
-	// `CfnRule.SageMakerPipelineParameterProperty.Value`.
+	// Value of parameter to start execution of a SageMaker Model Building Pipeline.
 	Value *string `json:"value" yaml:"value"`
 }
 
+// These are custom parameters to use when the target is a SageMaker Model Building Pipeline that starts based on EventBridge events.
+//
 // TODO: EXAMPLE
 //
 type CfnRule_SageMakerPipelineParametersProperty struct {
-	// `CfnRule.SageMakerPipelineParametersProperty.PipelineParameterList`.
+	// List of Parameter names and values for SageMaker Model Building Pipeline execution.
 	PipelineParameterList interface{} `json:"pipelineParameterList" yaml:"pipelineParameterList"`
 }
 
@@ -4388,7 +4722,9 @@ type CfnRule_TargetProperty struct {
 	RoleArn *string `json:"roleArn" yaml:"roleArn"`
 	// Parameters used when you are using the rule to invoke Amazon EC2 Run Command.
 	RunCommandParameters interface{} `json:"runCommandParameters" yaml:"runCommandParameters"`
-	// `CfnRule.TargetProperty.SageMakerPipelineParameters`.
+	// Contains the SageMaker Model Building Pipeline parameters to start execution of a SageMaker Model Building Pipeline.
+	//
+	// If you specify a SageMaker Model Building Pipeline as a target, you can use this to specify parameters to start a pipeline execution based on EventBridge events.
 	SageMakerPipelineParameters interface{} `json:"sageMakerPipelineParameters" yaml:"sageMakerPipelineParameters"`
 	// Contains the message group ID to use when the target is a FIFO queue.
 	//
@@ -4487,6 +4823,310 @@ type CfnRuleProps struct {
 	//
 	// This action can partially fail if too many requests are made at the same time. If that happens, `FailedEntryCount` is non-zero in the response and each entry in `FailedEntries` provides the ID of the failed target and the error code.
 	Targets interface{} `json:"targets" yaml:"targets"`
+}
+
+// Define an EventBridge Connection.
+//
+// TODO: EXAMPLE
+//
+type Connection interface {
+	awscdk.Resource
+	IConnection
+	ConnectionArn() *string
+	ConnectionName() *string
+	ConnectionSecretArn() *string
+	Env() *awscdk.ResourceEnvironment
+	Node() constructs.Node
+	PhysicalName() *string
+	Stack() awscdk.Stack
+	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	GeneratePhysicalName() *string
+	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
+	GetResourceNameAttribute(nameAttr *string) *string
+	ToString() *string
+}
+
+// The jsii proxy struct for Connection
+type jsiiProxy_Connection struct {
+	internal.Type__awscdkResource
+	jsiiProxy_IConnection
+}
+
+func (j *jsiiProxy_Connection) ConnectionArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"connectionArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Connection) ConnectionName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"connectionName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Connection) ConnectionSecretArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"connectionSecretArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Connection) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Connection) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Connection) PhysicalName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"physicalName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Connection) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
+
+func NewConnection(scope constructs.Construct, id *string, props *ConnectionProps) Connection {
+	_init_.Initialize()
+
+	j := jsiiProxy_Connection{}
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_events.Connection",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+func NewConnection_Override(c Connection, scope constructs.Construct, id *string, props *ConnectionProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_events.Connection",
+		[]interface{}{scope, id, props},
+		c,
+	)
+}
+
+// Import an existing connection resource.
+func Connection_FromConnectionAttributes(scope constructs.Construct, id *string, attrs *ConnectionAttributes) IConnection {
+	_init_.Initialize()
+
+	var returns IConnection
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_events.Connection",
+		"fromConnectionAttributes",
+		[]interface{}{scope, id, attrs},
+		&returns,
+	)
+
+	return returns
+}
+
+// Import an existing connection resource.
+func Connection_FromEventBusArn(scope constructs.Construct, id *string, connectionArn *string, connectionSecretArn *string) IConnection {
+	_init_.Initialize()
+
+	var returns IConnection
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_events.Connection",
+		"fromEventBusArn",
+		[]interface{}{scope, id, connectionArn, connectionSecretArn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func Connection_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_events.Connection",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a Resource.
+func Connection_IsResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_events.Connection",
+		"isResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Apply the given removal policy to this resource.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+func (c *jsiiProxy_Connection) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		c,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
+func (c *jsiiProxy_Connection) GeneratePhysicalName() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"generatePhysicalName",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
+//
+// Normally, this token will resolve to `arnAttr`, but if the resource is
+// referenced across environments, `arnComponents` will be used to synthesize
+// a concrete ARN with the resource's physical name. Make sure to reference
+// `this.physicalName` in `arnComponents`.
+func (c *jsiiProxy_Connection) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"getResourceArnAttribute",
+		[]interface{}{arnAttr, arnComponents},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
+//
+// Normally, this token will resolve to `nameAttr`, but if the resource is
+// referenced across environments, it will be resolved to `this.physicalName`,
+// which will be a concrete name.
+func (c *jsiiProxy_Connection) GetResourceNameAttribute(nameAttr *string) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"getResourceNameAttribute",
+		[]interface{}{nameAttr},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns a string representation of this construct.
+func (c *jsiiProxy_Connection) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Interface with properties necessary to import a reusable Connection.
+//
+// TODO: EXAMPLE
+//
+type ConnectionAttributes struct {
+	// The ARN of the connection created.
+	ConnectionArn *string `json:"connectionArn" yaml:"connectionArn"`
+	// The Name for the connection.
+	ConnectionName *string `json:"connectionName" yaml:"connectionName"`
+	// The ARN for the secret created for the connection.
+	ConnectionSecretArn *string `json:"connectionSecretArn" yaml:"connectionSecretArn"`
+}
+
+// An API Destination Connection.
+//
+// A connection defines the authorization type and credentials to use for authorization with an API destination HTTP endpoint.
+//
+// TODO: EXAMPLE
+//
+type ConnectionProps struct {
+	// The authorization type for the connection.
+	Authorization Authorization `json:"authorization" yaml:"authorization"`
+	// Additional string parameters to add to the invocation bodies.
+	BodyParameters *map[string]HttpParameter `json:"bodyParameters" yaml:"bodyParameters"`
+	// The name of the connection.
+	ConnectionName *string `json:"connectionName" yaml:"connectionName"`
+	// The name of the connection.
+	Description *string `json:"description" yaml:"description"`
+	// Additional string parameters to add to the invocation headers.
+	HeaderParameters *map[string]HttpParameter `json:"headerParameters" yaml:"headerParameters"`
+	// Additional string parameters to add to the invocation query strings.
+	QueryStringParameters *map[string]HttpParameter `json:"queryStringParameters" yaml:"queryStringParameters"`
 }
 
 // Options to configure a cron expression.
@@ -5140,6 +5780,155 @@ type EventPattern struct {
 	Version *[]*string `json:"version" yaml:"version"`
 }
 
+// Supported HTTP operations.
+type HttpMethod string
+
+const (
+	HttpMethod_POST HttpMethod = "POST"
+	HttpMethod_GET HttpMethod = "GET"
+	HttpMethod_HEAD HttpMethod = "HEAD"
+	HttpMethod_OPTIONS HttpMethod = "OPTIONS"
+	HttpMethod_PUT HttpMethod = "PUT"
+	HttpMethod_PATCH HttpMethod = "PATCH"
+	HttpMethod_DELETE HttpMethod = "DELETE"
+)
+
+// An additional HTTP parameter to send along with the OAuth request.
+//
+// TODO: EXAMPLE
+//
+type HttpParameter interface {
+}
+
+// The jsii proxy struct for HttpParameter
+type jsiiProxy_HttpParameter struct {
+	_ byte // padding
+}
+
+func NewHttpParameter_Override(h HttpParameter) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_events.HttpParameter",
+		nil, // no parameters
+		h,
+	)
+}
+
+// Make an OAuthParameter from a secret.
+func HttpParameter_FromSecret(value awscdk.SecretValue) HttpParameter {
+	_init_.Initialize()
+
+	var returns HttpParameter
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_events.HttpParameter",
+		"fromSecret",
+		[]interface{}{value},
+		&returns,
+	)
+
+	return returns
+}
+
+// Make an OAuthParameter from a string value.
+//
+// The value is not treated as a secret.
+func HttpParameter_FromString(value *string) HttpParameter {
+	_init_.Initialize()
+
+	var returns HttpParameter
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_events.HttpParameter",
+		"fromString",
+		[]interface{}{value},
+		&returns,
+	)
+
+	return returns
+}
+
+// Interface for API Destinations.
+type IApiDestination interface {
+	awscdk.IResource
+	// The ARN of the Api Destination created.
+	ApiDestinationArn() *string
+	// The Name of the Api Destination created.
+	ApiDestinationName() *string
+}
+
+// The jsii proxy for IApiDestination
+type jsiiProxy_IApiDestination struct {
+	internal.Type__awscdkIResource
+}
+
+func (j *jsiiProxy_IApiDestination) ApiDestinationArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"apiDestinationArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IApiDestination) ApiDestinationName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"apiDestinationName",
+		&returns,
+	)
+	return returns
+}
+
+// Interface for EventBus Connections.
+type IConnection interface {
+	awscdk.IResource
+	// The ARN of the connection created.
+	ConnectionArn() *string
+	// The Name for the connection.
+	ConnectionName() *string
+	// The ARN for the secret created for the connection.
+	ConnectionSecretArn() *string
+}
+
+// The jsii proxy for IConnection
+type jsiiProxy_IConnection struct {
+	internal.Type__awscdkIResource
+}
+
+func (j *jsiiProxy_IConnection) ConnectionArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"connectionArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IConnection) ConnectionName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"connectionName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IConnection) ConnectionSecretArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"connectionSecretArn",
+		&returns,
+	)
+	return returns
+}
+
 // Interface which all EventBus based classes MUST implement.
 type IEventBus interface {
 	awscdk.IResource
@@ -5289,6 +6078,29 @@ func (i *jsiiProxy_IRuleTarget) Bind(rule IRule, id *string) *RuleTargetConfig {
 	)
 
 	return returns
+}
+
+// Properties for `Authorization.oauth()`.
+//
+// TODO: EXAMPLE
+//
+type OAuthAuthorizationProps struct {
+	// The URL to the authorization endpoint.
+	AuthorizationEndpoint *string `json:"authorizationEndpoint" yaml:"authorizationEndpoint"`
+	// The client ID to use for OAuth authorization for the connection.
+	ClientId *string `json:"clientId" yaml:"clientId"`
+	// The client secret associated with the client ID to use for OAuth authorization for the connection.
+	ClientSecret awscdk.SecretValue `json:"clientSecret" yaml:"clientSecret"`
+	// The method to use for the authorization request.
+	//
+	// (Can only choose POST, GET or PUT).
+	HttpMethod HttpMethod `json:"httpMethod" yaml:"httpMethod"`
+	// Additional string parameters to add to the OAuth request body.
+	BodyParameters *map[string]HttpParameter `json:"bodyParameters" yaml:"bodyParameters"`
+	// Additional string parameters to add to the OAuth request header.
+	HeaderParameters *map[string]HttpParameter `json:"headerParameters" yaml:"headerParameters"`
+	// Additional string parameters to add to the OAuth request query string.
+	QueryStringParameters *map[string]HttpParameter `json:"queryStringParameters" yaml:"queryStringParameters"`
 }
 
 // Standard set of options for `onXxx` event handlers on construct.
@@ -5676,7 +6488,7 @@ type RuleTargetConfig struct {
 	DeadLetterConfig *CfnRule_DeadLetterConfigProperty `json:"deadLetterConfig" yaml:"deadLetterConfig"`
 	// The Amazon ECS task definition and task count to use, if the event target is an Amazon ECS task.
 	EcsParameters *CfnRule_EcsParametersProperty `json:"ecsParameters" yaml:"ecsParameters"`
-	// Parameters used when the rule invoke api gateway.
+	// Contains the HTTP parameters to use when the target is a API Gateway REST endpoint or EventBridge API destination.
 	HttpParameters *CfnRule_HttpParametersProperty `json:"httpParameters" yaml:"httpParameters"`
 	// What input to send to the event target.
 	Input RuleTargetInput `json:"input" yaml:"input"`

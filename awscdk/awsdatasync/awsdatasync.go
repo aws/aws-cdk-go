@@ -4596,16 +4596,14 @@ func (c *jsiiProxy_CfnLocationS3) ValidateProperties(_properties interface{}) {
 	)
 }
 
-// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that is used to access an Amazon S3 bucket.
+// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role used to access an Amazon S3 bucket.
 //
 // For detailed information about using such a role, see [Creating a Location for Amazon S3](https://docs.aws.amazon.com/datasync/latest/userguide/working-with-locations.html#create-s3-location) in the *AWS DataSync User Guide* .
 //
 // TODO: EXAMPLE
 //
 type CfnLocationS3_S3ConfigProperty struct {
-	// The Amazon S3 bucket to access.
-	//
-	// This bucket is used as a parameter in the [CreateLocationS3](https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateLocationS3.html) operation.
+	// The ARN of the IAM role for accessing the S3 bucket.
 	BucketAccessRoleArn *string `json:"bucketAccessRoleArn" yaml:"bucketAccessRoleArn"`
 }
 

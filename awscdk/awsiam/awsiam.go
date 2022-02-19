@@ -14235,6 +14235,25 @@ func Role_FromRoleArn(scope constructs.Construct, id *string, roleArn *string, o
 	return returns
 }
 
+// Import an external role by name.
+//
+// The imported role is assumed to exist in the same account as the account
+// the scope's containing Stack is being deployed to.
+func Role_FromRoleName(scope constructs.Construct, id *string, roleName *string) IRole {
+	_init_.Initialize()
+
+	var returns IRole
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iam.Role",
+		"fromRoleName",
+		[]interface{}{scope, id, roleName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.

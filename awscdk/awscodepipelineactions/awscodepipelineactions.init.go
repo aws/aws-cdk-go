@@ -142,6 +142,48 @@ func init() {
 		reflect.TypeOf((*CloudFormationDeleteStackActionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_codepipeline_actions.CloudFormationDeployStackInstancesAction",
+		reflect.TypeOf((*CloudFormationDeployStackInstancesAction)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "actionProperties", GoGetter: "ActionProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberMethod{JsiiMethod: "bound", GoMethod: "Bound"},
+			_jsii_.MemberMethod{JsiiMethod: "onStateChange", GoMethod: "OnStateChange"},
+			_jsii_.MemberProperty{JsiiProperty: "providedActionProperties", GoGetter: "ProvidedActionProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "variableExpression", GoMethod: "VariableExpression"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CloudFormationDeployStackInstancesAction{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_Action)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_codepipeline_actions.CloudFormationDeployStackInstancesActionProps",
+		reflect.TypeOf((*CloudFormationDeployStackInstancesActionProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_codepipeline_actions.CloudFormationDeployStackSetAction",
+		reflect.TypeOf((*CloudFormationDeployStackSetAction)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "actionProperties", GoGetter: "ActionProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberMethod{JsiiMethod: "bound", GoMethod: "Bound"},
+			_jsii_.MemberMethod{JsiiMethod: "onStateChange", GoMethod: "OnStateChange"},
+			_jsii_.MemberProperty{JsiiProperty: "providedActionProperties", GoGetter: "ProvidedActionProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "variableExpression", GoMethod: "VariableExpression"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CloudFormationDeployStackSetAction{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_Action)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_codepipeline_actions.CloudFormationDeployStackSetActionProps",
+		reflect.TypeOf((*CloudFormationDeployStackSetActionProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_codepipeline_actions.CloudFormationExecuteChangeSetAction",
 		reflect.TypeOf((*CloudFormationExecuteChangeSetAction)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -298,6 +340,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_codepipeline_actions.CodeStarSourceVariables",
 		reflect.TypeOf((*CodeStarSourceVariables)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_codepipeline_actions.CommonCloudFormationStackSetOptions",
+		reflect.TypeOf((*CommonCloudFormationStackSetOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_codepipeline_actions.EcrSourceAction",
@@ -494,6 +540,10 @@ func init() {
 		"aws-cdk-lib.aws_codepipeline_actions.ManualApprovalActionProps",
 		reflect.TypeOf((*ManualApprovalActionProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_codepipeline_actions.OrganizationsDeploymentProps",
+		reflect.TypeOf((*OrganizationsDeploymentProps)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_codepipeline_actions.S3DeployAction",
 		reflect.TypeOf((*S3DeployAction)(nil)).Elem(),
@@ -550,6 +600,10 @@ func init() {
 			"EVENTS": S3Trigger_EVENTS,
 		},
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_codepipeline_actions.SelfManagedDeploymentProps",
+		reflect.TypeOf((*SelfManagedDeploymentProps)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_codepipeline_actions.ServiceCatalogDeployActionBeta1",
 		reflect.TypeOf((*ServiceCatalogDeployActionBeta1)(nil)).Elem(),
@@ -570,6 +624,47 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_codepipeline_actions.ServiceCatalogDeployActionBeta1Props",
 		reflect.TypeOf((*ServiceCatalogDeployActionBeta1Props)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_codepipeline_actions.StackInstances",
+		reflect.TypeOf((*StackInstances)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_StackInstances{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_codepipeline_actions.StackSetDeploymentModel",
+		reflect.TypeOf((*StackSetDeploymentModel)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_StackSetDeploymentModel{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_codepipeline_actions.StackSetOrganizationsAutoDeployment",
+		reflect.TypeOf((*StackSetOrganizationsAutoDeployment)(nil)).Elem(),
+		map[string]interface{}{
+			"ENABLED": StackSetOrganizationsAutoDeployment_ENABLED,
+			"DISABLED": StackSetOrganizationsAutoDeployment_DISABLED,
+			"ENABLED_WITH_STACK_RETENTION": StackSetOrganizationsAutoDeployment_ENABLED_WITH_STACK_RETENTION,
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_codepipeline_actions.StackSetParameters",
+		reflect.TypeOf((*StackSetParameters)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_StackSetParameters{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_codepipeline_actions.StackSetTemplate",
+		reflect.TypeOf((*StackSetTemplate)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_StackSetTemplate{}
+		},
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_codepipeline_actions.StateMachineInput",

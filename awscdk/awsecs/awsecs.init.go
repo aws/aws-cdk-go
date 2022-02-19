@@ -2112,6 +2112,10 @@ func init() {
 			return &jsiiProxy_Secret{}
 		},
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.SecretVersionInfo",
+		reflect.TypeOf((*SecretVersionInfo)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_ecs.SplunkLogDriver",
 		reflect.TypeOf((*SplunkLogDriver)(nil)).Elem(),

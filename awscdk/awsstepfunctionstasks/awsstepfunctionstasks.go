@@ -30382,6 +30382,8 @@ type SageMakerCreateTrainingJobProps struct {
 	//
 	// No inbound or outbound network calls can be made to or from the training container.
 	EnableNetworkIsolation *bool `json:"enableNetworkIsolation" yaml:"enableNetworkIsolation"`
+	// Environment variables to set in the Docker container.
+	Environment *map[string]*string `json:"environment" yaml:"environment"`
 	// Algorithm-specific parameters that influence the quality of the model.
 	//
 	// Set hyperparameters before you start the learning process.

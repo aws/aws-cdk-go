@@ -1859,7 +1859,7 @@ type CfnPipeline_ActionTypeIdProperty struct {
 	Owner *string `json:"owner" yaml:"owner"`
 	// The provider of the service being called by the action.
 	//
-	// Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of CodeDeploy, which would be specified as CodeDeploy. For more information, see [Valid Action Types and Providers in CodePipeline](https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers) .
+	// Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of CodeDeploy, which would be specified as `CodeDeploy` . For more information, see [Valid Action Types and Providers in CodePipeline](https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers) .
 	Provider *string `json:"provider" yaml:"provider"`
 	// A string that describes the action version.
 	Version *string `json:"version" yaml:"version"`

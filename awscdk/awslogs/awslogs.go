@@ -1127,7 +1127,13 @@ func (c *jsiiProxy_CfnLogGroup) ValidateProperties(_properties interface{}) {
 // TODO: EXAMPLE
 //
 type CfnLogGroupProps struct {
-	// The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
+	// The Amazon Resource Name (ARN) of the AWS KMS key to use when encrypting log data.
+	//
+	// To associate an AWS KMS key with the log group, specify the ARN of that KMS key here. If you do so, ingested data is encrypted using this key. This association is stored as long as the data encrypted with the KMS key is still within CloudWatch Logs . This enables CloudWatch Logs to decrypt this data whenever it is requested.
+	//
+	// If you attempt to associate a KMS key with the log group but the KMS key doesn't exist or is deactivated, you will receive an `InvalidParameterException` error.
+	//
+	// Log group data is always encrypted in CloudWatch Logs . If you omit this key, the encryption does not use AWS KMS . For more information, see [Encrypt log data in CloudWatch Logs using AWS Key Management Service](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/encrypt-log-data-kms.html)
 	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
 	// The name of the log group.
 	//
@@ -2197,7 +2203,7 @@ type CfnMetricFilter_MetricTransformationProperty struct {
 	MetricNamespace *string `json:"metricNamespace" yaml:"metricNamespace"`
 	// The value that is published to the CloudWatch metric.
 	//
-	// For example, if you're counting the occurrences of a particular term like `Error` , specify 1 for the metric value. If you're counting the number of bytes transferred, reference the value that is in the log event by using $ followed by the name of the field that you specified in the filter pattern, such as `$size` .
+	// For example, if you're counting the occurrences of a particular term like `Error` , specify 1 for the metric value. If you're counting the number of bytes transferred, reference the value that is in the log event by using $ followed by the name of the field that you specified in the filter pattern, such as `$.size` .
 	MetricValue *string `json:"metricValue" yaml:"metricValue"`
 	// (Optional) The value to emit when a filter pattern does not match a log event.
 	//

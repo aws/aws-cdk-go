@@ -13,6 +13,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs"
 	"github.com/aws/aws-cdk-go/awscdklambdapythonalpha/v2/internal"
 	"github.com/aws/constructs-go/constructs/v10"
@@ -88,6 +89,7 @@ type PythonFunction interface {
 	Connections() awsec2.Connections
 	CurrentVersion() awslambda.Version
 	DeadLetterQueue() awssqs.IQueue
+	DeadLetterTopic() awssns.ITopic
 	Env() *awscdk.ResourceEnvironment
 	FunctionArn() *string
 	FunctionName() *string
@@ -172,6 +174,16 @@ func (j *jsiiProxy_PythonFunction) DeadLetterQueue() awssqs.IQueue {
 	_jsii_.Get(
 		j,
 		"deadLetterQueue",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_PythonFunction) DeadLetterTopic() awssns.ITopic {
+	var returns awssns.ITopic
+	_jsii_.Get(
+		j,
+		"deadLetterTopic",
 		&returns,
 	)
 	return returns
@@ -875,6 +887,8 @@ type PythonFunctionProps struct {
 	// Experimental.
 	CurrentVersionOptions *awslambda.VersionOptions `json:"currentVersionOptions" yaml:"currentVersionOptions"`
 	// The SQS queue to use if DLQ is enabled.
+	//
+	// If SNS topic is desired, specify `deadLetterTopic` property instead.
 	// Experimental.
 	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// Enabled DLQ.
@@ -883,6 +897,12 @@ type PythonFunctionProps struct {
 	// an SQS queue with default options will be defined for your Function.
 	// Experimental.
 	DeadLetterQueueEnabled *bool `json:"deadLetterQueueEnabled" yaml:"deadLetterQueueEnabled"`
+	// The SNS topic to use as a DLQ.
+	//
+	// Note that if `deadLetterQueueEnabled` is set to `true`, an SQS queue will be created
+	// rather than an SNS topic. Using an SNS topic as a DLQ requires this property to be set explicitly.
+	// Experimental.
+	DeadLetterTopic awssns.ITopic `json:"deadLetterTopic" yaml:"deadLetterTopic"`
 	// A description of the function.
 	// Experimental.
 	Description *string `json:"description" yaml:"description"`

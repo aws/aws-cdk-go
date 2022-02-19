@@ -134,7 +134,7 @@ func (j *jsiiProxy_HttpAlbIntegration) SetPayloadFormatVersion(val awscdkapigate
 	)
 }
 
-// (experimental) Bind this integration to the route.
+// Bind this integration to the route.
 // Experimental.
 func (h *jsiiProxy_HttpAlbIntegration) Bind(options *awscdkapigatewayv2alpha.HttpRouteIntegrationBindOptions) *awscdkapigatewayv2alpha.HttpRouteIntegrationConfig {
 	var returns *awscdkapigatewayv2alpha.HttpRouteIntegrationConfig
@@ -214,7 +214,7 @@ func NewHttpLambdaIntegration_Override(h HttpLambdaIntegration, id *string, hand
 	)
 }
 
-// (experimental) Bind this integration to the route.
+// Bind this integration to the route.
 // Experimental.
 func (h *jsiiProxy_HttpLambdaIntegration) Bind(options *awscdkapigatewayv2alpha.HttpRouteIntegrationBindOptions) *awscdkapigatewayv2alpha.HttpRouteIntegrationConfig {
 	var returns *awscdkapigatewayv2alpha.HttpRouteIntegrationConfig
@@ -369,7 +369,7 @@ func (j *jsiiProxy_HttpNlbIntegration) SetPayloadFormatVersion(val awscdkapigate
 	)
 }
 
-// (experimental) Bind this integration to the route.
+// Bind this integration to the route.
 // Experimental.
 func (h *jsiiProxy_HttpNlbIntegration) Bind(options *awscdkapigatewayv2alpha.HttpRouteIntegrationBindOptions) *awscdkapigatewayv2alpha.HttpRouteIntegrationConfig {
 	var returns *awscdkapigatewayv2alpha.HttpRouteIntegrationConfig
@@ -554,7 +554,7 @@ func (j *jsiiProxy_HttpServiceDiscoveryIntegration) SetPayloadFormatVersion(val 
 	)
 }
 
-// (experimental) Bind this integration to the route.
+// Bind this integration to the route.
 // Experimental.
 func (h *jsiiProxy_HttpServiceDiscoveryIntegration) Bind(_arg *awscdkapigatewayv2alpha.HttpRouteIntegrationBindOptions) *awscdkapigatewayv2alpha.HttpRouteIntegrationConfig {
 	var returns *awscdkapigatewayv2alpha.HttpRouteIntegrationConfig
@@ -634,7 +634,7 @@ func NewHttpUrlIntegration_Override(h HttpUrlIntegration, id *string, url *strin
 	)
 }
 
-// (experimental) Bind this integration to the route.
+// Bind this integration to the route.
 // Experimental.
 func (h *jsiiProxy_HttpUrlIntegration) Bind(_arg *awscdkapigatewayv2alpha.HttpRouteIntegrationBindOptions) *awscdkapigatewayv2alpha.HttpRouteIntegrationConfig {
 	var returns *awscdkapigatewayv2alpha.HttpRouteIntegrationConfig
@@ -706,7 +706,7 @@ func NewWebSocketLambdaIntegration_Override(w WebSocketLambdaIntegration, id *st
 	)
 }
 
-// (experimental) Bind this integration to the route.
+// Bind this integration to the route.
 // Experimental.
 func (w *jsiiProxy_WebSocketLambdaIntegration) Bind(options *awscdkapigatewayv2alpha.WebSocketRouteIntegrationBindOptions) *awscdkapigatewayv2alpha.WebSocketRouteIntegrationConfig {
 	var returns *awscdkapigatewayv2alpha.WebSocketRouteIntegrationConfig
@@ -762,7 +762,7 @@ func NewWebSocketMockIntegration_Override(w WebSocketMockIntegration, id *string
 	)
 }
 
-// (experimental) Bind this integration to the route.
+// Bind this integration to the route.
 // Experimental.
 func (w *jsiiProxy_WebSocketMockIntegration) Bind(options *awscdkapigatewayv2alpha.WebSocketRouteIntegrationBindOptions) *awscdkapigatewayv2alpha.WebSocketRouteIntegrationConfig {
 	var returns *awscdkapigatewayv2alpha.WebSocketRouteIntegrationConfig

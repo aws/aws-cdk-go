@@ -511,14 +511,14 @@ func (c *jsiiProxy_CfnBudget) ValidateProperties(_properties interface{}) {
 //
 // The content consists of the detailed metadata and data file information, and the current status of the `budget` object.
 //
-// This is the ARN pattern for a budget:
+// This is the Amazon Resource Name (ARN) pattern for a budget:
 //
 // `arn:aws:budgets::AccountId:budget/budgetName`
 //
 // TODO: EXAMPLE
 //
 type CfnBudget_BudgetDataProperty struct {
-	// Whether this budget tracks costs, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage.
+	// Specifies whether this budget tracks costs, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage.
 	BudgetType *string `json:"budgetType" yaml:"budgetType"`
 	// The length of time until a budget resets the actual and forecasted spend.
 	//
@@ -526,7 +526,7 @@ type CfnBudget_BudgetDataProperty struct {
 	TimeUnit *string `json:"timeUnit" yaml:"timeUnit"`
 	// The total amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage that you want to track with your budget.
 	//
-	// `BudgetLimit` is required for cost or usage budgets, but optional for RI or Savings Plans utilization or coverage budgets. RI and Savings Plans utilization or coverage budgets default to `100` , which is the only valid value for RI or Savings Plans utilization or coverage budgets. You can't use `BudgetLimit` with `PlannedBudgetLimits` for `CreateBudget` and `UpdateBudget` actions.
+	// `BudgetLimit` is required for cost or usage budgets, but optional for RI or Savings Plans utilization or coverage budgets. RI and Savings Plans utilization or coverage budgets default to `100` . This is the only valid value for RI or Savings Plans utilization or coverage budgets. You can't use `BudgetLimit` with `PlannedBudgetLimits` for `CreateBudget` and `UpdateBudget` actions.
 	BudgetLimit interface{} `json:"budgetLimit" yaml:"budgetLimit"`
 	// The name of a budget.
 	//
@@ -548,19 +548,19 @@ type CfnBudget_BudgetDataProperty struct {
 	CostTypes interface{} `json:"costTypes" yaml:"costTypes"`
 	// A map containing multiple `BudgetLimit` , including current or future limits.
 	//
-	// `PlannedBudgetLimits` is available for cost or usage budget and supports monthly and quarterly `TimeUnit` .
+	// `PlannedBudgetLimits` is available for cost or usage budget and supports both monthly and quarterly `TimeUnit` .
 	//
 	// For monthly budgets, provide 12 months of `PlannedBudgetLimits` values. This must start from the current month and include the next 11 months. The `key` is the start of the month, `UTC` in epoch seconds.
 	//
-	// For quarterly budgets, provide 4 quarters of `PlannedBudgetLimits` value entries in standard calendar quarter increments. This must start from the current quarter and include the next 3 quarters. The `key` is the start of the quarter, `UTC` in epoch seconds.
+	// For quarterly budgets, provide four quarters of `PlannedBudgetLimits` value entries in standard calendar quarter increments. This must start from the current quarter and include the next three quarters. The `key` is the start of the quarter, `UTC` in epoch seconds.
 	//
-	// If the planned budget expires before 12 months for monthly or 4 quarters for quarterly, provide the `PlannedBudgetLimits` values only for the remaining periods.
+	// If the planned budget expires before 12 months for monthly or four quarters for quarterly, provide the `PlannedBudgetLimits` values only for the remaining periods.
 	//
 	// If the budget begins at a date in the future, provide `PlannedBudgetLimits` values from the start date of the budget.
 	//
 	// After all of the `BudgetLimit` values in `PlannedBudgetLimits` are used, the budget continues to use the last limit as the `BudgetLimit` . At that point, the planned budget provides the same experience as a fixed budget.
 	//
-	// `DescribeBudget` and `DescribeBudgets` response along with `PlannedBudgetLimits` will also contain `BudgetLimit` representing the current month or quarter limit present in `PlannedBudgetLimits` . This only applies to budgets created with `PlannedBudgetLimits` . Budgets created without `PlannedBudgetLimits` will only contain `BudgetLimit` , and no `PlannedBudgetLimits` .
+	// `DescribeBudget` and `DescribeBudgets` response along with `PlannedBudgetLimits` also contain `BudgetLimit` representing the current month or quarter limit present in `PlannedBudgetLimits` . This only applies to budgets that are created with `PlannedBudgetLimits` . Budgets that are created without `PlannedBudgetLimits` only contain `BudgetLimit` . They don't contain `PlannedBudgetLimits` .
 	PlannedBudgetLimits interface{} `json:"plannedBudgetLimits" yaml:"plannedBudgetLimits"`
 	// The period of time that is covered by a budget.
 	//
@@ -576,7 +576,7 @@ type CfnBudget_BudgetDataProperty struct {
 
 // The types of cost that are included in a `COST` budget, such as tax and subscriptions.
 //
-// `USAGE` , `RI_UTILIZATION` , `RI_COVERAGE` , `SAVINGS_PLANS_UTILIZATION` , and `SAVINGS_PLANS_COVERAGE` budgets do not have `CostTypes` .
+// `USAGE` , `RI_UTILIZATION` , `RI_COVERAGE` , `SAVINGS_PLANS_UTILIZATION` , and `SAVINGS_PLANS_COVERAGE` budgets don't have `CostTypes` .
 //
 // TODO: EXAMPLE
 //
@@ -627,7 +627,7 @@ type CfnBudget_CostTypesProperty struct {
 	UseBlended interface{} `json:"useBlended" yaml:"useBlended"`
 }
 
-// A notification that is associated with a budget. A budget can have up to ten notifications.
+// A notification that's associated with a budget. A budget can have up to ten notifications.
 //
 // Each notification must have at least one subscriber. A notification can have one SNS subscriber and up to 10 email subscribers, for a total of 11 subscribers.
 //
@@ -641,11 +641,11 @@ type CfnBudget_CostTypesProperty struct {
 // TODO: EXAMPLE
 //
 type CfnBudget_NotificationProperty struct {
-	// The comparison that is used for this notification.
+	// The comparison that's used for this notification.
 	ComparisonOperator *string `json:"comparisonOperator" yaml:"comparisonOperator"`
-	// Whether the notification is for how much you have spent ( `ACTUAL` ) or for how much you're forecasted to spend ( `FORECASTED` ).
+	// Specifies whether the notification is for how much you have spent ( `ACTUAL` ) or for how much that you're forecasted to spend ( `FORECASTED` ).
 	NotificationType *string `json:"notificationType" yaml:"notificationType"`
-	// The threshold that is associated with a notification.
+	// The threshold that's associated with a notification.
 	//
 	// Thresholds are always a percentage, and many customers find value being alerted between 50% - 200% of the budgeted amount. The maximum limit for your threshold is 1,000,000% above the budgeted amount.
 	Threshold *float64 `json:"threshold" yaml:"threshold"`
@@ -662,15 +662,15 @@ type CfnBudget_NotificationProperty struct {
 // TODO: EXAMPLE
 //
 type CfnBudget_NotificationWithSubscribersProperty struct {
-	// The notification that is associated with a budget.
+	// The notification that's associated with a budget.
 	Notification interface{} `json:"notification" yaml:"notification"`
 	// A list of subscribers who are subscribed to this notification.
 	Subscribers interface{} `json:"subscribers" yaml:"subscribers"`
 }
 
-// The amount of cost or usage that is measured for a budget.
+// The amount of cost or usage that's measured for a budget.
 //
-// For example, a `Spend` for `3 GB` of S3 usage would have the following parameters:
+// For example, a `Spend` for `3 GB` of S3 usage has the following parameters:
 //
 // - An `Amount` of `3`
 // - A `unit` of `GB`
@@ -678,9 +678,9 @@ type CfnBudget_NotificationWithSubscribersProperty struct {
 // TODO: EXAMPLE
 //
 type CfnBudget_SpendProperty struct {
-	// The cost or usage amount that is associated with a budget forecast, actual spend, or budget threshold.
+	// The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold.
 	Amount *float64 `json:"amount" yaml:"amount"`
-	// The unit of measurement that is used for the budget forecast, actual spend, or budget threshold, such as USD or GB.
+	// The unit of measurement that's used for the budget forecast, actual spend, or budget threshold, such as USD or GBP.
 	Unit *string `json:"unit" yaml:"unit"`
 }
 
@@ -715,7 +715,7 @@ type CfnBudget_TimePeriodProperty struct {
 	//
 	// If you didn't specify an end date, AWS set your end date to `06/15/87 00:00 UTC` . The defaults are the same for the AWS Billing and Cost Management console and the API.
 	//
-	// After the end date, AWS deletes the budget and all associated notifications and subscribers. You can change your end date with the `UpdateBudget` operation.
+	// After the end date, AWS deletes the budget and all the associated notifications and subscribers. You can change your end date with the `UpdateBudget` operation.
 	End *string `json:"end" yaml:"end"`
 	// The start date for a budget.
 	//
@@ -1445,7 +1445,7 @@ type CfnBudgetsAction_SsmActionDefinitionProperty struct {
 //
 // The subscriber consists of a subscription type and either an Amazon SNS topic or an email address.
 //
-// For example, an email subscriber would have the following parameters:
+// For example, an email subscriber has the following parameters:
 //
 // - A `subscriptionType` of `EMAIL`
 // - An `address` of `example@example.com`

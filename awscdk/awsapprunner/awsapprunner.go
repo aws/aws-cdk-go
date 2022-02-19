@@ -37,6 +37,8 @@ type CfnService interface {
 	InstanceConfiguration() interface{}
 	SetInstanceConfiguration(val interface{})
 	LogicalId() *string
+	NetworkConfiguration() interface{}
+	SetNetworkConfiguration(val interface{})
 	Node() constructs.Node
 	Ref() *string
 	ServiceName() *string
@@ -199,6 +201,16 @@ func (j *jsiiProxy_CfnService) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnService) NetworkConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"networkConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnService) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -324,6 +336,14 @@ func (j *jsiiProxy_CfnService) SetInstanceConfiguration(val interface{}) {
 	_jsii_.Set(
 		j,
 		"instanceConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnService) SetNetworkConfiguration(val interface{}) {
+	_jsii_.Set(
+		j,
+		"networkConfiguration",
 		val,
 	)
 }
@@ -715,6 +735,23 @@ type CfnService_CodeRepositoryProperty struct {
 	CodeConfiguration interface{} `json:"codeConfiguration" yaml:"codeConfiguration"`
 }
 
+// Describes configuration settings related to outbound network traffic of an AWS App Runner service.
+//
+// TODO: EXAMPLE
+//
+type CfnService_EgressConfigurationProperty struct {
+	// The type of egress configuration.
+	//
+	// Set to `DEFAULT` for access to resources hosted on public networks.
+	//
+	// Set to `VPC` to associate your service to a custom VPC specified by `VpcConnectorArn` .
+	EgressType *string `json:"egressType" yaml:"egressType"`
+	// The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service.
+	//
+	// Only valid when `EgressType = VPC` .
+	VpcConnectorArn *string `json:"vpcConnectorArn" yaml:"vpcConnectorArn"`
+}
+
 // Describes a custom encryption key that AWS App Runner uses to encrypt copies of the source repository and service logs.
 //
 // TODO: EXAMPLE
@@ -825,6 +862,17 @@ type CfnService_KeyValuePairProperty struct {
 	Value *string `json:"value" yaml:"value"`
 }
 
+// Describes configuration settings related to network traffic of an AWS App Runner service.
+//
+// Consists of embedded objects for each configurable network feature.
+//
+// TODO: EXAMPLE
+//
+type CfnService_NetworkConfigurationProperty struct {
+	// Network configuration settings for outbound message traffic.
+	EgressConfiguration interface{} `json:"egressConfiguration" yaml:"egressConfiguration"`
+}
+
 // Identifies a version of code that AWS App Runner refers to within a source code repository.
 //
 // TODO: EXAMPLE
@@ -874,7 +922,7 @@ type CfnServiceProps struct {
 	//
 	// It can be a code or an image repository.
 	SourceConfiguration interface{} `json:"sourceConfiguration" yaml:"sourceConfiguration"`
-	// The Amazon Resource Name (ARN) of an App Runner automatic scaling configuration resource that you want to associate with your service.
+	// The Amazon Resource Name (ARN) of an App Runner automatic scaling configuration resource that you want to associate with the App Runner service.
 	//
 	// If not provided, App Runner associates the latest revision of a default auto scaling configuration.
 	AutoScalingConfigurationArn *string `json:"autoScalingConfigurationArn" yaml:"autoScalingConfigurationArn"`
@@ -882,17 +930,599 @@ type CfnServiceProps struct {
 	//
 	// By default, App Runner uses an AWS managed key .
 	EncryptionConfiguration interface{} `json:"encryptionConfiguration" yaml:"encryptionConfiguration"`
-	// The settings for the health check that AWS App Runner performs to monitor the health of your service.
+	// The settings for the health check that AWS App Runner performs to monitor the health of the App Runner service.
 	HealthCheckConfiguration interface{} `json:"healthCheckConfiguration" yaml:"healthCheckConfiguration"`
 	// The runtime configuration of instances (scaling units) of the App Runner service.
 	InstanceConfiguration interface{} `json:"instanceConfiguration" yaml:"instanceConfiguration"`
-	// A name for the new service.
+	// Configuration settings related to network traffic of the web application that the App Runner service runs.
+	NetworkConfiguration interface{} `json:"networkConfiguration" yaml:"networkConfiguration"`
+	// A name for the App Runner service.
 	//
 	// It must be unique across all the running App Runner services in your AWS account in the AWS Region .
+	//
+	// If you don't specify a name, AWS CloudFormation generates a name for your Service.
 	ServiceName *string `json:"serviceName" yaml:"serviceName"`
-	// An optional list of metadata items that you can associate with your service resource.
+	// An optional list of metadata items that you can associate with the App Runner service resource.
 	//
 	// A tag is a key-value pair.
 	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+}
+
+// A CloudFormation `AWS::AppRunner::VpcConnector`.
+//
+// Specify an AWS App Runner VPC connector by using the `AWS::AppRunner::VpcConnector` resource in an AWS CloudFormation template.
+//
+// The `AWS::AppRunner::VpcConnector` resource is an AWS App Runner resource type that specifies an App Runner VPC connector.
+//
+// App Runner requires this resource when you want to associate your App Runner service to a custom Amazon Virtual Private Cloud ( Amazon VPC ).
+//
+// TODO: EXAMPLE
+//
+type CfnVpcConnector interface {
+	awscdk.CfnResource
+	awscdk.IInspectable
+	AttrVpcConnectorArn() *string
+	AttrVpcConnectorRevision() *float64
+	CfnOptions() awscdk.ICfnResourceOptions
+	CfnProperties() *map[string]interface{}
+	CfnResourceType() *string
+	CreationStack() *[]*string
+	LogicalId() *string
+	Node() constructs.Node
+	Ref() *string
+	SecurityGroups() *[]*string
+	SetSecurityGroups(val *[]*string)
+	Stack() awscdk.Stack
+	Subnets() *[]*string
+	SetSubnets(val *[]*string)
+	Tags() awscdk.TagManager
+	UpdatedProperites() *map[string]interface{}
+	VpcConnectorName() *string
+	SetVpcConnectorName(val *string)
+	AddDeletionOverride(path *string)
+	AddDependsOn(target awscdk.CfnResource)
+	AddMetadata(key *string, value interface{})
+	AddOverride(path *string, value interface{})
+	AddPropertyDeletionOverride(propertyPath *string)
+	AddPropertyOverride(propertyPath *string, value interface{})
+	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	GetAtt(attributeName *string) awscdk.Reference
+	GetMetadata(key *string) interface{}
+	Inspect(inspector awscdk.TreeInspector)
+	OverrideLogicalId(newLogicalId *string)
+	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	ShouldSynthesize() *bool
+	ToString() *string
+	ValidateProperties(_properties interface{})
+}
+
+// The jsii proxy struct for CfnVpcConnector
+type jsiiProxy_CfnVpcConnector struct {
+	internal.Type__awscdkCfnResource
+	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnVpcConnector) AttrVpcConnectorArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrVpcConnectorArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVpcConnector) AttrVpcConnectorRevision() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"attrVpcConnectorRevision",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVpcConnector) CfnOptions() awscdk.ICfnResourceOptions {
+	var returns awscdk.ICfnResourceOptions
+	_jsii_.Get(
+		j,
+		"cfnOptions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVpcConnector) CfnProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"cfnProperties",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVpcConnector) CfnResourceType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"cfnResourceType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVpcConnector) CreationStack() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVpcConnector) LogicalId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"logicalId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVpcConnector) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVpcConnector) Ref() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ref",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVpcConnector) SecurityGroups() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"securityGroups",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVpcConnector) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVpcConnector) Subnets() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"subnets",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVpcConnector) Tags() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVpcConnector) UpdatedProperites() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVpcConnector) VpcConnectorName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"vpcConnectorName",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a new `AWS::AppRunner::VpcConnector`.
+func NewCfnVpcConnector(scope constructs.Construct, id *string, props *CfnVpcConnectorProps) CfnVpcConnector {
+	_init_.Initialize()
+
+	j := jsiiProxy_CfnVpcConnector{}
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_apprunner.CfnVpcConnector",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a new `AWS::AppRunner::VpcConnector`.
+func NewCfnVpcConnector_Override(c CfnVpcConnector, scope constructs.Construct, id *string, props *CfnVpcConnectorProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_apprunner.CfnVpcConnector",
+		[]interface{}{scope, id, props},
+		c,
+	)
+}
+
+func (j *jsiiProxy_CfnVpcConnector) SetSecurityGroups(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"securityGroups",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVpcConnector) SetSubnets(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"subnets",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVpcConnector) SetVpcConnectorName(val *string) {
+	_jsii_.Set(
+		j,
+		"vpcConnectorName",
+		val,
+	)
+}
+
+// Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
+//
+// Uses duck-typing instead of `instanceof` to allow stack elements from different
+// versions of this library to be included in the same stack.
+//
+// Returns: The construct as a stack element or undefined if it is not a stack element.
+func CfnVpcConnector_IsCfnElement(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_apprunner.CfnVpcConnector",
+		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a CfnResource.
+func CfnVpcConnector_IsCfnResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_apprunner.CfnVpcConnector",
+		"isCfnResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func CfnVpcConnector_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_apprunner.CfnVpcConnector",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnVpcConnector_CFN_RESOURCE_TYPE_NAME() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_apprunner.CfnVpcConnector",
+		"CFN_RESOURCE_TYPE_NAME",
+		&returns,
+	)
+	return returns
+}
+
+// Syntactic sugar for `addOverride(path, undefined)`.
+func (c *jsiiProxy_CfnVpcConnector) AddDeletionOverride(path *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"addDeletionOverride",
+		[]interface{}{path},
+	)
+}
+
+// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+//
+// This can be used for resources across stacks (or nested stack) boundaries
+// and the dependency will automatically be transferred to the relevant scope.
+func (c *jsiiProxy_CfnVpcConnector) AddDependsOn(target awscdk.CfnResource) {
+	_jsii_.InvokeVoid(
+		c,
+		"addDependsOn",
+		[]interface{}{target},
+	)
+}
+
+// Add a value to the CloudFormation Resource Metadata.
+// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+//
+// Note that this is a different set of metadata from CDK node metadata; this
+// metadata ends up in the stack template under the resource, whereas CDK
+// node metadata ends up in the Cloud Assembly.
+//
+func (c *jsiiProxy_CfnVpcConnector) AddMetadata(key *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addMetadata",
+		[]interface{}{key, value},
+	)
+}
+
+// Adds an override to the synthesized CloudFormation resource.
+//
+// To add a
+// property override, either use `addPropertyOverride` or prefix `path` with
+// "Properties." (i.e. `Properties.TopicName`).
+//
+// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+// If there is an array as part of the nesting, specify the index in the path.
+//
+// To include a literal `.` in the property name, prefix with a `\`. In most
+// programming languages you will need to write this as `"\\."` because the
+// `\` itself will need to be escaped.
+//
+// For example,
+// ```typescript
+// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+// ```
+// would add the overrides
+// ```json
+// "Properties": {
+//    "GlobalSecondaryIndexes": [
+//      {
+//        "Projection": {
+//          "NonKeyAttributes": [ "myattribute" ]
+//          ...
+//        }
+//        ...
+//      },
+//      {
+//        "ProjectionType": "INCLUDE"
+//        ...
+//      },
+//    ]
+//    ...
+// }
+// ```
+//
+// The `value` argument to `addOverride` will not be processed or translated
+// in any way. Pass raw JSON values in here with the correct capitalization
+// for CloudFormation. If you pass CDK classes or structs, they will be
+// rendered with lowercased key names, and CloudFormation will reject the
+// template.
+func (c *jsiiProxy_CfnVpcConnector) AddOverride(path *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addOverride",
+		[]interface{}{path, value},
+	)
+}
+
+// Adds an override that deletes the value of a property from the resource definition.
+func (c *jsiiProxy_CfnVpcConnector) AddPropertyDeletionOverride(propertyPath *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"addPropertyDeletionOverride",
+		[]interface{}{propertyPath},
+	)
+}
+
+// Adds an override to a resource property.
+//
+// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+func (c *jsiiProxy_CfnVpcConnector) AddPropertyOverride(propertyPath *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addPropertyOverride",
+		[]interface{}{propertyPath, value},
+	)
+}
+
+// Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+func (c *jsiiProxy_CfnVpcConnector) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	_jsii_.InvokeVoid(
+		c,
+		"applyRemovalPolicy",
+		[]interface{}{policy, options},
+	)
+}
+
+// Returns a token for an runtime attribute of this resource.
+//
+// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+// in case there is no generated attribute.
+func (c *jsiiProxy_CfnVpcConnector) GetAtt(attributeName *string) awscdk.Reference {
+	var returns awscdk.Reference
+
+	_jsii_.Invoke(
+		c,
+		"getAtt",
+		[]interface{}{attributeName},
+		&returns,
+	)
+
+	return returns
+}
+
+// Retrieve a value value from the CloudFormation Resource Metadata.
+// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+//
+// Note that this is a different set of metadata from CDK node metadata; this
+// metadata ends up in the stack template under the resource, whereas CDK
+// node metadata ends up in the Cloud Assembly.
+//
+func (c *jsiiProxy_CfnVpcConnector) GetMetadata(key *string) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		c,
+		"getMetadata",
+		[]interface{}{key},
+		&returns,
+	)
+
+	return returns
+}
+
+// Examines the CloudFormation resource and discloses attributes.
+func (c *jsiiProxy_CfnVpcConnector) Inspect(inspector awscdk.TreeInspector) {
+	_jsii_.InvokeVoid(
+		c,
+		"inspect",
+		[]interface{}{inspector},
+	)
+}
+
+// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnVpcConnector) OverrideLogicalId(newLogicalId *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"overrideLogicalId",
+		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnVpcConnector) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	var returns *map[string]interface{}
+
+	_jsii_.Invoke(
+		c,
+		"renderProperties",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+//
+// Returns: `true` if the resource should be included or `false` is the resource
+// should be omitted.
+func (c *jsiiProxy_CfnVpcConnector) ShouldSynthesize() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"shouldSynthesize",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns a string representation of this construct.
+//
+// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnVpcConnector) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnVpcConnector) ValidateProperties(_properties interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"validateProperties",
+		[]interface{}{_properties},
+	)
+}
+
+// Properties for defining a `CfnVpcConnector`.
+//
+// TODO: EXAMPLE
+//
+type CfnVpcConnectorProps struct {
+	// A list of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC.
+	//
+	// Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
+	Subnets *[]*string `json:"subnets" yaml:"subnets"`
+	// A list of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets.
+	//
+	// If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
+	SecurityGroups *[]*string `json:"securityGroups" yaml:"securityGroups"`
+	// A list of metadata items that you can associate with your VPC connector resource.
+	//
+	// A tag is a key-value pair.
+	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	// A name for the VPC connector.
+	//
+	// If you don't specify a name, AWS CloudFormation generates a name for your VPC connector.
+	VpcConnectorName *string `json:"vpcConnectorName" yaml:"vpcConnectorName"`
 }
 

@@ -79,6 +79,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "objectTypeName", GoGetter: "ObjectTypeName"},
+			_jsii_.MemberProperty{JsiiProperty: "objectTypeNames", GoGetter: "ObjectTypeNames"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
@@ -112,6 +113,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_customerprofiles.CfnIntegration.MarketoSourcePropertiesProperty",
 		reflect.TypeOf((*CfnIntegration_MarketoSourcePropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_customerprofiles.CfnIntegration.ObjectTypeMappingProperty",
+		reflect.TypeOf((*CfnIntegration_ObjectTypeMappingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_customerprofiles.CfnIntegration.S3SourcePropertiesProperty",

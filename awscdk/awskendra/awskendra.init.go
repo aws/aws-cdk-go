@@ -24,6 +24,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "customDocumentEnrichmentConfiguration", GoGetter: "CustomDocumentEnrichmentConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "dataSourceConfiguration", GoGetter: "DataSourceConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
@@ -106,6 +107,10 @@ func init() {
 		reflect.TypeOf((*CfnDataSource_ConnectionConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kendra.CfnDataSource.CustomDocumentEnrichmentConfigurationProperty",
+		reflect.TypeOf((*CfnDataSource_CustomDocumentEnrichmentConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_kendra.CfnDataSource.DataSourceConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_DataSourceConfigurationProperty)(nil)).Elem(),
 	)
@@ -122,12 +127,32 @@ func init() {
 		reflect.TypeOf((*CfnDataSource_DatabaseConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kendra.CfnDataSource.DocumentAttributeConditionProperty",
+		reflect.TypeOf((*CfnDataSource_DocumentAttributeConditionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kendra.CfnDataSource.DocumentAttributeTargetProperty",
+		reflect.TypeOf((*CfnDataSource_DocumentAttributeTargetProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kendra.CfnDataSource.DocumentAttributeValueProperty",
+		reflect.TypeOf((*CfnDataSource_DocumentAttributeValueProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_kendra.CfnDataSource.DocumentsMetadataConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_DocumentsMetadataConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_kendra.CfnDataSource.GoogleDriveConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_GoogleDriveConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kendra.CfnDataSource.HookConfigurationProperty",
+		reflect.TypeOf((*CfnDataSource_HookConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kendra.CfnDataSource.InlineCustomDocumentEnrichmentConfigurationProperty",
+		reflect.TypeOf((*CfnDataSource_InlineCustomDocumentEnrichmentConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_kendra.CfnDataSource.OneDriveConfigurationProperty",

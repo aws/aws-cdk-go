@@ -5422,6 +5422,8 @@ type CfnServiceProps struct {
 	//
 	// This is only used when your service is configured to use a load balancer. If your service has a load balancer defined and you don't specify a health check grace period value, the default value of `0` is used.
 	//
+	// If you do not use an Elastic Load Balancing, we recomend that you use the `startPeriod` in the task definition healtch check parameters. For more information, see [Health check](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_HealthCheck.html) .
+	//
 	// If your service's tasks take a while to start and respond to Elastic Load Balancing health checks, you can specify a health check grace period of up to 2,147,483,647 seconds (about 69 years). During that time, the Amazon ECS service scheduler ignores health check status. This grace period can prevent the service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.
 	HealthCheckGracePeriodSeconds *float64 `json:"healthCheckGracePeriodSeconds" yaml:"healthCheckGracePeriodSeconds"`
 	// The launch type on which to run your service.
@@ -7050,12 +7052,18 @@ type CfnTaskDefinition_ResourceRequirementProperty struct {
 	Value *string `json:"value" yaml:"value"`
 }
 
+// Information about the platform for the Amazon ECS service or task.
+//
+// For more informataion about `RuntimePlatform` , see [RuntimePlatform](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform) in the *Amazon Elastic Container Service Developer Guide* .
+//
 // TODO: EXAMPLE
 //
 type CfnTaskDefinition_RuntimePlatformProperty struct {
-	// `CfnTaskDefinition.RuntimePlatformProperty.CpuArchitecture`.
+	// The CPU architecture.
+	//
+	// You can run your Linux tasks on an ARM-based platform by setting the value to `ARM64` . This option is avaiable for tasks that run on Linuc Amazon EC2 instance or Linux containers on Fargate.
 	CpuArchitecture *string `json:"cpuArchitecture" yaml:"cpuArchitecture"`
-	// `CfnTaskDefinition.RuntimePlatformProperty.OperatingSystemFamily`.
+	// The operating system.
 	OperatingSystemFamily *string `json:"operatingSystemFamily" yaml:"operatingSystemFamily"`
 }
 
@@ -7071,6 +7079,8 @@ type CfnTaskDefinition_SecretProperty struct {
 	// The secret to expose to the container.
 	//
 	// The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the SSM Parameter Store.
+	//
+	// For information about the require AWS Identity and Access Management permissions, see [Required IAM permissions for Amazon ECS secrets](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data-secrets.html#secrets-iam) (for Secrets Manager) or [Required IAM permissions for Amazon ECS secrets](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data-parameters.html) (for Systems Manager Parameter store) in the *Amazon Elastic Container Service Developer Guide* .
 	//
 	// > If the SSM Parameter Store parameter exists in the same Region as the task you're launching, then you can use either the full ARN or name of the parameter. If the parameter exists in a different Region, then the full ARN must be specified.
 	ValueFrom *string `json:"valueFrom" yaml:"valueFrom"`
@@ -7279,7 +7289,11 @@ type CfnTaskDefinitionProps struct {
 	//
 	// To determine which task launch types the task definition is validated for, see the `TaskDefinition$compatibilities` parameter.
 	RequiresCompatibilities *[]*string `json:"requiresCompatibilities" yaml:"requiresCompatibilities"`
-	// `AWS::ECS::TaskDefinition.RuntimePlatform`.
+	// The operating system that your tasks definitions run on.
+	//
+	// A platform family is specified only for tasks using the Fargate launch type.
+	//
+	// When you specify a task definition in a service, this value must match the `runtimePlatform` value of the service.
 	RuntimePlatform interface{} `json:"runtimePlatform" yaml:"runtimePlatform"`
 	// The metadata that you apply to the task definition to help you categorize and organize them.
 	//
@@ -17448,6 +17462,22 @@ func Secret_FromSecretsManager(secret awssecretsmanager.ISecret, field *string) 
 	return returns
 }
 
+// Creates a environment variable value from a secret stored in AWS Secrets Manager.
+func Secret_FromSecretsManagerVersion(secret awssecretsmanager.ISecret, versionInfo *SecretVersionInfo, field *string) Secret {
+	_init_.Initialize()
+
+	var returns Secret
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ecs.Secret",
+		"fromSecretsManagerVersion",
+		[]interface{}{secret, versionInfo, field},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates an environment variable value from a parameter stored in AWS Systems Manager Parameter Store.
 func Secret_FromSsmParameter(parameter awsssm.IParameter) Secret {
 	_init_.Initialize()
@@ -17476,6 +17506,17 @@ func (s *jsiiProxy_Secret) GrantRead(grantee awsiam.IGrantable) awsiam.Grant {
 	)
 
 	return returns
+}
+
+// Specify the secret's version id or version stage.
+//
+// TODO: EXAMPLE
+//
+type SecretVersionInfo struct {
+	// version id of the secret.
+	VersionId *string `json:"versionId" yaml:"versionId"`
+	// version stage of the secret.
+	VersionStage *string `json:"versionStage" yaml:"versionStage"`
 }
 
 // A log driver that sends log information to splunk Logs.

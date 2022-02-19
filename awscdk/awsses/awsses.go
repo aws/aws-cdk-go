@@ -622,6 +622,7 @@ func (c *jsiiProxy_CfnConfigurationSet) ValidateProperties(_properties interface
 type CfnConfigurationSetEventDestination interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
@@ -656,6 +657,16 @@ type CfnConfigurationSetEventDestination interface {
 type jsiiProxy_CfnConfigurationSetEventDestination struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnConfigurationSetEventDestination) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnConfigurationSetEventDestination) CfnOptions() awscdk.ICfnResourceOptions {
@@ -3564,6 +3575,7 @@ type CfnReceiptRuleSetProps struct {
 type CfnTemplate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
@@ -3596,6 +3608,16 @@ type CfnTemplate interface {
 type jsiiProxy_CfnTemplate struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnTemplate) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnTemplate) CfnOptions() awscdk.ICfnResourceOptions {
@@ -4038,10 +4060,10 @@ func (c *jsiiProxy_CfnTemplate) ValidateProperties(_properties interface{}) {
 // TODO: EXAMPLE
 //
 type CfnTemplate_TemplateProperty struct {
-	// The HTML body of the email.
-	HtmlPart *string `json:"htmlPart" yaml:"htmlPart"`
 	// The subject line of the email.
 	SubjectPart *string `json:"subjectPart" yaml:"subjectPart"`
+	// The HTML body of the email.
+	HtmlPart *string `json:"htmlPart" yaml:"htmlPart"`
 	// The name of the template.
 	TemplateName *string `json:"templateName" yaml:"templateName"`
 	// The email body that is visible to recipients whose email clients do not display HTML content.

@@ -955,11 +955,19 @@ func Aws_URL_SUFFIX() *string {
 	return returns
 }
 
-// A special synthesizer that behaves similarly to DefaultStackSynthesizer, but doesn't require bootstrapping the environment it operates in.
+// Synthesizer that reuses bootstrap roles from a different region.
 //
-// Because of that, stacks using it cannot have assets inside of them.
+// A special synthesizer that behaves similarly to `DefaultStackSynthesizer`,
+// but doesn't require bootstrapping the environment it operates in. Instead,
+// it will re-use the Roles that were created for a different region (which
+// is possible because IAM is a global service).
+//
+// However, it will not assume asset buckets or repositories have been created,
+// and therefore does not support assets.
+//
 // Used by the CodePipeline construct for the support stacks needed for
-// cross-region replication S3 buckets.
+// cross-region replication S3 buckets. App builders do not need to use this
+// synthesizer directly.
 //
 // TODO: EXAMPLE
 //
@@ -2516,7 +2524,7 @@ type CfnCustomResourceProps struct {
 	//
 	// The service token that was given to the template developer by the service provider to access the service, such as an Amazon SNS topic ARN or Lambda function ARN. The service token must be from the same Region in which you are creating the stack.
 	//
-	// Updates are not supported.
+	// Updates aren't supported.
 	ServiceToken *string `json:"serviceToken" yaml:"serviceToken"`
 }
 
@@ -2983,6 +2991,554 @@ func (c *jsiiProxy_CfnHook) ToString() *string {
 	return returns
 }
 
+// A CloudFormation `AWS::CloudFormation::HookDefaultVersion`.
+//
+// The `HookDefaultVersion` resource specifies the default version of the hook. The default version of the hook is used in CloudFormation operations for this AWS account and AWS Region .
+//
+// TODO: EXAMPLE
+//
+type CfnHookDefaultVersion interface {
+	CfnResource
+	IInspectable
+	AttrArn() *string
+	CfnOptions() ICfnResourceOptions
+	CfnProperties() *map[string]interface{}
+	CfnResourceType() *string
+	CreationStack() *[]*string
+	LogicalId() *string
+	Node() constructs.Node
+	Ref() *string
+	Stack() Stack
+	TypeName() *string
+	SetTypeName(val *string)
+	TypeVersionArn() *string
+	SetTypeVersionArn(val *string)
+	UpdatedProperites() *map[string]interface{}
+	VersionId() *string
+	SetVersionId(val *string)
+	AddDeletionOverride(path *string)
+	AddDependsOn(target CfnResource)
+	AddMetadata(key *string, value interface{})
+	AddOverride(path *string, value interface{})
+	AddPropertyDeletionOverride(propertyPath *string)
+	AddPropertyOverride(propertyPath *string, value interface{})
+	ApplyRemovalPolicy(policy RemovalPolicy, options *RemovalPolicyOptions)
+	GetAtt(attributeName *string) Reference
+	GetMetadata(key *string) interface{}
+	Inspect(inspector TreeInspector)
+	OverrideLogicalId(newLogicalId *string)
+	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	ShouldSynthesize() *bool
+	ToString() *string
+	ValidateProperties(_properties interface{})
+}
+
+// The jsii proxy struct for CfnHookDefaultVersion
+type jsiiProxy_CfnHookDefaultVersion struct {
+	jsiiProxy_CfnResource
+	jsiiProxy_IInspectable
+}
+
+func (j *jsiiProxy_CfnHookDefaultVersion) AttrArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHookDefaultVersion) CfnOptions() ICfnResourceOptions {
+	var returns ICfnResourceOptions
+	_jsii_.Get(
+		j,
+		"cfnOptions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHookDefaultVersion) CfnProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"cfnProperties",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHookDefaultVersion) CfnResourceType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"cfnResourceType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHookDefaultVersion) CreationStack() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHookDefaultVersion) LogicalId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"logicalId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHookDefaultVersion) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHookDefaultVersion) Ref() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ref",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHookDefaultVersion) Stack() Stack {
+	var returns Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHookDefaultVersion) TypeName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"typeName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHookDefaultVersion) TypeVersionArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"typeVersionArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHookDefaultVersion) UpdatedProperites() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHookDefaultVersion) VersionId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"versionId",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a new `AWS::CloudFormation::HookDefaultVersion`.
+func NewCfnHookDefaultVersion(scope constructs.Construct, id *string, props *CfnHookDefaultVersionProps) CfnHookDefaultVersion {
+	_init_.Initialize()
+
+	j := jsiiProxy_CfnHookDefaultVersion{}
+
+	_jsii_.Create(
+		"aws-cdk-lib.CfnHookDefaultVersion",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a new `AWS::CloudFormation::HookDefaultVersion`.
+func NewCfnHookDefaultVersion_Override(c CfnHookDefaultVersion, scope constructs.Construct, id *string, props *CfnHookDefaultVersionProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"aws-cdk-lib.CfnHookDefaultVersion",
+		[]interface{}{scope, id, props},
+		c,
+	)
+}
+
+func (j *jsiiProxy_CfnHookDefaultVersion) SetTypeName(val *string) {
+	_jsii_.Set(
+		j,
+		"typeName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnHookDefaultVersion) SetTypeVersionArn(val *string) {
+	_jsii_.Set(
+		j,
+		"typeVersionArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnHookDefaultVersion) SetVersionId(val *string) {
+	_jsii_.Set(
+		j,
+		"versionId",
+		val,
+	)
+}
+
+// Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
+//
+// Uses duck-typing instead of `instanceof` to allow stack elements from different
+// versions of this library to be included in the same stack.
+//
+// Returns: The construct as a stack element or undefined if it is not a stack element.
+func CfnHookDefaultVersion_IsCfnElement(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.CfnHookDefaultVersion",
+		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a CfnResource.
+func CfnHookDefaultVersion_IsCfnResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.CfnHookDefaultVersion",
+		"isCfnResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func CfnHookDefaultVersion_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.CfnHookDefaultVersion",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnHookDefaultVersion_CFN_RESOURCE_TYPE_NAME() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"aws-cdk-lib.CfnHookDefaultVersion",
+		"CFN_RESOURCE_TYPE_NAME",
+		&returns,
+	)
+	return returns
+}
+
+// Syntactic sugar for `addOverride(path, undefined)`.
+func (c *jsiiProxy_CfnHookDefaultVersion) AddDeletionOverride(path *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"addDeletionOverride",
+		[]interface{}{path},
+	)
+}
+
+// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+//
+// This can be used for resources across stacks (or nested stack) boundaries
+// and the dependency will automatically be transferred to the relevant scope.
+func (c *jsiiProxy_CfnHookDefaultVersion) AddDependsOn(target CfnResource) {
+	_jsii_.InvokeVoid(
+		c,
+		"addDependsOn",
+		[]interface{}{target},
+	)
+}
+
+// Add a value to the CloudFormation Resource Metadata.
+// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+//
+// Note that this is a different set of metadata from CDK node metadata; this
+// metadata ends up in the stack template under the resource, whereas CDK
+// node metadata ends up in the Cloud Assembly.
+//
+func (c *jsiiProxy_CfnHookDefaultVersion) AddMetadata(key *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addMetadata",
+		[]interface{}{key, value},
+	)
+}
+
+// Adds an override to the synthesized CloudFormation resource.
+//
+// To add a
+// property override, either use `addPropertyOverride` or prefix `path` with
+// "Properties." (i.e. `Properties.TopicName`).
+//
+// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+// If there is an array as part of the nesting, specify the index in the path.
+//
+// To include a literal `.` in the property name, prefix with a `\`. In most
+// programming languages you will need to write this as `"\\."` because the
+// `\` itself will need to be escaped.
+//
+// For example,
+// ```typescript
+// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+// ```
+// would add the overrides
+// ```json
+// "Properties": {
+//    "GlobalSecondaryIndexes": [
+//      {
+//        "Projection": {
+//          "NonKeyAttributes": [ "myattribute" ]
+//          ...
+//        }
+//        ...
+//      },
+//      {
+//        "ProjectionType": "INCLUDE"
+//        ...
+//      },
+//    ]
+//    ...
+// }
+// ```
+//
+// The `value` argument to `addOverride` will not be processed or translated
+// in any way. Pass raw JSON values in here with the correct capitalization
+// for CloudFormation. If you pass CDK classes or structs, they will be
+// rendered with lowercased key names, and CloudFormation will reject the
+// template.
+func (c *jsiiProxy_CfnHookDefaultVersion) AddOverride(path *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addOverride",
+		[]interface{}{path, value},
+	)
+}
+
+// Adds an override that deletes the value of a property from the resource definition.
+func (c *jsiiProxy_CfnHookDefaultVersion) AddPropertyDeletionOverride(propertyPath *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"addPropertyDeletionOverride",
+		[]interface{}{propertyPath},
+	)
+}
+
+// Adds an override to a resource property.
+//
+// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+func (c *jsiiProxy_CfnHookDefaultVersion) AddPropertyOverride(propertyPath *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addPropertyOverride",
+		[]interface{}{propertyPath, value},
+	)
+}
+
+// Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+func (c *jsiiProxy_CfnHookDefaultVersion) ApplyRemovalPolicy(policy RemovalPolicy, options *RemovalPolicyOptions) {
+	_jsii_.InvokeVoid(
+		c,
+		"applyRemovalPolicy",
+		[]interface{}{policy, options},
+	)
+}
+
+// Returns a token for an runtime attribute of this resource.
+//
+// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+// in case there is no generated attribute.
+func (c *jsiiProxy_CfnHookDefaultVersion) GetAtt(attributeName *string) Reference {
+	var returns Reference
+
+	_jsii_.Invoke(
+		c,
+		"getAtt",
+		[]interface{}{attributeName},
+		&returns,
+	)
+
+	return returns
+}
+
+// Retrieve a value value from the CloudFormation Resource Metadata.
+// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+//
+// Note that this is a different set of metadata from CDK node metadata; this
+// metadata ends up in the stack template under the resource, whereas CDK
+// node metadata ends up in the Cloud Assembly.
+//
+func (c *jsiiProxy_CfnHookDefaultVersion) GetMetadata(key *string) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		c,
+		"getMetadata",
+		[]interface{}{key},
+		&returns,
+	)
+
+	return returns
+}
+
+// Examines the CloudFormation resource and discloses attributes.
+func (c *jsiiProxy_CfnHookDefaultVersion) Inspect(inspector TreeInspector) {
+	_jsii_.InvokeVoid(
+		c,
+		"inspect",
+		[]interface{}{inspector},
+	)
+}
+
+// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnHookDefaultVersion) OverrideLogicalId(newLogicalId *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"overrideLogicalId",
+		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnHookDefaultVersion) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	var returns *map[string]interface{}
+
+	_jsii_.Invoke(
+		c,
+		"renderProperties",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+//
+// Returns: `true` if the resource should be included or `false` is the resource
+// should be omitted.
+func (c *jsiiProxy_CfnHookDefaultVersion) ShouldSynthesize() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"shouldSynthesize",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns a string representation of this construct.
+//
+// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnHookDefaultVersion) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnHookDefaultVersion) ValidateProperties(_properties interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"validateProperties",
+		[]interface{}{_properties},
+	)
+}
+
+// Properties for defining a `CfnHookDefaultVersion`.
+//
+// TODO: EXAMPLE
+//
+type CfnHookDefaultVersionProps struct {
+	// The name of the hook.
+	//
+	// You must specify either `TypeVersionArn` , or `TypeName` and `VersionId` .
+	TypeName *string `json:"typeName" yaml:"typeName"`
+	// The version ID of the type configuration.
+	//
+	// You must specify either `TypeVersionArn` , or `TypeName` and `VersionId` .
+	TypeVersionArn *string `json:"typeVersionArn" yaml:"typeVersionArn"`
+	// The version ID of the type specified.
+	//
+	// You must specify either `TypeVersionArn` , or `TypeName` and `VersionId` .
+	VersionId *string `json:"versionId" yaml:"versionId"`
+}
+
 // Construction properties of {@link CfnHook}.
 //
 // TODO: EXAMPLE
@@ -2992,6 +3548,1215 @@ type CfnHookProps struct {
 	Type *string `json:"type" yaml:"type"`
 	// The properties of the hook.
 	Properties *map[string]interface{} `json:"properties" yaml:"properties"`
+}
+
+// A CloudFormation `AWS::CloudFormation::HookTypeConfig`.
+//
+// The `HookTypeConfig` resource specifies the configuration of a hook.
+//
+// TODO: EXAMPLE
+//
+type CfnHookTypeConfig interface {
+	CfnResource
+	IInspectable
+	AttrConfigurationArn() *string
+	CfnOptions() ICfnResourceOptions
+	CfnProperties() *map[string]interface{}
+	CfnResourceType() *string
+	Configuration() *string
+	SetConfiguration(val *string)
+	ConfigurationAlias() *string
+	SetConfigurationAlias(val *string)
+	CreationStack() *[]*string
+	LogicalId() *string
+	Node() constructs.Node
+	Ref() *string
+	Stack() Stack
+	TypeArn() *string
+	SetTypeArn(val *string)
+	TypeName() *string
+	SetTypeName(val *string)
+	UpdatedProperites() *map[string]interface{}
+	AddDeletionOverride(path *string)
+	AddDependsOn(target CfnResource)
+	AddMetadata(key *string, value interface{})
+	AddOverride(path *string, value interface{})
+	AddPropertyDeletionOverride(propertyPath *string)
+	AddPropertyOverride(propertyPath *string, value interface{})
+	ApplyRemovalPolicy(policy RemovalPolicy, options *RemovalPolicyOptions)
+	GetAtt(attributeName *string) Reference
+	GetMetadata(key *string) interface{}
+	Inspect(inspector TreeInspector)
+	OverrideLogicalId(newLogicalId *string)
+	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	ShouldSynthesize() *bool
+	ToString() *string
+	ValidateProperties(_properties interface{})
+}
+
+// The jsii proxy struct for CfnHookTypeConfig
+type jsiiProxy_CfnHookTypeConfig struct {
+	jsiiProxy_CfnResource
+	jsiiProxy_IInspectable
+}
+
+func (j *jsiiProxy_CfnHookTypeConfig) AttrConfigurationArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrConfigurationArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHookTypeConfig) CfnOptions() ICfnResourceOptions {
+	var returns ICfnResourceOptions
+	_jsii_.Get(
+		j,
+		"cfnOptions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHookTypeConfig) CfnProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"cfnProperties",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHookTypeConfig) CfnResourceType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"cfnResourceType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHookTypeConfig) Configuration() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"configuration",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHookTypeConfig) ConfigurationAlias() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"configurationAlias",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHookTypeConfig) CreationStack() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHookTypeConfig) LogicalId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"logicalId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHookTypeConfig) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHookTypeConfig) Ref() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ref",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHookTypeConfig) Stack() Stack {
+	var returns Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHookTypeConfig) TypeArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"typeArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHookTypeConfig) TypeName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"typeName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHookTypeConfig) UpdatedProperites() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a new `AWS::CloudFormation::HookTypeConfig`.
+func NewCfnHookTypeConfig(scope constructs.Construct, id *string, props *CfnHookTypeConfigProps) CfnHookTypeConfig {
+	_init_.Initialize()
+
+	j := jsiiProxy_CfnHookTypeConfig{}
+
+	_jsii_.Create(
+		"aws-cdk-lib.CfnHookTypeConfig",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a new `AWS::CloudFormation::HookTypeConfig`.
+func NewCfnHookTypeConfig_Override(c CfnHookTypeConfig, scope constructs.Construct, id *string, props *CfnHookTypeConfigProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"aws-cdk-lib.CfnHookTypeConfig",
+		[]interface{}{scope, id, props},
+		c,
+	)
+}
+
+func (j *jsiiProxy_CfnHookTypeConfig) SetConfiguration(val *string) {
+	_jsii_.Set(
+		j,
+		"configuration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnHookTypeConfig) SetConfigurationAlias(val *string) {
+	_jsii_.Set(
+		j,
+		"configurationAlias",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnHookTypeConfig) SetTypeArn(val *string) {
+	_jsii_.Set(
+		j,
+		"typeArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnHookTypeConfig) SetTypeName(val *string) {
+	_jsii_.Set(
+		j,
+		"typeName",
+		val,
+	)
+}
+
+// Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
+//
+// Uses duck-typing instead of `instanceof` to allow stack elements from different
+// versions of this library to be included in the same stack.
+//
+// Returns: The construct as a stack element or undefined if it is not a stack element.
+func CfnHookTypeConfig_IsCfnElement(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.CfnHookTypeConfig",
+		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a CfnResource.
+func CfnHookTypeConfig_IsCfnResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.CfnHookTypeConfig",
+		"isCfnResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func CfnHookTypeConfig_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.CfnHookTypeConfig",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnHookTypeConfig_CFN_RESOURCE_TYPE_NAME() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"aws-cdk-lib.CfnHookTypeConfig",
+		"CFN_RESOURCE_TYPE_NAME",
+		&returns,
+	)
+	return returns
+}
+
+// Syntactic sugar for `addOverride(path, undefined)`.
+func (c *jsiiProxy_CfnHookTypeConfig) AddDeletionOverride(path *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"addDeletionOverride",
+		[]interface{}{path},
+	)
+}
+
+// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+//
+// This can be used for resources across stacks (or nested stack) boundaries
+// and the dependency will automatically be transferred to the relevant scope.
+func (c *jsiiProxy_CfnHookTypeConfig) AddDependsOn(target CfnResource) {
+	_jsii_.InvokeVoid(
+		c,
+		"addDependsOn",
+		[]interface{}{target},
+	)
+}
+
+// Add a value to the CloudFormation Resource Metadata.
+// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+//
+// Note that this is a different set of metadata from CDK node metadata; this
+// metadata ends up in the stack template under the resource, whereas CDK
+// node metadata ends up in the Cloud Assembly.
+//
+func (c *jsiiProxy_CfnHookTypeConfig) AddMetadata(key *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addMetadata",
+		[]interface{}{key, value},
+	)
+}
+
+// Adds an override to the synthesized CloudFormation resource.
+//
+// To add a
+// property override, either use `addPropertyOverride` or prefix `path` with
+// "Properties." (i.e. `Properties.TopicName`).
+//
+// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+// If there is an array as part of the nesting, specify the index in the path.
+//
+// To include a literal `.` in the property name, prefix with a `\`. In most
+// programming languages you will need to write this as `"\\."` because the
+// `\` itself will need to be escaped.
+//
+// For example,
+// ```typescript
+// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+// ```
+// would add the overrides
+// ```json
+// "Properties": {
+//    "GlobalSecondaryIndexes": [
+//      {
+//        "Projection": {
+//          "NonKeyAttributes": [ "myattribute" ]
+//          ...
+//        }
+//        ...
+//      },
+//      {
+//        "ProjectionType": "INCLUDE"
+//        ...
+//      },
+//    ]
+//    ...
+// }
+// ```
+//
+// The `value` argument to `addOverride` will not be processed or translated
+// in any way. Pass raw JSON values in here with the correct capitalization
+// for CloudFormation. If you pass CDK classes or structs, they will be
+// rendered with lowercased key names, and CloudFormation will reject the
+// template.
+func (c *jsiiProxy_CfnHookTypeConfig) AddOverride(path *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addOverride",
+		[]interface{}{path, value},
+	)
+}
+
+// Adds an override that deletes the value of a property from the resource definition.
+func (c *jsiiProxy_CfnHookTypeConfig) AddPropertyDeletionOverride(propertyPath *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"addPropertyDeletionOverride",
+		[]interface{}{propertyPath},
+	)
+}
+
+// Adds an override to a resource property.
+//
+// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+func (c *jsiiProxy_CfnHookTypeConfig) AddPropertyOverride(propertyPath *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addPropertyOverride",
+		[]interface{}{propertyPath, value},
+	)
+}
+
+// Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+func (c *jsiiProxy_CfnHookTypeConfig) ApplyRemovalPolicy(policy RemovalPolicy, options *RemovalPolicyOptions) {
+	_jsii_.InvokeVoid(
+		c,
+		"applyRemovalPolicy",
+		[]interface{}{policy, options},
+	)
+}
+
+// Returns a token for an runtime attribute of this resource.
+//
+// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+// in case there is no generated attribute.
+func (c *jsiiProxy_CfnHookTypeConfig) GetAtt(attributeName *string) Reference {
+	var returns Reference
+
+	_jsii_.Invoke(
+		c,
+		"getAtt",
+		[]interface{}{attributeName},
+		&returns,
+	)
+
+	return returns
+}
+
+// Retrieve a value value from the CloudFormation Resource Metadata.
+// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+//
+// Note that this is a different set of metadata from CDK node metadata; this
+// metadata ends up in the stack template under the resource, whereas CDK
+// node metadata ends up in the Cloud Assembly.
+//
+func (c *jsiiProxy_CfnHookTypeConfig) GetMetadata(key *string) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		c,
+		"getMetadata",
+		[]interface{}{key},
+		&returns,
+	)
+
+	return returns
+}
+
+// Examines the CloudFormation resource and discloses attributes.
+func (c *jsiiProxy_CfnHookTypeConfig) Inspect(inspector TreeInspector) {
+	_jsii_.InvokeVoid(
+		c,
+		"inspect",
+		[]interface{}{inspector},
+	)
+}
+
+// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnHookTypeConfig) OverrideLogicalId(newLogicalId *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"overrideLogicalId",
+		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnHookTypeConfig) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	var returns *map[string]interface{}
+
+	_jsii_.Invoke(
+		c,
+		"renderProperties",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+//
+// Returns: `true` if the resource should be included or `false` is the resource
+// should be omitted.
+func (c *jsiiProxy_CfnHookTypeConfig) ShouldSynthesize() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"shouldSynthesize",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns a string representation of this construct.
+//
+// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnHookTypeConfig) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnHookTypeConfig) ValidateProperties(_properties interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"validateProperties",
+		[]interface{}{_properties},
+	)
+}
+
+// Properties for defining a `CfnHookTypeConfig`.
+//
+// TODO: EXAMPLE
+//
+type CfnHookTypeConfigProps struct {
+	// Specifies the activated hook type configuration, in this AWS account and AWS Region .
+	//
+	// You must specify either `TypeName` and `Configuration` or `TypeARN` and `Configuration` .
+	Configuration *string `json:"configuration" yaml:"configuration"`
+	// Specifies the activated hook type configuration, in this AWS account and AWS Region .
+	//
+	// Defaults to `default` alias. Hook types currently support default configuration alias.
+	ConfigurationAlias *string `json:"configurationAlias" yaml:"configurationAlias"`
+	// The Amazon Resource Number (ARN) for the hook to set `Configuration` for.
+	//
+	// You must specify either `TypeName` and `Configuration` or `TypeARN` and `Configuration` .
+	TypeArn *string `json:"typeArn" yaml:"typeArn"`
+	// The unique name for your hook.
+	//
+	// Specifies a three-part namespace for your hook, with a recommended pattern of `Organization::Service::Hook` .
+	//
+	// You must specify either `TypeName` and `Configuration` or `TypeARN` and `Configuration` .
+	TypeName *string `json:"typeName" yaml:"typeName"`
+}
+
+// A CloudFormation `AWS::CloudFormation::HookVersion`.
+//
+// The `HookVersion` resource publishes new or first hook version to the AWS CloudFormation registry.
+//
+// TODO: EXAMPLE
+//
+type CfnHookVersion interface {
+	CfnResource
+	IInspectable
+	AttrArn() *string
+	AttrIsDefaultVersion() IResolvable
+	AttrTypeArn() *string
+	AttrVersionId() *string
+	AttrVisibility() *string
+	CfnOptions() ICfnResourceOptions
+	CfnProperties() *map[string]interface{}
+	CfnResourceType() *string
+	CreationStack() *[]*string
+	ExecutionRoleArn() *string
+	SetExecutionRoleArn(val *string)
+	LoggingConfig() interface{}
+	SetLoggingConfig(val interface{})
+	LogicalId() *string
+	Node() constructs.Node
+	Ref() *string
+	SchemaHandlerPackage() *string
+	SetSchemaHandlerPackage(val *string)
+	Stack() Stack
+	TypeName() *string
+	SetTypeName(val *string)
+	UpdatedProperites() *map[string]interface{}
+	AddDeletionOverride(path *string)
+	AddDependsOn(target CfnResource)
+	AddMetadata(key *string, value interface{})
+	AddOverride(path *string, value interface{})
+	AddPropertyDeletionOverride(propertyPath *string)
+	AddPropertyOverride(propertyPath *string, value interface{})
+	ApplyRemovalPolicy(policy RemovalPolicy, options *RemovalPolicyOptions)
+	GetAtt(attributeName *string) Reference
+	GetMetadata(key *string) interface{}
+	Inspect(inspector TreeInspector)
+	OverrideLogicalId(newLogicalId *string)
+	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	ShouldSynthesize() *bool
+	ToString() *string
+	ValidateProperties(_properties interface{})
+}
+
+// The jsii proxy struct for CfnHookVersion
+type jsiiProxy_CfnHookVersion struct {
+	jsiiProxy_CfnResource
+	jsiiProxy_IInspectable
+}
+
+func (j *jsiiProxy_CfnHookVersion) AttrArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHookVersion) AttrIsDefaultVersion() IResolvable {
+	var returns IResolvable
+	_jsii_.Get(
+		j,
+		"attrIsDefaultVersion",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHookVersion) AttrTypeArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrTypeArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHookVersion) AttrVersionId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrVersionId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHookVersion) AttrVisibility() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrVisibility",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHookVersion) CfnOptions() ICfnResourceOptions {
+	var returns ICfnResourceOptions
+	_jsii_.Get(
+		j,
+		"cfnOptions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHookVersion) CfnProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"cfnProperties",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHookVersion) CfnResourceType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"cfnResourceType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHookVersion) CreationStack() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHookVersion) ExecutionRoleArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"executionRoleArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHookVersion) LoggingConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"loggingConfig",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHookVersion) LogicalId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"logicalId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHookVersion) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHookVersion) Ref() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ref",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHookVersion) SchemaHandlerPackage() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"schemaHandlerPackage",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHookVersion) Stack() Stack {
+	var returns Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHookVersion) TypeName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"typeName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHookVersion) UpdatedProperites() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a new `AWS::CloudFormation::HookVersion`.
+func NewCfnHookVersion(scope constructs.Construct, id *string, props *CfnHookVersionProps) CfnHookVersion {
+	_init_.Initialize()
+
+	j := jsiiProxy_CfnHookVersion{}
+
+	_jsii_.Create(
+		"aws-cdk-lib.CfnHookVersion",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a new `AWS::CloudFormation::HookVersion`.
+func NewCfnHookVersion_Override(c CfnHookVersion, scope constructs.Construct, id *string, props *CfnHookVersionProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"aws-cdk-lib.CfnHookVersion",
+		[]interface{}{scope, id, props},
+		c,
+	)
+}
+
+func (j *jsiiProxy_CfnHookVersion) SetExecutionRoleArn(val *string) {
+	_jsii_.Set(
+		j,
+		"executionRoleArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnHookVersion) SetLoggingConfig(val interface{}) {
+	_jsii_.Set(
+		j,
+		"loggingConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnHookVersion) SetSchemaHandlerPackage(val *string) {
+	_jsii_.Set(
+		j,
+		"schemaHandlerPackage",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnHookVersion) SetTypeName(val *string) {
+	_jsii_.Set(
+		j,
+		"typeName",
+		val,
+	)
+}
+
+// Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
+//
+// Uses duck-typing instead of `instanceof` to allow stack elements from different
+// versions of this library to be included in the same stack.
+//
+// Returns: The construct as a stack element or undefined if it is not a stack element.
+func CfnHookVersion_IsCfnElement(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.CfnHookVersion",
+		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a CfnResource.
+func CfnHookVersion_IsCfnResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.CfnHookVersion",
+		"isCfnResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func CfnHookVersion_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.CfnHookVersion",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnHookVersion_CFN_RESOURCE_TYPE_NAME() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"aws-cdk-lib.CfnHookVersion",
+		"CFN_RESOURCE_TYPE_NAME",
+		&returns,
+	)
+	return returns
+}
+
+// Syntactic sugar for `addOverride(path, undefined)`.
+func (c *jsiiProxy_CfnHookVersion) AddDeletionOverride(path *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"addDeletionOverride",
+		[]interface{}{path},
+	)
+}
+
+// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+//
+// This can be used for resources across stacks (or nested stack) boundaries
+// and the dependency will automatically be transferred to the relevant scope.
+func (c *jsiiProxy_CfnHookVersion) AddDependsOn(target CfnResource) {
+	_jsii_.InvokeVoid(
+		c,
+		"addDependsOn",
+		[]interface{}{target},
+	)
+}
+
+// Add a value to the CloudFormation Resource Metadata.
+// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+//
+// Note that this is a different set of metadata from CDK node metadata; this
+// metadata ends up in the stack template under the resource, whereas CDK
+// node metadata ends up in the Cloud Assembly.
+//
+func (c *jsiiProxy_CfnHookVersion) AddMetadata(key *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addMetadata",
+		[]interface{}{key, value},
+	)
+}
+
+// Adds an override to the synthesized CloudFormation resource.
+//
+// To add a
+// property override, either use `addPropertyOverride` or prefix `path` with
+// "Properties." (i.e. `Properties.TopicName`).
+//
+// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+// If there is an array as part of the nesting, specify the index in the path.
+//
+// To include a literal `.` in the property name, prefix with a `\`. In most
+// programming languages you will need to write this as `"\\."` because the
+// `\` itself will need to be escaped.
+//
+// For example,
+// ```typescript
+// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+// ```
+// would add the overrides
+// ```json
+// "Properties": {
+//    "GlobalSecondaryIndexes": [
+//      {
+//        "Projection": {
+//          "NonKeyAttributes": [ "myattribute" ]
+//          ...
+//        }
+//        ...
+//      },
+//      {
+//        "ProjectionType": "INCLUDE"
+//        ...
+//      },
+//    ]
+//    ...
+// }
+// ```
+//
+// The `value` argument to `addOverride` will not be processed or translated
+// in any way. Pass raw JSON values in here with the correct capitalization
+// for CloudFormation. If you pass CDK classes or structs, they will be
+// rendered with lowercased key names, and CloudFormation will reject the
+// template.
+func (c *jsiiProxy_CfnHookVersion) AddOverride(path *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addOverride",
+		[]interface{}{path, value},
+	)
+}
+
+// Adds an override that deletes the value of a property from the resource definition.
+func (c *jsiiProxy_CfnHookVersion) AddPropertyDeletionOverride(propertyPath *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"addPropertyDeletionOverride",
+		[]interface{}{propertyPath},
+	)
+}
+
+// Adds an override to a resource property.
+//
+// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+func (c *jsiiProxy_CfnHookVersion) AddPropertyOverride(propertyPath *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addPropertyOverride",
+		[]interface{}{propertyPath, value},
+	)
+}
+
+// Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+func (c *jsiiProxy_CfnHookVersion) ApplyRemovalPolicy(policy RemovalPolicy, options *RemovalPolicyOptions) {
+	_jsii_.InvokeVoid(
+		c,
+		"applyRemovalPolicy",
+		[]interface{}{policy, options},
+	)
+}
+
+// Returns a token for an runtime attribute of this resource.
+//
+// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+// in case there is no generated attribute.
+func (c *jsiiProxy_CfnHookVersion) GetAtt(attributeName *string) Reference {
+	var returns Reference
+
+	_jsii_.Invoke(
+		c,
+		"getAtt",
+		[]interface{}{attributeName},
+		&returns,
+	)
+
+	return returns
+}
+
+// Retrieve a value value from the CloudFormation Resource Metadata.
+// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+//
+// Note that this is a different set of metadata from CDK node metadata; this
+// metadata ends up in the stack template under the resource, whereas CDK
+// node metadata ends up in the Cloud Assembly.
+//
+func (c *jsiiProxy_CfnHookVersion) GetMetadata(key *string) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		c,
+		"getMetadata",
+		[]interface{}{key},
+		&returns,
+	)
+
+	return returns
+}
+
+// Examines the CloudFormation resource and discloses attributes.
+func (c *jsiiProxy_CfnHookVersion) Inspect(inspector TreeInspector) {
+	_jsii_.InvokeVoid(
+		c,
+		"inspect",
+		[]interface{}{inspector},
+	)
+}
+
+// Overrides the auto-generated logical ID with a specific ID.
+func (c *jsiiProxy_CfnHookVersion) OverrideLogicalId(newLogicalId *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"overrideLogicalId",
+		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnHookVersion) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	var returns *map[string]interface{}
+
+	_jsii_.Invoke(
+		c,
+		"renderProperties",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+//
+// Returns: `true` if the resource should be included or `false` is the resource
+// should be omitted.
+func (c *jsiiProxy_CfnHookVersion) ShouldSynthesize() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"shouldSynthesize",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns a string representation of this construct.
+//
+// Returns: a string representation of this resource
+func (c *jsiiProxy_CfnHookVersion) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnHookVersion) ValidateProperties(_properties interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"validateProperties",
+		[]interface{}{_properties},
+	)
+}
+
+// The `LoggingConfig` property type specifies logging configuration information for an extension.
+//
+// TODO: EXAMPLE
+//
+type CfnHookVersion_LoggingConfigProperty struct {
+	// The Amazon CloudWatch Logs group to which CloudFormation sends error logging information when invoking the extension's handlers.
+	LogGroupName *string `json:"logGroupName" yaml:"logGroupName"`
+	// The Amazon Resource Name (ARN) of the role that CloudFormation should assume when sending log entries to CloudWatch Logs.
+	LogRoleArn *string `json:"logRoleArn" yaml:"logRoleArn"`
+}
+
+// Properties for defining a `CfnHookVersion`.
+//
+// TODO: EXAMPLE
+//
+type CfnHookVersionProps struct {
+	// A URL to the Amazon S3 bucket containing the hook project package that contains the necessary files for the hook you want to register.
+	//
+	// For information on generating a schema handler package for the resource you want to register, see [submit](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-cli-submit.html) in the *CloudFormation CLI User Guide for Extension Development* .
+	//
+	// > The user registering the resource must be able to access the package in the S3 bucket. That's, the user must have [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html) permissions for the schema handler package. For more information, see [Actions, Resources, and Condition Keys for Amazon S3](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazons3.html) in the *AWS Identity and Access Management User Guide* .
+	SchemaHandlerPackage *string `json:"schemaHandlerPackage" yaml:"schemaHandlerPackage"`
+	// The unique name for your hook.
+	//
+	// Specifies a three-part namespace for your hook, with a recommended pattern of `Organization::Service::Hook` .
+	//
+	// > The following organization namespaces are reserved and can't be used in your hook type names:
+	// >
+	// > - `Alexa`
+	// > - `AMZN`
+	// > - `Amazon`
+	// > - `ASK`
+	// > - `AWS`
+	// > - `Custom`
+	// > - `Dev`
+	TypeName *string `json:"typeName" yaml:"typeName"`
+	// The Amazon Resource Name (ARN) of the task execution role that grants the hook permission.
+	ExecutionRoleArn *string `json:"executionRoleArn" yaml:"executionRoleArn"`
+	// Contains logging configuration information for an extension.
+	LoggingConfig interface{} `json:"loggingConfig" yaml:"loggingConfig"`
 }
 
 // Captures a synthesis-time JSON object a CloudFormation reference which resolves during deployment to the resolved values of the JSON object.
@@ -3722,9 +5487,9 @@ type CfnMacroProps struct {
 	Name *string `json:"name" yaml:"name"`
 	// A description of the macro.
 	Description *string `json:"description" yaml:"description"`
-	// The Amazon CloudWatch log group to which AWS CloudFormation sends error logging information when invoking the macro's underlying AWS Lambda function.
+	// The CloudWatch Logs group to which AWS CloudFormation sends error logging information when invoking the macro's underlying AWS Lambda function.
 	LogGroupName *string `json:"logGroupName" yaml:"logGroupName"`
-	// The ARN of the role AWS CloudFormation should assume when sending log entries to CloudWatch logs.
+	// The ARN of the role AWS CloudFormation should assume when sending log entries to CloudWatch Logs .
 	LogRoleArn *string `json:"logRoleArn" yaml:"logRoleArn"`
 }
 
@@ -3927,7 +5692,7 @@ type CfnMappingProps struct {
 
 // A CloudFormation `AWS::CloudFormation::ModuleDefaultVersion`.
 //
-// Specifies the default version of a module. The default version of the module will be used in CloudFormation operations for this account and region.
+// Specifies the default version of a module. The default version of the module will be used in CloudFormation operations for this account and Region.
 //
 // To register a module version, use the `[AWS::CloudFormation::ModuleVersion](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html)` resource.
 //
@@ -4468,7 +6233,7 @@ type CfnModuleDefaultVersionProps struct {
 
 // A CloudFormation `AWS::CloudFormation::ModuleVersion`.
 //
-// Registers the specified version of the module with the CloudFormation service. Registering a module makes it available for use in CloudFormation templates in your AWS account and region.
+// Registers the specified version of the module with the CloudFormation service. Registering a module makes it available for use in CloudFormation templates in your AWS account and Region.
 //
 // To specify a module version as the default version, use the `[AWS::CloudFormation::ModuleDefaultVersion](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html)` resource.
 //
@@ -5065,7 +6830,7 @@ type CfnModuleVersionProps struct {
 	ModuleName *string `json:"moduleName" yaml:"moduleName"`
 	// A URL to the S3 bucket containing the package that contains the template fragment and schema files for the module version to register.
 	//
-	// > The user registering the module version must be able to access the module package in the S3 bucket. That is, the user needs to have [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html) permissions for the package. For more information, see [Actions, Resources, and Condition Keys for Amazon S3](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazons3.html) in the *AWS Identity and Access Management User Guide* .
+	// > The user registering the module version must be able to access the module package in the S3 bucket. That's, the user needs to have [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html) permissions for the package. For more information, see [Actions, Resources, and Condition Keys for Amazon S3](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazons3.html) in the *AWS Identity and Access Management User Guide* .
 	ModulePackage *string `json:"modulePackage" yaml:"modulePackage"`
 }
 
@@ -5807,14 +7572,14 @@ type CfnParameterProps struct {
 //
 // Tests and publishes a registered extension as a public, third-party extension.
 //
-// CloudFormation first tests the extension to make sure it meets all necessary requirements for being published in the CloudFormation registry. If it does, CloudFormation then publishes it to the registry as a public third-party extension in this region. Public extensions are available for use by all CloudFormation users.
+// CloudFormation first tests the extension to make sure it meets all necessary requirements for being published in the CloudFormation registry. If it does, CloudFormation then publishes it to the registry as a public third-party extension in this Region. Public extensions are available for use by all CloudFormation users.
 //
 // - For resource types, testing includes passing all contracts tests defined for the type.
 // - For modules, testing includes determining if the module's model meets all necessary requirements.
 //
 // For more information, see [Testing your public extension prior to publishing](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html#publish-extension-testing) in the *CloudFormation CLI User Guide* .
 //
-// If you don't specify a version, CloudFormation uses the default version of the extension in your account and region for testing.
+// If you don't specify a version, CloudFormation uses the default version of the extension in your account and Region for testing.
 //
 // To perform testing, CloudFormation assumes the execution role specified when the type was registered.
 //
@@ -6435,7 +8200,7 @@ type CfnPublicTypeVersionProps struct {
 	//
 	// For more information, see [Semantic Versioning 2.0.0](https://docs.aws.amazon.com/https://semver.org/) .
 	//
-	// If you do not specify a version number, CloudFormation increments the version number by one minor version release.
+	// If you don't specify a version number, CloudFormation increments the version number by one minor version release.
 	//
 	// You cannot specify a version number the first time you publish a type. AWS CloudFormation automatically sets the first version number to be `1.0.0` .
 	PublicVersionNumber *string `json:"publicVersionNumber" yaml:"publicVersionNumber"`
@@ -8192,7 +9957,7 @@ type CfnResourceSignal struct {
 //
 // For more information on how to develop resources and ready them for registration, see [Creating Resource Providers](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-types.html) in the *CloudFormation CLI User Guide* .
 //
-// You can have a maximum of 50 resource versions registered at a time. This maximum is per account and per region.
+// You can have a maximum of 50 resource versions registered at a time. This maximum is per account and per Region.
 //
 // TODO: EXAMPLE
 //
@@ -9062,7 +10827,7 @@ type CfnRuleProps struct {
 
 // A CloudFormation `AWS::CloudFormation::Stack`.
 //
-// The `AWS::CloudFormation::Stack` type nests a stack as a resource in a top-level template.
+// The `AWS::CloudFormation::Stack` resource nests a stack as a resource in a top-level template.
 //
 // You can add output values from a nested stack within the containing template. You use the [GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html) function with the nested stack's logical name and the name of the output value in the nested stack in the format `Outputs. *NestedStackOutputName*` .
 //
@@ -9628,9 +11393,9 @@ type CfnStackProps struct {
 	//
 	// Whether an update causes interruptions depends on the resources that are being updated. An update never causes a nested stack to be replaced.
 	TemplateUrl *string `json:"templateUrl" yaml:"templateUrl"`
-	// The Simple Notification Service (SNS) topic ARNs to publish stack related events.
+	// The Amazon Simple Notification Service (Amazon SNS) topic ARNs to publish stack related events.
 	//
-	// You can find your SNS topic ARNs using the SNS console or your Command Line Interface (CLI).
+	// You can find your Amazon SNS topic ARNs using the Amazon SNS console or your Command Line Interface (CLI).
 	NotificationArns *[]*string `json:"notificationArns" yaml:"notificationArns"`
 	// The set value pairs that represent the parameters passed to CloudFormation when this nested stack is created.
 	//
@@ -9650,13 +11415,13 @@ type CfnStackProps struct {
 	//
 	// The default is no timeout. When CloudFormation detects that the nested stack has reached the `CREATE_COMPLETE` state, it marks the nested stack resource as `CREATE_COMPLETE` in the parent stack and resumes creating the parent stack. If the timeout period expires before the nested stack reaches `CREATE_COMPLETE` , CloudFormation marks the nested stack as failed and rolls back both the nested stack and parent stack.
 	//
-	// Updates are not supported.
+	// Updates aren't supported.
 	TimeoutInMinutes *float64 `json:"timeoutInMinutes" yaml:"timeoutInMinutes"`
 }
 
 // A CloudFormation `AWS::CloudFormation::StackSet`.
 //
-// The `AWS::CloudFormation::StackSet` enables you to provision stacks into AWS accounts and across Regions by using a single CloudFormation template. In the stack set, you specify the template to use, as well as any parameters and capabilities that the template requires.
+// The `AWS::CloudFormation::StackSet` enables you to provision stacks into AWS accounts and across Regions by using a single CloudFormation template. In the stack set, you specify the template to use, in addition to any parameters and capabilities that the template requires.
 //
 // TODO: EXAMPLE
 //
@@ -10481,7 +12246,7 @@ type CfnStackSet_OperationPreferencesProperty struct {
 	//
 	// Conditional: You must specify either `MaxConcurrentCount` or `MaxConcurrentPercentage` , but not both.
 	MaxConcurrentPercentage *float64 `json:"maxConcurrentPercentage" yaml:"maxConcurrentPercentage"`
-	// The concurrency type of deploying StackSets operations in regions, could be in parallel or one region at a time.
+	// The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time.
 	//
 	// *Allowed values* : `SEQUENTIAL` | `PARALLEL`
 	RegionConcurrencyType *string `json:"regionConcurrencyType" yaml:"regionConcurrencyType"`
@@ -10496,7 +12261,7 @@ type CfnStackSet_OperationPreferencesProperty struct {
 type CfnStackSet_ParameterProperty struct {
 	// The key associated with the parameter.
 	//
-	// If you don't specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
+	// If you don't specify a key and value for a particular parameter, AWS CloudFormation uses the default value that's specified in your template.
 	ParameterKey *string `json:"parameterKey" yaml:"parameterKey"`
 	// The input value associated with the parameter.
 	ParameterValue *string `json:"parameterValue" yaml:"parameterValue"`
@@ -10711,7 +12476,7 @@ const (
 
 // A CloudFormation `AWS::CloudFormation::TypeActivation`.
 //
-// Activates a public third-party extension, making it available for use in stack templates. For more information, see [Using public extensions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html) in the *CloudFormation User Guide* .
+// Activates a public third-party extension, making it available for use in stack templates. For more information, see [Using public extensions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html) in the *AWS CloudFormation User Guide* .
 //
 // Once you have activated a public third-party extension in your account and region, use [SetTypeConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html) to specify configuration properties for the extension. For more information, see [Configuring extensions at the account level](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration) in the *CloudFormation User Guide* .
 //
@@ -11385,9 +13150,9 @@ func (c *jsiiProxy_CfnTypeActivation) ValidateProperties(_properties interface{}
 // TODO: EXAMPLE
 //
 type CfnTypeActivation_LoggingConfigProperty struct {
-	// The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the extension's handlers.
+	// The Amazon CloudWatch Logs group to which CloudFormation sends error logging information when invoking the extension's handlers.
 	LogGroupName *string `json:"logGroupName" yaml:"logGroupName"`
-	// The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
+	// The Amazon Resource Name (ARN) of the role that CloudFormation should assume when sending log entries to CloudWatch Logs.
 	LogRoleArn *string `json:"logRoleArn" yaml:"logRoleArn"`
 }
 
@@ -11481,7 +13246,7 @@ type CfnUpdatePolicy struct {
 // - To coordinate stack resource creation with configuration actions that are external to the stack creation.
 // - To track the status of a configuration process.
 //
-// For these situations, we recommend that you associate a [CreationPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-creationpolicy.html) attribute with the wait condition so that you don't have to use a wait condition handle. For more information and an example, see [Creating wait conditions in a template](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-waitcondition.html) . If you use a CreationPolicy with a wait condition, do not specify any of the wait condition's properties.
+// For these situations, we recommend that you associate a [CreationPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-creationpolicy.html) attribute with the wait condition so that you don't have to use a wait condition handle. For more information and an example, see [Creating wait conditions in a template](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-waitcondition.html) . If you use a CreationPolicy with a wait condition, don't specify any of the wait condition's properties.
 //
 // > If you use the [VPC endpoints](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html) feature, resources in the VPC that respond to wait conditions must have access to CloudFormation , specific Amazon Simple Storage Service ( Amazon S3 ) buckets. Resources must send wait condition responses to a presigned Amazon S3 URL. If they can't send responses to Amazon S3 , CloudFormation won't receive a response and the stack operation fails. For more information, see [Setting up VPC endpoints for AWS CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-vpce-bucketnames.html) .
 //
@@ -12481,9 +14246,9 @@ func (c *jsiiProxy_CfnWaitConditionHandle) ValidateProperties(_properties interf
 type CfnWaitConditionProps struct {
 	// The number of success signals that CloudFormation must receive before it continues the stack creation process.
 	//
-	// When the wait condition receives the requisite number of success signals, CloudFormation resumes the creation of the stack. If the wait condition does not receive the specified number of success signals before the Timeout period expires, CloudFormation assumes that the wait condition has failed and rolls the stack back.
+	// When the wait condition receives the requisite number of success signals, CloudFormation resumes the creation of the stack. If the wait condition doesn't receive the specified number of success signals before the Timeout period expires, CloudFormation assumes that the wait condition has failed and rolls the stack back.
 	//
-	// Updates are not supported.
+	// Updates aren't supported.
 	Count *float64 `json:"count" yaml:"count"`
 	// A reference to the wait condition handle used to signal this wait condition.
 	//
@@ -12491,7 +14256,7 @@ type CfnWaitConditionProps struct {
 	//
 	// Anytime you add a WaitCondition resource during a stack update, you must associate the wait condition with a new WaitConditionHandle resource. Don't reuse an old wait condition handle that has already been defined in the template. If you reuse a wait condition handle, the wait condition might evaluate old signals from a previous create or update stack command.
 	//
-	// Updates are not supported.
+	// Updates aren't supported.
 	Handle *string `json:"handle" yaml:"handle"`
 	// The length of time (in seconds) to wait for the number of signals that the `Count` property specifies.
 	//
@@ -12499,6 +14264,174 @@ type CfnWaitConditionProps struct {
 	//
 	// Updates aren't supported.
 	Timeout *string `json:"timeout" yaml:"timeout"`
+}
+
+// A synthesizer that uses conventional asset locations, but not conventional deployment roles.
+//
+// Instead of assuming the bootstrapped deployment roles, all stack operations will be performed
+// using the CLI's current credentials.
+//
+// - This synthesizer does not support deploying to accounts to which the CLI does not have
+//    credentials. It also does not support deploying using **CDK Pipelines**. For either of those
+//    features, use `DefaultStackSynthesizer`.
+// - This synthesizer requires an S3 bucket and ECR repository with well-known names. To
+//    not depend on those, use `LegacyStackSynthesizer`.
+//
+// Be aware that your CLI credentials must be valid for the duration of the
+// entire deployment. If you are using session credentials, make sure the
+// session lifetime is long enough.
+//
+// By default, expects the environment to have been bootstrapped with just the staging resources
+// of the Bootstrap Stack V2 (also known as "modern bootstrap stack"). You can override
+// the default names using the synthesizer's construction properties.
+//
+// TODO: EXAMPLE
+//
+type CliCredentialsStackSynthesizer interface {
+	StackSynthesizer
+	AddDockerImageAsset(asset *DockerImageAssetSource) *DockerImageAssetLocation
+	AddFileAsset(asset *FileAssetSource) *FileAssetLocation
+	Bind(stack Stack)
+	EmitStackArtifact(stack Stack, session ISynthesisSession, options *SynthesizeStackArtifactOptions)
+	Synthesize(session ISynthesisSession)
+	SynthesizeStackTemplate(stack Stack, session ISynthesisSession)
+}
+
+// The jsii proxy struct for CliCredentialsStackSynthesizer
+type jsiiProxy_CliCredentialsStackSynthesizer struct {
+	jsiiProxy_StackSynthesizer
+}
+
+func NewCliCredentialsStackSynthesizer(props *CliCredentialsStackSynthesizerProps) CliCredentialsStackSynthesizer {
+	_init_.Initialize()
+
+	j := jsiiProxy_CliCredentialsStackSynthesizer{}
+
+	_jsii_.Create(
+		"aws-cdk-lib.CliCredentialsStackSynthesizer",
+		[]interface{}{props},
+		&j,
+	)
+
+	return &j
+}
+
+func NewCliCredentialsStackSynthesizer_Override(c CliCredentialsStackSynthesizer, props *CliCredentialsStackSynthesizerProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"aws-cdk-lib.CliCredentialsStackSynthesizer",
+		[]interface{}{props},
+		c,
+	)
+}
+
+// Register a Docker Image Asset.
+//
+// Returns the parameters that can be used to refer to the asset inside the template.
+func (c *jsiiProxy_CliCredentialsStackSynthesizer) AddDockerImageAsset(asset *DockerImageAssetSource) *DockerImageAssetLocation {
+	var returns *DockerImageAssetLocation
+
+	_jsii_.Invoke(
+		c,
+		"addDockerImageAsset",
+		[]interface{}{asset},
+		&returns,
+	)
+
+	return returns
+}
+
+// Register a File Asset.
+//
+// Returns the parameters that can be used to refer to the asset inside the template.
+func (c *jsiiProxy_CliCredentialsStackSynthesizer) AddFileAsset(asset *FileAssetSource) *FileAssetLocation {
+	var returns *FileAssetLocation
+
+	_jsii_.Invoke(
+		c,
+		"addFileAsset",
+		[]interface{}{asset},
+		&returns,
+	)
+
+	return returns
+}
+
+// Bind to the stack this environment is going to be used on.
+//
+// Must be called before any of the other methods are called.
+func (c *jsiiProxy_CliCredentialsStackSynthesizer) Bind(stack Stack) {
+	_jsii_.InvokeVoid(
+		c,
+		"bind",
+		[]interface{}{stack},
+	)
+}
+
+// Write the stack artifact to the session.
+//
+// Use default settings to add a CloudFormationStackArtifact artifact to
+// the given synthesis session.
+func (c *jsiiProxy_CliCredentialsStackSynthesizer) EmitStackArtifact(stack Stack, session ISynthesisSession, options *SynthesizeStackArtifactOptions) {
+	_jsii_.InvokeVoid(
+		c,
+		"emitStackArtifact",
+		[]interface{}{stack, session, options},
+	)
+}
+
+// Synthesize the associated stack to the session.
+func (c *jsiiProxy_CliCredentialsStackSynthesizer) Synthesize(session ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
+// Have the stack write out its template.
+func (c *jsiiProxy_CliCredentialsStackSynthesizer) SynthesizeStackTemplate(stack Stack, session ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesizeStackTemplate",
+		[]interface{}{stack, session},
+	)
+}
+
+// Properties for the CliCredentialsStackSynthesizer.
+//
+// TODO: EXAMPLE
+//
+type CliCredentialsStackSynthesizerProps struct {
+	// bucketPrefix to use while storing S3 Assets.
+	BucketPrefix *string `json:"bucketPrefix" yaml:"bucketPrefix"`
+	// A prefix to use while tagging and uploading Docker images to ECR.
+	//
+	// This does not add any separators - the source hash will be appended to
+	// this string directly.
+	DockerTagPrefix *string `json:"dockerTagPrefix" yaml:"dockerTagPrefix"`
+	// Name of the S3 bucket to hold file assets.
+	//
+	// You must supply this if you have given a non-standard name to the staging bucket.
+	//
+	// The placeholders `${Qualifier}`, `${AWS::AccountId}` and `${AWS::Region}` will
+	// be replaced with the values of qualifier and the stack's account and region,
+	// respectively.
+	FileAssetsBucketName *string `json:"fileAssetsBucketName" yaml:"fileAssetsBucketName"`
+	// Name of the ECR repository to hold Docker Image assets.
+	//
+	// You must supply this if you have given a non-standard name to the ECR repository.
+	//
+	// The placeholders `${Qualifier}`, `${AWS::AccountId}` and `${AWS::Region}` will
+	// be replaced with the values of qualifier and the stack's account and region,
+	// respectively.
+	ImageAssetsRepositoryName *string `json:"imageAssetsRepositoryName" yaml:"imageAssetsRepositoryName"`
+	// Qualifier to disambiguate multiple environments in the same account.
+	//
+	// You can use this and leave the other naming properties empty if you have deployed
+	// the bootstrap environment with standard names but only differnet qualifiers.
+	Qualifier *string `json:"qualifier" yaml:"qualifier"`
 }
 
 // Base class for the model side of context providers.
@@ -13114,13 +15047,19 @@ const (
 	CustomResourceProviderRuntime_NODEJS_14_X CustomResourceProviderRuntime = "NODEJS_14_X"
 )
 
-// Uses conventionally named roles and reify asset storage locations.
+// Uses conventionally named roles and asset storage locations.
 //
-// This synthesizer is the only StackSynthesizer that generates
-// an asset manifest, and is required to deploy CDK applications using the
-// `@aws-cdk/app-delivery` CI/CD library.
+// This synthesizer:
 //
-// Requires the environment to have been bootstrapped with Bootstrap Stack V2.
+// - Supports cross-account deployments (the CLI can have credentials to one
+//    account, and you can still deploy to another account by assuming roles with
+//    well-known names in the other account).
+// - Supports the **CDK Pipelines** library.
+//
+// Requires the environment to have been bootstrapped with Bootstrap Stack V2
+// (also known as "modern bootstrap stack"). The synthesizer adds a version
+// check to the template, to make sure the bootstrap stack is recent enough
+// to support all features expected by this synthesizer.
 //
 // TODO: EXAMPLE
 //
@@ -14541,14 +16480,25 @@ type FileAssetLocation struct {
 	BucketName *string `json:"bucketName" yaml:"bucketName"`
 	// The HTTP URL of this asset on Amazon S3.
 	//
+	// This value suitable for inclusion in a CloudFormation template, and
+	// may be an encoded token.
+	//
 	// Example value: `https://s3-us-east-1.amazonaws.com/mybucket/myobject`
 	HttpUrl *string `json:"httpUrl" yaml:"httpUrl"`
 	// The Amazon S3 object key.
 	ObjectKey *string `json:"objectKey" yaml:"objectKey"`
 	// The S3 URL of this asset on Amazon S3.
 	//
+	// This value suitable for inclusion in a CloudFormation template, and
+	// may be an encoded token.
+	//
 	// Example value: `s3://mybucket/myobject`
 	S3ObjectUrl *string `json:"s3ObjectUrl" yaml:"s3ObjectUrl"`
+	// Like `s3ObjectUrl`, but not suitable for CloudFormation consumption.
+	//
+	// If there are placeholders in the S3 URL, they will be returned unreplaced
+	// and un-evaluated.
+	S3ObjectUrlWithPlaceholders *string `json:"s3ObjectUrlWithPlaceholders" yaml:"s3ObjectUrlWithPlaceholders"`
 }
 
 // Packaging modes for file assets.
@@ -17257,10 +19207,22 @@ type LazyStringValueOptions struct {
 	DisplayHint *string `json:"displayHint" yaml:"displayHint"`
 }
 
-// Use the original deployment environment.
+// Use the CDK classic way of referencing assets.
 //
-// This deployment environment is restricted in cross-environment deployments,
-// CI/CD deployments, and will use up CloudFormation parameters in your template.
+// This synthesizer will generate CloudFormation parameters for every referenced
+// asset, and use the CLI's current credentials to deploy the stack.
+//
+// - It does not support cross-account deployment (the CLI must have credentials
+//    to the account you are trying to deploy to).
+// - It cannot be used with **CDK Pipelines**. To deploy using CDK Pipelines,
+//    you must use the `DefaultStackSynthesizer`.
+// - Each asset will take up a CloudFormation Parameter in your template. Keep in
+//    mind that there is a maximum of 200 parameters in a CloudFormation template.
+//    To use determinstic asset locations instead, use `CliCredentialsStackSynthesizer`.
+//
+// Be aware that your CLI credentials must be valid for the duration of the
+// entire deployment. If you are using session credentials, make sure the
+// session lifetime is long enough.
 //
 // This is the only StackSynthesizer that supports customizing asset behavior
 // by overriding `Stack.addFileAsset()` and `Stack.addDockerImageAsset()`.
@@ -18134,9 +20096,12 @@ type NestedStackProps struct {
 	Timeout Duration `json:"timeout" yaml:"timeout"`
 }
 
-// Deployment environment for a nested stack.
+// Synthesizer for a nested stack.
 //
-// Interoperates with the StackSynthesizer of the parent stack.
+// Forwards all calls to the parent stack's synthesizer.
+//
+// This synthesizer is automatically used for `NestedStack` constructs.
+// App builder do not need to use this class directly.
 //
 // TODO: EXAMPLE
 //

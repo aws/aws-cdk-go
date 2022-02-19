@@ -287,7 +287,7 @@ func NewS3Bucket_Override(s S3Bucket, bucket awss3.IBucket, props *S3BucketProps
 	)
 }
 
-// (experimental) Binds this destination to the Kinesis Data Firehose delivery stream.
+// Binds this destination to the Kinesis Data Firehose delivery stream.
 //
 // Implementers should use this method to bind resources to the stack and initialize values using the provided stream.
 // Experimental.

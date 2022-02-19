@@ -3891,6 +3891,8 @@ type HealthCheckCustomConfig struct {
 	FailureThreshold *float64 `json:"failureThreshold" yaml:"failureThreshold"`
 }
 
+// TODO: EXAMPLE
+//
 type HealthCheckType string
 
 const (

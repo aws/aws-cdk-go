@@ -16,6 +16,7 @@ import (
 type CfnComputeEnvironment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrComputeEnvironmentArn() *string
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
@@ -59,6 +60,16 @@ type CfnComputeEnvironment interface {
 type jsiiProxy_CfnComputeEnvironment struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnComputeEnvironment) AttrComputeEnvironmentArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrComputeEnvironmentArn",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnComputeEnvironment) CfnOptions() awscdk.ICfnResourceOptions {
@@ -632,7 +643,7 @@ type CfnComputeEnvironment_ComputeResourcesProperty struct {
 	// `CfnComputeEnvironment.ComputeResourcesProperty.SpotIamFleetRole`.
 	SpotIamFleetRole *string `json:"spotIamFleetRole" yaml:"spotIamFleetRole"`
 	// `CfnComputeEnvironment.ComputeResourcesProperty.Tags`.
-	Tags interface{} `json:"tags" yaml:"tags"`
+	Tags *map[string]*string `json:"tags" yaml:"tags"`
 }
 
 // TODO: EXAMPLE
@@ -671,7 +682,7 @@ type CfnComputeEnvironmentProps struct {
 	// `AWS::Batch::ComputeEnvironment.State`.
 	State *string `json:"state" yaml:"state"`
 	// `AWS::Batch::ComputeEnvironment.Tags`.
-	Tags interface{} `json:"tags" yaml:"tags"`
+	Tags *map[string]*string `json:"tags" yaml:"tags"`
 	// `AWS::Batch::ComputeEnvironment.UnmanagedvCpus`.
 	UnmanagedvCpus *float64 `json:"unmanagedvCpus" yaml:"unmanagedvCpus"`
 }
@@ -1628,6 +1639,7 @@ type CfnJobDefinitionProps struct {
 type CfnJobQueue interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrJobQueueArn() *string
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
@@ -1669,6 +1681,16 @@ type CfnJobQueue interface {
 type jsiiProxy_CfnJobQueue struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnJobQueue) AttrJobQueueArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrJobQueueArn",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnJobQueue) CfnOptions() awscdk.ICfnResourceOptions {
@@ -2213,7 +2235,7 @@ type CfnJobQueueProps struct {
 	// `AWS::Batch::JobQueue.State`.
 	State *string `json:"state" yaml:"state"`
 	// `AWS::Batch::JobQueue.Tags`.
-	Tags interface{} `json:"tags" yaml:"tags"`
+	Tags *map[string]*string `json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Batch::SchedulingPolicy`.

@@ -4067,7 +4067,7 @@ type CfnDataSourceProps struct {
 	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// The type of the data source. To return a list of all data sources, use `ListDataSources` .
 	//
-	// Use `AMAZON_ELASTICSEARCH` for Amazon OpenSearch Service .
+	// Use `AMAZON_ELASTICSEARCH` for Amazon OpenSearch Service.
 	Type *string `json:"type" yaml:"type"`
 	// Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source.
 	VpcConnectionProperties interface{} `json:"vpcConnectionProperties" yaml:"vpcConnectionProperties"`

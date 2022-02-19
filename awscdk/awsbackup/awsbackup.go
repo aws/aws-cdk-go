@@ -3272,9 +3272,11 @@ type CfnBackupVaultProps struct {
 	//
 	// Each tag is a key-value pair.
 	BackupVaultTags interface{} `json:"backupVaultTags" yaml:"backupVaultTags"`
-	// The server-side encryption key that is used to protect your backups;
+	// A server-side encryption key you can specify to encrypt your backups from services that support full AWS Backup management;
 	//
-	// for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` .
+	// for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` . If you specify a key, you must specify its ARN, not its alias. If you do not specify a key, AWS Backup creates a KMS key for you by default.
+	//
+	// To learn which AWS Backup services support full AWS Backup management and how AWS Backup handles encryption for backups from services that do not yet support full AWS Backup , see [Encryption for backups in AWS Backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/encryption.html)
 	EncryptionKeyArn *string `json:"encryptionKeyArn" yaml:"encryptionKeyArn"`
 	// Configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
 	LockConfiguration interface{} `json:"lockConfiguration" yaml:"lockConfiguration"`
@@ -3894,7 +3896,7 @@ type CfnFramework_FrameworkControlProperty struct {
 	ControlInputParameters interface{} `json:"controlInputParameters" yaml:"controlInputParameters"`
 	// The scope of a control.
 	//
-	// The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. For more information, see `ControlScope` .
+	// The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. For more information, see [`ControlScope` .](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_ControlScope.html)
 	ControlScope interface{} `json:"controlScope" yaml:"controlScope"`
 }
 

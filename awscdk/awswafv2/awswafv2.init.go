@@ -418,6 +418,10 @@ func init() {
 		reflect.TypeOf((*CfnWebACL_ExcludedRuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.FieldIdentifierProperty",
+		reflect.TypeOf((*CfnWebACL_FieldIdentifierProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wafv2.CfnWebACL.FieldToMatchProperty",
 		reflect.TypeOf((*CfnWebACL_FieldToMatchProperty)(nil)).Elem(),
 	)
@@ -456,6 +460,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wafv2.CfnWebACL.LabelProperty",
 		reflect.TypeOf((*CfnWebACL_LabelProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.ManagedRuleGroupConfigProperty",
+		reflect.TypeOf((*CfnWebACL_ManagedRuleGroupConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wafv2.CfnWebACL.ManagedRuleGroupStatementProperty",

@@ -595,6 +595,8 @@ func (c *jsiiProxy_CfnApp) ValidateProperties(_properties interface{}) {
 //
 type CfnApp_ResourceSpecProperty struct {
 	// The instance type that the image version runs on.
+	//
+	// > JupyterServer Apps only support the `system` value.
 	InstanceType *string `json:"instanceType" yaml:"instanceType"`
 	// The ARN of the SageMaker image that the image version belongs to.
 	SageMakerImageArn *string `json:"sageMakerImageArn" yaml:"sageMakerImageArn"`
@@ -4500,6 +4502,8 @@ type CfnDomain_KernelGatewayAppSettingsProperty struct {
 	// A list of custom SageMaker images that are configured to run as a KernelGateway app.
 	CustomImages interface{} `json:"customImages" yaml:"customImages"`
 	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
+	//
+	// > The Amazon SageMaker Studio UI does not use the default instance type value set here. The default instance type set here is used when Apps are created using the AWS Command Line Interface or AWS CloudFormation and the instance type parameter value is not passed.
 	DefaultResourceSpec interface{} `json:"defaultResourceSpec" yaml:"defaultResourceSpec"`
 }
 
@@ -4509,6 +4513,8 @@ type CfnDomain_KernelGatewayAppSettingsProperty struct {
 //
 type CfnDomain_ResourceSpecProperty struct {
 	// The instance type that the image version runs on.
+	//
+	// > JupyterServer Apps only support the `system` value.
 	InstanceType *string `json:"instanceType" yaml:"instanceType"`
 	// The ARN of the SageMaker image that the image version belongs to.
 	SageMakerImageArn *string `json:"sageMakerImageArn" yaml:"sageMakerImageArn"`
@@ -6787,7 +6793,7 @@ type CfnFeatureGroupProps struct {
 
 // A CloudFormation `AWS::SageMaker::Image`.
 //
-// Creates a custom SageMaker image. A SageMaker image is a set of image versions. Each image version represents a container image stored in Amazon Container Registry (ECR). For more information, see [Bring your own SageMaker image](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-byoi.html) .
+// Creates a custom SageMaker image. A SageMaker image is a set of image versions. Each image version represents a container image stored in Amazon Elastic Container Registry (ECR). For more information, see [Bring your own SageMaker image](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-byoi.html) .
 //
 // TODO: EXAMPLE
 //
@@ -16159,6 +16165,8 @@ type CfnUserProfile_KernelGatewayAppSettingsProperty struct {
 	// A list of custom SageMaker images that are configured to run as a KernelGateway app.
 	CustomImages interface{} `json:"customImages" yaml:"customImages"`
 	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
+	//
+	// > The Amazon SageMaker Studio UI does not use the default instance type value set here. The default instance type set here is used when Apps are created using the AWS Command Line Interface or AWS CloudFormation and the instance type parameter value is not passed.
 	DefaultResourceSpec interface{} `json:"defaultResourceSpec" yaml:"defaultResourceSpec"`
 }
 
@@ -16168,6 +16176,8 @@ type CfnUserProfile_KernelGatewayAppSettingsProperty struct {
 //
 type CfnUserProfile_ResourceSpecProperty struct {
 	// The instance type that the image version runs on.
+	//
+	// > JupyterServer Apps only support the `system` value.
 	InstanceType *string `json:"instanceType" yaml:"instanceType"`
 	// The ARN of the SageMaker image that the image version belongs to.
 	SageMakerImageArn *string `json:"sageMakerImageArn" yaml:"sageMakerImageArn"`
@@ -16815,11 +16825,15 @@ func (c *jsiiProxy_CfnWorkteam) ValidateProperties(_properties interface{}) {
 // TODO: EXAMPLE
 //
 type CfnWorkteam_CognitoMemberDefinitionProperty struct {
-	// `CfnWorkteam.CognitoMemberDefinitionProperty.CognitoClientId`.
+	// An identifier for an application client.
+	//
+	// You must create the app client ID using Amazon Cognito.
 	CognitoClientId *string `json:"cognitoClientId" yaml:"cognitoClientId"`
-	// `CfnWorkteam.CognitoMemberDefinitionProperty.CognitoUserGroup`.
+	// An identifier for a user group.
 	CognitoUserGroup *string `json:"cognitoUserGroup" yaml:"cognitoUserGroup"`
-	// `CfnWorkteam.CognitoMemberDefinitionProperty.CognitoUserPool`.
+	// An identifier for a user pool.
+	//
+	// The user pool must be in the same region as the service that you are calling.
 	CognitoUserPool *string `json:"cognitoUserPool" yaml:"cognitoUserPool"`
 }
 
@@ -16854,7 +16868,7 @@ type CfnWorkteamProps struct {
 	MemberDefinitions interface{} `json:"memberDefinitions" yaml:"memberDefinitions"`
 	// Configures SNS notifications of available or expiring work items for work teams.
 	NotificationConfiguration interface{} `json:"notificationConfiguration" yaml:"notificationConfiguration"`
-	// `AWS::SageMaker::Workteam.Tags`.
+	// An array of key-value pairs.
 	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// The name of the work team.
 	WorkteamName *string `json:"workteamName" yaml:"workteamName"`

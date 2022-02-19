@@ -19,6 +19,10 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_logs_destinations.KinesisDestinationProps",
+		reflect.TypeOf((*KinesisDestinationProps)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_logs_destinations.LambdaDestination",
 		reflect.TypeOf((*LambdaDestination)(nil)).Elem(),

@@ -718,15 +718,15 @@ type ApplicationListenerProps struct {
 	//
 	// Cannot be specified together with `defaultAction`.
 	DefaultTargetGroups *[]IApplicationTargetGroup `json:"defaultTargetGroups" yaml:"defaultTargetGroups"`
-	// Allow anyone to connect to this listener.
+	// Allow anyone to connect to the load balancer on the listener port.
 	//
-	// If this is specified, the listener will be opened up to anyone who can reach it.
+	// If this is specified, the load balancer will be opened up to anyone who can reach it.
 	// For internal load balancers this is anyone in the same VPC. For public load
 	// balancers, this is anyone on the internet.
 	//
 	// If you want to be more selective about who can access this load
 	// balancer, set this to `false` and use the listener's `connections`
-	// object to selectively grant access to the listener.
+	// object to selectively grant access to the load balancer on the listener port.
 	Open *bool `json:"open" yaml:"open"`
 	// The port on which the listener listens for requests.
 	Port *float64 `json:"port" yaml:"port"`
@@ -2409,15 +2409,15 @@ type BaseApplicationListenerProps struct {
 	//
 	// Cannot be specified together with `defaultAction`.
 	DefaultTargetGroups *[]IApplicationTargetGroup `json:"defaultTargetGroups" yaml:"defaultTargetGroups"`
-	// Allow anyone to connect to this listener.
+	// Allow anyone to connect to the load balancer on the listener port.
 	//
-	// If this is specified, the listener will be opened up to anyone who can reach it.
+	// If this is specified, the load balancer will be opened up to anyone who can reach it.
 	// For internal load balancers this is anyone in the same VPC. For public load
 	// balancers, this is anyone on the internet.
 	//
 	// If you want to be more selective about who can access this load
 	// balancer, set this to `false` and use the listener's `connections`
-	// object to selectively grant access to the listener.
+	// object to selectively grant access to the load balancer on the listener port.
 	Open *bool `json:"open" yaml:"open"`
 	// The port on which the listener listens for requests.
 	Port *float64 `json:"port" yaml:"port"`
@@ -7180,7 +7180,7 @@ type CfnTargetGroupProps struct {
 	HealthCheckEnabled interface{} `json:"healthCheckEnabled" yaml:"healthCheckEnabled"`
 	// The approximate amount of time, in seconds, between health checks of an individual target.
 	//
-	// If the target group protocol is TCP, TLS, UDP, or TCP_UDP, the supported values are 10 and 30 seconds. If the target group protocol is HTTP or HTTPS, the default is 30 seconds. If the target group protocol is GENEVE, the default is 10 seconds. If the target type is `lambda` , the default is 35 seconds.
+	// If the target group protocol is HTTP or HTTPS, the default is 30 seconds. If the target group protocol is TCP, TLS, UDP, or TCP_UDP, the supported values are 10 and 30 seconds and the default is 30 seconds. If the target group protocol is GENEVE, the default is 10 seconds. If the target type is `lambda` , the default is 35 seconds.
 	HealthCheckIntervalSeconds *float64 `json:"healthCheckIntervalSeconds" yaml:"healthCheckIntervalSeconds"`
 	// [HTTP/HTTPS health checks] The destination for health checks on the targets.
 	//

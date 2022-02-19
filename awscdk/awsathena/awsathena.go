@@ -600,7 +600,7 @@ type CfnDataCatalogProps struct {
 
 // A CloudFormation `AWS::Athena::NamedQuery`.
 //
-// The `AWS::Athena::NamedQuery` resource specifies an Amazon Athena saved query, where `QueryString` is the list of SQL query statements that comprise the query.
+// The `AWS::Athena::NamedQuery` resource specifies an Amazon Athena saved query, where `QueryString` contains the SQL query statements that make up the query.
 //
 // TODO: EXAMPLE
 //
@@ -1174,7 +1174,7 @@ func (c *jsiiProxy_CfnNamedQuery) ValidateProperties(_properties interface{}) {
 type CfnNamedQueryProps struct {
 	// The database to which the query belongs.
 	Database *string `json:"database" yaml:"database"`
-	// The SQL query statements that comprise the query.
+	// The SQL statements that make up the query.
 	QueryString *string `json:"queryString" yaml:"queryString"`
 	// The query description.
 	Description *string `json:"description" yaml:"description"`

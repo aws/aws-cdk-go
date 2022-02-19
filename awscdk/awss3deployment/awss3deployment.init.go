@@ -11,6 +11,7 @@ func init() {
 		"aws-cdk-lib.aws_s3_deployment.BucketDeployment",
 		reflect.TypeOf((*BucketDeployment)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "deployedBucket", GoGetter: "DeployedBucket"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 		},

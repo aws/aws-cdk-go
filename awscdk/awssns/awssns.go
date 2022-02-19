@@ -1936,6 +1936,10 @@ type ITopic interface {
 	//
 	// Sum over 5 minutes
 	MetricSMSSuccessRate(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Whether this topic is an Amazon SNS FIFO queue.
+	//
+	// If false, this is a standard topic.
+	Fifo() *bool
 	// The ARN of the topic.
 	TopicArn() *string
 	// The name of the topic.
@@ -2130,6 +2134,16 @@ func (i *jsiiProxy_ITopic) BindAsNotificationRuleTarget(scope constructs.Constru
 		&returns,
 	)
 
+	return returns
+}
+
+func (j *jsiiProxy_ITopic) Fifo() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"fifo",
+		&returns,
+	)
 	return returns
 }
 
@@ -2644,6 +2658,7 @@ type Topic interface {
 	TopicBase
 	AutoCreatePolicy() *bool
 	Env() *awscdk.ResourceEnvironment
+	Fifo() *bool
 	Node() constructs.Node
 	PhysicalName() *string
 	Stack() awscdk.Stack
@@ -2690,6 +2705,16 @@ func (j *jsiiProxy_Topic) Env() *awscdk.ResourceEnvironment {
 	_jsii_.Get(
 		j,
 		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Topic) Fifo() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"fifo",
 		&returns,
 	)
 	return returns
@@ -3121,6 +3146,7 @@ type TopicBase interface {
 	ITopic
 	AutoCreatePolicy() *bool
 	Env() *awscdk.ResourceEnvironment
+	Fifo() *bool
 	Node() constructs.Node
 	PhysicalName() *string
 	Stack() awscdk.Stack
@@ -3168,6 +3194,16 @@ func (j *jsiiProxy_TopicBase) Env() *awscdk.ResourceEnvironment {
 	_jsii_.Get(
 		j,
 		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TopicBase) Fifo() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"fifo",
 		&returns,
 	)
 	return returns

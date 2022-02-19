@@ -19,6 +19,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3assets"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssigner"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -3914,6 +3915,20 @@ type CfnEventSourceMapping_DestinationConfigProperty struct {
 type CfnEventSourceMapping_EndpointsProperty struct {
 	// The list of bootstrap servers for your Kafka brokers in the following format: `"KafkaBootstrapServers": ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]` .
 	KafkaBootstrapServers *[]*string `json:"kafkaBootstrapServers" yaml:"kafkaBootstrapServers"`
+}
+
+// TODO: EXAMPLE
+//
+type CfnEventSourceMapping_FilterCriteriaProperty struct {
+	// `CfnEventSourceMapping.FilterCriteriaProperty.Filters`.
+	Filters interface{} `json:"filters" yaml:"filters"`
+}
+
+// TODO: EXAMPLE
+//
+type CfnEventSourceMapping_FilterProperty struct {
+	// `CfnEventSourceMapping.FilterProperty.Pattern`.
+	Pattern *string `json:"pattern" yaml:"pattern"`
 }
 
 // A destination for events that failed processing.
@@ -8337,6 +8352,7 @@ type DockerImageFunction interface {
 	Connections() awsec2.Connections
 	CurrentVersion() Version
 	DeadLetterQueue() awssqs.IQueue
+	DeadLetterTopic() awssns.ITopic
 	Env() *awscdk.ResourceEnvironment
 	FunctionArn() *string
 	FunctionName() *string
@@ -8421,6 +8437,16 @@ func (j *jsiiProxy_DockerImageFunction) DeadLetterQueue() awssqs.IQueue {
 	_jsii_.Get(
 		j,
 		"deadLetterQueue",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DockerImageFunction) DeadLetterTopic() awssns.ITopic {
+	var returns awssns.ITopic
+	_jsii_.Get(
+		j,
+		"deadLetterTopic",
 		&returns,
 	)
 	return returns
@@ -9083,12 +9109,19 @@ type DockerImageFunctionProps struct {
 	// Options for the `lambda.Version` resource automatically created by the `fn.currentVersion` method.
 	CurrentVersionOptions *VersionOptions `json:"currentVersionOptions" yaml:"currentVersionOptions"`
 	// The SQS queue to use if DLQ is enabled.
+	//
+	// If SNS topic is desired, specify `deadLetterTopic` property instead.
 	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// Enabled DLQ.
 	//
 	// If `deadLetterQueue` is undefined,
 	// an SQS queue with default options will be defined for your Function.
 	DeadLetterQueueEnabled *bool `json:"deadLetterQueueEnabled" yaml:"deadLetterQueueEnabled"`
+	// The SNS topic to use as a DLQ.
+	//
+	// Note that if `deadLetterQueueEnabled` is set to `true`, an SQS queue will be created
+	// rather than an SNS topic. Using an SNS topic as a DLQ requires this property to be set explicitly.
+	DeadLetterTopic awssns.ITopic `json:"deadLetterTopic" yaml:"deadLetterTopic"`
 	// A description of the function.
 	Description *string `json:"description" yaml:"description"`
 	// Key-value pairs that Lambda caches and makes available for your Lambda functions.
@@ -10171,6 +10204,7 @@ type Function interface {
 	Connections() awsec2.Connections
 	CurrentVersion() Version
 	DeadLetterQueue() awssqs.IQueue
+	DeadLetterTopic() awssns.ITopic
 	Env() *awscdk.ResourceEnvironment
 	FunctionArn() *string
 	FunctionName() *string
@@ -10255,6 +10289,16 @@ func (j *jsiiProxy_Function) DeadLetterQueue() awssqs.IQueue {
 	_jsii_.Get(
 		j,
 		"deadLetterQueue",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Function) DeadLetterTopic() awssns.ITopic {
+	var returns awssns.ITopic
+	_jsii_.Get(
+		j,
+		"deadLetterTopic",
 		&returns,
 	)
 	return returns
@@ -10909,6 +10953,16 @@ type FunctionAttributes struct {
 	// This needs to be given in order to support allowing connections
 	// to this Lambda.
 	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup" yaml:"securityGroup"`
+	// Setting this property informs the CDK that the imported function ALREADY HAS the necessary permissions for what you are trying to do.
+	//
+	// When not configured, the CDK attempts to auto-determine whether or not
+	// additional permissions are necessary on the function when grant APIs are used. If the CDK tried to add
+	// permissions on an imported lambda, it will fail.
+	//
+	// Set this property *ONLY IF* you are committing to manage the imported function's permissions outside of
+	// CDK. You are acknowledging that your CDK code alone will have insufficient permissions to access the
+	// imported function.
+	SkipPermissions *bool `json:"skipPermissions" yaml:"skipPermissions"`
 }
 
 type FunctionBase interface {
@@ -11410,12 +11464,19 @@ type FunctionOptions struct {
 	// Options for the `lambda.Version` resource automatically created by the `fn.currentVersion` method.
 	CurrentVersionOptions *VersionOptions `json:"currentVersionOptions" yaml:"currentVersionOptions"`
 	// The SQS queue to use if DLQ is enabled.
+	//
+	// If SNS topic is desired, specify `deadLetterTopic` property instead.
 	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// Enabled DLQ.
 	//
 	// If `deadLetterQueue` is undefined,
 	// an SQS queue with default options will be defined for your Function.
 	DeadLetterQueueEnabled *bool `json:"deadLetterQueueEnabled" yaml:"deadLetterQueueEnabled"`
+	// The SNS topic to use as a DLQ.
+	//
+	// Note that if `deadLetterQueueEnabled` is set to `true`, an SQS queue will be created
+	// rather than an SNS topic. Using an SNS topic as a DLQ requires this property to be set explicitly.
+	DeadLetterTopic awssns.ITopic `json:"deadLetterTopic" yaml:"deadLetterTopic"`
 	// A description of the function.
 	Description *string `json:"description" yaml:"description"`
 	// Key-value pairs that Lambda caches and makes available for your Lambda functions.
@@ -11547,12 +11608,19 @@ type FunctionProps struct {
 	// Options for the `lambda.Version` resource automatically created by the `fn.currentVersion` method.
 	CurrentVersionOptions *VersionOptions `json:"currentVersionOptions" yaml:"currentVersionOptions"`
 	// The SQS queue to use if DLQ is enabled.
+	//
+	// If SNS topic is desired, specify `deadLetterTopic` property instead.
 	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// Enabled DLQ.
 	//
 	// If `deadLetterQueue` is undefined,
 	// an SQS queue with default options will be defined for your Function.
 	DeadLetterQueueEnabled *bool `json:"deadLetterQueueEnabled" yaml:"deadLetterQueueEnabled"`
+	// The SNS topic to use as a DLQ.
+	//
+	// Note that if `deadLetterQueueEnabled` is set to `true`, an SQS queue will be created
+	// rather than an SNS topic. Using an SNS topic as a DLQ requires this property to be set explicitly.
+	DeadLetterTopic awssns.ITopic `json:"deadLetterTopic" yaml:"deadLetterTopic"`
 	// A description of the function.
 	Description *string `json:"description" yaml:"description"`
 	// Key-value pairs that Lambda caches and makes available for your Lambda functions.
@@ -14754,12 +14822,19 @@ type SingletonFunctionProps struct {
 	// Options for the `lambda.Version` resource automatically created by the `fn.currentVersion` method.
 	CurrentVersionOptions *VersionOptions `json:"currentVersionOptions" yaml:"currentVersionOptions"`
 	// The SQS queue to use if DLQ is enabled.
+	//
+	// If SNS topic is desired, specify `deadLetterTopic` property instead.
 	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// Enabled DLQ.
 	//
 	// If `deadLetterQueue` is undefined,
 	// an SQS queue with default options will be defined for your Function.
 	DeadLetterQueueEnabled *bool `json:"deadLetterQueueEnabled" yaml:"deadLetterQueueEnabled"`
+	// The SNS topic to use as a DLQ.
+	//
+	// Note that if `deadLetterQueueEnabled` is set to `true`, an SQS queue will be created
+	// rather than an SNS topic. Using an SNS topic as a DLQ requires this property to be set explicitly.
+	DeadLetterTopic awssns.ITopic `json:"deadLetterTopic" yaml:"deadLetterTopic"`
 	// A description of the function.
 	Description *string `json:"description" yaml:"description"`
 	// Key-value pairs that Lambda caches and makes available for your Lambda functions.

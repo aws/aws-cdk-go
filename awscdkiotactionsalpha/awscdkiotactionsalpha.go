@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs"
 	"github.com/aws/aws-cdk-go/awscdkiotactionsalpha/v2/internal"
 	"github.com/aws/aws-cdk-go/awscdkiotalpha/v2"
@@ -58,7 +59,7 @@ func NewCloudWatchLogsAction_Override(c CloudWatchLogsAction, logGroup awslogs.I
 	)
 }
 
-// (experimental) Returns the topic rule action specification.
+// Returns the topic rule action specification.
 // Experimental.
 func (c *jsiiProxy_CloudWatchLogsAction) Bind(rule awscdkiotalpha.ITopicRule) *awscdkiotalpha.ActionConfig {
 	var returns *awscdkiotalpha.ActionConfig
@@ -125,7 +126,7 @@ func NewCloudWatchPutMetricAction_Override(c CloudWatchPutMetricAction, props *C
 	)
 }
 
-// (experimental) Returns the topic rule action specification.
+// Returns the topic rule action specification.
 // Experimental.
 func (c *jsiiProxy_CloudWatchPutMetricAction) Bind(rule awscdkiotalpha.ITopicRule) *awscdkiotalpha.ActionConfig {
 	var returns *awscdkiotalpha.ActionConfig
@@ -227,7 +228,7 @@ func NewCloudWatchSetAlarmStateAction_Override(c CloudWatchSetAlarmStateAction, 
 	)
 }
 
-// (experimental) Returns the topic rule action specification.
+// Returns the topic rule action specification.
 // Experimental.
 func (c *jsiiProxy_CloudWatchSetAlarmStateAction) Bind(topicRule awscdkiotalpha.ITopicRule) *awscdkiotalpha.ActionConfig {
 	var returns *awscdkiotalpha.ActionConfig
@@ -311,7 +312,7 @@ func NewFirehosePutRecordAction_Override(f FirehosePutRecordAction, stream awscd
 	)
 }
 
-// (experimental) Returns the topic rule action specification.
+// Returns the topic rule action specification.
 // Experimental.
 func (f *jsiiProxy_FirehosePutRecordAction) Bind(rule awscdkiotalpha.ITopicRule) *awscdkiotalpha.ActionConfig {
 	var returns *awscdkiotalpha.ActionConfig
@@ -402,7 +403,7 @@ func NewIotRepublishMqttAction_Override(i IotRepublishMqttAction, topic *string,
 	)
 }
 
-// (experimental) Returns the topic rule action specification.
+// Returns the topic rule action specification.
 // Experimental.
 func (i *jsiiProxy_IotRepublishMqttAction) Bind(rule awscdkiotalpha.ITopicRule) *awscdkiotalpha.ActionConfig {
 	var returns *awscdkiotalpha.ActionConfig
@@ -474,7 +475,7 @@ func NewKinesisPutRecordAction_Override(k KinesisPutRecordAction, stream awskine
 	)
 }
 
-// (experimental) Returns the topic rule action specification.
+// Returns the topic rule action specification.
 // Experimental.
 func (k *jsiiProxy_KinesisPutRecordAction) Bind(rule awscdkiotalpha.ITopicRule) *awscdkiotalpha.ActionConfig {
 	var returns *awscdkiotalpha.ActionConfig
@@ -548,7 +549,7 @@ func NewLambdaFunctionAction_Override(l LambdaFunctionAction, func_ awslambda.IF
 	)
 }
 
-// (experimental) Returns the topic rule action specification.
+// Returns the topic rule action specification.
 // Experimental.
 func (l *jsiiProxy_LambdaFunctionAction) Bind(topicRule awscdkiotalpha.ITopicRule) *awscdkiotalpha.ActionConfig {
 	var returns *awscdkiotalpha.ActionConfig
@@ -618,7 +619,7 @@ func NewS3PutObjectAction_Override(s S3PutObjectAction, bucket awss3.IBucket, pr
 	)
 }
 
-// (experimental) Returns the topic rule action specification.
+// Returns the topic rule action specification.
 // Experimental.
 func (s *jsiiProxy_S3PutObjectAction) Bind(rule awscdkiotalpha.ITopicRule) *awscdkiotalpha.ActionConfig {
 	var returns *awscdkiotalpha.ActionConfig
@@ -654,6 +655,94 @@ type S3PutObjectActionProps struct {
 	//
 	// Experimental.
 	Key *string `json:"key" yaml:"key"`
+}
+
+// SNS topic action message format options.
+//
+// TODO: EXAMPLE
+//
+// Experimental.
+type SnsActionMessageFormat string
+
+const (
+	SnsActionMessageFormat_RAW SnsActionMessageFormat = "RAW"
+	SnsActionMessageFormat_JSON SnsActionMessageFormat = "JSON"
+)
+
+// The action to write the data from an MQTT message to an Amazon SNS topic.
+//
+// TODO: EXAMPLE
+//
+// See: https://docs.aws.amazon.com/iot/latest/developerguide/sns-rule-action.html
+//
+// Experimental.
+type SnsTopicAction interface {
+	awscdkiotalpha.IAction
+	Bind(rule awscdkiotalpha.ITopicRule) *awscdkiotalpha.ActionConfig
+}
+
+// The jsii proxy struct for SnsTopicAction
+type jsiiProxy_SnsTopicAction struct {
+	internal.Type__awscdkiotalphaIAction
+}
+
+// Experimental.
+func NewSnsTopicAction(topic awssns.ITopic, props *SnsTopicActionProps) SnsTopicAction {
+	_init_.Initialize()
+
+	j := jsiiProxy_SnsTopicAction{}
+
+	_jsii_.Create(
+		"@aws-cdk/aws-iot-actions-alpha.SnsTopicAction",
+		[]interface{}{topic, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewSnsTopicAction_Override(s SnsTopicAction, topic awssns.ITopic, props *SnsTopicActionProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/aws-iot-actions-alpha.SnsTopicAction",
+		[]interface{}{topic, props},
+		s,
+	)
+}
+
+// Returns the topic rule action specification.
+// Experimental.
+func (s *jsiiProxy_SnsTopicAction) Bind(rule awscdkiotalpha.ITopicRule) *awscdkiotalpha.ActionConfig {
+	var returns *awscdkiotalpha.ActionConfig
+
+	_jsii_.Invoke(
+		s,
+		"bind",
+		[]interface{}{rule},
+		&returns,
+	)
+
+	return returns
+}
+
+// Configuration options for the SNS topic action.
+//
+// TODO: EXAMPLE
+//
+// Experimental.
+type SnsTopicActionProps struct {
+	// The IAM role that allows access to AWS service.
+	// Experimental.
+	Role awsiam.IRole `json:"role" yaml:"role"`
+	// The message format of the message to publish.
+	//
+	// SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted.
+	// See: https://docs.aws.amazon.com/sns/latest/dg/sns-message-and-json-formats.html
+	//
+	// Experimental.
+	MessageFormat SnsActionMessageFormat `json:"messageFormat" yaml:"messageFormat"`
 }
 
 // The action to write the data from an MQTT message to an Amazon SQS queue.
@@ -697,7 +786,7 @@ func NewSqsQueueAction_Override(s SqsQueueAction, queue awssqs.IQueue, props *Sq
 	)
 }
 
-// (experimental) Returns the topic rule action specification.
+// Returns the topic rule action specification.
 // Experimental.
 func (s *jsiiProxy_SqsQueueAction) Bind(rule awscdkiotalpha.ITopicRule) *awscdkiotalpha.ActionConfig {
 	var returns *awscdkiotalpha.ActionConfig

@@ -1025,6 +1025,8 @@ type CfnGlobalTable_ReplicaSpecificationProperty struct {
 	//
 	// When using customer-managed keys for server-side encryption, this property must have a value in all replicas.
 	SseSpecification interface{} `json:"sseSpecification" yaml:"sseSpecification"`
+	// `CfnGlobalTable.ReplicaSpecificationProperty.TableClass`.
+	TableClass *string `json:"tableClass" yaml:"tableClass"`
 	// An array of key-value pairs to apply to this replica.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .

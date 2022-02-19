@@ -1389,6 +1389,427 @@ type CloudFormationDeleteStackActionProps struct {
 	TemplateConfiguration awscodepipeline.ArtifactPath `json:"templateConfiguration" yaml:"templateConfiguration"`
 }
 
+// CodePipeline action to create/update Stack Instances of a StackSet.
+//
+// After the initial creation of a stack set, you can add new stack instances by
+// using CloudFormationStackInstances. Template parameter values can be
+// overridden at the stack instance level during create or update stack set
+// instance operations.
+//
+// Each stack set has one template and set of template parameters. When you
+// update the template or template parameters, you update them for the entire
+// set. Then all instance statuses are set to OUTDATED until the changes are
+// deployed to that instance.
+//
+// TODO: EXAMPLE
+//
+type CloudFormationDeployStackInstancesAction interface {
+	Action
+	ActionProperties() *awscodepipeline.ActionProperties
+	ProvidedActionProperties() *awscodepipeline.ActionProperties
+	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	Bound(scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
+	VariableExpression(variableName *string) *string
+}
+
+// The jsii proxy struct for CloudFormationDeployStackInstancesAction
+type jsiiProxy_CloudFormationDeployStackInstancesAction struct {
+	jsiiProxy_Action
+}
+
+func (j *jsiiProxy_CloudFormationDeployStackInstancesAction) ActionProperties() *awscodepipeline.ActionProperties {
+	var returns *awscodepipeline.ActionProperties
+	_jsii_.Get(
+		j,
+		"actionProperties",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CloudFormationDeployStackInstancesAction) ProvidedActionProperties() *awscodepipeline.ActionProperties {
+	var returns *awscodepipeline.ActionProperties
+	_jsii_.Get(
+		j,
+		"providedActionProperties",
+		&returns,
+	)
+	return returns
+}
+
+
+func NewCloudFormationDeployStackInstancesAction(props *CloudFormationDeployStackInstancesActionProps) CloudFormationDeployStackInstancesAction {
+	_init_.Initialize()
+
+	j := jsiiProxy_CloudFormationDeployStackInstancesAction{}
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_codepipeline_actions.CloudFormationDeployStackInstancesAction",
+		[]interface{}{props},
+		&j,
+	)
+
+	return &j
+}
+
+func NewCloudFormationDeployStackInstancesAction_Override(c CloudFormationDeployStackInstancesAction, props *CloudFormationDeployStackInstancesActionProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_codepipeline_actions.CloudFormationDeployStackInstancesAction",
+		[]interface{}{props},
+		c,
+	)
+}
+
+// The callback invoked when this Action is added to a Pipeline.
+func (c *jsiiProxy_CloudFormationDeployStackInstancesAction) Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	var returns *awscodepipeline.ActionConfig
+
+	_jsii_.Invoke(
+		c,
+		"bind",
+		[]interface{}{scope, stage, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// This is a renamed version of the {@link IAction.bind} method.
+func (c *jsiiProxy_CloudFormationDeployStackInstancesAction) Bound(scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	var returns *awscodepipeline.ActionConfig
+
+	_jsii_.Invoke(
+		c,
+		"bound",
+		[]interface{}{scope, _stage, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates an Event that will be triggered whenever the state of this Action changes.
+func (c *jsiiProxy_CloudFormationDeployStackInstancesAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
+	var returns awsevents.Rule
+
+	_jsii_.Invoke(
+		c,
+		"onStateChange",
+		[]interface{}{name, target, options},
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CloudFormationDeployStackInstancesAction) VariableExpression(variableName *string) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"variableExpression",
+		[]interface{}{variableName},
+		&returns,
+	)
+
+	return returns
+}
+
+// Properties for the CloudFormationDeployStackInstancesAction.
+//
+// TODO: EXAMPLE
+//
+type CloudFormationDeployStackInstancesActionProps struct {
+	// The physical, human-readable name of the Action.
+	//
+	// Note that Action names must be unique within a single Stage.
+	ActionName *string `json:"actionName" yaml:"actionName"`
+	// The runOrder property for this Action.
+	//
+	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
+	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
+	//
+	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
+	// The name of the namespace to use for variables emitted by this action.
+	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
+	// The Role in which context's this Action will be executing in.
+	//
+	// The Pipeline's Role will assume this Role
+	// (the required permissions for that will be granted automatically)
+	// right before executing this Action.
+	// This Action will be passed into your {@link IAction.bind}
+	// method in the {@link ActionBindOptions.role} property.
+	Role awsiam.IRole `json:"role" yaml:"role"`
+	// The percentage of accounts per Region for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
+	//
+	// If
+	// the operation is stopped in a Region, AWS CloudFormation doesn't attempt the operation in subsequent Regions. When calculating the number
+	// of accounts based on the specified percentage, AWS CloudFormation rounds down to the next whole number.
+	FailureTolerancePercentage *float64 `json:"failureTolerancePercentage" yaml:"failureTolerancePercentage"`
+	// The maximum percentage of accounts in which to perform this operation at one time.
+	//
+	// When calculating the number of accounts based on the specified
+	// percentage, AWS CloudFormation rounds down to the next whole number. If rounding down would result in zero, AWS CloudFormation sets the number as
+	// one instead. Although you use this setting to specify the maximum, for large deployments the actual number of accounts acted upon concurrently
+	// may be lower due to service throttling.
+	MaxAccountConcurrencyPercentage *float64 `json:"maxAccountConcurrencyPercentage" yaml:"maxAccountConcurrencyPercentage"`
+	// The AWS Region the StackSet is in.
+	//
+	// Note that a cross-region Pipeline requires replication buckets to function correctly.
+	// You can provide their names with the `PipelineProps.crossRegionReplicationBuckets` property.
+	// If you don't, the CodePipeline Construct will create new Stacks in your CDK app containing those buckets,
+	// that you will need to `cdk deploy` before deploying the main, Pipeline-containing Stack.
+	StackSetRegion *string `json:"stackSetRegion" yaml:"stackSetRegion"`
+	// Specify where to create or update Stack Instances.
+	//
+	// You can specify either AWS Accounts Ids or AWS Organizations Organizational Units.
+	StackInstances StackInstances `json:"stackInstances" yaml:"stackInstances"`
+	// The name of the StackSet we are adding instances to.
+	StackSetName *string `json:"stackSetName" yaml:"stackSetName"`
+	// Parameter values that only apply to the current Stack Instances.
+	//
+	// These parameters are shared between all instances added by this action.
+	ParameterOverrides StackSetParameters `json:"parameterOverrides" yaml:"parameterOverrides"`
+}
+
+// CodePipeline action to deploy a stackset.
+//
+// CodePipeline offers the ability to perform AWS CloudFormation StackSets
+// operations as part of your CI/CD process. You use a stack set to create
+// stacks in AWS accounts across AWS Regions by using a single AWS
+// CloudFormation template. All the resources included in each stack are defined
+// by the stack set’s AWS CloudFormation template. When you create the stack
+// set, you specify the template to use, as well as any parameters and
+// capabilities that the template requires.
+//
+// For more information about concepts for AWS CloudFormation StackSets, see
+// [StackSets
+// concepts](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html)
+// in the AWS CloudFormation User Guide.
+//
+// If you use this action to make an update that includes adding stack
+// instances, the new instances are deployed first and the update is completed
+// last. The new instances first receive the old version, and then the update is
+// applied to all instances.
+//
+// As a best practice, you should construct your pipeline so that the stack set
+// is created and initially deploys to a subset or a single instance. After you
+// test your deployment and view the generated stack set, then add the
+// CloudFormationStackInstances action so that the remaining instances are
+// created and updated.
+//
+// TODO: EXAMPLE
+//
+type CloudFormationDeployStackSetAction interface {
+	Action
+	ActionProperties() *awscodepipeline.ActionProperties
+	ProvidedActionProperties() *awscodepipeline.ActionProperties
+	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	Bound(scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
+	VariableExpression(variableName *string) *string
+}
+
+// The jsii proxy struct for CloudFormationDeployStackSetAction
+type jsiiProxy_CloudFormationDeployStackSetAction struct {
+	jsiiProxy_Action
+}
+
+func (j *jsiiProxy_CloudFormationDeployStackSetAction) ActionProperties() *awscodepipeline.ActionProperties {
+	var returns *awscodepipeline.ActionProperties
+	_jsii_.Get(
+		j,
+		"actionProperties",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CloudFormationDeployStackSetAction) ProvidedActionProperties() *awscodepipeline.ActionProperties {
+	var returns *awscodepipeline.ActionProperties
+	_jsii_.Get(
+		j,
+		"providedActionProperties",
+		&returns,
+	)
+	return returns
+}
+
+
+func NewCloudFormationDeployStackSetAction(props *CloudFormationDeployStackSetActionProps) CloudFormationDeployStackSetAction {
+	_init_.Initialize()
+
+	j := jsiiProxy_CloudFormationDeployStackSetAction{}
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_codepipeline_actions.CloudFormationDeployStackSetAction",
+		[]interface{}{props},
+		&j,
+	)
+
+	return &j
+}
+
+func NewCloudFormationDeployStackSetAction_Override(c CloudFormationDeployStackSetAction, props *CloudFormationDeployStackSetActionProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_codepipeline_actions.CloudFormationDeployStackSetAction",
+		[]interface{}{props},
+		c,
+	)
+}
+
+// The callback invoked when this Action is added to a Pipeline.
+func (c *jsiiProxy_CloudFormationDeployStackSetAction) Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	var returns *awscodepipeline.ActionConfig
+
+	_jsii_.Invoke(
+		c,
+		"bind",
+		[]interface{}{scope, stage, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// This is a renamed version of the {@link IAction.bind} method.
+func (c *jsiiProxy_CloudFormationDeployStackSetAction) Bound(scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	var returns *awscodepipeline.ActionConfig
+
+	_jsii_.Invoke(
+		c,
+		"bound",
+		[]interface{}{scope, _stage, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates an Event that will be triggered whenever the state of this Action changes.
+func (c *jsiiProxy_CloudFormationDeployStackSetAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
+	var returns awsevents.Rule
+
+	_jsii_.Invoke(
+		c,
+		"onStateChange",
+		[]interface{}{name, target, options},
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CloudFormationDeployStackSetAction) VariableExpression(variableName *string) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"variableExpression",
+		[]interface{}{variableName},
+		&returns,
+	)
+
+	return returns
+}
+
+// Properties for the CloudFormationDeployStackSetAction.
+//
+// TODO: EXAMPLE
+//
+type CloudFormationDeployStackSetActionProps struct {
+	// The physical, human-readable name of the Action.
+	//
+	// Note that Action names must be unique within a single Stage.
+	ActionName *string `json:"actionName" yaml:"actionName"`
+	// The runOrder property for this Action.
+	//
+	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
+	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
+	//
+	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
+	// The name of the namespace to use for variables emitted by this action.
+	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
+	// The Role in which context's this Action will be executing in.
+	//
+	// The Pipeline's Role will assume this Role
+	// (the required permissions for that will be granted automatically)
+	// right before executing this Action.
+	// This Action will be passed into your {@link IAction.bind}
+	// method in the {@link ActionBindOptions.role} property.
+	Role awsiam.IRole `json:"role" yaml:"role"`
+	// The percentage of accounts per Region for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
+	//
+	// If
+	// the operation is stopped in a Region, AWS CloudFormation doesn't attempt the operation in subsequent Regions. When calculating the number
+	// of accounts based on the specified percentage, AWS CloudFormation rounds down to the next whole number.
+	FailureTolerancePercentage *float64 `json:"failureTolerancePercentage" yaml:"failureTolerancePercentage"`
+	// The maximum percentage of accounts in which to perform this operation at one time.
+	//
+	// When calculating the number of accounts based on the specified
+	// percentage, AWS CloudFormation rounds down to the next whole number. If rounding down would result in zero, AWS CloudFormation sets the number as
+	// one instead. Although you use this setting to specify the maximum, for large deployments the actual number of accounts acted upon concurrently
+	// may be lower due to service throttling.
+	MaxAccountConcurrencyPercentage *float64 `json:"maxAccountConcurrencyPercentage" yaml:"maxAccountConcurrencyPercentage"`
+	// The AWS Region the StackSet is in.
+	//
+	// Note that a cross-region Pipeline requires replication buckets to function correctly.
+	// You can provide their names with the `PipelineProps.crossRegionReplicationBuckets` property.
+	// If you don't, the CodePipeline Construct will create new Stacks in your CDK app containing those buckets,
+	// that you will need to `cdk deploy` before deploying the main, Pipeline-containing Stack.
+	StackSetRegion *string `json:"stackSetRegion" yaml:"stackSetRegion"`
+	// The name to associate with the stack set.
+	//
+	// This name must be unique in the Region where it is created.
+	//
+	// The name may only contain alphanumeric and hyphen characters. It must begin with an alphabetic character and be 128 characters or fewer.
+	StackSetName *string `json:"stackSetName" yaml:"stackSetName"`
+	// The location of the template that defines the resources in the stack set.
+	//
+	// This must point to a template with a maximum size of 460,800 bytes.
+	//
+	// Enter the path to the source artifact name and template file.
+	Template StackSetTemplate `json:"template" yaml:"template"`
+	// Indicates that the template can create and update resources, depending on the types of resources in the template.
+	//
+	// You must use this property if you have IAM resources in your stack template or you create a stack directly from a template containing macros.
+	CfnCapabilities *[]awscdk.CfnCapabilities `json:"cfnCapabilities" yaml:"cfnCapabilities"`
+	// Determines how IAM roles are created and managed.
+	//
+	// The choices are:
+	//
+	// - Self Managed: you create IAM roles with the required permissions
+	//    in the administration account and all target accounts.
+	// - Service Managed: only available if the account and target accounts
+	//    are part of an AWS Organization. The necessary roles will be created
+	//    for you.
+	//
+	// If you want to deploy to all accounts that are a member of AWS
+	// Organizations Organizational Units (OUs), you must select Service Managed
+	// permissions.
+	//
+	// Note: This parameter can only be changed when no stack instances exist in
+	// the stack set.
+	DeploymentModel StackSetDeploymentModel `json:"deploymentModel" yaml:"deploymentModel"`
+	// A description of the stack set.
+	//
+	// You can use this to describe the stack set’s purpose or other relevant information.
+	Description *string `json:"description" yaml:"description"`
+	// The template parameters for your stack set.
+	//
+	// These parameters are shared between all instances of the stack set.
+	Parameters StackSetParameters `json:"parameters" yaml:"parameters"`
+	// Specify where to create or update Stack Instances.
+	//
+	// You can specify either AWS Accounts Ids or AWS Organizations Organizational Units.
+	StackInstances StackInstances `json:"stackInstances" yaml:"stackInstances"`
+}
+
 // CodePipeline action to execute a prepared change set.
 //
 // TODO: EXAMPLE
@@ -1986,6 +2407,9 @@ type CodeCommitSourceVariables struct {
 // How should the CodeCommit Action detect changes.
 //
 // This is the type of the {@link CodeCommitSourceAction.trigger} property.
+//
+// TODO: EXAMPLE
+//
 type CodeCommitTrigger string
 
 const (
@@ -2563,6 +2987,33 @@ type CodeStarSourceVariables struct {
 	ConnectionArn *string `json:"connectionArn" yaml:"connectionArn"`
 	// The name of the repository this action points to.
 	FullRepositoryName *string `json:"fullRepositoryName" yaml:"fullRepositoryName"`
+}
+
+// Options in common between both StackSet actions.
+//
+// TODO: EXAMPLE
+//
+type CommonCloudFormationStackSetOptions struct {
+	// The percentage of accounts per Region for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
+	//
+	// If
+	// the operation is stopped in a Region, AWS CloudFormation doesn't attempt the operation in subsequent Regions. When calculating the number
+	// of accounts based on the specified percentage, AWS CloudFormation rounds down to the next whole number.
+	FailureTolerancePercentage *float64 `json:"failureTolerancePercentage" yaml:"failureTolerancePercentage"`
+	// The maximum percentage of accounts in which to perform this operation at one time.
+	//
+	// When calculating the number of accounts based on the specified
+	// percentage, AWS CloudFormation rounds down to the next whole number. If rounding down would result in zero, AWS CloudFormation sets the number as
+	// one instead. Although you use this setting to specify the maximum, for large deployments the actual number of accounts acted upon concurrently
+	// may be lower due to service throttling.
+	MaxAccountConcurrencyPercentage *float64 `json:"maxAccountConcurrencyPercentage" yaml:"maxAccountConcurrencyPercentage"`
+	// The AWS Region the StackSet is in.
+	//
+	// Note that a cross-region Pipeline requires replication buckets to function correctly.
+	// You can provide their names with the `PipelineProps.crossRegionReplicationBuckets` property.
+	// If you don't, the CodePipeline Construct will create new Stacks in your CDK app containing those buckets,
+	// that you will need to `cdk deploy` before deploying the main, Pipeline-containing Stack.
+	StackSetRegion *string `json:"stackSetRegion" yaml:"stackSetRegion"`
 }
 
 // The ECR Repository source CodePipeline Action.
@@ -3907,6 +4358,19 @@ type ManualApprovalActionProps struct {
 	NotifyEmails *[]*string `json:"notifyEmails" yaml:"notifyEmails"`
 }
 
+// Properties for configuring service-managed (Organizations) permissions.
+//
+// TODO: EXAMPLE
+//
+type OrganizationsDeploymentProps struct {
+	// Automatically deploy to new accounts added to Organizational Units.
+	//
+	// Whether AWS CloudFormation StackSets automatically deploys to AWS
+	// Organizations accounts that are added to a target organization or
+	// organizational unit (OU).
+	AutoDeployment StackSetOrganizationsAutoDeployment `json:"autoDeployment" yaml:"autoDeployment"`
+}
+
 // Deploys the sourceArtifact to Amazon S3.
 //
 // TODO: EXAMPLE
@@ -4275,6 +4739,39 @@ const (
 	S3Trigger_EVENTS S3Trigger = "EVENTS"
 )
 
+// Properties for configuring self-managed permissions.
+//
+// TODO: EXAMPLE
+//
+type SelfManagedDeploymentProps struct {
+	// The IAM role in the administrator account used to assume execution roles in the target accounts.
+	//
+	// You must create this role before using the StackSet action.
+	//
+	// The role needs to be assumable by CloudFormation, and it needs to be able
+	// to `sts:AssumeRole` each of the execution roles (whose names are specified
+	// in the `executionRoleName` parameter) in each of the target accounts.
+	//
+	// If you do not specify the role, we assume you have created a role named
+	// `AWSCloudFormationStackSetAdministrationRole`.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html
+	//
+	AdministrationRole awsiam.IRole `json:"administrationRole" yaml:"administrationRole"`
+	// The name of the IAM role in the target accounts used to perform stack set operations.
+	//
+	// You must create these roles in each of the target accounts before using the
+	// StackSet action.
+	//
+	// The roles need to be assumable by by the `administrationRole`, and need to
+	// have the permissions necessary to successfully create and modify the
+	// resources that the subsequent CloudFormation deployments need.
+	// Administrator permissions would be commonly granted to these, but if you can
+	// scope the permissions down frome there you would be safer.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html
+	//
+	ExecutionRoleName *string `json:"executionRoleName" yaml:"executionRoleName"`
+}
+
 // CodePipeline action to connect to an existing ServiceCatalog product.
 //
 // **Note**: this class is still experimental, and may have breaking changes in the future!
@@ -4431,6 +4928,341 @@ type ServiceCatalogDeployActionBeta1Props struct {
 	TemplatePath awscodepipeline.ArtifactPath `json:"templatePath" yaml:"templatePath"`
 	// The optional description of this version of the Service Catalog product.
 	ProductVersionDescription *string `json:"productVersionDescription" yaml:"productVersionDescription"`
+}
+
+// Where Stack Instances will be created from the StackSet.
+//
+// TODO: EXAMPLE
+//
+type StackInstances interface {
+}
+
+// The jsii proxy struct for StackInstances
+type jsiiProxy_StackInstances struct {
+	_ byte // padding
+}
+
+func NewStackInstances_Override(s StackInstances) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_codepipeline_actions.StackInstances",
+		nil, // no parameters
+		s,
+	)
+}
+
+// Create stack instances in a set of accounts or organizational units taken from the pipeline artifacts, and a set of regions  The file must be a JSON file containing a list of strings.
+//
+// For example:
+//
+// ```json
+// [
+//    "111111111111",
+//    "222222222222",
+//    "333333333333"
+// ]
+// ```
+//
+// Stack Instances will be created in every combination of region and account, or region and
+// Organizational Units (OUs).
+//
+// If this is set of Organizational Units, you must have selected `StackSetDeploymentModel.organizations()`
+// as deployment model.
+func StackInstances_FromArtifactPath(artifactPath awscodepipeline.ArtifactPath, regions *[]*string) StackInstances {
+	_init_.Initialize()
+
+	var returns StackInstances
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_codepipeline_actions.StackInstances",
+		"fromArtifactPath",
+		[]interface{}{artifactPath, regions},
+		&returns,
+	)
+
+	return returns
+}
+
+// Create stack instances in a set of accounts and regions passed as literal lists.
+//
+// Stack Instances will be created in every combination of region and account.
+//
+// > NOTE: `StackInstances.inAccounts()` and `StackInstances.inOrganizationalUnits()`
+// > have exactly the same behavior, and you can use them interchangeably if you want.
+// > The only difference between them is that your code clearly indicates what entity
+// > it's working with.
+func StackInstances_InAccounts(accounts *[]*string, regions *[]*string) StackInstances {
+	_init_.Initialize()
+
+	var returns StackInstances
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_codepipeline_actions.StackInstances",
+		"inAccounts",
+		[]interface{}{accounts, regions},
+		&returns,
+	)
+
+	return returns
+}
+
+// Create stack instances in all accounts in a set of Organizational Units (OUs) and regions passed as literal lists.
+//
+// If you want to deploy to Organization Units, you must choose have created the StackSet
+// with `deploymentModel: DeploymentModel.organizations()`.
+//
+// Stack Instances will be created in every combination of region and account.
+//
+// > NOTE: `StackInstances.inAccounts()` and `StackInstances.inOrganizationalUnits()`
+// > have exactly the same behavior, and you can use them interchangeably if you want.
+// > The only difference between them is that your code clearly indicates what entity
+// > it's working with.
+func StackInstances_InOrganizationalUnits(ous *[]*string, regions *[]*string) StackInstances {
+	_init_.Initialize()
+
+	var returns StackInstances
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_codepipeline_actions.StackInstances",
+		"inOrganizationalUnits",
+		[]interface{}{ous, regions},
+		&returns,
+	)
+
+	return returns
+}
+
+// Determines how IAM roles are created and managed.
+//
+// TODO: EXAMPLE
+//
+type StackSetDeploymentModel interface {
+}
+
+// The jsii proxy struct for StackSetDeploymentModel
+type jsiiProxy_StackSetDeploymentModel struct {
+	_ byte // padding
+}
+
+func NewStackSetDeploymentModel_Override(s StackSetDeploymentModel) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_codepipeline_actions.StackSetDeploymentModel",
+		nil, // no parameters
+		s,
+	)
+}
+
+// Deploy to AWS Organizations accounts.
+//
+// AWS CloudFormation StackSets automatically creates the IAM roles required
+// to deploy to accounts managed by AWS Organizations. This requires an
+// account to be a member of an Organization.
+//
+// Using this deployment model, you can specify either AWS Account Ids or
+// Organization Unit Ids in the `stackInstances` parameter.
+func StackSetDeploymentModel_Organizations(props *OrganizationsDeploymentProps) StackSetDeploymentModel {
+	_init_.Initialize()
+
+	var returns StackSetDeploymentModel
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_codepipeline_actions.StackSetDeploymentModel",
+		"organizations",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Deploy to AWS Accounts not managed by AWS Organizations.
+//
+// You are responsible for creating Execution Roles in every account you will
+// be deploying to in advance to create the actual stack instances. Unless you
+// specify overrides, StackSets expects the execution roles you create to have
+// the default name `AWSCloudFormationStackSetExecutionRole`. See the [Grant
+// self-managed
+// permissions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html)
+// section of the CloudFormation documentation.
+//
+// The CDK will automatically create the central Administration Role in the
+// Pipeline account which will be used to assume the Execution Role in each of
+// the target accounts.
+//
+// If you wish to use a pre-created Administration Role, use `Role.fromRoleName()`
+// or `Role.fromRoleArn()` to import it, and pass it to this function:
+//
+// ```ts
+// const existingAdminRole = iam.Role.fromRoleName(this, 'AdminRole', 'AWSCloudFormationStackSetAdministrationRole');
+//
+// const deploymentModel = codepipeline_actions.StackSetDeploymentModel.selfManaged({
+//    // Use an existing Role. Leave this out to create a new Role.
+//    administrationRole: existingAdminRole,
+// });
+// ```
+//
+// Using this deployment model, you can only specify AWS Account Ids in the
+// `stackInstances` parameter.
+// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html
+//
+func StackSetDeploymentModel_SelfManaged(props *SelfManagedDeploymentProps) StackSetDeploymentModel {
+	_init_.Initialize()
+
+	var returns StackSetDeploymentModel
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_codepipeline_actions.StackSetDeploymentModel",
+		"selfManaged",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Describes whether AWS CloudFormation StackSets automatically deploys to AWS Organizations accounts that are added to a target organization or organizational unit (OU).
+type StackSetOrganizationsAutoDeployment string
+
+const (
+	StackSetOrganizationsAutoDeployment_ENABLED StackSetOrganizationsAutoDeployment = "ENABLED"
+	StackSetOrganizationsAutoDeployment_DISABLED StackSetOrganizationsAutoDeployment = "DISABLED"
+	StackSetOrganizationsAutoDeployment_ENABLED_WITH_STACK_RETENTION StackSetOrganizationsAutoDeployment = "ENABLED_WITH_STACK_RETENTION"
+)
+
+// Base parameters for the StackSet.
+//
+// TODO: EXAMPLE
+//
+type StackSetParameters interface {
+}
+
+// The jsii proxy struct for StackSetParameters
+type jsiiProxy_StackSetParameters struct {
+	_ byte // padding
+}
+
+func NewStackSetParameters_Override(s StackSetParameters) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_codepipeline_actions.StackSetParameters",
+		nil, // no parameters
+		s,
+	)
+}
+
+// Read the parameters from a JSON file from one of the pipeline's artifacts.
+//
+// The file needs to contain a list of `{ ParameterKey, ParameterValue, UsePreviousValue }` objects, like
+// this:
+//
+// ```
+// [
+//      {
+//          "ParameterKey": "BucketName",
+//          "ParameterValue": "my-bucket"
+//      },
+//      {
+//          "ParameterKey": "Asset1",
+//          "ParameterValue": "true"
+//      },
+//      {
+//          "ParameterKey": "Asset2",
+//          "UsePreviousValue": true
+//      }
+// ]
+// ```
+//
+// You must specify all template parameters. Parameters you don't specify will revert
+// to their `Default` values as specified in the template.
+//
+// For of parameters you want to retain their existing values
+// without specifying what those values are, set `UsePreviousValue: true`.
+// Use of this feature is discouraged. CDK is for
+// specifying desired-state infrastructure, and use of this feature makes the
+// parameter values unmanaged.
+func StackSetParameters_FromArtifactPath(artifactPath awscodepipeline.ArtifactPath) StackSetParameters {
+	_init_.Initialize()
+
+	var returns StackSetParameters
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_codepipeline_actions.StackSetParameters",
+		"fromArtifactPath",
+		[]interface{}{artifactPath},
+		&returns,
+	)
+
+	return returns
+}
+
+// A list of template parameters for your stack set.
+//
+// You must specify all template parameters. Parameters you don't specify will revert
+// to their `Default` values as specified in the template.
+//
+// Specify the names of parameters you want to retain their existing values,
+// without specifying what those values are, in an array in the second
+// argument to this function. Use of this feature is discouraged. CDK is for
+// specifying desired-state infrastructure, and use of this feature makes the
+// parameter values unmanaged.
+//
+// TODO: EXAMPLE
+//
+func StackSetParameters_FromLiteral(parameters *map[string]*string, usePreviousValues *[]*string) StackSetParameters {
+	_init_.Initialize()
+
+	var returns StackSetParameters
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_codepipeline_actions.StackSetParameters",
+		"fromLiteral",
+		[]interface{}{parameters, usePreviousValues},
+		&returns,
+	)
+
+	return returns
+}
+
+// The source of a StackSet template.
+//
+// TODO: EXAMPLE
+//
+type StackSetTemplate interface {
+}
+
+// The jsii proxy struct for StackSetTemplate
+type jsiiProxy_StackSetTemplate struct {
+	_ byte // padding
+}
+
+func NewStackSetTemplate_Override(s StackSetTemplate) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_codepipeline_actions.StackSetTemplate",
+		nil, // no parameters
+		s,
+	)
+}
+
+// Use a file in an artifact as Stack Template.
+func StackSetTemplate_FromArtifactPath(artifactPath awscodepipeline.ArtifactPath) StackSetTemplate {
+	_init_.Initialize()
+
+	var returns StackSetTemplate
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_codepipeline_actions.StackSetTemplate",
+		"fromArtifactPath",
+		[]interface{}{artifactPath},
+		&returns,
+	)
+
+	return returns
 }
 
 // Represents the input for the StateMachine.

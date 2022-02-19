@@ -11302,6 +11302,9 @@ type S3OriginConfig struct {
 // using this feature. By default, we use SNI - but you can optionally enable dedicated IPs (VIP).
 //
 // See the CloudFront SSL for more details about pricing : https://aws.amazon.com/cloudfront/custom-ssl-domains/
+//
+// TODO: EXAMPLE
+//
 type SSLMethod string
 
 const (

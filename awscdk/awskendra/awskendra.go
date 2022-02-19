@@ -26,6 +26,8 @@ type CfnDataSource interface {
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
 	CreationStack() *[]*string
+	CustomDocumentEnrichmentConfiguration() interface{}
+	SetCustomDocumentEnrichmentConfiguration(val interface{})
 	DataSourceConfiguration() interface{}
 	SetDataSourceConfiguration(val interface{})
 	Description() *string
@@ -124,6 +126,16 @@ func (j *jsiiProxy_CfnDataSource) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSource) CustomDocumentEnrichmentConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"customDocumentEnrichmentConfiguration",
 		&returns,
 	)
 	return returns
@@ -283,6 +295,14 @@ func NewCfnDataSource_Override(c CfnDataSource, scope constructs.Construct, id *
 		"aws-cdk-lib.aws_kendra.CfnDataSource",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnDataSource) SetCustomDocumentEnrichmentConfiguration(val interface{}) {
+	_jsii_.Set(
+		j,
+		"customDocumentEnrichmentConfiguration",
+		val,
 	)
 }
 
@@ -690,7 +710,7 @@ type CfnDataSource_ColumnConfigurationProperty struct {
 type CfnDataSource_ConfluenceAttachmentConfigurationProperty struct {
 	// Defines how attachment metadata fields should be mapped to index fields.
 	//
-	// Before you can map a field, you must first create an index field with a matching type using the console or the `UpdateIndex` operation.
+	// Before you can map a field, you must first create an index field with a matching type using the console or the `UpdateIndex` API.
 	//
 	// If you specify the `AttachentFieldMappings` parameter, you must specify at least one field mapping.
 	AttachmentFieldMappings interface{} `json:"attachmentFieldMappings" yaml:"attachmentFieldMappings"`
@@ -700,14 +720,14 @@ type CfnDataSource_ConfluenceAttachmentConfigurationProperty struct {
 
 // Defines the mapping between a field in the Confluence data source to a Amazon Kendra index field.
 //
-// You must first create the index field using the `UpdateIndex` operation.
+// You must first create the index field using the `UpdateIndex` API.
 //
 // TODO: EXAMPLE
 //
 type CfnDataSource_ConfluenceAttachmentToIndexFieldMappingProperty struct {
 	// The name of the field in the data source.
 	//
-	// You must first create the index field using the `UpdateIndex` operation.
+	// You must first create the index field using the `UpdateIndex` API.
 	DataSourceFieldName *string `json:"dataSourceFieldName" yaml:"dataSourceFieldName"`
 	// The name of the index field to map to the Confluence data source field.
 	//
@@ -721,14 +741,14 @@ type CfnDataSource_ConfluenceAttachmentToIndexFieldMappingProperty struct {
 
 // Specifies the blog settings for the Confluence data source.
 //
-// Blogs are always indexed unless filtered from the index by the `ExclusionPatterns` or `InclusionPatterns` fields in the `ConfluenceConfiguration` type.
+// Blogs are always indexed unless filtered from the index by the `ExclusionPatterns` or `InclusionPatterns` fields in the `ConfluenceConfiguration` object.
 //
 // TODO: EXAMPLE
 //
 type CfnDataSource_ConfluenceBlogConfigurationProperty struct {
 	// Defines how blog metadata fields should be mapped to index fields.
 	//
-	// Before you can map a field, you must first create an index field with a matching type using the console or the `UpdateIndex` operation.
+	// Before you can map a field, you must first create an index field with a matching type using the console or the `UpdateIndex` API.
 	//
 	// If you specify the `BlogFieldMappings` parameter, you must specify at least one field mapping.
 	BlogFieldMappings interface{} `json:"blogFieldMappings" yaml:"blogFieldMappings"`
@@ -736,7 +756,7 @@ type CfnDataSource_ConfluenceBlogConfigurationProperty struct {
 
 // Defines the mapping between a blog field in the Confluence data source to a Amazon Kendra index field.
 //
-// You must first create the index field using the `UpdateIndex` operation.
+// You must first create the index field using the `UpdateIndex` API.
 //
 // TODO: EXAMPLE
 //
@@ -753,7 +773,7 @@ type CfnDataSource_ConfluenceBlogToIndexFieldMappingProperty struct {
 	DateFieldFormat *string `json:"dateFieldFormat" yaml:"dateFieldFormat"`
 }
 
-// Provides configuration information for data sources that connect to Confluence.
+// Provides the configuration information to connect to Confluence as your data source.
 //
 // TODO: EXAMPLE
 //
@@ -798,7 +818,7 @@ type CfnDataSource_ConfluenceConfigurationProperty struct {
 type CfnDataSource_ConfluencePageConfigurationProperty struct {
 	// Defines how page metadata fields should be mapped to index fields.
 	//
-	// Before you can map a field, you must first create an index field with a matching type using the console or the `UpdateIndex` operation.
+	// Before you can map a field, you must first create an index field with a matching type using the console or the `UpdateIndex` API.
 	//
 	// If you specify the `PageFieldMappings` parameter, you must specify at least one field mapping.
 	PageFieldMappings interface{} `json:"pageFieldMappings" yaml:"pageFieldMappings"`
@@ -806,7 +826,7 @@ type CfnDataSource_ConfluencePageConfigurationProperty struct {
 
 // Defines the mapping between a field in the Confluence data source to a Amazon Kendra index field.
 //
-// You must first create the index field using the `UpdateIndex` operation.
+// You must first create the index field using the `UpdateIndex` API.
 //
 // TODO: EXAMPLE
 //
@@ -844,15 +864,15 @@ type CfnDataSource_ConfluenceSpaceConfigurationProperty struct {
 	IncludeSpaces *[]*string `json:"includeSpaces" yaml:"includeSpaces"`
 	// Defines how space metadata fields should be mapped to index fields.
 	//
-	// Before you can map a field, you must first create an index field with a matching type using the console or the `UpdateIndex` operation.
+	// Before you can map a field, you must first create an index field with a matching type using the console or the `UpdateIndex` API.
 	//
 	// If you specify the `SpaceFieldMappings` parameter, you must specify at least one field mapping.
 	SpaceFieldMappings interface{} `json:"spaceFieldMappings" yaml:"spaceFieldMappings"`
 }
 
-// Defines the mapping between a field in the Confluence data source to a Amazon Kendra index field.
+// Defines the mapping between a field in the Confluence data source to an Amazon Kendra index field.
 //
-// You must first create the index field using the `UpdateIndex` operation.
+// You must first create the index field using the `UpdateIndex` API.
 //
 // TODO: EXAMPLE
 //
@@ -869,7 +889,7 @@ type CfnDataSource_ConfluenceSpaceToIndexFieldMappingProperty struct {
 	DateFieldFormat *string `json:"dateFieldFormat" yaml:"dateFieldFormat"`
 }
 
-// Provides the information necessary to connect to a database.
+// Provides the configuration information that's required to connect to a database.
 //
 // TODO: EXAMPLE
 //
@@ -890,30 +910,43 @@ type CfnDataSource_ConnectionConfigurationProperty struct {
 	TableName *string `json:"tableName" yaml:"tableName"`
 }
 
-// Configuration information for an Amazon Kendra data source.
+// TODO: EXAMPLE
+//
+type CfnDataSource_CustomDocumentEnrichmentConfigurationProperty struct {
+	// `CfnDataSource.CustomDocumentEnrichmentConfigurationProperty.InlineConfigurations`.
+	InlineConfigurations interface{} `json:"inlineConfigurations" yaml:"inlineConfigurations"`
+	// `CfnDataSource.CustomDocumentEnrichmentConfigurationProperty.PostExtractionHookConfiguration`.
+	PostExtractionHookConfiguration interface{} `json:"postExtractionHookConfiguration" yaml:"postExtractionHookConfiguration"`
+	// `CfnDataSource.CustomDocumentEnrichmentConfigurationProperty.PreExtractionHookConfiguration`.
+	PreExtractionHookConfiguration interface{} `json:"preExtractionHookConfiguration" yaml:"preExtractionHookConfiguration"`
+	// `CfnDataSource.CustomDocumentEnrichmentConfigurationProperty.RoleArn`.
+	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+}
+
+// Provides the configuration information for an Amazon Kendra data source.
 //
 // TODO: EXAMPLE
 //
 type CfnDataSource_DataSourceConfigurationProperty struct {
 	// Provides configuration information for connecting to a Confluence data source.
 	ConfluenceConfiguration interface{} `json:"confluenceConfiguration" yaml:"confluenceConfiguration"`
-	// Provides information necessary to create a data source connector for a database.
+	// Provides the configuration information to connect to a database as your data source.
 	DatabaseConfiguration interface{} `json:"databaseConfiguration" yaml:"databaseConfiguration"`
-	// Provides configuration for data sources that connect to Google Drive.
+	// Provides the configuration information to connect to Google Drive as your data source.
 	GoogleDriveConfiguration interface{} `json:"googleDriveConfiguration" yaml:"googleDriveConfiguration"`
-	// Provides configuration for data sources that connect to Microsoft OneDrive.
+	// Provides the configuration information to connect to Microsoft OneDrive as your data source.
 	OneDriveConfiguration interface{} `json:"oneDriveConfiguration" yaml:"oneDriveConfiguration"`
-	// Provides information to create a data source connector for a document repository in an Amazon S3 bucket.
+	// Provides the configuration information to connect to an Amazon S3 bucket as your data source.
 	S3Configuration interface{} `json:"s3Configuration" yaml:"s3Configuration"`
-	// Provides configuration information for data sources that connect to a Salesforce site.
+	// Provides the configuration information to connect to Salesforce as your data source.
 	SalesforceConfiguration interface{} `json:"salesforceConfiguration" yaml:"salesforceConfiguration"`
-	// Provides configuration for data sources that connect to ServiceNow instances.
+	// Provides the configuration information to connect to ServiceNow as your data source.
 	ServiceNowConfiguration interface{} `json:"serviceNowConfiguration" yaml:"serviceNowConfiguration"`
-	// Provides information necessary to create a data source connector for a Microsoft SharePoint site.
+	// Provides the configuration information to connect to Microsoft SharePoint as your data source.
 	SharePointConfiguration interface{} `json:"sharePointConfiguration" yaml:"sharePointConfiguration"`
 	// Provides the configuration information required for Amazon Kendra Web Crawler.
 	WebCrawlerConfiguration interface{} `json:"webCrawlerConfiguration" yaml:"webCrawlerConfiguration"`
-	// Provides the configuration information to connect to WorkDocs as your data source.
+	// Provides the configuration information to connect to Amazon WorkDocs as your data source.
 	WorkDocsConfiguration interface{} `json:"workDocsConfiguration" yaml:"workDocsConfiguration"`
 }
 
@@ -932,7 +965,7 @@ type CfnDataSource_DataSourceToIndexFieldMappingProperty struct {
 	DateFieldFormat *string `json:"dateFieldFormat" yaml:"dateFieldFormat"`
 }
 
-// Provides information for connecting to an Amazon VPC.
+// Provides the configuration information to connect to an Amazon VPC.
 //
 // TODO: EXAMPLE
 //
@@ -947,14 +980,14 @@ type CfnDataSource_DataSourceVpcConfigurationProperty struct {
 	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
 }
 
-// Provides the information necessary to connect a database to an index.
+// Provides the configuration information to connect to a index.
 //
 // TODO: EXAMPLE
 //
 type CfnDataSource_DatabaseConfigurationProperty struct {
 	// Information about where the index should get the document information from the database.
 	ColumnConfiguration interface{} `json:"columnConfiguration" yaml:"columnConfiguration"`
-	// The information necessary to connect to a database.
+	// Configuration information that's required to connect to a database.
 	ConnectionConfiguration interface{} `json:"connectionConfiguration" yaml:"connectionConfiguration"`
 	// The type of database engine that runs the database.
 	DatabaseEngineType *string `json:"databaseEngineType" yaml:"databaseEngineType"`
@@ -964,6 +997,41 @@ type CfnDataSource_DatabaseConfigurationProperty struct {
 	SqlConfiguration interface{} `json:"sqlConfiguration" yaml:"sqlConfiguration"`
 	// Provides information for connecting to an Amazon VPC.
 	VpcConfiguration interface{} `json:"vpcConfiguration" yaml:"vpcConfiguration"`
+}
+
+// TODO: EXAMPLE
+//
+type CfnDataSource_DocumentAttributeConditionProperty struct {
+	// `CfnDataSource.DocumentAttributeConditionProperty.ConditionDocumentAttributeKey`.
+	ConditionDocumentAttributeKey *string `json:"conditionDocumentAttributeKey" yaml:"conditionDocumentAttributeKey"`
+	// `CfnDataSource.DocumentAttributeConditionProperty.Operator`.
+	Operator *string `json:"operator" yaml:"operator"`
+	// `CfnDataSource.DocumentAttributeConditionProperty.ConditionOnValue`.
+	ConditionOnValue interface{} `json:"conditionOnValue" yaml:"conditionOnValue"`
+}
+
+// TODO: EXAMPLE
+//
+type CfnDataSource_DocumentAttributeTargetProperty struct {
+	// `CfnDataSource.DocumentAttributeTargetProperty.TargetDocumentAttributeKey`.
+	TargetDocumentAttributeKey *string `json:"targetDocumentAttributeKey" yaml:"targetDocumentAttributeKey"`
+	// `CfnDataSource.DocumentAttributeTargetProperty.TargetDocumentAttributeValue`.
+	TargetDocumentAttributeValue interface{} `json:"targetDocumentAttributeValue" yaml:"targetDocumentAttributeValue"`
+	// `CfnDataSource.DocumentAttributeTargetProperty.TargetDocumentAttributeValueDeletion`.
+	TargetDocumentAttributeValueDeletion interface{} `json:"targetDocumentAttributeValueDeletion" yaml:"targetDocumentAttributeValueDeletion"`
+}
+
+// TODO: EXAMPLE
+//
+type CfnDataSource_DocumentAttributeValueProperty struct {
+	// `CfnDataSource.DocumentAttributeValueProperty.DateValue`.
+	DateValue *string `json:"dateValue" yaml:"dateValue"`
+	// `CfnDataSource.DocumentAttributeValueProperty.LongValue`.
+	LongValue *float64 `json:"longValue" yaml:"longValue"`
+	// `CfnDataSource.DocumentAttributeValueProperty.StringListValue`.
+	StringListValue *[]*string `json:"stringListValue" yaml:"stringListValue"`
+	// `CfnDataSource.DocumentAttributeValueProperty.StringValue`.
+	StringValue *string `json:"stringValue" yaml:"stringValue"`
 }
 
 // Document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes.
@@ -979,7 +1047,7 @@ type CfnDataSource_DocumentsMetadataConfigurationProperty struct {
 	S3Prefix *string `json:"s3Prefix" yaml:"s3Prefix"`
 }
 
-// Provides configuration information for data sources that connect to Google Drive.
+// Provides the configuration information to connect to Google Drive as your data source.
 //
 // TODO: EXAMPLE
 //
@@ -1006,7 +1074,7 @@ type CfnDataSource_GoogleDriveConfigurationProperty struct {
 	ExclusionPatterns *[]*string `json:"exclusionPatterns" yaml:"exclusionPatterns"`
 	// Defines mapping between a field in the Google Drive and a Amazon Kendra index field.
 	//
-	// If you are using the console, you can define index fields when creating the mapping. If you are using the API, you must first create the field using the `UpdateIndex` operation.
+	// If you are using the console, you can define index fields when creating the mapping. If you are using the API, you must first create the field using the `UpdateIndex` API.
 	FieldMappings interface{} `json:"fieldMappings" yaml:"fieldMappings"`
 	// A list of regular expression patterns that apply to path on Google Drive.
 	//
@@ -1014,7 +1082,29 @@ type CfnDataSource_GoogleDriveConfigurationProperty struct {
 	InclusionPatterns *[]*string `json:"inclusionPatterns" yaml:"inclusionPatterns"`
 }
 
-// Provides configuration information for data sources that connect to OneDrive.
+// TODO: EXAMPLE
+//
+type CfnDataSource_HookConfigurationProperty struct {
+	// `CfnDataSource.HookConfigurationProperty.LambdaArn`.
+	LambdaArn *string `json:"lambdaArn" yaml:"lambdaArn"`
+	// `CfnDataSource.HookConfigurationProperty.S3Bucket`.
+	S3Bucket *string `json:"s3Bucket" yaml:"s3Bucket"`
+	// `CfnDataSource.HookConfigurationProperty.InvocationCondition`.
+	InvocationCondition interface{} `json:"invocationCondition" yaml:"invocationCondition"`
+}
+
+// TODO: EXAMPLE
+//
+type CfnDataSource_InlineCustomDocumentEnrichmentConfigurationProperty struct {
+	// `CfnDataSource.InlineCustomDocumentEnrichmentConfigurationProperty.Condition`.
+	Condition interface{} `json:"condition" yaml:"condition"`
+	// `CfnDataSource.InlineCustomDocumentEnrichmentConfigurationProperty.DocumentContentDeletion`.
+	DocumentContentDeletion interface{} `json:"documentContentDeletion" yaml:"documentContentDeletion"`
+	// `CfnDataSource.InlineCustomDocumentEnrichmentConfigurationProperty.Target`.
+	Target interface{} `json:"target" yaml:"target"`
+}
+
+// Provides the configuration information to connect to OneDrive as your data source.
 //
 // TODO: EXAMPLE
 //
@@ -1079,7 +1169,7 @@ type CfnDataSource_ProxyConfigurationProperty struct {
 	Credentials *string `json:"credentials" yaml:"credentials"`
 }
 
-// Provides configuration information for a data source to index documents in an Amazon S3 bucket.
+// Provides the configuration information to connect to an Amazon S3 bucket.
 //
 // TODO: EXAMPLE
 //
@@ -1129,7 +1219,7 @@ type CfnDataSource_S3PathProperty struct {
 	Key *string `json:"key" yaml:"key"`
 }
 
-// Defines configuration for syncing a Salesforce chatter feed.
+// The configuration information for syncing a Salesforce chatter feed.
 //
 // The contents of the object comes from the Salesforce FeedItem table.
 //
@@ -1190,7 +1280,7 @@ type CfnDataSource_SalesforceConfigurationProperty struct {
 	//
 	// Amazon Kendra indexes standard knowledge articles and the standard fields of knowledge articles, or the custom fields of custom knowledge articles, but not both.
 	KnowledgeArticleConfiguration interface{} `json:"knowledgeArticleConfiguration" yaml:"knowledgeArticleConfiguration"`
-	// Provides configuration information for processing attachments to Salesforce standard objects.
+	// Configuration information for processing attachments to Salesforce standard objects.
 	StandardObjectAttachmentConfiguration interface{} `json:"standardObjectAttachmentConfiguration" yaml:"standardObjectAttachmentConfiguration"`
 	// Specifies the Salesforce standard objects that Amazon Kendra indexes.
 	StandardObjectConfigurations interface{} `json:"standardObjectConfigurations" yaml:"standardObjectConfigurations"`
@@ -1211,7 +1301,7 @@ type CfnDataSource_SalesforceCustomKnowledgeArticleTypeConfigurationProperty str
 	FieldMappings interface{} `json:"fieldMappings" yaml:"fieldMappings"`
 }
 
-// Specifies configuration information for the knowledge article types that Amazon Kendra indexes.
+// Provides the configuration information for the knowledge article types that Amazon Kendra indexes.
 //
 // Amazon Kendra indexes standard knowledge articles and the standard fields of knowledge articles, or the custom fields of custom knowledge articles, but not both
 //
@@ -1222,13 +1312,13 @@ type CfnDataSource_SalesforceKnowledgeArticleConfigurationProperty struct {
 	//
 	// You must specify at least one state.
 	IncludedStates *[]*string `json:"includedStates" yaml:"includedStates"`
-	// Provides configuration information for custom Salesforce knowledge articles.
+	// Configuration information for custom Salesforce knowledge articles.
 	CustomKnowledgeArticleTypeConfigurations interface{} `json:"customKnowledgeArticleTypeConfigurations" yaml:"customKnowledgeArticleTypeConfigurations"`
-	// Provides configuration information for standard Salesforce knowledge articles.
+	// Configuration information for standard Salesforce knowledge articles.
 	StandardKnowledgeArticleTypeConfiguration interface{} `json:"standardKnowledgeArticleTypeConfiguration" yaml:"standardKnowledgeArticleTypeConfiguration"`
 }
 
-// Provides configuration information for standard Salesforce knowledge articles.
+// Configuration information for standard Salesforce knowledge articles.
 //
 // TODO: EXAMPLE
 //
@@ -1243,7 +1333,7 @@ type CfnDataSource_SalesforceStandardKnowledgeArticleTypeConfigurationProperty s
 	FieldMappings interface{} `json:"fieldMappings" yaml:"fieldMappings"`
 }
 
-// Provides configuration information for processing attachments to Salesforce standard objects.
+// Provides the configuration information for processing attachments to Salesforce standard objects.
 //
 // TODO: EXAMPLE
 //
@@ -1271,7 +1361,7 @@ type CfnDataSource_SalesforceStandardObjectConfigurationProperty struct {
 	FieldMappings interface{} `json:"fieldMappings" yaml:"fieldMappings"`
 }
 
-// Provides configuration information required to connect to a ServiceNow data source.
+// Provides the configuration information to connect to ServiceNow as your data source.
 //
 // TODO: EXAMPLE
 //
@@ -1292,13 +1382,13 @@ type CfnDataSource_ServiceNowConfigurationProperty struct {
 	//
 	// When you use `OAUTH2` authentication, you must generate a token and a client secret using the ServiceNow console. For more information, see [Using a ServiceNow data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-servicenow.html) .
 	AuthenticationType *string `json:"authenticationType" yaml:"authenticationType"`
-	// Provides configuration information for crawling knowledge articles in the ServiceNow site.
+	// Configuration information for crawling knowledge articles in the ServiceNow site.
 	KnowledgeArticleConfiguration interface{} `json:"knowledgeArticleConfiguration" yaml:"knowledgeArticleConfiguration"`
-	// Provides configuration information for crawling service catalogs in the ServiceNow site.
+	// Configuration information for crawling service catalogs in the ServiceNow site.
 	ServiceCatalogConfiguration interface{} `json:"serviceCatalogConfiguration" yaml:"serviceCatalogConfiguration"`
 }
 
-// Provides configuration information for crawling knowledge articles in the ServiceNow site.
+// Provides the configuration information for crawling knowledge articles in the ServiceNow site.
 //
 // TODO: EXAMPLE
 //
@@ -1329,7 +1419,7 @@ type CfnDataSource_ServiceNowKnowledgeArticleConfigurationProperty struct {
 	IncludeAttachmentFilePatterns *[]*string `json:"includeAttachmentFilePatterns" yaml:"includeAttachmentFilePatterns"`
 }
 
-// Provides configuration information for crawling service catalog items in the ServiceNow site.
+// Provides the configuration information for crawling service catalog items in the ServiceNow site.
 //
 // TODO: EXAMPLE
 //
@@ -1358,7 +1448,7 @@ type CfnDataSource_ServiceNowServiceCatalogConfigurationProperty struct {
 	IncludeAttachmentFilePatterns *[]*string `json:"includeAttachmentFilePatterns" yaml:"includeAttachmentFilePatterns"`
 }
 
-// Provides configuration information for connecting to a Microsoft SharePoint data source.
+// Provides the configuration information to connect to Microsoft SharePoint as your data source.
 //
 // TODO: EXAMPLE
 //
@@ -1465,7 +1555,7 @@ type CfnDataSource_WebCrawlerConfigurationProperty struct {
 	//
 	// *When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://docs.aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use Amazon Kendra Web Crawler to index your own webpages, or webpages that you have authorization to index.*
 	Urls interface{} `json:"urls" yaml:"urls"`
-	// Provides configuration information required to connect to websites using authentication.
+	// Configuration information required to connect to websites using authentication.
 	//
 	// You can connect to websites using basic authentication of user name and password.
 	//
@@ -1495,7 +1585,7 @@ type CfnDataSource_WebCrawlerConfigurationProperty struct {
 	//
 	// The default maximum number of URLs crawled per website host per minute is 300.
 	MaxUrlsPerMinuteCrawlRate *float64 `json:"maxUrlsPerMinuteCrawlRate" yaml:"maxUrlsPerMinuteCrawlRate"`
-	// Provides configuration information required to connect to your internal websites via a web proxy.
+	// Configuration information required to connect to your internal websites via a web proxy.
 	//
 	// You must provide the website host name and port number. For example, the host name of https://a.example.com/page1.html is "a.example.com" and the port is 443, the standard port for HTTPS.
 	//
@@ -1556,13 +1646,13 @@ type CfnDataSource_WebCrawlerSiteMapsConfigurationProperty struct {
 // TODO: EXAMPLE
 //
 type CfnDataSource_WebCrawlerUrlsProperty struct {
-	// Provides the configuration of the seed or starting point URLs of the websites you want to crawl.
+	// Configuration of the seed or starting point URLs of the websites you want to crawl.
 	//
 	// You can choose to crawl only the website host names, or the website host names with subdomains, or the website host names with subdomains and other domains that the webpages link to.
 	//
 	// You can list up to 100 seed URLs.
 	SeedUrlConfiguration interface{} `json:"seedUrlConfiguration" yaml:"seedUrlConfiguration"`
-	// Provides the configuration of the sitemap URLs of the websites you want to crawl.
+	// Configuration of the sitemap URLs of the websites you want to crawl.
 	//
 	// Only URLs belonging to the same website host names are crawled. You can list up to three sitemap URLs.
 	SiteMapsConfiguration interface{} `json:"siteMapsConfiguration" yaml:"siteMapsConfiguration"`
@@ -1591,7 +1681,7 @@ type CfnDataSource_WorkDocsConfigurationProperty struct {
 	ExclusionPatterns *[]*string `json:"exclusionPatterns" yaml:"exclusionPatterns"`
 	// A list of `DataSourceToIndexFieldMapping` objects that map Amazon WorkDocs field names to custom index field names in Amazon Kendra.
 	//
-	// You must first create the custom index fields using the `UpdateIndex` operation before you map to Amazon WorkDocs fields. For more information, see [Mapping Data Source Fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Amazon WorkDocs data source field names need to exist in your Amazon WorkDocs custom metadata.
+	// You must first create the custom index fields using the `UpdateIndex` API before you map to Amazon WorkDocs fields. For more information, see [Mapping Data Source Fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Amazon WorkDocs data source field names need to exist in your Amazon WorkDocs custom metadata.
 	FieldMappings interface{} `json:"fieldMappings" yaml:"fieldMappings"`
 	// A list of regular expression patterns to include certain files in your Amazon WorkDocs site repository.
 	//
@@ -1616,6 +1706,8 @@ type CfnDataSourceProps struct {
 	Name *string `json:"name" yaml:"name"`
 	// The type of the data source.
 	Type *string `json:"type" yaml:"type"`
+	// `AWS::Kendra::DataSource.CustomDocumentEnrichmentConfiguration`.
+	CustomDocumentEnrichmentConfiguration interface{} `json:"customDocumentEnrichmentConfiguration" yaml:"customDocumentEnrichmentConfiguration"`
 	// Configuration information for an Amazon Kendra data source.
 	//
 	// The contents of the configuration depend on the type of data source. You can only specify one type of data source in the configuration. Choose from one of the following data sources.
@@ -3013,7 +3105,7 @@ type CfnIndex_DocumentMetadataConfigurationProperty struct {
 	Search interface{} `json:"search" yaml:"search"`
 }
 
-// Configuration information for the JSON token type.
+// Provides the configuration information for the JSON token type.
 //
 // TODO: EXAMPLE
 //
@@ -3024,7 +3116,7 @@ type CfnIndex_JsonTokenTypeConfigurationProperty struct {
 	UserNameAttributeField *string `json:"userNameAttributeField" yaml:"userNameAttributeField"`
 }
 
-// Configuration information for the JWT token type.
+// Provides the configuration information for the JWT token type.
 //
 // TODO: EXAMPLE
 //
@@ -3118,7 +3210,7 @@ type CfnIndex_ServerSideEncryptionConfigurationProperty struct {
 	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
 }
 
-// Provides configuration information for a token configuration.
+// Provides the configuration information for a token.
 //
 // TODO: EXAMPLE
 //

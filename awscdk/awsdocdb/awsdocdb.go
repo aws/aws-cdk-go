@@ -51,6 +51,8 @@ type CfnDBCluster interface {
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
+	CopyTagsToSnapshot() interface{}
+	SetCopyTagsToSnapshot(val interface{})
 	CreationStack() *[]*string
 	DbClusterIdentifier() *string
 	SetDbClusterIdentifier(val *string)
@@ -196,6 +198,16 @@ func (j *jsiiProxy_CfnDBCluster) CfnResourceType() *string {
 	_jsii_.Get(
 		j,
 		"cfnResourceType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBCluster) CopyTagsToSnapshot() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"copyTagsToSnapshot",
 		&returns,
 	)
 	return returns
@@ -460,6 +472,14 @@ func (j *jsiiProxy_CfnDBCluster) SetBackupRetentionPeriod(val *float64) {
 	_jsii_.Set(
 		j,
 		"backupRetentionPeriod",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBCluster) SetCopyTagsToSnapshot(val interface{}) {
+	_jsii_.Set(
+		j,
+		"copyTagsToSnapshot",
 		val,
 	)
 }
@@ -1467,20 +1487,6 @@ type CfnDBClusterParameterGroupProps struct {
 // TODO: EXAMPLE
 //
 type CfnDBClusterProps struct {
-	// The name of the master user for the cluster.
-	//
-	// Constraints:
-	//
-	// - Must be from 1 to 63 letters or numbers.
-	// - The first character must be a letter.
-	// - Cannot be a reserved word for the chosen database engine.
-	MasterUsername *string `json:"masterUsername" yaml:"masterUsername"`
-	// The password for the master database user.
-	//
-	// This password can contain any printable ASCII character except forward slash (/), double quote ("), or the "at" symbol (@).
-	//
-	// Constraints: Must contain from 8 to 100 characters.
-	MasterUserPassword *string `json:"masterUserPassword" yaml:"masterUserPassword"`
 	// A list of Amazon EC2 Availability Zones that instances in the cluster can be created in.
 	AvailabilityZones *[]*string `json:"availabilityZones" yaml:"availabilityZones"`
 	// The number of days for which automated backups are retained. You must specify a minimum value of 1.
@@ -1491,6 +1497,8 @@ type CfnDBClusterProps struct {
 	//
 	// - Must be a value from 1 to 35.
 	BackupRetentionPeriod *float64 `json:"backupRetentionPeriod" yaml:"backupRetentionPeriod"`
+	// `AWS::DocDB::DBCluster.CopyTagsToSnapshot`.
+	CopyTagsToSnapshot interface{} `json:"copyTagsToSnapshot" yaml:"copyTagsToSnapshot"`
 	// The cluster identifier. This parameter is stored as a lowercase string.
 	//
 	// Constraints:
@@ -1531,6 +1539,20 @@ type CfnDBClusterProps struct {
 	//
 	// AWS KMS creates the default encryption key for your AWS account . Your AWS account has a different default encryption key for each AWS Regions .
 	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
+	// The name of the master user for the cluster.
+	//
+	// Constraints:
+	//
+	// - Must be from 1 to 63 letters or numbers.
+	// - The first character must be a letter.
+	// - Cannot be a reserved word for the chosen database engine.
+	MasterUsername *string `json:"masterUsername" yaml:"masterUsername"`
+	// The password for the master database user.
+	//
+	// This password can contain any printable ASCII character except forward slash (/), double quote ("), or the "at" symbol (@).
+	//
+	// Constraints: Must contain from 8 to 100 characters.
+	MasterUserPassword *string `json:"masterUserPassword" yaml:"masterUserPassword"`
 	// Specifies the port that the database engine is listening on.
 	Port *float64 `json:"port" yaml:"port"`
 	// The daily time range during which automated backups are created if automated backups are enabled using the `BackupRetentionPeriod` parameter.

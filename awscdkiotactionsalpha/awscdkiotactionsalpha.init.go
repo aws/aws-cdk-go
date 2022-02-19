@@ -153,6 +153,30 @@ func init() {
 		"@aws-cdk/aws-iot-actions-alpha.S3PutObjectActionProps",
 		reflect.TypeOf((*S3PutObjectActionProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-iot-actions-alpha.SnsActionMessageFormat",
+		reflect.TypeOf((*SnsActionMessageFormat)(nil)).Elem(),
+		map[string]interface{}{
+			"RAW": SnsActionMessageFormat_RAW,
+			"JSON": SnsActionMessageFormat_JSON,
+		},
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-iot-actions-alpha.SnsTopicAction",
+		reflect.TypeOf((*SnsTopicAction)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			j := jsiiProxy_SnsTopicAction{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkiotalphaIAction)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-iot-actions-alpha.SnsTopicActionProps",
+		reflect.TypeOf((*SnsTopicActionProps)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-iot-actions-alpha.SqsQueueAction",
 		reflect.TypeOf((*SqsQueueAction)(nil)).Elem(),

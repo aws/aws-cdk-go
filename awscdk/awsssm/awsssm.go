@@ -1607,9 +1607,7 @@ type CfnDocumentProps struct {
 	Attachments interface{} `json:"attachments" yaml:"attachments"`
 	// Specify the document format for the request.
 	//
-	// The document format can be JSON or YAML. JSON is the default format.
-	//
-	// > `TEXT` is not supported, even though it is listed in the `Allowed values` .
+	// JSON is the default format.
 	DocumentFormat *string `json:"documentFormat" yaml:"documentFormat"`
 	// The type of document to create.
 	//

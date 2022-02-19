@@ -23,6 +23,104 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
+// Use an API Destination rule target.
+//
+// TODO: EXAMPLE
+//
+type ApiDestination interface {
+	awsevents.IRuleTarget
+	Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig
+}
+
+// The jsii proxy struct for ApiDestination
+type jsiiProxy_ApiDestination struct {
+	internal.Type__awseventsIRuleTarget
+}
+
+func NewApiDestination(apiDestination awsevents.IApiDestination, props *ApiDestinationProps) ApiDestination {
+	_init_.Initialize()
+
+	j := jsiiProxy_ApiDestination{}
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_events_targets.ApiDestination",
+		[]interface{}{apiDestination, props},
+		&j,
+	)
+
+	return &j
+}
+
+func NewApiDestination_Override(a ApiDestination, apiDestination awsevents.IApiDestination, props *ApiDestinationProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_events_targets.ApiDestination",
+		[]interface{}{apiDestination, props},
+		a,
+	)
+}
+
+// Returns a RuleTarget that can be used to trigger API destinations from an EventBridge event.
+func (a *jsiiProxy_ApiDestination) Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig {
+	var returns *awsevents.RuleTargetConfig
+
+	_jsii_.Invoke(
+		a,
+		"bind",
+		[]interface{}{_rule, _id},
+		&returns,
+	)
+
+	return returns
+}
+
+// Customize the EventBridge Api Destinations Target.
+//
+// TODO: EXAMPLE
+//
+type ApiDestinationProps struct {
+	// The SQS queue to be used as deadLetterQueue. Check out the [considerations for using a dead-letter queue](https://docs.aws.amazon.com/eventbridge/latest/userguide/rule-dlq.html#dlq-considerations).
+	//
+	// The events not successfully delivered are automatically retried for a specified period of time,
+	// depending on the retry policy of the target.
+	// If an event is not delivered before all retry attempts are exhausted, it will be sent to the dead letter queue.
+	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue" yaml:"deadLetterQueue"`
+	// The maximum age of a request that Lambda sends to a function for processing.
+	//
+	// Minimum value of 60.
+	// Maximum value of 86400.
+	MaxEventAge awscdk.Duration `json:"maxEventAge" yaml:"maxEventAge"`
+	// The maximum number of times to retry when the function returns an error.
+	//
+	// Minimum value of 0.
+	// Maximum value of 185.
+	RetryAttempts *float64 `json:"retryAttempts" yaml:"retryAttempts"`
+	// The event to send.
+	Event awsevents.RuleTargetInput `json:"event" yaml:"event"`
+	// The role to assume before invoking the target.
+	EventRole awsiam.IRole `json:"eventRole" yaml:"eventRole"`
+	// Additional headers sent to the API Destination.
+	//
+	// These are merged with headers specified on the Connection, with
+	// the headers on the Connection taking precedence.
+	//
+	// You can only specify secret values on the Connection.
+	HeaderParameters *map[string]*string `json:"headerParameters" yaml:"headerParameters"`
+	// Path parameters to insert in place of path wildcards (`*`).
+	//
+	// If the API destination has a wilcard in the path, these path parts
+	// will be inserted in that place.
+	PathParameterValues *[]*string `json:"pathParameterValues" yaml:"pathParameterValues"`
+	// Additional query string parameters sent to the API Destination.
+	//
+	// These are merged with headers specified on the Connection, with
+	// the headers on the Connection taking precedence.
+	//
+	// You can only specify secret values on the Connection.
+	QueryStringParameters *map[string]*string `json:"queryStringParameters" yaml:"queryStringParameters"`
+}
+
 // Use an API Gateway REST APIs as a target for Amazon EventBridge rules.
 //
 // TODO: EXAMPLE

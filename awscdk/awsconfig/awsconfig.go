@@ -9927,6 +9927,17 @@ func ManagedRuleIdentifiers_S3_BUCKET_DEFAULT_LOCK_ENABLED() *string {
 	return returns
 }
 
+func ManagedRuleIdentifiers_S3_BUCKET_LEVEL_PUBLIC_ACCESS_PROHIBITED() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"S3_BUCKET_LEVEL_PUBLIC_ACCESS_PROHIBITED",
+		&returns,
+	)
+	return returns
+}
+
 func ManagedRuleIdentifiers_S3_BUCKET_LOGGING_ENABLED() *string {
 	_init_.Initialize()
 	var returns *string
