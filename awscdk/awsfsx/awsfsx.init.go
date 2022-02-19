@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_fsx.CfnFileSystem",
+		"monocdk.aws_fsx.CfnFileSystem",
 		reflect.TypeOf((*CfnFileSystem)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -35,9 +35,13 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "lustreConfiguration", GoGetter: "LustreConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "ontapConfiguration", GoGetter: "OntapConfiguration"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "openZfsConfiguration", GoGetter: "OpenZfsConfiguration"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "securityGroupIds", GoGetter: "SecurityGroupIds"},
@@ -46,9 +50,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "storageCapacity", GoGetter: "StorageCapacity"},
 			_jsii_.MemberProperty{JsiiProperty: "storageType", GoGetter: "StorageType"},
 			_jsii_.MemberProperty{JsiiProperty: "subnetIds", GoGetter: "SubnetIds"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "windowsConfiguration", GoGetter: "WindowsConfiguration"},
 		},
@@ -60,59 +66,59 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_fsx.CfnFileSystem.AuditLogConfigurationProperty",
+		"monocdk.aws_fsx.CfnFileSystem.AuditLogConfigurationProperty",
 		reflect.TypeOf((*CfnFileSystem_AuditLogConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_fsx.CfnFileSystem.ClientConfigurationsProperty",
+		"monocdk.aws_fsx.CfnFileSystem.ClientConfigurationsProperty",
 		reflect.TypeOf((*CfnFileSystem_ClientConfigurationsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_fsx.CfnFileSystem.DiskIopsConfigurationProperty",
+		"monocdk.aws_fsx.CfnFileSystem.DiskIopsConfigurationProperty",
 		reflect.TypeOf((*CfnFileSystem_DiskIopsConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_fsx.CfnFileSystem.LustreConfigurationProperty",
+		"monocdk.aws_fsx.CfnFileSystem.LustreConfigurationProperty",
 		reflect.TypeOf((*CfnFileSystem_LustreConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_fsx.CfnFileSystem.NfsExportsProperty",
+		"monocdk.aws_fsx.CfnFileSystem.NfsExportsProperty",
 		reflect.TypeOf((*CfnFileSystem_NfsExportsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_fsx.CfnFileSystem.OntapConfigurationProperty",
+		"monocdk.aws_fsx.CfnFileSystem.OntapConfigurationProperty",
 		reflect.TypeOf((*CfnFileSystem_OntapConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_fsx.CfnFileSystem.OpenZFSConfigurationProperty",
+		"monocdk.aws_fsx.CfnFileSystem.OpenZFSConfigurationProperty",
 		reflect.TypeOf((*CfnFileSystem_OpenZFSConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_fsx.CfnFileSystem.RootVolumeConfigurationProperty",
+		"monocdk.aws_fsx.CfnFileSystem.RootVolumeConfigurationProperty",
 		reflect.TypeOf((*CfnFileSystem_RootVolumeConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_fsx.CfnFileSystem.SelfManagedActiveDirectoryConfigurationProperty",
+		"monocdk.aws_fsx.CfnFileSystem.SelfManagedActiveDirectoryConfigurationProperty",
 		reflect.TypeOf((*CfnFileSystem_SelfManagedActiveDirectoryConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_fsx.CfnFileSystem.UserAndGroupQuotasProperty",
+		"monocdk.aws_fsx.CfnFileSystem.UserAndGroupQuotasProperty",
 		reflect.TypeOf((*CfnFileSystem_UserAndGroupQuotasProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_fsx.CfnFileSystem.WindowsConfigurationProperty",
+		"monocdk.aws_fsx.CfnFileSystem.WindowsConfigurationProperty",
 		reflect.TypeOf((*CfnFileSystem_WindowsConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_fsx.CfnFileSystemProps",
+		"monocdk.aws_fsx.CfnFileSystemProps",
 		reflect.TypeOf((*CfnFileSystemProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_fsx.FileSystemAttributes",
+		"monocdk.aws_fsx.FileSystemAttributes",
 		reflect.TypeOf((*FileSystemAttributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_fsx.FileSystemBase",
+		"monocdk.aws_fsx.FileSystemBase",
 		reflect.TypeOf((*FileSystemBase)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -124,9 +130,15 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_FileSystemBase{}
@@ -136,11 +148,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_fsx.FileSystemProps",
+		"monocdk.aws_fsx.FileSystemProps",
 		reflect.TypeOf((*FileSystemProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_fsx.IFileSystem",
+		"monocdk.aws_fsx.IFileSystem",
 		reflect.TypeOf((*IFileSystem)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
@@ -153,11 +165,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_fsx.LustreConfiguration",
+		"monocdk.aws_fsx.LustreConfiguration",
 		reflect.TypeOf((*LustreConfiguration)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_fsx.LustreDeploymentType",
+		"monocdk.aws_fsx.LustreDeploymentType",
 		reflect.TypeOf((*LustreDeploymentType)(nil)).Elem(),
 		map[string]interface{}{
 			"SCRATCH_1": LustreDeploymentType_SCRATCH_1,
@@ -167,7 +179,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_fsx.LustreFileSystem",
+		"monocdk.aws_fsx.LustreFileSystem",
 		reflect.TypeOf((*LustreFileSystem)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -180,9 +192,15 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "mountName", GoGetter: "MountName"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_LustreFileSystem{}
@@ -191,11 +209,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_fsx.LustreFileSystemProps",
+		"monocdk.aws_fsx.LustreFileSystemProps",
 		reflect.TypeOf((*LustreFileSystemProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_fsx.LustreMaintenanceTime",
+		"monocdk.aws_fsx.LustreMaintenanceTime",
 		reflect.TypeOf((*LustreMaintenanceTime)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "toTimestamp", GoMethod: "ToTimestamp"},
@@ -205,11 +223,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_fsx.LustreMaintenanceTimeProps",
+		"monocdk.aws_fsx.LustreMaintenanceTimeProps",
 		reflect.TypeOf((*LustreMaintenanceTimeProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_fsx.Weekday",
+		"monocdk.aws_fsx.Weekday",
 		reflect.TypeOf((*Weekday)(nil)).Elem(),
 		map[string]interface{}{
 			"MONDAY": Weekday_MONDAY,
