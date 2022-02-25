@@ -1,34 +1,30 @@
 package awscloudtrail
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscloudtrail/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awsevents"
-	"github.com/aws/aws-cdk-go/awscdk/awskms"
-	"github.com/aws/aws-cdk-go/awscdk/awslambda"
-	"github.com/aws/aws-cdk-go/awscdk/awslogs"
-	"github.com/aws/aws-cdk-go/awscdk/awss3"
-	"github.com/aws/aws-cdk-go/awscdk/awssns"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudtrail/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Options for adding an event selector.
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AddEventSelectorOptions struct {
 	// An optional list of service event sources from which you do not want management events to be logged on your trail.
-	// Experimental.
 	ExcludeManagementEventSources *[]ManagementEventSources `json:"excludeManagementEventSources" yaml:"excludeManagementEventSources"`
 	// Specifies whether the event selector includes management events for the trail.
-	// Experimental.
 	IncludeManagementEvents *bool `json:"includeManagementEvents" yaml:"includeManagementEvents"`
 	// Specifies whether to log read-only events, write-only events, or all events.
-	// Experimental.
 	ReadWriteType ReadWriteType `json:"readWriteType" yaml:"readWriteType"`
 }
 
@@ -68,7 +64,7 @@ type CfnTrail interface {
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
 	LogicalId() *string
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	Ref() *string
 	S3BucketName() *string
 	SetS3BucketName(val *string)
@@ -91,16 +87,10 @@ type CfnTrail interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -280,8 +270,8 @@ func (j *jsiiProxy_CfnTrail) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTrail) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnTrail) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -372,13 +362,13 @@ func (j *jsiiProxy_CfnTrail) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::CloudTrail::Trail`.
-func NewCfnTrail(scope awscdk.Construct, id *string, props *CfnTrailProps) CfnTrail {
+func NewCfnTrail(scope constructs.Construct, id *string, props *CfnTrailProps) CfnTrail {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnTrail{}
 
 	_jsii_.Create(
-		"monocdk.aws_cloudtrail.CfnTrail",
+		"aws-cdk-lib.aws_cloudtrail.CfnTrail",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -387,11 +377,11 @@ func NewCfnTrail(scope awscdk.Construct, id *string, props *CfnTrailProps) CfnTr
 }
 
 // Create a new `AWS::CloudTrail::Trail`.
-func NewCfnTrail_Override(c CfnTrail, scope awscdk.Construct, id *string, props *CfnTrailProps) {
+func NewCfnTrail_Override(c CfnTrail, scope constructs.Construct, id *string, props *CfnTrailProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cloudtrail.CfnTrail",
+		"aws-cdk-lib.aws_cloudtrail.CfnTrail",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -515,14 +505,13 @@ func (j *jsiiProxy_CfnTrail) SetTrailName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnTrail_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cloudtrail.CfnTrail",
+		"aws-cdk-lib.aws_cloudtrail.CfnTrail",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -532,14 +521,13 @@ func CfnTrail_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnTrail_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cloudtrail.CfnTrail",
+		"aws-cdk-lib.aws_cloudtrail.CfnTrail",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -548,15 +536,17 @@ func CfnTrail_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func CfnTrail_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cloudtrail.CfnTrail",
+		"aws-cdk-lib.aws_cloudtrail.CfnTrail",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -569,7 +559,7 @@ func CfnTrail_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_cloudtrail.CfnTrail",
+		"aws-cdk-lib.aws_cloudtrail.CfnTrail",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -577,7 +567,6 @@ func CfnTrail_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnTrail) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -590,7 +579,6 @@ func (c *jsiiProxy_CfnTrail) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnTrail) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -606,7 +594,6 @@ func (c *jsiiProxy_CfnTrail) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnTrail) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -658,7 +645,6 @@ func (c *jsiiProxy_CfnTrail) AddMetadata(key *string, value interface{}) {
 // for CloudFormation. If you pass CDK classes or structs, they will be
 // rendered with lowercased key names, and CloudFormation will reject the
 // template.
-// Experimental.
 func (c *jsiiProxy_CfnTrail) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -668,7 +654,6 @@ func (c *jsiiProxy_CfnTrail) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnTrail) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -680,7 +665,6 @@ func (c *jsiiProxy_CfnTrail) AddPropertyDeletionOverride(propertyPath *string) {
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnTrail) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -698,7 +682,6 @@ func (c *jsiiProxy_CfnTrail) AddPropertyOverride(propertyPath *string, value int
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnTrail) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -711,7 +694,6 @@ func (c *jsiiProxy_CfnTrail) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, opt
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnTrail) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -732,7 +714,6 @@ func (c *jsiiProxy_CfnTrail) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnTrail) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -755,80 +736,12 @@ func (c *jsiiProxy_CfnTrail) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnTrail) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnTrail) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnTrail) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnTrail) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnTrail) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -849,7 +762,6 @@ func (c *jsiiProxy_CfnTrail) RenderProperties(props *map[string]interface{}) *ma
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnTrail) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -863,23 +775,9 @@ func (c *jsiiProxy_CfnTrail) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnTrail) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnTrail) ToString() *string {
 	var returns *string
 
@@ -893,27 +791,6 @@ func (c *jsiiProxy_CfnTrail) ToString() *string {
 	return returns
 }
 
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnTrail) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Experimental.
 func (c *jsiiProxy_CfnTrail) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1103,7 +980,6 @@ type CfnTrailProps struct {
 }
 
 // Resource type for a data event.
-// Experimental.
 type DataResourceType string
 
 const (
@@ -1112,7 +988,6 @@ const (
 )
 
 // Types of management event sources that can be excluded.
-// Experimental.
 type ManagementEventSources string
 
 const (
@@ -1124,7 +999,6 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ReadWriteType string
 
 const (
@@ -1138,13 +1012,10 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type S3EventSelector struct {
 	// S3 bucket.
-	// Experimental.
 	Bucket awss3.IBucket `json:"bucket" yaml:"bucket"`
 	// Data events for objects whose key matches this prefix will be logged.
-	// Experimental.
 	ObjectPrefix *string `json:"objectPrefix" yaml:"objectPrefix"`
 }
 
@@ -1160,12 +1031,11 @@ type S3EventSelector struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Trail interface {
 	awscdk.Resource
 	Env() *awscdk.ResourceEnvironment
 	LogGroup() awslogs.ILogGroup
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	PhysicalName() *string
 	Stack() awscdk.Stack
 	TrailArn() *string
@@ -1179,14 +1049,7 @@ type Trail interface {
 	GetResourceNameAttribute(nameAttr *string) *string
 	LogAllLambdaDataEvents(options *AddEventSelectorOptions)
 	LogAllS3DataEvents(options *AddEventSelectorOptions)
-	OnCloudTrailEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for Trail
@@ -1214,8 +1077,8 @@ func (j *jsiiProxy_Trail) LogGroup() awslogs.ILogGroup {
 	return returns
 }
 
-func (j *jsiiProxy_Trail) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_Trail) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1265,14 +1128,13 @@ func (j *jsiiProxy_Trail) TrailSnsTopicArn() *string {
 }
 
 
-// Experimental.
 func NewTrail(scope constructs.Construct, id *string, props *TrailProps) Trail {
 	_init_.Initialize()
 
 	j := jsiiProxy_Trail{}
 
 	_jsii_.Create(
-		"monocdk.aws_cloudtrail.Trail",
+		"aws-cdk-lib.aws_cloudtrail.Trail",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1280,26 +1142,27 @@ func NewTrail(scope constructs.Construct, id *string, props *TrailProps) Trail {
 	return &j
 }
 
-// Experimental.
 func NewTrail_Override(t Trail, scope constructs.Construct, id *string, props *TrailProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cloudtrail.Trail",
+		"aws-cdk-lib.aws_cloudtrail.Trail",
 		[]interface{}{scope, id, props},
 		t,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func Trail_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cloudtrail.Trail",
+		"aws-cdk-lib.aws_cloudtrail.Trail",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1309,14 +1172,13 @@ func Trail_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
-func Trail_IsResource(construct awscdk.IConstruct) *bool {
+func Trail_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cloudtrail.Trail",
+		"aws-cdk-lib.aws_cloudtrail.Trail",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -1331,14 +1193,13 @@ func Trail_IsResource(construct awscdk.IConstruct) *bool {
 // be captured from any one.
 //
 // Be sure to filter the event further down using an event pattern.
-// Experimental.
 func Trail_OnEvent(scope constructs.Construct, id *string, options *awsevents.OnEventOptions) awsevents.Rule {
 	_init_.Initialize()
 
 	var returns awsevents.Rule
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cloudtrail.Trail",
+		"aws-cdk-lib.aws_cloudtrail.Trail",
 		"onEvent",
 		[]interface{}{scope, id, options},
 		&returns,
@@ -1355,7 +1216,6 @@ func Trail_OnEvent(scope constructs.Construct, id *string, options *awsevents.On
 //
 // Data events: These events provide insight into the resource operations performed on or within a resource.
 // These are also known as data plane operations.
-// Experimental.
 func (t *jsiiProxy_Trail) AddEventSelector(dataResourceType DataResourceType, dataResourceValues *[]*string, options *AddEventSelectorOptions) {
 	_jsii_.InvokeVoid(
 		t,
@@ -1372,7 +1232,6 @@ func (t *jsiiProxy_Trail) AddEventSelector(dataResourceType DataResourceType, da
 //
 // Data events: These events provide insight into the resource operations performed on or within a resource.
 // These are also known as data plane operations.
-// Experimental.
 func (t *jsiiProxy_Trail) AddLambdaEventSelector(handlers *[]awslambda.IFunction, options *AddEventSelectorOptions) {
 	_jsii_.InvokeVoid(
 		t,
@@ -1389,7 +1248,6 @@ func (t *jsiiProxy_Trail) AddLambdaEventSelector(handlers *[]awslambda.IFunction
 //
 // Data events: These events provide insight into the resource operations performed on or within a resource.
 // These are also known as data plane operations.
-// Experimental.
 func (t *jsiiProxy_Trail) AddS3EventSelector(s3Selector *[]*S3EventSelector, options *AddEventSelectorOptions) {
 	_jsii_.InvokeVoid(
 		t,
@@ -1407,7 +1265,6 @@ func (t *jsiiProxy_Trail) AddS3EventSelector(s3Selector *[]*S3EventSelector, opt
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (t *jsiiProxy_Trail) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		t,
@@ -1416,7 +1273,6 @@ func (t *jsiiProxy_Trail) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
-// Experimental.
 func (t *jsiiProxy_Trail) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -1436,7 +1292,6 @@ func (t *jsiiProxy_Trail) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (t *jsiiProxy_Trail) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -1455,7 +1310,6 @@ func (t *jsiiProxy_Trail) GetResourceArnAttribute(arnAttr *string, arnComponents
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (t *jsiiProxy_Trail) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -1472,7 +1326,6 @@ func (t *jsiiProxy_Trail) GetResourceNameAttribute(nameAttr *string) *string {
 // Log all Lamda data events for all lambda functions the account.
 // See: https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html
 //
-// Experimental.
 func (t *jsiiProxy_Trail) LogAllLambdaDataEvents(options *AddEventSelectorOptions) {
 	_jsii_.InvokeVoid(
 		t,
@@ -1484,7 +1337,6 @@ func (t *jsiiProxy_Trail) LogAllLambdaDataEvents(options *AddEventSelectorOption
 // Log all S3 data events for all objects for all buckets in the account.
 // See: https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html
 //
-// Experimental.
 func (t *jsiiProxy_Trail) LogAllS3DataEvents(options *AddEventSelectorOptions) {
 	_jsii_.InvokeVoid(
 		t,
@@ -1493,108 +1345,7 @@ func (t *jsiiProxy_Trail) LogAllS3DataEvents(options *AddEventSelectorOptions) {
 	)
 }
 
-// Create an event rule for when an event is recorded by any Trail in the account.
-//
-// Note that the event doesn't necessarily have to come from this Trail, it can
-// be captured from any one.
-//
-// Be sure to filter the event further down using an event pattern.
-// Deprecated: - use Trail.onEvent()
-func (t *jsiiProxy_Trail) OnCloudTrailEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
-	var returns awsevents.Rule
-
-	_jsii_.Invoke(
-		t,
-		"onCloudTrailEvent",
-		[]interface{}{id, options},
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (t *jsiiProxy_Trail) OnPrepare() {
-	_jsii_.InvokeVoid(
-		t,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (t *jsiiProxy_Trail) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		t,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (t *jsiiProxy_Trail) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		t,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (t *jsiiProxy_Trail) Prepare() {
-	_jsii_.InvokeVoid(
-		t,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (t *jsiiProxy_Trail) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		t,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
-// Experimental.
 func (t *jsiiProxy_Trail) ToString() *string {
 	var returns *string
 
@@ -1608,67 +1359,36 @@ func (t *jsiiProxy_Trail) ToString() *string {
 	return returns
 }
 
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (t *jsiiProxy_Trail) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		t,
-		"validate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Properties for an AWS CloudTrail trail.
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type TrailProps struct {
 	// The Amazon S3 bucket.
-	// Experimental.
 	Bucket awss3.IBucket `json:"bucket" yaml:"bucket"`
 	// Log Group to which CloudTrail to push logs to.
 	//
 	// Ignored if sendToCloudWatchLogs is set to false.
-	// Experimental.
 	CloudWatchLogGroup awslogs.ILogGroup `json:"cloudWatchLogGroup" yaml:"cloudWatchLogGroup"`
 	// How long to retain logs in CloudWatchLogs.
 	//
 	// Ignored if sendToCloudWatchLogs is false or if cloudWatchLogGroup is set.
-	// Experimental.
 	CloudWatchLogsRetention awslogs.RetentionDays `json:"cloudWatchLogsRetention" yaml:"cloudWatchLogsRetention"`
 	// To determine whether a log file was modified, deleted, or unchanged after CloudTrail delivered it, you can use CloudTrail log file integrity validation.
 	//
 	// This feature is built using industry standard algorithms: SHA-256 for hashing and SHA-256 with RSA for digital signing.
 	// This makes it computationally infeasible to modify, delete or forge CloudTrail log files without detection.
 	// You can use the AWS CLI to validate the files in the location where CloudTrail delivered them.
-	// Experimental.
 	EnableFileValidation *bool `json:"enableFileValidation" yaml:"enableFileValidation"`
 	// The AWS Key Management Service (AWS KMS) key ID that you want to use to encrypt CloudTrail logs.
-	// Experimental.
 	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
 	// For most services, events are recorded in the region where the action occurred.
 	//
 	// For global services such as AWS Identity and Access Management (IAM), AWS STS, Amazon CloudFront, and Route 53,
 	// events are delivered to any trail that includes global services, and are logged as occurring in US East (N. Virginia) Region.
-	// Experimental.
 	IncludeGlobalServiceEvents *bool `json:"includeGlobalServiceEvents" yaml:"includeGlobalServiceEvents"`
 	// Whether or not this trail delivers log files from multiple regions to a single S3 bucket for a single account.
-	// Experimental.
 	IsMultiRegionTrail *bool `json:"isMultiRegionTrail" yaml:"isMultiRegionTrail"`
-	// The AWS Key Management Service (AWS KMS) key ID that you want to use to encrypt CloudTrail logs.
-	// Deprecated: - use encryptionKey instead.
-	KmsKey awskms.IKey `json:"kmsKey" yaml:"kmsKey"`
 	// When an event occurs in your account, CloudTrail evaluates whether the event matches the settings for your trails.
 	//
 	// Only events that match your trail settings are delivered to your Amazon S3 bucket and Amazon CloudWatch Logs log group.
@@ -1679,23 +1399,18 @@ type TrailProps struct {
 	// These are also known as control plane operations.
 	// Management events can also include non-API events that occur in your account.
 	// For example, when a user logs in to your account, CloudTrail logs the ConsoleLogin event.
-	// Experimental.
 	ManagementEvents ReadWriteType `json:"managementEvents" yaml:"managementEvents"`
 	// An Amazon S3 object key prefix that precedes the name of all log files.
-	// Experimental.
 	S3KeyPrefix *string `json:"s3KeyPrefix" yaml:"s3KeyPrefix"`
 	// If CloudTrail pushes logs to CloudWatch Logs in addition to S3.
 	//
 	// Disabled for cost out of the box.
-	// Experimental.
 	SendToCloudWatchLogs *bool `json:"sendToCloudWatchLogs" yaml:"sendToCloudWatchLogs"`
 	// SNS topic that is notified when new log files are published.
-	// Experimental.
 	SnsTopic awssns.ITopic `json:"snsTopic" yaml:"snsTopic"`
 	// The name of the trail.
 	//
 	// We recommend customers do not set an explicit name.
-	// Experimental.
 	TrailName *string `json:"trailName" yaml:"trailName"`
 }
 
