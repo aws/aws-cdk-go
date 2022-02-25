@@ -854,9 +854,11 @@ type CfnComponentProps struct {
 	SupportedOsVersions *[]*string `json:"supportedOsVersions" yaml:"supportedOsVersions"`
 	// The tags associated with the component.
 	Tags *map[string]*string `json:"tags" yaml:"tags"`
-	// The uri of the component.
+	// The `uri` of a YAML component document file.
 	//
-	// Must be an Amazon S3 URL and the requester must have permission to access the Amazon S3 bucket. If you use Amazon S3, you can specify component content up to your service quota. Either `data` or `uri` can be used to specify the data within the component.
+	// This must be an S3 URL ( `s3://bucket/key` ), and the requester must have permission to access the S3 bucket it points to. If you use Amazon S3, you can specify component content up to your service quota.
+	//
+	// Alternatively, you can specify the YAML document inline, using the component `data` property. You cannot specify both properties.
 	Uri *string `json:"uri" yaml:"uri"`
 }
 
@@ -5031,7 +5033,15 @@ type CfnImageRecipe_AdditionalInstanceConfigurationProperty struct {
 	SystemsManagerAgent interface{} `json:"systemsManagerAgent" yaml:"systemsManagerAgent"`
 	// Use this property to provide commands or a command script to run when you launch your build instance.
 	//
-	// > The userDataOverride property replaces any commands that Image Builder might have added to ensure that Systems Manager is installed on your Linux build instance. If you override the user data, make sure that you add commands to install Systems Manager, if it is not pre-installed on your base image.
+	// The userDataOverride property replaces any commands that Image Builder might have added to ensure that Systems Manager is installed on your Linux build instance. If you override the user data, make sure that you add commands to install Systems Manager, if it is not pre-installed on your base image.
+	//
+	// > The user data is always base 64 encoded. For example, the following commands are encoded as `IyEvYmluL2Jhc2gKbWtkaXIgLXAgL3Zhci9iYi8KdG91Y2ggL3Zhci$` :
+	// >
+	// > *#!/bin/bash*
+	// >
+	// > mkdir -p /var/bb/
+	// >
+	// > touch /var
 	UserDataOverride *string `json:"userDataOverride" yaml:"userDataOverride"`
 }
 

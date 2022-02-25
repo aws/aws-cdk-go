@@ -410,6 +410,23 @@ func PythonFunction_FromFunctionAttributes(scope constructs.Construct, id *strin
 	return returns
 }
 
+// Import a lambda function into the CDK using its name.
+// Experimental.
+func PythonFunction_FromFunctionName(scope constructs.Construct, id *string, functionName *string) awslambda.IFunction {
+	_init_.Initialize()
+
+	var returns awslambda.IFunction
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_lambda_python.PythonFunction",
+		"fromFunctionName",
+		[]interface{}{scope, id, functionName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Return whether the given object is a Construct.
 // Experimental.
 func PythonFunction_IsConstruct(x interface{}) *bool {

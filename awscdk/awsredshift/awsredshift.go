@@ -2328,7 +2328,7 @@ type CfnClusterProps struct {
 	// - Must contain at least one uppercase letter.
 	// - Must contain at least one lowercase letter.
 	// - Must contain one number.
-	// - Can be any printable ASCII character (ASCII code 33 to 126) except ' (single quote), " (double quote), \, /, @, or space.
+	// - Can be any printable ASCII character (ASCII code 33-126) except ' (single quote), " (double quote), \, /, or @.
 	MasterUserPassword *string `json:"masterUserPassword" yaml:"masterUserPassword"`
 	// The node type to be provisioned for the cluster.
 	//
@@ -2448,9 +2448,9 @@ type CfnClusterProps struct {
 	HsmConfigurationIdentifier *string `json:"hsmConfigurationIdentifier" yaml:"hsmConfigurationIdentifier"`
 	// A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services.
 	//
-	// You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 10 IAM roles in a single request.
+	// You must supply the IAM roles in their Amazon Resource Name (ARN) format.
 	//
-	// A cluster can have up to 10 IAM roles associated with it at any time.
+	// The maximum number of IAM roles that you can associate is subject to a quota. For more information, go to [Quotas and limits](https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html) in the *Amazon Redshift Cluster Management Guide* .
 	IamRoles *[]*string `json:"iamRoles" yaml:"iamRoles"`
 	// The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the cluster.
 	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`

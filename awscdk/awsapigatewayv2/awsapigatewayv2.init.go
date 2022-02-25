@@ -1731,6 +1731,10 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_apigatewayv2.WebSocketApiAttributes",
+		reflect.TypeOf((*WebSocketApiAttributes)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"monocdk.aws_apigatewayv2.WebSocketApiKeySelectionExpression",
 		reflect.TypeOf((*WebSocketApiKeySelectionExpression)(nil)).Elem(),

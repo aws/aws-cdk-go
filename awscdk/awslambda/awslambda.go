@@ -10403,6 +10403,23 @@ func DockerImageFunction_FromFunctionAttributes(scope constructs.Construct, id *
 	return returns
 }
 
+// Import a lambda function into the CDK using its name.
+// Experimental.
+func DockerImageFunction_FromFunctionName(scope constructs.Construct, id *string, functionName *string) IFunction {
+	_init_.Initialize()
+
+	var returns IFunction
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_lambda.DockerImageFunction",
+		"fromFunctionName",
+		[]interface{}{scope, id, functionName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Return whether the given object is a Construct.
 // Experimental.
 func DockerImageFunction_IsConstruct(x interface{}) *bool {
@@ -12830,6 +12847,23 @@ func Function_FromFunctionAttributes(scope constructs.Construct, id *string, att
 		"monocdk.aws_lambda.Function",
 		"fromFunctionAttributes",
 		[]interface{}{scope, id, attrs},
+		&returns,
+	)
+
+	return returns
+}
+
+// Import a lambda function into the CDK using its name.
+// Experimental.
+func Function_FromFunctionName(scope constructs.Construct, id *string, functionName *string) IFunction {
+	_init_.Initialize()
+
+	var returns IFunction
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_lambda.Function",
+		"fromFunctionName",
+		[]interface{}{scope, id, functionName},
 		&returns,
 	)
 

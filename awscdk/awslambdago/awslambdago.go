@@ -416,6 +416,23 @@ func GoFunction_FromFunctionAttributes(scope constructs.Construct, id *string, a
 	return returns
 }
 
+// Import a lambda function into the CDK using its name.
+// Experimental.
+func GoFunction_FromFunctionName(scope constructs.Construct, id *string, functionName *string) awslambda.IFunction {
+	_init_.Initialize()
+
+	var returns awslambda.IFunction
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_lambda_go.GoFunction",
+		"fromFunctionName",
+		[]interface{}{scope, id, functionName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Return whether the given object is a Construct.
 // Experimental.
 func GoFunction_IsConstruct(x interface{}) *bool {

@@ -1021,6 +1021,17 @@ type CodeBuildOptions struct {
 
 // Run a script as a CodeBuild Project.
 //
+// The BuildSpec must be available inline--it cannot reference a file
+// on disk. If your current build instructions are in a file like
+// `buildspec.yml` in your repository, extract them to a script
+// (say, `build.sh`) and invoke that script as part of the build:
+//
+// ```ts
+// new pipelines.CodeBuildStep('Synth', {
+//    commands: ['./build.sh'],
+// });
+// ```
+//
 // TODO: EXAMPLE
 //
 // Experimental.
@@ -1052,6 +1063,8 @@ type CodeBuildStep interface {
 	AddOutputDirectory(directory *string) FileSet
 	AddStepDependency(step Step)
 	ConfigurePrimaryOutput(fs FileSet)
+	DiscoverReferencedOutputs(structure interface{})
+	ExportedVariable(variableName *string) *string
 	PrimaryOutputDirectory(directory *string) FileSet
 	ToString() *string
 }
@@ -1381,6 +1394,39 @@ func (c *jsiiProxy_CodeBuildStep) ConfigurePrimaryOutput(fs FileSet) {
 		"configurePrimaryOutput",
 		[]interface{}{fs},
 	)
+}
+
+// Crawl the given structure for references to StepOutputs and add dependencies on all steps found.
+//
+// Should be called by subclasses based on what the user passes in as
+// construction properties. The format of the structure passed in here does
+// not have to correspond exactly to what gets rendered into the engine, it
+// just needs to contain the same amount of data.
+// Experimental.
+func (c *jsiiProxy_CodeBuildStep) DiscoverReferencedOutputs(structure interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"discoverReferencedOutputs",
+		[]interface{}{structure},
+	)
+}
+
+// Reference a CodePipeline variable defined by the CodeBuildStep.
+//
+// The variable must be set in the shell of the CodeBuild step when
+// it finishes its `post_build` phase.
+// Experimental.
+func (c *jsiiProxy_CodeBuildStep) ExportedVariable(variableName *string) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"exportedVariable",
+		[]interface{}{variableName},
+		&returns,
+	)
+
+	return returns
 }
 
 // Configure the given output directory as primary output.
@@ -1884,6 +1930,8 @@ func (c *jsiiProxy_CodePipeline) Validate() *[]*string {
 // Experimental.
 type CodePipelineActionFactoryResult struct {
 	// How many RunOrders were consumed.
+	//
+	// If you add 1 action, return the value 1 here.
 	// Experimental.
 	RunOrdersConsumed *float64 `json:"runOrdersConsumed" yaml:"runOrdersConsumed"`
 	// If a CodeBuild project got created, the project.
@@ -2135,8 +2183,10 @@ type CodePipelineSource interface {
 	AddDependencyFileSet(fs FileSet)
 	AddStepDependency(step Step)
 	ConfigurePrimaryOutput(fs FileSet)
-	GetAction(output awscodepipeline.Artifact, actionName *string, runOrder *float64) awscodepipelineactions.Action
+	DiscoverReferencedOutputs(structure interface{})
+	GetAction(output awscodepipeline.Artifact, actionName *string, runOrder *float64, variablesNamespace *string) awscodepipelineactions.Action
 	ProduceAction(stage awscodepipeline.IStage, options *ProduceActionOptions) *CodePipelineActionFactoryResult
+	SourceAttribute(name *string) *string
 	ToString() *string
 }
 
@@ -2264,6 +2314,26 @@ func CodePipelineSource_Connection(repoString *string, branch *string, props *Co
 	return returns
 }
 
+// Returns an ECR source.
+//
+// TODO: EXAMPLE
+//
+// Experimental.
+func CodePipelineSource_Ecr(repository awsecr.IRepository, props *ECRSourceOptions) CodePipelineSource {
+	_init_.Initialize()
+
+	var returns CodePipelineSource
+
+	_jsii_.StaticInvoke(
+		"monocdk.pipelines.CodePipelineSource",
+		"ecr",
+		[]interface{}{repository, props},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns a GitHub source, using OAuth tokens to authenticate with GitHub and a separate webhook to detect changes.
 //
 // This is no longer
@@ -2372,14 +2442,29 @@ func (c *jsiiProxy_CodePipelineSource) ConfigurePrimaryOutput(fs FileSet) {
 	)
 }
 
+// Crawl the given structure for references to StepOutputs and add dependencies on all steps found.
+//
+// Should be called by subclasses based on what the user passes in as
+// construction properties. The format of the structure passed in here does
+// not have to correspond exactly to what gets rendered into the engine, it
+// just needs to contain the same amount of data.
 // Experimental.
-func (c *jsiiProxy_CodePipelineSource) GetAction(output awscodepipeline.Artifact, actionName *string, runOrder *float64) awscodepipelineactions.Action {
+func (c *jsiiProxy_CodePipelineSource) DiscoverReferencedOutputs(structure interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"discoverReferencedOutputs",
+		[]interface{}{structure},
+	)
+}
+
+// Experimental.
+func (c *jsiiProxy_CodePipelineSource) GetAction(output awscodepipeline.Artifact, actionName *string, runOrder *float64, variablesNamespace *string) awscodepipelineactions.Action {
 	var returns awscodepipelineactions.Action
 
 	_jsii_.Invoke(
 		c,
 		"getAction",
-		[]interface{}{output, actionName, runOrder},
+		[]interface{}{output, actionName, runOrder, variablesNamespace},
 		&returns,
 	)
 
@@ -2395,6 +2480,45 @@ func (c *jsiiProxy_CodePipelineSource) ProduceAction(stage awscodepipeline.IStag
 		c,
 		"produceAction",
 		[]interface{}{stage, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return an attribute of the current source revision.
+//
+// These values can be passed into the environment variables of pipeline steps,
+// so your steps can access information about the source revision.
+//
+// What attributes are available depends on the type of source. These attributes
+// are supported:
+//
+// - GitHub, CodeCommit, and CodeStar connection
+//    - `AuthorDate`
+//    - `BranchName`
+//    - `CommitId`
+//    - `CommitMessage`
+// - GitHub and CodeCommit
+//    - `CommitterDate`
+//    - `RepositoryName`
+// - GitHub
+//    - `CommitUrl`
+// - CodeStar Connection
+//    - `FullRepositoryName`
+// - S3
+//    - `ETag`
+//    - `VersionId`
+// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-variables.html#reference-variables-list
+//
+// Experimental.
+func (c *jsiiProxy_CodePipelineSource) SourceAttribute(name *string) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"sourceAttribute",
+		[]interface{}{name},
 		&returns,
 	)
 
@@ -2434,6 +2558,7 @@ type ConfirmPermissionsBroadening interface {
 	AddDependencyFileSet(fs FileSet)
 	AddStepDependency(step Step)
 	ConfigurePrimaryOutput(fs FileSet)
+	DiscoverReferencedOutputs(structure interface{})
 	ProduceAction(stage awscodepipeline.IStage, options *ProduceActionOptions) *CodePipelineActionFactoryResult
 	ToString() *string
 }
@@ -2571,6 +2696,21 @@ func (c *jsiiProxy_ConfirmPermissionsBroadening) ConfigurePrimaryOutput(fs FileS
 		c,
 		"configurePrimaryOutput",
 		[]interface{}{fs},
+	)
+}
+
+// Crawl the given structure for references to StepOutputs and add dependencies on all steps found.
+//
+// Should be called by subclasses based on what the user passes in as
+// construction properties. The format of the structure passed in here does
+// not have to correspond exactly to what gets rendered into the engine, it
+// just needs to contain the same amount of data.
+// Experimental.
+func (c *jsiiProxy_ConfirmPermissionsBroadening) DiscoverReferencedOutputs(structure interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"discoverReferencedOutputs",
+		[]interface{}{structure},
 	)
 }
 
@@ -3007,6 +3147,20 @@ const (
 	DockerCredentialUsage_ASSET_PUBLISHING DockerCredentialUsage = "ASSET_PUBLISHING"
 )
 
+// Options for ECR sources.
+//
+// TODO: EXAMPLE
+//
+// Experimental.
+type ECRSourceOptions struct {
+	// The action name used for this source in the CodePipeline.
+	// Experimental.
+	ActionName *string `json:"actionName" yaml:"actionName"`
+	// The image tag that will be checked for changes.
+	// Experimental.
+	ImageTag *string `json:"imageTag" yaml:"imageTag"`
+}
+
 // Options for defining access for a Docker Credential composed of ECR repos.
 //
 // TODO: EXAMPLE
@@ -3336,6 +3490,7 @@ type ManualApprovalStep interface {
 	AddDependencyFileSet(fs FileSet)
 	AddStepDependency(step Step)
 	ConfigurePrimaryOutput(fs FileSet)
+	DiscoverReferencedOutputs(structure interface{})
 	ToString() *string
 }
 
@@ -3481,6 +3636,21 @@ func (m *jsiiProxy_ManualApprovalStep) ConfigurePrimaryOutput(fs FileSet) {
 		m,
 		"configurePrimaryOutput",
 		[]interface{}{fs},
+	)
+}
+
+// Crawl the given structure for references to StepOutputs and add dependencies on all steps found.
+//
+// Should be called by subclasses based on what the user passes in as
+// construction properties. The format of the structure passed in here does
+// not have to correspond exactly to what gets rendered into the engine, it
+// just needs to contain the same amount of data.
+// Experimental.
+func (m *jsiiProxy_ManualApprovalStep) DiscoverReferencedOutputs(structure interface{}) {
+	_jsii_.InvokeVoid(
+		m,
+		"discoverReferencedOutputs",
+		[]interface{}{structure},
 	)
 }
 
@@ -3869,6 +4039,11 @@ type ProduceActionOptions struct {
 	// Artifact passed here.
 	// Experimental.
 	FallbackArtifact awscodepipeline.Artifact `json:"fallbackArtifact" yaml:"fallbackArtifact"`
+	// If this step is producing outputs, the variables namespace assigned to it.
+	//
+	// Pass this on to the Action you are creating.
+	// Experimental.
+	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
 }
 
 // Action to publish an asset in the pipeline.
@@ -4394,6 +4569,7 @@ type ShellStep interface {
 	AddOutputDirectory(directory *string) FileSet
 	AddStepDependency(step Step)
 	ConfigurePrimaryOutput(fs FileSet)
+	DiscoverReferencedOutputs(structure interface{})
 	PrimaryOutputDirectory(directory *string) FileSet
 	ToString() *string
 }
@@ -4612,6 +4788,21 @@ func (s *jsiiProxy_ShellStep) ConfigurePrimaryOutput(fs FileSet) {
 		s,
 		"configurePrimaryOutput",
 		[]interface{}{fs},
+	)
+}
+
+// Crawl the given structure for references to StepOutputs and add dependencies on all steps found.
+//
+// Should be called by subclasses based on what the user passes in as
+// construction properties. The format of the structure passed in here does
+// not have to correspond exactly to what gets rendered into the engine, it
+// just needs to contain the same amount of data.
+// Experimental.
+func (s *jsiiProxy_ShellStep) DiscoverReferencedOutputs(structure interface{}) {
+	_jsii_.InvokeVoid(
+		s,
+		"discoverReferencedOutputs",
+		[]interface{}{structure},
 	)
 }
 
@@ -5814,6 +6005,7 @@ type Step interface {
 	AddDependencyFileSet(fs FileSet)
 	AddStepDependency(step Step)
 	ConfigurePrimaryOutput(fs FileSet)
+	DiscoverReferencedOutputs(structure interface{})
 	ToString() *string
 }
 
@@ -5934,6 +6126,21 @@ func (s *jsiiProxy_Step) ConfigurePrimaryOutput(fs FileSet) {
 		s,
 		"configurePrimaryOutput",
 		[]interface{}{fs},
+	)
+}
+
+// Crawl the given structure for references to StepOutputs and add dependencies on all steps found.
+//
+// Should be called by subclasses based on what the user passes in as
+// construction properties. The format of the structure passed in here does
+// not have to correspond exactly to what gets rendered into the engine, it
+// just needs to contain the same amount of data.
+// Experimental.
+func (s *jsiiProxy_Step) DiscoverReferencedOutputs(structure interface{}) {
+	_jsii_.InvokeVoid(
+		s,
+		"discoverReferencedOutputs",
+		[]interface{}{structure},
 	)
 }
 

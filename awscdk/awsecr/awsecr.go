@@ -723,6 +723,8 @@ type CfnPublicRepositoryProps struct {
 
 // A CloudFormation `AWS::ECR::PullThroughCacheRule`.
 //
+// Creates a pull through cache rule. A pull through cache rule provides a way to cache images from an external public registry in your Amazon ECR private registry.
+//
 // TODO: EXAMPLE
 //
 type CfnPullThroughCacheRule interface {
@@ -1341,9 +1343,9 @@ func (c *jsiiProxy_CfnPullThroughCacheRule) ValidateProperties(_properties inter
 // TODO: EXAMPLE
 //
 type CfnPullThroughCacheRuleProps struct {
-	// `AWS::ECR::PullThroughCacheRule.EcrRepositoryPrefix`.
+	// The Amazon ECR repository prefix associated with the pull through cache rule.
 	EcrRepositoryPrefix *string `json:"ecrRepositoryPrefix" yaml:"ecrRepositoryPrefix"`
-	// `AWS::ECR::PullThroughCacheRule.UpstreamRegistryUrl`.
+	// The upstream registry URL associated with the pull through cache rule.
 	UpstreamRegistryUrl *string `json:"upstreamRegistryUrl" yaml:"upstreamRegistryUrl"`
 }
 

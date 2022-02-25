@@ -3133,7 +3133,7 @@ type CfnDBClusterProps struct {
 	CopyTagsToSnapshot interface{} `json:"copyTagsToSnapshot" yaml:"copyTagsToSnapshot"`
 	// The name of your database.
 	//
-	// If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see [Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints) in the *Amazon RDS User Guide* .
+	// If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see [Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_Limits.html#RDS_Limits.Constraints) in the *Amazon Aurora User Guide* .
 	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
 	// The DB cluster identifier. This parameter is stored as a lowercase string.
 	//
@@ -5103,23 +5103,13 @@ type CfnDBInstanceProps struct {
 	//
 	// By default, minor engine upgrades are applied automatically.
 	AutoMinorVersionUpgrade interface{} `json:"autoMinorVersionUpgrade" yaml:"autoMinorVersionUpgrade"`
-	// The Availability Zone (AZ) where the database will be created.
+	// The Availability Zone that the database instance will be created in.
 	//
-	// For information on AWS Regions and Availability Zones, see [Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html) .
-	//
-	// *Amazon Aurora*
-	//
-	// Not applicable. Availability Zones are managed by the DB cluster.
-	//
-	// Default: A random, system-chosen Availability Zone in the endpoint's AWS Region.
+	// Default: A random, system-chosen Availability Zone in the endpoint's region.
 	//
 	// Example: `us-east-1d`
 	//
-	// Constraint: The `AvailabilityZone` parameter can't be specified if the DB instance is a Multi-AZ deployment. The specified Availability Zone must be in the same AWS Region as the current endpoint.
-	//
-	// > If you're creating a DB instance in an RDS on VMware environment, specify the identifier of the custom Availability Zone to create the DB instance in.
-	// >
-	// > For more information about RDS on VMware, see the [RDS on VMware User Guide.](https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html)
+	// Constraint: The AvailabilityZone parameter cannot be specified if the MultiAZ parameter is set to `true` . The specified Availability Zone must be in the same region as the current endpoint.
 	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
 	// The number of days for which automated backups are retained.
 	//
@@ -5164,7 +5154,9 @@ type CfnDBInstanceProps struct {
 	//
 	// If you specify a name, AWS CloudFormation converts it to lowercase. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the DB instance. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
 	//
-	// > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+	// For information about constraints that apply to DB instance identifiers, see [Naming constraints in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints) in the *Amazon RDS User Guide* .
+	//
+	// > If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	DbInstanceIdentifier *string `json:"dbInstanceIdentifier" yaml:"dbInstanceIdentifier"`
 	// The meaning of this parameter differs according to the database engine you use.
 	//
@@ -5309,7 +5301,7 @@ type CfnDBInstanceProps struct {
 	//
 	// If there's no DB subnet group, then the DB instance isn't a VPC DB instance.
 	//
-	// For more information about using Amazon RDS in a VPC, see [Using Amazon RDS with Amazon Virtual Private Cloud (VPC)](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html) in the *Amazon Relational Database Service Developer Guide* .
+	// For more information about using Amazon RDS in a VPC, see [Using Amazon RDS with Amazon Virtual Private Cloud (VPC)](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html) in the *Amazon RDS User Guide* .
 	//
 	// *Amazon Aurora*
 	//
@@ -5649,7 +5641,9 @@ type CfnDBInstanceProps struct {
 	PubliclyAccessible interface{} `json:"publiclyAccessible" yaml:"publiclyAccessible"`
 	// If you want to create a read replica DB instance, specify the ID of the source DB instance.
 	//
-	// Each DB instance can have a limited number of read replicas. For more information, see [Working with Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/DeveloperGuide/USER_ReadRepl.html) in the *Amazon Relational Database Service Developer Guide* .
+	// Each DB instance can have a limited number of read replicas. For more information, see [Working with Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/DeveloperGuide/USER_ReadRepl.html) in the *Amazon RDS User Guide* .
+	//
+	// For information about constraints that apply to DB instance identifiers, see [Naming constraints in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints) in the *Amazon RDS User Guide* .
 	//
 	// The `SourceDBInstanceIdentifier` property determines whether a DB instance is a read replica. If you remove the `SourceDBInstanceIdentifier` property from your template and then update your stack, AWS CloudFormation deletes the Read Replica and creates a new DB instance (not a read replica).
 	//
@@ -6381,7 +6375,7 @@ func (c *jsiiProxy_CfnDBParameterGroup) ValidateProperties(_properties interface
 // TODO: EXAMPLE
 //
 type CfnDBParameterGroupProps struct {
-	// Provides the customer-specified description for this DB parameter group.
+	// Provides the customer-specified description for this DB Parameter Group.
 	Description *string `json:"description" yaml:"description"`
 	// The DB parameter group family name.
 	//
@@ -9501,17 +9495,17 @@ func (c *jsiiProxy_CfnDBSecurityGroup) ValidateProperties(_properties interface{
 type CfnDBSecurityGroup_IngressProperty struct {
 	// The IP range to authorize.
 	Cidrip *string `json:"cidrip" yaml:"cidrip"`
-	// Id of the EC2 security group to authorize.
+	// Id of the EC2 Security Group to authorize.
 	//
-	// For VPC DB security groups, `EC2SecurityGroupId` must be provided. Otherwise, `EC2SecurityGroupOwnerId` and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
+	// For VPC DB Security Groups, `EC2SecurityGroupId` must be provided. Otherwise, EC2SecurityGroupOwnerId and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
 	Ec2SecurityGroupId *string `json:"ec2SecurityGroupId" yaml:"ec2SecurityGroupId"`
-	// Name of the EC2 security group to authorize.
+	// Name of the EC2 Security Group to authorize.
 	//
-	// For VPC DB security groups, `EC2SecurityGroupId` must be provided. Otherwise, `EC2SecurityGroupOwnerId` and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
+	// For VPC DB Security Groups, `EC2SecurityGroupId` must be provided. Otherwise, EC2SecurityGroupOwnerId and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
 	Ec2SecurityGroupName *string `json:"ec2SecurityGroupName" yaml:"ec2SecurityGroupName"`
-	// AWS account number of the owner of the EC2 security group specified in the `EC2SecurityGroupName` parameter.
+	// AWS Account Number of the owner of the EC2 Security Group specified in the EC2SecurityGroupName parameter.
 	//
-	// The AWS access key ID isn't an acceptable value. For VPC DB security groups, `EC2SecurityGroupId` must be provided. Otherwise, `EC2SecurityGroupOwnerId` and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
+	// The AWS Access Key ID is not an acceptable value. For VPC DB Security Groups, `EC2SecurityGroupId` must be provided. Otherwise, EC2SecurityGroupOwnerId and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
 	Ec2SecurityGroupOwnerId *string `json:"ec2SecurityGroupOwnerId" yaml:"ec2SecurityGroupOwnerId"`
 }
 
@@ -10201,21 +10195,21 @@ func (c *jsiiProxy_CfnDBSecurityGroupIngress) ValidateProperties(_properties int
 // TODO: EXAMPLE
 //
 type CfnDBSecurityGroupIngressProps struct {
-	// The name of the DB security group to add authorization to.
+	// The name of the DB Security Group to add authorization to.
 	DbSecurityGroupName *string `json:"dbSecurityGroupName" yaml:"dbSecurityGroupName"`
 	// The IP range to authorize.
 	Cidrip *string `json:"cidrip" yaml:"cidrip"`
-	// Id of the EC2 security group to authorize.
+	// Id of the EC2 Security Group to authorize.
 	//
-	// For VPC DB security groups, `EC2SecurityGroupId` must be provided. Otherwise, `EC2SecurityGroupOwnerId` and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
+	// For VPC DB Security Groups, `EC2SecurityGroupId` must be provided. Otherwise, EC2SecurityGroupOwnerId and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
 	Ec2SecurityGroupId *string `json:"ec2SecurityGroupId" yaml:"ec2SecurityGroupId"`
-	// Name of the EC2 security group to authorize.
+	// Name of the EC2 Security Group to authorize.
 	//
-	// For VPC DB security groups, `EC2SecurityGroupId` must be provided. Otherwise, `EC2SecurityGroupOwnerId` and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
+	// For VPC DB Security Groups, `EC2SecurityGroupId` must be provided. Otherwise, EC2SecurityGroupOwnerId and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
 	Ec2SecurityGroupName *string `json:"ec2SecurityGroupName" yaml:"ec2SecurityGroupName"`
-	// AWS account number of the owner of the EC2 security group specified in the `EC2SecurityGroupName` parameter.
+	// AWS Account Number of the owner of the EC2 Security Group specified in the EC2SecurityGroupName parameter.
 	//
-	// The AWS access key ID isn't an acceptable value. For VPC DB security groups, `EC2SecurityGroupId` must be provided. Otherwise, `EC2SecurityGroupOwnerId` and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
+	// The AWS Access Key ID is not an acceptable value. For VPC DB Security Groups, `EC2SecurityGroupId` must be provided. Otherwise, EC2SecurityGroupOwnerId and either `EC2SecurityGroupName` or `EC2SecurityGroupId` must be provided.
 	Ec2SecurityGroupOwnerId *string `json:"ec2SecurityGroupOwnerId" yaml:"ec2SecurityGroupOwnerId"`
 }
 
@@ -10226,7 +10220,7 @@ type CfnDBSecurityGroupIngressProps struct {
 type CfnDBSecurityGroupProps struct {
 	// Ingress rules to be applied to the DB security group.
 	DbSecurityGroupIngress interface{} `json:"dbSecurityGroupIngress" yaml:"dbSecurityGroupIngress"`
-	// Provides the description of the DB security group.
+	// Provides the description of the DB Security Group.
 	GroupDescription *string `json:"groupDescription" yaml:"groupDescription"`
 	// The identifier of an Amazon VPC. This property indicates the VPC that this DB security group belongs to.
 	//
@@ -10891,9 +10885,9 @@ func (c *jsiiProxy_CfnDBSubnetGroup) ValidateProperties(_properties interface{})
 // TODO: EXAMPLE
 //
 type CfnDBSubnetGroupProps struct {
-	// The description for the DB subnet group.
+	// The description for the DB Subnet Group.
 	DbSubnetGroupDescription *string `json:"dbSubnetGroupDescription" yaml:"dbSubnetGroupDescription"`
-	// The EC2 Subnet IDs for the DB subnet group.
+	// The EC2 Subnet IDs for the DB Subnet Group.
 	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
 	// The name for the DB subnet group. This value is stored as a lowercase string.
 	//
@@ -11591,13 +11585,13 @@ type CfnEventSubscriptionProps struct {
 	//
 	// The ARN is created by Amazon SNS when you create a topic and subscribe to it.
 	SnsTopicArn *string `json:"snsTopicArn" yaml:"snsTopicArn"`
-	// A value that indicates whether to activate the subscription.
+	// A Boolean value;
 	//
-	// If the event notification subscription isn't activated, the subscription is created but not active.
+	// set to *true* to activate the subscription, set to *false* to create the subscription but not active it.
 	Enabled interface{} `json:"enabled" yaml:"enabled"`
-	// A list of event categories for a particular source type ( `SourceType` ) that you want to subscribe to.
+	// A list of event categories for a SourceType that you want to subscribe to.
 	//
-	// You can see a list of the categories for a given source type in the "Amazon RDS event categories and event messages" section of the [*Amazon RDS User Guide*](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.Messages.html) or the [*Amazon Aurora User Guide*](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Events.Messages.html) . You can also see this list by using the `DescribeEventCategories` operation.
+	// You can see a list of the categories for a given SourceType in the [Events](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html) topic in the Amazon RDS User Guide or by using the *DescribeEventCategories* action.
 	EventCategories *[]*string `json:"eventCategories" yaml:"eventCategories"`
 	// The list of identifiers of the event sources for which events are returned.
 	//
@@ -28290,9 +28284,6 @@ type ServerlessClusterFromSnapshotProps struct {
 	// However, you can use only the ARN to specify a DB instance snapshot.
 	// Experimental.
 	SnapshotIdentifier *string `json:"snapshotIdentifier" yaml:"snapshotIdentifier"`
-	// The VPC that this Aurora Serverless cluster has been created in.
-	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// The number of days during which automatic DB snapshots are retained.
 	//
 	// Automatic backup retention cannot be disabled on serverless clusters.
@@ -28334,7 +28325,12 @@ type ServerlessClusterFromSnapshotProps struct {
 	// Existing subnet group for the cluster.
 	// Experimental.
 	SubnetGroup ISubnetGroup `json:"subnetGroup" yaml:"subnetGroup"`
+	// The VPC that this Aurora Serverless cluster has been created in.
+	// Experimental.
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// Where to place the instances within the VPC.
+	//
+	// If provided, the `vpc` property must also be specified.
 	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 }
@@ -28348,9 +28344,6 @@ type ServerlessClusterProps struct {
 	// What kind of database to start.
 	// Experimental.
 	Engine IClusterEngine `json:"engine" yaml:"engine"`
-	// The VPC that this Aurora Serverless cluster has been created in.
-	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// The number of days during which automatic DB snapshots are retained.
 	//
 	// Automatic backup retention cannot be disabled on serverless clusters.
@@ -28392,7 +28385,12 @@ type ServerlessClusterProps struct {
 	// Existing subnet group for the cluster.
 	// Experimental.
 	SubnetGroup ISubnetGroup `json:"subnetGroup" yaml:"subnetGroup"`
+	// The VPC that this Aurora Serverless cluster has been created in.
+	// Experimental.
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// Where to place the instances within the VPC.
+	//
+	// If provided, the `vpc` property must also be specified.
 	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 }

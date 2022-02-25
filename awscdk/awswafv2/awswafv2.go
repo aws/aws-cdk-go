@@ -1442,9 +1442,9 @@ func (c *jsiiProxy_CfnLoggingConfiguration) ValidateProperties(_properties inter
 	)
 }
 
-// The part of a web request that you want AWS WAF to inspect.
+// The parts of the request that you want to keep out of the logs.
 //
-// Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of a web request, create a separate rule statement for each component.
+// For example, if you redact the `SingleHeader` field, the `HEADER` field in the firehose will be `xxx` .
 //
 // JSON specification for a `QueryString` field to match:
 //
@@ -1457,29 +1457,15 @@ func (c *jsiiProxy_CfnLoggingConfiguration) ValidateProperties(_properties inter
 // TODO: EXAMPLE
 //
 type CfnLoggingConfiguration_FieldToMatchProperty struct {
-	// Inspect the request body as JSON.
-	//
-	// The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
-	//
-	// Note that only the first 8 KB (8192 bytes) of the request body are forwarded to AWS WAF for inspection by the underlying host service. If you don't need to inspect more than 8 KB, you can guarantee that you don't allow additional bytes in by combining a statement that inspects the body of the web request, such as `ByteMatchStatement` or `RegexPatternSetReferenceStatement` , with a `SizeConstraintStatement` that enforces an 8 KB size limit on the body of the request. AWS WAF doesn't support inspecting the entire contents of web requests whose bodies exceed the 8 KB limit.
+	// Redact the JSON body from the logs.
 	JsonBody interface{} `json:"jsonBody" yaml:"jsonBody"`
-	// Inspect the HTTP method.
-	//
-	// The method indicates the type of operation that the request is asking the origin to perform.
+	// Redact the method from the logs.
 	Method interface{} `json:"method" yaml:"method"`
-	// Inspect the query string.
-	//
-	// This is the part of a URL that appears after a `?` character, if any.
+	// Redact the query string from the logs.
 	QueryString interface{} `json:"queryString" yaml:"queryString"`
-	// Inspect a single header.
-	//
-	// Provide the name of the header to inspect, for example, `User-Agent` or `Referer` . This setting isn't case sensitive.
-	//
-	// Example JSON: `"SingleHeader": { "Name": "haystack" }`
+	// Redact the header from the logs.
 	SingleHeader interface{} `json:"singleHeader" yaml:"singleHeader"`
-	// Inspect the request URI path.
-	//
-	// This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg` .
+	// Redact the URI path from the logs.
 	UriPath interface{} `json:"uriPath" yaml:"uriPath"`
 }
 
@@ -1488,9 +1474,7 @@ type CfnLoggingConfiguration_FieldToMatchProperty struct {
 // TODO: EXAMPLE
 //
 type CfnLoggingConfigurationProps struct {
-	// The logging destination configuration that you want to associate with the web ACL.
-	//
-	// > You can associate one logging destination to a web ACL.
+	// The Amazon Resource Names (ARNs) of the logging destinations that you want to associate with the web ACL.
 	LogDestinationConfigs *[]*string `json:"logDestinationConfigs" yaml:"logDestinationConfigs"`
 	// The Amazon Resource Name (ARN) of the web ACL that you want to associate with `LogDestinationConfigs` .
 	ResourceArn *string `json:"resourceArn" yaml:"resourceArn"`
@@ -1500,7 +1484,7 @@ type CfnLoggingConfigurationProps struct {
 	LoggingFilter interface{} `json:"loggingFilter" yaml:"loggingFilter"`
 	// The parts of the request that you want to keep out of the logs.
 	//
-	// For example, if you redact the `SingleHeader` field, the `HEADER` field in the logs will be `xxx` .
+	// For example, if you redact the `SingleHeader` field, the `HEADER` field in the firehose will be `xxx` .
 	//
 	// > You can specify only the following fields for redaction: `UriPath` , `QueryString` , `SingleHeader` , `Method` , and `JsonBody` .
 	RedactedFields interface{} `json:"redactedFields" yaml:"redactedFields"`
@@ -4850,10 +4834,16 @@ type CfnWebACL_ExcludedRuleProperty struct {
 	Name *string `json:"name" yaml:"name"`
 }
 
+// The identifier of the username or password field, used in the `ManagedRuleGroupConfig` settings.
+//
 // TODO: EXAMPLE
 //
 type CfnWebACL_FieldIdentifierProperty struct {
-	// `CfnWebACL.FieldIdentifierProperty.Identifier`.
+	// The name of the username or password field, used in the `ManagedRuleGroupConfig` settings.
+	//
+	// When the `PayloadType` is `JSON` , the identifier must be in JSON pointer syntax. For example `/form/username` . For information about the JSON Pointer syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
+	//
+	// When the `PayloadType` is `FORM_ENCODED` , use the HTML form names. For example, `username` .
 	Identifier *string `json:"identifier" yaml:"identifier"`
 }
 
@@ -5100,16 +5090,22 @@ type CfnWebACL_LabelProperty struct {
 	Name *string `json:"name" yaml:"name"`
 }
 
+// Additional information that's used by a managed rule group. Most managed rule groups don't require this.
+//
+// Use this for the account takeover prevention managed rule group `AWSManagedRulesATPRuleSet` , to provide information about the sign-in page of your application.
+//
 // TODO: EXAMPLE
 //
 type CfnWebACL_ManagedRuleGroupConfigProperty struct {
-	// `CfnWebACL.ManagedRuleGroupConfigProperty.LoginPath`.
+	// The path of the login endpoint for your application.
+	//
+	// For example, for the URL `https://example.com/web/login` , you would provide the path `/web/login` .
 	LoginPath *string `json:"loginPath" yaml:"loginPath"`
-	// `CfnWebACL.ManagedRuleGroupConfigProperty.PasswordField`.
+	// Details about your login page password field.
 	PasswordField interface{} `json:"passwordField" yaml:"passwordField"`
-	// `CfnWebACL.ManagedRuleGroupConfigProperty.PayloadType`.
+	// The payload type for your login endpoint, either JSON or form encoded.
 	PayloadType *string `json:"payloadType" yaml:"payloadType"`
-	// `CfnWebACL.ManagedRuleGroupConfigProperty.UsernameField`.
+	// Details about your login page username field.
 	UsernameField interface{} `json:"usernameField" yaml:"usernameField"`
 }
 
@@ -5134,7 +5130,9 @@ type CfnWebACL_ManagedRuleGroupStatementProperty struct {
 	//
 	// This effectively excludes the rule from acting on web requests.
 	ExcludedRules interface{} `json:"excludedRules" yaml:"excludedRules"`
-	// `CfnWebACL.ManagedRuleGroupStatementProperty.ManagedRuleGroupConfigs`.
+	// Additional information that's used by a managed rule group. Most managed rule groups don't require this.
+	//
+	// Use this for the account takeover prevention managed rule group `AWSManagedRulesATPRuleSet` , to provide information about the sign-in page of your application.
 	ManagedRuleGroupConfigs interface{} `json:"managedRuleGroupConfigs" yaml:"managedRuleGroupConfigs"`
 	// Statement nested inside a managed rule group statement to narrow the scope of the requests that AWS WAF evaluates using the rule group.
 	//

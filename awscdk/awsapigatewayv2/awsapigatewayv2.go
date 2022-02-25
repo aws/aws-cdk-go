@@ -16188,6 +16188,23 @@ func NewWebSocketApi_Override(w WebSocketApi, scope constructs.Construct, id *st
 	)
 }
 
+// Import an existing WebSocket API into this CDK app.
+// Experimental.
+func WebSocketApi_FromWebSocketApiAttributes(scope constructs.Construct, id *string, attrs *WebSocketApiAttributes) IWebSocketApi {
+	_init_.Initialize()
+
+	var returns IWebSocketApi
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_apigatewayv2.WebSocketApi",
+		"fromWebSocketApiAttributes",
+		[]interface{}{scope, id, attrs},
+		&returns,
+	)
+
+	return returns
+}
+
 // Return whether the given object is a Construct.
 // Experimental.
 func WebSocketApi_IsConstruct(x interface{}) *bool {
@@ -16451,6 +16468,20 @@ func (w *jsiiProxy_WebSocketApi) Validate() *[]*string {
 	)
 
 	return returns
+}
+
+// Attributes for importing a WebSocketApi into the CDK.
+//
+// TODO: EXAMPLE
+//
+// Experimental.
+type WebSocketApiAttributes struct {
+	// The identifier of the WebSocketApi.
+	// Experimental.
+	WebSocketId *string `json:"webSocketId" yaml:"webSocketId"`
+	// The endpoint URL of the WebSocketApi.
+	// Experimental.
+	ApiEndpoint *string `json:"apiEndpoint" yaml:"apiEndpoint"`
 }
 
 // Represents the currently available API Key Selection Expressions.

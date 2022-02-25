@@ -4896,7 +4896,9 @@ type CfnBucket_MetricsConfigurationProperty struct {
 	//
 	// This can be any value you choose that helps you identify your metrics configuration.
 	Id *string `json:"id" yaml:"id"`
-	// `CfnBucket.MetricsConfigurationProperty.AccessPointArn`.
+	// The access point that was used while performing operations on the object.
+	//
+	// The metrics configuration only includes objects that meet the filter's criteria.
 	AccessPointArn *string `json:"accessPointArn" yaml:"accessPointArn"`
 	// The prefix that an object must have to be included in the metrics results.
 	Prefix *string `json:"prefix" yaml:"prefix"`
@@ -4966,7 +4968,7 @@ type CfnBucket_NoncurrentVersionTransitionProperty struct {
 // TODO: EXAMPLE
 //
 type CfnBucket_NotificationConfigurationProperty struct {
-	// `CfnBucket.NotificationConfigurationProperty.EventBridgeConfiguration`.
+	// Enables delivery of events to Amazon EventBridge.
 	EventBridgeConfiguration interface{} `json:"eventBridgeConfiguration" yaml:"eventBridgeConfiguration"`
 	// Describes the AWS Lambda functions to invoke and the events for which to invoke them.
 	LambdaConfigurations interface{} `json:"lambdaConfigurations" yaml:"lambdaConfigurations"`
@@ -5573,13 +5575,15 @@ type CfnBucket_VersioningConfigurationProperty struct {
 // TODO: EXAMPLE
 //
 type CfnBucket_WebsiteConfigurationProperty struct {
-	// `CfnBucket.WebsiteConfigurationProperty.ErrorDocument`.
+	// The name of the error document for the website.
 	ErrorDocument *string `json:"errorDocument" yaml:"errorDocument"`
-	// `CfnBucket.WebsiteConfigurationProperty.IndexDocument`.
+	// The name of the index document for the website.
 	IndexDocument *string `json:"indexDocument" yaml:"indexDocument"`
-	// `CfnBucket.WebsiteConfigurationProperty.RedirectAllRequestsTo`.
+	// The redirect behavior for every request to this bucket's website endpoint.
+	//
+	// > If you specify this property, you can't specify any other property.
 	RedirectAllRequestsTo interface{} `json:"redirectAllRequestsTo" yaml:"redirectAllRequestsTo"`
-	// `CfnBucket.WebsiteConfigurationProperty.RoutingRules`.
+	// Rules that define when a redirect is applied and the redirect behavior.
 	RoutingRules interface{} `json:"routingRules" yaml:"routingRules"`
 }
 

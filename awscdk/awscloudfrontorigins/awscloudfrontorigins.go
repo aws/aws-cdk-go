@@ -136,7 +136,10 @@ type HttpOriginProps struct {
 	HttpsPort *float64 `json:"httpsPort" yaml:"httpsPort"`
 	// Specifies how long, in seconds, CloudFront persists its connection to the origin.
 	//
-	// The valid range is from 1 to 60 seconds, inclusive.
+	// The valid range is from 1 to 180 seconds, inclusive.
+	//
+	// Note that values over 60 seconds are possible only after a limit increase request for the origin response timeout quota
+	// has been approved in the target account; otherwise, values over 60 seconds will produce an error at deploy time.
 	// Experimental.
 	KeepaliveTimeout awscdk.Duration `json:"keepaliveTimeout" yaml:"keepaliveTimeout"`
 	// The SSL versions to use when interacting with the origin.
@@ -280,7 +283,10 @@ type LoadBalancerV2OriginProps struct {
 	HttpsPort *float64 `json:"httpsPort" yaml:"httpsPort"`
 	// Specifies how long, in seconds, CloudFront persists its connection to the origin.
 	//
-	// The valid range is from 1 to 60 seconds, inclusive.
+	// The valid range is from 1 to 180 seconds, inclusive.
+	//
+	// Note that values over 60 seconds are possible only after a limit increase request for the origin response timeout quota
+	// has been approved in the target account; otherwise, values over 60 seconds will produce an error at deploy time.
 	// Experimental.
 	KeepaliveTimeout awscdk.Duration `json:"keepaliveTimeout" yaml:"keepaliveTimeout"`
 	// The SSL versions to use when interacting with the origin.

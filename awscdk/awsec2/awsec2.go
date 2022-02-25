@@ -13330,7 +13330,11 @@ type CfnFlowLogProps struct {
 	//
 	// If you specify `LogDestinationType` as `s3` , do not specify `DeliverLogsPermissionArn` or `LogGroupName` .
 	DeliverLogsPermissionArn *string `json:"deliverLogsPermissionArn" yaml:"deliverLogsPermissionArn"`
-	// The destination options.
+	// The destination options. The following options are supported:.
+	//
+	// - `FileFormat` - The format for the flow log ( `plain-text` | `parquet` ). The default is `plain-text` .
+	// - `HiveCompatiblePartitions` - Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3 ( `true` | `false` ). The default is `false` .
+	// - `PerHourPartition` - Indicates whether to partition the flow log per hour ( `true` | `false` ). The default is `false` .
 	DestinationOptions interface{} `json:"destinationOptions" yaml:"destinationOptions"`
 	// The destination to which the flow log data is to be published.
 	//
@@ -19544,14 +19548,24 @@ type CfnInstance_NetworkInterfaceProperty struct {
 type CfnInstance_NoDeviceProperty struct {
 }
 
+// The type of hostnames to assign to instances in the subnet at launch.
+//
+// For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *Amazon Elastic Compute Cloud User Guide* .
+//
 // TODO: EXAMPLE
 //
 type CfnInstance_PrivateDnsNameOptionsProperty struct {
-	// `CfnInstance.PrivateDnsNameOptionsProperty.EnableResourceNameDnsAAAARecord`.
+	// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+	//
+	// For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *Amazon Elastic Compute Cloud User Guide* .
 	EnableResourceNameDnsAaaaRecord interface{} `json:"enableResourceNameDnsAaaaRecord" yaml:"enableResourceNameDnsAaaaRecord"`
-	// `CfnInstance.PrivateDnsNameOptionsProperty.EnableResourceNameDnsARecord`.
+	// Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+	//
+	// For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *Amazon Elastic Compute Cloud User Guide* .
 	EnableResourceNameDnsARecord interface{} `json:"enableResourceNameDnsARecord" yaml:"enableResourceNameDnsARecord"`
-	// `CfnInstance.PrivateDnsNameOptionsProperty.HostnameType`.
+	// The type of hostnames to assign to instances in the subnet at launch.
+	//
+	// For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *Amazon Elastic Compute Cloud User Guide* .
 	HostnameType *string `json:"hostnameType" yaml:"hostnameType"`
 }
 
@@ -19725,7 +19739,7 @@ type CfnInstanceProps struct {
 	NetworkInterfaces interface{} `json:"networkInterfaces" yaml:"networkInterfaces"`
 	// The name of an existing placement group that you want to launch the instance into (cluster | partition | spread).
 	PlacementGroupName *string `json:"placementGroupName" yaml:"placementGroupName"`
-	// `AWS::EC2::Instance.PrivateDnsNameOptions`.
+	// The options for the instance hostname.
 	PrivateDnsNameOptions interface{} `json:"privateDnsNameOptions" yaml:"privateDnsNameOptions"`
 	// [EC2-VPC] The primary IPv4 address. You must specify a value from the IPv4 address range of the subnet.
 	//
@@ -19735,7 +19749,9 @@ type CfnInstanceProps struct {
 	//
 	// If you make an update to an instance that requires replacement, you must assign a new private IP address. During a replacement, AWS CloudFormation creates a new instance but doesn't delete the old instance until the stack has successfully updated. If the stack update fails, AWS CloudFormation uses the old instance to roll back the stack to the previous working state. The old and new instances cannot have the same private IP address.
 	PrivateIpAddress *string `json:"privateIpAddress" yaml:"privateIpAddress"`
-	// `AWS::EC2::Instance.PropagateTagsToVolumeOnCreation`.
+	// Indicates whether to assign the tags from the instance to all of the volumes attached to the instance at launch.
+	//
+	// If you specify `true` and you assign tags to the instance, those tags are automatically assigned to all of the volumes that you attach to the instance at launch. If you specify `false` , those tags are not assigned to the attached volumes.
 	PropagateTagsToVolumeOnCreation interface{} `json:"propagateTagsToVolumeOnCreation" yaml:"propagateTagsToVolumeOnCreation"`
 	// The ID of the RAM disk to select.
 	//
@@ -21822,9 +21838,9 @@ type CfnLaunchTemplate_PrivateDnsNameOptionsProperty struct {
 	EnableResourceNameDnsAaaaRecord interface{} `json:"enableResourceNameDnsAaaaRecord" yaml:"enableResourceNameDnsAaaaRecord"`
 	// Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
 	EnableResourceNameDnsARecord interface{} `json:"enableResourceNameDnsARecord" yaml:"enableResourceNameDnsARecord"`
-	// The type of hostname for Amazon EC2 instances.
+	// The type of hostname for EC2 instances.
 	//
-	// For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID.
+	// For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *Amazon Elastic Compute Cloud User Guide* .
 	HostnameType *string `json:"hostnameType" yaml:"hostnameType"`
 }
 
@@ -25418,7 +25434,9 @@ type CfnNetworkAclProps struct {
 
 // A CloudFormation `AWS::EC2::NetworkInsightsAccessScope`.
 //
-// Describes a Network Access Scope.
+// Describes a Network Access Scope. A Network Access Scope defines outbound (egress) and inbound (ingress) traffic patterns, including sources, destinations, paths, and traffic types.
+//
+// Network Access Analyzer identifies unintended network access to your resources on AWS . When you start an analysis on a Network Access Scope, Network Access Analyzer produces findings. For more information, see the [Network Access Analyzer User Guide](https://docs.aws.amazon.com/vpc/latest/network-access-analyzer/) .
 //
 // TODO: EXAMPLE
 //

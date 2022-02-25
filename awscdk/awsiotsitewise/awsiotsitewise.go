@@ -2415,7 +2415,29 @@ type CfnAssetModel_TumblingWindowProperty struct {
 	//
 	// When AWS IoT SiteWise aggregates data points for metric computations, the start of each interval is exclusive and the end of each interval is inclusive. AWS IoT SiteWise places the computed data point at the end of the interval.
 	Interval *string `json:"interval" yaml:"interval"`
-	// `CfnAssetModel.TumblingWindowProperty.Offset`.
+	// The offset for the tumbling window. The `offset` parameter accepts the following:.
+	//
+	// - The offset time.
+	//
+	// For example, if you specify `18h` for `offset` and `1d` for `interval` , AWS IoT SiteWise aggregates data in one of the following ways:
+	//
+	// - If you create the metric before or at 6 PM (UTC), you get the first aggregation result at 6 PM (UTC) on the day when you create the metric.
+	// - If you create the metric after 6 PM (UTC), you get the first aggregation result at 6 PM (UTC) the next day.
+	// - The ISO 8601 format.
+	//
+	// For example, if you specify `PT18H` for `offset` and `1d` for `interval` , AWS IoT SiteWise aggregates data in one of the following ways:
+	//
+	// - If you create the metric before or at 6 PM (UTC), you get the first aggregation result at 6 PM (UTC) on the day when you create the metric.
+	// - If you create the metric after 6 PM (UTC), you get the first aggregation result at 6 PM (UTC) the next day.
+	// - The 24-hour clock.
+	//
+	// For example, if you specify `00:03:00` for `offset` , `5m` for `interval` , and you create the metric at 2 PM (UTC), you get the first aggregation result at 2:03 PM (UTC). You get the second aggregation result at 2:08 PM (UTC).
+	// - The offset time zone.
+	//
+	// For example, if you specify `2021-07-23T18:00-08` for `offset` and `1d` for `interval` , AWS IoT SiteWise aggregates data in one of the following ways:
+	//
+	// - If you create the metric before or at 6 PM (PST), you get the first aggregation result at 6 PM (PST) on the day when you create the metric.
+	// - If you create the metric after 6 PM (PST), you get the first aggregation result at 6 PM (PST) the next day.
 	Offset *string `json:"offset" yaml:"offset"`
 }
 
@@ -3884,7 +3906,7 @@ type CfnGateway_GatewayCapabilitySummaryProperty struct {
 type CfnGateway_GatewayPlatformProperty struct {
 	// A gateway that runs on AWS IoT Greengrass .
 	Greengrass interface{} `json:"greengrass" yaml:"greengrass"`
-	// `CfnGateway.GatewayPlatformProperty.GreengrassV2`.
+	// A gateway that runs on AWS IoT Greengrass V2.
 	GreengrassV2 interface{} `json:"greengrassV2" yaml:"greengrassV2"`
 }
 
@@ -3899,10 +3921,14 @@ type CfnGateway_GreengrassProperty struct {
 	GroupArn *string `json:"groupArn" yaml:"groupArn"`
 }
 
+// Contains details for a gateway that runs on AWS IoT Greengrass V2.
+//
+// To create a gateway that runs on AWS IoT Greengrass V2, you must deploy the IoT SiteWise Edge component to your gateway device. Your [Greengrass device role](https://docs.aws.amazon.com/greengrass/v2/developerguide/device-service-role.html) must use the `AWSIoTSiteWiseEdgeAccess` policy. For more information, see [Using AWS IoT SiteWise at the edge](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/sw-gateways.html) in the *AWS IoT SiteWise User Guide* .
+//
 // TODO: EXAMPLE
 //
 type CfnGateway_GreengrassV2Property struct {
-	// `CfnGateway.GreengrassV2Property.CoreDeviceThingName`.
+	// The name of the AWS IoT thing for your AWS IoT Greengrass V2 core device.
 	CoreDeviceThingName *string `json:"coreDeviceThingName" yaml:"coreDeviceThingName"`
 }
 
@@ -5440,7 +5466,7 @@ type CfnProjectProps struct {
 	PortalId *string `json:"portalId" yaml:"portalId"`
 	// A friendly name for the project.
 	ProjectName *string `json:"projectName" yaml:"projectName"`
-	// `AWS::IoTSiteWise::Project.AssetIds`.
+	// A list that contains the IDs of each asset associated with the project.
 	AssetIds *[]*string `json:"assetIds" yaml:"assetIds"`
 	// A description for the project.
 	ProjectDescription *string `json:"projectDescription" yaml:"projectDescription"`
