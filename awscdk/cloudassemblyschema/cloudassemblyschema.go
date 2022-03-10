@@ -1,7 +1,7 @@
 package cloudassemblyschema
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -9,16 +9,22 @@ import (
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type AmiContextQuery struct {
 	// Account to query.
+	// Experimental.
 	Account *string `json:"account" yaml:"account"`
 	// Filters to DescribeImages call.
+	// Experimental.
 	Filters *map[string]*[]*string `json:"filters" yaml:"filters"`
 	// Region to query.
+	// Experimental.
 	Region *string `json:"region" yaml:"region"`
 	// The ARN of the role that should be used to look up the missing values.
+	// Experimental.
 	LookupRoleArn *string `json:"lookupRoleArn" yaml:"lookupRoleArn"`
 	// Owners to DescribeImages call.
+	// Experimental.
 	Owners *[]*string `json:"owners" yaml:"owners"`
 }
 
@@ -26,24 +32,32 @@ type AmiContextQuery struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type ArtifactManifest struct {
 	// The type of artifact.
+	// Experimental.
 	Type ArtifactType `json:"type" yaml:"type"`
 	// IDs of artifacts that must be deployed before this artifact.
+	// Experimental.
 	Dependencies *[]*string `json:"dependencies" yaml:"dependencies"`
 	// A string that represents this artifact.
 	//
 	// Should only be used in user interfaces.
+	// Experimental.
 	DisplayName *string `json:"displayName" yaml:"displayName"`
 	// The environment into which this artifact is deployed.
+	// Experimental.
 	Environment *string `json:"environment" yaml:"environment"`
 	// Associated metadata.
+	// Experimental.
 	Metadata *map[string]*[]*MetadataEntry `json:"metadata" yaml:"metadata"`
 	// The set of properties for this artifact (depends on type).
+	// Experimental.
 	Properties interface{} `json:"properties" yaml:"properties"`
 }
 
 // Type of artifact metadata entry.
+// Experimental.
 type ArtifactMetadataEntryType string
 
 const (
@@ -56,6 +70,7 @@ const (
 )
 
 // Type of cloud artifact.
+// Experimental.
 type ArtifactType string
 
 const (
@@ -70,17 +85,22 @@ const (
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type AssemblyManifest struct {
 	// Protocol version.
+	// Experimental.
 	Version *string `json:"version" yaml:"version"`
 	// The set of artifacts in this assembly.
+	// Experimental.
 	Artifacts *map[string]*ArtifactManifest `json:"artifacts" yaml:"artifacts"`
 	// Missing context information.
 	//
 	// If this field has values, it means that the
 	// cloud assembly is not complete and should not be deployed.
+	// Experimental.
 	Missing *[]*MissingContext `json:"missing" yaml:"missing"`
 	// Runtime information.
+	// Experimental.
 	Runtime *RuntimeInfo `json:"runtime" yaml:"runtime"`
 }
 
@@ -88,12 +108,16 @@ type AssemblyManifest struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type AssetManifest struct {
 	// Version of the manifest.
+	// Experimental.
 	Version *string `json:"version" yaml:"version"`
 	// The Docker image assets in this manifest.
+	// Experimental.
 	DockerImages *map[string]*DockerImageAsset `json:"dockerImages" yaml:"dockerImages"`
 	// The file assets in this manifest.
+	// Experimental.
 	Files *map[string]*FileAsset `json:"files" yaml:"files"`
 }
 
@@ -101,8 +125,10 @@ type AssetManifest struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type AssetManifestProperties struct {
 	// Filename of the asset manifest.
+	// Experimental.
 	File *string `json:"file" yaml:"file"`
 	// SSM parameter where the bootstrap stack version number can be found.
 	//
@@ -111,8 +137,10 @@ type AssetManifestProperties struct {
 	//    outputs.
 	// - If this value is set, the bootstrap stack can have any name because
 	//    we won't need to look it up.
+	// Experimental.
 	BootstrapStackVersionSsmParameter *string `json:"bootstrapStackVersionSsmParameter" yaml:"bootstrapStackVersionSsmParameter"`
 	// Version of bootstrap stack required to deploy this stack.
+	// Experimental.
 	RequiresBootstrapStackVersion *float64 `json:"requiresBootstrapStackVersion" yaml:"requiresBootstrapStackVersion"`
 }
 
@@ -120,12 +148,16 @@ type AssetManifestProperties struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type AvailabilityZonesContextQuery struct {
 	// Query account.
+	// Experimental.
 	Account *string `json:"account" yaml:"account"`
 	// Query region.
+	// Experimental.
 	Region *string `json:"region" yaml:"region"`
 	// The ARN of the role that should be used to look up the missing values.
+	// Experimental.
 	LookupRoleArn *string `json:"lookupRoleArn" yaml:"lookupRoleArn"`
 }
 
@@ -133,12 +165,16 @@ type AvailabilityZonesContextQuery struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type AwsCloudFormationStackProperties struct {
 	// A file relative to the assembly root which contains the CloudFormation template for this stack.
+	// Experimental.
 	TemplateFile *string `json:"templateFile" yaml:"templateFile"`
 	// The role that needs to be assumed to deploy the stack.
+	// Experimental.
 	AssumeRoleArn *string `json:"assumeRoleArn" yaml:"assumeRoleArn"`
 	// External ID to use when assuming role for cloudformation deployments.
+	// Experimental.
 	AssumeRoleExternalId *string `json:"assumeRoleExternalId" yaml:"assumeRoleExternalId"`
 	// SSM parameter where the bootstrap stack version number can be found.
 	//
@@ -149,24 +185,34 @@ type AwsCloudFormationStackProperties struct {
 	//    outputs.
 	// - If this value is set, the bootstrap stack can have any name because
 	//    we won't need to look it up.
+	// Experimental.
 	BootstrapStackVersionSsmParameter *string `json:"bootstrapStackVersionSsmParameter" yaml:"bootstrapStackVersionSsmParameter"`
 	// The role that is passed to CloudFormation to execute the change set.
+	// Experimental.
 	CloudFormationExecutionRoleArn *string `json:"cloudFormationExecutionRoleArn" yaml:"cloudFormationExecutionRoleArn"`
 	// The role to use to look up values from the target AWS account.
+	// Experimental.
 	LookupRole *BootstrapRole `json:"lookupRole" yaml:"lookupRole"`
 	// Values for CloudFormation stack parameters that should be passed when the stack is deployed.
+	// Experimental.
 	Parameters *map[string]*string `json:"parameters" yaml:"parameters"`
 	// Version of bootstrap stack required to deploy this stack.
+	// Experimental.
 	RequiresBootstrapStackVersion *float64 `json:"requiresBootstrapStackVersion" yaml:"requiresBootstrapStackVersion"`
 	// The name to use for the CloudFormation stack.
+	// Experimental.
 	StackName *string `json:"stackName" yaml:"stackName"`
 	// If the stack template has already been included in the asset manifest, its asset URL.
+	// Experimental.
 	StackTemplateAssetObjectUrl *string `json:"stackTemplateAssetObjectUrl" yaml:"stackTemplateAssetObjectUrl"`
 	// Values for CloudFormation stack tags that should be passed when the stack is deployed.
+	// Experimental.
 	Tags *map[string]*string `json:"tags" yaml:"tags"`
 	// Whether to enable termination protection for this stack.
+	// Experimental.
 	TerminationProtection *bool `json:"terminationProtection" yaml:"terminationProtection"`
 	// Whether this stack should be validated by the CLI after synthesis.
+	// Experimental.
 	ValidateOnSynth *bool `json:"validateOnSynth" yaml:"validateOnSynth"`
 }
 
@@ -174,12 +220,16 @@ type AwsCloudFormationStackProperties struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type AwsDestination struct {
 	// The role that needs to be assumed while publishing this asset.
+	// Experimental.
 	AssumeRoleArn *string `json:"assumeRoleArn" yaml:"assumeRoleArn"`
 	// The ExternalId that needs to be supplied while assuming this role.
+	// Experimental.
 	AssumeRoleExternalId *string `json:"assumeRoleExternalId" yaml:"assumeRoleExternalId"`
 	// The region where this asset will need to be published.
+	// Experimental.
 	Region *string `json:"region" yaml:"region"`
 }
 
@@ -187,14 +237,19 @@ type AwsDestination struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type BootstrapRole struct {
 	// The ARN of the IAM role created as part of bootrapping e.g. lookupRoleArn.
+	// Experimental.
 	Arn *string `json:"arn" yaml:"arn"`
 	// External ID to use when assuming the bootstrap role.
+	// Experimental.
 	AssumeRoleExternalId *string `json:"assumeRoleExternalId" yaml:"assumeRoleExternalId"`
 	// Name of SSM parameter with bootstrap stack version.
+	// Experimental.
 	BootstrapStackVersionSsmParameter *string `json:"bootstrapStackVersionSsmParameter" yaml:"bootstrapStackVersionSsmParameter"`
 	// Version of bootstrap stack required to use this role.
+	// Experimental.
 	RequiresBootstrapStackVersion *float64 `json:"requiresBootstrapStackVersion" yaml:"requiresBootstrapStackVersion"`
 }
 
@@ -202,38 +257,54 @@ type BootstrapRole struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type ContainerImageAssetMetadataEntry struct {
 	// Logical identifier for the asset.
+	// Experimental.
 	Id *string `json:"id" yaml:"id"`
 	// Type of asset.
+	// Experimental.
 	Packaging *string `json:"packaging" yaml:"packaging"`
 	// Path on disk to the asset.
+	// Experimental.
 	Path *string `json:"path" yaml:"path"`
 	// The hash of the asset source.
+	// Experimental.
 	SourceHash *string `json:"sourceHash" yaml:"sourceHash"`
 	// Build args to pass to the `docker build` command.
+	// Experimental.
 	BuildArgs *map[string]*string `json:"buildArgs" yaml:"buildArgs"`
 	// Path to the Dockerfile (relative to the directory).
+	// Experimental.
 	File *string `json:"file" yaml:"file"`
+	// ECR Repository name and repo digest (separated by "@sha256:") where this image is stored.
+	// Deprecated: specify `repositoryName` and `imageTag` instead, and then you
+	// know where the image will go.
+	ImageNameParameter *string `json:"imageNameParameter" yaml:"imageNameParameter"`
 	// The docker image tag to use for tagging pushed images.
 	//
 	// This field is
 	// required if `imageParameterName` is ommited (otherwise, the app won't be
 	// able to find the image).
+	// Experimental.
 	ImageTag *string `json:"imageTag" yaml:"imageTag"`
 	// Networking mode for the RUN commands during build.
+	// Experimental.
 	NetworkMode *string `json:"networkMode" yaml:"networkMode"`
 	// ECR repository name, if omitted a default name based on the asset's ID is used instead.
 	//
 	// Specify this property if you need to statically address the
 	// image, e.g. from a Kubernetes Pod. Note, this is only the repository name,
 	// without the registry and the tag parts.
+	// Experimental.
 	RepositoryName *string `json:"repositoryName" yaml:"repositoryName"`
 	// Docker target to build to.
+	// Experimental.
 	Target *string `json:"target" yaml:"target"`
 }
 
 // Identifier for the context provider.
+// Experimental.
 type ContextProvider string
 
 const (
@@ -254,10 +325,13 @@ const (
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type DockerImageAsset struct {
 	// Destinations for this file asset.
+	// Experimental.
 	Destinations *map[string]*DockerImageDestination `json:"destinations" yaml:"destinations"`
 	// Source description for file assets.
+	// Experimental.
 	Source *DockerImageSource `json:"source" yaml:"source"`
 }
 
@@ -265,16 +339,22 @@ type DockerImageAsset struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type DockerImageDestination struct {
 	// The role that needs to be assumed while publishing this asset.
+	// Experimental.
 	AssumeRoleArn *string `json:"assumeRoleArn" yaml:"assumeRoleArn"`
 	// The ExternalId that needs to be supplied while assuming this role.
+	// Experimental.
 	AssumeRoleExternalId *string `json:"assumeRoleExternalId" yaml:"assumeRoleExternalId"`
 	// The region where this asset will need to be published.
+	// Experimental.
 	Region *string `json:"region" yaml:"region"`
 	// Tag of the image to publish.
+	// Experimental.
 	ImageTag *string `json:"imageTag" yaml:"imageTag"`
 	// Name of the ECR repository to publish to.
+	// Experimental.
 	RepositoryName *string `json:"repositoryName" yaml:"repositoryName"`
 }
 
@@ -282,28 +362,35 @@ type DockerImageDestination struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type DockerImageSource struct {
 	// The directory containing the Docker image build instructions.
 	//
 	// This path is relative to the asset manifest location.
+	// Experimental.
 	Directory *string `json:"directory" yaml:"directory"`
 	// Additional build arguments.
 	//
 	// Only allowed when `directory` is set.
+	// Experimental.
 	DockerBuildArgs *map[string]*string `json:"dockerBuildArgs" yaml:"dockerBuildArgs"`
 	// Target build stage in a Dockerfile with multiple build stages.
 	//
 	// Only allowed when `directory` is set.
+	// Experimental.
 	DockerBuildTarget *string `json:"dockerBuildTarget" yaml:"dockerBuildTarget"`
 	// The name of the file with build instructions.
 	//
 	// Only allowed when `directory` is set.
+	// Experimental.
 	DockerFile *string `json:"dockerFile" yaml:"dockerFile"`
 	// A command-line executable that returns the name of a local Docker image on stdout after being run.
+	// Experimental.
 	Executable *[]*string `json:"executable" yaml:"executable"`
 	// Networking mode for the RUN commands during build. _Requires Docker Engine API v1.25+_.
 	//
 	// Specify this property to build images on a specific networking mode.
+	// Experimental.
 	NetworkMode *string `json:"networkMode" yaml:"networkMode"`
 }
 
@@ -311,14 +398,19 @@ type DockerImageSource struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type EndpointServiceAvailabilityZonesContextQuery struct {
 	// Query account.
+	// Experimental.
 	Account *string `json:"account" yaml:"account"`
 	// Query region.
+	// Experimental.
 	Region *string `json:"region" yaml:"region"`
 	// Query service name.
+	// Experimental.
 	ServiceName *string `json:"serviceName" yaml:"serviceName"`
 	// The ARN of the role that should be used to look up the missing values.
+	// Experimental.
 	LookupRoleArn *string `json:"lookupRoleArn" yaml:"lookupRoleArn"`
 }
 
@@ -326,10 +418,13 @@ type EndpointServiceAvailabilityZonesContextQuery struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type FileAsset struct {
 	// Destinations for this file asset.
+	// Experimental.
 	Destinations *map[string]*FileDestination `json:"destinations" yaml:"destinations"`
 	// Source description for file assets.
+	// Experimental.
 	Source *FileSource `json:"source" yaml:"source"`
 }
 
@@ -337,24 +432,33 @@ type FileAsset struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type FileAssetMetadataEntry struct {
 	// The name of the parameter where the hash of the bundled asset should be passed in.
+	// Experimental.
 	ArtifactHashParameter *string `json:"artifactHashParameter" yaml:"artifactHashParameter"`
 	// Logical identifier for the asset.
+	// Experimental.
 	Id *string `json:"id" yaml:"id"`
 	// Requested packaging style.
+	// Experimental.
 	Packaging *string `json:"packaging" yaml:"packaging"`
 	// Path on disk to the asset.
+	// Experimental.
 	Path *string `json:"path" yaml:"path"`
 	// Name of parameter where S3 bucket should be passed in.
+	// Experimental.
 	S3BucketParameter *string `json:"s3BucketParameter" yaml:"s3BucketParameter"`
 	// Name of parameter where S3 key should be passed in.
+	// Experimental.
 	S3KeyParameter *string `json:"s3KeyParameter" yaml:"s3KeyParameter"`
 	// The hash of the asset source.
+	// Experimental.
 	SourceHash *string `json:"sourceHash" yaml:"sourceHash"`
 }
 
 // Packaging strategy for file assets.
+// Experimental.
 type FileAssetPackaging string
 
 const (
@@ -366,16 +470,22 @@ const (
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type FileDestination struct {
 	// The role that needs to be assumed while publishing this asset.
+	// Experimental.
 	AssumeRoleArn *string `json:"assumeRoleArn" yaml:"assumeRoleArn"`
 	// The ExternalId that needs to be supplied while assuming this role.
+	// Experimental.
 	AssumeRoleExternalId *string `json:"assumeRoleExternalId" yaml:"assumeRoleExternalId"`
 	// The region where this asset will need to be published.
+	// Experimental.
 	Region *string `json:"region" yaml:"region"`
 	// The name of the bucket.
+	// Experimental.
 	BucketName *string `json:"bucketName" yaml:"bucketName"`
 	// The destination object key.
+	// Experimental.
 	ObjectKey *string `json:"objectKey" yaml:"objectKey"`
 }
 
@@ -383,16 +493,20 @@ type FileDestination struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type FileSource struct {
 	// External command which will produce the file asset to upload.
+	// Experimental.
 	Executable *[]*string `json:"executable" yaml:"executable"`
 	// Packaging method.
 	//
 	// Only allowed when `path` is specified.
+	// Experimental.
 	Packaging FileAssetPackaging `json:"packaging" yaml:"packaging"`
 	// The filesystem object to upload.
 	//
 	// This path is relative to the asset manifest location.
+	// Experimental.
 	Path *string `json:"path" yaml:"path"`
 }
 
@@ -400,21 +514,28 @@ type FileSource struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type HostedZoneContextQuery struct {
 	// Query account.
+	// Experimental.
 	Account *string `json:"account" yaml:"account"`
 	// The domain name e.g. example.com to lookup.
+	// Experimental.
 	DomainName *string `json:"domainName" yaml:"domainName"`
 	// Query region.
+	// Experimental.
 	Region *string `json:"region" yaml:"region"`
 	// The ARN of the role that should be used to look up the missing values.
+	// Experimental.
 	LookupRoleArn *string `json:"lookupRoleArn" yaml:"lookupRoleArn"`
 	// True if the zone you want to find is a private hosted zone.
+	// Experimental.
 	PrivateZone *bool `json:"privateZone" yaml:"privateZone"`
 	// The VPC ID to that the private zone must be associated with.
 	//
 	// If you provide VPC ID and privateZone is false, this will return no results
 	// and raise an error.
+	// Experimental.
 	VpcId *string `json:"vpcId" yaml:"vpcId"`
 }
 
@@ -422,14 +543,19 @@ type HostedZoneContextQuery struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type KeyContextQuery struct {
 	// Query account.
+	// Experimental.
 	Account *string `json:"account" yaml:"account"`
 	// Alias name used to search the Key.
+	// Experimental.
 	AliasName *string `json:"aliasName" yaml:"aliasName"`
 	// Query region.
+	// Experimental.
 	Region *string `json:"region" yaml:"region"`
 	// The ARN of the role that should be used to look up the missing values.
+	// Experimental.
 	LookupRoleArn *string `json:"lookupRoleArn" yaml:"lookupRoleArn"`
 }
 
@@ -437,18 +563,25 @@ type KeyContextQuery struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type LoadBalancerContextQuery struct {
 	// Filter load balancers by their type.
+	// Experimental.
 	LoadBalancerType LoadBalancerType `json:"loadBalancerType" yaml:"loadBalancerType"`
 	// Find by load balancer's ARN.
+	// Experimental.
 	LoadBalancerArn *string `json:"loadBalancerArn" yaml:"loadBalancerArn"`
 	// Match load balancer tags.
+	// Experimental.
 	LoadBalancerTags *[]*Tag `json:"loadBalancerTags" yaml:"loadBalancerTags"`
 	// Query account.
+	// Experimental.
 	Account *string `json:"account" yaml:"account"`
 	// Query region.
+	// Experimental.
 	Region *string `json:"region" yaml:"region"`
 	// The ARN of the role that should be used to look up the missing values.
+	// Experimental.
 	LookupRoleArn *string `json:"lookupRoleArn" yaml:"lookupRoleArn"`
 }
 
@@ -456,12 +589,16 @@ type LoadBalancerContextQuery struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type LoadBalancerFilter struct {
 	// Filter load balancers by their type.
+	// Experimental.
 	LoadBalancerType LoadBalancerType `json:"loadBalancerType" yaml:"loadBalancerType"`
 	// Find by load balancer's ARN.
+	// Experimental.
 	LoadBalancerArn *string `json:"loadBalancerArn" yaml:"loadBalancerArn"`
 	// Match load balancer tags.
+	// Experimental.
 	LoadBalancerTags *[]*Tag `json:"loadBalancerTags" yaml:"loadBalancerTags"`
 }
 
@@ -469,28 +606,39 @@ type LoadBalancerFilter struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type LoadBalancerListenerContextQuery struct {
 	// Filter load balancers by their type.
+	// Experimental.
 	LoadBalancerType LoadBalancerType `json:"loadBalancerType" yaml:"loadBalancerType"`
 	// Find by load balancer's ARN.
+	// Experimental.
 	LoadBalancerArn *string `json:"loadBalancerArn" yaml:"loadBalancerArn"`
 	// Match load balancer tags.
+	// Experimental.
 	LoadBalancerTags *[]*Tag `json:"loadBalancerTags" yaml:"loadBalancerTags"`
 	// Query account.
+	// Experimental.
 	Account *string `json:"account" yaml:"account"`
 	// Query region.
+	// Experimental.
 	Region *string `json:"region" yaml:"region"`
 	// Find by listener's arn.
+	// Experimental.
 	ListenerArn *string `json:"listenerArn" yaml:"listenerArn"`
 	// Filter listeners by listener port.
+	// Experimental.
 	ListenerPort *float64 `json:"listenerPort" yaml:"listenerPort"`
 	// Filter by listener protocol.
+	// Experimental.
 	ListenerProtocol LoadBalancerListenerProtocol `json:"listenerProtocol" yaml:"listenerProtocol"`
 	// The ARN of the role that should be used to look up the missing values.
+	// Experimental.
 	LookupRoleArn *string `json:"lookupRoleArn" yaml:"lookupRoleArn"`
 }
 
 // The protocol for connections from clients to the load balancer.
+// Experimental.
 type LoadBalancerListenerProtocol string
 
 const (
@@ -503,6 +651,7 @@ const (
 )
 
 // Type of load balancer.
+// Experimental.
 type LoadBalancerType string
 
 const (
@@ -511,6 +660,7 @@ const (
 )
 
 // Protocol utility class.
+// Experimental.
 type Manifest interface {
 }
 
@@ -519,14 +669,32 @@ type jsiiProxy_Manifest struct {
 	_ byte // padding
 }
 
+// Deprecated.
+// Deprecated: use `loadAssemblyManifest()`
+func Manifest_Load(filePath *string) *AssemblyManifest {
+	_init_.Initialize()
+
+	var returns *AssemblyManifest
+
+	_jsii_.StaticInvoke(
+		"monocdk.cloud_assembly_schema.Manifest",
+		"load",
+		[]interface{}{filePath},
+		&returns,
+	)
+
+	return returns
+}
+
 // Load and validates the cloud assembly manifest from file.
+// Experimental.
 func Manifest_LoadAssemblyManifest(filePath *string) *AssemblyManifest {
 	_init_.Initialize()
 
 	var returns *AssemblyManifest
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.cloud_assembly_schema.Manifest",
+		"monocdk.cloud_assembly_schema.Manifest",
 		"loadAssemblyManifest",
 		[]interface{}{filePath},
 		&returns,
@@ -536,13 +704,14 @@ func Manifest_LoadAssemblyManifest(filePath *string) *AssemblyManifest {
 }
 
 // Load and validates the asset manifest from file.
+// Experimental.
 func Manifest_LoadAssetManifest(filePath *string) *AssetManifest {
 	_init_.Initialize()
 
 	var returns *AssetManifest
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.cloud_assembly_schema.Manifest",
+		"monocdk.cloud_assembly_schema.Manifest",
 		"loadAssetManifest",
 		[]interface{}{filePath},
 		&returns,
@@ -551,36 +720,51 @@ func Manifest_LoadAssetManifest(filePath *string) *AssetManifest {
 	return returns
 }
 
+// Deprecated.
+// Deprecated: use `saveAssemblyManifest()`
+func Manifest_Save(manifest *AssemblyManifest, filePath *string) {
+	_init_.Initialize()
+
+	_jsii_.StaticInvokeVoid(
+		"monocdk.cloud_assembly_schema.Manifest",
+		"save",
+		[]interface{}{manifest, filePath},
+	)
+}
+
 // Validates and saves the cloud assembly manifest to file.
+// Experimental.
 func Manifest_SaveAssemblyManifest(manifest *AssemblyManifest, filePath *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.cloud_assembly_schema.Manifest",
+		"monocdk.cloud_assembly_schema.Manifest",
 		"saveAssemblyManifest",
 		[]interface{}{manifest, filePath},
 	)
 }
 
 // Validates and saves the asset manifest to file.
+// Experimental.
 func Manifest_SaveAssetManifest(manifest *AssetManifest, filePath *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.cloud_assembly_schema.Manifest",
+		"monocdk.cloud_assembly_schema.Manifest",
 		"saveAssetManifest",
 		[]interface{}{manifest, filePath},
 	)
 }
 
 // Fetch the current schema version number.
+// Experimental.
 func Manifest_Version() *string {
 	_init_.Initialize()
 
 	var returns *string
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.cloud_assembly_schema.Manifest",
+		"monocdk.cloud_assembly_schema.Manifest",
 		"version",
 		nil, // no parameters
 		&returns,
@@ -593,12 +777,16 @@ func Manifest_Version() *string {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type MetadataEntry struct {
 	// The type of the metadata entry.
+	// Experimental.
 	Type *string `json:"type" yaml:"type"`
 	// The data.
+	// Experimental.
 	Data interface{} `json:"data" yaml:"data"`
 	// A stack trace for when the entry was created.
+	// Experimental.
 	Trace *[]*string `json:"trace" yaml:"trace"`
 }
 
@@ -606,12 +794,16 @@ type MetadataEntry struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type MissingContext struct {
 	// The missing context key.
+	// Experimental.
 	Key *string `json:"key" yaml:"key"`
 	// A set of provider-specific options.
+	// Experimental.
 	Props interface{} `json:"props" yaml:"props"`
 	// The provider from which we expect this context key to be obtained.
+	// Experimental.
 	Provider ContextProvider `json:"provider" yaml:"provider"`
 }
 
@@ -619,10 +811,13 @@ type MissingContext struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type NestedCloudAssemblyProperties struct {
 	// Relative path to the nested cloud assembly.
+	// Experimental.
 	DirectoryName *string `json:"directoryName" yaml:"directoryName"`
 	// Display name for the cloud assembly.
+	// Experimental.
 	DisplayName *string `json:"displayName" yaml:"displayName"`
 }
 
@@ -633,8 +828,10 @@ type NestedCloudAssemblyProperties struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type PluginContextQuery struct {
 	// The name of the plugin.
+	// Experimental.
 	PluginName *string `json:"pluginName" yaml:"pluginName"`
 }
 
@@ -642,8 +839,10 @@ type PluginContextQuery struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type RuntimeInfo struct {
 	// The list of libraries loaded in the application, associated with their versions.
+	// Experimental.
 	Libraries *map[string]*string `json:"libraries" yaml:"libraries"`
 }
 
@@ -651,14 +850,19 @@ type RuntimeInfo struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type SSMParameterContextQuery struct {
 	// Query account.
+	// Experimental.
 	Account *string `json:"account" yaml:"account"`
 	// Parameter name to query.
+	// Experimental.
 	ParameterName *string `json:"parameterName" yaml:"parameterName"`
 	// Query region.
+	// Experimental.
 	Region *string `json:"region" yaml:"region"`
 	// The ARN of the role that should be used to look up the missing values.
+	// Experimental.
 	LookupRoleArn *string `json:"lookupRoleArn" yaml:"lookupRoleArn"`
 }
 
@@ -666,18 +870,25 @@ type SSMParameterContextQuery struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type SecurityGroupContextQuery struct {
 	// Query account.
+	// Experimental.
 	Account *string `json:"account" yaml:"account"`
 	// Query region.
+	// Experimental.
 	Region *string `json:"region" yaml:"region"`
 	// The ARN of the role that should be used to look up the missing values.
+	// Experimental.
 	LookupRoleArn *string `json:"lookupRoleArn" yaml:"lookupRoleArn"`
 	// Security group id.
+	// Experimental.
 	SecurityGroupId *string `json:"securityGroupId" yaml:"securityGroupId"`
 	// Security group name.
+	// Experimental.
 	SecurityGroupName *string `json:"securityGroupName" yaml:"securityGroupName"`
 	// VPC ID.
+	// Experimental.
 	VpcId *string `json:"vpcId" yaml:"vpcId"`
 }
 
@@ -685,18 +896,21 @@ type SecurityGroupContextQuery struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type Tag struct {
 	// Tag key.
 	//
 	// (In the actual file on disk this will be cased as "Key", and the structure is
 	// patched to match this structure upon loading:
 	// https://github.com/aws/aws-cdk/blob/4aadaa779b48f35838cccd4e25107b2338f05547/packages/%40aws-cdk/cloud-assembly-schema/lib/manifest.ts#L137)
+	// Experimental.
 	Key *string `json:"key" yaml:"key"`
 	// Tag value.
 	//
 	// (In the actual file on disk this will be cased as "Value", and the structure is
 	// patched to match this structure upon loading:
 	// https://github.com/aws/aws-cdk/blob/4aadaa779b48f35838cccd4e25107b2338f05547/packages/%40aws-cdk/cloud-assembly-schema/lib/manifest.ts#L137)
+	// Experimental.
 	Value *string `json:"value" yaml:"value"`
 }
 
@@ -704,8 +918,10 @@ type Tag struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type TreeArtifactProperties struct {
 	// Filename of the tree artifact.
+	// Experimental.
 	File *string `json:"file" yaml:"file"`
 }
 
@@ -713,26 +929,33 @@ type TreeArtifactProperties struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type VpcContextQuery struct {
 	// Query account.
+	// Experimental.
 	Account *string `json:"account" yaml:"account"`
 	// Filters to apply to the VPC.
 	//
 	// Filter parameters are the same as passed to DescribeVpcs.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html
 	//
+	// Experimental.
 	Filter *map[string]*string `json:"filter" yaml:"filter"`
 	// Query region.
+	// Experimental.
 	Region *string `json:"region" yaml:"region"`
 	// The ARN of the role that should be used to look up the missing values.
+	// Experimental.
 	LookupRoleArn *string `json:"lookupRoleArn" yaml:"lookupRoleArn"`
 	// Whether to populate the subnetGroups field of the {@link VpcContextResponse}, which contains potentially asymmetric subnet groups.
+	// Experimental.
 	ReturnAsymmetricSubnets *bool `json:"returnAsymmetricSubnets" yaml:"returnAsymmetricSubnets"`
 	// Optional tag for subnet group name.
 	//
 	// If not provided, we'll look at the aws-cdk:subnet-name tag.
 	// If the subnet does not have the specified tag,
 	// we'll use its type as the name.
+	// Experimental.
 	SubnetGroupNameTag *string `json:"subnetGroupNameTag" yaml:"subnetGroupNameTag"`
 }
 
