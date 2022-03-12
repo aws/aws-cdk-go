@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterInterface(
-		"monocdk.triggers.ITrigger",
+		"aws-cdk-lib.triggers.ITrigger",
 		reflect.TypeOf((*ITrigger)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "executeAfter", GoMethod: "ExecuteAfter"},
@@ -17,34 +17,28 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_ITrigger{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			return &j
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.triggers.Trigger",
+		"aws-cdk-lib.triggers.Trigger",
 		reflect.TypeOf((*Trigger)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "executeAfter", GoMethod: "ExecuteAfter"},
 			_jsii_.MemberMethod{JsiiMethod: "executeBefore", GoMethod: "ExecuteBefore"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_Trigger{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__constructsConstruct)
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITrigger)
 			return &j
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.triggers.TriggerFunction",
+		"aws-cdk-lib.triggers.TriggerFunction",
 		reflect.TypeOf((*TriggerFunction)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addEnvironment", GoMethod: "AddEnvironment"},
@@ -53,7 +47,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addLayers", GoMethod: "AddLayers"},
 			_jsii_.MemberMethod{JsiiMethod: "addPermission", GoMethod: "AddPermission"},
 			_jsii_.MemberMethod{JsiiMethod: "addToRolePolicy", GoMethod: "AddToRolePolicy"},
-			_jsii_.MemberMethod{JsiiMethod: "addVersion", GoMethod: "AddVersion"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "architecture", GoGetter: "Architecture"},
 			_jsii_.MemberProperty{JsiiProperty: "canCreatePermissions", GoGetter: "CanCreatePermissions"},
@@ -81,20 +74,14 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricInvocations", GoMethod: "MetricInvocations"},
 			_jsii_.MemberMethod{JsiiMethod: "metricThrottles", GoMethod: "MetricThrottles"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "permissionsNode", GoGetter: "PermissionsNode"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
 			_jsii_.MemberProperty{JsiiProperty: "runtime", GoGetter: "Runtime"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "timeout", GoGetter: "Timeout"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "trigger", GoGetter: "Trigger"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_TriggerFunction{}
@@ -104,22 +91,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.triggers.TriggerFunctionProps",
+		"aws-cdk-lib.triggers.TriggerFunctionProps",
 		reflect.TypeOf((*TriggerFunctionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.triggers.TriggerInvalidation",
+		"aws-cdk-lib.triggers.TriggerInvalidation",
 		reflect.TypeOf((*TriggerInvalidation)(nil)).Elem(),
 		map[string]interface{}{
 			"HANDLER_CHANGE": TriggerInvalidation_HANDLER_CHANGE,
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.triggers.TriggerOptions",
+		"aws-cdk-lib.triggers.TriggerOptions",
 		reflect.TypeOf((*TriggerOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.triggers.TriggerProps",
+		"aws-cdk-lib.triggers.TriggerProps",
 		reflect.TypeOf((*TriggerProps)(nil)).Elem(),
 	)
 }

@@ -1,11 +1,11 @@
 package assertions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/cxapi"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/cxapi"
 )
 
 // Suite of assertions that can be run on a CDK Stack.
@@ -14,7 +14,6 @@ import (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Annotations interface {
 	FindError(constructPath *string, message interface{}) *[]*cxapi.SynthesisMessage
 	FindInfo(constructPath *string, message interface{}) *[]*cxapi.SynthesisMessage
@@ -30,14 +29,13 @@ type jsiiProxy_Annotations struct {
 }
 
 // Base your assertions on the messages returned by a synthesized CDK `Stack`.
-// Experimental.
 func Annotations_FromStack(stack awscdk.Stack) Annotations {
 	_init_.Initialize()
 
 	var returns Annotations
 
 	_jsii_.StaticInvoke(
-		"monocdk.assertions.Annotations",
+		"aws-cdk-lib.assertions.Annotations",
 		"fromStack",
 		[]interface{}{stack},
 		&returns,
@@ -47,7 +45,6 @@ func Annotations_FromStack(stack awscdk.Stack) Annotations {
 }
 
 // Get the set of matching errors of a given construct path and message.
-// Experimental.
 func (a *jsiiProxy_Annotations) FindError(constructPath *string, message interface{}) *[]*cxapi.SynthesisMessage {
 	var returns *[]*cxapi.SynthesisMessage
 
@@ -62,7 +59,6 @@ func (a *jsiiProxy_Annotations) FindError(constructPath *string, message interfa
 }
 
 // Get the set of matching infos of a given construct path and message.
-// Experimental.
 func (a *jsiiProxy_Annotations) FindInfo(constructPath *string, message interface{}) *[]*cxapi.SynthesisMessage {
 	var returns *[]*cxapi.SynthesisMessage
 
@@ -77,7 +73,6 @@ func (a *jsiiProxy_Annotations) FindInfo(constructPath *string, message interfac
 }
 
 // Get the set of matching warning of a given construct path and message.
-// Experimental.
 func (a *jsiiProxy_Annotations) FindWarning(constructPath *string, message interface{}) *[]*cxapi.SynthesisMessage {
 	var returns *[]*cxapi.SynthesisMessage
 
@@ -92,7 +87,6 @@ func (a *jsiiProxy_Annotations) FindWarning(constructPath *string, message inter
 }
 
 // Assert that an error with the given message exists in the synthesized CDK `Stack`.
-// Experimental.
 func (a *jsiiProxy_Annotations) HasError(constructPath *string, message interface{}) {
 	_jsii_.InvokeVoid(
 		a,
@@ -102,7 +96,6 @@ func (a *jsiiProxy_Annotations) HasError(constructPath *string, message interfac
 }
 
 // Assert that an info with the given message exists in the synthesized CDK `Stack`.
-// Experimental.
 func (a *jsiiProxy_Annotations) HasInfo(constructPath *string, message interface{}) {
 	_jsii_.InvokeVoid(
 		a,
@@ -112,7 +105,6 @@ func (a *jsiiProxy_Annotations) HasInfo(constructPath *string, message interface
 }
 
 // Assert that an warning with the given message exists in the synthesized CDK `Stack`.
-// Experimental.
 func (a *jsiiProxy_Annotations) HasWarning(constructPath *string, message interface{}) {
 	_jsii_.InvokeVoid(
 		a,
@@ -128,7 +120,6 @@ func (a *jsiiProxy_Annotations) HasWarning(constructPath *string, message interf
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Capture interface {
 	Matcher
 	Name() *string
@@ -158,14 +149,13 @@ func (j *jsiiProxy_Capture) Name() *string {
 
 
 // Initialize a new capture.
-// Experimental.
 func NewCapture(pattern interface{}) Capture {
 	_init_.Initialize()
 
 	j := jsiiProxy_Capture{}
 
 	_jsii_.Create(
-		"monocdk.assertions.Capture",
+		"aws-cdk-lib.assertions.Capture",
 		[]interface{}{pattern},
 		&j,
 	)
@@ -174,26 +164,24 @@ func NewCapture(pattern interface{}) Capture {
 }
 
 // Initialize a new capture.
-// Experimental.
 func NewCapture_Override(c Capture, pattern interface{}) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.assertions.Capture",
+		"aws-cdk-lib.assertions.Capture",
 		[]interface{}{pattern},
 		c,
 	)
 }
 
 // Check whether the provided object is a subtype of the `IMatcher`.
-// Experimental.
 func Capture_IsMatcher(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.assertions.Capture",
+		"aws-cdk-lib.assertions.Capture",
 		"isMatcher",
 		[]interface{}{x},
 		&returns,
@@ -205,7 +193,6 @@ func Capture_IsMatcher(x interface{}) *bool {
 // Retrieve the captured value as an array.
 //
 // An error is generated if no value is captured or if the value is not an array.
-// Experimental.
 func (c *jsiiProxy_Capture) AsArray() *[]interface{} {
 	var returns *[]interface{}
 
@@ -222,7 +209,6 @@ func (c *jsiiProxy_Capture) AsArray() *[]interface{} {
 // Retrieve the captured value as a boolean.
 //
 // An error is generated if no value is captured or if the value is not a boolean.
-// Experimental.
 func (c *jsiiProxy_Capture) AsBoolean() *bool {
 	var returns *bool
 
@@ -239,7 +225,6 @@ func (c *jsiiProxy_Capture) AsBoolean() *bool {
 // Retrieve the captured value as a number.
 //
 // An error is generated if no value is captured or if the value is not a number.
-// Experimental.
 func (c *jsiiProxy_Capture) AsNumber() *float64 {
 	var returns *float64
 
@@ -256,7 +241,6 @@ func (c *jsiiProxy_Capture) AsNumber() *float64 {
 // Retrieve the captured value as a JSON object.
 //
 // An error is generated if no value is captured or if the value is not an object.
-// Experimental.
 func (c *jsiiProxy_Capture) AsObject() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -273,7 +257,6 @@ func (c *jsiiProxy_Capture) AsObject() *map[string]interface{} {
 // Retrieve the captured value as a string.
 //
 // An error is generated if no value is captured or if the value is not a string.
-// Experimental.
 func (c *jsiiProxy_Capture) AsString() *string {
 	var returns *string
 
@@ -290,7 +273,6 @@ func (c *jsiiProxy_Capture) AsString() *string {
 // When multiple results are captured, move the iterator to the next result.
 //
 // Returns: true if another capture is present, false otherwise
-// Experimental.
 func (c *jsiiProxy_Capture) Next() *bool {
 	var returns *bool
 
@@ -308,7 +290,6 @@ func (c *jsiiProxy_Capture) Next() *bool {
 //
 // Every Matcher must implement this method.
 // This method will be invoked by the assertions framework. Do not call this method directly.
-// Experimental.
 func (c *jsiiProxy_Capture) Test(actual interface{}) MatchResult {
 	var returns MatchResult
 
@@ -323,7 +304,6 @@ func (c *jsiiProxy_Capture) Test(actual interface{}) MatchResult {
 }
 
 // Partial and special matching during template assertions.
-// Experimental.
 type Match interface {
 }
 
@@ -332,26 +312,24 @@ type jsiiProxy_Match struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewMatch_Override(m Match) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.assertions.Match",
+		"aws-cdk-lib.assertions.Match",
 		nil, // no parameters
 		m,
 	)
 }
 
 // Use this matcher in the place of a field's value, if the field must not be present.
-// Experimental.
 func Match_Absent() Matcher {
 	_init_.Initialize()
 
 	var returns Matcher
 
 	_jsii_.StaticInvoke(
-		"monocdk.assertions.Match",
+		"aws-cdk-lib.assertions.Match",
 		"absent",
 		nil, // no parameters
 		&returns,
@@ -361,14 +339,13 @@ func Match_Absent() Matcher {
 }
 
 // Matches any non-null value at the target.
-// Experimental.
 func Match_AnyValue() Matcher {
 	_init_.Initialize()
 
 	var returns Matcher
 
 	_jsii_.StaticInvoke(
-		"monocdk.assertions.Match",
+		"aws-cdk-lib.assertions.Match",
 		"anyValue",
 		nil, // no parameters
 		&returns,
@@ -380,14 +357,13 @@ func Match_AnyValue() Matcher {
 // Matches the specified pattern with the array found in the same relative path of the target.
 //
 // The set of elements (or matchers) must match exactly and in order.
-// Experimental.
 func Match_ArrayEquals(pattern *[]interface{}) Matcher {
 	_init_.Initialize()
 
 	var returns Matcher
 
 	_jsii_.StaticInvoke(
-		"monocdk.assertions.Match",
+		"aws-cdk-lib.assertions.Match",
 		"arrayEquals",
 		[]interface{}{pattern},
 		&returns,
@@ -399,14 +375,13 @@ func Match_ArrayEquals(pattern *[]interface{}) Matcher {
 // Matches the specified pattern with the array found in the same relative path of the target.
 //
 // The set of elements (or matchers) must be in the same order as would be found.
-// Experimental.
 func Match_ArrayWith(pattern *[]interface{}) Matcher {
 	_init_.Initialize()
 
 	var returns Matcher
 
 	_jsii_.StaticInvoke(
-		"monocdk.assertions.Match",
+		"aws-cdk-lib.assertions.Match",
 		"arrayWith",
 		[]interface{}{pattern},
 		&returns,
@@ -416,14 +391,13 @@ func Match_ArrayWith(pattern *[]interface{}) Matcher {
 }
 
 // Deep exact matching of the specified pattern to the target.
-// Experimental.
 func Match_Exact(pattern interface{}) Matcher {
 	_init_.Initialize()
 
 	var returns Matcher
 
 	_jsii_.StaticInvoke(
-		"monocdk.assertions.Match",
+		"aws-cdk-lib.assertions.Match",
 		"exact",
 		[]interface{}{pattern},
 		&returns,
@@ -433,14 +407,13 @@ func Match_Exact(pattern interface{}) Matcher {
 }
 
 // Matches any target which does NOT follow the specified pattern.
-// Experimental.
 func Match_Not(pattern interface{}) Matcher {
 	_init_.Initialize()
 
 	var returns Matcher
 
 	_jsii_.StaticInvoke(
-		"monocdk.assertions.Match",
+		"aws-cdk-lib.assertions.Match",
 		"not",
 		[]interface{}{pattern},
 		&returns,
@@ -452,14 +425,13 @@ func Match_Not(pattern interface{}) Matcher {
 // Matches the specified pattern to an object found in the same relative path of the target.
 //
 // The keys and their values (or matchers) must match exactly with the target.
-// Experimental.
 func Match_ObjectEquals(pattern *map[string]interface{}) Matcher {
 	_init_.Initialize()
 
 	var returns Matcher
 
 	_jsii_.StaticInvoke(
-		"monocdk.assertions.Match",
+		"aws-cdk-lib.assertions.Match",
 		"objectEquals",
 		[]interface{}{pattern},
 		&returns,
@@ -471,14 +443,13 @@ func Match_ObjectEquals(pattern *map[string]interface{}) Matcher {
 // Matches the specified pattern to an object found in the same relative path of the target.
 //
 // The keys and their values (or matchers) must be present in the target but the target can be a superset.
-// Experimental.
 func Match_ObjectLike(pattern *map[string]interface{}) Matcher {
 	_init_.Initialize()
 
 	var returns Matcher
 
 	_jsii_.StaticInvoke(
-		"monocdk.assertions.Match",
+		"aws-cdk-lib.assertions.Match",
 		"objectLike",
 		[]interface{}{pattern},
 		&returns,
@@ -488,14 +459,13 @@ func Match_ObjectLike(pattern *map[string]interface{}) Matcher {
 }
 
 // Matches any string-encoded JSON and applies the specified pattern after parsing it.
-// Experimental.
 func Match_SerializedJson(pattern interface{}) Matcher {
 	_init_.Initialize()
 
 	var returns Matcher
 
 	_jsii_.StaticInvoke(
-		"monocdk.assertions.Match",
+		"aws-cdk-lib.assertions.Match",
 		"serializedJson",
 		[]interface{}{pattern},
 		&returns,
@@ -505,14 +475,13 @@ func Match_SerializedJson(pattern interface{}) Matcher {
 }
 
 // Matches targets according to a regular expression.
-// Experimental.
 func Match_StringLikeRegexp(pattern *string) Matcher {
 	_init_.Initialize()
 
 	var returns Matcher
 
 	_jsii_.StaticInvoke(
-		"monocdk.assertions.Match",
+		"aws-cdk-lib.assertions.Match",
 		"stringLikeRegexp",
 		[]interface{}{pattern},
 		&returns,
@@ -525,13 +494,10 @@ func Match_StringLikeRegexp(pattern *string) Matcher {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type MatchCapture struct {
 	// The instance of Capture class to which this capture is associated with.
-	// Experimental.
 	Capture Capture `json:"capture" yaml:"capture"`
 	// The value that was captured.
-	// Experimental.
 	Value interface{} `json:"value" yaml:"value"`
 }
 
@@ -539,20 +505,16 @@ type MatchCapture struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type MatchFailure struct {
 	// The matcher that had the failure.
-	// Experimental.
 	Matcher Matcher `json:"matcher" yaml:"matcher"`
 	// Failure message.
-	// Experimental.
 	Message *string `json:"message" yaml:"message"`
 	// The relative path in the target where the failure occurred.
 	//
 	// If the failure occurred at root of the match tree, set the path to an empty list.
 	// If it occurs in the 5th index of an array nested within the 'foo' key of an object,
 	// set the path as `['/foo', '[5]']`.
-	// Experimental.
 	Path *[]*string `json:"path" yaml:"path"`
 }
 
@@ -560,7 +522,6 @@ type MatchFailure struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type MatchResult interface {
 	FailCount() *float64
 	Target() interface{}
@@ -599,14 +560,13 @@ func (j *jsiiProxy_MatchResult) Target() interface{} {
 }
 
 
-// Experimental.
 func NewMatchResult(target interface{}) MatchResult {
 	_init_.Initialize()
 
 	j := jsiiProxy_MatchResult{}
 
 	_jsii_.Create(
-		"monocdk.assertions.MatchResult",
+		"aws-cdk-lib.assertions.MatchResult",
 		[]interface{}{target},
 		&j,
 	)
@@ -614,19 +574,17 @@ func NewMatchResult(target interface{}) MatchResult {
 	return &j
 }
 
-// Experimental.
 func NewMatchResult_Override(m MatchResult, target interface{}) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.assertions.MatchResult",
+		"aws-cdk-lib.assertions.MatchResult",
 		[]interface{}{target},
 		m,
 	)
 }
 
 // Compose the results of a previous match as a subtree.
-// Experimental.
 func (m *jsiiProxy_MatchResult) Compose(id *string, inner MatchResult) MatchResult {
 	var returns MatchResult
 
@@ -643,7 +601,6 @@ func (m *jsiiProxy_MatchResult) Compose(id *string, inner MatchResult) MatchResu
 // Prepare the result to be analyzed.
 //
 // This API *must* be called prior to analyzing these results.
-// Experimental.
 func (m *jsiiProxy_MatchResult) Finished() MatchResult {
 	var returns MatchResult
 
@@ -660,7 +617,6 @@ func (m *jsiiProxy_MatchResult) Finished() MatchResult {
 // Does the result contain any failures.
 //
 // If not, the result is a success
-// Experimental.
 func (m *jsiiProxy_MatchResult) HasFailed() *bool {
 	var returns *bool
 
@@ -690,7 +646,6 @@ func (m *jsiiProxy_MatchResult) Push(matcher Matcher, path *[]*string, message *
 }
 
 // Record a capture against in this match result.
-// Experimental.
 func (m *jsiiProxy_MatchResult) RecordCapture(options *MatchCapture) {
 	_jsii_.InvokeVoid(
 		m,
@@ -700,7 +655,6 @@ func (m *jsiiProxy_MatchResult) RecordCapture(options *MatchCapture) {
 }
 
 // Record a new failure into this result at a specific path.
-// Experimental.
 func (m *jsiiProxy_MatchResult) RecordFailure(failure *MatchFailure) MatchResult {
 	var returns MatchResult
 
@@ -715,7 +669,6 @@ func (m *jsiiProxy_MatchResult) RecordFailure(failure *MatchFailure) MatchResult
 }
 
 // Get the list of failures as human readable strings.
-// Experimental.
 func (m *jsiiProxy_MatchResult) ToHumanStrings() *[]*string {
 	var returns *[]*string
 
@@ -733,7 +686,6 @@ func (m *jsiiProxy_MatchResult) ToHumanStrings() *[]*string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Matcher interface {
 	Name() *string
 	Test(actual interface{}) MatchResult
@@ -755,26 +707,24 @@ func (j *jsiiProxy_Matcher) Name() *string {
 }
 
 
-// Experimental.
 func NewMatcher_Override(m Matcher) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.assertions.Matcher",
+		"aws-cdk-lib.assertions.Matcher",
 		nil, // no parameters
 		m,
 	)
 }
 
 // Check whether the provided object is a subtype of the `IMatcher`.
-// Experimental.
 func Matcher_IsMatcher(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.assertions.Matcher",
+		"aws-cdk-lib.assertions.Matcher",
 		"isMatcher",
 		[]interface{}{x},
 		&returns,
@@ -789,7 +739,6 @@ func Matcher_IsMatcher(x interface{}) *bool {
 // This method will be invoked by the assertions framework. Do not call this method directly.
 //
 // Returns: the list of match failures. An empty array denotes a successful match.
-// Experimental.
 func (m *jsiiProxy_Matcher) Test(actual interface{}) MatchResult {
 	var returns MatchResult
 
@@ -810,7 +759,6 @@ func (m *jsiiProxy_Matcher) Test(actual interface{}) MatchResult {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Template interface {
 	FindConditions(logicalId *string, props interface{}) *map[string]*map[string]interface{}
 	FindMappings(logicalId *string, props interface{}) *map[string]*map[string]interface{}
@@ -834,14 +782,13 @@ type jsiiProxy_Template struct {
 }
 
 // Base your assertions from an existing CloudFormation template formatted as an in-memory JSON object.
-// Experimental.
 func Template_FromJSON(template *map[string]interface{}) Template {
 	_init_.Initialize()
 
 	var returns Template
 
 	_jsii_.StaticInvoke(
-		"monocdk.assertions.Template",
+		"aws-cdk-lib.assertions.Template",
 		"fromJSON",
 		[]interface{}{template},
 		&returns,
@@ -851,14 +798,13 @@ func Template_FromJSON(template *map[string]interface{}) Template {
 }
 
 // Base your assertions on the CloudFormation template synthesized by a CDK `Stack`.
-// Experimental.
 func Template_FromStack(stack awscdk.Stack) Template {
 	_init_.Initialize()
 
 	var returns Template
 
 	_jsii_.StaticInvoke(
-		"monocdk.assertions.Template",
+		"aws-cdk-lib.assertions.Template",
 		"fromStack",
 		[]interface{}{stack},
 		&returns,
@@ -868,14 +814,13 @@ func Template_FromStack(stack awscdk.Stack) Template {
 }
 
 // Base your assertions from an existing CloudFormation template formatted as a JSON string.
-// Experimental.
 func Template_FromString(template *string) Template {
 	_init_.Initialize()
 
 	var returns Template
 
 	_jsii_.StaticInvoke(
-		"monocdk.assertions.Template",
+		"aws-cdk-lib.assertions.Template",
 		"fromString",
 		[]interface{}{template},
 		&returns,
@@ -885,7 +830,6 @@ func Template_FromString(template *string) Template {
 }
 
 // Get the set of matching Conditions that match the given properties in the CloudFormation template.
-// Experimental.
 func (t *jsiiProxy_Template) FindConditions(logicalId *string, props interface{}) *map[string]*map[string]interface{} {
 	var returns *map[string]*map[string]interface{}
 
@@ -900,7 +844,6 @@ func (t *jsiiProxy_Template) FindConditions(logicalId *string, props interface{}
 }
 
 // Get the set of matching Mappings that match the given properties in the CloudFormation template.
-// Experimental.
 func (t *jsiiProxy_Template) FindMappings(logicalId *string, props interface{}) *map[string]*map[string]interface{} {
 	var returns *map[string]*map[string]interface{}
 
@@ -915,7 +858,6 @@ func (t *jsiiProxy_Template) FindMappings(logicalId *string, props interface{}) 
 }
 
 // Get the set of matching Outputs that match the given properties in the CloudFormation template.
-// Experimental.
 func (t *jsiiProxy_Template) FindOutputs(logicalId *string, props interface{}) *map[string]*map[string]interface{} {
 	var returns *map[string]*map[string]interface{}
 
@@ -930,7 +872,6 @@ func (t *jsiiProxy_Template) FindOutputs(logicalId *string, props interface{}) *
 }
 
 // Get the set of matching Parameters that match the given properties in the CloudFormation template.
-// Experimental.
 func (t *jsiiProxy_Template) FindParameters(logicalId *string, props interface{}) *map[string]*map[string]interface{} {
 	var returns *map[string]*map[string]interface{}
 
@@ -945,7 +886,6 @@ func (t *jsiiProxy_Template) FindParameters(logicalId *string, props interface{}
 }
 
 // Get the set of matching resources of a given type and properties in the CloudFormation template.
-// Experimental.
 func (t *jsiiProxy_Template) FindResources(type_ *string, props interface{}) *map[string]*map[string]interface{} {
 	var returns *map[string]*map[string]interface{}
 
@@ -963,7 +903,6 @@ func (t *jsiiProxy_Template) FindResources(type_ *string, props interface{}) *ma
 //
 // By default, performs partial matching on the resource, via the `Match.objectLike()`.
 // To configure different behavour, use other matchers in the `Match` class.
-// Experimental.
 func (t *jsiiProxy_Template) HasCondition(logicalId *string, props interface{}) {
 	_jsii_.InvokeVoid(
 		t,
@@ -976,7 +915,6 @@ func (t *jsiiProxy_Template) HasCondition(logicalId *string, props interface{}) 
 //
 // By default, performs partial matching on the resource, via the `Match.objectLike()`.
 // To configure different behavour, use other matchers in the `Match` class.
-// Experimental.
 func (t *jsiiProxy_Template) HasMapping(logicalId *string, props interface{}) {
 	_jsii_.InvokeVoid(
 		t,
@@ -989,7 +927,6 @@ func (t *jsiiProxy_Template) HasMapping(logicalId *string, props interface{}) {
 //
 // By default, performs partial matching on the resource, via the `Match.objectLike()`.
 // To configure different behavour, use other matchers in the `Match` class.
-// Experimental.
 func (t *jsiiProxy_Template) HasOutput(logicalId *string, props interface{}) {
 	_jsii_.InvokeVoid(
 		t,
@@ -1002,7 +939,6 @@ func (t *jsiiProxy_Template) HasOutput(logicalId *string, props interface{}) {
 //
 // By default, performs partial matching on the parameter, via the `Match.objectLike()`.
 // To configure different behavior, use other matchers in the `Match` class.
-// Experimental.
 func (t *jsiiProxy_Template) HasParameter(logicalId *string, props interface{}) {
 	_jsii_.InvokeVoid(
 		t,
@@ -1015,7 +951,6 @@ func (t *jsiiProxy_Template) HasParameter(logicalId *string, props interface{}) 
 //
 // By default, performs partial matching on the resource, via the `Match.objectLike()`.
 // To configure different behavour, use other matchers in the `Match` class.
-// Experimental.
 func (t *jsiiProxy_Template) HasResource(type_ *string, props interface{}) {
 	_jsii_.InvokeVoid(
 		t,
@@ -1028,7 +963,6 @@ func (t *jsiiProxy_Template) HasResource(type_ *string, props interface{}) {
 //
 // By default, performs partial matching on the `Properties` key of the resource, via the
 // `Match.objectLike()`. To configure different behavour, use other matchers in the `Match` class.
-// Experimental.
 func (t *jsiiProxy_Template) HasResourceProperties(type_ *string, props interface{}) {
 	_jsii_.InvokeVoid(
 		t,
@@ -1038,7 +972,6 @@ func (t *jsiiProxy_Template) HasResourceProperties(type_ *string, props interfac
 }
 
 // Assert that the given number of resources of the given type exist in the template.
-// Experimental.
 func (t *jsiiProxy_Template) ResourceCountIs(type_ *string, count *float64) {
 	_jsii_.InvokeVoid(
 		t,
@@ -1048,7 +981,6 @@ func (t *jsiiProxy_Template) ResourceCountIs(type_ *string, count *float64) {
 }
 
 // Assert that the CloudFormation template matches the given value.
-// Experimental.
 func (t *jsiiProxy_Template) TemplateMatches(expected interface{}) {
 	_jsii_.InvokeVoid(
 		t,
@@ -1058,7 +990,6 @@ func (t *jsiiProxy_Template) TemplateMatches(expected interface{}) {
 }
 
 // The CloudFormation template deserialized into an object.
-// Experimental.
 func (t *jsiiProxy_Template) ToJSON() *map[string]interface{} {
 	var returns *map[string]interface{}
 

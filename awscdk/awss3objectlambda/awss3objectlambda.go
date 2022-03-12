@@ -1,464 +1,13 @@
 package awss3objectlambda
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awslambda"
-	"github.com/aws/aws-cdk-go/awscdk/awss3"
-	"github.com/aws/aws-cdk-go/awscdk/awss3objectlambda/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3objectlambda/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
-
-// An S3 object lambda access point for intercepting and transforming `GetObject` requests.
-//
-// TODO: EXAMPLE
-//
-// Experimental.
-type AccessPoint interface {
-	awscdk.Resource
-	IAccessPoint
-	AccessPointArn() *string
-	AccessPointCreationDate() *string
-	AccessPointName() *string
-	DomainName() *string
-	Env() *awscdk.ResourceEnvironment
-	Node() awscdk.ConstructNode
-	PhysicalName() *string
-	RegionalDomainName() *string
-	Stack() awscdk.Stack
-	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
-	GeneratePhysicalName() *string
-	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
-	GetResourceNameAttribute(nameAttr *string) *string
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
-	Synthesize(session awscdk.ISynthesisSession)
-	ToString() *string
-	Validate() *[]*string
-	VirtualHostedUrlForObject(key *string, options *awss3.VirtualHostedStyleUrlOptions) *string
-}
-
-// The jsii proxy struct for AccessPoint
-type jsiiProxy_AccessPoint struct {
-	internal.Type__awscdkResource
-	jsiiProxy_IAccessPoint
-}
-
-func (j *jsiiProxy_AccessPoint) AccessPointArn() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"accessPointArn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_AccessPoint) AccessPointCreationDate() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"accessPointCreationDate",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_AccessPoint) AccessPointName() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"accessPointName",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_AccessPoint) DomainName() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"domainName",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_AccessPoint) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
-	_jsii_.Get(
-		j,
-		"env",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_AccessPoint) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
-	_jsii_.Get(
-		j,
-		"node",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_AccessPoint) PhysicalName() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"physicalName",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_AccessPoint) RegionalDomainName() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"regionalDomainName",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_AccessPoint) Stack() awscdk.Stack {
-	var returns awscdk.Stack
-	_jsii_.Get(
-		j,
-		"stack",
-		&returns,
-	)
-	return returns
-}
-
-
-// Experimental.
-func NewAccessPoint(scope constructs.Construct, id *string, props *AccessPointProps) AccessPoint {
-	_init_.Initialize()
-
-	j := jsiiProxy_AccessPoint{}
-
-	_jsii_.Create(
-		"monocdk.aws_s3objectlambda.AccessPoint",
-		[]interface{}{scope, id, props},
-		&j,
-	)
-
-	return &j
-}
-
-// Experimental.
-func NewAccessPoint_Override(a AccessPoint, scope constructs.Construct, id *string, props *AccessPointProps) {
-	_init_.Initialize()
-
-	_jsii_.Create(
-		"monocdk.aws_s3objectlambda.AccessPoint",
-		[]interface{}{scope, id, props},
-		a,
-	)
-}
-
-// Reference an existing AccessPoint defined outside of the CDK code.
-// Experimental.
-func AccessPoint_FromAccessPointAttributes(scope constructs.Construct, id *string, attrs *AccessPointAttributes) IAccessPoint {
-	_init_.Initialize()
-
-	var returns IAccessPoint
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_s3objectlambda.AccessPoint",
-		"fromAccessPointAttributes",
-		[]interface{}{scope, id, attrs},
-		&returns,
-	)
-
-	return returns
-}
-
-// Return whether the given object is a Construct.
-// Experimental.
-func AccessPoint_IsConstruct(x interface{}) *bool {
-	_init_.Initialize()
-
-	var returns *bool
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_s3objectlambda.AccessPoint",
-		"isConstruct",
-		[]interface{}{x},
-		&returns,
-	)
-
-	return returns
-}
-
-// Check whether the given construct is a Resource.
-// Experimental.
-func AccessPoint_IsResource(construct awscdk.IConstruct) *bool {
-	_init_.Initialize()
-
-	var returns *bool
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_s3objectlambda.AccessPoint",
-		"isResource",
-		[]interface{}{construct},
-		&returns,
-	)
-
-	return returns
-}
-
-// Apply the given removal policy to this resource.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
-func (a *jsiiProxy_AccessPoint) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
-	_jsii_.InvokeVoid(
-		a,
-		"applyRemovalPolicy",
-		[]interface{}{policy},
-	)
-}
-
-// Experimental.
-func (a *jsiiProxy_AccessPoint) GeneratePhysicalName() *string {
-	var returns *string
-
-	_jsii_.Invoke(
-		a,
-		"generatePhysicalName",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
-//
-// Normally, this token will resolve to `arnAttr`, but if the resource is
-// referenced across environments, `arnComponents` will be used to synthesize
-// a concrete ARN with the resource's physical name. Make sure to reference
-// `this.physicalName` in `arnComponents`.
-// Experimental.
-func (a *jsiiProxy_AccessPoint) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
-	var returns *string
-
-	_jsii_.Invoke(
-		a,
-		"getResourceArnAttribute",
-		[]interface{}{arnAttr, arnComponents},
-		&returns,
-	)
-
-	return returns
-}
-
-// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
-//
-// Normally, this token will resolve to `nameAttr`, but if the resource is
-// referenced across environments, it will be resolved to `this.physicalName`,
-// which will be a concrete name.
-// Experimental.
-func (a *jsiiProxy_AccessPoint) GetResourceNameAttribute(nameAttr *string) *string {
-	var returns *string
-
-	_jsii_.Invoke(
-		a,
-		"getResourceNameAttribute",
-		[]interface{}{nameAttr},
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (a *jsiiProxy_AccessPoint) OnPrepare() {
-	_jsii_.InvokeVoid(
-		a,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (a *jsiiProxy_AccessPoint) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		a,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (a *jsiiProxy_AccessPoint) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		a,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (a *jsiiProxy_AccessPoint) Prepare() {
-	_jsii_.InvokeVoid(
-		a,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (a *jsiiProxy_AccessPoint) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		a,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
-// Returns a string representation of this construct.
-// Experimental.
-func (a *jsiiProxy_AccessPoint) ToString() *string {
-	var returns *string
-
-	_jsii_.Invoke(
-		a,
-		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (a *jsiiProxy_AccessPoint) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		a,
-		"validate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Implement the {@link IAccessPoint.virtualHostedUrlForObject} method.
-// Experimental.
-func (a *jsiiProxy_AccessPoint) VirtualHostedUrlForObject(key *string, options *awss3.VirtualHostedStyleUrlOptions) *string {
-	var returns *string
-
-	_jsii_.Invoke(
-		a,
-		"virtualHostedUrlForObject",
-		[]interface{}{key, options},
-		&returns,
-	)
-
-	return returns
-}
-
-// The access point resource attributes.
-//
-// TODO: EXAMPLE
-//
-// Experimental.
-type AccessPointAttributes struct {
-	// The ARN of the access point.
-	// Experimental.
-	AccessPointArn *string `json:"accessPointArn" yaml:"accessPointArn"`
-	// The creation data of the access point.
-	// Experimental.
-	AccessPointCreationDate *string `json:"accessPointCreationDate" yaml:"accessPointCreationDate"`
-}
-
-// The S3 object lambda access point configuration.
-//
-// TODO: EXAMPLE
-//
-// Experimental.
-type AccessPointProps struct {
-	// The bucket to which this access point belongs.
-	// Experimental.
-	Bucket awss3.IBucket `json:"bucket" yaml:"bucket"`
-	// The Lambda function used to transform objects.
-	// Experimental.
-	Handler awslambda.IFunction `json:"handler" yaml:"handler"`
-	// The name of the S3 object lambda access point.
-	// Experimental.
-	AccessPointName *string `json:"accessPointName" yaml:"accessPointName"`
-	// Whether CloudWatch metrics are enabled for the access point.
-	// Experimental.
-	CloudWatchMetricsEnabled *bool `json:"cloudWatchMetricsEnabled" yaml:"cloudWatchMetricsEnabled"`
-	// Additional JSON that provides supplemental data passed to the Lambda function on every request.
-	// Experimental.
-	Payload *map[string]interface{} `json:"payload" yaml:"payload"`
-	// Whether the Lambda function can process `GetObject-PartNumber` requests.
-	// Experimental.
-	SupportsGetObjectPartNumber *bool `json:"supportsGetObjectPartNumber" yaml:"supportsGetObjectPartNumber"`
-	// Whether the Lambda function can process `GetObject-Range` requests.
-	// Experimental.
-	SupportsGetObjectRange *bool `json:"supportsGetObjectRange" yaml:"supportsGetObjectRange"`
-}
 
 // A CloudFormation `AWS::S3ObjectLambda::AccessPoint`.
 //
@@ -478,7 +27,7 @@ type CfnAccessPoint interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	ObjectLambdaConfiguration() interface{}
 	SetObjectLambdaConfiguration(val interface{})
 	Ref() *string
@@ -494,16 +43,10 @@ type CfnAccessPoint interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -593,8 +136,8 @@ func (j *jsiiProxy_CfnAccessPoint) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAccessPoint) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnAccessPoint) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -645,13 +188,13 @@ func (j *jsiiProxy_CfnAccessPoint) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::S3ObjectLambda::AccessPoint`.
-func NewCfnAccessPoint(scope awscdk.Construct, id *string, props *CfnAccessPointProps) CfnAccessPoint {
+func NewCfnAccessPoint(scope constructs.Construct, id *string, props *CfnAccessPointProps) CfnAccessPoint {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnAccessPoint{}
 
 	_jsii_.Create(
-		"monocdk.aws_s3objectlambda.CfnAccessPoint",
+		"aws-cdk-lib.aws_s3objectlambda.CfnAccessPoint",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -660,11 +203,11 @@ func NewCfnAccessPoint(scope awscdk.Construct, id *string, props *CfnAccessPoint
 }
 
 // Create a new `AWS::S3ObjectLambda::AccessPoint`.
-func NewCfnAccessPoint_Override(c CfnAccessPoint, scope awscdk.Construct, id *string, props *CfnAccessPointProps) {
+func NewCfnAccessPoint_Override(c CfnAccessPoint, scope constructs.Construct, id *string, props *CfnAccessPointProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_s3objectlambda.CfnAccessPoint",
+		"aws-cdk-lib.aws_s3objectlambda.CfnAccessPoint",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -692,14 +235,13 @@ func (j *jsiiProxy_CfnAccessPoint) SetObjectLambdaConfiguration(val interface{})
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnAccessPoint_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3objectlambda.CfnAccessPoint",
+		"aws-cdk-lib.aws_s3objectlambda.CfnAccessPoint",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -709,14 +251,13 @@ func CfnAccessPoint_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnAccessPoint_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3objectlambda.CfnAccessPoint",
+		"aws-cdk-lib.aws_s3objectlambda.CfnAccessPoint",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -725,15 +266,17 @@ func CfnAccessPoint_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func CfnAccessPoint_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3objectlambda.CfnAccessPoint",
+		"aws-cdk-lib.aws_s3objectlambda.CfnAccessPoint",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -746,7 +289,7 @@ func CfnAccessPoint_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_s3objectlambda.CfnAccessPoint",
+		"aws-cdk-lib.aws_s3objectlambda.CfnAccessPoint",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -754,7 +297,6 @@ func CfnAccessPoint_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnAccessPoint) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -767,7 +309,6 @@ func (c *jsiiProxy_CfnAccessPoint) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnAccessPoint) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -783,7 +324,6 @@ func (c *jsiiProxy_CfnAccessPoint) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnAccessPoint) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -835,7 +375,6 @@ func (c *jsiiProxy_CfnAccessPoint) AddMetadata(key *string, value interface{}) {
 // for CloudFormation. If you pass CDK classes or structs, they will be
 // rendered with lowercased key names, and CloudFormation will reject the
 // template.
-// Experimental.
 func (c *jsiiProxy_CfnAccessPoint) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -845,7 +384,6 @@ func (c *jsiiProxy_CfnAccessPoint) AddOverride(path *string, value interface{}) 
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnAccessPoint) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -857,7 +395,6 @@ func (c *jsiiProxy_CfnAccessPoint) AddPropertyDeletionOverride(propertyPath *str
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnAccessPoint) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -875,7 +412,6 @@ func (c *jsiiProxy_CfnAccessPoint) AddPropertyOverride(propertyPath *string, val
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnAccessPoint) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -888,7 +424,6 @@ func (c *jsiiProxy_CfnAccessPoint) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnAccessPoint) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -909,7 +444,6 @@ func (c *jsiiProxy_CfnAccessPoint) GetAtt(attributeName *string) awscdk.Referenc
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnAccessPoint) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -932,80 +466,12 @@ func (c *jsiiProxy_CfnAccessPoint) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnAccessPoint) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnAccessPoint) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnAccessPoint) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnAccessPoint) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnAccessPoint) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -1026,7 +492,6 @@ func (c *jsiiProxy_CfnAccessPoint) RenderProperties(props *map[string]interface{
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnAccessPoint) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1040,23 +505,9 @@ func (c *jsiiProxy_CfnAccessPoint) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnAccessPoint) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnAccessPoint) ToString() *string {
 	var returns *string
 
@@ -1070,27 +521,6 @@ func (c *jsiiProxy_CfnAccessPoint) ToString() *string {
 	return returns
 }
 
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnAccessPoint) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Experimental.
 func (c *jsiiProxy_CfnAccessPoint) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1145,7 +575,7 @@ type CfnAccessPointPolicy interface {
 	CfnResourceType() *string
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	ObjectLambdaAccessPoint() *string
 	SetObjectLambdaAccessPoint(val *string)
 	PolicyDocument() interface{}
@@ -1163,16 +593,10 @@ type CfnAccessPointPolicy interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1232,8 +656,8 @@ func (j *jsiiProxy_CfnAccessPointPolicy) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAccessPointPolicy) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnAccessPointPolicy) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1294,13 +718,13 @@ func (j *jsiiProxy_CfnAccessPointPolicy) UpdatedProperites() *map[string]interfa
 
 
 // Create a new `AWS::S3ObjectLambda::AccessPointPolicy`.
-func NewCfnAccessPointPolicy(scope awscdk.Construct, id *string, props *CfnAccessPointPolicyProps) CfnAccessPointPolicy {
+func NewCfnAccessPointPolicy(scope constructs.Construct, id *string, props *CfnAccessPointPolicyProps) CfnAccessPointPolicy {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnAccessPointPolicy{}
 
 	_jsii_.Create(
-		"monocdk.aws_s3objectlambda.CfnAccessPointPolicy",
+		"aws-cdk-lib.aws_s3objectlambda.CfnAccessPointPolicy",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1309,11 +733,11 @@ func NewCfnAccessPointPolicy(scope awscdk.Construct, id *string, props *CfnAcces
 }
 
 // Create a new `AWS::S3ObjectLambda::AccessPointPolicy`.
-func NewCfnAccessPointPolicy_Override(c CfnAccessPointPolicy, scope awscdk.Construct, id *string, props *CfnAccessPointPolicyProps) {
+func NewCfnAccessPointPolicy_Override(c CfnAccessPointPolicy, scope constructs.Construct, id *string, props *CfnAccessPointPolicyProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_s3objectlambda.CfnAccessPointPolicy",
+		"aws-cdk-lib.aws_s3objectlambda.CfnAccessPointPolicy",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1341,14 +765,13 @@ func (j *jsiiProxy_CfnAccessPointPolicy) SetPolicyDocument(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnAccessPointPolicy_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3objectlambda.CfnAccessPointPolicy",
+		"aws-cdk-lib.aws_s3objectlambda.CfnAccessPointPolicy",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1358,14 +781,13 @@ func CfnAccessPointPolicy_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnAccessPointPolicy_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3objectlambda.CfnAccessPointPolicy",
+		"aws-cdk-lib.aws_s3objectlambda.CfnAccessPointPolicy",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1374,15 +796,17 @@ func CfnAccessPointPolicy_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func CfnAccessPointPolicy_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3objectlambda.CfnAccessPointPolicy",
+		"aws-cdk-lib.aws_s3objectlambda.CfnAccessPointPolicy",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1395,7 +819,7 @@ func CfnAccessPointPolicy_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_s3objectlambda.CfnAccessPointPolicy",
+		"aws-cdk-lib.aws_s3objectlambda.CfnAccessPointPolicy",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1403,7 +827,6 @@ func CfnAccessPointPolicy_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnAccessPointPolicy) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1416,7 +839,6 @@ func (c *jsiiProxy_CfnAccessPointPolicy) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnAccessPointPolicy) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1432,7 +854,6 @@ func (c *jsiiProxy_CfnAccessPointPolicy) AddDependsOn(target awscdk.CfnResource)
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnAccessPointPolicy) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1484,7 +905,6 @@ func (c *jsiiProxy_CfnAccessPointPolicy) AddMetadata(key *string, value interfac
 // for CloudFormation. If you pass CDK classes or structs, they will be
 // rendered with lowercased key names, and CloudFormation will reject the
 // template.
-// Experimental.
 func (c *jsiiProxy_CfnAccessPointPolicy) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1494,7 +914,6 @@ func (c *jsiiProxy_CfnAccessPointPolicy) AddOverride(path *string, value interfa
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnAccessPointPolicy) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1506,7 +925,6 @@ func (c *jsiiProxy_CfnAccessPointPolicy) AddPropertyDeletionOverride(propertyPat
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnAccessPointPolicy) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1524,7 +942,6 @@ func (c *jsiiProxy_CfnAccessPointPolicy) AddPropertyOverride(propertyPath *strin
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnAccessPointPolicy) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1537,7 +954,6 @@ func (c *jsiiProxy_CfnAccessPointPolicy) ApplyRemovalPolicy(policy awscdk.Remova
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnAccessPointPolicy) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1558,7 +974,6 @@ func (c *jsiiProxy_CfnAccessPointPolicy) GetAtt(attributeName *string) awscdk.Re
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnAccessPointPolicy) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1581,80 +996,12 @@ func (c *jsiiProxy_CfnAccessPointPolicy) Inspect(inspector awscdk.TreeInspector)
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnAccessPointPolicy) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnAccessPointPolicy) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnAccessPointPolicy) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnAccessPointPolicy) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnAccessPointPolicy) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -1675,7 +1022,6 @@ func (c *jsiiProxy_CfnAccessPointPolicy) RenderProperties(props *map[string]inte
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnAccessPointPolicy) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1689,23 +1035,9 @@ func (c *jsiiProxy_CfnAccessPointPolicy) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnAccessPointPolicy) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnAccessPointPolicy) ToString() *string {
 	var returns *string
 
@@ -1719,27 +1051,6 @@ func (c *jsiiProxy_CfnAccessPointPolicy) ToString() *string {
 	return returns
 }
 
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnAccessPointPolicy) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Experimental.
 func (c *jsiiProxy_CfnAccessPointPolicy) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1768,88 +1079,5 @@ type CfnAccessPointProps struct {
 	ObjectLambdaConfiguration interface{} `json:"objectLambdaConfiguration" yaml:"objectLambdaConfiguration"`
 	// The name of this access point.
 	Name *string `json:"name" yaml:"name"`
-}
-
-// The interface that represents the AccessPoint resource.
-// Experimental.
-type IAccessPoint interface {
-	awscdk.IResource
-	// The virtual hosted-style URL of an S3 object through this access point.
-	//
-	// Specify `regional: false` at the options for non-regional URL.
-	//
-	// Returns: an ObjectS3Url token
-	// Experimental.
-	VirtualHostedUrlForObject(key *string, options *awss3.VirtualHostedStyleUrlOptions) *string
-	// The ARN of the access point.
-	// Experimental.
-	AccessPointArn() *string
-	// The creation data of the access point.
-	// Experimental.
-	AccessPointCreationDate() *string
-	// The IPv4 DNS name of the access point.
-	// Experimental.
-	DomainName() *string
-	// The regional domain name of the access point.
-	// Experimental.
-	RegionalDomainName() *string
-}
-
-// The jsii proxy for IAccessPoint
-type jsiiProxy_IAccessPoint struct {
-	internal.Type__awscdkIResource
-}
-
-func (i *jsiiProxy_IAccessPoint) VirtualHostedUrlForObject(key *string, options *awss3.VirtualHostedStyleUrlOptions) *string {
-	var returns *string
-
-	_jsii_.Invoke(
-		i,
-		"virtualHostedUrlForObject",
-		[]interface{}{key, options},
-		&returns,
-	)
-
-	return returns
-}
-
-func (j *jsiiProxy_IAccessPoint) AccessPointArn() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"accessPointArn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_IAccessPoint) AccessPointCreationDate() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"accessPointCreationDate",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_IAccessPoint) DomainName() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"domainName",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_IAccessPoint) RegionalDomainName() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"regionalDomainName",
-		&returns,
-	)
-	return returns
 }
 
