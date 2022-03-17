@@ -14507,7 +14507,7 @@ type CfnIPAMProps struct {
 //
 // In IPAM, a scope is the highest-level container within IPAM. An IPAM contains two default scopes. Each scope represents the IP space for a single network. The private scope is intended for all private IP address space. The public scope is intended for all public IP address space. Scopes enable you to reuse IP addresses across multiple unconnected networks without causing IP address overlap or conflict.
 //
-// For more information, see [How IPAM works](https://docs.aws.amazon.com//vpc/latest/ipam/how-it-works-ipam.html) in the *Amazon VPC IPAM User Guide*
+// For more information, see [How IPAM works](https://docs.aws.amazon.com//vpc/latest/ipam/how-it-works-ipam.html) in the *Amazon VPC IPAM User Guide* .
 //
 // TODO: EXAMPLE
 //
@@ -32324,34 +32324,27 @@ type CfnSubnet interface {
 	AssignIpv6AddressOnCreation() interface{}
 	SetAssignIpv6AddressOnCreation(val interface{})
 	AttrAvailabilityZone() *string
+	AttrId() *string
 	AttrIpv6CidrBlocks() *[]*string
 	AttrNetworkAclAssociationId() *string
 	AttrOutpostArn() *string
 	AttrVpcId() *string
 	AvailabilityZone() *string
 	SetAvailabilityZone(val *string)
-	AvailabilityZoneId() *string
-	SetAvailabilityZoneId(val *string)
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
 	CidrBlock() *string
 	SetCidrBlock(val *string)
 	CreationStack() *[]*string
-	EnableDns64() interface{}
-	SetEnableDns64(val interface{})
 	Ipv6CidrBlock() *string
 	SetIpv6CidrBlock(val *string)
-	Ipv6Native() interface{}
-	SetIpv6Native(val interface{})
 	LogicalId() *string
 	MapPublicIpOnLaunch() interface{}
 	SetMapPublicIpOnLaunch(val interface{})
 	Node() constructs.Node
 	OutpostArn() *string
 	SetOutpostArn(val *string)
-	PrivateDnsNameOptionsOnLaunch() interface{}
-	SetPrivateDnsNameOptionsOnLaunch(val interface{})
 	Ref() *string
 	Stack() awscdk.Stack
 	Tags() awscdk.TagManager
@@ -32396,6 +32389,16 @@ func (j *jsiiProxy_CfnSubnet) AttrAvailabilityZone() *string {
 	_jsii_.Get(
 		j,
 		"attrAvailabilityZone",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSubnet) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -32451,16 +32454,6 @@ func (j *jsiiProxy_CfnSubnet) AvailabilityZone() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSubnet) AvailabilityZoneId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"availabilityZoneId",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnSubnet) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -32511,31 +32504,11 @@ func (j *jsiiProxy_CfnSubnet) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSubnet) EnableDns64() interface{} {
-	var returns interface{}
-	_jsii_.Get(
-		j,
-		"enableDns64",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnSubnet) Ipv6CidrBlock() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"ipv6CidrBlock",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnSubnet) Ipv6Native() interface{} {
-	var returns interface{}
-	_jsii_.Get(
-		j,
-		"ipv6Native",
 		&returns,
 	)
 	return returns
@@ -32576,16 +32549,6 @@ func (j *jsiiProxy_CfnSubnet) OutpostArn() *string {
 	_jsii_.Get(
 		j,
 		"outpostArn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnSubnet) PrivateDnsNameOptionsOnLaunch() interface{} {
-	var returns interface{}
-	_jsii_.Get(
-		j,
-		"privateDnsNameOptionsOnLaunch",
 		&returns,
 	)
 	return returns
@@ -32684,14 +32647,6 @@ func (j *jsiiProxy_CfnSubnet) SetAvailabilityZone(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnSubnet) SetAvailabilityZoneId(val *string) {
-	_jsii_.Set(
-		j,
-		"availabilityZoneId",
-		val,
-	)
-}
-
 func (j *jsiiProxy_CfnSubnet) SetCidrBlock(val *string) {
 	_jsii_.Set(
 		j,
@@ -32700,26 +32655,10 @@ func (j *jsiiProxy_CfnSubnet) SetCidrBlock(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnSubnet) SetEnableDns64(val interface{}) {
-	_jsii_.Set(
-		j,
-		"enableDns64",
-		val,
-	)
-}
-
 func (j *jsiiProxy_CfnSubnet) SetIpv6CidrBlock(val *string) {
 	_jsii_.Set(
 		j,
 		"ipv6CidrBlock",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnSubnet) SetIpv6Native(val interface{}) {
-	_jsii_.Set(
-		j,
-		"ipv6Native",
 		val,
 	)
 }
@@ -32736,14 +32675,6 @@ func (j *jsiiProxy_CfnSubnet) SetOutpostArn(val *string) {
 	_jsii_.Set(
 		j,
 		"outpostArn",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnSubnet) SetPrivateDnsNameOptionsOnLaunch(val interface{}) {
-	_jsii_.Set(
-		j,
-		"privateDnsNameOptionsOnLaunch",
 		val,
 	)
 }
@@ -33054,21 +32985,6 @@ func (c *jsiiProxy_CfnSubnet) ValidateProperties(_properties interface{}) {
 		"validateProperties",
 		[]interface{}{_properties},
 	)
-}
-
-// Describes the options for instance hostnames.
-//
-// TODO: EXAMPLE
-//
-type CfnSubnet_PrivateDnsNameOptionsOnLaunchProperty struct {
-	// Indicates whether to respond to DNS queries for instance hostname with DNS AAAA records.
-	EnableResourceNameDnsAaaaRecord interface{} `json:"enableResourceNameDnsAaaaRecord" yaml:"enableResourceNameDnsAaaaRecord"`
-	// Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
-	EnableResourceNameDnsARecord interface{} `json:"enableResourceNameDnsARecord" yaml:"enableResourceNameDnsARecord"`
-	// The type of hostname for EC2 instances.
-	//
-	// For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID.
-	HostnameType *string `json:"hostnameType" yaml:"hostnameType"`
 }
 
 // A CloudFormation `AWS::EC2::SubnetCidrBlock`.
@@ -34127,30 +34043,16 @@ type CfnSubnetProps struct {
 	//
 	// If you update this property, you must also update the `CidrBlock` property.
 	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
-	// The AZ ID of the subnet.
-	AvailabilityZoneId *string `json:"availabilityZoneId" yaml:"availabilityZoneId"`
-	// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations.
-	//
-	// For more information, see [DNS64 and NAT64](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-nat64-dns64) in the *Amazon Virtual Private Cloud User Guide* .
-	EnableDns64 interface{} `json:"enableDns64" yaml:"enableDns64"`
 	// The IPv6 CIDR block.
 	//
 	// If you specify `AssignIpv6AddressOnCreation` , you must also specify `Ipv6CidrBlock` .
 	Ipv6CidrBlock *string `json:"ipv6CidrBlock" yaml:"ipv6CidrBlock"`
-	// Indicates whether this is an IPv6 only subnet.
-	//
-	// For more information, see [Subnet basics](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#subnet-basics) in the *Amazon Virtual Private Cloud User Guide* .
-	Ipv6Native interface{} `json:"ipv6Native" yaml:"ipv6Native"`
 	// Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is `false` .
 	//
 	// If you specify `MapPublicIpOnLaunch` , you cannot specify `AssignIpv6AddressOnCreation` .
 	MapPublicIpOnLaunch interface{} `json:"mapPublicIpOnLaunch" yaml:"mapPublicIpOnLaunch"`
 	// The Amazon Resource Name (ARN) of the Outpost.
 	OutpostArn *string `json:"outpostArn" yaml:"outpostArn"`
-	// The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled.
-	//
-	// For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *Amazon Elastic Compute Cloud User Guide* .
-	PrivateDnsNameOptionsOnLaunch interface{} `json:"privateDnsNameOptionsOnLaunch" yaml:"privateDnsNameOptionsOnLaunch"`
 	// Any tags assigned to the subnet.
 	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
@@ -41346,8 +41248,6 @@ type CfnTransitGatewayPeeringAttachment interface {
 	CreationStack() *[]*string
 	LogicalId() *string
 	Node() constructs.Node
-	Options() interface{}
-	SetOptions(val interface{})
 	PeerAccountId() *string
 	SetPeerAccountId(val *string)
 	PeerRegion() *string
@@ -41473,16 +41373,6 @@ func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) Options() interface{} {
-	var returns interface{}
-	_jsii_.Get(
-		j,
-		"options",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) PeerAccountId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -41587,14 +41477,6 @@ func NewCfnTransitGatewayPeeringAttachment_Override(c CfnTransitGatewayPeeringAt
 		"aws-cdk-lib.aws_ec2.CfnTransitGatewayPeeringAttachment",
 		[]interface{}{scope, id, props},
 		c,
-	)
-}
-
-func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) SetOptions(val interface{}) {
-	_jsii_.Set(
-		j,
-		"options",
-		val,
 	)
 }
 
@@ -41930,13 +41812,6 @@ func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) ValidateProperties(_prope
 	)
 }
 
-// TODO: EXAMPLE
-//
-type CfnTransitGatewayPeeringAttachment_TransitGatewayPeeringAttachmentOptionsProperty struct {
-	// `CfnTransitGatewayPeeringAttachment.TransitGatewayPeeringAttachmentOptionsProperty.DynamicRouting`.
-	DynamicRouting *string `json:"dynamicRouting" yaml:"dynamicRouting"`
-}
-
 // Properties for defining a `CfnTransitGatewayPeeringAttachment`.
 //
 // TODO: EXAMPLE
@@ -41950,8 +41825,6 @@ type CfnTransitGatewayPeeringAttachmentProps struct {
 	PeerTransitGatewayId *string `json:"peerTransitGatewayId" yaml:"peerTransitGatewayId"`
 	// The ID of the transit gateway peering attachment.
 	TransitGatewayId *string `json:"transitGatewayId" yaml:"transitGatewayId"`
-	// `AWS::EC2::TransitGatewayPeeringAttachment.Options`.
-	Options interface{} `json:"options" yaml:"options"`
 	// The tags for the transit gateway peering attachment.
 	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 }
@@ -59489,6 +59362,8 @@ const (
 	InstanceClass_MEMORY_INTENSIVE_1_EXTENDED InstanceClass = "MEMORY_INTENSIVE_1_EXTENDED"
 	InstanceClass_MEMORY_INTENSIVE_2_GRAVITON2 InstanceClass = "MEMORY_INTENSIVE_2_GRAVITON2"
 	InstanceClass_MEMORY_INTENSIVE_2_GRAVITON2_NVME_DRIVE InstanceClass = "MEMORY_INTENSIVE_2_GRAVITON2_NVME_DRIVE"
+	InstanceClass_MEMORY_INTENSIVE_2_XT_INTEL InstanceClass = "MEMORY_INTENSIVE_2_XT_INTEL"
+	InstanceClass_MEMORY_INTENSIVE_2_INTEL InstanceClass = "MEMORY_INTENSIVE_2_INTEL"
 	InstanceClass_FPGA1 InstanceClass = "FPGA1"
 	InstanceClass_GRAPHICS3 InstanceClass = "GRAPHICS3"
 	InstanceClass_GRAPHICS4_NVME_DRIVE_HIGH_PERFORMANCE InstanceClass = "GRAPHICS4_NVME_DRIVE_HIGH_PERFORMANCE"

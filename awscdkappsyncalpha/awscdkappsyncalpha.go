@@ -12,6 +12,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticsearch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsopensearchservice"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
 	"github.com/aws/aws-cdk-go/awscdkappsyncalpha/v2/internal"
@@ -1545,7 +1546,7 @@ type DynamoDbDataSourceProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
+// Deprecated: - use `OpenSearchDataSource`
 type ElasticsearchDataSource interface {
 	BackedDataSource
 	Api() IGraphqlApi
@@ -1627,7 +1628,7 @@ func (j *jsiiProxy_ElasticsearchDataSource) ServiceRole() awsiam.IRole {
 }
 
 
-// Experimental.
+// Deprecated: - use `OpenSearchDataSource`
 func NewElasticsearchDataSource(scope constructs.Construct, id *string, props *ElasticsearchDataSourceProps) ElasticsearchDataSource {
 	_init_.Initialize()
 
@@ -1642,7 +1643,7 @@ func NewElasticsearchDataSource(scope constructs.Construct, id *string, props *E
 	return &j
 }
 
-// Experimental.
+// Deprecated: - use `OpenSearchDataSource`
 func NewElasticsearchDataSource_Override(e ElasticsearchDataSource, scope constructs.Construct, id *string, props *ElasticsearchDataSourceProps) {
 	_init_.Initialize()
 
@@ -1689,7 +1690,7 @@ func ElasticsearchDataSource_IsConstruct(x interface{}) *bool {
 }
 
 // creates a new appsync function for this datasource and API using the given properties.
-// Experimental.
+// Deprecated: - use `OpenSearchDataSource`
 func (e *jsiiProxy_ElasticsearchDataSource) CreateFunction(props *BaseAppsyncFunctionProps) AppsyncFunction {
 	var returns AppsyncFunction
 
@@ -1704,7 +1705,7 @@ func (e *jsiiProxy_ElasticsearchDataSource) CreateFunction(props *BaseAppsyncFun
 }
 
 // creates a new resolver for this datasource and API using the given properties.
-// Experimental.
+// Deprecated: - use `OpenSearchDataSource`
 func (e *jsiiProxy_ElasticsearchDataSource) CreateResolver(props *BaseResolverProps) Resolver {
 	var returns Resolver
 
@@ -1719,7 +1720,7 @@ func (e *jsiiProxy_ElasticsearchDataSource) CreateResolver(props *BaseResolverPr
 }
 
 // Returns a string representation of this construct.
-// Experimental.
+// Deprecated: - use `OpenSearchDataSource`
 func (e *jsiiProxy_ElasticsearchDataSource) ToString() *string {
 	var returns *string
 
@@ -1733,26 +1734,26 @@ func (e *jsiiProxy_ElasticsearchDataSource) ToString() *string {
 	return returns
 }
 
-// Properities for the Elasticsearch Data Source.
+// Properties for the Elasticsearch Data Source.
 //
 // TODO: EXAMPLE
 //
-// Experimental.
+// Deprecated: - use `OpenSearchDataSourceProps` with `OpenSearchDataSource`
 type ElasticsearchDataSourceProps struct {
 	// The API to attach this data source to.
-	// Experimental.
+	// Deprecated: - use `OpenSearchDataSourceProps` with `OpenSearchDataSource`
 	Api IGraphqlApi `json:"api" yaml:"api"`
 	// the description of the data source.
-	// Experimental.
+	// Deprecated: - use `OpenSearchDataSourceProps` with `OpenSearchDataSource`
 	Description *string `json:"description" yaml:"description"`
 	// The name of the data source.
-	// Experimental.
+	// Deprecated: - use `OpenSearchDataSourceProps` with `OpenSearchDataSource`
 	Name *string `json:"name" yaml:"name"`
 	// The IAM service role to be assumed by AppSync to interact with the data source.
-	// Experimental.
+	// Deprecated: - use `OpenSearchDataSourceProps` with `OpenSearchDataSource`
 	ServiceRole awsiam.IRole `json:"serviceRole" yaml:"serviceRole"`
 	// The elasticsearch domain containing the endpoint for the data source.
-	// Experimental.
+	// Deprecated: - use `OpenSearchDataSourceProps` with `OpenSearchDataSource`
 	Domain awselasticsearch.IDomain `json:"domain" yaml:"domain"`
 }
 
@@ -1910,8 +1911,8 @@ type ExtendedDataSourceProps struct {
 	// configuration for DynamoDB Datasource.
 	// Experimental.
 	DynamoDbConfig interface{} `json:"dynamoDbConfig" yaml:"dynamoDbConfig"`
-	// configuration for Elasticsearch Datasource.
-	// Experimental.
+	// configuration for Elasticsearch data source.
+	// Deprecated: - use `openSearchConfig`
 	ElasticsearchConfig interface{} `json:"elasticsearchConfig" yaml:"elasticsearchConfig"`
 	// configuration for HTTP Datasource.
 	// Experimental.
@@ -1919,6 +1920,9 @@ type ExtendedDataSourceProps struct {
 	// configuration for Lambda Datasource.
 	// Experimental.
 	LambdaConfig interface{} `json:"lambdaConfig" yaml:"lambdaConfig"`
+	// configuration for OpenSearch data source.
+	// Experimental.
+	OpenSearchServiceConfig interface{} `json:"openSearchServiceConfig" yaml:"openSearchServiceConfig"`
 	// configuration for RDS Datasource.
 	// Experimental.
 	RelationalDatabaseConfig interface{} `json:"relationalDatabaseConfig" yaml:"relationalDatabaseConfig"`
@@ -2434,6 +2438,7 @@ type GraphqlApi interface {
 	AddLambdaDataSource(id *string, lambdaFunction awslambda.IFunction, options *DataSourceOptions) LambdaDataSource
 	AddMutation(fieldName *string, field ResolvableField) ObjectType
 	AddNoneDataSource(id *string, options *DataSourceOptions) NoneDataSource
+	AddOpenSearchDataSource(id *string, domain awsopensearchservice.IDomain, options *DataSourceOptions) OpenSearchDataSource
 	AddQuery(fieldName *string, field ResolvableField) ObjectType
 	AddRdsDataSource(id *string, serverlessCluster awsrds.IServerlessCluster, secretStore awssecretsmanager.ISecret, databaseName *string, options *DataSourceOptions) RdsDataSource
 	AddSchemaDependency(construct awscdk.CfnResource) *bool
@@ -2663,7 +2668,7 @@ func (g *jsiiProxy_GraphqlApi) AddDynamoDbDataSource(id *string, table awsdynamo
 }
 
 // add a new elasticsearch data source to this API.
-// Experimental.
+// Deprecated: - use `addOpenSearchDataSource`
 func (g *jsiiProxy_GraphqlApi) AddElasticsearchDataSource(id *string, domain awselasticsearch.IDomain, options *DataSourceOptions) ElasticsearchDataSource {
 	var returns ElasticsearchDataSource
 
@@ -2738,6 +2743,21 @@ func (g *jsiiProxy_GraphqlApi) AddNoneDataSource(id *string, options *DataSource
 		g,
 		"addNoneDataSource",
 		[]interface{}{id, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// add a new OpenSearch data source to this API.
+// Experimental.
+func (g *jsiiProxy_GraphqlApi) AddOpenSearchDataSource(id *string, domain awsopensearchservice.IDomain, options *DataSourceOptions) OpenSearchDataSource {
+	var returns OpenSearchDataSource
+
+	_jsii_.Invoke(
+		g,
+		"addOpenSearchDataSource",
+		[]interface{}{id, domain, options},
 		&returns,
 	)
 
@@ -3051,6 +3071,7 @@ type GraphqlApiBase interface {
 	AddHttpDataSource(id *string, endpoint *string, options *HttpDataSourceOptions) HttpDataSource
 	AddLambdaDataSource(id *string, lambdaFunction awslambda.IFunction, options *DataSourceOptions) LambdaDataSource
 	AddNoneDataSource(id *string, options *DataSourceOptions) NoneDataSource
+	AddOpenSearchDataSource(id *string, domain awsopensearchservice.IDomain, options *DataSourceOptions) OpenSearchDataSource
 	AddRdsDataSource(id *string, serverlessCluster awsrds.IServerlessCluster, secretStore awssecretsmanager.ISecret, databaseName *string, options *DataSourceOptions) RdsDataSource
 	AddSchemaDependency(construct awscdk.CfnResource) *bool
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
@@ -3191,7 +3212,7 @@ func (g *jsiiProxy_GraphqlApiBase) AddDynamoDbDataSource(id *string, table awsdy
 }
 
 // add a new elasticsearch data source to this API.
-// Experimental.
+// Deprecated: - use `addOpenSearchDataSource`
 func (g *jsiiProxy_GraphqlApiBase) AddElasticsearchDataSource(id *string, domain awselasticsearch.IDomain, options *DataSourceOptions) ElasticsearchDataSource {
 	var returns ElasticsearchDataSource
 
@@ -3247,6 +3268,21 @@ func (g *jsiiProxy_GraphqlApiBase) AddNoneDataSource(id *string, options *DataSo
 		g,
 		"addNoneDataSource",
 		[]interface{}{id, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// add a new OpenSearch data source to this API.
+// Experimental.
+func (g *jsiiProxy_GraphqlApiBase) AddOpenSearchDataSource(id *string, domain awsopensearchservice.IDomain, options *DataSourceOptions) OpenSearchDataSource {
+	var returns OpenSearchDataSource
+
+	_jsii_.Invoke(
+		g,
+		"addOpenSearchDataSource",
+		[]interface{}{id, domain, options},
 		&returns,
 	)
 
@@ -4263,7 +4299,7 @@ type IGraphqlApi interface {
 	// Experimental.
 	AddDynamoDbDataSource(id *string, table awsdynamodb.ITable, options *DataSourceOptions) DynamoDbDataSource
 	// add a new elasticsearch data source to this API.
-	// Experimental.
+	// Deprecated: - use `addOpenSearchDataSource`
 	AddElasticsearchDataSource(id *string, domain awselasticsearch.IDomain, options *DataSourceOptions) ElasticsearchDataSource
 	// add a new http data source to this API.
 	// Experimental.
@@ -4277,6 +4313,9 @@ type IGraphqlApi interface {
 	// and for backend changes that don't require a data source.
 	// Experimental.
 	AddNoneDataSource(id *string, options *DataSourceOptions) NoneDataSource
+	// Add a new OpenSearch data source to this API.
+	// Experimental.
+	AddOpenSearchDataSource(id *string, domain awsopensearchservice.IDomain, options *DataSourceOptions) OpenSearchDataSource
 	// add a new Rds data source to this API.
 	// Experimental.
 	AddRdsDataSource(id *string, serverlessCluster awsrds.IServerlessCluster, secretStore awssecretsmanager.ISecret, databaseName *string, options *DataSourceOptions) RdsDataSource
@@ -4358,6 +4397,19 @@ func (i *jsiiProxy_IGraphqlApi) AddNoneDataSource(id *string, options *DataSourc
 		i,
 		"addNoneDataSource",
 		[]interface{}{id, options},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IGraphqlApi) AddOpenSearchDataSource(id *string, domain awsopensearchservice.IDomain, options *DataSourceOptions) OpenSearchDataSource {
+	var returns OpenSearchDataSource
+
+	_jsii_.Invoke(
+		i,
+		"addOpenSearchDataSource",
+		[]interface{}{id, domain, options},
 		&returns,
 	)
 
@@ -6024,6 +6076,221 @@ type OpenIdConnectConfig struct {
 	// This validation uses `iat` claim of OIDC token.
 	// Experimental.
 	TokenExpiryFromIssue *float64 `json:"tokenExpiryFromIssue" yaml:"tokenExpiryFromIssue"`
+}
+
+// An Appsync datasource backed by OpenSearch.
+//
+// TODO: EXAMPLE
+//
+// Experimental.
+type OpenSearchDataSource interface {
+	BackedDataSource
+	Api() IGraphqlApi
+	SetApi(val IGraphqlApi)
+	Ds() awsappsync.CfnDataSource
+	GrantPrincipal() awsiam.IPrincipal
+	Name() *string
+	Node() constructs.Node
+	ServiceRole() awsiam.IRole
+	SetServiceRole(val awsiam.IRole)
+	CreateFunction(props *BaseAppsyncFunctionProps) AppsyncFunction
+	CreateResolver(props *BaseResolverProps) Resolver
+	ToString() *string
+}
+
+// The jsii proxy struct for OpenSearchDataSource
+type jsiiProxy_OpenSearchDataSource struct {
+	jsiiProxy_BackedDataSource
+}
+
+func (j *jsiiProxy_OpenSearchDataSource) Api() IGraphqlApi {
+	var returns IGraphqlApi
+	_jsii_.Get(
+		j,
+		"api",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_OpenSearchDataSource) Ds() awsappsync.CfnDataSource {
+	var returns awsappsync.CfnDataSource
+	_jsii_.Get(
+		j,
+		"ds",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_OpenSearchDataSource) GrantPrincipal() awsiam.IPrincipal {
+	var returns awsiam.IPrincipal
+	_jsii_.Get(
+		j,
+		"grantPrincipal",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_OpenSearchDataSource) Name() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"name",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_OpenSearchDataSource) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_OpenSearchDataSource) ServiceRole() awsiam.IRole {
+	var returns awsiam.IRole
+	_jsii_.Get(
+		j,
+		"serviceRole",
+		&returns,
+	)
+	return returns
+}
+
+
+// Experimental.
+func NewOpenSearchDataSource(scope constructs.Construct, id *string, props *OpenSearchDataSourceProps) OpenSearchDataSource {
+	_init_.Initialize()
+
+	j := jsiiProxy_OpenSearchDataSource{}
+
+	_jsii_.Create(
+		"@aws-cdk/aws-appsync-alpha.OpenSearchDataSource",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewOpenSearchDataSource_Override(o OpenSearchDataSource, scope constructs.Construct, id *string, props *OpenSearchDataSourceProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/aws-appsync-alpha.OpenSearchDataSource",
+		[]interface{}{scope, id, props},
+		o,
+	)
+}
+
+func (j *jsiiProxy_OpenSearchDataSource) SetApi(val IGraphqlApi) {
+	_jsii_.Set(
+		j,
+		"api",
+		val,
+	)
+}
+
+func (j *jsiiProxy_OpenSearchDataSource) SetServiceRole(val awsiam.IRole) {
+	_jsii_.Set(
+		j,
+		"serviceRole",
+		val,
+	)
+}
+
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func OpenSearchDataSource_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-appsync-alpha.OpenSearchDataSource",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// creates a new appsync function for this datasource and API using the given properties.
+// Experimental.
+func (o *jsiiProxy_OpenSearchDataSource) CreateFunction(props *BaseAppsyncFunctionProps) AppsyncFunction {
+	var returns AppsyncFunction
+
+	_jsii_.Invoke(
+		o,
+		"createFunction",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// creates a new resolver for this datasource and API using the given properties.
+// Experimental.
+func (o *jsiiProxy_OpenSearchDataSource) CreateResolver(props *BaseResolverProps) Resolver {
+	var returns Resolver
+
+	_jsii_.Invoke(
+		o,
+		"createResolver",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns a string representation of this construct.
+// Experimental.
+func (o *jsiiProxy_OpenSearchDataSource) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		o,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Properties for the OpenSearch Data Source.
+//
+// TODO: EXAMPLE
+//
+// Experimental.
+type OpenSearchDataSourceProps struct {
+	// The API to attach this data source to.
+	// Experimental.
+	Api IGraphqlApi `json:"api" yaml:"api"`
+	// the description of the data source.
+	// Experimental.
+	Description *string `json:"description" yaml:"description"`
+	// The name of the data source.
+	// Experimental.
+	Name *string `json:"name" yaml:"name"`
+	// The IAM service role to be assumed by AppSync to interact with the data source.
+	// Experimental.
+	ServiceRole awsiam.IRole `json:"serviceRole" yaml:"serviceRole"`
+	// The OpenSearch domain containing the endpoint for the data source.
+	// Experimental.
+	Domain awsopensearchservice.IDomain `json:"domain" yaml:"domain"`
 }
 
 // Specifies the assignment to the partition key.

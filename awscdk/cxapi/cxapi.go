@@ -441,14 +441,14 @@ func (j *jsiiProxy_CloudAssembly) Version() *string {
 
 
 // Reads a cloud assembly from the specified directory.
-func NewCloudAssembly(directory *string) CloudAssembly {
+func NewCloudAssembly(directory *string, loadOptions *cloudassemblyschema.LoadManifestOptions) CloudAssembly {
 	_init_.Initialize()
 
 	j := jsiiProxy_CloudAssembly{}
 
 	_jsii_.Create(
 		"aws-cdk-lib.cx_api.CloudAssembly",
-		[]interface{}{directory},
+		[]interface{}{directory, loadOptions},
 		&j,
 	)
 
@@ -456,12 +456,12 @@ func NewCloudAssembly(directory *string) CloudAssembly {
 }
 
 // Reads a cloud assembly from the specified directory.
-func NewCloudAssembly_Override(c CloudAssembly, directory *string) {
+func NewCloudAssembly_Override(c CloudAssembly, directory *string, loadOptions *cloudassemblyschema.LoadManifestOptions) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"aws-cdk-lib.cx_api.CloudAssembly",
-		[]interface{}{directory},
+		[]interface{}{directory, loadOptions},
 		c,
 	)
 }

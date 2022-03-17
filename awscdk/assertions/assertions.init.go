@@ -16,6 +16,9 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "findWarning", GoMethod: "FindWarning"},
 			_jsii_.MemberMethod{JsiiMethod: "hasError", GoMethod: "HasError"},
 			_jsii_.MemberMethod{JsiiMethod: "hasInfo", GoMethod: "HasInfo"},
+			_jsii_.MemberMethod{JsiiMethod: "hasNoError", GoMethod: "HasNoError"},
+			_jsii_.MemberMethod{JsiiMethod: "hasNoInfo", GoMethod: "HasNoInfo"},
+			_jsii_.MemberMethod{JsiiMethod: "hasNoWarning", GoMethod: "HasNoWarning"},
 			_jsii_.MemberMethod{JsiiMethod: "hasWarning", GoMethod: "HasWarning"},
 		},
 		func() interface{} {

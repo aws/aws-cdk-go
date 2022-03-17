@@ -2538,7 +2538,9 @@ type CfnUserPool_DeviceConfigurationProperty struct {
 	DeviceOnlyRememberedOnUserPrompt interface{} `json:"deviceOnlyRememberedOnUserPrompt" yaml:"deviceOnlyRememberedOnUserPrompt"`
 }
 
-// The email configuration.
+// The email configuration of your user pool.
+//
+// The email configuration type sets your preferred sending method, AWS Region, and sender for messages from your user pool.
 //
 // TODO: EXAMPLE
 //
@@ -2550,7 +2552,7 @@ type CfnUserPool_EmailConfigurationProperty struct {
 	// - Event publishing – Amazon SES can track the number of send, delivery, open, click, bounce, and complaint events for each email sent. Use event publishing to send information about these events to other AWS services such as SNS and CloudWatch.
 	// - IP pool management – When leasing dedicated IP addresses with Amazon SES, you can create groups of IP addresses, called dedicated IP pools. You can then associate the dedicated IP pools with configuration sets.
 	ConfigurationSet *string `json:"configurationSet" yaml:"configurationSet"`
-	// Specifies whether Amazon Cognito emails your users by using its built-in email functionality or your Amazon Simple Email Service email configuration.
+	// Specifies whether Amazon Cognito uses its built-in functionality to send your users email messages, or uses your Amazon Simple Email Service email configuration.
 	//
 	// Specify one of the following values:
 	//
@@ -2590,6 +2592,8 @@ type CfnUserPool_EmailConfigurationProperty struct {
 	//
 	// - If you specify `COGNITO_DEFAULT` , Amazon Cognito uses this address as the custom FROM address when it emails your users using its built-in email account.
 	// - If you specify `DEVELOPER` , Amazon Cognito emails your users with this address by calling Amazon SES on your behalf.
+	//
+	// The Region value of the `SourceArn` parameter must indicate a supported AWS Region of your user pool. Typically, the Region in the `SourceArn` and the user pool Region are the same. For more information, see [Amazon SES email configuration regions](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-email.html#user-pool-email-developer-region-mapping) in the [Amazon Cognito Developer Guide](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html) .
 	SourceArn *string `json:"sourceArn" yaml:"sourceArn"`
 }
 
@@ -2745,7 +2749,11 @@ type CfnUserPool_SmsConfigurationProperty struct {
 	//
 	// This is the ARN of the IAM role in your AWS account that Amazon Cognito will use to send SMS messages. SMS messages are subject to a [spending limit](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html) .
 	SnsCallerArn *string `json:"snsCallerArn" yaml:"snsCallerArn"`
-	// `CfnUserPool.SmsConfigurationProperty.SnsRegion`.
+	// The AWS Region to use with Amazon SNS integration.
+	//
+	// You can choose the same Region as your user pool, or a supported *Legacy Amazon SNS alternate Region* .
+	//
+	// Amazon Cognito resources in the Asia Pacific (Seoul) AWS Region must use your Amazon SNS configuration in the Asia Pacific (Tokyo) Region. For more information, see [SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html) .
 	SnsRegion *string `json:"snsRegion" yaml:"snsRegion"`
 }
 
@@ -2780,8 +2788,8 @@ type CfnUserPool_UsernameConfigurationProperty struct {
 	//
 	// Valid values include:
 	//
-	// - *`True`* : Enables case sensitivity for all username input. When this option is set to `True` , users must sign in using the exact capitalization of their given username, such as “UserName”. This is the default value.
-	// - *`False`* : Enables case insensitivity for all username input. For example, when this option is set to `False` , users can sign in using either "username" or "Username". This option also enables both `preferred_username` and `email` alias to be case insensitive, in addition to the `username` attribute.
+	// - **True** - Enables case sensitivity for all username input. When this option is set to `True` , users must sign in using the exact capitalization of their given username, such as “UserName”. This is the default value.
+	// - **False** - Enables case insensitivity for all username input. For example, when this option is set to `False` , users can sign in using either "username" or "Username". This option also enables both `preferred_username` and `email` alias to be case insensitive, in addition to the `username` attribute.
 	CaseSensitive interface{} `json:"caseSensitive" yaml:"caseSensitive"`
 }
 
@@ -3694,7 +3702,7 @@ func (c *jsiiProxy_CfnUserPoolClient) ValidateProperties(_properties interface{}
 
 // The Amazon Pinpoint analytics configuration for collecting metrics for a user pool.
 //
-// > In Regions where Pinpoint isn't available, User Pools only supports sending events to Amazon Pinpoint projects in us-east-1. In Regions where Pinpoint is available, User Pools will support sending events to Amazon Pinpoint projects within that same Region.
+// > In Regions where Amazon Pinpointisn't available, user pools only support sending events to Amazon Pinpoint projects in us-east-1. In Regions where Amazon Pinpoint is available, user pools support sending events to Amazon Pinpoint projects within that same Region.
 //
 // TODO: EXAMPLE
 //
@@ -3751,9 +3759,9 @@ type CfnUserPoolClientProps struct {
 	//
 	// Possible values provided by OAuth are: `phone` , `email` , `openid` , and `profile` . Possible values provided by AWS are: `aws.cognito.signin.user.admin` . Custom scopes created in Resource Servers are also supported.
 	AllowedOAuthScopes *[]*string `json:"allowedOAuthScopes" yaml:"allowedOAuthScopes"`
-	// The Amazon Pinpoint analytics configuration for collecting metrics for this user pool.
+	// The user pool analytics configuration for collecting metrics and sending them to your Amazon Pinpoint campaign.
 	//
-	// > In AWS Regions where Amazon Pinpoint isn't available, User Pools only supports sending events to Amazon Pinpoint projects in AWS Region us-east-1. In Regions where is available, User Pools will support sending events to Amazon Pinpoint projects within that same Region.
+	// > In AWS Regions where Amazon Pinpoint isn't available, user pools only support sending events to Amazon Pinpoint projects in AWS Region us-east-1. In Regions where Amazon Pinpoint is available, user pools support sending events to Amazon Pinpoint projects within that same Region.
 	AnalyticsConfiguration interface{} `json:"analyticsConfiguration" yaml:"analyticsConfiguration"`
 	// A list of allowed redirect (callback) URLs for the identity providers.
 	//
@@ -3791,7 +3799,9 @@ type CfnUserPoolClientProps struct {
 	EnableTokenRevocation interface{} `json:"enableTokenRevocation" yaml:"enableTokenRevocation"`
 	// The authentication flows that are supported by the user pool clients.
 	//
-	// Flow names without the `ALLOW_` prefix are no longer supported, in favor of new names with the `ALLOW_` prefix. Note that values with `ALLOW_` prefix must be used only along with the `ALLOW_` prefix.
+	// Flow names without the `ALLOW_` prefix are no longer supported, in favor of new names with the `ALLOW_` prefix.
+	//
+	// > Values with `ALLOW_` prefix must be used only along with the `ALLOW_` prefix.
 	//
 	// Valid values include:
 	//
@@ -3825,7 +3835,7 @@ type CfnUserPoolClientProps struct {
 	TokenValidityUnits interface{} `json:"tokenValidityUnits" yaml:"tokenValidityUnits"`
 	// The user pool attributes that the app client can write to.
 	//
-	// If your app client allows users to sign in through an identity provider, this array must include all attributes that are mapped to identity provider attributes. Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider. If your app client lacks write access to a mapped attribute, Amazon Cognito throws an error when it tries to update the attribute. For more information, see [Specifying Identity Provider Attribute Mappings for Your User Pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html) .
+	// If your app client allows users to sign in through an identity provider, this array must include all attributes that you have mapped to identity provider attributes. Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider. If your app client does not have write access to a mapped attribute, Amazon Cognito throws an error when it tries to update the attribute. For more information, see [Specifying Identity Provider Attribute Mappings for Your user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html) .
 	WriteAttributes *[]*string `json:"writeAttributes" yaml:"writeAttributes"`
 }
 
@@ -5615,7 +5625,9 @@ type CfnUserPoolProps struct {
 	AutoVerifiedAttributes *[]*string `json:"autoVerifiedAttributes" yaml:"autoVerifiedAttributes"`
 	// The device configuration.
 	DeviceConfiguration interface{} `json:"deviceConfiguration" yaml:"deviceConfiguration"`
-	// The email configuration.
+	// The email configuration of your user pool.
+	//
+	// The email configuration type sets your preferred sending method, AWS Region, and sender for messages from your user pool.
 	EmailConfiguration interface{} `json:"emailConfiguration" yaml:"emailConfiguration"`
 	// A string representing the email verification message.
 	//
@@ -5656,7 +5668,9 @@ type CfnUserPoolProps struct {
 	Schema interface{} `json:"schema" yaml:"schema"`
 	// A string representing the SMS authentication message.
 	SmsAuthenticationMessage *string `json:"smsAuthenticationMessage" yaml:"smsAuthenticationMessage"`
-	// The SMS configuration.
+	// The SMS configuration with the settings that your Amazon Cognito user pool must use to send an SMS message from your AWS account through Amazon Simple Notification Service.
+	//
+	// To send SMS messages with Amazon SNS in the AWS Region that you want, the Amazon Cognito user pool uses an AWS Identity and Access Management (IAM) role in your AWS account .
 	SmsConfiguration interface{} `json:"smsConfiguration" yaml:"smsConfiguration"`
 	// A string representing the SMS verification message.
 	SmsVerificationMessage *string `json:"smsVerificationMessage" yaml:"smsVerificationMessage"`
@@ -6817,7 +6831,7 @@ func (c *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) ValidateProperties(_p
 // TODO: EXAMPLE
 //
 type CfnUserPoolRiskConfigurationAttachment_AccountTakeoverActionTypeProperty struct {
-	// The event action.
+	// The action to take in response to the account takeover action. Valid values are:.
 	//
 	// - `BLOCK` Choosing this action will block the request.
 	// - `MFA_IF_CONFIGURED` Present an MFA challenge if user has configured it, else allow the request.

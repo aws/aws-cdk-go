@@ -659,7 +659,7 @@ func (c *jsiiProxy_CfnCertificate) ValidateProperties(_properties interface{}) {
 
 // Contains X.509 certificate information to be placed in an issued certificate. An `APIPassthrough` or `APICSRPassthrough` template variant must be selected, or else this parameter is ignored.
 //
-// If conflicting or duplicate certificate information is supplied from other sources, ACM Private CA applies [order of operation rules](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html#template-order-of-operations) to determine what information is used.
+// If conflicting or duplicate certificate information is supplied from other sources, AWS Private CA applies [order of operation rules](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html#template-order-of-operations) to determine what information is used.
 //
 // TODO: EXAMPLE
 //
@@ -672,7 +672,7 @@ type CfnCertificate_ApiPassthroughProperty struct {
 	Subject interface{} `json:"subject" yaml:"subject"`
 }
 
-// Describes an Electronic Data Interchange (EDI) entity as described in as defined in [Subject Alternative Name](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc5280) in RFC 5280.
+// Describes an Electronic Data Interchange (EDI) entity as described in as defined in [Subject Alternative Name](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280) in RFC 5280.
 //
 // TODO: EXAMPLE
 //
@@ -690,7 +690,7 @@ type CfnCertificate_EdiPartyNameProperty struct {
 type CfnCertificate_ExtendedKeyUsageProperty struct {
 	// Specifies a custom `ExtendedKeyUsage` with an object identifier (OID).
 	ExtendedKeyUsageObjectIdentifier *string `json:"extendedKeyUsageObjectIdentifier" yaml:"extendedKeyUsageObjectIdentifier"`
-	// Specifies a standard `ExtendedKeyUsage` as defined as in [RFC 5280](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc5280#section-4.2.1.12) .
+	// Specifies a standard `ExtendedKeyUsage` as defined as in [RFC 5280](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.12) .
 	ExtendedKeyUsageType *string `json:"extendedKeyUsageType" yaml:"extendedKeyUsageType"`
 }
 
@@ -717,7 +717,7 @@ type CfnCertificate_ExtensionsProperty struct {
 	SubjectAlternativeNames interface{} `json:"subjectAlternativeNames" yaml:"subjectAlternativeNames"`
 }
 
-// Describes an ASN.1 X.400 `GeneralName` as defined in [RFC 5280](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc5280) . Only one of the following naming options should be provided. Providing more than one option results in an `InvalidArgsException` error.
+// Describes an ASN.1 X.400 `GeneralName` as defined in [RFC 5280](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280) . Only one of the following naming options should be provided. Providing more than one option results in an `InvalidArgsException` error.
 //
 // TODO: EXAMPLE
 //
@@ -736,7 +736,7 @@ type CfnCertificate_GeneralNameProperty struct {
 	OtherName interface{} `json:"otherName" yaml:"otherName"`
 	// Represents `GeneralName` as an object identifier (OID).
 	RegisteredId *string `json:"registeredId" yaml:"registeredId"`
-	// Represents `GeneralName` as an [RFC 822](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc822) email address.
+	// Represents `GeneralName` as an [RFC 822](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc822) email address.
 	Rfc822Name *string `json:"rfc822Name" yaml:"rfc822Name"`
 	// Represents `GeneralName` as a URI.
 	UniformResourceIdentifier *string `json:"uniformResourceIdentifier" yaml:"uniformResourceIdentifier"`
@@ -791,13 +791,13 @@ type CfnCertificate_PolicyInformationProperty struct {
 	CertPolicyId *string `json:"certPolicyId" yaml:"certPolicyId"`
 	// Modifies the given `CertPolicyId` with a qualifier.
 	//
-	// ACM Private CA supports the certification practice statement (CPS) qualifier.
+	// AWS Private CA supports the certification practice statement (CPS) qualifier.
 	PolicyQualifiers interface{} `json:"policyQualifiers" yaml:"policyQualifiers"`
 }
 
 // Modifies the `CertPolicyId` of a `PolicyInformation` object with a qualifier.
 //
-// ACM Private CA supports the certification practice statement (CPS) qualifier.
+// AWS Private CA supports the certification practice statement (CPS) qualifier.
 //
 // TODO: EXAMPLE
 //
@@ -806,13 +806,13 @@ type CfnCertificate_PolicyQualifierInfoProperty struct {
 	PolicyQualifierId *string `json:"policyQualifierId" yaml:"policyQualifierId"`
 	// Defines the qualifier type.
 	//
-	// ACM Private CA supports the use of a URI for a CPS qualifier in this field.
+	// AWS Private CA supports the use of a URI for a CPS qualifier in this field.
 	Qualifier interface{} `json:"qualifier" yaml:"qualifier"`
 }
 
 // Defines a `PolicyInformation` qualifier.
 //
-// ACM Private CA supports the [certification practice statement (CPS) qualifier](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc5280#section-4.2.1.4) defined in RFC 5280.
+// AWS Private CA supports the [certification practice statement (CPS) qualifier](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.4) defined in RFC 5280.
 //
 // TODO: EXAMPLE
 //
@@ -1514,7 +1514,7 @@ func (c *jsiiProxy_CfnCertificateAuthority) ValidateProperties(_properties inter
 	)
 }
 
-// Provides access information used by the `authorityInfoAccess` and `subjectInfoAccess` extensions described in [RFC 5280](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc5280) .
+// Provides access information used by the `authorityInfoAccess` and `subjectInfoAccess` extensions described in [RFC 5280](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280) .
 //
 // TODO: EXAMPLE
 //
@@ -1542,13 +1542,13 @@ type CfnCertificateAuthority_AccessMethodProperty struct {
 
 // Contains configuration information for a certificate revocation list (CRL).
 //
-// Your private certificate authority (CA) creates base CRLs. Delta CRLs are not supported. You can enable CRLs for your new or an existing private CA by setting the *Enabled* parameter to `true` . Your private CA writes CRLs to an S3 bucket that you specify in the *S3BucketName* parameter. You can hide the name of your bucket by specifying a value for the *CustomCname* parameter. Your private CA copies the CNAME or the S3 bucket name to the *CRL Distribution Points* extension of each certificate it issues. Your S3 bucket policy must give write permission to ACM Private CA.
+// Your private certificate authority (CA) creates base CRLs. Delta CRLs are not supported. You can enable CRLs for your new or an existing private CA by setting the *Enabled* parameter to `true` . Your private CA writes CRLs to an S3 bucket that you specify in the *S3BucketName* parameter. You can hide the name of your bucket by specifying a value for the *CustomCname* parameter. Your private CA copies the CNAME or the S3 bucket name to the *CRL Distribution Points* extension of each certificate it issues. Your S3 bucket policy must give write permission to AWS Private CA.
 //
-// ACM Private CA assets that are stored in Amazon S3 can be protected with encryption. For more information, see [Encrypting Your CRLs](https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaCreateCa.html#crl-encryption) .
+// AWS Private CA assets that are stored in Amazon S3 can be protected with encryption. For more information, see [Encrypting Your CRLs](https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaCreateCa.html#crl-encryption) .
 //
-// Your private CA uses the value in the *ExpirationInDays* parameter to calculate the *nextUpdate* field in the CRL. The CRL is refreshed at 1/2 the age of next update or when a certificate is revoked. When a certificate is revoked, it is recorded in the next CRL that is generated and in the next audit report. Only time valid certificates are listed in the CRL. Expired certificates are not included.
+// Your private CA uses the value in the *ExpirationInDays* parameter to calculate the *nextUpdate* field in the CRL. The CRL is refreshed prior to a certificate's expiration date or when a certificate is revoked. When a certificate is revoked, it appears in the CRL until the certificate expires, and then in one additional CRL after expiration, and it always appears in the audit report.
 //
-// A CRL is typically updated approximately 30 minutes after a certificate is revoked. If for any reason a CRL update fails, ACM Private CA makes further attempts every 15 minutes.
+// A CRL is typically updated approximately 30 minutes after a certificate is revoked. If for any reason a CRL update fails, AWS Private CA makes further attempts every 15 minutes.
 //
 // CRLs contain the following fields:
 //
@@ -1571,11 +1571,11 @@ type CfnCertificateAuthority_AccessMethodProperty struct {
 // - *Signature Algorithm* : Algorithm used by your private CA to sign the CRL.
 // - *Signature Value* : Signature computed over the CRL.
 //
-// Certificate revocation lists created by ACM Private CA are DER-encoded. You can use the following OpenSSL command to list a CRL.
+// Certificate revocation lists created by AWS Private CA are DER-encoded. You can use the following OpenSSL command to list a CRL.
 //
 // `openssl crl -inform DER -text -in *crl_path* -noout`
 //
-// For more information, see [Planning a certificate revocation list (CRL)](https://docs.aws.amazon.com/acm-pca/latest/userguide/crl-planning.html) in the *AWS Certificate Manager Private Certificate Authority (PCA) User Guide*
+// For more information, see [Planning a certificate revocation list (CRL)](https://docs.aws.amazon.com/acm-pca/latest/userguide/crl-planning.html) in the *AWS Private Certificate Authority User Guide*
 //
 // TODO: EXAMPLE
 //
@@ -1592,7 +1592,7 @@ type CfnCertificateAuthority_CrlConfigurationProperty struct {
 	ExpirationInDays *float64 `json:"expirationInDays" yaml:"expirationInDays"`
 	// Name of the S3 bucket that contains the CRL.
 	//
-	// If you do not provide a value for the *CustomCname* argument, the name of your S3 bucket is placed into the *CRL Distribution Points* extension of the issued certificate. You can change the name of your bucket by calling the [UpdateCertificateAuthority](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_UpdateCertificateAuthority.html) operation. You must specify a [bucket policy](https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaCreateCa.html#s3-policies) that allows ACM Private CA to write the CRL to your bucket.
+	// If you do not provide a value for the *CustomCname* argument, the name of your S3 bucket is placed into the *CRL Distribution Points* extension of the issued certificate. You can change the name of your bucket by calling the [UpdateCertificateAuthority](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_UpdateCertificateAuthority.html) operation. You must specify a [bucket policy](https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaCreateCa.html#s3-policies) that allows AWS Private CA to write the CRL to your bucket.
 	S3BucketName *string `json:"s3BucketName" yaml:"s3BucketName"`
 	// Determines whether the CRL will be publicly readable or privately held in the CRL Amazon S3 bucket.
 	//
@@ -1615,11 +1615,11 @@ type CfnCertificateAuthority_CsrExtensionsProperty struct {
 	KeyUsage interface{} `json:"keyUsage" yaml:"keyUsage"`
 	// For CA certificates, provides a path to additional information pertaining to the CA, such as revocation and policy.
 	//
-	// For more information, see [Subject Information Access](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc5280#section-4.2.2.2) in RFC 5280.
+	// For more information, see [Subject Information Access](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.2.2) in RFC 5280.
 	SubjectInformationAccess interface{} `json:"subjectInformationAccess" yaml:"subjectInformationAccess"`
 }
 
-// Describes an Electronic Data Interchange (EDI) entity as described in as defined in [Subject Alternative Name](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc5280) in RFC 5280.
+// Describes an Electronic Data Interchange (EDI) entity as described in as defined in [Subject Alternative Name](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280) in RFC 5280.
 //
 // TODO: EXAMPLE
 //
@@ -1630,7 +1630,7 @@ type CfnCertificateAuthority_EdiPartyNameProperty struct {
 	PartyName *string `json:"partyName" yaml:"partyName"`
 }
 
-// Describes an ASN.1 X.400 `GeneralName` as defined in [RFC 5280](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc5280) . Only one of the following naming options should be provided. Providing more than one option results in an `InvalidArgsException` error.
+// Describes an ASN.1 X.400 `GeneralName` as defined in [RFC 5280](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280) . Only one of the following naming options should be provided. Providing more than one option results in an `InvalidArgsException` error.
 //
 // TODO: EXAMPLE
 //
@@ -1649,7 +1649,7 @@ type CfnCertificateAuthority_GeneralNameProperty struct {
 	OtherName interface{} `json:"otherName" yaml:"otherName"`
 	// Represents `GeneralName` as an object identifier (OID).
 	RegisteredId *string `json:"registeredId" yaml:"registeredId"`
-	// Represents `GeneralName` as an [RFC 822](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc822) email address.
+	// Represents `GeneralName` as an [RFC 822](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc822) email address.
 	Rfc822Name *string `json:"rfc822Name" yaml:"rfc822Name"`
 	// Represents `GeneralName` as a URI.
 	UniformResourceIdentifier *string `json:"uniformResourceIdentifier" yaml:"uniformResourceIdentifier"`

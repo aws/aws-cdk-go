@@ -172,6 +172,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "setAttribute", GoMethod: "SetAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validateLoadBalancer", GoMethod: "ValidateLoadBalancer"},
 			_jsii_.MemberProperty{JsiiProperty: "vpc", GoGetter: "Vpc"},
 		},
 		func() interface{} {
@@ -321,6 +322,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "setAttribute", GoMethod: "SetAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validateLoadBalancer", GoMethod: "ValidateLoadBalancer"},
 			_jsii_.MemberProperty{JsiiProperty: "vpc", GoGetter: "Vpc"},
 		},
 		func() interface{} {
@@ -1079,6 +1081,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "setAttribute", GoMethod: "SetAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validateLoadBalancer", GoMethod: "ValidateLoadBalancer"},
 			_jsii_.MemberProperty{JsiiProperty: "vpc", GoGetter: "Vpc"},
 		},
 		func() interface{} {

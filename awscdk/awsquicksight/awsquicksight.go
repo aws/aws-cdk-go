@@ -3691,7 +3691,7 @@ func (c *jsiiProxy_CfnDataSource) ValidateProperties(_properties interface{}) {
 	)
 }
 
-// The parameters for OpenSearch .
+// The parameters for OpenSearch.
 //
 // TODO: EXAMPLE
 //
@@ -3700,7 +3700,7 @@ type CfnDataSource_AmazonElasticsearchParametersProperty struct {
 	Domain *string `json:"domain" yaml:"domain"`
 }
 
-// The parameters for OpenSearch .
+// The parameters for OpenSearch.
 //
 // TODO: EXAMPLE
 //
@@ -3794,9 +3794,9 @@ type CfnDataSource_DataSourceErrorInfoProperty struct {
 // TODO: EXAMPLE
 //
 type CfnDataSource_DataSourceParametersProperty struct {
-	// The parameters for OpenSearch .
+	// The parameters for OpenSearch.
 	AmazonElasticsearchParameters interface{} `json:"amazonElasticsearchParameters" yaml:"amazonElasticsearchParameters"`
-	// The parameters for OpenSearch .
+	// The parameters for OpenSearch.
 	AmazonOpenSearchParameters interface{} `json:"amazonOpenSearchParameters" yaml:"amazonOpenSearchParameters"`
 	// The parameters for Amazon Athena.
 	AthenaParameters interface{} `json:"athenaParameters" yaml:"athenaParameters"`
@@ -4067,7 +4067,7 @@ type CfnDataSourceProps struct {
 	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
 	// The type of the data source. To return a list of all data sources, use `ListDataSources` .
 	//
-	// Use `AMAZON_ELASTICSEARCH` for Amazon OpenSearch Service .
+	// Use `AMAZON_ELASTICSEARCH` for Amazon OpenSearch Service.
 	Type *string `json:"type" yaml:"type"`
 	// Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source.
 	VpcConnectionProperties interface{} `json:"vpcConnectionProperties" yaml:"vpcConnectionProperties"`

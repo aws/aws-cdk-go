@@ -510,6 +510,24 @@ const (
 	LoadBalancerType_APPLICATION LoadBalancerType = "APPLICATION"
 )
 
+// Options for the loadManifest operation.
+//
+// TODO: EXAMPLE
+//
+type LoadManifestOptions struct {
+	// Skip enum checks.
+	//
+	// This means you may read enum values you don't know about yet. Make sure to always
+	// check the values of enums you encounter in the manifest.
+	SkipEnumCheck *bool `json:"skipEnumCheck" yaml:"skipEnumCheck"`
+	// Skip the version check.
+	//
+	// This means you may read a newer cloud assembly than the CX API is designed
+	// to support, and your application may not be aware of all features that in use
+	// in the Cloud Assembly.
+	SkipVersionCheck *bool `json:"skipVersionCheck" yaml:"skipVersionCheck"`
+}
+
 // Protocol utility class.
 type Manifest interface {
 }
@@ -520,7 +538,7 @@ type jsiiProxy_Manifest struct {
 }
 
 // Load and validates the cloud assembly manifest from file.
-func Manifest_LoadAssemblyManifest(filePath *string) *AssemblyManifest {
+func Manifest_LoadAssemblyManifest(filePath *string, options *LoadManifestOptions) *AssemblyManifest {
 	_init_.Initialize()
 
 	var returns *AssemblyManifest
@@ -528,7 +546,7 @@ func Manifest_LoadAssemblyManifest(filePath *string) *AssemblyManifest {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.cloud_assembly_schema.Manifest",
 		"loadAssemblyManifest",
-		[]interface{}{filePath},
+		[]interface{}{filePath, options},
 		&returns,
 	)
 

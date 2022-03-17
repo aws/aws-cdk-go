@@ -167,6 +167,10 @@ func init() {
 			"APPLICATION": LoadBalancerType_APPLICATION,
 		},
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.cloud_assembly_schema.LoadManifestOptions",
+		reflect.TypeOf((*LoadManifestOptions)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.cloud_assembly_schema.Manifest",
 		reflect.TypeOf((*Manifest)(nil)).Elem(),

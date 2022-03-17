@@ -2826,8 +2826,6 @@ type CfnFargateProfileProps struct {
 //
 // If you want to authenticate identities using an identity provider, you can create an identity provider configuration and associate it to your cluster. After configuring authentication to your cluster you can create Kubernetes `roles` and `clusterroles` to assign permissions to the roles, and then bind the roles to the identities using Kubernetes `rolebindings` and `clusterrolebindings` . For more information see [Using RBAC Authorization](https://docs.aws.amazon.com/https://kubernetes.io/docs/reference/access-authn-authz/rbac/) in the Kubernetes documentation.
 //
-// This resource isn't available in all AWS Regions .
-//
 // TODO: EXAMPLE
 //
 type CfnIdentityProviderConfig interface {
@@ -3386,8 +3384,6 @@ func (c *jsiiProxy_CfnIdentityProviderConfig) ValidateProperties(_properties int
 
 // An object that represents the configuration for an OpenID Connect (OIDC) identity provider.
 //
-// This resource isn't available in all AWS Regions .
-//
 // TODO: EXAMPLE
 //
 type CfnIdentityProviderConfig_OidcIdentityProviderConfigProperty struct {
@@ -3418,8 +3414,6 @@ type CfnIdentityProviderConfig_OidcIdentityProviderConfigProperty struct {
 // A key-value pair that describes a required claim in the identity token.
 //
 // If set, each claim is verified to be present in the token with a matching value.
-//
-// This resource isn't available in all AWS Regions .
 //
 // TODO: EXAMPLE
 //

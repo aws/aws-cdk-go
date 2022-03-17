@@ -20,20 +20,24 @@ import (
 //
 // TODO: EXAMPLE
 //
+// Deprecated: use opensearchservice module instead
 type AdvancedSecurityOptions struct {
 	// ARN for the master user.
 	//
 	// Only specify this or masterUserName, but not both.
+	// Deprecated: use opensearchservice module instead
 	MasterUserArn *string `json:"masterUserArn" yaml:"masterUserArn"`
 	// Username for the master user.
 	//
 	// Only specify this or masterUserArn, but not both.
+	// Deprecated: use opensearchservice module instead
 	MasterUserName *string `json:"masterUserName" yaml:"masterUserName"`
 	// Password for the master user.
 	//
 	// You can use `SecretValue.plainText` to specify a password in plain text or
 	// use `secretsmanager.Secret.fromSecretAttributes` to reference a secret in
 	// Secrets Manager.
+	// Deprecated: use opensearchservice module instead
 	MasterUserPassword awscdk.SecretValue `json:"masterUserPassword" yaml:"masterUserPassword"`
 }
 
@@ -41,18 +45,25 @@ type AdvancedSecurityOptions struct {
 //
 // TODO: EXAMPLE
 //
+// Deprecated: use opensearchservice module instead
 type CapacityConfig struct {
 	// The instance type for your data nodes, such as `m3.medium.elasticsearch`. For valid values, see [Supported Instance Types](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html) in the Amazon Elasticsearch Service Developer Guide.
+	// Deprecated: use opensearchservice module instead
 	DataNodeInstanceType *string `json:"dataNodeInstanceType" yaml:"dataNodeInstanceType"`
 	// The number of data nodes (instances) to use in the Amazon ES domain.
+	// Deprecated: use opensearchservice module instead
 	DataNodes *float64 `json:"dataNodes" yaml:"dataNodes"`
 	// The hardware configuration of the computer that hosts the dedicated master node, such as `m3.medium.elasticsearch`. For valid values, see [Supported Instance Types] (https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html) in the Amazon Elasticsearch Service Developer Guide.
+	// Deprecated: use opensearchservice module instead
 	MasterNodeInstanceType *string `json:"masterNodeInstanceType" yaml:"masterNodeInstanceType"`
 	// The number of instances to use for the master node.
+	// Deprecated: use opensearchservice module instead
 	MasterNodes *float64 `json:"masterNodes" yaml:"masterNodes"`
 	// The instance type for your UltraWarm node, such as `ultrawarm1.medium.elasticsearch`. For valid values, see [UltraWarm Storage Limits] (https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-limits.html#limits-ultrawarm) in the Amazon Elasticsearch Service Developer Guide.
+	// Deprecated: use opensearchservice module instead
 	WarmInstanceType *string `json:"warmInstanceType" yaml:"warmInstanceType"`
 	// The number of UltraWarm nodes (instances) to use in the Amazon ES domain.
+	// Deprecated: use opensearchservice module instead
 	WarmNodes *float64 `json:"warmNodes" yaml:"warmNodes"`
 }
 
@@ -1144,16 +1155,20 @@ type CfnDomainProps struct {
 //
 // See: https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html
 //
+// Deprecated: use opensearchservice module instead
 type CognitoOptions struct {
 	// The Amazon Cognito identity pool ID that you want Amazon ES to use for Kibana authentication.
+	// Deprecated: use opensearchservice module instead
 	IdentityPoolId *string `json:"identityPoolId" yaml:"identityPoolId"`
 	// A role that allows Amazon ES to configure your user pool and identity pool.
 	//
 	// It must have the `AmazonESCognitoAccess` policy attached to it.
 	// See: https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html#es-cognito-auth-prereq
 	//
+	// Deprecated: use opensearchservice module instead
 	Role awsiam.IRole `json:"role" yaml:"role"`
 	// The Amazon Cognito user pool ID that you want Amazon ES to use for Kibana authentication.
+	// Deprecated: use opensearchservice module instead
 	UserPoolId *string `json:"userPoolId" yaml:"userPoolId"`
 }
 
@@ -1161,12 +1176,16 @@ type CognitoOptions struct {
 //
 // TODO: EXAMPLE
 //
+// Deprecated: use opensearchservice module instead
 type CustomEndpointOptions struct {
 	// The custom domain name to assign.
+	// Deprecated: use opensearchservice module instead
 	DomainName *string `json:"domainName" yaml:"domainName"`
 	// The certificate to use.
+	// Deprecated: use opensearchservice module instead
 	Certificate awscertificatemanager.ICertificate `json:"certificate" yaml:"certificate"`
 	// The hosted zone in Route53 to create the CNAME record in.
+	// Deprecated: use opensearchservice module instead
 	HostedZone awsroute53.IHostedZone `json:"hostedZone" yaml:"hostedZone"`
 }
 
@@ -1174,6 +1193,7 @@ type CustomEndpointOptions struct {
 //
 // TODO: EXAMPLE
 //
+// Deprecated: use opensearchservice module instead
 type Domain interface {
 	awscdk.Resource
 	awsec2.IConnectable
@@ -1362,6 +1382,7 @@ func (j *jsiiProxy_Domain) Stack() awscdk.Stack {
 }
 
 
+// Deprecated: use opensearchservice module instead
 func NewDomain(scope constructs.Construct, id *string, props *DomainProps) Domain {
 	_init_.Initialize()
 
@@ -1376,6 +1397,7 @@ func NewDomain(scope constructs.Construct, id *string, props *DomainProps) Domai
 	return &j
 }
 
+// Deprecated: use opensearchservice module instead
 func NewDomain_Override(d Domain, scope constructs.Construct, id *string, props *DomainProps) {
 	_init_.Initialize()
 
@@ -1387,6 +1409,7 @@ func NewDomain_Override(d Domain, scope constructs.Construct, id *string, props 
 }
 
 // Creates a Domain construct that represents an external domain.
+// Deprecated: use opensearchservice module instead
 func Domain_FromDomainAttributes(scope constructs.Construct, id *string, attrs *DomainAttributes) IDomain {
 	_init_.Initialize()
 
@@ -1403,6 +1426,7 @@ func Domain_FromDomainAttributes(scope constructs.Construct, id *string, attrs *
 }
 
 // Creates a Domain construct that represents an external domain via domain endpoint.
+// Deprecated: use opensearchservice module instead
 func Domain_FromDomainEndpoint(scope constructs.Construct, id *string, domainEndpoint *string) IDomain {
 	_init_.Initialize()
 
@@ -1438,6 +1462,7 @@ func Domain_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
+// Deprecated: use opensearchservice module instead
 func Domain_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -1454,6 +1479,7 @@ func Domain_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Add policy statements to the domain access policy.
+// Deprecated: use opensearchservice module instead
 func (d *jsiiProxy_Domain) AddAccessPolicies(accessPolicyStatements ...awsiam.PolicyStatement) {
 	args := []interface{}{}
 	for _, a := range accessPolicyStatements {
@@ -1476,6 +1502,7 @@ func (d *jsiiProxy_Domain) AddAccessPolicies(accessPolicyStatements ...awsiam.Po
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Deprecated: use opensearchservice module instead
 func (d *jsiiProxy_Domain) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		d,
@@ -1484,6 +1511,7 @@ func (d *jsiiProxy_Domain) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
+// Deprecated: use opensearchservice module instead
 func (d *jsiiProxy_Domain) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -1503,6 +1531,7 @@ func (d *jsiiProxy_Domain) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
+// Deprecated: use opensearchservice module instead
 func (d *jsiiProxy_Domain) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -1521,6 +1550,7 @@ func (d *jsiiProxy_Domain) GetResourceArnAttribute(arnAttr *string, arnComponent
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
+// Deprecated: use opensearchservice module instead
 func (d *jsiiProxy_Domain) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -1535,6 +1565,7 @@ func (d *jsiiProxy_Domain) GetResourceNameAttribute(nameAttr *string) *string {
 }
 
 // Grant read permissions for an index in this domain to an IAM principal (Role/Group/User).
+// Deprecated: use opensearchservice module instead
 func (d *jsiiProxy_Domain) GrantIndexRead(index *string, identity awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -1549,6 +1580,7 @@ func (d *jsiiProxy_Domain) GrantIndexRead(index *string, identity awsiam.IGranta
 }
 
 // Grant read/write permissions for an index in this domain to an IAM principal (Role/Group/User).
+// Deprecated: use opensearchservice module instead
 func (d *jsiiProxy_Domain) GrantIndexReadWrite(index *string, identity awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -1563,6 +1595,7 @@ func (d *jsiiProxy_Domain) GrantIndexReadWrite(index *string, identity awsiam.IG
 }
 
 // Grant write permissions for an index in this domain to an IAM principal (Role/Group/User).
+// Deprecated: use opensearchservice module instead
 func (d *jsiiProxy_Domain) GrantIndexWrite(index *string, identity awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -1577,6 +1610,7 @@ func (d *jsiiProxy_Domain) GrantIndexWrite(index *string, identity awsiam.IGrant
 }
 
 // Grant read permissions for a specific path in this domain to an IAM principal (Role/Group/User).
+// Deprecated: use opensearchservice module instead
 func (d *jsiiProxy_Domain) GrantPathRead(path *string, identity awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -1591,6 +1625,7 @@ func (d *jsiiProxy_Domain) GrantPathRead(path *string, identity awsiam.IGrantabl
 }
 
 // Grant read/write permissions for a specific path in this domain to an IAM principal (Role/Group/User).
+// Deprecated: use opensearchservice module instead
 func (d *jsiiProxy_Domain) GrantPathReadWrite(path *string, identity awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -1605,6 +1640,7 @@ func (d *jsiiProxy_Domain) GrantPathReadWrite(path *string, identity awsiam.IGra
 }
 
 // Grant write permissions for a specific path in this domain to an IAM principal (Role/Group/User).
+// Deprecated: use opensearchservice module instead
 func (d *jsiiProxy_Domain) GrantPathWrite(path *string, identity awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -1619,6 +1655,7 @@ func (d *jsiiProxy_Domain) GrantPathWrite(path *string, identity awsiam.IGrantab
 }
 
 // Grant read permissions for this domain and its contents to an IAM principal (Role/Group/User).
+// Deprecated: use opensearchservice module instead
 func (d *jsiiProxy_Domain) GrantRead(identity awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -1633,6 +1670,7 @@ func (d *jsiiProxy_Domain) GrantRead(identity awsiam.IGrantable) awsiam.Grant {
 }
 
 // Grant read/write permissions for this domain and its contents to an IAM principal (Role/Group/User).
+// Deprecated: use opensearchservice module instead
 func (d *jsiiProxy_Domain) GrantReadWrite(identity awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -1647,6 +1685,7 @@ func (d *jsiiProxy_Domain) GrantReadWrite(identity awsiam.IGrantable) awsiam.Gra
 }
 
 // Grant write permissions for this domain and its contents to an IAM principal (Role/Group/User).
+// Deprecated: use opensearchservice module instead
 func (d *jsiiProxy_Domain) GrantWrite(identity awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -1661,6 +1700,7 @@ func (d *jsiiProxy_Domain) GrantWrite(identity awsiam.IGrantable) awsiam.Grant {
 }
 
 // Return the given named metric for this Domain.
+// Deprecated: use opensearchservice module instead
 func (d *jsiiProxy_Domain) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1675,6 +1715,7 @@ func (d *jsiiProxy_Domain) Metric(metricName *string, props *awscloudwatch.Metri
 }
 
 // Metric for automated snapshot failures.
+// Deprecated: use opensearchservice module instead
 func (d *jsiiProxy_Domain) MetricAutomatedSnapshotFailure(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1689,6 +1730,7 @@ func (d *jsiiProxy_Domain) MetricAutomatedSnapshotFailure(props *awscloudwatch.M
 }
 
 // Metric for the cluster blocking index writes.
+// Deprecated: use opensearchservice module instead
 func (d *jsiiProxy_Domain) MetricClusterIndexWritesBlocked(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1703,6 +1745,7 @@ func (d *jsiiProxy_Domain) MetricClusterIndexWritesBlocked(props *awscloudwatch.
 }
 
 // Metric for the time the cluster status is red.
+// Deprecated: use opensearchservice module instead
 func (d *jsiiProxy_Domain) MetricClusterStatusRed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1717,6 +1760,7 @@ func (d *jsiiProxy_Domain) MetricClusterStatusRed(props *awscloudwatch.MetricOpt
 }
 
 // Metric for the time the cluster status is yellow.
+// Deprecated: use opensearchservice module instead
 func (d *jsiiProxy_Domain) MetricClusterStatusYellow(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1731,6 +1775,7 @@ func (d *jsiiProxy_Domain) MetricClusterStatusYellow(props *awscloudwatch.Metric
 }
 
 // Metric for CPU utilization.
+// Deprecated: use opensearchservice module instead
 func (d *jsiiProxy_Domain) MetricCPUUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1745,6 +1790,7 @@ func (d *jsiiProxy_Domain) MetricCPUUtilization(props *awscloudwatch.MetricOptio
 }
 
 // Metric for the storage space of nodes in the cluster.
+// Deprecated: use opensearchservice module instead
 func (d *jsiiProxy_Domain) MetricFreeStorageSpace(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1759,6 +1805,7 @@ func (d *jsiiProxy_Domain) MetricFreeStorageSpace(props *awscloudwatch.MetricOpt
 }
 
 // Metric for indexing latency.
+// Deprecated: use opensearchservice module instead
 func (d *jsiiProxy_Domain) MetricIndexingLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1773,6 +1820,7 @@ func (d *jsiiProxy_Domain) MetricIndexingLatency(props *awscloudwatch.MetricOpti
 }
 
 // Metric for JVM memory pressure.
+// Deprecated: use opensearchservice module instead
 func (d *jsiiProxy_Domain) MetricJVMMemoryPressure(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1787,6 +1835,7 @@ func (d *jsiiProxy_Domain) MetricJVMMemoryPressure(props *awscloudwatch.MetricOp
 }
 
 // Metric for KMS key errors.
+// Deprecated: use opensearchservice module instead
 func (d *jsiiProxy_Domain) MetricKMSKeyError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1801,6 +1850,7 @@ func (d *jsiiProxy_Domain) MetricKMSKeyError(props *awscloudwatch.MetricOptions)
 }
 
 // Metric for KMS key being inaccessible.
+// Deprecated: use opensearchservice module instead
 func (d *jsiiProxy_Domain) MetricKMSKeyInaccessible(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1815,6 +1865,7 @@ func (d *jsiiProxy_Domain) MetricKMSKeyInaccessible(props *awscloudwatch.MetricO
 }
 
 // Metric for master CPU utilization.
+// Deprecated: use opensearchservice module instead
 func (d *jsiiProxy_Domain) MetricMasterCPUUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1829,6 +1880,7 @@ func (d *jsiiProxy_Domain) MetricMasterCPUUtilization(props *awscloudwatch.Metri
 }
 
 // Metric for master JVM memory pressure.
+// Deprecated: use opensearchservice module instead
 func (d *jsiiProxy_Domain) MetricMasterJVMMemoryPressure(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1843,6 +1895,7 @@ func (d *jsiiProxy_Domain) MetricMasterJVMMemoryPressure(props *awscloudwatch.Me
 }
 
 // Metric for the number of nodes.
+// Deprecated: use opensearchservice module instead
 func (d *jsiiProxy_Domain) MetricNodes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1857,6 +1910,7 @@ func (d *jsiiProxy_Domain) MetricNodes(props *awscloudwatch.MetricOptions) awscl
 }
 
 // Metric for number of searchable documents.
+// Deprecated: use opensearchservice module instead
 func (d *jsiiProxy_Domain) MetricSearchableDocuments(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1871,6 +1925,7 @@ func (d *jsiiProxy_Domain) MetricSearchableDocuments(props *awscloudwatch.Metric
 }
 
 // Metric for search latency.
+// Deprecated: use opensearchservice module instead
 func (d *jsiiProxy_Domain) MetricSearchLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1885,6 +1940,7 @@ func (d *jsiiProxy_Domain) MetricSearchLatency(props *awscloudwatch.MetricOption
 }
 
 // Returns a string representation of this construct.
+// Deprecated: use opensearchservice module instead
 func (d *jsiiProxy_Domain) ToString() *string {
 	var returns *string
 
@@ -1902,10 +1958,13 @@ func (d *jsiiProxy_Domain) ToString() *string {
 //
 // TODO: EXAMPLE
 //
+// Deprecated: use opensearchservice module instead
 type DomainAttributes struct {
 	// The ARN of the Elasticsearch domain.
+	// Deprecated: use opensearchservice module instead
 	DomainArn *string `json:"domainArn" yaml:"domainArn"`
 	// The domain endpoint of the Elasticsearch domain.
+	// Deprecated: use opensearchservice module instead
 	DomainEndpoint *string `json:"domainEndpoint" yaml:"domainEndpoint"`
 }
 
@@ -1913,29 +1972,38 @@ type DomainAttributes struct {
 //
 // TODO: EXAMPLE
 //
+// Deprecated: use opensearchservice module instead
 type DomainProps struct {
 	// The Elasticsearch version that your domain will leverage.
+	// Deprecated: use opensearchservice module instead
 	Version ElasticsearchVersion `json:"version" yaml:"version"`
 	// Domain Access policies.
+	// Deprecated: use opensearchservice module instead
 	AccessPolicies *[]awsiam.PolicyStatement `json:"accessPolicies" yaml:"accessPolicies"`
 	// Additional options to specify for the Amazon ES domain.
 	// See: https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options
 	//
+	// Deprecated: use opensearchservice module instead
 	AdvancedOptions *map[string]*string `json:"advancedOptions" yaml:"advancedOptions"`
 	// The hour in UTC during which the service takes an automated daily snapshot of the indices in the Amazon ES domain.
 	//
 	// Only applies for Elasticsearch
 	// versions below 5.3.
+	// Deprecated: use opensearchservice module instead
 	AutomatedSnapshotStartHour *float64 `json:"automatedSnapshotStartHour" yaml:"automatedSnapshotStartHour"`
 	// The cluster capacity configuration for the Amazon ES domain.
+	// Deprecated: use opensearchservice module instead
 	Capacity *CapacityConfig `json:"capacity" yaml:"capacity"`
 	// Configures Amazon ES to use Amazon Cognito authentication for Kibana.
+	// Deprecated: use opensearchservice module instead
 	CognitoKibanaAuth *CognitoOptions `json:"cognitoKibanaAuth" yaml:"cognitoKibanaAuth"`
 	// To configure a custom domain configure these options.
 	//
 	// If you specify a Route53 hosted zone it will create a CNAME record and use DNS validation for the certificate
+	// Deprecated: use opensearchservice module instead
 	CustomEndpoint *CustomEndpointOptions `json:"customEndpoint" yaml:"customEndpoint"`
 	// Enforces a particular physical domain name.
+	// Deprecated: use opensearchservice module instead
 	DomainName *string `json:"domainName" yaml:"domainName"`
 	// The configurations of Amazon Elastic Block Store (Amazon EBS) volumes that are attached to data nodes in the Amazon ES domain.
 	//
@@ -1943,36 +2011,46 @@ type DomainProps struct {
 	// [Configuring EBS-based Storage]
 	// (https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-ebs)
 	// in the Amazon Elasticsearch Service Developer Guide.
+	// Deprecated: use opensearchservice module instead
 	Ebs *EbsOptions `json:"ebs" yaml:"ebs"`
 	// To upgrade an Amazon ES domain to a new version of Elasticsearch rather than replacing the entire domain resource, use the EnableVersionUpgrade update policy.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-upgradeelasticsearchdomain
 	//
+	// Deprecated: use opensearchservice module instead
 	EnableVersionUpgrade *bool `json:"enableVersionUpgrade" yaml:"enableVersionUpgrade"`
 	// Encryption at rest options for the cluster.
+	// Deprecated: use opensearchservice module instead
 	EncryptionAtRest *EncryptionAtRestOptions `json:"encryptionAtRest" yaml:"encryptionAtRest"`
 	// True to require that all traffic to the domain arrive over HTTPS.
+	// Deprecated: use opensearchservice module instead
 	EnforceHttps *bool `json:"enforceHttps" yaml:"enforceHttps"`
 	// Specifies options for fine-grained access control.
 	//
 	// Requires Elasticsearch version 6.7 or later. Enabling fine-grained access control
 	// also requires encryption of data at rest and node-to-node encryption, along with
 	// enforced HTTPS.
+	// Deprecated: use opensearchservice module instead
 	FineGrainedAccessControl *AdvancedSecurityOptions `json:"fineGrainedAccessControl" yaml:"fineGrainedAccessControl"`
 	// Configuration log publishing configuration options.
+	// Deprecated: use opensearchservice module instead
 	Logging *LoggingOptions `json:"logging" yaml:"logging"`
 	// Specify true to enable node to node encryption.
 	//
 	// Requires Elasticsearch version 6.0 or later.
+	// Deprecated: use opensearchservice module instead
 	NodeToNodeEncryption *bool `json:"nodeToNodeEncryption" yaml:"nodeToNodeEncryption"`
 	// Policy to apply when the domain is removed from the stack.
+	// Deprecated: use opensearchservice module instead
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
 	// The list of security groups that are associated with the VPC endpoints for the domain.
 	//
 	// Only used if `vpc` is specified.
 	// See: https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html
 	//
+	// Deprecated: use opensearchservice module instead
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// The minimum TLS version required for traffic to the domain.
+	// Deprecated: use opensearchservice module instead
 	TlsSecurityPolicy TLSSecurityPolicy `json:"tlsSecurityPolicy" yaml:"tlsSecurityPolicy"`
 	// Configures the domain so that unsigned basic auth is enabled.
 	//
@@ -1984,10 +2062,12 @@ type DomainProps struct {
 	// access, enable node to node encryption, encryption at rest. If conflicting
 	// settings are encountered (like disabling encryption at rest) enabling this
 	// setting will cause a failure.
+	// Deprecated: use opensearchservice module instead
 	UseUnsignedBasicAuth *bool `json:"useUnsignedBasicAuth" yaml:"useUnsignedBasicAuth"`
 	// Place the domain inside this VPC.
 	// See: https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html
 	//
+	// Deprecated: use opensearchservice module instead
 	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
 	// The specific vpc subnets the domain will be placed in.
 	//
@@ -1998,8 +2078,10 @@ type DomainProps struct {
 	// Only used if `vpc` is specified.
 	// See: https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html
 	//
+	// Deprecated: use opensearchservice module instead
 	VpcSubnets *[]*awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 	// The cluster zone awareness configuration for the Amazon ES domain.
+	// Deprecated: use opensearchservice module instead
 	ZoneAwareness *ZoneAwarenessConfig `json:"zoneAwareness" yaml:"zoneAwareness"`
 }
 
@@ -2012,13 +2094,16 @@ type DomainProps struct {
 //
 // TODO: EXAMPLE
 //
+// Deprecated: use opensearchservice module instead
 type EbsOptions struct {
 	// Specifies whether Amazon EBS volumes are attached to data nodes in the Amazon ES domain.
+	// Deprecated: use opensearchservice module instead
 	Enabled *bool `json:"enabled" yaml:"enabled"`
 	// The number of I/O operations per second (IOPS) that the volume supports.
 	//
 	// This property applies only to the Provisioned IOPS (SSD) EBS
 	// volume type.
+	// Deprecated: use opensearchservice module instead
 	Iops *float64 `json:"iops" yaml:"iops"`
 	// The size (in GiB) of the EBS volume for each data node.
 	//
@@ -2028,12 +2113,14 @@ type EbsOptions struct {
 	// [Configuring EBS-based Storage]
 	// (https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-ebs)
 	// in the Amazon Elasticsearch Service Developer Guide.
+	// Deprecated: use opensearchservice module instead
 	VolumeSize *float64 `json:"volumeSize" yaml:"volumeSize"`
 	// The EBS volume type to use with the Amazon ES domain, such as standard, gp2, io1.
 	//
 	// For more information, see[Configuring EBS-based Storage]
 	// (https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-ebs)
 	// in the Amazon Elasticsearch Service Developer Guide.
+	// Deprecated: use opensearchservice module instead
 	VolumeType awsec2.EbsDeviceVolumeType `json:"volumeType" yaml:"volumeType"`
 }
 
@@ -2293,71 +2380,103 @@ func ElasticsearchVersion_V7_9() ElasticsearchVersion {
 //
 // TODO: EXAMPLE
 //
+// Deprecated: use opensearchservice module instead
 type EncryptionAtRestOptions struct {
 	// Specify true to enable encryption at rest.
+	// Deprecated: use opensearchservice module instead
 	Enabled *bool `json:"enabled" yaml:"enabled"`
 	// Supply if using KMS key for encryption at rest.
+	// Deprecated: use opensearchservice module instead
 	KmsKey awskms.IKey `json:"kmsKey" yaml:"kmsKey"`
 }
 
 // An interface that represents an Elasticsearch domain - either created with the CDK, or an existing one.
+// Deprecated: use opensearchservice module instead
 type IDomain interface {
 	awscdk.IResource
 	// Grant read permissions for an index in this domain to an IAM principal (Role/Group/User).
+	// Deprecated: use opensearchservice module instead
 	GrantIndexRead(index *string, identity awsiam.IGrantable) awsiam.Grant
 	// Grant read/write permissions for an index in this domain to an IAM principal (Role/Group/User).
+	// Deprecated: use opensearchservice module instead
 	GrantIndexReadWrite(index *string, identity awsiam.IGrantable) awsiam.Grant
 	// Grant write permissions for an index in this domain to an IAM principal (Role/Group/User).
+	// Deprecated: use opensearchservice module instead
 	GrantIndexWrite(index *string, identity awsiam.IGrantable) awsiam.Grant
 	// Grant read permissions for a specific path in this domain to an IAM principal (Role/Group/User).
+	// Deprecated: use opensearchservice module instead
 	GrantPathRead(path *string, identity awsiam.IGrantable) awsiam.Grant
 	// Grant read/write permissions for a specific path in this domain to an IAM principal (Role/Group/User).
+	// Deprecated: use opensearchservice module instead
 	GrantPathReadWrite(path *string, identity awsiam.IGrantable) awsiam.Grant
 	// Grant write permissions for a specific path in this domain to an IAM principal (Role/Group/User).
+	// Deprecated: use opensearchservice module instead
 	GrantPathWrite(path *string, identity awsiam.IGrantable) awsiam.Grant
 	// Grant read permissions for this domain and its contents to an IAM principal (Role/Group/User).
+	// Deprecated: use opensearchservice module instead
 	GrantRead(identity awsiam.IGrantable) awsiam.Grant
 	// Grant read/write permissions for this domain and its contents to an IAM principal (Role/Group/User).
+	// Deprecated: use opensearchservice module instead
 	GrantReadWrite(identity awsiam.IGrantable) awsiam.Grant
 	// Grant write permissions for this domain and its contents to an IAM principal (Role/Group/User).
+	// Deprecated: use opensearchservice module instead
 	GrantWrite(identity awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this Domain.
+	// Deprecated: use opensearchservice module instead
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for automated snapshot failures.
+	// Deprecated: use opensearchservice module instead
 	MetricAutomatedSnapshotFailure(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the cluster blocking index writes.
+	// Deprecated: use opensearchservice module instead
 	MetricClusterIndexWritesBlocked(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the time the cluster status is red.
+	// Deprecated: use opensearchservice module instead
 	MetricClusterStatusRed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the time the cluster status is yellow.
+	// Deprecated: use opensearchservice module instead
 	MetricClusterStatusYellow(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for CPU utilization.
+	// Deprecated: use opensearchservice module instead
 	MetricCPUUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the storage space of nodes in the cluster.
+	// Deprecated: use opensearchservice module instead
 	MetricFreeStorageSpace(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for indexing latency.
+	// Deprecated: use opensearchservice module instead
 	MetricIndexingLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for JVM memory pressure.
+	// Deprecated: use opensearchservice module instead
 	MetricJVMMemoryPressure(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for KMS key errors.
+	// Deprecated: use opensearchservice module instead
 	MetricKMSKeyError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for KMS key being inaccessible.
+	// Deprecated: use opensearchservice module instead
 	MetricKMSKeyInaccessible(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for master CPU utilization.
+	// Deprecated: use opensearchservice module instead
 	MetricMasterCPUUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for master JVM memory pressure.
+	// Deprecated: use opensearchservice module instead
 	MetricMasterJVMMemoryPressure(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of nodes.
+	// Deprecated: use opensearchservice module instead
 	MetricNodes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for number of searchable documents.
+	// Deprecated: use opensearchservice module instead
 	MetricSearchableDocuments(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for search latency.
+	// Deprecated: use opensearchservice module instead
 	MetricSearchLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Arn of the Elasticsearch domain.
+	// Deprecated: use opensearchservice module instead
 	DomainArn() *string
 	// Endpoint of the Elasticsearch domain.
+	// Deprecated: use opensearchservice module instead
 	DomainEndpoint() *string
 	// Domain name of the Elasticsearch domain.
+	// Deprecated: use opensearchservice module instead
 	DomainName() *string
 }
 
@@ -2725,34 +2844,44 @@ func (j *jsiiProxy_IDomain) DomainName() *string {
 //
 // TODO: EXAMPLE
 //
+// Deprecated: use opensearchservice module instead
 type LoggingOptions struct {
 	// Specify if Elasticsearch application logging should be set up.
 	//
 	// Requires Elasticsearch version 5.1 or later.
+	// Deprecated: use opensearchservice module instead
 	AppLogEnabled *bool `json:"appLogEnabled" yaml:"appLogEnabled"`
 	// Log Elasticsearch application logs to this log group.
+	// Deprecated: use opensearchservice module instead
 	AppLogGroup awslogs.ILogGroup `json:"appLogGroup" yaml:"appLogGroup"`
 	// Specify if Elasticsearch audit logging should be set up.
 	//
 	// Requires Elasticsearch version 6.7 or later and fine grained access control to be enabled.
+	// Deprecated: use opensearchservice module instead
 	AuditLogEnabled *bool `json:"auditLogEnabled" yaml:"auditLogEnabled"`
 	// Log Elasticsearch audit logs to this log group.
+	// Deprecated: use opensearchservice module instead
 	AuditLogGroup awslogs.ILogGroup `json:"auditLogGroup" yaml:"auditLogGroup"`
 	// Specify if slow index logging should be set up.
 	//
 	// Requires Elasticsearch version 5.1 or later.
+	// Deprecated: use opensearchservice module instead
 	SlowIndexLogEnabled *bool `json:"slowIndexLogEnabled" yaml:"slowIndexLogEnabled"`
 	// Log slow indices to this log group.
+	// Deprecated: use opensearchservice module instead
 	SlowIndexLogGroup awslogs.ILogGroup `json:"slowIndexLogGroup" yaml:"slowIndexLogGroup"`
 	// Specify if slow search logging should be set up.
 	//
 	// Requires Elasticsearch version 5.1 or later.
+	// Deprecated: use opensearchservice module instead
 	SlowSearchLogEnabled *bool `json:"slowSearchLogEnabled" yaml:"slowSearchLogEnabled"`
 	// Log slow searches to this log group.
+	// Deprecated: use opensearchservice module instead
 	SlowSearchLogGroup awslogs.ILogGroup `json:"slowSearchLogGroup" yaml:"slowSearchLogGroup"`
 }
 
 // The minimum TLS version required for traffic to the domain.
+// Deprecated: use opensearchservice module instead
 type TLSSecurityPolicy string
 
 const (
@@ -2764,10 +2893,12 @@ const (
 //
 // TODO: EXAMPLE
 //
+// Deprecated: use opensearchservice module instead
 type ZoneAwarenessConfig struct {
 	// If you enabled multiple Availability Zones (AZs), the number of AZs that you want the domain to use.
 	//
 	// Valid values are 2 and 3.
+	// Deprecated: use opensearchservice module instead
 	AvailabilityZoneCount *float64 `json:"availabilityZoneCount" yaml:"availabilityZoneCount"`
 	// Indicates whether to enable zone awareness for the Amazon ES domain.
 	//
@@ -2779,6 +2910,7 @@ type ZoneAwarenessConfig struct {
 	// see [Configuring a Multi-AZ Domain]
 	// (https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-managedomains-multiaz)
 	// in the Amazon Elasticsearch Service Developer Guide.
+	// Deprecated: use opensearchservice module instead
 	Enabled *bool `json:"enabled" yaml:"enabled"`
 }
 

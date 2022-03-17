@@ -510,6 +510,9 @@ func (c *jsiiProxy_CodeBuildStep) DiscoverReferencedOutputs(structure interface{
 //
 // The variable must be set in the shell of the CodeBuild step when
 // it finishes its `post_build` phase.
+//
+// TODO: EXAMPLE
+//
 func (c *jsiiProxy_CodeBuildStep) ExportedVariable(variableName *string) *string {
 	var returns *string
 
@@ -1437,6 +1440,9 @@ func (c *jsiiProxy_CodePipelineSource) ProduceAction(stage awscodepipeline.IStag
 //    - `ImageTag`
 //    - `ImageURI`
 //    - `RegistryId`
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-variables.html#reference-variables-list
 //
 func (c *jsiiProxy_CodePipelineSource) SourceAttribute(name *string) *string {

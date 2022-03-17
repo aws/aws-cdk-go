@@ -35,6 +35,8 @@ type CfnExperimentTemplate interface {
 	CreationStack() *[]*string
 	Description() *string
 	SetDescription(val *string)
+	LogConfiguration() interface{}
+	SetLogConfiguration(val interface{})
 	LogicalId() *string
 	Node() constructs.Node
 	Ref() *string
@@ -135,6 +137,16 @@ func (j *jsiiProxy_CfnExperimentTemplate) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnExperimentTemplate) LogConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"logConfiguration",
 		&returns,
 	)
 	return returns
@@ -269,6 +281,14 @@ func (j *jsiiProxy_CfnExperimentTemplate) SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnExperimentTemplate) SetLogConfiguration(val interface{}) {
+	_jsii_.Set(
+		j,
+		"logConfiguration",
 		val,
 	)
 }
@@ -620,6 +640,30 @@ type CfnExperimentTemplate_ExperimentTemplateActionProperty struct {
 	Targets interface{} `json:"targets" yaml:"targets"`
 }
 
+// Specifies the configuration for experiment logging.
+//
+// TODO: EXAMPLE
+//
+type CfnExperimentTemplate_ExperimentTemplateLogConfigurationProperty struct {
+	// The schema version.
+	//
+	// The supported value is 1.
+	LogSchemaVersion *float64 `json:"logSchemaVersion" yaml:"logSchemaVersion"`
+	// The configuration for experiment logging to Amazon CloudWatch Logs. The supported field is `logGroupArn` . For example:.
+	//
+	// `{"logGroupArn": "aws:arn:logs: *region_name* : *account_id* :log-group: *log_group_name* "}`
+	CloudWatchLogsConfiguration interface{} `json:"cloudWatchLogsConfiguration" yaml:"cloudWatchLogsConfiguration"`
+	// The configuration for experiment logging to Amazon S3. The following fields are supported:.
+	//
+	// - `bucketName` - The name of the destination bucket.
+	// - `prefix` - An optional bucket prefix.
+	//
+	// For example:
+	//
+	// `{"bucketName": " *my-s3-bucket* ", "prefix": " *log-folder* "}`
+	S3Configuration interface{} `json:"s3Configuration" yaml:"s3Configuration"`
+}
+
 // Specifies a stop condition for an experiment template.
 //
 // TODO: EXAMPLE
@@ -671,6 +715,8 @@ type CfnExperimentTemplate_ExperimentTemplateTargetProperty struct {
 	SelectionMode *string `json:"selectionMode" yaml:"selectionMode"`
 	// The filters to apply to identify target resources using specific attributes.
 	Filters interface{} `json:"filters" yaml:"filters"`
+	// The parameters for the resource type.
+	Parameters interface{} `json:"parameters" yaml:"parameters"`
 	// The Amazon Resource Names (ARNs) of the resources.
 	ResourceArns *[]*string `json:"resourceArns" yaml:"resourceArns"`
 	// The tags for the target resources.
@@ -694,5 +740,7 @@ type CfnExperimentTemplateProps struct {
 	Targets interface{} `json:"targets" yaml:"targets"`
 	// The actions for the experiment.
 	Actions interface{} `json:"actions" yaml:"actions"`
+	// The configuration for experiment logging.
+	LogConfiguration interface{} `json:"logConfiguration" yaml:"logConfiguration"`
 }
 

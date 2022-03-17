@@ -940,6 +940,7 @@ type ApplicationLoadBalancer interface {
 	RemoveAttribute(key *string)
 	SetAttribute(key *string, value *string)
 	ToString() *string
+	ValidateLoadBalancer() *[]*string
 }
 
 // The jsii proxy struct for ApplicationLoadBalancer
@@ -1665,6 +1666,19 @@ func (a *jsiiProxy_ApplicationLoadBalancer) ToString() *string {
 	_jsii_.Invoke(
 		a,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_ApplicationLoadBalancer) ValidateLoadBalancer() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"validateLoadBalancer",
 		nil, // no parameters
 		&returns,
 	)
@@ -2707,6 +2721,7 @@ type BaseLoadBalancer interface {
 	RemoveAttribute(key *string)
 	SetAttribute(key *string, value *string)
 	ToString() *string
+	ValidateLoadBalancer() *[]*string
 }
 
 // The jsii proxy struct for BaseLoadBalancer
@@ -2976,6 +2991,19 @@ func (b *jsiiProxy_BaseLoadBalancer) ToString() *string {
 	_jsii_.Invoke(
 		b,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (b *jsiiProxy_BaseLoadBalancer) ValidateLoadBalancer() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		b,
+		"validateLoadBalancer",
 		nil, // no parameters
 		&returns,
 	)
@@ -9082,6 +9110,7 @@ type NetworkLoadBalancer interface {
 	RemoveAttribute(key *string)
 	SetAttribute(key *string, value *string)
 	ToString() *string
+	ValidateLoadBalancer() *[]*string
 }
 
 // The jsii proxy struct for NetworkLoadBalancer
@@ -9533,6 +9562,19 @@ func (n *jsiiProxy_NetworkLoadBalancer) ToString() *string {
 	_jsii_.Invoke(
 		n,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (n *jsiiProxy_NetworkLoadBalancer) ValidateLoadBalancer() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		n,
+		"validateLoadBalancer",
 		nil, // no parameters
 		&returns,
 	)

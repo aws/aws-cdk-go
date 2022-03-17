@@ -20,6 +20,9 @@ type Annotations interface {
 	FindWarning(constructPath *string, message interface{}) *[]*cxapi.SynthesisMessage
 	HasError(constructPath *string, message interface{})
 	HasInfo(constructPath *string, message interface{})
+	HasNoError(constructPath *string, message interface{})
+	HasNoInfo(constructPath *string, message interface{})
+	HasNoWarning(constructPath *string, message interface{})
 	HasWarning(constructPath *string, message interface{})
 }
 
@@ -100,6 +103,33 @@ func (a *jsiiProxy_Annotations) HasInfo(constructPath *string, message interface
 	_jsii_.InvokeVoid(
 		a,
 		"hasInfo",
+		[]interface{}{constructPath, message},
+	)
+}
+
+// Assert that an error with the given message does not exist in the synthesized CDK `Stack`.
+func (a *jsiiProxy_Annotations) HasNoError(constructPath *string, message interface{}) {
+	_jsii_.InvokeVoid(
+		a,
+		"hasNoError",
+		[]interface{}{constructPath, message},
+	)
+}
+
+// Assert that an info with the given message does not exist in the synthesized CDK `Stack`.
+func (a *jsiiProxy_Annotations) HasNoInfo(constructPath *string, message interface{}) {
+	_jsii_.InvokeVoid(
+		a,
+		"hasNoInfo",
+		[]interface{}{constructPath, message},
+	)
+}
+
+// Assert that an warning with the given message does not exist in the synthesized CDK `Stack`.
+func (a *jsiiProxy_Annotations) HasNoWarning(constructPath *string, message interface{}) {
+	_jsii_.InvokeVoid(
+		a,
+		"hasNoWarning",
 		[]interface{}{constructPath, message},
 	)
 }
