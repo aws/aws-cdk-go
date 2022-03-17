@@ -7,6 +7,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3assets"
@@ -162,10 +163,12 @@ func (a *jsiiProxy_AssetCode) Bind(scope constructs.Construct, handler *string, 
 // Experimental.
 type Canary interface {
 	awscdk.Resource
+	awsec2.IConnectable
 	ArtifactsBucket() awss3.IBucket
 	CanaryId() *string
 	CanaryName() *string
 	CanaryState() *string
+	Connections() awsec2.Connections
 	Env() *awscdk.ResourceEnvironment
 	Node() constructs.Node
 	PhysicalName() *string
@@ -184,6 +187,7 @@ type Canary interface {
 // The jsii proxy struct for Canary
 type jsiiProxy_Canary struct {
 	internal.Type__awscdkResource
+	internal.Type__awsec2IConnectable
 }
 
 func (j *jsiiProxy_Canary) ArtifactsBucket() awss3.IBucket {
@@ -221,6 +225,16 @@ func (j *jsiiProxy_Canary) CanaryState() *string {
 	_jsii_.Get(
 		j,
 		"canaryState",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Canary) Connections() awsec2.Connections {
+	var returns awsec2.Connections
+	_jsii_.Get(
+		j,
+		"connections",
 		&returns,
 	)
 	return returns
@@ -530,6 +544,11 @@ type CanaryProps struct {
 	// You can set the schedule with `Schedule.rate(Duration)` (recommended) or you can specify an expression using `Schedule.expression()`.
 	// Experimental.
 	Schedule Schedule `json:"schedule" yaml:"schedule"`
+	// The list of security groups to associate with the canary's network interfaces.
+	//
+	// You must provide `vpc` when using this prop.
+	// Experimental.
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
 	// Whether or not the canary should start after creation.
 	// Experimental.
 	StartAfterCreation *bool `json:"startAfterCreation" yaml:"startAfterCreation"`
@@ -542,6 +561,16 @@ type CanaryProps struct {
 	// your canary will run at 10 minute intervals for an hour, for a total of 6 times.
 	// Experimental.
 	TimeToLive awscdk.Duration `json:"timeToLive" yaml:"timeToLive"`
+	// The VPC where this canary is run.
+	//
+	// Specify this if the canary needs to access resources in a VPC.
+	// Experimental.
+	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
+	// Where to place the network interfaces within the VPC.
+	//
+	// You must provide `vpc` when using this prop.
+	// Experimental.
+	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 
 // The code the canary should execute.

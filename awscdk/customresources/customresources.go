@@ -15,6 +15,9 @@ import (
 
 // Defines a custom resource that is materialized using specific AWS API calls.
 //
+// These calls are created using
+// a singleton Lambda function.
+//
 // Use this to bridge any gap that might exist in the CloudFormation Coverage.
 // You can specify exactly which calls are invoked for the 'CREATE', 'UPDATE' and 'DELETE' life cycle events.
 //
@@ -255,13 +258,15 @@ type AwsCustomResourceProps struct {
 	// See: Policy.fromSdkCalls
 	//
 	Policy AwsCustomResourcePolicy `json:"policy" yaml:"policy"`
-	// A name for the Lambda function implementing this custom resource.
+	// A name for the singleton Lambda function implementing this custom resource.
+	//
+	// The function name will remain the same after the first AwsCustomResource is created in a stack.
 	FunctionName *string `json:"functionName" yaml:"functionName"`
 	// Whether to install the latest AWS SDK v2. Allows to use the latest API calls documented at https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/index.html.
 	//
 	// The installation takes around 60 seconds.
 	InstallLatestAwsSdk *bool `json:"installLatestAwsSdk" yaml:"installLatestAwsSdk"`
-	// The number of days log events of the Lambda function implementing this custom resource are kept in CloudWatch Logs.
+	// The number of days log events of the singleton Lambda function implementing this custom resource are kept in CloudWatch Logs.
 	LogRetention awslogs.RetentionDays `json:"logRetention" yaml:"logRetention"`
 	// The AWS SDK call to make when the resource is created.
 	OnCreate *AwsSdkCall `json:"onCreate" yaml:"onCreate"`
@@ -271,13 +276,13 @@ type AwsCustomResourceProps struct {
 	OnUpdate *AwsSdkCall `json:"onUpdate" yaml:"onUpdate"`
 	// Cloudformation Resource type.
 	ResourceType *string `json:"resourceType" yaml:"resourceType"`
-	// The execution role for the Lambda function implementing this custom resource provider.
+	// The execution role for the singleton Lambda function implementing this custom resource provider.
 	//
 	// This role will apply to all `AwsCustomResource`
 	// instances in the stack. The role must be assumable by the
 	// `lambda.amazonaws.com` service principal.
 	Role awsiam.IRole `json:"role" yaml:"role"`
-	// The timeout for the Lambda function implementing this custom resource.
+	// The timeout for the singleton Lambda function implementing this custom resource.
 	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
 }
 

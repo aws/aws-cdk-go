@@ -1748,6 +1748,8 @@ type CfnFlow_DestinationConnectorPropertiesProperty struct {
 	EventBridge interface{} `json:"eventBridge" yaml:"eventBridge"`
 	// The properties required to query Amazon Lookout for Metrics.
 	LookoutMetrics interface{} `json:"lookoutMetrics" yaml:"lookoutMetrics"`
+	// The properties required to query Marketo.
+	Marketo interface{} `json:"marketo" yaml:"marketo"`
 	// The properties required to query Amazon Redshift.
 	Redshift interface{} `json:"redshift" yaml:"redshift"`
 	// The properties required to query Amazon S3.
@@ -1850,6 +1852,17 @@ type CfnFlow_InforNexusSourcePropertiesProperty struct {
 type CfnFlow_LookoutMetricsDestinationPropertiesProperty struct {
 	// The object specified in the Amazon Lookout for Metrics flow destination.
 	Object *string `json:"object" yaml:"object"`
+}
+
+// The properties that Amazon AppFlow applies when you use Marketo as a flow destination.
+//
+// TODO: EXAMPLE
+//
+type CfnFlow_MarketoDestinationPropertiesProperty struct {
+	// The object specified in the Marketo flow destination.
+	Object *string `json:"object" yaml:"object"`
+	// `CfnFlow.MarketoDestinationPropertiesProperty.ErrorHandlingConfig`.
+	ErrorHandlingConfig interface{} `json:"errorHandlingConfig" yaml:"errorHandlingConfig"`
 }
 
 // The properties that are applied when Marketo is being used as a source.

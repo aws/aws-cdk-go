@@ -284,6 +284,10 @@ func init() {
 		reflect.TypeOf((*CfnFlow_LookoutMetricsDestinationPropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appflow.CfnFlow.MarketoDestinationPropertiesProperty",
+		reflect.TypeOf((*CfnFlow_MarketoDestinationPropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appflow.CfnFlow.MarketoSourcePropertiesProperty",
 		reflect.TypeOf((*CfnFlow_MarketoSourcePropertiesProperty)(nil)).Elem(),
 	)

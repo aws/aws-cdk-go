@@ -2359,16 +2359,16 @@ func (c *jsiiProxy_CfnWorkGroup) ValidateProperties(_properties interface{}) {
 	)
 }
 
-// If query results are encrypted in Amazon S3, indicates the encryption option used (for example, `SSE-KMS` or `CSE-KMS` ) and key information.
+// If query results are encrypted in Amazon S3, indicates the encryption option used (for example, `SSE_KMS` or `CSE_KMS` ) and key information.
 //
 // TODO: EXAMPLE
 //
 type CfnWorkGroup_EncryptionConfigurationProperty struct {
-	// Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys ( `SSE-S3` ), server-side encryption with KMS-managed keys ( `SSE-KMS` ), or client-side encryption with KMS-managed keys (CSE-KMS) is used.
+	// Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys ( `SSE_S3` ), server-side encryption with KMS-managed keys ( `SSE_KMS` ), or client-side encryption with KMS-managed keys ( `CSE_KMS` ) is used.
 	//
 	// If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup's setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
 	EncryptionOption *string `json:"encryptionOption" yaml:"encryptionOption"`
-	// For `SSE-KMS` and `CSE-KMS` , this is the KMS key ARN or ID.
+	// For `SSE_KMS` and `CSE_KMS` , this is the KMS key ARN or ID.
 	KmsKey *string `json:"kmsKey" yaml:"kmsKey"`
 }
 
@@ -2394,7 +2394,7 @@ type CfnWorkGroup_EngineVersionProperty struct {
 // TODO: EXAMPLE
 //
 type CfnWorkGroup_ResultConfigurationProperty struct {
-	// If query results are encrypted in Amazon S3, indicates the encryption option used (for example, `SSE-KMS` or `CSE-KMS` ) and key information.
+	// If query results are encrypted in Amazon S3, indicates the encryption option used (for example, `SSE_KMS` or `CSE_KMS` ) and key information.
 	//
 	// This is a client-side setting. If workgroup settings override client-side settings, then the query uses the encryption configuration that is specified for the workgroup, and also uses the location for storing query results specified in the workgroup. See `EnforceWorkGroupConfiguration` and [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
 	EncryptionConfiguration interface{} `json:"encryptionConfiguration" yaml:"encryptionConfiguration"`

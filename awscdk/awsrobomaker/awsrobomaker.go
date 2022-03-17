@@ -1671,14 +1671,18 @@ func (c *jsiiProxy_CfnRobotApplication) ValidateProperties(_properties interface
 	)
 }
 
-// Information about a robot software suite (ROS distribution).
+// Information about a robot software suite.
 //
 // TODO: EXAMPLE
 //
 type CfnRobotApplication_RobotSoftwareSuiteProperty struct {
-	// The name of the robot software suite (ROS distribution).
+	// The name of the robot software suite.
+	//
+	// `General` is the only supported value.
 	Name *string `json:"name" yaml:"name"`
-	// The version of the robot software suite (ROS distribution).
+	// The version of the robot software suite.
+	//
+	// Not applicable for General software suite.
 	Version *string `json:"version" yaml:"version"`
 }
 
@@ -1700,7 +1704,7 @@ type CfnRobotApplication_SourceConfigProperty struct {
 // TODO: EXAMPLE
 //
 type CfnRobotApplicationProps struct {
-	// The robot software suite (ROS distribuition) used by the robot application.
+	// The robot software suite used by the robot application.
 	RobotSoftwareSuite interface{} `json:"robotSoftwareSuite" yaml:"robotSoftwareSuite"`
 	// The current revision id.
 	CurrentRevisionId *string `json:"currentRevisionId" yaml:"currentRevisionId"`
@@ -2906,14 +2910,18 @@ type CfnSimulationApplication_RenderingEngineProperty struct {
 	Version *string `json:"version" yaml:"version"`
 }
 
-// Information about a robot software suite (ROS distribution).
+// Information about a robot software suite.
 //
 // TODO: EXAMPLE
 //
 type CfnSimulationApplication_RobotSoftwareSuiteProperty struct {
-	// The name of the robot software suite (ROS distribution).
+	// The name of the robot software suite.
+	//
+	// `General` is the only supported value.
 	Name *string `json:"name" yaml:"name"`
-	// The version of the robot software suite (ROS distribution).
+	// The version of the robot software suite.
+	//
+	// Not applicable for General software suite.
 	Version *string `json:"version" yaml:"version"`
 }
 
@@ -2923,8 +2931,12 @@ type CfnSimulationApplication_RobotSoftwareSuiteProperty struct {
 //
 type CfnSimulationApplication_SimulationSoftwareSuiteProperty struct {
 	// The name of the simulation software suite.
+	//
+	// `SimulationRuntime` is the only supported value.
 	Name *string `json:"name" yaml:"name"`
 	// The version of the simulation software suite.
+	//
+	// Not applicable for `SimulationRuntime` .
 	Version *string `json:"version" yaml:"version"`
 }
 
@@ -2946,7 +2958,7 @@ type CfnSimulationApplication_SourceConfigProperty struct {
 // TODO: EXAMPLE
 //
 type CfnSimulationApplicationProps struct {
-	// The robot software suite (ROS distribution) used by the simulation application.
+	// The robot software suite used by the simulation application.
 	RobotSoftwareSuite interface{} `json:"robotSoftwareSuite" yaml:"robotSoftwareSuite"`
 	// The simulation software suite used by the simulation application.
 	SimulationSoftwareSuite interface{} `json:"simulationSoftwareSuite" yaml:"simulationSoftwareSuite"`

@@ -70,6 +70,21 @@ type BundlingOptions struct {
 	DockerImage awscdk.DockerImage `json:"dockerImage" yaml:"dockerImage"`
 	// Environment variables defined when bundling runs.
 	Environment *map[string]*string `json:"environment" yaml:"environment"`
+	// Build arguments to pass into esbuild.
+	//
+	// For example, to add the [--log-limit](https://esbuild.github.io/api/#log-limit) flag:
+	//
+	// ```text
+	// new NodejsFunction(scope, id, {
+	//    ...
+	//    bundling: {
+	//      esbuildArgs: {
+	//        "--log-limit": "0",
+	//      }
+	//    }
+	// });
+	// ```
+	EsbuildArgs *map[string]interface{} `json:"esbuildArgs" yaml:"esbuildArgs"`
 	// The version of esbuild to use when running in a Docker container.
 	EsbuildVersion *string `json:"esbuildVersion" yaml:"esbuildVersion"`
 	// A list of modules that should be considered as externals (already available in the runtime).

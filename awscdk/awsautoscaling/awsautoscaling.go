@@ -3852,12 +3852,12 @@ type CfnLaunchConfigurationProps struct {
 	//
 	// You can specify virtual devices and EBS volumes.
 	BlockDeviceMappings interface{} `json:"blockDeviceMappings" yaml:"blockDeviceMappings"`
+	// *EC2-Classic retires on August 15, 2022. This parameter is not supported after that date.*.
+	//
 	// The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.
-	//
-	// For more information, see [ClassicLink](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) in the *Amazon EC2 User Guide for Linux Instances* and [Linking EC2-Classic instances to a VPC](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink) in the *Amazon EC2 Auto Scaling User Guide* .
-	//
-	// This property can only be used if you are launching EC2-Classic instances.
 	ClassicLinkVpcId *string `json:"classicLinkVpcId" yaml:"classicLinkVpcId"`
+	// *EC2-Classic retires on August 15, 2022. This parameter is not supported after that date.*.
+	//
 	// The IDs of one or more security groups for the VPC that you specified in the `ClassicLinkVPCId` property.
 	//
 	// If you specify the `ClassicLinkVPCId` property, you must specify this property.
@@ -5302,6 +5302,51 @@ type CfnScalingPolicy_CustomizedMetricSpecificationProperty struct {
 	Unit *string `json:"unit" yaml:"unit"`
 }
 
+// The metric data to return.
+//
+// Also defines whether this call is returning data for one metric only, or whether it is performing a math expression on the values of returned metric statistics to create a new time series. A time series is a series of data points, each of which is associated with a timestamp.
+//
+// `MetricDataQuery` is a property of the following property types:
+//
+// - [AWS::AutoScaling::ScalingPolicy PredictiveScalingCustomizedScalingMetric](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingcustomizedscalingmetric.html)
+// - [AWS::AutoScaling::ScalingPolicy PredictiveScalingCustomizedLoadMetric](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingcustomizedloadmetric.html)
+// - [AWS::AutoScaling::ScalingPolicy PredictiveScalingCustomizedCapacityMetric](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingcustomizedcapacitymetric.html)
+//
+// Predictive scaling uses the time series data received from CloudWatch to understand how to schedule capacity based on your historical workload patterns.
+//
+// You can call for a single metric or perform math expressions on multiple metrics. Any expressions used in a metric specification must eventually return a single time series.
+//
+// For more information and examples, see [Advanced predictive scaling policy configurations using custom metrics](https://docs.aws.amazon.com/autoscaling/ec2/userguide/predictive-scaling-customized-metric-specification.html) in the *Amazon EC2 Auto Scaling User Guide* .
+//
+// TODO: EXAMPLE
+//
+type CfnScalingPolicy_MetricDataQueryProperty struct {
+	// A short name that identifies the object's results in the response.
+	//
+	// This name must be unique among all `MetricDataQuery` objects specified for a single scaling policy. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscores. The first character must be a lowercase letter.
+	Id *string `json:"id" yaml:"id"`
+	// The math expression to perform on the returned data, if this object is performing a math expression.
+	//
+	// This expression can use the `Id` of the other metrics to refer to those metrics, and can also use the `Id` of other expressions to use the result of those expressions.
+	//
+	// Conditional: Within each `MetricDataQuery` object, you must specify either `Expression` or `MetricStat` , but not both.
+	Expression *string `json:"expression" yaml:"expression"`
+	// A human-readable label for this metric or expression.
+	//
+	// This is especially useful if this is a math expression, so that you know what the value represents.
+	Label *string `json:"label" yaml:"label"`
+	// Information about the metric data to return.
+	//
+	// Conditional: Within each `MetricDataQuery` object, you must specify either `Expression` or `MetricStat` , but not both.
+	MetricStat interface{} `json:"metricStat" yaml:"metricStat"`
+	// Indicates whether to return the timestamps and raw data values of this metric.
+	//
+	// If you use any math expressions, specify `true` for this value for only the final math expression that the metric specification is based on. You must specify `false` for `ReturnData` for all the other metrics and expressions used in the metric specification.
+	//
+	// If you are only retrieving metrics and not performing any math expressions, do not specify anything for `ReturnData` . This sets it to its default ( `true` ).
+	ReturnData interface{} `json:"returnData" yaml:"returnData"`
+}
+
 // `MetricDimension` specifies a name/value pair that is part of the identity of a CloudWatch metric for the `Dimensions` property of the [AWS::AutoScaling::ScalingPolicy CustomizedMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-customizedmetricspecification.html) property type. Duplicate dimensions are not allowed.
 //
 // TODO: EXAMPLE
@@ -5311,6 +5356,52 @@ type CfnScalingPolicy_MetricDimensionProperty struct {
 	Name *string `json:"name" yaml:"name"`
 	// The value of the dimension.
 	Value *string `json:"value" yaml:"value"`
+}
+
+// Represents a specific metric.
+//
+// `Metric` is a property of the [AWS::AutoScaling::ScalingPolicy MetricStat](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-metricstat.html) property type.
+//
+// TODO: EXAMPLE
+//
+type CfnScalingPolicy_MetricProperty struct {
+	// The name of the metric.
+	MetricName *string `json:"metricName" yaml:"metricName"`
+	// The namespace of the metric.
+	//
+	// For more information, see the table in [AWS services that publish CloudWatch metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html) in the *Amazon CloudWatch User Guide* .
+	Namespace *string `json:"namespace" yaml:"namespace"`
+	// The dimensions for the metric.
+	//
+	// For the list of available dimensions, see the AWS documentation available from the table in [AWS services that publish CloudWatch metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html) in the *Amazon CloudWatch User Guide* .
+	//
+	// Conditional: If you published your metric with dimensions, you must specify the same dimensions in your scaling policy.
+	Dimensions interface{} `json:"dimensions" yaml:"dimensions"`
+}
+
+// `MetricStat` is a property of the [AWS::AutoScaling::ScalingPolicy MetricDataQuery](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-metricdataquery.html) property type.
+//
+// This structure defines the CloudWatch metric to return, along with the statistic, period, and unit.
+//
+// For more information about the CloudWatch terminology below, see [Amazon CloudWatch concepts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html) in the *Amazon CloudWatch User Guide* .
+//
+// TODO: EXAMPLE
+//
+type CfnScalingPolicy_MetricStatProperty struct {
+	// The CloudWatch metric to return, including the metric name, namespace, and dimensions.
+	//
+	// To get the exact metric name, namespace, and dimensions, inspect the [Metric](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html) object that is returned by a call to [ListMetrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html) .
+	Metric interface{} `json:"metric" yaml:"metric"`
+	// The statistic to return.
+	//
+	// It can include any CloudWatch statistic or extended statistic. For a list of valid values, see the table in [Statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic) in the *Amazon CloudWatch User Guide* .
+	//
+	// The most commonly used metrics for predictive scaling are `Average` and `Sum` .
+	Stat *string `json:"stat" yaml:"stat"`
+	// The unit to use for the returned data points.
+	//
+	// For a complete list of the units that CloudWatch supports, see the [MetricDatum](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html) data type in the *Amazon CloudWatch API Reference* .
+	Unit *string `json:"unit" yaml:"unit"`
 }
 
 // Contains predefined metric specification information for a target tracking scaling policy for Amazon EC2 Auto Scaling.
@@ -5378,6 +5469,39 @@ type CfnScalingPolicy_PredictiveScalingConfigurationProperty struct {
 	SchedulingBufferTime *float64 `json:"schedulingBufferTime" yaml:"schedulingBufferTime"`
 }
 
+// Contains capacity metric information for the `CustomizedCapacityMetricSpecification` property of the [AWS::AutoScaling::ScalingPolicy PredictiveScalingMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html) property type.
+//
+// TODO: EXAMPLE
+//
+type CfnScalingPolicy_PredictiveScalingCustomizedCapacityMetricProperty struct {
+	// One or more metric data queries to provide the data points for a capacity metric.
+	//
+	// Use multiple metric data queries only if you are performing a math expression on returned data.
+	MetricDataQueries interface{} `json:"metricDataQueries" yaml:"metricDataQueries"`
+}
+
+// Contains load metric information for the `CustomizedLoadMetricSpecification` property of the [AWS::AutoScaling::ScalingPolicy PredictiveScalingMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html) property type.
+//
+// TODO: EXAMPLE
+//
+type CfnScalingPolicy_PredictiveScalingCustomizedLoadMetricProperty struct {
+	// One or more metric data queries to provide the data points for a load metric.
+	//
+	// Use multiple metric data queries only if you are performing a math expression on returned data.
+	MetricDataQueries interface{} `json:"metricDataQueries" yaml:"metricDataQueries"`
+}
+
+// Contains scaling metric information for the `CustomizedScalingMetricSpecification` property of the [AWS::AutoScaling::ScalingPolicy PredictiveScalingMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html) property type.
+//
+// TODO: EXAMPLE
+//
+type CfnScalingPolicy_PredictiveScalingCustomizedScalingMetricProperty struct {
+	// One or more metric data queries to provide the data points for a scaling metric.
+	//
+	// Use multiple metric data queries only if you are performing a math expression on returned data.
+	MetricDataQueries interface{} `json:"metricDataQueries" yaml:"metricDataQueries"`
+}
+
 // A structure that specifies a metric specification for the `MetricSpecifications` property of the [AWS::AutoScaling::ScalingPolicy PredictiveScalingConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingconfiguration.html) property type.
 //
 // For more information, see [Predictive scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-predictive-scaling.html) in the *Amazon EC2 Auto Scaling User Guide* .
@@ -5389,6 +5513,12 @@ type CfnScalingPolicy_PredictiveScalingMetricSpecificationProperty struct {
 	//
 	// > Some metrics are based on a count instead of a percentage, such as the request count for an Application Load Balancer or the number of messages in an SQS queue. If the scaling policy specifies one of these metrics, specify the target utilization as the optimal average request or message count per instance during any one-minute interval.
 	TargetValue *float64 `json:"targetValue" yaml:"targetValue"`
+	// The customized capacity metric specification.
+	CustomizedCapacityMetricSpecification interface{} `json:"customizedCapacityMetricSpecification" yaml:"customizedCapacityMetricSpecification"`
+	// The customized load metric specification.
+	CustomizedLoadMetricSpecification interface{} `json:"customizedLoadMetricSpecification" yaml:"customizedLoadMetricSpecification"`
+	// The customized scaling metric specification.
+	CustomizedScalingMetricSpecification interface{} `json:"customizedScalingMetricSpecification" yaml:"customizedScalingMetricSpecification"`
 	// The load metric specification.
 	//
 	// If you specify `PredefinedMetricPairSpecification` , don't specify this property.
@@ -5587,9 +5717,9 @@ type CfnScalingPolicyProps struct {
 	//
 	// For more information, see [Target tracking scaling policies](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-target-tracking.html) and [Step and simple scaling policies](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html) in the *Amazon EC2 Auto Scaling User Guide* .
 	PolicyType *string `json:"policyType" yaml:"policyType"`
-	// A predictive scaling policy.
+	// A predictive scaling policy. Provides support for predefined and custom metrics.
 	//
-	// Includes support for predefined metrics only.
+	// Predefined metrics include CPU utilization, network in/out, and the Application Load Balancer request count.
 	PredictiveScalingConfiguration interface{} `json:"predictiveScalingConfiguration" yaml:"predictiveScalingConfiguration"`
 	// The amount by which to scale, based on the specified adjustment type.
 	//

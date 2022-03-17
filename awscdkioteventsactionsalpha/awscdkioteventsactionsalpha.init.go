@@ -19,4 +19,16 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-iotevents-actions-alpha.SetVariableAction",
+		reflect.TypeOf((*SetVariableAction)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			j := jsiiProxy_SetVariableAction{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkioteventsalphaIAction)
+			return &j
+		},
+	)
 }

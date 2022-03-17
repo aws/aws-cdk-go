@@ -716,7 +716,7 @@ type CfnReportDefinitionProps struct {
 	Compression *string `json:"compression" yaml:"compression"`
 	// The format that Amazon Web Services saves the report in.
 	Format *string `json:"format" yaml:"format"`
-	// Whether you want Amazon Web Services to update your reports after they have been finalized if Amazon Web Services detects charges related to previous months.
+	// Whether you want Amazon Web Services to update your reports after they have been finalized if AWS detects charges related to previous months.
 	//
 	// These charges can include refunds, credits, or support fees.
 	RefreshClosedReports interface{} `json:"refreshClosedReports" yaml:"refreshClosedReports"`

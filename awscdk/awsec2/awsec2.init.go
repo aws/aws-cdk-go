@@ -2867,29 +2867,26 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "assignIpv6AddressOnCreation", GoGetter: "AssignIpv6AddressOnCreation"},
 			_jsii_.MemberProperty{JsiiProperty: "attrAvailabilityZone", GoGetter: "AttrAvailabilityZone"},
+			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrIpv6CidrBlocks", GoGetter: "AttrIpv6CidrBlocks"},
 			_jsii_.MemberProperty{JsiiProperty: "attrNetworkAclAssociationId", GoGetter: "AttrNetworkAclAssociationId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrOutpostArn", GoGetter: "AttrOutpostArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrVpcId", GoGetter: "AttrVpcId"},
 			_jsii_.MemberProperty{JsiiProperty: "availabilityZone", GoGetter: "AvailabilityZone"},
-			_jsii_.MemberProperty{JsiiProperty: "availabilityZoneId", GoGetter: "AvailabilityZoneId"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "cidrBlock", GoGetter: "CidrBlock"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
-			_jsii_.MemberProperty{JsiiProperty: "enableDns64", GoGetter: "EnableDns64"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "ipv6CidrBlock", GoGetter: "Ipv6CidrBlock"},
-			_jsii_.MemberProperty{JsiiProperty: "ipv6Native", GoGetter: "Ipv6Native"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "mapPublicIpOnLaunch", GoGetter: "MapPublicIpOnLaunch"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "outpostArn", GoGetter: "OutpostArn"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberProperty{JsiiProperty: "privateDnsNameOptionsOnLaunch", GoGetter: "PrivateDnsNameOptionsOnLaunch"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
@@ -2906,10 +2903,6 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
 			return &j
 		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ec2.CfnSubnet.PrivateDnsNameOptionsOnLaunchProperty",
-		reflect.TypeOf((*CfnSubnet_PrivateDnsNameOptionsOnLaunchProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_ec2.CfnSubnetCidrBlock",
@@ -3594,7 +3587,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "options", GoGetter: "Options"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "peerAccountId", GoGetter: "PeerAccountId"},
 			_jsii_.MemberProperty{JsiiProperty: "peerRegion", GoGetter: "PeerRegion"},
@@ -3615,10 +3607,6 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
 			return &j
 		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ec2.CfnTransitGatewayPeeringAttachment.TransitGatewayPeeringAttachmentOptionsProperty",
-		reflect.TypeOf((*CfnTransitGatewayPeeringAttachment_TransitGatewayPeeringAttachmentOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.CfnTransitGatewayPeeringAttachmentProps",
@@ -5655,6 +5643,8 @@ func init() {
 			"MEMORY_INTENSIVE_1_EXTENDED": InstanceClass_MEMORY_INTENSIVE_1_EXTENDED,
 			"MEMORY_INTENSIVE_2_GRAVITON2": InstanceClass_MEMORY_INTENSIVE_2_GRAVITON2,
 			"MEMORY_INTENSIVE_2_GRAVITON2_NVME_DRIVE": InstanceClass_MEMORY_INTENSIVE_2_GRAVITON2_NVME_DRIVE,
+			"MEMORY_INTENSIVE_2_XT_INTEL": InstanceClass_MEMORY_INTENSIVE_2_XT_INTEL,
+			"MEMORY_INTENSIVE_2_INTEL": InstanceClass_MEMORY_INTENSIVE_2_INTEL,
 			"FPGA1": InstanceClass_FPGA1,
 			"GRAPHICS3": InstanceClass_GRAPHICS3,
 			"GRAPHICS4_NVME_DRIVE_HIGH_PERFORMANCE": InstanceClass_GRAPHICS4_NVME_DRIVE_HIGH_PERFORMANCE,

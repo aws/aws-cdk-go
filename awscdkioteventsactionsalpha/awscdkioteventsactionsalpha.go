@@ -67,3 +67,59 @@ func (l *jsiiProxy_LambdaInvokeAction) Bind(_scope constructs.Construct, options
 	return returns
 }
 
+// The action to create a variable with a specified value.
+//
+// TODO: EXAMPLE
+//
+// Experimental.
+type SetVariableAction interface {
+	awscdkioteventsalpha.IAction
+	Bind(_scope constructs.Construct, _options *awscdkioteventsalpha.ActionBindOptions) *awscdkioteventsalpha.ActionConfig
+}
+
+// The jsii proxy struct for SetVariableAction
+type jsiiProxy_SetVariableAction struct {
+	internal.Type__awscdkioteventsalphaIAction
+}
+
+// Experimental.
+func NewSetVariableAction(variableName *string, value awscdkioteventsalpha.Expression) SetVariableAction {
+	_init_.Initialize()
+
+	j := jsiiProxy_SetVariableAction{}
+
+	_jsii_.Create(
+		"@aws-cdk/aws-iotevents-actions-alpha.SetVariableAction",
+		[]interface{}{variableName, value},
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewSetVariableAction_Override(s SetVariableAction, variableName *string, value awscdkioteventsalpha.Expression) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/aws-iotevents-actions-alpha.SetVariableAction",
+		[]interface{}{variableName, value},
+		s,
+	)
+}
+
+// Returns the AWS IoT Events action specification.
+// Experimental.
+func (s *jsiiProxy_SetVariableAction) Bind(_scope constructs.Construct, _options *awscdkioteventsalpha.ActionBindOptions) *awscdkioteventsalpha.ActionConfig {
+	var returns *awscdkioteventsalpha.ActionConfig
+
+	_jsii_.Invoke(
+		s,
+		"bind",
+		[]interface{}{_scope, _options},
+		&returns,
+	)
+
+	return returns
+}
+
